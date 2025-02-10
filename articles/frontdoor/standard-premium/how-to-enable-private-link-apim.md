@@ -29,9 +29,9 @@ This article guides you through the steps to configure an Azure Front Door Premi
 1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
 
 1. Click on **Add**
-1. Enter a name for the origin group
-1. Select **+ Add an origin** 
-1. Use the following table to configure the settings for the origin:
+2. Enter a name for the origin group
+3. Select **+ Add an origin** 
+4. Use the following table to configure the settings for the origin:
 
     | Setting | Value |
     | ------- | ----- |
@@ -47,10 +47,10 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Target sub resource | Choose 'Gateway' |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-:::image type="content" source="../media/private-link/apim-privatelink.png" alt-text="Origin dettings for configuring API Management as a private origin":::
+:::image type="content" source="../media/private-link/apim-privatelink.png" alt-text="Screenshot of origin settings for configuring API Management as a private origin":::
 
-1. Select **Add** to save your origin settings
-1. Select **Add** to save the origin group settings.
+6. Select **Add** to save your origin settings
+7. Select **Add** to save the origin group settings.
 
 ## Approve the private endpoint
 
@@ -61,6 +61,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your API Management through Front Door. 
+
 
 :::image type="content" source="../media/private-link/apim-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in API Management portal.":::
 
