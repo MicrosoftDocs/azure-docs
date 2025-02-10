@@ -86,9 +86,9 @@ Certificates from internal CAs or self-signed certificates aren't allowed.
 You can temporarily retain your *.azureedge.net domain by following the instructions provided in [Migrate to Azure Front Door while retaining *.azureedge.net domain](migrate-cdn-to-front-door-retain-edge-domain.md). 
 
 > [!IMPORTANT]
-> Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain.
-> For customers who migrated to Akamai while retaining `*.azureedge.net` and `*.vo.msecnd.net` domains, these domains will be supported till March 31, 2025.
-> For customers who migrated to Front Door Standard/Premium while retaining `*.azureedge.net`, these domains will be supported till September 30, 2027.
+> - Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain.
+> - For customers who migrated to Akamai while retaining `*.azureedge.net` and `*.vo.msecnd.net` domains, these domains will be supported till March 31, 2025.
+> - For customers who migrated to Front Door Standard/Premium while retaining `*.azureedge.net`, these domains will be supported till September 30, 2027.
 
 ### What are some key things I should do to verify my workloads are working properly on AFD?
 
