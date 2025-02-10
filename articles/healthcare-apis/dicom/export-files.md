@@ -2,7 +2,7 @@
 title: Export DICOM files by using the export API of the DICOM service
 description: This how-to guide explains how to export DICOM files to an Azure Blob Storage account.
 author: varunbms
-ms.service: azure-health-data-servicesif
+ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 10/30/2023
