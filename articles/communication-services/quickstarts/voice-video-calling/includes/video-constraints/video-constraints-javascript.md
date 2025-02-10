@@ -152,13 +152,13 @@ Managing video quality for incoming streams involves understanding the Azure Com
 
 Defining the video render size is a crucial step for developers aiming to control the bitrate and frame rate of an incoming video stream. The initial quality and resolution of a video stream are determined by the size of the renderer created and placed on a web page. For instance, if the renderer is small, the WebJS SDK requests a smaller resolution. Conversely, if the renderer is large, the ACS SDK aims for the best possible resolution from the server. This process ensures that the video quality is optimized based on the client's requirements and capabilities. When a client requests a specific resolution, the server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
-The resolution ladder table provides what the WebJS calling SDK resolution ladder consists of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream uses. For example, a resolution of 1280x720 streams at 30 FPS with the the client using an approximate minimum bitrate of 1 MBPS and an approximate maximum bitrate of 2.5 MBPS.
+The resolution ladder table provides what the WebJS calling SDK resolution ladder consists of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream uses. For example, a resolution of 1280x720 streams at 30 FPS with the client using an approximate minimum bitrate of 1 MBPS and an approximate maximum bitrate of 2.5 MBPS.
 
 The Azure Communication Services WebJS Calling SDK adjusts video size based on available bandwidth to ensure a consistent communication experience. WebJS Calling SDK adjusts the video size based on algorithms that monitor network conditions. When network bandwidth is sufficient, the SDK increases video resolution to its maximum level based on the render size defined on the web page. Conversely, when bandwidth is limited, it reduces video resolution to prevent buffering and maintain a stable connection. 
 
 The following table provides the resolution ladder and estimated bitrates for each resolution and associated FPS that will be delivered at that resolution.
 
-| Height | Width | FPS | Min Bitrate (MBPS) | Max Bitrate (MBPS) |
+| Height | Width | FPS | Min Bitrate (MBps) | Max Bitrate (MBps) |
 |--------|-------|-----|------------------|------------------|
 | 1080  | 1920  | 30  | 1.75  |  10  |
 | 720  | 1280  | 30  | 1 |  2.5  |
