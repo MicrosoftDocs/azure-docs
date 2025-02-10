@@ -94,7 +94,7 @@ When setting video constraints, the SDK chooses the nearest value that falls wit
 
 > [!NOTE]
 > For all `bitrate`, `frameHeight` and `frameRate`, the constraint value is a `max` constraint, which means the actual value in the call can be the specified value or smaller.
-> There is no guarantee that the sent video resolution will remain at the specified resolution.
+> There's no guarantee that the sent video resolution remains at the specified resolution.
 
 The `frameHeight` in `VideoSendConstraints` has a different meaning when a mobile device is in portrait mode. In portrait mode, this value indicates the shorter side of the device. For example, specifying `frameHeight.max` value with 240 on a 1080(W) x 1920(H) device in portrait mode, the constraint height is on the 1080(W) side. When the same device is in landscape mode (1920(W) x 1080(H)), the constraint is on the 1080(H) side.
 
@@ -143,27 +143,29 @@ await currentCall.setConstraints({
 });
 ```
 > [!NOTE]
-> Setting constraint value as `0` will unset any previously set constraints. You can use this way to reset or remove constraints.
+> Setting constraint value as `0` unsets any previously set constraints. You can use this way to reset or remove constraints.
 
 <br/>
 
 ## Receive video constraints
-Managing video quality effectively involves understanding the Azure Communication Services resolution ladder, which is a predefined list of video resolutions with estimated upper and lower bitrate boundaries. When a client requests a specific resolution, the server consults this resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
+Managing video quality for incoming streams involves understanding the Azure Communication Services resolution ladder, which is a predefined list of video resolutions with estimated upper and lower bitrate boundaries. When a client requests a specific resolution, the WebJS and bacend server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
-Defining the video render size is a crucial step for developers aiming to control the bit rate and frame rate of an incoming video stream. The initial quality and resolution of a video stream are determined by the size of the renderer created and placed on a web page. For instance, if the renderer is small, the WebJS SDK will request a smaller resolution. Conversely, if the renderer is large, the ACS SDK will aim for the best possible resolution from the server. This process ensures that the video quality is optimized based on the client's requirements and capabilities. When a client requests a specific resolution, the server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
+Defining the video render size is a crucial step for developers aiming to control the bit rate and frame rate of an incoming video stream. The initial quality and resolution of a video stream are determined by the size of the renderer created and placed on a web page. For instance, if the renderer is small, the WebJS SDK requests a smaller resolution. Conversely, if the renderer is large, the ACS SDK aims for the best possible resolution from the server. This process ensures that the video quality is optimized based on the client's requirements and capabilities. When a client requests a specific resolution, the server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
-This table provides what the WebJS calling SDK resolution ladder consist of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream will consume. For example, a resolution of 1920x1080 at 30 FPS the client will consume an approximate minimum bitrate of 1.75 MBPS and an approximate maximum bitrate of 10 MBPS. By defining the video render size, developers can control these parameters to ensure the video stream is delivered efficiently, considering both network conditions and device capabilities. This approach allows for a more tailored and optimized video streaming experience.
+This table provides what the WebJS calling SDK resolution ladder consists of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream uses. For example, a resolution of 1280x720 streams at 30 FPS with the the client using an approximate minimum bitrate of 1 MBPS and an approximate maximum bitrate of 2.5 MBPS.
 
-The table below provides some estimated bitrates for each resolution
+The Azure Communication Services WebJS Calling SDK adjusts video size based on available bandwidth to ensure a consistent communication experience. This is achieved through algorithms that monitor network conditions and adjust video quality accordingly. When network bandwidth is sufficient, the SDK increases video resolution to its maximum level based on the render size defined on the web page. Conversely, when bandwidth is limited, it reduces video resolution to prevent buffering and maintain a stable connection. 
 
-| Height | Width | FPS | Min Bitrate MBPS | Max Bitrate MBPS |
+The following table below provides some estimated bitrates for each resolution
+
+| Height | Width | FPS | Min Bitrate (MBPS) | Max Bitrate (MBPS) |
 |--------|-------|-----|------------------|------------------|
 | 1080   | 1920  | 30  | 1.75             | 10               |
 | 720    | 1280  | 30  | 1                | 2.5              |
-| 540    | 960   | 30  | .5               | 1.125            |
-| 360    | 640   | 30  | .4               | .57              |
-| 240    | 426   | 15  | .125             | .5               |
-| 240    | 320   | 15  | .2               | .175             |
+| 540    | 960   | 30  | 0.5               | 1.125            |
+| 360    | 640   | 30  | 0.4               | 0.57              |
+| 240    | 426   | 15  | 0.125             | 0.5               |
+| 240    | 320   | 15  | 0.2               | 0.175             |
 
 
 ## Using Media statics to understand video constraints impact
