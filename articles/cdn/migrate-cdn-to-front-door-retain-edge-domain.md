@@ -13,9 +13,9 @@ ms.author: duau
 # Migrate to Azure Front Door while retaining *.azureedge.net domain
 
 > [!IMPORTANT]
-> Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain.
-> For customers who migrated to Akamai while retaining `*.azureedge.net` and `*.vo.msecnd.net` domains, these domains will be supported till March 31, 2025.
-> For customers who migrated to Front Door Standard/Premium while retaining `*.azureedge.net`, these domains will be supported till September 30, 2027.
+> - Relying on domains like `*.azureedge.net` and `*.azurefd.net` isn't recommended as it poses availability risks. To ensure greater flexibility and avoid a single point of failure, adopt a custom domain.
+> - For customers who migrated to Akamai while retaining `*.azureedge.net` and `*.vo.msecnd.net` domains, these domains will be supported till March 31, 2025.
+> - For customers who migrated to Front Door Standard/Premium while retaining `*.azureedge.net`, these domains will be supported till September 30, 2027.
 
 This article provides you with instructions for migrating to Azure Front Door from Azure CDN from Edgio while retaining the `*.azureedge.net` domain.
 
