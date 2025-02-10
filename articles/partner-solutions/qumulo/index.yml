@@ -37,7 +37,7 @@ landingContent:
   #Card
   - title: Manage your Azure Native Qumulo resources
     linkLists:
-    - linkListType: how-to
+    - linkListType: how-to-guide
       links:
         - text: Manage resources
           url: manage.md
