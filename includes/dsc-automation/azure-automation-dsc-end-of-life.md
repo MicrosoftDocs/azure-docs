@@ -3,7 +3,7 @@ author: sdwheeler
 services: automation
 ms.subservice: desired-state-config
 ms.topic: include
-ms.date: 10/03/2024
+ms.date: 02/05/2025
 ms.author: sewhee
 # Used by articles that discuss Azure Automation DSC.
 ---
@@ -15,6 +15,10 @@ ms.author: sewhee
 > Automation State Configuration, and the most commonly requested features from customer feedback.
 > Azure Machine Configuration also includes hybrid machine support through
 > [Arc-enabled servers][arc].
+
+> [!IMPORTANT]
+> The **Add**, **Compose configuration**, and **Gallery** navigation links will be removed from the
+> portal on March 31, 2025.
 
 <!-- link references -->
 [blog]: https://azure.microsoft.com/updates/v2/Planned-Service-Retirement-Azure-Automation-State-Configuration-16-September-2027
