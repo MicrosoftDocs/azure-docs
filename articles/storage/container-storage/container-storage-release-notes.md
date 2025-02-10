@@ -57,7 +57,7 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and issues that are fixed
 
-- This patch release addresses specific issues that some customers experienced during the creation of Azure Elastic SAN storage pools. It resolves exceptions that were causing disruptions in the setup process, ensuring smoother and more reliable storage pool creation.
+- This patch release addresses specific issues that some customers experienced during the creation of Azure Elastic SAN storage pools. It resolves exceptions that were causing disruptions in the setup process, enabling smoother and more reliable storage pool creation.
 - We've also made improvements to cluster restart scenarios. Previously, some corner-case situations caused cluster restarts to fail. This update ensures that cluster restarts are more reliable and resilient.
 
 ## Version 1.1.0
