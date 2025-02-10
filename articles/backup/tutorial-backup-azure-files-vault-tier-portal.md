@@ -11,9 +11,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Tutorial: Create a policy and configure vaulted backup for Azure Files
+#  Tutorial: Create a Backup policy and configure vaulted backup for Azure Files
 
-This tutorial describes how to configure vaulted backup for Azure Files using the Azure portal. You can also configure backup with Azure CLI or Azure PowerShell.
+This tutorial describes how to create a Backup policy and configure vaulted backup for Azure Files using the Azure portal. 
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backups offer an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions. You can:
 
@@ -24,10 +24,40 @@ This tutorial describes how to configure vaulted backup for Azure Files using th
 
 Before you configure vaulted backup for Azure Files, ensure that the following prerequisites are met:
 
--  Check that the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
-- Identify or [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
-- [Create a backup policy for Azure File share vaulted backup](manage-afs-backup.md#create-a-new-policy).
+-  Check that the File Share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
+- Identify or [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the File Share.
 - If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
+
+## Create a Backup policy
+
+A backup policy defines the schedule, frequency of recovery point creation, and retention duration in the Recovery Services vault.
+
+To create a backup policy, follow these steps:
+
+1. Go to **Business Continuity Center** > **Protection policies**, and then select **+ Create policy** > **Create backup policy**.
+
+   :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/create-backup-policy.png" alt-text="Screenshot shows how to start creating a Backup policy." lightbox="./media/tutorial-backup-azure-files-vault-tier-portal/create-backup-policy.png":::
+ 
+2. On the **Start: Create Policy** pane, select the **Datasource type** as **Azure Files (Azure Storage)**, select a Recovery Services vault by clicking **Select vault**, and then select **Continue**.
+
+   :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/start-create-policy.png" alt-text="Screenshot shows how to set the datasource type and vault for the Backup policy." lightbox="./media/tutorial-backup-azure-files-vault-tier-portal/start-create-policy.png":::
+
+3. On the **Create policy** pane, provide the policy name.
+4. On Backup tier, select the tier as **Vault-Standard**.
+
+   >[!Note
+   >- **Snapshot Tier**: This backup tier enables only snapshot-based backups that are stored locally and can only provide protection in case of accidental deletions.
+   >- **Vault-Standard tier**: This tier provides comprehensive data protection.
+
+5. Under the **Backup schedule** section, configure the backup schedule as per the requirement.
+
+   >[!Note]
+   > You can configure up to **six backups** per day. The snapshots are taken as per the schedule defined in the policy. In case of vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+6. Under the **Snapshot retention** and **Vault retention** sections, configure the retention duration to determine the expiry date of the recovery points, and then select **OK**.
+
+   :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/trigger-create-policy.png" alt-text="Screenshot shows how to set the backup schedule and retention duration.":::
+ 
+7. To create the Backup policy, select **Create**.  
 
 
 [!INCLUDE [Configure Azure Files vaulted backup.](../../includes/configure-azure-files-vaulted-backup.md)]
@@ -35,8 +65,8 @@ Before you configure vaulted backup for Azure Files, ensure that the following p
 
 ## Next step
 
-- [Restore Azure file shares using Azure portal](restore-afs.md?tabs=full-share-recovery)
-- [Manage Azure file share backups using Azure portal](manage-afs-backup.md)
+- [Restore Azure Files using Azure portal](restore-afs.md?tabs=full-share-recovery)
+- [Manage Azure Files backups using Azure portal](manage-afs-backup.md)
 
 
  

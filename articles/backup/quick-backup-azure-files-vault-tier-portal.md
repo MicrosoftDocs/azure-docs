@@ -24,9 +24,9 @@ This quickstart describes how to configure vaulted backup for Azure Files using 
 
 Before you configure vaulted backup for Azure Files, ensure that the following prerequisites are met:
 
--  Check that the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
-- Identify or [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
-- [Create a backup policy for Azure File share vaulted backup](manage-afs-backup.md#create-a-new-policy).
+-  Check that the File Share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
+- Identify or [create a Recovery Services vault](backup-create-recovery-services-vault.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the File Share.
+- [Create a backup policy for Azure Files vaulted backup](tutorial-backup-azure-files-vault-tier-portal.md#create-a-backup-policy).
 - If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 
 
@@ -35,8 +35,8 @@ Before you configure vaulted backup for Azure Files, ensure that the following p
 
 ## Next step
 
-- [Restore Azure file shares using Azure portal](restore-afs.md?tabs=full-share-recovery)
-- [Manage Azure file share backups using Azure portal](manage-afs-backup.md)
+- [Restore Azure Files using Azure portal](restore-afs.md?tabs=full-share-recovery)
+- [Manage Azure Files backups using Azure portal](manage-afs-backup.md)
 
 
  
