@@ -171,7 +171,7 @@ The **Migration and modernization** tool migrates all the UEFI-based machines to
 
 The **Migration and modernization** tool is application agnostic and works for most applications. When you migrate a server by using the **Migration and modernization** tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
 
-For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site that's connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. You can use the **Migration and modernization** tool if you're:
+For Active Directory, the type of environment can be a factor. In a hybrid environment with an on-premises site connected to your Azure environment, you can extend your directory into Azure by adding extra domain controllers and setting up Active Directory replication. You can use the **Migration and modernization** tool if you're:
 
 * Migrating into an isolated environment in Azure that requires its own domain controllers.
 * Testing applications in a sandbox environment.
