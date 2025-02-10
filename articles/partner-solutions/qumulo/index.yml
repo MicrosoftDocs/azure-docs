@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Get started with Azure Native Qumulo
             url: create.md
-      - linkListType: conceptual
+      - linkListType: concept
         links:
           - text: What is Azure Native Qumulo for disaster recovery?
             url: disaster-recovery.md
