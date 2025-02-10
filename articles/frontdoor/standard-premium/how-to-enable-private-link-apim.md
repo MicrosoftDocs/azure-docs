@@ -56,7 +56,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. Navigate to the API Management instance you configured with Private Link in the previous section. Under **Deployment + infrastructure**, select **Network**.
 
-1. Select **Inbound private endpoint connections** tab.
+1. Select **Inbound private endpoint connections** tab. 
 
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
