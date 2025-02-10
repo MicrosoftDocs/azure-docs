@@ -1,14 +1,14 @@
 ---
-title: Use the Azure portal and Azure Resource Manager to manage resource groups
+title: Use the Azure portal and Azure Resource Manager to Manage Resource Groups
 description: Learn how to use the Azure portal and Azure Resource Manager to manage your resource groups. Understand how to create, list, and delete resource groups.
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 02/09/2025
 ms.custom: devx-track-arm-template
 ---
 
 # Use the Azure portal and Azure Resource Manager to manage resource groups
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage Azure resource groups. See [Manage Azure resources by using the Azure portal](manage-resources-portal.md) to learn more about managing Azure resources.
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage Azure resource groups.
 
 [!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
@@ -39,11 +39,11 @@ The resource group stores metadata about the resources. When you specify a locat
    - **Resource group**: Enter a new resource group name.
    - **Region**: Select an Azure location such as **Central US**.
 
-     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the Create Resource Group form in the Azure portal with fields for Subscription, Resource group, and Region." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png":::
+     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png" alt-text="Screenshot of the 'Create Resource Group' form in the Azure portal with fields for Subscription, Resource group, and Region." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-create-group.png":::
 
 1. Select **Review + Create**.
 1. Select **Create**. It takes a few seconds to create a resource group.
-1. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or, select **Notification** (the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group.
+1. To refresh the resource group list, select **Refresh** from the top menu. To open the newly created resource group, select it from the list. Or, select **Notification** (the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group.
 
     :::image type="content" source="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png" alt-text="Screenshot of the Azure portal with the 'Go to resource group' button in the Notifications panel." lightbox="./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png":::
 
@@ -76,7 +76,7 @@ After you create a Resource Manager template, use the Azure portal to deploy you
 
 ## Move to another resource group or subscription
 
-You can move resources from one resource group to another. See [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md) for more information and guidance.
+You can move resources from one resource group to another. For more information and guidance, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 
 ## Lock resource groups
 
@@ -105,7 +105,8 @@ Use [Azure role-based access control (Azure RBAC)](../../role-based-access-contr
 
 ## Next steps
 
+- To learn more about managing Azure resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
 - To learn more about Resource Manager, see the [What is Azure Resource Manager?](overview.md) overview.
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
-- To learn how to develop templates, see the step-by-step [Azure Resource Manager documentation tutorials](../index.yml) from Learn.
+- To learn how to develop templates, see the step-by-step [Azure Resource Manager documentation tutorials](../index.yml).
 - To view Azure Resource Manager template schemas, see [Define resources with Bicep, ARM templates, and Terraform AzAPI provider](/azure/templates/).
