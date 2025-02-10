@@ -108,8 +108,6 @@ Now you attempt to create a Firewall Policy with Threat Intelligence disabled.
 
 You should see an error that says your resource was disallowed by policy, confirming that your Azure Policy doesn't allow firewall policies that have Threat Intelligence disabled.
 
-:::image type="content" source="media/firewall-azure-policy/azure-policy.png" lightbox="media/firewall-azure-policy/azure-policy.png" alt-text="Screenshot showing policy create denial.":::
-
 ## Related content
 
 - [What is Azure Policy?](../governance/policy/overview.md)

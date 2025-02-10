@@ -273,8 +273,6 @@ Create the virtual network connection between on-premises and the hub. The follo
 
 After about five minutes, the status of both connections should be **Connected**.
 
-![Screenshot that shows gateway connections.](media/tutorial-hybrid-portal/gateway-connections.png)
-
 ## Peer the hub and spoke virtual networks
 
 Now, peer the hub and spoke virtual networks:
@@ -306,8 +304,6 @@ Now, peer the hub and spoke virtual networks:
 1. Select **Add**.
 
 The following screenshot shows the settings to use when you peer hub and spoke virtual networks:
-
-:::image type="content" source="media/tutorial-hybrid-portal/firewall-peering.png" alt-text="Screenshot that shows selections for peering hub and spoke virtual networks.":::
 
 ## Create the routes
 

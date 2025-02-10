@@ -69,9 +69,6 @@ Deploy the ARM template to Azure:
 
 In the Azure portal, review the deployed resources, especially the firewall rules that use IP Groups.
 
-
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Network rules.":::
-
 To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network azureFirewalls template reference](/azure/templates/microsoft.network/azurefirewalls).
 
 ## Clean up resources

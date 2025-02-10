@@ -26,8 +26,6 @@ You can define allowlists so threat intelligence doesn't filter traffic to any o
 
 For a batch operation, you can upload a CSV file with list of IP addresses, ranges, and subnets.
 
-:::image type="content" source="media/threat-intel/threat-intel-ui.png" alt-text="Threat intelligence based filtering portal interface" lightbox="media/threat-intel/threat-intel-ui.png":::
-
 ## Logs
 
 The following log excerpt shows a triggered rule:

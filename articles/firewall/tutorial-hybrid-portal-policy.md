@@ -276,8 +276,6 @@ Create the on-premises to hub virtual network connection. This step is similar t
 
 After about five minutes or so, the status of both connections should be **Connected**.
 
-![Gateway connections](media/tutorial-hybrid-portal/gateway-connections.png)
-
 ## Peer the hub and spoke virtual networks
 
 Now peer the hub and spoke virtual networks.

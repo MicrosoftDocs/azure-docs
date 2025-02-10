@@ -37,8 +37,6 @@ With the Explicit proxy mode (supported for HTTP/S), you can define proxy settin
 
 - To use the Proxy autoconfiguration (PAC) file, select **Enable proxy auto-configuration**.
 
-   :::image type="content" source="media/explicit-proxy/proxy-auto-configuration.png" alt-text="Screenshot showing the proxy autoconfiguration file setting.":::
-
 - First, upload the PAC file to a storage container that you create. Then, on the **Enable explicit proxy** page, configure the shared access signature (SAS) URL. Configure the port where the PAC is served from, and then select **Apply** at the bottom of the page.
 
    The SAS URL must have READ permissions so the firewall can download the file. If changes are made to the PAC file, a new SAS URL needs to be generated and configured on the firewall **Enable explicit proxy** page.

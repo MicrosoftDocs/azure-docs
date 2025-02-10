@@ -91,7 +91,6 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
    > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
 
 1. Add the application rule with the appropriate protocol, port, and SQL FQDN and then select **Save**.
-   ![application rule with SQL FQDN](media/sql-fqdn-filtering/application-rule-sql.png)
 1. Access SQL from a virtual machine in a VNet that filters the traffic through the firewall. 
 1. Validate that [Azure Firewall logs](./firewall-workbook.md) show the traffic is allowed.
 

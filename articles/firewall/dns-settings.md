@@ -31,8 +31,6 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-servers.png" alt-text="Screenshot showing settings for DNS servers.":::
-
 #### [CLI](#tab/azure-devops-cli)
 
 The following example updates Azure Firewall with custom DNS servers by using the Azure CLI.
