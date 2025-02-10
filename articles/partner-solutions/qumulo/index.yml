@@ -35,13 +35,13 @@ landingContent:
             url: create.md
       - linkListType: concept
         links:
-          - text: What is Azure Native Qumulo for disaster recovery?
+          - text: Disaster recovery
             url: disaster-recovery.md
-          - text: What is Azure Native Qumulo for video editing?
+          - text: Video editing
             url: video-editing.md
-          - text: What is Azure Native Qumulo for PACS VNA?
+          - text: Azure Native Qumulo for PACS VNA?
             url: vendor-neutral-archive.md
-          - text: What is Azure Native Qumulo for virtual desktops?
+          - text: Azure Native Qumulo for virtual desktops?
             url: virtual-desktop.md
 
   #Card
