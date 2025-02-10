@@ -77,7 +77,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public preview |&#x2705;|&#10060; |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |&#x2705;| &#10060;|&#10060; |
-|[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview) | Public Preview | |&#x2705; |&#10060; |
+|[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview) | Public Preview |&#x2705; |&#x2705; |&#10060; |
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Summary rules](summary-rules.md) | Public preview |&#x2705; | &#10060; |&#10060; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
