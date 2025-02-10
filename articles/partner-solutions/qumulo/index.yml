@@ -33,16 +33,6 @@ landingContent:
         links:
           - text: Get started with Azure Native Qumulo
             url: create.md
-      - linkListType: concept
-        links:
-          - text: Disaster recovery
-            url: disaster-recovery.md
-          - text: Video editing
-            url: video-editing.md
-          - text: Azure Native Qumulo for PACS VNA?
-            url: vendor-neutral-archive.md
-          - text: Azure Native Qumulo for virtual desktops?
-            url: virtual-desktop.md
 
   #Card
   - title: Manage your Azure Native Qumulo resources
@@ -53,6 +43,16 @@ landingContent:
           url: manage.md
         - text: Troubleshoot resources
           url: troubleshoot.md 
+    - linkListType: concept
+      links:
+        - text: Disaster recovery
+          url: disaster-recovery.md
+        - text: Video editing
+          url: video-editing.md
+        - text: Azure Native Qumulo for PACS VNA?
+          url: vendor-neutral-archive.md
+        - text: Azure Native Qumulo for virtual desktops?
+          url: virtual-desktop.md
   
   #Card
   - title: Explore reference content
