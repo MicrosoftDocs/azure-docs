@@ -76,6 +76,8 @@
     href: quick-install-backup-extension.md
   - name: Configure vaulted backup for Azure Files  
     items:
+    - name: With Azure Portal
+      href: quick-backup-azure-files-vault-tier-portal.md
     - name: With Azure PowerShell
       href: quick-backup-azure-files-vault-tier-powershell.md
     - name: With Azure CLI
@@ -124,6 +126,8 @@
     href: blob-backup-configure-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
     href: tutorial-restore-aks-backups-across-regions.md
+  - name: Create a backup policy and configure vaulted backup for Azure Files
+    href: tutorial-backup-azure-files-vault-tier-portal.md  
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -172,7 +176,7 @@
       href: sap-ase-backup-support-matrix.md
     - name: Azure Database for MySQL - Flexible Server long-term retention support matrix
       href: backup-azure-mysql-flexible-server-support-matrix.md
-    - name: Azure file share backup support matrix
+    - name: Azure files backup support matrix
       href: azure-file-share-support-matrix.md
     - name: Azure Disk Backup support matrix
       href: disk-backup-support-matrix.md
@@ -254,7 +258,7 @@
       href: azure-kubernetes-service-cluster-backup-concept.md
   - name: Azure Blob backup
     href: blob-backup-overview.md
-  - name: Azure File share backup
+  - name: Azure Files backup
     href: azure-file-share-backup-overview.md
   - name: Windows backup using MARS agent
     items:
@@ -598,7 +602,7 @@
         href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
         href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
-  - name: Azure File share backup
+  - name: Azure Files backup
     items:
     - name: From the Azure portal
       items:
@@ -854,7 +858,7 @@
         href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Configure and manage enhanced soft delete
       href: backup-azure-enhanced-soft-delete-configure-manage.md
-    - name: Delete protection for Azure file shares
+    - name: Delete protection for Azure files
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
       items:
@@ -917,7 +921,7 @@
       href: backup-azure-backup-vault-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
-    - name: Azure File share
+    - name: Azure Files
       href: troubleshoot-azure-files.md
     - name: Azure Disk Backup
       href: disk-backup-troubleshoot.md
