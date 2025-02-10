@@ -377,7 +377,7 @@ In this example, the workflow runs when the **Request** trigger receives an inbo
 
    When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
-   ![Screenshot shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
+   ![Screenshot shows Outlook email as described in the example.](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
 <a name="review-run-history"></a>
 
