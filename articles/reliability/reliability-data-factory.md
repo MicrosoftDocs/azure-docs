@@ -90,11 +90,13 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 Azure Data Factory is by default a single-region service. If a region-wide outage occurs, the Azure Data Factory instance will not available. 
 
+<!-- TODO I need to understand this more. If you have this configured, and there's a regional failover of the Azure IR, does *everything* continue to run as before? What about new pipeline executions? -->
+<!-- TODO I understand metadata-driven pipelines are another alternative approach too? -->
+
 However, to maintain high availability, you'll want to maintain data redundancy across two regions by considering the following multi-region deployment options:
     
 - **Automated recovery** with Azure integration runtime (IR) and automatic failover to the secondary paired region.
 - **User-managed recovery** with GitHub and continuous integration and continuous delivery (CI/CD) for managed failover and quick deployment to a secondary region for immediate recovery.
-
 
 ### Region support
 
