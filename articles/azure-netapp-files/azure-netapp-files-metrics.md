@@ -160,6 +160,8 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
    The size of all snapshots in a volume.  
+- *Volume inode percentage* 
+    The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed. 
 - *Throughput limit reached*
     
     Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
