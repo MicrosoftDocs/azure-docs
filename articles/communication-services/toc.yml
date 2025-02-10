@@ -435,15 +435,33 @@ items:
   - name: Logging and analytics
     items:
     - name: Call client logs
-      href: concepts/analytics/call-logs-azure-monitor.md
+      items: 
+      - name: Overview of call logs
+        href: concepts/analytics/logs/voice-and-video-logs.md
+      - name: Call summary updates logs
+        href: concepts/analytics/logs/call-summary-updates-log-schema.md
+      - name: Call summary logs
+        href: concepts/analytics/logs/call-summary-log-schema.md
+      - name: Call diagnostics updates logs
+        href: concepts/analytics/logs/call-diagnostics-updates-log-schema.md
+      - name: Call diagnostics logs
+        href: concepts/analytics/logs/call-diagnostics-log-schema.md
+      - name: Call client operations logs
+        href: concepts/analytics/logs/call-client-operations-log-schema.md
+      - name: Call client media statistics logs
+        href: concepts/analytics/logs/call-client-media-statistics-log-schema.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
+      - name: Call metrics logs
+        href: concepts/analytics/logs/call-metrics-log-schema.md
     - name: Call diagnostics
       href: concepts/voice-video-calling/call-diagnostics.md
-    - name: End of call survey logs
-      href: concepts/analytics/logs/end-of-call-survey-logs.md
     - name: Rooms logs
       href: concepts/analytics/logs/rooms-logs.md
     - name: Rooms metrics
       href: concepts/analytics/rooms-metrics.md
+    - name: Billing usage logs
+      href: concepts/analytics/logs/billing-usage-logs.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
     - name: Enable logging with Azure Monitor
@@ -453,6 +471,8 @@ items:
     - name: Voice and video insights
       href: concepts/analytics/insights/voice-and-video-insights.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Call diagnostics
+      href: concepts/voice-video-calling/call-diagnostics.md
     - name: Query call logs
       href: concepts/analytics/query-call-logs.md
     - name: Add diagnostic options tag to calling logs
