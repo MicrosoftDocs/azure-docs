@@ -1181,7 +1181,7 @@ groups:
   prompt: "Select the developer experience:"
   pivots:
   - id: front-door-portal
-    title: Azure Portal
+    title: Azure portal
   - id: front-door-ps
     title: Azure PowerShell
   - id: front-door-cli

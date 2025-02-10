@@ -357,7 +357,7 @@ The following steps don't provide the complete details for creating a runbook. F
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png" alt-text="Screenshot of the pane for parameters in starting a runbook.":::
 
-6. On the **Job** pane, select the **Output** tile. On the **Output** pane, wait for the message **##### Completed #####** after you see **##### Starting #####**. Starting an Azure-SSIS IR takes about 20 minutes. Close the **Job** pane and get back to the **Runbook** page.
+6. On the **Job** pane, select the **Output** tile. On the **Output** pane, wait for the message **##### Completed #####** after you see **##### Starting #####**. Close the **Job** pane and get back to the **Runbook** page.
 
    :::image type="content" source="./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png" alt-text="Screenshot that shows the output pane.":::
 
