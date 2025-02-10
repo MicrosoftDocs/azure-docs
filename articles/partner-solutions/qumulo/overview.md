@@ -65,7 +65,15 @@ You can choose between available plans when you create your Qumulo resource.
 
 ## Qumulo links
 
-For more help with using Azure Native Qumulo, see the [Qumulo documentation](https://docs.qumulo.com/azure-native-administrator-guide/).
+To learn more about Azure Native Qumulo, see the [Qumulo documentation](https://docs.qumulo.com/azure-native-administrator-guide/).
+
+### Developer tools
+
+Qumulo offers a comprehensive suite of developer tools that facilitate seamless integration and streamlined management:
+
+- [Qumulo CLI](https://care.qumulo.com/hc/en-us/articles/115013331308-QQ-CLI-Comprehensive-List-of-Commands#in-this-article-0-0)
+- [Qumulo REST API](https://care.qumulo.com/hc/en-us/articles/115007063227-Getting-Started-with-Qumulo-Core-REST-API#in-this-article-0-0)
+- [Qumulo PowerShell Toolkit](https://github.com/Qumulo/PowerShellToolkit)
 
 ## Next steps
 

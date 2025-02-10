@@ -24,8 +24,6 @@ items:
     href: qumulo-how-to-manage.md
   - name: Troubleshoot Azure Native Qumulo Scalable File Service
     href: qumulo-troubleshoot.md
-  - name: Setting up Azure Native Qumulo Scalable File Service
-    href: qumulo-how-to-setup-features.md
 
 
 - name: SDKs and command-lines
