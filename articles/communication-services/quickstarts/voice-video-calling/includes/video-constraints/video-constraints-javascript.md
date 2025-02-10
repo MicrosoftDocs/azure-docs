@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services document
 description: In this quickstart, you learn how to set video constraints in your existing web calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 03/29/2024
+ms.date: 02/10/2025
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -148,8 +148,22 @@ await currentCall.setConstraints({
 <br/>
 
 ## Receive video constraints
-To control resolution on the receiver side using Azure Communication Services Web Calling SDK, you can adjust size of the renderer of that video. The calling SDK automatically adjusts received resolution based on the dimensions of the renderer. The SDK won't request an incoming video stream (width and height) that can fit into the renderer video window.
+Managing video quality effectively involves understanding the Azure Communication Services resolution ladder, which is a predefined list of video resolutions with estimated upper and lower bitrate boundaries. When a client requests a specific resolution, the server consults this resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
+Defining the video render size is a crucial step for developers aiming to control the bit rate and frame rate of an incoming video stream. The initial quality and resolution of a video stream are determined by the size of the renderer created and placed on a web page. For instance, if the renderer is small, the WebJS SDK will request a smaller resolution. Conversely, if the renderer is large, the ACS SDK will aim for the best possible resolution from the server. This process ensures that the video quality is optimized based on the client's requirements and capabilities. When a client requests a specific resolution, the server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
+
+This table provides what the WebJS calling SDK resolution ladder consist of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream will consume. For example, a resolution of 1920x1080 at 30 FPS the client will consume an approximate minimum bitrate of 1.75 MBPS and an approximate maximum bitrate of 10 MBPS. By defining the video render size, developers can control these parameters to ensure the video stream is delivered efficiently, considering both network conditions and device capabilities. This approach allows for a more tailored and optimized video streaming experience.
+
+The table below provides some estimated bitrates for each resolution
+
+| Height | Width | FPS | Min Bitrate MBPS | Max Bitrate MBPS |
+|--------|-------|-----|------------------|------------------|
+| 1080   | 1920  | 30  | 1.75             | 10               |
+| 720    | 1280  | 30  | 1                | 2.5              |
+| 540    | 960   | 30  | .5               | 1.125            |
+| 360    | 640   | 30  | .4               | .57              |
+| 240    | 426   | 15  | .125             | .5               |
+| 240    | 320   | 15  | .2               | .175             |
 
 
 ## Using Media statics to understand video constraints impact
