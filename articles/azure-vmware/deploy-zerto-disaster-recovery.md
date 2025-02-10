@@ -11,17 +11,16 @@ ms.custom: engagement-fy23
 
 > [!IMPORTANT]
 > ### Zerto limitations on Azure VMware Solution
-> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
-> Zerto supports from Version Zerto 10.0 U5 onwards.
-> DNS and network configuration changes for Zerto Virtual Machine are not supported after installation.
-> Azure resource group modifications are not supported after Zerto installation.
+> - AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
+> - Zerto supports from Version Zerto 10.0 U5 onwards.
+> - DNS and network configuration changes for Zerto Virtual Machine are not supported after installation.
+> - Azure resource group modifications are not supported after Zerto installation.
 
->[!Note]
+> [!Note]
 > ### Known Issues with Zerto on Azure VMware Solution
-> VM replications may be interrupted during AVS component upgrade maintenance.
-> VM replication may be disrupted during AVS host replacement maintenance windows.
-> For other Zerto related know issues [Click here](https://help.zerto.com/bundle/Install.AVS.HTML.10.0_U5/page/known_issues_and_limitations.html)
-
+> - VM replications may be interrupted during AVS component upgrade maintenance.
+> - VM replication may be disrupted during AVS host replacement maintenance windows.
+> - For other Zerto related know issues [Click here](https://help.zerto.com/bundle/Install.AVS.HTML.10.0_U5/page/known_issues_and_limitations.html)
 
 In this article, learn how to implement disaster recovery for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto disaster recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites.
 
@@ -97,7 +96,7 @@ To deploy Zerto on Azure VMware Solution, follow these [instructions](https://he
 
 Zerto disaster recovery is a solution sold and supported by Zerto handles installation, configuration, upgrades, uninstallation, and lifecycle management. Customers must contact Zerto for the first point of contact. 
 
-For advanced troubleshooting, Zerto support team will coordinate with Microsoft for necessary logs.These logs will be shared by Microsoft Support in accordance with a Severity 3 and 4 priority level.
+For advanced troubleshooting, Zerto support team will coordinate with Microsoft for necessary logs. These logs will be shared by Microsoft Support in accordance with a Severity 3 and 4 priority level.
 
 For further details, please reach out to the [Zerto Support](https://www.zerto.com/myzerto/support/)
 
@@ -117,7 +116,7 @@ Zerto strongly recommend installing the VRAs at the cluster level and inputting 
 
 ### Can I upgrade Zerto product version in Azure VMware Solution?
 
-Yes, Zerto upgrades are part of self-service , as Zerto customers , you can upgrade ZVM web console.
+Yes, Zerto upgrades are part of self-service , as Zerto customers, you can upgrade via ZVM web console.
 
 ### How to download Zerto ZVM appliance log?
 
