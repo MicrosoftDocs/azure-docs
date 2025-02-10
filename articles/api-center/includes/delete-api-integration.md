@@ -23,8 +23,8 @@ You can delete an integration using the portal or the Azure CLI.
 #### [Portal](#tab/portal)
 
 1. In the [portal](https://portal.azure.com), navigate to your API center.
-1. Under **Assets**, select **Environments** > **Links (preview)**.
-1. Select the link, and then select **Delete** (trash can icon). 
+1. Under **Assets**, select **Environments** > **Integrations (preview)**.
+1. Select the integration, and then select **Delete** (trash can icon). 
 
 #### [Azure CLI](#tab/cli)
 
