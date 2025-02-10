@@ -259,7 +259,7 @@ In this section, you learn how to view the details of a peer.
 
 1. In the list of peers, you can see the name, ASN, IP address, and provisioning state of any of the configured peers.
 
-    :::image type="content" source="./media/configure-route-server/peer-list.png" alt-text="Screenshot that shows the configuration of a route server's peer." lightbox="./media/configure-route-server/peer-list.png":::
+    :::image type="content" source="./media/peer-list.png" alt-text="Screenshot that shows the configuration of a route server's peer." lightbox="./media/peer-list.png":::
 
 
 # [**PowerShell**](#tab/powershell)
