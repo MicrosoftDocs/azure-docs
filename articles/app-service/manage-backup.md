@@ -4,7 +4,7 @@ description: Learn how to restore backups of your apps in Azure App Service or c
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 09/06/2024
+ms.date: 02/10/2025
 author: msangapu-msft
 ms.author: msangapu
 ---
@@ -14,13 +14,6 @@ ms.author: msangapu
 In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app or by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
 Back up and restore is supported in the **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For the **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
-
-> [!NOTE]
-> For App Service Environments:
-> 
-> - Automatic backups can be restored to a target app within the App Service Environment itself, not in another App Service Environment.
-> - Custom backups can be restored to a target app in another App Service Environment, such as from App Service Environment v2 to App Service Environment v3.
-> - Backups can be restored to a target app of the same OS platform as the source app.
 
 [!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
 
@@ -255,6 +248,11 @@ The **Backups** page shows you the status of each backup. To get log details reg
 | Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
 | SSL connection is required. Specify SSL options and retry when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
 
+## How does backup and restore work with App Service Environments?
+- Automatic backups can be restored to a target app within the App Service Environment itself, not in another App Service Environment.
+- Custom backups can be restored to a target app in another App Service Environment, such as from App Service Environment v2 to App Service Environment v3.
+- Backups can be restored to a target app of the same OS platform as the source app.
+
 ## Automate with scripts
 
 You can automate backup management with scripts by using [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
@@ -327,11 +325,20 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 
 #### Why is my linked database not backed up?
 
+> [!NOTE]
+> This is an important note related to the retirement of [Azure Database for MySQL - Single Server](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [Azure Database for PostgreSQL - Single Server](azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md). App Service custom backups with linked databases only support **Single Server SKUs** for Azure Database for MySQL and Azure DB for PostgreSQL. This means that custom backups with linked databases for Azure Database for *MySQL - Flexible Server* and Azure Database for *PostgreSQL - Flexible Server* may stop working. If you've already upgraded or plan to upgrade linked databases for these services, it's strongly advised to use the respective database backup and restore tools to avoid potential data loss. 
+>
+> - Azure Database for MySQL: [Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
+> - Azure Database for PostgreSQL [Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
+>
+> Custom backups for App Service web apps that include linked databases based on standalone deployments of MySQL and PostgreSQL database servers (for example standalone database servers running on a VM), may continue to function and are not affected by the Single Server SKU retirements on Azure Database for MySQL - Single Server and Azure Database for PostgreSQL - Single Server. 
+>
+
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
 
-* Backup of [TLS-enabled Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
-* Backup of [TLS-enabled Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
-* In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
+- Backup of [TLS-enabled Azure Database for MySQL](/azure/mysql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
+- Backup of [TLS-enabled Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
+- In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
 
 #### What happens if the backup size exceeds the allowable maximum?
 
