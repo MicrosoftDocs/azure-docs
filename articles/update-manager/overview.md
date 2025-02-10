@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content, ignite-2024
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/27/2025
+ms.date: 02/03/2025
 ms.topic: overview
 ---
 
@@ -24,8 +24,8 @@ You can use Update Manager for:
 - **Flexible patching options**:
     - Schedule updates within [customer-defined maintenance ](https://aka.ms/umc-scheduled-patching), for both Azure and Arc-connected machines.
     - [Apply updates in real-time](deploy-updates.md) 
-    - Use [Automatic VM guest patching](https://learn.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching), to automatically apply updates to Azure VMs without requiring manual intervention. 
-    - Use [Hot patching](https://learn.microsoft.com/windows-server/get-started/hotpatch), to apply critical updates to Azure VMs without requiring a reboot, minimizing downtime
+    - Use [Automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching), to automatically apply updates to Azure VMs without requiring manual intervention. 
+    - Use [hotpatching](/windows-server/get-started/hotpatch), to apply critical updates to Azure VMs without requiring a reboot, minimizing downtime
 - **Security and Compliance tracking** - Apply security and critical patches with enhanced security measures and compliance tracking. 
 - **Periodic update Assessments** - Enable [periodic assessments](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours. 
 - **Dynamic Scoping** - Group machines based on criteria and apply updates at scale. 
@@ -34,13 +34,14 @@ You can use Update Manager for:
 - **Software updates including application updates**: 
     - That are available in Microsoft Updates  
     - That are available in Linux packages 
-    - That are published to [Windows Server Update Services (WSUS)](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
+    - That are published to [Windows Server Update Services (WSUS)](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 
 - Patching diverse resources 
     - Azure Virtual Machines (VMs): both Windows and Linux VMs in Azure (including SQL servers). VMs also include the ones which are created by Azure Migrate, Azure Backup, and Azure Site Recovery. 
-    - [Hybrid machines](https://learn.microsoft.com/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
-    - [VMware machines](https://learn.microsoft.com/azure/azure-arc/vmware-vsphere/)
-    - [System Center Virtual Machine Manager (SCVMM) machines](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/) 
-    - [Azure Local clusters](https://learn.microsoft.com/azure/azure-local/)
+    - [Hybrid machines](/azure/azure-arc/servers/) (including SQL Arc servers) and Windows IoT Enterprise on Arc enabled servers 
+    - [VMware machines](/azure/azure-arc/vmware-vsphere/)
+    - [System Center Virtual Machine Manager (SCVMM) machines](/azure/azure-arc/system-center-virtual-machine-manager/) 
+    - [Azure Local clusters](/azure/azure-local/)
+    - [Cross-subscription-patching](cross-subscription-patching.md)
 
 These features make Azure Update Manager a powerful tool for maintaining the security and performance of your IT infrastructure. 
 
@@ -59,7 +60,7 @@ Update Manager offers many new features and provides enhanced and native functio
   - Offers enhanced flexibility
     - Take immediate action either by [installing updates immediately](https://aka.ms/on-demand-patching) or [scheduling them for a later date](https://aka.ms/umc-scheduled-patching).
     - [Check updates automatically](https://aka.ms/aum-policy-support) or [on demand](https://aka.ms/on-demand-assessment).
-    - Secure machines with new ways of patching such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
+    - Secure machines with new ways of patching such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hotpatching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
     - Sync patch cycles in relation to **patch Tuesday** the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month. 
 - Reporting and alerting
     - Build custom reporting dashboards through [Azure Workbooks](manage-workbooks.md) to monitor the update compliance of your infrastructure. 
