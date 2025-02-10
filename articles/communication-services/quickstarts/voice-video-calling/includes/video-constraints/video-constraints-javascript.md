@@ -148,7 +148,7 @@ await currentCall.setConstraints({
 <br/>
 
 ## Receive video constraints
-Managing video quality for incoming streams involves understanding the Azure Communication Services resolution ladder, which is a predefined list of video resolutions with estimated upper and lower bitrate boundaries. When a client requests a specific resolution, the WebJS and bacend server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
+Managing video quality for incoming streams involves understanding the Azure Communication Services resolution ladder, which is a predefined list of video resolutions with estimated upper and lower bitrate boundaries. When a client requests a specific resolution, the WebJS and backend server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
 Defining the video render size is a crucial step for developers aiming to control the bit rate and frame rate of an incoming video stream. The initial quality and resolution of a video stream are determined by the size of the renderer created and placed on a web page. For instance, if the renderer is small, the WebJS SDK requests a smaller resolution. Conversely, if the renderer is large, the ACS SDK aims for the best possible resolution from the server. This process ensures that the video quality is optimized based on the client's requirements and capabilities. When a client requests a specific resolution, the server consults the resolution ladder to allocate the appropriate video bitrate, considering both network conditions and device capabilities.
 
