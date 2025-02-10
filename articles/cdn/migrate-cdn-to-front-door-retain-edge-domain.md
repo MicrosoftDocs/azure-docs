@@ -31,10 +31,10 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
     > [!NOTE]
     > - The following steps assume you're using an Azure Blob Storage account as your origin. If you're using a different origin, adjust the steps accordingly.
-    > - If you are already using custom domains on Edgio, follow the steps in [Migrate Azure CDN from Edgio to Azure Front Door](../frontdoor/migrate-cdn-to-front-door.md).
+    > - If you're already using custom domains on Edgio, follow the steps in [Migrate Azure CDN from Edgio to Azure Front Door](../frontdoor/migrate-cdn-to-front-door.md).
 
     > [!IMPORTANT]
-    > If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. Note you will have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
+    > If you plan to migrate to Azure Front Door, set the Feature Flag **DoNotForceMigrateEdgioCDNProfiles** before January 7, 2025 using [Set up preview feature](../azure-resource-manager/management/preview-features.md). This will prevent Microsoft from auto-migrating your profiles to Azure Front Door. Auto-migration is on a *best effort* basis and may cause issues with billing, features, availability, and performance. You'll have until January 14, 2025 to complete your migration to another CDN, but again Microsoft cannot guarantee your services will be available on the Edgio platform before this date.
 
 ## Gather information
 
@@ -132,7 +132,7 @@ This article provides you with instructions for migrating to Azure Front Door fr
 
     > [!NOTE]
     > - Most of the traffic will immediately switch to Azure Front Door. You may see a small portion of the traffic still served by Edgio. The DNS changes take time to propagate and some DNS servers have high TTL for DNS record expiry. Wait for 24-48 hours for all the traffic to switch.
-    > - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31st. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
+    > - After the changes, under AFD Domains blade, the 'Certificate state' field may show the value as 'issuing' and the 'DNS state' field may show the value as 'Certificate needed'. This is just a portal bug that will be fixed by January 31. The bug doesn't impact your certificates or traffic in any manner as the Certificate and DNS State for *.azureedge.net domains are completely managed by AFD.
    
 
 ## Next step
