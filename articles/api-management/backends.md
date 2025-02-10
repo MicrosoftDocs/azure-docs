@@ -70,6 +70,9 @@ You can use a system-assigned or user-assigned [managed identity](api-management
     For more examples, see the [authentication-managed-identity](authentication-managed-identity-policy.md) policy reference.
 1. Select **Create**.
 
+> [!NOTE]
+> Also assign the managed identity the appropriate permissions or an RBAC role to access the backend service. For example, if the backend is an Azure OpenAI service, you might assign the managed identity the `Cognitive Services User` role.
+
 ## Reference backend using set-backend-service policy
 
 After creating a backend, you can reference the backend identifier (name) in your APIs. Use the [`set-backend-service`](set-backend-service-policy.md) policy to direct an incoming API request to the backend. If you already configured a backend web service for an API, you can use the `set-backend-service` policy to redirect the request to a backend entity instead. For example:
