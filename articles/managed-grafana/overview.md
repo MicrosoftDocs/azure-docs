@@ -59,6 +59,9 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 > [!NOTE]
 > Users can upgrade an instance from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
 
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
+
 ## Quotas
 
 Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
