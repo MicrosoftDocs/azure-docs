@@ -19,7 +19,7 @@ To configure vaulted backup for storage accounts, follow these steps:
  
 3. On the **Start: Configure Backup** pane, click **Select vault** under **Vault**.
 
-   If a Recovery Services vault doesn't exist, [create a new one](backup-create-recovery-services-vault.md#create-a-recovery-services-vault).
+   If a Recovery Services vault doesn't exist, [create a new one](../articles/backup/backup-create-recovery-services-vault.md#create-a-recovery-services-vault).
 
 4. On the **Select a Vault** pane, select a **Recovery Services vault** from the list to associate with your storage accounts, and then select **Next**. 
  
@@ -37,7 +37,7 @@ The **Select storage account** pane lists a set of discovered supported storage 
 
 9. On the **Configure Backup** pane, under **Policy Details**, select an existing backup policy from the list for your file share protection
 
-   If a policy doesn't exist, [create a new one](manage-afs-backup.md#create-a-new-policy).
+   If a policy doesn't exist, [create a new one](../articles/backup/manage-afs-backup.md#create-a-new-policy).
 
 10. To start protecting the file share, select **Enable Backup**.
  
