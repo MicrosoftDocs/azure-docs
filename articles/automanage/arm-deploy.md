@@ -70,5 +70,5 @@ As with any ARM template, it's possible to factor out the parameters into a sepa
 Learn more about Automanage for [Linux](./automanage-linux.md) and [Windows](./automanage-windows-server.md)
 
 <!-- Link reference definitions -->
-[01]: aka.ms/mma-to-ama
+[01]: https://aka.ms/mma-to-ama
 
