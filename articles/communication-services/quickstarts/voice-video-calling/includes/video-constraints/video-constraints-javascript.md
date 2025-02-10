@@ -154,7 +154,7 @@ Defining the video render size is a crucial step for developers aiming to contro
 
 This table provides what the WebJS calling SDK resolution ladder consists of with the estimated incoming video bitrates for various resolutions. These details help developers understand the relationship between resolution, bit rate, and frame rate and the approximate amount of bandwidth a specific incoming video stream uses. For example, a resolution of 1280x720 streams at 30 FPS with the the client using an approximate minimum bitrate of 1 MBPS and an approximate maximum bitrate of 2.5 MBPS.
 
-The Azure Communication Services WebJS Calling SDK adjusts video size based on available bandwidth to ensure a consistent communication experience. This is achieved through algorithms that monitor network conditions and adjust video quality accordingly. When network bandwidth is sufficient, the SDK increases video resolution to its maximum level based on the render size defined on the web page. Conversely, when bandwidth is limited, it reduces video resolution to prevent buffering and maintain a stable connection. 
+The Azure Communication Services WebJS Calling SDK adjusts video size based on available bandwidth to ensure a consistent communication experience. WebJS Calling SDK adjusts the video size based on algorithms that monitor network conditions. When network bandwidth is sufficient, the SDK increases video resolution to its maximum level based on the render size defined on the web page. Conversely, when bandwidth is limited, it reduces video resolution to prevent buffering and maintain a stable connection. 
 
 The following table below provides some estimated bitrates for each resolution
 
