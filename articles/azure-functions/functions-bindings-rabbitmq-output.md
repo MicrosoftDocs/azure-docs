@@ -13,10 +13,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RabbitMQ output binding for Azure Functions overview
 
-> [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
-
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
+
+[!INCLUDE [functions-rabbitmq-plans-support-note](../../includes/functions-rabbitmq-plans-support-note.md)]
 
 For information on setup and configuration details, see the [overview](functions-bindings-rabbitmq-output.md).
 
@@ -281,6 +280,8 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
+
+[!INCLUDE [functions-rabbitmq-managed-identity-note](../../includes/functions-rabbitmq-managed-identity-note.md)]
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
