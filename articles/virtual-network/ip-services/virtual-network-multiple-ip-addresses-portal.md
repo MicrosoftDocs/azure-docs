@@ -42,7 +42,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 - An Azure Bastion instance deployed for VM management in the same subnet as your virtual machine. For more information, see [Deploy Azure Bastion automatically](../../bastion/quickstart-host-portal.md)
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
+> Though the steps in this article assign all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
 :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/multiple-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
 
