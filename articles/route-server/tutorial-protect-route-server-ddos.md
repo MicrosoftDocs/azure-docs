@@ -79,14 +79,11 @@ In this section, you create an Azure Route Server. The virtual network and publi
     | Public IP address | Select **Create new**. |
     | Public IP address name | Enter ***myPublicIP***. |
 
-    :::image type="content" source="./media/tutorial-protect-route-server/create-virtual-network.png" alt-text="Screenshot of create virtual network and subnets.":::
-
 4. Select **Review + create**. 
 
 5. Select **Create**.
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
-
 
 ## Enable DDoS protection
 
