@@ -80,7 +80,7 @@ If you use version 2.0，the following properties are supported for MySQL linked
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MySql** | Yes |
-| driverVersion | The driver version when you select the version 2.0. The value is v2. | Yes |
+| driverVersion | The driver version when you select version 2.0. The value is v2. | Yes |
 | server | The name of your MySQL Server. | Yes |
 | port | The port number to connect to the MySQL server. |No|
 | database | Your MySQL database name. |Yes|

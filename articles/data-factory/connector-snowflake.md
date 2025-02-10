@@ -691,7 +691,7 @@ To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-
 
 To perform a side-by-side upgrade, complete the following steps:
 
-1. Create a new Snowflake linked service and configure it by referring to the linked service properties.  
+1. Create a new Snowflake linked service and configure it by referring to the V2 linked service properties.  
 1. Create a dataset based on the newly created Snowflake linked service.
 1. Replace the new linked service and dataset with the existing ones in the pipelines that targets the V1 objects. 
 

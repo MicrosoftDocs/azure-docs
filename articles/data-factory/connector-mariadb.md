@@ -71,12 +71,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use the version 2.0, the following properties are supported for MariaDB linked service:
+If you use version 2.0, the following properties are supported for MariaDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MariaDB** | Yes |
-| driverVersion | The driver version when you select the  version 2.0. The value is v2. | Yes |
+| driverVersion | The driver version when you select version 2.0. The value is v2. | Yes |
 | server | The name of your MariaDB Server. | Yes |
 | port | The port number to connect to the MariaDB server. | No |
 | database | Your MariaDB database name. | Yes |
@@ -146,7 +146,7 @@ If you use the version 2.0, the following properties are supported for MariaDB l
 }
 ```
 
-If you use the version 1.0, the following properties are supported:
+If you use version 1.0, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
