@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 02/10/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -65,7 +65,7 @@ After a container app is successfully provisioned, a revision enters its operati
 
 Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries. You can activate a revision at any time.
 
-### Change inactive revision limit
+### Change inactive revision limit (preview)
 
 You can use the `--max-inactive-revisions` parameter with the `containerapp create` or `containerapp update` commands to control the number of inactive revisions tracked by Container Apps.
 
