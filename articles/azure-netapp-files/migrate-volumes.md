@@ -115,7 +115,7 @@ You can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP t
 
     ```json
     {
-        "id": "/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/southcentralus/operationResults/62215c87-50a9-455f-b3e3-5162c31def52",
+        "id": "/subscriptions/<subscriptionID>/providers/Microsoft.NetApp/locations/southcentralus/operationResults/00000-aaaa-1111-bbbb-22222222222",
         "name": "<name>",
         "status": "Succeeded",
         "name": "<name>",
