@@ -16,6 +16,7 @@ This article describes reliability support in [Azure Data Factory](../data-facto
 
 Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
 
+<!-- TODO maybe we can delete these lines and fold the points into the rest of the document? -->
 When including Azure Data Factory resources in your [business continuity planning](./concept-business-continuity-high-availability-disaster-recovery.md), it's important that you consider not only the reliability of the data factory, but also the following Azure resources:
 
 * [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems. 
@@ -30,7 +31,7 @@ Azure Data Factory consists of multiple infrastructure components, which have di
 
 - Integration runtimes, which execute certain activities within a pipeline. There are different types of integration runtimes:
 
-    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes. <!-- TODO confirm that this applies to all of them -->
+    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes. <!-- TODO confirm that this applies to all of them - including the SSIR one. -->
     
     - Self-hosted integration runtimes. Microsoft provides software that you can run on your own compute infrastructure to execute some parts of your Azure Data Factory pipelines. You're responsible for deploying and managing compute resources, and for the resiliency of those compute resources.
 
@@ -66,7 +67,7 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 ### Zone-down experience
 
 **Detection and response.**
-- For the core Azure Data Factory service as well as Microsoft-managed integration runtimes, tThe Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other core platform components.
+- For the core Azure Data Factory service, and for Microsoft-managed integration runtimes, the Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other core platform components.
 - For self-hosted integration runtimes, <!-- TODO confirm behaviour - I think the software handles this itself? -->
 
 **Active requests.** <!-- What happens here to the pipeline? Would you expect any interruptions, delays, retries, etc? -->
@@ -83,7 +84,7 @@ When the availability zone recovers, Azure Data Factory automatically fails back
 
 For the core services and Microsoft-hosted integration runtimes, Azure Data Factory manages traffic routing, failover, and failback for zone-redundant resources. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
-For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to simulate an availability zone failure.
+For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to simulate an availability zone failure on an Azure virtual machine.
 
 ## Multi-region support
 
