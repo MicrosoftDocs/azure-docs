@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/23/2024
+ms.date: 02/10/2025
 ms.custom: mode-ui
 ---
 
@@ -43,10 +43,10 @@ In this section, you create a route server.
     |----------|-------|
     | **Project details** |  |
     | Subscription | Select the Azure subscription that you want to use to deploy the route server. |
-    | Resource group | Select **Create new**. <br>In **Name**, enter ***RouteServerRG***. <br>Select **OK**. |
+    | Resource group | Select **Create new**. <br>In **Name**, enter ***myResourceGroup***. <br>Select **OK**. |
     | **Instance details** |  |
     | Name | Enter ***myRouteServer***. |
-    | Region | Select **West US** or any region you prefer to create the route server in. |
+    | Region | Select **East US** or any region you prefer to create the route server in. |
     | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
     | **Configure virtual networks** |  |
     | Virtual network | Select **Create new**. <br>In **Name**, enter ***myRouteServerVNet***. <br>In **Address range**, enter ***10.0.0.0/16***. <br>In **Subnet name** and **Address range**, enter ***RouteServerSubnet*** and ***10.0.1.0/27*** respectively. <br>Select **OK**. |
@@ -93,13 +93,13 @@ To complete the peering setup, you must configure the NVA to establish a BGP ses
 
 ## Clean up resources
 
-When no longer needed, you can delete all resources created in this quickstart by deleting **RouteServerRG** resource group:
+When no longer needed, you can delete all resources created in this quickstart by deleting **myResourceGroup** resource group:
 
-1. In the search box at the top of the portal, enter ***RouteServerRG***. Select **RouteServerRG** from the search results.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
-1. In **Delete a resource group**, enter ***RouteServerRG***, and then select **Delete**.
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 

@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 09/24/2024
+ms.date: 02/10/2025
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)
@@ -136,8 +136,6 @@ In this section, you create a Windows Server VM in the virtual network you creat
     | Password | Enter a password. |
     | Confirm password | Reenter the password. |
 
-     :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-virtual-machine-basics.png" alt-text="Screenshot of the Basics tab of creating a VM in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-virtual-machine-basics.png":::
-
 1. Select **Networking** tab or **Next: Disks >** then **Next: Networking >**.
 
 1. On the **Networking** tab, select the following network settings:
@@ -153,8 +151,6 @@ In this section, you create a Windows Server VM in the virtual network you creat
 
     > [!CAUTION]
     > Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
-
-     :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-virtual-machine-networking.png" alt-text="Screenshot of the Networking tab of creating a VM in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-virtual-machine-networking.png":::
 
 1. Select **Review + create** and then **Create** after validation passes.
 
