@@ -35,7 +35,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** from the search results.
+2. In the search box at the top of the portal, enter ***DDoS protection***. Select **DDoS protection plans** from the search results.
 
 3. Select **+ Create**.
 
@@ -45,9 +45,9 @@ In this section, you create an Azure DDoS protection plan to associate with the 
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter ***myResourceGroup***. </br> Select **OK**. |
     | **Instance details** |   |
-    | Name | Enter **myDDoSProtectionPlan**. |
+    | Name | Enter ***myDDoSProtectionPlan***. |
     | Region | Select **East US**. |
 
 5. Select **Review + create**.
@@ -58,7 +58,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 In this section, you create an Azure Route Server. The virtual network and public IP address used for the route server are created during the deployment of the route server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
+1. In the search box at the top of the portal, enter ***Route Server***. Select **Route Servers** from the search results.
 
 2. Select **+ Create**.
 
@@ -70,14 +70,14 @@ In this section, you create an Azure Route Server. The virtual network and publi
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | **Instance details** |   |
-    | Name | Enter **myRouteServer**. |
+    | Name | Enter ***myRouteServer***. |
     | Region | Select **East US**. |
     | **Configure virtual networks** |   |
-    | Virtual network | Select **Create new**. </br> In **Name**, enter **myVNet**. </br> Leave the prepopulated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter **RouteServerSubnet**. </br> In **Address range**, enter **10.1.1.0/27**. </br> Select **OK**.  |
+    | Virtual network | Select **Create new**. </br> In **Name**, enter ***myVNet***. </br> Leave the prepopulated **Address space** and **Subnets**. In the example for this article, the address space is **10.1.0.0/16** with a subnet of **10.1.0.0/24**. </br> In **Subnets**, for **Subnet name**, enter ***RouteServerSubnet***. </br> In **Address range**, enter ***10.1.1.0/27***. </br> Select **OK**.  |
     | Subnet | Select **RouteServerSubnet (10.1.1.0/27)**. |
     | **Public IP address** |  |
     | Public IP address | Select **Create new**. |
-    | Public IP address name | Enter **myPublicIP**. |
+    | Public IP address name | Enter ***myPublicIP***. |
 
     :::image type="content" source="./media/tutorial-protect-route-server/create-virtual-network.png" alt-text="Screenshot of create virtual network and subnets.":::
 
@@ -92,7 +92,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
 
 Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** from the search results.
+1. In the search box at the top of the portal, enter ***Virtual network***. Select **Virtual networks** from the search results.
 
 2. Select **myVNet**.
 
@@ -130,7 +130,7 @@ In this section, you set up the BGP peering with your NVA.
 
 You need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
+1. In the search box at the top of the portal, enter ***Route Server***. Select **Route Servers** from the search results.
 
 2. Select **myRouteServer**.
 

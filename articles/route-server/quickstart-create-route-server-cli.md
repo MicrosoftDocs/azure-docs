@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/23/2024
+ms.date: 02/10/2025
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---

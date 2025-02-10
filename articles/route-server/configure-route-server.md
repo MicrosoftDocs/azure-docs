@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 09/18/2024
-
+ms.date: 02/10/2025
 ---
 
 # Configure and manage Azure Route Server 
@@ -21,7 +20,6 @@ In this article, you learn how to configure and manage Azure Route Server using 
 
 - A route server.
 
-
 # [**PowerShell**](#tab/powershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -33,7 +31,6 @@ In this article, you learn how to configure and manage Azure Route Server using 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-
 
 # [**Azure CLI**](#tab/cli)
 
