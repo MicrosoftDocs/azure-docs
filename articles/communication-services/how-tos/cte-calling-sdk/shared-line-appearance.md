@@ -19,6 +19,7 @@ This article describes how to implement Microsoft Teams Shared Line Appearance w
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Licensing requiremnets for delegator and delegates . See [Teams phone license](https://learn.microsoft.com/microsoftteams/shared-line-appearance#license-required).
 - Enable delegation and shared line appearance. See [Enable delegation](https://learn.microsoft.com/microsoftteams/shared-line-appearance#enable-delegation-and-shared-line-appearance)
+- Assign delegates using [Microsoft Teams Client](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8) or [Teams PowerShell](https://learn.microsoft.com/microsoftteams/shared-line-appearance#use-powershell).
 - Optional: Complete the quickstart to add voice calling to Microsoft Teams user. See [Quickstart: Add voice calling to Microsoft Teams user](../../quickstarts/voice-video-calling/get-started-call-to-teams-user.md).
 
 ## Support

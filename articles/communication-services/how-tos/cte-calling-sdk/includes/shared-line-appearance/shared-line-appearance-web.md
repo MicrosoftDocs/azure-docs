@@ -23,6 +23,12 @@ const teamsCallOptions = { onBehalfOfOptions: onBehalfOfOptions };
 const call = teamsCallAgent.startCall([{ microsoftTeamsUserId: "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy" }], teamsCallOptions);
 ```
 
+To place a call to a PSTN user on behalf of a Microsoft Teams user, use `PhoneNumberIdentifier` for call participant.
+
+```js
+const call = teamsCallAgent.startCall([{ phoneNumber: "+1xxxxxxxxxx" }], teamsCallOptions);
+```
+
 ## Receive a call on behalf of a Microsoft Teams user
 
 To receive calls on behalf of a delegator,
