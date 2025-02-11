@@ -60,7 +60,7 @@ You can create an external data source with the location that points to the root
 ## Read Delta Lake folder
 
 >[!IMPORTANT]
->Use the set up script in the [prerequisites](#prerequisites) to set up the sample data sources and tables.
+>Use the setup script in the [prerequisites](#prerequisites) to set up the sample data sources and tables.
 
 The [OPENROWSET](develop-openrowset.md) function enables you to read the content of Delta Lake files by providing the URL to your root folder.
 
