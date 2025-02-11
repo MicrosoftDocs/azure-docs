@@ -101,6 +101,40 @@ To create a workflow, take the following steps:
 1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployBicepFile.yml**.
 1. Replace the content of the yml file with the following code:
 
+    # [OpenID Connect](#tab/openid)
+
+    ```yml
+    on: [push]
+    name: Azure ARM
+    permissions:
+      id-token: write
+      contents: read
+    jobs:
+      build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+
+          # Checkout code
+        - uses: actions/checkout@main
+
+          # Log into Azure
+        - uses: azure/login@v2
+          with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+          # Deploy Bicep file
+        - name: deploy
+          uses: azure/arm-deploy@v1
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./main.bicep
+            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+            failOnStdErr: false
+    ```
+
     # [Service principal](#tab/userlevel)
 
     ```yml
@@ -115,7 +149,7 @@ To create a workflow, take the following steps:
           uses: actions/checkout@main
 
         - name: Log into Azure
-          uses: azure/login@v1
+          uses: azure/login@v2
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -138,40 +172,6 @@ To create a workflow, take the following steps:
 
     - **name**: The name of the workflow.
     - **on**: The name of the GitHub events that triggers the workflow. The workflow is triggered when there's a push event on the main branch.
-
-    # [OpenID Connect](#tab/openid)
-
-    ```yml
-    on: [push]
-    name: Azure ARM
-    permissions:
-      id-token: write
-      contents: read
-    jobs:
-      build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-
-          # Checkout code
-        - uses: actions/checkout@main
-
-          # Log into Azure
-        - uses: azure/login@v1
-          with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-          # Deploy Bicep file
-        - name: deploy
-          uses: azure/arm-deploy@v1
-          with:
-            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: ${{ secrets.AZURE_RG }}
-            template: ./main.bicep
-            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-            failOnStdErr: false
-    ```
 
     ---
 
