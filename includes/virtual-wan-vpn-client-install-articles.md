@@ -17,4 +17,4 @@ ms.topic: include
 | | OpenVPN |Linux | [Azure VPN client](../articles/virtual-wan/point-to-site-azure-vpn-client-certificate-linux.md)<br>[OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-linux.md)|
 | Microsoft Entra ID | OpenVPN | Windows | [Azure VPN client](../articles/virtual-wan/openvpn-azure-ad-client.md) |
 |  | OpenVPN | macOS | [Azure VPN client](../articles/virtual-wan/openvpn-azure-ad-client-mac.md) |
-|  | OpenVPN| Linux |[Azure VPN client](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
+|  | OpenVPN| Linux |[Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-linux.md) |

@@ -44,8 +44,6 @@ Locate and unzip the VPN client profile configuration package you generated and 
 
 ## <a name="modify"></a>Modify profile configuration files
 
-If your P2S configuration uses a custom audience with your Microsoft-registered App ID, you might receive popups each time you connect that require you to enter your credentials again and complete authentication. Retrying authentication usually resolves the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
-
 [!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## Import VPN client profile configuration files
