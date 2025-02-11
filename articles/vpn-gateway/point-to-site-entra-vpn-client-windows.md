@@ -42,8 +42,6 @@ After you obtain the VPN client profile configuration package, extract the zip f
 
 ## <a name="modify"></a>Modify profile configuration files
 
-If your P2S configuration uses a custom audience and your registered app is associated with Microsoft-registered App ID, you might receive the error message **AADSTS650057** when you try to connect. Entering your Entra ID credential in pop-up for the second time will resolve the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
-
 [!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## <a name="import"></a>Import client profile configuration settings
