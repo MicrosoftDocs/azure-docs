@@ -122,8 +122,6 @@ You can deploy a Bicep module from within a management-group scope Bicep file at
 * [The resource group](#scope-to-resource-group)
 * [The tenant](#scope-to-tenant)
 
-// TODO add a note about exceptions to the "same resoure group rule" in the management-group equivalent of this doc - we permit tenant-level resource PUTs from mg-level deployments
-
 ### Scope to management group
 
 To deploy resources to the target management group, add those resources with the `resource` keyword.
