@@ -255,7 +255,7 @@
       - name: VPN client configuration
         items:
         - name: Windows clients
-          href: openvpn-azure-ad-client.md
+          href: point-to-site-entra-vpn-client-windows.md
         - name: macOS clients
           href: openvpn-azure-ad-client-mac.md
         - name: Linux clients
@@ -268,8 +268,10 @@
           href: about-vpn-profile-download.md
         - name: Intune- Deploy VPN client profile
           href: vpn-profile-intune.md
-    - name: Azure VPN client optional settings
+    - name: Azure VPN client - optional settings
       href: azure-vpn-client-optional-configurations-windows.md
+    - name: Azure VPN Client versions
+      href: azure-vpn-client-versions.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
