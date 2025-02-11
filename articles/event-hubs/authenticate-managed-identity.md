@@ -99,9 +99,9 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 ```
 
 > [!NOTE]
-> If the source service or app doesn't restart after the access to the event hub is disabled by removing the source's managed identity from the Event Hubs RBAC role, the source app may continue to publish events to the event hub until the token expires (default token validity is 24 hours). This behavior is by design. 
+> If the source service or app doesn't restart after the access to the event hub is disabled by removing the source's managed identity from the Event Hubs RBAC role, the source app may continue to publish events to or receiev events from the event hub until the token expires (default token validity is 24 hours). This behavior is by design. 
 >
-> Therefore, after you remove the source's managed identity from the RBAC role, restart the source app or service to immediately expire the token and prevent it from sending events to the event hub. 
+> Therefore, after you remove the source's managed identity from the RBAC role, restart the source app or service to immediately expire the token and prevent it from sending events to or receiving events from the event hub. 
 
 ## Event Hubs for Kafka
 You can use Apache Kafka applications to send messages to and receive messages from Azure Event Hubs using managed identity OAuth. See the following sample on GitHub: [Event Hubs for Kafka - send and receive messages using managed identity OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
