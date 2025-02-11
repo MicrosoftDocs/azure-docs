@@ -2,11 +2,11 @@
 title: 'Tutorial: Deploy and configure Azure Firewall and policy in a hybrid network using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy using the Azure portal. 
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 08/05/2024
-ms.author: victorh
+ms.author: duau
 #Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 

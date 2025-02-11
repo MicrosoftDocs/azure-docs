@@ -2,12 +2,12 @@
 title: IP Groups in Azure Firewall 
 description: IP groups allow you to group and manage IP addresses for Azure Firewall rules.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 02/10/2025
-ms.author: victorh
+ms.author: duau
 ---
 
 # IP Groups in Azure Firewall

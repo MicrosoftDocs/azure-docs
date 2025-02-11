@@ -1,12 +1,12 @@
 ---
 title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
-author: vhorne
+author: duau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: victorh
+ms.author: duau
 ---
 
 # Deploy and configure Azure Firewall Premium
