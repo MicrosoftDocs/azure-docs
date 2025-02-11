@@ -85,7 +85,6 @@ After adding the chat interface, we can set up the Azure OpenAI client using Sem
 		string apiKey = _config["API_KEY"];
 		string modelId = _config["MODEL_ID"];
 
-		// Semantic Kernel builder
 		var builder = Kernel.CreateBuilder();
 
 		// Chat completion service
@@ -98,15 +97,14 @@ After adding the chat interface, we can set up the Azure OpenAI client using Sem
 
 		var kernel = builder.Build();
 
-		// Create a Semantic Kernel template for chat
+		// Create prompt template
 		var chat = kernel.CreateFunctionFromPrompt(
             @"{{$history}}
             User: {{$request}}
             Assistant: ");
 
-		ChatHistory chatHistory = new("""You are a helpful assistant that answers questions about my data.""");
+		ChatHistory chatHistory = new("""You are a helpful assistant that answers questions""");
 
-		// Get chat response and use user input
 		var chatResult = kernel.InvokeStreamingAsync<StreamingChatMessageContent>(
 				chat,
 				new()
@@ -116,7 +114,6 @@ After adding the chat interface, we can set up the Azure OpenAI client using Sem
 					}
 			);
 
-		// Stream the response
 		string message = "";
 		await foreach (var chunk in chatResult)
 		{
@@ -240,7 +237,7 @@ try
     
     await using var command = new SqlCommand(sql, connection);
 
-    // add SqlParameter to SqlCommand
+    // add parameter to SqlCommand
     command.Parameters.Add(param);
 
     await using var reader = await command.ExecuteReaderAsync();
@@ -253,7 +250,6 @@ try
 
         // add results to chat history
         chatHistory.AddSystemMessage(reader.GetString(1) + ", " + reader.GetString(2));
-
     }
 }
 catch (SqlException e)
@@ -363,7 +359,7 @@ Here's the full example of the added *OpenAI.razor* page:
 
 		var kernel = builder.Build();
 
-		// Create a Semantic Kernel template for chat
+		// Create prompt template
 		var chat = kernel.CreateFunctionFromPrompt(
             @"{{$history}}
             User: {{$request}}
@@ -421,7 +417,7 @@ Here's the full example of the added *OpenAI.razor* page:
 
 			await using var command = new SqlCommand(sql, connection);
 
-			// add SqlParameter to SqlCommand
+			// add parameter to SqlCommand
 			command.Parameters.Add(param);
 
 			await using var reader = await command.ExecuteReaderAsync();
@@ -449,7 +445,6 @@ Here's the full example of the added *OpenAI.razor* page:
 		Console.WriteLine("Done");
 		#endregion
 
-		// Get chat response and use user input
 		var chatResult = kernel.InvokeStreamingAsync<StreamingChatMessageContent>(
 				chat,
 				new()
@@ -459,14 +454,13 @@ Here's the full example of the added *OpenAI.razor* page:
 					}
 			);
 
-		// Stream the response
 		string message = "";
 		await foreach (var chunk in chatResult)
 		{
 			message += chunk;
 		}
 
-		// Append to history
+		// Append messages to chat history
 		chatHistory.AddUserMessage(userMessage!);
 		chatHistory.AddAssistantMessage(message);
 
