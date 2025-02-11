@@ -78,10 +78,10 @@ sections:
       - question: |
           What if I'm getting the status: “Failed to load” in the flow logs page?
         answer: |
-          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](.//network-watcher-nsg-flow-logging-portal.md#register-insights-provider), [PowerShell](./network-watcher-nsg-flow-logging-powershell.md#register-insights-provider), or [Azure CLI](./network-watcher-nsg-flow-logging-cli.md#register-insights-provider) instructions on how to register it.
+          The `Microsoft.Insights` provider must be registered for flow logging to work properly. If you aren't sure whether the `Microsoft.Insights` provider is registered for your subscription, see [Azure portal](nsg-flow-logs-portal.md#register-insights-provider), [PowerShell](nsg-flow-logs-powershell.md#register-insights-provider), or [Azure CLI](nsg-flow-logs-cli.md#register-insights-provider) instructions on how to register it.
           
       - question: |
-          I have configured the solution. Why am I not seeing anything on the dashboard?
+          I configured the solution. Why am I not seeing anything on the dashboard?
         answer: |
           The dashboard might take up to 30 minutes to show reports for the first time. The solution must first aggregate enough data for it to derive meaningful insights, then it generates reports. 
 
@@ -133,7 +133,7 @@ sections:
       - question: |
           How does traffic analytics decide that an IP is malicious? 
         answer: |
-          Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+          Traffic analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems use diverse telemetry sources like Microsoft products and services, the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build intelligence on top of it. 
           Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, raise a support ticket to know the details.
           
       - question: |
