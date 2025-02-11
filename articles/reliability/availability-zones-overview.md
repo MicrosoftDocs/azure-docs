@@ -81,7 +81,7 @@ $locations = ($response.Content | ConvertFrom-Json).value
 For each region, Microsoft aims to deploy updates to Azure services within a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, allowing the workload to continue to run in other zones while the update is in process. To take advantage of sequenced zone updates, your workload must be already configured to run across multiple zones. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
 
 > [!NOTE]
-> As reported on [Azure Updates Blog](https://azure.microsoft.com/en-us/updates?id=update-on-interavailability-zone-data-transfer-pricing) Azure will not charge for the data transfer across availability zones regardless of using private or public IPs on your Azure resources. With this change, Azure will further encourage and support customers’ efforts in building more resilient and efficient applications and solutions on Azure
+> As reported on [Azure Updates Blog](https://azure.microsoft.com/updates?id=update-on-interavailability-zone-data-transfer-pricing) Azure will not charge for the data transfer across availability zones regardless of using private or public IPs on your Azure resources. With this change, Azure will further encourage and support customers’ efforts in building more resilient and efficient applications and solutions on Azure
 
 ## Inter-zone latency
 
