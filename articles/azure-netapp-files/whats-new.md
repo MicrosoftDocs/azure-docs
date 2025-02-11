@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Network security group (NSG) support for Private Link connectivity](configure-network-features.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
 ## February 2025
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inode percentage 

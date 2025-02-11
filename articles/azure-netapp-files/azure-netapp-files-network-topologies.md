@@ -48,7 +48,7 @@ The following table describes what’s supported for each network features confi
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 |    Traffic routed via NVA from peered VNet | Yes    | No |
 
-\* Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless Private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
+\* Applying Azure network security groups on the Private Link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless a private endpoint network policy is enabled on the subnet. It's recommended to keep this option disabled.
 
 ### Supported network topologies
 
