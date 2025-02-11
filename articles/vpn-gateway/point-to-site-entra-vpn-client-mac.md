@@ -4,7 +4,7 @@ description: Learn how to configure macOS client computers to connect to Azure u
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 02/10/2025
 ms.author: cherylmc
 ---
 
@@ -44,8 +44,6 @@ Locate and unzip the VPN client profile configuration package you generated and 
 
 ## <a name="modify"></a>Modify profile configuration files
 
-If your P2S configuration uses a custom audience with your Microsoft-registered App ID, you might receive popups each time you connect that require you to enter your credentials again and complete authentication. Retrying authentication usually resolves the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
-
 [!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## Import VPN client profile configuration files
@@ -60,7 +58,7 @@ If your P2S configuration uses a custom audience with your Microsoft-registered 
 1. On this screen, notice the connection values are populated using the values in the imported VPN client configuration file.
 
    * Verify that the **Certificate Information** value shows **DigiCert Global Root G2**, rather than the default or blank. Adjust the value if necessary.
-   * Notice the Client Authentication values align with the values that were used to configure the VPN gateway for Microsoft Entra ID authentication. The Audience value in this example aligns with the Microsoft-registered App ID for Azure Public. If your P2S gateway is configured for a different Audience value, this field must reflect that value.
+   * Notice the Client Authentication values align with the values that were used to configure the VPN gateway for Microsoft Entra ID authentication. This field must reflect the same value that your gateway is configured to use.
 
    :::image type="content" source="media/point-to-site-entra-vpn-client-mac/values.png" alt-text="Screenshot of Azure VPN Client saving the imported profile settings." lightbox="media/point-to-site-entra-vpn-client-mac/values.png":::
 
@@ -96,7 +94,7 @@ You can remove the VPN connection profile from your computer.
 1. Open the Azure VPN Client.
 1. Select the VPN connection that you want to remove, then click **Remove**.
 
-## Optional Azure VPN Client configuration settings
+## Optional client configuration settings
 
 You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
