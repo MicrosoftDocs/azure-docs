@@ -160,14 +160,23 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 > If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, there is a task that runs every three days that will recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
-> Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
+> Invoke-StorageSyncFileRecall -Path <D:\path-to-your-server-endpoint> -Pattern *.lnk
 > ```
+- `-Path` This path must be the server endpoint configured for Azure File Sync.
+	* Example D:\MySEPFolder
+	* You can find your Server End Point by navigating to your  File Sync agent → Select your Storage Sync Service → Open your Sync Group.
+	* Powershell:
+   >```powershell
+   >Get-StorageSyncServerEndpoint
+ 
+- `-Pattern` determines how often a recall will be attempted of a file that is currently blocked.
+
 
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <path-to-your-server-endpoint>
 ```
 
 Optional parameters:
@@ -183,7 +192,7 @@ Example:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+Invoke-StorageSyncFileRecall -Path <D:\path-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ```
 
 > [!NOTE]  
