@@ -22,7 +22,8 @@ The Data Movement library is only available for .NET, and only supports Azure Bl
 
 If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement** library (version 2.X.X) to the current **Azure.Storage.DataMovement** library (version 12.X.X), see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.DataMovement/MigrationGuide.md#migration-guide-from-microsoftazurestoragedatamovement-to-azurestoragedatamovement).
 
-[API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [DataMovement.Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [DataMovement.Files.Shares](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
+
+[API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [Files.Shares](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
 
 ## Prerequisites
 
