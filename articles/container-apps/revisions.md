@@ -69,6 +69,12 @@ Revisions can also enter an inactive state. These revisions don't possess provis
 
 You can use the `--max-inactive-revisions` parameter with the `containerapp create` or `containerapp update` commands to control the number of inactive revisions tracked by Container Apps.
 
+First, make sure you have installed the Container Apps extension, with preview features enabled, for the Azure CLI:
+
+```azurecli
+az extension add --name containerapp --upgrade --allow-preview true
+```
+
 This example demonstrates how to create a new container app that tracks 50 inactive revisions:
 
 ```azurecli
