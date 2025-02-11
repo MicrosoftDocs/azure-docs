@@ -151,7 +151,11 @@ There are two types of backups in App Service. Automatic backups are created for
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+>
+> For back up and restore of Flexible Servers, see the respective database documentation: 
+>- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
+>- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
 >
 
 Custom backups can include linked databases (except when the backup is configured over Azure Virtual Network). To make sure your backup includes a linked database, do the following:
@@ -330,11 +334,11 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement ([MySQL](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md), [PostgreSQL](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md)).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
->- [Azure Database for MySQL: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
->- [Azure Database for PostgreSQL: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
+>- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
+>- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
 >
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
