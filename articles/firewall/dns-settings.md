@@ -108,10 +108,10 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 ##### Enable DNS proxy
 
 1. Select your Azure Firewall instance.
-2. Under **Settings**, select **DNS settings**.
-3. By default, **DNS Proxy** is disabled. When this setting is enabled, the firewall listens on port 53 and forwards DNS requests to the configured DNS servers.
-4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
-5. Select **Save**.
+1. Under **Settings**, select **DNS settings**.
+1. By default, **DNS Proxy** is disabled. When this setting is enabled, the firewall listens on port 53 and forwards DNS requests to the configured DNS servers.
+1. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
+1. Select **Save**.
 
 #### [CLI](#tab/azure-devops-cli)
 
