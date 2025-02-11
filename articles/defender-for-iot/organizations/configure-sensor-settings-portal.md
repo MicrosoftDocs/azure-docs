@@ -201,7 +201,7 @@ Add the public addresses of internal devices into this configuration to ensure t
 
 ### Single sign on
 
-With Single sign-on (SSO), your organization's users can simply sign into the sensor console, and don't need multiple login credentials across different sensors and sites. For more information, see [create SSO configuration](set-up-sso.md#create-sso-configuration).
+With Single sign-on (SSO), users simply sign into the sensor console and don't need multiple login credentials across different sensors and sites. For more information, see [create SSO configuration](set-up-sso.md#create-sso-configuration).
 
 ### DHCP ranges
 
