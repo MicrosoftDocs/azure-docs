@@ -237,7 +237,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 1. Declare a schema. The following command demonstrates how to use a schema when reading JSON data from kafka. Enter the command in your next Jupyter cell.
 
     ```scala
-    // Import bits useed for declaring schemas and working with JSON data
+    // Import bits used for declaring schemas and working with JSON data
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._

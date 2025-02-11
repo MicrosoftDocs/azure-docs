@@ -245,7 +245,7 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
     echo $appid2
     ```
 
-1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subcription-1** to build the sign-in URL for the approval. The URL is built from the following example:
+1. Use the appid for **spn-2-peer-vnet** and the Microsoft Entra ID tenant ID for **subscription-1** to build the sign-in URL for the approval. The URL is built from the following example:
 
     ```
     https://login.microsoftonline.com/entra-tenant-id-subscription-1/oauth2/authorize?client_id={$appid2}&response_type=code&redirect_uri=https://www.microsoft.com

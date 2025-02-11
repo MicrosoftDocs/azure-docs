@@ -183,19 +183,19 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
     ```
 
 2. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

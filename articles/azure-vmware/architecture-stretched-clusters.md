@@ -3,7 +3,7 @@ title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 12/4/2024
+ms.date: 12/24/2024
 ms.custom: references_regions, engagement-fy24
 ---
 
@@ -15,7 +15,7 @@ In this article, learn how to design a vSAN stretched cluster for an Azure VMwar
 
 Azure’s global infrastructure is broken up into Regions. Each region supports the services for a given geography. Within each region, Azure builds isolated, and redundant islands of infrastructure called availability zones (AZ). An AZ acts as a boundary for resource management. The compute and other resources available to an AZ are finite and can become exhausted by customer demands. An AZ is built to be independently resilient, meaning failures in one AZ doesn't affect other AZs.
 
-With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan-planning.doc/GUID-4172337E-E25F-4C6B-945E-01623D314FDA.html?hWord=N4IghgNiBcIG4GcwDsAECAuAnAphgxgBY4Amq+EArpjliAL5A).
+With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-planning/working-with-virtual-san-stretched-cluster/introduction-to-stretched-clusters.html#GUID-4172337E-E25F-4C6B-945E-01623D314FDA-en).
 
 Stretched clusters allow the configuration of vSAN Fault Domains across two AZs to notify vCenter Server that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ.
 

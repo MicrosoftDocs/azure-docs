@@ -151,10 +151,10 @@ API Management can be deployed either through:
 ## Videos
 
 ### Integrate API Management with Adyen payment gateway
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSSq2]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=64aae697-a0ae-497b-a5ec-c3edc7134c61]
 
 ### Integrate API Management with Stripe payment gateway
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWSTfp]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0337c2ce-aa26-48e4-b752-bcce254966a6]
 
 
 ## Next steps

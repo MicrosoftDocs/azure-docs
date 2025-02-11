@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/21/2024
+ms.date: 12/06/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Nutanix Cloud Clusters on Azure BareMetal Infrastructure Reservations and buy one.
 ---

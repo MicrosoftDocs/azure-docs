@@ -3,18 +3,18 @@ title: Restore Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 11/21/2024
+ms.date: 01/30/2025
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Kubernetes Service using Azure CLI 
 
-This article describes how to restore Azure Kubernetes cluster from a restore point created by Azure Backup using Azure CLI.
+This article describes how to restore Azure Kubernetes cluster from a restore point created by Azure Backup using Azure CLI. You can also restore AKS cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
@@ -24,6 +24,8 @@ You can perform both *Original-Location Recovery (OLR)* (restoring in the AKS cl
 >Before you initiate a restore operation, the target cluster should have Backup Extension installed and Trusted Access enabled for the Backup vault. [Learn more](azure-kubernetes-service-cluster-backup-using-cli.md#prepare-aks-cluster-for-backup).
 
 ## Before you start
+
+Before you start restoring an AKS cluster, review the following details:
 
 - AKS backup allows you to restore to original AKS cluster (that was backed up) and to an alternate AKS cluster. AKS backup allows you to perform a full restore and item-level restore. You can utilize [restore configurations](#restore-to-an-aks-cluster) to define parameters based on the cluster resources that are to be restored. 
 
@@ -37,37 +39,39 @@ For more information on the limitations and supported scenarios, see the [suppor
 
 Before you initiate a restore process, you must validate that AKS cluster is prepared for restore. It includes the Backup Extension to be installed with the extension having the permission on storage account where backups are stored/hydrated with Trusted Access enabled between target AKS cluster and Backup vault.
 
-First, check if Backup Extension is installed in the cluster by running the following command:
+To validate and prepare AKS cluster for restore, run the following commands:
 
-```azurecli
-az k8s-extension show --name azure-aks-backup --cluster-type managedClusters --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup
-```
+1. Check if Backup Extension is installed in the cluster.
 
-If the extension is installed, then check if it has the right permissions on the storage account where backups are stored:
+    ```azurecli
+    az k8s-extension show --name azure-aks-backup --cluster-type managedClusters --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup
+    ```
 
-```azurecli
-az role assignment list --all --assignee  $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv)
-```
+2. If the extension is installed, then check if it has the right permissions on the storage account where backups are stored.
 
-If the role isn't assigned, then you can assign the role by running the following command:
+    ```azurecli
+    az role assignment list --all --assignee  $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv)
+    ```
 
-```azurecli
-az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+3. If the role isn't assigned, then assign the role.
 
-```
+    ```azurecli
+    az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Account Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
 
-If the Backup Extension isn't installed, then running the following extension installation command with the *storage account and blob container where backups are stored* as input.
+    ```
 
-```azurecli
-az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
-```
+4. If the Backup Extension isn't installed, then run the following extension installation command with the *storage account and blob container where backups are stored* as input.
 
-Then assign the required role to the extension on the storage account by running the following command:
+    ```azurecli
+    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
+    ```
 
-```azurecli
-az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+5. Assign the required role to the extension on the storage account.
 
-```
+    ```azurecli
+    az role assignment create --assignee-object-id $(az k8s-extension show --name azure-aks-backup --cluster-name $targetakscluster --resource-group $aksclusterresourcegroup --cluster-type managedClusters --query aksAssignedIdentity.principalId --output tsv) --role 'Storage Blob Data Contributor'  --scope /subscriptions/$subscriptionId/resourceGroups/$storageaccountresourcegroup/providers/Microsoft.Storage/storageAccounts/$storageaccount
+
+    ```
 
 ## Check Trusted Access
 
@@ -85,28 +89,32 @@ az aks trustedaccess rolebinding create --cluster-name $targetakscluster --name 
 
 ## Restore to an AKS cluster 
 
+To restore to an AKS cluster, see the following sections.
+
 ### Fetch the relevant recovery point
 
-Fetch all instances associated with the AKS cluster and identify the relevant instance.
+To fetch the relevant recovery point, run the following commands:
 
-```azurecli
-az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureKubernetesService --datasource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$akscluster 
+1. Fetch all instances associated with the AKS cluster and identify the relevant instance.
 
-```
+    ```azurecli
+    az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureKubernetesService --datasource-id /subscriptions/$subscriptionId/resourceGroups/$aksclusterresourcegroup/providers/Microsoft.ContainerService/managedClusters/$akscluster 
+
+    ```
 
 
-Once the instance is identified, fetch the relevant recovery point.
+2. Once the instance is identified, fetch the relevant recovery point.
 
-```azurecli
-az dataprotection recovery-point list --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --vault-name $backupvault
+    ```azurecli
+    az dataprotection recovery-point list --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --vault-name $backupvault
 
-```
-In case you're looking to restore backups to the secondary region, use the flag `--use-secondary-region` to identify recovery points available in that region.
+    ```
+3. If you're looking to restore backups to the secondary region, use the flag `--use-secondary-region` to identify recovery points available in that region.
 
-```azurecli
-az dataprotection recovery-point list --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --vault-name $backupvault --use-secondary-region true
+    ```azurecli
+    az dataprotection recovery-point list --backup-instance-name $backupinstancename --resource-group $backupvaultresourcegroup --vault-name $backupvault --use-secondary-region true
 
-```
+    ```
 
 ### Prepare the restore request
 

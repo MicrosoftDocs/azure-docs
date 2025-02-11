@@ -97,7 +97,7 @@ az group delete --resource-group $resourceGroup -y
 [!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --reourceg $resourceGroup
+az group delete --resource-group $resourceGroup
 ```
 
 ## Sample reference
@@ -176,7 +176,7 @@ az group delete --resource-group $resourceGroup -y
 [!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --reourceg $resourceGroup
+az group delete --resource-group $resourceGroup
 ```
 
 ## Sample reference

@@ -50,7 +50,7 @@ After you run the pipeline, in the [pipeline monitoring view](monitor-visually.m
 
 On Microsoft Purview UI, you can browse assets and choose type "Azure Data Factory". You can also search the Data Catalog using keywords.
 
-:::image type="content" source="./media/data-factory-purview/view-dataset.png" alt-text="Screenshot of browing assets in Microsoft Purview." lightbox="./media/data-factory-purview/view-dataset.png":::
+:::image type="content" source="./media/data-factory-purview/view-dataset.png" alt-text="Screenshot of browsing assets in Microsoft Purview." lightbox="./media/data-factory-purview/view-dataset.png":::
 
 On the activity asset, click the Lineage tab, you can see all the lineage information.
 

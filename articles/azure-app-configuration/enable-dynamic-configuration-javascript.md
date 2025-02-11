@@ -3,13 +3,13 @@ title: Use dynamic configuration in JavaScript
 titleSuffix: Azure App Configuration
 description: Learn how to dynamically update configuration data for JavaScript.
 services: azure-app-configuration
-author: eskibear
+author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 03/27/2024
 ms.custom: devx-track-js
-ms.author: yanzh
+ms.author: zhiyuanliang
 #Customer intent: As a JavaScript developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
 # Tutorial: Use dynamic configuration in JavaScript
@@ -39,13 +39,15 @@ Add the following key-value to your Azure App Configuration store. For more info
 The following examples show how to use refreshable configuration values in console applications.
 Choose the following instructions based on how your application consumes configuration data loaded from App Configuration, either as a `Map` or a configuration object.
 
+You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID. You use the DefaultAzureCredential to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the App Configuration Data Reader role](./concept-enable-rbac.md#authentication-with-token-credentials).
+
 1. Open the file *app.js* and update the `load` function. Add a `refreshOptions` parameter to enable the refresh and configure refresh options. The loaded configuration will be updated when a change is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
     ### [Use configuration as Map](#tab/configuration-map)
 
     ```javascript
-    // Connecting to Azure App Configuration using connection string
-    const settings = await load(connectionString, {
+    // Connecting to Azure App Configuration using endpoint and token credential
+    const settings = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -60,8 +62,8 @@ Choose the following instructions based on how your application consumes configu
     To ensure an up-to-date configuration, update the configuration object in the `onRefresh` callback triggered whenever a configuration change is detected and the configuration is updated.
 
     ```javascript
-    // Connecting to Azure App Configuration using connection string
-    const settings = await load(connectionString, {
+    // Connecting to Azure App Configuration using endpoint and token credential
+    const settings = await load(endpoint, credential, {
         // Setting up to refresh when the sentinel key is changed
         refreshOptions: {
             enabled: true,
@@ -78,6 +80,7 @@ Choose the following instructions based on how your application consumes configu
     });
 
     ```
+    
     ---
 
 1. Setting up `refreshOptions` alone won't automatically refresh the configuration. You need to call the `refresh` method to trigger a refresh. This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming message or an order, or inside an iteration where you perform a complex task. Alternatively, you can use a timer if your application is always active. In this example, `refresh` is called in a loop for demonstration purposes. Even if the `refresh` call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `refresh` call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
@@ -115,11 +118,13 @@ Choose the following instructions based on how your application consumes configu
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connecting to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        // Connecting to Azure App Configuration using endpoint and token credential
+        const settings = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,
@@ -137,16 +142,19 @@ Choose the following instructions based on how your application consumes configu
 
     run().catch(console.error);
     ```
+
     ### [Use configuration as object](#tab/configuration-object)
 
     ```javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
     async function run() {
-        // Connecting to Azure App Configuration using connection string
-        const settings = await load(connectionString, {
+        // Connecting to Azure App Configuration using endpoint and token credential
+        const settings = await load(endpoint, credential, {
             // Setting up to refresh when the sentinel key is changed
             refreshOptions: {
                 enabled: true,

@@ -61,7 +61,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Analyze APIs using linting rules
-            url: enable-api-analysis-linting.md
+            url: enable-managed-api-analysis-linting.md
       - linkListType: concept
         links:
           - text: Use metadata for governance

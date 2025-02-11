@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 09/20/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -397,12 +397,14 @@ View dashboards, playlists, and query data sources.
 
 Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alertsSummary/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/actiongroups/* |  |
@@ -433,7 +435,10 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/locations/workspaces/failover/action | Initiates workspace failover to replication location. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/failback/action | Initiates workspace failback. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/actionRules/* |  |
@@ -491,7 +496,10 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
         "Microsoft.OperationalInsights/workspaces/sharedKeys/action",
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
+        "Microsoft.OperationalInsights/locations/workspaces/failover/action",
+        "Microsoft.OperationalInsights/workspaces/failback/action",
         "Microsoft.Support/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
@@ -565,12 +573,14 @@ Enables publishing metrics against Azure resources
 
 Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |

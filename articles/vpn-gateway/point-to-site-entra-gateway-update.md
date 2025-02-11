@@ -11,7 +11,7 @@ ms.author: cherylmc
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
 ---
 
-# Migrate a manually registered Azure VPN Client to the Microsoft-registered client
+# Migrate a manually registered Azure VPN Client to the Microsoft-registered client for Microsoft Entra ID User VPN connections
 
 This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for point-to-site (P2S) Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see [About point-to-site VPN - Microsoft Entra ID authentication](point-to-site-about.md#entra-id).
 

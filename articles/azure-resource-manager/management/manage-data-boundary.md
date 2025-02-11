@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure data boundary.
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 02/11/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to create a new data boundary.
 ---

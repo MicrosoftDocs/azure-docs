@@ -10,8 +10,9 @@ ms.author: lianwei
 
 # Use Azure SignalR Service
 
-
 This article shows you how to use SDK in your app server side to connect to SignalR Service when you are using SignalR in your app server.
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Create an Azure SignalR Service instance
 
@@ -46,6 +47,8 @@ public void Configure(IApplicationBuilder app)
 ```
 
 ### Configure connection string
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 There are two approaches to configure SignalR Service's connection string in your application.
 

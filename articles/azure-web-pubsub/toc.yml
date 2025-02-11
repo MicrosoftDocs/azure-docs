@@ -48,7 +48,7 @@
       items:
         - name: Create WebSocket clients
           href: howto-websocket-connect.md
-        - name: Create reliable Websocket clients
+        - name: Create reliable WebSocket clients
           href: howto-develop-reliable-clients.md
         - name: How to connect MQTT WebSocket clients
           href: howto-connect-mqtt-websocket-client.md

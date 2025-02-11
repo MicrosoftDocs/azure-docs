@@ -57,7 +57,7 @@ For more information, see the following articles:
 
     - In the URL, use the multitenant app object ID. 
     - For **Name**, provide a unique name for the federated client credential.
-    - For **Issuer**, use `https://login.microsoftonline.com/TENANTAID/v2.0` where `TENANTAID` is the ID of the tenant where the user-assigned identity is located. 
+    - For **Issuer**, use `https://login.microsoftonline.com/TENANTID/v2.0` where `TENANTID` is the ID of the tenant where the user-assigned identity is located. 
     - For **Subject**, specify the client ID of the user-assigned identity. 
    
     Verify and wait for the API call to succeed.     

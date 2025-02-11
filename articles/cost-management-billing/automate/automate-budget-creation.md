@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you create budgets with the Budget API and a budget template.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2023
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

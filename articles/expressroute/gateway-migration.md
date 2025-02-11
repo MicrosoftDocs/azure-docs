@@ -6,7 +6,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: duau
 ---

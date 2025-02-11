@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial: Deploy Spring Boot applications using Maven"
+title:  "Tutorial: Deploy Spring Boot Applications Using Maven"
 titleSuffix: Azure Spring Apps
 description: Use Maven to deploy applications to Azure Spring Apps.
 ms.author: jialuogan
@@ -45,7 +45,7 @@ To create a Spring project for use in this article, use the following steps:
    This example uses Java version 8. If you want to use Java version 11, change the option under **Project Metadata**.
 
 1. Select **Generate** when all the dependencies are set.
-1. Download and unpack the package, then create a web controller for a web application. Add the file *src/main/java/com/example/hellospring/HelloController.java* with the following contents:
+1. Download and unpack the package, then create a web controller for a web application. Add the file **src/main/java/com/example/hellospring/HelloController.java** with the following contents:
 
    ```java
    package com.example.hellospring;
@@ -105,7 +105,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 To generate configurations and deploy the app, follow these steps:
 
-1. Run the following command from the *hellospring* root folder, which contains the POM file. If you've already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, the command will prompt you with sign-in instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository on GitHub.
+1. Run the following command from the **hellospring** root folder, which contains the POM file. If you've already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, the command will prompt you with sign-in instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) in the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) repository on GitHub.
 
    ```azurecli
    mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
@@ -116,7 +116,7 @@ To generate configurations and deploy the app, follow these steps:
    * **Subscription ID** - the subscription you used to create an Azure Spring Apps instance.
    * **Service instance** - the name of your Azure Spring Apps instance.
    * **App name** - an app name of your choice, or use the default value `artifactId`.
-   * **Public endpoint** - *true* to expose the app to public access; otherwise, *false*.
+   * **Public endpoint** - **true** to expose the app to public access; otherwise, **false**.
 
 1. Verify that the `appName` element in the POM file has the correct value. The relevant portion of the POM file should look similar to the following example.
 

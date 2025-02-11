@@ -144,6 +144,18 @@ You can also do subnet filtering by using a watchlist. For example, in the prece
 let subnets = _GetWatchlist('subnetallowlist');
 ```
 
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***datatable*** operator](/kusto/query/datatable-operator?view=microsoft-sentinel&preserve-view=true)
+- [***evaluate*** plugin operator](/kusto/query/evaluate-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***isempty()*** function](/kusto/query/isempty-function?view=microsoft-sentinel&preserve-view=true)
+- [***ipv4_lookup*** plugin](/kusto/query/ipv4-lookup-plugin?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
+
 ## Example: Manage exceptions for the Microsoft Sentinel solution for SAP® applications
 
 The [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) provides functions you can use to exclude users or systems from triggering alerts.

@@ -6,7 +6,7 @@ ms.reviewer: kvuyyuru
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/05/2024
+ms.date: 12/06/2024
 ms.author: banders
 #customer intent: As a reservation admin, I want to understand how to transition to Azure OpenAI Service provisioned deployment reservations so that I can manage my resources effectively.
 ---
