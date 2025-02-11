@@ -41,7 +41,7 @@ After you verify the connectivity, download the appliance setup and key file, ru
 Now, select machines for replication and migration.
 
 >[!Note]
-> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 

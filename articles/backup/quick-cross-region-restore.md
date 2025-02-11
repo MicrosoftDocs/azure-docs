@@ -4,7 +4,7 @@ description: Learn how to restore a PostgreSQL database across regions by using 
 ms.topic: quickstart
 ms.date: 02/01/2024
 ms.service: azure-backup
-ms.author: v-abhmallick
+ms.author: jsuri
 ---
 
 # Quickstart: Restore a PostgreSQL database across regions by using Azure Backup

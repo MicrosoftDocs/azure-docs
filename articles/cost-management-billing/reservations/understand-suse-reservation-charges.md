@@ -112,6 +112,9 @@ To simplify:
 |SUSE for SAP Linux Enterprise Server 1-2 vCPUs|797618eb-cecb-59e7-a10e-1ee1e4e62d32|1|D2s_v3|
 |SUSE for SAP Linux Enterprise Server 3-4 vCPUs |1c0fb48a-e518-53c2-ab56-6feddadbb9a3|2|D4s_v3|
 |SUSE for SAP Linux Enterprise Server 5+ vCPUs |3ce5649c-142b-5a59-9b2a-6889da9b56f5|2.41176|D8s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
+|SUSE for SAP Linux Enterprise for SAP Applications + 24x7 Support 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
 
 ### SUSE Linux Enterprise Server
 

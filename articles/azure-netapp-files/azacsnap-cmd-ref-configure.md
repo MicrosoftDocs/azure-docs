@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: reference
-ms.date: 08/21/2023
+ms.date: 02/01/2025
 ms.author: phjensen
 ---
 
@@ -128,6 +128,14 @@ When you add a Db2 database to the configuration, the following values are requi
 
 > [!IMPORTANT]
 > Setting `Db2 Server Address` (`serverAddress`) aligns directly with the method that's used to communicate with Db2. Ensure that you set it correctly, as described.
+
+# [Microsoft SQL Server](#tab/mssql)
+
+When adding a Microsoft SQL Server database to the configuration, the following values are required:
+
+- `connectionString` = The Connection String used to connect to the database.  For a typical AzAcSnap installation on to the system running Microsoft SQL Server where the Database Instance is MSSQL2022 the connection string = "Trusted_Connection=True;Persist Security Info=True;Data Source=MSSQL2022;TrustServerCertificate=true".
+- `instanceName` = The database instance name.
+- `metaDataFileLocation` = The location where Microsoft SQL Server will write out the backup meta-data file (for example, "C:\\MSSQL_BKP\\").
 
 ---
 

@@ -165,7 +165,7 @@ The data object has the following properties:
 
 |Title  |Description  |
 |---------|---------|
-| [Enable linting and analysis for API governance in your API center](https://aka.ms/apicenter/docs/linting)| Use Event Grid events to trigger linting to analyze API definitions in your API center. |
+| [Enable linting and analysis for API governance in your API center](../api-center/enable-api-analysis-linting.md)| Use Event Grid events to trigger linting to analyze API definitions in your API center. |
 
 ## Related content
 

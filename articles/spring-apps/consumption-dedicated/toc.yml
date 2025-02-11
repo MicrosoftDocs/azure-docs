@@ -82,10 +82,6 @@ items:
     href: ../basic-standard/security-controls-policy.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Provision a service instance
-    href: quickstart-provision-standard-consumption-service-instance.md
-  - name: Provision in an Azure Container Apps environment with a virtual network
-    href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
   - name: Access apps in a virtual network
     href: quickstart-access-standard-consumption-within-virtual-network.md
   - name: Set up autoscale

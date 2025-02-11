@@ -4,10 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Overview of what is inbound NAT rule, why to use inbound NAT rule, and how to use inbound NAT rule.
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 #Customer intent: As a administrator, I want to create an inbound NAT rule so that I can forward a port to a virtual machine in the backend pool of an Azure Load Balancer.
 ---
 

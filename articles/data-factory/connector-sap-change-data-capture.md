@@ -33,7 +33,8 @@ This SAP CDC connector uses the SAP ODP framework to extract data from SAP sourc
 
 The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#verify-sap-system-requirements).  
 
-The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
+The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured. For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 
 ## Current limitations
 

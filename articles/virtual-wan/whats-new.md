@@ -3,7 +3,7 @@ title: What's new in Azure Virtual WAN?
 description: Learn what's new with Azure Virtual WAN such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: cherylmc
 ---
@@ -100,7 +100,7 @@ The following features are currently in gated public preview. After working with
 |9| Routing intent update operations fail in deployments where private routing policy next hop resource is an NVA or SaaS solution.| In deployments where private routing policy is configured with next hop NVA or SaaS solutions alongside additional private prefixes, modifying routing intent fails. Examples of operations that fail are adding or removing internet or private routing policies. This known issue doesn't impact deployments with no additional private prefixes configured. | |Remove any additional private prefixes, update routing intent and then reconfigure additional private prefixes.|
 |10|  DNAT traffic is not forwarded to the NVA after associating an additional IP address.|After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic is not forwarded properly to the NVA due to a code defect. | November 2024 | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity.|
 |11| Inbound security rule configuration scalability | Inbound security rule configuration may fail when a large number (approximately 100)  rules are configured. | November 2024  | None, reach out Azure Support for more information.|
-|12| Spoke Virtual Network address space updates not picked up by Virtual WAN | Multiple concurrent updates on spoke Virtual Network address spaces are not properly synced with the Virtual Hub. | November 2024 | Ensure address space updates in a single Virtual Network are done serially. Wait until the first address update is properly reflected in the Virtual Hub's effective routes before updating the address space of the spoke Virtual Network again. If this issue has already occurred, make sure to update the address space of the affected Virtual Network with a nonimpacting address space. Once this is reflected in the Virtual Network AND in the Virtual Hub, update the Virtual Network address space to the preferred Virtual Network address space.|
+|12| Spoke Virtual Network address space updates not picked up by Virtual WAN | Multiple concurrent updates on spoke Virtual Network address spaces are not properly synced with the Virtual Hub. | November 2024 | Ensure address space updates in a single Virtual Network are done serially. Wait until the first address update is properly reflected in the Virtual Hub's effective routes before updating the address space of the spoke Virtual Network again. If this issue has already occurred, make sure to update the address space of the affected Virtual Network with a nonimpacting address space (wait about 20 minutes before attempting again). Once this is reflected in the Virtual Network AND in the Virtual Hub, update the Virtual Network address space to the preferred Virtual Network address space.|
 
 
 

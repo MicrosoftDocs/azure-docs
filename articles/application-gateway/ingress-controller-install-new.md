@@ -4,7 +4,6 @@ description: This article provides information on how to deploy the Application 
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: how-to
 ms.date: 10/15/2024
 ms.author: greglin

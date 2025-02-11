@@ -1,19 +1,18 @@
 ### YamlMime:Landing
 
-title: End-to-end scenario - Migration of VMware virtual machines to Azure
-summary: Find articles to help you discover, assess, and migrate your VMware VMs using tools in the Azure Migrate hub.
-
+title: Scenario - Migrate VMware virtual machines to Azure
+summary: Find articles to help you discover, assess, and migrate your VMware VMs to Azure.
 metadata:
   title: End-to-end scenario - Migration of VMware virtual machines to Azure
-  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your VMware VMs to Azure.
+  description: Learn how to discover, assess, and migrate your VMware VMs to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
 
-  author: v-sreedevank
-  ms.author: v-sreedevank
+  author: SnehaSudhirG
+  ms.author: sudhirsneha 
   ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
-  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+  keywords: vmware, vmware migration, azure migrate, azure migration, azure migrate assessment tool
 
 landingContent:
   - title: Get started

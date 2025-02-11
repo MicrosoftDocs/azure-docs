@@ -165,7 +165,7 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
    return ServiceOperationsProviderUtilities
       .GetRequiredParameterValue(
          serviceId: ServiceId,
-         operationId: operationID,
+         operationId: operationId,
          parameterName: "connectionString",
          parameters: connectionParameters)?
       .ToValue<string>();

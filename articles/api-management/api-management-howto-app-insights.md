@@ -397,7 +397,7 @@ To improve performance issues, skip:
 
 ## Video
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=85acedcd-4200-4788-b7c0-41a11286fcab]
 >
 >
 

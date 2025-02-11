@@ -144,7 +144,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
    1. Run this command to list all the available disks:
 
       ```bash
-      /dev/disk/azure/scsi1/lun*
+      ls /dev/disk/azure/scsi1/lun*
       ```
 
       Example output:
@@ -436,7 +436,7 @@ sapcontrol -nr <instance number> -function StopSystem
   
       [trace]
       ha_dr_sushanasr = info
-      ha_dr_saphanasr = info
+      ha_dr_suschksrv = info
       ```
   
       If you point parameter path to the default `/usr/share/SAPHanaSR-angi` location, the Python hook code updates automatically through OS updates or package updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that you use.
@@ -486,7 +486,8 @@ sapcontrol -nr <instance number> -function StopSystem
    #### [SAPHanaSR-angi](#tab/saphanasr-angi)
    ```bash
    cdtrace
-   grep HADR.*load.*SAPHanaSR nameserver_*.trc
+   grep HADR.*load.*susHanaSR nameserver_*.trc
+   grep susHanaSR.init nameserver_*.trc
    # Example output
    # ha_dr_provider HADRProviderManager.cpp(00083) : loading HA/DR Provider 'susHanaSR' from /usr/share/SAPHanaSR-angi
    ```

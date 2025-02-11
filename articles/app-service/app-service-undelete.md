@@ -15,8 +15,7 @@ If you happened to accidentally delete your app in Azure App Service, you can re
 > [!NOTE]
 > - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
 > - Undelete functionality isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
-> - App Service apps running in an App Service Environment don't support snapshots. Therefore, undelete functionality and clone functionality aren't supported for App Service apps running in an App Service Environment.
->
+
 
 ## Re-register App Service resource provider
 

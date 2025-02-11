@@ -1,5 +1,5 @@
 ---
-title: Authorize developer accounts by using Azure Active Directory B2C
+title: Authorize access to API Management developer portal by using Azure Active Directory B2C
 titleSuffix: Azure API Management
 description: Learn how to authorize users of the developer portal in Azure API Management by using Azure Active Directory B2C
 services: api-management
@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/28/2023
+ms.date: 01/07/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -31,10 +31,12 @@ For an overview of options to secure the developer portal, see [Secure access to
 
 * An Azure Active Directory B2C tenant in which to create an application. For more information, see [Azure Active Directory B2C overview](../active-directory-b2c/overview.md).
 * An API Management instance. If you don't already have one, [create an Azure API Management instance](get-started-create-service-instance.md).
+* If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
+
 
 ## Configure sign up and sign in user flow
 
-In this section, you'll create a user flow in your Azure Active Directory B2C tenant containing both sign up and sign in policies. For detailed steps, see [Create user flows and custom policies in Azure Active Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
+In this section, you'll configure a user flow in your Azure Active Directory B2C tenant that enables users to sign up or sign in to the developer portal. Users are led down the right path depending on the context. For detailed steps, see [Create user flows and custom policies in Azure Active Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
 
 1. In the [Azure portal](https://portal.azure.com), access your Azure Active Directory B2C tenant.
 1. Under **Policies**, select **User flows** > **+ New user flow**.
@@ -42,7 +44,8 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. On the **Create** page, provide the following information:
     1. Enter a unique name for the user flow.
     1. In **Identity providers**, select **Email signup**.
-    1. In **User attributes and token claims**, select the following attributes and claims that are needed for the API Management developer portal.
+    1. Optionally enable a **Multifactor authentication** method or **Conditional access** policies.
+    1. In **User attributes and token claims**, select the following attributes and claims that you want to collect and send from the user during sign-up. Select **Show more** to view all attributes and claims.
         * **Collect attributes**: Given Name, Surname
         * **Return claims**: Given Name, Surname, Email Addresses, User’s ObjectID
 
@@ -89,7 +92,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. After you've specified the desired configuration, select **Add**.
 1. Republish the developer portal for the Azure AD B2C configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**.
 
-After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
+After the changes are saved, developers will be able to sign up for new accounts and sign in to the developer portal by using Azure Active Directory B2C.
 
 ## Migrate to MSAL
 
@@ -130,7 +133,7 @@ Although a new account is automatically created whenever a new user signs in wit
 
 The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
-## Next steps
+## Related content
 
 *  [Azure Active Directory B2C overview]
 *  [Azure Active Directory B2C: Extensible policy framework]
