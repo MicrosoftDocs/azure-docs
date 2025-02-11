@@ -463,7 +463,7 @@ items:
     - name: Rooms metrics
       href: concepts/analytics/rooms-metrics.md
     - name: Billing usage logs
-      href: concepts/analytics/logs/billing-usage-logs.md
+      href: concepts/analytics/logs/billing-usage-log-schema.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
     - name: Enable logging with Azure Monitor
