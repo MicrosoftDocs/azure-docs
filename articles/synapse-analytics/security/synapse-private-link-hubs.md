@@ -52,7 +52,7 @@ You must connect your Azure virtual network to the Synapse private link hub reso
 
 1. On the **Configuration** tab, select *privatelink.azuresynapse.net* for **Private DNS zones** when integrating with your virtual network and private DNS zone.
 
-    :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-dns-zones.png" alt-text="Create a private endpoint to private link hub" lightbox="./media/synapse-private-link-hubs/synapse-private-links-dns-zones.png":::
+    :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-dns-zones.png" alt-text="Screenshot that shows the page to create a private endpoint to private link hub." lightbox="./media/synapse-private-link-hubs/synapse-private-links-dns-zones.png":::
 
 ## Related content
 

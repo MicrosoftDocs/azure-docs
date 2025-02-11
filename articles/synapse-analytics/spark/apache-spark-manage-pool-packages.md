@@ -20,7 +20,7 @@ There are two primary ways to install a library on a Spark pool:
 After the changes are saved, a Spark job runs the installation and caches the resulting environment for later reuse. Once the job is complete, new Spark jobs or notebook sessions use the updated pool libraries.
 
 > [!IMPORTANT]
-> - If the package you're installing is large or takes a long time to install, the Spark instance start up time is affected.
+> - If the package you're installing is large or takes a long time to install, the Spark instance startup time is affected.
 > - Altering the PySpark, Python, Scala/Java, .NET, R, or Spark version isn't supported.
 > - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels isn't supported within data exfiltration protection enabled workspaces.
 
@@ -69,9 +69,9 @@ Spark pool libraries can be managed either from Synapse Studio or the Azure port
 ---
 
 > [!IMPORTANT]
-> By selecting the option to **Force new settings**, you're ending the all current sessions for the selected Spark pool. Once the sessions are ended, you must wait for the pool to restart.
+> By selecting the option to **Force new settings**, you're ending all current sessions for the selected Spark pool. Once the sessions are ended, you must wait for the pool to restart.
 >
-> If this setting is unchecked, then you need to wait for the current Spark session to end or stop it manually. After the session endeds, you need to let the pool restart.
+> If this setting is unchecked, then you need to wait for the current Spark session to end or stop it manually. After the session ends, you need to let the pool restart.
 
 ## Track installation progress
 
