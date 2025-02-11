@@ -1,8 +1,8 @@
 ---
 title: Configure Azure DDoS Protection Plan using Azure Firewall Manager
 description: Learn how to use Azure Firewall Manager to configure Azure DDoS Protection Plan 
-author: vhorne
-ms.author: victorh
+author: duau
+ms.author: duau
 ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 11/19/2024
@@ -56,8 +56,6 @@ Use Firewall Manager to create a secured virtual network.
 ## Create a DDoS Protection Plan
 
 Create a DDoS Protection Plan using Firewall Manager. You can use the **DDoS Protection Plans** page to create and manage your Azure DDoS Protection Plans.
-
-:::image type="content" source="media/configure-ddos/firewall-ddos.png" alt-text="Screenshot of the Firewall Manager DDoS Protection Plans page":::
 
 1. Open Firewall Manager.
 1. Select **DDoS Protection Plans**.
