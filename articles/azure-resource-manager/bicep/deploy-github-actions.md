@@ -42,39 +42,8 @@ New-AzResourceGroup -Name exampleRG -Location westus
 
 ## Configure the GitHub secrets
 
-# [Service principal](#tab/userlevel)
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
-Create secrets for your Azure credentials, resource group, and subscriptions. You use these secrets in the [Create workflow](#create-workflow) section.
-
-1. In [GitHub](https://github.com/), navigate to your repository.
-
-1. Select **Settings > Secrets and variables > Actions > New repository secret**. 
-
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
-
-1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (`exampleRG`).
-
-1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`).
-
-# [Open ID Connect](#tab/openid)
-
-You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
-
-1. Open your GitHub repository and go to **Settings**.
-
-1. Select **Settings > Secrets > New secret**.
-
-1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
-
-    |GitHub Secret  | Active Directory Application  |
-    |---------|---------|
-    |AZURE_CLIENT_ID     |      Application (client) ID   |
-    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
-    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
-
-1. Save each secret by selecting **Add secret**.
-
----
 
 ## Add a Bicep file
 
