@@ -47,16 +47,17 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 Connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest stable versions of following NuGet packages to your project.
+
+    - Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration
+    - Microsoft.Configuration.ConfigurationBuilders.Environment
+    - System.Configuration.ConfigurationManager
+
+1. Update the *App.config* file of your project as follows. You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
+
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
-
-    - *Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration* version 1.0.0 or later
-    - *Microsoft.Configuration.ConfigurationBuilders.Environment* version 2.0.0 or later
-    - *System.Configuration.ConfigurationManager* version 4.6.0 or later
-    - * Azure.Identity* version 1.13.0 or later
-
-1. Update the *App.config* file of your project as follows. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. 
+The `DefaultAzureCredential` is used to authenticate to your App Configuration store by default. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```xml
     <configSections>
@@ -72,7 +73,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
-        <add key="ConnectionString" value ="Set via an environment variable - for example, dev, test, staging, or production connection string." />
+        <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
     </appSettings>
     ```
 
@@ -91,12 +92,6 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
 
 ### [Connection string](#tab/connection-string)
-
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
-
-    - *Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration* version 1.0.0 or later
-    - *Microsoft.Configuration.ConfigurationBuilders.Environment* version 2.0.0 or later
-    - *System.Configuration.ConfigurationManager* version 4.6.0 or later
 
 1. Update the *App.config* file of your project as follows:
 
@@ -131,7 +126,6 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
         Console.ReadKey();
     }
     ```
-
 ---
 
 ## Build and run the app
@@ -140,7 +134,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+    Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -162,7 +156,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ### [Connection string](#tab/connection-string)
 
-   Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation.
+   Set an environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command:
 
