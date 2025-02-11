@@ -52,4 +52,4 @@ Periodically evaluating the performance of your Lifecycle Management Policy is r
 ## Next Steps
 - [Blob Storage FAQ](storage-blob-faq.yml)
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
-- [Plan and manage Costs for Blob Storage](../../common/storage-plan-manage-costs.md)
+- [Plan and manage Costs for Blob Storage](../common/storage-plan-manage-costs.md)
