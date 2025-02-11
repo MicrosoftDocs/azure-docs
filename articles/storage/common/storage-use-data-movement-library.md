@@ -22,7 +22,7 @@ The Data Movement library is only available for .NET, and only supports Azure Bl
 
 If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement** library (version 2.X.X) to the current **Azure.Storage.DataMovement** library (version 12.X.X), see the [Migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.DataMovement/MigrationGuide.md#migration-guide-from-microsoftazurestoragedatamovement-to-azurestoragedatamovement).
 
-[API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
+[API reference docs](/dotnet/api/azure.storage.datamovement) | [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.DataMovement) | Samples: [DataMovement.Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) / [DataMovement.Files.Shares](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples)
 
 ## Prerequisites
 
@@ -44,9 +44,15 @@ dotnet add package Azure.Storage.DataMovement.Blobs
 dotnet add package Azure.Identity
 ```
 
+To work with extension library for Azure Files, install the **Azure.Storage.DataMovement.Files.Shares** package:
+
+```dotnetcli
+dotnet add package Azure.Storage.DataMovement.Files.Shares
+```
+
 #### Add `using` directives
 
-Add these `using` directives to your code file:
+To run the code examples in this article, add the following `using` directives:
 
 ```csharp
 using Azure;
@@ -54,6 +60,12 @@ using Azure.Core;
 using Azure.Identity;
 using Azure.Storage.DataMovement;
 using Azure.Storage.DataMovement.Blobs;
+```
+
+If you're using the extension library for Azure Files, add the following `using` directive:
+
+```csharp
+using Azure.Storage.DataMovement.Files.Shares;
 ```
 
 #### Authorization
@@ -371,4 +383,4 @@ To learn more about the extension methods for `BlobContainerClient`, see [Extens
 
 ## Next step
 
-- Code samples for [Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) and [Files](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples) are available in the Azure SDK for .NET GitHub repository.
+- Code samples for [DataMovement.Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) and [DataMovement.Files.Shares](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples) are available in the Azure SDK for .NET GitHub repository.
