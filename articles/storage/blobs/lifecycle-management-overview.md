@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 11/25/2024
+ms.date: 02/10/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.custom: references_regions, engagement-fy23
@@ -80,7 +80,7 @@ When you add or edit the rules of a lifecycle policy, it can take up to 24 hours
 An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
 
 The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
-Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics).
+Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
 
 To view default scale limits, see the following articles:
 
