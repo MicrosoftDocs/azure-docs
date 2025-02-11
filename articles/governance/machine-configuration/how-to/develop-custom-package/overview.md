@@ -39,7 +39,7 @@ non-Azure machine.
 The following video provides a step by step guide on how to author a custom machine configuration
 policy using the [GuestConfiguration PowerShell module][09].
 
-[!VIDEO https://youtu.be/75MTIftSEfk]
+> [!VIDEO https://www.youtube.com/embed/75MTIftSEfk?si=tiJwHNlXckpM7k75]
 
 <!-- Link reference definitions -->
 [01]: ../../overview.md
