@@ -16,9 +16,9 @@ The edge routers in each Autonomous Systems are manually configured with a set o
 
 There are two peering standards relevant to Nexus:
 
-Option A: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed. Nexus supports IPv4, IPv6, and multicast.
+Option A: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed.
 
-Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It is also more scalable than Option A.
+Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It is also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
 
 For more information on Multi-Autonomous Systems, see section 10 of [RFC 4364](https://www.ietf.org/rfc/rfc4364.txt).
 
