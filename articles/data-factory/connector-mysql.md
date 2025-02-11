@@ -75,7 +75,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use version 2.0，the following properties are supported for MySQL linked service:
+If you use version 2.0, the following properties are supported for MySQL linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -345,7 +345,7 @@ This section introduces best practices for MySQL connector version 2.0.
 
 - **Recommendation**: Convert the PEM format to PCKS#1.
 
-## <a name="differences-between-the-recommended-and-the-legacy-driver-version"></a> Differences between the MySQL version 2.0 and version 1.0
+## <a name="differences-between-the-recommended-and-the-legacy-driver-version"></a> Differences between MySQL version 2.0 and version 1.0
 
 The table below shows the data type mapping differences between MySQL using version 2.0 and version 1.0.
 

@@ -316,7 +316,7 @@ Here are steps that help you upgrade your PostgreSQL connector:
 
 1. Create a new PostgreSQL linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-1. The data type mapping for the PostgreSQL V2 linked service is different from that for V1. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
+1. The data type mapping for the PostgreSQL V2 connector is different from that for V1. To learn the latest data type mapping, see [Data type mapping for PostgreSQL](#data-type-mapping-for-postgresql).
 
 ## <a name="differences-between-postgresql-and-postgresql-legacy"></a> Differences between PostgreSQL V2 and V1
 
