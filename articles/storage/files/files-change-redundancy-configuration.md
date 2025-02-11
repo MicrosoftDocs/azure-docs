@@ -294,7 +294,7 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) West Europe
+> - (North America) Mexico Central
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
