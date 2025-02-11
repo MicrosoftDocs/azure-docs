@@ -41,11 +41,11 @@ In this section, you create a route server. Prior to creating the route server, 
     az group create --name 'RouteServerRG' --location 'westus'
     ```
 
-1. Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command. The following example creates a default virtual network named **myRouteServerVNet** in the **WestUS** region with **RouteServerSubnet** subnet. The route server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the route server. 
+1. Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command. The following example creates a default virtual network named **myRouteServerVNet** in the **WestUS** region with **RouteServerSubnet** subnet. The route server requires a dedicated subnet named *RouteServerSubnet*. Please configure a subnet size of minimum /26 or larger.
 
     ```azurecli-interactive
     # Create a virtual network and a route server subnet. 
-    az network vnet create --resource-group 'RouteServerRG' --name 'myRouteServerVNet' --subnet-name 'RouteServerSubnet' --subnet-prefixes '10.0.1.0/27'
+    az network vnet create --resource-group 'RouteServerRG' --name 'myRouteServerVNet' --subnet-name 'RouteServerSubnet' --subnet-prefixes '10.0.1.0/26'
     # Place the subnet ID into a variable.
     subnetId=$(az network vnet subnet show --name 'RouteServerSubnet' --resource-group 'RouteServerRG' --vnet-name 'myRouteServerVNet' --query id -o tsv)
     ``` 
