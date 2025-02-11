@@ -15,19 +15,20 @@ This overview introduces the key concepts around securing a typical Azure IoT so
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the security of an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the security of an edge-based IoT solution:
 
+<!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the security of a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the security of a cloud-based IoT solution:
 
+<!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting security." border="false":::
 
----
 
-You can divide security in an IoT solution into the following three areas:
+You can divide security in an cloud-based IoT solution into the following three areas:
 
 - **Device security**: Secure the IoT device while it's deployed in the wild.
 
@@ -114,6 +115,8 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 - **Monitor your IoT solution from the cloud**: Monitor the overall health of your IoT solution using the [IoT Hub metrics in Azure Monitor](../iot-hub/monitor-iot-hub.md) or [Monitor IoT Central application health](../iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 - **Set up diagnostics**: Monitor your operations by logging events in your solution, and then sending the diagnostic logs to Azure Monitor. To learn more, see [Monitor and diagnose problems in your IoT hub](../iot-hub/monitor-iot-hub.md).
+
+---
 
 ## Next steps
 
