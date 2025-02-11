@@ -37,7 +37,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | ------- | ----- |
     | Name | Enter a name to identify this origin. |
     | Origin Type | API Management |
-    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Host name | Select the host from the dropdown that you want as an origin. | 
     | Origin host header | Will be autopopulated with the host of the chosen API Management instance|
     | HTTP port | 80 (default) |
     | HTTPS port | 443 (default) |
