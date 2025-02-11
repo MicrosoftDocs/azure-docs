@@ -58,8 +58,6 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
     - **Stream to an event hub**
         - Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure destination for log settings." border="true":::
-
 7. Select **Save**.
 
 ## Configuration - Azure PowerShell
@@ -244,8 +242,6 @@ Scenarios excluded in bytes hit ratio calculation:
 
 2. Under **Monitoring**, select **Metrics**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metrics for CDN profile." border="true":::
-
 3. Select **Add metric**, select the metric to add:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Add and select metric for CDN profile." border="true":::
@@ -280,15 +276,10 @@ You can enable more metrics using Azure Log Analytics and raw logs for an extra 
 
 2. Select the Log Analytics workspace you created:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Screenshot of the select Log Analytics workspace menu." border="true":::
-
 3. Select **Logs** under **General** in the Log Analytics workspace. Then select **Get Started**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Screenshot of the Log Analytics resource workspace." border="true":::
 
 4. Select **CDN Profiles**. Select an example query to RUN or close the example screen to enter a custom query:
-
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Screenshot of example query screen." border="true":::
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Screenshot of the query execution." border="true":::
 

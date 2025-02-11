@@ -31,8 +31,6 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 
 1. From the CDN profile page, select the purge button.
 
-    :::image type="content" source="./media/cdn-purge-endpoint/cdn-profile-blade.png" alt-text="Screenshot of the overview page for an Azure CDN profile.":::
-
 1. On the Purge page, select the service address you wish to purge from the URL dropdown list.
 
     :::image type="content" source="./media/cdn-purge-endpoint/cdn-purge-form.png" alt-text="Screenshot of the purge page.":::

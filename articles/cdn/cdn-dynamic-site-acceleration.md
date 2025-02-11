@@ -28,13 +28,9 @@ To configure a content delivery network endpoint to optimize delivery of dynamic
 
 1. In the **CDN profile** page, select **Endpoint**.
 
-   ![Screenshot of add a new content delivery network endpoint.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png)
-
    The **Add an endpoint** pane appears.
 
 2. Under **Optimized for**, select **Dynamic site acceleration**.
-
-    ![Screenshot of create a new content delivery network endpoint with DSA.](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
 
 3. For **Probe path**, enter a valid path to a file.
 
@@ -87,8 +83,6 @@ To access caching rules:
 
 1. From the **CDN profile** page, under settings, select **Caching rules**.
 
-    ![Screenshot of content delivery network caching rules button.](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
-
     The **Caching rules** page opens.
 
 2. Create a global or custom caching rule to turn on caching for your DSA endpoint.
@@ -96,8 +90,6 @@ To access caching rules:
 To access the rules engine:
 
 1. From the **CDN profile** page, select **Manage**.
-
-    ![Screenshot of content delivery network profile manage button.](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     The content delivery network management portal opens.
 
