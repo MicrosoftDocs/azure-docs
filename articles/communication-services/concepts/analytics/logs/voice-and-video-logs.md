@@ -35,12 +35,12 @@ any quality investigations, and using **[call diagnostics](../../voice-video-cal
 
 ## Available logs 
 
-Azure Communication Services creates eight call logs:
+Azure Communication Services creates eight call logs: 
 
 ### **Call summary updates logs**: 
 These log data arrive in Azure Monitor faster than the call summary logs and we recommend using these logs instead of the call summary log schema. This log contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. 
 
-To learn more, see: [Call summary log schema](call-summary-updates-log-schema.md)
+To learn more, see: [Call summary updates log schema](call-summary-updates-log-schema.md)
 
 ### **Call summary logs**:
 This log is a subset of the Call summary updates log schema. It contains basic information about the call, including all the relevant IDs, time stamps, endpoints, and SDK information. For faster log latency, use the call summary updates logs instead. 
@@ -50,7 +50,7 @@ To learn more, see: [Call summary log schema](call-summary-log-schema.md)
 ### **Call diagnostics updates logs**:
 These log data arrive in Azure Monitor faster than the call diagnostics logs and we recommend using these logs instead of the call diagnostics log schema. This log contains information about a participant's call media stream, along with a set of metrics that indicate quality of experience measurements. 
 
-To learn more, see: [Call diagnostics log schema](call-diagnostics-updates-log-schema.md)
+To learn more, see: [Call diagnostics updates log schema](call-diagnostics-updates-log-schema.md)
 
 
 ### **Call diagnostics logs**:
