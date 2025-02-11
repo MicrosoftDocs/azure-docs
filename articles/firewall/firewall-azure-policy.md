@@ -2,7 +2,7 @@
 title: Use Azure Policy to help secure your Azure Firewall deployments
 description: You can use Azure Policy to help secure your Azure Firewall deployments.
 author: duau
-ms.author: vduau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 09/05/2024
