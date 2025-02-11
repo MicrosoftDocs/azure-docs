@@ -5923,6 +5923,16 @@
       "source_path_from_root": "/articles/reliability/reliability-hdinsight-on-aks.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/managed-grafana/concept-role-based-access-control.md",
+      "redirect_url": "/azure/managed-grafana/how-to-manage-access-permissions-users-identities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/managed-grafana/how-to-share-grafana-workspace.md",
+      "redirect_url": "/azure/managed-grafana/how-to-manage-access-permissions-users-identities",
+      "redirect_document_id": false
     }
   ]
 }
