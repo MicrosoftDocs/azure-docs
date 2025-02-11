@@ -100,6 +100,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     ```
     
     The connection string of your App Configuration store is read from the environment variable `ConnectionString`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+    
     ---
 
 1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
