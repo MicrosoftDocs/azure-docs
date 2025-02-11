@@ -35,7 +35,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Required permissions
 
-**Here are the required key vault permissions**:
+**Here are the required permissions**:
 
 - Microsoft.OffAzure/*
 - Microsoft.Recoveryservices/*

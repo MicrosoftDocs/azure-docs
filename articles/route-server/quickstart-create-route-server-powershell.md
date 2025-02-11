@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/23/2024
+ms.date: 02/10/2025
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 In this quickstart, you learn how to create an Azure Route Server to peer with a network virtual appliance (NVA) in your virtual network using Azure PowerShell.
 
-:::image type="content" source="media/quickstart-create-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." lightbox="media/quickstart-create-route-server-portal/environment-diagram.png":::
+:::image type="content" source="./media/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell.":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 

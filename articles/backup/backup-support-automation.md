@@ -1,7 +1,7 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 09/11/2024
+ms.date: 02/09/2025
 ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
@@ -28,7 +28,7 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 | Restore | Create a VM from restored disks | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](./tutorial-restore-disk.md#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](/rest/api/backup/restores/trigger). | N/A | N/A | N/A | N/A |
 | Restore | Restore files | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks). | Supported   <br><br> [See the examples](./tutorial-restore-disk.md#create-a-vm-from-the-restored-disk). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-restoreazurevms.md#restore-disks). | N/A | N/A | N/A | N/A |
 | Manage | Monitor jobs | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup). | Supported   <br><br> [See the examples](./tutorial-restore-files.md). | N/A | N/A | N/A | N/A |
-| Manage | Modify backup policy | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#monitoring-a-backup-job). | Supported   <br><br> [See the examples](./quick-backup-vm-cli.md#monitor-the-backup-job). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job). | N/A | N/A | N/A | N/A |
+| Manage | Modify backup policy | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#monitoring-a-backup-job). | Supported   <br><br> [See the examples](./quick-backup-vm-cli.md#monitor-the-backup-job). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-managejobs.md#track-the-job). | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and retain backup data | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#retain-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection#az-backup-protection-disable). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#stop-protection-but-retain-existing-data). | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and delete backup data | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#delete-backup-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection#az-backup-protection-disable). | Supported   <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data). | N/A | N/A | N/A | N/A |
 | Manage | Resume protection | Supported   <br><br> [See the examples](./backup-azure-vms-automation.md#resume-backup).    | Supported    <br><br> [See the examples](/cli/azure/backup/protection#az-backup-protection-resume). | Supported    <br><br> [See the examples](./backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion) | N/A | N/A | N/A | N/A |

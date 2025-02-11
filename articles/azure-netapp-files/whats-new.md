@@ -16,7 +16,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Dual-target replication](cross-zone-region-replication-configure.md) (preview)
 
-    Cross-zone region replication is an extension to cross-region and cross-zone replication. With corss-zone region replication, you can configure two replication targets for the same source volume. You can configure cross-region and cross-zone replication or a combination for the same source volume. This feature is in preview.
+    Cross-zone region replication is an extension to cross-region and cross-zone replication. With cross-zone region replication, you can configure two replication targets for the same source volume. You can configure cross-region and cross-zone replication or a combination for the same source volume. This feature is in preview.
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
 ## December 2024
 
@@ -47,8 +53,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 
