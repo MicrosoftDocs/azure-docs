@@ -35,10 +35,12 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Required permissions
 
-**Here are the required key vault permissions**:
+**Here are the required permissions**:
 
 - Microsoft.OffAzure/*
 - Microsoft.Recoveryservices/*
+
+In a multi-appliance scenario (where multiple appliances are configured to a single vault), AAD apps created by the first appliance should have the configuration user of the subsequent appliances added as an owner.
 
 **Follow these  steps to assign the required permissions**:
 
@@ -58,6 +60,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
   - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The Application Developer role **cannot** be used to enable registration of Microsoft Entra App.
 
+1. In Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners**. Select the user, to add a user as an owner to an AAD app.
 
 ## Prepare infrastructure
 
