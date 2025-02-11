@@ -49,8 +49,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a dataflow
+          - text: Create a data flow
             url: connect-to-cloud/howto-create-dataflow.md
-          - text: Configure dataflow endpoint
+          - text: Configure a data flow endpoint
             url: connect-to-cloud/howto-configure-dataflow-endpoint.md
 
