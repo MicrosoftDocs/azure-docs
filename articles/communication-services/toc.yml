@@ -169,30 +169,84 @@ items:
     href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: SDK features
     href: concepts/email/sdk-features.md
-  - name: Prepare an email resource
-    href: concepts/email/prepare-email-communication-resource.md
-  - name: Simple Mail Transfer Protocol (SMTP) support
-    href: concepts/email/email-smtp-overview.md
-  - name: Inline attachments
-    href: concepts/email/email-attachment-inline.md
-  - name: Supported attachment types
-    href: concepts/email/email-attachment-allowed-mime-types.md
-  - name: Domains
+  - name: Quota increase for email domains
+    href: concepts/email/email-quota-increase.md
+  - name: Provision and confligure
+    items:
+    - name: Prepare an email resource
+      href: concepts/email/prepare-email-communication-resource.md
+    - name: Create an email resource
+      href: quickstarts/email/create-email-communication-resource.md
+    - name: Get a free Azure managed domain
+      href: quickstarts/email/add-azure-managed-domains.md
+    - name: Add a custom domain
+      href: quickstarts/email/add-custom-verified-domains.md
+    - name: Connect domain to send email
+      href: quickstarts/email/connect-email-communication-resource.md
+    - name: Add multiple sender addresses
+      href: quickstarts/email/add-multiple-senders.md
+    - name: Add multiple sender addresses with Management SDKs
+      href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
+    - name: Email resource management
+      href: samples/email-resource-management.md
+  - name: Send email
+    items:
+    - name: Send an email
+      href: quickstarts/email/send-email.md
+    - name: Send email to multiple recipients
+      href: quickstarts/email/send-email-advanced/send-email-to-multiple-recipients.md
+    - name: Manually poll for email status
+      href: quickstarts/email/send-email-advanced/manually-poll-for-email-status.md
+    - name: Simple Mail Transfer Protocol (SMTP)
+      items:
+      - name: SMTP support
+        href: concepts/email/email-smtp-overview.md
+      - name: Set up SMTP authentication
+        href: quickstarts/email/send-email-smtp/smtp-authentication.md
+      - name: Send email using SMTP
+        href: quickstarts/email/send-email-smtp/send-email-smtp.md
+    - name: Attachments
+      items:
+      - name: Inline attachments
+        href: concepts/email/email-attachment-inline.md
+      - name: Supported attachment types
+        href: concepts/email/email-attachment-allowed-mime-types.md
+      - name: Send email with attachments
+        href: quickstarts/email/send-email-advanced/send-email-with-attachments.md
+      - name: Send email with inline attachments
+        href: quickstarts/email/send-email-advanced/send-email-with-inline-attachments.md
+    - name: Advanced features
+      items:
+      - name: Throw an exception when sending tier limit is reached
+        href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
+      - name: Use email object model for payload
+        href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
+  - name: Manage sender reputation
     items:
     - name: Understand sender reputation
       href: concepts/email/sender-reputation-managed-suppression-list.md
     - name: Manage opt-outs
       href: concepts/email/email-optout-management.md
-    - name: Quota increase for email domains
-      href: concepts/email/email-quota-increase.md
+    - name: Manage domain suppression lists with Management SDKs
+      href: quickstarts/email/manage-suppression-list-management-sdks.md
+    - name: Manage domain suppression lists in the Azure portal
+      href: quickstarts/email/manage-suppression-lists.md
     - name: Email domains and sender authentication
       href: concepts/email/email-domain-and-sender-authentication.md
     - name: Best practices for sender authentication support
       href: concepts/email/email-authentication-best-practice.md
     - name: Troubleshooting domain configuration issues
       href: concepts/email/email-domain-configuration-troubleshooting.md
-  - name: Messaging policy
-    href: concepts/sms/messaging-policy.md
+    - name: Messaging policy
+      href: concepts/sms/messaging-policy.md
+  - name: Events
+    items:
+    - name: Overview
+      href: ../event-grid/event-schema-communication-services.md
+    - name: Email events
+      href: ../event-grid/communication-services-email-events.md
+    - name: View email events
+      href: quickstarts/email/handle-email-events.md
   - name: Logging and analytics
     items:
     - name: Enable user engagement tracking
@@ -209,46 +263,6 @@ items:
       href: quickstarts/telemetry-application-insights.md
   - name: Samples and tutorials
     items:
-    - name: Create an email resource
-      href: quickstarts/email/create-email-communication-resource.md
-    - name: Get a free Azure managed domain
-      href: quickstarts/email/add-azure-managed-domains.md
-    - name: Add a custom domain
-      href: quickstarts/email/add-custom-verified-domains.md
-    - name: Connect domain to send email
-      href: quickstarts/email/connect-email-communication-resource.md
-    - name: Email Resource Management
-      href: samples/email-resource-management.md
-    - name: Send email
-      items:
-      - name: Send an email
-        href: quickstarts/email/send-email.md
-      - name: Send email to multiple recipients
-        href: quickstarts/email/send-email-advanced/send-email-to-multiple-recipients.md
-      - name: Send email using Simple Mail Transfer Protocol (SMTP)
-        href: quickstarts/email/send-email-smtp/send-email-smtp.md
-    - name: Send email with attachments
-      href: quickstarts/email/send-email-advanced/send-email-with-attachments.md
-    - name: Send email with inline attachments
-      href: quickstarts/email/send-email-advanced/send-email-with-inline-attachments.md
-    - name: Manually poll for email status
-      href: quickstarts/email/send-email-advanced/manually-poll-for-email-status.md
-    - name: View email events
-      href: quickstarts/email/handle-email-events.md
-    - name: Throw an exception when sending tier limit is reached
-      href: quickstarts/email/send-email-advanced/throw-exception-when-tier-limit-reached.md
-    - name: Use email object model for payload
-      href: quickstarts/email/send-email-advanced/use-email-object-model-for-payload.md
-    - name: Set up Simple Mail Transfer Protocol (SMTP) authentication
-      href: quickstarts/email/send-email-smtp/smtp-authentication.md
-    - name: Add multiple sender addresses
-      href: quickstarts/email/add-multiple-senders.md
-    - name: Add multiple sender addresses with Management SDKs
-      href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
-    - name: Manage domain suppression lists with Management SDKs
-      href: quickstarts/email/manage-suppression-list-management-sdks.md
-    - name: Manage domain suppression lists in the Azure portal
-      href: quickstarts/email/manage-suppression-lists.md
     - name: Detect sensitive data using Azure AI
       href: samples/email-detect-sensitive-content.md
   - name: References
