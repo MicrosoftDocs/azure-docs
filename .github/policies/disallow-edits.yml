@@ -124,6 +124,7 @@ configuration:
 
       - description: Alert authors to edits in the /articles/reliability folder.
         if:
+          # If a PR in the articles/reliability folder was opened or had the ready-to-merge label added, and the PR author isn't Anastasia...
           - payloadType: Pull_Request
           - or:
               - isAction:
@@ -136,7 +137,9 @@ configuration:
           - not:
               - isActivitySender:
                   user: annaharris-ms
+                  issueAuthor: false
         then:
+          # Add the needs-human-review label, remove the ready-to-merge label (if necessary), mention all authors in this folder, and add a reply asking the PR author not to sign off on the PR.
           - addLabel:
               label: needs-human-review
           - removeLabel:
