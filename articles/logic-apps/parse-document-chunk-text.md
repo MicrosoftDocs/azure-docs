@@ -38,7 +38,7 @@ This how-to guide shows how to add and set up these operations in your workflow.
 
 ## Known issues and limitations
 
-The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**][Parse and generate host files from IBM mainframes in Standard workflows](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
+The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
 
 ## Prerequisites
 
