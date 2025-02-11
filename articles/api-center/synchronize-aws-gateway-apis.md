@@ -104,7 +104,8 @@ You can integrate an Amazon API Gateway using the portal or the Azure CLI.
         1. Optionally, select whether to include API definitions with the synchronized APIs.
 1. Select **Create**.
 
-:::image type="content" source="media/synchronize-api-management-apis/link-amazon-api-gateway.png" alt-text="Screenshot of integrating an Amazon API Gateway service in the portal.":::
+
+:::image type="content" source="media/synchronize-aws-gateway-apis/link-aws-gateway-service.png" alt-text="Screenshot of integrating an Amazon API Gateway service in the portal.":::
 
 #### [Azure CLI](#tab/cli)
 
