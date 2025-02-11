@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 08/08/2024
+ms.date: 02/11/2025
 ms.author: greglin
 ---
 
@@ -29,14 +29,18 @@ In the next step, Traffic Manager correlates the user base region to Azure regio
 
 The frequency of Traffic view data update depends on multiple internal service variables. However, the data is updated once every 48 hours.
 
->[!NOTE]
->The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency. Traffic View makes a best effort estimate of the latency between the local DNS resolver and the Azure region the query was routed to, if there is insufficient data available then the latency returned will be null. 
+> [!NOTE]
+> The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency. Traffic View makes a best effort estimate of the latency between the local DNS resolver and the Azure region the query was routed to, if there is insufficient data available then the latency returned will be null. 
 
 ## Visual overview
 
 When you navigate to the **Traffic View** section in your Traffic Manager page, you see a geographical map with an overlay of Traffic View insights. The map provides information about the user base and endpoints for your Traffic Manager profile.
 
 ![Traffic Manager Traffic View Geographic view][1]
+
+> [!NOTE]
+> Traffic View is being retired in Sovereign clouds on March 15, 2025. Traffic View will continue to be available in Public cloud.<br>
+> Retirement of Traffic View in Sovereign clouds is part of our efforts to continuously maintain the highest level of security for customers.
 
 ### User base information
 
@@ -72,21 +76,13 @@ When you use Traffic View, you're billed based on the number of data points used
 ## FAQs
 
 * [What does Traffic View do?](./traffic-manager-faqs.md#what-does-traffic-view-do)
-
 * [How can I benefit from using Traffic View?](./traffic-manager-faqs.md#how-can-i-benefit-from-using-traffic-view)
-
 * [How is Traffic View different from the Traffic Manager metrics available through Azure monitor?](./traffic-manager-faqs.md#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
-
 * [Does Traffic View use EDNS Client Subnet information?](./traffic-manager-faqs.md#does-traffic-view-use-edns-client-subnet-information)
-
 * [How many days of data does Traffic View use?](./traffic-manager-faqs.md#how-many-days-of-data-does-traffic-view-use)
-
 * [How does Traffic View handle external endpoints?](./traffic-manager-faqs.md#how-does-traffic-view-handle-external-endpoints)
-
 * [Do I need to enable Traffic View for each profile in my subscription?](./traffic-manager-faqs.md#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
-
 * [How can I turn off Traffic View?](./traffic-manager-faqs.md#how-can-i-turn-off-traffic-view)
-
 * [How does Traffic View billing work?](./traffic-manager-faqs.md#how-does-traffic-view-billing-work)
 
 ## Next steps
