@@ -15,6 +15,6 @@ ms.topic: include
 | | OpenVPN | macOS | [OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-mac.md) |
 | | OpenVPN | iOS | [OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-ios.md) |
 | | OpenVPN |Linux | [Azure VPN client](../articles/virtual-wan/point-to-site-azure-vpn-client-certificate-linux.md)<br>[OpenVPN client](../articles/virtual-wan/point-to-site-vpn-client-certificate-openvpn-linux.md)|
-| Microsoft Entra ID | OpenVPN | Windows | [Azure VPN client](../articles/virtual-wan/openvpn-azure-ad-client.md) |
+| Microsoft Entra ID | OpenVPN | Windows | [Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-windows.md) |
 |  | OpenVPN | macOS | [Azure VPN client](../articles/virtual-wan/openvpn-azure-ad-client-mac.md) |
 |  | OpenVPN| Linux |[Azure VPN client](../articles/virtual-wan/point-to-site-entra-vpn-client-linux.md) |
