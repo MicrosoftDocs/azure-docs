@@ -110,7 +110,7 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a management group deployment, this means all `resource` declarations in the Bicep file must be deployed to the same management group or as a child or extension resource of a resource in the same management group as the deployment.  
 
-However, this restriction does not apply to [`existing`](./existing-resource.md) resources — you can reference existing resources at a different scope than the deployment.  
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
 To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 

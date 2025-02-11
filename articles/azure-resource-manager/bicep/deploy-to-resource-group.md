@@ -64,7 +64,7 @@ For more detailed information about deployment commands and options for deployin
 
 In a Bicep file, all resources declared with the [`resource`](./resource-declaration.md) keyword must be deployed at the same scope as the deployment. For a resource group deployment, this means all `resource` declarations in the Bicep file must be deployed to the same resource group or as a child or extension resource of a resource in the same resource group as the deployment.  
 
-However, this restriction does not apply to [`existing`](./existing-resource.md) resources — you can reference existing resources at a different scope than the deployment.  
+However, this restriction doesn't apply to [`existing`](./existing-resource.md) resources. You can reference existing resources at a different scope than the deployment.  
 
 To deploy resources at multiple scopes within a single deployment, use [modules](./modules.md). Deploying a module triggers a "nested deployment," allowing you to target different scopes. The user deploying the parent Bicep file must have the necessary permissions to initiate deployments at those scopes.
 
@@ -229,7 +229,7 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 You can deploy to more than one resource group in a single Bicep file.
 
 > [!NOTE]
-> You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
+> You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and doesn't itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
 
 The following example deploys two storage accounts. The first storage account is deployed to the resource group specified in the deployment operation. The second storage account is deployed to the resource group specified in the `secondResourceGroup` and `secondSubscriptionID` parameters:
 
