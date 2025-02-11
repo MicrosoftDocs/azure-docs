@@ -26,7 +26,7 @@ Key characteristics of revisions include:
 
 - **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes create a new revision.
 
-- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit).
+- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit_preview).
 
 - **Multiple revisions**: You can run multiple revisions concurrently. This feature is especially beneficial when you need to manage different versions of your app simultaneously.
 
