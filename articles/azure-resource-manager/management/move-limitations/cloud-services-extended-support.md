@@ -30,6 +30,6 @@ To move classic resources to a new resource group within the same subscription, 
 
 When you move Cloud Services (extended support) deployments to a new subscription, the following restrictions apply:
 
-- For cross-subscription moves, you must move all associated cloud service resources, such as key vault and network resources.
-- If you encounter a Move Resource operation error that states the cloud service can't be moved because of a prior failed operation, create a ticket to resolve the issue. 
+- You must move together all associated cloud service resources, such as key vault and network resources, for cross-subscription moves.
+- You must create a ticket to resolve an error that states the cloud service can't be moved because of a prior failed operation, create a ticket. 
 - Cloud Service must not have any cross-subscription references.
