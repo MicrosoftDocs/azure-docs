@@ -168,7 +168,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |&check; |&check; | Amsterdam2<br/>Berlin<br/>Frankfurt<br/>London2 |
 | **[NTT Indonesia](https://jktix.id/cloud-connect/)** | &check; | &check; | Jakarta |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |&check; |&check; | Osaka |
-| **[Ooredoo Cloud Connect](https://www.ooredoo.com.kw/portal/en/b2bOffConnAzureExpressRoute)** |&check; |&check; | Doha<br/>Doha2<br/>London2<br/>Marseille |
+| **[Ooredoo Cloud Connect](https://www.ooredoo.qa/web/en/business/local-connectivity/multi-cloud/)** |&check; |&check; | Doha<br/>Doha2<br/>London2<br/>Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link/)** |&check; |&check; | Melbourne<br/>Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |&check; |&check; | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin2<br/>Frankfurt<br/>Hong Kong<br/>Johannesburg<br/>London<br/>London2<br/>Mumbai2<br/>Melbourne<br/>Paris<br/>Paris2<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC |
 | **[Orange Poland](https://www.orange.pl/duze-firmy/rozwiazania-chmurowe)** | &check; | &check; | Warsaw |
