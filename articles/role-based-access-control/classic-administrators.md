@@ -14,7 +14,7 @@ ms.reviewer: bagovind
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, the Co-Administrator or Service Administrator roles will no longer have access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, the Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -28,7 +28,7 @@ What happens to classic administrator role assignments after August 31, 2024?
 
 What happens to classic administrator role assignments after April 30, 2025?
 
-- Co-Administrator and Service Administrator roles will no longer have access. If you don't an Owner role at subscription scope, you will lose access to the subscription.
+- Co-Administrator and Service Administrator role assignments will lose access. If you don't have an Owner role assignment at subscription scope, you will lose access to manage the subscription.
 
 How do I know what subscriptions have classic administrators?
 
