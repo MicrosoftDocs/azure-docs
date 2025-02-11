@@ -20,6 +20,7 @@
           "Microsoft.Compute/virtualMachines/*",
           "Microsoft.Compute/virtualMachineScaleSets/*",
           "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/*",
+          "Microsoft.ManagedIdentity/userAssignedIdentities/*/read",
           "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action",
           "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read",
           "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write",
