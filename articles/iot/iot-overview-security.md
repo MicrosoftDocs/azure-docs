@@ -1,12 +1,12 @@
 ---
 title: Security best practices
 description: Security best practices for building, deploying, and operating your IoT solution. Includes recommendations for devices, data, and infrastructure
-author: dominicbetts
+author: asergaz
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 06/20/2024
-ms.author: dobett
+ms.date: 02/11/2025
+ms.author: sergaz
 ---
 
 # Security best practices for IoT solutions

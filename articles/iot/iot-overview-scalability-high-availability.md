@@ -3,10 +3,10 @@ title: IoT solution scalability and high availability
 description: An overview of the scalability, high availability, and disaster recovery options for an IoT solution.
 ms.service: azure-iot
 services: iot
-author: dominicbetts
-ms.author: dobett
+author: asergaz
+ms.author: sergaz
 ms.topic: overview
-ms.date: 06/20/2024
+ms.date: 02/11/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
 ---
