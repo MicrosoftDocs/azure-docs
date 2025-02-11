@@ -170,7 +170,6 @@ configuration:
                     user: johndowns
         then:
           # Add the do-not-merge label, remove the ready-to-merge label, and add a reply asking the PR author not to sign off on the PR.
-          - mentionUsers:
           - addReply:
               reply: >-
                 @${issueAuthor} - Please do NOT sign off on this pull request. The Reliability Hub owners will sign off for you.
