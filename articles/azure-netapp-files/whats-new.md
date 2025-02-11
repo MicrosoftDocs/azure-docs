@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Dual-target replication](cross-zone-region-replication-configure.md) (preview)
 
-    <!-- PLR text -->
+    Cross-zone region replication is an extension to cross-region and cross-zone replication. With corss-zone region replication, you can configure two replication targets for the same source volume. You can configure cross-region and cross-zone replication or a combination for the same source volume. This feature is in preview.
 
 ## December 2024
 
