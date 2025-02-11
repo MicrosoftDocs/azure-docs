@@ -1557,7 +1557,7 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
 ```
 ## Locks Contributor
 
-Lets you manage locks operations
+Manage locks operations.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
