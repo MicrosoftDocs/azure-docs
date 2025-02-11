@@ -10,7 +10,7 @@ configuration:
           - payloadType: Pull_Request
           - isAction:
               action: Opened
-          - or:              
+          - or:
               - filesMatchPattern:
                   matchAny: true
                   pattern: articles/aks/*
@@ -121,4 +121,51 @@ configuration:
               reply: >-
                 @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service.
           - closePullRequest
-          
+
+      - description: Alert authors to edits in the /articles/reliability folder.
+        if:
+          - payloadType: Pull_Request
+          - or:
+              - isAction:
+                  action: Opened
+              - labelAdded:
+                  label: ready-to-merge
+          - filesMatchPattern:
+              matchAny: true
+              pattern: articles/reliability/*
+          - not:
+              - isActivitySender:
+                  user: annaharris-ms
+        then:
+          - addLabel:
+              label: needs-human-review
+          - removeLabel:
+              label: ready-to-merge
+          - mentionUsers:
+              mentionees:
+                - annaharris-ms
+                - AbdullahBell
+                - jfaurskov
+                - maud-lv
+                - vladai78
+                - RoseHJM
+                - dlepow
+                - nzthiago
+                - whhender
+                - adishachar
+                - surbhijain
+                - jovinson-ms
+                - roygara
+                - craigshoemaker
+                - mattgotteiner
+                - paulinbar
+                - sethmanheim
+                - johnmic
+                - gkasar
+                - tomvcassidy
+              replyTemplate: >-
+                Tagging authors for this folder: ${mentionees}
+          - addReply:
+              reply: >-
+                @${issueAuthor} - Please do NOT sign off on this pull request. The article author will sign off for you.
+
