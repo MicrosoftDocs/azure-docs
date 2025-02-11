@@ -82,7 +82,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 # [**CLI**](#tab/cli)
 
-Use [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) to create a public IP address for the NAT gateway. 
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the NAT gateway. 
 
 ```azurecli-interactive
 az network public-ip create \
@@ -93,7 +93,7 @@ az network public-ip create \
     --zone 1 2 3
 ```
 
-Use [az network nat gateway create](/cli/azure/network/nat-gateway?view=azure-cli-latest#az_network_nat_gateway_create) to create the NAT gateway.
+Use [az network nat gateway create](/cli/azure/network/nat-gateway#az_network_nat_gateway_create) to create the NAT gateway.
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -187,7 +187,7 @@ It takes a few minutes for the bastion host to deploy. When the virtual network 
 
 # [**CLI**](#tab/cli)
 
-Use [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az_network_vnet_create) to create the virtual network.
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
 ```azurecli-interactive
 az network vnet create \
@@ -197,7 +197,7 @@ az network vnet create \
     --location eastus2
 ```
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_create) to create the subnets.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnets.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -220,7 +220,7 @@ az network vnet subnet create \
     --nat-gateway nat-gateway
 ```
 
-Use [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az_network_public_ip_create) to create a public IP address for the Azure Bastion host.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the Azure Bastion host.
 
 ```azurecli-interactive
 # Create public IP for Bastion
@@ -231,7 +231,7 @@ az network public-ip create \
     --allocation-method Static
 ```
 
-Use [az network bastion create](/cli/azure/network/bastion?view=azure-cli-latest#az_network_bastion_create) to create the Azure Bastion host.
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the Azure Bastion host.
 
 ```azurecli-interactive
 az network bastion create \
@@ -298,7 +298,7 @@ The simulated NVA acts as a virtual appliance to route all traffic between the s
 
 # [**CLI**](#tab/cli)
 
-Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az_network_nsg_create) to create the network security group.
+Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
 ```azurecli-interactive
 az network nsg create \
@@ -307,7 +307,7 @@ az network nsg create \
     --location eastus2
 ```
 
-Use [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_create) to create the network interface.
+Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
 ```azurecli-interactive
 az network nic create \
@@ -318,7 +318,7 @@ az network nic create \
     --network-security-group nsg-nva
 ```
 
-Use [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) to create the virtual machine.
+Use [az vm create](/cli/azure/vm#az_vm_create) to create the virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -389,7 +389,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 # [**CLI**](#tab/cli)
 
-Use [az network nic update](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_update) to enable IP forwarding on the primary network interface.
+Use [az network nic update](/cli/azure/network/nic#az_network_nic_update) to enable IP forwarding on the primary network interface.
 
 ```azurecli-interactive
 az network nic update \
@@ -398,7 +398,7 @@ az network nic update \
     --ip-forwarding true
 ```
 
-Use [az network nic ip-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az_network_nic_ip_config_update) to statically set the private IP address of the virtual machine.
+Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) to statically set the private IP address of the virtual machine.
 
 ```azurecli-interactive
 az network nic ip-config update \
@@ -409,7 +409,7 @@ az network nic ip-config update \
     --private-ip-address-version IPv4
 ```
 
-Use [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_create) to create the secondary network interface.
+Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the secondary network interface.
 
 ```azurecli-interactive
 az network nic create \
@@ -420,7 +420,7 @@ az network nic create \
     --private-ip-address 10.0.0.10
 ```
 
-Use [az vm nic add](/cli/azure/vm/nic?view=azure-cli-latest#az_vm_nic_add) to attach the secondary network interface to the virtual machine.  The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add) to attach the secondary network interface to the virtual machine.  The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurecli-interactive
 az vm nic add \
@@ -571,7 +571,7 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
 # [**CLI**](#tab/cli)
 
-Use [az network route-table create](/cli/azure/network/route-table?view=azure-cli-latest#az_network_route_table_create) to create the route table.
+Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
 ```azurecli-interactive
 az network route-table create \
@@ -580,7 +580,7 @@ az network route-table create \
     --location eastus2
 ```
 
-Use [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create) to create the route in the route table.
+Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -592,7 +592,7 @@ az network route-table route create \
     --next-hop-ip-address 10.0.0.10
 ```
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) to associate the route table with the subnet.
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -658,7 +658,7 @@ Create another virtual network in a different region for the first spoke of the 
 
 # [**CLI**](#tab/cli)
 
-Use [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az_network_vnet_create) to create the virtual network.
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
 ```azurecli-interactive
 az network vnet create \
@@ -668,7 +668,7 @@ az network vnet create \
     --location southcentralus
 ```
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_create) to create the subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnet.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -724,7 +724,7 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 # [**CLI**](#tab/cli)
 
-Use [az network vnet peering create](/cli/azure/network/vnet/peering?view=azure-cli-latest#az_network_vnet_peering_create) to create the peering from the hub to spoke one.
+Use [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) to create the peering from the hub to spoke one.
 
 ```azurecli-interactive
 # Create peering from hub to spoke one
@@ -811,7 +811,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 # [**CLI**](#tab/cli)
 
-Use [az network route-table create](/cli/azure/network/route-table?view=azure-cli-latest#az_network_route_table_create) to create the route table.
+Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
 ```azurecli-interactive
 az network route-table create \
@@ -820,7 +820,7 @@ az network route-table create \
     --location southcentralus
 ```
 
-Use [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create) to create the route in the route table.
+Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -832,7 +832,7 @@ az network route-table route create \
     --next-hop-ip-address 10.0.0.10
 ```
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) to associate the route table with the subnet.
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -901,7 +901,7 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 # [**CLI**](#tab/cli)
 
-Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az_network_nsg_create) to create the network security group.
+Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
 ```azurecli-interactive
 az network nsg create \
@@ -910,7 +910,7 @@ az network nsg create \
     --location eastus2
 ```
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -924,7 +924,7 @@ az network nsg rule create \
     --destination-port-ranges 80
 ```
 
-Use [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_create) to create the network interface.
+Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
 ```azurecli-interactive
 az network nic create \
@@ -935,7 +935,7 @@ az network nic create \
     --network-security-group nsg-spoke-1
 ```
 
-Use [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) to create the Windows Server 2022 virtual machine.
+Use [az vm create](/cli/azure/vm#az_vm_create) to create the Windows Server 2022 virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -994,7 +994,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 # [**CLI**](#tab/cli)
 
-Use [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_set) to install IIS on the virtual machine.
+Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machine.
 
 ```azurecli-interactive
 az vm extension set \
@@ -1062,7 +1062,7 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 # [**CLI**](#tab/cli)
 
-Use [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az_network_vnet_create) to create the virtual network.
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
 ```azurecli-interactive
 az network vnet create \
@@ -1072,7 +1072,7 @@ az network vnet create \
     --location westus2
 ```
 
-Use [az network vnet subnet create](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_create) to create the subnet.
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnet.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -1136,7 +1136,7 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 # [**CLI**](#tab/cli)
 
-Use [az network vnet peering create](/cli/azure/network/vnet/peering?view=azure-cli-latest#az_network_vnet_peering_create) to create the peering from the hub to spoke two.
+Use [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) to create the peering from the hub to spoke two.
 
 ```azurecli-interactive
 # Create peering from hub to spoke two
@@ -1223,7 +1223,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 # [**CLI**](#tab/cli)
 
-Use [az network route-table create](/cli/azure/network/route-table?view=azure-cli-latest#az_network_route_table_create) to create the route table.
+Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
 ```azurecli-interactive
 az network route-table create \
@@ -1232,7 +1232,7 @@ az network route-table create \
     --location westus2
 ```
 
-Use [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create) to create the route in the route table.
+Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -1244,7 +1244,7 @@ az network route-table route create \
     --next-hop-ip-address 10.0.0.10
 ```
 
-Use [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) to associate the route table with the subnet.
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -1312,7 +1312,7 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 # [**CLI**](#tab/cli)
 
 
-Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az_network_nsg_create) to create the network security group.
+Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
 ```azurecli-interactive
 az network nsg create \
@@ -1321,7 +1321,7 @@ az network nsg create \
     --location eastus2
 ```
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -1335,7 +1335,7 @@ az network nsg rule create \
     --destination-port-ranges 80
 ```
 
-Use [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_create) to create the network interface.
+Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
 ```azurecli-interactive
 az network nic create \
@@ -1346,7 +1346,7 @@ az network nic create \
     --network-security-group nsg-spoke-2
 ```
 
-Use [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) to create the Windows Server 2022 virtual machine.
+Use [az vm create](/cli/azure/vm#az_vm_create) to create the Windows Server 2022 virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -1405,7 +1405,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 # [**CLI**](#tab/cli)
 
-Use [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_set) to install IIS on the virtual machine.
+Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machine.
 
 ```azurecli-interactive
 az vm extension set \
@@ -1527,7 +1527,7 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 
 # [**CLI**](#tab/cli)
 
-Use [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) to delete the resource group.
+Use [az group delete](/cli/azure/group#az_group_delete) to delete the resource group.
 
 ```azurecli-interactive
 az group delete \
