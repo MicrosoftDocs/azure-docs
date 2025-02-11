@@ -254,7 +254,7 @@ Get the state summary for the topmost assigned policy with the highest number of
 Get-AzPolicyStateSummary -Top 1
 ```
 
-Get the state record for the most recently evaluated resource and the output default is by timestamp in descending order.
+Get the state record for the most recently evaluated resource. The output default is by timestamp in descending order.
 
 ```azurepowershell-interactive
 Get-AzPolicyState -Top 1
