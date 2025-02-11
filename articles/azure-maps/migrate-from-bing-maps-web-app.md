@@ -1738,8 +1738,8 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Microsoft.Maps.Traffic]: /bingmaps/v8-web-control/modules/traffic-module/
 [Microsoft.Maps.SpatialMath]: /bingmaps/v8-web-control/modules/spatial-math-module/
 [ng-azure-maps]: https://github.com/arnaudleclerc/ng-azure-maps
-[open-source Azure Maps Web SDK modules]: open-source-projects.md#-source-web-sdk-modules
-[open-source modules for the web SDK]: open-source-projects.md#-source-web-sdk-modules
+[open-source Azure Maps Web SDK modules]: open-source-projects.md#open-source-web-sdk-modules
+[open-source modules for the web SDK]: open-source-projects.md#open-source-web-sdk-modules
 [Overlay a tile layer]: #overlay-a-tile-layer
 [Overlay an image]: map-add-image-layer.md
 [Polygon layer options]: /javascript/api/azure-maps-control/atlas.polygonlayeroptions
