@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.custom: references_regions
+## ms.custom: references_regions
 ms.date: 12/19/2024
 ms.author: anfdocs
 ---
@@ -13,6 +13,8 @@ ms.author: anfdocs
 # Configure cross-tenant customer-managed keys for Azure NetApp Files volume encryption (preview)
 
 Cross-tenant customer-managed keys (CMK) for Azure NetApp Files volume encryption allows service providers based on Azure to offer [customer-managed key encryption](configure-customer-managed-keys.md). In the cross-tenant scenario, the NetApp account resides in a tenant managed by an independent software vendor, while the key used for encryption of volumes in that NetApp account resides in a key vault in a tenant that you manage.
+
+Cross-tenant CMK is supported in all regions where Azure NetApp Files is supported. 
 
 ## Understand cross-tenant customer-managed keys
 
@@ -30,6 +32,8 @@ Following these steps, you install the service provider's application in your te
 
 With these three parameters, the service provider provisions Azure resources in tenant 1 that can be encrypted with the customer-managed key in tenant 2. 
 
+
+<!--
 ## Supported regions 
 
 Azure NetApp Files cross-tenant customer-managed keys for volume encryption is supported for the following regions:
@@ -77,6 +81,7 @@ Azure NetApp Files cross-tenant customer-managed keys for volume encryption is s
 - West US 
 - West US 2 
 - West US 3 
+-->
 
 ## Register the feature 
 
