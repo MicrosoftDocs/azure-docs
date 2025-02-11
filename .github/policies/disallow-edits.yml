@@ -124,16 +124,13 @@ configuration:
 
       - description: Alert authors to edits in the /articles/reliability folder.
         if:
-          # If a PR in the articles/reliability folder was opened or had the ready-to-merge label added, and the PR author isn't Anastasia or John...
+          # If a PR in the articles/reliability folder is opened, and the PR author isn't Anastasia or John...
           - payloadType: Pull_Request
-          - or:
-              - isAction:
-                  action: Opened
-              - labelAdded:
-                  label: ready-to-merge
           - filesMatchPattern:
               matchAny: true
               pattern: articles/reliability/*
+          - isAction:
+              action: Opened
           - not:
               or:
                 - isActivitySender:
@@ -141,7 +138,7 @@ configuration:
                 - isActivitySender:
                     user: johndowns
         then:
-          # Add the needs-human-review label, remove the ready-to-merge label (if necessary), mention Anastasia and John, and add a reply asking the PR author not to sign off on the PR.
+          # Mention Anastasia and John, add a reply asking the PR author not to sign off on the PR, and add the needs-human-review label.
           - mentionUsers:
               mentionees:
                 - anaharris-ms
@@ -150,9 +147,35 @@ configuration:
                 Tagging authors for this folder: ${mentionees}
           - addReply:
               reply: >-
-                @${issueAuthor} - Please do NOT sign off on this pull request. The article author will sign off for you.
+                @${issueAuthor} - Please do NOT sign off on this pull request. The Reliability Hub owners will sign off for you.
           - addLabel:
               label: needs-human-review
+
+      - description: Disallow sign-off for articles in the /articles/reliability folder.
+        if:
+          # If a 'sign-off' comment is added to a PR in the articles/reliability folder , and the PR author isn't Anastasia or John...
+          - payloadType: Issue_Comment
+          - isPullRequest
+          - filesMatchPattern:
+              matchAny: true
+              pattern: articles/reliability/*
+          - commentContains:
+              pattern: \#sign-off
+              isRegex: false
+          - not:
+              or:
+                - isActivitySender:
+                    user: anaharris-ms
+                - isActivitySender:
+                    user: johndowns
+        then:
+          # Add the do-not-merge label, remove the ready-to-merge label, and add a reply asking the PR author not to sign off on the PR.
+          - mentionUsers:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - Please do NOT sign off on this pull request. The Reliability Hub owners will sign off for you.
+          - addLabel:
+              label: do-not-merge
           - removeLabel:
               label: ready-to-merge
 
