@@ -4,14 +4,14 @@ ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 01/22/2025
+ms.date: 02/11/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) on Linux provides pre-defined application stacks on Linux with support for languages such as .NET, Java, Node.js, PHP, and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Azure Container Registry to Azure App Service.
+[Azure App Service](../../overview.md) on Linux provides predefined application stacks on Linux with support for languages such as .NET, Java, Node.js, PHP, and others. You can also use a custom Docker image to run your web app on an application stack that isn't already defined in Azure. This quickstart shows you how to deploy an image from Azure Container Registry to Azure App Service.
 
 > [!NOTE]
-> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
+> For information regarding running containerized applications in a serverless environment, see [Container Apps](../../../container-apps/overview.md).
 >
 
 To complete this quickstart, you need:
@@ -21,7 +21,7 @@ To complete this quickstart, you need:
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Docker](https://www.docker.com/community-edition)
 
-## 1 - Clone the sample repository
+## Clone the sample repository
 
 Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world) with the following command:
 
@@ -29,23 +29,23 @@ Clone the [the .NET 6.0 sample app](https://github.com/Azure-Samples/dotnetcore-
 git clone https://github.com/Azure-Samples/dotnetcore-docs-hello-world.git
 ```
 
-## 2 - Push the image to Azure Container Registry
+## Push the image to Azure Container Registry
 
 Make sure you are in the cloned repository's root folder. This repository contains a **Dockerfile.linux** file.
 
-1. Log in to the Azure CLI.
+1. Sign in to the Azure CLI.
 
     ```azurecli
     az login
     ```
 
-1. Log in to Azure Container Registry.
+1. Sign in to Azure Container Registry.
 
     ```azurecli
     az acr login -n <your_registry_name>
     ```
 
-1. Build the container image. We are naming the image **dotnetcore-docs-hello-world-linux**.
+1. Build the container image. This example uses the image name **dotnetcore-docs-hello-world-linux**.
 
     ```docker
     docker build -f Dockerfile.linux -t <your_registry_name>.azurecr.io/dotnetcore-docs-hello-world-linux . 
@@ -60,7 +60,7 @@ Make sure you are in the cloned repository's root folder. This repository contai
     > [!NOTE]
     > The Dockerfile sets the port number to 80 internally. For more information about configuring the container, see [Configure custom container](../../configure-custom-container.md).
 
-## 3 - Deploy to Azure
+## Deploy to Azure
 
 ### Sign in to Azure portal
 
@@ -80,7 +80,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Linux* for the **Operating System**. Select a **Region** you want to serve your app from.
 
-    :::image type="content" source="../../media/quickstart-custom-container/instance-details-linux.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+    :::image type="content" source="../../media/quickstart-custom-container/instance-details-linux.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
@@ -105,13 +105,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
-## 4 - Browse to the app
+## Browse to the app
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
 :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-linux.png" alt-text="Screenshot showing the deployed application.":::
 
-## 5 - Clean up resources
+## Clean up resources
 
 [!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
