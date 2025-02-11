@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Run a local SLM in a sidecar container'
-description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
+description: Learn how to run local SLM inferencing for your web app in a sidecar container, and separate your web app and your AI model for operational efficiency.
 ms.topic: tutorial
 ms.date: 02/20/2025
 ms.author: cephalin
@@ -10,7 +10,9 @@ keywords: azure app service, web app, linux, windows, docker, sidecar, ai, chat 
 
 # Run a local SLM in a sidecar container in Azure App Service
 
-This tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container.
+This tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. When you're finished, you have a fashion assistant chat application running in App Service and accessing a model locally.
+
+:::image type="content" source="media/tutorial-sidecar-local-slm/rag-app-slm-sidecar.png" alt-text="An image showing a fashion assistant chat app in App Service.":::
 
 You would want to run an SLM locally if you want to run a chatbot application but don't want to send your business data over the internet to a cloud chatbot provider. 
 
