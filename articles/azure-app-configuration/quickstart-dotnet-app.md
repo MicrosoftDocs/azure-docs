@@ -55,65 +55,52 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
 1. Update the *App.config* file of your project as follows. You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
-The `DefaultAzureCredential` is used to authenticate to your App Configuration store by default. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
-
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    The `DefaultAzureCredential` is used to authenticate to your App Configuration store by default. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    
     ```xml
     <configSections>
         <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
     </configSections>
-
+    
     <configBuilders>
         <builders>
             <add name="MyConfigStore" mode="Greedy" endpoint="${Endpoint}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
             <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
         </builders>
     </configBuilders>
-
+    
     <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
         <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
     </appSettings>
     ```
-
-   The endpoint value of your App Configuration store is read from the environment variable `Endpoint`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
-
-1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
-
-    ```csharp
-    static void Main(string[] args)
-    {
-        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
-
-        Console.WriteLine(message);
-        Console.ReadKey();
-    }
-    ```
-
-### [Connection string](#tab/connection-string)
-
-1. Update the *App.config* file of your project as follows:
-
+    
+    The endpoint value of your App Configuration store is read from the environment variable `Endpoint`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+    
+    ### [Connection string](#tab/connection-string)
+    
     ```xml
     <configSections>
         <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
     </configSections>
-
+    
     <configBuilders>
         <builders>
             <add name="MyConfigStore" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
             <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
         </builders>
     </configBuilders>
-
+    
     <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
         <add key="ConnectionString" value ="Set via an environment variable - for example, dev, test, staging, or production connection string." />
     </appSettings>
     ```
-
-   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+    
+    The connection string of your App Configuration store is read from the environment variable `ConnectionString`. You also add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+    ---
 
 1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
@@ -126,7 +113,6 @@ The `DefaultAzureCredential` is used to authenticate to your App Configuration s
         Console.ReadKey();
     }
     ```
----
 
 ## Build and run the app
 
