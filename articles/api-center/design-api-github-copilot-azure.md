@@ -66,7 +66,7 @@ Use the Azure API Center extension for VS Code to register the API in your API c
 
 After the API is registered, you can perform various tasks using the extension. For example, [view API documentation](discover-apis-vscode-extension.md#view-api-documentation) in the Swagger UI:
 
-1. Expand the API Center tree view to select the definition for the API version that your registered.
+1. Expand the API Center tree view to select the definition for the API version that you registered.
 
 1. Right-click on the definition, and select **Open API Documentation**. A new tab appears with the Swagger UI for the API definition.
 
