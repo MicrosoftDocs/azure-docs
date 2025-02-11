@@ -137,7 +137,7 @@ configuration:
           - not:
               - isActivitySender:
                   user: annaharris-ms
-                  issueAuthor: false
+                  issueAuthor: False
         then:
           # Add the needs-human-review label, remove the ready-to-merge label (if necessary), mention all authors in this folder, and add a reply asking the PR author not to sign off on the PR.
           - addLabel:
