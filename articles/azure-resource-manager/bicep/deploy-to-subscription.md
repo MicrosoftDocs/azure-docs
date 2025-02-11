@@ -155,7 +155,7 @@ To deploy resources at multiple scopes within a single deployment, use [modules]
 You can deploy a resource from within a subscription scope Bicep file at the following scopes:
 
 * [The same subscription](#scope-to-subscription)
-* [Other subscriptions](#score-to-subscription)
+* [Other subscriptions](#scope-to-subscription)
 * [The resource group](#scope-to-resource-group)
 * [The tenant](#scope-to-tenant)
 
