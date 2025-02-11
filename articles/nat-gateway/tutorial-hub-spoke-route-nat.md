@@ -1137,6 +1137,28 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 # [**CLI**](#tab/cli)
 
+Use [az network vnet peering create](/cli/azure/network/vnet/peering?view=azure-cli-latest#az_network_vnet_peering_create) to create the peering from the hub to spoke two.
+
+```azurecli-interactive
+# Create peering from hub to spoke two
+az network vnet peering create \
+    --name vnet-hub-to-vnet-spoke-2 \
+    --resource-group test-rg \
+    --vnet-name vnet-hub \
+    --remote-vnet vnet-spoke-2 \
+    --allow-vnet-access \
+    --allow-forwarded-traffic
+
+# Create peering from spoke two to hub
+az network vnet peering create \
+    --name vnet-spoke-2-to-vnet-hub \
+    --resource-group test-rg \
+    --vnet-name vnet-spoke-2 \
+    --remote-vnet vnet-hub \
+    --allow-vnet-access \
+    --allow-forwarded-traffic
+```
+
 ---
 
 ## Create spoke two network route table
