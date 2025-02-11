@@ -1,6 +1,76 @@
 {
   "redirections": [
     {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-deploy-sample-module-marketplace.md",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/setup-sso.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/setup-sso",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/troubleshoot.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/troubleshoot",
+       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/hdinsight-aks/index.yml",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/hdinsight-aks/flink/index.md",
+      "redirect_url": "/previous-versions/azure/hdinsight-aks/flink/flink-overview",
+      "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/prerequisites-subscription.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-prerequisites-subscription",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/release-notes/index.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/release-notes/hdinsight-aks-release-notes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/prerequisites-resources.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-prerequisites-resources",
+        "redirect_document_id": false
+    },    
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/spark/index.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/spark/hdinsight-on-aks-spark-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/get-started.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/quickstart-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight-aks/trino/index.md",
+        "redirect_url": "/previous-versions/azure/hdinsight-aks/trino/trino-overview ",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight-aks/cluster-storage.md",
       "redirect_url": "/previous-versions/azure/hdinsight-aks/cluster-storage",
       "redirect_document_id": false
@@ -1021,6 +1091,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/operator-call-protection/index.yml",
+      "redirect_url": "https://learn.microsoft.com",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/operator-5g-core/index.yml",
       "redirect_url": "https://learn.microsoft.com",
       "redirect_document_id": false
@@ -1811,6 +1886,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-app-configuration/use-feature-flags-dotnet-core.md",
+      "redirect_url": "/azure/azure-app-configuration/feature-management-dotnet-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/considerations-for-deployment.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/considerations-for-deployment",
       "redirect_document_id": false
@@ -1973,6 +2053,21 @@
     {
       "source_path_from_root": "/articles/azure-classic-rm.md",
       "redirect_url": "./azure-resource-manager/management/deployment-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-add-output-binding-storage-queue-java.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-cli?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-arc-custom-container.md",
+      "redirect_url": "/azure/azure-functions/functions-how-to-custom-container?pivots=azure-arc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-arc-cli.md",
+      "redirect_url": "/azure/azure-functions/functions-how-to-custom-container?pivots=azure-arc",
       "redirect_document_id": false
     },
     {
@@ -5152,6 +5247,11 @@
     {
       "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
       "redirect_url": "/azure/virtual-wan/global-hub-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-wan/howto-openvpn-clients.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3",
       "redirect_document_id": false
     },
     {
