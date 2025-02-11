@@ -47,7 +47,7 @@ These public endpoints are required for Azure's underlying SDN and management pl
 
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic. 
+No. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic. 
 
 You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network will continue to function. IPv6 connectivity with this peered virtual network is not supported. 
 
