@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure CLI
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure CLI. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can also perform these steps with Azure PowerShell or in the Azure portal.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure CLI. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can also perform these steps with [Azure PowerShell](quick-backup-azure-files-vault-tier-powershell.md) or in the [Azure portal](quick-backup-azure-files-vault-tier-portal.md).
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backups offer an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions. You can:
 
@@ -41,7 +41,7 @@ Before you configure vaulted backup for Azure Files, ensure that the following p
 
 - Allow **Azure services on the trusted services list**  in the **Firewall settings** to access the storage account, if access is restricted. Learn [how to grant an exception](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions).
 - Use an existing Recovery Services vault. If you don't have the vault, [create one](backup-afs-cli.md#create-a-recovery-services-vault).
-- [Create a Backup policy](manage-afs-backup-cli.md#create-policy) for the backup operation.
+- [Create a Backup policy](manage-afs-backup-cli.md?tabs=vault-standard#create-a-backup-policy) for the backup operation.
 
 ## Configure backup
 
@@ -95,8 +95,8 @@ output
 
 ## Next step
 
-- [Restore Azure file shares using CLI](restore-afs-cli.md)
-- [Manage Azure file share backups using CLI](manage-afs-backup-cli.md)
+- [Restore Azure Files using CLI](restore-afs-cli.md)
+- [Manage Azure Files backups using CLI](manage-afs-backup-cli.md?tabs=vault-standard)
 
 
  
