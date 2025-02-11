@@ -2,7 +2,7 @@
 title: Move Azure resources to a new resource group or subscription
 description: Learn how to move resources to a new resource group or subscription, and understand the steps to ensure a successful move operation.
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.date: 02/11/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -120,9 +120,9 @@ Some important steps precede moving a resource. You can avoid errors if you veri
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a virtual machine with managed disks requires you to move the virtual machine, managed disks, and other dependent resources together.
 
-If you're moving a resource to a new subscription, check if the resource has any dependent resources and if they're located in the same resource group. If the resources aren't in the same resource group, check if you can combine them into the same resource group. If you can, use one move operation across resource groups to consolidate all the resources into the same resource group.
+    If you're moving a resource to a new subscription, check if the resource has any dependent resources and if they're located in the same resource group. If the resources aren't in the same resource group, check if you can combine them into the same resource group. If you can, use one move operation across resource groups to consolidate all the resources into the same resource group.
 
-    To learn more, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
+    For more information, see [Scenario for move across subscriptions](#scenario-for-moving-across-subscriptions).
 
 ## Scenario for moving across subscriptions
 
