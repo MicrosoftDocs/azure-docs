@@ -39,6 +39,12 @@ In this tutorial, you learn how to:
 
 # [**CLI**](#tab/cli)
 
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
 ---
 
 ## Create a NAT gateway
@@ -93,7 +99,7 @@ az network public-ip create \
     --zone 1 2 3
 ```
 
-Use [az network nat gateway create](/cli/azure/network/nat-gateway#az_network_nat_gateway_create) to create the NAT gateway.
+Use [az network nat gateway create](/cli/azure/network/nat/gateway#az_network_nat_gateway_create) to create the NAT gateway.
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -318,7 +324,7 @@ az network nic create \
     --network-security-group nsg-nva
 ```
 
-Use [az vm create](/cli/azure/vm#az_vm_create) to create the virtual machine.
+Use [az vm create](/cli/azure/vm#az_vm_create) to create the virtual machine. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurecli-interactive
 az vm create \
@@ -420,7 +426,7 @@ az network nic create \
     --private-ip-address 10.0.0.10
 ```
 
-Use [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add) to attach the secondary network interface to the virtual machine.  The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add) to attach the secondary network interface to the virtual machine.
 
 ```azurecli-interactive
 az vm nic add \
@@ -1433,7 +1439,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **public-ip-nat**.
 
-1. Make note of value in **IP address**. The example used in this article is **203.0.113.79**.
+1. Make note of value in **IP address**. The example used in this article is **203.0.113.25**.
 
 ### Test NAT gateway from spoke one
 
