@@ -294,7 +294,7 @@ To create a backup policy for Azure Files Vault-Standard tier, run the following
     (azcli) C:\Users\testuser\Downloads\CLIForAFS\azure-cli>az backup policy create -g myResourceGroup  -v afsbugbashvault --policy vaultdemopol.json  --name vaultpol --backup-management-type AzureStorage
     {
       "eTag": null,
-      "id": "/subscriptions/62b829ee-7936-40c9-a1c9/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupPolicies/vaultpol",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup /providers/Microsoft.RecoveryServices/vaults/ myRecoveryServicesVault  /backupPolicies/vaultpol",
       "location": null,
       "name": "vaultpol",
       "properties": {
