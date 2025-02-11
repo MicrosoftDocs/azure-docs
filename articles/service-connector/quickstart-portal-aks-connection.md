@@ -1,8 +1,9 @@
 ---
-title: Create a service connection in AKS from the Azure portal
+title: Create a service connection in Azure Kubernetes Service (AKS) from the Azure portal
 description: Quickstart showing how to create a service connection in Azure Kubernetes Service (AKS) from the Azure portal
 author: houk-ms
 ms.author: honc
+ms.reviewer: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 01/28/2025

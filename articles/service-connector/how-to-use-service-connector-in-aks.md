@@ -1,7 +1,8 @@
 ---
-title: How to use Service Connector in AKS
+title: How to use Service Connector in Azure Kubernetes Service (AKS)
 description: Learn how to use Service Connector to connect AKS to other Azure services. Learn about Service Connector operations, resource management, and troubleshooting.
 author: houk-ms
+ms.reviewer: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.date: 02/06/2025
@@ -127,19 +128,19 @@ The Service Connector Kubernetes extension is built on top of [Azure Arc-enabled
 
 1. Install the `k8s-extension` Azure CLI extension.
 
-  ```azurecli
-  az extension add --name k8s-extension
-  ```
+    ```azurecli
+    az extension add --name k8s-extension
+    ```
 
 1. Retrieve the status of the Service Connector extension. Check the `statuses` property in the command output to identify any errors.
 
-  ```azurecli
-  az k8s-extension show \
-      --resource-group MyClusterResourceGroup \
-      --cluster-name MyCluster \
-      --cluster-type managedClusters \
-      --name sc-extension
-  ```
+    ```azurecli
+    az k8s-extension show \
+        --resource-group MyClusterResourceGroup \
+        --cluster-name MyCluster \
+        --cluster-type managedClusters \
+        --name sc-extension
+    ```
 
 ### Check Kubernetes cluster logs
 
@@ -147,44 +148,44 @@ If an error occurs during the extension installation and the error message in th
 
 1. Connect to your AKS cluster.
 
-   ```azurecli
-   az aks get-credentials \
-       --resource-group MyClusterResourceGroup \
-       --name MyCluster
-   ```
-1. The Service Connector extension is installed in the `sc-system` namespace using a Helm chart. Check the namespace and the Helm release uding the following commands.
+    ```azurecli
+    az aks get-credentials \
+        --resource-group MyClusterResourceGroup \
+        --name MyCluster
+    ```
+1. The Service Connector extension is installed in the `sc-system` namespace using a Helm chart. Check the namespace and the Helm release using the following commands.
 
    - Check the namespace exists.
 
-   ```Bash
-   kubectl get ns
-   ```
+      ```Bash
+      kubectl get ns
+      ```
 
    - Check the helm release status.
 
-   ```Bash
-   helm list -n sc-system
-   ```
+      ```Bash
+      helm list -n sc-system
+      ```
 
 1. During the extension installation or update, a Kubernetes job called `sc-job` creates the Kubernetes resources for the service connection. A job execution failure typically causes the extension to fail. Check the job status by running the following commands. If `sc-job` doesn't exist in the `sc-system` namespace, it should have been executed successfully. This job is designed to be automatically deleted after successful execution.
 
    - Check the job exists.
 
-   ```Bash
-   kubectl get job -n sc-system
-   ```
+      ```Bash
+      kubectl get job -n sc-system
+      ```
 
    - Get the job status.
 
-   ```Bash
-   kubectl describe job/sc-job -n sc-system
-   ```
+      ```Bash
+      kubectl describe job/sc-job -n sc-system
+      ```
 
    - View the job logs.
 
-   ```Bash
-   kubectl logs job/sc-job -n sc-system
-   ```
+      ```Bash
+      kubectl logs job/sc-job -n sc-system
+      ```
 
 ### Common errors and mitigations
 
@@ -229,9 +230,9 @@ This error typically occurs when attempting to create a service connection while
 1. Ensure your cluster is in a "Succeeded" state and retry the creation.
 1. Run the following command to make sure your subscription is registered with the `Microsoft.KubernetesConfiguration` resource provider.
 
-  ```azurecli
-  az provider register -n Microsoft.KubernetesConfiguration
-  ```
+    ```azurecli
+    az provider register -n Microsoft.KubernetesConfiguration
+    ```
 
 #### Unauthorized resource access
 
