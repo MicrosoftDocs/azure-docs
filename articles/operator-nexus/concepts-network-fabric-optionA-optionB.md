@@ -10,7 +10,7 @@ ms.date: 02/11/2025
 
 # Network Fabric OptionA and OptionB 
 
-BGP (Border Gateway Protocol) is a protocol used on the internet between routers to allow traffic to be routed between Autonomous Systems (AS). Autonomous Systems use BGP to advertise to their peers which IPs they can route to and which AS(S) they'll go through to get there. For example, an ISP (Internet Service Provider) advertises traffic to enter their network via their ingress points. They will then advertise they know how to route to the public IPs on their network, without them having to share how they do that routing internally.
+BGP (Border Gateway Protocol) is a protocol used on the internet between routers to allow traffic to be routed between Autonomous Systems (AS). Autonomous Systems use BGP to advertise to their peers which IPs they can route to and which AS(s) they go through to get there. For example, an ISP (Internet Service Provider) advertises traffic to enter their network via their ingress points. They'll then advertise they know how to route to the public IPs on their network, without them having to share how they do that routing internally.
  
 The edge routers in each Autonomous Systems are manually configured with a set of BGP peers they trust and only accept traffic routed from those peers.
 
@@ -18,7 +18,7 @@ There are two peering standards relevant to Nexus:
 
 Option A: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed.
 
-Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It is also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
+Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It's also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
 
 For more information on Multi-Autonomous Systems, see section 10 of [RFC 4364](https://www.ietf.org/rfc/rfc4364.txt).
 
