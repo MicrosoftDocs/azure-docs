@@ -14,6 +14,9 @@ ms.custom: devx-track-azurecli
 
 This article shows how to integrate an API Management instance so that the instances's APIs are continuously kept up to date in your [API center](overview.md) inventory. 
 
+> [!TIP]
+> This article explains how to integrate an API Management instance from your API center. Alternatively, set up integration directly from an API Management instance. In the left menu of your instance, under **APIs**, select **API Center**, and select a target API center to synchronize APIs to.
+
 ## About integrating an API Management instance
 
 Although you can use the Azure CLI to [import](import-api-management-apis.md) APIs on demand from Azure API Management to Azure API Center, integrating (linking) an API Management instance enables continuous synchronization so that the API inventory stays up to date. Azure API Center can also synchronize APIs from sources including [Amazon API Gateway](synchronize-aws-gateway-apis.md). 
