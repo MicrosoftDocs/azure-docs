@@ -3,7 +3,7 @@ title: Lifecycle management performance characteristics
 
 titleSuffix: Azure Blob Storage
 author: vigneshgo
-ms.date: 02/07/2025
+ms.date: 02/11/2025
 description: Best practices and guidance on configuring Azure Blob Storage lifecycle management policies and factors influencing its performance.
 
 ms.author: normesta
@@ -23,12 +23,12 @@ Azure Blob Storage lifecycle management helps you automate the transition of obj
 There are many factors that influence the execution time that lifecycle management would take to process the objects in a single storage account. 
 
 
-Lifecycle management processes the subset of objects in the storage account that you scope by creating filter sets (prefix or file path) in lifecycle mnagement policies. If you don't specify a scope or the scope is too broad, lifecycle management might have to process a large number of objects which could increase the time required for the policy to complete. Processing time can also increase if a significant percentage of objects meet the policy conditions. This increase in processing time is especially true when the policy is enabled for the first time on the storage account.   
+Lifecycle management processes the subset of objects in the storage account that you scope by creating filter sets (prefix or file path) in lifecycle management policies. If you don't specify a scope or the scope is too broad, lifecycle management might have to process a large number of objects which could increase the time required for the policy to complete. Processing time can also increase if a significant percentage of objects meet the policy conditions. This increase in processing time is especially true when the policy is enabled for the first time on the storage account.   
 
 All requests that are made to a storage account, including requests that are made by lifecycle management policy runs, accrue to the same limit on requests per second. As that request limit is approached, priority is given to requests that are made by customer workloads. The latency of processing objects also increases if the scalability and performance limits of the storage account are reached. Consider this latency when deciding operations that need to be performed within specific time frames. Learn more about [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
 
-By prioritizing customer workloads, lifecycle management ensures that these workloads run with minimal to no interruptions. However, it can impact the rate of objects processed by lifecycle management. In such cases, it is possible that the rate of object creation and modification is higher than the rate at which lifecycle management can process the storage account.  
+By prioritizing customer workloads, lifecycle management ensures that these workloads run with minimal to no interruptions. However, it can impact the rate of objects processed by lifecycle management. In such cases, it's possible that the rate of object creation and modification is higher than the rate at which lifecycle management can process the storage account.  
 
 
 Policy conditions are assessed on each object only once during a policy run. In some cases, an object might meet the condition after it was already assessed by a run. Such objects are processed in subsequent runs.
@@ -62,12 +62,12 @@ Avoid policy conditions that use a short duration between object creation, modif
 
 ### Be aware of scalability and performance limits
 
-The request rate and bandwidth of your storage account depend on object size, access patterns, and workload type. lifecycle management might experience a slower rate of processing objects during high traffic workloads. If you consistently notice the storage account reaching the account limits and a slowdown in lifecycle management processing, request an increase in account limits. Lifecycle management performance might improve based on the resource allocation and by workload prioritization. To request an increase contact [Azure Support](https://azure.microsoft.com/support/faq/) .
+The request rate and bandwidth of your storage account depend on object size, access patterns, and workload type. Lifecycle management might experience a slower rate of processing objects during high traffic workloads. If you consistently notice the storage account reaching the account limits and a slowdown in lifecycle management processing, request an increase in account limits. Lifecycle management performance might improve based on the resource allocation and by workload prioritization. To request an increase contact [Azure Support](https://azure.microsoft.com/support/faq/) .
 
 
 ### Set up troubleshooting and monitoring
 
-You should periodically evaluate the performance of your lifecycle management policy. Set up [Event Grid Notifications](../../event-grid/blob-event-quickstart-portal.md) to get notified on when a lifecycle management policy run completed. Use storage resource logs in [Azure Monitor](monitor-blob-storage.md) to dive into run details.
+You should periodically evaluate the performance of your lifecycle management policy. Set up [Event Grid Notifications](../../event-grid/blob-event-quickstart-portal.md) to get notified on when a lifecycle management policy run is completed. To dive into run details, use storage resource logs in [Azure Monitor](monitor-blob-storage.md) .
 
 
 ## Next Steps
