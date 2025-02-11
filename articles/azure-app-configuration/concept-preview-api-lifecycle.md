@@ -24,14 +24,6 @@ After an API version is deprecated, it will no longer function! We recommend you
 You should perform these updates at a minimum every 6-9 months. If you fail to do so, you will be notified that you are using a soon-to-be deprecated 
 API version as deprecation approaches.
 
-## How to find the available API versions
-
-If you want to know what API versions are available, you can use the following command:
-
-```bash
-az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?resourceType=='configurationStores'].apiVersions"
-```
-
 ## How to check what API versions you're using
 
 If you're unsure what client or tool is using this API version, check the [activity logs](/azure/azure-monitor/essentials/activity-log)
@@ -40,6 +32,14 @@ using the following command:
 ```bash
 API_VERSION=<impacted API version, such as 2021-10-01-preview>
 az monitor activity-log list --offset 30d --max-events 10000 --namespace Microsoft.AppConfiguration --query "[?eventName.value == 'EndRequest' && contains(not_null(httpRequest.uri,''), '${API_VERSION}')]"
+```
+
+## How to find the available API versions
+
+If you want to know what API versions are available, you can use the following command:
+
+```bash
+az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?resourceType=='configurationStores'].apiVersions"
 ```
 
 ## How to update to a newer version of the API
