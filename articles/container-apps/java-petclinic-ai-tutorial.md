@@ -151,13 +151,13 @@ Before you begin, ensure you have the following setup:
 
     The following image shows the result of asking the application to add a new pet owner to the system.
 
-    :::image type="content" source="media/java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/first-java-ai-application/add-new-item.png":::
+    :::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/first-java-ai-application/add-new-item.png":::
 
 ## Updates
 
 As you experiment with the sample, if you want to deploy any changes to the application, you can run the following commands to publish your changes.
 
-```azurecli
+```azdeveloper
 azd package
 azd deploy
 ```
