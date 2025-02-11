@@ -124,7 +124,7 @@ configuration:
 
       - description: Alert authors to edits in the /articles/reliability folder.
         if:
-          # If a PR in the articles/reliability folder was opened or had the ready-to-merge label added, and the PR author isn't Anastasia...
+          # If a PR in the articles/reliability folder was opened or had the ready-to-merge label added, and the PR author isn't Anastasia or John...
           - payloadType: Pull_Request
           - or:
               - isAction:
@@ -135,39 +135,24 @@ configuration:
               matchAny: true
               pattern: articles/reliability/*
           - not:
-              isActivitySender:
-                  user: annaharris-ms
+              or:
+                - isActivitySender:
+                    user: anaharris-ms
+                - isActivitySender:
+                    user: johndowns
         then:
-          # Add the needs-human-review label, remove the ready-to-merge label (if necessary), mention all authors in this folder, and add a reply asking the PR author not to sign off on the PR.
-          - addLabel:
-              label: needs-human-review
-          - removeLabel:
-              label: ready-to-merge
+          # Add the needs-human-review label, remove the ready-to-merge label (if necessary), mention Anastasia and John, and add a reply asking the PR author not to sign off on the PR.
           - mentionUsers:
               mentionees:
-                - annaharris-ms
-                - AbdullahBell
-                - jfaurskov
-                - maud-lv
-                - vladai78
-                - RoseHJM
-                - dlepow
-                - nzthiago
-                - whhender
-                - adishachar
-                - surbhijain
-                - jovinson-ms
-                - roygara
-                - craigshoemaker
-                - mattgotteiner
-                - paulinbar
-                - sethmanheim
-                - johnmic
-                - gkasar
-                - tomvcassidy
+                - anaharris-ms
+                - johndowns
               replyTemplate: >-
                 Tagging authors for this folder: ${mentionees}
           - addReply:
               reply: >-
                 @${issueAuthor} - Please do NOT sign off on this pull request. The article author will sign off for you.
+          - addLabel:
+              label: needs-human-review
+          - removeLabel:
+              label: ready-to-merge
 
