@@ -33,7 +33,7 @@ Apache Spark pools in Azure Synapse enable data engineers to modify Delta Lake f
 > [!IMPORTANT]
 > Data sources can be created only in custom databases (not in the master database or the databases replicated from Apache Spark pools). 
 
-To use the samples in this article, you'll need to complete the following step:
+To use the samples in this article, you'll need to complete the following steps:
 1. **Create a database** with a datasource that references [NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) storage account. 
 1. Initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on the database you created in step 1. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
