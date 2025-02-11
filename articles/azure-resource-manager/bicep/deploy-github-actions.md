@@ -2,7 +2,7 @@
 title: Deploy Bicep files by using GitHub Actions
 description: In this quickstart, you learn how to deploy Bicep files by using GitHub Actions.
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 02/11/2025
 ms.custom: github-actions-azure, devx-track-bicep
 ---
 
@@ -33,18 +33,48 @@ az group create -n exampleRG -l westus
 ```azurepowershell-interactive
 New-AzResourceGroup -Name exampleRG -Location westus
 ```
-
 ---
 
 ## Generate deployment credentials
 
 [!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
+
 ## Configure the GitHub secrets
 
 # [Service principal](#tab/userlevel)
 
-[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
+Create secrets for your Azure credentials, resource group, and subscriptions. You use these secrets in the [Create workflow](#create-workflow) section.
+
+1. In [GitHub](https://github.com/), navigate to your repository.
+
+1. Select **Settings > Secrets and variables > Actions > New repository secret**. 
+
+1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
+
+1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (`exampleRG`).
+
+1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`).
+
+# [Open ID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Select **Settings > Secrets > New secret**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
+
+---
 
 ## Add a Bicep file
 
@@ -102,40 +132,6 @@ To create a workflow, take the following steps:
 1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployBicepFile.yml**.
 1. Replace the content of the yml file with the following code:
 
-    # [OpenID Connect](#tab/openid)
-
-    ```yml
-    on: [push]
-    name: Azure ARM
-    permissions:
-      id-token: write
-      contents: read
-    jobs:
-      build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-
-          # Checkout code
-        - uses: actions/checkout@main
-
-          # Log into Azure
-        - uses: azure/login@v2
-          with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-          # Deploy Bicep file
-        - name: deploy
-          uses: azure/arm-deploy@v1
-          with:
-            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-            resourceGroupName: ${{ secrets.AZURE_RG }}
-            template: ./main.bicep
-            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
-            failOnStdErr: false
-    ```
-
     # [Service principal](#tab/userlevel)
 
     ```yml
@@ -150,7 +146,7 @@ To create a workflow, take the following steps:
           uses: actions/checkout@main
 
         - name: Log into Azure
-          uses: azure/login@v2
+          uses: azure/login@v1
           with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -173,6 +169,40 @@ To create a workflow, take the following steps:
 
     - **name**: The name of the workflow.
     - **on**: The name of the GitHub events that triggers the workflow. The workflow is triggered when there's a push event on the main branch.
+
+    # [OpenID Connect](#tab/openid)
+
+    ```yml
+    on: [push]
+    name: Azure ARM
+    permissions:
+      id-token: write
+      contents: read
+    jobs:
+      build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+
+          # Checkout code
+        - uses: actions/checkout@main
+
+          # Log into Azure
+        - uses: azure/login@v1
+          with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+          # Deploy Bicep file
+        - name: deploy
+          uses: azure/arm-deploy@v1
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./main.bicep
+            parameters: 'storagePrefix=mystore storageSKU=Standard_LRS'
+            failOnStdErr: false
+    ```
 
     ---
 
