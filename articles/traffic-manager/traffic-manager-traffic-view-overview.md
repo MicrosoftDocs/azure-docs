@@ -44,13 +44,13 @@ When you navigate to the **Traffic View** section in your Traffic Manager page, 
 
 ### User base information
 
-For those local DNS resolvers for which location information is available, they're shown in the map. The color of the DNS resolver denotes the average latency experienced by end users who used that DNS resolver for their Traffic Manager queries.
+Local DNS resolvers that have location information available are shown in the map. The color of the DNS resolver denotes the average latency experienced by end users who used that DNS resolver for their Traffic Manager queries.
 
 If you hover over a DNS resolver location in the map, it shows:
 - the subnet of the DNS resolver (labeled as: DNS query source IP)
-- the volume of DNS query traffic seen by Traffic Manager from it
-- the endpoints to which traffic from the DNS resolver was routed, as a line between the endpoint and the DNS resolver 
-- the average latency from that location to the endpoint, represented as the color of the line connecting them
+- the volume of DNS query traffic seen by Traffic Manager from that location
+- the endpoints where traffic from the DNS resolver was routed, shown as a line between the endpoint and the DNS resolver 
+- the average latency from that location to the endpoint, represented as the color of the line connecting the two locations
 
 ### Endpoint information
 
@@ -62,7 +62,7 @@ The Azure regions in which the endpoints are located are shown as blue dots in t
 You can view the Traffic View data in a tabular format in Azure portal. There's an entry for each DNS resolver IP / endpoint pair that shows:
 
 * The subnet of the DNS resolver (labeled as: DNS query source IP)
-* The name
+* The resolver name
 * The geographical location of the Azure region in which the endpoint is located (if available)
 * The volume of requests associated with that DNS resolver to that endpoint
 * The representative latency associated with end users using that DNS (where available)
