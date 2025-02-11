@@ -27,7 +27,7 @@ In this section, you configure the Azure VPN client for Linux.
 
 1. For the **Audience** field, specify the Application ID (App ID).
 
-   The App ID for the Microsoft-registerd Azure VPN Client is: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. We also support  custom App ID for this field.
+   The App ID for the Microsoft-registered Azure VPN Client is: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. We also support  custom App ID for this field.
 
 1. For the **Issuer** field, specify the URL of the Secure Token Service. Include a trailing slash at the end of the Issuer value. Otherwise, the connection might fail.
 
