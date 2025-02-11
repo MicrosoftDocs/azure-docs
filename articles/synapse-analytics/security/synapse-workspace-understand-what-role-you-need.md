@@ -29,7 +29,7 @@ You can pause or scale a dedicated SQL pool, configure a Spark pool, or an integ
 
 With access to Synapse Studio, you can create new code artifacts, such as SQL scripts, KQL scripts, notebooks, Spark jobs, linked services, pipelines, dataflows, triggers, and credentials. These artifacts can be published or saved with additional permissions.  
 
-If you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator you can list, open, and edit already published code artifacts, including scheduled pipelines.
+You can list, open, and edit already published code artifacts, including scheduled pipelines, if you're a Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor, or Synapse Administrator.
 
 ### Execute your code
 
@@ -89,7 +89,7 @@ All Synapse RBAC permissions/actions shown in the table are prefixed with `Micro
 |DATA EXPLORER POOLS|
 |Create a Data Explorer pool |Azure Owner or Contributor on the resource group|none|
 |Manage (pause or scale, or delete) a Data Explorer pool|Azure Owner or Contributor on the Data Explorer pool or workspace|none|
-|Create a KQL script|Synapse User. </br></br>*Additional Data Explorer permissions are required to run a script, publish, or commit changes*| |
+|Create a KQL script|Synapse User </br></br>*Additional Data Explorer permissions are required to run a script, publish, or commit changes*| |
 |List and open any published KQL script| Synapse Artifact User or Artifact Publisher, or Synapse Contributor|artifacts/read|
 |Run a KQL script on a Data Explorer pool| Data Explorer permissions on the pool (granted automatically to a Synapse Administrator)|none|
 |Publish new, update, or delete KQL script|Synapse Artifact Publisher or Synapse Contributor|kqlScripts/write, delete|
