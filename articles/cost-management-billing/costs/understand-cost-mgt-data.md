@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/08/2025
+ms.date: 02/10/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -130,7 +130,9 @@ Here are a few tips for working with tags:
 
 ## Cost and usage data updates and retention
 
-Cost and usage data is typically available in Cost Management within 8-24 hours. Keep the following points in mind as you review costs:
+For EA and MCA subscriptions, cost and usage data is typically available in Cost Management within 8-24 hours. For pay-as-you-go subscriptions, it could take up to 72 hours for cost and usage data to become available.
+
+Keep the following points in mind as you review costs:
 
 - Each Azure service (such as Storage, Compute, and SQL) emits usage at different intervals – You might see data for some services sooner than others.
 - Estimated charges for the current billing period are updated six times per day.

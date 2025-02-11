@@ -207,7 +207,7 @@ Health check configuration is not slot-specific, so after a swap, the Health che
 
 ### Does Health check work on App Service Environments?
 
-Yes, health check is available for App Service Environment v3, but not for versions 1 or 2. If you're using the older versions of App Service Environment, you can use the [migration feature](environment/migrate.md) to migrate your App Service Environment to version 3.
+Yes, health check is available for App Service Environment v3.
 
 ## Next steps
 
