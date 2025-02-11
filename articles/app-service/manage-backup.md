@@ -148,7 +148,12 @@ There are two types of backups in App Service. Automatic backups are created for
 
 1. Configure the backup schedule as desired and then select **Configure**.
 
-#### Back up and restore a linked database
+### Back up and restore a linked database
+
+> [!NOTE]  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement.  
+> For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
+>
 
 Custom backups can include linked databases (except when the backup is configured over Azure Virtual Network). To make sure your backup includes a linked database, do the following:
 
@@ -280,15 +285,15 @@ For samples, see:
 - [Where are the automatic backups stored?](#where-are-the-automatic-backups-stored)
 - [How do I stop an automatic backup?](#how-do-i-stop-an-automatic-backup)
 
-#### Are the backups incremental updates or complete backups?
+### Are the backups incremental updates or complete backups?
 
 Each backup is a complete offline copy of your app, not an incremental update.
 
-#### Does Azure Functions support automatic backups?
+### Does Azure Functions support automatic backups?
 
 Automatic backups are available for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Basic**, **Standard**, and **Premium** tiers. Automatic backups aren't supported for function apps in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing tiers.
 
-#### What's included in an automatic backup?
+### What's included in an automatic backup?
 
 The following table shows which content is backed up in an automatic backup:
 
@@ -317,21 +322,16 @@ The following table shows which app configurations are restored when you choose 
 |Associated [deployment slots](deploy-staging-slots.md)| No |
 |Any linked database that [custom backup](#whats-included-in-a-custom-backup) supports| No |
 
-#### What's included in a custom backup?
+### What's included in a custom backup?
 
 A custom backup (on-demand backup or scheduled backup) includes all content and configuration that's included in an [automatic backup](#whats-included-in-an-automatic-backup), plus any linked database, up to the allowable maximum size.
 
 When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network), you can't [back up the linked database](#back-up-and-restore-a-linked-database).
 
-#### Why is my linked database not backed up?
+### Why is my linked database not backed up?
 
-> [!NOTE]
-> This is an important note related to the retirement of [Azure Database for MySQL - Single Server](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [Azure Database for PostgreSQL - Single Server](azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md). App Service custom backups with linked databases only support **Single Server SKUs** for Azure Database for MySQL and Azure DB for PostgreSQL. This means that custom backups with linked databases for Azure Database for *MySQL - Flexible Server* and Azure Database for *PostgreSQL - Flexible Server* may stop working. If you've already upgraded or plan to upgrade linked databases for these services, it's strongly advised to use the respective database backup and restore tools to avoid potential data loss. 
->
-> - Azure Database for MySQL: [Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
-> - Azure Database for PostgreSQL [Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
->
-> Custom backups for App Service web apps that include linked databases based on standalone deployments of MySQL and PostgreSQL database servers (for example standalone database servers running on a VM), may continue to function and are not affected by the Single Server SKU retirements on Azure Database for MySQL - Single Server and Azure Database for PostgreSQL - Single Server. 
+> [!NOTE]  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement.  
 >
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
@@ -340,15 +340,21 @@ Linked databases are backed up only for custom backups, up to the allowable maxi
 - Backup of [TLS-enabled Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
 - In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
 
-#### What happens if the backup size exceeds the allowable maximum?
+For back up and restore of Flexible Servers and standalone servers, use the respective database documentation: 
+- [Azure Database for MySQL: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore) 
+- [Azure Database for PostgreSQL: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore) 
+- [MySQL server: Back up and restore](https://dev.mysql.com/doc/refman/8.4/en/backup-and-recovery.html).
+- [PostgreSQL server: Back up and restore](https://www.postgresql.org/docs/current/backup-dump.html).
+
+### What happens if the backup size exceeds the allowable maximum?
 
 Automatic backups can't be restored if the backup size exceeds the maximum size. Similarly, custom backups fail if the maximum backup size or the maximum database size is exceeded. To reduce your storage size, consider moving files like logs, images, audio, and videos to Azure Storage, for example.
 
-#### Can I use a storage account that has security features enabled?
+### Can I use a storage account that has security features enabled?
 
 You can back up to a firewall-protected storage account if it's part of the same virtual network topology as your app. See [Back up and restore over Azure Virtual Network](#back-up-and-restore-over-azure-virtual-network).
 
-#### How do I restore to an app in a different subscription?
+### How do I restore to an app in a different subscription?
 
 1. Make a custom backup to an Azure Storage container.
 1. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) to your local machine.
@@ -359,15 +365,15 @@ You can back up to a firewall-protected storage account if it's part of the same
 1. In **Name**, select **Browse** and select the downloaded ZIP file.
 1. Configure the rest of the sections as described in [Restore a backup](#restore-a-backup).
 
-#### How do I restore to an app in the same subscription but in a different region?
+### How do I restore to an app in the same subscription but in a different region?
 
 The steps are the same as in [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription).
 
-#### Where are the automatic backups stored?
+### Where are the automatic backups stored?
 
 Automatic backups are stored in the same datacenter as the App Service. They shouldn't be relied upon as your disaster recovery plan.
 
-#### How do I stop an automatic backup?
+### How do I stop an automatic backup?
 
 You can't stop automatic backups. The automatic backup is stored on the platform and has no effect on the underlying app instance or its storage.
 
