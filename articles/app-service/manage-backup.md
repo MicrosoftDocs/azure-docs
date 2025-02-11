@@ -26,7 +26,7 @@ There are two types of backups in App Service. Automatic backups are created for
 | Pricing tiers | **Basic**, **Standard**, **Premium**, **Isolated**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). |
+| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Note that Azure DB for MySQL - **Flexible Server** and Azure DB for PostgreSQL - **Flexible Server** aren't supported in custom backups. |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
@@ -331,7 +331,11 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement.  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement ([MySQL](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md), [PostgreSQL](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md)).  
+>
+> For back up and restore of Flexible Servers, use the respective database documentation: 
+>- [Azure Database for MySQL: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
+>- [Azure Database for PostgreSQL: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
 >
 
 Linked databases are backed up only for custom backups, up to the allowable maximum size. If the maximum backup size (10 GB) or the maximum database size (4 GB) is exceeded, your backup fails. Here are a few common reasons why your linked database isn't backed up: 
@@ -340,11 +344,7 @@ Linked databases are backed up only for custom backups, up to the allowable maxi
 - Backup of [TLS-enabled Azure Database for PostgreSQL](/azure/postgresql/concepts-ssl-connection-security) isn't supported. If a backup is configured, you get backup failures.
 - In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups might not work correctly.
 
-For back up and restore of Flexible Servers and standalone servers, use the respective database documentation: 
-- [Azure Database for MySQL: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore) 
-- [Azure Database for PostgreSQL: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore) 
-- [MySQL server: Back up and restore](https://dev.mysql.com/doc/refman/8.4/en/backup-and-recovery.html).
-- [PostgreSQL server: Back up and restore](https://www.postgresql.org/docs/current/backup-dump.html).
+
 
 ### What happens if the backup size exceeds the allowable maximum?
 
