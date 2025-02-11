@@ -93,7 +93,7 @@ Azure Automanage creates default resource groups to store resources in. Check re
 
 In this quickstart, you enabled Azure Automanage for VMs.
 
-Discover how you can create and apply customize profiles when enabling Automanage on your virtual machine.
+Discover how you can create and apply customized profiles when enabling Automanage on your virtual machine.
 
 > [!div class="nextstepaction"]
 > [Azure Automanage Custom Profiles](virtual-machines-custom-profile.md)
