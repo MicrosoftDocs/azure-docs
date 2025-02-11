@@ -901,7 +901,6 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 # [**CLI**](#tab/cli)
 
-
 Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az_network_nsg_create) to create the network security group.
 
 ```azurecli-interactive
@@ -1224,6 +1223,37 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 # [**CLI**](#tab/cli)
 
+Use [az network route-table create](/cli/azure/network/route-table?view=azure-cli-latest#az_network_route_table_create) to create the route table.
+
+```azurecli-interactive
+az network route-table create \
+    --resource-group test-rg \
+    --name route-table-nat-spoke-2 \
+    --location westus2
+```
+
+Use [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create) to create the route in the route table.
+
+```azurecli-interactive
+az network route-table route create \
+    --resource-group test-rg \
+    --route-table-name route-table-nat-spoke-2 \
+    --name default-via-nat-spoke-2 \
+    --address-prefix 0.0.0.0/0 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 10.0.0.10
+```
+
+Use [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update) to associate the route table with the subnet.
+
+```azurecli-interactive
+az network vnet subnet update \
+    --resource-group test-rg \
+    --vnet-name vnet-spoke-2 \
+    --name subnet-private \
+    --route-table route-table-nat-spoke-2
+```
+
 ---
 
 ## Create spoke two test virtual machine
@@ -1281,6 +1311,53 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 
 # [**CLI**](#tab/cli)
 
+
+Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az_network_nsg_create) to create the network security group.
+
+```azurecli-interactive
+az network nsg create \
+    --resource-group test-rg \
+    --name nsg-spoke-2 \
+    --location eastus2
+```
+
+Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
+
+```azurecli-interactive
+az network nsg rule create \
+    --resource-group test-rg \
+    --nsg-name nsg-spoke-2 \
+    --name allow-http \
+    --priority 1000 \
+    --direction Inbound \
+    --access Allow \
+    --protocol Tcp \
+    --destination-port-ranges 80
+```
+
+Use [az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_create) to create the network interface.
+
+```azurecli-interactive
+az network nic create \
+    --resource-group test-rg \
+    --name nic-1 \
+    --vnet-name vnet-1 \
+    --subnet subnet-private \
+    --network-security-group nsg-spoke-2
+```
+
+Use [az vm create](/cli/azure/vm?view=azure-cli-latest#az_vm_create) to create the Windows Server 2022 virtual machine.
+
+```azurecli-interactive
+az vm create \
+    --resource-group test-rg \
+    --name vm-spoke-2 \
+    --image Win2022Datacenter \
+    --size Standard_DS2_v2 \
+    --admin-username azureuser \
+    --nics nic-1
+```
+
 ---
 
 Wait for the virtual machine to finish deploying before continuing to the next steps.
@@ -1328,6 +1405,18 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 # [**CLI**](#tab/cli)
 
+Use [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_set) to install IIS on the virtual machine.
+
+```azurecli-interactive
+az vm extension set \
+    --publisher Microsoft.Compute \
+    --version 1.8 \
+    --name CustomScriptExtension \
+    --vm-name vm-spoke-2 \
+    --resource-group test-rg \
+    --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
+
 ---
 
 ## Test NAT gateway
@@ -1344,7 +1433,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **public-ip-nat**.
 
-1. Make note of value in **IP address**. The example used in this article is **52.153.224.79**.
+1. Make note of value in **IP address**. The example used in this article is **203.0.113.79**.
 
 ### Test NAT gateway from spoke one
 
@@ -1437,6 +1526,15 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 # [**Powershell**](#tab/powershell)
 
 # [**CLI**](#tab/cli)
+
+Use [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) to delete the resource group.
+
+```azurecli-interactive
+az group delete \
+    --name test-rg \
+    --yes \
+    --no-wait
+```
 
 ---
 
