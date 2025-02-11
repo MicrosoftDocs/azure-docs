@@ -45,7 +45,7 @@ The following steps (with examples) are used in creating and provisioning a Nexu
    --rack-count 4
    --server-count-per-rack 8
    --ts-config "{primaryIpv4Prefix:'x.x.0.0/30',secondaryIpv4Prefix:'x.x.x.x/30',username:'****',password:'*****',serialNumber:<TS_SN>}"
-   --managed-network-config "{infrastructureVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31'}},workloadVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31',primaryIpv6Prefix:'3FFE:FFFF:0:CD30::a0/127',secondaryIpv6Prefix:'3FFE:FFFF:0:CD30::a0/127'}}}" --debug --no-wait
+   --managed-network-config "{infrastructureVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31'}},workloadVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}}}" --debug --no-wait
    
    ```
    > [!Note]
@@ -66,10 +66,10 @@ The following steps (with examples) are used in creating and provisioning a Nexu
    --nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>"
    --fabric-asn 65048
    --ipv4-prefix "x.x.x.x/19"
-   --ipv6-prefix "fd02:0000:7748:0140::/59"
+   --ipv6-prefix "xxxx:xxxx:xxxx:xxxx::xx/59"
    --rack-count 8
    --server-count-per-rack 16
-   --ts-config '{"primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "<TS_SN>",    "primaryIpv6Prefix": "fd00:0:7748:016e::/64", "secondaryIpv6Prefix": "fd00:0:7748:016f::/64"}'
+   --ts-config '{"primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "<TS_SN>",    "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64"}'
    --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928504", "13979:106948"], "exportIpv6RouteTargets": ["13979:2928504", "13979:106948"], "importIpv4RouteTargets": ["13979:2928504", "13979:106947"], "importIpv6RouteTargets": ["13979:2928504", "13979:106947"]}}}, "workloadVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928516"], "exportIpv6RouteTargets": ["13979:2928516"], "importIpv4RouteTargets": ["13979:2928516"], "importIpv6RouteTargets": ["13979:2928516"]}}}}' --debug --no-wait
    
    ```
@@ -118,7 +118,7 @@ The following steps (with examples) are used in creating and provisioning a Nexu
     --is-management-type "True"
     --use-option-b "True"
     --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}"
-    --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',primaryIpv6Prefix:'10:2:0:124::400/127',secondaryIpv6Prefix:'10:2:0:124::402/127'}"
+    --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}"
     --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"
     --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
     
