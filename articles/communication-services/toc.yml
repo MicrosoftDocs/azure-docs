@@ -217,6 +217,8 @@ items:
       href: quickstarts/email/add-custom-verified-domains.md
     - name: Connect domain to send email
       href: quickstarts/email/connect-email-communication-resource.md
+    - name: Email Resource Management
+      href: samples/email-resource-management.md
     - name: Send email
       items:
       - name: Send an email
@@ -333,16 +335,12 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
   - name: Pricing
     href: concepts/advanced-messaging/whatsapp/pricing.md
-  - name: Try advanced messaging for WhatsApp
-    href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Advanced messaging for WhatsApp terms of service
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
-  - name: Download media payload
-    href: quickstarts/advanced-messaging/whatsapp/download-media.md
   - name: Logging and analytics
     items:
     - name: Advanced Messaging logs
@@ -353,13 +351,29 @@ items:
       href: concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md
   - name: Samples and tutorials
     items:
-    - name: Send WhatsApp messages
-      href: quickstarts/advanced-messaging/whatsapp/get-started.md
-    - name: Send WhatsApp template messages
-      href: concepts/advanced-messaging/whatsapp/template-messages.md
-    - name: Handle advanced messaging events
+    - name: Try Advanced Messaging Sandbox
+      href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+    - name: Register WhatsApp Business Account
+      href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+    - name: Send WhatsApp Messages
+      items:
+        - name: Text and Media messages
+          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+        - name: Template messages
+          href: quickstarts/advanced-messaging/whatsapp/send-template-messages.md
+        - name: Interactive messages
+          href: quickstarts/advanced-messaging/whatsapp/send-interactive-messages.md
+        - name: Reaction messages
+          href: quickstarts/advanced-messaging/whatsapp/send-reaction-messages.md
+        - name: Sticker messages
+          href: quickstarts/advanced-messaging/whatsapp/send-sticker-messages.md
+    - name: Handle Advanced messaging events
       href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
-    - name: Enable message analysis With Azure OpenAI
+    - name: Download media payload
+      href: quickstarts/advanced-messaging/whatsapp/download-media.md
+    - name: WhatsApp business account FAQ
+      href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
+    - name: Enable Message Analysis With Azure OpenAI
       href: quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md
   - name: References
     items:
@@ -385,6 +399,8 @@ items:
       href: concepts/voice-video-calling/about-call-types.md
     - name: Real Time Text (RTT)
       href: concepts/voice-video-calling/real-time-text.md
+    - name: Enable Real Time Text (RTT)
+      href: quickstarts/voice-video-calling/get-started-with-real-time-text.md
     - name: Closed captions
       href: concepts/voice-video-calling/closed-captions.md
   - name: Advanced audio and video
@@ -409,40 +425,6 @@ items:
       href: how-tos/calling-sdk/telecommanager-integration.md
     - name: Enable push notifications
       href: how-tos/calling-sdk/push-notifications.md
-    - name: Use mobile UI Library for voice and video
-      items:
-      - name: Configure default orientation
-        href: how-tos/ui-library-sdk/orientation.md
-      - name: Configure closed captions
-        href: how-tos/ui-library-sdk/closed-captions.md
-      - name: Configure theming
-        href: how-tos/ui-library-sdk/theming.md
-      - name: Customize the button bar
-        href: how-tos/ui-library-sdk/button-injection.md
-      - name: Customize the title and subtitle
-        href: how-tos/ui-library-sdk/setup-title-subtitle.md
-      - name: Disable end call confirmation
-        href: how-tos/ui-library-sdk/leave-call-confirmation.md
-      - name: Enable audio only mode
-        href: how-tos/ui-library-sdk/audio-only-mode.md
-      - name: Enable picture-in-picture
-        href: how-tos/ui-library-sdk/picture-in-picture.md
-      - name: Enable skip the setup screen
-        href: how-tos/ui-library-sdk/skip-setup-screen.md
-      - name: Subscribe to events
-        href: how-tos/ui-library-sdk/events.md
-      - name: Inject participant view data
-        href: how-tos/ui-library-sdk/data-model.md
-      - name: Integrate CallKit
-        href: how-tos/ui-library-sdk/callkit.md
-      - name: Integrate TelecomManager
-        href: how-tos/ui-library-sdk/telecommanager.md
-      - name: Set up localization
-        href: how-tos/ui-library-sdk/localization.md
-      - name: Set up one-to-one calling and push notifications
-        href: how-tos/ui-library-sdk/one-to-one-calling.md
-      - name: Troubleshooting
-        href: how-tos/ui-library-sdk/troubleshooting.md
   - name: User support and experience
     items:
     - name: User support
@@ -467,15 +449,33 @@ items:
   - name: Logging and analytics
     items:
     - name: Call client logs
-      href: concepts/analytics/call-logs-azure-monitor.md
+      items: 
+      - name: Overview of call logs
+        href: concepts/analytics/logs/voice-and-video-logs.md
+      - name: Call summary updates logs
+        href: concepts/analytics/logs/call-summary-updates-log-schema.md
+      - name: Call summary logs
+        href: concepts/analytics/logs/call-summary-log-schema.md
+      - name: Call diagnostics updates logs
+        href: concepts/analytics/logs/call-diagnostics-updates-log-schema.md
+      - name: Call diagnostics logs
+        href: concepts/analytics/logs/call-diagnostics-log-schema.md
+      - name: Call client operations logs
+        href: concepts/analytics/logs/call-client-operations-log-schema.md
+      - name: Call client media statistics logs
+        href: concepts/analytics/logs/call-client-media-statistics-log-schema.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
+      - name: Call metrics logs
+        href: concepts/analytics/logs/call-metrics-log-schema.md
     - name: Call diagnostics
       href: concepts/voice-video-calling/call-diagnostics.md
-    - name: End of call survey logs
-      href: concepts/analytics/logs/end-of-call-survey-logs.md
     - name: Rooms logs
       href: concepts/analytics/logs/rooms-logs.md
     - name: Rooms metrics
       href: concepts/analytics/rooms-metrics.md
+    - name: Billing usage logs
+      href: concepts/analytics/logs/billing-usage-log-schema.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
     - name: Enable logging with Azure Monitor
@@ -485,6 +485,8 @@ items:
     - name: Voice and video insights
       href: concepts/analytics/insights/voice-and-video-insights.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Call diagnostics
+      href: concepts/voice-video-calling/call-diagnostics.md
     - name: Query call logs
       href: concepts/analytics/query-call-logs.md
     - name: Add diagnostic options tag to calling logs
@@ -710,8 +712,6 @@ items:
         href: quickstarts/rooms/join-rooms-call.md
       - name: Manage a room call
         href: quickstarts/rooms/manage-rooms-call.md
-    - name: Use UI components for voice and video
-      href: quickstarts/ui-library/get-started-composites.md
     - name: Add data channel messaging to a calling app
       href: quickstarts/voice-video-calling/get-started-data-channel.md
     - name: Set video constraints in a calling app
@@ -1195,6 +1195,42 @@ items:
     href: concepts/ui-library/ui-library-use-cases.md
   - name: Design with UI Library Design Kit
     href: quickstarts/ui-library/get-started-ui-kit.md
+  - name: Use mobile UI Library for voice and video
+    items:
+    - name: Use UI components for voice and video
+      href: quickstarts/ui-library/get-started-composites.md
+    - name: Configure default orientation
+      href: how-tos/ui-library-sdk/orientation.md
+    - name: Configure closed captions
+      href: how-tos/ui-library-sdk/closed-captions.md
+    - name: Configure theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Customize the button bar
+      href: how-tos/ui-library-sdk/button-injection.md
+    - name: Customize the title and subtitle
+      href: how-tos/ui-library-sdk/setup-title-subtitle.md
+    - name: Disable end call confirmation
+      href: how-tos/ui-library-sdk/leave-call-confirmation.md
+    - name: Enable audio only mode
+      href: how-tos/ui-library-sdk/audio-only-mode.md
+    - name: Enable picture-in-picture
+      href: how-tos/ui-library-sdk/picture-in-picture.md
+    - name: Enable skip the setup screen
+      href: how-tos/ui-library-sdk/skip-setup-screen.md
+    - name: Subscribe to events
+      href: how-tos/ui-library-sdk/events.md
+    - name: Inject participant view data
+      href: how-tos/ui-library-sdk/data-model.md
+    - name: Integrate CallKit
+      href: how-tos/ui-library-sdk/callkit.md
+    - name: Integrate TelecomManager
+      href: how-tos/ui-library-sdk/telecommanager.md
+    - name: Set up localization
+      href: how-tos/ui-library-sdk/localization.md
+    - name: Set up one-to-one calling and push notifications
+      href: how-tos/ui-library-sdk/one-to-one-calling.md
+    - name: Troubleshooting
+      href: how-tos/ui-library-sdk/troubleshooting.md
   - name: References
     items:
     - name: Web UI library
