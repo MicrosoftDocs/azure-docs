@@ -42,7 +42,7 @@ items:
       href: concepts/government.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
-  - name: Identity
+- name: Identity
   items:
   - name: Overview
     href: concepts/identity-model.md
