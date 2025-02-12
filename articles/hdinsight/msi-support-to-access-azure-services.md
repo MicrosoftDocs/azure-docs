@@ -173,7 +173,7 @@ EventHubProducerClient producer = new EventHubClientBuilder()
 ```
 
 
-**If the client is a MySql Database**
+**If the client is a MySQL Database**
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
 
