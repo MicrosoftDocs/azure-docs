@@ -1,7 +1,7 @@
 - name: Migrate to Azure Functions
   href: ./function-placeholder.md
 - name: AWS Lamda to Functions 
-  href: ./aws-lambda-azure-functions.md
+  href: ./aws-lambda-to-azure-functions.md
   items:
   - name: Evaluation - AWS Lamda
     items:
