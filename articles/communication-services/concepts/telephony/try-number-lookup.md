@@ -23,7 +23,7 @@ Try Number Lookup is a tool in Azure portal to help customers confirm that the p
 
 ## Overview
 
-Open the [Azure portal](https://portal.azure.com/#home) and search for **Number Lookup**. Then Enter a phone number that you want to lookup or validate. You can either check national and international format for free or request details about number type, country and carrier for a fee. The tool will also generate the associated code. You can also select **Use my connection string** to automatically populate the `connection string` for the resource.
+Open the [Azure portal](https://portal.azure.com/#home) and search for **Number Lookup**. Then enter a phone number that you want to look up or validate. You can either check national and international format for free, or request details about number type, country, and carrier for a fee. The tool also generates the associated code. You can select **Use my connection string** to automatically populate the `connection string` for the resource.
 
 ![alt text](../media/try-number-lookup.png "Try Number Lookup")
 
