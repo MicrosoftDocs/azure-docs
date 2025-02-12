@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
@@ -16,8 +16,20 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [File access logs](manage-file-access-logs.md) (Preview)
 
-    The Azure NetApp Files file access logs feature provides Azure NetApp Files customers with access logs for their files accessed (data plane logging) on SMB, NFSv4.1, and dual-protocol (SMB/NFSv4.1) volumes. With this feature administrators can enable logging, and view and report on file access operations sent to a variety of logging destinations. Standard file system operations will be captured in the logs. This feature supports SMB and NFSv4.1 enabled volumes.
+    The Azure NetApp Files file access logs feature provides you with access logs for files accessed (data plane logging) on volumes. With this feature, administrators can enable logging to view and report on file access operations sent to a variety of logging destinations. Standard file system operations are captured in the logs. File access logs is supported with SMB, NFSv4.1, and dual-protocol (SMB and NFSv4.1) volumes.
   
+## February 2025
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
+
 ## December 2024
 
 * [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)
@@ -47,8 +59,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 
@@ -421,7 +431,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

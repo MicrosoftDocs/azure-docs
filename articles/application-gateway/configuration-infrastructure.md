@@ -87,7 +87,9 @@ Depending on whether you're creating new resources or using existing ones, add t
 | Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
-| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action |
+| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write 
+Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read 
+Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action |
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 ## Roles scope

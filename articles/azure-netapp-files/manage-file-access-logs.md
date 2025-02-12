@@ -14,18 +14,17 @@ ms.custom: references_regions
 
 # Manage file access logs in Azure NetApp Files (preview)
 
-File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs are provided on top of the platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log). This article describes how to manage file access logs using Azure NetApp Files. 
-
-
+File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. The logs capture [standard file operation](#recognized-events). File access logs provide insights beyond the 
+platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
 ## Considerations
 
 >[!IMPORTANT]
->SMB3, NFSv4.1, and dual protocols are the only supported protocols for file access logs. It's not supported on NFSv3 volumes. 
+>File access logs is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
-* File access logs occasionally create duplicate logs that must be manually filtered. 
+* File access logs occasionally create duplicate log entries that must be filtered manually. 
 * Deleting any diagnostic settings configured for `ANFFileAccess` causes any file access logs for any volume with that setting to become disabled. 
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
 * File access logs provide no explicit or implicit expectations or guarantees around logging for auditing and compliance purposes. 
@@ -33,21 +32,20 @@ File access logs provide file access logging for individual volumes, capturing f
 ### Performance considerations 
 
 * All file access log file access events have a performance impact.
-    * Events such as file/folder creation/deletion are key events to log. 
-    * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting shouldn't log these frequent operations to conserve performance. 
-    * SACL settings are subject to change – certain settings may have to be disabled to minimize performance impacts to the region. Examples would be disabling of the "List Folder/read data" and "Read permissions" to minimize performance/resource impacts during Private Preview. 
+    * Events such as file/folder creation or deletion are key events to log. 
+    * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * When clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* You can monitor activity logs to find out if the rate of events is more and events are getting dropped by FAL service.  <!-- ? -->
+* You can monitor activity logs to find out if the rate of events is more and events are getting dropped by the file access logs service.  <!-- ? -->
 * If the rate of file access event generation exceeds the internal limit, <!-- what is the internal limit --> disable noncritical auditing ACLs to reduce the rate. Leaving noncritical auditing ACLs can result in access events being dropped from the logs. 
-* If the rate of event generation is greater than 128 MiB/minute for your subscription, logging events might be delayed and eventually dropped. 
+* If the rate of event generation is greater than 64 MiB/minute for your subscription, logging events can be delayed and eventually dropped. 
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
 * Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
-* It's recommended you avoid enable file access logs on files with more than 450 ACEs to avoid potential performance issues. 
+* It's recommended you avoid enabling file access logs on files with more than 450 ACEs to avoid performance issues. 
 
 ## Recognized events
 
-The events capture in file access logs depend on the protocol your volume uses. 
+The events capture in file access logs depend on the protocol of your volume.
 
 ### Logged NFS events
 * Close
@@ -57,7 +55,6 @@ The events capture in file access logs depend on the protocol your volume uses.
 * `Nverify`
 * Open
 * Open attribute
-* Read
 * Remove
 * Rename
 * Set attribute 
@@ -90,15 +87,32 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Supported regions
 
-While in preview, availability for file access log is limited to the following regions: 
+Availability for file access log is limited to the following regions: 
 
-* East US 2
-* Japan East
+- Australia Central
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Canada East
+- Central India
+- Central US
+- East US 2
+- Japan West
+- North Europe
+- South Central US
+- Switzerland North
+- Switzerland West
+- UK South
+- US Gov Virginia
+- West Europe
+- West US
+- West US 2
 
 <!-- 9 may 2023 -->
 ## Set SACLs or Audit ACEs on files and directories  
 
-You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 shares for auditing. 
+You must set SACLs for SMB shares or Audit ACEs for NFSv4.1 exports for auditing. 
 
 ### [Set SACLs for SMB shares](#tab/sacls-smb)
 
@@ -121,7 +135,7 @@ To enable logging access on individual files and directories, complete the follo
 
 ### [Set Audit ACEs for NFSv4.1 shares](#tab/sacls-nfs)
 
-For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not separate DACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
+For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not separate discretionary ACLs and SACLs. Exercise caution when adding audit ACEs to an existing ACL to avoid overwriting and losing an existing ACL. The order in which you add audit ACEs to an existing ACL doesn't matter. 
 
 **For steps**, see [Configure access control lists on NFSv4.1 volumes](configure-access-control-lists.md).
 
@@ -158,3 +172,5 @@ For NFSv4.1, both discretionary and system ACEs are stored in the same ACL, not 
 
 * [Security FAQs](faq-security.md) 
 * [Azure resource logs](/azure/azure-monitor/essentials/resource-logs)
+* [Understand NFSv4.x access control lists in Azure NetApp Files](nfs-access-control-lists.md)
+* [Understand SMB file permissions in Azure NetApp Files](network-attached-file-permissions-smb.md)

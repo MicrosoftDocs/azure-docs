@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
 author: sipastak
 ms.topic: release-notes
-ms.date: 05/02/2024
+ms.date: 01/30/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 This article describes the changes we make to each new version of Azure Virtual Desktop Insights.
 
-If you're not sure which version of Azure Virtual Desktop Insights you're currently using, you can find it in the bottom-right corner of your Insights page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
+If you're not sure which version of Azure Virtual Desktop Insights you're currently using, you can find it in the bottom-right corner of your **Insights** page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 
 ## Latest available version
 
@@ -19,7 +19,7 @@ The following table shows the latest available version of Azure Virtual Desktop 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 3.5.0 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+| Public | 4.3.1 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
 
 ## How to read version numbers
 
@@ -35,6 +35,95 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 4.3.1
+
+*Published: January 29, 2025*
+
+In this update, we made the following changes:
+
+- Added Multipath as UdpType to the **Connection Reliability** tab. 
+
+## Version 4.3.0
+
+*Published: November 22, 2024*
+
+In this update, we made the following changes:
+
+- On the **Overview** page, changed the name from Azure Stack HCI to Azure Local.
+ 
+## Version 4.2.0
+
+*Published: November 21, 2024*
+
+In this update, we made the following changes:
+
+- Added RTT view and reordered the **User** page.
+- Updated the Host Pool Overview view to allow switching between pooled host pool and personal host pool.
+- Added Assigned User column and removed Available Sessions column to the personal host pool view. 
+ 
+## Version 4.1.0
+
+*Published: October 29, 2024*
+
+In this update, we made the following change:
+
+- Prominently highlighted hosts that are unhealthy in Azure Virtual Desktop Insights.
+ 
+## Version 4.0.5
+
+*Published: October 7, 2024*
+
+In this update, we made the following change:
+
+- Changed language to “The Log Analytics Agent has been deprecated. To ensure continued support for AVD Insights, please upgrade to the Azure Monitor Agent and use the updated AVD Insights experience now."
+ 
+## Version 4.0.4
+
+*Published: September 30, 2024*
+
+In this update, we made the following change:
+
+- Updated the banner text under the **Connection Performance** page and moved them to the top of each section.
+ 
+## Version 4.0.3
+
+*Published: August 22, 2024*
+
+In this update, we made the following change:
+
+- Switched the RTT queries that were still using the RemoteFX perf counter to use Azure Virtual Desktop network logs.
+ 
+## Version 4.0.2
+
+*Published: August 13, 2024*
+
+In this update, we made the following changes:
+
+- Masked IP address to first 2 octets after the pivot value has been set.
+- Updated some typos.
+ 
+## Version 4.0.1
+
+*Published: August 13, 2024*
+
+In this update, we made the following changes:
+
+- Renamed Windows Virtual Desktop Insights to Azure Virtual Desktop Insights.
+- Redirected the Azure Virtual Desktop Insights to the Workbooks/Windows Virtual Desktop/AtScale/WVD Insights workbook.
+
+## Version 4.0.0
+
+*Published: August 12, 2024*
+
+In this update, we made the following changes:
+
+- Updated the banner on the Insights (Legacy) page from information level to error level. 
+- Revised the date format in the Insights (Legacy) page banner from *August 31st, 2024* to *August 31, 2024*. 
+- Eliminated the **Go to AVD Insights** legacy link from host pool view in the Workbook. 
+- Redirected the **Open Configuration Workbook** button and **Configuration Workbook** link in the legacy scoped workbook from the old configuration (community-Workbooks/Windows Virtual Desktop/Check Configuration) to the new configuration (community-Workbooks/Windows Virtual Desktop/CheckAMAConfiguration). 
+- Deleted the old configuration. 
+- Redirected the **Open Docs** link to [Enable Insights to monitor Azure Virtual Desktop](insights.md). 
+  
 ## Version 3.5.0
 
 *Published: July 1, 2024*
@@ -64,7 +153,7 @@ In this update, we made the following change:
 
 *Published: February 12, 2024*
 
-In this update, we made the following change:
+In this update, we made the following changes:
 
 - Updated logic for Data Collection Rule (DCR) selection in the Configuration workbook.
 - Removed unused performance counters from DCR for data savings.
@@ -135,7 +224,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Fixed reporting inconsistencies with Overview and User tabs.
+- Fixed reporting inconsistencies with **Overview** and **User** tabs.
 
 ## Version 2.0.1
 
@@ -143,7 +232,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Improved visualization for the Connection Time graph in the Utilization tab.
+- Improved visualization for the Connection Time graph in the **Utilization** tab.
 
 ## Version 2.0.0
 
@@ -169,7 +258,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following change:
 
-- Added idle session reporting to the **Utilization** tab that visualizes sessions with no active connections.
+- Added idle session reporting to the **Utilization** page that visualizes sessions with no active connections.
 
 ## Version 1.5.0
 
@@ -177,7 +266,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following change:
 
-- Added a preview of FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale*.
+- Added a preview of FSLogix compaction information to the **Utilization** page for reporting as well as a User search capability to the *at scale*.
 
 ## Version 1.4.0
 

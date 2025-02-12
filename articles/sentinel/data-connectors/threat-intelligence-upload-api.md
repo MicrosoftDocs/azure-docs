@@ -58,7 +58,7 @@ You can send the supported STIX object types by calling our Upload API. For more
 
 >HTTP method: POST 
 
->Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01  
+>Endpoint: `https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01`  
 
 >WorkspaceID: the workspace that the STIX objects are uploaded to.  
 

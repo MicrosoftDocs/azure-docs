@@ -6,9 +6,8 @@ summary: "Azure Spring Apps is a managed service for hosting Spring apps. The En
 metadata:
   title: Azure Spring Apps Enterprise plan
   description: The Enterprise plan provides commercially supported Tanzu components, unlocking Spring's full potential while including feature parity with the Standard plan.
-  services: spring-cloud
   ms.service: azure-spring-apps
-  ms.custom: devx-track-java
+  ms.custom: devx-track-java, devx-track-extended-java
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
@@ -26,6 +25,10 @@ landingContent:
         links:
           - text: Azure Spring Apps retirement announcement
             url: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+          - text: Migrate to Azure Container Apps
+            url: ../migration/migrate-to-azure-container-apps-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+          - text: Migrate to Azure Kubernetes Service
+            url: ../migration/migrate-to-aks-overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
 
   # Card (optional)
   - title: Documentation for other plans
@@ -36,7 +39,7 @@ landingContent:
             url: ../basic-standard/index.yml
           - text: Consumption and dedicated plan
             url: ../consumption-dedicated/index.yml
-  
+ 
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:

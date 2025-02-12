@@ -51,7 +51,7 @@ Both tiers offer the same security and authentication features.
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
 
 >[!NOTE]
->The name of a free tier IoT hub might be visible to other free tier users. This visibility isn't a security risk because you can [manage access to your IoT hub by using Microsoft Entra ID and Azure RBAC](authenticate-authorize-azure-ad.md#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
+>The name of a free tier IoT hub might be visible to other free tier users. You can [manage access to your IoT hub by using Microsoft Entra ID and Azure RBAC](authenticate-authorize-azure-ad.md#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
 
 ### IoT Hub REST APIs
 

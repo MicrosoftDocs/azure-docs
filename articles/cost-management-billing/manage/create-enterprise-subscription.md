@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
