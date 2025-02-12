@@ -186,7 +186,7 @@ configuration:
           - or:
               - filesMatchPattern:
                   matchAny: true
-                  pattern: bread/toc.yml
+                  pattern: bread/*
               
         then:
           - addReply:
