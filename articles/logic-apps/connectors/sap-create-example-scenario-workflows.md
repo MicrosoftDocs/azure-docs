@@ -74,11 +74,11 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **GatewayHost** | Yes | The registration gateway host for the SAP RFC server |
    | **GatewayService** | Yes | The registration gateway service for the SAP RFC server |
    | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
-   | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, from the **Add new parameter** list, select **DegreeOfParallelism**, and enter the new value. |
-   | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Add new parameter** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
-   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, from the **Add new parameter** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
-   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
-   | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
+   | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, from the **Advanced parameters** list, select **DegreeOfParallelism**, and enter the new value. |
+   | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Advanced parameters** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
+   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, from the **Advanced parameters** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Advanced parameters** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
+   | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Advanced parameters** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    The following example shows a basically configured SAP managed trigger in a workflow:
 
@@ -790,7 +790,7 @@ The following example workflow shows this pattern:
 
 1. To help avoid sending duplicate IDocs to SAP, [follow these alternative steps to create and use an IDoc transaction ID in your SAP actions](#create=transaction-ID-variable).
 
-1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. For Standard workflows, select the action's "in-app" version named **[IDoc] Send document to SAP**, rather than the "shared" version.
+1. Add the SAP action named **[IDOC] Send document to SAP** to your Consumption workflow. For Standard workflows, add the action's "in-app" version named **[IDoc] Send document to SAP**, rather than the "shared" version.
 
 1. Provide the information for the IDoc that you send to your SAP system plus the following values:
 
@@ -803,15 +803,15 @@ The following example workflow shows this pattern:
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
    | **Transaction Id GUID** | <*IDoc-transaction-ID*> | You can either manually specify this value, or the connector can automatically generate this GUID as an output from the **[IDOC] Send document to SAP** action. This example leaves this parameter empty to automatically generate the GUID. |
 
-   **Consumption workflow**
+   **Consumption workflow with shared SAP action**
 
    :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-consumption.png" alt-text="Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.":::
 
-   **Standard workflow**
+   **Standard workflow with in-app SAP action**
 
    :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-standard.png" alt-text="Screenshot shows Standard workflow with the action named IDoc Send document to SAP.":::
 
-1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
+1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry policy**.
 
    The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
 
@@ -821,15 +821,19 @@ The following example workflow shows this pattern:
 
    1. Select the lightning icon for the dynamic content list.
 
-   1. From the list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value, which is the output from the previous SAP action.
+   1. Based on your workflow, follow the corresponding step to include the transaction ID output value from the previous SAP action.
 
-      **Consumption workflow**
+      **Consumption workflow with shared SAP actions**
 
-      ![Screenshot shows Consumption workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/sap-create-example-scenario-workflows/sap-confirm-id-consumption.png)
+      In the dynamic content list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value. The example now looks like the following sample:
 
-      **Standard workflow**
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-confirm-id-consumption.png" alt-text="Screenshot shows Consumption workflow with action named Confirm transaction ID, which includes the transaction ID GUID output from previous action.":::
 
-      ![Screenshot shows Standard workflow with action named Confirm transaction ID, which includes GUID output from previous action.](./media/sap-create-example-scenario-workflows/sap-confirm-id-standard.png)
+      **Standard workflow with in-app SAP actions**
+
+      In the dynamic content list, under **[IDoc] Send document to SAP**, select the **Transaction Id GUID** value. The example now looks like the following sample:
+
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-confirm-id-standard.png" alt-text="Screenshot shows Standard workflow with action named Confirm transaction ID, which includes the transaction ID GUID output from previous action.":::
 
    After this step runs, the current transaction is marked complete at both ends, on the SAP connector side and on SAP system side.
 
@@ -849,15 +853,9 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    |-----------|-------|-------------|
    | **Name** | <*variable-name*> | A name for your variable, for example, **IDocTransactionID** |
    | **Type** | **String** | The variable type |
-   | **Value** | `guid()` | 1. Select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the function icon to open the expression editor. <br><br>3. In the editor, enter **guid()**, and save your changes. <br><br>The **Value** parameter is now set to the **guid()** function, which generates a GUID. |
+   | **Value** | **guid()** | 1. Select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the function icon to open the expression editor. <br><br>3. In the editor, enter **guid()**, and select **Add**guid. <br><br>The **Value** parameter is now set to the **guid()** function, which generates a GUID. |
 
-   **Consumption workflow**
-
-   ![Screenshot shows Consumption workflow with the action named Create transaction ID.](./media/sap-create-example-scenario-workflows/idoc-create-transaction-id-consumption.png)
-
-   **Standard workflow**
-
-   ![Screenshot shows Standard workflow with the action named Create transaction ID.](./media/sap-create-example-scenario-workflows/idoc-create-transaction-id-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/idoc-create-transaction-id.png" alt-text="Screenshot shows workflow with the action named Create transaction ID.":::
 
    > [!NOTE]
    >
@@ -865,28 +863,34 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    > to confirm a transaction identifier if the ID or GUID is unknown. If confirmation for a transaction identifier fails, 
    > this failure indicates that communcation with the SAP system failed before SAP was able to acknowledge the confirmation.
 
-1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. Provide the information for the IDoc that you send to your SAP system plus the following values:
+1. Add the SAP action named **[IDOC] Send document to SAP** to your Consumption workflow. For Standard workflows, add the action's "in-app" version named **[IDoc] Send document to SAP**, rather than the "shared" version.
+
+1. Provide the information for the IDoc that you send to your SAP system plus the following values:
+
+   > [!NOTE]
+   >
+   > If the following parameters don't automatically appear, open the **Advanced parameters** list, and select the parameters. 
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
-   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. Select inside the **Transaction Id GUID** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the lightning icon to open the dynamic content list. <br><br>3. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | To select the transaction ID variable that you created, follow these steps: <br><br> 1. Select inside the **Transaction Id GUID** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the lightning icon to open the dynamic content list. <br><br>3. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
 
-   **Consumption workflow**
+   **Consumption workflow with shared SAP action**
 
-   ![Screenshot shows Consumption workflow with action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-consumption.png)
+   The example now looks like the following sample:
 
-   **Standard workflow**
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-consumption.png" alt-text="Screenshot shows Consumption workflow with action named IDOC Send document to SAP.":::
 
-   ![Screenshot shows Standard workflow with action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-standard.png)
+   **Standard workflow with in-app SAP action**
 
-1. For the SAP managed action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
+   The example now looks like the following sample:
+
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-var-standard.png" alt-text="Screenshot shows Standard workflow with action named IDoc Send document to SAP.":::
+
+1. For the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry policy**.
 
    The **Default** option is the recommended policy, but you can select a custom policy for your specific needs. If you choose to use a custom policy, set up at least one retry to overcome temporary network outages.
-
-   > [!NOTE]
-   >
-   > Only managed connector actions currently have the Retry Policy setting, not built-in, service provider-based connectors.
 
 1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
 
@@ -894,11 +898,11 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
    1. Select the lightning icon to open the dynamic content list. From the list, under **Variables**, enter the name for the variable that you created, which is **IDocTransactionID** in this example.
 
-      **Consumption workflow**
+      **Consumption workflow with shared SAP action**
 
       ![Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-consumption.png)
 
-      **Standard workflow**
+      **Standard workflow with in-app SAP action**
 
       ![Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-standard.png)
 
