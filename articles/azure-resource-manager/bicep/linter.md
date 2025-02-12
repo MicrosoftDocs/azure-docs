@@ -46,7 +46,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 - [simplify-json-null](./linter-rule-simplify-json-null.md)
 - [use-parent-property](./linter-rule-use-parent-property.md)
-- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
+- [protect-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
 - [use-recent-module-versions](./linter-rule-use-recent-module-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
