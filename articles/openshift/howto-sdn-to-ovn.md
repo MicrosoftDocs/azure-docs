@@ -22,15 +22,16 @@ OVN-Kuberentes was the default network plugin starting with ARO version 4.11. If
 
 OpenShift SDN remains supported on Azure Red Hat OpenShift through version 4.16. See the [Azure Red Hat OpenShift release calendar](support-lifecycle.md#azure-red-hat-openshift-release-calendar) for end-of-life dates.
 
-To determine which network plugin your cluster currently uses, run the following command:
+1. To determine which network plugin your cluster currently uses, run the following command:
 
-```
-oc get network.operator.openshift.io cluster -o
-jsonpath='{.spec.defaultNetwork.type}'
-```
+    ```
+    oc get network.operator.openshift.io cluster -o
+    jsonpath='{.spec.defaultNetwork.type}'
+    ```
+    
+1. See [Limited live migration to the OVN-Kubernetes network plugin overview](https://docs.openshift.com/container-platform/4.16/networking/ovn_kubernetes_network_provider/migrate-from-openshift-sdn.html#nw-ovn-kubernetes-live-migration-about_migrate-from-openshift-sdn) for steps to perform the migration.
 
-See [Limited live migration to the OVN-Kubernetes network plugin overview](https://docs.openshift.com/container-platform/4.16/networking/ovn_kubernetes_network_provider/migrate-from-openshift-sdn.html#nw-ovn-kubernetes-live-migration-about_migrate-from-openshift-sdn) for steps to perform the migration.
-
-> [!IMPORTANT]
-> Azure Red Hat OpenShift only supports the Limited live migration process. Don't use the offline migration process.
-> 
+    > [!IMPORTANT]
+    > Azure Red Hat OpenShift only supports the Limited live migration process. Don't use the offline migration process.
+    > 
+        
