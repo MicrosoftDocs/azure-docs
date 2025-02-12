@@ -7,7 +7,8 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/12/2025
+#As an integration solution developer, I want to learn how I can build automated workflows that perform tasks with SAP resources.
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
@@ -46,8 +47,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
    | Parameter | Required | Description |
    |-----------|----------|-------------|
-   | **Connection name** | Yes | Enter a name for the connection. |
-   | **Data Gateway** | Yes | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Connection Gateway**, select your data gateway resource in Azure. |
+   | **Connection Name** | Yes | Enter a name for the connection. |
    | **Client** | Yes | The SAP client ID to use for connecting to your SAP server |
    | **Authentication Type** | Yes | The authentication type to use for your connection, which must be **Basic** (username and password). To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
    | **SAP Username** | Yes | The username for your SAP server |
@@ -55,7 +55,7 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
    | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
-
+   | **Data Gateway** | Yes | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Gateway**, select your data gateway resource in Azure. |
 
 For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
@@ -82,21 +82,21 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
    | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Add new parameter** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
    | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Add new parameter** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
-   The following example shows a basically configured SAP managed trigger in a Consumption workflow:
+   The following example shows a basically configured SAP managed trigger in a workflow:
 
-   ![Screenshot shows basically configured SAP managed connector trigger in Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-managed-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-managed-trigger.png" alt-text="Screenshot shows workflow and a basically configured SAP managed connector trigger.":::
 
    The following example shows an SAP managed trigger where you can filter messages by selecting SAP actions:
 
-   ![Screenshot shows selecting an SAP action to filter messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-select-action-managed-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-managed-trigger-select-action.png" alt-text="Screenshot shows workflow, SAP managed connector trigger, and selecting an SAP action to filter messages.":::
 
-   Or, by manually specifying an action:
+   Or, by manually specifying an SAP action:
 
-   ![Screenshot shows manually entering the SAP action to filter messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-manual-enter-action-managed-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-manual-sap-action-managed.png" alt-text="Screenshot shows workflow, SAP managed connector trigger, and manually entering the SAP action to filter messages.":::
 
-   The following example shows how the action appears when you set up the trigger to receive more than one message:
+   The following example shows how SAP actions appear when you set up the SAP managed connector trigger to receive multiple messages:
 
-   ![Screenshot shows example trigger that receives multiple messages in a Consumption workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-multiple-message-managed-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-sap-action-multiple-messages-managed.png" alt-text="Screenshot shows workflow and SAP managed connector trigger that receives multiple messages.":::
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
@@ -195,17 +195,11 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
-      **Consumption workflow**
-
-      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-namespace-expression-consumption.png)
-
-      **Standard workflow**
-
-      ![Screenshot shows the expression to get the root node namespace from received IDoc for a Standard workflow.](./media/sap-create-example-scenario-workflows/get-namespace-expression-standard.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/get-namespace-expression.png" alt-text="Screenshot shows workflow and action with expression to get the root node namespace from received IDoc.":::
 
       When you're done, the expression resolves and now appears as the following format:
 
-      ![Screenshot shows the resolved expression that gets the root node namespace from received IDoc.](./media/sap-create-example-scenario-workflows/get-namespace-expression-resolved.png)
+      ![Screenshot shows resolved expression that gets root node namespace from received IDoc.](media/sap-create-example-scenario-workflows/get-namespace-expression-resolved.png)
 
 1. To extract an individual IDoc by storing the IDoc collection in a local array variable, follow these steps:
 
@@ -223,30 +217,11 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       When you're done, the expression resolves and now appears as the following format:
 
-      **Consumption workflow**
-
-      ![Screenshot shows the expression to get an array of IDocs for a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-array-idoc-expression-resolved-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/get-array-idoc-expression-resolved.png" alt-text="Screenshot shows Consumption workflow and action with expression to get an IDocs array.":::
 
       In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
 
-      ![Screenshot shows sending an IDoc to an SFTP server from a Consumption workflow.](./media/sap-create-example-scenario-workflows/get-idoc-loop-batch-consumption.png)
-
-      > [!NOTE]
-      > For Consumption workflows, this pattern is available as a quickstart template, which you can select 
-      > from the template gallery when you create a Consumption logic app resource and blank workflow. Or, 
-      > when the workflow designer is open, on designer toolbar, select **Templates**.
-      >
-      > ![Screenshot that shows selecting the template for getting an IDoc batch.](./media/sap-create-example-scenario-workflows/get-idoc-batch-sap-template-consumption.png)
-
-      **Standard workflow**
-
-      ![Screenshot shows the expression to get an array of IDocs for a Standard workflow.](./media/sap-create-example-scenario-workflows/get-array-idoc-expression-resolved-standard.png)
-
-      In this example, the following workflow transfers each IDoc to an SFTP server by using a **Control** action named **For each** and the SFTP-SSH action named **Create file**. Each IDoc must include the root namespace, which is the reason why the file content is wrapped inside a `<Receive></Receive>` element along with the root namespace before sending the IDoc to the downstream app, or SFTP server in this case.
-
-      ![Screenshot shows sending an IDoc to an SFTP server from a Standard workflow.](./media/sap-create-example-scenario-workflows/get-idoc-loop-batch-standard.png)
-
----
+      :::image type="content" source="media/sap-create-example-scenario-workflows/get-idoc-loop-batch.png" alt-text="Screenshot shows workflow that sends an IDoc to an SFTP server.":::
 
 <a name="filter-with-sap-actions"></a>
 
@@ -307,13 +282,13 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   ![Screenshot shows the Request trigger for a Consumption workflow.](./media/sap-create-example-scenario-workflows/add-request-trigger-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/add-request-trigger-consumption.png" alt-text="Screenshot shows Consumption workflow with Request trigger.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
    This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
 
-   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Consumption workflow.](./media/sap-create-example-scenario-workflows/generate-http-endpoint-url-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/generate-http-endpoint-url-consumption.png" alt-text="Screenshot shows Consumption workflow and Request trigger with generated endpoint URL for receiving requests.":::
 
 ### [Standard](#tab/standard)
 
@@ -321,13 +296,13 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 1. In the designer, [follow these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
-   ![Screenshot shows the Request trigger for a Standard workflow.](./media/sap-create-example-scenario-workflows/add-request-trigger-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/add-request-trigger-standard.png" alt-text="Screenshot shows Standard workflow with Request trigger.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
    This step generates an endpoint URL where your trigger can receive requests from your SAP server, for example:
 
-   ![Screenshot shows the Request trigger's generated endpoint URL for receiving requests in a Standard workflow.](./media/sap-create-example-scenario-workflows/generate-http-endpoint-url-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/generate-http-endpoint-url-consumption.png" alt-text="Screenshot shows Standard workflow and Request trigger with generated endpoint URL for receiving requests.":::
 
 ---
 
@@ -432,12 +407,11 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](#change-language-headers). |
 
-
 For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Standard workflow with the SAP built-in action named [IDoc] Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-standard.png" alt-text="Screenshot shows Standard workflow with SAP built-in action named IDoc Send document to SAP.":::
 
 1. In the **[IDoc] Send document to SAP** action, provide the information required for the action to send an IDoc to your SAP server, for example:
 
@@ -450,11 +424,11 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
          > [!NOTE]
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Standard workflow.](./media/sap-create-example-scenario-workflows/sap-send-idoc-select-body-standard.png)
+         :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-select-body-standard.png" alt-text="Screenshot shows Standard workflow, Request trigger, and selecting trigger output named Body.":::
 
       The **[IDoc] Send document to SAP** action now includes the body content from the **Request** trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Standard workflow.](./media/sap-create-example-scenario-workflows/sap-send-idoc-complete-standard.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-complete-standard.png" alt-text="Screenshot shows completed SAP action for Standard workflow.":::
 
 1. Save your workflow.
 
@@ -692,7 +666,7 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. If your Standard logic app resource is stopped or disabled, from your workflow, go to the logic app resource level, and select **Overview**. On the toolbar, select **Start**.
 
-1. Return to the workflow level. On the workflow menu, select **Overview**. On the toolbar, select **Run** > **Run** to manually start your workflow.
+1. Return to the workflow level. On the workflow menu, under **Tools**, select **Designer**. On the toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
