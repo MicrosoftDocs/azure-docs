@@ -34,7 +34,7 @@ Unless otherwise noted, you can run the console commands in this tutorial in eit
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and dataflows.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
 
 ## Deploy the OPC PLC simulator
 
@@ -232,4 +232,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using a data flow](tutorial-upload-telemetry-to-cloud.md).

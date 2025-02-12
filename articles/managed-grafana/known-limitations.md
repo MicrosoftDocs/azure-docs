@@ -48,10 +48,14 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 | Managed private endpoint          |   Not supported  |                  Not supported                 |
 | Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
 | Enterprise plugins                |   Not supported  |                  Not supported                 |
+| Essential plan                    |     Supported    |                  Not supported                 |
 
 ## Throttling limits and quotas
 
 The following quotas apply to the Essential (preview) and Standard plans.
+
+> [!NOTE]
+> Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure. The information listed below for the Standard plan also applies to Standard instances with Grafana Enterprise enabled.
 
 [!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
 

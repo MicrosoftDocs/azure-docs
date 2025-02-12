@@ -32,7 +32,7 @@ When you use `nconnect`, keep the following rules in mind:
 
     | Linux release | NFSv3 (minimum release) | NFSv4.1 (minimum release) |
     |-|-|-|
-    | Redhat Enterprise Linux | RHEL8.3 | RHEL8.3 |
+    | Red Hat Enterprise Linux | RHEL8.3 | RHEL8.3 |
     | SUSE | SLES12SP4 or SLES15SP1 | SLES15SP2 |
     | Ubuntu | Ubuntu18.04 |          |
 

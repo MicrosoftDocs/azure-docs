@@ -48,9 +48,8 @@ Before you begin these steps, verify that you have the following environment set
 1. In the Azure portal, go to your Bastion deployment.
 
 1. IP based connection requires the Standard SKU tier or higher. On the **Configuration** page, for **Tier**, verify the tier is set to the **Standard** SKU or higher. If the tier is set to the Basic SKU, select a higher SKU from the dropdown.
-1. To enable **IP based connection**, select **IP based connection**.
 
-    :::image type="content" source="./media/connect-ip-address/ip-connection.png" alt-text="Screenshot that shows the Configuration page." lightbox="./media/connect-ip-address/ip-connection.png":::
+1. To enable **IP based connection**, select **IP based connection**.
 
 1. Select **Apply** to apply the changes. It takes a few minutes for the Bastion configuration to complete.
 
