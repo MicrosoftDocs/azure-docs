@@ -242,7 +242,8 @@ az network public-ip create \
     --resource-group test-rg \
     --name public-ip-bastion \
     --sku Standard \
-    --allocation-method Static
+    --allocation-method Static \
+    --zone 1 2 3
 ```
 
 Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the Azure Bastion host.
@@ -332,7 +333,7 @@ Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to cre
 az network nic create \
     --resource-group test-rg \
     --name nic-public \
-    --vnet-name vnet-1 \
+    --vnet-name vnet-hub \
     --subnet subnet-public \
     --network-security-group nsg-nva
 ```
@@ -441,6 +442,14 @@ az network nic create \
     --private-ip-address 10.0.0.10
 ```
 
+Use [az vm deallocate](/cli/azure/vm#az_vm_deallocate) to shutdown and deallocate the virtual machine.
+
+```azurecli-interactive
+az vm deallocate \
+    --resource-group test-rg \
+    --name vm-nva
+```
+
 Use [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add) to attach the secondary network interface to the virtual machine.
 
 ```azurecli-interactive
@@ -448,6 +457,14 @@ az vm nic add \
     --resource-group test-rg \
     --vm-name vm-nva \
     --nics nic-private
+```
+
+Use [az vm start](/cli/azure/vm#az_vm_start) to start the virtual machine.
+
+```azurecli-interactive
+az vm start \
+    --resource-group test-rg \
+    --name vm-nva
 ```
 
 ---
