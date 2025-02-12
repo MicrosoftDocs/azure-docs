@@ -5,7 +5,7 @@ author: jmmason70
 ms.author: jeffreymason
 ms.service: azure-operator-nexus
 ms.topic: concept-article
-ms.date: 02/11/2025
+ms.date: 02/12/2025
 ---
 
 # Network Fabric OptionA and OptionB 
@@ -16,132 +16,106 @@ The edge routers in each Autonomous Systems are manually configured with a set o
 
 There are two peering standards relevant to Nexus:
 
-Option A: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed.
+**Option A**: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed.
 
-Option B: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It's also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
+**Option B**: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It's also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
 
 For more information on Multi-Autonomous Systems, see section 10 of [RFC 4364](https://www.ietf.org/rfc/rfc4364.txt).
 
+For more information on the commands involved in creating and provisioning Network Fabric, see [Create and Provision a Network Fabric using Azure CLI](./howto-configure-network-fabric.md).
 
-## Create a Network Fabric 
+The two steps where Option A and Option B are specified are 'fabric create' and 'nni create'.
 
-The following steps (with examples) are used in creating and provisioning a Nexus Network Fabric.
+1. Fabric Create
 
-1. Create Fabric
+   Specified in the following property: \
+    --managed-network-config [Required] : Configuration to be used to setup the management network.
+
+   **Examples:** \
+   **Network Fabric create with option A Properties**
    
-   **Create a Network Fabric with option A Properties**
-
    ```azurecli
    
-   az networkfabric fabric create
-   --resource-group "<NFResourceGroup>"
-   --location "<Location>"
-   --resource-name "<NFName>"
-   --nf-sku "<NFSKU>"
-   --fabric-version "x.x.x"
-   --nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>"
-   --fabric-asn 65048
-   --ipv4-prefix x.x.x.x/19
-   --rack-count 4
-   --server-count-per-rack 8
-   --ts-config "{primaryIpv4Prefix:'x.x.0.0/30',secondaryIpv4Prefix:'x.x.x.x/30',username:'****',password:'*****',serialNumber:<TS_SN>}"
-   --managed-network-config "{infrastructureVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31'}},workloadVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}}}" --debug --no-wait
+   az networkfabric fabric create \
+   --resource-group "<NFResourceGroup>" \
+   --location "<Location>" \
+   --resource-name "<NFName>" \
+   --nf-sku "<NFSKU>" \
+   --fabric-version "x.x.x" \
+   --nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>" \
+   --fabric-asn 65048 \
+   --ipv4-prefix x.x.x.x/19 \
+   --rack-count 4 \
+   --server-count-per-rack 8 \
+   --ts-config "{primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',username:'****',password:'*****',serialNumber:<TS_SN>}" \
+   --managed-network-config "{infrastructureVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31'}},workloadVpnConfiguration:{networkToNetworkInterconnectId:'/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkFabrics/example-fabric/networkToNetworkInterconnects/example-nni',peeringOption:OptionA,optionAProperties:{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},mtu:1500,vlanId:520,peerASN:65133,primaryIpv4Prefix:'x.x.x.x/31',secondaryIpv4Prefix:'x.x.x.x/31',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}}}"
    
    ```
-   > [!Note]
-   > * if it's a four racks set up then the rack count would be 4 
-   > * if it's an eight rack set up then the rack count would be 8
 
-
-   **Create a Network Fabric with option B Properties**
-
-   ```azurecli
-   
-   az networkfabric fabric create
-   --resource-group "<NFResourceGroup>"
-   --location "<Location>"
-   --resource-name "<NFName>"
-   --nf-sku "<NFSKU>"
-   --fabric-version "x.x.x"
-   --nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>"
-   --fabric-asn 65048
-   --ipv4-prefix "x.x.x.x/19"
-   --ipv6-prefix "xxxx:xxxx:xxxx:xxxx::xx/59"
-   --rack-count 8
-   --server-count-per-rack 16
-   --ts-config '{"primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "<TS_SN>",    "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64"}'
-   --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928504", "13979:106948"], "exportIpv6RouteTargets": ["13979:2928504", "13979:106948"], "importIpv4RouteTargets": ["13979:2928504", "13979:106947"], "importIpv6RouteTargets": ["13979:2928504", "13979:106947"]}}}, "workloadVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928516"], "exportIpv6RouteTargets": ["13979:2928516"], "importIpv4RouteTargets": ["13979:2928516"], "importIpv6RouteTargets": ["13979:2928516"]}}}}' --debug --no-wait
-   
-   ```
-   > [!Note]
-   > * if it's a four racks set up then the rack count would be 4 
-   > * if it's an eight rack set up then the rack count would be 8
-
-
-2.  Create NNI ingress and egress ACLs
-
-    **Create ingress ACL**
+   **Network Fabric create with option B Properties**
 
     ```azurecli
+   
+    az networkfabric fabric create \
+    --resource-group "<NFResourceGroup>" \
+    --location "<Location>" \
+    --resource-name "<NFName>" \
+    --nf-sku "<NFSKU>" \
+    --fabric-version "x.x.x" \
+    --nfc-id "/subscriptions/<subscription_id>/resourceGroups/<NFResourceGroup>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFCName>" \
+    --fabric-asn 65048 \
+    --ipv4-prefix "x.x.x.x/19" \
+    --ipv6-prefix "xxxx:xxxx:xxxx:xxxx::xx/59" \
+    --rack-count 8 \
+    --server-count-per-rack 16 \
+    --ts-config '{"primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "<TS_SN>",    "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/64"}' \
+    --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928504", "13979:106948"], "exportIpv6RouteTargets": ["13979:2928504", "13979:106948"], "importIpv4RouteTargets": ["13979:2928504", "13979:106947"], "importIpv6RouteTargets": ["13979:2928504", "13979:106947"]}}}, "workloadVpnConfiguration": {"peeringOption": "OptionB", "optionBProperties": {"routeTargets": {"exportIpv4RouteTargets": ["13979:2928516"], "exportIpv6RouteTargets": ["13979:2928516"], "importIpv4RouteTargets": ["13979:2928516"], "importIpv6RouteTargets": ["13979:2928516"]}}}}'
+   
+    ```
+
+
+1.  NNI Create (Network-to-NetworkInterface). This is created after fabric create but before network device update and fabric provision.
+
+    Specified in the following properties: \
+    --use-option-b  [Required] : Selection of option B for NNI.  Allowed values: [False, True].
+
+    For option A, set --use-option-b to "False". \
+    For Option B, set --use-option-b to "True".
+
+    --option-b-layer3-configuration   : Common properties for Option B Layer3Configuration.
+
+    **Examples:** \
+    **NNI create with option A Properties**
     
-    az networkfabric acl create --resource-group "<NFResourceGroup>"
-    --location "<Location>"
-    --resource-name "<example-Ipv4ingressACL>"
-    --configuration-type "Inline"
-    --default-action "Permit"
-    --dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['x.x.x.x/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
-    --match-configurations "[{matchConfigurationName:'example-match',sequenceNumber:123,ipAddressType:IPv4,matchConditions:[{etherTypes:['0x1'],fragments:['0xff00-0xffff'],ipLengths:['4094-9214'],ttlValues:[23],dscpMarkings:[32],portCondition:{flags:[established],portType:SourcePort,layer4Protocol:TCP,ports:['1-20']},protocolTypes:[TCP],vlanMatchCondition:{vlans:['20-30'],innerVlans:[30]},ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['x.x.x.x/12']}}],actions:[{type:Count,counterName:'example-counter'}]}]"
+    ```azurecli
+    
+    az networkfabric nni create \
+    --resource-group "<NFResourceGroup>" \
+    --fabric "<NFFabric>" \
+    --resource-name "<NFNNIName>" \
+    --nni-type "CE" \
+    --is-management-type "True" \
+    --use-option-b "False" \
+    --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" \
+    --layer3-configuration '{"peerASN": 65048, "vlanId": 501, "primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127"}'
+
     
     ````
 
-    **Create egress ACL**
+    **NNI create with option B Properties**
 
     ```azurecli
     
-    az networkfabric acl create --resource-group "<NFResourceGroup>"
-    --location "<Location>"
-    --resource-name "<example-Ipv4egressACL>"
-    --configuration-type "File" \
-    --acls-url "https://ACL-Storage-URL" --default-action "Permit"
-    --dynamic-match-configurations "[{ipGroups:[{name:'example-ipGroup',ipAddressType:IPv4,ipPrefixes:['x.x.x.x/20']}],vlanGroups:[{name:'example-vlanGroup',vlans:['20-30']}],portGroups:[{name:'example-portGroup',ports:['100-200']}]}]"
-    
-    ````
-
-3.  Create NNI (Network-to-NetworkInterface). Completed after the fabric create but before device update and fabric provision.
-
-    ```azurecli
-    
-    az networkfabric nni create --resource-group "<NFResourceGroup>"
-    --fabric "<NFFabric>"
-    --resource-name "<NFNNIName>"
-    --nni-type "CE"
-    --is-management-type "True"
-    --use-option-b "True"
-    --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}"
+    az networkfabric nni create \
+    --resource-group "<NFResourceGroup>" \
+    --fabric "<NFFabric>" \
+    --resource-name "<NFNNIName>" \
+    --nni-type "CE" \
+    --is-management-type "True" \
+    --use-option-b "True" \
+    --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" \
     --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}"
     --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"
     --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
-    
-    ````
-
-4.  Update devices
-
-    The following command should be run for each network fabric device.
-    
-    ```azurecli
-    
-    az networkfabric device update --resource-group "<NFResourceGroup>"
-    --resource-name "<Network-Device-Name>"
-    --host-name <example-device-hostname>
-    --serial-number <NF_DEVICE_SN>
-    
-    ````
-
-6.  Provision network fabric
-
-    ```azurecli
-    
-    az networkfabric fabric provision --resource-group "<NFResourceGroup>"
-    --resource-name "<NFName>"
     
     ````
