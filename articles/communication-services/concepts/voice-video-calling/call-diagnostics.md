@@ -151,6 +151,30 @@ You can now see the `DiagnosticOptions` column.
 
 For more information about adding `DiagnosticOptions` tags, see [Add custom tags to your client telemetry](../../tutorials/voice-video-calling/diagnostic-options-tag.md).
 
+### How do I use `DiagnosticOptions` to view my tagged calls in Call Diagnostics?
+
+Your tags used in `DiagnosticOptions` could be used in 3 places in the Call Diagnostics interface:
+* Calls search
+  ![Screenshot of the Call Diagnostics Search view that shows the DiagnosticOptions column.](media/uihint-call-search.png)
+* Participants table in Call Overview section
+  ![Screenshot of the Call Diagnostics Call Overview section that shows the DiagnosticOptions column.](media/uihint-participants-table.png)
+* Timeline section in Participants information Sidepanel
+  ![Screenshot of the Call Diagnostics timeline section that shows the DiagnosticOptions values when exploring a participants side pane details.](media/uihint-timeline.png)
+
+### I cannot see the `DiagnosticOptions` information column in the tables. How can I enable them?
+
+To view the `DiagnosticOptions` columns in Call Diagnostics you have to enable them by using `Edit Columns` button which is located in the Call Search and Call Overview sections:
+![Screenshot of the Call Diagnostics search view with a red rectangle around the Edit Columns icon.](media/uihint-edit-columns-button.png)
+
+After clicking this button choose the `DiagnosticOptions` option and click on the `Done` button:
+![Screenshot of the Call Diagnostics search view with the column editor opened on the right side. The DiagnosticOptions circle has been selected.](media/uihint-choose-columns-sidepane.png)
+You will be able to see the `DiagnosticOptions`column now.
+
+### Where can I find more information about adding tags for my Calls in Call Diagnostics?
+
+You can find more information for adding `DiagnosticOptions` tags in: 
+https://learn.microsoft.com/azure/communication-services/tutorials/voice-video-calling/diagnostic-options-tag
+
 ## Related content
 
 - Learn how to manage call quality: [Improve and manage call quality](manage-call-quality.md).
