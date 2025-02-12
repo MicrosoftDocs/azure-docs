@@ -12,9 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Java PetClinic AI sample in Container Apps overview
 
-The Spring PetClinic sample is a classic reference application that demonstrates the use of Spring Boot with Java. This tutorial features an  AI-enhanced version built on Azure Container Apps which extends the traditional pet clinic management system with modern AI capabilities.
+The Spring PetClinic sample is a classic reference application that demonstrates the use of Spring Boot with Java. This tutorial features an AI-enhanced version built on Azure Container Apps that extends the traditional PetClinic management system with modern AI capabilities.
 
-The application you build in this tutorial is AI chat assistant that uses Retrieval Augmented Generation (RAG). To connect to Azure OpenAI Service, the application uses Spring AI SDKs to support the web application. For more information on RAG, see [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
+The application you build in this tutorial is an AI chat assistant that uses Retrieval Augmented Generation (RAG). To connect to Azure OpenAI Service, the application uses Spring AI SDKs to support the web application. For more information on RAG, see [Implement Retrieval Augmented Generation (RAG) with Azure OpenAI Service](/training/modules/use-own-data-azure-openai).
 
 The application features many different services working together to introduce the AI-related features to the Spring PetClinic sample.
 
@@ -41,15 +41,14 @@ The following table describes the key components and services featured in the ap
 
 | Service or feature                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure Container Apps](/azure/container-apps/overview)                            | A fully managed serverless container platform for building and deploying modern apps. Handles autoscaling, traffic splitting, and revision management of containerized applications.                                                                                                                                                                                                                                                 |
-| [Azure Container Apps environment](/azure/container-apps/environment)             | A secure boundary around a group of container apps that share networking, scaling, and management configurations. Provides the foundational runtime for container apps deployment.                                                                                                                                                                                                                                                   |
-| [Azure OpenAI Service](/azure/ai-services/openai/overview)                        | Provides REST API access to OpenAI's powerful language models like GPT-4, embeddings, and ChatGPT. Enables AI capabilities with enterprise-grade security and compliance features.                                                                                                                                                                                                                                                   |
+| [Azure Container Apps](/azure/container-apps/overview)                            | A fully managed, serverless container platform for building and deploying modern apps. Handles autoscaling, traffic splitting, and revision management of containerized applications.                                                                                                                                                                                                                                                 |
+| [Azure Container Apps environment](/azure/container-apps/environment)             | A secure boundary around a group of container apps that share networking, scaling, and management configurations. Provides the foundational runtime for a container apps deployment.                                                                                                                                                                                                                                                   |
+| [Azure OpenAI Service](/azure/ai-services/openai/overview)                        | Provides REST API access to OpenAI's ChatGPT, embeddings, and powerful language models like GPT-4. Enables AI capabilities with enterprise-grade security and compliance features.                                                                                                                                                                                                                                                   |
 | [Azure Container Registry](/azure/container-registry/container-registry-intro)    | A private Docker registry service for storing and managing container images. Supports automated container builds, vulnerability scanning, and geo-replication.                                                                                                                                                                                                                                                                       |
 | [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) | Provides Azure services with automatically managed identities in Azure AD. Eliminates the need for credential management by allowing secure service-to-service authentication without storing credentials in code.                                                                                                                                                                                                                   |
 | [Spring AI](https://spring.io/projects/spring-ai)                                 | Spring framework for AI engineering that applies AI design principles to the Spring ecosystem. Alternatively, [Langchain4j](https://docs.langchain4j.dev/intro) is another AI framework with its own PetClinic sample in [spring-petclinic-langchain4j](https://github.com/Azure-Samples/spring-petclinic-langchain4j). For more information, see [Chat Client API](https://docs.spring.io/spring-ai/reference/api/chatclient.html).|
 
 For more information on the infrastructure as code elements of the application, see the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) in the [Bring your first AI app in Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai/) repository.
-.
 
 ## Code implementation
 
@@ -71,7 +70,7 @@ The [`ChatConfiguration`](https://github.com/Azure-Samples/spring-petclinic-ai/b
 - Configuration settings location: For `ChatModel`, deployment `gpt-4o` and temperature `0.7` are set in the configuration file.
 - Vector database: The vector database stores mathematical representations of source documents, known as *embeddings*. The vector data is used by the chat API to find documents relevant to a user's question.
 - System prompt: Customize AI behavior and enhance performance.
-- API endpoints: The application features customized Azure Functions endpoints so that OpenAI to interact with the application.
+- API endpoints: The application features customized Azure Functions endpoints so that OpenAI can interact with the application.
 - Advisors: Advisors provide a flexible and powerful way to intercept, modify, and enhance AI-driven interactions in your Spring applications.
 
 ### Example
@@ -92,14 +91,12 @@ public ChatClientCustomizer chatClientCustomizer(VectorStore vectorStore, ChatMo
 
 ### API endpoints
 
-The beans defined under `java.util.Function` are functions defined in the application context. These functions are the interface between the AI models and the PetClinc application.
+The beans defined under `java.util.Function` are functions defined in the application context. These functions are the interface between the AI models and the PetClinic application.
 
-There are sample functions in [AIFunctionConfiguration.java](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/AIFunctionConfiguration.java) that communicate with the PetClinic application.
-
-Keep in mind the following details about these functions:
+There are sample functions in [AIFunctionConfiguration.java](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/AIFunctionConfiguration.java) that communicate with the PetClinic application. Keep in mind the following details about these functions:
 
 - The `@Description` annotations to functions help the AI models understand the functions in a natural language.
-- The function body varies depending on your business requirements.
+- The function body varies, depending on your business requirements.
 
 ### Advisors
 
@@ -107,8 +104,8 @@ Advisors are components that modify or enhance AI prompts, which act as middlewa
 
 This application uses two different advisors:
 
-- [`QuestionAnswerAdvisor`](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ModeledQuestionAnswerAdvisor.java) calls the AI models that generate a new user which includes results from the search vector before finalizing the prompt.
-- `PromptChatMemoryAdvisor` adds chat memory into the prompt and provide a conversation history to the chat model. With this context, the AI model can remember the context of the chat and improve the chat quality.
+- [`QuestionAnswerAdvisor`](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ModeledQuestionAnswerAdvisor.java) calls the AI models to generate a new user query that includes the results from the search vector, before finalizing the prompt.
+- `PromptChatMemoryAdvisor` adds chat memory into the prompt and provides a conversation history to the chat model. With this context, the AI model can remember the context of the chat and improve the chat quality.
 
 For more information, see [Advisors API](https://docs.spring.io/spring-ai/reference/api/advisors.html).
 
