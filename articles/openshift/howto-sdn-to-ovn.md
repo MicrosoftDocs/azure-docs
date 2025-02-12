@@ -5,23 +5,20 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 02/11/2025
-#Customer intent: As an operator or developer, I need to migrate from OpenShift SDN to OVN-Kubernetes.
+ms.date: 02/12/2025
 ---
+
 # Migrate from OpenShift SDN to OVN-Kubernetes
 
 OpenShift SDN, a component of Red Hat OpenShift Networking, is a network plugin that uses software-defined networking (SDN) to create a unified network for your cluster. This network allows communication between pods across the OpenShift Container Platform. OpenShift SDN manages this network by configuring an overlay network using Open vSwitch (OVS).
 
-OpenShift SDN has been deprecated since version 4.14 and will no longer be supported starting with version 4.17.  Therefore, if your cluster is using OpenShift SDN, you must migrate to OVN-Kubernetes before upgrading to any major OpenShift version beyond 4.16. OVN-Kubernetes is now the only supported network plugin.
+OpenShift SDN has been deprecated since version 4.14 and will no longer be supported starting with version 4.17. Therefore, if your cluster is using OpenShift SDN, you must migrate to OVN-Kubernetes before upgrading to any minor OpenShift version beyond 4.16.
 
 ## Migrating to OVN-Kubernetes for Azure Red Hat OpenShift
 
 If your Azure Red Hat OpenShift (ARO) cluster is using the OpenShift SDN network plugin, you must migrate to the OVN-Kubernetes plugin before updating to version 4.17.
 
-> [!IMPORTANT]
-> Azure Red Hat OpenShift only supports the Limited live migration process.  Don't use the offline migration process.
-> 
-If you installed your ARO cluster with version 4.11 or later, OVN-Kubernetes was the default network plugin. You likely don't need to perform a migration.
+OVN-Kuberentes was the default network plugin starting with ARO version 4.11. If you installed your cluster with version 4.11 or later, you likely don't need to perform a migration.
 
 OpenShift SDN remains supported on Azure Red Hat OpenShift through version 4.16. See the [Azure Red Hat OpenShift release calendar](support-lifecycle.md#azure-red-hat-openshift-release-calendar) for end-of-life dates.
 
@@ -34,8 +31,6 @@ jsonpath='{.spec.defaultNetwork.type}'
 
 See [Limited live migration to the OVN-Kubernetes network plugin overview](https://docs.openshift.com/container-platform/4.16/networking/ovn_kubernetes_network_provider/migrate-from-openshift-sdn.html#nw-ovn-kubernetes-live-migration-about_migrate-from-openshift-sdn) for steps to perform the migration.
 
-
-
-
-
-
+> [!IMPORTANT]
+> Azure Red Hat OpenShift only supports the Limited live migration process. Don't use the offline migration process.
+> 
