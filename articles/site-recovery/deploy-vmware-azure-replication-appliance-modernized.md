@@ -40,6 +40,9 @@ If you just created a free Azure account, you're the owner of your subscription.
 - Microsoft.OffAzure/*
 - Microsoft.Recoveryservices/*
 
+> [!NOTE]
+> In case different users are configuring the appliances registered to a single recovery services vault, each of the user should be added as an owner to AAD app of that vault. To do so, in Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners** and select the user to add them as an owner to the AAD app.
+
 **Follow these  steps to assign the required permissions**:
 
 1. In the Azure portal, search for **Subscriptions**, and under **Services**, select **Subscriptions** search box to search for the Azure subscription.

@@ -437,6 +437,8 @@ items:
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
+      - name: What is speculative execution in Spark?
+        href: ./spark/what-is-speculative-execution-in-spark.md  
       - name: Optimization
         items:
         - name: Optimize Apache Spark jobs
