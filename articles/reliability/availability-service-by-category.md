@@ -58,7 +58,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Virtual Machines: Dv3 and DSv3-series   | Azure Network Watcher               | 
 > | Virtual Machines: Dv5 and DSv5-series   | Azure Private Link                  |
 > | Virtual Machines: Edv5 and Edsv5-series | Azure Storage: Files Storage        |
-> | Virtual Machines: Ev3 and ESv3-series   | Azure Storage: Premium Blob Storage |
+> | Virtual Machines: Ev3 and Esv3-series   | Azure Storage: Premium Blob Storage |
 > | Virtual Machines: Ev5 and Esv5-series   | Azure Virtual WAN                   |
 > |                                         | Microsoft Entra Domain Services     |
 > |                                         | Virtual Machines: Ddsv4-series      |
@@ -110,7 +110,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | SQL Server Stretch Database                          |
 > | Virtual Machines: Bsv2-series                        |
 > | Virtual Machines: Dasv5 and Dadsv5-series            |
-> | Virtual Machines: DAv4 and DASv4-series              |
+> | Virtual Machines: Dav4 and Dasv4-series              |
 > | Virtual Machines: DCsv2-series                       |
 > | Virtual Machines: Easv5 and Eadsv5-series            |
 > | Virtual Machines: Eav4 and Easv4-series              |
@@ -118,13 +118,13 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: HBv2-series                        |
 > | Virtual Machines: HBv3-series                        |
 > | Virtual Machines: HCv1-series                        |
-> | Virtual Machines: LSv2-series                        |
-> | Virtual Machines: LSv3-series                        |
+> | Virtual Machines: Lsv2-series                        |
+> | Virtual Machines: Lsv3-series                        |
 > | Virtual Machines: Mv2-series                         |
-> | Virtual Machines: NCasT4 v3-series                   |
+> | Virtual Machines: NCasT4_v3-series                   |
 > | Virtual Machines: NCv3-series                        |
-> | Virtual Machines: NDasr A100 v4-Series               |
-> | Virtual Machines: NDm A100 v4-Series                 |
+> | Virtual Machines: NDasrA100_v4-Series                |
+> | Virtual Machines: NDm_A100_v4-Series                 |
 > | Virtual Machines: NDv2-series                        |
 > | Virtual Machines: NP-series                          |
 > | Virtual Machines: NVv3-series                        |
