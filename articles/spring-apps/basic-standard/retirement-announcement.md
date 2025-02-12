@@ -20,7 +20,7 @@ We're committed to supporting you with a long-term platform with migration tools
 Azure Spring Apps, including the Standard consumption and dedicated (currently in Public Preview only), Basic, Standard, and Enterprise plans, will be retired through a two-phased retirement plan:
 
 - On September 30, 2024, the Standard consumption and dedicated plan (preview) will enter a six-month retirement period and will be retired on March 31, 2025.
-- In mid-March 2025, all other Azure Spring Apps plans, including Basic, Standard, and Enterprise plans, will enter a three-year retirement period and will be retired on March 31, 2028.
+- On March 17, 2025, all other Azure Spring Apps plans, including Basic, Standard, and Enterprise plans, will enter a three-year retirement period and will be retired on March 31, 2028.
 
 :::image type="content" source="media/retirement-announcement/retirement-period.png" alt-text="Diagram showing the Azure Spring Apps retirement period.":::
 
@@ -50,17 +50,17 @@ Migration guidance and tooling will offer customers a smooth transition from Azu
 
 ## Migration guidance and tooling for the Azure Spring Apps Basic and Standard plans
 
-New customers will no longer be able to sign up for the service after March 31, 2025, while existing customers will remain operational until the plans are phased out on March 31, 2028.
+New customers will no longer be able to sign up for the service after March 17, 2025, while existing customers will remain operational until the plans are phased out on March 31, 2028.
 
-We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans starts in mid-March 2025.
+We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans as early as possible.
 
-Migration guidance will be ready by the end of December 2024 and the migration tool assisting with Azure Container Apps environment setup will be available by mid-March 2025 before the retirement starts.
+Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now.
 
 ## Migration guidance and tooling for the Azure Spring Apps Enterprise plans
 
-New customers will no longer be able to sign up for the service after March 31, 2025. For existing customers who have already created and used Azure Spring Apps, while the service will generally be operational until March 31, 2028, we recommend you to migrate off by Aug 31, 2025 to ensure as little disruption as possible to your business running on our serivce. While Microsoft and Broadcom try to ensure the continuous support on all Tanzu components during the whole retirement period, there are still uncontrollable factors to discontinue it: 1) how to state the "120 day advance notice" here? 2) 3 Tanzu components: App Live view, App accelerator, App config service, will be out of support after Aug 2025 due to their lifecyle would come to the end by then. We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans starts in mid-March 2025.
+New customers will no longer be able to sign up for the service after March 31, 2025. For existing customers who have already created and used Azure Spring Apps, while the service will generally be operational until March 31, 2028, we recommend you to migrate off by Aug 31, 2025 to ensure as little disruption as possible to your business running on our serivce. While Microsoft and Broadcom try to ensure the continuous support on all Tanzu components during the whole retirement period, there are still uncontrollable factors to discontinue it: 1) how to state the "120 day advance notice" here? 2) 3 Tanzu components: App Live view, App accelerator, App config service, will be out of support after Aug 2025 due to their lifecyle would come to the end by then. We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans as early as possible.
 
-Migration guidance will be ready by the end of December 2024 and the migration tool assisting with Azure Container Apps environment setup will be available by mid-March 2025 before the retirement starts.
+Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now.
 
 ## What is the impact for customers using Tanzu Components with Azure Spring Apps Enterprise?
 
@@ -74,7 +74,7 @@ We recommend Azure Container Apps as the primary service for your migration of w
 
 Migration guidance and tooling will offer customers a smooth transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
-We're working on the migration guidance and tooling from the Azure Spring Apps Basic, Standard, and Enterprise plans to Azure Container Apps. This guidance and tooling will be available by March 2025.
+Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now.
 
 You might also consider the following alternative solutions:
 
@@ -110,7 +110,7 @@ After March 31, 2028, Azure Spring Apps Basic, Standard and Enterprise plans wil
 
 For Azure Spring Apps Consumption and dedicated plan, existing customers are who have created Azure Spring Apps serivce instances before Sep 30, 2024, and new customers are who have never created Azure Spring Apps service instances before.
 
-For Azure Spring Apps basic, standard and enterprise plans, existing customers are who have created Azure Spring Apps serivce instances before mid of March, 2025, and new customers are who have never created Azure Spring Apps service instances before.
+For Azure Spring Apps basic, standard and enterprise plans, existing customers are who have created Azure Spring Apps serivce instances before March 17, 2025, and new customers are who have never created Azure Spring Apps service instances before.
 
 ### Does Microsoft Container Apps offer feature parity with Azure Spring Apps?
 
@@ -120,7 +120,7 @@ Customers should be able to achieve most of the desired capabilities to host the
 
 For the Standard consumption and dedicated plan (preview), Azure Container Apps and Azure Spring Apps are available in the same regions.
 
-Azure Container Apps will be available in the same Azure regions as Azure Spring Apps for customers under the Basic, Standard, and Enterprise plans before the migration starts in March 2025.
+Azure Container Apps now is available in the same Azure regions as Azure Spring Apps for customers under the Basic, Standard, and Enterprise plans.
 
 ### Are there pricing differences across Microsoft solutions?
 
@@ -150,11 +150,11 @@ The following table indicates the overall release timeline for whole Azure Sprin
 | [Guidance and tooling for migration to Azure Container Apps](../consumption-dedicated/overview-migration.md) | Standard consumption and dedicated plan | October 2024       |
 | Guidance for migrating to Azure Container Apps (without migration tooling support)                           | Basic, Standard, and Enterprise plans   | Jan 2025           |
 | Guidance for migrating to AKS                                                                                | Basic, Standard, and Enterprise plans   | Jan 2025           |
-| Official retirement date after a half year retirement period                                                 | Standard consumption and dedicated plan | March 31, 2025     |
-| Official retirement start date                                                                               | Basic, Standard, and Enterprise plans   | Mid-March 2025     |
-| Guidance for migrating to Azure Container Apps with migration tooling support                                | Basic, Standard, and Enterprise plans   | Mid-March 2025     |
-| Guidance for helping switch from Tanzu components to alternative solutions                                   | Enterprise plans                        | Mid-March 2025     |
-| Block new customer sign-ups                                                                                  | Basic, Standard, and Enterprise plans   | April 2025         |
+| Official retirement date after a half year retirement period                                                 | Standard consumption and dedicated plan | March 17, 2025     |
+| Official retirement start date                                                                               | Basic, Standard, and Enterprise plans   | March 17, 2025     |
+| Guidance for migrating to Azure Container Apps with migration tooling support                                | Basic, Standard, and Enterprise plans   | March 17, 2025     |
+| Guidance for helping switch from Tanzu components to alternative solutions                                   | Enterprise plans                        | March 17, 2025     |
+| Block new customer sign-ups                                                                                  | Basic, Standard, and Enterprise plans   | March 17, 2025         |
 | Official retirement date after a three-year retirement period                                                | Basic, Standard, and Enterprise plans   | March 31 2028      |
 
 ### How can I get transition help and support during migration?
