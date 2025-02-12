@@ -7,7 +7,7 @@ author: amerjusupovic
 ms.author: ajusupovic
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/05/2025
+ms.date: 02/12/2025
 ---
 
 # Preview API life cycle
@@ -45,7 +45,7 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 ## How to update to a newer version of the API
 
 - For Azure SDKs: Use a newer API version by updating to a [newer version of the SDK](https://github.com/Azure/AppConfiguration?tab=readme-ov-file#sdks).
-- For Azure CLI: Update the CLI itself.
+- For Azure CLI: Update the CLI itself, usually by running `az upgrade`.
 - For REST requests: Update the `api-version` query parameter.
 - For other tools: Update the tool to the latest version.
 
@@ -53,16 +53,6 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 
 | API version        | Announce Date     | Deprecation Date  |
 |--------------------|-------------------|-------------------|
-| 2022-09-02-preview | March 27, 2024    | June 20, 2024     |
-| 2022-10-02-preview | March 27, 2024    | June 20, 2024     |
-| 2023-01-02-preview | March 27, 2024    | June 20, 2024     |
-| 2023-02-02-preview | March 27, 2024    | June 20, 2024     |
-| 2023-03-02-preview | Oct 21, 2024      | February 3, 2025  |
-| 2023-04-02-preview | Oct 21, 2024      | February 10, 2025 |
-| 2023-05-02-preview | Oct 21, 2024      | February 17, 2025 |
-| 2023-06-02-preview | Oct 21, 2024      | February 24, 2025 |
-| 2023-07-02-preview | Oct 21, 2024      | March 3, 2025     |
-| 2023-08-02-preview | Oct 21, 2024      | March 10, 2025    |
 
 ## Completed deprecations
 
