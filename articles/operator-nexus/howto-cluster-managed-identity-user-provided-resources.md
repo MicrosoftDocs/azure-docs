@@ -221,7 +221,6 @@ Cluster update to assign `myUAMI` to the log analysis output settings.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
-    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI"
