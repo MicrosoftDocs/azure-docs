@@ -1,17 +1,17 @@
 ---
-title: Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps
+title: Deploy an AI-Enabled Instance of the Spring PetClinic on Azure Container Apps
 description: Use the azd automation tool to deploy a sample AI application to Azure Container Apps.
 services: container-apps
 author: KarlErickson
 ms.author: sonwan
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 02/10/2025
+ms.date: 02/12/2025
 ms.custom:
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 
-# Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps
+# Deploy an AI-enabled instance of the Spring PetClinic on Azure Container Apps
 
 In this article, you learn how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) and Azure Container Apps to create a natural language interface for the Spring PetClinic sample application.
 
@@ -21,43 +21,32 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Considerations
 
-- **Deployment time**: The AI-enable application deployed in this article requires a series of connected services to operate. Deployment times can take upwards of 15 minutes to complete. Plan your time accordingly as you work through this tutorial.
-
-- **Model availability**: The sample application uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment modules *gpt-4o* and *text-embedding-ada-002*, which might not be available in all Azure regions.
+- Deployment time: The AI-enable application deployed in this article requires a series of connected services to operate. Deployment times can take upwards of 15 minutes to complete. Plan your time accordingly as you work through this tutorial.
+- Model availability: The sample application uses [Azure OpenAI Service](/azure/ai-services/openai/overview) deployment modules `gpt-4o` and `text-embedding-ada-002`, which might not be available in all Azure regions.
 
     For more information on availability, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models?tabs=global-standard,standard-chat-completions) and select your desired deployment region. For best results, consider using one of the following regions: East US, East US 2, North Central US, South Central US, Sweden Central, West US, or West US 3.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following setup:
-
-- **Azure subscription**: You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have an existing account.
-
-- **Security context**: To perform this quickstart, you need the `Contributor` and `User Access Administrator` roles, or the `Owner` role.
-  
-    For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
-
-- **GitHub account**: Get one for [free](https://github.com/join).
-
-- **git**: Install the latest version of [git](https://git-scm.com/downloads).
-
-- **Microsoft Build of Open JDK**: Install [Microsoft Build of Open JDK](/java/openjdk/install). Use version 17 at a minimum.
-
-- **Azure Command-Line interface (CLI)**: Install [Azure CLI](/azure/developer/azure-developer-cli/install-azd) to manage your Azure resources via command line.
-
-- **Maven**: Install the latest version of [Maven](https://maven.apache.org/download.cgi).
+- Azure subscription: You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have an existing account.
+- Security context: To perform this quickstart, you need the `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+- GitHub account: Get one for [free](https://github.com/join).
+- git: Install the latest version of [git](https://git-scm.com/downloads).
+- Microsoft Build of Open JDK: Install [Microsoft Build of Open JDK](/java/openjdk/install). Use version 17 at a minimum.
+- Azure Command-Line interface (CLI): Install [Azure CLI](/azure/developer/azure-developer-cli/install-azd) to manage your Azure resources via command line.
+- Maven: Install the latest version of [Maven](https://maven.apache.org/download.cgi).
 
 ## Setup
 
 1. Clone the sample application to your machine.
 
-    Open your terminal or command prompt to run the following command.
+    Open your terminal or command prompt to run the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
     ```
 
-1. Change into the *spring-petclinic-ai* folder.
+1. Change into the **spring-petclinic-ai** folder.
 
     ```bash
     cd spring-petclinic-ai
@@ -65,7 +54,7 @@ Before you begin, ensure you have the following setup:
 
 1. If you don't already have it, install the Azure CLI.
 
-    ```bash  
+    ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
@@ -73,7 +62,7 @@ Before you begin, ensure you have the following setup:
 
     Use the `auth` command to securely log in to your Azure account using the Azure CLI.
 
-    ```bash  
+    ```azurecli
     az auth login  
     ```
 
@@ -83,7 +72,7 @@ Before you begin, ensure you have the following setup:
 
 1. Automatically deploy the application by with the `azd up` command.
 
-    ```azurecli
+    ```azdeveloper
     azd up
     ```
 
@@ -99,7 +88,7 @@ Before you begin, ensure you have the following setup:
 
     Once you provide all the required values, you might need to wait upwards of 15 minutes for the application to deploy.
 
-    When deployment is complete, you see output similar to the following to notify you of a successful deployment.
+    When deployment is complete, you see output similar to the following to notify you of a successful deployment:
 
     ```output
     (✓) Done: Resource group: rg-my-first-ai (5.977s)
@@ -141,7 +130,7 @@ Before you begin, ensure you have the following setup:
 
 1. Go to the application in a web browser using the URL you copied in the last step.
 
-1. You can interact with the chatbot by via prompts like:
+1. You can interact with the chatbot via prompts like the following:
 
     - List all registered pet owners.
     - Add a new pet owner named Steve.
@@ -149,9 +138,9 @@ Before you begin, ensure you have the following setup:
     - Add a pet named Spot.
     - List all vets in your system.
 
-    The following image shows the result of asking the application to add a new pet owner to the system.
+The following image shows the result of asking the application to add a new pet owner to the system.
 
-    :::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/first-java-ai-application/add-new-item.png":::
+:::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/first-java-ai-application/add-new-item.png":::
 
 ## Updates
 
@@ -179,4 +168,3 @@ az group delete --name rg-first-ai
 ```
 
 ---
-
