@@ -28,7 +28,7 @@ Running an SLM locally is beneficial if you want to run a chatbot application wi
 
 Since AI models consume considerable resources, choose the pricing tier that gives you sufficient vCPUs and memory to run your specific model. In practice, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
-This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. In App Service, we tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
+This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. It also comes with a CPU-optimized version. In App Service, we tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
 
 ## 1. Inspect the sample in GitHub Codespaces
 
