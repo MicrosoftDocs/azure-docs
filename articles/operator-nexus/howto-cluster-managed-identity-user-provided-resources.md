@@ -164,8 +164,8 @@ Updating a Cluster follows the same pattern as create. If you need to change the
 
 For LAW and Key Vault, transitioning from the existing data constructs to the new constructs that use UAMI can be done via a Cluster Update.
 
-> [!CAUTION]
-> Changing the LAW settings might cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
+> [!IMPORTANT]
+> When updating a Cluster with a UAMI or UAMIs in use, you must include the existing UAMIs in the `--mi-user-assigned` identity list when adding a new one. If a SAMI is in use on the Cluster and you're adding a UAMI, you must include `--mi-system-assigned` in the update command. Failure to do so causes the respective managed identities to be removed.
 
 _Example 1:_ Add user assigned identity and command output settings (Storage Account) to a Cluster.
 
@@ -178,6 +178,9 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
 ```
 
 _Example 2:_ Add user assigned identity and log analytics output settings (LAW) to a Cluster.
+
+> [!CAUTION]
+> Changing the LAW settings might cause a brief disruption in sending metrics to the LAW as the extensions which use the LAW might need to be reinstalled.
 
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
@@ -346,6 +349,9 @@ Updating a Cluster follows the same pattern as create. If you need to change the
 
 For LAW and Key Vault, transitioning from the existing data constructs to the new constructs that use UAMI can be done via a Cluster Update.
 
+> [!IMPORTANT]
+> When updating a Cluster with a UAMI or UAMIs in use, you must include the existing UAMIs in the `--mi-user-assigned` identity list when adding a SAMI or updating. If a SAMI is in use on the Cluster and you're adding a UAMI, you must include `--mi-system-assigned` in the update command. Failure to do so causes the respective managed identities to be removed.
+
 _Example 1:_ Add or update the command output settings (Storage Account) for a Cluster.
 
 ```azurecli-interactive
@@ -382,6 +388,35 @@ az networkcloud cluster update --name "clusterName" --resource-group "resourceGr
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="SystemAssignedIdentity" \
     --secret-archive-settings identity-type="SystemAssignedIdentity" \
+    vault-uri="https://keyvaultname.vault.azure.net/"
+```
+
+## Using multiple identity types on a Cluster
+
+While the recommended patterns are to use either a UAMI (or list of UAMIs) or a SAMI, Nexus Clusters do support using both user assigned managed identities and system assigned managed identities at the same time on the Cluster. Some caution must be taken when updating identities on the Cluster to ensure that an in-use identity doesn't get inadvertently deleted.
+
+Cluster updates that are making changes to fields other than the `--mi-***-assigned` fields don't require them to be included.
+
+_Example 1:_ Add a SAMI to a Cluster that already has a UAMI.
+
+The UAMI must be included in the update command. Otherwise, the command is interpreted as removing the existing UAMI and adding the SAMI.
+
+```azurecli-interactive
+az networkcloud cluster update --name "clusterName" -g "resourceGroupName" \
+    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
+    --mi-system-assigned
+```
+
+_Example 2:_ Add a UAMI to a Cluster that already has a SAMI and assign the UAMI to secret archive settings.
+
+The SAMI must be included in the update command. Otherwise, the command is interpreted as removing the SAMI and adding the UAMI.
+
+```azurecli-interactive
+az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
+    --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
+    --mi-system-assigned \
+    --secret-archive-settings identity-type="UserAssignedIdentity" \
+    identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     vault-uri="https://keyvaultname.vault.azure.net/"
 ```
 
