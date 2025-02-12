@@ -23,12 +23,18 @@ mkdir messages-quickstart && cd messages-quickstart
 
 ### Install the package
 
-Use the Azure Communication Messages client library for Python [version 1.0.0](https://pypi.org/project/azure-communication-messages) or above.
+Use the Azure Communication Messages client library for Python [1.1.0](https://pypi.org/project/azure-communication-messages) or above.
 
 From a console prompt, run the following command:
 
 ```console
 pip install azure-communication-messages
+```
+
+For **InteractiveMessages, Reactions and Stickers**, please use below [Beta](https://pypi.org/project/azure-communication-messages/1.2.0b1/) version:
+
+```console
+pip install azure-communication-messages==1.2.0b1
 ```
 
 ### Set up the app framework
