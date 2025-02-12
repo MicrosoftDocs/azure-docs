@@ -11,11 +11,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Quickstart: Configure vaulted backup for Azure File share using Azure Terraform
+#  Quickstart: Configure vaulted backup for Azure Files using Azure Terraform
 
-This quickstart describes how to configure vaulted backup for Azure File share using Azure Terraform template.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure Terraform template.
 
-[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure File shares in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
+[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
 
 [Terraform](https://www.terraform.io/) enables the definition, preview, and deployment of cloud infrastructure.
 
@@ -35,7 +35,7 @@ Terraform supports Azure authentication only with the Azure CLI, not Azure Power
 ## Implement the Terraform code
 Before you implement the Terraform code, learn how to [use Terraform sample codes to manage Azure resources](/azure/terraform).
 
-To implement the Terraform code for File share backup flow, run the following scripts:
+To implement the Terraform code for File Share backup flow, run the following scripts:
 
 1. Create a directory that you can use to test the sample Terraform code and make it your current directory.
 2. Create a file named **providers.tf** and add the following code:
@@ -98,7 +98,7 @@ To implement the Terraform code for File share backup flow, run the following sc
       depends_on = [azurerm_resource_group.rg]
     }
 
-    ## Create a File share 
+    ## Create a File Share 
     resource "azurerm_storage_share" "fsshare" {
       name                 = var.FS_name
       storage_account_name = azurerm_storage_account.storage.name
@@ -246,8 +246,7 @@ If you encounter issues while using Terraform on Azure, see the [troubleshooting
 
 ## Next step
 
-In this quickstart, you learned how to deploy a storage account with file share, create a Recovery services vault, and configure backup for the file share.
+In this quickstart, you learned how to deploy a storage account with File Share, create a Recovery services vault, and configure backup for the File Share.
 **Learn more about**:
 
-- [Azure Files backup](azure-file-share-backup-overview.md)
-- [Restore Azure Files](restore-afs.md)
+[Restore Azure Files](restore-afs.md)
