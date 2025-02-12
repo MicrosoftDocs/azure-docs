@@ -10,11 +10,7 @@ ms.date: 02/12/2025
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
 
-This article shows how to export templates through the **portal**. For other options, see:
-
-* [Export template with Azure CLI](export-template-cli.md)
-* [Export template with Azure PowerShell](export-template-powershell.md)
-* [REST API export from resource group](/rest/api/resources/resourcegroups/exporttemplate) and [REST API export from deployment history](/rest/api/resources/deployments/export-template).
+Currently, Bicep files can only be exported from the Azure portal. Exporting via Azure CLI or Azure PowerShell is not supported at this time.
 
 [!INCLUDE [Export template choose option](../../../includes/resource-manager-export-template-choose-option.md)]
 
