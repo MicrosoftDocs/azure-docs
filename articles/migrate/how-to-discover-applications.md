@@ -47,13 +47,13 @@ Performing software inventory helps identify and tailor a migration path to Azur
 1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, select **Add credentials** to provide multiple server credentials to perform software inventory.
 1. Select **Start discovery**, to initiate discovery.
 
- After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours.Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
+ After the server discovery is complete, appliance initiates the discovery of installed applications, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours. Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
 
 ## Review and export the inventory
 
 After software inventory has completed, you can review and export the inventory in the Azure portal.
 
-1. In **Azure Migrate - Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the displayed count to open the **Discovered servers** page.
 
     > [!NOTE]
     > At this stage you can optionally also enable dependency analysis for the discovered servers, so that you can visualize dependencies across servers you want to assess. [Learn more](concepts-dependency-visualization.md) about dependency analysis.

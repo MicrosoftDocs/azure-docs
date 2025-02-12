@@ -4,8 +4,8 @@ description: In this quickstart, learn how to use Multi-user authorization to pr
 ms.topic: quickstart
 ms.date: 06/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Enable protection using Multi-user authorization in Azure Backup

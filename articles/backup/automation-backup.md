@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 09/09/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Automation in Azure Backup

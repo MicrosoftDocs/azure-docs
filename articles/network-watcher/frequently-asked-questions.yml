@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 09/06/2024
+  ms.date: 01/14/2025
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to the most frequently asked questions asked about Azure Network Watcher.
@@ -123,7 +123,7 @@ sections:
       - question: |
           Which features require the Network Watcher Agent?
         answer: |
-          The Packet capture, Connection troubleshoot and Connection monitor features require the Network Watcher extension to be present.
+          The Connection monitor, Packet capture, and Connection troubleshoot (connectivity test) features require the Network Watcher extension to be present.
 
       - question: |
           What is the latest version of the Network Watcher Agent?

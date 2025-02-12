@@ -5,8 +5,8 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/01/2022
-ms.topic: article
+ms.date: 01/27/2025
+ms.topic: reference
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 

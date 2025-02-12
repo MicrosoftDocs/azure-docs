@@ -52,9 +52,7 @@ You can add a dynamic private IP address prefix to an Azure network interface by
 
 4. Select **Networking** in **Settings**.
 
-5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm237_z1**.
-
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-network-interface.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+5. Select the name of the network interface of the virtual machine.
 
 6. In the network interface, select **IP configurations** in **Settings**.
 
@@ -70,8 +68,6 @@ You can add a dynamic private IP address prefix to an Azure network interface by
    | Allocation | Select **Dynamic** |
 
 9. Select **OK**.
-
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-dynamic-ip-prefix-config.png" alt-text="Screenshot of Add IP configuration." lightbox="./media/virtual-network-private-ip-addresses-blocks-portal/add-dynamic-ip-prefix-config-expand.png":::
 
    > [!NOTE]
    > Public IP address association is not available for configuration when IP address prefix option is selected.
@@ -90,9 +86,7 @@ You can add a static private IP address prefix to a virtual machine by completin
 
 4. Select **Networking** in **Settings**.
 
-5. Select the name of the network interface of the virtual machine. In this example, it's named **myvm237_z1**.
-
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/select-network-interface.png" alt-text="Screenshot of myVM networking and network interface selection.":::
+5. Select the name of the network interface of the virtual machine.
 
 6. In the network interface, select **IP configurations** in **Settings**.
 
@@ -109,8 +103,6 @@ You can add a static private IP address prefix to a virtual machine by completin
    | IP address | Enter an unused CIDR of size /28 from the subnet for your virtual machine.</br> For the 10.0.0.0/14 subnet in the example, an IP would be **10.0.0.0/80**. |
 
 9. Select **OK**.
-
-   :::image type="content" source="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config.png" alt-text="Screenshot of Add static IP configuration for a private IP address block." lightbox="./media/virtual-network-private-ip-addresses-blocks-portal/add-static-ip-prefix-config-expand.png":::
 
    > [!NOTE]
    > When adding a static IP address, you must specify an unused, valid private IP address CIDR from the subnet the NIC is connected to.

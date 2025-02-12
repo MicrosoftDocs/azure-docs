@@ -4,7 +4,7 @@ description: Learn how to investigate risky users, and detections in Azure AD B2
 ms.service: entra-id
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.author: godonnell
 author: garrodonnell
 manager: CelesteDG

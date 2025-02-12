@@ -115,7 +115,7 @@ You can view the properties of the circuit by selecting it. On the Overview page
 
 ### Send the service key to your connectivity provider for provisioning
 
-On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you with the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you with the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-partner-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
@@ -212,7 +212,7 @@ To modify an ExpressRoute circuit, select **Configuration**.
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-deprovisioned.png" alt-text="Screenshot of a deprovisioned circuit.":::
 
 > [!NOTE]
->* You must delete all associated [Virtual Network connections](expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources), [Authorizations](expressroute-howto-linkvnet-portal-resource-manager.md#circuit-owner-operations), and [Global Reach](expressroute-howto-set-global-reach-portal.md#disable-connectivity) from the ExpressRoute circuit before deprovisioning. If deprovisioning fails, check whether any associated resources are still linked to the circuit.
+>* You must delete all associated [Virtual Network connections](expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources), [Route Filter](how-to-routefilter-portal.md#clean-up-resources), [Authorizations](expressroute-howto-linkvnet-portal-resource-manager.md#circuit-owner-operations), and [Global Reach](expressroute-howto-set-global-reach-portal.md#disable-connectivity) from the ExpressRoute circuit before deprovisioning. If deprovisioning fails, check whether any associated resources are still linked to the circuit.
 >* If the circuit service provider has deprovisioned the circuit (The *Provider status* has updated to **Not provisioned**), you can delete the circuit. This stops billing for the circuit.
 
 ## Next steps

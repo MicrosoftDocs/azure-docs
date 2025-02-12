@@ -13,7 +13,7 @@ If you want to add or remove IP address prefixes and your gateway doesn't have a
 Each time you make a change, the entire list of prefixes must be specified, not just the prefixes that you want to change. Specify only the prefixes that you want to keep. In this case, 10.0.0.0/24 and 10.3.0.0/16
 
 ```azurecli
-az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 10.3.0.0/16
+az network local-gateway create --gateway-ip-address 203.0.113.34 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 10.3.0.0/16
 ```
 
 ### <a name="withconnection"></a>To modify local network gateway IP address prefixes - existing gateway connection

@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/27/2024
+ms.date: 02/03/2025
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -70,7 +70,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
     You can also provide a title to each paragraph. From the right-hand corner of the paragraph, select the **Settings** icon (sprocket), and then select **Show title**.  
 
     > [!NOTE]  
-    > %spark2 interpreter is not supported in Zeppelin notebooks across all HDInsight versions, and %sh interpreter will not be supported from HDInsight 4.0 onwards.
+    > %spark2 interpreter isn't supported in Zeppelin notebooks across all HDInsight versions, and %sh interpreter not supported from HDInsight 4.0 onwards.
 
 5. You can now run Spark SQL statements on the `hvac` table. Paste the following query in a new paragraph. The query retrieves the building ID. Also the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
 
@@ -81,7 +81,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     The **%sql** statement at the beginning tells the notebook to use the Livy Scala interpreter.
 
-6. Select the **Bar Chart** icon to change the display.  **settings** appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
+6. Select the **Bar Chart** icon to change the display.  **settings** appear after you selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Run a Spark SQL statement using the notebook1." border="true":::
 
@@ -107,7 +107,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 Zeppelin notebook in Apache Spark cluster on HDInsight can use external, community-contributed packages that aren't included in the cluster. Search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
 
-In this article, you'll see how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter Notebook.
+In this article, you see how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter Notebook.
 
 1. Open interpreter settings. From the top-right corner, select the logged in user name, then select **Interpreter**.
 
@@ -123,7 +123,7 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
     Select **Save** and then **OK** to restart the Livy interpreter.
 
-4. If you want to understand how to arrive at the value of the key entered above, here's how.
+4. If you want to understand how to arrive at the value of the key entered, here's how.
 
     a. Locate the package in the Maven Repository. For this article, we used [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
 
@@ -139,7 +139,7 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
 ## Where are the Zeppelin notebooks saved?
 
-The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the cluster, the notebooks will be deleted as well. If you want to preserve your notebooks for later use on other clusters, you must export them after you have finished running the jobs. To export a notebook, select the **Export** icon as shown in the image below.
+The Zeppelin notebooks saved to the cluster headnodes. So, if you delete the cluster, the notebooks will be deleted as well. If you want to preserve your notebooks for later use on other clusters, you must export them after you finished running the jobs. To export a notebook, select the **Export** icon as shown in the image as follows.
 
 :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Download notebook." border="true":::
 
@@ -150,11 +150,11 @@ This action saves the notebook as a JSON file in your download location.
    > 
    >    Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
    > 
-   >    Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
+   >    Whereas in HDI 5.0 and this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
    > 
    >    Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
 > * The file name stored is different in HDI 5.0.
-   >    It is stored as `<notebook_name>_<sessionid>.zpln`
+   >    It's stored as `<notebook_name>_<sessionid>.zpln`
    > 
    >    Eg. testzeppelin_2JJK53XQA.zpln
    > 
@@ -164,11 +164,11 @@ This action saves the notebook as a JSON file in your download location.
 > 
 > * HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
 >    
->    If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. For more details, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
+>    If you want the notebook to be available even after cluster deletion, you can try to use Azure file storage (Using SMB protocol) and link it to local path. For more information, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
 > 
->    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
+>    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in Ambari UI.
 >   
-> - The SMB fileshare as GitNotebookRepo storage is not recommended for zeppelin version 0.10.1
+> - The SMB fileshare as GitNotebookRepo storage isn't recommended for zeppelin version 0.10.1
 
 ## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
 
@@ -176,7 +176,7 @@ As noted above, the `%sh` interpreter isn't supported from HDInsight 4.0 onwards
 
 Privileged domain users can use the `Shiro.ini` file to control access to the Interpreter UI. Only these users can create new `%sh` interpreters and set permissions on each new `%sh` interpreter. To control access using the `shiro.ini` file, use the following steps:
 
-1. Define a new role using an existing domain group name. In the following example, `adminGroupName` is a group of privileged users in AAD. Don't use special characters or white spaces in the group name. The characters after `=` give the permissions for this role. `*` means the group has full permissions.
+1. Define a new role using an existing domain group name. In the following example, `adminGroupName` is a group of privileged users in Microsoft Entra ID. Don't use special characters or white spaces in the group name. The characters after `=` give the permissions for this role. `*` means the group has full permissions.
 
     ```
     [roles]

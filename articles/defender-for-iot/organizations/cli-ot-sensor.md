@@ -124,7 +124,7 @@ Use the following commands to turn on synchronization for the appliance time wit
 To use these commands, make sure that:
 
 - The NTP server can be reached from the appliance management port
-- You use the same NTP server to synchronize all sensor appliances and the on-premises management console
+- You use the same NTP server to synchronize all sensor appliances
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|

@@ -3,8 +3,8 @@ title: Manage Azure File share backup with REST API
 description: Learn how to use REST API to manage and monitor Azure file shares that are backed up by Azure Backup.
 ms.topic: how-to
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage Azure File share backup with REST API

@@ -294,7 +294,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)

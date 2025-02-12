@@ -157,7 +157,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * Default value: "0 0 * * *" -- Runs the job once everyday.
 
 `--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=`
-* This configuration specifies the precent threshold value to trigger the cluster registry garbage collection process.
+* This configuration specifies the percent threshold value to trigger the cluster registry garbage collection process.
 * This configuration triggers garbage collection process when cluster registry usage exceeds this value.
 * Default value: 0.
 
@@ -174,8 +174,44 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 ## Update network function extension
 The Azure CLI command 'az k8s-extension update' is executed to update the NFO extension.
 
+```bash
+az k8s-extension update --resource-group
+                        --cluster-name
+                        --cluster-type {connectedClusters}
+                        --extension-type {Microsoft.Azure.HybridNetwork}
+                        --name
+                        --release-namespace {azurehybridnetwork}
+                        --release-train {preview, stable}
+                        --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
+                        [--version] {version-target}
+                        [--config global.networkfunctionextension.enableClusterRegistry={false, true}]
+                        [--config global.networkfunctionextension.enableLocalRegistry={false, true}]
+                        [--config global.networkfunctionextension.enableEarlyLoading={false,true}]
+                        [--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled={true, false}]
+                        [--config global.networkfunctionextension.clusterRegistry.autoScaling.enabled={true, false}]
+                        [--config global.networkfunctionextension.webhook.highAvailability.enabled={true, false}]
+                        [--config global.networkfunctionextension.webhook.autoScaling.enabled={true, false}]
+                        [--config global.networkfunctionextension.clusterRegistry.storageClassName=]
+                        [--config global.networkfunctionextension.clusterRegistry.storageSize=]
+                        [--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
+                        [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
+```
+
+
 ## Delete network function extension
 The Azure CLI command 'az k8s-extension delete' is executed to delete  the NFO extension.
+
+```bash
+az k8s-extension delete --resource-group
+                        --cluster-name
+                        --cluster-type {connectedClusters}
+                        --extension-type {Microsoft.Azure.HybridNetwork}
+                        --name
+                        --release-namespace {azurehybridnetwork}
+                        --release-train {preview, stable}
+                        --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator
+```
 
 ## Examples
 Create a network function extension with auto upgrade.
@@ -206,4 +242,14 @@ az k8s-extension create --resource-group myresourcegroup --cluster-name mycluste
 Create a network function extension with side loading feature enabled.
 ```bash
 az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork --config global.networkfunctionextension.enableLocalRegistry=true
+```
+
+Update a network function extension to enable cluster registry.
+```bash
+az k8s-extension update --resource-group naks-1-rg --cluster-name naks-1  --cluster-type connectedClusters --name networkfunction-operator  --extension-type Microsoft.Azure.HybridNetwork --release-namespace azurehybridnetwork --config networkFunctionExtension.EnableManagedInClusterEdgeRegistry=true –-config networkFunctionExtension.EdgeRegistrySizeInGB=1024
+```
+
+Update a network function extension to reach a new target version.
+```bash
+az k8s-extension update --resource-group naks-1-rg --cluster-name naks-1  --cluster-type connectedClusters --name networkfunction-operator  --extension-type Microsoft.Azure.HybridNetwork --release-namespace azurehybridnetwork --version X.X.XXXX-YYY
 ```

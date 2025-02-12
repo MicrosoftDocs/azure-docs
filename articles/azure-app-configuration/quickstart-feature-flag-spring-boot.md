@@ -85,14 +85,27 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open `bootstrap.properties`. If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
 
-    ```properties
+   If you are using a properties file, use the following code:
+   ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+    ```
+    
+    If you are using a yaml file, use the following code:
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          appconfiguration:
+            stores[0]:
+              feature-flags:
+                enabled: 'true'
+              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
     Additionally, you need to add the following code to your project, unless you want to use Managed Identity:
@@ -122,9 +135,22 @@ To create a new Spring Boot project:
     ```
 
     ### [Connection string](#tab/connection-string)
-    ```properties
+   If you are using a properties file, use the following code:
+   ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+    ```
+
+   If you are using a yaml file, use the following code:
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          appconfiguration:
+            stores[0]:
+              feature-flags:
+                enabled: 'true'
+              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
     ---
 
@@ -142,13 +168,13 @@ To create a new Spring Boot project:
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -157,19 +183,19 @@ To create a new Spring Boot project:
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 
