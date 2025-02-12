@@ -29,8 +29,8 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > The procedure in this tutorial uses Azure Firewall Manager to create a new Azure Virtual WAN secured hub.
 > You can use Firewall Manager to upgrade an existing hub, but you can't configure Azure **Availability Zones** for Azure Firewall.
-> It is also possible to convert an existing hub to a secured hub using the Azure portal, as described in [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md). But like Azure Firewall Manager, you can't configure **Availability Zones**.
-> To upgrade an existing hub and specify **Availability Zones** for Azure Firewall (recommended) you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md).
+> It's also possible to convert an existing hub to a secured hub using the Azure portal, as described in [Configure Azure Firewall in a Virtual WAN hub](../virtual-wan/howto-firewall.md). But like Azure Firewall Manager, you can't configure **Availability Zones**.
+> To upgrade an existing hub and specify Availability Zones for Azure Firewall (recommended), you must follow the upgrade procedure in [Tutorial: Secure your virtual hub using Azure PowerShell](secure-cloud-network-powershell.md).
 
 :::image type="content" source="media/secure-cloud-network/secure-cloud-network.png" alt-text="Diagram showing the secure cloud network." lightbox="media/secure-cloud-network/secure-cloud-network.png":::
 
@@ -59,7 +59,7 @@ The two virtual networks each have a workload server in them and are protected b
 
 
 1. Select **Next**, then select **Next**.
-1. In the ****Networking** tab, create a subnet with the following settings:
+1. In the **Networking** tab, create a subnet with the following settings:
 
     | Setting                  | Value                |
     |--------------------------|----------------------|
@@ -113,10 +113,10 @@ Create your secured virtual hub using Firewall Manager.
 1. Select the desired combination of **Availability Zones**. 
 
     > [!IMPORTANT]
-> A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs that you need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute, and so on. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, you should select all available Availability Zones.
+    > A Virtual WAN is a collection of hubs and services made available inside the hub. You can deploy as many Virtual WANs as you need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute, and so on. Each of these services is automatically deployed across Availability Zones except Azure Firewall, if the region supports Availability Zones. To align with Azure Virtual WAN resiliency, you should select all available Availability Zones.
 
 
-1. Type **1** in the **Specify number of Public IP addressees** text box or associate an existing public IP address (preview) with this firewall.
+1. Type **1** in the **Specify number of Public IP addresses** text box or associate an existing public IP address (preview) with this firewall.
 1. Under **Firewall Policy** ensure the **Default Deny Policy** is selected. You refine your settings later in this article.
 1. Select **Next: Security Partner Provider**.
 1. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
@@ -140,12 +140,12 @@ Now you can peer the hub and spoke virtual networks.
 1. Select the **fw-manager-rg** resource group, then select the **Vwan-01** virtual WAN.
 1. Under **Connectivity**, select **Virtual network connections**.
 
-| Setting           | Value                |
-|-------------------|----------------------|
-| Connection name   | **hub-spoke-01**     |
-| Hubs              | **Hub-01**           |
-| Resource group    | **fw-manager-rg**    |
-| Virtual network   | **Spoke-01**         |
+    | Setting           | Value                |
+    |-------------------|----------------------|
+    | Connection name   | **hub-spoke-01**     |
+    | Hubs              | **Hub-01**           |
+    | Resource group    | **fw-manager-rg**    |
+    | Virtual network   | **Spoke-01**         |
 
 1. Select **Create**.
 1. Repeat the previous steps to connect the **Spoke-02** virtual network with the following settings:

@@ -14,11 +14,11 @@ ms.custom: template-how-to
 Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager.
 
 > [!TIP]
-> DDoS Protection currently does not support virtual WANs. However, you can workaround this limitation by force tunneling Internet traffic to an Azure Firewall in a virtual network that has a DDoS Protection Plan associated with it.
+> DDoS Protection currently doesn't support virtual WANs. However, you can work around this limitation by force tunneling Internet traffic to an Azure Firewall in a virtual network that has a DDoS Protection Plan associated with it.
 
 Under a single tenant, DDoS protection plans can be applied to virtual networks across multiple subscriptions. For more information about DDoS protection plans, see  [Azure DDoS Protection overview](../ddos-protection/ddos-protection-overview.md).
 
-To see how this works, you'll create a firewall policy and then a virtual network secured with an Azure Firewall. Then you'll create a DDoS Protection Plan and then associate it with the virtual network.
+To see how this works, you create a firewall policy and then a virtual network secured with an Azure Firewall. Then you create a DDoS Protection Plan and then associate it with the virtual network.
 
 ## Create a firewall policy
 
