@@ -1,12 +1,12 @@
 ---
 title: Transform HL7v2 data to FHIR R4 with $convert-data in the FHIR service for Azure Health Data Services
 description: Learn how to transform HL7v2 data into FHIR R4 by using Azure Data Factory’s $convert-data operation. Explore prerequisites, configuration, and pipeline creation for data conversion and storage with Azure Data Lake Storage Gen2 capabilities.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 05/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 # Transform HL7v2 data to FHIR R4 with $convert-data and Azure Data Factory
