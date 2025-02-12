@@ -10,13 +10,13 @@ ms.date: 02/12/2025
 
 # Network Fabric OptionA and OptionB 
 
-BGP (Border Gateway Protocol) is a protocol used on the internet between routers to allow traffic to be routed between Autonomous Systems (AS). Autonomous Systems use BGP to advertise to their peers which IPs they can route to and which AS(s) they go through to get there. For example, an ISP (Internet Service Provider) advertises traffic to enter their network via their ingress points. They'll then advertise they know how to route to the public IPs on their network, without them having to share how they do that routing internally.
+BGP (Border Gateway Protocol) is a protocol used on the internet between routers to allow traffic to be routed between Autonomous Systems (AS). Autonomous Systems use BGP to advertise to their peers which IPs they can route to and which ASs they go through to get there. For example, an ISP (Internet Service Provider) advertises traffic to enter their network via their ingress points. They'll advertise they know how to route to the public IPs on their network, without them having to share how they do that routing internally.
  
 The edge routers in each Autonomous Systems are manually configured with a set of BGP peers they trust and only accept traffic routed from those peers.
 
 There are two peering standards relevant to Nexus:
 
-**Option A**: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but this is implementation dependent and not guaranteed.
+**Option A**: This option is simpler but less scalable than Option B, and only supports IPv4 in the standard. It can support IPv6 and multicast as well, but is implementation dependent and not guaranteed.
 
 **Option B**: This option is more complex but supports IPv4, IPv6, and multicast in the standard. It's also more scalable than Option A. Nexus supports IPv4, IPv6, and multicast.
 
@@ -24,12 +24,12 @@ For more information on Multi-Autonomous Systems, see section 10 of [RFC 4364](h
 
 For more information on the commands involved in creating and provisioning Network Fabric, see [Create and Provision a Network Fabric using Azure CLI](./howto-configure-network-fabric.md).
 
-The two steps where Option A and Option B are specified are 'fabric create' and 'nni create'.
+Option A and Option B are specified in the steps **fabric create** and **nni create**.
 
 1. Fabric Create
 
    Specified in the following property: \
-    --managed-network-config [Required] : Configuration to be used to setup the management network.
+    --managed-network-config [Required]: Configuration to be used to set up the management network.
 
    **Examples:** \
    **Network Fabric create with option A Properties**
@@ -74,18 +74,18 @@ The two steps where Option A and Option B are specified are 'fabric create' and 
     ```
 
 
-1.  NNI Create (Network-to-NetworkInterface). This is created after fabric create but before network device update and fabric provision.
+1.  NNI (Network-to-NetworkInterface) Create. The NNI is created after fabric create but before network device update and fabric provision.
 
     Specified in the following properties: \
-    --use-option-b  [Required] : Selection of option B for NNI.  Allowed values: [False, True].
+    --use-option-b  [Required]: Selection of option B for NNI. Allowed values: [False, True].
 
-    For option A, set --use-option-b to "False". \
-    For Option B, set --use-option-b to "True".
+    For option A, set to "False" \
+    For Option B, set to "True"
 
-    --option-b-layer3-configuration   : Common properties for Option B Layer3Configuration.
+    --option-b-layer3-configuration: Common properties for Option B Layer3Configuration.
 
     **Examples:** \
-    **NNI create with option A Properties**
+    **NNI (Network-to-NetworkInterface) create with option A Properties**
     
     ```azurecli
     
@@ -104,7 +104,7 @@ The two steps where Option A and Option B are specified are 'fabric create' and 
     
     ````
 
-    **NNI create with option B Properties**
+    **NNI (Network-to-NetworkInterface) create with option B Properties**
 
     ```azurecli
     
