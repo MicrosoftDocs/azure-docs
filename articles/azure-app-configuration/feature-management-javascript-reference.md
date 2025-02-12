@@ -673,18 +673,21 @@ If your application runs in the browser, install the [`"@microsoft/feature-manag
 
 ```typescript
 import { ApplicationInsights } from "@microsoft/applicationinsights-web"
-import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-browser"
+import { FeatureManager, ConfigurationObjectFeatureFlagProvider } from "@microsoft/feature-management";
+import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-browser";
 
 const appInsights = new ApplicationInsights({ config: {
-  connectionString: "InstrumentationKey=YOUR_INSTRUMENTATION_KEY_GOES_HERE",
+    connectionString: "<APPINSIGHTS_CONNECTION_STRING>"
 }});
 appInsights.loadAppInsights();
 
-...
-const telemetryPublisher = createTelemetryPublisher(appInsights);
-const featureManager = new FeatureManager(ffProvider, { onFeatureEvaluated: telemetryPublisher});
+const publishTelemetry = createTelemetryPublisher(appInsights);
+const provider = new ConfigurationObjectFeatureFlagProvider(jsonObject);
+const featureManager = new FeatureManager(provider, {onFeatureEvaluated: publishTelemetry});
 
-...
+// FeatureEvaluation event will be emitted when a feature flag is evaluated
+featureManager.getVariant("TestFeature", {userId : TARGETING_ID}).then((variant) => { /* do something*/ });
+
 // Emit a custom event with targeting id attached.
 trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"});
 ```
@@ -694,18 +697,21 @@ trackEvent(appInsights, TARGETING_ID, {name: "TestEvent"}, {"Tag": "Some Value"}
 If your application runs in the Node.js, install the [`"@microsoft/feature-management-applicationinsights-node"`](https://www.npmjs.com/package/@microsoft/feature-management-applicationinsights-node) package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
 
 ```typescript
-import appInsights from "applicationinsights"
-import { createTelemetryPublisher, trackEvent } from "@microsoft/feature-management-applicationinsights-node"
+const appInsights = require("applicationinsights");
+appInsights.setup(process.env.APPINSIGHTS_CONNECTION_STRING).start();
 
-appInsights.setup().start(); // for more information: https://learn.microsoft.com/azure/azure-monitor/app/nodejs#basic-usage
+const { FeatureManager, ConfigurationObjectFeatureFlagProvider } = require("@microsoft/feature-management");
+const { createTelemetryPublisher, trackEvent } = require("@microsoft/feature-management-applicationinsights-node");
 
-...
-const telemetryPublisher = createTelemetryPublisher(appInsights.defaultClient);
-const featureManager = new FeatureManager(ffProvider, { onFeatureEvaluated: telemetryPublisher});
+const publishTelemetry = createTelemetryPublisher(appInsights.defaultClient);
+const provider = new ConfigurationObjectFeatureFlagProvider(jsonObject);
+const featureManager = new FeatureManager(provider, {onFeatureEvaluated: publishTelemetry});
 
-...
+// FeatureEvaluation event will be emitted when a feature flag is evaluated
+featureManager.getVariant("TestFeature", {userId : "<TARGETING_ID>"}).then((variant) => { /* do something*/ });
+
 // Emit a custom event with targeting id attached.
-trackEvent(appInsights.defaultClient, TARGETING_ID, {name: "TestEvent"});
+trackEvent(appInsights.defaultClient, "<TARGETING_ID>", {name: "TestEvent",  properties: {"Tag": "Some Value"}});
 ```
 
 ---
