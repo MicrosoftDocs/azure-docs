@@ -40,7 +40,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 - Microsoft.OffAzure/*
 - Microsoft.Recoveryservices/*
 
-In a multi-appliance scenario (where multiple appliances are configured to a single vault), AAD apps created by the first appliance should have the configuration user of the subsequent appliances added as an owner.
+> [!NOTE]
+> In case different users are configuring the appliances registered to a single recovery services vault, each of the user should be added as an owner to AAD app of that vault. To do so, in Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners** and select the user to add them as an owner to the AAD app.
 
 **Follow these  steps to assign the required permissions**:
 
@@ -60,7 +61,6 @@ In a multi-appliance scenario (where multiple appliances are configured to a sin
 
   - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The Application Developer role **cannot** be used to enable registration of Microsoft Entra App.
 
-1. In Azure portal, navigate to **App registrations**, search for the AAD app > **Manage** > **Owners** > **Add Owners**. Select the user, to add a user as an owner to an AAD app.
 
 ## Prepare infrastructure
 
