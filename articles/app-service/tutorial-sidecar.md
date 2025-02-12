@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 02/20/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
