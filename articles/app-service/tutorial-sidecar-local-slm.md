@@ -1,29 +1,34 @@
 ---
 title: 'Tutorial: Run a local SLM in a sidecar container'
-description: Learn how to run local SLM inferencing for your web app in a sidecar container, and separate your web app and your AI model for operational efficiency.
+description: Learn how to run local SLM inferencing for your web app in a sidecar container on Azure App Service, and separate your web app and your AI model for operational efficiency.
 ms.topic: tutorial
 ms.date: 02/20/2025
 ms.author: cephalin
 author: cephalin
-keywords: azure app service, web app, linux, windows, docker, sidecar, ai, chat bot, slm, small language model
+keywords: azure app service, web app, linux, windows, docker, sidecar, ai, chatbot, slm, small language model, local SLM, Azure tutorial
 ---
 
 # Run a local SLM in a sidecar container in Azure App Service
 
-This tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. When you're finished, you have a fashion assistant chat application running in App Service and accessing a model locally.
+In this tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. By the end of this tutorial, you will have a fashion assistant chat application running in App Service and accessing a model locally.
 
-:::image type="content" source="media/tutorial-sidecar-local-slm/rag-app-slm-sidecar.png" alt-text="An image showing a fashion assistant chat app in App Service.":::
+:::image type="content" source="media/tutorial-sidecar-local-slm/rag-app-slm-sidecar.png" alt-text="An image showing a fashion assistant chat app in Azure App Service.":::
 
-You would want to run an SLM locally if you want to run a chatbot application but don't want to send your business data over the internet to a cloud chatbot provider. 
+Running an SLM locally is beneficial if you want to run a chatbot application without sending your business data over the internet to a cloud chatbot provider.
 
-- App Service has high-performance pricing tiers that helps you run AI models at scale.
-- Running an SLM lets you separate AI logic from your application logic. You can maintain the discrete components separately, such as upgrading your model without affecting your application.
+- **High-performance pricing tiers**: App Service offers high-performance pricing tiers that help you run AI models at scale.
+- **Separation of concerns**: Running an SLM lets you separate AI logic from your application logic. You can maintain the discrete components separately, such as upgrading your model without affecting your application.
+
+## Prerequisites
+
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* A GitHub account. you can also [get one for free](https://github.com/join).
 
 ## Performance considerations
 
-Since AI models consume considerable resources, choose the pricing tier that gives you sufficent vCPUs and memory to run your specific model. In practice, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
+Since AI models consume considerable resources, choose the pricing tier that gives you sufficient vCPUs and memory to run your specific model. In practice, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
-This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources, and gives you strong math and logical reasonings for many common scenarios. In App Service, we have tested the model on all premium tiers and have found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
+This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. In App Service, we have tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
 
 ## 1. Inspect the sample in GitHub Codespaces
 
@@ -33,12 +38,12 @@ This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging F
 
 The sample repository has the following code:
 
-|Directory  | Description  |
-|---------|---------|
-|src/phi-3-sidecar| Docker image code that runs a Python FastAPI endpoint for the Phi-3 mini model. See [How does the Phi-3 sidecar container work?](#how-does-the-phi-3-sidecar-container-work) |
-|src/webapp |A front-end .NET Blazor application. See [How does the front-end app work?](#how-does-the-front-end-app-work) |
-|infra|Infrastructure-as-code for deploying a .NET web app in Azure. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible).|
-|azure.yaml|Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible).|
+| Directory        | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| src/phi-3-sidecar| Docker image code that runs a Python FastAPI endpoint for the Phi-3 mini model. See [How does the Phi-3 sidecar container work?](#how-does-the-phi-3-sidecar-container-work) |
+| src/webapp       | A front-end .NET Blazor application. See [How does the front-end app work?](#how-does-the-front-end-app-work) |
+| infra            | Infrastructure-as-code for deploying a .NET web app in Azure. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
+| azure.yaml       | Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
 
 ## 2. Deploy the front-end application
 
