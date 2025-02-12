@@ -17,7 +17,8 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
-
+- March 2025
+  - [Vaulted backup support for Azure Files is now generally available](#vaulted-backup-support-for-azure-files-is-now-generally-available)
 - November 2024
   - [Secure by Default with Vault soft delete (preview)](#secure-by-default-with-vault-soft-delete-preview)
   - [WORM enabled Immutable Storage for Recovery Services vaults is now generally available](#worm-enabled-immutable-storage-for-recovery-services-vaults-is-now-generally-available)
@@ -100,15 +101,15 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Vaulted backup support for Azure file share is now generally available
+## Vaulted backup support for Azure Files is now generally available
 
-Azure Backup now supports vaulted backup file shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
+Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
 
 Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. Manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 
-For more information, see [Overview of Azure file share backup](azure-file-share-backup-overview.md?tabs=vault-standard).
+For more information, see [Overview of Azure Files backup](azure-file-share-backup-overview.md?tabs=vault-standard).
 
 ## Secure by Default with Vault soft delete (preview)
  

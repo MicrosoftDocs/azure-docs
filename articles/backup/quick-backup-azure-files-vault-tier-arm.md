@@ -11,21 +11,21 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Quickstart: Configure vaulted backup for Azure File share using Azure Resource Manager
+#  Quickstart: Configure vaulted backup for Azure Files using Azure Resource Manager
 
-This quickstart describes how to configure vaulted backup for Azure File share using Azure Resource Manager (ARM) template.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure Resource Manager (ARM) template.
 
-Azure Backup supports configuring snapshot and vaulted backups for Azure File shares in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
+Azure Backup supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
 
 An Azure Resource Manager template is a JavaScript Object Notation (JSON) that defines your project's infrastructure and configuration using declarative syntax. It allows you to specify your intended deployment without writing programming commands.
 
 ## Prerequisites
 
-Before you configure vaulted backup for Azure Files, ensure that you have a storage account with an existing file share. To create a new storage account and file share, see [create an Azure storage account with file share template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-file-share).
+Before you configure vaulted backup for Azure Files, ensure that you have a storage account with an existing File Share. To create a new storage account and File Share, see [create an Azure storage account with File Share template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-file-share).
 
 ## Review the template
 
-The [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-file-share) configures protection for an existing File share in a Storage Account. It creates or uses a Recovery Services Vault and Backup Policy based on parameter values.
+The [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-file-share) configures protection for an existing File Share in a Storage Account. It creates or uses a Recovery Services Vault and Backup Policy based on parameter values.
 
 ```json
 {

@@ -11,11 +11,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Quickstart: Configure vaulted backup for Azure File share using Azure Bicep
+#  Quickstart: Configure vaulted backup for Azure Files using Azure Bicep
 
-This quickstart describes how to configure vaulted backup for Azure File share using Azure Bicep template.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure Bicep template.
 
-[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure File shares in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
+[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
 
 Bicep is a language for declaratively deploying Azure resources, offering a simpler syntax and better development experience compared to JSON. It abstracts ARM template JSON, providing all its capabilities. During deployment, the Bicep CLI converts a Bicep file into Azure Resource Manager (ARM) template JSON. A Bicep file specifies Azure resources and properties without needing programming commands. Resource types, API versions, and properties valid in ARM templates are also valid in Bicep files.
 
@@ -29,7 +29,7 @@ Before you configure vaulted backup for Azure Files, ensure that you set up your
 
 ## Review the template
 
-The [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-file-share) configures protection for an existing File share in a Storage Account. It creates or uses a Recovery Services Vault and Backup Policy based on parameter values.
+The [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-file-share) configures protection for an existing File Share in a Storage Account. It creates or uses a Recovery Services Vault and Backup Policy based on parameter values.
 
 ```json
 @description('Name of the existing Resource Group in which the existing Storage Account is present.')

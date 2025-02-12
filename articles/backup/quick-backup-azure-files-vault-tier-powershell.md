@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure PowerShell
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure PowerShell. You can also configure backup with Azure CLI or in the Azure portal.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure PowerShell. You can also configure backup with [Azure CLI](quick-backup-azure-files-vault-tier-cli.md) or in the [Azure portal](quick-backup-azure-files-vault-tier-portal.md).
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backups offer an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions. You can:
 
@@ -28,8 +28,8 @@ Before you configure vaulted backup for Azure Files, ensure that the following p
 - Ensure that File Share is in a supported storage account type. See the [Azure Files backup support matrix](azure-file-share-support-matrix.md).
 
 - Allow **Azure services on the trusted services list**  in the **Firewall settings** to access the storage account, if access is restricted. Learn [how to grant an exception](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions).
-- Use an existing Recovery Services vault. If you don't have the vault, [create one](backup-azure-afs-automation.md#create-a-recovery-services-vault).
-- [Configure a Backup policy](backup-azure-afs-automation.md#configure-a-backup-policy) for the backup operation.
+- Use an existing Recovery Services vault. If you don't have the vault, [create one](backup-azure-afs-automation.md?tabs=vault-standard#create-a-recovery-services-vault).
+- [Configure a Backup policy](backup-azure-afs-automation.md?tabs=vault-standard#configure-a-backup-policy) for the backup operation.
 
 ## Configure backup
 
@@ -37,7 +37,7 @@ To configure vaulted backup for Azure Files, use the [`Enable-AzRecoveryServices
 
 >[!Note]
 >After the policy is associated with the vault, backups are triggered in accordance with the policy schedule.
-The following example cmdlet configures protection for the Azure file share `testAzureFS` in storage account `testStorageAcct`, with the policy `dailyafs`:
+The following example cmdlet configures protection for the Azure Files `testAzureFS` in storage account `testStorageAcct`, with the policy `dailyafs`:
 
 ```azurepowershell-interactive
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
@@ -53,8 +53,8 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## Next step
 
-- [Restore Azure file shares using Azure PowerShell](restore-afs-powershell.md)
-- [Manage Azure file share backups using Azure PowerShell](manage-afs-powershell.md)
+- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md)
+- [Manage Azure Files backups using Azure PowerShell](manage-afs-powershell.md?tabs=vault-standard)
 
 
  
