@@ -140,6 +140,8 @@ The following diagram shows how your data is replicated with GZRS or RA-GZRS:
 
 For a list of regions that support geo-zone-redundant storage (GZRS), see [Azure regions that support geo-zone-redundant storage (GZRS)](storage-redundancy.md#supported-storage-account-types).
 
+## Read access to data in the secondary region
+
 Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. With an account configured for GRS or GZRS, data in the secondary region isn't directly accessible to users or applications when an outage occurs in the primary region, unless a failover occurs. The failover process updates the DNS entry provided by Azure Storage so that the storage service endpoints in the secondary region become the new primary endpoints for your storage account. During the failover process, your data is inaccessible. After the failover is complete, you can read and write data to the new primary region. For more information, see [How customer-managed storage account failover to recover from an outage works](storage-failover-customer-managed-unplanned.md).
 
 If your applications require high availability, then you can configure your storage account for read access to the secondary region. When you enable read access to the secondary region, then your data is always available to be read from the secondary, including in a situation where the primary region becomes unavailable. Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) configurations permit read access to the secondary region.
