@@ -276,10 +276,11 @@ The simulated NVA acts as a virtual appliance to route all traffic between the s
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
-    | Authentication type | Select **Password**. |
+    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password | Reenter password. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | SSH Key Type | Leave the default of **RSA SSH Format**. |
+    | Key pair name | Enter **ssh-key**. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
@@ -299,6 +300,10 @@ The simulated NVA acts as a virtual appliance to route all traffic between the s
 1. Leave the rest of the options at the defaults and select **Review + create**.
 
 1. Select **Create**.
+
+1. The **Generate new key pair** dialog box appears. Select **Download private key and create resource**.
+
+The private key will download to your local machine. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion. The name of the private key file is the name you entered in the **Key pair name** field. In this example, the private key file is named **ssh-key**.
 
 # [**Powershell**](#tab/powershell)
 
@@ -390,6 +395,8 @@ The IP configuration of the primary network interface of the virtual machine is 
     | Private IP address | Enter **10.0.0.10**. |
 
 1. Select **Create**.
+
+1. Start the virtual machine.
  
 # [**Powershell**](#tab/powershell)
 
@@ -451,28 +458,27 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 1. Enter the **Username** that you used when creating the virtual machine. In this example, the user is named **azureuser**, replace with the username you created.
 
-1. In **Local File**, select the folder icon and browse to the private key file that was generated when you created the VM. The private key file is typically named `id_rsa` or `id_rsa.pem`.
+1. In **Local File**, select the folder icon and browse to the private key file that was generated when you created the VM. The private key file is typically named `id_rsa` or `id_rsa.pem` or `ssh-key.pem`.
 
 1. Select **Connect**.
 
 1. Enter the following information at the prompt of the virtual machine to enable IP forwarding:
 
     ```bash
-    sudo vim /etc/sysctl.conf
+    sudo nano /etc/sysctl.conf
     ``` 
 
-1. In the Vim editor, remove the **`#`** from the line **`net.ipv4.ip_forward=1`**:
+1. In the Nano editor, remove the **`#`** from the line **`net.ipv4.ip_forward=1`**:
 
-    Press the **Insert** key.
-
+    ex
     ```bash
     # Uncomment the next line to enable packet forwarding for IPv4
     net.ipv4.ip_forward=1
     ```
 
-    Press the **Esc** key.
+    Press **Ctrl + O** to save the file.
 
-    Enter **`:wq`** and press **Enter**.
+    Press **Ctrl + X** to exit the editor.
 
 1. Enter the following information to enable internal NAT in the virtual machine:
 
@@ -490,13 +496,11 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
     exit
     ```
 
-1. Use Vim to edit the configuration with the following information:
+1. Use Nano to edit the configuration with the following information:
 
     ```bash
-    sudo vim /etc/rc.local
+    sudo nano /etc/rc.local
     ```
-
-    Press the **Insert** key.
 
     Add the following line to the configuration file:
     
@@ -504,9 +508,9 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
     /sbin/iptables-restore < /etc/iptables/rules.v4
     ```
 
-    Press the **Esc** key.
+    Press **Ctrl + O** to save the file.
 
-    Enter **`:wq`** and press **Enter**.
+    Press **Ctrl + X** to exit the editor.
 
 1. Reboot the virtual machine:
 
@@ -696,7 +700,7 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 1. Select **vnet-hub**.
 
-1. Select **Peerings** in **Settings**.
+1. Expand **Settings**, then select **Peerings**.
 
 1. Select **+ Add**.
 
@@ -784,7 +788,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 1. Select **route-table-nat-spoke-1**.
 
-1. In **Settings** select **Routes**.
+1. Expand **Settings**, then select **Routes**.
 
 1. Select **+ Add** in **Routes**.
 
