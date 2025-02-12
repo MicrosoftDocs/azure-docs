@@ -59,7 +59,7 @@ BackupManagementType : AzureStorage
 
 After the relevant recovery point is selected, you restore the File Share or file to the original location, or to an alternate location.
 
-## Restore an Azure Files to an alternate location
+## Restore Azure Files to an alternate location
 
 Use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) to restore to the selected recovery point. Specify these parameters to identify the alternate location:
 
@@ -165,7 +165,7 @@ WorkloadName         Operation         Status          StartTime                
 azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
 ```
 
-If you want to restore multiple files or folders to alternate location, use the scripts above by specifying the target location-related parameter values, as explained above in [Restore an Azure Files to an alternate location](#restore-an-azure-file-to-an-alternate-location).
+If you want to restore multiple files or folders to alternate location, use the scripts above by specifying the target location-related parameter values, as explained above in [Restore Azure Files to an alternate location](#restore-azure-files-to-an-alternate-location).
 
 ## Next steps
 
