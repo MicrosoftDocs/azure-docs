@@ -15,6 +15,12 @@ ms.date: 01/22/2025
 
 The Azure App Configuration provider libraries enable developers to configure their applications using centralized configuration located in Azure App Configuration. The API design follows the patterns outlined by the common configuration system in different programming languages to make switching to Azure App Configuration a familiar and easy experience.
 
+> [!IMPORTANT]
+> Different from the Azure SDKs which are low-level client libraries for directly interacting with the Azure App Configuration service, the configuration provider libraries are higher-level integration libraries that support a variety of [features](#feature-development-status).
+
+> [!NOTE]
+> If you use feature flags in Azure App Configuration, make sure to use the configuration provider alongside the [feature management](./feature-management-overview.md) libraries, which are designed to work together.
+
 ## Configuration Provider Libraries
 
 Module | Platform | Sample | Release Notes
@@ -45,15 +51,16 @@ Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | GA
 JSON Content Type Handling | GA | GA | GA | GA | GA
-Custom Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
-Key Vault Reference | GA | GA | GA | GA | GA
+Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
+Key Vault References | GA | GA | GA | GA | GA
+Key Vault Secret Refresh | GA | WIP | GA | WIP | WIP
 Custom Key Vault Secret Resolution | GA | GA | GA | GA | GA
-Feature Flag | GA | GA | GA | GA | GA
-Variant Feature Flag | GA | GA | GA | GA | GA
-Feature Flag Telemetry Metadata | GA | GA | WIP | GA | GA
+Feature Flags | GA | GA | GA | GA | GA
+Variant Feature Flags | GA | GA | GA | GA | GA
+Feature Flag Telemetry | GA | GA | WIP | GA | GA
 Key Prefix Trim | GA | GA | GA | GA | GA
 Configurable Startup Timeout | GA | WIP | N/A | N/A | N/A
 Replica Auto Discovery | GA | GA | GA | WIP | GA
 Replica Failover | GA | GA | GA | WIP | GA
 Replica Load Balancing | GA | WIP | GA | WIP | GA
-Snapshot | GA | GA | GA | WIP | WIP
+Snapshots | GA | GA | GA | WIP | WIP
