@@ -1,8 +1,8 @@
 ---
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
-ms.topic: article
-ms.date: 11/28/2023
+ms.topic: concept-article
+ms.date: 12/11/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -255,6 +255,7 @@ The following table shows the access rights required for various operations on S
 | Enumerate queues |Manage |/$Resources/Queues |
 | Get the queue description |Manage |Any valid queue address |
 | Configure authorization rule for a queue |Manage |Any valid queue address |
+| Get queue exists or not | Manage | Any valid queue address |
 | Send into to the queue |Send |Any valid queue address |
 | Receive messages from a queue |Listen |Any valid queue address |
 | Abandon or complete messages after receiving the message in peek-lock mode |Listen |Any valid queue address |

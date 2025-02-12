@@ -34,7 +34,8 @@ Storage Explorer makes requests to various endpoints while in use. The following
   - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
   - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure US Government)
-- Storage Explorer updating: `storageexplorerpublish.blob.core.windows.net`
+- Storage Explorer updating:
+  - `storage-explorer-publishing-feapcgfgbzc2cjek.b01.azurefd.net`
 - Microsoft link forwarding:
   - `aka.ms`
   - `go.microsoft.com`

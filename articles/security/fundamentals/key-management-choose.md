@@ -49,7 +49,7 @@ Use the table to compare all the solutions side by side. Begin from top to botto
 
 |  | **AKV Standard** | **AKV Premium** | **Azure Managed HSM** | **Azure Dedicated HSM** | **Azure Payment HSM** |
 | --- | --- | --- | --- | --- | --- |
-| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 3, PCI DSS, PCI 3DS** | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-2 level 3, HIPPA, PCI DSS, PCI 3DS, eIDAS CC EAL4+, GSMA | FIPS 140-2 level 3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
+| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 3, PCI DSS, PCI 3DS** | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-2 level 3, HIPAA, PCI DSS, PCI 3DS, eIDAS CC EAL4+, GSMA | FIPS 140-2 level 3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
 | Do you need **key sovereignty**? | No | No | Yes | Yes | Yes |
 | What kind of **tenancy** are you looking for? | Multitenant | Multitenant | Single Tenant | Single Tenant | Single Tenant |
 | What are your **use cases**? | Encryption at Rest, CMK, custom | Encryption at Rest, CMK, custom | Encryption at Rest, TLS Offload, CMK, custom | PKCS11, TLS Offload, code/document signing, custom | Payment PIN processing, custom |

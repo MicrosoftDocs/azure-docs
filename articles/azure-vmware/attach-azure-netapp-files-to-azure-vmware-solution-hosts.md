@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/15/2024
+ms.date: 01/29/2025
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -11,7 +11,7 @@ ms.custom: "references_regions, engagement-fy23"
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](../azure-netapp-files/index.yml) documentation. 
 
-[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
+[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) on different Azure NetApp Files datastores for optimal cost and performance.  
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware vSphere environments for the secondary site. 
 
@@ -20,6 +20,9 @@ Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in t
 The following diagram demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
+
+>[!Note]
+> NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
 
 ## Prerequisites
 
@@ -95,6 +98,26 @@ There are some important best practices to follow for optimal performance of NFS
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
 
+
+### Considerations for Azure NetApp Files storage with cool access
+
+When choosing to use [Azure NetApp Files storage with cool access](../azure-netapp-files/cool-access-introduction.md) on datastores for AVS, consider the performance characteristics of your workloads. Cool access is best suited for applications and workloads that primarily involve sequential I/O operations or tolerate varying read latency. Workloads with high random I/O and latency sensitivity should avoid using cool access due to an increase in latency when reading data from the cool tier.
+
+Also consider adjusting cool access settings for the workload to fit the expected access patterns. For more information, see [Performance considerations for Azure NetApp Files storage with cool access](../azure-netapp-files/performance-considerations-cool-access.md).
+
+**Use cases where cool access is a good fit:**
+
+- Virtual machine templates and ISO files
+- VMDKs with home directories (if not using Azure NetApp Files directly for this purpose)
+- VMDKs with content repositories
+- VMDKs with application data
+- VMDKs with archive and application-level backup data
+ 
+**Use cases to not use cool access:**
+
+- VMDKs containing production database files with high random I/O and latency sensitivity
+- VMDKs with operating system boot disks
+
 ## Attach an Azure NetApp Files volume to your private cloud
 
 ### [Portal](#tab/azure-portal)
@@ -107,7 +130,7 @@ Under **Manage**, select **Storage**.
 1. Select **Connect Azure NetApp Files volume**.
 1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 
-    :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png":::
+:::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png":::
 
 1. Verify the protocol is NFS. You need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
 1. Under **Associated cluster**, in the **Client cluster** field, select one or more clusters to associate the volume as a datastore.
@@ -243,3 +266,7 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution private clouds?**
 
     Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different private clouds. Each private cloud needs connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.
+
+- **Does NFS Traffic traverse NSX components?**
+
+    No, NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 

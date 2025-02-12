@@ -71,13 +71,7 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
 
 7. Select **Save**.
 8. In your **Backend pools** page, select the corresponding **Admin State** value of your recently added backend pool instance.
-   
-   :::image type="content" source="media/manage-admin-state-how-to/select-admin-state-backend-pools-window.png" alt-text="Screenshot of backend pools window with admin state link highlighted.":::
-
 9.  In your **Admin state details** window, select **Down** from the dropdown menu.
-
-    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-down.png" alt-text="Screenshot of admin state details windows with down selected for admin state.":::
-    
 10. Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -170,9 +164,6 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
 8. Select **Add** and **Save**.
 9. In your **Backend pools** page, select the corresponding **Admin State** value of your recently added backend pool instance.
 10. In your **Admin state details** window, select **Up** from the dropdown menu.
-    
-    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-up.png" alt-text="Screenshot of admin state details window with up selected for admin state.":::
-
 11.	Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -264,15 +255,12 @@ In this section, you learn how to update an existing admin state from existing b
 4. In your load balancer's page, select **Backend pools** under **Settings**.
 9. In your **Backend pools** page, select the corresponding **Admin State** value of your recently added backend pool instance.
 10. In your **Admin state details** window, select **Up** from the dropdown menu.
-
-    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-up.png" alt-text="Screenshot of admin state details window with up selected for admin state value.":::
-
 11. Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 1. Connect to your Azure subscription with Azure PowerShell.
-2. Update an existing backend pool instance with the admin state value configured to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig).. Replace the values in brackets with the names of the resources in your configuration.
+2. Update an existing backend pool instance with the admin state value configured to UP or DOWN with [New-AzLoadBalancerBackendAddressConfig](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig). Replace the values in brackets with the names of the resources in your configuration.
 
     ```azurepowershell
     
@@ -359,10 +347,7 @@ In this section, you learn how to remove an existing admin state from an existin
 4. In your load balancer's page, select **Backend pools** under **Settings**.
 5. Select the corresponding **Admin State** value of your backend pool instance that you would like to remove.
 6. In your admin state’s window, select **None** from the dropdown menu.
-
-    :::image type="content" source="media/manage-admin-state-how-to/set-admin-state-backend-pool-none.png" alt-text="Screenshot of admin state details windows with none selected for admin state.":::
-
-1. Select **Save**.
+7. Select **Save**.
 
 # [Azure PowerShell](#tab/azurepowershell)
 

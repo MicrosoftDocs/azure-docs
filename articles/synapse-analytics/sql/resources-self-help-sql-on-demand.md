@@ -29,7 +29,7 @@ Usually, this problem occurs for one of two reasons:
 - Your network prevents communication to the Azure Synapse Analytics back-end. The most frequent case is that TCP port 1443 is blocked. To get serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool from working too. For more information, see the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
 - You don't have permission to sign in to serverless SQL pool. To gain access, an Azure Synapse workspace administrator must add you to the workspace administrator role or the SQL administrator role. For more information, see [Azure Synapse access control](../security/synapse-workspace-access-control-overview.md).
 
-### Websocket connection closed unexpectedly
+### WebSocket connection closed unexpectedly
 
 Your query might fail with the error message `Websocket connection was closed unexpectedly.` This message means that your browser connection to Synapse Studio was interrupted, for example, because of a network issue.
 
@@ -989,6 +989,12 @@ Try to set up a data source in some SQL Database that references your Azure Data
 Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that are created in Lake database using Spark or Synapse designer. Accessing the Delta tables is still in public preview, and currently serverless will synchronize a Delta table with Spark at the time of creation but won't update the schema if the columns are added later using the `ALTER TABLE` statement in Spark.
 
 This is a public preview limitation. Drop and re-create the Delta table in Spark (if it's possible) instead of altering tables to resolve this issue.
+
+### Query timeout or performance degradation on a table
+
+When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool is automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
+
+If you encounter this issue, consider setting up a job to recreate statistics on the tables after changes in Spark/Dataverse or on a regular schedule.
 
 ## Performance
 

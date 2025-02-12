@@ -104,7 +104,7 @@ The following table describes these JSON properties:
 |logSettings     |The settings to store the output logs. If not specified, script log is disabled.          |No         |
 |logSettings.logDestination     |The destination of log output. It can be ActivityOutput or ExternalStore. Default: ActivityOutput.          |No         |
 |logSettings.logLocationSettings     |The settings of the target location if logDestination is ExternalStore.          |No         |
-|logSettiongs.logLocationSettings.linkedServiceName     |The linked service of the target location. Only blob storage is supported.          |No         |
+|logSettings.logLocationSettings.linkedServiceName     |The linked service of the target location. Only blob storage is supported.          |No         |
 |logSettings.logLocationSettings.path     |The folder path under which to store logs.          |No         |
 
 ## Activity output

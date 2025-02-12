@@ -47,7 +47,7 @@ Some key points to consider.
 
     |Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finanace/ fincluster01 | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  |
+    |/clusters/finance/ fincluster01  | rwxr-x---  |Service Principal |FINGRP  |- |-  |-   |-  |
 
 ## Recommendations for job input and output data
 

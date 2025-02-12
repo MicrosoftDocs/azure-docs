@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/19/2024
+ms.date: 1/3/2025
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -54,6 +54,9 @@ private static ModuleClient _moduleClient = null;
 
 _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString, null);
 ```
+
+> [!NOTE]
+> C#/.NET does not support connection of a device app to an IoT Hub module identity twin using a certificate.
 
 ### Retrieve a module identity twin and examine properties
 

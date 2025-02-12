@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
     > After the changes are updated, you can go to the URL to confirm the rule version being invoked:
     > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
 
-1. Once you creat one or more rules, select **Save**. This action creates your rules engine configuration.
+1. Once you create one or more rules, select **Save**. This action creates your rules engine configuration.
 
 1. Once you create a rules engine configuration, you can associate the configuration with a routing rule. A single configuration can be applied to multiple routing rules, but a routing rule can only have one rules engine configuration. To associate the configuration, go to the **Azure Front Door (classic) designer** and select a **Route**. Then select the **Rules engine configuration** to associate with the routing rule.
 

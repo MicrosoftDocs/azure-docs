@@ -85,7 +85,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change to the Free tier, select **Change size**, select the **Dev/Test** tab, select **P1v3**, and select the **Apply** button at the bottom of the page.
 
-    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-windows.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password.":::
+    :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-windows.png" alt-text="Screenshot of the App Service plan options.":::
 
 1. Select the **Next: Docker >** button at the bottom of the page.
 

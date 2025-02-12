@@ -92,8 +92,6 @@ To migrate an existing location of your API Management instance to availability 
 
 To migrate an existing location of your API Management instance to availability zones when the instance is currently injected in a virtual network and is already hosted on the `stv2` platform:
 
-1. Create a new subnet and optional public IP address in the location to migrate to availability zones. Detailed requirements are in the [virtual networking guidance](../api-management/api-management-using-with-vnet.md?tabs=stv2#prerequisites).
-
 1. In the Azure portal, go to your API Management instance.
 
 1. On the **Deployment + infrastructure** menu, select **Locations**.
@@ -104,7 +102,7 @@ To migrate an existing location of your API Management instance to availability 
 
 1. In the **Availability zones** box, select one or more zones. The number of units that you selected must be distributed evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
 
-1. In the **Public IP Address** box, optionally select the new public IP address in the location.
+1. In the **Public IP Address** box, optionally select a public IP address in the location.
 
 1. Select **Apply**, and then select **Save**.
 

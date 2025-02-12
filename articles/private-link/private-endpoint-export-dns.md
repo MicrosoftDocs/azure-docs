@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 07/25/2021
+ms.date: 01/06/2025
 ms.custom: template-how-to
 ---
 

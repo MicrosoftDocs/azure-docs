@@ -17,7 +17,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 1. Fill out the **Basics** tab with the following information:
 
-   - **Environment name**: *myacaenv*
+   - **Environment name**: **myacaenv**
    - **Plan**: **Consumption**
    - **Zone redundancy**: **Disabled**
 
@@ -27,7 +27,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 1. Fill out the **Basics** tab with the following information:
 
-   - **Environment name**: *myacaenv*
+   - **Environment name**: **myacaenv**
    - **Plan**: **(Preview) Consumption and Dedicated workload profiles**
    - **Zone redundancy**: **Disabled**
 
@@ -35,7 +35,7 @@ For clarity of structure, a separate markdown file is used to describe how to cr
 
 1. On the **Add workload profile (Preview)** page, add the following information:
 
-   - **Workload profile name**: *my-wlp*
+   - **Workload profile name**: **my-wlp**
    - **Workload profile size**: Select **Dedicated-D4**
    - **Autoscaling instance count range**: Select **3** and **5**
 

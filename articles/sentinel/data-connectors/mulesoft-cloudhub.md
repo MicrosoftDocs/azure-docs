@@ -79,7 +79,7 @@ To integrate with MuleSoft Cloudhub (using Azure Functions) make sure you have:
 
 **Option 1 - Azure Resource Manager (ARM) Template**
 
-Use this method for automated deployment of the MuleSoft Cloudhub data connector using an ARM Tempate.
+Use this method for automated deployment of the MuleSoft Cloudhub data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

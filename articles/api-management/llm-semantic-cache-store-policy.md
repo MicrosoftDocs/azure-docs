@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: article
-ms.date: 08/08/2024
+ms.date: 12/13/2024
 ms.author: danlep
 ---
 
@@ -45,7 +45,7 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) v2
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 

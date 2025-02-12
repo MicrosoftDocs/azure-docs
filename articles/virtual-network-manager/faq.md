@@ -147,7 +147,7 @@ Normally, security admin rules are defined to block traffic across virtual netwo
 
 ### How can I deploy multiple security admin configurations to a region?
 
-You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region if you [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection) in a security configuration.
+You can deploy only one security admin configuration to a region. However, multiple connectivity configurations can exist in a region if you [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection-and-security-rule) in a security configuration.
 
 ### Do security admin rules apply to Azure private endpoints?
 

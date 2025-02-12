@@ -57,14 +57,14 @@ Because DevTest Labs uses Azure Virtual Network directly, there are no restricti
 
 DevTest Labs has no built-in quotas or limits, but other Azure resources that labs use have [subscription-level quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). In a typical enterprise deployment, you need several Azure subscriptions to cover a large DevTest Labs deployment. Enterprises commonly reach the following quotas:
 
-- Resource groups. DevTest Labs creates a resource group for every new VM, and lab users create environments in resource groups. Subscriptions can contain [up to 980 resource groups](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits), so that's the limit of VMs and environments in a subscription.
+- Resource groups. DevTest Labs creates a resource group for every new VM, and lab users create environments in resource groups. Subscriptions can contain [up to 980 resource groups](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-subscription-limits), so that's the limit of VMs and environments in a subscription.
 
   Two strategies can help you stay under resource group limits:
 
   - [All VMs go in the same resource group](resource-group-control.md). This strategy helps you meet the resource group limit, but it affects the resource-type-per-resource-group limit.
   - [Use shared public IPs](devtest-lab-shared-ip.md). If VMs are allowed to have public IP addresses, put all VMs of the same size and region into the same resource group. This configuration helps meet both resource group quotas and resource-type-per-resource-group quotas.
 
-- Resources per resource group per resource type. The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Putting all VMs in the same resource group hits this limit much sooner, especially if the VMs have many extra disks.
+- Resources per resource group per resource type. The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).  Putting all VMs in the same resource group hits this limit much sooner, especially if the VMs have many extra disks.
 
 - Storage accounts. Every lab in DevTest Labs comes with a storage account. The Azure quota for [number of storage accounts per region per subscription is 250](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits) by default. So the maximum number of DevTest Labs in one region is also 250. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 

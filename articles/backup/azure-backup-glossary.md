@@ -4,9 +4,9 @@ description: This article defines terms helpful for use with Azure Backup.
 ms.topic: reference
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
-ms.date: 09/09/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/30/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Backup glossary
@@ -185,7 +185,7 @@ Restoring individual files or folders inside the machine from the recovery point
 
 ## Job
 
-A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
+A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs).
 
 ## MABS / Azure Backup Server
 

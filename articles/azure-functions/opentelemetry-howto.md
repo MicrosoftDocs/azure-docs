@@ -207,7 +207,7 @@ These instructions only apply for an OTLP exporter:
 
 1. Add an application setting named `OTEL_FUNCTIONS_WORKER_ENABLED` with value of `True`.
 
-1. Create an [app-level `Modules` folder](functions-reference-powershell.md#function-app-level-modules-folder) in the root of your app and run the following command:
+1. Create an [app-level `Modules` folder](functions-reference-powershell.md#including-modules-in-app-content) in the root of your app and run the following command:
 
     ```powershell
     Save-Module -Name AzureFunctions.PowerShell.OpenTelemetry.SDK

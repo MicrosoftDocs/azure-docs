@@ -97,9 +97,9 @@ When you create a diagnostic setting, you specify which categories of logs to co
 
 You can analyze metrics for App Configuration with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool. For App Configuration, the following metrics are collected: 
 
-* Http Incoming Request Count 
-* Http Incoming Request Duration 
-* Throttled Http Request Count (Http status code 429 Responses)
+* HTTP Incoming Request Count 
+* HTTP Incoming Request Duration 
+* Throttled HTTP Request Count (HTTP status code 429 Responses)
 * Daily Storage Usage
 * Request Quota Usage
 * Replication Latency
@@ -133,13 +133,13 @@ Following are sample queries that you can use to help you monitor your App Confi
 
 
 
-* List all Http Requests in the last three days 
+* List all HTTP Requests in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)
     ```
 
-* List all throttled requests (returned Http status code 429 for too many requests) in the last three days 
+* List all throttled requests (returned HTTP status code 429 for too many requests) in the last three days 
     ```Kusto
        AACHttpRequest
         | where TimeGenerated > ago(3d)

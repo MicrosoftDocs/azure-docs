@@ -4,7 +4,6 @@ description: Real-time statistics provides real-time data about the performance 
 services: cdn
 author: zhangmanling
 manager: erikre
-ms.assetid: c7989340-1172-4315-acbb-186ba34dd52a
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

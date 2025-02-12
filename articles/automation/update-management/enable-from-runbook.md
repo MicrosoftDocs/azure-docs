@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights) module to successfully enable Update Management for your VMs with the runbook.
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights) module to successfully enable Update Management for your VMs with the runbook.
 
 1. In your Automation account, select **Modules** under **Shared Resources**.
 
@@ -66,7 +66,7 @@ It's required to update to the latest Azure modules and import the [AzureRM.Oper
 
 5. Select **Browse gallery** to open the module gallery.
 
-6. Search for `AzureRM.OperationalInsights` and import this module into your Automation account.
+6. Search for `Az.OperationalInsights` and import this module into your Automation account.
 
     ![Import OperationalInsights module](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 

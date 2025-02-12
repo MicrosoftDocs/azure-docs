@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Reserved Instance Usage Details API.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -93,7 +93,7 @@ Old response:
     "reservationId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
     "usageDate": "2018-02-01T00:00:00",
     "skuName": "Standard_F2s",
-    "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",
+    "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/resourcegroup1/providers/microsoft.compute/virtualmachines/VM1",
     "totalReservedQuantity": 18.000000000000000,
     "reservedHours": 432.000000000000000,
     "usedHours": 400.000000000000000

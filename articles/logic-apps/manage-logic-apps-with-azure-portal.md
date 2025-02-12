@@ -6,14 +6,14 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 08/06/2024
+ms.date: 01/13/2025
 ---
 
 # Manage logic app workflows in the Azure portal
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This guide shows how to manage Standard or Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
+This guide shows how to manage Standard or Consumption logic app workflows through the Azure portal and perform tasks such as edit, disable, enable, and delete workflows.
 
 ## Prerequisites
 
@@ -334,15 +334,15 @@ Deleting a Standard workflow affects workflow instances in the following ways:
 
 #### Recover deleted Standard logic apps
 
-If you use source control, you can seamlessly redeploy a deleted Standard logic app resource to single-tenant Azure Logic Apps. If you're not using source control, try the following steps to recover your deleted logic app:
+Provided that you use source control, you can seamlessly recover a deleted Standard logic app resource that uses the **Workflow Standard** hosting option in single-tenant Azure Logic Apps by redeploying your app. However, to recover a deleted Standard logic app resource that uses the App Service Environment v3 hosting option, before you delete your app, you have to first download the Standard logic app artifacts from the Azure portal. For more information, see [Download Standard logic app artifacts from portal](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps?tabs=github#download-standard-logic-app-artifacts-from-portal).
 
-Before you try to recover your deleted logic app, review the following considerations:
-
-* You can recover only deleted Standard logic app resources that use the **Workflow Standard** hosting plan.
+Before you try to recover a deleted logic app, review the following considerations:
 
 * The run history from the deleted logic app is unavailable in the recovered logic app.
 
-* If your workflow starts with the Request trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
+* If your workflow starts with the **Request** trigger, the callback URL for the recovered logic app differs from the URL for the deleted logic app.
+
+If you're not using source control, try the following steps to recover a deleted Standard logic app that uses the **Workflow Standard** hosting option in single-tenant Azure Logic Apps:
 
 1. Confirm that your logic app's storage account still exists. If the storage account was deleted, you have to [first recover the deleted storage account](../storage/common/storage-account-recover.md).
 
@@ -440,7 +440,7 @@ For Consumption logic apps, you can use the Azure portal for version control. Fo
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app.
 
-1. In the logic app menu, under **Development Tools**, select **Versions**.
+1. On the logic app menu, under **Development Tools**, select **Versions**.
 
    ![Screenshot shows Azure portal and Consumption logic app menu with Versions selected, and list of previous logic app versions.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 

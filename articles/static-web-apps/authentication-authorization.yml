@@ -5,7 +5,7 @@ metadata:
   description: Learn to use different authorization providers to secure your Azure Static Web Apps.
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 06/28/2024
+  ms.date: 01/28/2025
   ms.service: azure-static-web-apps
   ms.topic: how-to
   ms.custom:
@@ -15,9 +15,9 @@ metadata:
 title: |
   Authenticate and authorize Static Web Apps
 introduction: |
-  Azure Static Web Apps provides a streamlined authentication experience, where no extra configuration is required to use GitHub and Microsoft Entra ID for authentication.
+  Azure Static Web Apps provides a streamlined authentication experience, where no extra configuration is required to use GitHub and Microsoft Entra ID for authentication. All features listed in this article are available in all Static Web Apps plans.
 
-  In this article, learn about default behavior, how to set up sign-in and sign-out, how to block an authentication provider, and more.
+  In this article, learn about default behavior, how to set up sign-in and sign-out, how to block an authentication provider, and more. To read the auth details for a specific use, see [Access user information](./user-information.md).
 
   You can [register a custom provider](./authentication-custom.md), which disables all pre-configured providers.
 

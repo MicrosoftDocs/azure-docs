@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy your first Java Native Image application to Azure Spring Apps
+title: Quickstart - Deploy Your First Java Native Image Application to Azure Spring Apps
 description: Describes how to deploy a Java Native Image application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps

@@ -1,14 +1,9 @@
 ---
 title: Custom topics in Azure Event Grid
-description: Describes custom topics in Azure Event Grid.
-ms.topic: conceptual
-ms.custom:
-  - devx-track-azurecli
-  - devx-track-arm-template
-  - devx-track-azurepowershell
-  - build-2023
-  - ignite-2023
-ms.date: 11/15/2023
+description: This article describes custom topics or topics in Azure Event Grid. A topic provides an endpoint where the source can send events. 
+ms.topic: concept-article
+ms.date: 12/13/2024
+# Customer intent: I want to what topic in Azure Event Grid are. 
 ---
 
 # Custom topics in Azure Event Grid
@@ -59,6 +54,7 @@ When you use Event Grid event schema, you can specify your application-specific 
 The following sections provide links to tutorials to create custom topics using Azure portal, CLI, PowerShell, and Azure Resource Manager (ARM) templates.
 
 ## Azure portal tutorials
+The following quickstarts or tutorials show you how to create a topic, send evens to the topic's endpoint, and route them to supported destinations by using the Azure portal. 
 
 |Title  |Description  |
 |---------|---------|
@@ -68,6 +64,7 @@ The following sections provide links to tutorials to create custom topics using 
 
 
 ## Azure CLI tutorials
+The following quickstarts or tutorials show you how to create a topic, send evens to the topic's endpoint, and route them to supported destinations by using Azure CLI. 
 
 |Title  |Description  |
 |---------|---------|
@@ -76,6 +73,8 @@ The following sections provide links to tutorials to create custom topics using 
 | [Azure CLI: subscribe to events for a custom topic](./scripts/cli-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 
 ## Azure PowerShell tutorials
+The following quickstarts or tutorials show you how to create a topic, send evens to the topic's endpoint, and route them to supported destinations by using Azure PowerShell. 
+
 
 |Title  |Description  |
 |---------|---------|
@@ -84,6 +83,7 @@ The following sections provide links to tutorials to create custom topics using 
 | [PowerShell: subscribe to events for a custom topic](./scripts/powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 
 ## ARM template tutorials
+The following quickstarts or tutorials show you how to create a topic and create a subscription to the topic by using ARM templates. 
 
 |Title  |Description  |
 |---------|---------|
@@ -93,7 +93,7 @@ The following sections provide links to tutorials to create custom topics using 
 > [!NOTE]
 > Azure Digital Twins can route event notifications to custom topics that you create with Event Grid. For more information, see [Endpoints and event routes](../digital-twins/concepts-route-events.md) in the Azure Digital Twins documentation.
 
-## Next steps
+## Related content
 
 See the following articles:
 
