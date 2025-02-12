@@ -79,6 +79,6 @@ When a sharing relationship is established, Azure Data Share creates a symbolic 
 
 For more information, see: [share and receive data from Azure Data Explorer](/azure/data-explorer/data-share).
 
-# Related content
+## Related content
 
 To learn how to start sharing data, continue to the [Share your data](share-your-data.md) tutorial.
