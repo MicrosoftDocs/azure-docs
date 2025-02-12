@@ -15,7 +15,7 @@ ms.custom:
 
 In this article, you learn how to use [Azure OpenAI Service](/azure/ai-services/openai/overview) and Azure Container Apps to create a natural language interface for the Spring PetClinic sample application.
 
-:::image type="content" source="media/first-java-ai-application/home-with-chatbot.png"  alt-text="Screenshot of the home page of PetClinic." lightbox="media/first-java-ai-application/home-with-chatbot.png":::
+:::image type="content" source="media/java-ai-application/home-with-chatbot.png"  alt-text="Screenshot of the home page of PetClinic." lightbox="media/java-ai-application/home-with-chatbot.png":::
 
 For information on the architectural details of this application, see [Java PetClinic AI sample in Container Apps overview](./java-petclinic-ai-overview.md).
 
@@ -28,12 +28,13 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an existing account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
 - `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
 - [A GitHub account](https://github.com/join).
 - The latest version of [git](https://git-scm.com/downloads).
 - The [Microsoft Build of Open JDK](/java/openjdk/install), version 17 or higher.
-- [Azure CLI](/azure/developer/azure-developer-cli/install-azd).
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
+- [Azure CLI](/cli/azure/install-azure-cli).
 - [Maven](https://maven.apache.org/download.cgi).
 
 ## Setup
@@ -140,7 +141,7 @@ For information on the architectural details of this application, see [Java PetC
 
 The following image shows the result of asking the application to add a new pet owner to the system.
 
-:::image type="content" source="media/first-java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/first-java-ai-application/add-new-item.png":::
+:::image type="content" source="media/java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/java-ai-application/add-new-item.png":::
 
 ## Updates
 
