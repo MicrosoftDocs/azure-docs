@@ -329,7 +329,7 @@ Here are steps that help you upgrade your MySQL connector:
 
 1. In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 
-1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
+1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 data type mapping, see [Data type mapping for MySQL](connector-mysql.md#data-type-mapping-for-mysql).
 
 1. Version 2.0 supports more MySQL versions. For more information, see [Supported capabilities](connector-mysql.md#supported-capabilities).
 

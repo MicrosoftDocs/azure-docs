@@ -298,7 +298,7 @@ Here are steps that help you upgrade your MariaDB connector:
 
 1. In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
-1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
+1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
 
 1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
