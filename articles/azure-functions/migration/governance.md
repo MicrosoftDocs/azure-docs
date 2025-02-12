@@ -1,6 +1,6 @@
 ---
 title: Migrate governance from AWS Lambda to Azure Functions
-description: Governance specifications and best practices for migrating AWS Lambda to Azure Functions.
+description: Governance specification for migrating AWS Lambda to Azure Functions.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 ## Scope
 
-` **Author note**: Capture the specfic scope for the Azure offering.For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
+` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
 
 This article provides a pre-migration assessment of AWS Lambda and its compatibility with Azure Functions. 
 
