@@ -88,6 +88,14 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 # [**CLI**](#tab/cli)
 
+Use [az group create](/cli/azure/group#az_group_create) to create a resource group.
+
+```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus2
+```
+
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the NAT gateway. 
 
 ```azurecli-interactive
