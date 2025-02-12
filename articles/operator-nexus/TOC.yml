@@ -342,7 +342,7 @@
         - name: Troubleshoot Hardware Validation Failure
           href: troubleshoot-hardware-validation-failure.md
         - name: Troubleshoot Degraded status
-          href: troubleshoot-bmm-degraded.md
+          href: troubleshoot-bare-metal-machine-degraded.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource
