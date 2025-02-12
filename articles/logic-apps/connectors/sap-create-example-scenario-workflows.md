@@ -54,10 +54,8 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
-   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
+   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462). |
    | **Data Gateway** | Yes | 1. For **Subscription**, select the Azure subscription for the data gateway resource that you created in the Azure portal for your data gateway installation. <br><br>2. For **Gateway**, select your data gateway resource in Azure. |
-
-For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
@@ -191,7 +189,9 @@ The following example workflow shows how to extract individual IDocs from a pack
 
    1. Provide a name for the variable, and set the type to **String**.
 
-   1. In the action's **Value** parameter, select inside the edit box, open the expression or function editor, and create the following expression using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+   1. In the action, select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
+   
+   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
 
       `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
@@ -211,7 +211,9 @@ The following example workflow shows how to extract individual IDocs from a pack
 
       The array variable makes each IDoc available for your workflow to process individually by enumerating over the collection. 
 
-   1. In the action's **Value** parameter, select inside the edit box, open the expression or function editor, and create the following `xpath()` expression:
+   1. In the action, select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
+
+   1. Select the lightning icon to open the expression editor, and create the following `xpath()` expression:
 
       `xpath(xml(triggerBody()?['Content']), '/*[local-name()="Receive"]/*[local-name()="idocData"]')`
 
@@ -314,9 +316,7 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the **Request** trigger, select **New step**.
-
-1. In the designer, [follow these general steps to find and add the SAP managed action named **Send message to SAP**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the workflow designer, under the **Request** trigger, [follow these general steps to find and add the SAP managed action named **Send message to SAP**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. If prompted, provide the following [connection information](/connectors/sap/#default-connection) for your on-premises SAP server. When you're done, select **Create**. Otherwise, continue with the next step to set up the SAP action.
 
@@ -330,68 +330,68 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
    | **SAP Password** | Yes | The password for your SAP server |
    | **Logon Type** | Yes | Select either **Application Server** or **Group** (Message Server), and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **AS Host**: The host name for your SAP Application Server <br>- **AS Service**: The service name or port number for your SAP Application Server <br>- **AS System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **MS Server Host**: The host name for your SAP Message Server <br>- **MS Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **MS System ID**: The system ID for your SAP server <br>- **MS Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Safe Typing** | No | This option available for backward compatibility and only checks the string length. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. Learn more about the [Safe Typing setting](#safe-typing). |
-   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). |
-
-
-For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+   | **Use SNC** | No | To create an SNC connection, see [Enable Secure Network Communications (SNC)](sap.md?tabs=single-tenant#enable-secure-network-communications). For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462). |
 
    For other optional available connection parameters, see [Default connection information](/connectors/sap/#default-connection).
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
-   ![Screenshot shows a Consumption workflow with the SAP managed action named Send message to SAP.](./media/sap-create-example-scenario-workflows/sap-send-message-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-consumption.png" alt-text="Screenshot shows Consumption workflow with SAP managed connector action named Send message to SAP.":::
 
 1. In the **Send message to SAP** action, find and select an available SAP action on your SAP server to send the IDoc.
 
    The **Send message to SAP** action is generic and can send a message for BAPI, IDoc, RFC, or tRFC, but you must first select the message type and SAP action to use.
 
-   1. In the **SAP Action** parameter's edit box, select the folder icon. From the list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**. This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
+   1. In the **SAP Action** box, select the folder icon. From the list that opens, select **BAPI**, **IDOC**, **RFC**, or **TRFC**.
+   
+      This example selects **IDOC**. If you select a different type, the available SAP actions change based on your selection.
 
       > [!NOTE]
       >
       > If you get a **Bad Gateway (500)** error or **Bad request (400)** error, see [500 Bad Gateway or 400 Bad Request error](#bad-gateway-request).
 
-      ![Screenshot shows selecting IDOC for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-select-idoc-type-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-select-idoc-type-consumption.png" alt-text="Screenshot shows Consumption workflow, action named Send message to SAP, and selecting IDOC type.":::
 
-   1. Browse the SAP action types folders using the arrows to find and select the SAP action that you want to use.
+   1. Browse the SAP action type folders using the arrows to find and select the SAP action that you want to use.
 
-      This example selects **ORDERS** > **ORDERS05** > **720** > **Send**.
+      This example selects the following folders all the way to the SAP action named **Send**: **ORDERS** > **ORDERS05** > **720** > **Send**.
 
-      ![Screenshot shows finding an Orders action for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-find-orders-action-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-find-orders-action-consumption.png" alt-text="Screenshot shows Consumption workflow and selections for folders named Orders, Orders05, 720, and so on.":::
 
-      If you can't find the action you want, you can manually enter a path, for example:
+      If you can't find the action you want, you can manually enter a path in the **SAP Action** box, for example:
 
-      ![Screenshot shows manually entering a path to an Orders action type for a Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-manually-enter-action-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-manually-enter-action-consumption.png" alt-text="Screenshot shows Consumption workflow, action named Send message to SAP, and SAP Action box with manually entered path for SAP action named Send.":::
 
       > [!TIP]
       >
       > For the **SAP Action** parameter, you can use the expression editor to provide the parameter value. 
       > That way, you can use the same SAP action for different message types.
 
-      For more information about IDoc messages, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
+      For more information about IDoc messages, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
    1. In the **Send message to SAP** action, include the body output from the **Request** trigger.
 
-      1. In the **Input Message** parameter, select inside the edit box to open the dynamic content list.
+      1. Select inside the **Input Message** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
 
-      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the **Request** trigger. 
+      1. Select the lightning icon for the dynamic content list.
+
+      1. In the list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the **Request** trigger.
 
          > [!NOTE]
+         >
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
-      ![Screenshot shows selecting the Request trigger's output named Body for Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-select-body-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-select-body-consumption.png" alt-text="Screenshot shows Consumption workflow, action named Send message to SAP, and Input Message box with dynamic content list and selected Request trigger output named Body.":::
 
-      The **Send message to SAP** action now includes the body content from the **Request** trigger and sends that output to your SAP server, for example:
+      The **Send message to SAP** action now includes the body output from the **Request** trigger and sends that output to your SAP server, for example:
 
-      ![Screenshot shows completed SAP action for Consumption workflow.](./media/sap-create-example-scenario-workflows/sap-send-message-complete-consumption.png)
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-complete-consumption.png" alt-text="Screenshot shows Consumption workflow and completed action named Send message to SAP.":::
 
 1. Save your workflow.
 
 ### [Standard](#tab/standard)
 
-1. In the workflow designer, under the **Request** trigger, select the plus sign (**+**) > **Add an action**.
-
-1. In the designer, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, under the **Request** trigger, [follow these general steps to find and add the SAP built-in action named **[IDoc] Send document to SAP**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    Rather than have a generic action to send messages with different types, the SAP built-in connector provides individual actions for BAPI, IDoc, RFC, and so on. For example, these actions include **[BAPI] Call method in SAP** and **[RFC] Call function in SAP**.
 
@@ -407,7 +407,7 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
    | **Logon Type** | Yes | Select either **Application Server** or **Group**, and then configure the corresponding required parameters, even though they appear optional: <br><br>**Application Server**: <br>- **Server Host**: The host name for your SAP Application Server <br>- **Service**: The service name or port number for your SAP Application Server <br>- **System Number**: Your SAP server's system number, which ranges from 00 to 99 <br><br>**Group**: <br>- **Server Host**: The host name for your SAP Message Server <br>- **Service Name or Port Number**: The service name or port number for your SAP Message Server <br>- **System ID**: The system ID for your SAP server <br>- **Logon Group**: The logon group for your SAP server. On your SAP server, you can find or edit the **Logon Group** value by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317). |
    | **Language** | Yes | The language to use for sending data to your SAP server. The value is either **Default** (English) or one of the [permitted values](/azure/logic-apps/connectors/built-in/reference/sap/#parameters-21). <br><br>**Note**: The SAP built-in connector saves this parameter value as part of the SAP connection parameters. For more information, see [Change language headers for sending data to SAP](#change-language-headers). |
 
-For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+   For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
    After Azure Logic Apps sets up and tests your connection, the SAP action information box appears. For more information about any connection problems that might happen, see [Troubleshoot connections](#troubleshoot-connections).
 
@@ -417,18 +417,21 @@ For more information about SNC, see [Getting started with SAP SNC for RFC integr
 
    1. For the **IDoc Format** parameter, select **SapPlainXML**.
 
-      1. In the **Plain XML IDoc** parameter, select inside the edit box, and open the dynamic content list (lightning icon). 
+      1. Select inside the **Plain XML IDoc** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
 
-      1. From the dynamic content list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the **Request** trigger. 
+      1. Select the lightning icon for the dynamic content list.
+
+      1. From the list, under **When a HTTP request is received**, select **Body**. The **Body** field contains the body output from the **Request** trigger. 
 
          > [!NOTE]
+         >
          > If the **Body** field doesn't appear in the list, next to the **When a HTTP request is received** label, select **See more**.
 
          :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-select-body-standard.png" alt-text="Screenshot shows Standard workflow, Request trigger, and selecting trigger output named Body.":::
 
       The **[IDoc] Send document to SAP** action now includes the body content from the **Request** trigger and sends that output to your SAP server, for example:
 
-      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-complete-standard.png" alt-text="Screenshot shows completed SAP action for Standard workflow.":::
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-complete-standard.png" alt-text="Screenshot shows Standard workflow and completed SAP action.":::
 
 1. Save your workflow.
 
@@ -579,23 +582,21 @@ Now, set up your workflow to return the results from your SAP server to the orig
 
 ### [Consumption](#tab/consumption)
 
-1. In the workflow designer, under the SAP action, select **New step**.
+1. In the designer, under the SAP action, [follow these general steps to find and add the Request built-in action named **Response**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. In the designer, [follow these general steps to find and add the Request built-in action named **Response**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. In the **Response** action, select inside the **Body** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
 
-1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list.
+1. Select the lightning icon for the dynamic content list.
 
-1. From the dynamic content list, under **Send message to SAP**, select **Body**. The **Body** field contains the body output from the SAP action.
+1. From the list, under **Send message to SAP**, select **Body**. The **Body** field contains the body output from the SAP action.
 
-   ![Screenshot shows selecting SAP action output named Body for Consumption workflow.](./media/sap-create-example-scenario-workflows/response-action-select-sap-body-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/response-action-select-sap-body-consumption.png" alt-text="Screenshot shows Consumption workflow, Response action, dynamic content list, and selected SAP action output named Body.":::
 
 1. Save your workflow.
 
 ### [Standard](#tab/standard)
 
-1. In the workflow designer, under the SAP action, select the plus sign (**+**) > **Add an action**.
-
-1. In the designer, [follow these general steps to find and add the Request built-in action named **Response**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, under the SAP action, [follow these general steps to find and add the Request built-in action named **Response**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    > [!NOTE]
    >
@@ -603,11 +604,13 @@ Now, set up your workflow to return the results from your SAP server to the orig
    > [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) 
    > to your workflow and include the output from the SAP action.
 
-1. In the **Response** action, for the **Body** parameter, select inside the edit box to open the dynamic content list appears.
+1. In the **Response** action, select inside the **Body** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
 
-1. From the dynamic content list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
+1. Select the lightning icon for the dynamic content list.
 
-   ![Screenshot showing selecting the SAP action output named Body for Standard workflow.](./media/sap-create-example-scenario-workflows/response-action-select-sap-body-standard.png)
+1. From the list, under **[IDoc] Send document to SAP**, find and select **Body**. The **Body** field contains the body output from the SAP action.
+
+   :::image type="content" source="media/sap-create-example-scenario-workflows/response-action-select-sap-body-standard.png" alt-text="Screenshot shows Standard workflow, Response action, dynamic content list, and selected Body output from SAP action.":::
 
 1. Save your workflow.
 
@@ -645,7 +648,7 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 1. If your Consumption logic app resource isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
-1. On the designer toolbar, select **Run** > **Run** to manually start your workflow.
+1. On the **Overview** or designer toolbar, select **Run** > **Run** to manually start your workflow.
 
 1. To simulate a webhook trigger payload and trigger the workflow, send an HTTP request to the endpoint URL created by your workflow's **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions. Make sure to include your message content with your request.
 
@@ -691,7 +694,7 @@ You've now created a workflow that can send IDocs and communicate with your SAP 
 
 Your workflow times out in any of the following scenarios:
 
-- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check and monitor your logic app workflows](../monitor-logic-apps.md).
+- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check workflow status and view run history for your workflows](/azure/logic-apps/view-workflow-status-run-history).
 
 - Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
 
@@ -787,20 +790,26 @@ The following example workflow shows this pattern:
 
 1. To help avoid sending duplicate IDocs to SAP, [follow these alternative steps to create and use an IDoc transaction ID in your SAP actions](#create=transaction-ID-variable).
 
-1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. Provide the information for the IDoc that you send to your SAP system plus the following values:
+1. Add the SAP action named **[IDOC] Send document to SAP** to your workflow. For Standard workflows, select the action's "in-app" version named **[IDoc] Send document to SAP**, rather than the "shared" version.
+
+1. Provide the information for the IDoc that you send to your SAP system plus the following values:
+
+   > [!NOTE]
+   >
+   > If the following parameters don't automatically appear, open the **Advanced parameters** list, and select the parameters. 
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
-   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. <br><br>You can either manually specify this value, or the connector can automatically generate this GUID as an output from the **[IDOC] Send document to SAP** action. This example leaves this parameter empty to automatically generate the GUID. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | You can either manually specify this value, or the connector can automatically generate this GUID as an output from the **[IDOC] Send document to SAP** action. This example leaves this parameter empty to automatically generate the GUID. |
 
    **Consumption workflow**
 
-   ![Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-consumption.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-consumption.png" alt-text="Screenshot shows Consumption workflow with the action named IDOC Send document to SAP.":::
 
    **Standard workflow**
 
-   ![Screenshot shows Standard workflow with the action named IDOC Send document to SAP.](./media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-idoc-with-id-standard.png" alt-text="Screenshot shows Standard workflow with the action named IDoc Send document to SAP.":::
 
 1. On the SAP action named **[IDOC] Send document to SAP**, open **Settings** to review the **Retry Policy**.
 
@@ -808,7 +817,9 @@ The following example workflow shows this pattern:
 
 1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
 
-   1. In the **Transaction ID** parameter, select inside the edit box to open the dynamic content list.
+   1. Select inside the **Transaction ID** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
+
+   1. Select the lightning icon for the dynamic content list.
 
    1. From the list, under **[IDOC] Send document to SAP**, select the **Transaction Id** value, which is the output from the previous SAP action.
 
@@ -838,7 +849,7 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    |-----------|-------|-------------|
    | **Name** | <*variable-name*> | A name for your variable, for example, **IDocTransactionID** |
    | **Type** | **String** | The variable type |
-   | **Value** | `guid()` | Select inside the edit box, open the expression or function editor, and enter **guid()**. Save your changes. <br><br>The **Value** parameter is now set to the **guid()** function, which generates a GUID.|
+   | **Value** | `guid()` | 1. Select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the function icon to open the expression editor. <br><br>3. In the editor, enter **guid()**, and save your changes. <br><br>The **Value** parameter is now set to the **guid()** function, which generates a GUID. |
 
    **Consumption workflow**
 
@@ -859,7 +870,7 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    | Parameter | Value | Description |
    |-----------|-------|-------------|
    | **Confirm TID** | **No** | Don't automatically confirm the transaction ID, which explicitly happens in a separate step. |
-   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. In the **Transaction Id GUID** parameter, select inside the edit box to open the dynamic content list. <br><br>2. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
+   | **Transaction Id GUID** | <*IDoc-transaction-ID*> | If this parameter doesn't automatically appear, open the **Add new parameters** list, and select the parameter. To select the transaction ID variable that you created, follow these steps: <br><br> 1. Select inside the **Transaction Id GUID** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon). <br><br>2. Select the lightning icon to open the dynamic content list. <br><br>3. From the list, under **Variables**, select the variable that you previously created, which is **IDocTransactionID** in this example. |
 
    **Consumption workflow**
 
@@ -879,9 +890,9 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
 1. Now, add the SAP action named **[IDOC - RFC] Confirm transaction Id**.
 
-   1. In the **Transaction ID** parameter, select inside the edit box to open the dynamic content list.
+   1. In the action, select inside the **Transaction ID** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
 
-   1. From the list, under **Variables**, enter the name for the variable that you created, which is **IDocTransactionID** in this example.
+   1. Select the lightning icon to open the dynamic content list. From the list, under **Variables**, enter the name for the variable that you created, which is **IDocTransactionID** in this example.
 
       **Consumption workflow**
 
