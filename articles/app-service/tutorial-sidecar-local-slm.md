@@ -23,7 +23,7 @@ You would want to run an SLM locally if you want to run a chatbot application bu
 
 Since AI models consume considerable resources, choose the pricing tier that gives you sufficent vCPUs and memory to run your specific model. In practice, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
-This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources, and gives you strong math and logical reasonings for many common scenarios. In App Service, you should run it in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier.
+This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources, and gives you strong math and logical reasonings for many common scenarios. In App Service, we have tested the model on all premium tiers and have found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
 
 ## 1. Inspect the sample in GitHub Codespaces
 
@@ -89,11 +89,15 @@ This sesction assumes that you already built a Phi-3 Docker image and uploaded i
 
 ## Frequently asked questions
 
+- [How does the Phi-3 sidecar container work?](#how-does-the-phi-3-sidecar-container-work)
+- [How does the front-end app work?](#how-does-the-front-end-app-work)
+- [How to build the Phi-3 Docker image locally](#how-to-build-the-phi-3-docker-image-locally)
+
 #### How does the Phi-3 sidecar container work?
 
 It runs a FastAPI application that listens on port 8000, as specified in its [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/Dockerfile).
 
-The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Phi-3 model, then responds to HTTP posts by forwarding the input data to the model, then streams the response back. For more information, see [model_api.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/model_api.py).
+The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Phi-3 model, then forwards the HTTP POST data to the model and streams the response from the model back to the client. For more information, see [model_api.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/model_api.py).
 
 #### How does the front-end app work?
 
@@ -103,7 +107,7 @@ It's a basic retrieval-augmented generation (RAG) application. It shows a Razor 
 - Retrieved product description data
 - Message from user
 
-It then outputs the streamed reponse to the page. For more information, see [Home.razor](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/webapp/Components/Pages/Home.razor)
+It then outputs the streamed reponse to the page. For more information, see [Home.razor](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/webapp/Components/Pages/Home.razor).
 
 #### How to build the Phi-3 Docker image locally 
 
