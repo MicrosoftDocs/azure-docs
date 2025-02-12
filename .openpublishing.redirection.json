@@ -5265,6 +5265,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/openvpn-azure-ad-client-mac.md",
+      "redirect_url": "/azure/virtual-wan/point-to-site-entra-vpn-client-mac",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/monitoring-best-practices.md",
       "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
       "redirect_document_id": false
