@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 The Azure Communication Sevices [**sample library**](https://aka.ms/acssamples) (GitHub) includes basic and advanced code examples demonstrating common communication use cases. 
 
-[**Basic samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#basic-samples): understand the fundementals of Azure Communication Services.
+[**Basic samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#basic-samples): understand the fundamentals of Azure Communication Services.
 
 [**Advanced samples**](https://github.com/Azure/Communication/blob/master/Sample-index.md#advanced-samples): see how capabilities come together to create more advanced communication experiences.
 
