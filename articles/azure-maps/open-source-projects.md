@@ -17,7 +17,7 @@ These open-source, community-driven initiatives are created and maintained by th
 
 The following tables list some of the most popular Azure Maps open-source projects and samples.
 
-### Maintained by Azure Maps team
+#### Maintained by Azure Maps team
 
 The following table lists the open-source projects maintained by Azure Maps team that extend the capabilities of the Azure Maps Web SDK.
 
@@ -28,7 +28,7 @@ The following table lists the open-source projects maintained by Azure Maps team
 | [Azure Maps Gridded Data Source module] | A module for the Azure Maps Web SDK that provides a data source that clusters data points into cells of a grid area. This operation is also known by many names such as tessellations, data binning, or hex bins.  | [@azure-maps/gridded-data-source] |
 | [Azure maps selection control module] | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. | N/A |
 
-### Contributed and maintained by Community
+#### Contributed and maintained by Community
 
 The following table lists the open-source projects contributed to, and maintained by the development Community that extend the capabilities of the Azure Maps Web SDK.
 
