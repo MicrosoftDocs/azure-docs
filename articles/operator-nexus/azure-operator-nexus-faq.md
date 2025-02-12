@@ -97,7 +97,7 @@ Here are some of the network requirements for Azure Operator Nexus:
 * Customers need to work with Microsoft partners for setting up ExpressRoute connections, 
 * PE (Provider Edge) device supports 400G or 100G connections to CE (Customer Edge) device in Operator Nexus instance
 * PE must have routes to ExpressRoutes
-* IP address blocks defined for various services, VLANs for iDrac, PXE, Storage, OAM etc. 
+* IP address blocks defined for various services, VLANs for iDRAC, PXE, Storage, OAM etc. 
           
 For more information, see [Network fabric controller](howto-configure-network-fabric-controller.md) and [Network fabric](howto-configure-network-fabric.md).
           
