@@ -1,16 +1,16 @@
 ---
  title: include file
- description: include file for the portal steps to create an Azure Digital Twins instance
+ description: Include file for the portal steps to create an Azure Digital Twins instance
  services: digital-twins
  author: baanders
  ms.service: azure-digital-twins
  ms.topic: include
- ms.date: 6/2/2021
+ ms.date: 2/12/2025
  ms.author: baanders
  ms.custom: include file
 ---
 
-In this section, you'll create a new instance of Azure Digital Twins using the [Azure portal](https://portal.azure.com/). Navigate to the portal and log in with your credentials.
+In this section, you create a new instance of Azure Digital Twins using the [Azure portal](https://portal.azure.com/). Navigate to the portal and sign in with your credentials.
 
 1. Once in the portal, start by selecting **Create a resource** in the Azure services home page menu.
 
