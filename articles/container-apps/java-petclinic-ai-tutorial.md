@@ -28,13 +28,13 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Prerequisites
 
-- Azure subscription: You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't have an existing account.
-- Security context: To perform this quickstart, you need the `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
-- GitHub account: Get one for [free](https://github.com/join).
-- git: Install the latest version of [git](https://git-scm.com/downloads).
-- Microsoft Build of Open JDK: Install [Microsoft Build of Open JDK](/java/openjdk/install). Use version 17 at a minimum.
-- Azure Command-Line interface (CLI): Install [Azure CLI](/azure/developer/azure-developer-cli/install-azd) to manage your Azure resources via command line.
-- Maven: Install the latest version of [Maven](https://maven.apache.org/download.cgi).
+- An Azure subscription. If you don't have an existing account, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- `Contributor` and `User Access Administrator` roles, or the `Owner` role. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
+- [A GitHub account](https://github.com/join).
+- The latest version of [git](https://git-scm.com/downloads).
+- The [Microsoft Build of Open JDK](/java/openjdk/install), version 17 or higher.
+- [Azure CLI](/azure/developer/azure-developer-cli/install-azd).
+- [Maven](https://maven.apache.org/download.cgi).
 
 ## Setup
 
@@ -52,7 +52,7 @@ For information on the architectural details of this application, see [Java PetC
     cd spring-petclinic-ai
     ```
 
-1. If you don't already have it, install the Azure CLI.
+1. If you don't already have it, install the `containerapp` extension for the Azure CLI.
 
     ```azurecli
     az extension add --name containerapp --upgrade
@@ -70,13 +70,13 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Deploy
 
-1. Automatically deploy the application by with the `azd up` command.
+1. Automatically deploy the application by using the `azd up` command.
 
     ```azdeveloper
     azd up
     ```
 
-1. When you're prompted you for a name, enter **my-first-ai** for the environment name.
+1. When you're prompted, enter **my-first-ai** for the environment name.
 
     After that, enter values for `Azure Subscription` and `Azure location`, substituting your actual values for the `<..>` placeholders in the following prompts:
 

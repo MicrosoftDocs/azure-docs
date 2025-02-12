@@ -1,6 +1,6 @@
 ---
 title: Introduction to the Java PetClinic AI Sample in Azure Container Apps
-description: Explain the architecture of AI applications deployed to Azure Container Apps.
+description: Explains the architecture of AI applications deployed to Azure Container Apps.
 author: KarlErickson
 ms.author: sonwan
 ms.service: azure-container-apps
@@ -37,7 +37,7 @@ This gateway performs the following functions:
 
 The gateway operates within a dedicated virtual network, ensuring secure and isolated communication between the application and external systems.
 
-The following are the key components and services featured in the application:
+The following table describes the key components and services featured in the application:
 
 | Service or feature                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,12 +48,12 @@ The following are the key components and services featured in the application:
 | [Managed Identities](/entra/identity/managed-identities-azure-resources/overview) | Provides Azure services with automatically managed identities in Azure AD. Eliminates the need for credential management by allowing secure service-to-service authentication without storing credentials in code.                                                                                                                                                                                                                   |
 | [Spring AI](https://spring.io/projects/spring-ai)                                 | Spring framework for AI engineering that applies AI design principles to the Spring ecosystem. Alternatively, [Langchain4j](https://docs.langchain4j.dev/intro) is another AI framework with its own PetClinic sample in [spring-petclinic-langchain4j](https://github.com/Azure-Samples/spring-petclinic-langchain4j). For more information, see [Chat Client API](https://docs.spring.io/spring-ai/reference/api/chatclient.html).|
 
-For more information on infrastructure as code elements of the application, see the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) in the [Bring your first AI app in Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai/) repository
+For more information on the infrastructure as code elements of the application, see the [bicep scripts](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/infra/bicep/main.bicep) in the [Bring your first AI app in Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai/) repository.
 .
 
 ## Code implementation
 
-The following information is an introduction to the code for readers to understand the flow of this first AI application:
+The following sections provide an introduction to the code to help you understand the flow of this first AI application.
 
 ### Making REST calls
 
@@ -65,7 +65,7 @@ return this.chatClient.prompt().user(u -> u.text(query)).call().content();
 
 ### Chat customizations
 
-The [`ChatConfiguration`](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ChatConfiguration.java) class customizes requests sent to `chatClient`. The following are some key configuration settings of `chatClient`:
+The [`ChatConfiguration`](https://github.com/Azure-Samples/spring-petclinic-ai/blob/main/src/main/java/org/springframework/samples/petclinic/genai/ChatConfiguration.java) class customizes requests sent to `chatClient`. The following list describes some key configuration settings of `chatClient`:
 
 - Connections authentication: The client connects to Azure OpenAI. Both API key authentication and managed identity authentication are supported.
 - Configuration settings location: For `ChatModel`, deployment `gpt-4o` and temperature `0.7` are set in the configuration file.
@@ -115,4 +115,4 @@ For more information, see [Advisors API](https://docs.spring.io/spring-ai/refere
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps](java-petclinic-ai-overview.md).
+> [Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps](java-petclinic-ai-overview.md)
