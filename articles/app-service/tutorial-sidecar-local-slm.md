@@ -17,7 +17,7 @@ In this tutorial, you learn how to run a small language model (SLM) as a sidecar
 Running an SLM locally is beneficial if you want to run a chatbot application without sending your business data over the internet to a cloud chatbot provider.
 
 - **High-performance pricing tiers**: App Service offers high-performance pricing tiers that help you run AI models at scale.
-- **Separation of concerns**: Running an SLM lets you separate AI logic from your application logic. You can maintain the discrete components separately, such as upgrading your model without affecting your application.
+- **Separation of concerns**: Running an SLM in a sidecar lets you separate AI logic from your application logic. You can maintain the discrete components separately, such as upgrading your model without affecting your application.
 
 ## Prerequisites
 
