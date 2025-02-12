@@ -39,29 +39,25 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Setup
 
-1. Clone the sample application to your machine.
-
-    Open your terminal or command prompt to run the following command:
+1. Clone the sample application to your machine by using the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/spring-petclinic-ai.git
     ```
 
-1. Change into the **spring-petclinic-ai** folder.
+1. Navigate to the **spring-petclinic-ai** folder by using the following command:
 
     ```bash
     cd spring-petclinic-ai
     ```
 
-1. If you don't already have it, install the `containerapp` extension for the Azure CLI.
+1. If you don't already have it, install the `containerapp` extension for the Azure CLI by using the following command:
 
     ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
-1. Log in to Azure.
-
-    Use the `auth` command to securely log in to your Azure account using the Azure CLI.
+1. Securely log in to your Azure account by using the following command:
 
     ```azurecli
     az auth login  
@@ -71,7 +67,7 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Deploy
 
-1. Automatically deploy the application by using the `azd up` command.
+1. Automatically deploy the application by using the following command:
 
     ```azdeveloper
     azd up
@@ -129,7 +125,7 @@ For information on the architectural details of this application, see [Java PetC
 
 ## Try your application
 
-1. Go to the application in a web browser using the URL you copied in the last step.
+1. View the application in a web browser using the URL you copied at the end of the last section.
 
 1. You can interact with the chatbot via prompts like the following:
 
@@ -139,13 +135,13 @@ For information on the architectural details of this application, see [Java PetC
     - Add a pet named Spot.
     - List all vets in your system.
 
-The following image shows the result of asking the application to add a new pet owner to the system.
+The following image shows the result of asking the application to add a new pet owner to the system:
 
 :::image type="content" source="media/java-ai-application/add-new-item.png" alt-text="Screenshot of AI chat assistant adding a new owner, complete with address and other information, and information about a pet." lightbox="media/java-ai-application/add-new-item.png":::
 
 ## Updates
 
-As you experiment with the sample, if you want to deploy any changes to the application, you can run the following commands to publish your changes.
+As you experiment with the sample, if you want to deploy any changes to the application, you can use the following commands to publish your changes:
 
 ```azdeveloper
 azd package
