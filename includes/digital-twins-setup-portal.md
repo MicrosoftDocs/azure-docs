@@ -1,6 +1,6 @@
 ---
  title: include file
- description: Include file for the portal steps to create an Azure Digital Twins instance
+ description: include file for the portal steps to create an Azure Digital Twins instance
  services: digital-twins
  author: baanders
  ms.service: azure-digital-twins

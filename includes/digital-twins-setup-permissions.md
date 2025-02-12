@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: Include file for permission prerequisite in Azure Digital Twins setup 
+description: include file for permission prerequisite in Azure Digital Twins setup 
 ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 2/12/2025
