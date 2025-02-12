@@ -100,7 +100,7 @@ sections:
     questions:
       - question: |
           How are template specs and Azure Blueprints related?
-        answer:   Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints remain a user-experience to compose a governed environment in Azure.
+        answer:   On July 11, 2026, Blueprints (Preview) will be deprecated. Migrate your existing blueprint definitions and assignments to [Template Specs](../bicep/template-specs.md) and [Deployment Stacks](../bicep/deployment-stacks.md). Blueprint artifacts are to be converted to ARM JSON templates or Bicep files used to define deployment stacks. For more information, see [Migrate blueprints to deployment stacks](../bicep/migrate-blueprint.md).
 
       - question: |
           Do template specs replace linked templates?
