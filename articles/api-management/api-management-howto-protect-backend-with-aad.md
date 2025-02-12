@@ -79,7 +79,7 @@ For details about app registration, see [Quickstart: Configure an application to
 
 ## Authorization workflow
 
-1. A user or application acquires a token from Microsoft Entra ID with permissions that grant access to the backend-app. 
+1. A user or application acquires a token from Microsoft Entra ID with permissions that grant access to the backend-app. If you use the v2 endpoint, ensure that the accessTokenAcceptedVersion property is set to 2 in the application manifest of the back end app and any client app that you configure.
 
 1. The token is added in the Authorization header of API requests to API Management. 
 

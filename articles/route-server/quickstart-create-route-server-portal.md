@@ -49,8 +49,8 @@ In this section, you create a route server.
     | Region | Select **East US** or any region you prefer to create the route server in. |
     | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
     | **Configure virtual networks** |  |
-    | Virtual network | Select **Create new**. <br>In **Name**, enter ***myRouteServerVNet***. <br>In **Address range**, enter ***10.0.0.0/16***. <br>In **Subnet name** and **Address range**, enter ***RouteServerSubnet*** and ***10.0.1.0/27*** respectively. <br>Select **OK**. |
-    | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** will populate. <br>- The subnet must be named *RouteServerSubnet*.<br>- The subnet must be a minimum of /27 or larger. |
+    | Virtual network | Select **Create new**. <br>In **Name**, enter ***myRouteServerVNet***. <br>In **Address range**, enter ***10.0.0.0/16***. <br>In **Subnet name** and **Address range**, enter ***RouteServerSubnet*** and ***10.0.1.0/26*** respectively. <br>Select **OK**. |
+    | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** will populate. <br>- The subnet must be named *RouteServerSubnet*.<br>- The subnet must be a minimum of /26 or larger. |
     | **Public IP address** |  |
     | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
     | Public IP address name | Enter ***myRouteServerVNet-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
