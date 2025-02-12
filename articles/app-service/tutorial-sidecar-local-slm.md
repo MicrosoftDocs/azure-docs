@@ -10,7 +10,7 @@ keywords: azure app service, web app, linux, windows, docker, sidecar, ai, chatb
 
 # Run a local SLM in a sidecar container in Azure App Service
 
-In this tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. By the end of this tutorial, you will have a fashion assistant chat application running in App Service and accessing a model locally.
+In this tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. By the end of this tutorial, you'll have a fashion assistant chat application running in App Service and accessing a model locally.
 
 :::image type="content" source="media/tutorial-sidecar-local-slm/rag-app-slm-sidecar.png" alt-text="An image showing a fashion assistant chat app in Azure App Service.":::
 
@@ -28,7 +28,7 @@ Running an SLM locally is beneficial if you want to run a chatbot application wi
 
 Since AI models consume considerable resources, choose the pricing tier that gives you sufficient vCPUs and memory to run your specific model. In practice, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
-This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. In App Service, we have tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
+This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx). It's designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. In App Service, we tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier. If your requirements allow, you can run it on a lower tier.
 
 ## 1. Inspect the sample in GitHub Codespaces
 
@@ -63,7 +63,7 @@ The sample repository has the following code:
 
 ## 3. Add the Phi-3 sidecar
 
-This sesction assumes that you already built a Phi-3 Docker image and uploaded it to a registry. You will use a pre-uploaded image in Microsoft Container Registry instead. To build and upload the image yourself, see [How to build the Phi-3 Docker image locally](#how-to-build-the-phi-3-docker-image-locally).
+This section assumes that you already built a Phi-3 Docker image and uploaded it to a registry. You'll use a preuploaded image in Microsoft Container Registry instead. To build and upload the image yourself, see [How to build the Phi-3 Docker image locally](#how-to-build-the-phi-3-docker-image-locally).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the app's management page.
 1. In the app's management page, from the left menu, select **Deployment Center**.
@@ -106,13 +106,13 @@ The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Ph
 
 #### How does the front-end app work?
 
-It's a basic retrieval-augmented generation (RAG) application. It shows a Razor page that sends 3 pieces of information to the FastAPI endpoint (at `localhost:8000`) in `Send()`:
+It's a basic retrieval-augmented generation (RAG) application. It shows a Razor page that sends three pieces of information to the FastAPI endpoint (at `localhost:8000`) in `Send()`:
 
-- Product selected by the user
+- Selected product
 - Retrieved product description data
-- Message from user
+- User-submitted message
 
-It then outputs the streamed reponse to the page. For more information, see [Home.razor](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/webapp/Components/Pages/Home.razor).
+It then outputs the streamed response to the page. For more information, see [Home.razor](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/webapp/Components/Pages/Home.razor).
 
 #### How to build the Phi-3 Docker image locally 
 
