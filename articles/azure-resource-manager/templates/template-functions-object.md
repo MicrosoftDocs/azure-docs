@@ -3,7 +3,7 @@ title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 05/21/2024
+ms.date: 02/12/2025
 ---
 
 # Object functions for ARM templates

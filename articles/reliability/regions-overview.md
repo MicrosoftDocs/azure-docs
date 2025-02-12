@@ -7,7 +7,7 @@ ms.subservice: azure-availability-zones
 ms.topic: conceptual
 ms.date: 01/13/2025
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability, ai-video-concept
 ---
 
 # What are Azure regions?

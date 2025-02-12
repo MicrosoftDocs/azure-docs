@@ -88,13 +88,13 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 ### Define conditions
 
-Use the options in the **Conditions** area to define conditions for your automation rule.
+Use the options in the **Conditions** area to define conditions for your automation rule. All conditions are case insensitive.
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (**Contains**) or exclusive (**Does not contain**), and then select the analytic rule name from the drop-down list.
 
     Analytic rule name values include only analytics rules, and don't include other types of rules, such as threat intelligence or anomaly rules.
 
-- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the Defender portal:
+- Rules you create for when an incident is created or updated support a large variety of conditions, depending on your environment. These options start with whether your workspace is onboarded to the unified security operations (SecOps) platform:
 
     #### [Onboarded workspaces](#tab/onboarded)
 
@@ -145,7 +145,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 1. Select an operator from the next drop-down box to the right.
     :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
 
-    The list of operators you can choose from varies according to the selected trigger and property. 
+    The list of operators you can choose from varies according to the selected trigger and property. When working with the unified SecOps platform recommend that you use the **Analytic rule name** condition instead of an incident title.
 
     #### Conditions available with the create trigger
 

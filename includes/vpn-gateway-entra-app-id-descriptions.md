@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 01/16/2025
+ms.date: 02/10/2025
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: include
@@ -10,15 +10,13 @@ VPN Gateway now supports a new Microsoft-registered App ID and corresponding Aud
 
 Previously, you were required to manually register (integrate) the Azure VPN Client app with your Microsoft Entra tenant. Registering the client app creates an App ID representing the identity of the Azure VPN Client application and requires authorization using the Global Administrator role. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](/entra/identity-platform/how-applications-are-added).
 
-When possible, we recommend that you configure new P2S gateways using the Microsoft-registered Azure VPN client App ID and its corresponding Audience values, instead of manually registering the Azure VPN Client app with your tenant. If you have a previously configured Azure VPN gateway that uses Microsoft Entra ID authentication, you can update the gateway and clients to take advantage of the new Microsoft-registered App ID. Updating the P2S gateway with the new Audience value is required if you want Linux clients to connect. The Azure VPN Client for Linux isn't backward compatible with the older Audience values. 
+When possible, we recommend that you configure new P2S gateways using the Microsoft-registered Azure VPN client App ID and its corresponding Audience values, instead of manually registering the Azure VPN Client app with your tenant. If you have a previously configured Azure VPN gateway that uses Microsoft Entra ID authentication, you can update the gateway and clients to take advantage of the new Microsoft-registered App ID. Updating the P2S gateway with the new Audience value is required if you want Linux clients to connect. The Azure VPN Client for Linux isn't backward compatible with the older Audience values.
 
 If you have an existing P2S gateway that you want to update to use a new Audience value, see [Change Audience for a P2S VPN gateway](../articles/vpn-gateway/point-to-site-entra-gateway-update.md). If you want to create or modify a custom Audience value, see [Create a custom audience app ID for P2S VPN](../articles/vpn-gateway/point-to-site-entra-register-custom-app.md). If you want to configure or restrict access to P2S based on users and groups, see [Scenario: Configure P2S VPN access based on users and groups](../articles/vpn-gateway/point-to-site-entra-users-access.md).
 
 **Considerations**
 
 * A P2S VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
-
-* At this time, the newer Microsoft-registered App ID doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or Custom, use the older manually registered method and values.
 
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Azure VPN Client for Linux does support Custom Audience values.
 
