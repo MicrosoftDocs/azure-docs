@@ -97,8 +97,10 @@ The two steps where Option A and Option B are specified are 'fabric create' and 
     --is-management-type "True" \
     --use-option-b "False" \
     --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" \
-    --layer3-configuration '{"peerASN": 65048, "vlanId": 501, "primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127"}'
-
+    --layer3-configuration '{"peerASN": 65048, "vlanId": 501, "primaryIpv4Prefix": "x.x.x.x/30", "secondaryIpv4Prefix": "x.x.x.x/30", "primaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127", "secondaryIpv6Prefix": "xxxx:xxxx:xxxx:xxxx::xx/127"}' \
+    --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" \
+    --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
+    
     
     ````
 
@@ -114,8 +116,8 @@ The two steps where Option A and Option B are specified are 'fabric create' and 
     --is-management-type "True" \
     --use-option-b "True" \
     --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" \
-    --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}"
-    --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL"
+    --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'x.x.x.x/30',secondaryIpv4Prefix:'x.x.x.x/30',primaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127',secondaryIpv6Prefix:'xxxx:xxxx:xxxx:xxxx::xx/127'}" \
+    --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" \
     --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
     
     ````
