@@ -6,13 +6,12 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
-ms.date: 11/21/2024
-ms.custom:
+ms.date: 02/12/2025
 ---
 
 # Static website hosting in Azure Storage
 
-You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services. Azure Storage static website hosting is a great option in cases where you don't require a web server to render content. 
+Azure Blob Storage is ideal for storing large amounts of unstructured data such as text, images, and videos. Because blob storage also provides static website hosting support, it's a great option in cases where you don't require a web server to render content. Although you're limited to hosting static content such as HTML, CSS, JavaScript, and image files, you can use serverless architectures including [Azure Functions](../../azure-functions/functions-overview.md) and other Platform as a service (PaaS) services.
 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
@@ -20,15 +19,17 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 ## Setting up a static website
 
-Static website hosting is a feature that you have to enable on the storage account.
+Static website hosting functionality is configured within a storage account and isn't enabled by default. To enable static website hosting, select a storage account. In the left navigation pane, select **Static website** from the **Data management** group, and then select **Enabled**. Provide a name for your *Index document name*. You can optionally provide a path to a custom 404 page. Finally, select **Save** to save your configuration changes.
 
-To enable static website hosting, select the name of your default file, and then optionally provide a path to a custom 404 page. If a blob storage container named **$web** doesn't already exist in the account, one is created for you. Add the files of your site to this container.
+:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-enable-sml.png" alt-text="Screenshot showing the locations used to enable static website hosting on a storage account." lightbox="media/storage-blob-static-website/storage-blob-static-website-enable-lrg.png":::
 
-For step-by-step guidance, see [Host a static website in Azure Storage](storage-blob-static-website-how-to.md).
+A blob storage container named **$web** is created for you within the storage account if it doesn't already exist. Add your website's files to the **$web** container to make them accessible through the static website's primary endpoint.
 
-![Screenshot showing how to enable static website hosting on a storage account using a blob storage container](./media/storage-blob-static-website/storage-blob-static-website-blob-container.png)
+:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-blob-container-sml.png" alt-text="Screenshot showing how to enable static website hosting on a storage account using a blob storage container"  lightbox="media/storage-blob-static-website/storage-blob-static-website-blob-container-lrg.png":::
 
 Files in the **$web** container are case-sensitive, served through anonymous access requests and are available only through read operations.
+
+For step-by-step guidance, see [Host a static website in Azure Storage](storage-blob-static-website-how-to.md).
 
 ## Uploading content
 
