@@ -58,7 +58,7 @@ Azure services are presented in the following tables by category. Note that some
 > | Virtual Machines: Dv3 and DSv3-series   | Azure Network Watcher               | 
 > | Virtual Machines: Dv5 and DSv5-series   | Azure Private Link                  |
 > | Virtual Machines: Edv5 and Edsv5-series | Azure Storage: Files Storage        |
-> | Virtual Machines: ESv3 and ESv3-series  | Azure Storage: Premium Blob Storage |
+> | Virtual Machines: Ev3 and ESv3-series   | Azure Storage: Premium Blob Storage |
 > | Virtual Machines: Ev5 and Esv5-series   | Azure Virtual WAN                   |
 > |                                         | Microsoft Entra Domain Services     |
 > |                                         | Virtual Machines: Ddsv4-series      |
