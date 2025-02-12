@@ -1,16 +1,18 @@
-- name: Overview
+- name: Migrate to Azure Functions
   href: ./function-placeholder.md
+- name: AWS Lamda to Functions 
+  href: ./aws-lambda-to-azure-functions.md
   items:
-  - name: Evaluation - Source service
+  - name: Evaluation - AWS Lamda
     items:
     - name: Capability orgranization
-      href: ./function-placeholder.md
+      href: ./capabilities.md
     - name: Identity and access management
-      href: ./function-placeholder.md
+      href: ./identity-access-management.md
     - name: Deployment
-      href: ./function-placeholder.md
+      href: ./deployment.md
     - name: Monitoring
-      href: ./function-placeholder.md
+      href: ./monitoring.md
     - name: Dependencies
       items:
       - name: Example - Compute
@@ -18,7 +20,7 @@
       - name: Example - Networking
         href: ./function-placeholder.md
     - name: Governance
-      href: ./function-placeholder.md                          
+      href: ./governance.md                          
     - name: Measurement - business requirements
       items:
       - name: Cost of ownership

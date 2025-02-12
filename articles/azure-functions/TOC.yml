@@ -414,6 +414,8 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
+- name: Migration guide
+  href: ./migration/toc.yml
 - name: Languages
   items:
     - name: Supported languages
