@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Create a cross-region load balancer'
+title: 'Tutorial: Create an Azure Global Load Balancer'
 titleSuffix: Azure Load Balancer
-description: Get started with this tutorial deploying a cross-region Azure Load Balancer with the Azure portal, Azure CLI, or Azure PowerShell.
+description: Get started with this tutorial deploying a global Load Balancer with the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
@@ -11,14 +11,14 @@ ms.custom: template-tutorial, references_regions
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
-# Tutorial: Create a cross-region Azure Load Balancer
+# Tutorial: Create an Azure Global Load Balancer
 
-A cross-region load balancer ensures a service is available globally across multiple Azure regions. If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
+A global load balancer ensures a service is available globally across multiple Azure regions. If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create cross-region load balancer.
+> * Create global load balancer.
 > * Create a backend pool containing two regional load balancers.
 > * Create a load balancer rule.
 > * Test the load balancer.
@@ -56,9 +56,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 ---
 
 
-## Create cross-region load balancer
+## Create global load balancer
 
-In this section, you create a cross-region load balancer with a public IP address, a frontend IP configuration, a backend pool with region load balancers added, and a load balancer rule.
+In this section, you create a global load balancer with a public IP address, a frontend IP configuration, a backend pool with region load balancers added, and a load balancer rule.
 
 # [Azure portal](#tab/azureportal)
 
@@ -87,7 +87,7 @@ In this section, you create a cross-region load balancer with a public IP addres
     | SKU           | Leave the default of **Standard**. |
     | Tier           | Select **Global** |
 
-    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Create a cross-region load balancer" border="true":::
+    :::image type="content" source="./media/tutorial-cross-region-portal/create-cross-region.png" alt-text="Create a global load balancer" border="true":::
   
 5. Select **Next: Frontend IP configuration** at the bottom of the page.
 
@@ -160,7 +160,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ### Create the cross-region load balancer resource
 
-Create a cross-region load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create):
+Create a global load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create):
 
 * Named **myLoadBalancer-CR**.
 * A frontend pool named **myFrontEnd-CR**.
