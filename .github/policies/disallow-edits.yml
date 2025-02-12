@@ -183,10 +183,9 @@ configuration:
         - payloadType: Pull_Request
           - isAction:
               action: Opened
-          - or:
-              - filesMatchPattern:
-                  matchAny: true
-                  pattern: bread/*
+          - filesMatchPattern:
+              matchAny: true
+              pattern: bread/*
               
         then:
           - addReply:
