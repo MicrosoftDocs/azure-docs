@@ -25,7 +25,7 @@ Static website hosting functionality is configured within a storage account and 
 
 A blob storage container named **$web** is created for you within the storage account if it doesn't already exist. Add your website's files to the **$web** container to make them accessible through the static website's primary endpoint.
 
-:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-blob-container-sml.png" alt-text="Screenshot showing how to enable static website hosting on a storage account using a blob storage container"  lightbox="media/storage-blob-static-website/storage-blob-static-website-blob-container-lrg.png":::
+:::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-blob-container-sml.png" alt-text="Screenshot showing how to enable static website hosting on a storage account using a blob storage container."  lightbox="media/storage-blob-static-website/storage-blob-static-website-blob-container-lrg.png":::
 
 Files in the **$web** container are case-sensitive, served through anonymous access requests and are available only through read operations.
 
