@@ -19,13 +19,13 @@ In Azure IoT, analysis and visualization services are used to identify and displ
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
 
 :::image type="content" source="media/iot-overview-analyze-visualize/iot-edge-visualization-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution visualization areas." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
+The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the areas relevant to analyzing and visualizing your IoT data:
 
 :::image type="content" source="media/iot-overview-analyze-visualize/iot-cloud-visualization-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution visualization areas." border="false":::
 
