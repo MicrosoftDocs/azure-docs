@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/10/2025
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -160,7 +160,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
    The size of all snapshots in a volume.  
-- *Volume inodes percentage* 
+- *Volume Inodes Percentage* 
 
     The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed. 
 
