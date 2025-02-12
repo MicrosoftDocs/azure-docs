@@ -2,7 +2,7 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 02/12/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -26,7 +26,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Make sure that .NET 4.6.2 version or above is installed on the VM.
 
    >[!Caution]
-   >The support for backups of SQL VMs running .NET Framework 4.6.1 or below will soon be deprecated because these versions are [officially out of support](/lifecycle/products/microsoft-net-framework). We recommend that you upgrade the .NET Framework to version 4.6.2 or above to ensure that there are no backup failures.
+   >Support for backups of SQL VMs running .NET Framework 4.6.1 is deprecated due to the end of [official support](/lifecycle/products/microsoft-net-framework). We recommend upgrading to .NET Framework 4.6.2 or above to avoid backup failures.
 
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
