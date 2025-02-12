@@ -18,7 +18,7 @@ OpenShift SDN has been deprecated since version 4.14 and will no longer be suppo
 
 If your Azure Red Hat OpenShift (ARO) cluster is using the OpenShift SDN network plugin, you must migrate to the OVN-Kubernetes plugin before updating to version 4.17.
 
-OVN-Kuberentes was the default network plugin starting with ARO version 4.11. If you installed your cluster with version 4.11 or later, you likely don't need to perform a migration.
+OVN-Kuberentes has been the default network plugin starting with ARO version 4.11. If you installed your cluster with version 4.11 or later, you likely don't need to perform a migration.
 
 OpenShift SDN remains supported on Azure Red Hat OpenShift through version 4.16. See the [Azure Red Hat OpenShift release calendar](support-lifecycle.md#azure-red-hat-openshift-release-calendar) for end-of-life dates.
 
