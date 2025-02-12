@@ -11,6 +11,7 @@ ms.date: 02/12/2025
 #customer intent: As a Data Manager, I want to learn how to use OSDU Reservoir DDMS websocket APIs to read reservoir data.
 
 ---
+# Tutorial: Use Reservoir DDMS websocket API endpoints
 
 Use Reservoir Domain Data Management Services (DDMS) APIs in PowerShell to work with reservoir data in an Azure Data Manager for Energy resource.
 
