@@ -36,14 +36,14 @@ This tutorial uses the [Phi-3 mini model with a 4K context length from Hugging F
 1. Select **Create fork**.
 1. Select **Code** > **Create codespace on main**. The codespace takes a few minutes to set up.
 
-The sample repository has the following code:
+The sample repository has the following content:
 
-| Directory        | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| src/phi-3-sidecar| Docker image code that runs a Python FastAPI endpoint for the Phi-3 mini model. See [How does the Phi-3 sidecar container work?](#how-does-the-phi-3-sidecar-container-work) |
-| src/webapp       | A front-end .NET Blazor application. See [How does the front-end app work?](#how-does-the-front-end-app-work) |
-| infra            | Infrastructure-as-code for deploying a .NET web app in Azure. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
-| azure.yaml       | Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
+| Content            | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| *src/phi-3-sidecar*| Docker image code that runs a Python FastAPI endpoint for the Phi-3 mini model. See [How does the Phi-3 sidecar container work?](#how-does-the-phi-3-sidecar-container-work) |
+| *src/webapp*       | A front-end .NET Blazor application. See [How does the front-end app work?](#how-does-the-front-end-app-work) |
+| *infra*            | Infrastructure-as-code for deploying a .NET web app in Azure. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
+| *azure.yaml*       | Azure Developer CLI configuration that deploys the Blazor application to App Service. See [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible). |
 
 ## 2. Deploy the front-end application
 
