@@ -125,7 +125,9 @@ To define the display name when placing an outbound call,
 
 customers can use the property
 *[CallInvite.SourceDisplayName](https://learn.microsoft.com/en-us/dotnet/api/azure.communication.callautomation.callinvite.sourcedisplayname?view=azure-dotnet).*
+
 Customers can set the display name appearing on target callee.
+
 
 Below is an example of placing a PSTN outbound call using ACS Call
 Automation:
