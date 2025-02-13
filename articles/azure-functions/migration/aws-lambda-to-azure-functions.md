@@ -43,16 +43,24 @@ You can perform the evaluation on these design areas in any order that you wish,
 
 Perform a pre-migration evaluation of the following design areas:
 
-- [Monitoring](./monitoring.md)
-- [Identity and access management](./identity-access-management.md)
-- [Governance](./governance.md)
-- [Deployment](./deployment.md)
 - [Core capabilities](./capabilities.md)
+- [Identity and access management](./identity-access-management.md)
+- [Deployment](./deployment.md)
+- [Monitoring](./monitoring.md)
 - [Dependencies](./dependencies.md)
-- 
+- [Governance](./governance.md)
+
+### Functional and non-functional objectives and targets
+
+Prior to a migration, it's also a good idea to collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration shouldn't see you compromising on those targets. Collect the following information about your AWS Lambda deployment:
+
+- [Budget and cost of ownership](./function-placeholder.md)
+- [Reliability objectives and current reliability status](./function-placeholder.md)
+- [Performance targets and current performance](./function-placeholder.md)
+
 ## Follow a recommended migration approach
 
-TBD
+Migrations are often sequenced with a fail over and fail back strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions. See, [Perform your migration](./function-placeholder.md).
 
 ## Evaluate your migration
 

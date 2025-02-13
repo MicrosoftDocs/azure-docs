@@ -134,8 +134,9 @@ When planning a migration to Azure, expect challenges in understanding Azure exp
 
 ## Azure resources
 
-- Boilerplate: Link to essential Functions metrics.
-- Boilerplate: Link to essential documentation.
+- Boilerplate: Link to essential Functions platform/service logging & metrics documentation.
+- Boilerplate: Link to essential Functions application logging documentation.
+- Boilerplate: Link to other essential documentation.
 
 ## Post-migration considerations
 

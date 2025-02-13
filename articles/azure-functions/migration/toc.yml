@@ -5,7 +5,7 @@
   items:
   - name: Perform pre-migration evaluation
     items:
-    - name: Capability organization
+    - name: Core capabilities
       href: ./capabilities.md
     - name: Identity and access management
       href: ./identity-access-management.md
