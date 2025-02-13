@@ -177,4 +177,18 @@ configuration:
               label: do-not-merge
           - removeLabel:
               label: ready-to-merge
-
+      
+      - description: Write a message if the breadcrumb file is modified in the azure-docs-pr repository.
+        if:
+        - payloadType: Pull_Request
+        - isAction:
+            action: Opened
+        - filesMatchPattern:
+              matchAny: true
+              pattern: bread/*
+              
+        then:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository: bread/toc.yml. This file supports the on-site navigation for 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
+          

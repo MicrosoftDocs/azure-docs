@@ -1850,3 +1850,12 @@ groups:
     title: Azure CLI in PowerShell script
   - id: platform-azclipython
     title: Azure CLI in Python script
+#owner: shaas
+- id: data-box-sku
+  title: Data Box SKUs
+  prompt: Choose a Data Box SKU
+  pivots:
+  - id: dbx-ng
+    title: Data Box Next Gen
+  - id: dbx
+    title: Data Box
