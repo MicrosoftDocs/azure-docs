@@ -75,7 +75,7 @@ The following table shows the language versions supported for Java functions.
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| **Java 21** (Linux-only) | Preview | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
+| **Java 21** (Linux-only) | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 17** | GA | See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 11** | GA |See the [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See this [Temurin support page](https://adoptium.net/support/). |
