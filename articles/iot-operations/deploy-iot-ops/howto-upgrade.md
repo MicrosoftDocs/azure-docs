@@ -1,18 +1,18 @@
 ---
-title: Upgrade or rollback
-description: Upgrade an Azure IoT Operations instance or rollback to a previous version.
+title: Upgrade versions
+description: Upgrade an Azure IoT Operations instance using the Azure portal or CLI.
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/31/2025
+ms.date: 02/13/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
 
-# Upgrade or downgrade between versions
+# Upgrade versions
 
-Upgrade an Azure IoT Operations deployment to a newer version or rollback to a previous version. Azure IoT Operations supports upgrade and rollback from version 1.0.x onwards. There is no support for upgrading from any preview version of Azure IoT Operations to any generally available (GA) version.
+Upgrade an Azure IoT Operations deployment to a newer version. Azure IoT Operations supports upgrade from version 1.0.x onwards. There is no support for upgrading from any preview version of Azure IoT Operations to any generally available (GA) version.
 
 ## Prerequisites
 
@@ -26,13 +26,9 @@ Upgrade an Azure IoT Operations deployment to a newer version or rollback to a p
 
 ## Understand upgrade support
 
-Upgrade and rollback are supported between N+3 or N-3 minor versions of Azure IoT Operations, or between any patch versions of the same minor version. The following table provides examples:
+You can upgrade an existing Azure IoT Operations instance to any patch of the same minor version, or to the next minor version.
 
-| Version | Upgrade range | Downgrade range |
-| ------- | ------------- | --------------- |
-| 1.0.0   | 1.0.1 through 1.3.x | None      |
-| 1.1.0   | 1.1.1 through 1.4.x | 1.0.x     |
-| 1.4.4   | 1.4.5 through 1.7.x | 1.1.x through 1.4.3 |
+Azure IoT Operations doesn't support downgrading between versions. To move to an older version, uninstall Azure IoT Operations and reinstall the desired version. 
 
 ## Upgrade
 
@@ -79,18 +75,3 @@ You can find the supported component versions and release train information in t
 
 ---
 
-## Downgrade
-
-### [Azure portal](#tab/portal)
-
-The Azure portal doesn't offer a version downgrade option. Instead, use the Azure CLI.
-
-### [Azure CLI](#tab/cli)
-
-Use the [az iot ops upgrade](/cli/azure/iot/ops#az-iot-ops-upgrade) command to roll back an existing Azure IoT Operations instance to a previous version.
-
-In the upgrade command, you can specify a component version up to three minor versions older that the latest.
-
-You can find the supported component versions and release train information in the **azure-iot-operations-enablement.json** file included in any given [Azure IoT Operations release](https://github.com/Azure/azure-iot-operations/releases).
-
----
