@@ -1060,7 +1060,7 @@ items:
     - name: Teams client experience
       href: concepts/interop/teams-user/teams-client-experience.md
     - name: Teams shared line appearance
-      href: concepts/interop/teams-user/shared-line-appearance.md
+      href: concepts/interop/teams-user/teams-shared-line-appearance.md
     - name: Teams license requirements
       href: quickstarts/eligible-teams-licenses.md
     - name: Microsoft Entra API permissions

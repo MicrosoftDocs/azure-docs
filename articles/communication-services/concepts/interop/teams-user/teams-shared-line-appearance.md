@@ -14,18 +14,18 @@ ms.subservice: teams-interop
 ---
 # Microsoft Teams shared line appearance
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 Microsoft Teams shared line appearance lets a user choose a delegate to answer or handle calls on their behalf. This feature is helpful if a user has an administrative assistant who regularly handles the user's calls. In the context of Teams shared line appearance, a manager is someone who authorizes a delegate to make or receive calls on their behalf. A delegate can make or receive calls on behalf of the delegator.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. See [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-- Licensing requiremnets for delegator and delegates . See [Teams phone license](https://learn.microsoft.com/microsoftteams/shared-line-appearance#license-required).
-- Enable delegation and shared line appearance. See [Enable delegation](https://learn.microsoft.com/microsoftteams/shared-line-appearance#enable-delegation-and-shared-line-appearance)
-- Assign delegates using [Microsoft Teams Client](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8) or [Teams PowerShell](https://learn.microsoft.com/microsoftteams/shared-line-appearance#use-powershell).
-- Optional: Complete the quickstart to add voice calling to Microsoft Teams user. See [Quickstart: Add voice calling to Microsoft Teams user](../../quickstarts/voice-video-calling/get-started-call-to-teams-user.md).
+- A deployed Communication Services resource. See [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+- Licensing requiremnets for delegator and delegates . See [Teams phone license](/microsoftteams/shared-line-appearance#license-required).
+- Enable delegation and shared line appearance. See [Enable delegation](/microsoftteams/shared-line-appearance#enable-delegation-and-shared-line-appearance)
+- Assign delegates using [Microsoft Teams Client](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8) or [Teams PowerShell](/microsoftteams/shared-line-appearance#use-powershell).
+- Optional: Complete the quickstart to add voice calling to Microsoft Teams user. See [Quickstart: Add voice calling to Microsoft Teams user](../../../quickstarts/voice-video-calling/get-started-call-to-teams-user.md).
 
 ## Use Cases
 
@@ -37,6 +37,7 @@ Microsoft Teams shared line appearance lets a user choose a delegate to answer o
 
 ## Platform capabilities
 The following Azure Communication Services and Graph platforms currently support shared line appearance:
+
 | Capability                                                 | Calling SDK JS | Graph SDK |
 |------------------------------------------------------------|----------------|-----------|
 | Set up delegation (add/remove/update delegate permissions) | ❌             | ❌       |
@@ -52,10 +53,10 @@ The following Azure Communication Services and Graph platforms currently support
 
 >Note: Calling SDK for iOS, Android, and Windows do not currently support shared line appearance.
 
-For more information on the capabilities available during a shared line appearance call, see [Calling capabilities for Teams users](https://learn.microsoft.com/en-us/azure/communication-services/concepts/interop/teams-user-calling).
+For more information on the capabilities available during a shared line appearance call, see [Calling capabilities for Teams users](../teams-user-calling).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > For more information, see the following articles:
-- Get started developing shared line appearance with the [how to](articles/communication-services/how-tos/calling-sdk/shared-line-appearance.md).
+- Get started developing shared line appearance with the [how to](../../../how-tos/calling-sdk/shared-line-appearance.md).
