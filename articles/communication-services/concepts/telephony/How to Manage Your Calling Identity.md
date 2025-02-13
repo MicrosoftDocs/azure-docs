@@ -35,7 +35,8 @@ needs, customers can choose between two options: Caller Name Delivery
 
 customer's calling numbers being flagged as "Spam", 
 
-that customer register his PSTN outbound numbers within central
+customers should register their PSTN outbound numbers with central
+
 registries and to follow some best practices.
 
 ## What is CNAM
