@@ -17,13 +17,30 @@ ms.custom:
 
 This overview introduces the key concepts around how devices connect to the cloud in a typical Azure IoT solution. The article also introduces optional infrastructure elements such as gateways and bridges. Each section includes links to content that provides further detail and guidance.
 
+# [Edge-based solution](#tab/edge)
+
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the assets and the IoT edge environment shown in the diagram:
+
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting device connectivity areas." border="false" lightbox="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg":::
+
+# [Cloud-based solution](#tab/cloud)
+
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges, shown in the diagram.
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the devices and the IoT cloud services, including gateways and bridges shown in the diagram:
 
-:::image type="content" source="media/iot-overview-device-connectivity/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting device connectivity areas." border="false":::
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-device-connectivity/iot-cloud-connectivity-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting device connectivity areas." border="false" lightbox="media/iot-overview-device-connectivity/iot-cloud-connectivity-architecture.svg":::
+
+---
 
 ## Primitives
+
+# [Edge-based solution](#tab/edge)
+
+
+# [Cloud-based solution](#tab/cloud)
 
 Azure IoT devices use the following primitives to exchange data with cloud services. Devices use:
 
@@ -36,7 +53,14 @@ Azure IoT devices use the following primitives to exchange data with cloud servi
 
 To learn more, see [Device-to-cloud communications guidance](../iot-hub/iot-hub-devguide-d2c-guidance.md) and [Cloud-to-device communications guidance](../iot-hub/iot-hub-devguide-c2d-guidance.md).
 
+---
+
 ## Device-facing cloud endpoints
+
+# [Edge-based solution](#tab/edge)
+
+
+# [Cloud-based solution](#tab/cloud)
 
 An Azure IoT hub exposes a collection of per-device endpoints that let devices exchange data with the cloud. These endpoints include:
 
@@ -55,6 +79,8 @@ The advantage of using DPS is that you don't need to configure all of your devic
 
 To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](./concepts-manage-device-reconnections.md).
 
+---
+
 ## Device connection strings
 
 A device connection string provides a device with the information it needs to connect securely to an IoT hub. The connection string includes the following information:
@@ -64,6 +90,11 @@ A device connection string provides a device with the information it needs to co
 - The security information the device needs to establish a secure connection to the IoT hub.
 
 ## Authentication
+
+# [Edge-based solution](#tab/edge)
+
+
+# [Cloud-based solution](#tab/cloud)
 
 Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. The device SDKs rely on the device's trusted certificate store to include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md) and [TLS support in Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/tls-support.md).
 
@@ -78,9 +109,17 @@ Azure IoT devices can use either shared access signature (SAS) tokens or X.509 c
 
 All data exchanged between a device and an IoT hub is encrypted.
 
+---
+
 To learn more about security in your IoT solution, see [Security architecture for IoT solutions](iot-security-architecture.md).
 
 ## Protocols
+
+# [Edge-based solution](#tab/edge)
+
+Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to the Azure cloud, use Azure IoT Operations. To learn more, see [What is Azure IoT Operations?](../iot-operations/get-started/overview-iot-operations.md).
+
+# [Cloud-based solution](#tab/cloud)
 
 An IoT device can use one of several network protocols when it connects to an IoT Hub or DPS endpoint:
 
@@ -100,7 +139,7 @@ To learn more about how to choose a protocol for your devices to connect to the 
 - [Communicate with DPS using the HTTPS protocol (symmetric keys)](../iot-dps/iot-dps-https-sym-key-support.md)
 - [Communicate with DPS using the HTTPS protocol (X.509)](../iot-dps/iot-dps-https-x509-support.md)
 
-Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to the Azure cloud, use Azure IoT Operations. To learn more, see [What is Azure IoT Operations?](../iot-operations/get-started/overview-iot-operations.md).
+---
 
 ## Connection patterns
 
