@@ -156,7 +156,7 @@ You can use [Azure Business Continuity Center](../business-continuity-center/bus
 - As we've seen above, you can use it for creating Backup vaults and policies. You can also view all vaults and policies under the selected subscriptions.
 - Azure Business Continuity Center gives you an easy way to [monitor the state of protection](../business-continuity-center/tutorial-monitor-protection-summary.md) of protected storage accounts as well as storage accounts for which [backup isn't currently configured](../business-continuity-center/quick-understand-protection-estate.md#identify-unprotected-resources).
 - You can configure backup for any storage accounts using the **+Configure protection** button.
-- You can initiate restores using the **Restore** button and track restores using **Jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-backup-support-matrix.md).
+- You can initiate restores using the **Restore** button and track restores using **Jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-restore.md?tabs=vaulted-backup).
 - Analyze your backup usage using Backup reports.
 
     :::image type="content" source="./media/blob-backup-configure-manage/manage-azure-blob-backup.png" alt-text="Screenshot shows the Azure Business  Continuity Center console to manage the Azure Blob backups." lightbox="./media/blob-backup-configure-manage/manage-azure-blob-backup.png":::
