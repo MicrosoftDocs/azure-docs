@@ -24,13 +24,13 @@ To export one or more resources from a resource group:
 
 1. Select one or more resources by selecting the checkboxes. To select all, select the checkbox on the left of **Name**. The **Export template** from the top menu only becomes enabled after you've selected at least one resource.
 
-   :::image type="content" source="./media/export-template-portal/select-all-resources.png" alt-text="Screenshot of selecting all resources for export in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/select-all-resources.png" alt-text="Screenshot of selecting all resources for export in Azure portal.":::
 
 1. Select **Export template** from the top menu. The **Export template** from the left menu exports all the resources in the group to a template.
 
 1. The exported template is displayed, and is available to download and deploy.
 
-   :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
 
    **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
@@ -44,7 +44,7 @@ To export one resource:
 
 1. For that resource, select **Export template** in the left pane.
 
-   :::image type="content" source="./media/export-template-portal/export-single-resource.png" alt-text="Screenshot of exporting a single resource in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/export-single-resource.png" alt-text="Screenshot of exporting a single resource in Azure portal.":::
 
 1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
@@ -56,15 +56,15 @@ You can export the template that was used to deploy existing resources. The temp
 
 1. Select the link under **Deployments**.
 
-   :::image type="content" source="./media/export-template-portal/select-deployment-history.png" alt-text="Screenshot of selecting deployment history in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/select-deployment-history.png" alt-text="Screenshot of selecting deployment history in Azure portal.":::
 
 1. Select one of the deployments from the deployment history.
 
-   :::image type="content" source="./media/export-template-portal/select-details.png" alt-text="Screenshot of selecting a specific deployment from deployment history in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/select-details.png" alt-text="Screenshot of selecting a specific deployment from deployment history in Azure portal.":::
 
 1. Select **Template**. The template used for this deployment is displayed, and is available for download.
 
-   :::image type="content" source="./media/export-template-portal/show-template-from-history.png" alt-text="Screenshot of selecting the template used for a specific deployment in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/show-template-from-history.png" alt-text="Screenshot of selecting the template used for a specific deployment in Azure portal.":::
 
 ## Next steps
 
