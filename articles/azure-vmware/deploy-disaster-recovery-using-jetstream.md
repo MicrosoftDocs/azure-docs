@@ -324,7 +324,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
  
 JetStream DR is a solution that [JetStream Software](https://www.jetstreamsoft.com/) supports. For any product or support issues with JetStream, contact support-avs@jetstreamsoft.com.  
  
-Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for support. 
+Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for [support](https://jetstreamsoft.com/portal/online-docs/contactJS/ContactJetStreamSoftware.html). 
 
 
 
