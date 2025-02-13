@@ -12,13 +12,30 @@ ms.author: azfuncdf
 
 Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
-> [!NOTE]
-> For many function apps, the default Azure Storage provider for Durable Functions is likely to suffice, and is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate storage provider.
-
-Two alternate storage providers were developed for use with Durable Functions and the Durable Task Framework, namely the _Netherite_ storage provider and the _Microsoft SQL Server (MSSQL)_ storage provider. This article describes all three supported providers, compares them against each other, and provides basic information about how to get started using them.
+Durable Functions supports two types of backend providers: "Bring your own (BYO)" and Azure managed. The BYO options include *Azure Storage, Netherite, and Microsoft SQL Server (MSSQL)*. The Azure managed option is the new *Durable Task Scheduler* currently in preview. 
 
 > [!NOTE]
-> It's not currently possible to migrate data from one storage provider to another. If you want to use a new storage provider, you should create a new app configured with the new storage provider.
+> The default Azure Storage provider for Durable Functions is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate backend provider.
+
+This article describes all supported backend providers, compares them against each other, and provides basic information about how to get started using them.
+
+> [!NOTE]
+> It's not currently possible to migrate data from one storage backend provider to another. If you want to use a new provider, you should create a new app configured with the new provider.
+
+## <a name="dts"></a>Durable Task Scheduler (preview)
+
+The Durable Task Scheduler is a fuly managed, high performance backend provider for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new provider aims to provide the best user experience in aspects such as management, observability, performance, and security.  
+
+The key benefits of the Durable Task Scheduler include:
+
+* Significantly lower management and operation overhead compared to BYO backend providers
+* First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
+* Supports the highest throughput of all backends today.
+* Support for authentication using managed identity.
+
+Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/manage-durable-task-scheduler.md). 
+
+The source code for Durable Task Scheduler can be found in the [TODO]() GitHub repo.
 
 ## Azure Storage
 
@@ -36,20 +53,6 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be significantly more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
-
-## <a name="dts"></a>Durable Task Scheduler (preview)
-
-The Durable Task Scheduler is a fuly managed, high performance backend for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new backend aims to provide the best user experience in aspects such as management, observability, performance, and security.  
-
-The key benefits of the Durable Task Scheduler include:
-* Significantly lower management and operation overhead compared to "bring-your-own" backend options
-* First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
-* Supports the highest throughput of all backend available today.
-* Support for authentication using managed identity.
-
-Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/manage-durable-task-scheduler.md). 
-
-The source code for Durable Task Scheduler can be found in the [TODO]() GitHub repo.
 
 ## <a name="netherite"></a>Netherite
 
@@ -81,20 +84,11 @@ The key benefits of the MSSQL storage provider include:
 
 You can learn more about the technical details of the MSSQL storage provider, including how to get started using it, in the [Microsoft SQL provider documentation](https://microsoft.github.io/durabletask-mssql). The source code for the MSSQL storage provider can be found in the [microsoft/durabletask-mssql](https://github.com/microsoft/durabletask-mssql) GitHub repo.
 
-## Configuring alternate storage providers
-
-Configuring alternate storage providers is generally a two-step process:
-
-1. Add the appropriate NuGet package to your function app (this requirement is temporary for apps using extension bundles).
-1. Update the **host.json** file to specify which storage provider you want to use.
-
-If no storage provider is explicitly configured in host.json, the Azure Storage provider will be enabled by default.
-
-### Configuring the Azure storage provider
+## Configuring the Azure storage provider
 
 The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of **host.json** configuration options [here](durable-functions-bindings.md#hostjson-settings), under the `extensions/durableTask/storageProvider` path.
 
-#### Connections
+### Connections
 
 The `connectionName` property in host.json is a reference to environment configuration which specifies how the app should connect to Azure Storage. It may specify:
 
@@ -103,7 +97,7 @@ The `connectionName` property in host.json is a reference to environment configu
 
 If the configured value is both an exact match for a single setting and a prefix match for other settings, the exact match is used. If no value is specified in host.json, the default value is "AzureWebJobsStorage".
 
-##### Identity-based connections 
+### Identity-based connections 
 
 If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
 
@@ -120,6 +114,18 @@ Additional properties may be set to customize the connection. See [Common proper
 [!INCLUDE [functions-identity-based-connections-configuration](../../../includes/functions-identity-based-connections-configuration.md)]
 
 [!INCLUDE [functions-durable-permissions](../../../includes/functions-durable-permissions.md)]
+
+## Configuring alternate storage providers
+
+Configuring alternate storage providers is generally a two-step process:
+
+1. Add the appropriate NuGet package to your function app (this requirement is temporary for apps using extension bundles).
+1. Update the **host.json** file to specify which storage provider you want to use.
+
+If no storage provider is explicitly configured in host.json, the Azure Storage provider will be enabled by default.
+
+### Configuring Durable Task Scheduler (preview)
+See the [Durable Task Scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
 
 ### Configuring the Netherite storage provider
 
@@ -196,22 +202,22 @@ The Extension package to install depends on the .NET worker you are using:
 
 There are many significant tradeoffs between the various supported storage providers. The following table can be used to help you understand these tradeoffs and decide which storage provider is best for your needs.
 
-| Storage provider | Azure Storage | Netherite | MSSQL |
-|- |-              |-          |-      |
-| Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) |
-| External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database |
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) |
-| Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) |
-| Maximum throughput | Moderate | Very high | Moderate |
-| Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A |
-| Maximum activity scale-out (nodes) | N/A | 32 | N/A |
-| Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated |
-| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) |
-| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
-| Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
-| Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
-| Identity-based connections | ✅ Fully supported |❌ Not supported | ⚠️ Requires runtime-driven scaling |
-| [Flex Consumption plan](../flex-consumption-plan.md) | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) |❌ Not supported | ❌ Not supported |
+| Storage provider | Azure Storage | Netherite | MSSQL | DTS| 
+|- |-              |-          |-      |- |
+| Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) | Public preview|
+| External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database | N/A | 
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | DTS emulator | 
+| Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) | Explicit | 
+| Maximum throughput | Moderate | Very high | Moderate | Very high | 
+| Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A | N/A | 
+| Maximum activity scale-out (nodes) | N/A | 32 | N/A | N/A | 
+| Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated | ✅ Fully supported |
+| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../functions-kubernetes-keda.md)) | ❌ Not supported | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | ❌ Not supported | 
+| Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |  ✅ Fully supported (preview bundles)| 
+| Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) | ✅ Yes (Capacity units) | 
+| Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
+| Identity-based connections | ✅ Fully supported |❌ Not supported | ⚠️ Requires runtime-driven scaling |  ✅ Fully supported |
+| [Flex Consumption plan](../flex-consumption-plan.md) | ✅ Fully supported ([see notes](./durable-functions-azure-storage-provider.md#flex-consumption-plan)) |❌ Not supported | ❌ Not supported | ❌ Not supported |
 
 ## Next steps
 
