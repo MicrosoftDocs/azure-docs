@@ -34,7 +34,7 @@ This how-to guide shows how to create an empty data map, choose your source and 
 
 - The layout and item positions in Data Mapper are currently automatic and read only.
 
-- The **Filter** function correctly processes numeric conditions that are enclosed by double quotation marks, for example, **">=10**. However, this function currently doesn't consistently behave for string comparisons such as a check on whether an item name is **= "Pen"**.
+- The **Filter** function correctly processes numeric conditions that are enclosed by double quotation marks, for example, **">=10"**. However, this function currently doesn't consistently behave for string comparisons such as a check on whether an item name is **"= 'Pen'"**.
 
 - When you create a mapping between the parent array elements in the source and target schemas, the mapper automatically adds a loop to iterate through the array item elements. However, you must still explicitly create mappings between the source and target array item elements.
 
