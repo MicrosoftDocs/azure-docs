@@ -9,8 +9,8 @@ ms.topic: conceptual
 
 # Migrate identity and access management of AWS Lambda to Azure Functions
 
-| :::image type="icon" source="../../migration/images/goal.svg"::: | The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently implemented on Azure Functions. You maintain your workload's identity security posture along with existing identity auditing requirements. Your Azure Functions implementation provides continunity for end-user access, human and automation control plane access, and workload identities for service and code dependencies. |
-| :-: | :-- |
+| :::image type="icon" source="../../migration/images/goal.svg"::: The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently applied on Azure Functions. You maintain your workload's identity contols along with identity auditing requirements. Your Azure Functions implementation provides access continunity for end-users, control plane access, and dependencies. |
+| :-- |
 
 ## Scope
 
@@ -31,17 +31,20 @@ These aspects are not covered in this article:
 ## Discovery
 
 > [!NOTE]
-> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article.
+> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article. Enumerate all of the surface area where identity on the source service exists. These areas are where the customer needs to document current state and learn about the analogs in Azure. Consider the following:
+>
+> - End-user authn & authz
+> - Automation authn & authz, such as deployment pipelines, interaction with service endpoints or control plane operations
+> - Routine, ad-hoc, and emergency operations access to either service endpoints or control plane operations
+> - Identities used by the Azure service directly for operational dependencies
+> - Identities used by the code running on the service for functional dependencies
 
 Understand the existing authentication and authorization approaches used by your AWS Lambda service:
 
-` **Author note**: Enumerate all of the surface area where identity on the source service exists. These areas are where the customer needs to document current state and learn about the analogs in Azure. Consider the following: `
-
-` - End-user authn & authz `
-` - Automation authn & authz, such as deployment pipelines, interaction with service endpoints or control plane operations `
-` - Routine, ad-hoc, and emergency operations access to either service endpoints or control plane operations `
-` - Identities used by the Azure service directly for operational dependencies `
-` - Identities used by the code running on the service for functional dependencies `
+- Relevant area 1
+- Relevant area 2
+- Relevant area 3
+- Relevant area 4
 
 Your Azure Functions implementation will need to address all of these identity and access management surfaces. Without a complete list of requirements for these existing identities, you risk breaking end-user, workload stakeholder, or automation access. Or worse, failure to completely migrate could enable access that shouldn't be enabled.
 
