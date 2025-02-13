@@ -7,11 +7,11 @@ ms.date: 02/11/2025
 ms.author: cephalin
 ---
 
-[Azure App Service](../../overview.md) provides predefined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
+[Azure App Service](../../overview.md) provides predefined application stacks on Windows, like ASP.NET or Node.js, that run on IIS. The preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions. They let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
+This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service.
 
-To complete this quickstart, you need:
+## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 - An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
@@ -118,39 +118,20 @@ The Host operating system appears in the footer, which confirms it is in a Windo
 
 [!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
-## Next steps
+## Related content
 
 Congratulations, you've successfully completed this quickstart.
 
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
-> [!div class="nextstepaction"]
-> [Configure custom container](../../configure-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-
-> [!div class="nextstepaction"]
-> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-
-> [!div class="nextstepaction"]
-> [Azure Monitor overview](/azure/azure-monitor/overview)
-
-> [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
-
-> [!div class="nextstepaction"]
-> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-
-> [!div class="nextstepaction"]
-> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
-
-> [!div class="nextstepaction"]
-> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
-
-> [!div class="nextstepaction"]
-> [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)
+- [Configure custom container](../../configure-custom-container.md)
+- [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+- [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+- [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+- [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
+- [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)
 
