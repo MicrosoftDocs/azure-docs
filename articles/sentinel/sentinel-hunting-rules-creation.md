@@ -38,7 +38,7 @@ KQL is a powerful language with various operators and functions. When you utiliz
 * `extend`: adds calculated columns to the result set
 * `summarize`: aggregates data based on specified criteria
 
-When you integrate threat intelligence feeds into your queries, it can help you identify known IOCs. By taking this approach, you ensure that your hunting efforts are aligned with the latest threat landscape.
+When you integrate threat intelligence feeds into your queries, it can help you identify known IoCs. By taking this approach, you ensure that your hunting efforts are aligned with the latest threat landscape.
 
 ## Create and publish hunting queries
 
@@ -124,13 +124,13 @@ Define human-readable names for explicit constants:
 
 We highly recommend that you use comments to clarify the query. Avoid adding comments at the end of a query statement line. Instead, add your comments on a separate line. For example:
 
-```kusto
+```
     // Removing noisy processes for an environment, adjust as needed
 ```
 
 If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
 
-Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity Mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
+Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
 
 For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
 
@@ -140,17 +140,17 @@ Additionally, include as many fields as possible to help the user understand the
 
 This field is mandatory.
 
-### Entity Mappings
+### Entity mappings
 
 The `entityMappings` attribute is integral when you configure scheduled hunting queries. It enriches the query's output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
-The `entityType` represents the standard list of entities recognized by Microsoft Sentinel. See allowed values in the Entity type column in the [Entity Mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers).
+The `entityType` represents the standard list of entities recognized by Microsoft Sentinel. See allowed values in the Entity type column in the [Entity mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers).
 
 This field is mandatory.
 
-### Field Mappings
+### Field mappings
 
-The `fieldMappings` attribute represents the identifier of the field in the query output that corresponds to the entity type. See allowed values under the identifiers column value at [Entity Mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers).
+The `fieldMappings` attribute represents the identifier of the field in the query output that corresponds to the entity type. See allowed values under the identifiers column value at [Entity mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers).
 
 * Each template can have up to 10 entity mappings.
 * Each entity mapping can have up to three field mappings (that is, identifiers).
@@ -176,9 +176,9 @@ The `fieldMappings` attribute represents the identifier of the field in the quer
 
 ```
 
-### Custom Details
+### Custom details
 
-The `customDetails` attribute integrates event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Custom Details are key-value pairs of property and column names. More information is available [here](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key-value pairs) can be defined per template.
+The `customDetails` attribute integrates event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Custom details are key-value pairs of property and column names. More information is available [here](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key-value pairs) can be defined per template.
 
 ```json
         customDetails:
