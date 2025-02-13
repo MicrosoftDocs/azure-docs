@@ -9,12 +9,13 @@ ms.topic: conceptual
 
 # Migrate identity and access management of AWS Lambda to Azure Functions
 
-| :::image type="icon" source="../../migration/images/goal.svg"::: The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently implemented on Azure Functions. You maintain your workload's identity security posture along with existing identity auditing requirements. Your Azure Functions implementation provides continunity for end-user access, human and automation control plane access, and workload identities for service and code dependencies. |
-|--| 
+| :::image type="icon" source="../../migration/images/goal.svg"::: | The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently implemented on Azure Functions. You maintain your workload's identity security posture along with existing identity auditing requirements. Your Azure Functions implementation provides continunity for end-user access, human and automation control plane access, and workload identities for service and code dependencies. |
+| :-: | :-- |
 
 ## Scope
 
-` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
+> [!NOTE]
+> **Content developer**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas.
 
 This article guides you in your pre-migration assessment of your existing AWS Lambda implementation, to prepare you for replatforming to Azure Functions.
 
@@ -29,7 +30,8 @@ These aspects are not covered in this article:
 
 ## Discovery
 
-` **Author note**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article. `
+> [!NOTE]
+> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article.
 
 Understand the existing authentication and authorization approaches used by your AWS Lambda service:
 
@@ -57,7 +59,8 @@ Your workload might also have access auditing requirements that must be reimplem
 
 ### Key technical factors
 
-` **Author note**: Enumerate the typical and prominent features of Lambda identity, covering both end user access (data plane), operations (control plane), and workload identity. Try to achieve a one-to-one mapping of IAM implementation. Make a note of gaps. `
+> [!NOTE]
+> **Content developer**: Enumerate the typical and prominent features of Lambda identity, covering both end user access (data plane), operations (control plane), and workload identity. Try to achieve a one-to-one mapping of IAM implementation points. Make a note of gaps.
 
 This table lists the common features of Lambda, their governance implementation on AWS, and the recommended equivalent in Azure. 
 
@@ -77,33 +80,41 @@ Here are some approaches on taking inventory of an existing identity and access 
 
 Familiarize yourself with the Lambda implementation by using these resources:
 
-` **Author note**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples. `
-` - Your existing infrastructure as code artifacts `
-` - Your automation `
-` - Your workload's security documentation `
+> [!NOTE]
+> **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples.
+>
+> - Your workload infrastructure as code artifacts
+> - Your deployment automation infrastructure
+> - Your workload's security documentation
 
 - Resource 1
 - Resource 2
 
 #### Tools and processes
 
-` **Author note**: Collect these sources form an AWS SME. `
-` - Provide instructions (or link to instructions) on how to enumerate control plane IAM configuration. `
-` - Provide instructions (or link to instructions) on how to evaluate hosted code for AuthN/AuthZ controls. `
-` - Provide instructions on audit reporting for typical AWS Lambda interactions are handled to have customer explore deployment. `
+> [!NOTE]
+> **Content developer**: Collect these source such as these from your AWS SME.
+>
+> - Provide instructions (or link to instructions) on how to enumerate control plane IAM configuration.
+> - Provide instructions (or link to instructions) on how to evaluate hosted code/scripts for AuthN/AuthZ controls.
+> - Provide instructions on audit reporting for typical AWS Lambda interactions are handled to have customer explore deployment.
 
 - Tool 1
 - Tool 2
 - Process 1
 - Process 2
 
-### Expected role assignments
+### Role assignment guide
 
-` **Author note**: Talk about some of the control plane role assignments automation and stakeholders are going to likely need as part of this migration. Also list some of the roles that the service's managed identity will likely need to interface with common dependencies. `
+> [!NOTE]
+> **Content developer**: Talk about some of the control plane role assignments automation and stakeholders are going to likely need as part of this migration. Also list some of the roles that the service's managed identity will likely need to interface with common dependencies.
+
+Role mapping guide.
 
 ### Deviations
 
-` **Author note**: Analyze the technical map and summarize the features that require decision making. `
+> [!NOTE]
+> **Content developer**: Analyze the technical map and summarize the features that require decision making.
 
 Deviations reflect gaps when one-to-one mapping isn't feasible. You'll need to make decisions for, prioritizing minimal deviation to business requirements. Consider the potential benefits and drawbacks of each mitigation.
 
@@ -120,7 +131,8 @@ Here's the summarized view of the gaps identified in the technical map.
 
 When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges. 
 
-` **Author note**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points. `
+> [!NOTE]
+> **Content developer**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points.
 
 - Potential Issue 1 - Description and mitigation.
 - Potential Issue 2 - Description and mitigation.
