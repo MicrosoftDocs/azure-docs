@@ -34,6 +34,13 @@ The Wellbore domain services worker is currently available on Azure Data Manager
 ### Airflow performance enhancements 
 Airflow infrastructure has been upgraded to support ingestion and conversion DAGs for seismic datasets with high number vertical samples.
 
+## November 2024
+### Scale and Performance improvements for seismic workflows
+To accommodate larger and more complex seismic datasets with higher counts of vertical samples, Azure Data Manager for Energy has implemented scale enhancements. These improvements allow for the running of ingestion and conversion DAGs for such seismic datasets. Additionally, for the consumption of these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, enabling a proportional increase in the number of consumers using SDMS APIs.
+
+### SOC 2 and ISO certification
+Azure Data Manager for Energy is now SOC 2 and ISO compliant further supporting commitment to ensuring sensitive data is managed security, reinforcing trust and meeting regulatory requirements. All certifications and compliance reports are published [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) and will be regularly updated.
+
 ## August 2024
 
 ### Compliant with M23 OSDU&reg; release
