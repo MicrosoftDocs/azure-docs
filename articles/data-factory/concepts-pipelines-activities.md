@@ -8,7 +8,7 @@ ms.author: weetok
 ms.subservice: orchestration
 ms.custom: FY25Q1-Linter, synapse
 ms.topic: concept-article
-ms.date: 03/11/2024
+ms.date: 02/13/2025
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics

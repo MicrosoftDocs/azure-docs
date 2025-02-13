@@ -7,7 +7,7 @@ author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Integration runtime in Azure Data Factory 

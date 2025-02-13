@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the Azure Synapse Analytics, 
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, synapse, devx-track-extended-java

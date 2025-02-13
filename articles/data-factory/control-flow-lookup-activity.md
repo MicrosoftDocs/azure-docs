@@ -7,7 +7,7 @@ ms.author: jianleishen
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics

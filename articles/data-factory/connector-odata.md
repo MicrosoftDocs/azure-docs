@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
