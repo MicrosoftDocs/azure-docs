@@ -17,7 +17,9 @@ ms.service: azure-communication-services
 
 One common challenge faced by businesses is the difficulty of getting
 their calls answered or even noticed by customers. In many cases, calls
-from unknown or unfamiliar numbers are ignored or blocked by recipients,
+from unknown or unfamiliar numbers are ignored or blocked by recipients.
+
+
 leading to missed opportunities for sales, customer service, and other
 important interactions. This can be especially challenging for
 businesses that rely heavily on phone-based communication, such as call
