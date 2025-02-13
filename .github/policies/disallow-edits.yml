@@ -190,5 +190,5 @@ configuration:
         then:
           - addReply:
               reply: >-
-                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository in this pull request; the breadcrumb supports 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
+                @${issueAuthor} - This PR modifies the breadcrumb file for the entire repository: bread/toc.yml. This file supports the on-site navigation for 100s of services. Please make sure your changes to the breadcrumb file are intentional. Do not delete this file. 
           
