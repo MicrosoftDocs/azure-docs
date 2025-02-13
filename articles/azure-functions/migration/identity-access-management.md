@@ -65,7 +65,7 @@ Your workload might also have access auditing requirements that must be reimplem
 > [!NOTE]
 > **Content developer**: Enumerate the typical and prominent features of Lambda identity, covering both end user access (data plane), operations (control plane), and workload identity. Try to achieve a one-to-one mapping of IAM implementation points. Make a note of gaps.
 
-This table lists the common features of Lambda, their governance implementation on AWS, and the recommended equivalent in Azure. 
+This table lists the common features of Lambda related to indentity and access management and the recommended equivalent in Azure. 
 
 | Feature   | AWS implementation | Azure implementation | Migration strategy |
 |-----------|--------------|----------------------|--------------------|
@@ -84,7 +84,7 @@ Here are some approaches on taking inventory of an existing identity and access 
 Familiarize yourself with the Lambda implementation by using these resources:
 
 > [!NOTE]
-> **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples.
+> **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources from an AWS SME. Here are some typical examples.
 >
 > - Your workload infrastructure as code artifacts
 > - Your deployment automation infrastructure
@@ -142,12 +142,12 @@ When planning a migration to Azure, expect challenges in understanding Azure exp
 
 ## Azure resources
 
-- Boilerplate: Link to essential built-in policies.
 - Boilerplate: Link to essential documentation.
+- [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
 
 ## Post-migration considerations
 
-After you've migrated your Lambda to Azure Functions with a level of satisfaction that doesn't regress in existing governance controls, we recommend you explore additional identity and access management features on Azure with Microsoft Entra ID. This can help you in future requirements or help close gaps in areas where your workload is not currently meeting existing requirements.
+After you've migrated your Lambda to Azure Functions with a level of satisfaction that doesn't regress in existing identity and access management controls, we recommend you explore additional identity and access management features on Azure with Microsoft Entra ID. This can help you in future requirements or help close gaps in areas where your workload is not currently meeting existing requirements.
 
 - Item 1
 - Item 2

@@ -81,7 +81,7 @@ Familiarize yourself with the Lambda governance implementation by using these re
 #### Tools and processes
 
 > [!NOTE]
-> **Content developer**: Collect these sources form an AWS SME.
+> **Content developer**: Collect these sources from an AWS SME.
 >
 > - Provide instructions (or link to instructions) on how to enumerate current policies and controls applied to Lambda.
 > - Provide instructions on how to export typical governance reporting techniques for AWS Lambda.
