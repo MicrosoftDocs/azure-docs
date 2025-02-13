@@ -1,13 +1,13 @@
 ---
-title: Migrate monitoring assets from AWS Lambda to Azure Functions
-description: Monitoring specification for migrating AWS Lambda to Azure Functions.
+title: Migrate monitoring capabilities from AWS Lambda to Azure Functions
+description: Plan the migration of your AWS Lambda monitoring capabilities.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
 ms.topic: conceptual
 ---
 
-# Migrate monitoring assets from AWS Lambda to Azure Functions
+# Migrate monitoring capabilities from AWS Lambda to Azure Functions
 
 | :::image type="icon" source="../../migration/images/goal.svg"::: Maintain the visibility you have in your AWS Lambda environment when replatforming to Azure Functions. Understand how to obtain comparable logs and metrics in Azure Functions, and your options for retaining existing log and metric data. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
 | :-- |
@@ -146,3 +146,8 @@ After you've migrated your Lambda to Azure Functions with a level of satisfactio
 - Item 3
 
 &#9997; Create a list of optimization opportunities. Utilize the [Well-Architected Framework for Azure Functions](/azure/well-architected/service-guides/azure-functions) to evaluate the settings that can help you achieve a higher level of excellence.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Address $TOPIC in your AWS Lambda migration](./governance.md)

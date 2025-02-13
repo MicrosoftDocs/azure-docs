@@ -35,9 +35,11 @@
       href: ./function-placeholder.md
   - name: Perform end-state evaluation
     href: ./function-placeholder.md
-  - name: Scenarios
+  - name: Azure optimization opportunities
+    href: /azure/well-architected/service-guides/azure-functions-security
+  - name: Migration examples
     items:
-    - name: Migrate a event-driven data processing pipeline
+    - name: Migrate an event-driven data processing pipeline
       items:
       - name: Overview and current state
         href: function-placeholder.md
@@ -57,5 +59,3 @@
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
-  - name: Azure optimization opportunities
-    href: /azure/well-architected/service-guides/azure-functions-security
