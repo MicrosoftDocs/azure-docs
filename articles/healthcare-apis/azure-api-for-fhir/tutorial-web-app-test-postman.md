@@ -10,6 +10,7 @@ author: expekesheth
 ms.date: 09/27/2023
 ---
 
+# Testing the FHIR API on Azure API for FHIR
 
 There are tools available such as Postman that can allow intuitive querying.
 Once you have successfully connect to your client application, you’re ready to write your web application.
