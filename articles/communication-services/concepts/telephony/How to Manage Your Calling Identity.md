@@ -24,7 +24,10 @@ This leads to missed opportunities for sales, customer service, and other
 
 important interactions. This can be especially challenging for
 businesses that rely heavily on phone-based communication, such as call
-centers or sales teams. In order to address these challenges, Azure
+centers or sales teams.
+
+To address these challenges, Azure
+
 Communications Services is offering customers the ability to define
 their caller's name when they place a PSTN call. Depending on their
 needs, customers can choose between two options: Caller Name Delivery
