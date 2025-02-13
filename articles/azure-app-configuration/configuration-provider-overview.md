@@ -16,10 +16,10 @@ ms.date: 01/22/2025
 The Azure App Configuration provider libraries enable developers to configure their applications using centralized configuration located in Azure App Configuration. The API design follows the patterns outlined by the common configuration system in different programming languages to make switching to Azure App Configuration a familiar and easy experience.
 
 > [!IMPORTANT]
-> Different from the Azure SDKs which are low-level client libraries for directly interacting with the Azure App Configuration service, the configuration provider libraries are higher-level integration libraries that support a variety of [features](#feature-development-status).
+> The configuration provider libraries are higher-level integration libraries that support a variety of [features](#feature-development-status) in contrast to the Azure SDKs which provide low-level, direct interaction with the Azure App Configuration service.
 
 > [!NOTE]
-> If you use feature flags in Azure App Configuration, make sure to use the configuration provider alongside the [feature management](./feature-management-overview.md) libraries, which are designed to work together.
+> If you use feature flags in Azure App Configuration, we recommend you to use the configuration provider alongside the [feature management](./feature-management-overview.md) libraries, which are designed to work together.
 
 ## Configuration Provider Libraries
 
