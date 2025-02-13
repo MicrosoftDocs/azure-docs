@@ -78,15 +78,6 @@ Here are some approaches on taking inventory of an existing functionality being 
 Familiarize yourself with the Lambda implementation by using these resources:
 
 > [!NOTE]
-> **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources from an AWS SME. Here are some typical examples.
->
-> - Your workload infrastructure as code artifacts
-> - Your deployment automation infrastructure
-> - Your workload's security documentation
-
-Familiarize yourself with the Lambda implementation by using these resources:
-
-> [!NOTE]
 > **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples.
 >
 > - Your existing infrastructure as code artifacts
@@ -162,4 +153,3 @@ After you've migrated your Lambda to Azure Functions with a level of satisfactio
 
 > [!div class="nextstepaction"]
 > [Address $TOPIC in your AWS Lambda migration](./governance.md)
-
