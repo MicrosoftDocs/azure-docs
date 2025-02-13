@@ -222,6 +222,8 @@
             href: point-to-site-azure-vpn-client-certificate-linux.md
           - name: OpenVPN client
             href: point-to-site-vpn-client-certificate-openvpn-linux.md
+          - name: IKEv2 - strongSwan
+            href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
           items:
           - name: Native VPN client
