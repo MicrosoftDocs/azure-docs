@@ -87,7 +87,7 @@ The `severity` attribute defines the severity level of the detection. Severity r
 * **High**: The identified activity provides the threat actor with wide-ranging access to conduct actions on the environment.
 
  > [!NOTE]
-> Severity level defaults aren't a guarantee of current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Severity in the Alerts table is otherwise controlled by the security service from which the alert came. You can use `alertDetailsOverride` to provide a dynamic severity that depends on the actual outcome of the query.
+> Severity level defaults aren't a guarantee of the current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Otherwise, the security service that issued the alert controls the `severity` attribute in the Alerts table. You can use `alertDetailsOverride` to provide a dynamic `severity` attribute that depends on the actual outcome of the query.
 
 ### Required data connectors
 
@@ -254,7 +254,7 @@ The `customDetails` attribute integrates event data into alerts, making it visib
 
 ### Alert details override
 
-The `alertDetailsOverride` attribute is a dynamic field that you can use to override the alert details. You can use this attribute to provide more context or information to the analyst when the alert is triggered. When you use this feature, you ensure that analysts receive pertinent information, including relevant entity names, to facilitate a quicker and more accurate understanding of the incident. Limitations include:
+The `alertDetailsOverride` attribute is a dynamic field that you can use to override the alert details. You can use this attribute to provide more context or information to the analyst when the alert is triggered. When you use this feature, you ensure that analysts receive pertinent information, including relevant entity names, to facilitate a quicker, and more accurate understanding of the incident. Limitations include:
 
 * A maximum of three parameters can be included in either the `name` or `description`.
 * The `name` must not exceed 256 characters, while the `description` is limited to 5,000 characters.
