@@ -90,7 +90,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 Use [az group create](/cli/azure/group#az_group_create) to create a resource group.
 
-```azurecli-interactive
+```azurecli
 az group create \
     --name test-rg \
     --location eastus2
@@ -98,7 +98,7 @@ az group create \
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the NAT gateway. 
 
-```azurecli-interactive
+```azurecli
 az network public-ip create \
     --resource-group test-rg \
     --name public-ip-nat \
@@ -109,7 +109,7 @@ az network public-ip create \
 
 Use [az network nat gateway create](/cli/azure/network/nat/gateway#az_network_nat_gateway_create) to create the NAT gateway.
 
-```azurecli-interactive
+```azurecli
 az network nat gateway create \
     --resource-group test-rg \
     --name nat-gateway \
@@ -203,7 +203,7 @@ It takes a few minutes for the bastion host to deploy. When the virtual network 
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
-```azurecli-interactive
+```azurecli
 az network vnet create \
     --resource-group test-rg \
     --name vnet-hub \
@@ -213,7 +213,7 @@ az network vnet create \
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnets.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet create \
     --resource-group test-rg \
     --vnet-name vnet-hub \
@@ -236,8 +236,7 @@ az network vnet subnet create \
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the Azure Bastion host.
 
-```azurecli-interactive
-# Create public IP for Bastion
+```azurecli
 az network public-ip create \
     --resource-group test-rg \
     --name public-ip-bastion \
@@ -248,7 +247,7 @@ az network public-ip create \
 
 Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the Azure Bastion host.
 
-```azurecli-interactive
+```azurecli
 az network bastion create \
     --resource-group test-rg \
     --name bastion \
@@ -320,7 +319,7 @@ The private key will download to your local machine. The private key is needed i
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
-```azurecli-interactive
+```azurecli
 az network nsg create \
     --resource-group test-rg \
     --name nsg-nva \
@@ -329,7 +328,7 @@ az network nsg create \
 
 Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
-```azurecli-interactive
+```azurecli
 az network nic create \
     --resource-group test-rg \
     --name nic-public \
@@ -340,7 +339,7 @@ az network nic create \
 
 Use [az vm create](/cli/azure/vm#az_vm_create) to create the virtual machine. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
-```azurecli-interactive
+```azurecli
 az vm create \
    --resource-group test-rg \
    --name vm-nva \
@@ -413,7 +412,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 Use [az network nic update](/cli/azure/network/nic#az_network_nic_update) to enable IP forwarding on the primary network interface.
 
-```azurecli-interactive
+```azurecli
 az network nic update \
     --resource-group test-rg \
     --name nic-public \
@@ -422,7 +421,7 @@ az network nic update \
 
 Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) to statically set the private IP address of the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az network nic ip-config update \
     --resource-group test-rg \
     --nic-name nic-public \
@@ -433,7 +432,7 @@ az network nic ip-config update \
 
 Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the secondary network interface.
 
-```azurecli-interactive
+```azurecli
 az network nic create \
     --resource-group test-rg \
     --name nic-private \
@@ -444,7 +443,7 @@ az network nic create \
 
 Use [az vm deallocate](/cli/azure/vm#az_vm_deallocate) to shutdown and deallocate the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm deallocate \
     --resource-group test-rg \
     --name vm-nva
@@ -452,7 +451,7 @@ az vm deallocate \
 
 Use [az vm nic add](/cli/azure/vm/nic#az_vm_nic_add) to attach the secondary network interface to the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm nic add \
     --resource-group test-rg \
     --vm-name vm-nva \
@@ -461,7 +460,7 @@ az vm nic add \
 
 Use [az vm start](/cli/azure/vm#az_vm_start) to start the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm start \
     --resource-group test-rg \
     --name vm-nva
@@ -608,7 +607,7 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
 Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table create \
     --resource-group test-rg \
     --name route-table-nat-hub \
@@ -617,7 +616,7 @@ az network route-table create \
 
 Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table route create \
     --resource-group test-rg \
     --route-table-name route-table-nat-hub \
@@ -629,7 +628,7 @@ az network route-table route create \
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update \
     --resource-group test-rg \
     --vnet-name vnet-hub \
@@ -695,7 +694,7 @@ Create another virtual network in a different region for the first spoke of the 
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
-```azurecli-interactive
+```azurecli
 az network vnet create \
     --resource-group test-rg \
     --name vnet-spoke-1 \
@@ -705,7 +704,7 @@ az network vnet create \
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnet.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet create \
     --resource-group test-rg \
     --vnet-name vnet-spoke-1 \
@@ -761,7 +760,7 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 Use [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) to create the peering from the hub to spoke one.
 
-```azurecli-interactive
+```azurecli
 # Create peering from hub to spoke one
 az network vnet peering create \
     --name vnet-hub-to-vnet-spoke-1 \
@@ -848,7 +847,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table create \
     --resource-group test-rg \
     --name route-table-nat-spoke-1 \
@@ -857,7 +856,7 @@ az network route-table create \
 
 Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table route create \
     --resource-group test-rg \
     --route-table-name route-table-nat-spoke-1 \
@@ -869,7 +868,7 @@ az network route-table route create \
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update \
     --resource-group test-rg \
     --vnet-name vnet-spoke-1 \
@@ -938,7 +937,7 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
-```azurecli-interactive
+```azurecli
 az network nsg create \
     --resource-group test-rg \
     --name nsg-spoke-1 \
@@ -947,7 +946,7 @@ az network nsg create \
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
 
-```azurecli-interactive
+```azurecli
 az network nsg rule create \
     --resource-group test-rg \
     --nsg-name nsg-spoke-1 \
@@ -961,7 +960,7 @@ az network nsg rule create \
 
 Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
-```azurecli-interactive
+```azurecli
 az network nic create \
     --resource-group test-rg \
     --name nic-1 \
@@ -972,7 +971,7 @@ az network nic create \
 
 Use [az vm create](/cli/azure/vm#az_vm_create) to create the Windows Server 2022 virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm create \
     --resource-group test-rg \
     --name vm-spoke-1 \
@@ -1031,7 +1030,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm extension set \
     --publisher Microsoft.Compute \
     --version 1.8 \
@@ -1099,7 +1098,7 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
-```azurecli-interactive
+```azurecli
 az network vnet create \
     --resource-group test-rg \
     --name vnet-spoke-2 \
@@ -1109,7 +1108,7 @@ az network vnet create \
 
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the subnet.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet create \
     --resource-group test-rg \
     --vnet-name vnet-spoke-2 \
@@ -1173,7 +1172,7 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 Use [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) to create the peering from the hub to spoke two.
 
-```azurecli-interactive
+```azurecli
 # Create peering from hub to spoke two
 az network vnet peering create \
     --name vnet-hub-to-vnet-spoke-2 \
@@ -1260,7 +1259,7 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 
 Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table create \
     --resource-group test-rg \
     --name route-table-nat-spoke-2 \
@@ -1269,7 +1268,7 @@ az network route-table create \
 
 Use [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create) to create the route in the route table.
 
-```azurecli-interactive
+```azurecli
 az network route-table route create \
     --resource-group test-rg \
     --route-table-name route-table-nat-spoke-2 \
@@ -1281,7 +1280,7 @@ az network route-table route create \
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to associate the route table with the subnet.
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update \
     --resource-group test-rg \
     --vnet-name vnet-spoke-2 \
@@ -1349,7 +1348,7 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
-```azurecli-interactive
+```azurecli
 az network nsg create \
     --resource-group test-rg \
     --name nsg-spoke-2 \
@@ -1358,7 +1357,7 @@ az network nsg create \
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create an inbound NSG rule for HTTP.
 
-```azurecli-interactive
+```azurecli
 az network nsg rule create \
     --resource-group test-rg \
     --nsg-name nsg-spoke-2 \
@@ -1372,7 +1371,7 @@ az network nsg rule create \
 
 Use [az network nic create](/cli/azure/network/nic#az_network_nic_create) to create the network interface.
 
-```azurecli-interactive
+```azurecli
 az network nic create \
     --resource-group test-rg \
     --name nic-1 \
@@ -1383,7 +1382,7 @@ az network nic create \
 
 Use [az vm create](/cli/azure/vm#az_vm_create) to create the Windows Server 2022 virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm create \
     --resource-group test-rg \
     --name vm-spoke-2 \
@@ -1442,7 +1441,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machine.
 
-```azurecli-interactive
+```azurecli
 az vm extension set \
     --publisher Microsoft.Compute \
     --version 1.8 \
@@ -1564,7 +1563,7 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 
 Use [az group delete](/cli/azure/group#az_group_delete) to delete the resource group.
 
-```azurecli-interactive
+```azurecli
 az group delete \
     --name test-rg \
     --yes \
