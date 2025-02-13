@@ -22,11 +22,11 @@ This article walks you through the process of creating and publishing hunting qu
 
 Hunting queries in Microsoft Sentinel are used in various scenarios to enhance threat detection and response. Common use cases include:
 
-* **Detecting suspicious user activity**: Security teams can use hunting queries to identify anomalous behavior such as unusual sign-in attempts, access patterns, or privilege-escalation activities. By analyzing user activity logs, analysts can detect potential insider threats or compromised accounts.
-* **Identifying malware and ransomware infections**: Hunting queries can help detect signs of malware or ransomware infections by scanning for known indicators of compromise (IoCs), unusual network traffic patterns, or file integrity changes. This proactive approach enables teams to respond quickly to mitigate the impact of an infection.
-* **Monitoring network anomalies**: To identify potential breaches, you can analyze network traffic for unusual patterns, such as unexpected data transfers or communication with known malicious IP addresses. Hunting queries enable analysts to pinpoint these anomalies and investigate further.
-* **Investigating phishing attacks**: Hunting queries can be used to detect phishing attempts by analyzing email logs and identifying suspicious links or attachments. Hunting queries can correlate these findings with threat intelligence data. This helps prevent credential theft and protect sensitive information.
-* **Tracking lateral movement**: After an attacker gains initial access, they can move laterally within the network to escalate privileges or access critical systems. Hunting queries can track these movements by analyzing sign-in events, remote desktop sessions, and other relevant data to detect and disrupt the attack.
+* **Detect suspicious user activity**: Security teams can use hunting queries to identify anomalous behavior such as unusual sign-in attempts, access patterns, or privilege-escalation activities. By analyzing user activity logs, analysts can detect potential insider threats or compromised accounts.
+* **Identify malware and ransomware infections**: Hunting queries can help you detect signs of malware or ransomware infections because they scan for known indicators of compromise (IoCs), unusual network traffic patterns, or file integrity changes. This proactive approach enables teams to respond quickly to mitigate the impact of an infection.
+* **Monitor network anomalies**: To identify potential breaches, you can analyze network traffic for unusual patterns, such as unexpected data transfers or communication with known malicious IP addresses. Hunting queries enable analysts to pinpoint these anomalies and investigate further.
+* **Investigate phishing attacks**: Hunting queries can help you detect phishing attempts because they analyze email logs and identify suspicious links or attachments. Hunting queries can correlate these findings with threat intelligence data. This process helps you prevent credential theft and protect sensitive information.
+* **Track lateral movement**: After an attacker gains initial access, they can move laterally within the network to escalate privileges or access critical systems. Hunting queries can track these movements by analyzing sign-in events, remote desktop sessions, and other relevant data to detect and disrupt the attack.
 
 ## Create effective hunting queries
 
@@ -54,7 +54,7 @@ This field is mandatory.
 
 ### Name
 
-The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the hunting query. Use `alertDetailsOverride` to generate dynamic names to aid analysts in understanding the alert. See the following requirements:
+The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the hunting query. Use `alertDetailsOverride` to generate dynamic names to help analysts understand the alert. See the following requirements:
 
 * Uses sentence-case capitalization
 * Doesn't end in a period
@@ -115,7 +115,7 @@ Limit the query to 10,000 characters. If the query section exceeds this limit, c
 
 Each line in the query body must have at least one space at the beginning, but two spaces are standard to support readability.
 
-If you're submitting a query for a datatype that isn't present in the Detections or Hunting Queries folder, name the subfolder that contains the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
+When you submit a query for a datatype that isn't present in the Detections or Hunting Queries folder, name the subfolder that contains the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
 
 Define human-readable names for explicit constants:
 

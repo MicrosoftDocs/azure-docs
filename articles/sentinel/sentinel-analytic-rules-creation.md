@@ -55,7 +55,7 @@ This field is mandatory.
 
 ### Name
 
-The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the rule. Use `alertDetailsOverride` to generate dynamic names to aid analysts in understanding the alert. See the following requirements:
+The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the rule. Use `alertDetailsOverride` to generate dynamic names to help analysts understand the alert. See the following requirements:
 
 * Uses sentence-case capitalization
 * Doesn't end in a period
@@ -166,7 +166,7 @@ Limit the query to 10,000 characters. If the query section exceeds this limit, c
 
 Each line in the query body must have at least one space at the beginning, but two spaces are standard to support readability.
 
-If you're submitting a query for a datatype that isn't present in the Detections or Hunting Queries folder, name the subfolder that contains the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
+When you submit a query for a datatype that isn't present in the Detections or Hunting Queries folder, name the subfolder that contains the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
 
 Define human-readable names for explicit constants:
 
