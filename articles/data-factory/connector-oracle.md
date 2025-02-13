@@ -84,7 +84,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Oracle connector now supports version 2.0. Refer to this section to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+The Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
@@ -97,26 +97,34 @@ The Oracle linked service supports the following properties when apply version 2
 |:--- |:--- |:--- |
 | type | The type property must be set to **Oracle**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
-| server | The Oracle server name. | Yes |
+| server | The location of Oracle database you want to connect to. | Yes |
 | authenticationType | Authentication type for connecting to the Oracle database. Only **Basic** auth is supported now. | Yes |
 | username | The Oracle database username. | Yes |
 | password | The Oracle database password. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
+You can specify server property in one of the following three ways:
+
+| Way | Example |
+|:--- |:--- |
+|[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
+|[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
+|[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB)|sales|
+
 More connection properties you can set in connection string per your case:
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
-| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
-| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `AES256` |
-| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
-| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `SHA512` |
+| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported in self-hosted integration runtime. Type: string | No | `required` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Only supported in self-hosted integration runtime. Type: string | No | `AES256` |
+| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported in self-hosted integration runtime. Type: string | No | `required` |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Only supported in self-hosted integration runtime. Type: string | No | `SHA512` |
 | initialLOBFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
 | fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
 | statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
 | initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
 | enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
-| supportLegacyDataTypes | Specifies whether to use the legacy version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with legacy 1.0 version's data type mappings. Type: boolean | No, this property is for BC use only | false |
+| supportLegacyDataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0 's data type mappings. Type: boolean | No, this property is for BC use only | false |
 | fetchTSWTZasTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportLegacyDataTypes is not true. Type: boolean | No, this property is for BC use only | true |
 
 **Example:**
@@ -462,7 +470,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from and to Oracle, the following mappings apply from Oracle's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 2.0) |
+| Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | BFILE |Byte[] | Byte[] |
 | BINARY_FLOAT | Single | Single |
