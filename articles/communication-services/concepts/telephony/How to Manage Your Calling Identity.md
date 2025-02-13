@@ -31,7 +31,8 @@ To address these challenges, Azure
 Communications Services is offering customers the ability to define
 their caller's name when they place a PSTN call. Depending on their
 needs, customers can choose between two options: Caller Name Delivery
-(CNAM) registration or dynamic display name. In order to avoid
+(CNAM) registration or dynamic display name. To avoid
+
 customer's calling numbers being flagged as "Spam", it's recommended
 that customer register his PSTN outbound numbers within central
 registries and to follow some best practices.
