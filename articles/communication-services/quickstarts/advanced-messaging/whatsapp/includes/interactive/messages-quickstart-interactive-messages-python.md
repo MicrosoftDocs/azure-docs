@@ -62,7 +62,7 @@ The Messages SDK supports the following WhatsApp Interactive messages:
 
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-list-options-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user).
+- [Send an Interactive Click-to-action Url based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user).
 
 ### Send an Interactive List options message to a WhatsApp user
 
@@ -207,12 +207,12 @@ To run `send_whatsappreplybutton_message()`, update the [main method](#basic-pro
 
 :::image type="content" source="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" lightbox="../../media/interactive-reaction-sticker/reply-button-interactive-message.jpg" alt-text="Screenshot that shows WhatsApp Reply Button interactive message from Business to User.":::
 
-### Send an Interactive Click-to-action Url based message to a WhatsApp user
+### Send an Interactive Call-To-Action Url based message to a WhatsApp user
 
 The Messages SDK enables Contoso to send image WhatsApp messages to WhatsApp users. To send image embedded messages:
 - [WhatsApp Channel ID](#set-channel-registration-id)
 - [Recipient Phone Number in E16 format](#set-recipient-list)
-- Click-To-Action or Link content Message can be created using given properties:
+- Call-To-Action or Link content can be created using given properties:
 
 | Action type   | Description |
 | --- | --- |
