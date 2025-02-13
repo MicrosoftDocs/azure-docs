@@ -85,6 +85,3 @@ For more information, see [Connect to Azure Government with PowerShell](../azure
 * [Compare Azure Government and global Azure](../azure-government/compare-azure-government-global-azure.md)
 * [Azure NetApp Files REST API](azure-netapp-files-develop-with-rest-api.md)
 * [Azure NetApp Files REST API using PowerShell](develop-rest-api-powershell.md)
-
-
-`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
