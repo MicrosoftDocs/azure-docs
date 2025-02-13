@@ -2,11 +2,11 @@
 title: Develop for Azure Files with .NET
 titleSuffix: Azure Storage
 description: Learn how to develop .NET applications and services that use Azure Files to store data.
-author: khdownie
+author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 07/08/2024
-ms.author: kendownie
+ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
