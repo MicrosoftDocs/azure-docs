@@ -143,7 +143,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
    | **Program ID** | Yes | The registration gateway program ID for the SAP server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
    | **SNC Partner Name** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Advanced parameters** list, select **SNC Partner Name**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
-   The following example shows a basically configured SAP built-in trigger in a Standard workflow:
+   The following example shows a minimally configured SAP built-in trigger in a Standard workflow:
 
    :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png" alt-text="Screenshot shows Standard workflow and basically configured SAP built-in connector trigger.":::
 
@@ -172,7 +172,7 @@ The following example workflow shows how to extract individual IDocs from a pack
      | Status code | Description |
      |-------------|-------------|
      | **202 Accepted** | The request was accepted for processing, but processing isn't complete yet. |
-     | **204 No Content** | The server successfully fulfilled the request, and there's no additional content to send in the response payload body. |
+     | **204 No Content** | The server successfully fulfilled the request, and no other content is available to send in the response payload body. |
      | **200 OK** | This status code always contains a payload, even if the server generates a payload body of zero length. |
 
    - SAP built-in trigger: For this trigger, add the [**Respond to SAP server** action](/azure/logic-apps/connectors/built-in/reference/sap/#respond-to-sap-server) to your workflow.
@@ -690,15 +690,15 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 You've now created a workflow that can send IDocs and communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
 
-#### Workflow timeout issues
+#### Workflow time-out issues
 
 Your workflow times out in any of the following scenarios:
 
-- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check workflow status and view run history for your workflows](/azure/logic-apps/view-workflow-status-run-history).
+- All the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check workflow status and view run history for your workflows](/azure/logic-apps/view-workflow-status-run-history).
 
 - Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
 
-  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time out, by default.
 
   To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](sap.md#prerequisites).
 
@@ -778,7 +778,7 @@ When you connect to SAP from Azure Logic Apps, English is the default language u
 
 When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true).
 
-By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You also have the option to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
+By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You can also to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
 
 You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
 
@@ -861,7 +861,7 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
    >
    > SAP systems forget a transaction identifier after a specified time, or 24 hours by default. As a result, SAP never fails 
    > to confirm a transaction identifier if the ID or GUID is unknown. If confirmation for a transaction identifier fails, 
-   > this failure indicates that communcation with the SAP system failed before SAP was able to acknowledge the confirmation.
+   > this failure indicates that communication with the SAP system failed before SAP was able to acknowledge the confirmation.
 
 1. Add the SAP action named **[IDOC] Send document to SAP** to your Consumption workflow. For Standard workflows, add the action's "in-app" version named **[IDoc] Send document to SAP**, rather than the "shared" version.
 
