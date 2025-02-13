@@ -103,7 +103,7 @@ The Oracle linked service supports the following properties when apply version 2
 | password | The Oracle database password. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
-You can specify server property in one of the following three ways:
+For `server` property, you can specify it in one of the following three ways:
 
 | Way | Example |
 |:--- |:--- |
