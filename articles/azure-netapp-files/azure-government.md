@@ -71,7 +71,7 @@ When you connect to Azure Government through PowerShell, you must specify an env
 | Connection type | Command | 
 | --- | --- | 
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands | `Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
-| [Microsoft Graph PowerShell](/powershell/microsoftgraph/authentication-commands) | `Connect-MgGraph -Environment USGov`
+| [Microsoft Graph PowerShell](/powershell/microsoftgraph/authentication-commands) | `Connect-MgGraph -Environment USGov` |
 | [Microsoft Entra PowerShell](/powershell/module/microsoft.entra/connect-entra) | `Connect-Entra -Environment USGov` | 
 | [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands | `Add-AzureAccount -Environment AzureUSGovernment` | 
 | [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands | `Connect-MsolService -AzureEnvironment UsGovernment` | 
