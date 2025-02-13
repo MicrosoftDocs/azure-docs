@@ -171,7 +171,7 @@ Parameters:
  ```powershell
 Get-StorageSyncServerEndpoint
 ```
-- `-Pattern` The -Pattern parameter in Invoke-StorageSyncFileRecall is used to filter which files should be recalled from Azure File Sync. It allows you to specify file types or names using wildcards.
+- `-Pattern` The -Pattern parameter in `Invoke-StorageSyncFileRecall` is used to filter which files should be recalled from Azure File Sync. It allows you to specify file types or names using wildcards.
   
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 
