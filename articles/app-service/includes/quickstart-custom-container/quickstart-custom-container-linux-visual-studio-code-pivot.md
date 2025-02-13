@@ -4,7 +4,7 @@ ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 02/11/2025
+ms.date: 02/14/2025
 ms.author: cephalin
 ---
 

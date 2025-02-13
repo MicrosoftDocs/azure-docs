@@ -3,22 +3,22 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 002/11/2025
+ms.date: 002/14/2025
 ms.author: msangapu
 ---
 
-[Azure App Service](../../overview.md) provides predefined application stacks on Windows, like ASP.NET or Node.js, that run on IIS. The preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions> They let developers fully customize the containers and give containerized applications full access to Windows functionality. 
+[Azure App Service](../../overview.md) provides predefined application stacks on Windows, like ASP.NET or Node.js, that run on IIS. The preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions. They let developers fully customize the containers and give containerized applications full access to Windows functionality.
 
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
+- [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Connect to Azure
 
-Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
+Sign into your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
 
 ```azurepowershell-interactive
 Connect-AzAccount
@@ -28,13 +28,13 @@ Connect-AzAccount
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
-
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location eastus
 ```
-The command returns `Login Succeeded` once completed.
+
+The command returns `Login Succeeded`.
 
 ## Create your App Service Plan
 
@@ -60,7 +60,7 @@ New-AzWebApp -Name myWebApp -AppServicePlan myAppServicePlan -Location eastus -R
 - The ResourceGroupName parameter specifies the name of the Resource Group.
 - The ContainerImageName parameter specifies a Container Image Name and optional tag.
 
-The command might take a few minutes to complete. 
+The command might take a few minutes to complete.
 
 ## Browse to the app
 
@@ -80,7 +80,7 @@ Remove-AzResourceGroup myResourceGroup
 
 Congratulations, you've successfully completed this quickstart.
 
-The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
+The App Service app pulls from the container registry each time it starts. If you rebuild your image, just push it to your container registry. The app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 - [Configure custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)

@@ -3,7 +3,7 @@ author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/11/2025
+ms.date: 02/14/2025
 ms.author: cephalin
 ---
 
@@ -90,7 +90,7 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create Web App**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
 
-1. Provide an app name, such as *win-container-demo*. For **Publixh**, select **Container**. For **Operating System**, select **Windows**.
+1. Provide an app name, such as *win-container-demo*. For **Publish**, select **Container**. For **Operating System**, select **Windows**.
 
    :::image type="content" source="../../media/quickstart-custom-container/create-web-app-container.png" alt-text="Screenshot of Create a Web App for Containers.":::
 

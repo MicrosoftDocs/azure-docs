@@ -3,7 +3,7 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/11/2025
+ms.date: 02/14/2025
 ms.author: msangapu
 ---
 
@@ -18,7 +18,7 @@ This quickstart shows you how to deploy an ASP.NET app in a Windows image from [
 
 ## Connect to Azure
 
-Sign into your Azure account by using the [`az login`](/cli/azure/authenticate-azure-cli) command and following the prompt:
+Sign into your Azure account by using the [az login](/cli/azure/authenticate-azure-cli) command and following the prompt:
 
 ```bash
 az login
@@ -28,7 +28,7 @@ az login
 
 Create a resource group with the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [`az appservice list-locations`](/cli/azure/appservice#az-appservice-list-locations) command.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location. To see all supported locations for App Service, run the [az appservice list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -45,12 +45,12 @@ az appservice plan create --resource-group myResourceGroup --location eastus --n
 ```
 
 > [!NOTE]
-> If you run into the error, **"The behavior of this command has been altered by the following extension: appservice-kube"**, remove the `appservice-kube` extension. 
+> If you run into the error, *The behavior of this command has been altered by the following extension: appservice-kube*, remove the `appservice-kube` extension.
 >
 
 ## Create your web app
 
-Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace _myContainerApp_ with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace *myContainerApp* with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
 az webapp create --name myContainerApp --plan myAppServicePlan --resource-group myResourceGroup --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
@@ -80,7 +80,7 @@ az group delete --no-wait --name <resource_group>
 
 Congratulations, you've successfully completed this quickstart.
 
-The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
+The App Service app pulls from the container registry each time it starts. If you rebuild your image, just push it to your container registry. The app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 - [Configure custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)

@@ -3,7 +3,7 @@ author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/11/2025
+ms.date: 02/14/2025
 ms.author: cephalin
 ---
 
@@ -71,40 +71,46 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-     :::image type="content" source="../../media/quickstart-custom-container/portal-search.png?text=Azure portal search details" alt-text="Screenshot of searching for 'app services' in the Azure portal.":::
+   :::image type="content" source="../../media/quickstart-custom-container/portal-search.png" alt-text="Screenshot of searching for 'app services' in the Azure portal.":::
 
-1. In the **App Services** page, select **+ Create**.
+1. In the **App Services** page, select **Create** > **Web App**.
 
-1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name.
+1. In the **Basics** tab, under **Project details**, select the correct subscription. Select **Create new** resource group. Type *myResourceGroup* for the name.
 
-    :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app.":::
+   :::image type="content" source="../../media/quickstart-custom-container/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app.":::
 
-1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Windows* for the **Operating System**. Select a **Region** you want to serve your app from.
+1. Under **Instance details**:
 
-    :::image type="content" source="../../media/quickstart-custom-container/instance-details-windows.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
+   - Enter a globally unique name for your web app.
+   - Select **Container**.
+   - For the **Operating System**, select **Linux**.
+   - Select a **Region** that you want to serve your app from.
 
-1. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. To change tier, select **Explore pricing plans**, select a plan, and choose the **Select** button at the bottom of the page.
+   :::image type="content" source="../../media/quickstart-custom-container/instance-details-windows.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image, and size.":::
+
+1. Under **App Service Plan**, select **Create new** App Service Plan. Enter *myAppServicePlan* for the name. To change tier, select **Explore pricing plans**, select a plan, and choose **Select** at the bottom of the page.
 
     :::image type="content" source="../../media/quickstart-custom-container/app-service-plan-details-windows.png" alt-text="Screenshot of the App Service plan options.":::
 
-1. Select **Next: Database** at the bottom of the page, then select **Next: Container**.
+1. At the top of the page, select the **Container** tab.
 
-1. In the **Docker** tab, select *Azure Container Registry* for the **Image Source**. Under **Azure container registry options**, set the following values:
+1. In the **Container** tab, for **Image Source**, select **Azure Container Registry** . Under **Azure container registry options**, set the following values:
+
    - **Registry**: Select your Azure Container Registry.
-   - **Image**: Select *dotnetcore-docs-hello-world-windows*.
-   - **Tag**: Select *latest*.
+   - **Image**: Select **dotnetcore-docs-hello-world-linux**.
+   - **Tag**: Select **latest**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
+   :::image type="content" source="../../media/quickstart-custom-container/azure-container-registry-options-windows.png" alt-text="Screenshot showing the Azure Container Registry options.":::
 
-1. Select the **Review + create** button at the bottom of the page.
+1. Select **Review + create** at the bottom of the page.
 
-    :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
+   :::image type="content" source="../../media/quickstart-custom-container/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page.":::
 
-1. After validation runs, select the **Create** button at the bottom of the page.
+1. After validation runs, select **Create**.
 
-1. After deployment is complete, select **Go to resource**.
+1. After deployment finishes, select **Go to resource**.
 
-    :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
+   :::image type="content" source="../../media/quickstart-custom-container/next-steps.png" alt-text="Screenshot showing the next step of going to the resource.":::
 
 ## Browse to the app
 
@@ -112,7 +118,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 :::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed runs in background mode.":::
 
-The Host operating system appears in the footer, which confirms it is in a Windows container.
+The Host operating system appears in the footer, which confirms that it runs in a Windows container.
 
 ## Clean up resources
 
@@ -122,7 +128,7 @@ The Host operating system appears in the footer, which confirms it is in a Windo
 
 Congratulations, you've successfully completed this quickstart.
 
-The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
+The App Service app pulls from the container registry each time it starts. If you rebuild your image, just push it to your container registry. The app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 - [Configure custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
