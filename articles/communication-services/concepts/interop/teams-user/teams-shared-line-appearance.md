@@ -14,7 +14,7 @@ ms.subservice: teams-interop
 ---
 # Microsoft Teams shared line appearance
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 Microsoft Teams shared line appearance lets a user choose a delegate to answer or handle calls on their behalf. This feature is helpful if a user has an administrative assistant who regularly handles the user's calls. In the context of Teams shared line appearance, a manager is someone who authorizes a delegate to make or receive calls on their behalf. A delegate can make or receive calls on behalf of the delegator.
 
 ## Prerequisites
@@ -53,7 +53,7 @@ The following Azure Communication Services and Graph platforms currently support
 
 >Note: Calling SDK for iOS, Android, and Windows do not currently support shared line appearance.
 
-For more information on the capabilities available during a shared line appearance call, see [Calling capabilities for Teams users](../teams-user-calling).
+For more information on the capabilities available during a shared line appearance call, see [Calling capabilities for Teams users](../teams-user-calling.md).
 
 ## Next steps
 
