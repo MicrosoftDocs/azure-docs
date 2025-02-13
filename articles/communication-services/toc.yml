@@ -484,7 +484,7 @@ items:
     - name: Enable audio effects
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
     - name: Enable visual effects
-      href: concepts/voice-video-calling/video-effects
+      href: concepts/voice-video-calling/video-effects.md
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
