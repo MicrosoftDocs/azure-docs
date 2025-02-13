@@ -206,9 +206,9 @@ It's important to note that floating IP configured on the Azure global Load Bala
 
 Azure Global Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by global load balancer are done automatically every 5 seconds, given that a user configures health probes on their regional load balancer. 
 
-## Build cross region solution on existing Azure Load Balancer
+## Build global solution on existing Azure Load Balancer
 
-The backend pool of global load balancer contains one or more regional load balancers. 
+The backend pool of a global load balancer contains one or more regional load balancers. 
 
 Add your existing load balancer deployments to a global load balancer for a highly available, global deployment.
 
