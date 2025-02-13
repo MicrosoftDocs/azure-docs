@@ -95,7 +95,7 @@ The `requiredDataConnectors` attribute represents the list of data connectors th
 
 The `connectorId` attribute specifies the ID of the data connector that you need so the query functions correctly. If your detection query depends on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your analytics rule depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
 
-The `dataTypes` attribute represents the data types that the analytics rule depends on, and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, or `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
+The `dataTypes` attribute represents the data types that the analytics rule depends on and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, or `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
 
 ### Query period
 
@@ -166,7 +166,7 @@ Limit the query to 10,000 characters. If the query section exceeds this limit, c
 
 Each line in the query body must have at least one space at the beginning, but two spaces are standard to support readability.
 
-If you're submitting a query for a datatype that's not present in the Detections or Hunting Queries folder, name the subfolder containing the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
+If you're submitting a query for a datatype that isn't present in the Detections or Hunting Queries folder, name the subfolder that contains the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
 
 Define human-readable names for explicit constants:
 
@@ -192,7 +192,7 @@ This field is mandatory.
 
 ### Event grouping settings
 
-The `eventGroupingSettings` attribute relates to alerts. An alert rule can generate a separate alert for each query result. For instance, a rule identifying non-Microsoft alerts in the event stream could create a Microsoft Sentinel alert for each source alert.
+The `eventGroupingSettings` attribute relates to alerts. An alert rule can generate a separate alert for each query result. For instance, a rule that identifies non-Microsoft alerts in the event stream could create a Microsoft Sentinel alert for each source alert.
 
 * To produce a single alert for all query results (the default), use:
             ```json
