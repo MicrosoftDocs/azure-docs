@@ -41,7 +41,7 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
     docker tag ${SSLCLIENT_IMAGE} open-etp:ssl-client
     ```
 
-1. Follow [How to generate auth token](how-to-generate-auth-token) to create a valid auth token. This token is used to authenticate the calls to server.
+1. Follow [How to generate auth token](how-to-generate-auth-token.md) to create a valid auth token. This token is used to authenticate the calls to server.
 
 1. Set the following variables:
     ```bash
