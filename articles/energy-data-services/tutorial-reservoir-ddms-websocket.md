@@ -78,3 +78,4 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ## Related content
 * [How to use RDDMS web socket endpoints](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/reservoir/open-etp-server/-/blob/main/docs/testing.md?ref_type=heads)
+* [Use Reservoir DDMS APIs](tutorial-reservoir-ddms-apis.md)
