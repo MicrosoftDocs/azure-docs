@@ -1,6 +1,6 @@
 ---
 title: Migrate identity and access management of AWS Lambda to Azure Functions
-description: Governance specification for migrating AWS Lambda to Azure Functions.
+description: Identity and access management specification for migrating AWS Lambda to Azure Functions.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
