@@ -197,7 +197,7 @@
       items:
       - name: P2S gateway configuration
         items:
-        - name: Configure P2S - Microsoft-registered VPN client
+        - name: Configure P2S - Microsoft Entra ID authentication
           href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
