@@ -135,7 +135,7 @@ COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm ci --omit=dev
 
 # Copy the entrypoint script for remote debugging
 COPY entrypoint.sh /usr/src/app/entrypoint.sh
