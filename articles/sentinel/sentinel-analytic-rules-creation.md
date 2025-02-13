@@ -12,7 +12,9 @@ ms.date: 1/27/2025
 
 # Create and publish analytics rules for Microsoft Sentinel solutions
 
-Microsoft Sentinel analytics rules are sets of criteria that define how data should be monitored, what should be detected, and what actions should be taken when specific conditions are met. These rules help identify suspicious behavior, anomalies, and potential security threats by analyzing logs and signals from various data sources. Microsoft Sentinel analytics rules are a powerful tool for enhancing an organization's security posture because they proactively detect and respond to potential threats. By following a structured approach to creating and managing these rules, organizations can use Microsoft Sentinel's capabilities to protect their digital assets and maintain a robust security infrastructure. For more information, see [Threat detection in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/threat-detection)
+Microsoft Sentinel analytics rules are sets of criteria. They define how data should be monitored, what should be detected, and what actions should be taken when specific conditions are met. These rules help identify suspicious behavior, anomalies, and potential security threats by analyzing logs and signals from various data sources.
+
+Microsoft Sentinel analytics rules are a powerful tool for enhancing an organization's security posture because they proactively detect and respond to potential threats. By following a structured approach to creating and managing these rules, organizations can use Microsoft Sentinel's capabilities to protect their digital assets and maintain a robust security infrastructure. For more information, see [Threat detection in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/threat-detection)
 
 This article walks you through the process of creating and publishing analytics rules to Microsoft Sentinel solutions.
 
@@ -85,7 +87,7 @@ The `severity` attribute defines the severity level of the detection. Severity s
 * High: The identified activity provides the threat actor with wide-ranging access to conduct actions on the environment.
 
  > [!NOTE]
-> Severity level defaults aren't a guarantee of current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Severity in the **Alerts** table is otherwise controlled by the security service from which the alert came from. You can use `alertDetailsOverride` to provide a dynamic severity that depends on the actual outcome of the query.
+> Severity level defaults aren't a guarantee of current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Severity in the **Alerts** table is otherwise controlled by the security service from which the alert came. You can use `alertDetailsOverride` to provide a dynamic severity that depends on the actual outcome of the query.
 
 ### Required data connectors
 
@@ -129,7 +131,7 @@ This field is mandatory for scheduled analytics rules.
 
 The `triggerThreshold` attribute represents the threshold that triggers the alert. Threshold is the value that the `triggerOperator` references. Supported values include any integer between 0 and 10,000.
 
-For example, if the `triggerOperator` is set to `gt` and the `triggerThreshold` is `1`, the alert will trigger when a value is greater than 1.
+For example, if the `triggerOperator` is set to `gt` and the `triggerThreshold` is `1`, the alert triggers when a value is greater than 1.
 
 This field is mandatory for scheduled analytics rules.
 
