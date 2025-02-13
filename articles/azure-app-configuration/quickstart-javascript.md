@@ -70,10 +70,12 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 ## Configure an environment variable
 
-### [Microsoft Entra ID (recommended)](#tab/entra-id)
+1. Configure an environment variable using Microsoft Entra ID (recommended) or a connection string.
 
-1. Set an environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
-
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    Set an environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
+    
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
     
     ```cmd
@@ -135,7 +137,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     export AZURE_APPCONFIG_ENDPOINT
     ```
 
-### [Connection string](#tab/connection-string)
+    ### [Connection string](#tab/connection-string)
 
     ```cmd
     echo AZURE_APPCONFIG_CONNECTION_STRING
@@ -289,7 +291,6 @@ In this example, you created a Node.js app that uses the Azure App Configuration
 At this point, your *app-configuration-example.js* file should have the following code:
 
 ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
