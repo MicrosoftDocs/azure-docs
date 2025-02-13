@@ -45,22 +45,22 @@ Below is an overview of each feature and its current status for different framew
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript
 ------- | ---- | ------ | ---------- | ------ | ----------
-Connection String Authentication | GA | GA | GA | GA | GA
-Entra ID Authentication | GA | GA | GA | GA | GA
+Connection String Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#connection-string)
+Entra ID Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#configuration-refresh)
 Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
-Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | GA
+Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh)
 JSON Content Type Handling | GA | GA | GA | GA | GA
 Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
-Key Vault References | GA | GA | GA | GA | GA
+Key Vault References | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
 Key Vault Secret Refresh | GA | WIP | GA | WIP | WIP
-Custom Key Vault Secret Resolution | GA | GA | GA | GA | GA
-Feature Flags | GA | GA | GA | GA | GA
-Variant Feature Flags | GA | GA | GA | GA | GA
+Custom Key Vault Secret Resolution | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
+Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
+Variant Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
 Feature Flag Telemetry | GA | GA | WIP | GA | GA
-Key Prefix Trim | GA | GA | GA | GA | GA
-Configurable Startup Timeout | GA | WIP | N/A | N/A | N/A
-Replica Auto Discovery | GA | GA | GA | WIP | GA
-Replica Failover | GA | GA | GA | WIP | GA
-Replica Load Balancing | GA | WIP | GA | WIP | GA
+Key Prefix Trim | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys)
+Configurable Startup Timeout | GA | WIP | N/A | WIP | WIP
+Replica Auto Discovery | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
+Replica Failover | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
+Replica Load Balancing | GA | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Snapshots | GA | GA | GA | WIP | WIP
