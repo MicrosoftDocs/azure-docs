@@ -4,9 +4,9 @@ description: Learn how to connect to Azure Government to use Azure NetApp Files 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
+ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 02/13/2025
 ms.author: anfdocs
 ---
 
@@ -70,10 +70,11 @@ When you connect to Azure Government through PowerShell, you must specify an env
 
 | Connection type | Command | 
 | --- | --- | 
-| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
-| [Microsoft Entra ID](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` | 
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` | 
-| [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` | 
+| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands | `Connect-AzAccount -EnvironmentName AzureUSGovernment` | 
+| [Microsoft Graph PowerShell](/powershell/microsoftgraph/authentication-commands) | `Connect-MgGraph -Environment USGov`
+| [Microsoft Entra PowerShell](/powershell/module/microsoft.entra/connect-entra) | `Connect-Entra -Environment USGov` | 
+| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure/add-azureaccount) commands | `Add-AzureAccount -Environment AzureUSGovernment` | 
+| [Microsoft Entra ID (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands | `Connect-MsolService -AzureEnvironment UsGovernment` | 
 
 For more information, see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
 
@@ -84,3 +85,6 @@ For more information, see [Connect to Azure Government with PowerShell](../azure
 * [Compare Azure Government and global Azure](../azure-government/compare-azure-government-global-azure.md)
 * [Azure NetApp Files REST API](azure-netapp-files-develop-with-rest-api.md)
 * [Azure NetApp Files REST API using PowerShell](develop-rest-api-powershell.md)
+
+
+`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment`
