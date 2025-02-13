@@ -145,7 +145,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
 
    The following example shows a basically configured SAP built-in trigger in a Standard workflow:
 
-   ![Screenshot shows basically configured SAP built-in connector trigger in Standard workflow.](./media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png)
+   :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png" alt-text="Screenshot shows Standard workflow and basically configured SAP built-in connector trigger.":::
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
@@ -900,11 +900,15 @@ If you experience a problem with your workflow sending duplicate IDocs to SAP, y
 
       **Consumption workflow with shared SAP action**
 
-      ![Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-consumption.png)
+      The example now looks like the following sample:
+
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-confirm-with-var-consumption.png" alt-text="Screenshot shows Consumption workflow with action named Confirm transaction ID using a variable.":::
 
       **Standard workflow with in-app SAP action**
 
-      ![Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.](./media/sap-create-example-scenario-workflows/sap-confirm-with-var-standard.png)
+      The example now looks like the following sample:
+
+      :::image type="content" source="media/sap-create-example-scenario-workflows/sap-confirm-with-var-standard.png" alt-text="Screenshot shows Standard workflow with action named Confirm transaction ID using a variable.":::
 
 1. Optionally, validate the deduplication in your test environment.
 
@@ -1021,6 +1025,7 @@ For the SAP managed connector, this error message means unexpected failures happ
      1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exists: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
 
         > [!IMPORTANT]
+        >
         > Change the attributes for the `Broker` element, even if the element already exists.
 
         The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
@@ -1034,12 +1039,13 @@ For the SAP managed connector, this error message means unexpected failures happ
         The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
 
      > [!NOTE]
+     >
      > For more information about the configuration file, review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
 
   1. Save your changes.
 
   1. If you're using the on-premises data gateway, restart your gateway.
 
-## Next steps
+## Related content
 
 - [Generate schemas for artifacts in SAP](sap-generate-schemas-for-artifacts.md)
