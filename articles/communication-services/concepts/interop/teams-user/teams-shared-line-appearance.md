@@ -54,9 +54,3 @@ The following Azure Communication Services and Graph platforms currently support
 >Note: Calling SDK for iOS, Android, and Windows do not currently support shared line appearance.
 
 For more information on the capabilities available during a shared line appearance call, see [Calling capabilities for Teams users](../teams-user-calling.md).
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> For more information, see the following articles:
-- Get started developing shared line appearance with the [how to](../../../how-tos/calling-sdk/shared-line-appearance.md).
