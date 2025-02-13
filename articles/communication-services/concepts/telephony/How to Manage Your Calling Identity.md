@@ -33,7 +33,8 @@ their caller's name when they place a PSTN call. Depending on their
 needs, customers can choose between two options: Caller Name Delivery
 (CNAM) registration or dynamic display name. To avoid
 
-customer's calling numbers being flagged as "Spam", it's recommended
+customer's calling numbers being flagged as "Spam", 
+
 that customer register his PSTN outbound numbers within central
 registries and to follow some best practices.
 
