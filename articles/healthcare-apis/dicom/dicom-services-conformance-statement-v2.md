@@ -112,6 +112,21 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 
 The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to store DICOM file with external metadata.
 
+#### Store DICOM file with Expiry
+When storing a DICOM file, users can specify a deletion time in the future through the usage of expiry headers.
+
+In order to set an expiry time, the following headers must be set on POST or PUT requests.
+
+| Header                                | Accepted Values    | Description                                                                                  |
+| :------------------------------------ | :----------------- | :------------------------------------------------------------------------------------------- |
+| `msdicom-expiry-option`               | `RelativeToNow`    | How the deletion time is calculated. Currently the only supported option is `RelativeToNow`  |
+| `msdicom-expiry-level`                | `Study`            | The level at which the expiry should be set. Currently only supported at the `Study` level.  |
+| `msdicom-expiry-time-milliseconds`    | Integer values > 0 | The number of milliseconds after which the study should be deleted                           |
+
+At this time, expiry is only supported at the study level, meaning that all instances of a study will be deleted at the same time. If multiple instances are stored for the same study in seperate requests, the deletion will be based on the expiry headers sent in the last STOW request. In the case that the last STOW request does not specify expiry headers, the study will not be scheduled for deletion and any previously sent expiry headers will be ignored.
+
+When using the `RelativeToNow` expiry option, the deletion time will be calulcated based on the time the request is recieved by the DICOM service. The deletion may not happen at the exact time calculated, but within a few hours of the calculated time. 
+
 #### Store response status codes
 
 | Code                           | Description                                                                                                                                                                                                        |
