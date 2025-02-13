@@ -10,7 +10,7 @@ ms.date: 02/08/2025
 #customer intent: As a data manager, I need an ability to create legal tag definitions for restricted country of origin data.
 
 ---
-# How to enable legal tag creation for OSDU&reg; restricted COO(Country of Origin) data?
+# How to enable legal tag creation for OSDU&reg; restricted COO (Country of Origin) data?
 Legal tag definitions represent the legal status of the data hosted on an Azure Data Manager for Energy resource. A valid legal tag is required for data ingestion and retrieval stored on the resource. See [How to manage legal tags](how-to-manage-legal-tags.md).
 
 ## COO (Country of Origin) configuration
