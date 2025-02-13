@@ -53,7 +53,7 @@ caller's name can be added by either the client\'s equipment (e.g., PBX)
 or the originating carrier, as long as it complies with anti-spoofing
 and fraud regulations.
 
-![CNAM Flow](./media/cnam-call-flow.png)
+![CNAM Flow](../media/cnam-call-flow.png)
 
 
 ### How to register
