@@ -28,10 +28,10 @@ You can manage a volume from its volume group. You can resize, delete, or change
 
     ![Screenshot that shows the Change Throughput window.](./media/application-volume-group-manage-volumes/application-volume-change-throughput.png)
 
-    * To delete the volume in the volume group, select **Delete**. If you are prompted, type the volume name to confirm the deletion.  
+    * To delete the volume in the volume group, select **Delete**. If prompted, enter the volume name to confirm the deletion.  
 
     > [!IMPORTANT]
-    > The volume deletion operation cannot be undone.
+    > Volume deletion is permanent. It can't be undone.
     
     ![Screenshot that shows the Delete Volume window.](./media/application-volume-group-manage-volumes/application-volume-delete.png)
 
