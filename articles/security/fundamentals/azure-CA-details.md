@@ -170,7 +170,7 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-The following domains may need to be included in your firewall allowlists to optimize connectivity:
+The following domains (HTTPS/Port 443) may need to be included in your firewall allowlists to optimize connectivity:
 
 AIA:
 - `cacerts.digicert.com`
