@@ -8,3 +8,6 @@ ms.topic: conceptual
 ---
 
 # Migrate deployment assests for AWS Lambda to Azure Functions
+
+| :::image type="icon" source="../../migration/images/goal.svg"::: TBD |
+| :-- |

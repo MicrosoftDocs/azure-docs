@@ -1,11 +1,11 @@
 - name: Migrate to Azure Functions
   href: ./function-placeholder.md
-- name: AWS Lamda to Functions 
+- name: Migrate from AWS Lamda
   href: ./aws-lambda-to-azure-functions.md
   items:
-  - name: Evaluation - AWS Lamda
+  - name: Perform pre-migration evaluation
     items:
-    - name: Capability orgranization
+    - name: Capability organization
       href: ./capabilities.md
     - name: Identity and access management
       href: ./identity-access-management.md
@@ -14,34 +14,30 @@
     - name: Monitoring
       href: ./monitoring.md
     - name: Dependencies
-      items:
-      - name: Example - Compute
-        href: ./function-placeholder.md
-      - name: Example - Networking
-        href: ./function-placeholder.md
+      href: ./dependencies.md
     - name: Governance
-      href: ./governance.md                          
-    - name: Measurement - business requirements
+      href: ./governance.md
+    - name: Objectives - business requirements
       items:
       - name: Cost of ownership
         href: ./function-placeholder.md
       - name: Reliability objectives
         href: ./function-placeholder.md
-      - name: Performance targets 
+      - name: Performance targets
         href: ./function-placeholder.md
-  - name: Migration approach
-    items:     
+  - name: Follow a recommended approach
+    items:
     - name: Strategy and recommendations
-      href: ./function-placeholder.md         
+      href: ./function-placeholder.md
     - name: Tools
       href: ./function-placeholder.md
     - name: Feature portability reference
-      href: ./function-placeholder.md                 
-  - name: Evaluation - Azure Functions
-    href: ./function-placeholder.md              
-  - name: Scenario how-tos
+      href: ./function-placeholder.md
+  - name: Perform end-state evaluation
+    href: ./function-placeholder.md
+  - name: Scenarios
     items:
-    - name: Scenario - 1
+    - name: Migrate a event-driven data processing pipeline
       items:
       - name: Overview and current state
         href: function-placeholder.md
@@ -51,7 +47,7 @@
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
-    - name: Scenario - 2
+    - name: Migrate a microservices workload
       items:
       - name: Overview and current state
         href: function-placeholder.md
