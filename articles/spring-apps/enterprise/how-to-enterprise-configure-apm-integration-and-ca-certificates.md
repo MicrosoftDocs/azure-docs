@@ -45,7 +45,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | .NET              |                     | ✔        |             | ✔         |            |
 | Go                |                     |           |             | ✔        |            |
 | Python            |                     |           |             |           |            |
-| NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
+| Node.js            |                     | ✔        | ✔           | ✔        | ✔          |
 | Web servers       |                     |           |             | ✔        |            |
 | Java Native Image |                     |           |             |           |            |
 | PHP               |                     | ✔         | ✔          | ✔         |            |

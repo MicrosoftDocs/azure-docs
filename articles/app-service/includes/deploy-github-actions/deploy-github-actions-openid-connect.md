@@ -122,7 +122,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
+Build and deploy a Java Spring Boot app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
 
 ```yaml
 name: Java CI with Maven

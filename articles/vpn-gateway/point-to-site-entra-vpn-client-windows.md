@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 02/10/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -42,8 +42,6 @@ After you obtain the VPN client profile configuration package, extract the zip f
 
 ## <a name="modify"></a>Modify profile configuration files
 
-If your P2S configuration uses a custom audience and your registered app is associated with Microsoft-registered App ID, you might receive the error message **AADSTS650057** when you try to connect. Entering your Entra ID credential in pop-up for the second time will resolve the issue. This happens because the VPN client profile needs both the custom audience ID and the Microsoft application ID. To prevent this, modify your profile configuration .xml file to include both the custom application ID and the Microsoft application ID.
-
 [!INCLUDE [custom audience steps](../../includes/vpn-gateway-entra-vpn-client-custom.md)]
 
 ## <a name="import"></a>Import client profile configuration settings
@@ -51,66 +49,7 @@ If your P2S configuration uses a custom audience and your registered app is asso
 > [!NOTE]
 > [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
-1. Open the Azure VPN Client.
-
-1. Select **+** on the bottom left of the page, then select **Import**.
-
-1. Browse to the Azure VPN Client profile configuration folder that you extracted. Open the **AzureVPN** folder and select the client profile configuration file (azurevpnconfig_aad.xml or azurevpnconfig.xml). Select **Open** to import the file.
-
-1. On the client profile page, notice that many of the settings are already specified. The preconfigured settings are contained in the VPN client profile package that you imported. Even though most of the settings are already specified, you need to configure settings specific to the client computer.
-
-1. Change the name of the Connection name (optional). In this example, notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/connection-properties.png" alt-text="Screenshot shows Save the profile." lightbox="./media/point-to-site-entra-vpn-client-windows/connection-properties.png":::
-
-1. Click **Save** to save the connection profile.
-
-1. In the left pane, select the connection profile that you want to use. Then click **Connect** to initiate the connection.
-
-1. Authenticate using your credentials, if prompted.
-
-1. Once connected, the icon turns green and shows  **Connected**.
-
-### <a name="autoconnect"></a>To connect automatically
-
-These steps help you configure your connection to connect automatically with Always-on.
-
-1. On the home page for your VPN client, select **VPN Settings**. If you see the switch apps dialogue box, select **Yes**.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/vpn-settings.png" alt-text="Screenshot of the VPN home page with VPN Settings selected." lightbox="./media/point-to-site-entra-vpn-client-windows/vpn-settings.png":::
-
-1. If the profile that you want to configure is connected, disconnect the connection, then highlight the profile and select the **Connect automatically** check box.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/automatic.png" alt-text="Screenshot of the Settings window, with the Connect automatically box checked." lightbox="./media/point-to-site-entra-vpn-client-windows/automatic.png":::
-
-1. Select **Connect** to initiate the VPN connection.
-
-## <a name="export"></a>Export and distribute a client profile
-
-Once you have a working profile and need to distribute it to other users, you can export it using the following steps:
-
-1. Highlight the VPN client profile that you want to export, select the **...**, then select **Export**.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/export.png" alt-text="Screenshot that shows the Azure VPN Client page, with the ellipsis selected and Export highlighted." lightbox="./media/point-to-site-entra-vpn-client-windows/export.png":::
-
-1. Select the location that you want to save this profile to, leave the file name as is, then select **Save** to save the xml file.
-
-## <a name="delete"></a>Delete a client profile
-
-1. Highlight the VPN client profile that you want to export, select the **...**, then select **Remove**.
-
-1. On the confirmation popup, select **Remove** to delete.
-
-## <a name="diagnose"></a>Diagnose connection issues
-
-1. To diagnose connection issues, you can use the **Diagnose** tool. Select the **...** next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**. 
-1. On the **Connection Properties** page, select **Run Diagnostics**.
-
-   :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/diagnose.png" alt-text="Screenshot of the ellipsis and Diagnose selected." lightbox="./media/point-to-site-entra-vpn-client-windows/diagnose.png":::
-
-1. If asked, sign in with your credentials.
-
-1. View the results.
+> [!INCLUDE [Import settings](../../includes/vpn-gateway-vwan-azure-vpn-client-entra-windows.md)]
 
 ## Optional client configuration settings
 
