@@ -37,7 +37,8 @@ customer's calling numbers being flagged as "Spam",
 
 customers should register their PSTN outbound numbers with central
 
-registries and to follow some best practices.
+registries and to follow best practices described in this article.
+
 
 ## What is CNAM
 
