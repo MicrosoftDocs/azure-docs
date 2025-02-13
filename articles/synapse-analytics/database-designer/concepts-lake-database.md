@@ -6,7 +6,7 @@ ms.author: mahi
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: concept-article
-ms.date: 11/02/2021
+ms.date: 12/19/2024
 ms.custom: template-concept
 ---
 

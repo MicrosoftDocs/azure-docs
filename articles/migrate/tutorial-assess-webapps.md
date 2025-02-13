@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
 To run an assessment, follow these steps:
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
 2. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
    :::image type="content" source="./media/tutorial-assess-webapps/assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
@@ -112,7 +112,7 @@ To run an assessment, follow these steps:
 
 To view an assessment, follow these steps:
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments. 
 

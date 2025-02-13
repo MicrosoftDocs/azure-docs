@@ -376,6 +376,24 @@ If you change the TTL value for your application that is shorter than the defaul
 
 To configure the *MessageCleanupIntervalSecs* value, set the environment variable in the deployment manifest for the IoT Edge hub module. For more information about setting runtime environment variables, see [Edge Agent and Edge Hub Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
+### IoT Edge Hub reports System.FormatException using AMQP protocol
+
+#### Symptoms
+
+When routing messages from an IoT Edge device to an IoT Hub using the AMQP protocol and you set the [`iothub-creation-time-utc` property on outgoing device messages](../iot-hub/iot-hub-devguide-messages-construct.md#application-properties-of-device-to-cloud-messages), the IoT Edge Hub reports a `System.FormatException` error. The error message is similar to the following:
+
+```log
+System.FormatException: String '2024-12-01T00:00:0.000Z' was not recognized as a valid DateTime.
+```
+
+#### Cause
+
+The `iot-hub-creation-time-utc` value doesn't meet strict format criteria. The format Edge Hub requires is a subset of ISO 8601.
+
+#### Solution
+
+This is a known issue in IoT Edge Hub for the AMQP protocol. Currently, the issue is being investigated for a fix. The MQTT protocol doesn't have this issue.
+
 ## Networking
 
 ### IoT Edge security daemon fails with an invalid hostname

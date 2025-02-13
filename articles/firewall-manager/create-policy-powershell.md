@@ -4,7 +4,7 @@ description: In this quickstart, you learn how create and update an Azure Firewa
 services: firewall-manager
 author: vaboya
 ms.author: victorh
-ms.date: 08/16/2021
+ms.date: 01/10/2025
 ms.topic: quickstart
 ms.service: azure-firewall-manager
 ms.custom: mode-api, devx-track-azurepowershell

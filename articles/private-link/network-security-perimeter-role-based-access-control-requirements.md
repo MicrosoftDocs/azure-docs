@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-private-link
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/04/2024
 # customer intent: As a network administrator, I want to know the Azure role-based access control permissions required to use network security perimeter capabilities, so that I can assign the correct permissions to my team members.
 ---
@@ -63,7 +63,7 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 >
 > - *Microsoft.Network/networkSecurityPerimeters/resourceAssociations/write* is required at the network security perimeter resource.
 > - *Microsoft.Network/networkSecurityPerimeters/profiles/join/action* is required on the profile.
-> - *Microsoft.Network/networkSecurityPerimeters/joinPerimeter/action* is required on the respective PaaS resource.
+> - *{providerNamespace}/{resourceType}/joinPerimeter/action* is required on the respective PaaS resource.
 
 ## Next steps
 

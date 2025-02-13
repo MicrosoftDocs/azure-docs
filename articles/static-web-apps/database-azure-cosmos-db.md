@@ -272,6 +272,8 @@ Replace the markup between the `body` tags in the *index.html* file with the fol
 
 Now you can run your website and manipulate data in the database directly.
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 
     To install, use `npm install`.

@@ -160,7 +160,8 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 
 - Azure Data Explorer binding supports version 4.x and later of the Functions runtime.
 - Source code for the Azure Data Explorer bindings is in [this GitHub repository](https://github.com/Azure/Webjobs.Extensions.Kusto).
-- This binding requires connectivity to Azure Data Explorer. For input bindings, users require **Viewer** permissions. For output bindings, users require **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control).
+- For enhanced security, your function app should use managed identities when connecting to Azure Data Explorer instead of using connection strings that contain keys. For more information, see [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For managed identity-based connections, you must set the `managedServiceIdentity` property in the binding definition. 
+- This binding requires connectivity to Azure Data Explorer. For input bindings, users require **Viewer** permissions. For output bindings, users require **Ingestor** permissions. For more information about permissions, see [Role-based access control](/azure/data-explorer/kusto/management/access-control/role-based-access-control). 
 
 ## Next steps
 

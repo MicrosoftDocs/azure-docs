@@ -5,7 +5,7 @@ ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
 ms.date: 07/19/2024
-author: bpinto
+author: bartpinto
 ms.author: bpinto
 ---
 
@@ -203,7 +203,7 @@ To find the `Network Fabric` port from Azure:
 
    ```azurecli
    az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INTERFACE_NAME --state Disable
-   az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INERFACE_NAME --state Enable
+   az networkfabric interface update-admin-state -g $NF_RG --network-device-name $NF_DEVICE_NAME --resource-name $NF_DEVICE_INTERFACE_NAME --state Enable
    ```
 
 ### BMM remote power drain (flea drain)
@@ -234,7 +234,7 @@ This condition typically shows the BMM at the bootloader stage on the console an
 
 To reset the NVRAM, use the following sequence in the BMC UI:
 
-1. Select **Maintenance** > **Diagnostics** > **Reset iDrac to Factory Defaults**.
+1. Select **Maintenance** > **Diagnostics** > **Reset iDRAC to Factory Defaults**.
 
 1. Select **Discard All Settings, but preserve user and network settings**, and then select **Apply and reboot**.
 

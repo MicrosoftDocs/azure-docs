@@ -121,7 +121,7 @@ For user-assigned managed identity, follow these steps to assign the user assign
 #### Upgrade the extension version
 
 > [!NOTE]
-> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to 2.13
+> Ensure that ChangeTracking-Linux/ ChangeTracking-Windows extension version is upgraded to the current general release version: [GA Extension Version](../change-tracking/extension-version-details.md)
 
 Use the following command to upgrade the extension version:
 

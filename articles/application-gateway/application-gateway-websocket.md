@@ -5,7 +5,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.service: azure-application-gateway
 services: application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/22/2024
 ---
 

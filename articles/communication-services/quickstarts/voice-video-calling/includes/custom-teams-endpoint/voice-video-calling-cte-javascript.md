@@ -198,12 +198,12 @@ acceptCallButton.onclick = async () => {
     }
 }
 // Subscribe to a call obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToCall = (call) => {
     try {
         // Inspect the initial call.id value.
         console.log(`Call Id: ${call.id}`);
-        //Subsribe to call's 'idChanged' event for value changes.
+        //Subscribe to call's 'idChanged' event for value changes.
         call.on('idChanged', () => {
             console.log(`Call ID changed: ${call.id}`); 
         });
@@ -267,7 +267,7 @@ subscribeToCall = (call) => {
     }
 }
 // Subscribe to a remote participant obj.
-// Listen for property changes and collection udpates.
+// Listen for property changes and collection updates.
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
         // Inspect the initial remoteParticipant.state value.
@@ -281,7 +281,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to newly added remote participant's video streams.
             e.added.forEach(remoteVideoStream => {

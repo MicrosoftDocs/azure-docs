@@ -18,8 +18,8 @@ Get started with Azure Communication Services SMS Opt-out API by applying the fo
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Java Development Kit (JDK) version 8 or above.
-- An active Communication Services resource and connection string. See [Create a Communication Services resource](https://learn.microsoft.com/azure/communication-services/quickstarts/create-communication-resource).
-- An SMS-enabled telephone number. See [Get a phone number](https://learn.microsoft.com/azure/communication-services/quickstarts/telephony/get-phone-number).
+- An active Communication Services resource and connection string. See [Create a Communication Services resource](../../create-communication-resource.md).
+- An SMS-enabled telephone number. See [Get a phone number](../../telephony/get-phone-number.md).
 
 ## Sample code to use Opt-Out API
 

@@ -4,13 +4,13 @@ description: This article tells how to delete and your Automation account across
 services: automation
 ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 10/10/2024
+ms.date: 12/28/2024
 ms.topic: how-to 
 ---
 
 # Manage your Azure Automation account
 
-After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines such as Update Management, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
+After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
 
 This article tells you how to completely remove your Automation account through the Azure portal, using Azure PowerShell, the Azure CLI, or the REST API and restore your deleted Azure Automation account.
 

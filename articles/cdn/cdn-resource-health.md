@@ -4,7 +4,6 @@ description: Learn how to monitor the health of your Azure Content Delivery Netw
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

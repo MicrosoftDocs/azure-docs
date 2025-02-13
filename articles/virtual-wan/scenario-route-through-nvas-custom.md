@@ -5,7 +5,7 @@ description: Learn about Virtual WAN routing scenarios to route traffic through 
 services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2024
 ms.author: cherylmc
 ms.custom: fasttrack-edit

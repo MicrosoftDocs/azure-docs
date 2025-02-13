@@ -4,10 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Use the available metrics, alerts, and resource health information to diagnose your load balancer.
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/27/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Standard load balancer diagnostics with metrics, alerts, and resource health

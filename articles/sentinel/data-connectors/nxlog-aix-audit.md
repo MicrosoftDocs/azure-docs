@@ -32,7 +32,7 @@ NXLog_parsed_AIX_Audit_view
 
    | summarize count() by EventType
 
-   | render piechart title="AIX Audit event type distributon"
+   | render piechart title="AIX Audit event type distribution"
    ```
 
 **Highest event per second (EPS) AIX Audit event types**

@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Microsoft Sentinel solution for SAP applications - functions reference
 
-This article describes a selection of functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
+This article describes a selection of functions that are available in your workspace after you install a Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
 
 Find functions as follows:
 
@@ -91,7 +91,7 @@ The **SAPUsersAuthorizations** function returns the following data:
 | -------- | ----------- | ----- |
 | User     | SAP user ID |       |
 | Roles    | Set of roles (default max set size = 50) | `["Role 1", "Role 2",...,"Role 50"]` |
-| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDeatils1}`,<br>`{AuthorizationsDeatils2}`, <br>...,<br>`{AuthorizationsDeatils100}}` |
+| AuthorizationsDetails | Set of authorizations (default max set size = 100) | `{{AuthorizationsDetails1}`,<br>`{AuthorizationsDetails2}`, <br>...,<br>`{AuthorizationsDetails100}}` |
 | Client   | Client ID   |       |
 | SystemID | System ID   |       |
 

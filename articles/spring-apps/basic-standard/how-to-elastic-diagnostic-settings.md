@@ -1,5 +1,5 @@
 ---
-title: Analyze logs with Elastic Cloud from Azure Spring Apps
+title: Analyze Logs with Elastic Cloud from Azure Spring Apps
 description: Learn how to analyze diagnostics logs in Azure Spring Apps using Elastic
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -68,7 +68,7 @@ Use the following steps to analyze the logs:
 
 Application logs provide critical information and verbose logs about your application's health, performance, and more. Use the following steps to analyze the logs:
 
-1. In Kibana, in the **Search** bar at top, type *Discover*, then select the result.
+1. In Kibana, in the **Search** bar at top, type **Discover**, then select the result.
 
    :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png" alt-text="Screenshot of Elastic / Kibana  that shows the search results for Discover." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png":::
 
@@ -148,7 +148,7 @@ Kibana allows you to visualize data with Dashboards and a rich ecosystem of visu
 
 Use the following steps to show the various log levels in your logs so you can assess the overall health of the services.
 
-1. From the available fields list on left in **Discover**, search for *log.level* in the search box under the **logs-** index pattern.
+1. From the available fields list on left in **Discover**, search for **log.level** in the search box under the **logs-** index pattern.
 
 1. Select the **log.level** field. From the floating informational panel about **log.level**, select **Visualize**.
 

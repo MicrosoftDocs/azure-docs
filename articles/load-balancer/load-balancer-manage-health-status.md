@@ -79,9 +79,6 @@ Health status can be retrieved on a per load balancing rule basis. This is suppo
 3. On the **Load Balancers** page, select your load balancer from the list.
 4. In your load balancer's **Settings** section, select **Load balancing rules**.
 5. In the **Load balancing rules** page, select **View details** under the **Health status** column for the rule you want to view.
-   
-   :::image type="content" source="media/load-balancer-manage-health-status/load-balancing-rules-list-small.png" alt-text="Screenshot of list of load balancing rules with health status link." lightbox="media/load-balancer-manage-health-status/load-balancing-rules-list.png":::
-
 6. Review the health status of your backend instances in the **Load balancing rule health status** window.
 7. To retrieve the latest health status, select **Refresh**.
 

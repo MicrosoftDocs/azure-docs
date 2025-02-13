@@ -89,11 +89,11 @@ Follow the steps below to create a new Grafana service account and list existing
     /avatar/abc12345678   False         sa-account1  account1    1        Viewer  0
     ```
 
-   1. Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
+1. Run the `az grafana service-account show` command to get the details of a service account. Replace `<azure-managed-grafana-name>` and `<service-account-name>` with your own information.
 
-   ```azurecli-interactive
-   az grafana service-account show --name <azure-managed-grafana-name> --service-account <service-account-name>
-   ```
+    ```azurecli-interactive
+    az grafana service-account show --name <azure-managed-grafana-name> --service-account <service-account-name>
+    ```
 ---
 
 ## Add a service account token

@@ -4,7 +4,7 @@ description: How to use FQDN filtering in network rules
 services: firewall-manager
 author: vhorne
 ms.service: azure-firewall-manager
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/21/2024
 ms.author: victorh
 ---

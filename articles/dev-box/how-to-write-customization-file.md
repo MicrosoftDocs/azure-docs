@@ -119,12 +119,12 @@ You can reference the secret in your YAML customization in the following format,
 ```yml
 $schema: "1.0"
 tasks:
-   name: git-clone
-   description: Clone this repository into C:\Workspaces
-      parameters:
-         repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
-         directory: C:\Workspaces
-         pat: '{{KEY_VAULT_SECRET_URI}}'
+  - name: git-clone
+    description: Clone this repository into C:\Workspaces
+    parameters:
+      repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
+      directory: C:\Workspaces
+      pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
 
 ### Use key vault secrets in individual customization files
@@ -135,12 +135,12 @@ The `git-clone` task in the quickstart catalog uses the access token to clone yo
 
 ```yml
 tasks:
-   name: git-clone
-   description: Clone this repository into C:\Workspaces
-      parameters:
-         repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
-         directory: C:\Workspaces
-         pat: '{{ado://YOUR_ADO_ORG}}'
+  - name: git-clone
+    description: Clone this repository into C:\Workspaces
+    parameters:
+      repositoryUrl: https://myazdo.visualstudio.com/MyProject/_git/myrepo
+      directory: C:\Workspaces
+      pat: '{{ado://YOUR_ADO_ORG}}'
 ```
 
 Your dev center needs access to your key vault. Dev centers don't support service tags, so if your key vault is kept private, you must allow trusted Microsoft services to bypass the firewall.

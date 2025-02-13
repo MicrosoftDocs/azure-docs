@@ -4,7 +4,7 @@ description: This article explains the migration process and changes expected wh
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: duau
 ---

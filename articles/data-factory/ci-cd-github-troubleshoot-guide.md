@@ -191,12 +191,12 @@ You can't connect to GIT Enterprise because of permission issues. You can see er
 
 #### Cause
 
-* You haven't configured Oauth for the service. 
+* You haven't configured OAuth for the service. 
 * Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
 
-You  grant  Oauth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service tries *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it tries *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
+You  grant  OAuth access to the service at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, the service tries *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it tries *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed. 
  
 ### Can't recover from a deleted instance
 

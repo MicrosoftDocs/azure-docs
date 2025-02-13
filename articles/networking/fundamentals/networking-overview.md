@@ -4,7 +4,7 @@ description: Learn about the various networking services in Azure, including net
 services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/08/2024
 ms.author: mbender
 ---
