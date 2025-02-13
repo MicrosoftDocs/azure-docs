@@ -128,7 +128,7 @@ Here's a sample `AvailabilityStatusChanged` event. Notice that the `type` is set
     "time": "2024-02-22T01:40:17.6532683Z",
     "data": {
         "resourceInfo": {
-            "id": "/subscriptions/sample-subscription/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-machinee/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
+            "id": "/subscriptions/sample-subscription/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-machine/providers/Microsoft.ResourceHealth/availabilityStatuses/current",
             "name": "current",
             "type": "Microsoft.ResourceHealth/availabilityStatuses",
             "properties": {

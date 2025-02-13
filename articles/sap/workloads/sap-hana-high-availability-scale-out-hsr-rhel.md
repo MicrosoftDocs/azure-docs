@@ -8,7 +8,7 @@ ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/18/2024
+ms.date: 12/31/2024
 ms.author: radeltch
 ---
 
@@ -943,28 +943,34 @@ Now you're ready to create the cluster resources:
    > [!NOTE]
    > For the minimum supported version of package `resource-agents-sap-hana-scaleout` for your operating system release, see [Support policies for RHEL HA clusters - Management of SAP HANA in a cluster](https://access.redhat.com/articles/3397471) .  
 
-2. **[1,2]** Install the HANA system replication hook on one HANA DB node on each system replication site. SAP HANA should still be down.
+2. **[1,2]** Configure the HANA system replication hooks on one HANA DB node on each system replication site. SAP HANA should still be down. 
+   `resource-agents-sap-hana-scaleout` version 0.185.3-0 or newer includes both hooks SAPHanaSR and ChkSrv. It is mandatory for correct cluster operation to enable the SAPHanaSR hook. We highly recommend that you configure both SAPHanaSR and ChkSrv Python hooks.
 
-   1. Prepare the hook as `root`.
-
-      ```bash
-      mkdir -p /hana/shared/myHooks
-      cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
-      chown -R hn1adm:sapsys /hana/shared/myHooks
-      ```
-
-   2. Adjust `global.ini`.
+   1. Adjust `global.ini`.
 
       ```bash
       # add to global.ini
       [ha_dr_provider_SAPHanaSR]
       provider = SAPHanaSR
-      path = /hana/shared/myHooks
+      path = /usr/share/SAPHanaSR-ScaleOut
       execution_order = 1
-       
+      
+      [ha_dr_provider_chksrv]
+      provider = ChkSrv
+      path = /usr/share/SAPHanaSR-ScaleOut
+      execution_order = 2
+      action_on_lost = kill
+      
       [trace]
       ha_dr_saphanasr = info
+      ha_dr_chksrv = info
       ```
+
+    If you point parameter `path` to the default `/usr/share/SAPHanaSR-ScaleOut` location, the Python hook code updates automatically through OS updates. HANA uses the hook code updates when it next restarts. With an optional own path like `/hana/shared/myHooks`, you can decouple OS updates from the hook version that HANA will use.
+
+    You can adjust the behavior of `ChkSrv` hook by using the `action_on_lost` parameter. Valid values are [ `ignore` | `stop` | `kill` ].
+
+    For more information on the implementation of the SAP HANA hooks, see [Enabling the SAP HANA srConnectionChanged() hook](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-out_system_replication_using_the_rhel_ha_add-on/index#proc_instances_automating-sap-hana-scale-out-v9) and [Enabling the SAP HANA srServiceStateChanged() hook for hdbindexserver process failure action (optional)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-out_system_replication_using_the_rhel_ha_add-on/index#con_hooks_automating-sap-hana-scale-out-v9).
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example, you achieve this by creating a new file. Run the commands as `root`.
 
@@ -973,8 +979,9 @@ Now you're ready to create the cluster resources:
     # Insert the following lines and then save
     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-    hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
-    Defaults!SOK, SFAIL !requiretty
+    Cmnd_Alias SRREBOOT = /usr/sbin/crm_attribute -n hana_hn1_gsh -v * -l reboot -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL, SRREBOOT
+    Defaults!SOK, SFAIL, SRREBOOT !requiretty
     ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Run as <sid\>adm.  
@@ -987,19 +994,23 @@ Now you're ready to create the cluster resources:
 
     ```bash
     cdtrace
-     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
-     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+    awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+    { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
 
-     # Example entries
-     # 2020-07-21 22:04:32.364379 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:46.905661 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:52.092016 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:52.782774 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:04:53.117492 ha_dr_SAPHanaSR SFAIL
-     # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
+    # Example entries
+    # 2020-07-21 22:04:52.782774 ha_dr_SAPHanaSR SFAIL
+    # 2020-07-21 22:04:53.117492 ha_dr_SAPHanaSR SFAIL
+    # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
     ```
 
-6. **[1]** Create the HANA cluster resources. Run the following commands as `root`.
+6. **[1]** Verify the ChkSrv hook installation. Run as <sid\>adm on the active HANA system replication site.
+
+    ```bash
+     cdtrace
+     tail -20 nameserver_chksrv.trc
+    ```
+
+7. **[1]** Create the HANA cluster resources. Run the following commands as `root`.
    1. Make sure the cluster is already in maintenance mode.  
 
    2. Next, create the HANA topology resource.  
@@ -1089,7 +1100,7 @@ Now you're ready to create the cluster resources:
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
 
-7. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is `ok`, and that all of the resources are started.
+8. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is `ok`, and that all of the resources are started.
 
     ```bash
     sudo pcs property set maintenance-mode=false

@@ -3,7 +3,7 @@ title: Scale an Azure Managed Redis (preview) instance
 description: Learn how to scale your Azure Managed Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
 
 
-ms.servic: azure
+ms.service: azure
 ms.topic: conceptual
 ms.date: 11/15/2024
 ms.devlang: csharp
@@ -170,7 +170,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-With [active geo-replication](managed-redis-how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-repliation group requires a few more steps. See [Scaling instances in a geo-replication group](managed-redis-how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+With [active geo-replication](managed-redis-how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](managed-redis-how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 ### How long does scaling take?
 

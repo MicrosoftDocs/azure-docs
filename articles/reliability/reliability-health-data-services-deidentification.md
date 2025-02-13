@@ -19,7 +19,7 @@ This article describes reliability support in the de-identification service (pre
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Each de-identification service (preview) is deployed to a single Azure region. If an entire region is not available or performance is significantly degraded::
+Each de-identification service (preview) is deployed to a single Azure region. If an entire region is not available or performance is significantly degraded:
 - ARM control plane functionality is limited to read-only during the outage. Your service metadata (such as resource properties) is always backed up outside of the region by Microsoft. Once the outage is over, you can read and write to the control plane.
 - All data plane requests fail during the outage, such as de-identification or job API requests. No customer data is lost, but there's the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
 

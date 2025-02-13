@@ -71,7 +71,7 @@ The following properties are supported for Azure AI Search linked service:
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!IMPORTANT]
-> When copying data from a cloud data store into search index, in Azure AI Search linked service, you need to refer an Azure Integration Runtime with explicit region in connactVia. Set the region as the one where your search service resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> When copying data from a cloud data store into search index, in Azure AI Search linked service, you need to refer an Azure Integration Runtime with explicit region in connectVia. Set the region as the one where your search service resides. Learn more from [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Example:**
 

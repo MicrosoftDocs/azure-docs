@@ -65,7 +65,7 @@ templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/
 
 az group create \
 --name $resourceGroupName \
---locataion $location
+--location $location
 
 az deployment group create \
 --resource-group $resourceGroupName \

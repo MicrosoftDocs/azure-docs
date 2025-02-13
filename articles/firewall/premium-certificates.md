@@ -4,7 +4,7 @@ description: To properly configure TLS inspection on Azure Firewall Premium, you
 author: vhorne
 ms.service: azure-firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/11/2022
 ms.author: victorh
 ---

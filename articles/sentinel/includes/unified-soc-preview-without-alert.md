@@ -4,7 +4,7 @@ description: "include file"
 services: microsoft-sentinel
 author: cwatson-cat
 ms.topic: "include"
-ms.date:  010/16/2024
+ms.date:  10/16/2024
 ms.author: cwatson
 ms.custom: "include file"
 ---

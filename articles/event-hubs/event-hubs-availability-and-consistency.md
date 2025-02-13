@@ -52,7 +52,7 @@ You can also use the [EventHubProducerClient.SendAsync](/dotnet/api/azure.messag
 ```csharp
 var sendEventOptions  = new SendEventOptions { PartitionKey = "cities" };
 // create the events array
-producer.SendAsync(events, sendOptions)
+producer.SendAsync(events, sendEventOptions)
 ```
 
 

@@ -162,7 +162,7 @@ Specifically, App Service does the following operations:
 - Creates the secrets `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID` from the federated credential in your selected GitHub repository.
 - Assigns the identity to your app.
 
-In a GitHub Actions workflow in your GitHub repository, you can then use the [Azure/login](https://github.com/Azure/login) action to authenticate with your app by using OpenID Connect. For examples, see [Add the workflow file to your GitHub repository](deploy-github-actions.md#3-add-the-workflow-file-to-your-github-repository).
+In a GitHub Actions workflow in your GitHub repository, you can then use the [Azure/login](https://github.com/Azure/login) action to authenticate with your app by using OpenID Connect. For examples, see [Add the workflow file to your GitHub repository](deploy-github-actions.md#add-the-workflow-file-to-your-github-repository).
 
 If your Azure account has the [required permissions](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), App Service creates a user-assigned managed identity and configures it for you. This identity isn't shown in the **Identities** page of your app. If your Azure account doesn't have the required permissions, you must select an [existing identity with the required role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
 

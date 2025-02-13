@@ -70,6 +70,7 @@ When the three components are configured, you should see something like the scre
 
 One thing that is worth highlighting is that you configure **non-WebSocket** connections exactly the same way. You can learn more about [Application Gateway's native support for proxying WebSocket connections](../application-gateway/features.md)
 
+The last thing to update is the backend **health probe**. Select **Settings** -> **Health probes** and select the generated health probe settings, update the **Path** to `/api/health` and keep others unchanged.
 
 ### Test and verify Application Gateway is configured properly
 #### Verify that your Web PubSub resource is healthy

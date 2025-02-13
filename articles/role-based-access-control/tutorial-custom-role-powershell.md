@@ -211,7 +211,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. To use the `PSRoleDefintion` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
+1. To use the `PSRoleDefinition` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
 
     ```azurepowershell
     $role = Get-AzRoleDefinition "Reader Support Tickets"

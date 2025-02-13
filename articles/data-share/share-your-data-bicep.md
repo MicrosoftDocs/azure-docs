@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha 
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -98,6 +98,6 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Next step
 
 In this quickstart, you learned how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

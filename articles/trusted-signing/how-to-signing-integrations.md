@@ -40,7 +40,7 @@ To complete the steps in this article, you need:
 
 Trusted Signing Client Tools for SignTool.exe is a library plugin that requires the following components:
 
-1. Windows SDK SignTool.exe (minimum verision: 10.0.2261.755)
+1. Windows SDK SignTool.exe (minimum version: 10.0.2261.755)
 1. .NET 8 Runtime
 1. Microsoft Visual C++ Redistributable
 1. Trusted Signing Client Dlib

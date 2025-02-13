@@ -122,7 +122,7 @@ Notice that the web app is configured with app setting properties that enable it
 
 
 ### Web app (RedisEnterprise)
-<!--cawa - should this section be renamed to AMR and the section at the top remoeved altogether? -->
+<!--cawa - should this section be renamed to AMR and the section at the top removed altogether? -->
 For RedisEnterprise, because the resource types are slightly different, the way to do **listKeys** is different:
 
 ```json

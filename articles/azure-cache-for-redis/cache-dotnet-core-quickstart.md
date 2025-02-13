@@ -2,14 +2,15 @@
 title: 'Quickstart: Use Azure Cache for Redis in .NET Core'
 description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
 
-
-
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
 ms.topic: quickstart
-ms.date: 03/25/2022
+ms.date: 12/20/2024
+zone_pivot_groups: redis-type
+#Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis in .NET Core
+
+# Quickstart: Use Azure Redis in .NET Core
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
 
@@ -22,126 +23,99 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## Create a cache
+::: zone pivot="azure-managed-redis"
+
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
+::: zone-end
+
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-Make a note of the **HOST NAME**. You'll use these values later to for *appsettings.json*.
+### Install the Library for using Microsoft Entra ID Authentication
 
-## Add a local secret for the connection string
+The [Azure.StackExchange.Redis](https://www.nuget.org/packages/Microsoft.Azure.StackExchangeRedis) library contains the Microsoft Entra ID authentication method for connecting to Azure Redis services using Microsoft Entra ID. It's applicable to all Azure Cache for Redis, Azure Cache for Redis Enterprise, and Azure Managed Redis (Preview).
 
-In your *appsettings.json* file, add the following:
-
-```json
-{
-  "RedisHostName": "your_Azure_Redis_hostname"
-}
+```cli
+dotnet add package Microsoft.Azure.StackExchangeRedis
 ```
 
-1. Replace "your_Azure_Redis_hostname" with your Azure Redis host name and port numbers. For example: `cache-name.region.redis.azure.net:10000` for Azure Managed Redis (preview), and `cache-name.redis.cache.windows.net:6380` for Azure Cache for Redis services.
+---
+
+## Connect to the cache using Microsoft Entra ID
+
+1. Include the libraries in your code
+
+   ```csharp
+   using Azure.Identity;
+   using StackExchange.Redis
+   ```
+
+1. Using the default Azure credentials to authenticate the client connection. This enables your code to use the signed-in user credential when running locally, and an Azure managed identity when running in Azure without code change.
+
+```csharp
+var configurationOptions = await ConfigurationOptions.Parse($"{_redisHostName}").ConfigureForAzureWithTokenCredentialAsync(new DefaultAzureCredential());
+ConnectionMultiplexer _newConnection = await ConnectionMultiplexer.ConnectAsync(configurationOptions);
+IDatabase Database = _newConnection.GetDatabase();
+```
+
+::: zone pivot="azure-managed-redis"
+
+### To edit the _appsettings.json_ file
+
+1. Edit the _Web.config_ file. Then add the following content:
+
+    ```json
+    "_redisHostName":"<cache-hostname>"
+    ```
+
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal.
+
+   For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
 
 1. Save the file.
 
-## Connect to the cache with RedisConnection
-
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
-
-```csharp
-using StackExchange.Redis;
-
-```
-<!-- Is this right Philo -->
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
-
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
-<!-- :::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs"::: -->
+::: zone-end
 
-## Executing cache commands
+::: zone pivot="azure-cache-redis"
 
-In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
-<!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
-```csharp
-private static async Task RunRedisCommandsAsync(string prefix)
-    {
-        // Simple PING command
-        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
-        RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
-        Console.WriteLine($"{prefix}: Cache response: {pingResult}");
+### To edit the _appsettings.json_ file
 
-        // Simple get and put of integral data types into the cache
-        string key = "Message";
-        string value = "Hello! The cache is working from a .NET console app!";
+1. Edit the _appsettings.json_ file. Then add the following content:
 
-        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-        RedisValue getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+    ```json
+    "_redisHostName":"<cache-hostname>"
+    ```
 
-        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: SET {key} \"{value}\" via StringSetAsync()");
-        bool stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync(key, value));
-        Console.WriteLine($"{prefix}: Cache response: {stringSetResult}");
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview section of the Resource menu in the Azure portal. 
 
-        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: GET {key} via StringGetAsync()");
-        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync(key));
-        Console.WriteLine($"{prefix}: Cache response: {getMessageResult}");
+   For example, with Azure Cache for Redis: _my-redis.eastus.azure.net:6380_
 
-        // Store serialized object to cache
-        Employee e007 = new Employee("007", "Davide Columbo", 100);
-        stringSetResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringSetAsync("e007", JsonSerializer.Serialize(e007)));
-        Console.WriteLine($"{Environment.NewLine}{prefix}: Cache response from storing serialized Employee object: {stringSetResult}");
+1. Save the file.
 
-        // Retrieve serialized object from cache
-        getMessageResult = await _redisConnection.BasicRetryAsync(async (db) => await db.StringGetAsync("e007"));
-        Employee e007FromCache = JsonSerializer.Deserialize<Employee>(getMessageResult);
-        Console.WriteLine($"{prefix}: Deserialized Employee .NET object:{Environment.NewLine}");
-        Console.WriteLine($"{prefix}: Employee.Name : {e007FromCache.Name}");
-        Console.WriteLine($"{prefix}: Employee.Id   : {e007FromCache.Id}");
-        Console.WriteLine($"{prefix}: Employee.Age  : {e007FromCache.Age}{Environment.NewLine}");
-    }
-
-```
-
-Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
-
-In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and command.
-
-### Work with .NET objects in the cache
-
-The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
-
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized.
-
-This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
-
-The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object:
-
-```csharp
-class Employee
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-
-        public Employee(string id, string name, int age)
-        {
-            Id = id;
-            Name = name;
-            Age = age;
-        }
-    }
-```
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+::: zone-end
 
 ## Run the sample
 
-If you have opened any files, save them and build the app with the following command:
+If you opened any files, save them, and build the app with the following command:
 
 ```dos
 dotnet build
 ```
 
-Run the app with the following command to test serialization of .NET objects:
+To test serialization of .NET objects, run the app with the following command:
 
 ```dos
 dotnet run
@@ -151,7 +125,7 @@ dotnet run
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-## Next steps
+## Related content
 
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

@@ -6,7 +6,7 @@ ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: overview
 ms.date: 10/01/2024
-ms.custom: engagement-fy23, references_regions
+ms.custom: engagement-fy23
 ms.author: jacobjaygbay
 ---
 
@@ -40,19 +40,6 @@ Oracle Database@Azure is an Oracle Cloud database service that runs Oracle Datab
 All infrastructure for Oracle Database@Azure is co-located in Azure's physical data centers and uses Azure Virtual Network for networking, managed within the Azure environment. Federated identity and access management for Oracle Database@Azure is provided by Microsoft Entra ID.
 
 For detailed information on the compliance certifications please visit [Microsoft Services Trust Portal](https://servicetrust.microsoft.com/)  and [Oracle compliance website](https://docs.oracle.com/en-us/iaas/Content/multicloud/compliance.htm). If you have further questions about OracleDB@Azure compliance please reach out to your account team and/or get information through [Oracle and Microsoft support for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaahelp.htm).
-
-## Available regions
-
-Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
-
-|Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
-|-------------------------|:-------------:|:--------------:|
-|East US |&check; | &check;|
-|Germany West Central | &check;|&check; |
-|France Central |&check; | |
-|UK South |&check; |&check; |
-|Canada Central |&check; |&check; |
-|Australia East |&check; |&check; |
 
 ## Oracle Support scope and contact information 
 

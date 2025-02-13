@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/30/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure PostgreSQL databases using Azure PowerShell

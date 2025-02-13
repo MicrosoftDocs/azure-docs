@@ -5,7 +5,7 @@ description: Learn how Azure routes virtual network traffic and how you can cust
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/30/2024
 ms.author: allensu
 ---
@@ -53,7 +53,7 @@ Azure adds more default system routes for different Azure capabilities, but only
 |Default                |Multiple                               |`VirtualNetworkServiceEndpoint`|Only the subnet for which a service endpoint is enabled|
 
 * **Virtual network peering**: When you create a virtual network peering between two virtual networks, the system adds a route for each address range within the address space of each virtual network involved in the peering. Learn more about [virtual network peering](virtual-network-peering-overview.md).
-* **Virtual network gateway**: One or more routes with **Virtual network gateway** listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also **Virtual network gateway** because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+* **Virtual network gateway**: One or more routes with **Virtual network gateway** listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also **Virtual network gateway** because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 * `VirtualNetworkServiceEndpoint`: The public IP addresses for certain services are added to the route table by Azure when you enable a service endpoint to the service. Service endpoints are enabled for individual subnets within a virtual network, so the route is added only to the route table of a subnet for which a service endpoint is enabled. The public IP addresses of Azure services change periodically. Azure manages the addresses in the route table automatically when the addresses change. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md) and the services for which you can create service endpoints.
 
     > [!NOTE]
@@ -65,7 +65,7 @@ You create custom routes by either creating [user-defined](#user-defined) routes
 
 ### User-defined
 
-To customize your traffic routes, you shouldn't modify the default routes. You should create custom or user-defined (static) routes, which override the Azure default system routes. In Azure, you create a route table and then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes that you can add to a route table and the maximum number of UDR tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+To customize your traffic routes, you shouldn't modify the default routes. You should create custom or user-defined (static) routes, which override the Azure default system routes. In Azure, you create a route table and then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes that you can add to a route table and the maximum number of UDR tables you can create per Azure subscription, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
 By default, a route table can contain up to 400 UDRs. With the Azure Virtual Network Manager [routing configuration](../virtual-network-manager/concept-user-defined-route.md), this number can expand to 1,000 UDRs per route table. This increased limit supports more advanced routing setups. An example is directing traffic from on-premises datacenters through a firewall to each spoke virtual network in a hub-and-spoke topology when you have a higher number of spoke virtual networks.
 

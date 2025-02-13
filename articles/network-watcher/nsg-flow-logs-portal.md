@@ -35,7 +35,7 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/subscriptions.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/nsg-flow-logs-portal/subscriptions.png":::
+    :::image type="content" source="./media/subscriptions-portal-search.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/subscriptions-portal-search.png":::
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 

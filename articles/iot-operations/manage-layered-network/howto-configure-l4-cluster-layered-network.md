@@ -6,7 +6,7 @@ ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/22/2024
+ms.date: 12/12/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ms.service: azure-iot-operations
@@ -60,7 +60,7 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     Refer to the [K3s quick-start guide](https://docs.k3s.io/quick-start) for more detail.
 
     > [!IMPORTANT]
-    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
+    > Be sure to use the `--disable=traefik` parameter to disable traefik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
 
 1. Copy the K3s configuration yaml file to `.kube/config`.
 
@@ -182,6 +182,8 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
 Create the Layered Network Management custom resource.
 
 1. Create a `lnm-cr.yaml` file as specified:
+    - For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
+    - For more detail about the endpoints, see [Azure IoT Operations endpoints](/azure/iot-operations/deploy-iot-ops/overview-deploy#azure-iot-operations-endpoints).
 
     ```yaml
     apiVersion: layerednetworkmgmt.iotoperations.azure.com/v1beta1
@@ -201,104 +203,59 @@ Create the Layered Network Management custom resource.
       allowList:
         enableArcDomains: true
         domains:
-        - destinationUrl: "*.arc.azure.net"
-          destinationType: external
-        - destinationUrl: "*.data.mcr.microsoft.com"
+        - destinationUrl: "management.azure.com"
           destinationType: external
         - destinationUrl: "*.dp.kubernetesconfiguration.azure.com"
           destinationType: external
-        - destinationUrl: "*.guestnotificationservice.azure.com"
-          destinationType: external
-        - destinationUrl: "*.his.arc.azure.com"
+        - destinationUrl: "login.microsoftonline.com"
           destinationType: external
         - destinationUrl: "*.login.microsoft.com"
           destinationType: external
-        - destinationUrl: "*.login.microsoftonline.com"
+        - destinationUrl: "login.windows.net"
           destinationType: external
-        - destinationUrl: "*.obo.arc.azure.com"
+        - destinationUrl: "mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "*.data.mcr.microsoft.com"
+          destinationType: external
+        - destinationUrl: "gbl.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "*.his.arc.azure.com"
+          destinationType: external
+        - destinationUrl: "k8connecthelm.azureedge.net"
+          destinationType: external
+        - destinationUrl: "guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "*.guestnotificationservice.azure.com"
+          destinationType: external
+        - destinationUrl: "sts.windows.net"
+          destinationType: external
+        - destinationUrl: "k8sconnectcsp.azureedge.net"
           destinationType: external
         - destinationUrl: "*.servicebus.windows.net"
           destinationType: external
         - destinationUrl: "graph.microsoft.com"
           destinationType: external
-        - destinationUrl: "login.windows.net"
+        - destinationUrl: "*.arc.azure.net"
           destinationType: external
-        - destinationUrl: "management.azure.com"
+        - destinationUrl: "*.obo.arc.azure.com"
           destinationType: external
-        - destinationUrl: "mcr.microsoft.com"
-          destinationType: external
-        - destinationUrl: "sts.windows.net"
-          destinationType: external
-        - destinationUrl: "*.ods.opinsights.azure.com"
+        - destinationUrl: "linuxgeneva-microsoft.azurecr.io"
           destinationType: external
         - destinationUrl: "graph.windows.net"
           destinationType: external
-        - destinationUrl: "msit-onelake.pbidedicated.windows.net"
-          destinationType: external
         - destinationUrl: "*.azurecr.io"
-          destinationType: external
-        - destinationUrl: "*.azureedge.net"
           destinationType: external
         - destinationUrl: "*.blob.core.windows.net"
           destinationType: external
-        - destinationUrl: "*.prod.hot.ingestion.msftcloudes.com"
-          destinationType: external
-        - destinationUrl: "*.prod.microsoftmetrics.com"
-          destinationType: external
-        - destinationUrl: "adhs.events.data.microsoft.com"
-          destinationType: external
-        - destinationUrl: "dc.services.visualstudio.com"
-          destinationType: external
-        - destinationUrl: "go.microsoft.com"
-          destinationType: external
-        - destinationUrl: "packages.microsoft.com"
-          destinationType: external
-        - destinationUrl: "www.powershellgallery.com"
-          destinationType: external
-        - destinationUrl: "*.gw.arc.azure.com"
-          destinationType: external
-        - destinationUrl: "*.gcs.prod.monitoring.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.warm.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "*.prod.hot.ingest.monitor.core.windows.net"
-          destinationType: external
-        - destinationUrl: "azure.archive.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "crl.microsoft.com"
-          destinationType: external
-        - destinationUrl: "*.table.core.windows.net"
+        - destinationUrl: "*.vault.azure.net"
           destinationType: external
         - destinationUrl: "*.blob.storage.azure.net"
-          destinationType: external
-        - destinationUrl: "*.docker.com"
-          destinationType: external
-        - destinationUrl: "*.docker.io"
-          destinationType: external
-        - destinationUrl: "*.googleapis.com"
-          destinationType: external
-        - destinationUrl: "github.com"
-          destinationType: external
-        - destinationUrl: "collect.traefik.io"
-          destinationType: external
-        - destinationUrl: "contracts.canonical.com"
-          destinationType: external
-        - destinationUrl: "database.clamav.net"
-          destinationType: external
-        - destinationUrl: "esm.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "livepatch.canonical.com"
-          destinationType: external
-        - destinationUrl: "motd.ubuntu.com"
-          destinationType: external
-        - destinationUrl: "update.traefik.io"
           destinationType: external
         sourceIpRange:
         - addressPrefix: "0.0.0.0"
           prefixLen: 0
     ```
 
-    For debugging or experimentation, you can change the value of **loglevel** parameter to **debug**.
 
 1. Create the Custom Resource to create a Layered Network Management instance.
 
@@ -309,7 +266,7 @@ Create the Layered Network Management custom resource.
 1. View the Layered Network Management Kubernetes service:
 
     ```bash
-    kubectl get services -n azure-iot-operations
+    kubectl get services
     ```
 
     ```output

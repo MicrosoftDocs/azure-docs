@@ -25,7 +25,7 @@ You need to complete these quickstarts to set up the Azure AI resources:
 
 - [Quickstart: Detect Personally Identifying Information (PII) in text](/azure/ai-services/language-service/personally-identifiable-information/quickstart) 
 
-- [Quickstart: Moderate text and images with content safety in Azure AI Studio](/azure/ai-studio/quickstarts/content-safety)
+- [Quickstart: Moderate text and images with content safety in Azure AI Foundry portal](/azure/ai-studio/quickstarts/content-safety)
 
 ## Prerequisite check
 
@@ -138,7 +138,7 @@ Loop through the content to check for any sensitive data. Start the sensitivity 
 Add the following code into the `AnalyzeSensitiveData` function following the line that creates the `TextAnalyticsClient` variable. 
 
 ```csharp
-bool senstiveDataDetected = false;  // we start with a baseline that of no sensitive data
+bool sensitiveDataDetected = false;  // we start with a baseline that of no sensitive data
 var actions = new TextAnalyticsActions
 {
     RecognizePiiEntitiesActions = new List<RecognizePiiEntitiesAction> { new RecognizePiiEntitiesAction() }
@@ -164,7 +164,7 @@ await foreach (var documentResults in operation.Value)
                 {
                     if (document.Entities.Count > 0)
                     {
-                        senstiveDataDetected = true; // Sensitive data detected
+                        sensitiveDataDetected = true; // Sensitive data detected
                     }
 
                 }
@@ -173,7 +173,7 @@ await foreach (var documentResults in operation.Value)
                  
     }
 }
-return senstiveDataDetected;
+return sensitiveDataDetected;
 ```
 
 ## Add function that checks for inappropriate content
@@ -328,4 +328,4 @@ else
 ## Next steps
 
 - Learn more about [Azure Communication Services](../overview.md).
-- Learn more about [Azure AI Studio](/azure/ai-studio/).
+- Learn more about [Azure AI Foundry](/azure/ai-studio/).

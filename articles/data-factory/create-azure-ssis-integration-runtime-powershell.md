@@ -116,16 +116,25 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
 }
 ```
 
+## Get Azure Batch application ID
+
+1. Navigate to [Azure portal](https://portal.azure.com).
+1. In the search bar, type `Microsoft Azure Batch`, and select it from the drop-down list, under **Microsoft Entra ID**. 
+1. On the **Microsoft Azure Batch** page, note down or copy the **Application ID** to the clipboard.
+1. In the following script, set the `$BatchApplicationId` variable to this value before running it.  
+
 ## Configure a virtual network
 
 Add the following script to automatically configure virtual network permissions and settings for your Azure-SSIS integration runtime to join.
 
 ```powershell
 # Make sure to run this script against the subscription to which the virtual network belongs
+
+$BatchApplicationId = "[REPLACE_WITH_AZURE_BATCH_APP_ID]"
+
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
-    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
@@ -433,13 +442,15 @@ if(![string]::IsNullOrEmpty($SSISDBServerEndpoint))
         }
     }
 }
-
 ### Configure a virtual network
+
 # Make sure to run this script against the subscription to which the virtual network belongs
+
+$BatchApplicationId = "[REPLACE_WITH_AZURE_BATCH_APP_ID]"
+
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
-    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
     $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
     Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))

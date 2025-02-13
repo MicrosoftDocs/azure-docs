@@ -109,7 +109,7 @@ az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Mo
 After your machine is Azure Arc-enabled, it's recognized as an Azure resource. After you enable the Azure Monitor Agent extension, install the Network Watcher extension. The process is similar to installing the Network Watcher extension in an Azure VM. 
 
 To make Connection Monitor recognize your Azure Arc-enabled on-premises machines with the Azure Monitor Agent extension as monitoring sources, install the Network Watcher agent virtual machine extension on them. This extension is also known as the Network Watcher extension. 
-To install the Network Watcher extension on your Azure Arc-enabled servers with the Azure Monitor Agent extension installed, see [Monitor network connectivity by using Connection Monitor](connection-monitor-overview.md#agents-for-azure-virtual-machines-and-virtual-machine-scale-sets). 
+To install the Network Watcher extension on your Azure Arc-enabled servers with the Azure Monitor Agent extension installed, see [Monitoring connectivity from Azure virtual machines and virtual machine scale sets](connection-monitor-overview.md#monitoring-connectivity-from-azure-virtual-machines-and-virtual-machine-scale-sets). 
 
 You can also use the following command to install the Network Watcher extension in your Azure Arc-enabled machine with Azure Monitor Agent extension. 
 
