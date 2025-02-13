@@ -6,7 +6,7 @@ ms.custom: devx-track-arm-template
 ms.date: 02/12/2025
 ---
 
-# Use Azure portal to export a template
+# Use Azure portal to export a Bicep file
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
 
