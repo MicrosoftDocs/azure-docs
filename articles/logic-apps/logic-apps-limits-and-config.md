@@ -4,7 +4,7 @@ description: Reference guide about the limits and configuration settings for log
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/06/2024
 ---
 
