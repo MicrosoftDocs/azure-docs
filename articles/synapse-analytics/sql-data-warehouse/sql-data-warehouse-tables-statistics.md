@@ -25,21 +25,21 @@ For example, the optimizer selects a certain plan if it estimates that that the 
 
 ## Automatic creation of statistic
 
-When the database **AUTO_CREATE_STATISTICS** option is on, dedicated SQL pool analyzes incoming user queries for missing statistics.
+When the database `AUTO_CREATE_STATISTICS` option is on, dedicated SQL pool analyzes incoming user queries for missing statistics.
 
 If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 > [!NOTE]
 > Automatic creation of statistics is currently turned on by default.
 
-You can check if your dedicated SQL pool has **AUTO_CREATE_STATISTICS** configured by running the following command:
+You can check if your dedicated SQL pool has `AUTO_CREATE_STATISTICS` configured by running the following T-SQL command:
 
 ```sql
 SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
 
-If your dedicated SQL pool doesn't have **AUTO_CREATE_STATISTICS** configured, we recommend you enable this property by running the following command:
+If your dedicated SQL pool doesn't have `AUTO_CREATE_STATISTICS` configured, we recommend you enable this property by running the following command. Replace `<your-datawarehouse-name>` with the name of your dedicated SQL pool.
 
 ```sql
 ALTER DATABASE <your-datawarehouse-name>
@@ -48,12 +48,12 @@ SET AUTO_CREATE_STATISTICS ON
 
 These statements trigger the automatic creation of statistics:
 
-- SELECT
-- INSERT-SELECT
-- CTAS
-- UPDATE
-- DELETE
-- EXPLAIN when containing a join or the presence of a predicate is detected
+- `SELECT`
+- `INSERT`... `SELECT`
+- `CREATE TABLE AS SELECT` (CTAS)
+- `UPDATE`
+- `DELETE`
+- `EXPLAIN` when containing a join or the presence of a predicate is detected
 
 > [!NOTE]
 > Automatic creation of statistics isn't performed on temporary or external tables.
@@ -71,7 +71,7 @@ When automatic statistics are created, they take the form: `_WA_Sys_<8 digit col
 DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
 
-The *table\_name* is the name of the table that contains the statistics to display. This table can't be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
+The `table_name` is the name of the table that contains the statistics to display. This table can't be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
 
 ## Update statistics
 
@@ -274,13 +274,13 @@ To create a multi-column statistics object, use the previous examples, but speci
 > [!NOTE]
 > The histogram, which is used to estimate the number of rows in the query result, is only available for the first column listed in the statistics object definition.
 
-In this example, the histogram is on *product\_category*. Cross-column statistics are calculated on *product\_category* and *product\_sub\_category*:
+In this example, the histogram is on `product_category`. Cross-column statistics are calculated on `product_category` and `product_sub_category`:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Because there's a correlation between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because there's a correlation between `product_category` and `product_sub_category`, a multi-column statistics object can be useful if these columns are accessed at the same time.
 
 ### Create statistics on all columns in a table
 

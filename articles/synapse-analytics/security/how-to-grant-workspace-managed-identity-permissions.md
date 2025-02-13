@@ -64,7 +64,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
 
 #### Step 3: Open Access control and add role assignment
 
-1. Select **Access control (IAM)** from the left navigation.
+1. Select **Access control (IAM)** from the resource menu.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 

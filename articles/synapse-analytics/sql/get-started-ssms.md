@@ -23,7 +23,7 @@ You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-
 
 > [!NOTE]
 > Supported tools for serverless SQL pool:
-> - [Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0.
+> - The [mssql extension](https://aka.ms/mssql-marketplace) for [Visual Studio Code](https://code.visualstudio.com/docs).
 > - SSMS is partially supported starting from version 18.5. You can use it to connect and query only.
 
 ## Prerequisites
@@ -48,7 +48,7 @@ To connect to Synapse SQL using dedicated SQL pool, follow these steps:
    * **Authentication**: Choose an authentication type, such as *SQL Server Authentication* or *Active Directory Integrated Authentication*.
    * **Login** and **Password**: Enter your user name and password if SQL Server Authentication was selected.
 
-1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample *AdventureWorksDW* database. You can expand the database to see the tables:
+1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample `AdventureWorksDW` database. You can expand the database to see the tables:
 
     :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png" alt-text="Screenshot that shows the Object Explorer window.":::
 
@@ -63,7 +63,7 @@ To connect to Synapse SQL using serverless SQL pool, follow these steps:
     :::image type="content" source="media/get-started-ssms/connect-object-explorer1.png" alt-text="Screenshot that shows the Connect to Server dialog box for serverless SQL pool.":::
 
    * **Server name**: Enter the server name previously identified.
-   * **Authentication**: Choose an authentication type, such as *SQL Server Authentication* or *Active Directory Integrated Authentication*.
+   * **Authentication**: Choose an authentication type, such as *SQL Server Authentication* or *Microsoft Entra Authentication*.
    * **Login** and **Password**: Enter your user name and password if SQL Server Authentication was selected.
 
 1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand *demo* to see the content in your sample database.
@@ -94,7 +94,7 @@ After you establish a database connection, you can query the data.
 
     :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png" alt-text="Screenshot of the Execute button to run the query.":::
 
-1. Look at the query results. In the following example, the *FactInternetSales* table has 60,398 rows.
+1. Look at the query results. In the following example, the `FactInternetSales` table has 60,398 rows.
 
     :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png" alt-text="Screenshot of the query results.":::
 
@@ -118,7 +118,7 @@ After you establish a database connection, you can query the data.
 
     :::image type="content" source="media/get-started-ssms/execute-query.png" alt-text="Screenshot of the Execute button to run the query for serverless SQL pool.":::
 
-1. Look at the query results. In this example, the *usPopulationView* view has 3,664,512 rows.
+1. Look at the query results. In this example, the `usPopulationView` view has 3,664,512 rows.
 
     :::image type="content" source="media/get-started-ssms/results.png" alt-text="Screenshot of the query results for serverless SQL pool.":::
 

@@ -22,7 +22,7 @@ This quickstart shows how to query CSV, Apache Parquet, and JSON files.
 Choose a SQL client to issue queries:
 
 - [Azure Synapse Studio](./get-started-create-workspace.md) is a web tool that you can use to browse files in storage and create SQL queries.
-- [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that lets you run SQL queries and notebooks on your on-demand database.
+- [Visual Studio Code](https://code.visualstudio.com/docs) with the [mssql extension](https://aka.ms/mssql-marketplace) is a cross-platform lightweight developer and data tool that lets you run SQL queries and notebooks on your on-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that lets you run SQL queries on your on-demand database.
 
 This quickstart uses the following parameters:
@@ -48,19 +48,19 @@ Create your own database for demo purposes. You can use this database to create 
 > [!NOTE]
 > The databases are used only for view metadata, not for actual data. Write down the database name for use later in the quickstart.
 
-Use the following command, changing `mydbname` to a name of your choice:
+Use the following T-SQL command, changing `<mydbname>` to a name of your choice:
 
 ```sql
-CREATE DATABASE mydbname
+CREATE DATABASE <mydbname>
 ```
 
 ### Create data source
 
-To run queries using serverless SQL pool, create a data source that serverless SQL pool can use to access files in storage. Execute the following code snippet to create the data source used in samples in this section:
+To run queries using serverless SQL pool, create a data source that serverless SQL pool can use to access files in storage. Execute the following code snippet to create the data source used in samples in this section. Replace `<strong-password-here>` with a strong password of your choice.
 
 ```sql
 -- create master key that will protect the credentials:
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter-strong-password-here>
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<strong-password-here>'
 
 -- create credentials for containers in our demo storage account
 CREATE DATABASE SCOPED CREDENTIAL sqlondemand
@@ -145,7 +145,7 @@ Files are stored in a *json* container, using folder *books*, and contain a sing
 
 ### Sample query
 
-The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by selected topics*:
+The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction*:
 
 ```sql
 SELECT
@@ -164,11 +164,11 @@ FROM OPENROWSET
 WITH
   ( jsonContent varchar(8000) ) AS [r]
 WHERE
-  JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by selected topics'
+  JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction'
 ```
 
 > [!IMPORTANT]
-> We read the entire JSON file as a single row or column. So FIELDTERMINATOR, FIELDQUOTE, and ROWTERMINATOR are set to 0x0b because we don't expect to find it in the file.
+> We read the entire JSON file as a single row or column. So `FIELDTERMINATOR`, `FIELDQUOTE`, and `ROWTERMINATOR` are set to `0x0b` because we don't expect to find it in the file.
 
 ## Related content
 
