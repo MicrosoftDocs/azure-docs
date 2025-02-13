@@ -13,7 +13,7 @@ ms.date: 02/12/2025
 # Preview API life cycle
 
 The Azure App Configuration preview APIs (APIs that end in `-preview`) have a lifespan of ~one year from their release date.
-This means that you can expect the 2024-06-01-preview API to be deprecated somewhere around June 1st, 2025. 
+This means that you can expect the 2024-06-01-preview API to be deprecated somewhere around June 1, 2025. 
 
 We love when people try our preview features and give us feedback, so we encourage you to use the preview APIs.
 
@@ -21,7 +21,7 @@ After an API version is deprecated, it will no longer function! We recommend you
 - Update your ARM/BICEP templates using preview API versions to use the latest version of the preview API.
 - Update any preview SDKs or other tools built on the preview API to the latest version.
 
-You should perform these updates at a minimum every 6-9 months. If you fail to do so, you will be notified that you are using a soon-to-be deprecated 
+You should perform these updates at a minimum every 6-9 months. If you fail to do so, you'll be notified that you're using a soon-to-be deprecated 
 API version as deprecation approaches.
 
 ## How to check what API versions you're using
