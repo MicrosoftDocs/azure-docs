@@ -3,7 +3,7 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 02/13/2025
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
@@ -39,19 +39,17 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 
 ## <a name="dts"></a>Durable Task Scheduler (preview)
 
-The Durable Task Scheduler is a fully managed backend for running code that handles failures and interruptions through automatic retries and state persistence. Coupled with the Durable Functions framework, the Durable Task Scheduler enables developers to write stateful orchestrations within compute environments, without the need to architect for fault tolerance.
+The Durable Task Scheduler is a fuly managed, high performance backend for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new backend aims to provide the best user experience in aspects such as management, observability, performance, and security.  
 
-The key benefits of the Durable Task Scheduler storage provider include:
+The key benefits of the Durable Task Scheduler include:
+* Significantly lower management and operation overhead compared to "bring-your-own" backend options
+* First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
+* Supports the highest throughput of all backend available today.
+* Support for authentication using managed identity.
 
-* A cloud-native solution outside of the Functions host/programming model.
-* Significantly reduced operation overhead.
-* An efficient and fast backend with high throughput for scheduling orchestrations and associated activities.
-* Adherence to Azure security best practices by enabling developers to manage authorization and access through Managed Identity.
-* [The Durable Task Scheduler dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md), from which developers can track, debug, and manage the state and progress of orchestrations.
+Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/manage-durable-task-scheduler.md). 
 
-Learn more about [the technical details of the Durable Task Scheduler (TODO)](), and [how to get started using it](./durable-task-scheduler/manage-durable-task-scheduler.md). 
-
-The source code for the Durable Task Scheduler storage provider can be found in the [TODO]() GitHub repo.
+The source code for Durable Task Scheduler can be found in the [TODO]() GitHub repo.
 
 ## <a name="netherite"></a>Netherite
 
