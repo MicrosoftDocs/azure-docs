@@ -20,6 +20,12 @@ For information on release notes for the connected machine agent, see
 
 ## Windows extension release notes
 
+### Version 1.29.86.0 - January 2025
+
+#### Updated
+
+- Updated OpenSSL from version 3.3.2 to 3.4.0.
+
 ### Version 1.29.85.0 - October 2024
 
 #### Updated
@@ -44,6 +50,12 @@ For information on release notes for the connected machine agent, see
 
 
 ## Extension for Linux extension release notes
+
+### Version 1.26.80 - January 2025
+
+#### Updated
+
+- Updated OpenSSL from version 3.0.15 to 3.4.0.
 
 ### Version 1.26.79 - October 2024
 
