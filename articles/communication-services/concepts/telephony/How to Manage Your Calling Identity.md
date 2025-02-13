@@ -171,4 +171,5 @@ display names is unreliable, and, in many cases, the downstream carriers
 will strip the caller ID. In Canada, it's more reliable and in some
 states considered standard practice, the recommendation for CA/US is to
 use both CNAM and the API to set the Caller ID, and in the RoW the
-experience will vary based on the country.
+experience varies based on the country.
+
