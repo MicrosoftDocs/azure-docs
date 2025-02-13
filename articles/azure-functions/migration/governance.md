@@ -1,20 +1,21 @@
 ---
-title: Migrate governance from AWS Lambda to Azure Functions
-description: Governance specification for migrating AWS Lambda to Azure Functions.
+title: Migrate governance implementation from AWS Lambda to Azure Functions
+description: Plan the migration of your AWS Lambda governance implementation.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
 ms.topic: conceptual
 ---
 
-# Migrate governance from AWS Lambda to Azure Functions
+# Migrate governance implementation from AWS Lambda to Azure Functions
 
-|![Goal icon](../../migration/images/goal.svg) All policies, procedures, and controls applied to an existing AWS Lambda service are transferred and enforced when you migrate to Azure Functions, so you maintain equivalent compliance requirements without regression.|
-|--| 
+| :::image type="icon" source="../../migration/images/goal.svg"::: All policies, procedures, and controls applied to an existing AWS Lambda service are transferred and enforced when you migrate to Azure Functions, so you maintain equivalent compliance requirements without regression. |
+| :-- |
 
 ## Scope
 
-` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
+> [!NOTE]
+> **Content developer**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas.
 
 This article guides you in your pre-migration assessment of your existing AWS Lambda governance implementation, to prepare you for replatforming to Azure Functions.
 
@@ -29,7 +30,8 @@ These aspects are not covered in this article:
 
 ## Discovery
 
-` **Author note**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article.`
+> [!NOTE]
+> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article.
 
 Understand the existing organizational policies, workload polices, regulatory requirements, and governance reporting applied to your AWS Lamba service. These existing investments need to be migrated or adapted to maintain continuity in Azure Functions. Without a complete inventory of the existing governance implementation, you risk regressing in your governance posture.
 
@@ -44,7 +46,8 @@ Understand the existing organizational policies, workload polices, regulatory re
 
 ### Key technical factors
 
-` **Author note**: Enumerate the typical and prominent features of Lambda governance. Try to achieve a one-to-one mapping of governance implementation. Make a note of gaps.` 
+> [!NOTE]
+> **Content developer**: Enumerate the typical and prominent features of Lambda governance. Try to achieve a one-to-one mapping of governance implementation. Make a note of gaps.`
 
 This table lists the common features of Lambda, their governance implementation on AWS, and the recommended equivalent in Azure. 
 
@@ -64,21 +67,34 @@ Here are some approaches on taking inventory of an existing governance implement
 
 Familiarize yourself with the Lambda governance implementation by using these resources:
 
-` **Author note**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples.`
-`- Your existing infrastructure as code artifacts`
-`- Your documented processes, such as security or recovery playbooks` 
-`- Architecture diagrams and architecture decision records (ADR).`
-`- Software engineering documentation`
+> [!NOTE]
+> **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources form an AWS SME. Here are some typical examples.
+>
+> - Your existing infrastructure as code artifacts
+> - Your documented processes, such as security or recovery playbooks
+> - Architecture diagrams and architecture decision records (ADR).
+> - Software engineering documentation
+
+- Resource 1
+- Resource 2
 
 #### Tools and processes
 
-` **Author note**: Collect these sources form an AWS SME.`
-` - Provide instructions (or link to instructions) on how to enumerate current policies and controls applied to Lambda.`
-` - Provide instructions on how to export typical governance reporting techniques for AWS Lambda.`
+> [!NOTE]
+> **Content developer**: Collect these sources form an AWS SME.
+>
+> - Provide instructions (or link to instructions) on how to enumerate current policies and controls applied to Lambda.
+> - Provide instructions on how to export typical governance reporting techniques for AWS Lambda.
+
+- Tool 1
+- Tool 2
+- Process 1
+- Process 2
 
 ### Deviations
 
-` **Author note**: Analyze the technical map and summarize the features that require decision making.`
+> [!NOTE]
+> **Content developer**: Analyze the technical map and summarize the features that require decision making.
 
 Deviations reflect gaps when one-to-one mapping isn't feasible. You'll need to make decisions for, prioritizing minimal deviation to business requirements. Consider the potential benefits and drawbacks of each mitigation.
 
@@ -95,7 +111,8 @@ Here's the summarized view of the gaps identified in the technical map.
 
 When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges. 
 
-` **Author note**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points.`
+> [!NOTE]
+> **Content developer**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points.
 
 - Potential Issue 1 - Description and mitigation.
 - Potential Issue 2 - Description and mitigation.

@@ -7,4 +7,7 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
-# Migrate capabilities associated with AWS Lambda to Azure Functions
+# Migrate dependencies associated with AWS Lambda to Azure Functions
+
+| :::image type="icon" source="../../migration/images/goal.svg"::: TBD |
+| :-- |

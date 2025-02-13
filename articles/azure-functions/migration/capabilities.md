@@ -9,3 +9,5 @@ ms.topic: conceptual
 
 # Migrate capabilities from AWS Lambda to Azure Functions
 
+| :::image type="icon" source="../../migration/images/goal.svg"::: TBD |
+| :-- |
