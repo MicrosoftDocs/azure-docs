@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 ` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
 
-This article provides a pre-migration assessment of AWS Lambda and its compatibility with Azure Functions. 
+This article offers an evaluation of how AWS Lambda compares to Azure Functions in terms of pre-migration readiness. 
 
 These aspects are covered in this article:
 
@@ -42,7 +42,7 @@ Understand the existing organizational policies, workload polices, regulatory re
 - What governance tooling is used to enforce policies in your Lambda?
 - Who is responsible for validating your governance compliance after migration, and how will they expect to validate compliance?
 
-### Key technical map
+### Key technical factors
 
 ` **Author note**: Enumerate the typical and prominent features of Lambda governance. Try to achieve a one-to-one mapping of governance implementation. Make a note of gaps.` 
 
@@ -72,7 +72,7 @@ Familiarize yourself with the Lambda governance implementation by using these re
 
 #### Tools and processes
 
-` **Author note**:`
+` **Author note**: Collect these sources form an AWS SME.`
 ` - Provide instructions (or link to instructions) on how to enumerate current policies and controls applied to Lambda.`
 ` - Provide instructions on how to export typical governance reporting techniques for AWS Lambda.`
 
