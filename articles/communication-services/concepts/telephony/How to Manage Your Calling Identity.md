@@ -129,7 +129,8 @@ customers can use the property
 Customers can set the display name appearing on target callee.
 
 
-Below is an example of placing a PSTN outbound call using ACS Call
+The following example places a PSTN outbound call using Call
+
 Automation:
 
 ```javascript
