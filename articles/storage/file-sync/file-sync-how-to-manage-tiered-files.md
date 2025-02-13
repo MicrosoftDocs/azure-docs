@@ -165,7 +165,7 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 
 Parameters:
 
-- `-Path` The -Path parameter in the Invoke-StorageSyncFileRecall command specifies where the recalled files should be restored on the local server. This path must be the server endpoint configured for Azure File Sync.
+- `-Path` The -Path parameter in the `Invoke-StorageSyncFileRecall` command specifies where the recalled files should be restored on the local server. This path must be the server endpoint configured for Azure File Sync.
 	* If you are unsure of the server endpoint path, navigate to your Azure File Sync agent → Select your Storage Sync Service → Open your Sync Group.
 	* You can also run the following command via PowerShell
  ```powershell
