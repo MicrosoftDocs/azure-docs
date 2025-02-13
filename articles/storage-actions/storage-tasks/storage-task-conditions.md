@@ -33,6 +33,14 @@ The following clause allows operations only on Microsoft Word documents. This cl
 }
 ```
 
+You can also apply a _not_ operator before the operator in a condition clause. The _not_ operator is a special operator that you can position before any operator to give the opposite result of a clause. The following clause allows operations on any blob that **is not** a Microsoft Word document.   
+
+```json
+{
+   "condition": "[[not(endsWith(Name, '*.docx'))]]"
+}
+```
+
 For a complete list of operator and property names, see the [Supported operators](#supported-operators) and [Supported properties](#supported-properties) section of this article.
 
 ### Multiple clauses in a condition
@@ -63,7 +71,15 @@ The following condition allows operations only on Microsoft Word documents where
 
 ```json
 {
-"condition": "[[[or(and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '100'))]]"
+"condition": "[[or(and(endsWith(Name, '*.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '100'))]]"
+}
+```
+
+You can apply a _not_ operator to a group to test for the opposite result of a group of clauses. The following condition allows operations only on blobs that **are not** Microsoft Word documents where the `readyForLegalHold` tag of the blob is set to a value of `Yes`. Operations are also performed on objects that are greater than 100 bytes even if the other two conditions aren't true.
+
+```json
+{
+"condition": "[[or(not(and(endsWith(Name, '*.docx'), equals(Tags.Value[readyForLegalHold], 'Yes'))), greater(Content-Length, '100'))]]"
 }
 ```
 
@@ -75,6 +91,27 @@ The visual editor available in the Azure portal, can generate the JSON of a cond
 > ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
 
 To learn more about the visual editor, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
+
+## Condition preview
+
+You can view a list of blobs that would be impacted by the conditions that you've defined. That way, you can find issues and optimize conditions before applying them to production data. A preview does not make changes to the objects in a target storage account so it is safe to apply to test against production data.
+
+While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window was you define conditions and as you assign storage tasks. 
+
+To preview the effect of conditions, you must specify a target subscription, storage account and container. Because a can only show up to 5000 blobs, you can also specify a prefix to narrow the list. 
+
+> [!NOTE]
+> You can't use wildcard characters in the blob prefix.
+
+The following image shows an example of a preview result in the Azure portal.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of storage task preview window in the Azure portal.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-preview.png)
+
+The preview result appears in a table that shows objects which meet the condition along with objects that did not meet the condition. You can sort by field that appears in the table.
+
+If conditions refer to properties that don't exist in the target storage account, an error appears. For example, blob index tags aren't available for accounts that have a hierarchical namespace. If a clause in a condition refers to blob index tags, a validation error appears. 
+
 
 ## Supported properties
 
@@ -106,12 +143,14 @@ The following table shows the operators that you can use in a clause to evaluate
 | String | Date and time | Numeric | Boolean |
 |---|---|---|---|
 | contains | equals |equals | equals |
-| empty | greater | greater | not |
+| empty | greater | greater |  |
 | equals | greaterOrEquals |greaterOrEquals ||
 | endsWith | less | less ||
 | length | lessOrEquals | lessOrEquals ||
 | startsWith | addToTime | ||
-| Matches |  | ||
+| Matches |  | || 
+
+The **not** operator is a special operator that you can position before any of the operators that appear in this table to give the opposite result of conditional clause, also called the negative result.
 
 ## See also
 

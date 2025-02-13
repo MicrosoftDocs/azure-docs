@@ -33,13 +33,23 @@ A storage task contains a set of _conditions_, _operations_, and _assignments_. 
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. |
 | Assignments | An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. |
 
+## Flow of the experience
+
+- Person creates a task. They choose which type of identity to use as they create it (system or user)
+- Person can provide others with permission to collaborate on the creation and editing or managing of the task - see role article.
+- Person composes conditions in task.
+- Some other person can assign that task to a storage account. To create an assignment, they must have certain permissions. See assign role article.
+- As they create the assignment, they assign a role to the managed identity of the task. They can only assign a role that they themselves have on the account. Therefore, they must have owner. Point to the auth assign article for roles required to operate on accounts.
+
 ## How to use a storage task
 
 First, define the conditions and operations of a storage task. Then, assign that task to one or more storage accounts. Monitor task runs by using metrics, charts, and reports.
 
 ### Define a storage task
 
-Start by creating a storage task. To provision a storage task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer.  
+Start by creating a storage task. To provision a storage task, you must define at least one condition and one operation. After the task is created, you can edit those conditions and operations or add more of them by using a visual designer. 
+
+Explain here that you must choose a managed identity at creation time. 
 
 See these articles to learn how to define a storage task:
 
@@ -117,7 +127,7 @@ Azure Storage tasks are supported in the following public regions:
 
 You can try the feature for free during the preview, paying only for transactions invoked on your storage account. Pricing information for the feature will be published before general availability.
 
-> [!Note]
+> [!NOTE]
 > General-purpose v1 accounts don't support the latest features and hence Azure Storage Actions is not supported either. If you have a general-purpose v1 account, we recommend you to upgrade to [general-purpose v2 accounts](/azure/well-architected/service-guides/storage-accounts/operational-excellence#design-considerations) to use all the latest features.
 
 ## Next steps

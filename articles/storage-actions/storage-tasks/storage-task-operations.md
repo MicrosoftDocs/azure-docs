@@ -84,6 +84,8 @@ The following JSON shows two operations separate by a comma.
 ]
 ```
 
+*** Asyncronous operations. Put something in here for that capability.
+
 ## Supported operations
 
 The following table shows the supported operations, parameters, and parameter values:

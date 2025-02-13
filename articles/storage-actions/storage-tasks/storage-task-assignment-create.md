@@ -29,12 +29,12 @@ Create an assignment for each storage account you want to target. A storage task
 
 You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll identify the storage account that you want to target.
 
-Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**, and then select **Configure assignments**.
+Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**. 
+
+In the **Assignments** page, select **+ Add assignment** and the **Add assignment** pane will appear.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Assignments page that appears in the context of the storage task.](../media/storage-tasks/storage-task-assignment-create/assignment-create.png)
-
-In the **Assignments** page, select **+ Add assignment** and the **Add assignment** pane will appear.
 
 ### Create an assignment from the storage account menu
 
@@ -66,7 +66,7 @@ The following table describes each field in the **Select Scope** section:
 
 ### Add a role assignment
 
-In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles for storage tasks](storage-task-authorization-roles.md)
+In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
@@ -174,6 +174,8 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -ObjectId $task.IdentityPrincipalId  `
    -RoleDefinitionName "Storage Blob Data Owner"
 
+*** Need to add PowerShell commands for applying a user assigned managed identity
+
 ## [Azure CLI](#tab/azure-cli)
 
 ### Create an assignment by using Azure CLI
@@ -219,6 +221,19 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
       --role $roleDefinitionId \
       --description "My role assignment" 
    ```
+
+**** Steps from spec for using a user assigned managed identity
+
+# Customer creates user-assigned managed identity named "storagetask-identity" in resource group "my-rg"
+az identity create --name storagetask-identity --resource-group my-rg
+# Customer gets the identity ID of the user-assigned managed identity
+identityId=$(az identity show --name storagetask-identity --resource-group my-rg --query id -o tsv)
+# Customer assigns the identity to an already created Storage Task named "my-st" in the resource group
+az st identity assign --name my-st --resource-group my-rg --identities $identityId
+# Customer gets the scope of the resource that they want to assign the role to, such as a storage account named "my-storage" in the resource group "my-rg"
+scope=$(az resource show --name my-storage --resource-group my-rg --resource-type Microsoft.Storage/storageAccounts --query id -o tsv)
+# Customer adds a role assignment to the user-assigned identity, such as the "Storage Blob Data Contributor" role
+az role assignment create --assignee $identityId --role "Storage Blob Data Contributor" --scope $scope
 
 ## [Bicep](#tab/bicep)
 
