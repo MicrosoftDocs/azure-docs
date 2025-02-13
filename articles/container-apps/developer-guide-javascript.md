@@ -16,7 +16,7 @@ As a seasoned developer venturing into Azure Container Apps for hosting your Jav
 ## Configuration
 
 ### Environment Variables
-Environment variables are crucial for configuring your application. Use a `.env` file to manage these variables locally and ensure they're securely managed in production.
+Environment variables are crucial for configuring your application. Use a `.env` file to manage these variables locally and ensure they're securely managed in production with a service like [Azure Key Vault](/azure/key-vault/).
 
 ```bash
 # .env
