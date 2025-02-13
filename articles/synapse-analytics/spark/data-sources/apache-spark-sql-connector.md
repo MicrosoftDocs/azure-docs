@@ -1,8 +1,8 @@
 ---
 title: Azure SQL and SQL Server 
 description: This article provides information on how to use the  connector for moving data between Azure MS SQL and serverless Apache Spark pools.
-author: ekote
-ms.author: eskot 
+author: guyhay
+ms.author: guyhay 
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
