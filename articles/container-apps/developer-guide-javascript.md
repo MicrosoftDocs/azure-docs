@@ -23,78 +23,138 @@ PORT=3000
 AZURE_COSMOS_DB_ENDPOINT=https://your-cosmos-db.documents.azure.com:443/
 ```
 
-### Dockerfile
-A well-configured Dockerfile is essential for containerizing your application. Ensure you're using a Node.js base image and copying only the necessary files.
+### Containers
+
+A well-configured Dockerfile is essential for containerizing your application:
+* **Common Setup – Use a Base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
+* **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development or production.
+* **Optimized Base Image – Node.js Variant**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead.
+* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container.
+* **Multi-stage Builds – Separate Build and Runtime**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
+* **Prebuild Artifacts – Compile/Bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can further minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile will also optimize caching and rebuild times.
+* **Development Environments – Docker Compose**: Use Docker Compose for development environments. Docker Compose allows you to define and run multi-container Docker applications, which can be useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services if necessary.
+
+### Base Dockerfile
+
+This file serves as a common starting point for your Node.js images. You can use it with a FROM directive in your other Dockerfiles.
 
 ```yaml
-# Use an official Node.js runtime as a parent image
-FROM node:22
+# Dockerfile.base
+
+FROM node:22-alpine
 
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Define build arguments with default values
+ARG PORT_DEFAULT=3000
+ARG ENABLE_DEBUG_DEFAULT=false
 
-# Install dependencies
+# Set environment variables using the build arguments
+ENV PORT=${PORT_DEFAULT}
+ENV ENABLE_DEBUG=${ENABLE_DEBUG_DEFAULT}
+
+# Copy package manifests and install dependencies
+COPY package*.json ./
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+# Expose the application and debugging ports
+EXPOSE $PORT
+EXPOSE 9229
 
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Define the command to run the app
-CMD ["node", "dist/index.js"]
+# This image focuses on common steps; project-specific Dockerfiles can extend this.
 ```
 
-Here's a more robust Dockerfile example that uses multi-stage builds to separate the build layer from the runtime layer. This approach helps to reduce the final image size and improve security by only including the necessary runtime dependencies in the final image.
+When you pass in values using the --build-arg flag during the build process, those values override the hardcoded default values in your Dockerfile. For example, using:
+
+```bash
+docker build \
+  --build-arg PORT_DEFAULT=4000 \
+  --build-arg ENABLE_DEBUG_DEFAULT=true \
+  -t my-custom-image:latest \
+  -f Dockerfile.base .
+```
+
+In this build, the environment variables PORT and ENABLE_DEBUG are set to 4000 and true, respectively, instead of their default values.
+
+### Development environment with Docker Compose
+
+This configuration uses a dedicated development Dockerfile (Dockerfile.dev) along with volume mounts for live reloading and local source sync.
 
 ```yaml
-# Stage 1: Build
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+      args:
+        PORT_DEFAULT: ${PORT:-3000}
+        ENABLE_DEBUG_DEFAULT: ${ENABLE_DEBUG:-false}
+    ports:
+      - "${PORT:-3000}:3000"
+      - "9229:9229"  # Expose debug port if needed
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=${PORT:-3000}
+      - ENABLE_DEBUG=${ENABLE_DEBUG:-false}
+```
+
+To start Docker Compose with custom values, you can export the environment variables on the command line. For example:
+
+```bash
+PORT=4000 ENABLE_DEBUG=true docker compose up
+```
+
+### Production Dockerfile
+
+This multi-stage Dockerfile builds your application and produces a lean runtime image. 
+
+```yaml
+# Stage 1: Builder
 FROM node:22 AS build
 
-# Set the working directory
 WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of the application code
 COPY . .
 
-# Build the application
+# Build your project (e.g., compile TypeScript or bundle JavaScript)
 RUN npm run build
 
 # Stage 2: Runtime
-FROM node:22-alpine AS runtime
+FROM my-base-image:latest AS runtime
 
-# Set the working directory
 WORKDIR /usr/src/app
 
-# Copy only the necessary files from the build stage
+# Copy only the compiled output and essential files from the build stage
 COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/package*.json ./
 
 # Install only production dependencies
 RUN npm install --only=production
 
-# Expose the port the app runs on
-EXPOSE 3000
+# Copy the entrypoint script for remote debugging
+COPY entrypoint.sh /usr/src/app/entrypoint.sh
+RUN chmod +x /usr/src/app/entrypoint.sh
 
-# Define the command to run the app
-CMD ["node", "dist/index.js"]
+# Expose the application port (using the PORT environment variable) and the debug port (9229)
+EXPOSE $PORT
+EXPOSE 9229
+
+# Use the entrypoint script to conditionally enable debugging
+ENTRYPOINT ["sh", "/usr/src/app/entrypoint.sh"]
 ```
+The entrypoint script allows you to connect to your container app for [remote debugging](#remote-debugging). 
 
-### Node.js Specific Configuration
+To run a container from the built production image with custom environment variables, run:
 
-Ensure your package.json and tsconfig.json (for TypeScript) are properly configured.
-
-
+```bash
+docker run -e PORT=4000 -e ENABLE_DEBUG=true -p 4000:4000 -p 9229:9229 my-production-image:latest
+```
 
 ## Deployment
 * Continuous Integration/Continuous Deployment (CI/CD) - Set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
@@ -113,10 +173,10 @@ Ensure your package.json and tsconfig.json (for TypeScript) are properly configu
         runs-on: ubuntu-latest
 
         steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v4
 
         - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
             node-version: '22'
 
@@ -127,7 +187,7 @@ Ensure your package.json and tsconfig.json (for TypeScript) are properly configu
         run: npm run build
 
         - name: Log in to Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
             creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -309,19 +369,19 @@ Implement debugging with the following steps:
 2. **Update Your Dockerfile**  
    Modify your Dockerfile to copy the `entrypoint.sh` script into the container and set it as the entrypoint. Also, expose the debug port if needed:
 
-   ```yaml
-   # Copy the entrypoint script to the container
-   COPY entrypoint.sh /usr/src/app/entrypoint.sh
-
+    ```yaml
+    # Copy the entrypoint script to the container
+    COPY entrypoint.sh /usr/src/app/entrypoint.sh
+    
     # Ensure the script is executable
     RUN chmod +x /usr/src/app/entrypoint.sh
-
-   # Expose the debugging port (if using debug mode)
-   EXPOSE 9229
-
-   # Set the shell script as the container’s entrypoint
-   ENTRYPOINT ["sh", "/usr/src/app/entrypoint.sh"]
-   ```
+    
+    # Expose the debugging port (if using debug mode)
+    EXPOSE 9229
+    
+    # Set the shell script as the container’s entrypoint
+    ENTRYPOINT ["sh", "/usr/src/app/entrypoint.sh"]
+    ```
 
 3. **Triggering Debug Mode**  
    When deploying your Azure Container App, set the environment variable `ENABLE_DEBUG` to `true` to start the container in debug mode. For example, using the Azure CLI:
@@ -393,7 +453,7 @@ Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemNa
     az monitor diagnostic-settings create --resource my-container-app --workspace myWorkspace --logs '[{"category": "ContainerAppConsoleLogs","enabled": true}]'
     ```
 
-* Debugging - Use remote debugging tools to connect to your running container. Ensure your Dockerfile exposes the necessary ports for debugging.
+* Debugging - Use [remote debugging](#remote-debugging) tools to connect to your running container. Ensure your Dockerfile exposes the necessary ports for debugging.
 
     ```yaml
     # Expose the debugging port
@@ -413,3 +473,8 @@ Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemNa
         initialDelaySeconds: 30
         periodSeconds: 10
     ```
+
+## More resources
+
+* [Development container prebuilds](https://containers.dev/guide/prebuild#tips)
+* [Containers in development and production](https://github.com/orgs/devcontainers/discussions/123)
