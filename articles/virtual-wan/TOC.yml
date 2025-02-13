@@ -257,7 +257,7 @@
         - name: Windows clients
           href: point-to-site-entra-vpn-client-windows.md
         - name: macOS clients
-          href: openvpn-azure-ad-client-mac.md
+          href: point-to-site-entra-vpn-client-mac.md
         - name: Linux clients
           href: point-to-site-entra-vpn-client-linux.md
       - name: VPN client profiles
