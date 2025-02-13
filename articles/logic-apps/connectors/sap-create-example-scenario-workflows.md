@@ -80,9 +80,9 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Advanced parameters** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
    | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Advanced parameters** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
-   The following example shows a basically configured SAP managed trigger in a workflow:
+   The following example shows a minimally configured SAP managed trigger in a workflow:
 
-   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-managed-trigger.png" alt-text="Screenshot shows workflow and a basically configured SAP managed connector trigger.":::
+   :::image type="content" source="media/sap-create-example-scenario-workflows/sap-managed-trigger.png" alt-text="Screenshot shows workflow and a minimally configured SAP managed connector trigger.":::
 
    The following example shows an SAP managed trigger where you can filter messages by selecting SAP actions:
 
@@ -145,7 +145,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
 
    The following example shows a minimally configured SAP built-in trigger in a Standard workflow:
 
-   :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png" alt-text="Screenshot shows Standard workflow and basically configured SAP built-in connector trigger.":::
+   :::image type="content" source="media/sap-create-example-scenario-workflows/trigger-sap-built-in-standard.png" alt-text="Screenshot shows Standard workflow and minimally configured SAP built-in connector trigger.":::
 
 1. Save your workflow so you can start receiving messages from your SAP server. On the designer toolbar, select **Save**.
 
