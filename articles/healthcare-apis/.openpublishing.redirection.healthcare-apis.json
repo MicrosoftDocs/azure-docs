@@ -352,7 +352,7 @@
       },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/tutorial-web-app-test-postman.md",
-          "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-test-postman",
+          "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/new-tutorial-web-app-test-postman",
           "redirect_document_id": false
       },
       {
