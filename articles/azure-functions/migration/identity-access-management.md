@@ -9,14 +9,14 @@ ms.topic: conceptual
 
 # Migrate identity and access management of AWS Lambda to Azure Functions
 
-|![Goal icon](../../migration/images/goal.svg) The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently implemented on Azure Functions. You maintain your workload's identity security posture along with existing identity auditing requirements. Your Azure Functions implementation provides continunity for end-user access, human and automation control plane access, and workload identities for service and code dependencies. |
+| :::image type="icon" source="../../migration/images/goal.svg"::: The authentication and authorization requirements implemented on your existing AWS Lambda service are equivently implemented on Azure Functions. You maintain your workload's identity security posture along with existing identity auditing requirements. Your Azure Functions implementation provides continunity for end-user access, human and automation control plane access, and workload identities for service and code dependencies. |
 |--| 
 
 ## Scope
 
 ` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
 
-This article provides a pre-migration assessment of AWS Lambda and its compatibility with replatforming to Azure Functions. 
+This article guides you in your pre-migration assessment of your existing AWS Lambda implementation, to prepare you for replatforming to Azure Functions.
 
 These aspects are covered in this article:
 
@@ -55,7 +55,7 @@ Your workload might also have access auditing requirements that must be reimplem
 - What are the set of permissions assigned to each identity?
 - What dependencies (if any) of this workload will remain on AWS? How must identity from Azure work for those resource owner services?
 
-### Key technical map
+### Key technical factors
 
 ` **Author note**: Enumerate the typical and prominent features of Lambda identity, covering both end user access (data plane), operations (control plane), and workload identity. Try to achieve a one-to-one mapping of IAM implementation. Make a note of gaps. `
 
@@ -87,7 +87,7 @@ Familiarize yourself with the Lambda implementation by using these resources:
 
 #### Tools and processes
 
-` **Author note**: `
+` **Author note**: Collect these sources form an AWS SME. `
 ` - Provide instructions (or link to instructions) on how to enumerate control plane IAM configuration. `
 ` - Provide instructions (or link to instructions) on how to evaluate hosted code for AuthN/AuthZ controls. `
 ` - Provide instructions on audit reporting for typical AWS Lambda interactions are handled to have customer explore deployment. `
