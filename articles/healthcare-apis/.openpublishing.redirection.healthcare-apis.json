@@ -56,6 +56,11 @@
           "redirect_document_id": false
       },
       {
+          "source_path_from_root": "/articles/healthcare-apis/access-fhir-postman-tutorial.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/access-fhir-postman-tutorial",
+          "redirect_document_id": true
+      },
+      {
           "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi-token-validation.md",
           "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
           "redirect_document_id": true
@@ -176,6 +181,11 @@
           "redirect_document_id": true
       },
       {
+          "source_path_from_root": "/articles/healthcare-apis/tutorial-web-app-test-postman.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/tutorial-web-app-test-postman",
+          "redirect_document_id": true
+      },
+      {
           "source_path_from_root": "/articles/healthcare-apis/tutorial-web-app-write-web-app.md",
           "redirect_url": "/azure/healthcare-apis/fhir/tutorial-web-app-write-web-app",
           "redirect_document_id": true
@@ -198,6 +208,11 @@
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/enable-diagnostic-logging.md",
           "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/access-fhir-postman-tutorial.md",
+          "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial",
           "redirect_document_id": true
       },
      {
@@ -336,6 +351,11 @@
           "redirect_document_id": true
       },
       {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/tutorial-web-app-test-postman.md",
+          "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-test-postman",
+          "redirect_document_id": true
+      },
+      {
           "source_path_from_root": "/articles/healthcare-apis/fhir/tutorial-web-app-write-web-app.md",
           "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-write-web-app",
           "redirect_document_id": true
@@ -403,6 +423,11 @@
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-arm-template-quickstart.md",
           "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-resource-manager-template",
+          "redirect_document_id": true
+      },
+      {
+          "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial.md",
+          "redirect_url": "/azure/healthcare-apis/fhir/use-postman",
           "redirect_document_id": true
       },
       {
