@@ -2,7 +2,7 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 12/24/2024
+ms.date: 02/13/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Configure and manage backup for Azure Blobs using Azure Backup
 
-Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal.
+Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 
 ## Before you start
 
@@ -27,7 +27,6 @@ For more information about the supported scenarios, limitations, and availabilit
 
 - Vaulted backup of blobs is a managed offsite backup solution that transfers data to the backup vault and retains as per the retention configured in the backup policy. You can retain data for a maximum of *10 years*.
 - Currently, you can use the vaulted backup solution to restore data to a different storage account only. While performing restores, ensure that the target storage account doesn't contain any *containers* with the same name as those backed up in a recovery point. If any conflicts arise due to the same name of containers, the restore operation fails.
-- **Ensure the storage accounts that need to be backed up have cross-tenant replication enabled. You can check this by navigating to the storage account > Object replication > Advanced settings. Once here, ensure that the check-box is enabled.**
 
 For more information about the supported scenarios, limitations, and availability, See the [support matrix](blob-backup-support-matrix.md).
 

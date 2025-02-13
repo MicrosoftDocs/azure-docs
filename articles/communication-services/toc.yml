@@ -348,16 +348,12 @@ items:
     href: concepts/advanced-messaging/whatsapp/whatsapp-overview.md
   - name: Pricing
     href: concepts/advanced-messaging/whatsapp/pricing.md
-  - name: Try advanced messaging for WhatsApp
-    href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
   - name: Advanced messaging for WhatsApp terms of service
     href: concepts/advanced-messaging/whatsapp/whatsapp-terms-of-service.md
   - name: Messaging policy
     href: concepts/sms/messaging-policy.md
   - name: WhatsApp business account FAQ
     href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
-  - name: Download media payload
-    href: quickstarts/advanced-messaging/whatsapp/download-media.md
   - name: Logging and analytics
     items:
     - name: Advanced Messaging logs
@@ -368,13 +364,29 @@ items:
       href: concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md
   - name: Samples and tutorials
     items:
-    - name: Send WhatsApp messages
-      href: quickstarts/advanced-messaging/whatsapp/get-started.md
-    - name: Send WhatsApp template messages
-      href: concepts/advanced-messaging/whatsapp/template-messages.md
-    - name: Handle advanced messaging events
+    - name: Try Advanced Messaging Sandbox
+      href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+    - name: Register WhatsApp Business Account
+      href: quickstarts/advanced-messaging/whatsapp/connect-whatsapp-business-account.md
+    - name: Send WhatsApp Messages
+      items:
+        - name: Text and Media messages
+          href: quickstarts/advanced-messaging/whatsapp/get-started.md
+        - name: Template messages
+          href: quickstarts/advanced-messaging/whatsapp/send-template-messages.md
+        - name: Interactive messages
+          href: quickstarts/advanced-messaging/whatsapp/send-interactive-messages.md
+        - name: Reaction messages
+          href: quickstarts/advanced-messaging/whatsapp/send-reaction-messages.md
+        - name: Sticker messages
+          href: quickstarts/advanced-messaging/whatsapp/send-sticker-messages.md
+    - name: Handle Advanced messaging events
       href: quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md
-    - name: Enable message analysis With Azure OpenAI
+    - name: Download media payload
+      href: quickstarts/advanced-messaging/whatsapp/download-media.md
+    - name: WhatsApp business account FAQ
+      href: quickstarts/advanced-messaging/whatsapp/whatsapp-business-account-faq.md
+    - name: Enable Message Analysis With Azure OpenAI
       href: quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md
   - name: References
     items:
@@ -540,13 +552,49 @@ items:
       href: concepts/analytics/insights/voice-and-video-insights.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Call client logs
-      href: concepts/analytics/call-logs-azure-monitor.md
+      items: 
+      - name: Overview of call logs
+        href: concepts/analytics/logs/voice-and-video-logs.md
+      - name: Call summary updates logs
+        href: concepts/analytics/logs/call-summary-updates-log-schema.md
+      - name: Call summary logs
+        href: concepts/analytics/logs/call-summary-log-schema.md
+      - name: Call diagnostics updates logs
+        href: concepts/analytics/logs/call-diagnostics-updates-log-schema.md
+      - name: Call diagnostics logs
+        href: concepts/analytics/logs/call-diagnostics-log-schema.md
+      - name: Call client operations logs
+        href: concepts/analytics/logs/call-client-operations-log-schema.md
+      - name: Call client media statistics logs
+        href: concepts/analytics/logs/call-client-media-statistics-log-schema.md
+      - name: End of call survey logs
+        href: concepts/analytics/logs/end-of-call-survey-logs.md
+      - name: Call metrics logs
+        href: concepts/analytics/logs/call-metrics-log-schema.md
     - name: Call diagnostics
       href: concepts/voice-video-calling/call-diagnostics.md
     - name: Rooms logs
       href: concepts/analytics/logs/rooms-logs.md
     - name: Rooms metrics
       href: concepts/analytics/rooms-metrics.md
+    - name: Billing usage logs
+      href: concepts/analytics/logs/billing-usage-log-schema.md
+    - name: Closed captions logs
+      href: concepts/analytics/logs/closed-captions-logs.md
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
+    - name: Insights dashboard
+      href: concepts/analytics/insights/insights-dashboard.md
+    - name: Voice and video insights
+      href: concepts/analytics/insights/voice-and-video-insights.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Call diagnostics
+      href: concepts/voice-video-calling/call-diagnostics.md
+    - name: Query call logs
+      href: concepts/analytics/query-call-logs.md
+    - name: Add diagnostic options tag to calling logs
+      href: tutorials/voice-video-calling/diagnostic-options-tag.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Rooms insights
       href: concepts/analytics/insights/rooms-insights.md
     - name: Closed captions logs
