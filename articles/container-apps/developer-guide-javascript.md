@@ -4,6 +4,8 @@ description: Learn how to build, deploy, and manage your applications using Azur
 ms.topic: conceptual
 ms.date: 08/01/2024
 ms.custom: devx-track-js
+ms.author: diberry
+author: diberry
 #CustomerIntent: As a developer new to Azure, I want to understand how to use Azure Container Apps to build, deploy, and manage my applications efficiently.
 ---
 
