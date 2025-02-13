@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: seanluce
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 08/30/2025
 ms.author: anfdocs
 ---
 
