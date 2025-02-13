@@ -105,7 +105,6 @@ Following is the list of supported images and no other marketplace images releas
 
 | Publisher| Offer| Plan| Unsupported image(s) |
 |--------|-----------|--------|---------|
-|| rockylinux-9| rockylinux-9||
 |almalinux | | 8_5-hpc* |  |
 |almalinux | | 8_6-hpc-gen2 | |
 |almalinux | | 8_7-hpc-gen* ||
@@ -168,7 +167,7 @@ Following is the list of supported images and no other marketplace images releas
 |debian|| 11-gen2||
 |debian|| 11-gen2||
 |erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
-|erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux| free||
+|erockyenterprisesoftwarefoundationinc1653071250513| rockylinux-9| rockylinux-9||
 |github| github-enterprise| github-enterprise| |
 |matillion| matillion | matillion-etl-for-snowflake | |
 |microsoft-dsvm| aml-workstation| ubuntu||
@@ -259,7 +258,7 @@ Following is the list of supported images and no other marketplace images releas
 
 ---
 
-### Custom images
+## Custom images
 
 Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview))  which are created from below listed operating systems are supported for all Azure Update Manager operations (on-demand operations and customer managed schedules). For instructions on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).  
 

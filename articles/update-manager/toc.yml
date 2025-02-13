@@ -18,10 +18,17 @@ items:
   - name: Roles and Permissions
     href: roles-permissions.md
   - name: Support matrix
-    href: support-matrix.md
     items:
-      - name: Support for Updates, Periodic assessments, Scheduled patching
-        href: support-matrix-updates.md
+    - name: Supported regions
+    - href: supported-regions.md
+  - name: Supported operating systems
+    items:
+    - name: Check for Updates, One time update, Periodic assessment and Customer managed Schedules
+    - href: support-matrix-updates.md
+    - name: Automatic VM Guest Patching
+    - href: support-matrix-automatic-guest-patching.md
+    - name: Support matrix
+    - href: support-matrix.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates

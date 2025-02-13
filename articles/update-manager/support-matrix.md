@@ -43,55 +43,6 @@ The following table lists the workloads that aren't supported.
 As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
 
-## Supported regions
-
-Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
-
-#### [Azure Public cloud](#tab/public)
-
-### Azure VMs
-
-Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
-
-### Azure Arc-enabled servers
-
-Azure Update Manager is currently supported in the following regions. It implies that VMs must be in the following regions.
-
-**Geography** | **Supported regions**
---- | ---
-Africa | South Africa North
-Asia Pacific | East Asia </br> South East Asia
-Australia | Australia East </br> Australia Southeast
-Brazil | Brazil South
-Canada | Canada Central </br> Canada East
-Europe | North Europe </br> West Europe
-France | France Central
-Germany | Germany West Central
-India | Central India
-Italy | Italy North
-Japan | Japan East
-Korea | Korea Central
-Norway | Norway East
-Sweden | Sweden Central
-Switzerland | Switzerland North
-UAE | UAE North
-United Kingdom | UK South </br> UK West
-United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
-
-#### [Azure for US Government](#tab/gov)
-
-**Geography** | **Supported regions** | **Details** 
---- | --- | ---
-United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For Azure VMs only
-
-#### [Azure operated by 21Vianet](#tab/21via)
-
-**Geography** | **Supported regions** | **Details** 
---- | --- | ---
-China | ChinaEast </br> ChinaEast3 </br>  ChinaNorth </br> ChinaNorth3 </br> ChinaEast2 </br>  ChinaNorth2 | For Azure VMs only </br> For Azure VMs only </br> For Azure VMs only </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers.
-
----
-
 ### Supported update sources
 For more information, see the  supported [update sources](workflow-update-manager.md#update-source). 
 
