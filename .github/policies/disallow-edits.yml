@@ -181,9 +181,9 @@ configuration:
       - description: Write a message if the breadcrumb file is modified in the azure-docs-pr repository.
         if:
         - payloadType: Pull_Request
-          - isAction:
-              action: Opened
-          - filesMatchPattern:
+        - isAction:
+            action: Opened
+        - filesMatchPattern:
               matchAny: true
               pattern: bread/*
               
