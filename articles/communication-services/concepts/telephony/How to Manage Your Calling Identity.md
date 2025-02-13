@@ -121,7 +121,8 @@ Offer and Direct Routing.
 
 ### How to set the display name
 
-In order to define the display name when placing an outbound call,
+To define the display name when placing an outbound call,
+
 customers can use the property
 *[CallInvite.SourceDisplayName](https://learn.microsoft.com/en-us/dotnet/api/azure.communication.callautomation.callinvite.sourcedisplayname?view=azure-dotnet).*
 Customers can set the display name appearing on target callee.
