@@ -150,7 +150,8 @@ async function createOutboundCall() {
 
 Where:
 
--   **CALLBACK_URI**: Once customer has his
+-   **CALLBACK_URI**: Once customer has their
+
     [DevTunnel](https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/get-started?tabs=windows)
     host initialized, update this field with that URI.
 
