@@ -73,7 +73,7 @@ landingContent:
           - text: Petrel DDMS Tutorial
             url: tutorial-petrel-ddms.md
           - text: Reservoir DDMS API tutorial
-            url: tutorial-reservoir-ddms-apis
+            url: tutorial-reservoir-ddms-apis.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
