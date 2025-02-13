@@ -12,9 +12,9 @@ ms.date: 1/27/2025
 
 # Create and publish analytics rules for Microsoft Sentinel solutions
 
-Microsoft Sentinel analytics rules are sets of criteria. They define how data should be monitored, what should be detected, and what actions should be taken when specific conditions are met. These rules help identify suspicious behavior, anomalies, and potential security threats by analyzing logs and signals from various data sources.
+Microsoft Sentinel analytics rules are sets of criteria. They define how data is monitored, what is detected, and what actions are taken when specific conditions are met. These rules help identify suspicious behavior, anomalies, and potential security threats by analyzing logs and signals from various data sources.
 
-Microsoft Sentinel analytics rules are a powerful tool for enhancing an organization's security posture because they proactively detect and respond to potential threats. By following a structured approach to creating and managing these rules, organizations can use Microsoft Sentinel's capabilities to protect their digital assets and maintain a robust security infrastructure. For more information, see [Threat detection in Microsoft Sentinel | Microsoft Learn](/azure/sentinel/threat-detection)
+Microsoft Sentinel analytics rules are a powerful tool for enhancing an organization's security posture because they proactively detect and respond to potential threats. By following a structured approach to creating and managing these rules, organizations can use Microsoft Sentinel's capabilities to protect their digital assets and maintain a robust security infrastructure. For more information, see [Threat detection in Microsoft Sentinel](/azure/sentinel/threat-detection).
 
 This article walks you through the process of creating and publishing analytics rules to Microsoft Sentinel solutions.
 
@@ -22,16 +22,16 @@ This article walks you through the process of creating and publishing analytics 
 
 Microsoft Sentinel analytics rules can be applied to a wide range of scenarios to enhance security monitoring and threat detection. Common use cases include:
 
-* **Intrusion detection**: Identify unauthorized access attempts or suspicious sign-in activities that could indicate a potential breach
-* **Malware detection**: Monitor for known malware signatures or unusual behavior that might suggest the presence of malicious software
-* **Data exfiltration**: Detect large or unusual data transfers that could signify that data is being exfiltrated from the network
-* **Insider threats**: Identify anomalous behavior from internal users, such as accessing sensitive data outside of normal hours or patterns
-* **Compliance monitoring**: Ensure adherence to regulatory requirements by monitoring for specific activities or access patterns
-* **Threat hunting**: Proactively search for indicators of compromise or other signs of malicious activity within the network
-* **Account compromise**: Detect signs that user accounts might be compromised, such as unusual geographic sign-in patterns or multiple failed sign-in attempts
-* **Network anomalies**: Identify unusual network traffic patterns that could indicate the presence of a threat or misconfiguration
-* **Privilege escalation**: Monitor for attempts to gain elevated privileges within the network, which can be a precursor to further malicious activity
-* **Endpoint security**: Ensure that endpoints are secure by detecting deviations from normal behavior or the presence of unauthorized software
+* **Intrusion detection**: Identify unauthorized access attempts or suspicious sign-in activities that could indicate a potential breach.
+* **Malware detection**: Monitor for known malware signatures or unusual behavior that might suggest the presence of malicious software.
+* **Data exfiltration**: Detect large or unusual data transfers that could signify that data is being exfiltrated from the network.
+* **Insider threats**: Identify anomalous behavior from internal users, such as accessing sensitive data outside of normal hours or patterns.
+* **Compliance monitoring**: Ensure adherence to regulatory requirements by monitoring for specific activities or access patterns.
+* **Threat hunting**: Proactively search for indicators of compromise or other signs of malicious activity within the network.
+* **Account compromise**: Detect signs that user accounts might be compromised, such as unusual geographic sign-in patterns or multiple failed sign-in attempts.
+* **Network anomalies**: Identify unusual network traffic patterns that could indicate the presence of a threat or misconfiguration.
+* **Privilege escalation**: Monitor for attempts to gain elevated privileges within the network, which can be a precursor to further malicious activity.
+* **Endpoint security**: Ensure that endpoints are secure by detecting deviations from normal behavior or the presence of unauthorized software.
 
 ## Create and publish analytics rules
 
@@ -47,9 +47,9 @@ This field is mandatory.
 
 ### Kind
 
-The `kind` attribute represents the type of rule. 
+The `kind` attribute represents the type of rule.
 
-There are two accepted values: `scheduled` and `NRT` (near-real time). The `scheduled` value requires that you define other properties: `queryFrequency`, `queryPeriod`, `triggerThreshold`, and `triggerOperator`.
+There are two accepted values: `scheduled` and `NRT` (near-real time). The `scheduled` value requires that you define other properties, including `queryFrequency`, `queryPeriod`, `triggerThreshold`, and `triggerOperator`.
 
 This field is mandatory.
 
@@ -79,31 +79,31 @@ This field is mandatory.
 
 ### Severity
 
-The `severity` attribute defines the severity level of the detection. Severity should reflect the potential effect of the behavior being detected and the urgency of the response.
+The `severity` attribute defines the severity level of the detection. Severity reflects the potential effect of the behavior being detected and the urgency of the response.
 
-* Informational: The incident might not directly represent a security threat, but might be of interest for follow-up investigation, or to add context or situational awareness to an analyst.
-* Low: Immediate effect is minimal, and a threat actor would need to conduct multiple steps before achieving an effect on an environment.
-* Medium: The threat actor could achieve some effect on the environment with this activity, but it would be limited in scope or require extra activity.
-* High: The identified activity provides the threat actor with wide-ranging access to conduct actions on the environment.
+* **Informational**: The incident might not directly represent a security threat, but might be of interest for follow-up investigation, or to add context or situational awareness to an analyst.
+* **Low**: Immediate effect is minimal, and a threat actor would need to conduct multiple steps before achieving an effect on an environment.
+* **Medium**: The threat actor could achieve some effect on the environment with this activity, but the effect would be limited in scope or require extra activity.
+* **High**: The identified activity provides the threat actor with wide-ranging access to conduct actions on the environment.
 
  > [!NOTE]
-> Severity level defaults aren't a guarantee of current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Severity in the **Alerts** table is otherwise controlled by the security service from which the alert came. You can use `alertDetailsOverride` to provide a dynamic severity that depends on the actual outcome of the query.
+> Severity level defaults aren't a guarantee of current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Severity in the Alerts table is otherwise controlled by the security service from which the alert came. You can use `alertDetailsOverride` to provide a dynamic severity that depends on the actual outcome of the query.
 
 ### Required data connectors
 
-The `requiredDataConnectors` attribute represents the list of data connectors that the rule needs so that it can function correctly, including the data sources that the rule queries against. If there's no current data connector mapping, then an open brace must be used: `requiredDataConnectors: []`.
+The `requiredDataConnectors` attribute represents the list of data connectors that the rule needs to function correctly, including the data sources against which the rule queries. If there's no current data connector mapping, then an open brace must be used: `requiredDataConnectors: []`.
 
-The `connectorId` attribute specifies the ID of the data connector that you need so that the query functions correctly. If your detection query is dependent on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your analytics rule depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
+The `connectorId` attribute specifies the ID of the data connector that you need so the query functions correctly. If your detection query depends on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your analytics rule depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
 
-The `dataTypes` attribute represents the data types that the analytics rule is dependent on, and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
+The `dataTypes` attribute represents the data types that the analytics rule depends on, and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, or `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
 
 ### Query period
 
 The `queryPeriod` attribute represents a specified period during which the query runs. For example: the last three days.
 
-* Use Kusto Query Language (KQL) `TimeSpan` Format (for example, three days is `3d`, 2 hours is `2h`).
+* Use Kusto Query Language (KQL) `TimeSpan` format (for example, three days is `3d`, 2 hours is `2h`).
 * Ensure that any learning or reference period is within this time frame.
-* The maximum supported value is `14d`.
+* Don't use a value higher than the maximum supported value, which is `14d`.
 
 This field is mandatory for scheduled analytics rules.
 
@@ -111,9 +111,9 @@ This field is mandatory for scheduled analytics rules.
 
 The `queryFrequency` attribute represents the frequency at which the query runs.
 
-* Use KQL `TimeSpan` Format (for example, three days is `3d`, 2 hours is `2h`).
-* The `queryFrequency` must be less than, or equal to, the `queryPeriod`.
-* If the `queryPeriod` is greater than or equal to two days (`2d`), the `queryFrequency` value can't be less than 1 hour (`1h`) and is only used for high-severity detections.
+* Use KQL `TimeSpan` format (for example, three days is `3d`, 2 hours is `2h`).
+* Use a `queryFrequency` that is less than or equal to the `queryPeriod`.
+* Follow this rule: if the `queryPeriod` is greater than or equal to two days (`2d`), the `queryFrequency` value can't be less than 1 hour (`1h`) and is only used for high-severity detections.
 
 This field is mandatory for scheduled analytics rules.
 
@@ -137,7 +137,7 @@ This field is mandatory for scheduled analytics rules.
 
 ### Tactics
 
-The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection is related to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape.
 
 * `ATT&CK Framework v13` is supported.
 * Names can't include spaces. For example: `InitialAccess` or `LateralMovement`.
@@ -146,7 +146,7 @@ This field is mandatory.
 
 ### Relevant techniques
 
-The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection is related to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape.
 
 * `ATT&CK Framework v13` is supported.
 * It matches `MITRE` tactics.
@@ -156,7 +156,7 @@ This field is mandatory.
 
 ### Query
 
-The `query` attribute defines the detection logic. The query is written in KQL and is well-structured and easy to understand. The query is efficient and optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
+The `query` attribute defines the detection logic. We recommend that you write the query in KQL and make sure that it's well-structured and easy to understand. We recommend that you create an efficient query that's optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
 
 Limit the query to 10,000 characters. If the query section exceeds this limit, consider reducing the number of characters. A static list of items used for comparison within the query body can cause you to go over the limit. We recommend that you move these lists to one of the following options:
 
@@ -166,7 +166,7 @@ Limit the query to 10,000 characters. If the query section exceeds this limit, c
 
 Each line in the query body must have at least one space at the beginning, but two spaces are standard to support readability.
 
-If you're submitting a query for a datatype that's not present in the **Detections** or **Hunting Queries** folder, name the subfolder containing the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named **AzureDevOpsAuditing**.
+If you're submitting a query for a datatype that's not present in the Detections or Hunting Queries folder, name the subfolder containing the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
 
 Define human-readable names for explicit constants:
 
@@ -178,13 +178,13 @@ We highly recommend that you use comments to clarify the query. Avoid adding com
 ```kusto
     // Removing noisy processes for an environment, adjust as needed
 ```
-If you're referencing a parser instead of a table name, ensure clarity in the description and include a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
+If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
 
-Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity Mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple lookback across the entire query. The `queryPeriod` value in the YAML controls this process.
+Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity Mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
 
-For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `*| where TimeGenerated >= ago(lookback)*`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
+For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
 
-Summarize when necessary, ensuring that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `*| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)*` Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, as these names can conflict with user experience preferences.
+Summarize when necessary, ensuring that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)` Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, as these names can conflict with user experience preferences.
 
 Additionally, include as many fields as possible to help the user understand the context of the alert. We recommend that you include at least one of the primary entities: `Host`, `Account`, or `IP`.
 
@@ -254,11 +254,11 @@ The `customDetails` attribute integrates event data into alerts, making it visib
 
 ### Alert details override
 
-The `alertDetailsOverride` attribute is a dynamic field that you can use to override the alert details. You can use this attribute to provide more context or information to the analyst when the alert is triggered. When you use this feature, you ensure that analysts receive pertinent information, including relevant entity names to facilitate a quicker and more accurate understanding of the incident. Limitations include:
+The `alertDetailsOverride` attribute is a dynamic field that you can use to override the alert details. You can use this attribute to provide more context or information to the analyst when the alert is triggered. When you use this feature, you ensure that analysts receive pertinent information, including relevant entity names, to facilitate a quicker and more accurate understanding of the incident. Limitations include:
 
 * A maximum of three parameters can be included in either the `name` or `description`.
 * The `name` must not exceed 256 characters, while the `description` is limited to 5,000 characters.
-* The column name within the curly braces must precisely match the expected column name, without any leading or trailing whitespace (for example, `{{columnName}}`, not `{{ columnName }}`). In the following example, `columnName1`, `columnName2`, `dynamicTactic`, and `dynamicSeverity` are output fields of the scheduled alert query.
+* The column name within the curly braces must precisely match the expected column name, without any leading or trailing white space (for example, `{{columnName}}`, not `{{ columnName }}`). In the following example, `columnName1`, `columnName2`, `dynamicTactic`, and `dynamicSeverity` are output fields of the scheduled alert query.
 
     ```json
         alertDetailsOverride:

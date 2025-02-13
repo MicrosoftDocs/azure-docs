@@ -23,7 +23,7 @@ This article walks you through the process of creating and publishing hunting qu
 Hunting queries in Microsoft Sentinel are used in various scenarios to enhance threat detection and response. Common use cases include:
 
 * **Detecting suspicious user activity**: Security teams can use hunting queries to identify anomalous behavior such as unusual sign-in attempts, access patterns, or privilege-escalation activities. By analyzing user activity logs, analysts can detect potential insider threats or compromised accounts.
-* **Identifying malware and ransomware infections**: Hunting queries can help detect signs of malware or ransomware infections by scanning for known IoCs, unusual network traffic patterns, or file integrity changes. This proactive approach enables teams to respond quickly to mitigate the impact of an infection.
+* **Identifying malware and ransomware infections**: Hunting queries can help detect signs of malware or ransomware infections by scanning for known indicators of compromise (IoCs), unusual network traffic patterns, or file integrity changes. This proactive approach enables teams to respond quickly to mitigate the impact of an infection.
 * **Monitoring network anomalies**: To identify potential breaches, you can analyze network traffic for unusual patterns, such as unexpected data transfers or communication with known malicious IP addresses. Hunting queries enable analysts to pinpoint these anomalies and investigate further.
 * **Investigating phishing attacks**: Hunting queries can be used to detect phishing attempts by analyzing email logs and identifying suspicious links or attachments. Hunting queries can correlate these findings with threat intelligence data. This helps prevent credential theft and protect sensitive information.
 * **Tracking lateral movement**: After an attacker gains initial access, they can move laterally within the network to escalate privileges or access critical systems. Hunting queries can track these movements by analyzing sign-in events, remote desktop sessions, and other relevant data to detect and disrupt the attack.
@@ -34,11 +34,11 @@ Before you write a query, it's crucial to have a clear objective. What specific 
 
 KQL is a powerful language with various operators and functions. When you utilize operators and functions effectively, you can enhance the performance and accuracy of the queries. Useful KQL functions include:
 
-* `parse`: Extracts structured data from text strings
-* `extend`: Adds calculated columns to the result set
-* `summarize`: Aggregates data based on specified criteria
+* `parse`: extracts structured data from text strings
+* `extend`: adds calculated columns to the result set
+* `summarize`: aggregates data based on specified criteria
 
-When you integrate threat intelligence feeds into your queries, it can help you identify known indicators of compromise (IOCs). By taking this approach, you ensure that your hunting efforts are aligned with the latest threat landscape.
+When you integrate threat intelligence feeds into your queries, it can help you identify known IOCs. By taking this approach, you ensure that your hunting efforts are aligned with the latest threat landscape.
 
 ## Create and publish hunting queries
 
@@ -78,15 +78,15 @@ This field is mandatory.
 
 ### Required data connectors
 
-The `requiredDataConnectors` attribute represents the list of data connectors that the query needs so that it can function correctly, including the data sources that the rule queries against. If there's no current data connector mapping, then an open brace must be used: `requiredDataConnectors: []`.
+The `requiredDataConnectors` attribute represents the list of data connectors that the query needs to function correctly, including the data sources against which the rule queries. If there's no current data connector mapping, then an open brace must be used: `requiredDataConnectors: []`.
 
-The `connectorId` attribute specifies the ID of the data connector that you need so that the query functions correctly. If your detection query is dependent on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
+The `connectorId` attribute specifies the ID of the data connector that you need so the query functions correctly. If your detection query depends on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
 
-The `dataTypes` attribute represents the data types that the hunting query is dependent on, and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
+The `dataTypes` attribute represents the data types that the hunting query depends on, and mentions the name of the data type referenced in the `dataTypes` section of the connector. For instance, if your hunting query depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the data type as `OnePasswordEventLogs_CL`. If the hunting query operates on a Kusto function/parser instead of the table (like `Syslog`, `CommonEventFormat`, or `_CL`), `dataTypes` is the Kusto function name/parser name and not the table name.
 
 ### Tactics
 
-The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection is related to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape.
 
 * `ATT&CK Framework v13` is supported.
 * Names can't include spaces. For example: `InitialAccess` or `LateralMovement`.
@@ -95,7 +95,7 @@ This field is mandatory.
 
 ### Relevant techniques
 
-The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection is related to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape.
 
 * `ATT&CK Framework v13` is supported.
 * It matches `MITRE` tactics.
@@ -105,7 +105,7 @@ This field is mandatory.
 
 ### Query
 
-The `query` attribute defines the detection logic. The query is written in KQL and is well-structured and easy to understand. The query is efficient and optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
+The `query` attribute defines the detection logic. We recommend that you write the query in KQL and make sure that it's well-structured and easy to understand. We recommend that you create an efficient query that's optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
 
 Limit the query to 10,000 characters. If the query section exceeds this limit, consider reducing the number of characters. A static list of items used for comparison within the query body can cause you to go over the limit. We recommend that you move these lists to one of the following options:
 
@@ -115,7 +115,7 @@ Limit the query to 10,000 characters. If the query section exceeds this limit, c
 
 Each line in the query body must have at least one space at the beginning, but two spaces are standard to support readability.
 
-If you're submitting a query for a datatype that's not present in the **Detections** or **Hunting Queries** folder, name the subfolder containing the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named **AzureDevOpsAuditing**.
+If you're submitting a query for a datatype that's not present in the Detections or Hunting Queries folder, name the subfolder containing the YAML files after the table being queried. For instance, if your query pertains to the `AzureDevOpsAuditing` table, create a folder named `AzureDevOpsAuditing`.
 
 Define human-readable names for explicit constants:
 
@@ -128,13 +128,13 @@ We highly recommend that you use comments to clarify the query. Avoid adding com
     // Removing noisy processes for an environment, adjust as needed
 ```
 
-If you're referencing a parser instead of a table name, ensure clarity in the description and include a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
+If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
 
-Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity Mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple lookback across the entire query. The `queryPeriod` value in the YAML controls this process.
+Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity Mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
 
-For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `*| where TimeGenerated >= ago(lookback)*`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
+For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
 
-Summarize when necessary, ensuring that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `*| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)*` Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, as these names can conflict with user experience preferences.
+Summarize when necessary, ensuring that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)` Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, as these names can conflict with user experience preferences.
 
 Additionally, include as many fields as possible to help the user understand the context of the alert. We recommend that you include at least one of the primary entities: `Host`, `Account`, or `IP`.
 
