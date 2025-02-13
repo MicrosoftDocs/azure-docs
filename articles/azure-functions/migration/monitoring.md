@@ -9,14 +9,14 @@ ms.topic: conceptual
 
 # Migrate monitoring assets from AWS Lambda to Azure Functions
 
-|![Goal icon](../../migration/images/goal.svg) Transfer the monitoring logs and metrics emitted from the existing AWS Lambda service and its hosted functions to Azure Functions. Ensure that all monitoring sinks in the current AWS monitoring stack are connected to their equivalent sinks on Azure. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
+|![Goal icon](../../migration/images/goal.svg) Maintain the visibility you have in your AWS Lambda environment when replatforming to Azure Functions. Understand how to obtain comparable logs and metrics in Azure Functions, and your options for retaining existing log and metric data. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
 |--| 
 
 ## Scope
 
 ` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
 
-This article provides a pre-migration assessment of AWS Lambda and its monitoring capabilities with Azure Functions. 
+This article guides you in your pre-migration assessment of your existing AWS Lambda monitoring implementation, to prepare you for replatforming to Azure Functions.
 
 These aspects are covered in this article:
 
@@ -32,16 +32,24 @@ These aspects are not covered in this article:
 
 ` **Author note**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article.`
 
-Understand the observability behavior of the Lambda service and function monitoring, which focuses on the code running on Lambda. The goal is to catalog the key CloudWatch logs and metrics with Lambda. Additionally, it's important to understand the data sinks that collect monitoring data. Take note of AWS CloudTrail or other tools used for collection and analysis. The alerting strategy and reporting use cases should also be covered, along with external health checks and application performance monitoring tools.
+Understand the existing logs, metrics, alerts, and dashboarding configured in your AWS Lambda service:
 
-&#9997; Document your existing AWS monitoring stack: Data sources, Collection and storage, Analysis, Visualization, and Alerting. 
+` **Author note**: Enumerate all of the typical areas where monitoring occurages on the source service. Such as at the service level (resource-level logs) and at the code/application level. These areas are where the customer needs to document their current state and learn about the equivelant solutions in Azure.  Consider the following: `
+`- key CloudWatch logs and metrics, and primary data sinks that collect/ aggregate this data`
+`- key operational queries packs used by SRE team`
+`- AWS CloudTail or other tools.`
+`- Alerting strategy and reporting use cases should also be covered, along with external health checks and application performance monitoring tools.`
+
+Your Azure Functions implementation's logs, metrics, alerts, and dashboarding will need to support your routine, ad-hoc, and emergency operational requirements. Without an equivalent implementation in Azure, you might end up with missing operational data or excess data over what is needed; both of which can hinder emergency operations and learning from production.
+
+&#9997; Document your existing AWS monitoring stack: Data sources, collection and storage, analysis, visualization, and alerting. 
 
 ### Assess the business requirements
 
 - What are the core aspects monitored for the Lambda service, and how does Azure address these monitoring needs?
 - What monitoring sinks are connected to the service?
 - What APM tools were used for function monitoring?
-- Who consumed monitoring data, for what purpose, and the which tools were used. 
+- Who consumed monitoring data, for what purpose, and the which tools were used?
 
 ### Key technical factors
 
@@ -110,7 +118,7 @@ When planning a migration to Azure, expect challenges in understanding Azure exp
 
 ## Post-migration considerations
 
-After you've migrated your Lambda to Azure Functions with a level of satisfaction that doesn't regress in existing observability practices, we recommend you explore additional features on Azure. This can help you in future requirements or help close gaps in areas where your workload is not currently meeting existing requirements.
+After you've migrated your Lambda to Azure Functions with a level of satisfaction that doesn't regress in existing observability practices, we recommend you explore additional observability features on Azure. This can help you in future requirements or help close gaps in areas where your workload is not currently meeting existing requirements.
 
 - Item 1
 - Item 2

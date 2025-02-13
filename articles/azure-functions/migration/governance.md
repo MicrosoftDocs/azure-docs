@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 ` **Author note**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas. `
 
-This article offers an evaluation of how AWS Lambda compares to Azure Functions in terms of pre-migration readiness. 
+This article guides you in your pre-migration assessment of your existing AWS Lambda governance implementation, to prepare you for replatforming to Azure Functions.
 
 These aspects are covered in this article:
 
