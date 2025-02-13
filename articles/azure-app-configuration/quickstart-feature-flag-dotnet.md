@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 2/19/2024
+ms.date: 2/13/2025
 ms.author: zhiyuanliang
 #Customer intent: As a .NET developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -63,9 +63,68 @@ You can use Visual Studio to create a new console app project.
     using Microsoft.FeatureManagement;
     ```
 
-1. Connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
+1. Update *Program.cs*. to connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string, and specify the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
 
-    ### [.NET](#tab/dotnet)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store by default. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    #### .NET
+
+    ```csharp
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
+        {
+            string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+            options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                .UseFeatureFlags();
+        }).Build();
+
+    IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+
+    IVariantFeatureManager featureManager = new FeatureManager(
+        featureDefinitionProvider, 
+        new FeatureManagementOptions());
+
+    if (await featureManager.IsEnabledAsync("Beta"))
+    {
+        Console.WriteLine("Welcome to the beta!");
+    }
+
+    Console.WriteLine("Hello World!");
+    ```
+
+    #### .NET Framework
+
+    ```csharp
+    public static async Task Main(string[] args)
+    {         
+        IConfiguration configuration = new ConfigurationBuilder()
+            .AddAzureAppConfiguration(options =>
+            {
+                string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+                options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+                    .UseFeatureFlags();
+            }).Build();
+
+        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+
+        IVariantFeatureManager featureManager = new FeatureManager(
+            featureDefinitionProvider, 
+            new FeatureManagementOptions());
+
+        if (await featureManager.IsEnabledAsync("Beta"))
+        {
+            Console.WriteLine("Welcome to the beta!");
+        }
+
+        Console.WriteLine("Hello World!");
+    }
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+    #### .NET
 
     ```csharp
     IConfiguration configuration = new ConfigurationBuilder()
@@ -89,7 +148,7 @@ You can use Visual Studio to create a new console app project.
     Console.WriteLine("Hello World!");
     ```
 
-    ### [.NET Framework](#tab/dotnet-framework)
+    #### .NET Framework
 
     ```csharp
     public static async Task Main(string[] args)
@@ -115,31 +174,53 @@ You can use Visual Studio to create a new console app project.
         Console.WriteLine("Hello World!");
     }
     ```
-
     ---
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store.
+1. Set an environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-    If you use the Windows command prompt, run the following command.
+    Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
+    ```
+
+    ### [Connection string](#tab/connection-string)
+
+   Set an environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command:
 
     ```console
     setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
-
-    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
-
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command.
-
-    ```azurepowershell
+    If you use Windows PowerShell, run the following command:
+    ```powershell
     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    ```
     ---
 
 1. Restart Visual Studio to allow the change to take effect. 
