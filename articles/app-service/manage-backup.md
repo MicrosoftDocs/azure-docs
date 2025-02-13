@@ -182,6 +182,11 @@ To back up and restore over Azure Virtual Network:
 1. When configuring [custom backups](#create-a-custom-backup), select **Backup/restore over virtual network integration**. 
 1. Save your settings by selecting **Configure**.
 
+To enable backup/restore over virtual network for deployment slots, you need to complete the necessary steps specifically for each slot:
+
+- Virtual network integration is enabled for the deployment slots, or the slot is in a v3 [App Service Environment](environment/overview.md). 
+- The option for backup/restore over virtual network integration is selected for deployment slots.
+
 If you don't see the checkbox, or if the checkbox is disabled, verify that your resources fulfill the requirements. 
 
 Once the configuration is saved, any manual backup, scheduled backup, or restore is made through the virtual network. If you make changes to the app, the virtual network, or the storage account that prevent the app from accessing the storage account through the virtual network, the backup or restore operations fail.
