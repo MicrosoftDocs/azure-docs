@@ -26,6 +26,8 @@ The command produces an output file containing the results of the data extract. 
 
 See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
 
+To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
+
 ### Clear the cluster's CommandOutputSettings
 
 To change the cluster from a user-assigned identity to a system-assigned identity, the CommandOutputSettings must first be cleared using the command in the next section, then set using this command.
@@ -84,7 +86,7 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
-- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
 
