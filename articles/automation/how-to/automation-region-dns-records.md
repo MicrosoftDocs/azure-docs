@@ -10,7 +10,7 @@ ms.service: azure-automation
 
 # DNS records for Azure regions used by Azure Automation
 
-The [Azure Automation](../automation-intro.md) service uses many DNS (Domain Name System) records for features to connect to the service. If you have an Automation account configured for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it's hosted behind a firewall:
+The [Azure Automation](../automation-intro.md) service uses many Domain Name System (DNS) records for features to connect to the service. If you have an Automation account configured for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it's hosted behind a firewall:
 
 * Hybrid Runbook Worker
 * State Configuration
