@@ -642,18 +642,18 @@ items:
       - name: Verify if an application is active in multiple browser tabs
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-        - name: Get users ready for calls with UI Library
-          items:
-          - name: Call readiness overview
-            href: tutorials/call-readiness/call-readiness-overview.md
-            displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-          - name: 1. Ensure user is on a supported browser
-            href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
-          - name: 2. Request camera and microphone permissions
-            href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
-          - name: 3. Set up microphone and camera before a call
-            href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
-            displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: Get users ready for calls with UI Library
+        items:
+        - name: Call readiness overview
+          href: tutorials/call-readiness/call-readiness-overview.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+        - name: 1. Ensure user is on a supported browser
+          href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+        - name: 2. Request camera and microphone permissions
+          href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+        - name: 3. Set up microphone and camera before a call
+          href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
+          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: End of call user survey
       items:
       - name: End of call survey
