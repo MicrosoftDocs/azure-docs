@@ -130,7 +130,7 @@ We highly recommend that you use comments to clarify the query. Avoid adding com
 
 If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
 
-Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
+Ensure that every available entity field is returned for mapping purposes. (Refer to the [Entity mappings section](#entity-mappings).) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
 
 For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, because the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
 
