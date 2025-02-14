@@ -108,9 +108,9 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## In-region data residency 
 
-Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements specified in the [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/). 
 
-Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements specified in the [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/). 
 
 Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 

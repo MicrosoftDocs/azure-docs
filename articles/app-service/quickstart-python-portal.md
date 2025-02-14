@@ -151,7 +151,7 @@ Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)

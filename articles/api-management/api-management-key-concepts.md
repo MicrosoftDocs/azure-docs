@@ -45,6 +45,9 @@ Common scenarios include:
 * **Multi-channel user experiences** - APIs are frequently used to enable user experiences such as web, mobile, wearable, or Internet of Things applications. Reuse APIs to accelerate development and ROI.
 * **B2B integration** - APIs exposed to partners and customers lower the barrier to integrate business processes and exchange data between business entities. APIs eliminate the overhead inherent in point-to-point integration. Especially with self-service discovery and onboarding enabled, APIs are the primary tools for scaling B2B integration.
 
+> [!TIP]
+> Visit [aka.ms/apimlove](https://aka.ms/apimlove) for a library of useful resources, including videos, blogs, and customer stories about using Azure API Management.
+
 ## API Management components
 
 Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*, with features designed for different audiences in the API ecosystem. These components are Azure-hosted and fully managed by default. API Management is available in various [tiers](#api-management-tiers) differing in capacity and features.
@@ -143,7 +146,8 @@ API Management integrates with many complementary Azure services to create enter
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* [Import APIs to API Center from API Management](../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [GenAI gateway capabilities in API Management](genai-gateway-capabilities.md)
+* [Synchronize APIs to API Center from API Management](../api-center/synchronize-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## Key concepts
 

@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.topic: overview
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/09/2024
+ms.date: 01/28/2025
 # Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
@@ -54,7 +54,7 @@ This section lists out some key differences between these two SKUs.
 | Aspect | Standard SKU public IP | Basic SKU public IP |
 |---------|---------|---------|
 | **Allocation method** | Static. | For IPv4: Dynamic or Static; For IPv6: Dynamic. |
-| **Security** | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
+| **Security** | Uses *Secure by default* model closed to inbound traffic when used as a frontend. To allow traffic, a [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
 | **[Availability zones](../../reliability/availability-zones-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported |
 | **[Routing preference](routing-preference-overview.md)** | Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported. |
 | **Global tier** | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md)| Not supported |
@@ -75,7 +75,7 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 ## FAQ
 
 ### Will the Basic SKU public IP retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
 
 ## Next steps
 

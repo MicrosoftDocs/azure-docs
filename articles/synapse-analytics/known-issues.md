@@ -5,7 +5,7 @@ description: Learn about the currently known issues with Azure Synapse Analytics
 author: charithcaldera
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
-ms.date: 04/08/2024
+ms.date: 01/30/2025
 ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: troubleshooting-known-issue
@@ -21,6 +21,8 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 |Azure Synapse Component|Status|Issue|
 |:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Data Factory copy command fails with error "The request could not be performed because of an I/O device error"](#data-factory-copy-command-fails-with-error-the-request-could-not-be-performed-because-of-an-io-device-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used](#copy-into-statement-fails-with-error-an-internal-dms-error-occurred-that-caused-this-operation-to-fail--when-managed-identity-is-used)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
 |Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
@@ -39,6 +41,18 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
+
+### Data Factory copy command fails with error "The request could not be performed because of an I/O device error"
+
+Azure Data Factory pipelines use the `COPY INTO` Transact-SQL statement to ingest data at scale into dedicated SQL pool tables. In some rare cases, the `COPY INTO` statement can fail when loading CSV files into dedicated SQL pool table when file split is used in an Azure Data Factory pipeline. File splitting is a mechanism that improves load performance when a small number of larger (1 GB+) files are loaded in a single copy task. When file splitting is enabled, a single file can be loaded by multiple parallel threads, where every thread is assigned a part of the file.
+
+**Workaround**: Impacted customers should disable file split in Azure Data Factory.
+
+### COPY INTO statement fails with error “An internal DMS error occurred that caused this operation to fail.”  when managed identity is used
+
+When using `COPY INTO` command with a managed identity, the statement can fail after a long-running query with error message “An internal DMS error occurred that caused this operation to fail”.
+
+**Workaround**: Impacted customers may use an alternative authentication method for the storage account, such as a Shared Access Key. 
 
 ### Customers are unable to monitor their usage of dedicated SQL pool by using metrics
 
