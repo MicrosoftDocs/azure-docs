@@ -4,7 +4,7 @@
  author: spelluru
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 01/18/2024
+ ms.date: 02/14/2025
  ms.author: spelluru
  ms.custom: include file
 ---
