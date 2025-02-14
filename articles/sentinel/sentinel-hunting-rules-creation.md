@@ -34,9 +34,9 @@ Before you write a query, it's crucial to have a clear objective. What specific 
 
 KQL is a powerful language with various operators and functions. When you utilize operators and functions effectively, you can enhance the performance and accuracy of the queries. Useful KQL functions include:
 
-* `parse`: Extracts structured data from text strings
-* `extend`: Adds calculated columns to the result set
-* `summarize`: Aggregates data based on specified criteria
+* `parse`: Extracts structured data from text strings.
+* `extend`: Adds calculated columns to the result set.
+* `summarize`: Aggregates data based on specified criteria.
 
 When you integrate threat intelligence feeds into your queries, it can help you identify known IoCs. By taking this approach, you ensure that your hunting efforts are aligned with the latest threat landscape.
 
@@ -54,25 +54,25 @@ This field is mandatory.
 
 ### Name
 
-The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the hunting query. Use `alertDetailsOverride` to generate dynamic names to help analysts understand the alert. See the following requirements:
+The `name` attribute provides a brief label that summarizes the detection. Make sure the label is clear and concise to help users understand the purpose of the hunting query. Use `alertDetailsOverride` to generate dynamic names to help analysts understand the alert. This attribute:
 
-* Uses sentence-case capitalization
-* Doesn't end in a period
-* Has a maximum length of 50 characters (whenever possible)
+* Uses sentence-case capitalization.
+* Doesn't end in a period.
+* Has a maximum length of 50 characters (whenever possible).
 
 This field is mandatory.
 
 ### Description
 
-The `description` attribute provides a detailed description of the detection. The description includes information about the behavior being detected, the potential effect, and any recommended actions. See the following requirements:
+The `description` attribute provides a detailed description of the detection. The description includes information about the behavior being detected, the potential effect, and any recommended actions. This attribute:
 
-* Uses sentence case capitalization
-* Starts with "This query searches for" or "Identifies"
-* Is different from and more descriptive than the name field
-* Has a maximum length of 255 characters
-* Is five sentences or less
-* Doesn't describe the data source (connector or data type)
-* Doesn't provide a technical explanation for the query language
+* Uses sentence case capitalization.
+* Starts with "This query searches for" or "Identifies."
+* Is different from and more descriptive than the name field.
+* Has a maximum length of 255 characters.
+* Is five sentences or less.
+* Doesn't describe the data source (connector or data type).
+* Doesn't provide a technical explanation for the query language.
 
 This field is mandatory.
 
@@ -86,7 +86,7 @@ The `dataTypes` attribute represents the data types that the hunting query depen
 
 ### Tactics
 
-The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `tactics` attribute defines the [`MITRE ATT&CK tactics`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the tactics, it helps users understand the context of the detection and how it fits into the overall threat landscape. For this attribute:
 
 * `ATT&CK Framework v13` is supported.
 * Names can't include spaces. For example: `InitialAccess` or `LateralMovement`.
@@ -95,17 +95,17 @@ This field is mandatory.
 
 ### Relevant techniques
 
-The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape.
+The `relevantTechniques` attribute defines the [`MITRE ATT&CK techniques`](https://attack.mitre.org/versions/v13/matrices/enterprise/) that the detection relates to. When you define the techniques, it helps users understand the context of the detection and how it fits into the overall threat landscape. For this attribute:
 
 * `ATT&CK Framework v13` is supported.
-* It matches `MITRE` tactics.
+* Attribute matches `MITRE` tactics.
 * Names can't include spaces. For example: `T1078` or `T1078.001`.
 
 This field is mandatory.
 
 ### Query
 
-The `query` attribute defines the detection logic. We recommend that you write the query in KQL and make sure that it's well-structured and easy to understand. We recommend that you create an efficient query that's optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
+The `query` attribute defines the detection logic. We recommend that you write the query in KQL and make sure that it's well structured and easy to understand. We recommend that you create an efficient query that's optimized for performance to ensure it can be run against large datasets without affecting performance. Make sure that your query meets the following criteria.
 
 Limit the query to 10,000 characters. If the query section exceeds this limit, consider reducing the number of characters. A static list of items used for comparison within the query body can cause you to go over the limit. We recommend that you move these lists to one of the following options:
 
@@ -125,7 +125,7 @@ Define human-readable names for explicit constants:
 We highly recommend that you use comments to clarify the query. Avoid adding comments at the end of a query statement line. Instead, add your comments on a separate line. For example:
 
 ```
-    // Removing noisy processes for an environment, adjust as needed
+// Removing noisy processes for an environment, adjust as needed
 ```
 
 If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
@@ -150,44 +150,44 @@ This field is mandatory.
 
 ### Field mappings
 
-The `fieldMappings` attribute represents the identifier of the field in the query output that corresponds to the entity type. See allowed values under the identifiers column value at [Entity mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers).
+The `fieldMappings` attribute represents the identifier of the field in the query output that corresponds to the entity type. See allowed values under the identifiers column value at [Entity mapping table](/azure/sentinel/entities-reference#entity-types-and-identifiers). For this attribute:
 
 * Each template can have up to 10 entity mappings.
 * Each entity mapping can have up to three field mappings (that is, identifiers).
 
-```json
-        entityMappings:
-        - entityType: Account
-          fieldMappings:
-            - identifier: FullName
-              columnName: AccountCustomEntity
-        - entityType: Host
-          fieldMappings:
-            - identifier: FullName
-              columnName: HostCustomEntity
-        - entityType: IP
-          fieldMappings:
-            - identifier: Address
-              columnName: ClientIP
-        - entityType: DNS
-          fieldMappings:
-            - identifier: DomainName
-              columnName: Name    
+  ```json
+  entityMappings:
+  - entityType: Account
+    fieldMappings:
+      - identifier: FullName
+        columnName: AccountCustomEntity
+  - entityType: Host
+    fieldMappings:
+      - identifier: FullName
+        columnName: HostCustomEntity
+  - entityType: IP
+    fieldMappings:
+      - identifier: Address
+        columnName: ClientIP
+  - entityType: DNS
+    fieldMappings:
+        - identifier: DomainName
+          columnName: Name    
 
-```
+  ```
 
 ### Custom details
 
 The `customDetails` attribute integrates event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Custom details are key/value pairs of property and column names. For more information, see [Surface custom event details in alerts in Microsoft Sentinel](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key/value pairs) can be defined per template.
 
 ```json
-        customDetails:
-        Computers: Computer
-        IPs: ComputerIP
+    customDetails:
+      Computers: Computer
+      IPs: ComputerIP
 ```
 
 ### Version
 
-When a customer creates a new hunting query from the template, the template `version` is saved. If a new template version is published, customers are notified in the UX. Versions follow the format a, b, and c, in which a is the major version, b is the minor version, and c is the patch. The version field is the last line of the template.
+When a customer creates a new hunting query from the template, the template `version` is saved. If a new template version is published, customers are notified in the UX. Versions follow the format `a`, `b`, and `c`, in which `a` is the major version, `b` is the minor version, and `c` is the patch. The version field is the last line of the template.
 
 This field is mandatory.
