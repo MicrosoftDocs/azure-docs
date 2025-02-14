@@ -1,17 +1,19 @@
 ---
-title: Developer Guide for JavaScript, TypeScript, and Node.js
-description: Learn how to build, deploy, and manage your applications using Azure Container Apps. This guide covers everything from setting up your development environment to deploying and scaling your applications.
+title: JavaScript on Azure Container Apps overview
+description: Learn about the tools and resources needed to run JavaScript applications on Azure Container Apps.
+services: container-apps
+author: craigshoemaker
+ms.service: azure-container-apps
+ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 08/01/2024
-ms.custom: devx-track-js
-ms.author: diberry
-author: diberry
+ms.date: 02/14/2025
+ms.author: cshoe
 #CustomerIntent: As a developer new to Azure, I want to understand how to use Azure Container Apps to build, deploy, and manage my applications efficiently.
 ---
 
-# Hosting JavaScript and TypeScript Applications on Azure Container Apps: Key Considerations
+# JavaScript on Azure Container Apps overview
 
-As a seasoned developer venturing into Azure Container Apps for hosting your JavaScript and TypeScript applications, there are several hosting issues you need to be aware of. This article covers configuration, security, deployment, and troubleshooting specific to the JavaScript/TypeScript ecosystem.
+Azure Container Apps can run any containerized JavaScript application in the cloud while giving flexible options for how you deploy your applications.
 
 ## Configuration
 
