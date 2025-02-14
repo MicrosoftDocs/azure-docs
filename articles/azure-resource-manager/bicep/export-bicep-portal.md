@@ -46,11 +46,11 @@ To export one resource:
 
    :::image type="content" source="./media/export-bicep-portal/export-single-resource.png" alt-text="Screenshot of exporting a single resource in Azure portal.":::
 
-1. Select **Bicep**. The exported template is displayed, and is available to download and deploy. The Bicep file only contains the single resource. All template parameters are included when the Bicep file is generated.
+1. Select **Bicep**. The exported Bicep file is displayed, and is available to download and deploy. The Bicep file only contains the single resource. All template parameters are included when the Bicep file is generated.
 
 ## Export template after deployment
 
-You can export the template that was used to deploy existing resources. The template you get is exactly the one that was used for deployment. This option can only export ARM JSON templates. After exporting, you can [decompile](./decompile.md) them into to Bicep files.
+You can export the template that was used to deploy existing resources. The template you get is exactly the one that was used for deployment. This option can only export ARM JSON templates. For the insturctions, see [Export template after deployment](../templates/export-template-portal.md#export-template-after-deployment). After exporting, you can [decompile](./decompile.md) them into to Bicep files.
 
 ## Next steps
 

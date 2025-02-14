@@ -12,7 +12,7 @@ There are two ways to export a template:
 
 * **Export from resource group or resource**. This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
 
-* **Save from history**. This option supports exporting only ARM JSON templates. It retrieves an exact copy of the template used for deployment, allowing you to select a specific deployment from the deployment history.
+* **Save from history**. This option supports exporting only ARM JSON templates. It retrieves an exact copy of the template used for deployment, allowing you to select a specific deployment from the deployment history. After exporting, you can [decompile](./decompile.md) them into to Bicep files.
 
 Depending on the option you choose, the exported templates have different qualities.
 

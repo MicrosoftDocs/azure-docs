@@ -32,7 +32,7 @@ To export one or more resources from a resource group:
 
 1. Select **Export template** from the top menu. The **Export template** from the left menu exports all the resources in the group to a template.
 
-1. The exported template is displayed, and is available to download and deploy.
+1. Select **ARM Template**. The exported template is displayed, and is available to download and deploy.
 
    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
 
