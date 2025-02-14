@@ -271,4 +271,4 @@ Using the ARM template deploy the function apps for ingestion of Netskope events
 
 ## Next steps
 
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope_mss?tab=Overview) in the Azure Marketplace.
+For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netskope.netskope-for-azure?tab=Overview) in the Azure Marketplace.

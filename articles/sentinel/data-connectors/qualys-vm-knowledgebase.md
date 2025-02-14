@@ -58,7 +58,7 @@ To integrate with Qualys VM KnowledgeBase (using Azure Functions) make sure you 
 ## Vendor installation instructions
 
 
-**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias QualysVM Knowledgebase and load the function code or click [here](https://aka.ms/sentinel-crowdstrikefalconendpointprotection-parser), on the second line of the query, enter the hostname(s) of your QualysVM Knowledgebase device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias QualysVM Knowledgebase and load the function code, on the second line of the query, enter the hostname(s) of your QualysVM Knowledgebase device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-qualyskb-parser) to use the Kusto function alias, **QualysKB**
@@ -73,9 +73,9 @@ To integrate with Qualys VM KnowledgeBase (using Azure Functions) make sure you 
 2. Click on the **New** drop-down menu and select **Users**.
 3. Create a username and password for the API account. 
 4. In the **User Roles** tab, ensure the account role is set to **Manager** and access is allowed to **GUI** and **API**
-4. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account. 
-5. Log back into the console using an administrator account and modify the API accounts User Roles, removing access to **GUI**. 
-6. Save all changes.
+5. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account. 
+6. Log back into the console using an administrator account and modify the API accounts User Roles, removing access to **GUI**. 
+7. Save all changes.
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

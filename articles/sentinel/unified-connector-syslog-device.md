@@ -37,7 +37,7 @@ This data connector was developed using Cisco ACI Release 1.x.
 
 ## Cisco Identity Services Engine (ISE)
 
-[Follow these instructions](https://www.cisco.com/c/en/us/td/docs/security/ise/2-7/admin_guide/b_ise_27_admin_guide/b_ISE_admin_27_maintain_monitor.html#ID58) to configure remote syslog collection locations in your Cisco ISE deployment.
+[Follow these instructions](https://www.cisco.com/c/en/us/td/docs/security/ise/3-1/admin_guide/b_ise_admin_3_1.html#ID58) to configure remote syslog collection locations in your Cisco ISE deployment.
 
 ## Cisco Stealthwatch
 
