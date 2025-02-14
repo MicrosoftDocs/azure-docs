@@ -100,7 +100,7 @@ Make sure to only include those scopes in the token that your client application
    1. _Ephemeral identity scenario:_ The identity management service creates a new Communication identity. In this scenario, the same user ends up with a different Communication identity for each session.
 1. The identity management service issues a user access token for the applicable identity and returns it to the client application.
 
-Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/../../app-service/overview-authentication-authorization.md) users. They're integrated with [OpenID](../../app-service/configure-authentication-provider-openid-connect.md) and third-party identity providers like [Facebook](/../../app-service/configure-authentication-provider-facebook.md).
+Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](../../app-service/overview-authentication-authorization.md) users. They're integrated with [OpenID](../../app-service/configure-authentication-provider-openid-connect.md) and third-party identity providers like [Facebook](../../app-service/configure-authentication-provider-facebook.md).
 
 ## Next steps
 
