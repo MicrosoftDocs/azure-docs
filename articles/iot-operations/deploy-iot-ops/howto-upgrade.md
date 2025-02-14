@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/13/2025
+ms.date: 02/14/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -41,13 +41,26 @@ You can't upgrade from a preview installation to a GA version. To move to versio
 If your Azure IoT Operations deployment is eligible for an upgrade, the Azure portal displays an **Upgrade** option. If you don't see the option to upgrade, then your deployment is on the latest version.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Azure IoT Operations instance.
+
 1. Select **Upgrade** on the **Overview** page of your instance.
 
    :::image type="content" source="./media/howto-upgrade/instance-upgrade.png" alt-text="Screenshot that shows the upgrade button enabled in the Azure portal.":::
 
+1. You need to use the latest version of the Azure IoT Operations CLI extension to get the latest version of Azure IoT Operations. If you didn't update the extension as part of the prerequisites, do so now.
+
+  ```azurecli
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
+  Or, if you want to upgrade your deployment to a newer version but not the latest, set the CLI extension version to the one associated with your desired Azure IoT Operations versions in [IoT Operations versions](https://aka.ms/aio-versions).
+
+   ```azurecli
+   az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+   ```
+
 1. The portal presents the Azure CLI command to upgrade your instance, prepopulated with your subscription, resource group, and instance details. Select the copy icon next to the CLI command.
 
-1. Run the copied `az iot ops upgrade` command in any environment where you have the Azure CLI installed.
+1. Run the copied `az iot ops upgrade` command.
 
 1. After the upgrade command completes successfully, refresh your instance to see the changes.
 
@@ -59,19 +72,29 @@ Use the [az iot ops upgrade](/cli/azure/iot/ops#az-iot-ops-upgrade) command to u
 
 The upgrade command evaluates the entire Azure IoT Operations deployment for available updates, including the arc extensions that are installed in the `az iot ops init` command as well as the Azure IoT Operations instance.
 
-```azurecli
-az iot ops upgrade --resource-group <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME>
-```
+Use the following steps to upgrade your deployment to the latest version:
 
-The CLI outputs a table of the components, if any, that have available upgrades. Enter `Y` to continue with the upgrade.
+1. You need to use the latest version of the Azure IoT Operations CLI extension to get the latest version of Azure IoT Operations. If you didn't update the extension as part of the prerequisites, do so now.
 
-To upgrade to a specific version of a component, specify the version number in the parameters. For example:
+  ```azurecli
+  az extension add --upgrade --name azure-iot-ops
+  ```
 
-```azurecli
-az iot ops upgrade --resource-group <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --acs-version 2.2.3
-```
+1. Run `az iot ops upgrade`
 
-You can find the supported component versions and release train information in the **azure-iot-operations-enablement.json** file included in any given [Azure IoT Operations release](https://github.com/Azure/azure-iot-operations/releases).
+   ```azurecli
+   az iot ops upgrade --resource-group <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME>
+   ```
+
+1. The CLI outputs a table of the components that have available upgrades. Enter `Y` to continue with the upgrade.
+
+If you want to upgrade to a specific version of Azure IoT Operations that isn't the latest, use the related CLI extension version. Each version of Azure IoT Operations maps to a version of the Azure IoT Operations CLI extension.
+
+Refer to [IoT Operations versions](https://aka.ms/aio-versions) to find the CLI extension version associated with the Azure IoT Operations version that you want. Then, upgrade the CLI extension:
+
+   ```azurecli
+   az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+   ```
 
 ---
 
