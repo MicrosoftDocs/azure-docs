@@ -470,14 +470,14 @@ items:
       displayName: music mode, audio filters, calling
     - name: Edit audio and video media from the client
       items:
+      - name: Media access
+        href: concepts/voice-video-calling/media-access.md
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add video background effects
         href: quickstarts/voice-video-calling/get-started-video-effects.md
       - name: Add augmented reality filters to video calls
         href: tutorials/add-video-augmented-reality-tutorial.md
-    - name: Media access
-      href: concepts/voice-video-calling/media-access.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -1218,18 +1218,6 @@ items:
     items:
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
-    - name: Get users ready for calls with UI Library
-      items:
-      - name: Call readiness overview
-        href: tutorials/call-readiness/call-readiness-overview.md
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: 1. Ensure user is on a supported browser
-        href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
-      - name: 2. Request camera and microphone permissions
-        href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
-      - name: 3. Set up microphone and camera before a call
-        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
-        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Configure default orientation
       href: how-tos/ui-library-sdk/orientation.md
     - name: Configure closed captions
@@ -1262,6 +1250,18 @@ items:
       href: how-tos/ui-library-sdk/one-to-one-calling.md
     - name: Troubleshooting
       href: how-tos/ui-library-sdk/troubleshooting.md
+  - name: Get users ready for calls with UI Library
+    items:
+    - name: Call readiness overview
+      href: tutorials/call-readiness/call-readiness-overview.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: 1. Ensure user is on a supported browser
+      href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+    - name: 2. Request camera and microphone permissions
+      href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+    - name: 3. Set up microphone and camera before a call
+      href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
+      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
   - name: References
     items:
     - name: Web UI library
