@@ -492,7 +492,7 @@ To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-
 
 **Optional**. By default, Azurite will collect telemetry data to help improve the product. Disable telemetry data collection of this Azurite execution by:
 
-```
+```console
 azurite --disableTelemetry
 ```
 
