@@ -7,7 +7,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 02/14/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -36,9 +36,9 @@ platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essen
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * When clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* You can monitor activity logs to find out if the rate of events is more and events are getting dropped by the file access logs service.  <!-- ? -->
-* If the rate of file access event generation exceeds the internal limit, <!-- what is the internal limit --> disable noncritical auditing ACLs to reduce the rate. Leaving noncritical auditing ACLs can result in access events being dropped from the logs. 
-* If the rate of event generation is greater than 64 MiB/minute for your subscription, logging events can be delayed and eventually dropped. 
+* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). The log generation rate should not exceed 64 MiB/minute.
+
+    If the rate of file access event generation exceeds 64 MiB/minute, logging events can be delayed or dropped. If you are approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. 
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
 * Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
 * It's recommended you avoid enabling file access logs on files with more than 450 ACEs to avoid performance issues. 
