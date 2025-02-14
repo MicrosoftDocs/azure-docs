@@ -72,6 +72,6 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
+* Learn how to export Bicep files with the [Azure portal](../bicpe/export-bicep-portal.md).
 * Learn how to export templates with [Azure CLI](export-template-cli.md), [Azure PowerShell](export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 * To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
-* To learn how to develop templates, see the [step-by-step tutorials](../index.yml).

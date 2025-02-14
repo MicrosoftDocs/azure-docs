@@ -2,7 +2,7 @@
 title: Decompile a JSON Azure Resource Manager template to Bicep
 description: Learn the commands for decompiling JSON Azure Resource Manager templates to Bicep files.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 02/14/2025
 ms.custom: devx-track-bicep, devx-track-arm-template
 ---
 
@@ -166,6 +166,9 @@ output storageAccountName string = uniqueStorageName
 ```
 
 ## Export template and convert
+
+> [!NOTE]
+> You can export Bicep files by using the Azure portal.  For more information, see [Use Azure portal to export a Bicep file](./export-bicep-portal.md).
 
 You can export the template for a resource group and then pass it directly to the `decompile` command. The following examples show how to decompile an exported template:
 
