@@ -38,7 +38,7 @@ This article describes how Microsoft recommends you perform a migration from AWS
 
 ## Perform the migration based on your downtime plan
 
-Based on your [pre-migration deployment planning](./deployment.md) choice, perform one of the following migration steps.
+Based on your [pre-migration deployment planning](./deployment.md) choice, build your runbook to follow the appropriate migration steps. These are the activities you'll perform while doing the actual migration.
 
 ### Perform a planned downtime migration
 
