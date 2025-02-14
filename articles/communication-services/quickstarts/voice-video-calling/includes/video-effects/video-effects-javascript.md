@@ -5,17 +5,17 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 02/14/2024
+ms.date: 02/14/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The Video Effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is particularly advantageous in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
+The Video Effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is advantageous in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 > [!NOTE]
-> The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+> The calling effect library can't be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
 
 ## Using video effects
 ### Install the package
@@ -31,7 +31,7 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-See [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
+For more information see [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
 
 > [!NOTE]
 > Currently there are two available video effects:
@@ -44,7 +44,7 @@ import * as AzureCommunicationCallingSDK from '@azure/communication-calling';
 
 import { BackgroundBlurEffect, BackgroundReplacementEffect } from '@azure/communication-calling-effects'; 
 
-// Get the video effects feature api on the LocalVideoStream 
+// Get the video effects feature API on the LocalVideoStream 
 // (here, localVideoStream is the LocalVideoStream object you created while setting up video calling)
 const videoEffectsFeatureApi = localVideoStream.feature(AzureCommunicationCallingSDK.Features.VideoEffects); 
 
@@ -72,7 +72,7 @@ const backgroundBlurEffect = new BackgroundBlurEffect();
 const backgroundBlurSupported = await videoEffectsFeatureApi.isSupported(backgroundBlurEffect);
 
 if (backgroundBlurSupported) { 
-    // Use the video effects feature api we created to start effects
+    // Use the video effects feature API we created to start effects
     await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
 }
 ```
@@ -81,7 +81,7 @@ if (backgroundBlurSupported) {
 ### Background replacement with an image
 You need to provide the URL of the image you want as the background to this effect.
 > [!IMPORTANT]
-> The `startEffects` method will fail if the URL is not of an image or is unreachable/unreadable.
+> The `startEffects` method fails if the URL isn't of an image or is unreachable/unreadable.
 >
 
 > [!NOTE]
@@ -101,7 +101,7 @@ const backgroundReplacementEffect = new BackgroundReplacementEffect({
 const backgroundReplacementSupported = await videoEffectsFeatureApi.isSupported(backgroundReplacementEffect);
 
 if (backgroundReplacementSupported) { 
-    // Use the video effects feature api as before to start/stop effects 
+    // Use the video effects feature API as before to start/stop effects 
     await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect); 
 }
 ```
@@ -115,7 +115,7 @@ await backgroundReplacementEffect.configure({
 });
 ```
 
-Switching effects can be done using the same method on the video effects feature api:
+Switching effects can be done using the same method on the video effects feature API:
 ```js
 // Switch to background blur 
 await videoEffectsFeatureApi.startEffects(backgroundBlurEffect); 
@@ -127,7 +127,7 @@ await videoEffectsFeatureApi.startEffects(backgroundReplacementEffect);
 At any time if you want to check what effects are active, you can use the `activeEffects` property.
 The `activeEffects` property returns an array with the names of the current active effects, and returns an empty array if there are no effects active.
 ```js
-// Using the video effects feature api
+// Using the video effects feature API
 const currentActiveEffects = videoEffectsFeatureApi.activeEffects;
 ```
 
@@ -137,9 +137,9 @@ await videoEffectsFeatureApi.stopEffects();
 ```
 
 ### Add a frosted glass background effect
-Frosted glass backgrounds combine the privacy of a blurred background with the customization of your selected image to produce a sophisticated effect resembling frosted glass windows. To achieve this effect, upload a transparent PNG image as your custom background. This image could be your company logo or a unique design. The frosted glass effect will blur the transparent areas of your image, while preserving the graphic as part of the background. To use a frosted glass appearance you must use version `1.1.3` or higher of the [Azure Communication Calling Effects library for JavaScript](https://www.npmjs.com/package/@azure/communication-calling-effects) package.
+Frosted glass backgrounds combine the privacy of a blurred background with the customization of your selected image to produce a sophisticated effect resembling frosted glass windows. To achieve this effect, upload a transparent PNG image as your custom background. This image could be your company logo or a unique design. The frosted glass effect blurs the transparent areas of your image, while preserving the graphic as part of the background. To use a frosted glass appearance, you must use version `1.1.3` or higher of the [Azure Communication Calling Effects library for JavaScript](https://www.npmjs.com/package/@azure/communication-calling-effects) package.
 
-For best results when preparing the frosted PNG image, please keep in mind:
+For best results when preparing the frosted PNG image, keep in mind:
 
 * **Resolution**: Use 1920x1080 pixels for a high-quality background
 * **Avoid full opacity**: Colored content such as logos looks best with a little transparency. We recommend 75% opacity
