@@ -32,15 +32,15 @@ After a user identity is created, a user is granted with the capability to parti
 |---|----|
 |Identity|Uniquely identifies a token|
 |Expiration|An access token is valid for a period of time between 1 and 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive. To generate a token with a custom validity, specify the desired validity period when generating the token. If no custom validity is specified, the token will be valid for 24 hours. We recommend using short lifetime tokens for one-off meetings and longer lifetime tokens for agents using the application for longer periods of time|
-|Scope|The scope parameter defines a nonempty set of primitives (Chat/VoIP) that can be used. 
+|Scope|The scope parameter defines a nonempty set of primitives (Chat/VoIP) that can be used.
 
 An access token is a JSON Web Token (JWT) and has integrity protection. That is, its claims can't be changed after it's issued. So a manual change of properties such as identity, expiration, or scopes will invalidate the access token. If primitives are used with invalidated tokens, then access will be denied to the primitives. Azure Communication Services supports the following scopes for access tokens.
 
-## Chat token scopes
+### Chat token scopes
 Three types of chat token scopes are supported. Permissions for each token are described below.
-- chat
-- chat.join
-- chat.join.limited
+- `chat`
+- `chat.join`
+- `chat.join.limited`
 
 |Capability / Token scope| chat | chat.join | chat.join.limited |
 |---|---|---|---|
@@ -60,10 +60,10 @@ Three types of chat token scopes are supported. Permissions for each token are d
 |Send typing indicator | Y | Y | Y |
 |Get participant for thread ID | Y | Y | Y |
 
-## VoIP token scopes
+### VoIP token scopes
 Two types of VoIP token scopes are supported. Permissions for each token are described below.
-- voip
-- voip.join
+- `voip`
+- `voip.join`
 
 |Capability / Token scope| voip | voip.join |
 |---|---|---|
@@ -74,21 +74,39 @@ Two types of VoIP token scopes are supported. Permissions for each token are des
 |All other in-call operations such as mute/unmute, screen share etc. | Y | Y |
 |All other in-call operations such as mute/unmute, screen share etc. in Virtual Rooms| Determined by user role | Determined by user role |
 
-## Revoke or update access token
+You can the use `voip.join` scope together with [Rooms](./rooms/room-concept.md) to create a scheduled call where only invited users get access and where users are prohibited from creating any other calls.
+
+### Revoke or update access token
 - Azure Communication Services Identity library can be used to revoke an access token before its expiration time. Token revocation isn't immediate. It can take up to 15 minutes to propagate.
-- The removal of an identity, resource, or subscription revokes all access tokens.
-- If you want to remove a user's ability to access specific functionality, revoke all access tokens. Then issue a new access token that has a more limited set of scopes.
+- The deletion of an identity, resource, or subscription revokes all access tokens.
+- If you want to remove a user's ability to access specific functionality, revoke all access tokens for the user. Then issue a new access token that has a more limited set of scopes.
 - Rotation of access keys revokes all active access tokens that were created by using a former access key. In this case all identities lose access to Azure Communication Services, and they must issue new access tokens.
 
-## Considerations
-- We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or Microsoft Entra authentication. Sharing secrets with the client's application isn't recommended for security reasons.
-- Client application should use a trusted service endpoint that can authenticate clients. The endpoint should issue access tokens on their behalf. For more information, see [Client and server architecture](./client-and-server-architecture.md).
-- If you cache access tokens to a backing store, we recommend using encryption. An access token is sensitive data. It can be used for malicious activity if it's not protected. Someone who has an access token can start the SDK and access the API. The accessible API is restricted only based on the scopes that the access token has.
-- We recommend issuing access tokens that have only the required scopes.
+## Client-server architecture
+
+You should generate and manage user access tokens by using a trusted service and not from your client application. The connection string or Microsoft Entra credentials that are necessary to generate user access tokens need to be protected and passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in additional charges on your resource when discovered and misused by somebody else.
+
+If you cache access tokens to a backing store, we recommend encrypting the tokens. An access token gives access to sensitive data and can be used for malicious activity if it's not protected. Someone who has an access token can access a user's chat data or participate in calls impersonating the user.
+
+Make sure to only include those scopes in the token that your client application really needs in order to follow the security principle of least privilege.
+
+:::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
+
+1. A user starts the client application.
+1. The client application contacts your identity management service.
+1. The identity management service authenticates the application user. Skip authentication for anonymous user scenarios, but be careful to then add other measures such as throttling and CORS to avoid abuse of your service.
+1. Create or find a Communication Services identity for the user.
+   1. _Stable identity scenario:_ Your identity management service maintains a mapping between application identities and Communication Services identities. (Application identities include your users and other addressable objects, like services or bots.) If the application identity is new, a new Communication identity is created and a mapping is stored.
+   1. _Ephemeral identity scenario:_ The identity management service creates a new Communication identity. In this scenario the same user will end up with a different Communication identity for each session.
+1. The identity management service issues a user access token for the applicable identity and returns it to the client application.
+
+Azure App Service or Azure Functions are two alternatives for operating the identity management service. These services scale easily and have built-in features to [authenticate](/../../app-service/overview-authentication-authorization.md) users. They're integrated with [OpenID](../../app-service/configure-authentication-provider-openid-connect.md) and third-party identity providers like [Facebook](/../../app-service/configure-authentication-provider-facebook.md).
 
 ## Next steps
 
-* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
+* To learn how to issue tokens, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
-* For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
-* To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).
+* To read about data residency and privacy, see [Region availability and data residency](./privacy.md).
+* To learn how to quickly create identities and tokens for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).
+* For a full sample of a simple identity management service, visit the [Trusted service tutorial](../tutorials/trusted-service-tutorial.md).
+* For a more advanced identity management sample which integrates with Entra ID and Microsoft Graph, head over to [Authentication service hero sample](../samples/trusted-auth-sample.md).
