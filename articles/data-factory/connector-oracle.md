@@ -124,8 +124,8 @@ More connection properties you can set in connection string per your case:
 | statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
 | initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
 | enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
-| supportLegacyDataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0 's data type mappings. Type: boolean | No, this property is for Backward Compatibility use only | false |
-| fetchTSWTZasTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportLegacyDataTypes is not true. Type: boolean | No, this property is for Backward Compatibility use only | true |
+| supportLegacyDataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0 's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
+| fetchTSWTZasTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportLegacyDataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
 
 **Example:**
 
