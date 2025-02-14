@@ -135,7 +135,6 @@ The following table indicates the overall release timeline for whole Azure Sprin
 | [Guidance for migrating to Azure Container Apps (without migration tooling support)](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)                           | Basic, Standard, and Enterprise plans   | Jan 2025           |
 | [Guidance for migrating to AKS](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-aks-overview)                                                                                | Basic, Standard, and Enterprise plans   | Jan 2025           |
 | [Guidance for helping switch from Tanzu components to alternative solutions](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)                                   | Enterprise plans                        | Jan 2025     |
-
 | Official retirement start date                                                                               | Basic, Standard, and Enterprise plans   | March 17, 2025     |
 | [Guidance for migrating to Azure Container Apps with migration tooling support](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)                                | Basic, Standard, and Enterprise plans   | March 17, 2025     |
 | Block new customer sign-ups                                                                                  | Basic, Standard, and Enterprise plans   | March 17, 2025         |
