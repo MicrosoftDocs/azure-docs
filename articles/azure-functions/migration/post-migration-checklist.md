@@ -73,7 +73,7 @@ In addition to verification of meeting expectations align with the work you did 
 >
 > - Establish a new serverless compute reliability baseline.
 >
->   You'll want to start tracking key reliability metrics such as function hosting  availability along with operational metrics such as MTTD and MTTR.
+>   You'll want to start tracking key reliability metrics such as function hosting  availability along with operational metrics such as MTTD, MTTR, and MTBF.
 
 ## Next step
 
