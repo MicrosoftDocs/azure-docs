@@ -34,15 +34,15 @@ Azure Files offers several ways for .NET developers to access data and manage re
 | Approach | How it works | When to use |
 | --- | --- | --- |
 | Standard file I/O libraries | Uses OS-level API calls through Azure file shares mounted using SMB or NFS. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET. | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
-| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the `Azure.Storage.Files.Shares` client library that builds on the FileREST API, allowing you interact with FileREST API operations through familiar .NET programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through `System.IO`. |
+| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`Azure.Storage.Files.Shares`) that builds on the FileREST API, allowing you interact with FileREST API operations through familiar .NET programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through `System.IO`. |
 | Storage resource provider REST API | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 For general information about these approaches, see [Overview of application development with Azure Files](storage-files-developer-overview.md).
 
 This article focuses on working with Azure Files resources using the following approaches:
 
-- [Work with Azure Files using System.IO](#standard-file-io-libraries): Mount a file share using SMB or NFS and use the `System.IO` namespace to work with files and directories in the share.
-- [Work with Azure Files using Azure.Storage.Files.Shares](#filerest-api): Use the `Azure.Storage.Files.Shares` client library to work with files and directories in a file share using REST.
+- [Work with Azure Files using System.IO](#work-with-azure-files-using-systemio): Mount a file share using SMB or NFS and use the `System.IO` namespace to work with files and directories in the share.
+- [Work with Azure Files using the File Shares client library for .NET](#work-with-azure-files-using-the-file-shares-client-library-for-net): Use the Azure Storage File Shares client library for .NET to work with files and directories in a file share. This client library builds on the FileREST API.
 
 To learn about using the Storage resource provider REST API and management libraries, see [Libraries for resource management](storage-files-developer-overview.md#libraries-for-resource-management).
 
@@ -93,7 +93,7 @@ If you don't already have a .NET app, create one using Visual Studio or the .NET
 
 ### Install the package
 
-If you plan to interact with Azure Files using the `System.IO` namespace, you don't need to install any additional packages. The `System.IO` namespace is included with the .NET SDK. If you plan to use the `Azure.Storage.Files.Shares` client library, install the package using NuGet.
+If you plan to interact with Azure Files using the `System.IO` namespace, you don't need to install any additional packages. The `System.IO` namespace is included with the .NET SDK. If you plan to use the File Shares client library for .NET, install the package using NuGet.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -120,7 +120,7 @@ If you plan to use the `System.IO` namespace, add the following using directive 
 using System.IO;
 ```
 
-If you plan to use the `Azure.Storage.Files.Shares` client library, add the following using directive to the top of your *Program.cs* file:
+If you plan to use the File Shares client library for .NET, add the following using directive to the top of your *Program.cs* file:
 
 ```csharp
 using Azure.Storage.Files.Shares;
@@ -269,9 +269,9 @@ static void EnumerateFileACLs(string filePath)
 }
 ```
 
-## Work with Azure Files using Azure.Storage.Files.Shares
+## Work with Azure Files using the File Shares client library for .NET
 
-The FileREST API provides programmatic access to Azure Files. It allows you to call HTTPS endpoints to perform operations on file shares, directories, and files. The FileREST API is designed for high scalability and advanced features that might not be available through native protocols. The Azure SDK provides client libraries, such as `Azure.Storage.Files.Shares` for .NET, that build on the FileREST API.
+The FileREST API provides programmatic access to Azure Files. It allows you to call HTTPS endpoints to perform operations on file shares, directories, and files. The FileREST API is designed for high scalability and advanced features that might not be available through native protocols. The Azure SDK provides client libraries, such as the File Shares client library for .NET, that build on the FileREST API.
 
 Consider using the FileREST API and the File Share client library if your application requires:
 
