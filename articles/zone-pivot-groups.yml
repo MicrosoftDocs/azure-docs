@@ -1121,6 +1121,15 @@ groups:
   - id: azure-cli
     title: Azure CLI
 # Owner: cshoe
+- id: sessions-custom-or-interpreter
+  title: Interaction type
+  prompt: Select why kind of dynamic session you want to create
+  pivots:
+  - id: custom
+    title: Custom conatiner session
+  - id: code
+    title: Code interpreter session
+# Owner: cshoe
 - id: arm-azure-cli-portal
   title: Interaction type
   prompt: Select how you want to interact with Azure
