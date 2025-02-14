@@ -41,7 +41,7 @@ In this section, we provide a detailed walkthrough of various attributes of an a
 
 ### ID
 
-The `id` attribute consists of a standard globally unique identifier (GUID). Generate it by using any development tool, online generator, or the new PowerShell [New-GUID cmdlet](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-6&preserve-view=true). It must be unique among other GUIDs.
+The `id` attribute consists of a standard globally unique identifier (GUID). Generate it by using any development tool, an online generator, or the new PowerShell [New-GUID cmdlet](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-6&preserve-view=true). It must be unique among other GUIDs.
 
 This field is mandatory.
 
@@ -86,12 +86,12 @@ The `severity` attribute defines the severity level of the detection. Severity r
 * **Medium**: The threat actor could achieve some effect on the environment with this activity, but the effect would be limited in scope or require extra activity.
 * **High**: The identified activity provides the threat actor with wide-ranging access to conduct actions on the environment.
 
- > [!NOTE]
+> [!NOTE]
 > Severity level defaults aren't a guarantee of the current or environment impact level. Severity level applies only to Microsoft Sentinel analytics templates. Otherwise, the security service that issued the alert controls the `severity` attribute in the Alerts table. You can use `alertDetailsOverride` to provide a dynamic `severity` attribute that depends on the actual outcome of the query.
 
 ### Required data connectors
 
-The `requiredDataConnectors` attribute represents the list of data connectors that the rule needs to function correctly, including the data sources against which the rule queries. If there's no current data connector mapping, then an open brace must be used: `requiredDataConnectors: []`.
+The `requiredDataConnectors` attribute represents the list of data connectors that the rule needs to function correctly, including the data sources against which the rule queries. If there's no current data connector mapping, you must use an open brace: `requiredDataConnectors: []`.
 
 The `connectorId` attribute specifies the ID of the data connector that you need so the query functions correctly. If your detection query depends on the data fetched from a specific connector, you must specify the connector ID here. For instance, if your analytics rule depends on the data from this [connector](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/1Password/Data%20Connectors/1Password_ccpv2/1Password_DataConnectorDefinition.json), you must specify the `connectorID` as `1PasswordCCPDefinition`.
 
@@ -119,11 +119,11 @@ This field is mandatory for scheduled analytics rules.
 
 ### Trigger operator
 
-The `triggerOperator` attribute indicates the mechanism that triggers the alert. For example: greater than (`gt`) the number set in the `triggerThreshold` attribute (see Trigger threshold).
+The `triggerOperator` attribute indicates the mechanism that triggers the alert. For example: greater than (`gt`) the number set in the `triggerThreshold` attribute (see [Trigger threshold](#trigger-threshold)).
 
-* `gt`: greater than
-* `lt`: less than
-* `eq`: equal to
+* `gt`: Greater than
+* `lt`: Less than
+* `eq`: Equal to
 
 This field is mandatory for scheduled analytics rules.
 
@@ -180,11 +180,11 @@ We highly recommend that you use comments to clarify the query. Avoid adding com
 ```
 If you're referencing a parser instead of a table name, ensure clarity in the description by including a comment next to the parser function reference. The parser must be imported into the workspace first. Otherwise, the queries don't recognize it as valid.
 
-Ensure that every available entity field is returned for mapping purposes. (Refer to the Entity mappings section.) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
+Ensure that every available entity field is returned for mapping purposes. (Refer to the [Entity mappings section](#entity-mappings).) Sanitize the returned table so that it provides only the properties that you need to investigate further. You don't need a `TimeGenerated` filter when you use a simple `lookback` command across the entire query. The `queryPeriod` value in the YAML controls this process.
 
-For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, as the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
+For baselining or performing a historical comparison, such as comparing today to the previous seven days, include a time-bounded filter such as `| where TimeGenerated >= ago(lookback)`, because the YAML template doesn't currently support multiple `queryPeriod` values. Avoid using time frames shorter than one day unless there's a specific reason. We don't recommend time frames longer than 14 days due to potential performance impacts.
 
-Summarize when necessary, ensuring that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)` Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, as these names can conflict with user experience preferences.
+Summarize when necessary. Ensure that you include the time field (usually `TimeGenerated`) because you need it in the entity field. Include both the `min()` and `max()` values as follows: `| summarize StartTime = max(TimeGenerated), EndTime = min(TimeGenerated)`. Use the terms `StartTime` and `EndTime` exclusively. Don't assign the fields the names `StartTimeUtc` or `EndTimeUtc`, because these names can conflict with user experience preferences.
 
 Additionally, include as many fields as possible to help the user understand the context of the alert. We recommend that you include at least one of the primary entities: `Host`, `Account`, or `IP`.
 
@@ -244,7 +244,7 @@ The `fieldMappings` attribute represents the identifier of the field in the quer
 
 ### Custom details
 
-The `customDetails` attribute integrates event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Custom details are key-value pairs of property and column names. More information is available [here](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key-value pairs) can be defined per template.
+The `customDetails` attribute integrates event data into alerts, making it visible in security incidents for faster triaging, investigation, and response. Custom details are key/value pairs of property and column names. For more information, see [Surface custom event details in alerts in Microsoft Sentinel](/azure/sentinel/surface-custom-details-in-alerts). Up to 20 custom details (that is, key/value pairs) can be defined per template.
 
 ```json
         customDetails:
