@@ -21,7 +21,7 @@ The more dedicated SQL pool knows about your data, the faster it can execute que
 
 The dedicated SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that executes the fastest.
 
-For example, the optimizer selects a certain plan if it estimates that that the date your query filters on returns one row. If the optimizer estimates that the selected date returns a million rows, it chooses a different plan.
+For example, the optimizer selects a certain plan if it estimates that the date your query filters on returns one row. If the optimizer estimates that the selected date returns a million rows, it chooses a different plan.
 
 ## Automatic creation of statistic
 
