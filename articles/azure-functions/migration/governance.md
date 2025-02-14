@@ -3,7 +3,7 @@ title: Migrate governance implementation from AWS Lambda to Azure Functions
 description: Plan the migration of your AWS Lambda governance implementation.
 author: robbyatmicrosoft
 ms.author: robbymillsap
-ms.date: 01/28/2025  
+ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
@@ -35,7 +35,7 @@ These aspects are not covered in this article:
 
 Understand the existing organizational policies, workload polices, regulatory requirements, and governance reporting applied to your AWS Lamba service. These existing investments need to be migrated or adapted to maintain continuity in Azure Functions. Without a complete inventory of the existing governance implementation, you risk regressing in your governance posture.
 
-&#9997; Document your existing governance and regulatory requirements and their application to your Lambda through these various discovery activities. 
+&#9997; Document your existing governance and regulatory requirements and their application to your Lambda through these various discovery activities.
 
 ### Assess the business requirements
 
@@ -49,7 +49,7 @@ Understand the existing organizational policies, workload polices, regulatory re
 > [!NOTE]
 > **Content developer**: Enumerate the typical and prominent features of Lambda governance. Try to achieve a one-to-one mapping of governance implementation. Make a note of gaps.`
 
-This table lists the common features of Lambda, their governance implementation on AWS, and the recommended equivalent in Azure. 
+This table lists the common features of Lambda, their governance implementation on AWS, and the recommended equivalent in Azure.
 
 | Feature   | AWS implementation | Azure implementation | Migration strategy |
 |-----------|--------------|----------------------|--------------------|
@@ -59,7 +59,7 @@ This table lists the common features of Lambda, their governance implementation 
 
 &#9997; Use the preceding table as a foundation to gather the technical details of the current AWS deployment. Expand on this list by identifying specific elements from your implementation.
 
-### How to collect information 
+### How to collect information
 
 Here are some approaches on taking inventory of an existing governance implementations on AWS.
 
@@ -98,7 +98,7 @@ Familiarize yourself with the Lambda governance implementation by using these re
 
 Deviations reflect gaps when one-to-one mapping isn't feasible. You'll need to make decisions for, prioritizing minimal deviation to business requirements. Consider the potential benefits and drawbacks of each mitigation.
 
-Here's the summarized view of the gaps identified in the technical map. 
+Here's the summarized view of the gaps identified in the technical map.
 
 | Feature   | Deviation | Impact | Mitigation |
 |-----------|-----------|--------|------------|
@@ -109,7 +109,7 @@ Here's the summarized view of the gaps identified in the technical map.
 
 ### Challenges
 
-When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges. 
+When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges.
 
 > [!NOTE]
 > **Content developer**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points.

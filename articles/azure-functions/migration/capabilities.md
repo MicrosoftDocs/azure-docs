@@ -3,7 +3,7 @@ title: Migrate core capabilities from AWS Lambda to Azure Functions
 description: Plan the migration of the core capabilities of AWS Lambda.
 author: robbyatmicrosoft
 ms.author: robbymillsap
-ms.date: 01/28/2025  
+ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
@@ -58,6 +58,16 @@ Your code is hosted on a serverless compute platform to take advantage of the de
 
 > [!NOTE]
 > **Content developer**: Enumerate the typical and prominent features of Lambda serverless hosting. Try to achieve a one-to-one mapping of implementation. Make a note of gaps.
+>
+> Some examples for Azure Functions:
+> - Mapping to App Service plans
+> - DNS/TLS
+> - Triggers / HTTP / Events
+> - Scaling
+> - Network integration, including on-premises connectivity
+> - Firewalling
+> - State backups
+> - Deployment slots
 
 This table lists the core serverless, code-hosting features of Lambda and the recommended equivalent in Azure.
 
@@ -69,7 +79,7 @@ This table lists the core serverless, code-hosting features of Lambda and the re
 
 &#9997; Use the preceding table as a foundation to gather the technical details of the current AWS deployment. Expand on this list by identifying specific elements from your implementation.
 
-### How to collect information 
+### How to collect information
 
 Here are some approaches on taking inventory of an existing functionality being used on AWS.
 
@@ -115,7 +125,7 @@ AS NEEDED
 
 Deviations reflect gaps when one-to-one mapping isn't feasible. You'll need to make decisions for, prioritizing minimal deviation to business requirements. Consider the potential benefits and drawbacks of each mitigation.
 
-Here's the summarized view of the gaps identified in the technical map. 
+Here's the summarized view of the gaps identified in the technical map.
 
 | Feature   | Deviation | Impact | Mitigation |
 |-----------|-----------|--------|------------|

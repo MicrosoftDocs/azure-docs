@@ -3,7 +3,7 @@ title: Migrate identity and access management of AWS Lambda to Azure Functions
 description: Plan the migration of your AWS Lambda identity and access management implementation.
 author: robbyatmicrosoft
 ms.author: robbymillsap
-ms.date: 01/28/2025  
+ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
@@ -65,7 +65,7 @@ Your workload might also have access auditing requirements that must be reimplem
 > [!NOTE]
 > **Content developer**: Enumerate the typical and prominent features of Lambda identity, covering both end user access (data plane), operations (control plane), and workload identity. Try to achieve a one-to-one mapping of IAM implementation points. Make a note of gaps.
 
-This table lists the common features of Lambda related to indentity and access management and the recommended equivalent in Azure. 
+This table lists the common features of Lambda related to indentity and access management and the recommended equivalent in Azure.
 
 | Feature   | AWS implementation | Azure implementation | Migration strategy |
 |-----------|--------------|----------------------|--------------------|
@@ -75,7 +75,7 @@ This table lists the common features of Lambda related to indentity and access m
 
 &#9997; Use the preceding table as a foundation to gather the technical details of the current AWS deployment. Expand on this list by identifying specific elements from your implementation.
 
-### How to collect information 
+### How to collect information
 
 Here are some approaches on taking inventory of an existing identity and access management implementations on AWS.
 
@@ -121,7 +121,7 @@ Role mapping guide.
 
 Deviations reflect gaps when one-to-one mapping isn't feasible. You'll need to make decisions for, prioritizing minimal deviation to business requirements. Consider the potential benefits and drawbacks of each mitigation.
 
-Here's the summarized view of the gaps identified in the technical map. 
+Here's the summarized view of the gaps identified in the technical map.
 
 | Feature   | Deviation | Impact | Mitigation |
 |-----------|-----------|--------|------------|
@@ -132,7 +132,7 @@ Here's the summarized view of the gaps identified in the technical map.
 
 ### Challenges
 
-When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges. 
+When planning a migration to Azure, expect challenges in understanding Azure expectations and how they align with the business requirements already achieved in the existing AWS solution running in production. This list presents some of those challenges.
 
 > [!NOTE]
 > **Content developer**: Have a discussion with the SME on challenges faced in their customers' migrations in this area. Provide at least two points.
