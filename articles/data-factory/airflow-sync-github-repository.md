@@ -37,7 +37,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
 
 1. When you create a Workflow Orchestration Manager integration runtime, select **Enable git sync** in the **Airflow environment setup** dialog.
 
-   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot that shows the Enable git sync checkbox in the Airflow environment setup dialog that appears during creation of a Airflow integration runtime.":::
+   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot that shows the Enable git sync checkbox in the Airflow environment setup dialog that appears during creation of an Airflow integration runtime.":::
 
 1. Select one of the following supported Git service types:
    - **GitHub**

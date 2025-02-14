@@ -106,7 +106,7 @@ You can specify the following metadata types in the Get Metadata activity field 
 > When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity fails if the object isn't found.
 
 > [!NOTE]
-> When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output includes only files in the specified path that have a last modified time within the specified range. Items in subfolders aren't included.
+> When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output include only files in the specified path that have a last modified time within the specified range. Items in subfolders aren't included.
 
 > [!NOTE]
 > For the **Structure** field list to provide the actual data structure for delimited text and Excel format datasets, you must enable the `First Row as Header` property, which is supported only for these data sources.
