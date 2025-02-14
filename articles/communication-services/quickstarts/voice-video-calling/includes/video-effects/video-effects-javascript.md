@@ -5,7 +5,7 @@ description: Learn how to add video effects in your video calls using Azure Comm
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 01/20/2023
+ms.date: 02/14/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -77,6 +77,7 @@ if (backgroundBlurSupported) {
 }
 ```
 
+
 ### Background replacement with an image
 You need to provide the URL of the image you want as the background to this effect.
 > [!IMPORTANT]
@@ -134,3 +135,7 @@ To stop effects:
 ```js
 await videoEffectsFeatureApi.stopEffects();
 ```
+
+### Add a frosted glass background effect
+Frosted glass backgrounds combine the privacy of a blurred background with the customization of your selected image to produce a sophisticated effect resembling frosted glass windows.
+To achieve this effect, upload a transparent PNG image as your custom background. This image could be your company logo or a unique design. The frosted glass effect will blur the transparent areas of your image, while preserving the graphic as part of the background.
