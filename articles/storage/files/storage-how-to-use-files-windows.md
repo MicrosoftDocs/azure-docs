@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 02/14/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -33,6 +33,9 @@ Azure Files supports [SMB Multichannel](files-smb-protocol.md#smb-multichannel) 
 
 | Windows version | SMB version | Azure Files SMB Multichannel | Maximum SMB channel encryption |
 |-|-|-|-|
+| Windows Server 2025 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 24H2 | SMB 3.1.1 | Yes | AES-256-GCM |
+| Windows 11, version 23H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 11, version 22H2 | SMB 3.1.1 | Yes | AES-256-GCM |
 | Windows 10, version 22H2 | SMB 3.1.1 | Yes | AES-128-GCM |
 | Windows Server 2022 | SMB 3.1.1 | Yes | AES-256-GCM |
