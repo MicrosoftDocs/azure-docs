@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.6.0] (CDN: TBA, npm: TBA)
+### [3.6.0] (CDN: February 18, 2025, npm: TBA)
 
 #### New features
 * Add a new option `StyleOptions.styleOverrides` which overrides the default styles for the map elements.
