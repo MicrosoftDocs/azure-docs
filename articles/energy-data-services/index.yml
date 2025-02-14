@@ -90,6 +90,8 @@ landingContent:
             url: how-to-register-external-data-sources.md
           - text: How to enable legal tags restricted COO (Country of Origin)
             url: how-to-enable-legal-tags-restricted-country-of-origin.md
+          - text: How to enable Reservoir DDMS
+            url: how-to-enable-reservoir-ddms.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide

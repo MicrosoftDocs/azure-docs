@@ -24,8 +24,6 @@
     items:
     - name: Access the Education Hub
       href: access-education-hub.md
-    - name: Get started with Azure Classroom
-      href: get-started-education-hub.md
     - name: Set up a lab
       href: set-up-lab.md
   - name: Azure Dev Tools for Teaching
