@@ -17,13 +17,6 @@ Qumulo is an industry leader in distributed file system and object storage. Qumu
 
 The Azure Native Qumulo offering on Azure Marketplace allows you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while giving you full admin rights to configure details like file system shares, exports, quotas, snapshots, and Active Directory users.
 
-## Versions
-
- Azure Native Qumulo is available in two versions:
-
-- ANQ v2: Qumulo's latest offering that provides highly performant, highly scalable, and highly durable cost effective cloud filesystem with pay as you go pricing capabilities.
-- ANQ v1: Qumulo's initial storage architecture offering that features two distinct tiers - standard and performance and this service version is billed on deployed capacity.
-
 ## Capabilities
 
 Azure Native Qumulo Scalable File Service provides the following capabilities:
@@ -32,9 +25,9 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 - **Multi-protocol support** - ANQ supports all standard file system protocols: NFS, SMB, FTP, and S3.
 - **Exabyte scale storage scaling** - Each Qumulo instance can be scaled up to exabytes of storage capacity.
 - **Unified billing** - Get a single bill for all resources that you consume on Azure for the Qumulo service.
-- **Elastic performance** - ANQ v2 enables workflows to consume capacity and performance independently of each other. 1 GB/s throughput is included in the base configuration.
+- **Elastic performance** - Workflows to consume capacity and performance independently of each other. 1 GB/s throughput is included in the base configuration.
 - **Private access** - The service is directly connected to your own virtual network (sometimes called _VNet injection_).
-- **Global Namespaces** - This capability enables all workloads on Azure Native Qumulo v2 Scalable File Service or on-premises Qumulo instance to be pointed to a single namespace.
+- **Global Namespaces** - This capability enables all workloads on Azure Native Qumulo Scalable File Service or on-premises Qumulo instance to be pointed to a single namespace.
 
 ### Storage class
 
