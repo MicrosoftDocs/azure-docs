@@ -3,7 +3,7 @@ title: Monitoring data reference for Azure Logic Apps
 description: This article contains important reference material you need when you monitor Azure Logic Apps.
 ms.date: 03/19/2024
 ms.custom: horz-monitor
-ms.topic: reference
+ms.topic: conceptual
 ms.service: azure-logic-apps
 ---
 
