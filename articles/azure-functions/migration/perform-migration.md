@@ -16,7 +16,7 @@ This article describes how Microsoft recommends you perform a migration from AWS
 > [!NOTE]
 > **Content developer**: Work with your SME to summarize all of the core "pre-migration" tasks they should have completed. These need to have been completed, none of these should be "new activities" -- if they are, then instead introduce the topic into the pre-planning activies guides.
 
-- You've prepared by following all of the recommendations in the [pre-migration design areas](./aws-lambda-to-azure-functions.md#perform-pre-migration-evaluation).
+- You've prepared by following all of the recommendations in the [pre-migration design areas](./aws-lambda-to-azure-functions.md#perform-pre-migration-planning).
 - You've a subscription allocated and ready for your resources and you have privileges to create the resources needed in the subscription.
 - You've built out your infrastructure templates to create your Azure Function resource and its required dependencies.
 - You've modified and tested your application code to work on Azure Functions.
