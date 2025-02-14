@@ -144,11 +144,21 @@ For more information and examples, see the following resources:
 
 ### Mount a file share
 
-To use `System.IO`, you must first mount a file share. For instructions, see [Mount an Azure file share](mount-service-overview.md).
+To use `System.IO`, you must first mount a file share. See the following resources for guidance on how to mount a file share using SMB or NFS:
 
-### Example: Connect to a file share and enumerate directories
+- [Mount an SMB file share on Windows](storage-how-to-use-files-windows.md)
+- [Mount an SMB file share on Linux](storage-how-to-use-files-linux.md)
+- [Mount an NFS file share on Linux](storage-files-how-to-mount-nfs-shares.md)
 
-The following code example shows how to connect to a file share and list the files in the share:
+In this article, we use the following path to refer to a mounted SMB file share on Windows:
+
+```csharp
+string fileSharePath = @"Z:\file-share";
+```
+
+### Example: Connect to a file share and enumerate directories using System.IO
+
+The following code example shows how to connect to a file share and list the directories in the share:
 
 ```csharp
 using System.IO;
@@ -180,7 +190,7 @@ static void EnumerateDirectories(string path)
 }
 ```
 
-### Example: Write to a file in a file share
+### Example: Write to a file in a file share using System.IO
 
 The following code example shows how to write and append text with the `File` class:
 
@@ -203,7 +213,7 @@ static void WriteToFile(string fileSharePath, string fileName)
 }
 ```
 
-### Example: Lock a file in a file share
+### Example: Lock a file in a file share using System.IO
 
 The following code example shows how to lock a file in a file share:
 
@@ -236,7 +246,7 @@ static void LockFile(string filePath)
 }
 ```
 
-### Example: Enumerate file ACLs
+### Example: Enumerate file ACLs using System.IO
 
 The following code example shows how to enumerate ACLs for a file:
 

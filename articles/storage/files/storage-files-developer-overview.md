@@ -15,7 +15,7 @@ This article provides an overview of application development with Azure Files an
 
 ## About app development with Azure Files
 
-Azure Files offers several ways for developers to access data and manage resources in Azure Files. The following table lists the approaches, summarizes how they work, and provides guidance on when to use each approach:
+Azure Files offers several ways for developers to access data and manage resources in Azure file shares. The following table lists the approaches, summarizes how they work, and provides guidance on when to use each approach:
 
 | Approach | How it works | When to use |
 | --- | --- | --- |
