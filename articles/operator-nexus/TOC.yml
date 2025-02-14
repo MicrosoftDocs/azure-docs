@@ -64,6 +64,8 @@
               href: reference-isolation-domain-technical-requirements.md
         - name: Access Control Lists
           href: concepts-access-control-lists.md
+        - name: Network Fabric OptionA and OptionB
+          href: concepts-network-fabric-optionA-optionB.md
     - name: Nexus Kubernetes Cluster
       expanded: false
       items:
@@ -341,6 +343,8 @@
           href: troubleshoot-bare-metal-machine-provisioning.md
         - name: Troubleshoot Hardware Validation Failure
           href: troubleshoot-hardware-validation-failure.md
+        - name: Troubleshoot Degraded status
+          href: troubleshoot-bare-metal-machine-degraded.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource
