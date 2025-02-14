@@ -85,6 +85,8 @@ items:
           href: how-to-register-external-data-sources.md
         - name: How to enable legal tags restricted COO (Country of Origin)
           href: how-to-enable-legal-tags-restricted-country-of-origin.md
+        - name: How to enable Reservoir DDMS
+          href: how-to-enable-reservoir-ddms.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor
