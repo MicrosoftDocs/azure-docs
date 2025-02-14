@@ -488,7 +488,7 @@ There's no restriction on the value specified for this option, but virtual memor
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
-#### Disable Telemetry Collection
+#### Disable telemetry collection
 
 **Optional**. By default, Azurite will collect telemetry data to help improve the product. Disable telemetry data collection of this Azurite execution by:
 
