@@ -155,7 +155,7 @@ For full customization of the serialization/deserialization pipeline, consider h
 
 It's recommended to use type annotations to ensure Durable Functions serializes and deserializes your data correctly. While many built-in types are handled automatically, some built-in data types require type annotations to preserve the type during deserialization.
 
-For custom data types, you must define the JSON serialization and deserialization of a data type by exporting a static `to_json` and `from_json` method from your class.
+For custom data types, you make JSON serialization and deserialization possible by defining class methods `to_json` and `from_json` on your data type class.
 
 # [Java](#tab/java)
 
