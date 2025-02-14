@@ -36,7 +36,7 @@ To export one or more resources from a resource group:
 
    :::image type="content" source="./media/export-template-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
 
-   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you'd like to author your own parameters, toggle this checkbox to not include them.
 
 ## Export template from a resource
 
@@ -72,6 +72,6 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
-* Learn how to export Bicep files with the [Azure portal](../bicpe/export-bicep-portal.md).
-* Learn how to export templates with [Azure CLI](export-template-cli.md), [Azure PowerShell](export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+* Learn how to export Bicep files with the [Azure portal](../bicep/export-bicep-portal.md).
+* Learn how to export templates with [Azure CLI](./export-template-cli.md), [Azure PowerShell](./export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 * To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
