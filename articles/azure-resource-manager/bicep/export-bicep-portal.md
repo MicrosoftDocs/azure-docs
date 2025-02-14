@@ -3,20 +3,20 @@ title: Export Bicep files in Azure portal
 description: Use Azure portal to export a Bicep file from resources in your subscription.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 02/14/2025
 ---
 
 # Use Azure portal to export a Bicep file
 
 [!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
 
-Currently, Bicep files can only be exported from the Azure portal. Exporting via Azure CLI or Azure PowerShell is not supported at this time.
+Currently, Bicep files can only be exported from the Azure portal. However, you can export ARM JSON templates via [Azure CLI](../templates/export-template-cli.md) or [Azure PowerShell](../templates/export-template-powershell.md) and then [decompile](./decompile.md) them into to Bicep files.
 
 [!INCLUDE [Export template choose option](../../../includes/resource-manager-export-template-choose-option.md)]
 
 [!INCLUDE [Export template limitations](../../../includes/resource-manager-export-template-limitations.md)]
 
-## Export template from a resource group
+## Export Bicep file from a resource group
 
 To export one or more resources from a resource group:
 
@@ -26,15 +26,15 @@ To export one or more resources from a resource group:
 
    :::image type="content" source="./media/export-bicep-portal/select-all-resources.png" alt-text="Screenshot of selecting all resources for export in Azure portal.":::
 
-1. Select **Export template** from the top menu. The **Export template** from the left menu exports all the resources in the group to a template.
+1. Select **Export template** from the top menu. The **Export template** from the left menu exports all the resources in the group to a Bicep file.
 
-1. The exported template is displayed, and is available to download and deploy.
+1. Select **Bicep**. The exported Bicep file is displayed, and is available to download and deploy.
 
-   :::image type="content" source="./media/export-bicep-portal/show-template.png" alt-text="Screenshot of the displayed exported template in Azure portal.":::
+   :::image type="content" source="./media/export-bicep-portal/show-template.png" alt-text="Screenshot of the displayed exported Bicep file in Azure portal.":::
 
-   **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+   All template parameters are included when the Bicep file is generated. 
 
-## Export template from a resource
+## Export Bicep file from a resource
 
 To export one resource:
 
@@ -46,28 +46,14 @@ To export one resource:
 
    :::image type="content" source="./media/export-bicep-portal/export-single-resource.png" alt-text="Screenshot of exporting a single resource in Azure portal.":::
 
-1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters are included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+1. Select **Bicep**. The exported template is displayed, and is available to download and deploy. The Bicep file only contains the single resource. All template parameters are included when the Bicep file is generated.
 
 ## Export template after deployment
 
-You can export the template that was used to deploy existing resources. The template you get is exactly the one that was used for deployment.
-
-1. Select the resource group you want to export.
-
-1. Select the link under **Deployments**.
-
-   :::image type="content" source="./media/export-bicep-portal/select-deployment-history.png" alt-text="Screenshot of selecting deployment history in Azure portal.":::
-
-1. Select one of the deployments from the deployment history.
-
-   :::image type="content" source="./media/export-bicep-portal/select-details.png" alt-text="Screenshot of selecting a specific deployment from deployment history in Azure portal.":::
-
-1. Select **Template**. The template used for this deployment is displayed, and is available for download.
-
-   :::image type="content" source="./media/export-bicep-portal/show-template-from-history.png" alt-text="Screenshot of selecting the template used for a specific deployment in Azure portal.":::
+You can export the template that was used to deploy existing resources. The template you get is exactly the one that was used for deployment. This option can only export ARM JSON templates. After exporting, you can [decompile](./decompile.md) them into to Bicep files.
 
 ## Next steps
 
-* Learn how to export templates with [Azure CLI](export-template-cli.md), [Azure PowerShell](export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
-* To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
-* To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
+* Learn how to export ARM JSON templates with [Azure CLI](../templates/export-template-cli.md), [Azure PowerShell](../templates/export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+* Learn the [Bicep file structure and syntax](./file.md).
+* Learn how to [decompile ARM JSON tempaltes to Bicep](./decompile.md).
