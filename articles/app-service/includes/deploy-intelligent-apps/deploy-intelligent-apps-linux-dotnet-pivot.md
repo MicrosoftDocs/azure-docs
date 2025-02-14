@@ -358,8 +358,3 @@ Although optional, it's highly recommended that you also add authentication to y
 
 Once deployed, browse to the web app and navigate to the OpenAI tab. Enter a query to the service and you should see a populated response from the server. The tutorial is now complete and you now know how to use OpenAI services to create intelligent applications.
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service](/azure/app-service/deploy-intelligent-apps-dotnet-to-azure-sql.md)
-
