@@ -26,21 +26,10 @@ Azure Spring Apps, including the Standard consumption and dedicated (currently i
 
 ## Migration recommendation
 
-To ensure that you maintain high performance and achieve scalability, flexibility, and cost-efficiency for your business, (To be revised) we recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps. If you're using the Azure Spring Apps Enterprise plan, Azure Container Apps remains the most recommended destination. However, if you prefer to continue using Tanzu, AKS is a better choice, enabling you to host Tanzu components yourself with full control and capability over them.
+To ensure that you maintain high performance and achieve scalability, flexibility, and cost-efficiency for your business, we recommend Azure Container Apps and Azure Kubernetes Service as the replacement services for your migration of workloads running on Azure Spring Apps.
 
-Azure Container Apps is a fully managed, serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale.
-
-Key Features of Azure Container Apps:
-
-- Fully managed, serverless container platform
-- Scale to zero capability
-- Open-source foundation and add-ons
-- [Enhanced Java support](../../container-apps/java-overview.md)
-  - Managed Spring components support (Eureka Server, Config Server, Spring Boot Admin)
-  - Built-in JVM metrics
-  - Diagnostics for Java apps
-
-For more information about Azure Container Apps, see [Azure Container Apps overview](../../container-apps/overview.md).
+Azure Container Apps is a fully managed, serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale. For more information about Azure Container Apps, see [Azure Container Apps overview](../../container-apps/overview.md).
+Azure Kubernetes Service (AKS) is a managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes. It offers features like automated updates, monitoring, and scaling, enabling developers to focus on application development rather than infrastructure management. Learn more: [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks).
 
 ## Migration guidance and tooling for the Azure Spring Apps Standard consumption and dedicated plan
 
@@ -52,15 +41,18 @@ Migration guidance and tooling will offer customers a smooth transition from Azu
 
 New customers will no longer be able to sign up for the service after March 17, 2025, while existing customers will remain operational until the plans are phased out on March 31, 2028.
 
-We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans as early as possible.
-
-Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now from March 17, 2025.
+While the service will generally remain operational until March 31, 2028, we strongly recommend that existing customers migrate their applications off Azure Spring Apps as soon as possible. This will help ensure as little disruption as possible to your business operations. Migration guidance can be found [here](https://learn.microsoft.com/en-us/azure/spring-apps/migration/), and the migration tool assisting with Azure Container Apps environment setup will be available on March 17, 2025.
 
 ## Migration guidance and tooling for the Azure Spring Apps Enterprise plans
 
-New customers will no longer be able to sign up for the service after March 31, 2025. For existing customers who have already created and used Azure Spring Apps, while the service will generally be operational until March 31, 2028, we recommend you to migrate off by Aug 31, 2025 to ensure as little disruption as possible to your business running on our serivce. While Microsoft and Broadcom try to ensure the continuous support on all Tanzu components during the whole retirement period, there are still uncontrollable factors to discontinue it: 1) how to state the "120 day advance notice" here? 2) 3 Tanzu components: App Live view, App accelerator, App config service, will be out of support after Aug 2025 due to their lifecyle would come to the end by then. We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans as early as possible.
+Azure Spring Apps Enterprise Key Dates:
+•	March 17, 2025: New customers will no longer be able to sign up for the service.
+•	March 31, 2028: General operational end date for the service.
+While the service will generally remain operational until March 31, 2028, we strongly recommend that existing customers migrate their applications off Azure Spring Apps Enterprise as soon as possible. This will help ensure as little disruption as possible to your business operations.
 
-Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now.
+Microsoft and Broadcom are committed to providing continuous support for all Tanzu components throughout the retirement period.  However, three Tanzu components - App Live View, App Accelerator, and App Configuration Service - will be out of support after August 2025 due to Broadcom’s product lifecycle ending for these components in compliance with TAP 1.12’s lifecycle period (you can check that by logging in https://support.broadcom.com/group/ecx/productlifecycle).
+
+Migration guidance can be found [here](https://learn.microsoft.com/en-us/azure/spring-apps/migration/), and the migration tool assisting with Azure Container Apps environment setup will be available on March 17, 2025.
 
 ## What is the impact for customers using Tanzu Components with Azure Spring Apps Enterprise?
 
@@ -70,16 +62,14 @@ If you have interest in obtaining or continuing Spring commercial support and us
 
 ### What are the migration destinations?
 
-(To be revised) We recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps. Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale. If you're using the Azure Spring Apps Enterprise plan, Azure Container Apps remains the most recommended destination. However, if you prefer to continue using Tanzu, AKS is a better choice, enabling you to host Tanzu components yourself with full control and capability over them.
+To ensure that you maintain high performance and achieve scalability, flexibility, and cost-efficiency for your business, we recommend Azure Container Apps and Azure Kubernetes Service as the replacement services for your migration of workloads running on Azure Spring Apps.
 
-Migration guidance and tooling will offer customers a smooth transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
-
-Migration guidance and the migration tool assisting with Azure Container Apps environment setup are available now.
+Azure Container Apps is a fully managed, serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale. For more information about Azure Container Apps, see [Azure Container Apps overview](../../container-apps/overview.md).
+Azure Kubernetes Service (AKS) is a managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes. It offers features like automated updates, monitoring, and scaling, enabling developers to focus on application development rather than infrastructure management. Learn more: [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks).
 
 You might also consider the following alternative solutions:
 
 - PaaS solution: Azure App Service is a fully managed platform for building, deploying, and scaling web apps, mobile app backends, and RESTful APIs. It supports multiple programming languages (such as Java and .NET), integrates with various development tools, and provides features like autoscaling, load balancing, and security for applications. Learn more: [App Service Overview](../../app-service/overview.md).
-- Containerized solution: Azure Kubernetes Service (AKS) is a managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes. It offers features like automated updates, monitoring, and scaling, enabling developers to focus on application development rather than infrastructure management. Learn more: [What is Azure Kubernetes Service (AKS)?](/azure/aks/what-is-aks).
 - If you're currently using Spring commercial support or Tanzu components as part of Azure Spring Apps Enterprise, you need to switch to using Tanzu Platform Spring Essentials on Azure Container Apps. Learn more: [VMware Tanzu Spring](https://tanzu.vmware.com/spring).
 
 ### Will Azure Spring Apps still allow new customer sign-ups?
@@ -98,7 +88,7 @@ No, we won't take up any feature requests from customers and won't be building a
 
 ### What will happen for customers who can't migrate off Azure Spring Apps Enterprise plan by Aug 2025?
 
-(To be revised) 
+If you still utilize any of the three unsupported Tanzu components - App Live View, App Accelerator, and App Configuration Service, please be aware that support for these components will be discontinued starting from September 2025. Moreover, Microsoft reserves the right to remove these unsupported components should a critical vulnerability be identified.
 
 ### What will happen after retirement date?
 
@@ -115,12 +105,6 @@ For Azure Spring Apps basic, standard and enterprise plans, existing customers a
 ### Does Microsoft Container Apps offer feature parity with Azure Spring Apps?
 
 Customers should be able to achieve most of the desired capabilities to host their Spring applications on Azure Container Apps. Managed Spring components, Java metrics, and diagnostics support are available for you to use on Azure Container Apps. For more information, see [Java on Azure Container Apps overview](../../container-apps/java-overview.md). If you have any questions, open a support ticket from the Azure portal or open an issue in the [azure-container-apps](https://github.com/microsoft/azure-container-apps/issues) repository on GitHub.
-
-### Will Microsoft Azure Container Apps be available in the same Azure regions as Azure Spring Apps?
-
-For the Standard consumption and dedicated plan (preview), Azure Container Apps and Azure Spring Apps are available in the same regions.
-
-And Azure Container Apps now is available in the same Azure regions as Azure Spring Apps for customers under the Basic, Standard, and Enterprise plans.
 
 ### Are there pricing differences across Microsoft solutions?
 
@@ -148,12 +132,12 @@ The following table indicates the overall release timeline for whole Azure Sprin
 | Official retirement start date                                                                               | Standard consumption and dedicated plan | September 30, 2024 |
 | Block new service instance creation for all customers                                                        | Standard consumption and dedicated plan | September 30, 2024 |
 | [Guidance and tooling for migration to Azure Container Apps](../consumption-dedicated/overview-migration.md) | Standard consumption and dedicated plan | October 2024       |
-| Guidance for migrating to Azure Container Apps (without migration tooling support)                           | Basic, Standard, and Enterprise plans   | Jan 2025           |
-| Guidance for migrating to AKS                                                                                | Basic, Standard, and Enterprise plans   | Jan 2025           |
+| [Guidance for migrating to Azure Container Apps (without migration tooling support)](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)                           | Basic, Standard, and Enterprise plans   | Jan 2025           |
+| [Guidance for migrating to AKS](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-aks-overview)                                                                                | Basic, Standard, and Enterprise plans   | Jan 2025           |
+| [Guidance for helping switch from Tanzu components to alternative solutions](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-off-deprecated-tanzu-components)                                   | Enterprise plans                        | Jan 2025     |
 | Official retirement date after a half year retirement period                                                 | Standard consumption and dedicated plan | March 31, 2025     |
 | Official retirement start date                                                                               | Basic, Standard, and Enterprise plans   | March 17, 2025     |
-| Guidance for migrating to Azure Container Apps with migration tooling support                                | Basic, Standard, and Enterprise plans   | March 17, 2025     |
-| Guidance for helping switch from Tanzu components to alternative solutions                                   | Enterprise plans                        | March 17, 2025     |
+| [Guidance for migrating to Azure Container Apps with migration tooling support                                | Basic, Standard, and Enterprise plans   | March 17, 2025](https://learn.microsoft.com/en-us/azure/spring-apps/migration/migrate-to-azure-container-apps-overview)     |
 | Block new customer sign-ups                                                                                  | Basic, Standard, and Enterprise plans   | March 17, 2025         |
 | Official retirement date after a three-year retirement period                                                | Basic, Standard, and Enterprise plans   | March 31 2028      |
 
