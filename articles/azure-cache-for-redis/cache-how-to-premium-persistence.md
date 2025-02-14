@@ -18,6 +18,10 @@ ms.date: 04/10/2023
 >[!WARNING]
 > The _always write_ option for AOF persistence on the Enterprise and Enterprise Flash tiers is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
 >
+> [!IMPORTANT]
+>
+> Data persistence is meant to provide resilience for unexpected Redis node failures, but it is not a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance this data will also be persisted. To make backups of your Redis instance, use the [export feature](managed-redis-how-to-import-export-data.md).  
+>
 
 ## Scope of availability
 
