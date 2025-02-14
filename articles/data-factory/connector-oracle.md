@@ -115,10 +115,10 @@ More connection properties you can set in connection string per your case:
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
-| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported in self-hosted integration runtime. Type: string | No | `required` |
-| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Only supported in self-hosted integration runtime. Type: string | No | `AES256` |
-| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported in self-hosted integration runtime. Type: string | No | `required` |
-| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Only supported in self-hosted integration runtime. Type: string | No | `SHA512` |
+| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported when using the self-hosted integration runtime. Type: string | No | `required` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Only supported when using the self-hosted integration runtime. Type: string | No | `AES256` |
+| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Only supported when using the self-hosted integration runtime. Type: string | No | `required` |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Only supported when using the self-hosted integration runtime. Type: string | No | `SHA512` |
 | initialLOBFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
 | fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
 | statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
