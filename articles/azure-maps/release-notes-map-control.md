@@ -16,6 +16,19 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.6.0] (CDN: TBA, npm: TBA)
+
+#### New features
+* Add a new option `StyleOptions.styleOverrides` which overrides the default styles for the map elements.
+* Add `auto` option to `StyleOptions.language` and `atlas.setLanguage` which sets the language option to match the browser's Accept-Language header.
+
+#### Bug fixes
+* Resolve the issue where clicking the close button of a popup within a form element triggers the form submission.
+* Fix the issue where `ImageLayer.setOptions()` potentially causing abort errors if the image is large and the request has not completed.
+
+#### Other changes
+* Disable the telemetry by default.
+
 ### [3.5.0] (CDN: November 4, 2024, npm: November 7)
 
 #### New features
