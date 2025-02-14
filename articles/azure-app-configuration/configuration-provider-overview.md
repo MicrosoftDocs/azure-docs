@@ -16,7 +16,7 @@ ms.date: 01/22/2025
 The Azure App Configuration provider libraries enable developers to configure their applications using centralized configuration located in Azure App Configuration. The API design follows the patterns outlined by the common configuration system in different programming languages to make switching to Azure App Configuration a familiar and easy experience.
 
 > [!IMPORTANT]
-> The configuration provider libraries are higher-level integration libraries that support a variety of [features](#feature-development-status) in contrast to the Azure SDKs which provide low-level, direct interaction with the Azure App Configuration service.
+> The configuration provider libraries are higher-level integration libraries that support additional [features](#feature-development-status) in contrast to the Azure SDKs which provide low-level, direct interaction with the Azure App Configuration service.
 
 > [!NOTE]
 > If you use feature flags in Azure App Configuration, we recommend you to use the configuration provider alongside the [feature management](./feature-management-overview.md) libraries, which are designed to work together.
@@ -36,12 +36,12 @@ Module | Platform | Sample | Release Notes
 
 ## Feature Development Status
 
-Below is an overview of each feature and its current status for different frameworks or programming languages.  
+This is an overview of each feature and its current status for different frameworks or programming languages.  
 
 - **GA (General Availability)**: The feature is fully released, considered stable, and ready for production use.  
 - **Preview**: The feature is available for early testing and feedback, but not yet fully stable or recommended for production use.  
 - **WIP (Work in Progress)**: The feature is actively being developed and not yet ready for release.
-- **N/A (Not Available)**: This feature is not currently planned to be offered for the specified framework or language.
+- **N/A (Not Available)**: It is not planned to offer the feature for the specified framework or language.
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript
 ------- | ---- | ------ | ---------- | ------ | ----------
@@ -59,7 +59,7 @@ Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feat
 Variant Feature Flags | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
 Feature Flag Telemetry | GA | GA | WIP | GA | GA
 Key Prefix Trim | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys)
-Configurable Startup Timeout | GA | WIP | N/A | WIP | WIP
+Configurable Startup Time-out | GA | WIP | N/A | WIP | WIP
 Replica Auto Discovery | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Replica Failover | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Replica Load Balancing | GA | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
