@@ -45,7 +45,7 @@ To configure Azurite settings within Visual Studio Code, select the **Extensions
 
 The following settings are supported:
 
-   - **azurite.blobHost** - The Blob service listening endpoint. The default setting is 127.0.0.1.
+- **azurite.blobHost** - The Blob service listening endpoint. The default setting is 127.0.0.1.
    - **azurite.blobPort** - The Blob service listening port. The default port is 10000.
    - **azurite.queueHost** - The Queue service listening endpoint. The default setting is 127.0.0.1.
    - **azurite.queuePort** - The Queue service listening port. The default port is 10001.
@@ -166,7 +166,7 @@ This configuration option can be changed later by modifying the project's **Conn
 
 The Azurite extension supports the following Visual Studio Code commands. To open the command palette, press **F1** in Visual Studio Code.
 
-   - **Azurite: Clean** - Reset all Azurite services persistency data
+- **Azurite: Clean** - Reset all Azurite services persistency data
    - **Azurite: Clean Blob Service** - Clean blob service
    - **Azurite: Clean Queue Service** - Clean queue service
    - **Azurite: Clean Table Service** - Clean table service
@@ -488,6 +488,14 @@ There's no restriction on the value specified for this option, but virtual memor
 
 To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-in-memory-storage).
 
+#### Disable Telemetry Collection
+
+**Optional**. By default, Azurite will collect telemetry data to help improve the product. Disable telemetry data collection of this Azurite execution by:
+
+```
+azurite --disableTelemetry
+```
+
 ## Connect to Azurite with SDKs and tools
 
 You can connect to Azurite from Azure Storage SDKs, or tools like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Authentication is required, and Azurite supports authorization with OAuth, Shared Key, and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
@@ -708,7 +716,7 @@ You can use Storage Explorer to view the data stored in Azurite.
 
 In Storage Explorer, connect to Azurite by following these steps:
 
- 1. Select the **Manage Accounts** icon
+1. Select the **Manage Accounts** icon
  1. Select **Add an account**
  1. Select **Attach to a local emulator**
  1. Select **Next**
