@@ -468,8 +468,6 @@ items:
     - name: Music mode
       href: concepts/voice-video-calling/music-mode.md
       displayName: music mode, audio filters, calling
-    - name: Media access
-      href: concepts/voice-video-calling/media-access.md
     - name: Edit audio and video media from the client
       items:
       - name: Access raw audio and video
@@ -478,6 +476,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-video-effects.md
       - name: Add augmented reality filters to video calls
         href: tutorials/add-video-augmented-reality-tutorial.md
+    - name: Media access
+      href: concepts/voice-video-calling/media-access.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -488,9 +488,11 @@ items:
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
-      href: concepts/voice-video-calling/data-channel.md
-    - name: Add data channel messaging to a calling app
-      href: quickstarts/voice-video-calling/get-started-data-channel.md
+      items:
+      - name: Data Channel overview
+        href: concepts/voice-video-calling/data-channel.md
+      - name: Add data channel messaging to a calling app
+        href: quickstarts/voice-video-calling/get-started-data-channel.md
     - name: Proxy your calling traffic
       href: tutorials/proxy-calling-support-tutorial.md
   - name: Mobile integrations
@@ -529,16 +531,16 @@ items:
       href: ../event-grid/communication-services-voice-video-events.md
     - name: View calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
-    - name: Migrate to Azure Communication Services
-      items:
-      - name: Migrate from Twilio Video to Azure Communication Services
-        href: concepts/migrate-to-azure-communication-services.md
-      - name: Migrate from Twilio Video to Azure Communication Services
-        href: tutorials/migrating-to-azure-communication-services-calling.md
-        displayName: migration, migrate, Twilio, Twilio Video, move, shift
-      - name: Migrate from Twilio Conversations Chat to Azure Communication Services
-        href: tutorials/migrating-to-azure-communication-services-chat.md
-        displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
+  - name: Migrate to Azure Communication Services
+    items:
+    - name: Migrate from Twilio Video to Azure Communication Services
+      href: concepts/migrate-to-azure-communication-services.md
+    - name: Migrate from Twilio Video to Azure Communication Services
+      href: tutorials/migrating-to-azure-communication-services-calling.md
+      displayName: migration, migrate, Twilio, Twilio Video, move, shift
+    - name: Migrate from Twilio Conversations Chat to Azure Communication Services
+      href: tutorials/migrating-to-azure-communication-services-chat.md
+      displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
   - name: Logging and analytics
     items:
     - name: Enable logging with Azure Monitor
@@ -642,18 +644,6 @@ items:
       - name: Verify if an application is active in multiple browser tabs
         href: how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md
         displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-      - name: Get users ready for calls with UI Library
-        items:
-        - name: Call readiness overview
-          href: tutorials/call-readiness/call-readiness-overview.md
-          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-        - name: 1. Ensure user is on a supported browser
-          href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
-        - name: 2. Request camera and microphone permissions
-          href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
-        - name: 3. Set up microphone and camera before a call
-          href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
-          displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: End of call user survey
       items:
       - name: End of call survey
@@ -1228,6 +1218,18 @@ items:
     items:
     - name: Use UI components for voice and video
       href: quickstarts/ui-library/get-started-composites.md
+    - name: Get users ready for calls with UI Library
+      items:
+      - name: Call readiness overview
+        href: tutorials/call-readiness/call-readiness-overview.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+      - name: 1. Ensure user is on a supported browser
+        href: tutorials/call-readiness/call-readiness-tutorial-part-1-browser-support.md
+      - name: 2. Request camera and microphone permissions
+        href: tutorials/call-readiness/call-readiness-tutorial-part-2-requesting-device-access.md
+      - name: 3. Set up microphone and camera before a call
+        href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
+        displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Configure default orientation
       href: how-tos/ui-library-sdk/orientation.md
     - name: Configure closed captions
