@@ -23,7 +23,7 @@ Azure Communication Services is an identity-agnostic service, which offers multi
 Azure Communication Services identity model works with two key concepts.
 
 ## User identity / mapping
-When you create a user identity via SDK or REST API, Azure Communication Services creates a unique user identifier. External identifiers such as phone numbers, user/device/application ids, or user names can't be used directly in Azure Communication Services. Instead you will have to maintain a mapping to your own user id system. Creating Azure Communication Service user identities is free. Charges are only incurred when the user consumes communication modalities such as a chat or a call. How to you use your generated Communication Services identity depends on your scenario. For example, you can map it 1:1, 1:N, N:1, or N:N, and you can use it for human users or applications. A user can participate in multiple communication sessions, using multiple devices, simultaneously. Mapping between Azure Communication Services user identity and your own identity system is your responsibility as a developer. For example, you can add a `CommunicationServicesId` column in your existing user table to store the associated Azure Communication Services identity. This is described in more detail under [Client-server architecture](#client-server-architecture) below.
+When you create a user identity via SDK or REST API, Azure Communication Services creates a unique user identifier. External identifiers such as phone numbers, user/device/application ids, or user names can't be used directly in Azure Communication Services. Instead you have to maintain a mapping to your own user id system. Creating Azure Communication Service user identities is free. Charges are only incurred when the user consumes communication modalities such as a chat or a call. How to you use your generated Communication Services identity depends on your scenario. For example, you can map it 1:1, 1:N, N:1, or N:N, and you can use it for human users or applications. A user can participate in multiple communication sessions, using multiple devices, simultaneously. Mapping between Azure Communication Services user identity and your own identity system is your responsibility as a developer. For example, you can add a `CommunicationServicesId` column in your existing user table to store the associated Azure Communication Services identity. The mapping design is described in more detail under [Client-server architecture](#client-server-architecture).
 
 ## Access tokens 
 After a user identity is created, a user then needs an access token with specific scopes to participate in communications using chat or calls. For example, only a user with a token with the `chat` scope can participate in chat and a user with a token with `voip` scope can participate in a VoIP call. A user can have multiple tokens simultaneously. Azure Communication Services supports multiple token scopes to account for users who require full access vs limited access. Access tokens have the following properties.
@@ -34,10 +34,10 @@ After a user identity is created, a user then needs an access token with specifi
 |Expiration|An access token is valid for at least 1 hour and up to 24 hours. After it expires, the access token is invalid and can't be used to access the service. To create a token with a custom expiration time, specify the desired validity in minutes (>=60, <1440). By default, the token is valid for 24 hours. We recommend using short lifetime tokens for one-off meetings and longer lifetime tokens for users who use your application for longer periods of time.|
 |Scopes|The scopes define which communication primitives (Chat/VoIP) can be accessed with the token.|
 
-An access token is a JSON Web Token (JWT) and has integrity protection. That is, its claims can't be changed after it has been issued. So a manual change of properties such as subject, expiration, or scopes invalidates the access token because the token signature no longer matches. If communication primitives are used with invalid tokens, then access will be denied. Even though tokens aren't encrypted or obfuscated, your application should not depend on the token shape or its claims as they can change and aren't part of the official API contract. Azure Communication Services supports the following scopes for access tokens.
+An access token is a JSON Web Token (JWT) and has integrity protection. That is, its claims can't be changed without invalidating the access token because then the token signature no longer matches. If communication primitives are used with invalid tokens, access is denied. Even though tokens aren't encrypted or obfuscated, your application shouldn't depend on the token format or its claims. The token format can change and isn't part of the official API contract. Azure Communication Services supports the following scopes for access tokens.
 
 ### Chat token scopes
-Three different chat token scopes are supported. Permissions for each scope are described below.
+Three different chat token scopes are supported. Permissions for each scope are described in the following table.
 - `chat`
 - `chat.join`
 - `chat.join.limited`
@@ -61,7 +61,7 @@ Three different chat token scopes are supported. Permissions for each scope are 
 |Get participant for thread ID | Y | Y | Y |
 
 ### VoIP token scopes
-Two VoIP token scopes are supported. Permissions for each scope are described below.
+Two VoIP token scopes are supported. Permissions for each scope are described in the following table.
 - `voip`
 - `voip.join`
 
@@ -71,22 +71,22 @@ Two VoIP token scopes are supported. Permissions for each scope are described be
 |Start a VoIP call in Virtual Rooms, when the user is already invited to the Room| Y | Y |
 |Join an InProgress VoIP call | Y | Y |
 |Join an InProgress VoIP call in Virtual Rooms, when the user is already invited to the Room| Y | Y |
-|All other in-call operations such as mute/unmute, screen share etc. | Y | Y |
-|All other in-call operations such as mute/unmute, screen share etc. in Virtual Rooms| Determined by user role | Determined by user role |
+|All other in-call operations such as mute/unmute, screen share, etc. | Y | Y |
+|All other in-call operations such as mute/unmute, screen share, etc. in Virtual Rooms| Determined by user role | Determined by user role |
 
-You can the use `voip.join` scope together with [Rooms](./rooms/room-concept.md) to create a scheduled call where only invited users get access and where users are prohibited from creating any other calls.
+You can use the `voip.join` scope together with [Rooms](./rooms/room-concept.md) to create a scheduled call where only invited users get access and where users are prohibited from creating any other calls.
 
 ### Revoke or update access token
 - Azure Communication Services Identity library can be used to revoke an access token before its expiration time. Token revocation isn't immediate. It can take up to 15 minutes to propagate.
 - The deletion of an identity, resource, or subscription revokes all access tokens.
 - If you want to remove a user's ability to access specific functionality, revoke all access tokens for the user. Then issue a new access token that has a more limited set of scopes.
-- Rotation of access keys revokes all active access tokens that were created by using a former access key. In this case all identities lose access to Azure Communication Services, and they need new access tokens.
+- Rotation of access keys revokes all active access tokens that were created by using a former access key. Consequently, all identities lose access to Azure Communication Services and need new access tokens.
 
 ## Client-server architecture
 
-You should generate and manage user access tokens by using a trusted service and not from your client application. The connection string or Microsoft Entra credentials that are necessary to generate user access tokens need to be protected and passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in additional charges on your resource when discovered and misused by somebody else.
+You should generate and manage user access tokens by using a trusted service and not from your client application. The connection string or Microsoft Entra credentials that are necessary to generate user access tokens need to be protected and passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in extra charges on your resource when they are misused by somebody else.
 
-If you cache access tokens to a backing store, we recommend encrypting the tokens. An access token gives access to sensitive data and can be used for malicious activity if it isn't protected. Anyone with an user's access token can access that user's chat data or participate in calls impersonating the user.
+If you cache access tokens to a backing store, we recommend encrypting the tokens. An access token gives access to sensitive data and can be used for malicious activity if it isn't protected. Anyone with a user's access token can access that user's chat data or participate in calls impersonating the user.
 
 Make sure to only include those scopes in the token that your client application really needs in order to follow the security principle of least privilege.
 
