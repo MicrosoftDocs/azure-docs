@@ -19,7 +19,7 @@ This document contains information about new features and other changes to the M
 ### [3.6.0] (CDN: February 18, 2025, npm: TBA)
 
 #### New features
-* Add a new option `StyleOptions.styleOverrides` which overrides the default styles for the map elements.
+* Add a new option `StyleOptions.styleOverrides` which controls the visibility of various map elements, including `countryRegion`, `adminDistrict`, `adminDistrict2`, `buildingFootprint`, and `roadDetails`.
 * Add `auto` option to `StyleOptions.language` and `atlas.setLanguage` which sets the language option to match the browser's Accept-Language header.
 
 #### Bug fixes
