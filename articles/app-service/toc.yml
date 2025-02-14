@@ -120,31 +120,29 @@
       href: overview-diagnostics.md
     - name: About quotas & alerts
       href: web-sites-monitor.md
-- name: Domains and certificates
+- name: Domain names and certificates
   items:
-    - name: Domain and cert quickstart
-      href: tutorial-secure-domain-certificate.md
-    - name: Custom domains
+    - name: Connect a custom domain name
+      href: app-service-web-tutorial-custom-domain.md
+    - name: Custom domain names
       items:
-        - name: Map your own custom domain
-          href: app-service-web-tutorial-custom-domain.md
-        - name: Buy App Service domain
+        - name: Buy and configure App Service domain
           href: manage-custom-dns-buy-domain.md
-        - name: Map domains with Traffic Manager
+        - name: Use Traffic Manager with custom domain names
           href: configure-domain-traffic-manager.md
-        - name: Migrate an active domain
+        - name: Migrate a custom domain name
           href: manage-custom-dns-migrate-domain.md
     - name: TLS/SSL certificates
       items:
-        - name: TLS overview
+        - name: Oveview of TLS/SSL in App Service
           href: overview-tls.md
-        - name: Secure custom domain with TLS/SSL
+        - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
-        - name: Add TLS/SSL cert
+        - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
-        - name: Buy App Service cert
+        - name: Create and Manage App Service certificates
           href: configure-ssl-app-service-certificate.md
-        - name: Use TLS/SSL cert in code
+        - name: Use TLS/SSL certificates in app code
           href: configure-ssl-certificate-in-code.md
         - name: Configure TLS mutual authentication
           href: app-service-web-configure-tls-mutual-auth.md

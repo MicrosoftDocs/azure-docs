@@ -1,15 +1,15 @@
 ---
-title: Transport Layer Security (TLS) overview
-description: Learn about Transport Layer Security (TLS) on App Service.
-keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
+title: Overview of TLS/SSL
+description: Get an overview of TLS/SSL certificates in Azure App Service and understand how they secure your custom domains.
+keywords: TLS/SSL certificates, Azure App Service security, HTTPS overview, domain encryption
 ms.topic: article
-ms.date: 01/31/2025
+ms.date: 02/14/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---
-# Azure App Service TLS overview
+# TLS/SSL certificates for Azure App Service
 
 > [!NOTE]
 > Customers may be aware of [the retirement notification of TLS 1.0 and 1.1 for interactions with Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/). This retirement does not affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests will continue to run unaffected.
