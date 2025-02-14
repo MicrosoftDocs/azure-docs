@@ -3,7 +3,7 @@ title: Upgrade Mobility Service and appliance components - Modernized
 description: This article describes about automatic updates for mobility agent and the procedure involved with manual updates - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 08/21/2024
+ms.date: 12/23/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -266,7 +266,7 @@ To update the Recovery Service agent, download the latest version [here](./site-
 
 3.	To update the Recovery Service agent, run the following command: 
     
-    `MARSAgentInstaller.exe /q /nu - for mars agent`
+    `MARSAgentInstaller.exe /q /nu for mars agent`
 
 #### Update remaining components of appliance
 

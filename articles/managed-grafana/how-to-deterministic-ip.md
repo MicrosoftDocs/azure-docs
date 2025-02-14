@@ -1,11 +1,12 @@
 ---
-title: How to set up and use deterministic outbound APIs in Azure Managed Grafana
-description: Learn how to set up and use deterministic outbound APIs in Azure Managed Grafana
+title: How to set up and use deterministic outbound APIs
+titleSuffix: Azure Managed Grafana
+description: Learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with data sources.
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/06/2023
+ms.date: 12/20/2024
 --- 
 
 # Use deterministic outbound IPs

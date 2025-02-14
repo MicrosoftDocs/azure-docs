@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/12/2024
+ms.date: 02/14/2025
 ---
 
 # String functions for Bicep

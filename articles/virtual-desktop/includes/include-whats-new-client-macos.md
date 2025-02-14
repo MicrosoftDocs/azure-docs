@@ -223,7 +223,7 @@ In this release, we made the following changes:
 In this release we added the following new features:
 
 - A custom app switcher which spans multiple sessions for RemoteApp scenarios (triggered by the `Option+Tab` keyboard combination).
-- Support for the in-session redirection of PIV smart cards (such as Yubikey).
+- Support for the in-session redirection of PIV smart cards (such as YubiKey).
 
 We've also:
 

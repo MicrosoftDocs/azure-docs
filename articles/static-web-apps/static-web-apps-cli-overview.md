@@ -11,6 +11,8 @@ ms.author: cshoe
 
 # Azure Static Web Apps CLI overview
 
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
+
 Azure Static Web Apps websites are hosted in the cloud and often connect together a collection of cloud services. During development, and any time you need to run your app locally, you need tools to mimic how your app runs in the cloud.
 
 The Static Web Apps CLI (SWA CLI) includes a series of local services that approximate how your app would run on Azure, but instead they run exclusively on your machine.

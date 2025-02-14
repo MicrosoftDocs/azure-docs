@@ -4,10 +4,9 @@ description: Learn about working with virtual machine scale sets and Azure Stand
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Guidance for Virtual Machine Scale Sets with Azure Load Balancer

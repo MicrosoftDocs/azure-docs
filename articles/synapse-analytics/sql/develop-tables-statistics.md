@@ -652,7 +652,7 @@ For example, to create statistics with default options (FULLSCAN) for a populati
 EXEC sys.sp_create_openrowset_statistics N'SELECT 
     population
 FROM OPENROWSET(
-    BULK ''Https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/raw_us_population_county/us_population.csv'',
+    BULK ''https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/raw_us_population_county/us_population.csv'',
     FORMAT = ''CSV'',
     PARSER_VERSION = ''2.0'',
     HEADER_ROW = TRUE)

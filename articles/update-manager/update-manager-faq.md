@@ -107,7 +107,7 @@ Yes, you can, as Azure Update Manager is available in sovereign clouds.
 
 ### What is the pricing for Azure Update Manager? 
 
-Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Local). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
+Azure Update Manager is available at no extra charge for managing Azure VMs and [Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) (must be created through Arc Resource Bridge on Azure Local). For all other Arc-enabled Servers, the price is $5 per server per month (assuming 31 days of usage).  
 
 ### How is Azure Update Manager price calculated for Arc-enabled servers? 
 
@@ -135,8 +135,8 @@ If you have purchased a Defender for Servers Plan 2, then you won't have to pay 
 
 ### Is Azure Update Manager chargeable on Azure Local?
 Azure Update Manager is not charged for:
- - Management of Azure Local instance(s)  via **Azure Local**  and [Azure Update Manager on Azure Local](https://learn.microsoft.com/azure-stack/hci/update/azure-update-manager-23h2)
- - [Arc-enabled Azure Local VMs](https://learn.microsoft.com/azure-stack/hci/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
+ - Management of Azure Local instance(s)  via **Azure Local**  and [Azure Update Manager on Azure Local](/azure/azure-local/update/azure-update-manager-23h2)
+ - [Arc-enabled Azure Local VMs](/azure/azure-local/manage/azure-arc-vm-management-overview) created via the Arc Resource Bridge. For example *Machine-Azure Arc (Azure Local)* resource.
  
 All other resources including, but not limited to the following will be charged.
  - Management of individual Azure Local machines. For example, *Machine - Azure Arc* resource or *Azure Update Manager - Machines*.

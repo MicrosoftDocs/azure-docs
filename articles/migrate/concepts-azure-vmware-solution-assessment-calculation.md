@@ -31,7 +31,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises vSphere servers to [Azure VMware Solution](../azure-vmware/introduction.md). You can assess your on-premises [VMware vSphere VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+> If the number of Azure VM or Azure VMware Solution assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or Azure VMware Solution assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 Azure VMware Solution assessment provides two sizing criteria options:
 
@@ -200,7 +200,7 @@ After the effective utilization value is determined, the storage, network, and c
 
 If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't consider the performance history of the VMs and disks. Instead, it allocates Azure VMware Solution nodes based on the size allocated on-premises. vSAN is part of all AVS SKUs' storage. Azure NetApp Files (Standard, Premium, and Ultra tiers) is used by default in the assessment if external storage can optimize the number of AVS nodes required.
 
-[Learn more](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
+[Learn more](tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) about how to review an Azure VMware Solution assessment.
 
 ### CPU utilization on Azure VMware Solution nodes
 

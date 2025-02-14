@@ -161,7 +161,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_ENDPOINT='endpoint-of-your-app-configuration-store'
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -182,7 +182,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
     ```
     ---
 

@@ -4,7 +4,7 @@ description: Reference guide to workflow expression functions for Azure Logic Ap
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, niding, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.custom: engagement-fy23
 ms.date: 12/13/2023
 ---

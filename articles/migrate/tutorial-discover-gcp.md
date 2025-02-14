@@ -74,7 +74,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or Privileged Role Administrator to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare GCP instances
 
@@ -135,16 +135,16 @@ To set up the appliance, you:
 
 ### 1. Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
-4. Click **Generate key** to start the creation of the required Azure resources. Don't close the Discover servers page during the creation of resources.
+4. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover servers page during the creation of resources.
 5. After the successful creation of the Azure resources, a **project key** is generated.
 6. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the installer script
 
-In **2: Download Azure Migrate appliance**, click **Download**.
+In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
@@ -212,7 +212,7 @@ Set up the appliance for the first time.
 
 1. Open a browser on any machine that can connect to the appliance and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
-   Alternately, you can open the app from the desktop by clicking the app shortcut.
+   Alternately, you can open the app from the desktop by selecting the app shortcut.
 2. Accept the **license terms** and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -275,8 +275,8 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and select **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
-5. On clicking **Save**, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
-    - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+5. On selecting **Save**, the appliance will try validating the connection to the servers added and show the **Validation status** in the table against each server.
+    - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, select **Delete**.
 6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
@@ -288,7 +288,7 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
 
 ### Start discovery
 
-Click **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+Select **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
 ## How discovery works
 
@@ -309,7 +309,7 @@ Click **Start discovery**, to kick off discovery of the successfully validated s
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 

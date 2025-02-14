@@ -77,10 +77,8 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
 5. To upgrade to the latest versions of the Azure CLI and dependent libraries, run the following command:
 
-   ```bash
-   az upgrade [--all {false, true}]
-      [--allow-preview {false, true}]
-       [--yes]
+   ```azurecli
+   az upgrade [--all {false, true}] [--allow-preview {false, true}] [--yes]
    ```
 
 6. To set your default subscription ID, use the `az account set -s <subscription ID>` command.
@@ -167,9 +165,9 @@ To create a Trusted Signing account by using the Azure CLI:
 
 1. Create a resource group by using the following command. If you choose to use an existing resource group, skip this step.
 
-   ```azurecli
+```azurecli
    az group create --name MyResourceGroup --location EastUS
-   ```
+```
 
 2. Create a unique Trusted Signing account by using the following command.
 
@@ -177,9 +175,9 @@ To create a Trusted Signing account by using the Azure CLI:
 
    To create a Trusted Signing account that has a Basic SKU:
 
-   ```azurecli
+```azurecli
   az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
-   ```
+```
 
    To create a Trusted Signing account that has a Premium SKU:
 
@@ -187,8 +185,10 @@ To create a Trusted Signing account by using the Azure CLI:
   az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
    ```
 
-3. Verify your Trusted Signing account by using the `az trustedsigning show -g MyResourceGroup -n MyAccount` command.
-
+3. Verify your Trusted Signing account by using: 
+```azurecli
+az trustedsigning show -g MyResourceGroup -n MyAccount` command.
+```
    > [!NOTE]
    > If you use an earlier version of the Azure CLI from the Trusted Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
@@ -208,7 +208,9 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
-> You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier roler to proceed with identity validation.
+> You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you are assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
+> [!NOTE]
+> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago.
 
 # [Identity Validation - Organization](#tab/orgvalidation)
 
@@ -406,22 +408,22 @@ To create a certificate profile by using the Azure CLI:
 
 1. Create a certificate profile by using the following command:
 
-   ```azurecli
-   az trustedsigning certificate-profile create -g MyResourceGroup --a
+```azurecli
+az trustedsigning certificate-profile create -g MyResourceGroup --a
    account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-   ```
+```
 
    For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
 2. Create a certificate profile that includes optional fields (street address or postal code) in the subject name of the certificate by using the following command:
 
-   ```azurecli
+  ```azurecli
   az trustedsigning certificate-profile create -g MyResourceGroup --account-name MyAccount -n MyProfile --profile-type PublicTrust --identity-validation-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --include-street true
    ```
 
 3. Verify that you successfully created a certificate profile by using the following command:
 
-   ```azurecli
+  ```azurecli
   az trustedsigning certificate-profile show -g myRG --account-name MyAccount -n  MyProfile
    ```
 

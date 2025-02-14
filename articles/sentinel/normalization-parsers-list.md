@@ -26,7 +26,7 @@ To use ASIM alert event parsers, deploy the parsers from the [Microsoft Sentinel
 | **Source** | **Notes** | **Parser**
 | --- | --------------------------- | ---------- |
 | **Defender XDR Alerts** | Microsoft Defender XDR alert events (in the `AlertEvidence` table). | `ASimAlertEventMicrosoftDefenderXDR` |
-| **Exchange 365 administrative events** | SentinelOne Singlularity `Threats.` events (in the `SentinelOne_CL` table). | `ASimAlertEventSentinelOneSingularity` |
+| **SentinelOne Singularity** | SentinelOne Singularity `Threats.` events (in the `SentinelOne_CL` table). | `ASimAlertEventSentinelOneSingularity` |
 
 ## Audit event parsers
 
@@ -50,7 +50,7 @@ To use ASIM authentication parsers, deploy the parsers from the [Microsoft Senti
     - reported by Microsoft Defender XDR for Endpoint, collected using the Microsoft Defender XDR connector.
 - **Linux sign-ins** 
     - reported by Microsoft Defender XDR for Endpoint, collected using the Microsoft Defender XDR connector.
-    - `su`, `sudu`, and `sshd` activity reported using Syslog.
+    - `su`, `sudo`, and `sshd` activity reported using Syslog.
     - reported by Microsoft Defender to IoT Endpoint.
 - **Microsoft Entra sign-ins**, collected using the Microsoft Entra connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.

@@ -151,9 +151,9 @@ $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
 $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled -PickHostNameFromBackendAddress
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool -Priority 1
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
-         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool
+         -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool -Priority 2
 ```
 
 ## Specify autoscale

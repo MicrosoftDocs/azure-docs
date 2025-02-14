@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Application Gateway l
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/19/2023
 ms.author: greglin 
 ---
@@ -29,7 +29,7 @@ When you create a new listener, you choose between [*basic* and *multi-site*](./
 
 For the v1 SKU, requests are matched according to the order of the rules and the type of listener. If a rule with basic listener comes first in the order, it's processed first and will accept any request for that port and IP combination. To avoid this, configure the rules with multi-site listeners first and push the rule with the basic listener to the last in the list.
 
-For the v2 SKU, multi-site listeners are processed before basic listeners, unless rule priority is defined. If using rule priority, wildcard listeners should be defined a priority with a number greater than non-wildcard listeners, to ensure non-wildcard listeners execute prior to the wildcard listeners.
+For the v2 SKU, rule priority defines the order in which listeners are processed. Wildcard and basic listeners should be defined a priority with a number greater than site-specific and multi-site listeners, to ensure site-specific and multi-site listeners execute prior to the wildcard and basic listeners.
 
 ## Frontend IP address
 

@@ -3,7 +3,7 @@ title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 12/12/2024
+ms.date: 02/12/2025
 ---
 
 # String functions for ARM templates
