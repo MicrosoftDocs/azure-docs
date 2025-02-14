@@ -22,7 +22,7 @@ See the following sections for more information:
 
 ## Supported regions
 
-Update Manager is available in all [Azure public regions](support-matrix.md#supported-regions). 
+Update Manager is available in all [Azure public regions](supported-regions.md#azure-public-cloud). 
 
 ## Configure reboot settings
 

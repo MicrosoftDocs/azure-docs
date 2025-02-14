@@ -29,8 +29,11 @@ items:
         href: support-matrix-automatic-guest-patching.md
     - name: Supported update types and update sources
       items:
-      - name: Support matrix
+      - name: Supported updates
         href: support-matrix.md
+      - name: Ubuntu Pro support
+        href: security-awareness-ubuntu-support.md
+      
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
@@ -65,8 +68,6 @@ items:
     href: manage-multiple-machines.md
   - name: Workbooks
     href: workbooks.md
-  - name: Ubuntu Pro support
-    href: security-awareness-ubuntu-support.md
 - name: Samples
   items:
   - name: ARG queries to access Azure Update Manager operations data
