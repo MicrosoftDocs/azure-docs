@@ -454,6 +454,8 @@ items:
         href: how-tos/calling-sdk/capabilities.md
       - name: View PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
+      - name: Shared Line appearance
+        href: how-tos/cte-calling-sdk/shared-line-appearance.md
     - name: Call flows and networking
       items:
       - name: Network recommendations
