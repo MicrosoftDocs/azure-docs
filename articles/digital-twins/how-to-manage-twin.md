@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
+ms.date: 2/13/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
 
