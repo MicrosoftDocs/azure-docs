@@ -58,6 +58,8 @@ For example, subscription A may have physical zone 1 mapped to logical zone 2, w
 
 To understand the mapping between logical and physical zones for your subscription, use the [List Locations Azure Resource Manager API](/rest/api/resources/subscriptions/list-locations). You can use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to retrieve the information from the API.
 
+To compare zone mapping for resilient solutions that span multiple subscriptions, use the dedicated ARM API [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers). To use the `checkZonePeers` API, the feature "Microsoft.Resources/AvailabilityZonePeering" needs to be enabled. For more information about how to enable features, see [Register features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+
 # [CLI](#tab/azure-cli)
 
 ```azurecli

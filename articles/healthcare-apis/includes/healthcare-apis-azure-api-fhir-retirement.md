@@ -1,10 +1,10 @@
 ---
 title: retirement banner
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: include
 ms.date: 09/27/2023
-ms.author: jasteppe
+ms.author: kesheth
 ---
 
 > [!IMPORTANT]
