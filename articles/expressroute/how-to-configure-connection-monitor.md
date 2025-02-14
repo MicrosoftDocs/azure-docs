@@ -45,8 +45,6 @@ Create a workspace in the subscription that has the VNets linked to the ExpressR
    > [!NOTE]
    > You can create a new workspace or use an existing one. If using an existing workspace, ensure it's been migrated to the new query language. [More information...](/azure/azure-monitor/logs/log-query-overview)
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/search-log-analytics.png" alt-text="Screenshot of searching for Log Analytics in create a resource.":::
-
 1. Create a workspace by entering or selecting the following information:
 
     | Settings | Value |
@@ -55,8 +53,6 @@ Create a workspace in the subscription that has the VNets linked to the ExpressR
     | Resource Group | Create a new or select an existing resource group. |
     | Name | Enter a name to identify this workspace. |
     | Region | Select a region where this workspace is created. |
-
-    :::image type="content" source="./media/how-to-configure-connection-monitor/create-workspace-basic.png" alt-text="Screenshot of basic tab for create Log Analytics workspace.":::
 
    >[!NOTE]
    >The ExpressRoute circuit can be anywhere in the world. It doesn't have to be in the same region as the workspace.
@@ -106,8 +102,6 @@ Once you configure the monitoring solution, proceed to install and configure the
     :::image type="content" source="./media/how-to-configure-connection-monitor/download-agent.png" alt-text="Screenshot of agent management page in workspace.":::
 
 1. Copy the **Workspace ID** and **Primary Key** to Notepad.
-
-    :::image type="content" source="./media/how-to-configure-connection-monitor/copy-id-key.png" alt-text="Screenshot of workspace ID and primary key.":::
 
 1. For Windows machines, download and run this PowerShell script [*EnableRules.ps1*](https://aka.ms/npmpowershellscript) in a PowerShell window with Administrator privileges. The script opens the relevant firewall port for TCP transactions.
 
@@ -175,15 +169,9 @@ For a high-level overview of creating a connection monitor, tests, and test grou
 
 1. In the Azure portal, navigate to your **Network Watcher** resource and select **Connection monitor** under *Monitoring*. Select **Create** to create a new connection monitor.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/create-connection-monitor.png" alt-text="Screenshot of connection monitor in Network Watcher.":::
-
 1. On the **Basics** tab, select the same region where you deployed your Log Analytics workspace for the *Region* field. For *Workspace configuration*, select the existing Log Analytics workspace you created earlier. Then select **Next: Test groups >>**.
 
-    :::image type="content" source="./media/how-to-configure-connection-monitor/connection-monitor-basic.png" alt-text="Screenshot of basic tab for creating Connection Monitor.":::
-
 1. On the *Add test group details* page, add the source and destination endpoints for your test group. Enter a **Name** for this test group.
-
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-group-details.png" alt-text="Screenshot of add test group details page.":::
 
 1. Select **Add source** and navigate to the **Non-Azure endpoints** tab. Choose the on-premises resources with Log Analytics agent installed that you want to monitor, then select **Add endpoints**.
 
@@ -204,8 +192,6 @@ For a high-level overview of creating a connection monitor, tests, and test grou
     :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-configuration.png" alt-text="Screenshot of add test configuration page.":::
 
 1. Select **Add Test Group** once you've added your sources, destinations, and test configuration.
-
-    :::image type="content" source="./media/how-to-configure-connection-monitor/add-test-group-details-configured.png" alt-text="Screenshot of add test group detail configured." lightbox="./media/how-to-configure-connection-monitor/add-test-group-details-configured-expanded.png":::
 
 1. Select **Next : Create alert >>** if you want to create alerts. Once completed, select **Review + create** and then **Create**.
 
