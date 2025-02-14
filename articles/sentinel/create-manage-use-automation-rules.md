@@ -60,7 +60,7 @@ The following table shows the different possible scenarios that cause an automat
 
 Most of the following instructions apply to any and all use cases for which you'll create automation rules.
 
-If you're looking to suppress noisy incidents, try [handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
+If you're looking to suppress noisy incidents and are working in the Azure portal, try [handling false positives](false-positives.md#add-exceptions-with-automation-rules-azure-portal-only).
 
 If you want to create an automation rule to apply to a specific analytics rule, see [Set automated responses and create the rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
 
