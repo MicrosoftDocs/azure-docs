@@ -95,7 +95,7 @@ Here are some notes about the orchestration trigger:
 > Orchestrator functions should never be declared `async`.
 ::: zone-end
 
-### Trigger usage
+### Trigger usage {#python-trigger-usage}
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
