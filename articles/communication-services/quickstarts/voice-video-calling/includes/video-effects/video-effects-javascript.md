@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-You can use the Video effects feature to add effects to your video in video calls. This feature enables developers to build background visual effects and background video replacement into the calling experience. Background blur provides users with the mechanism to remove distractions behind a participant so that participants can communicate without disruptive activity or confidential information in the background. This is especially useful the context of telehealth, where a provider or patient might want to obscure their surroundings to protect sensitive information or personally identifiable information. Background blur can be applied across all virtual appointment scenarios, including telebanking and virtual hearings, to protect user privacy. In addition to enhanced confidentiality, background blur allows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
+The Video Effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is particularly advantageous in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 > [!NOTE]
 > The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
@@ -137,5 +137,11 @@ await videoEffectsFeatureApi.stopEffects();
 ```
 
 ### Add a frosted glass background effect
-Frosted glass backgrounds combine the privacy of a blurred background with the customization of your selected image to produce a sophisticated effect resembling frosted glass windows.
-To achieve this effect, upload a transparent PNG image as your custom background. This image could be your company logo or a unique design. The frosted glass effect will blur the transparent areas of your image, while preserving the graphic as part of the background.
+Frosted glass backgrounds combine the privacy of a blurred background with the customization of your selected image to produce a sophisticated effect resembling frosted glass windows. To achieve this effect, upload a transparent PNG image as your custom background. This image could be your company logo or a unique design. The frosted glass effect will blur the transparent areas of your image, while preserving the graphic as part of the background. To use a frosted glass appearance you must use version `1.1.3` or higher of the [Azure Communication Calling Effects library for JavaScript](https://www.npmjs.com/package/@azure/communication-calling-effects) package.
+
+For best results when preparing the frosted PNG image, please keep in mind:
+
+* **Resolution**: Use 1920x1080 pixels for a high-quality background
+* **Avoid full opacity**: Colored content such as logos looks best with a little transparency. We recommend 75% opacity
+* **Defocus the image**: A Gaussian blur of radius 2 works well to simulate a bit of depth of field in the scene.
+* **Stencil mid-gray foreground**: For grayscale PNG with transparency, we recommend having the full image in mid-gray (value 128) so that the transparency pattern is visible on both light and dark backgrounds.
