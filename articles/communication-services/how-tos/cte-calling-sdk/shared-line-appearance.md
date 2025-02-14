@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Shared Line Appearance
+title: Tutorial - Teams Shared Line Appearance
 description: Use Microsoft Teams Shared Line Appearance with Azure Communication Services Calling SDK.
 author: charithgunaratna
 ms.author: charithg
@@ -8,7 +8,7 @@ ms.topic: how-to #Required; leave this attribute/value as-is
 ms.date: 02/04/2025
 ---
 
-# Shared Line Appearance
+# Teams Shared Line Appearance
 
 This article describes how to implement Microsoft Teams Shared Line Appearance with Azure Communication Services. Shared line appearance lets a user choose a delegate to make or handle calls on their behalf. This feature is helpful if a user has an administrative assistant who regularly handles the user's calls. In the context of shared line appearance, a manager is a Teams user who authorizes a delegate to make or receive calls on their behalf. A delegate is a M365 user who can make or receive calls on behalf of the delegator. You can find additional information about shared line appearance in [Teams documentation](https://learn.microsoft.com/microsoftteams/shared-line-appearance).
 
@@ -20,6 +20,7 @@ This article describes how to implement Microsoft Teams Shared Line Appearance w
 - Licensing requiremnets for delegator and delegates . See [Teams phone license](https://learn.microsoft.com/microsoftteams/shared-line-appearance#license-required).
 - Enable delegation and shared line appearance. See [Enable delegation](https://learn.microsoft.com/microsoftteams/shared-line-appearance#enable-delegation-and-shared-line-appearance)
 - Assign delegates using [Microsoft Teams Client](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8) or [Teams PowerShell](https://learn.microsoft.com/microsoftteams/shared-line-appearance#use-powershell).
+- Learn more about [Team Shared Line Appearance in Azure Communication Services](../../concepts/interop/teams-user/teams-shared-line-appearance.md)
 - Optional: Complete the quickstart to add voice calling to Microsoft Teams user. See [Quickstart: Add voice calling to Microsoft Teams user](../../quickstarts/voice-video-calling/get-started-call-to-teams-user.md).
 
 ## Support
