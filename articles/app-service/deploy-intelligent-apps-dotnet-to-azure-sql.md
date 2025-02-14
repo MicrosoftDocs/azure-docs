@@ -145,7 +145,7 @@ To perform a hybrid vector search on your Azure SQL database, you first need to 
 
 With [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can create a stored procedure that will use a Vector data type to store generated embeddings for search queries. The stored procedure invokes an external REST API endpoint to get the embeddings. See the [documentation](https://learn.microsoft.com/azure-data-studio/quickstart-sql-database) to use Azure Data Studio to connect to your database before running the query. 
 
-1. Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
+- Use the following to create a stored procedure with your preferred SQL query editor. You need to populate the @url parameter with your Azure OpenAI resource name and populate the rest endpoint with the API key from your text embedding model. You'll notice the model name as part of the @url, which will be populated with your search query.
 
 ```sql
 CREATE PROCEDURE [dbo].[GET_EMBEDDINGS]
@@ -266,7 +266,7 @@ Console.WriteLine("Done");
 
 The SQL query itself is using a hybrid search which executes the stored procedure set up previously to create embeddings and uses SQL to filter out your desired results. In this example, we're giving the results scores and ordering the output to grab the best results before using them as grounded context to generate a response from.
 
-### Securing your data with Managed Identity
+### Secure your data with Managed Identity
 
 Azure SQL can use Managed Identity with Microsoft Entra to secure your SQL resource by configuring passwordless authentication. Follow the below steps to configure a passwordless connection string that will be used in your application.
 
