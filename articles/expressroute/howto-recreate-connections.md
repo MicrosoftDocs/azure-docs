@@ -35,7 +35,7 @@ After deleting the connections, you can proceed to recreate them.
 
 1. Create new connections from the ExpressRoute virtual network gateway.
 
-    :::image type="content" source="media/howto-recreate-connections/add-connections.png" alt-text="Screenshot of creating ExpressRoute gateway connections.":::
+    :::image type="content" source="media/howto-recreate-connections/add-connections.png" alt-text="Screenshot of adding a ExpressRoute gateway connections.":::
 
 2. Configure the new ExpressRoute connections based on the resiliency model of your previous connections.
 
