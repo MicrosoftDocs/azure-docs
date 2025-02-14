@@ -58,11 +58,14 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *Qumulo file system details*.
 
-   | Field             | Action                                          |
-   |-------------------|-------------------------------------------------|
-   | Storage class     | Choose the storage class for your resource.     |
-   | Availability Zone | Choose the availability zone for your resource. |
+   | Field              | Action                                          |
+   |--------------------|-------------------------------------------------|
+   | Storage class      | Choose the storage class for your resource.     |
+   | Availability Zone  | Choose the availability zone for your resource. |
 
+   > [!NOTE]
+   > If you select *Hot ZRS* as your storage class, you will not specify an Availability Zone.
+   
    Select the **Change plan** link to change your billing plan.
 
    The remaining fields update to reflect the details of the plan you selected for this resource.
