@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path_from_root": "/articles/communication-services/concepts/client-and-server-architecture.md",
-            "redirect_url": "/articles/communication-services/concepts/identity-model#client-services-architecture",
+            "redirect_url": "/articles/communication-services/concepts/identity-model#client-server-architecture",
             "redirect_document_id": false
         },
         {
