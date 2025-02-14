@@ -3,7 +3,7 @@
 - name: Migrate from AWS Lambda
   href: ./aws-lambda-to-azure-functions.md
   items:
-  - name: Perform pre-migration evaluation
+  - name: Perform pre-migration planning
     items:
     - name: Core capabilities
       href: ./capabilities.md
@@ -25,18 +25,10 @@
         href: ./function-placeholder.md
       - name: Performance targets
         href: ./function-placeholder.md
-  - name: Follow a recommended approach
-    items:
-    - name: Strategy and recommendations
-      href: ./function-placeholder.md
-    - name: Tools
-      href: ./function-placeholder.md
-    - name: Feature portability reference
-      href: ./function-placeholder.md
-  - name: Perform end-state evaluation
+  - name: Perform the migration
+    href: ./perform-migration.md
+  - name: Evaluate end-state
     href: ./function-placeholder.md
-  - name: Azure optimization opportunities
-    href: /azure/well-architected/service-guides/azure-functions-security
   - name: Migration examples
     items:
     - name: Migrate an event-driven data processing pipeline
@@ -59,3 +51,5 @@
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
+  - name: Explore Azure optimization opportunities
+    href: /azure/well-architected/service-guides/azure-functions-security
