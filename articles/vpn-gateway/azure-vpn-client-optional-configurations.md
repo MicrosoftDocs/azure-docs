@@ -49,7 +49,7 @@ To work with VPN client profile configuration files (xml files), use the followi
 > [!NOTE]
 > At this time, additional DNS suffixes for the Azure VPN Client aren't generated in a format that can be properly used by macOS. The specified values for DNS suffixes don't persist for macOS.
 
-To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
+To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssuffix> \</dnssuffix>\</dnssuffixes>** tags.
 
 ```xml
 <azvpnprofile>
