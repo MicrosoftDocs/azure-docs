@@ -105,9 +105,7 @@ Using the developer portal, API consumers can:
 
 ## Federated API management with workspaces
 
-Azure API Management supports several deployment models for managing an organization's API portfolio - for example, use a centralized instance managed entirely by an API platform team, or deploy separate instances managed independently by API teams. The models offer different degrees of centralized control over the API platform infrastructure, API governance, and API discovery. 
-
-For organizations that want to empower decentralized teams to develop and manage their own APIs with the advantages of centralized API governance and discovery, API Management offers first-class support for a federated model with *workspaces*.
+For organizations that want to empower decentralized teams to develop and manage their own APIs with the advantages of centralized API governance and discovery, API Management offers first-class support for a federated API management model with *workspaces*.
 
 [!INCLUDE [workspaces-benefits](../../includes/workspaces-benefits.md)]
 
