@@ -1,10 +1,11 @@
 ---
 title: Dead letter and retry policies - Azure Event Grid
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 02/14/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
+# Customer intent: As a developer, I want to know how to set a dead-letter location and a retry policy. 
 ---
 
 # Set dead-letter location and retry policy
@@ -146,9 +147,7 @@ New-AzEventGridSubscription `
 > [!NOTE]
 > If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire to determine when to stop event delivery. For example, if you set 30 minutes as time-to-live (TTL) and 5 max delivery attempts. When an event isn't delivered after 30 minutes (or) isn't delivered after five attempts, whichever happens first, the event is dead-lettered. If you set max delivery attempts to 10, with respect to [exponential retry schedule](delivery-and-retry.md#retry-schedule), max six number of delivery attempts happen before 30 minutes TTL will be reached, therefore setting max number of attempts to 10 will have no impact in this case and events will be dead-lettered after 30 minutes. 
 
-## Next steps
+## Related content
 
 * For a sample application that uses an Azure Function app to process dead letter events, see [Azure Event Grid Dead Letter Samples for .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
