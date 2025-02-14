@@ -78,7 +78,7 @@ Follow the how-to in [Perform your migration from AWS Lambda to Azure Functions]
 
 Before you can fully decommission the resources in AWS, you need to have full confidence that the platform is meeting current workload expectations and there are no blockers to maintainging the workload or blockers to further development on the workload.
 
-Ensure your Azure Function is meeting expcations, [Evaluate end-state](./function-placeholder.md).
+Ensure your Azure Function is meeting expcations, [Evaluate end-state](./post-migration-checklist.md).
 
 ## Explore sample migration scenarios
 

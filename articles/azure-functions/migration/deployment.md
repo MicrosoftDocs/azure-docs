@@ -12,12 +12,13 @@ ms.topic: conceptual
 | :::image type="icon" source="../../migration/images/goal.svg"::: TBD |
 | :-- |
 
-
 ### Plan your downtime approach
 
 - Resources: The cloud resources in AWS and Azure.
 - Code: your Lambda function code modified to run in Azure Functions
 - State: such as data in dependent datastores, contents of event processing queues.
+
+Unless otherwise negotiatied, assume your overall workload SLOs and SLAs still needs to be obtained to during this serverless platform migration.
 
 #### Planned downtime migration
 
