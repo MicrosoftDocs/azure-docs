@@ -27,7 +27,7 @@ providers in the US) using the caller\'s phone number. In Canada, you can add th
 
 ![A call flow diagram showing your call registered with a Caller Name Delivery (CNAM) from Azure Communication Services through an originating service provider and terminating service provider to the called device displaying your CNAM.](../media/cnam-call-flow.png)
 
-### How to register
+## How to register
 
 To request a CNAM registration for an Azure Communication Services number, customers need to send an email to `<acstns@microsoft.com>`, using `"ACS Number Request -- CNAM Registration"` as part of subject line. In the body or the email, provide the following details:
 
@@ -48,18 +48,12 @@ CNAM caller names are limited to 15 characters (including spaces) and support th
 
 Once the request is approved by the carrier, it takes **48 hours to be published.**
 
-### Things to consider
+## Things to consider
 
-1. The reliability of CNAM delivery with the call varies depending on the country/region and carriers that handle the call; either as an intermediary or a terminating carrier.
-
-2. Inconsistencies in CNAM can be caused when the intermediate or terminating carriers delay refreshing the CNAM information in authoritative databases, such as in the United States. In countries/regions where there are no authoritative databases for CNAM, individual carrier practices can also cause problems with CNAM information arriving intact with the call.
-
-3. Azure Communication Services currently doesn't support CNAM registration for countries or regions outside the United States.
-
-4. This registration is available only for US local numbers. It doesn't support toll free numbers.
-
-5. This service only applies to *outbound* calls for numbers that customer owns.
-
-6.  CNAM databases aren't always up to date and not consistently updated. There's a potential for misspellings.
-
-7.  There are multiple CNAM databases across the country and terminating carriers may subscribe to one or more databases.
+- The reliability of CNAM delivery with the call varies depending on the country/region and carriers that handle the call; either as an intermediary or a terminating carrier.
+- Inconsistencies in CNAM can be caused when the intermediate or terminating carriers delay refreshing the CNAM information in authoritative databases, such as in the United States. In countries/regions where there are no authoritative databases for CNAM, individual carrier practices can also cause problems with CNAM information arriving intact with the call.
+- Azure Communication Services currently doesn't support CNAM registration for countries or regions outside the United States.
+- This registration is available only for US local numbers. It doesn't support toll free numbers.
+- This service only applies to *outbound* calls for numbers that customer owns.
+- CNAM databases aren't always up to date and not consistently updated. There's a potential for misspellings.
+- There are multiple CNAM databases across the country and terminating carriers may subscribe to one or more databases.
