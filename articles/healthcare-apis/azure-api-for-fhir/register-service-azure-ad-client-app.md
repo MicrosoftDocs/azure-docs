@@ -38,7 +38,7 @@ Follow these steps to create a new service client.
 Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools such as Postman.
+>Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools for intuitive querying.
 
 ## Application secret
 

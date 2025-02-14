@@ -54,7 +54,7 @@ To configure your [desktop](../../active-directory/develop/scenario-desktop-app-
 Permissions for Azure API for FHIR are managed through role-based access control (RBAC). For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools such as Postman.
+>Use a `grant_type` of `client_credentials` when trying to obtain an access token for Azure API for FHIR using tools for intuitive querying.
 
 ## Validate FHIR server authority
 If the application you registered and your FHIR server are in the same Microsoft Entra tenant, you're good to proceed to the next steps.

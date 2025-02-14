@@ -56,7 +56,7 @@ Now that you have set up the correct authentication, set the API permissions.
 ## Next Steps
 
 You now have a public client application.
-There are tools available such as Postman that can allow intuitive querying.
+There are tools available that can allow intuitive querying.
 Once you have successfully connect to your client application, you’re ready to write your web application.
 
 >[!div class="nextstepaction"]
