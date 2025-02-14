@@ -3,7 +3,7 @@ title: Quickstart - Connect a device to Azure IoT Central
 description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 02/14/2025
 ms.topic: quickstart
 ms.service: azure-iot-central
 services: iot-central

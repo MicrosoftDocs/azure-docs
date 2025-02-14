@@ -64,6 +64,8 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
 ```
 
 [See the full reference guide for change resource properties.](/rest/api/resources/changes)
+> [!NOTE]
+> Snapshots are not currently supported for deleted resources.
 
 ## Run a query
 
