@@ -86,6 +86,43 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to create a resource group.
+
+```powershell
+$rgParams = @{
+    Name = "test-rg"
+    Location = "eastus2"
+}
+New-AzResourceGroup @rgParams
+```
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address for the NAT gateway.
+
+```powershell
+$publicIpParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "public-ip-nat"
+    Sku = "Standard"
+    AllocationMethod = "Static"
+    Location = "eastus2"
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @publicIpParams
+```
+
+Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway.
+
+```powershell
+$natGatewayParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nat-gateway"
+    PublicIpAddress = "public-ip-nat"
+    IdleTimeoutInMinutes = 4
+    Location = "eastus2"
+}
+New-AzNatGateway @natGatewayParams
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az group create](/cli/azure/group#az_group_create) to create a resource group.
@@ -199,6 +236,52 @@ It takes a few minutes for the bastion host to deploy. When the virtual network 
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-hub"
+    AddressPrefix = "10.0.0.0/16"
+    Location = "eastus2"
+}
+New-AzVirtualNetwork @vnetParams
+```
+
+Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create the subnets.
+
+```powershell
+Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-private" -AddressPrefix "10.0.0.0/24"
+Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "AzureBastionSubnet" -AddressPrefix "10.0.1.0/26"
+Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-public" -AddressPrefix "10.0.253.0/28" -NatGateway $natGateway
+```
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address for the Azure Bastion host.
+
+```powershell
+$publicIpParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "public-ip-bastion"
+    Sku = "Standard"
+    AllocationMethod = "Static"
+    Location = "eastus2"
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @publicIpParams
+```
+
+Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the Azure Bastion host.
+
+```powershell
+$bastionParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "bastion"
+    VirtualNetworkName = "vnet-hub"
+    PublicIpAddressName = "public-ip-bastion"
+    Location = "eastus2"
+}
+New-AzBastion @bastionParams
+```
 # [**CLI**](#tab/cli)
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
@@ -315,6 +398,45 @@ The private key will download to your local machine. The private key is needed i
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the network security group.
+
+```powershell
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nsg-nva"
+    Location = "eastus2"
+}
+New-AzNetworkSecurityGroup @nsgParams
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the network interface.
+
+```powershell
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-public"
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-hub").Subnets[0].Id
+    NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-nva").Id
+}
+New-AzNetworkInterface @nicParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the virtual machine. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+
+```powershell
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-nva"
+    Image = "Canonical:UbuntuServer:18.04-LTS:latest"
+    Size = "Standard_DS4_v2"
+    AdminUsername = "azureuser"
+    GenerateSshKeys = $true
+    NetworkInterfaceIds = (Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-public").Id
+}
+New-AzVM @vmParams
+```
+
+
 # [**CLI**](#tab/cli)
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
@@ -407,6 +529,56 @@ The IP configuration of the primary network interface of the virtual machine is 
 1. Start the virtual machine.
  
 # [**Powershell**](#tab/powershell)
+
+Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to enable IP forwarding on the primary network interface.
+
+```powershell
+$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-public"
+$nic.EnableIPForwarding = $true
+Set-AzNetworkInterface -NetworkInterface $nic
+```
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to statically set the private IP address of the virtual machine.
+
+```powershell
+$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-public"
+$nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
+$nic.IpConfigurations[0].PrivateIpAddress = "10.0.253.10"
+Set-AzNetworkInterface -NetworkInterface $nic
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the secondary network interface.
+
+```powershell
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-private"
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-hub").Subnets[1].Id
+    PrivateIpAddress = "10.0.0.10"
+}
+New-AzNetworkInterface @nicParams
+```
+
+Use [Stop-AzVM](/powershell/module/az.compute/stop-azvm) to shutdown and deallocate the virtual machine.
+
+```powershell
+Stop-AzVM -ResourceGroupName "test-rg" -Name "vm-nva" -Force
+```
+
+Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the secondary network interface to the virtual machine.
+
+```powershell
+$vm = Get-AzVM -ResourceGroupName "test-rg" -Name "vm-nva"
+$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-private"
+Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
+Update-AzVM -ResourceGroupName "test-rg" -VM $vm
+```
+
+Use [Start-AzVM](/powershell/module/az.compute/start-azvm) to start the virtual machine.
+
+```powershell
+Start-AzVM -ResourceGroupName "test-rg" -Name "vm-nva"
+```
 
 # [**CLI**](#tab/cli)
 
@@ -603,6 +775,40 @@ Route tables are used to overwrite Azure's default routing. Create a route table
  
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) to create the route table.
+
+```powershell
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-hub"
+    Location = "eastus2"
+}
+New-AzRouteTable @routeTableParams
+```
+
+Use [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create the route in the route table.
+
+```powershell
+$routeParams = @{
+    Name = "default-via-nat-hub"
+    AddressPrefix = "0.0.0.0/0"
+    NextHopType = "VirtualAppliance"
+    NextHopIpAddress = "10.0.0.10"
+}
+$routeTable = Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-nat-hub"
+Add-AzRouteConfig -RouteTable $routeTable -Route $routeParams
+Set-AzRouteTable -RouteTable $routeTable
+```
+
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the subnet.
+
+```powershell
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-hub"
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-private"
+$subnet.RouteTable = $routeTable
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create) to create the route table.
@@ -690,6 +896,37 @@ Create another virtual network in a different region for the first spoke of the 
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-1"
+    AddressPrefix = "10.1.0.0/16"
+    Location = "southcentralus"
+}
+New-AzVirtualNetwork @vnetParams
+```
+
+Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create the subnet.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-1"
+}
+$vnet = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+    AddressPrefix = "10.1.0.0/24"
+}
+Add-AzVirtualNetworkSubnetConfig @subnetParams
+
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
@@ -755,6 +992,42 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
 
 # [**Powershell**](#tab/powershell)
+
+Use [New-AzVirtualNetworkPeering](/powershell/module/az.network/new-azvirtualnetworkpeering) to create the peering from the hub to spoke one.
+
+```powershell
+# Create peering from hub to spoke one
+$hubVnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-hub"
+}
+$hubVnet = Get-AzVirtualNetwork @hubVnetParams
+
+$spokeVnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-1"
+}
+$spokeVnet = Get-AzVirtualNetwork @spokeVnetParams
+
+$hubToSpokeParams = @{
+    Name = "vnet-hub-to-vnet-spoke-1"
+    VirtualNetwork = $hubVnet
+    RemoteVirtualNetworkId = $spokeVnet.Id
+    AllowForwardedTraffic = $true
+    AllowVirtualNetworkAccess = $true
+}
+Add-AzVirtualNetworkPeering @hubToSpokeParams
+
+# Create peering from spoke one to hub
+$spokeToHubParams = @{
+    Name = "vnet-spoke-1-to-vnet-hub"
+    VirtualNetwork = $spokeVnet
+    RemoteVirtualNetworkId = $hubVnet.Id
+    AllowForwardedTraffic = $true
+    AllowVirtualNetworkAccess = $true
+}
+Add-AzVirtualNetworkPeering @spokeToHubParams
+```
 
 # [**CLI**](#tab/cli)
 
@@ -842,6 +1115,58 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 1. Select **OK**.
 
 # [**Powershell**](#tab/powershell)
+
+Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) to create the route table.
+
+```powershell
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-spoke-1"
+    Location = "southcentralus"
+}
+New-AzRouteTable @routeTableParams
+```
+
+Use [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create the route in the route table.
+
+```powershell
+$routeParams = @{
+    Name = "default-via-nat-spoke-1"
+    AddressPrefix = "0.0.0.0/0"
+    NextHopType = "VirtualAppliance"
+    NextHopIpAddress = "10.0.0.10"
+}
+
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-spoke-1"
+}
+$routeTable = Get-AzRouteTable @routeTableParams
+
+Add-AzRouteConfig -RouteTable $routeTable -Route $routeParams
+
+Set-AzRouteTable -RouteTable $routeTable
+```
+
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the subnet.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-1"
+}
+$vnet = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @subnetParams
+
+$subnet.RouteTable = $routeTable
+
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
 
 # [**CLI**](#tab/cli)
 
@@ -932,6 +1257,61 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 1. Select **Create**.
 
 # [**Powershell**](#tab/powershell)
+
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the network security group.
+
+```powershell
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nsg-spoke-1"
+    Location = "eastus2"
+}
+New-AzNetworkSecurityGroup @nsgParams
+```
+
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create an inbound NSG rule for HTTP.
+
+```powershell
+$ruleParams = @{
+    Name = "allow-http"
+    Priority = 1000
+    Direction = "Inbound"
+    Access = "Allow"
+    Protocol = "Tcp"
+    DestinationPortRange = "80"
+}
+$nsg = Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-1"
+
+$nsg | Add-AzNetworkSecurityRuleConfig @ruleParams
+
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the network interface.
+
+```powershell
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-1"
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-1").Subnets[0].Id
+    NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-1").Id
+}
+New-AzNetworkInterface @nicParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the Windows Server 2022 virtual machine.
+
+```powershell
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-spoke-1"
+    Image = "Win2022Datacenter"
+    Size = "Standard_DS2_v2"
+    AdminUsername = "azureuser"
+    NetworkInterfaceIds = (Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-1").Id
+}
+New-AzVM @vmParams
+```
 
 # [**CLI**](#tab/cli)
 
@@ -1026,6 +1406,23 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 # [**Powershell**](#tab/powershell)
 
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install IIS on the virtual machine.
+
+```powershell
+$vmExtensionParams = @{
+    ResourceGroupName = "test-rg"
+    VMName = "vm-spoke-1"
+    Name = "CustomScriptExtension"
+    Publisher = "Microsoft.Compute"
+    Type = "CustomScriptExtension"
+    TypeHandlerVersion = "1.10"
+    Settings = @{
+        "commandToExecute" = "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path 'C:\inetpub\wwwroot\default.htm' -Value $($env:computername)"
+    }
+}
+Set-AzVMExtension @vmExtensionParams
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install IIS on the virtual machine.
@@ -1037,7 +1434,7 @@ az vm extension set \
     --name CustomScriptExtension \
     --vm-name vm-spoke-1 \
     --resource-group test-rg \
-    --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+    --settings '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\default.htm\" -Value $($env:computername)"}'
 ```
 
 ---
