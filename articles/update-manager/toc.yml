@@ -17,23 +17,22 @@ items:
     href: prerequisites.md
   - name: Roles and Permissions
     href: roles-permissions.md
-  - name: Support matrix
+- name: Support matrix
+  items:
+  - name: Supported regions
+    href: supported-regions.md
+  - name: Supported operating systems
     items:
-    - name: Supported regions
-      href: supported-regions.md
-    - name: Supported operating systems
-      items:
-      - name: Check for Updates, One time update, Periodic assessment and Customer managed Schedules
-        href: support-matrix-updates.md
-      - name: Automatic VM Guest Patching
-        href: support-matrix-automatic-guest-patching.md
+    - name: Check for Updates, One time update, Periodic assessment and Customer managed Schedules
+      href: support-matrix-updates.md
+    - name: Automatic VM Guest Patching
+      href: support-matrix-automatic-guest-patching.md
     - name: Supported update types and update sources
       items:
       - name: Supported updates
         href: support-matrix.md
       - name: Ubuntu Pro support
         href: security-awareness-ubuntu-support.md
-      
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
