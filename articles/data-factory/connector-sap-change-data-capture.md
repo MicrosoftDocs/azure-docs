@@ -80,7 +80,7 @@ Next, specify a staging linked service and staging folder in Azure Data Lake Gen
 The **Checkpoint Key** is used by the SAP CDC runtime to store status information about the change data capture process. This, for example, allows SAP CDC mapping data flows to automatically recover from error situations, or know whether a change data capture process for a given data flow has already been established. It is therefore important to use a unique **Checkpoint Key** for each source. Otherwise status information of one source will be overwritten by another source.
 
 >[!NOTE]
-   > - To avoid conflicts, a unique id is generated as **Checkpoint Key** by default.
+   > - To avoid conflicts, a unique ID is generated as **Checkpoint Key** by default.
    > - When using parameters to leverage the same data flow for multiple sources, make sure to parametrize the **Checkpoint Key** with unique values per source.
    > - The **Checkpoint Key** property is not shown if the **Run mode** within the SAP CDC source is set to **Full on every run** (see next section), because in this case no change data capture process is established.
 

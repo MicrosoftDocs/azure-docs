@@ -102,7 +102,7 @@ Data factory displays the pipeline editor where you can find:
 1. The pipeline configurations pane, including parameters, variables, general settings, and output.
 1. The pipeline properties pane, where the pipeline name, optional description, and annotations can be configured. This pane also shows any related items to the pipeline within the data factory.
 
-:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Shows the pipeline editor pane in Azure Data Factory studio with each of the sections described highlighted.":::
+:::image type="content" source="media/concepts-pipelines-activities/pipeline-configuration-with-ui.png" alt-text="Screenshot that shows the pipeline editor pane in Azure Data Factory studio with each of the sections described highlighted.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
 To create a new pipeline, navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then select the plus sign and choose Pipeline from the menu.

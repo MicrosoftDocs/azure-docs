@@ -32,7 +32,7 @@ This SFTP connector is supported for the following capabilities:
 
 Specifically, the SFTP connector supports:
 
-- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multi-factor** authentication.
+- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multifactor** authentication.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites

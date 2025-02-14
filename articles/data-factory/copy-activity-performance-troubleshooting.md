@@ -16,7 +16,7 @@ ms.date: 02/13/2025
 
 This article outlines how to troubleshoot copy activity performance issue in Azure Data Factory. 
 
-After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following images shows an example.
+After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following image shows an example.
 
 :::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Monitor copy activity run details":::
 
@@ -194,17 +194,17 @@ Activity execution time varies when the dataset is based on different Integratio
     - Instead of bulk insert, stored procedure is being used, which is expected to have worse performance. 
 
 
-### Time out or slow performance when parsing large Excel file
+### Time-out or slow performance when parsing large Excel file
 
 - **Symptoms**:
 
-    - When you create Excel dataset and import schema from connection/store, preview data, list, or refresh worksheets, you could encounter a time out error if the excel file is large in size.
+    - When you create Excel dataset and import schema from connection/store, preview data, list, or refresh worksheets, you could encounter a time-out error if the excel file is large in size.
 
     - When you use copy activity to copy data from large Excel file (>= 100 MB) into other data store, you could experience slow performance or OOM issue.
 
 - **Cause**: 
 
-    - For operations like importing schema, previewing data, and listing worksheets on excel dataset. The timeout is 100 s and static. For large Excel file, these operations might not finish within the time-out value.
+    - For operations like importing schema, previewing data, and listing worksheets on excel dataset. The time-out is 100 s and static. For large Excel file, these operations might not finish within the time-out value.
 
     - The copy activity reads the whole Excel file into memory then locate the specified worksheet and cells to read data. This behavior is due to the underlying SDK the service uses.
 

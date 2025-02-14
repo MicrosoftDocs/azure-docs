@@ -40,7 +40,7 @@ Note the following:
 
 - The Lookup activity can return up to **5000 rows**; if the result set contains more records, the first 5000 rows will be returned.
 - The Lookup activity output supports up to **4 MB** in size, activity will fail if the size exceeds the limit. 
-- The longest duration for Lookup activity before timeout is **24 hours**.
+- The longest duration for Lookup activity before  time-out is **24 hours**.
 
 > [!Note]
 > When you use query or stored procedure to lookup data, make sure to return one and exact one result set. Otherwise, Lookup activity fails.

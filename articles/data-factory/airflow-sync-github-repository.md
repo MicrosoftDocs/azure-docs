@@ -37,7 +37,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
 
 1. When you create a Workflow Orchestration Manager integration runtime, select **Enable git sync** in the **Airflow environment setup** dialog.
 
-   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot that shows the Enable git sync checkbox in the Airflow environment setup dialog that appears during creation of an Airflow integration runtime.":::
+   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot that shows the Enable git sync checkbox in the Airflow environment setup dialog that appears during creation of a Airflow integration runtime.":::
 
 1. Select one of the following supported Git service types:
    - **GitHub**
@@ -45,7 +45,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
    - **GitLab**
    - **Bitbucket**
 
-   :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot that shows the Git service type selection dropdown in the  environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
+   :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot that shows the Git service type selection dropdown in the  environment setup dialog that appears during creation of a Workflow Orchestration Manager integration runtime.":::
 
 1. Select a credential type:
 
@@ -59,7 +59,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
      - GitLab personal access token
      - Bitbucket personal access token
 
-     :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot that shows the Git PAT credential options in the Airflow environment setup dialog that appears during creation of an AWorkflow Orchestration Manager integration runtime.":::
+     :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot that shows the Git PAT credential options in the Airflow environment setup dialog that appears during creation of a Workflow Orchestration Manager integration runtime.":::
    - **SPN** ([service principal name](https://devblogs.microsoft.com/devops/introducing-service-principal-and-managed-identity-support-on-azure-devops/)): Only ADO supports this credential type.
      After you select this option, fill out the remaining fields based on the selected **Git service type**:
      - **Git repo url** (required): The clone URL to the Git repository to sync.
@@ -68,7 +68,7 @@ To sync your GitHub repository by using the Workflow Orchestration Manager UI:
      - **Service principal secret** (required): A manually generated secret in the service principal whose value is used to authenticate and access the ADO repo.
      - **Service principal tenant id** (required): The service principal tenant ID.
 
-     :::image type="content" source="media/airflow-git-sync-repository/git-spn-credentials.png" alt-text="Screenshot that shows the Git SPN credential options in the Airflow environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
+     :::image type="content" source="media/airflow-git-sync-repository/git-spn-credentials.png" alt-text="Screenshot that shows the Git SPN credential options in the Airflow environment setup dialog that appears during creation of a Workflow Orchestration Manager integration runtime.":::
 
 1. Fill in the rest of the fields with the required information.
 1. Select **Create**.
@@ -295,7 +295,7 @@ This process assumes that your private package was autosynced via Git sync. You 
 
 For example, if your private package is in `/dags/test/private.whl` in a GitHub repo, you should add the requirement `/opt/airflow/git/\<repoName\>.git/dags/test/private.whl` in the Workflow Orchestration Manager environment.
 
-:::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot that shows the Airflow requirements section in the Airflow environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
+:::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot that shows the Airflow requirements section in the Airflow environment setup dialog that appears during creation of a Workflow Orchestration Manager integration runtime.":::
 
 ## Related content
 
