@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Activate a partner topic
+ description: Shows how to activate a partner topic. 
  author: spelluru
  ms.service: azure-event-grid
  ms.topic: include
