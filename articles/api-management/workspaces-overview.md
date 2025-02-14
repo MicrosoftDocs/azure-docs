@@ -18,29 +18,27 @@ ms.author: danlep
 
 This article provides an overview of API Management *workspaces* and how they empower decentralized API development teams to manage and productize their APIs in a common service infrastructure. 
 
-## Why do organizations need workspaces?
+## Why should organizations federate API management?
 
-Today, organizations increasingly face challenges in managing a proliferation of APIs. As the number of APIs and API development teams grows, so does the complexity of managing them. This complexity can lead to increased operational overhead, security risks, and reduced agility. On the one hand, organizations want to establish a centralized API infrastructure to ensure API governance, security, and compliance. On the other hand, they want their API teams to innovate and respond quickly to business needs, without the overhead of managing an API platform.
+Today, organizations increasingly face challenges in managing a proliferation of APIs. As the number of APIs and API development teams grows, so does the complexity of managing them. This complexity can lead to increased operational overhead, security risks, and reduced agility. On the one hand, organizations want to establish a centralized API infrastructure to ensure API governance, security, and compliance. On the other hand, they want their API teams to innovate and respond quickly to business needs, without the overhead of managing an API platform. 
 
-## Workspaces support centralized API platform and decentralized API teams
+A *federated* model of API management addresses these needs. Federated API management allows decentralized API management by development teams with appropriate isolation of control and data planes, while maintaining centralized governance, monitoring, and API discovery managed by an API platform team. This model overcomes the limitations of alternative approaches such as fully centralized API management by the platform team or siloed API management by each development team.
 
-[!INCLUDE [workspaces-benefits](../../includes/workspaces-benefits.md)]
+Federated API management provides:
 
-Workspaces add first-class support for a *federated model* of managing APIs in your organization, in addition to already supported centralized and siloed models. See the following table for a comparison of these models.
+* Centralized API governance and observability
+* A unified developer portal for effective API discovery and onboarding
+* Segregated administrative permissions between API teams, enhancing productivity and security
+* Segregated API runtime between API teams, improving reliability, resiliency, and security
 
-|Model|Description  |
-|---------|---------|
-|**Centralized**<br/><br/>:::image type="content" source="media/workspaces-overview/centralized.png" alt-text="Diagram of the centralized model of Azure API Management." border="false" lightbox="media/workspaces-overview/centralized.png":::      |**Pros**<br/>• Centralized API governance and observability<br/>• Unified developer portal for effective API discovery and onboarding<br/>• Cost-efficiency of the infrastructure<br/><br/>**Cons**<br/>• No segregation of administrative permissions between teams<br/>• API gateway is a single point of failure<br/>• Inability to attribute runtime issues to specific teams<br/>• Burden on platform team to facilitate collaboration may reduce API growth     |
-|**Siloed**<br/><br/>:::image type="content" source="media/workspaces-overview/siloed.png"  alt-text="Diagram of the siloed model of Azure API Management." border="false" lightbox="media/workspaces-overview/siloed.png":::       |**Pros**<br/>• Segregation of administrative permissions between teams increases productivity and security<br/>• Segregation of API runtime between teams increases API reliability, resiliency, and security<br/>• Runtime issues are contained and attributable to specific teams<br/><br/>**Cons**<br/>• Lack of centralized API governance and observability<br/>• Lack of unified developer portal<br/>• Increased cost and harder platform management​    | 
-|**Federated**<br/><br/>:::image type="content" source="media/workspaces-overview/federated.png" alt-text="Diagram of the federated model of Azure API Management." border="false" lightbox="media/workspaces-overview/federated.png":::       |**Pros**<br/>• Centralized API governance and observability<br/>• Unified developer portal for effective API discovery and onboarding<br/>• Segregation of administrative permissions between teams increases productivity and security<br/>• Segregation of API runtime between teams increases API reliability, resiliency, and security<br/>• Runtime issues are contained and attributable to specific teams<br/><br/>**Cons**<br/>• Platform cost and management difficulty greater than in the centralized model but lower than in the siloed model |
+## How workspaces enable federated API management
 
-## How do workspaces work?
-
-Workspaces function like "folders" within an API Management service:
+In Azure API Management, use *workspaces* to implement federated API management. Workspaces function like "folders" within an API Management service:
 
 * Each workspace contains APIs, products, subscriptions, named values, and related resources. See the API Management [REST API reference](/rest/api/apimanagement/workspace?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) for a full list of resources and operations supported in workspaces.
 * Teams' access to resources within a workspace is managed through Azure's role-based access control (RBAC) with built-in or custom roles assignable to Microsoft Entra accounts. 
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
+* The platform team can apply API policies spanning APIs in workspaces, monitor the platform by viewing the logs for all workspaces, and implement a centralized API discovery experience with a developer portal.
 
 :::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
 
@@ -66,7 +64,7 @@ The following is a sample workflow for creating and using a workspace.
 
 Each workspace is associated with one or more workspace gateways to enable runtime of APIs managed within the workspace. The workspace gateway is a standalone Azure resource with the same core functionality as the gateway built into your API Management service. 
 
-Workspace gateways are managed independently from the API Management service and from each other. They ensure isolation of runtime between workspaces, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to workspaces. 
+Workspace gateways are managed independently from the API Management service and from each other. They allow for isolation of runtime between workspaces or use cases, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to workspaces. 
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
