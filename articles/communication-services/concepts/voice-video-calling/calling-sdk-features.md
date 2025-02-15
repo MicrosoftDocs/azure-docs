@@ -164,21 +164,18 @@ We highly recommend identifying and validating your scenario by visiting the sup
 
 ## Maximum call duration
 
-**The maximum call duration is 30 hours**, participants that reach the maximum call duration lifetime of 30 hours are disconnected from the call.
+**The maximum call duration is 30 hours** and participants that reach the maximum call duration lifetime of 30 hours are disconnected from the call.
 
 ## Supported number of incoming video streams
 
 The Azure Communication Services Calling SDK supports the following streaming configurations:
 
-| Limit | Web    | Windows/Android/iOS |
-| ------------------------------------------------------------- | --------------------------- | -------------------------- |
+| Limit | Web | Windows/Android/iOS |
+| --- | --- | --- |
 | **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 16 videos + 1 screen sharing on desktop browsers*, 4 videos + 1 screen sharing on web mobile browsers | 9 videos + 1 screen sharing |
 
-
-
-\* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24)
-While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine how many current incoming video streams your web environment can support. To properly support 16 incoming videos, the computer should have a minimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old
+\* Starting from Azure Communication Services Web Calling SDK version [1.16.3](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1163-stable-2023-08-24). While the Calling SDK doesn't enforce these limits, your users might experience performance degradation if they're exceeded. Use the API of [Optimal Video Count](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#remote-video-quality) to determine the number of incoming video streams your web environment can support. To properly support 16 incoming videos, the computer needs a minimum of 16GB RAM and a 4-core or greater CPU that is less than 3 years old.
 
 ## Supported video resolutions
 
@@ -196,23 +193,23 @@ The Azure Communication Services Calling SDK supports sending following video re
 | **Receiving a remote video stream or screen share** | 1080P | 1080P | 1080P   | 1080P   | 
 
 ## Number of participants on a call support
-- Up to **350** users can join a group call, Room or Teams + ACS call.
-- Once the call size reaches 100+ participants in a call, only the top 4 most dominant speakers that have their video camera turned can be seen.
-- When the number of people on the call is 100+, the viewable number of incoming video renders automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
+- Up to **350** users can join a group call, Room call, or Teams + Azure Communication Services call.
+- Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
+- When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
 - When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
 
-## Calling SDK timeouts
-The following timeouts apply to the Communication Services Calling SDKs:
+## Calling SDK time-outs
+The following time-outs apply to the Communication Services Calling SDKs:
 
-| Action| Timeout in seconds |
+| Action| Time-out in seconds |
 | --------------------------------------------------------------------------- | ------------------ |
 | Reconnect/removal participant     | 60  |
 | Add or remove new modality from a call (Start/stop video or screen sharing) | 40   |
-| Call Transfer operation timeout   | 60   |
-| 1:1 call establishment timeout    | 85   |
-| Group call establishment timeout  | 85   |
-| PSTN call establishment timeout   | 115  |
-| Promote 1:1 call to a group call timeout | 115  |
+| Call Transfer operation time-out   | 60   |
+| 1:1 call establishment time-out    | 85   |
+| Group call establishment time-out  | 85   |
+| PSTN call establishment time-out   | 115  |
+| Promote 1:1 call to a group call time-out | 115  |
 
 ## Next steps
 
@@ -221,7 +218,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ## Related articles
 
-- Familiarize yourself with general [call flows](../call-flows.md)
-- Learn about [call types](../voice-video-calling/about-call-types.md)
+- Familiarize yourself with general [call flows](../call-flows.md).
+- Learn about [call types](../voice-video-calling/about-call-types.md).
 - Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that can route and control calls with client applications.
-- [Plan your PSTN solution](../telephony/plan-solution.md)
+- [Plan your PSTN solution](../telephony/plan-solution.md).

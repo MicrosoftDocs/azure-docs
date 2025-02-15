@@ -8,4 +8,4 @@ ms.custom: survey_-_request
 ---
 
 > [!NOTE]
-> [Complete this short survey to share your thoughts and feeback about Azure Communication Services](https://microsoft.qualtrics.com/jfe/form/SV_eCJB0lyWdLDxEp0).
+> [Complete this short survey to share your thoughts and feedback about Azure Communication Services](https://microsoft.qualtrics.com/jfe/form/SV_eCJB0lyWdLDxEp0).

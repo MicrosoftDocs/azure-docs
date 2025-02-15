@@ -38,7 +38,9 @@ If you answer **yes** to the following questions, then Voice Calling (PSTN) is t
 With this option:
 - You get numbers directly from Microsoft and can call phones around the world.
 - You don't need to deploy or maintain any on-premises system because Voice Calling (PSTN) operates through Azure Communication Services.
-- Note: If necessary, you can choose to connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs). SBCs can also enable analog devices and other third-party telephony equipment supported by the SBC.
+
+  > [!NOTE]
+  > If necessary, you can connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs). SBCs can also enable analog devices and other third-party telephony equipment supported by the SBC.
 
 This option requires an uninterrupted connection to Azure Communication Services.  
 
@@ -68,24 +70,24 @@ This option requires:
 
 - Uninterrupted connection to Azure.
 - Deploying and maintaining a supported SBC.
-- A contract with a third-party carrier. (Unless deployed as an option to provide a connection to third-party PBX, analog devices, or other telephony equipment for users who are on Communication Services.)
+- A contract with a third-party carrier. Unless deployed as an option to provide a connection to third-party PBX, analog devices, or other telephony equipment for users who are on Communication Services.
 
 ## Next steps
 
 ### Conceptual documentation
 
-- [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
-- [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
-- [Pricing](../pricing.md)
-- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows to control and manage calls for phone numbers and direct routing
-- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md)
-- [Try Phone Calling](./try-phone-calling.md)
+- [Phone number types in Azure Communication Services](./plan-solution.md).
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md).
+- [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md).
+- [Pricing](../pricing.md).
+- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that controls and manages calls for phone numbers and direct routing.
+- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md).
+- [Try Phone Calling](./try-phone-calling.md).
 
 
 ### Quickstarts
 
-- [Get a phone number](../../quickstarts/telephony/get-phone-number.md)
-- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)
-- [Use call automation to build calling workflow that can place calls to phone numbers, play voice prompts and more](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md)
-- [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md)
+- [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md).
+- [Use call automation to build calling workflow that can place calls to phone numbers, play voice prompts and more](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+- [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).
