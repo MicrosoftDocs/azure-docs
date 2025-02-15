@@ -207,29 +207,29 @@ The following steps use the Azure portal, but you can also use the following too
 
 ## Connectors, triggers, and actions in the designer
 
-In the workflow designer, you can select from hundreds of triggers and actions, collectively called *operations*. Azure Logic Apps organizes these operations into either collections, such as **Schedule**, **HTTP**, and **Data Operations**, or as connectors, such as **Azure Service Bus**, **SQL Server**, **Azure Blob Storage**, and **Office 365 Outlook**. These collections can include triggers, actions, or both.
+In the workflow designer, you can select from 1,400+ triggers and actions, collectively called *operations*. Azure Logic Apps organizes operations into either collections such as **Schedule** and **Data Operations**, or as connectors such as **Azure Blob Storage** and **SQL Server**. Collections and connectors can include triggers, actions, or both.
 
-In the **Add a trigger** or **Add an action** pane, the gallery lists the available operation collections and connectors organized from left to right in ascending order, first numerically if any exist, and then alphabetically. After you select a collection or connector, the triggers or actions appear in ascending order alphabetically.
+When the **Add a trigger** or **Add an action** pane opens, the gallery lists the available collections and connectors from left to right, based on popularity. After you select a collection or connector, the available triggers or actions appear in alphabetically in ascending order.
 
 ### In-app (built-in) operations
 
 The following example shows the **In-app** operation collections and connectors when you add a trigger:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and In-app operation collections and connectors." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and In-app operation collections and connectors.":::
 
 After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
 
-The following example selected the **Schedule** operation collection and shows the trigger named **Recurrence**:
+The following example selected the **Schedule** operation collection and shows the triggers named **Recurrence** and **Sliding Window**:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Schedule operation collection with Recurrence trigger." lightbox="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Schedule operation collection with Recurrence trigger.":::
 
 The following example shows the **In-app** collections and connectors when you add an action:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, pane named Add an action, and Runtime set to In-app." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, pane named Add an action, and Runtime set to In-app.":::
 
 The following example selected the **Azure Queue Storage** connector and shows the available actions:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Azure Queue Storage connector with actions." lightbox="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Azure Queue Storage connector with actions.":::
 
 ### Shared (Azure) operations
 
@@ -259,6 +259,6 @@ For more information, see the following documentation:
 - [Billing and pricing for operations in Consumption workflows](logic-apps-pricing.md#consumption-operations)
 - [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
 
-## Next steps
+## Related content
 
 [General information about connectors, triggers, and actions](/connectors/connectors)
