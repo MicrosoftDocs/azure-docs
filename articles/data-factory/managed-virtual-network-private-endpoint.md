@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Azure Data Factory managed virtual network
