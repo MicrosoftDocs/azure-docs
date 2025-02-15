@@ -1,6 +1,6 @@
 ---
 title: Use dynamic sessions in Azure Container Apps
-description: Learn how when to use dynamic sessions in Azure Container Apps.
+description: Learn how to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -192,7 +192,7 @@ If you're using an [large language model (LLM) framework integration](sessions-c
 
 If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
-##### [Azure CLI](#tab/azure-cli)
+##### [Azure CLI](#tab/cli)
 
 To generate a token using the Azure CLI, run the following command:
 

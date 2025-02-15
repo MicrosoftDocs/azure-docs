@@ -1,6 +1,6 @@
 ---
 title: Dynamic sessions in Azure Container Apps
-description: Learn how when to use dynamic sessions in Azure Container Apps.
+description: Learn about dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -53,7 +53,7 @@ Azure Container Apps supports two types of sessions:
 
 To provide subsecond session allocation times, Azure Container Apps maintains a pool of ready but unallocated sessions. When your application makes a request for a session that hasn't been used before, the pool automatically assigns a new session for you. As sessions are allocated, the pool is automatically replenished to maintain a constant number of ready sessions.
 
-Each session pool is available to your app through a unique [pool management endpoint location](#working-with-sessions).
+Each session pool is available to your app through a [unique pool management endpoint location](sessions-usage.md).
 
 ## Session lifecycle
 

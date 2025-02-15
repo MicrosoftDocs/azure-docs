@@ -1,6 +1,6 @@
 ---
 title: Use session pools in Azure Container Apps
-description: Learn to run a container in a custom session in Azure Container Apps.
+description: Learn to use and manage session pools in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
@@ -267,7 +267,7 @@ This template creates a session pool with the following settings:
 > [!IMPORTANT]
 > The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
 >
-> Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
+> Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](./sessions-usage.md#session-identifiers)
 
 The following endpoints are available for managing sessions in a pool:
 
@@ -292,9 +292,9 @@ az containerapp sessionpool show \
     --output tsv
 ```
 
-All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions.md#authentication).
+All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions-usage.md#authentication).
 
-Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
+Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions-usage.md#session-identifiers).
 
 ## Image caching
 
