@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other
 ---
 
-The Video Effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is advantageous in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
+The Video effects feature allows users to incorporate visual effects into their video calls, providing developers with the ability to integrate background visual effects and background video replacement into their calling experience. Background blur offers users a way to eliminate distractions behind them, facilitating communication without disruptive activities or confidential information appearing in the background. This is helpful in telehealth contexts, where providers or patients may wish to obscure their surroundings to protect sensitive or personally identifiable information. Background blur can be applied across various virtual appointment scenarios, such as telebanking and virtual hearings, to enhance user privacy or to hide a messy office. In addition to improving confidentiality, background blur enables greater creative expression by allowing users to upload custom backgrounds for a more engaging and personalized calling experience.lows for more creativity of expression, allowing users to upload custom backgrounds to host a more fun, personalized calling experience.
 
 > [!NOTE]
 > The calling effect library can't be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
@@ -31,14 +31,14 @@ Use the `npm install` command to install the Azure Communication Services Effect
 ```console
 npm install @azure/communication-calling-effects --save
 ```
-For more information see [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
+For more information, see [here](https://www.npmjs.com/package/@azure/communication-calling-effects) for more details on the calling communication effects npm package page.
 
 > [!NOTE]
 > Currently there are two available video effects:
 > - Background blur
 > - Background replacement with an image (the aspect ratio should be 16:9 to be compatible)
 
-To use video effects with the Azure Communication Calling SDK, once you've created a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
+To use video effects with the Azure Communication Calling SDK, once you create a `LocalVideoStream`, you need to get the `VideoEffects` feature API of the `LocalVideoStream` to start/stop video effects:
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
 
