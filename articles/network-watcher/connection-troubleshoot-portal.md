@@ -41,7 +41,7 @@ In this section, you test the remote desktop port (RDP) connectivity from one vi
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
-    :::image type="content" source="./media/connection-troubleshoot-portal/portal-search.png" alt-text="Screenshot that shows how to search for Network Watcher in the Azure portal." lightbox="./media/connection-troubleshoot-portal/portal-search.png":::
+    :::image type="content" source="./media/network-watcher-portal-search.png" alt-text="Screenshot that shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-portal-search.png":::
 
 1. Under **Network diagnostic tools**, select **Connection troubleshoot**. Enter or select the following values:
 

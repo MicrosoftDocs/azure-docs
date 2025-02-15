@@ -177,6 +177,24 @@ If your admin has [created custom comments](how-to-accelerate-alert-incident-res
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
+## Remediate aggregated alert violations
+
+To reduce alert fatigue, multiple versions of the same alert violation with identical parameters are listed as one alert item in the Alerts page. As you investigate alerts, an aggregated alert is identified by the *Multiple violations* message that appears under the Source device IP. Use the **Violations** tab to investigate further and the **Take action** tab to remediate the alerts.
+
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+
+    1. For an aggregated alert the *Multiple violations* message appears underneath the Source device IP address, and the **Violations** tab is displayed.  <!-- add OT sensor image :::image type="content" source="media/how-to-manage-cloud-alerts/alert-details-aggregated.png" alt-text="Screenshot of the alerts detail pane showing the aggregated alerts message, the ViolationsCount and the Violations tab.":::-->
+
+1. Select the **Violations** tab.
+
+    An inventory table displays the first 10 alerts from this aggregated alert group.
+
+1. Select **Export** to download the CSV data file. Open the file and examine the data.
+
+1. Select the **Take action** tab. Follow the **Remediation steps**.
+
+1. Select **Learn**, if needed. For more information, see [learning an alert](alerts.md#alert-statuses-and-triaging-options).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

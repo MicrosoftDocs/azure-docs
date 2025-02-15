@@ -6,46 +6,46 @@ author: msangapu-msft
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: article
-ms.date: 10/13/2023
+ms.date: 01/28/2025
 ms.author: msangapu
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 # Open an SSH session to a container in Azure App Service
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a Container.  App Service provides SSH support direct into an app hosted in a Container.
-
 ::: zone pivot="container-windows"
 
-## Open SSH session in browser
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a container. App Service provides SSH support directly into an app hosted in a Windows custom container. 
 
-[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
+Windows custom containers don't require any special settings for the [browser SSH session](#open-ssh-session-in-browser) to work. SSH sessions through Azure CLI are not supported.
+
+![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) can be used to execute administrative commands remotely to a container. App Service provides SSH support directly into an app hosted in a Linux container (built-in or custom). 
+
+The built-in Linux containers already have the necessary configuration to enable SSH sessions. Linux custom containers require additional configurations to enable SSH sessions. See [Enable SSH](configure-custom-container.md?pivots=container-linux#enable-ssh).
+
 ![Linux App Service SSH](./media/configure-linux-open-ssh-session/app-service-linux-ssh.png)
 
 You can also connect to the container directly from your local development machine using SSH and SFTP.
+
+::: zone-end
 
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-no-h.md)]
 
-## Use SSH support with custom Docker images
+::: zone pivot="container-linux"
 
-See [Configure SSH in a custom container](configure-custom-container.md#enable-ssh).
+## Open SSH session with Azure CLI
 
-## Open SSH session from remote shell
+Using TCP tunneling you can create a network connection between your development machine and Linux containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
 
-> [!NOTE]
-> This feature is currently in Preview.
->
-
-Using TCP tunneling you can create a network connection between your development machine and Web App for Containers over an authenticated WebSocket connection. It enables you to open an SSH session with your container running in App Service from the client of your choice.
-
-To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md). 
+To get started, you need to install [Azure CLI](/cli/azure/install-azure-cli). To see how it works without installing Azure CLI, open [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Open a remote connection to your app using the [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection) command. Specify _\<subscription-id>_, _\<group-name>_ and _\<app-name>_ for your app.
 
@@ -66,15 +66,24 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 The command output gives you the information you need to open an SSH session.
 
 ```output
-Port 21382 is open
+Verifying if app is running....
+App is running. Trying to establish tunnel connection...
+Opening tunnel on addr: 127.0.0.1
+Opening tunnel on port: <port-output>
 SSH is available { username: root, password: Docker! }
-Start your favorite client and connect to port 21382
+Ctrl + C to close
 ```
 
-Open an SSH session with your container with the client of your choice, using the local port. The following example uses the default [ssh](https://ss64.com/bash/ssh.html) command:
+Open an SSH session with your container with the client of your choice, using the local port provided in the output (`<port-output>`). For example, with the linux [ssh](https://ss64.com/bash/ssh.html) command, you can run a single command like `java -version`:
 
 ```bash
-ssh root@127.0.0.1 -p <port>
+ssh root@127.0.0.1 -m hmac-sha1 -p <port-output> java -version
+```
+     
+Or, to enter a full SSH session, just run:
+
+```bash
+ssh root@127.0.0.1 -m hmac-sha1 -p <port-output>
 ```
 
 When being prompted, type `yes` to continue connecting. You are then prompted for the password. Use `Docker!`, which was shown to you earlier.

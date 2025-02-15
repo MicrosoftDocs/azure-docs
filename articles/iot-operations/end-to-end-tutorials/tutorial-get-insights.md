@@ -19,7 +19,7 @@ These operations are the last steps in the sample end-to-end tutorial experience
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md)
+Before you begin this tutorial, you must complete [Tutorial: Send asset telemetry to the cloud using a data flow](tutorial-upload-telemetry-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
 
@@ -58,7 +58,7 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 :::image type="content" source="media/tutorial-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-#### Verify dataflow
+#### Verify data flow
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 

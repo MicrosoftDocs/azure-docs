@@ -12,7 +12,7 @@ ms.author: buchvarun
 
 # Use DICOMweb Standard APIs with Python
 
-This article shows how to work with the DICOMweb service using Python and [sample .dcm DICOM&reg; files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+This article shows how to work with the DICOMweb service using Python and sample .dcm DICOM&reg; files.
 
 Use these sample files:
 

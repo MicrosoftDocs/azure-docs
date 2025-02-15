@@ -17,12 +17,13 @@ ms.custom: template-how-to, devx-track-azurecli
 There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure are exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Entra Group ID>`.
 
 Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
-- The user's User Principal Name isn't a member of the given Entra group (if specified)
-- The given Entra group (if specified) doesn't exist (in which case all users in the keyset are invalid)
+- The user's User Principal Name hasn't been specified
+- The user's User Principal Name isn't a member of the given Entra group
+- The given Entra group doesn't exist (in which case all users in the keyset are invalid)
 - The keyset is expired (in which case all users in the keyset are invalid)
 
 > [!NOTE]
-> There is currently a transitional period where specifying User Principal Names is optional. In a future release, it will become mandatory and Microsoft Entra ID validation will be enforced for all users. Users are encouraged to add User Principal Names to their keysets before the transitional period ends (planned for July 2024) to avoid keysets being invalidated. Note that if any User Principal Names are added to a keyset, even if they are not added for all users, Microsoft Entra ID validation will be enabled, and this will result in the entire keyset being invalidated if the Group ID specified is not valid.
+> The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset will need to be updated with User Principal Names, for all users, in order to become valid again. Keysets that have not been updated with the User Principal Names for all users prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this results in the entire keyset being invalidated.
 
 The keyset and each individual user also have detailed status messages communicating other information:
 - The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
@@ -101,7 +102,7 @@ az networkcloud cluster bmckeyset create \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public ssh key of the user.
-      userPrincipalName: Optional. The User Principal Name of the User.
+      userPrincipalName: Required. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --tags                                                 : Space-separated tags: key[=value]
@@ -227,7 +228,7 @@ az networkcloud cluster bmckeyset update \
       azure-user-name: Required. User name used to login to the server.
       description: The free-form description for this user.
       key-data: Required. The public SSH key of the user.
-      userPrincipalName: Optional. The User Principal Name of the User.
+      userPrincipalName: Required. The User Principal Name of the User.
 
       Multiple users can be specified by using more than one --user-list argument.
   --resource-group -g                         [Required] : Name of resource group. Optional if

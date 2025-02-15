@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 11/26/2024
 ms.custom: mvc, mode-api, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Restore the entire SAP HANA database to a snapshot restore point

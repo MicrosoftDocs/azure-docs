@@ -6,8 +6,8 @@ ms.date: 01/10/2025
 ms.custom: references_regions, linux-related-content
 ms.reviewer: nikhilsarode
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure VM backups

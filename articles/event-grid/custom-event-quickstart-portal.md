@@ -105,7 +105,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure CLI
 1. In the Azure portal, select **Cloud Shell**. The Cloud Shell opens in the bottom pane of the web browser. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Screnshot that shows the selection of Cloud Shell button." lightbox="./media/custom-event-quickstart-portal/select-cloud-shell.png":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-cloud-shell.png" alt-text="Screenshot that shows the selection of Cloud Shell button." lightbox="./media/custom-event-quickstart-portal/select-cloud-shell.png":::
 1. If the Cloud Shell opens a PowerShell session, select **Switch to Bash** in the top-left corner of the Cloud Shell window. If not, continue to the next step. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Cloud Shell with Bash selected in the top-left corner.":::
