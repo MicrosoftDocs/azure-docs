@@ -20,9 +20,8 @@ This article details the Windows and Linux operating systems supported and syste
 
 ::: zone pivot="azure-vm"
 
-## Azure virtual machines
 
-### Azure Marketplace/PIR images
+## Azure Marketplace/PIR images
 
 The Azure Marketplace image has the following attributes:
 

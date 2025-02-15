@@ -9,7 +9,7 @@ ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Supported regions
+# Supported regions for Azure Update Manager
 
 Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled servers. The following table lists the Azure public cloud where you can use Update Manager.
 
