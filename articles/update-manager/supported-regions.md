@@ -32,7 +32,7 @@ Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
-Germany | Germany West Central
+Germany | Germany West Centrals
 India | Central India
 Italy | Italy North
 Japan | Japan East

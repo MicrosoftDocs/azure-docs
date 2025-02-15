@@ -23,7 +23,7 @@ Public preview: Azure Update Manager now supports Hotpatching on Arc enabled ser
 
 ### Support for 35 CIS images added along with 59 other images
 
-Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix.md#supported-operating-systems).
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix-updates.md#custom-images).
 
 
 ### Pre and Post events
@@ -131,7 +131,7 @@ Dynamic scope is an advanced capability of schedule patching. You can now create
 
 ### Customized image support
 
-Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix.md#supported-operating-systems). 
+Update Manager now supports [generalized](/azure/virtual-machines/linux/imaging#generalized-images) custom images, and a combination of offer, publisher, and SKU for Marketplace/PIR images. See the [list of supported operating systems](support-matrix-updates.md#azure-marketplacepir-images). 
 
 ### Multi-subscription support
 

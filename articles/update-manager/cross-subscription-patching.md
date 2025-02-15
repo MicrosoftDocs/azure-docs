@@ -25,7 +25,7 @@ However, its capabilities go well beyond this. With proper configuration, you ca
 
 # [Supported resource type](#tab/sup-resource)
 
-- **Azure Resource Manager (Arc)-connected hosts**: Non-Azure hosts connected to Azure through Arc, subject to [Arc prerequisites](/azure/azure-arc/servers/prerequisites) and Azure Update Manager [supported regions](supported-regions.md#azure-arc-enabled-servers)
+- **Azure Resource Manager (Arc)-connected hosts**: Non-Azure hosts connected to Azure through Arc, subject to [Arc prerequisites](/azure/azure-arc/servers/prerequisites) and Azure Update Manager [supported regions](supported-regions.md#azure-public-cloud)
 
 - **Azure VM** - Native virtual machines created in Azure.
 
