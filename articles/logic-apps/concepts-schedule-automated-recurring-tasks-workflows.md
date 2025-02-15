@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 02/14/2025
+# As an Azure Logic Apps developer, I want to understand how recurring schedules work for triggers.
 ---
 
 # Schedules for recurring triggers in Azure Logic Apps workflows
@@ -38,7 +39,7 @@ This guide describes the capabilities for the Schedule-type built-in triggers an
 
 ## Run recurring workloads without creating multiple logic apps
 
-You can schedule and run recurring workloads without creating a separate Consumption logic app for each scheduled job and running into the [limit on workflows per region and subscription](logic-apps-limits-and-config.md#definition-limits). Instead, you can either [create a Standard logic app with multiple workflows](create-single-tenant-workflows-azure-portal.md), or use the Consumption logic app pattern that's created by the [Azure QuickStart template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
+You can schedule and run recurring workloads without creating a separate Consumption logic app for each scheduled job and running into the [limit on workflows per region and subscription](logic-apps-limits-and-config.md#definition-limits). Instead, you can either [create a Standard logic app with multiple workflows](create-single-tenant-workflows-azure-portal.md), or use the Consumption logic app pattern that's created by the [Azure Quickstart Template: Logic Apps job scheduler](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logicapps-jobscheduler/).
 
 The Azure Logic Apps job scheduler template creates a logic app named **CreateTimerJob** that calls a **TimerJob** logic app. You can then call the **CreateTimerJob** logic app as an API by making an HTTP request and passing a schedule as input for the request. Each call to the **CreateTimerJob** logic app also calls the **TimerJob** logic app, which creates a new **TimerJob** instance that continuously runs based on the specified schedule or until meeting a specified limit. That way, you can run as many **TimerJob** instances as you want without worrying about workflow limits because instances aren't individual logic app workflow definitions or resources.
 
@@ -161,7 +162,7 @@ For more information, review the following documentation:
 
 ### Recurrence for managed triggers
 
-For recurring managed triggers, such as Office 365 Outlook, Outlook.com, and so on, the schedule isn't the only driver that controls execution. The time zone determines only the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
+The schedule isn't the only driver that controls execution for recurring managed triggers such as Office 365 Outlook, Outlook.com, and so on. The time zone determines only the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 * Any failures or retries that the trigger incurs.
