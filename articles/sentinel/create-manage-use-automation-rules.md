@@ -60,7 +60,7 @@ The following table shows the different possible scenarios that cause an automat
 
 Most of the following instructions apply to any and all use cases for which you'll create automation rules.
 
-If you're looking to suppress noisy incidents, try [handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
+If you're looking to suppress noisy incidents and are working in the Azure portal, try [handling false positives](false-positives.md#add-exceptions-with-automation-rules-azure-portal-only).
 
 If you want to create an automation rule to apply to a specific analytics rule, see [Set automated responses and create the rule](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
 
@@ -88,7 +88,7 @@ From the **Trigger** drop-down, select the appropriate trigger according to the 
 
 ### Define conditions
 
-Use the options in the **Conditions** area to define conditions for your automation rule.
+Use the options in the **Conditions** area to define conditions for your automation rule. All conditions are case insensitive.
 
 - Rules you create for when an alert is created support only the **If Analytic rule name** property in your condition. Select whether you want the rule to be inclusive (**Contains**) or exclusive (**Does not contain**), and then select the analytic rule name from the drop-down list.
 

@@ -115,14 +115,6 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-        - name: Azure Arc (preview)
-          items:
-            - name: Code-only publishing
-              displayName: Arc, container, Kubernetes
-              href: create-first-function-arc-cli.md
-            - name: Custom container
-              displayName: Arc, container, Kubernetes, Docker
-              href: create-first-function-arc-custom-container.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -522,13 +514,11 @@
                 - name: Azure portal
                   href: functions-integrate-storage-queue-output-binding.md
                 - name: Visual Studio Code
-                  href: ./functions-add-output-binding-storage-queue-vs-code.md
+                  href: functions-add-output-binding-storage-queue-vs-code.md
                 - name: Visual Studio
-                  href: ./functions-add-output-binding-storage-queue-vs.md
-                - name: Java
-                  href: functions-add-output-binding-storage-queue-java.md
-                - name: Python
-                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+                  href: functions-add-output-binding-storage-queue-vs.md
+                - name: Command line
+                  href: functions-add-output-binding-storage-queue-cli.md
         - name: Debug
           items:
             - name: Debug local PowerShell functions

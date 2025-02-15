@@ -156,7 +156,17 @@
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Microsoft Q&A question page for Networking
+    href: /answers/topics/azure-virtual-network.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-network-manager/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Product updates
+    href: https://azure.microsoft.com/updates/?filters=%5B%22virtual+network+manager%22%5D
+  - name: FAQ 
+    href: faq.md
+
+

@@ -5,8 +5,10 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: troubleshooting 
-ms.date: 04/25/2023
+ms.date: 01/31/2025
 ms.custom: template-how-to-pattern
+
+#customer intent: As a Microsoft Dev Box customer, I want to know how to get appropriate help for Microsoft Dev Box.
 ---
 
 # Get support for Microsoft Dev Box
@@ -23,45 +25,57 @@ In the following table, select your role to see how to get help for urgent issue
 
 ## Support for administrators
 Administrators include IT admins, platform engineers, and anyone who has administrative access to all your Dev Box resources.
-#### 1. Internal troubleshooting
+
+**1. Internal troubleshooting**
+
 Always use your internal troubleshooting processes before contacting support. As a platform engineer, you have access to all Dev Box resources through the Azure portal and through the Azure CLI.
-#### 2. Contact support
-If you can't resolve the issue, open a support request to contact Azure support: 
 
-   **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
+**2. Contact support**
 
-- To learn more about support requests, refer to: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+If you can't resolve the issue, open a support request to contact Azure support: **[Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).**
+
+To learn more about support requests, refer to: [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Support for dev team leads
 Developer team leads are often assigned the DevCenter Project Admin role. Project Admins have access to manage projects and pools.
-#### 1. Internal troubleshooting
+
+**1. Internal troubleshooting**
+
 Always use your internal troubleshooting processes before escalating an issue.
 As a DevCenter Project Admin, you can:
 - View the network connections attached to the dev center.
 - View the dev box definitions attached to the dev center.
 - Create, view, update, and delete dev box pools in the project. 
 
-#### 2. Contact your platform engineers
+**2. Contact your platform engineers**
+
 If you can't resolve the issue, escalate it to your platform engineering team.
 
 ## Support for developers
 Developers are assigned the Dev Box User role, which enables you to create and manage your own dev boxes through the developer portal. You don't usually have permissions to manage Dev Box resources in the Azure portal; your dev team lead manages those resources.
-#### 1. Internal troubleshooting
+
+**1. Internal troubleshooting**
+
 Always use your internal troubleshooting processes before escalating an issue.
 As a developer, you can troubleshoot your dev boxes through the developer portal. You can create a dev box, start, stop, and delete your dev boxes. 
-#### 2. Contact your dev team lead
+
+**2. Contact your dev team lead**
+
 If you can't resolve the issue, escalate it to your dev team lead (DevCenter Project Admin).
+
 ## Discover the Microsoft Developer Community for Dev Box
 
 For issues that aren't urgent, get involved with the Microsoft Developer Community. You can discover how others are solving their issues, discuss approaches to working with Dev Box, and suggest new features and enhancements for the product.
 
-#### Find similar issues
+**1. Find similar issues**
+
 The Microsoft Developer Community can provide useful information on non-urgent issues. 
 
-Start by exploring existing feedback for the issue you’re experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
+Start by exploring existing feedback for the issue you're experiencing: [Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox).
 
-#### Report an issue to the product team
-If you don’t see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
+**2. Report an issue to the product team**
+
+If you don't see your issue in the discussion forum, you can report it to the product team through the Microsoft Developer Community portal: [Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report).
 
 ## Next steps
 

@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 01/22/2025
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for extending an IoT solution so that I can easily find relevant content for my scenario.
 ---
@@ -15,35 +15,66 @@ ms.custom: template-overview
 
 This overview introduces the key concepts around the options to extend an Azure IoT solution. Each section includes links to content that provides further detail and guidance.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to extending an IoT solution.
-
-:::image type="content" source="media/iot-overview-solution-extensibility/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
-
-In Azure IoT, solution extensibility refers to the ways you can add to the built-in functionality of the IoT cloud services and build integrations with other services.
-
 ## Extensibility scenarios
 
 Extensibility scenarios for IoT solutions include:
 
 ### Analysis and visualization
 
-A typical IoT solution includes the analysis and visualization of the data from your devices to enable business insights. To learn more, see [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md).
+A typical IoT solution includes the analysis and visualization of the data from your devices and assets to enable business insights. To learn more, see [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md).
 
 ### Integration with other services
 
 An IoT solution might include other systems such as asset management, work scheduling, and control automation systems. Such systems might:
 
-- Use data from your IoT devices as input to predictive maintenance systems that generate entries in a work scheduling system.
+- Use data from your IoT assets or devices as input to predictive maintenance systems that generate entries in a work scheduling system.
 - Update the device registry to ensure it has up to date data from your asset management system.
-- Send messages to your devices to control their behavior based on rules in a control automation system.
-
-## Azure Data Health Services
-
-[Azure Health Data Services](../healthcare-apis/healthcare-apis-overview.md) is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. An IoT solution can use these services to integrate IoT data into a healthcare solution.
+- Send messages to your assets or devices to control their behavior based on rules in a control automation system.
 
 ## Extensibility mechanisms
 
 The following sections describe the key mechanisms available to extend your IoT solution.
+
+# [Edge-based solution](#tab/edge)
+
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the extensibility points highlighted in the diagram:
+
+:::image type="content" source="media/iot-overview-solution-extensibility/iot-edge-extensibility-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
+
+In Azure IoT, solution extensibility refers to the ways you can add to the built-in functionality of the edge and cloud services and build integrations with other services.
+
+### Message broker
+
+Azure IoT Operations includes an MQTT broker that routes messages from the connectors to dataflows that connect to cloud endpoints. You can deploy your own pods to the cluster to interact with the message broker to:
+
+- Use custom message processing logic on the MQTT messages.
+- Build custom application logic to run at the edge.
+
+The message broker is based on the [MQTT protocol](https://mqtt.org/) and supports APIs and SDKs such as:
+
+- [DAPR](../iot-operations/create-edge-apps/howto-develop-dapr-apps.md)
+- [MQTTnet](../iot-operations/create-edge-apps/howto-develop-mqttnet-apps.md).
+
+The message broker includes a [state store](../iot-operations/create-edge-apps/overview-state-store.md) that lets you manage distributed application state across the edge cluster.
+
+### Cloud services
+
+The northbound connectors in Azure IoT Operations let you route messages from your assets to different cloud endpoints. Routing messages enables you to build integrations with other services and to export data for analysis and visualization.
+
+### REST APIs
+
+The Azure IoT Operations REST API provides the following capabilities that are useful for extending your IoT solution:
+
+- Manage the message broker.
+- Manage your dataflows.
+
+# [Cloud-based solution](#tab/cloud)
+
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the extensibility points highlighted in the diagram:
+
+:::image type="content" source="media/iot-overview-solution-extensibility/iot-cloud-extensibility-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
+
+In Azure IoT, solution extensibility refers to the ways you can add to the built-in functionality of the IoT cloud services and build integrations with other services.
 
 ### Service APIs (IoT Hub)
 
@@ -82,3 +113,5 @@ In addition to device telemetry, both IoT Hub and IoT Central can send property 
 ### IoT Central application templates
 
 The IoT Central application templates provide a starting point for building IoT solutions that include integrations with other services. You can use the templates to create an application that includes resources that are relevant to your solution. To learn more, see [IoT Central application templates](../iot-central/core/howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
+
+---

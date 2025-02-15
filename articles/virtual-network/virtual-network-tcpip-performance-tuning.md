@@ -79,7 +79,7 @@ The PMTUD process is inefficient and affects network performance. When packets a
 
 If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add more headers to packets, which increases the packet size and requires a smaller MSS.
 
-For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPSec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPsec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 ### Latency, round-trip time, and TCP window scaling
 
