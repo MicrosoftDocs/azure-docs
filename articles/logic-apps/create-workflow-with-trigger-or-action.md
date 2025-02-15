@@ -187,11 +187,11 @@ The following steps use the Azure portal, but you can also use the following too
 
      The following example shows the designer for a Standard workflow with an existing trigger and shows the **In-app** group selected. The list shows the available collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app workflow with a trigger, and In-app connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, the designer for Standard logic app workflow with a trigger, and In-app collections and connectors with actions gallery.":::
 
      The following example shows the designer for a Standard workflow with an existing trigger and shows the **Shared** group selected. The list shows the available collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app workflow with a trigger, and Shared connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, the designer for Standard logic app workflow with a trigger, and Shared connectors with actions gallery.":::
 
 1. From the actions list, select the action that you want. If more triggers exist that aren't shown, select **See more**.
 
