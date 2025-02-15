@@ -32,6 +32,9 @@ The Azure Marketplace image has the following attributes:
 
 Update Manager supports the following operating system versions on VMs for all operations except automatic VM guest patching. You might experience failures if there are any configuration changes on the VMs, such as package or repository.
 
+>[!NOTE]
+> Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
+
 Following is the list of supported images and no other marketplace images released by any other publisher are supported for use with Azure Update Manager.
 
 #### [Supported Windows OS images](#tab/mpir-winos)

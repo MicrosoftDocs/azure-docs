@@ -9,39 +9,9 @@ ms.topic: overview
 ms.custom: references_regions
 ---
 
-# Support matrix for Azure Update Manager
+# Supported updates for Azure Update Manager
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. The article includes the supported regions and specific versions of the Windows Server and Linux operating systems running on Azure virtual machines (VMs) or machines managed by Azure Arc-enabled servers.
-
-## Supported operating systems
-
->[!NOTE]
-> - Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
-
-## Support for Updates/One time Updates/Periodic assessments and Scheduled patching
-
-For Updates/One time Updates/Periodic assessments and Scheduled patching, see the list of [supported OS images](support-matrix-updates.md).
-
-## Support for automatic VM Guest patching
-
-If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
-
-- For marketplace images, see the list of [supported OS images](/azure/virtual-machines/automatic-vm-guest-patching#supported-os-images).
-- For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
-
-
-## Unsupported workloads
-
-The following table lists the workloads that aren't supported.
-
-   | **Workloads**| **Notes**
-   |----------|-------------|
-   | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
-   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) to patch the Virtual Machine Scale Sets.|
-   | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
-
-As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
-
+This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. 
 
 ### Supported update sources
 For more information, see the  supported [update sources](workflow-update-manager.md#update-source). 
@@ -103,6 +73,18 @@ Third party application updates are supported in Azure Update Manager. If you in
 
 As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
+## Unsupported workloads
+
+The following table lists the workloads that aren't supported.
+
+   | **Workloads**| **Notes**
+   |----------|-------------|
+   | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
+   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) to patch the Virtual Machine Scale Sets.|
+   | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
+
+As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
+
 
 ## Next steps
 
@@ -110,3 +92,4 @@ As Update Manager depends on your machine's OS package manager or update service
 - [Deploy updates now (on-demand) for a single machine](deploy-updates.md)
 - [Schedule recurring updates](scheduled-patching.md)
 - [Manage update settings via the portal](manage-update-settings.md)
+
