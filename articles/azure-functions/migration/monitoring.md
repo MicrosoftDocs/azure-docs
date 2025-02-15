@@ -9,13 +9,13 @@ ms.topic: conceptual
 
 # Migrate monitoring capabilities from AWS Lambda to Azure Functions
 
-| :::image type="icon" source="../../migration/images/goal.svg"::: Maintain the visibility you have in your AWS Lambda environment when replatforming to Azure Functions. Understand how to obtain comparable logs and metrics in Azure Functions, and your options for retaining existing log and metric data. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
+| :::image type="icon" source="../../migration/images/goal.svg"::: Maintain the visibility you have in your AWS Lambda environment when replatforming to Azure Functions. Understand how to get comparable logs and metrics in Azure Functions, and your options for retaining existing monitoring data. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
 | :-- |
 
 ## Scope
 
 > [!NOTE]
-> **Content developer**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as not covered.  Expect this section to be boilerplate for all design areas.
+> **Content developer**: Capture the specfic scope for the Azure offering. For example, if this article covers multi-tenancy or bring-your-own compute host, mention the broader scope. If the article doesn't apply to specific scope that's part of Azure offering, note that scope as _Not Covered_.  Expect this section to be boilerplate for all design areas.
 
 This article guides you in your pre-migration assessment of your existing AWS Lambda monitoring implementation, to prepare you for replatforming to Azure Functions.
 
@@ -32,10 +32,10 @@ These aspects are not covered in this article:
 ## Discovery
 
 > [!NOTE]
-> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article. Enumerate all of the typical areas where monitoring occurages on the source service. Such as at the service level (resource-level logs) and at the code/application level. These areas are where the customer needs to document their current state and learn about the equivelant solutions in Azure.  Consider the following:
+> **Content developer**: Use this section to help the reader understand the context of their workload. During the discovery phase, they will be able to justify why it's important to carry these over to Azure. Keep in mind that the answers will vary based on the reader's business needs and won't be covered in this article. Enumerate all of the typical areas where monitoring is done on the source service: at the service level (resource-level logs) and at the code/application level. These areas are where the customer needs to document their current state and learn about the equivelant solutions in Azure.  Consider the following:
 >
-> - key CloudWatch logs and metrics, and primary data sinks that collect/ aggregate this data
-> - key operational queries packs used by SRE team
+> - Key CloudWatch logs and metrics, and primary data sinks that collect/ aggregate this data
+> - Key operational queries packs used by SRE team
 > - AWS CloudTail or other tools.
 > - Alerting strategy and reporting use cases should also be covered, along with external health checks and application performance monitoring tools.
 
@@ -84,7 +84,7 @@ Familiarize yourself with the Lambda monitoring by using these resources:
 > **Content developer**: List the sources that will help the reader fill out the preceding table. Collect these sources from an AWS SME. Here are some typical examples.
 >
 > - Function logs and metrics through CloudWatch
-> - CloudTrail logs`
+> - CloudTrail logs
 > - Lambda Insights
 > - Application Signals
 > - Software engineering documentation
