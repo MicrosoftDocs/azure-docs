@@ -60,7 +60,7 @@ Perform a pre-migration evaluation of the following design areas:
 - [Dependencies](./dependencies.md)
 - [Governance](./governance.md)
 
-Each design area provides baseline comparisons, deviations, and challenges. These should not be considered the final evaluation for your use case. During the process, you are expected to complete your evaluation by reviewing the configuration and expectations of your AWS Lambda service. Opportunities for this are noted with the following icon &#9997;.
+Each design area provides baseline comparisons, deviations, and challenges. These should not be considered the final evaluation for your use case. During the process, you are expected to complete your evaluation by reviewing the configuration and expectations of your AWS Lambda service. Those exercises are noted with icon &#9997;.
 
 ### Functional and non-functional objectives and targets
 
