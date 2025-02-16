@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 02/05/2025
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -20,8 +20,8 @@ Virtual network support enables you to lock down access to Azure Stream Analytic
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select **regions**: East US, East US 2, West US, Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, France Central, West US 2, and UAE North.
-If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
+Currently, this capability is only available in select **regions**: East US, East US 2, West US, West US 2, Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, France Central, Germany West Central, and UAE North.
+If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.  Regions are added based on demand and feasibility. We will notify you if we are able to accommodate your request.
 
 ## Requirements for virtual network integration support 
 

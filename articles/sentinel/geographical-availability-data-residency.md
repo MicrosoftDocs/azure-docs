@@ -83,4 +83,7 @@ Microsoft Sentinel may share data, including customer data, among the following 
 
 ## Related content
 
-For more information, see details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) when designing your workspace architecture.
+For more information, see:
+
+- Details about [Azure regions](/azure/azure-monitor/logs/workspace-design#azure-regions?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json), useful when designing your workspace architecture.
+- [Business continuity and disaster recovery for Microsoft Sentinel](business-continuity-disaster-recovery.md)

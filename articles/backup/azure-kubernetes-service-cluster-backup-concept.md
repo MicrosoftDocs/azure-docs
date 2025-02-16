@@ -5,7 +5,7 @@ ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 01/21/2025
+ms.date: 01/30/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -120,5 +120,5 @@ Also, as part of the backup and restore operations, the following roles are assi
 - [About Azure Kubernetes Service backup](azure-kubernetes-service-backup-overview.md)
 - [Supported scenarios for Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-support-matrix.md)
 - Back up Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-backup.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
-- Restore Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+- Restore Azure Kubernetes Service cluster using [Azure portal](azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
