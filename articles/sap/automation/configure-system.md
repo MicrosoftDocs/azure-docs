@@ -161,27 +161,28 @@ The database tier defines the infrastructure for the database tier. Supported da
 See [High-availability configuration](configure-system.md#high-availability-configuration) for information on how to configure high availability.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                                        | Type         | Notes  |
-> | ---------------------------------- | ---------------------------------------------------------------------------------- | ------------ | ------ |
-> | `database_platform`                | Defines the database back end                                                      | Required     |        |
-> | `database_vm_image`                | Defines the virtual machine image to use                                           | Optional     |        |
-> | `database_vm_sku`                  | Defines the virtual machine SKU to use                                             | Optional     |        |
-> | `database_server_count`            | Defines the number of database servers                                             | Optional     |        |
-> | `database_high_availability`       | Defines if the database tier is deployed highly available                          | Optional     |        |
-> | `database_vm_zones`                | Defines the availability zones for the database servers                            | Optional     |        |
-> | `db_sizing_dictionary_key`         | Defines the database sizing information                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
-> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                      | Optional     |        |
-> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                | Optional     |        |
-> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)      | Optional     |        |
-> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                   | Optional     |        |
-> | `database_loadbalancer_ips`        | List of IP addresses for the database load balancer (db subnet)                    | Optional  |  |
-> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
-> | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
-> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with Azure NetApp Files pinning. |
-> | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
-> | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
-> | `database_tags`	                   | Defines a list of tags to be applied to the database servers                       | Optional  |         |
+> | Variable                           | Description                                                                                        | Type         | Notes  |
+> | ---------------------------------- | -------------------------------------------------------------------------------------------------- | ------------ | ------ |
+> | `database_platform`                | Defines the database back end                                                                      | Required     |        |
+> | `database_vm_image`                | Defines the virtual machine image to use                                                           | Optional     |        |
+> | `database_vm_sku`                  | Defines the virtual machine SKU to use                                                             | Optional     |        |
+> | `database_server_count`            | Defines the number of database servers                                                             | Optional     |        |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available                                          | Optional     |        |
+> | `database_vm_zones`                | Defines the availability zones for the database servers                                            | Optional     |        |
+> | `db_sizing_dictionary_key`         | Defines the database sizing information                                                            | Required     | See [Custom sizing](configure-extra-disks.md). |
+> | `database_vm_use_DHCP`             | Controls if Azure subnet-provided IP addresses should be used                                      | Optional     |        |
+> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet)                                | Optional     |        |
+> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet)                      | Optional     |        |
+> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet)                                   | Optional     |        |
+> | `database_loadbalancer_ips`        | List of IP addresses for the database load balancer (db subnet)                                    | Optional  |  |
+> | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                                     | Optional     |        |
+> | `database_use_avset`               | Controls if the database servers are placed in availability sets                                   | Optional     |        |
+> | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups                          | Optional     |        |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                                          | Optional     | Primarily used with Azure NetApp Files pinning. |
+> | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                                   | Optional     |        |
+> | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces                            | Optional     |        |
+> | `database_tags`	                   | Defines a list of tags to be applied to the database servers                                       | Optional     |        |
+> | `use_sles_saphanasr_angi`          | Defines if SAP HANA SR cluster will be configured with SAP HANA SR - An Next Generation Interface  | Optional     | Only applicable for SUSE       |
 
 
 
@@ -500,6 +501,21 @@ This section contains the Terraform parameters. These parameters need to be ent
 > | `landscaper_tfstate_key`  | The name of the state file for the workload zone                                                                 | Required * |
 
 \* = Required for manual deployments
+
+## Scale Out configuration
+
+This section contains The configuration setting for the HANA Scale Out configuration
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                                  | Description                                                                                       | Type       |
+> | ----------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
+> | `database_HANA_use_scaleout_scenario`     | Defines if the HANA database is configured using a Scale Out configuration                        | Optional   |
+> | `database_HANA_no_standby_role`           | Defines that the Scale Out tier will not have a standby node                                      | Optional |
+> | `stand_by_node_count`                     | The number of standby nodes                                                                       | Optional |
+> | `hanashared_id`                           | The Azure Resource Identifier for the pre-created HANA Shared resource                            | Optional |
+> | `hanashared_private_endpoint_id`          | The Azure Resource Identifier for the pre-created Private Endpoint                                | Optional |
+
 
 ## High-availability configuration
 
