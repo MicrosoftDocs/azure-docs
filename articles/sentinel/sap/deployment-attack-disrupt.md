@@ -28,11 +28,11 @@ Content in this article is intended for your **security**, **infrastructure**, a
 > [!NOTE]
 > Attack disruption requires a data connector agent and isn't supported for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
 
-## Attack disruption for SAP and the unified security operations platform
+## Attack disruption for SAP in the Microsoft Defender portal
 
 Attack disruption for SAP is configured by updating your data connector agent version and ensuring that the relevant roles are applied in Azure and your SAP system. However, automatic attack disruption itself surfaces only in the Microsoft Defender portal.
 
-For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption).
+For more information, see [Automatic attack disruption in Microsoft Defender XDR](/microsoft-365/security/defender/automatic-attack-disruption) and [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
 
 ## Minimum agent version and required roles
 
