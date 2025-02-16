@@ -4,7 +4,7 @@ description: Define the SAP system properties for SAP Deployment Automation Fram
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/31/2023
+ms.date: 02/16/2025
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -46,20 +46,31 @@ The distributed (highly available) deployment is similar to the distributed arch
 
 To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count` = 1 and `scs_high_availability` = true and `application_server_count` >= 1.
 
+### HANA Scale-Out
+
+The supported configurations for HANA Scale-Out are:
+
+- Scale out with Standby node. Requires that HANA shared (single volume), HANA Data and HANA log to be deployed on Azure Netapp Files.
+- Scale out with two sites replicated using HANA System Replication and managed by Pacemaker.
+-  
+To configure this topology, define the database tier values and set `database_HANA_use_scaleout_scenario` to true. Set `stand_by_node_count` = to the desired number of standby notes or disable it by setting  `database_HANA_no_standby_role` = false.
+
+
 ## Environment parameters
 
 This section contains the parameters that define the environment settings.
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                  | Description                                              | Type       | Notes                                                                                       |
-> | ------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-> | `environment`             | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
-> | `location`                | The Azure region in which to deploy                      | Required   |                                                                                             |
-> | `custom_prefix`           | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
-> | `use_prefix`              | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
-> | `name_override_file`      | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | `save_naming_information` | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
-> | `tags`                    | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
+> | Variable                                                    | Description                                              | Type       | Notes                                                                                       |
+> | ----------------------------------------------------------- | -------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
+> | `environment`                                               | Identifier for the workload zone (max five characters)   | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
+> | `location`                                                  | The Azure region in which to deploy                      | Required   |                                                                                             |
+> | `custom_prefix`                                             | Specifies the custom prefix used in the resource naming  | Optional   |                                                                                             |
+> | `use_prefix`                                                | Controls if the resource naming includes the prefix      | Optional   | DEV-WEEU-SAP01-X00_xxxx                                                                     |
+> | `name_override_file`                                        | Name override file                                       | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `save_naming_information`                                   | Creates a sample naming JSON file                        | Optional   | See [Custom naming](naming-module.md).                                                      |
+> | `tags`                                                      | A dictionary of tags to associate with all resources.    | Optional   |                                                                                             |
+> | `prevent_deletion_if_contains_resources`                    | Controls resource groups deletion.                       | Optional   | Terraform does not by default delete resource groups which contain resources.               |
 
 ## Resource group parameters
 
@@ -90,13 +101,19 @@ This section contains the parameters related to the Azure infrastructure.
 > | `use_random_id_for_storageaccounts`            | If defined will append a random string to the storage account name                                | Optional   |
 > | `use_scalesets_for_deployment`                 | Use Flexible Virtual Machine Scale Sets for the deployment                                        | Optional   |
 > | `scaleset_id`                                  | Azure resource identifier for the virtual machine scale set                                       | Optional   |
+> |                                                |                                                                                                   | Optional   |
 > | `proximityplacementgroup_arm_ids`              | Specifies the Azure resource identifiers of existing proximity placement groups.                  |            |
 > | `proximityplacementgroup_names`                | Specifies the names of the proximity placement groups.                                            |            |
 > | `use_app_proximityplacementgroups`             | Controls if the app tier virtual machines are placed in a different ppg from the database.        | Optional   |
 > | `app_proximityplacementgroup_arm_ids`          | Specifies the Azure resource identifiers of existing proximity placement groups for the app tier. |            |
 > | `app_proximityplacementgroup_names`            | Specifies the names of the proximity placement groups for the app tier.                           |            |
+> |                                                |                                                                                                   | Optional   |
 > | `use_spn`                                      | If defined the deployment will be performed using a Service Principal, otherwise an MSI           | Optional   |
 > | `use_private_endpoint`                         | Use private endpoints.                                                                            | Optional   |
+> |                                                |                                                                                                   | Optional   |
+> | `shared_access_key_enabled`                    | Indicates the storage account authorization type, Shared Access Key or Entra Id                   | Optional   |
+> | `shared_access_key_enabled_nfs`                | Indicates the File Share storage account authorization type, Shared Access Key or Entra Id        | Optional   |
+> | `data_plane_available`                         | Boolean value indicating if storage account access is via data plane                              | Optional   |
 
 
 The `resource_offset` parameter controls the naming of resources. For example, if you set the `resource_offset` to 1, the first disk will be named `disk1`. The default value is 0.
