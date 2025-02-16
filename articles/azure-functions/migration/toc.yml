@@ -28,7 +28,7 @@
   - name: Perform the migration
     href: ./perform-migration.md
   - name: Evaluate end-state
-    href: ./function-placeholder.md
+    href: ./post-migration-checklist.md
   - name: Migration examples
     items:
     - name: Migrate an event-driven data processing pipeline
