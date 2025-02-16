@@ -130,7 +130,7 @@ For the available options and more information, see:
 
 ### Microsoft incident creation rules
 
-To avoid creating *duplicate incidents for the same alerts*, the **Microsoft incident creation rules** setting is turned off for Defender XDR-integrated products when connecting Defender XDR. Defender XDR-integrated products include Microsoft Defender for Identity, Microsoft Defender for Office 365, and more.  Also, Microsoft incident creation rules aren't supported in the Microsoft's unified SecOps platform. <!--is this relevant for Sentinel only? can i replace this with defender portal?--> Defender XDR has its own incident creation rules. This change has the following potential impacts:
+To avoid creating *duplicate incidents for the same alerts*, the **Microsoft incident creation rules** setting is turned off for Defender XDR-integrated products when connecting Defender XDR. Defender XDR-integrated products include Microsoft Defender for Identity, Microsoft Defender for Office 365, and more.  Also, Microsoft incident creation rules aren't supported in the Defender portal because the Defender portal has its own incident creation engine. This change has the following potential impacts:
 
 - **Alert filtering**. Microsoft Sentinel's incident creation rules allowed you to filter the alerts that would be used to create incidents. With these rules disabled, preserve the alert filtering capability by configuring [alert tuning in the Microsoft Defender portal](/microsoft-365/security/defender/investigate-alerts), or by using [automation rules](automate-incident-handling-with-automation-rules.md#incident-suppression) to suppress or close incidents you don't want.
 
