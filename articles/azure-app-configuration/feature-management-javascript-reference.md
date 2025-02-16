@@ -663,9 +663,9 @@ const featureManager = new FeatureManager(featureProvider, { onFeatureEvaluated 
 
 ### Application Insights integration
 
-The JavaScript feature management library provide extension packages that integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview) sdks.
+The JavaScript feature management library provides extension packages that integrate with [Application Insights](/azure/azure-monitor/app/app-insights-overview) SDKs.
 
-The Application Insights offers different sdks for [web](https://www.npmjs.com/package/@microsoft/applicationinsights-web) and [Node.js](https://www.npmjs.com/package/applicationinsights) scenarios. Please select the correct extension packages for your application.
+The Application Insights offers different SDKs for [web](https://www.npmjs.com/package/@microsoft/applicationinsights-web) and [Node.js](https://www.npmjs.com/package/applicationinsights) scenarios. Please select the correct extension packages for your application.
 
 ### [Browser](#tab/browser)
 
