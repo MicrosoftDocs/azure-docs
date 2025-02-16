@@ -34,7 +34,7 @@ These articles do not address:
 - Hosting AWS Lambda containers in Azure
 - Fundimental Azure adoption approach by your organization, such as [Azure landing zones](/azure/cloud-adoption-framework/ready/landing-zone/) or other topics addressed in the Cloud Adoption Framework [Migrate methodology](/azure/cloud-adoption-framework/migrate/).
 
-### Compariable functionality
+### Comparable functionality
 
 This guide offers recommendations to obtain compariable functionality only. If any of the recommendations are for functionality that are Azure exclusive, and beyond capabilities in AWS Lambda, those are called out as future optimizations.
 
@@ -59,6 +59,8 @@ Perform a pre-migration evaluation of the following design areas:
 - [Monitoring](./monitoring.md)
 - [Dependencies](./dependencies.md)
 - [Governance](./governance.md)
+
+Each design area provides baseline comparisons, deviations, and challenges. These should not be considered the final evaluation for your use case. During the process, you are expected to complete your evaluation by reviewing the configuration and expectations of your AWS Lambda service. Opportunities for this are noted with the following icon &#9997;.
 
 ### Functional and non-functional objectives and targets
 
