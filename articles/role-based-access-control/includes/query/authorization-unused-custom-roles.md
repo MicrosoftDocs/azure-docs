@@ -7,13 +7,13 @@ ms.author: rolyon
 ---
 
 ```kusto
-AuthorizationResources
+authorizationresources
 | where type =~ "microsoft.authorization/roledefinitions"
 | where tolower(properties.type) == "customrole"
 | extend rdId = tolower(id)
 | extend Scope = tolower(properties.assignableScopes)
 | join kind = leftouter (
-AuthorizationResources
+authorizationresources
   | where type =~ "microsoft.authorization/roleassignments"
   | extend RoleId = tolower(tostring(properties.roleDefinitionId))
   | summarize RoleAssignmentCount = count() by RoleId
