@@ -35,7 +35,7 @@ Azure Operator Nexus supports the following persistent data disk features.
 | Static data disks (thick provisioning)             | Not supported                                        |
 | Attach data disks to a VM at creation time         | Supported                                            |
 | Attach data disks to a running VM                  | Not supported                                        |
-| Attach data disks to a stopped VM                  | Supported                                            |
+| Attach data disks to a stopped VM                  | Not supported                                            |
 | Migration of data disks from a stopped BMM         | Supported - see [here](#disk-migration-on-bmm-shutdown) for details |
 | Migration of data disks from an unexpected BMM hardware failure | Not supported                                     |
 | Live VM migration                                  | Not supported                                        |
