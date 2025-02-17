@@ -125,7 +125,7 @@ Before installing the software on the Dell appliance, you need to adjust the app
 
 To install the Dell PowerEdge R350 appliance, you need:
 
-- An Enterprise license for Dell Remote Access Controller (iDrac)
+- An Enterprise license for Dell Remote Access Controller (iDRAC)
 
 - A BIOS configuration XML
 
