@@ -47,23 +47,48 @@ You can use Visual Studio to create a new console app project.
 ## Use the feature flag
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
+ 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration
+    Microsoft.FeatureManagement
+    Azure.Identity
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```
     Microsoft.Extensions.Configuration.AzureAppConfiguration
     Microsoft.FeatureManagement
     ```
+    ---
 
     Make sure that the version of `Microsoft.FeatureManagement` is greater than 3.1.0.
 
 1. Open *Program.cs* and add the following statements.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Microsoft.FeatureManagement;
+    using Azure.Identity;
+    ```
+
+    ### [Connection string](#tab/connection-string)
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
     ```
+    ---
 
-1. Update *Program.cs*. to connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string, and specify the `UseFeatureFlags` option so that feature flags are retrieved. Create a `ConfigurationFeatureDefinitionProvider` to provide feature flag definition from the configuration and a `FeatureManager` to evaluate feature flags' state. Then display a message if the `Beta` feature flag is enabled.
+1. Update the *Program.cs* file and add a call to the `UseFeatureFlags` method to load feature flags from App Configuration. Then create a `FeatureManager` to read feature flags from the configuration. Finally, display a message if the *Beta* feature flag is enabled.
+
+    You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     
@@ -77,14 +102,11 @@ You can use Visual Studio to create a new console app project.
         {
             string endpoint = Environment.GetEnvironmentVariable("Endpoint");
             options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-                .UseFeatureFlags();
+                   .UseFeatureFlags();
         }).Build();
 
-    IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
-
-    IVariantFeatureManager featureManager = new FeatureManager(
-        featureDefinitionProvider, 
-        new FeatureManagementOptions());
+    var featureManager = new FeatureManager(
+        new ConfigurationFeatureDefinitionProvider(configuration));
 
     if (await featureManager.IsEnabledAsync("Beta"))
     {
@@ -104,11 +126,11 @@ You can use Visual Studio to create a new console app project.
             {
                 string endpoint = Environment.GetEnvironmentVariable("Endpoint");
                 options.Connect(new Uri(endpoint), new DefaultAzureCredential());
-                    .UseFeatureFlags();
+                       .UseFeatureFlags();
             }).Build();
 
-       var featureManager = new FeatureManager(
-           new ConfigurationFeatureDefinitionProvider(configuration));
+        var featureManager = new FeatureManager(
+            new ConfigurationFeatureDefinitionProvider(configuration));
 
         if (await featureManager.IsEnabledAsync("Beta"))
         {
@@ -128,10 +150,11 @@ You can use Visual Studio to create a new console app project.
         .AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                .UseFeatureFlags();
+                   .UseFeatureFlags();
         }).Build();
 
-    IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+    var featureManager = new FeatureManager(
+        new ConfigurationFeatureDefinitionProvider(configuration));
 
     IVariantFeatureManager featureManager = new FeatureManager(
         featureDefinitionProvider, 
@@ -154,10 +177,12 @@ You can use Visual Studio to create a new console app project.
             .AddAzureAppConfiguration(options =>
             {
                 options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    .UseFeatureFlags();
+                       .UseFeatureFlags();
             }).Build();
 
-        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
+        var featureManager = new FeatureManager(
+            new ConfigurationFeatureDefinitionProvider(configuration));
+
 
         IVariantFeatureManager featureManager = new FeatureManager(
             featureDefinitionProvider, 
