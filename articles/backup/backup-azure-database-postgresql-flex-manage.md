@@ -178,3 +178,7 @@ To delete a PostgreSQL server backup instance, follow these steps:
 
 1. Select **Delete** to confirm and proceed with deleting backup instance.
 
+
+## Next step
+
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md)
