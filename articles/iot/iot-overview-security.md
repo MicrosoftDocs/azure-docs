@@ -20,6 +20,22 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
+Typically on an edge-based solution, you want to secure your end-to-end operations by using Azure security capabilities. Azure IoT Operations has built-in security capabilities such as [secrets management](../iot-operations/secure-iot-ops/howto-manage-secrets.md), [certificate management](../iot-operations/secure-iot-ops/concept-default-root-ca.md), and [secure settings](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md) on an Azure Arc-enabled Kubernetes cluster. When a Kubernetes cluster is connected to Azure, an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit, and several other security features are enabled, such as:
+
+- View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+- Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable).
+- Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+- Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
+
+You can divide security in an edge-based IoT solution into the following three areas:
+
+- **Asset security**: 
+
+- **Connection security**: 
+
+- **Edge and Cloud security**:
+
+
 # [Cloud-based solution](#tab/cloud)
 
 The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the security of a cloud-based IoT solution:
