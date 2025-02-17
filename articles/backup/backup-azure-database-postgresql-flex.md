@@ -59,7 +59,7 @@ To create a Backup policy, follow these steps:
     >The retention rules are evaluated in a pre-determined order of priority. The priority is the highest for the yearly rule, followed by the monthly, and then the weekly rule. Default retention settings are applied when no other rules qualify. For example, the same recovery point may be the first successful backup taken every week as well as the first successful backup taken every month. However, as the monthly rule priority is higher than that of the weekly rule, the retention corresponding to the first successful backup taken every month applies.
     
 
-When the backup configuration is complete, you can [run an on-demand backup](/azure\backup\tutorial-create-first-backup-azure-database-postgresql-flex#run-an-on-demand-backup) and [track the progress of the backup operation](/azure\backup\tutorial-create-first-backup-azure-database-postgresql-flex#track-a-backup-job).
+When the backup configuration is complete, you can [run an on-demand backup](tutorial-create-first-backup-azure-database-postgresql-flex.md#run-an-on-demand-backup) and [track the progress of the backup operation](tutorial-create-first-backup-azure-database-postgresql-flex.md#track-a-backup-job).
 
 
 ## Next steps

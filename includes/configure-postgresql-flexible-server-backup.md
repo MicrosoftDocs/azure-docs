@@ -3,7 +3,7 @@ title: Include file
 description: Include file
 ms.service: azure-backup
 ms.topic: include
-ms.date: 02/18/2025
+ms.date: 02/28/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -38,7 +38,7 @@ To configure backup on the Azure Database for PostgreSQL - Flexible Server via A
          
 4. On the **Backup policy** tab, select a Backup policy that defines the backup schedule and the retention duration, and then select **Next**.
 
-   If you don't have a Backup policy, [create one](../articles/backup/backup-azure-database-postgresql-flex.md#create-a-backup-policy).
+   If you don't have a Backup policy, [create one on the go](../articles/backup/backup-azure-database-postgresql-flex.md#create-a-backup-policy).
 
    :::image type="content" source="./media/configure-postgresql-flexible-server-backup/choose-backup-policy.png" alt-text="Screenshot shows the Backup policy selection." lightbox="./media/configure-postgresql-flexible-server-backup/choose-backup-policy.png":::
 
