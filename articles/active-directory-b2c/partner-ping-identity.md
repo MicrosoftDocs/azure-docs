@@ -1,13 +1,13 @@
 ---
-title: Tutorial to configure Azure AD B2C with Ping Identity
+title: Tutorial to configure Azure Active Directory B2C with Ping Identity
 titleSuffix: Azure AD B2C
-description: Learn how to configure Azure AD B2C with Ping Identity for secure hybrid access using PingAccess and PingFederate. Extend Azure AD B2C capabilities.
+description: Learn how to integrate Azure AD B2C authentication with Ping Identity
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 02/17/2025
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.subservice: b2c
 
@@ -18,7 +18,7 @@ ms.subservice: b2c
 
 In this tutorial, learn how to extend the capabilities of Azure Active Directory B2C (Azure AD B2C) with [PingAccess](https://www.pingidentity.com/en/platform/capabilities/web-api-access/pingaccess.html) and [PingFederate](https://www.pingidentity.com/en/platform/capabilities/authentication-authority/pingfederate.html). PingAccess provides access to applications and APIs, and a policy engine for authorized user access. PingFederate is an enterprise federation server for user authentication and single sign-on, an authority that permits customers, employees, and partners to access applications from devices. Use them together to enable secure hybrid access (SHA).
 
-Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems preauthenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
+Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
 Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or OpenID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
@@ -71,7 +71,7 @@ Use this function to contextually, dynamically, or declaratively switch an inbou
 
 ## Prerequisites
 
-To get started, you need:
+To get started, you'll need:
 
 - An Azure subscription
   - If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
@@ -83,7 +83,7 @@ To get started, you need:
 Confirm the following connectivity and communication.
 
 - **PingAccess server** – Communicates with the PingFederate server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service and PingFederate server
-- **PingFederate server** – Communicates with the PingAccess server, client browser, OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service
+- **PingFederate server** – Communicates with the PingAccess server, client browser, OIDC, OAuth well-known and keys discovery published by the Azure AD B2C service
 - **Legacy or header-based AuthN application** – Communicates to and from PingAccess server
 - **SAML relying party application** – Reaches the browser traffic from the client. Accesses the SAML federation metadata published by the Azure AD B2C service.
 - **Modern application** – Reaches the browser traffic from the client. Accesses the OIDC, OAuth well-known, and keys discovery published by the Azure AD B2C service.
@@ -178,7 +178,7 @@ To create a site:
 
 #### Create an application
 
-To create an application in PingAccess for each application in Azure that you want to protect:
+To create an application in PingAccess for each application in Azure that you want to protect.
 
 1. Go to **Main** > **Applications**
 
@@ -188,7 +188,7 @@ To create an application in PingAccess for each application in Azure that you wa
 
 4. Optionally, enter a **Description** for the application
 
-5. Specify the **Context Root** for the application. For example, an application at https://mysite:9999/AppName has a context root of /AppName. The context root must begin with a slash (/), must not end with a slash (/), and can be more than one layer deep, for example, /Apps/MyApp.
+5. Specify the **Context Root** for the application. For example, an application at https://mysite:9999/AppName will have a context root of /AppName. The context root must begin with a slash (/), must not end with a slash (/), and can be more than one layer deep, for example, /Apps/MyApp.
 
 6. Select the **virtual host** you created
 
@@ -225,7 +225,7 @@ Configure the PingFederate authentication policy to federate to the multiple IdP
 
 8. Work with the SP to connect to PingFederate, the federation hub as the IdP.
 
-## Related content
+## Next steps
 
 For additional information, review the following articles
 
