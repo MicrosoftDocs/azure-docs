@@ -26,8 +26,15 @@ The Premium V3 tier is available for both native and custom containers, includin
 
 Premium V3 as well as specific Premium V3 SKUs are available in some Azure regions and availability in additional regions is being added continually. To see if a specific PremiumV3 offering is available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md) (substitute _P1v3_ with the desired SKU):
 
+**Windows** SKU availability
+
 ```azurecli-interactive
 az appservice list-locations --sku P1V3
+```
+**Linux** SKU availability
+
+```azurecli-interactive
+az appservice list-locations --linux-workers-enabled --sku P1V3
 ```
 
 <a name="create"></a>

@@ -16,6 +16,8 @@ zone_pivot_groups: api-management-howto-add-products
 
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 :::zone pivot="interactive"
 
 In this tutorial, you learn how to:
