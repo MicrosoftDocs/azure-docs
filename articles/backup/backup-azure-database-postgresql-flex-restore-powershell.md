@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL - Flexible Server via Azure PowerShell
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 ms.topic: how-to
-ms.date: 02/18/2025
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, ignite-2024
 author: jyothisuri
@@ -119,4 +119,4 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Azure PostgreSQL - flexible server Backup](backup-azure-database-postgresql-flex-overview.md)
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md)

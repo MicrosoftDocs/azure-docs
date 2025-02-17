@@ -10,7 +10,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Tutorial: Back up Azure Database for PostgreSQL - Flexible Server
+# Tutorial: Back up Azure Database for PostgreSQL - Flexible Server using Azure portal
 
 This tutorial describes how to back up Azure Database for PostgreSQL - Flexible Server using the Azure portal. 
 
@@ -44,4 +44,4 @@ To view the backup job status, follow these steps:
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL Flexible backups](./restore-azure-database-postgresql-flex.md)
+[Restore Azure Database for PostgreSQL Flexible Server backups using Azure portal](./restore-azure-database-postgresql-flex.md)

@@ -15,7 +15,7 @@ ms.author: jsuri
 
 This quickstart describes how to create a Backup policy to protect Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple clients, such as [Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md), [PowerShell](back-up-azure-database-postgresql-flex-backup-powershell.md), [CLI](back-up-azure-database-postgresql-flex-backup-cli.md), [Azure Resource Manager](quick-backup-postgresql-flexible-server-arm.md), [Bicep](quick-backup-postgresql-flexible-server-bicep.md), [Terraform](quick-backup-postgresql-flexible-server-terraform.md), and so on. 
+Azure Backup policy for Azure Database for PostgreSQL - Flexible Server defines how and when backups are created, the retention period for recovery points, and the rules for data protection and recovery. [Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple clients, such as [Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md), [PowerShell](back-up-azure-database-postgresql-flex-backup-powershell.md), [CLI](back-up-azure-database-postgresql-flex-backup-cli.md), [Azure Resource Manager](quick-backup-postgresql-flexible-server-arm.md), [Bicep](quick-backup-postgresql-flexible-server-bicep.md), [Terraform](quick-backup-postgresql-flexible-server-terraform.md), and so on. 
 
 ## Prerequisites
 
