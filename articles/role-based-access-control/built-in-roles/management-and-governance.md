@@ -2143,11 +2143,6 @@ Provides access to manage maintenance configurations with maintenance scope InGu
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/read | Read maintenance configuration assignment. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/write | Create or update maintenance configuration assignment. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/delete | Delete maintenance configuration assignment. |
-> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/updates/read | Read maintenance updates resource. |
-> | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/applyUpdates/read | Read maintenance apply updates resource. |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Get list of update deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Create or update an update deployment |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operation statuses | Get a list of update deployment operation statuses |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/read | Read maintenance configuration assignment for InGuestPatch maintenance scope. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/write | Create or update a maintenance configuration assignment for InGuestPatch maintenance scope. |
 > | [Microsoft.Maintenance](../permissions/management-and-governance.md#microsoftmaintenance)/configurationAssignments/maintenanceScope/InGuestPatch/delete | Delete maintenance configuration assignment for InGuestPatch maintenance scope. |
