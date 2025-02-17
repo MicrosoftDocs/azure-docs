@@ -86,7 +86,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
 
    :::image type="content" source="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png" alt-text="Screenshot showing the context menu for an existing VPN site." lightbox="../virtual-wan/media/virtual-wan-custom-ipsec-portal/contextmenu.png":::
 
-   - Internet Protocol Security (IPSec), select **Custom**.
+   - Internet Protocol Security (IPsec), select **Custom**.
 
    - Use policy-based traffic selector, select **Enable**
 
