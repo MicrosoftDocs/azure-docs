@@ -183,16 +183,14 @@ The following code snippet creates an instance of **AppConfigurationClient**. Yo
 You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
 ```javascript
-const azureIdentity = require("@azure/identity");
-const appConfig = require("@azure/app-configuration");
+const { DefaultAzureCredential } = require("@azure/identity");
+const { AppConfigurationClient } = require("@azure/app-configuration");
 
-const credential = new azureIdentity.DefaultAzureCredential();
-const client = new appConfig.AppConfigurationClient(
+const client = new AppConfigurationClient(
   process.env.AZURE_APPCONFIG_ENDPOINT,
-  credential
+  new DefaultAzureCredential()
 );
 
-```
 
 ### [Connection string](#tab/connection-string)
 
