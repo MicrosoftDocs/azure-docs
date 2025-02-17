@@ -167,7 +167,7 @@
             href: point-to-site-certificate-client-linux-azure-vpn-client.md
           - name: OpenVPN client
             href: point-to-site-vpn-client-certificate-openvpn-linux.md
-          - name: IKEv2 -strongSwan
+          - name: IKEv2 - strongSwan
             href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
           items:
@@ -183,7 +183,7 @@
           items:
           - name: Azure PowerShell
             href: vpn-gateway-certificates-point-to-site.md
-          - name: Makecert
+          - name: MakeCert
             href: vpn-gateway-certificates-point-to-site-makecert.md
         - name: .pem files
           items:

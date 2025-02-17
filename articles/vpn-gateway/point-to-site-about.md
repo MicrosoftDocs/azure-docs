@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 09/18/2024
+ms.date: 02/10/2025
 ms.author: cherylmc
 ---
 # About Point-to-Site VPN

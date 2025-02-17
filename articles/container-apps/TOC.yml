@@ -383,6 +383,16 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+      - name: Artificial Intelligence
+        items:
+        - name: PetClinic AI
+          items: 
+          - name: Overview
+            href: java-petclinic-ai-overview.md
+            displayName: java
+          - name: Deploy the PetClinic AI sample
+            href: java-petclinic-ai-tutorial.md
+            displayName: java
         displayName: java
       - name: Launch your first Java microservice apps with managed Java components
         href: java-microservice-get-started.md

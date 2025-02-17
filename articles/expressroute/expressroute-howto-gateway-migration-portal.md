@@ -39,8 +39,6 @@ Here are the steps to migrate to a new gateway in Azure portal.
 
 1. the left-hand menu under *Settings*, select **Gateway SKU Migration**.
 
-    :::image type="content" source="media/gateway-migration/gateway-sku-migration-location.png" alt-text="Screenshot of Gateway migration location."lightbox="media/gateway-migration/gateway-sku-migration-location.png":::
-
 1. Select **Validate** to check if the gateway is ready for migration. You'll first see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed. 
 
     :::image type="content" source="media/gateway-migration/validate-step.png" alt-text="Screenshot of the validate step for migrating a virtual network gateway."lightbox="media/gateway-migration/validate-step.png":::

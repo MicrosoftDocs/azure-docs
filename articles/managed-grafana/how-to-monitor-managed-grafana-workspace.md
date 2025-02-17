@@ -79,4 +79,4 @@ Now that you've configured your diagnostic settings, Azure streams all new event
 > [Grafana UI](./grafana-app-ui.md)
 
 > [!div class="nextstepaction"]
-> [Share an Azure Managed Grafana instance](./how-to-share-grafana-workspace.md)
+> [Share an Azure Managed Grafana instance](./how-to-manage-access-permissions-users-identities.md)
