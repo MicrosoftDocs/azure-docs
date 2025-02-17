@@ -33,7 +33,7 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 
 ::: zone pivot="b2c-custom-policy"
 
-Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://www.mailjet.com/), or [SparkPost](https://messagebird.com/email/cloud-sending?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://www.mailjet.com/), or [SparkPost](https://messagebird.com/support-center/omnichannel-and-connectivity/sms/sending-email-to-sms?sp=true), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
 ## Create a SendGrid account
 
