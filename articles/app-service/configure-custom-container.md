@@ -478,7 +478,7 @@ Further troubleshooting information is available at the Azure App Service blog: 
 ## Configure multi-container apps
 
 > [!NOTE]
-> Sidecar containers will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service ](tutorial-custom-container-sidecar.md).
+> Sidecar containers will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
