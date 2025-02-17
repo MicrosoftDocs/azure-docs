@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 02/20/2025
 ms.author: cephalin
 author: cephalin
-keywords: azure app service, web app, linux, windows, docker, sidecar, ai, chatbot, slm, small language model, local SLM, Azure tutorial
+keywords: azure app service, linux, docker, sidecar, ai, chatbot, slm, small language model, local SLM, Azure tutorial
 ---
 
 # Run a local SLM in a sidecar container in Azure App Service
@@ -141,3 +141,7 @@ To build the sidecar image yourself, you need to install Docker Desktop locally 
     ```
 
 To upload the built image to Azure Container Registry, see [Push your first image to your Azure container registry using the Docker CLI](/azure/container-registry/container-registry-get-started-docker-cli).
+
+## More resources
+
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
