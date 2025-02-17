@@ -30,8 +30,8 @@ Install the following packages to interact with Azure OpenAI and Azure SQL.
 - `Microsoft.SemanticKernel`
 - `Microsoft.Data.SqlClient`
 
-1. Right click on the **Pages** folder found under the **Components** folder and add a new item named *OpenAI.razor*
-2. Add the following code to the *OpenAI.razor* file and click **Save** to create the chat box
+1. Right click on the **Pages** folder found under the **Components** folder and add a new item named *OpenAI.razor*
+2. Add the following code to the **OpenAI.razor* file and click **Save**
 
 ```csharp
 @page "/openai"
