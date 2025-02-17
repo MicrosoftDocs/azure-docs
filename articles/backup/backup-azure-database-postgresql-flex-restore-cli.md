@@ -220,4 +220,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Next steps
 
-[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md)
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).

@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for PostgreSQL - Flexible servers using in Azure Backup
+title: Restore Azure Database for PostgreSQL - Flexible servers using  REST API
 description: Learn how to restore Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: conceptual
 ms.date: 02/28/2025
@@ -310,7 +310,7 @@ The job status mentioned above indicates that the restore job is complete.
 
 ## Next steps
 
-[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md)
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).
 
 
 

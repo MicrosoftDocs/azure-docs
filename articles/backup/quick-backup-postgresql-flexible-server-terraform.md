@@ -245,5 +245,5 @@ variable "retention_duration_in_months" {
 
 ## Next steps
 
-[Restore Azure PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
+[Restore Azure PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).
 

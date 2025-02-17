@@ -64,4 +64,4 @@ When the backup configuration is complete, you can [run an on-demand backup](tut
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL - Flexible Server backups using Azure portal](./restore-azure-database-postgresql-flex.md)
+[Restore Azure Database for PostgreSQL - Flexible Server backups using Azure portal](./restore-azure-database-postgresql-flex.md).

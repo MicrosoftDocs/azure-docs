@@ -444,5 +444,5 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 
 For more information on Azure Backup REST APIs, see the following articles:
 
-- [Azure Data Protection REST API](/rest/api/dataprotection)
-- [Get started with Azure REST API](/rest/api/azure)
+- [Azure Data Protection REST API](/rest/api/dataprotection).
+- [Get started with Azure REST API](/rest/api/azure).

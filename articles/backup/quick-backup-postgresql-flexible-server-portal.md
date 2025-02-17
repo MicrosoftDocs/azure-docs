@@ -67,4 +67,4 @@ To create a Backup policy for Azure Database for PostgreSQL - Flexible Server, f
 
 ## Next steps
 
-[Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database)
+[Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database).

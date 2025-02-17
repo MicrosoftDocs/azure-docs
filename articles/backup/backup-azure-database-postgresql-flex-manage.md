@@ -1,5 +1,5 @@
 ---
-title: Manage Azure Backup for Azure PostgreSQL - Flexible servers
+title: Manage backups for Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn about managing backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 ms.topic: how-to
 ms.date: 02/28/2025
@@ -9,7 +9,7 @@ ms.service: azure-backup
 ms.custom: engagement-fy24, ignite-2024
 ---
 
-# Manage backup of Azure Database for PostgreSQL - Flexible Server using Azure portal
+# Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 
 This article describes how to manage backup of Azure Database for PostgreSQL - Flexible Server using Azure portal.
 
@@ -181,4 +181,4 @@ To delete a PostgreSQL server backup instance, follow these steps:
 
 ## Next step
 
-[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md)
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).

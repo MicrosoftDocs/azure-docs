@@ -234,5 +234,5 @@ az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --pol
 
 ## Next steps
 
-[Configure backup for Azure Database for PostgreSQL - flexible server using Azure CLI](back-up-azure-database-postgresql-flex-backup-cli.md#configure-backup)
+[Configure backup for Azure Database for PostgreSQL - flexible server using Azure CLI](back-up-azure-database-postgresql-flex-backup-cli.md#configure-backup).
 

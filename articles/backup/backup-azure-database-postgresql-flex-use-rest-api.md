@@ -513,9 +513,9 @@ GET "https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc
 
 ## Next steps
 
-[Restore data from an Azure Database for PostGreSQL - Flexible Server backup using REST API](backup-azure-database-postgresql-flex-use-rest-api-restore.md)
+[Restore data from an Azure Database for PostGreSQL - Flexible Server backup using REST API](backup-azure-database-postgresql-flex-use-rest-api-restore.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Get started with Azure Data Protection Provider REST API](/rest/api/azure).
-- [Get started with Azure REST API](/rest/api/azure)
+- [Get started with Azure REST API](/rest/api/azure).

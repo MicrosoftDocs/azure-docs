@@ -12,7 +12,6 @@ ms.author: jsuri
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure CLI
 
 This article describes how to back up **Azure Database for PostgreSQL - Flexible Server** using Azure CLI.
-Learn about the [supported scenarios and limitations for Azure Database for PostgreSQL - Flexible Server backup](backup-azure-database-postgresql-flex-support-matrix.md).
 
 ## Prerequisites
 
@@ -233,4 +232,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md)
+- [Restore Azure Database for PostgreSQL - flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).

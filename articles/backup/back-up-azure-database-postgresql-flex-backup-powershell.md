@@ -139,4 +139,4 @@ You can also use the `Az.ResourceGraph` cmdlet to track all jobs across all Back
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md)
+- [Restore Azure Database for PostgreSQL - flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).

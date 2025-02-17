@@ -43,4 +43,4 @@ Azure Database for PostgreSQL – Flexible Server backups include the following 
 
 ## Next steps
 
-- [Back up Azure Database for PostgreSQL -Flexible Server using Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md)
+- [Back up Azure Database for PostgreSQL -Flexible Server using Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md).
