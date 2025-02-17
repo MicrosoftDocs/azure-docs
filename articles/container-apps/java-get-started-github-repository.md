@@ -1,38 +1,24 @@
 ---
-title: Launch your first Java application in Azure Container Apps with Github Repository
-description: Learn how to deploy a java project in Azure Container Apps with Github Repository.
+title: Launch your First Java Application in Azure Container Apps by Using a GitHub Repository
+description: Learn how to deploy a java project in Azure Container Apps by using a GitHub Repository.
 services: container-apps
-author: hangwan
+author: KarlErickson
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: quickstart
-ms.date: 12/18/2024
+ms.date: 02/18/2025
 ms.author: hangwan
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps with Github Repository
+# Quickstart: Launch your first Java application in Azure Container Apps by using a GitHub Repository
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with Github Repository. You can deploy your Java application with many different options like local filesystem, code reposity, Maven, IDEs, a web application archive (WAR) file / Java Archive (JAR) file or even directly from the source code.
+This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps by using a Github Repository.
 
-By the end of this tutorial you deploy a web application, which you can manage through the Azure portal.
-
-The following image is a screenshot of how your application looks once deployed to Azure.
-
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
-
-## Prerequisites
-
-| Requirement  | Instructions |
-|--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Container Apps CLI extension | Use version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
+[!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
 
 ## Prepare the project
 
-In a browser window, go to the GitHub reposity for [Java samples for Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples.git), and fork the reposity.
+In a browser window, go to the GitHub reposity for [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git), and fork the reposity.
 
 Select the `Fork` button at the top of the repo to fork the repo to your account. Then copy the repo URL to use it in the next step.
 
