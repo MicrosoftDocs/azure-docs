@@ -4,7 +4,7 @@ description: Learn about soft delete for Azure Files and how you can use it for 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/10/2024
+ms.date: 01/21/2025
 ms.author: kendownie
 services: storage
 ---
@@ -23,7 +23,10 @@ Azure Files offers soft delete, which allows you to recover your file share when
 
 ## How soft delete works
 
-When soft delete for Azure file shares is enabled on a storage account, if a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. After being undeleted, the share and all of contents, including snapshots, will be restored to the state it was in prior to deletion. Soft delete only works on a file share level. Individual files that are deleted will still be permanently erased.
+When soft delete for Azure file shares is enabled on a storage account, if a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. After being undeleted, the share and all of contents, including snapshots, will be restored to the state it was in prior to deletion. 
+
+> [!IMPORTANT]
+> Soft delete only works on a file share level. **Individual files that are deleted will still be permanently erased**. If you want to be able to restore individual files that have been deleted, you can use [share snapshots](storage-snapshots-files.md) or [Azure file share backup](../../backup/azure-file-share-backup-overview.md).
 
 Soft delete can be enabled on either new or existing file shares. Soft delete is also backwards compatible, so you don't have to make any changes to your applications to take advantage of the protections of soft delete.
 

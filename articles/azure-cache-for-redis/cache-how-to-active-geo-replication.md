@@ -3,7 +3,7 @@ title: Configure active geo-replication for Enterprise Azure Cache for Redis ins
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions.
 ms.custom: devx-track-azurecli, ignite-2024
 ms.topic: conceptual
-ms.date: 01/10/2025
+ms.date: 01/15/2025
 ---
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
@@ -34,7 +34,7 @@ There are a few restrictions when using active geo replication:
 - You can't add an existing (that is, running) cache to a geo-replication group. You can only add a cache to a geo-replication group when you create the cache.
 - All caches within a geo-replication group must have the same configuration. For example, all caches must have the same SKU, capacity, eviction policy, clustering policy, modules, and TLS setting.
 - You can't use the `FLUSHALL` and `FLUSHDB` Redis commands when using active geo-replication. Prohibiting the commands prevents unintended deletion of data. Use the [flush operation](#flush-operation) from the portal instead.
-- The E1 SKU doesn't support active geo-replication.
+- Active geo-replication is not supported on E1 and any Flash SKUs.
 
 ## Create or join an active geo-replication group
 
@@ -193,7 +193,7 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 
     1. Save the alert.
 
-    1. For more information on how to setup alerts for you Redis Enterprise cache, see the alert section in [Monitor Redis Caches](/azure/azure-cache-for-redis/monitor-cache?tabs=enterprise-enterprise-flash).
+    1. For more information on how to set up alerts for you Redis Enterprise cache, see the alert section in [Monitor Redis Caches](/azure/azure-cache-for-redis/monitor-cache?tabs=enterprise-enterprise-flash).
 
 > [!IMPORTANT]
 > This metric might temporarily show as unhealthy due to routine operations like maintenance events or scaling, initiated either by Azure or the customer. To avoid false alarms, we recommend setting up an observation window of 60 minutes, where the metric continues to stay unhealthy as the appropriate time for generating an alert as it might indicate a problem that requires intervention.

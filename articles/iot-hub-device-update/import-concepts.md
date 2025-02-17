@@ -36,7 +36,7 @@ The following JSON code shows an example import manifest file:
   "instructions": {
     "steps": [
       {
-        "handler": "microsoft/swupdate:1",
+        "handler": "microsoft/swupdate:2",
         "files": [
           "firmware.swu"
         ],
@@ -111,7 +111,7 @@ The **Instructions** section contains the necessary information or steps for the
   "instructions": {
     "steps": [
       {
-        "handler": "microsoft/swupdate:1",
+        "handler": "microsoft/swupdate:2",
         "files": [
           "contoso.toaster.1.0.swu"
         ]
@@ -142,7 +142,7 @@ An update can contain more than one step, as in the following example:
       },
       {
         "description": "firmware package",
-        "handler": "microsoft/swupdate:1",
+        "handler": "microsoft/swupdate:2",
         "files": [
           "contoso.toaster.1.0.swu"
         ]

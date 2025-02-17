@@ -173,14 +173,14 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 1. Use SFTP or SCP to copy the update package you'd downloaded from the Azure portal to the OT sensor machine.
 
-1. Sign in to the sensor as the `support` user, access the system shell and copy the update file to a location accessible for the update process. For example:
+1. Sign in to the sensor as the `cyberx_host` user, and copy the update file to a location accessible for the update process. For example:
 
     ```bash
     cd /var/host-logs/ 
     mv <filename> /var/cyberx/media/device-info/update_agent.tar
     ```
 
-1. Start running the software update. Run:
+1. Sign into the sensor as the `cyberx` user and start running the software update. Run:
 
     ```bash
     curl -H "X-Auth-Token: $(python3 -c 'from cyberx.credentials.credentials_wrapper import CredentialsWrapper;creds_wrapper = CredentialsWrapper();print(creds_wrapper.get("api.token"))')" -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
@@ -190,7 +190,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 1. Continue to monitor the update process by checking the `install.log` file.
 
-    Sign into the sensor as the `cyberx_host` user and run:
+    Sign back into the sensor as the `cyberx_host` user and run:
 
     ```bash
     tail -f /opt/sensor/logs/install.log

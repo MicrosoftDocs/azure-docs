@@ -1,8 +1,8 @@
 ---
 title: include file
 description: include file
-author: timlt
-ms.author: timlt
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
 ms.date: 1/10/2025

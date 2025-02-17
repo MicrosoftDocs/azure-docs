@@ -19,7 +19,7 @@ If the review identifies errors, a red dot appears next each section where error
 
 1. Select the **Create** button.
 
-A page with the message *Deployment is in progress** displays in the working pane. 
+A page with the message *Deployment is in progress* displays in the working pane. 
 
 When the deployment is complete, the message *Your deployment is complete* appears.
 

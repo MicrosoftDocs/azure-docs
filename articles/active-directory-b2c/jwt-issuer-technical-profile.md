@@ -50,7 +50,7 @@ The following example shows a technical profile for `JwtIssuer`:
 
 ## Input, output, and persist claims
 
-The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InutputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
+The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty or absent. The **InputClaimsTransformations** and **OutputClaimsTransformations** elements are also absent.
 
 ## Metadata
 
