@@ -26,15 +26,26 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
 - **Azure CLI**: Version 2.61 or higher (64-bit)
 - **Nexusidentity Extension**: This extension must be added to Azure CLI.
 - **YubiKey Firmware Version**: Must be 5.2.3 or higher.
+- **Enable Longpaths** - Windows long paths support must be enabled [Refer](https://pip.pypa.io/warnings/enable-long-paths).
 
 ### Steps to Install Nexusidentity Extension and Generate SSH Keys
 
-1. **Open PowerShell**:
+1.  **Enabling long paths**
+   
+- Run the following powershell as an administrator.
+
+   ```Powershell 
+   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+   ```
+
+- Close the powershell terminal.
+
+2. **Open PowerShell**:
 
 > [!Note]
 > Use non-admin mode for this process.
 
-2. **Update Azure CLI**:
+3. **Update Azure CLI**:
 
    - Run the following command to update Azure CLI to the latest version:
 
@@ -42,7 +53,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
      az upgrade
      ```
 
-3. **Install Nexusidentity extension**:
+4. **Install Nexusidentity extension**:
 
    - To add the Nexusidentity extension
 
@@ -50,7 +61,7 @@ To start with break glass IAM configuration, you need to set up SSH keys using t
      az extension add --name nexusidentity
      ```
 
-4. **Generate SSH Keys with Nexusidentity extension**:
+5. **Generate SSH Keys with Nexusidentity extension**:
 
    a. Download the [Yubico Key Manager](https://www.yubico.com/support/download/yubikey-manager) to reset your YubiKey for initial setup.
    
