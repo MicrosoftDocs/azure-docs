@@ -37,6 +37,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **25.1** | | | |
+| 25.1.0  |2/2025 | Minor |1/2026 |
 | **24.1** | | | |
 | 24.1.8  |12/2024 | Minor |12/2025 |
 | 24.1.7  |12/2024 | Minor |12/2025 |
@@ -90,6 +92,16 @@ Maintain your sensors and on-premises management consoles, for activities like b
 Version numbers are listed only in this article and in the [What's new in Microsoft Defender for IoT?](whats-new.md) article, and not in detailed descriptions elsewhere in the documentation.
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
+
+## Versions 25.1.x
+
+### 25.1.0
+
+**Release date**: 2/202
+
+**Supported until**: 1/2026
+
+This version includes bug fixes for stability improvements.
 
 ## Versions 24.1.x
 

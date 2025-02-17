@@ -22,6 +22,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## February 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection)|
+
+### Improved RDP Brute Force Detection
+
+The “Excessive Number of Sessions” alert now includes support by default to an RDP port, enhancing visibility into potential brute-force attacks and unauthorized access attempts.
+
 ## January 2025
 
 |Service area  |Updates  |
@@ -41,7 +51,6 @@ To reduce alert fatigue, multiple versions of the same alert violation and with 
 ### Support Multiple Source Devices in DDoS Attack Alerts
 
 Alert details now display up to 10 source devices involved in DDoS attack.
-
 
 ## October 2024
 
