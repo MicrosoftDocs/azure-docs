@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 02/13/2025
+ms.date: 02/17/2025
 ---
 
 # Migrate from OpenShift SDN to OVN-Kubernetes
@@ -27,10 +27,19 @@ OpenShift SDN remains supported on Azure Red Hat OpenShift through version 4.16.
     ```
     oc get network.operator.openshift.io cluster -o jsonpath='{.spec.defaultNetwork.type}'
     ```
-       
+    
+    If you see an output such as `OpenShiftSDN`, proceed to the next step because you'll need to migrate.
+   
 1. See [Limited live migration to the OVN-Kubernetes network plugin overview](https://docs.openshift.com/container-platform/4.16/networking/ovn_kubernetes_network_provider/migrate-from-openshift-sdn.html#nw-ovn-kubernetes-live-migration-about_migrate-from-openshift-sdn) for steps to perform the migration.
 
     > [!IMPORTANT]
     > Azure Red Hat OpenShift only supports the limited live migration process. Don't use the offline migration process.
     > 
-            
+           
+## Next steps
+
+- [Learn more about OVN-Kubernetes](concepts-ovn-kubernetes.md).
+- [Learn more about the OVN-Kubernetes network plugin](https://docs.openshift.com/container-platform/4.17/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
+
+
+ 
