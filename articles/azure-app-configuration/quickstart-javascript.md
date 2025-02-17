@@ -15,7 +15,7 @@ ms.author: malev
 
 This document shows examples of how to use the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/app-configuration) to access key-values in Azure App Configuration.
 
->[!TIP]
+>[!IMPORTANT]
 > App Configuration offers a JavaScript provider library that is built on top of the JavaScript SDK and is designed to be easier to use with richer features. It enables configuration settings to be used like a Map object, and offers other features like configuration composition from multiple labels, key name trimming, and automatic resolution of Key Vault references. Go to the [JavaScript quickstart](./quickstart-javascript-provider.md) to learn more.
 
 ## Prerequisites
@@ -68,94 +68,6 @@ Add the following key-value to the App Configuration store and leave **Label** a
 > [!NOTE]
 > The code snippets in this example will help you get started with the App Configuration client library for JavaScript. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [JavaScript SDK documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration).
 
-## Configure an environment variable
-
-1. Configure an environment variable using Microsoft Entra ID (recommended) or a connection string.
-
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    
-    Set an environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
-    
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-    
-    ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
-    ```
-    
-    If you use PowerShell, run the following command:
-    
-    ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "endpoint-of-your-app-configuration-store"
-    ```
-    
-    If you use macOS or Linux, run the following command:
-    
-    ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
-    ```
-    
-    ### [Connection string](#tab/connection-string)
-    
-    Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under **Access keys** of your store in the Azure portal.
-    
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-    
-    ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
-    ```
-    
-    If you use PowerShell, run the following command:
-    
-    ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
-    ```
-    
-    If you use macOS or Linux, run the following command:
-    
-    ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
-    ```
-    ---
-    
-1. Print out the value of the environment variable to validate that it is set properly with the command below.
-
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-
-    ```cmd
-    echo AZURE_APPCONFIG_ENDPOINT
-    ```
-    
-    If you use PowerShell, run the following command:
-    
-    ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT
-    ```
-    
-    If you use macOS or Linux, run the following command:
-    
-    ```bash
-    export AZURE_APPCONFIG_ENDPOINT
-    ```
-
-    ### [Connection string](#tab/connection-string)
-
-    ```cmd
-    echo AZURE_APPCONFIG_CONNECTION_STRING
-    ```
-    
-    If you use PowerShell, run the following command:
-    
-    ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING
-    ```
-    
-    If you use macOS or Linux, run the following command:
-    
-    ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING
-    ```
-    ---
-
 ## Code samples
 
 The sample code snippets in this section show you how to perform common operations with the App Configuration client library for JavaScript. Add these code snippets to the body of `run` function in *app-configuration-example.js* file you created earlier.
@@ -190,7 +102,7 @@ const client = new AppConfigurationClient(
   process.env.AZURE_APPCONFIG_ENDPOINT,
   new DefaultAzureCredential()
 );
-
+```
 
 ### [Connection string](#tab/connection-string)
 
@@ -400,37 +312,86 @@ run().catch(console.error);
 ```
 ---
 
-In your console window, navigate to the directory containing the *app-configuration-example.js* file and execute the following command to run the app:
+## Configure an environment variable
 
-```console
-node app.js
-```
+1. Configure an environment variable using Microsoft Entra ID (recommended) or a connection string.
 
-You should see the following output:
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    
+    Set an environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
+    
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+    
+    ```cmd
+    setx AZURE_APPCONFIG_ENDPOINT "endpoint-of-your-app-configuration-store"
+    ```
+    
+    If you use PowerShell, run the following command:
+    
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "endpoint-of-your-app-configuration-store"
+    ```
+    
+    If you use macOS or Linux, run the following command:
+    
+    ```bash
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    ```
+    
+    ### [Connection string](#tab/connection-string)
+    
+    Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under **Access keys** of your store in the Azure portal.
+    
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+    
+    ```cmd
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```
+    
+    If you use PowerShell, run the following command:
+    
+    ```powershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    ```
+    
+    If you use macOS or Linux, run the following command:
+    
+    ```bash
+    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
 
-```output
-Azure App Configuration - JavaScript example
+1. In your console window, navigate to the directory containing the *app-configuration-example.js* file and execute the following command to run the app:
 
-Retrieved configuration setting:
-Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
-
-Added configuration setting:
-Key: TestApp:Settings:NewSetting, Value: New setting value
-
-Retrieved list of configuration settings:
-Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
-Key: TestApp:Settings:NewSetting, Value: New setting value
-
-Read-only status for TestApp:Settings:NewSetting: true
-
-Read-only status for TestApp:Settings:NewSetting: false
-
-Updated configuration setting:
-Key: TestApp:Settings:NewSetting, Value: Value has been updated!
-
-Deleted configuration setting:
-Key: TestApp:Settings:NewSetting, Value: Value has been updated!
-```
+    ```console
+    node app.js
+    ```
+    
+    You should see the following output:
+    
+    ```output
+    Azure App Configuration - JavaScript example
+    
+    Retrieved configuration setting:
+    Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
+    
+    Added configuration setting:
+    Key: TestApp:Settings:NewSetting, Value: New setting value
+    
+    Retrieved list of configuration settings:
+    Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
+    Key: TestApp:Settings:NewSetting, Value: New setting value
+    
+    Read-only status for TestApp:Settings:NewSetting: true
+    
+    Read-only status for TestApp:Settings:NewSetting: false
+    
+    Updated configuration setting:
+    Key: TestApp:Settings:NewSetting, Value: Value has been updated!
+    
+    Deleted configuration setting:
+    Key: TestApp:Settings:NewSetting, Value: Value has been updated!
+    ```
 
 ## Clean up resources
 
