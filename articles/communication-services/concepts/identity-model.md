@@ -84,11 +84,11 @@ You can use the `voip.join` scope together with [Rooms](./rooms/room-concept.md)
 
 ## Client-server architecture
 
-You should create and manage user access tokens through a trusted service and don't create tokens in your client application. The connection string or Microsoft Entra credentials that are necessary to create user access tokens need to be protected and passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in extra charges on your resource when tokens are dispensed freely and get misused by somebody else.
+You should create and manage user access tokens through a trusted service and not create tokens in your client application. The connection string or Microsoft Entra credentials that are necessary to create user access tokens need to be protected, passing them to a client would risk leaking the secret. Failure to properly manage access tokens can result in extra charges on your resource when tokens are dispensed freely and get misused by somebody else.
 
 If you cache access tokens to a backing store, we recommend encrypting the tokens. An access token gives access to sensitive data and can be used for malicious activity if it isn't protected. Anyone with a user's access token can access that user's chat data or participate in calls impersonating the user.
 
-Make sure to only include those scopes in the token that your client application really needs in order to follow the security principle of least privilege.
+Make sure to include only those scopes in the token that your client application needs in order to follow the security principle of least privilege.
 
 :::image type="content" source="./media/architecture-identity.png" alt-text="Diagram that shows the user access token architecture." border="false":::
 
