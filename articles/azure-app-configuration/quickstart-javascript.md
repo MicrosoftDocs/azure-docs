@@ -299,10 +299,9 @@ const { AppConfigurationClient } = require("@azure/app-configuration");
 async function run() {
     console.log("Azure App Configuration - JavaScript example");
 
-    const credential = new DefaultAzureCredential();
     const client = new AppConfigurationClient(
         process.env.AZURE_APPCONFIG_ENDPOINT,
-        credential
+        new DefaultAzureCredential()
     );
 
     const retrievedConfigSetting = await client.getConfigurationSetting({
