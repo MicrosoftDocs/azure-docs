@@ -285,13 +285,10 @@ The following code snippet gives an example of how to configure a managed identi
     loadtestConfigFile: 'SampleApp.yaml'
     loadtestResource: 'MyTest'
     resourceGroup: 'loadtests-rg'
-    secrets: |
-        [
-            {
-            "name": "appToken",
-            "value": "${{ secrets.APP_TOKEN }}"
-            }
-        ]
+    referenceIdentities:
+        - kind: "Engine"
+          type: "user-assigned"
+          identity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
 
 # [Azure Pipelines](#tab/pipelines)
@@ -308,7 +305,7 @@ The following code snippet gives an example of how to configure a managed identi
     loadTestResource: 'MyTest'
     resourceGroup: 'loadtests-rg'
     referenceIdentities:
-        - kind: "Authentication"
+        - kind: "Engine"
           type: "user-assigned"
           identity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
