@@ -18,14 +18,16 @@ Nonregional services, listed on [Azure global infrastructure products](https://a
 
 There are two categories of nonregional services:
 
-- **Geographic services** are deployed to two or more regions within a geography. If there's a regional failure, the instance of the service in another region continues servicing customers.
+- **Geographic services** are deployed to two or more regions within a geography. If there's a regional failure, an instance of the service in another region continues servicing customers.
 - **Global services** are deployed to multiple regions worldwide. If there's a regional failure, an instance in another global region continues servicing customers.
 
-Some nonregional services enable customers to specify the region where some components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) enables customers to specify the region where their host pool (VMs) reside.
+Some nonregional services enable customers to specify the region where some components are deployed. For example, [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) is a geographic service, so its core components are deployed within a geography instead of a specific Azure region. However, it enables customers to specify the region where their host pool (virtual machines) reside.
 
 ### Data residency
 
-Most Azure services that store customer data allow the customer to specify the specific regions in which their data is stored. One exception is [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id). When you use Entra ID, you can select geographic placement (such as Europe or North America), or in some situations you can select worldwide for global distribution. For more information, see [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency).
+Most Azure services that store customer data allow the customer to specify the specific regions in which their data is stored.
+
+When you use [Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), you can select geographic placement (such as Europe or North America) to support data residency. Alternatively, in some situations you can select worldwide for global distribution. For more information, see [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency).
 
 For more information about data residency in Azure, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
