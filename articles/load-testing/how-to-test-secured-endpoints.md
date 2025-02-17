@@ -18,7 +18,7 @@ Azure Load Testing supports the following options for authenticated endpoints:
 
 - [Authenticate with a shared secret or user credentials](#authenticate-with-a-shared-secret-or-credentials)
 - [Authenticate with client certificates](#authenticate-with-client-certificates)
-- [Authenticate with a managed identity](#Authenticate-with-a-managed-identity)
+- [Authenticate with a managed identity](#authenticate-with-a-managed-identity)
 
 ## Prerequisites
 
