@@ -107,11 +107,8 @@ You can use Visual Studio to create a new console app project.
                     .UseFeatureFlags();
             }).Build();
 
-        IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
-
-        IVariantFeatureManager featureManager = new FeatureManager(
-            featureDefinitionProvider, 
-            new FeatureManagementOptions());
+       var featureManager = new FeatureManager(
+           new ConfigurationFeatureDefinitionProvider(configuration));
 
         if (await featureManager.IsEnabledAsync("Beta"))
         {
