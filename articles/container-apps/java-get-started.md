@@ -1,37 +1,21 @@
 ---
-title: Launch your first Java application in Azure Container Apps with WAR or JAR
+title: Launch Your First Java Application in Azure Container Apps with a WAR or JAR File
 description: Learn how to deploy a java project in Azure Container Apps with WAR or JAR.
 services: container-apps
-author: craigshoemaker
+author: KarlErickson
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: quickstart
-ms.date: 05/07/2024
+ms.date: 02/18/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-java-artifacts
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps with WAR or JAR
+# Quickstart: Launch your first Java application in Azure Container Apps with a WAR or JAR file
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application archive (WAR) file / Java Archive (JAR) file. You can deploy your Java application with many different options like local filesystem, code reposity, Maven, IDEs, a web application archive (WAR) file / Java Archive (JAR) file or even directly from the source code.
+This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application using a WAR or JAR file.
 
-By the end of this tutorial you deploy a web application, which you can manage through the Azure portal.
-
-The following image is a screenshot of how your application looks once deployed to Azure.
-
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
-
-## Prerequisites
-
-| Requirement  | Instructions |
-|--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).<br><br>You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Container Apps CLI extension | Use version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
-| Java | Install the [Java Development Kit](/java/openjdk/install). Use version 17 or later. |
-| Apache Maven | Download and install [Apache Maven](https://maven.apache.org/download.cgi).|
+[!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
 
 ## Prepare the project
 
