@@ -153,7 +153,7 @@ The following diagram shows the general network flow for access to Azure PaaS se
 :::image type="content" source="./media/tic-diagram-e.png" alt-text="PaaS connectivity options for TIC" border="false":::
 
 1. A private connection is made to Azure by using ExpressRoute. ExpressRoute private peering with forced tunneling is used to force all customer virtual network traffic over ExpressRoute and back to on-premises. Microsoft Peering isn't required.
-2. Azure VPN Gateway, when used with ExpressRoute and Microsoft Peering, can overlay end-to-end IPSec encryption between the customer virtual network and the on-premises edge. 
+2. Azure VPN Gateway, when used with ExpressRoute and Microsoft Peering, can overlay end-to-end IPsec encryption between the customer virtual network and the on-premises edge. 
 3. Network connectivity to the customer virtual network is controlled by using network security groups that allow customers to permit/deny traffic based on IP, port, and protocol.
 4. Traffic to and from the customer private virtual network is monitored through Azure Network Watcher and data is analyzed using Log Analytics and Microsoft Defender for Cloud.
 5. The customer virtual network extends to the PaaS service by creating a service endpoint for the customer's service.
