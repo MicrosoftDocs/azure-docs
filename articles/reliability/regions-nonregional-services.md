@@ -68,6 +68,7 @@ For more information about data residency in Azure, see [Data residency in Azure
 
 | **Product** | **Type** | **Notes** |
 | --- | --- | --- |
+| Azure AD B2C | Global | |
 | Microsoft Defender for Identity | Global | |
 | Microsoft Entra ID | Geographic and global | Select location during tenant creation, which can be geographic or worldwide. See [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency). |
 
@@ -90,8 +91,10 @@ For more information about data residency in Azure, see [Data residency in Azure
 | Azure Resource Graph | Global | |
 | Cloud Shell | Global | |
 | Customer Lockbox for Microsoft Azure | Global | |
+| Management groups | Global | |
 | Microsoft Cost Management | Global | |
 | Microsoft Graph | Global | |
+| Subscriptions | Global | |
 | Traffic Manager | Global | |
 
 ## Media
@@ -145,4 +148,5 @@ For more information about data residency in Azure, see [Data residency in Azure
 | **Product** | **Type** | **Notes** |
 | --- | --- | --- |
 | Azure Maps | Global | |
+| Azure Static Web Apps | Global | |
 | Content Delivery Network | Global | |
