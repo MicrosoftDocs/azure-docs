@@ -10,6 +10,8 @@ This tutorial shows you how to build a sample IoT Plug and Play device applicati
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples/pnp)
 
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
