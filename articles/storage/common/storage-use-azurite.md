@@ -490,7 +490,7 @@ To learn more, see [Use in-memory storage](https://github.com/Azure/Azurite#use-
 
 #### Disable telemetry collection
 
-**Optional**. By default, Azurite collects telemetry data to help improve the product. Use the following command to disable telemetry data collection for the current Azurite instance:
+**Optional**. By default, Azurite collects telemetry data to help improve the product. Use the `--disableTelemetry` option to disable telemetry data collection for the current Azurite execution, like following command:
 
 ```console
 azurite --disableTelemetry
