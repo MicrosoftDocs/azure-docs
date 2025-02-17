@@ -272,5 +272,6 @@ You can use a similar approach to instrument apps in other language stacks. For 
 
 ## More resources
 
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
 - [Deploy to App Service using GitHub Actions](deploy-github-actions.md)
 - [OpenTelemetry](https://opentelemetry.io/)
