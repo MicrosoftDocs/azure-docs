@@ -5,6 +5,9 @@
     "diskName": {
       "value": "myNexusDataDisk"
     },
+    "diskSize": {
+      "value": 102400
+    },
     "location": {
       "value": "eastus"
     },
