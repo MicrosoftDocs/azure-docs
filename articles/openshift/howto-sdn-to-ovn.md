@@ -38,8 +38,6 @@ OpenShift SDN remains supported on Azure Red Hat OpenShift through version 4.16.
            
 ## Next steps
 
-- [Learn more about OVN-Kubernetes](concepts-ovn-kubernetes.md).
+- [Learn more about OVN-Kubernetes network provider](concepts-ovn-kubernetes.md).
 - [Learn more about the OVN-Kubernetes network plugin](https://docs.openshift.com/container-platform/4.17/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
-
-
  
