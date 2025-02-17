@@ -75,7 +75,7 @@ Follow these steps to check your work so far, and make sure data is flowing into
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
+1. Follow the steps in [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1) to create a Real-Time Intelligence Eventhouse with a child KQL database. You only need to complete the section entitled **Create an Eventhouse**.
 
 1. Next, create a table in your database. Call it *OPCUA* and use the following columns.
 
@@ -253,4 +253,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this tutorial.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, eventhouse, and Real-Time Dashboard.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this tutorial, including the eventstream, Eventhouse, and Real-Time Dashboard.
