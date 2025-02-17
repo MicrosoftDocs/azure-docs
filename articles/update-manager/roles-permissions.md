@@ -62,7 +62,11 @@ Note that below permissions would be required in addition to permissions on indi
 |---|---|---|
 | **Register the subscription for the** **Microsoft.Maintenance resource provider** | Microsoft.Maintenance/register/action | Subscription |
 | **Create/modify maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/write | Subscription/resource group |
+| **Read maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/read | Subscription/resource group |
+| **Delete maintenance configuration** | Microsoft.Maintenance/maintenanceConfigurations/delete | Subscription/resource group |
 | **Create/modify configuration assignments** | Microsoft.Maintenance/configurationAssignments/write | Subscription/Resource group / machine |
+| **Read configuration assignments** | Microsoft.Maintenance/configurationAssignments/read | Subscription/Resource group / machine |
+| **Delete configuration assignments** | Microsoft.Maintenance/configurationAssignments/delete | Subscription/Resource group / machine |
 | **Read permission for Maintenance updates resource** | Microsoft.Maintenance/updates/read | Machine |
 | **Read permission for Maintenance apply updates resource** | Microsoft.Maintenance/applyUpdates/read | Machine |
 | **Get list of update  deployment** | Microsoft.Resources/deployments/read | Maintenance configuration and virtual machine subscription |
