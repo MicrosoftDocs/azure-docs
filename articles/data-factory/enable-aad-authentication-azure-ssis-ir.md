@@ -41,7 +41,7 @@ Azure SQL Database supports creating a database with a Microsoft Entra user. Fir
 
 ### Create a Microsoft Entra group with the specified system/user-assigned managed identity for your ADF as a member
 
-You can use an existing Microsoft Entra group or create a new one using Azure AD PowerShell.
+You can use an existing Microsoft Entra group or create a new one using Microsoft Entra PowerShell.
 
 1. Install the [Microsoft Entra PowerShell](/powershell/entra-powershell/installation) module.
 
