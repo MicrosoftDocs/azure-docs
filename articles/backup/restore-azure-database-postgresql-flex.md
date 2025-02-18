@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for PostgreSQL -Flexible server backups using Azure portal
+title: Restore Azure Database for PostgreSQL -Flexible server using Azure portal
 description: Learn about how to restore Azure Database for PostgreSQL -Flexible backups.
 ms.topic: how-to
 ms.date: 02/28/2025
@@ -10,7 +10,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore Azure Database for PostgreSQL - Flexible Server backups using Azure portal
+# Restore Azure Database for PostgreSQL - Flexible Server using Azure portal
 
 This article describes how to restore an Azure PostgreSQL -Flexible Server backed up using Azure portal.
 
