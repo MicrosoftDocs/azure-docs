@@ -37,7 +37,7 @@ You can set limits for a resource to control the total consumption of Virtual Us
 
 1. Select **Apply**.
 
-    :::image type="content" source="media/how-to-enable-usage-limits/enable-usage-limits.png" alt-text="Screenshot that shows how to enable usage limits on an Azure Load Testing resource.":::
+    :::image type="content" source="media/how-to-manage-usage-limits/enable-usage-limits.png" alt-text="Screenshot that shows how to enable usage limits on an Azure Load Testing resource.":::
 
 > [!IMPORTANT]
 >  In-progress tests will stop on a best-effort basis. Actual VUH usage may slightly exceed the limit.
