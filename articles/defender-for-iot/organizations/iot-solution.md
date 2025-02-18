@@ -134,7 +134,7 @@ For more information, see [View alerts on the Defender for IoT portal](how-to-ma
 
 ### Understand multiple records per alert
 
-Defender for IoT alert data is streamed to the Microsoft Sentinel and stored in your Log Analytics workspace, in the [SecurityAlert]() table.
+Defender for IoT alert data is streamed to the Microsoft Sentinel and stored in your Log Analytics workspace, in the [SecurityAlert](azure/sentinel/security-alert-schema) table.
 
 Records in the **SecurityAlert** table are created each time an alert is generated or updated in Defender for IoT. Sometimes a single alert will have multiple records, such as when the alert was first created and then again when it was updated.
 
