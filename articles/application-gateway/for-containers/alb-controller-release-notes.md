@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 2/12/2025
+ms.date: 2/15/2025
 ms.author: greglin
 ---
 
@@ -26,7 +26,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.4.11 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), Misc. bug fixes and improvements |
+| 1.4.12 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Updated to Gateway API version 1.1.1, Regex match support for path and header match in HTTP and GRPC routes, [Wildcard hostname fix](https://github.com/Azure/AKS/issues/4713), Misc. bug fixes and improvements |
 
 ## Release history
 

@@ -14,6 +14,16 @@
             "source_path_from_root": "/articles/education-hub/get-started-education-hub.md",
             "redirect_url": "/azure/education-hub/about-education-hub",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/find-ids.md",
+            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/delete-lab-education-hub-apis.md",
+            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_document_id": false
         }
     ]
     }

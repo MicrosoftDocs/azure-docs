@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Date and time functions in mapping data flow

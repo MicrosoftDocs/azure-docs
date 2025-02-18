@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 10/07/2024
+ms.date: 02/15/2025
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -170,7 +170,7 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-The following domains (HTTPS/Port 443) may need to be included in your firewall allowlists to optimize connectivity:
+The following domains (HTTP/Port 80) may need to be included in your firewall allowlists to optimize connectivity:
 
 AIA:
 - `cacerts.digicert.com`

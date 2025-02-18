@@ -124,3 +124,6 @@ items:
     href: https://aka.ms/managed-grafana/feature-request
   - name: Support
     href: find-help-open-support-ticket.md
+  - name: VS Code extension for Grafana
+    href: https://marketplace.visualstudio.com/items?itemName=Grafana.grafana-vscode
+    
