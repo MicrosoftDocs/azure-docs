@@ -80,7 +80,7 @@ At the moment, the following countries/regions have the local data residence opt
 
 - Japan 
 
-- Australia 
+- Australia
 
 #### What do I need to do? 
 
@@ -88,6 +88,18 @@ At the moment, the following countries/regions have the local data residence opt
 |-------------|---------|
 | I've an existing tenant | You need to opt in to start using Go-Local add-on by using the steps in [Activate Go-Local ad-on](tutorial-create-tenant.md#activate-azure-ad-b2c-go-local-add-on). |
 | I'm creating a new tenant | You enable Go-Local add-on when you create your new Azure AD B2C tenant. Learn how to [create your Azure AD B2C](tutorial-create-tenant.md) tenant.|
+
+#### Go-Local Directory Quota limits
+
+The following table lists the directory quota limits in the Go-Local tenants.
+
+|Category  |Limit  |
+|---------|---------|
+|Total number of objects (user accounts and applications) per tenant (default limit)|310,000 |
+|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|570,000 |
+
+<sup>1</sup> See also [Azure AD B2C service limits and restrictions](service-limits.md)
+
 
 ## EU Data Boundary
 
