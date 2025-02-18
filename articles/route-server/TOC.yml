@@ -61,8 +61,6 @@
     href: /cli/azure/network/routeserver
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing

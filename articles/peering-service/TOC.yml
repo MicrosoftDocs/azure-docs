@@ -40,8 +40,6 @@
     href: /cli/azure/peering
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page for Networking
