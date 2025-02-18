@@ -9,6 +9,7 @@ ms.topic: conceptual
 
 # Migrate dependencies associated with AWS Lambda to Azure Functions
 
+
 ## Scope
 
 > [!NOTE]
