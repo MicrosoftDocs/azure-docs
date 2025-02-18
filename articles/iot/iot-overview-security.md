@@ -20,21 +20,39 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
-Typically on an edge-based solution, you want to secure your end-to-end operations by using Azure security capabilities. Azure IoT Operations has built-in security capabilities such as [secrets management](../iot-operations/secure-iot-ops/howto-manage-secrets.md), [certificate management](../iot-operations/secure-iot-ops/concept-default-root-ca.md), and [secure settings](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md) on an Azure Arc-enabled Kubernetes cluster. When a Kubernetes cluster is connected to Azure, an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit, and several other security features are enabled, such as:
+Typically on an edge-based solution, you want to secure your end-to-end operations by using Azure security capabilities. Azure IoT Operations has built-in security capabilities such as [secrets management](../iot-operations/secure-iot-ops/howto-manage-secrets.md), [certificate management](../iot-operations/secure-iot-ops/concept-default-root-ca.md), and [secure settings](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md) on an [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) cluster. When a Kubernetes cluster is connected to Azure, an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit, and several other security features are enabled, such as:
 
 - View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
-- Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable).
+- Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).
 - Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
 - Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
 
 You can divide security in an edge-based IoT solution into the following three areas:
 
-- **Asset security**: 
+- **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
 
-- **Connection security**: 
+- **Connection security**: Ensure all data in transit between the asset, edge and cloud services is confidential and tamper-proof.
 
-- **Edge and Cloud security**:
+- **Edge security**: Secure your data while it moves through, and is stored in the edge.
 
+- **Cloud security**: Secure your data while it moves through, and is stored in the cloud.
+
+## Microsoft Defender for IoT and for Containers
+
+Microsoft Defender for IoT is a unified security solution built specifically to identify IoT and operational technology (OT) devices, vulnerabilities, and threats. Microsoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.
+
+Both Defender for IoT and Defender for Containers can automatically monitor some of the recommendations included in this article. Defender for IoT and Defender for Containers should be the frontline of defense to protect your edge-based solution. To learn more, see:
+
+- [Microsoft Defender for Containers - overview](/azure/defender-for-cloud/defender-for-containers-introduction)
+- [Microsoft Defender for IoT for organizations - overview](../defender-for-iot/organizations/overview.md).
+
+## Asset security
+
+## Connection security
+
+## Edge security
+
+## Cloud security
 
 # [Cloud-based solution](#tab/cloud)
 
@@ -56,7 +74,7 @@ Implementing the recommendations in this article helps you meet the security obl
 
 ## Microsoft Defender for IoT
 
-Microsoft Defender for IoT can automatically monitor some of the recommendations included in this article. Microsoft Defender for IoT should be the frontline of defense to protect your resources in Azure. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. To learn more, see:
+Microsoft Defender for IoT can automatically monitor some of the recommendations included in this article. Microsoft Defender for IoT should be the frontline of defense to protect your cloud-based solution. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. To learn more, see:
 
 - [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
 - [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md).
