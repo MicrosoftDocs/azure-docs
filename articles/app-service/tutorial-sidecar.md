@@ -270,5 +270,6 @@ You can use a similar approach to instrument apps in other language stacks. For 
 ## More resources
 
 - [Run a local SLM in a sidecar container in Azure App Service](tutorial-sidecar-local-slm.md)
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
 - [Deploy to App Service using GitHub Actions](deploy-github-actions.md)
 - [OpenTelemetry](https://opentelemetry.io/)

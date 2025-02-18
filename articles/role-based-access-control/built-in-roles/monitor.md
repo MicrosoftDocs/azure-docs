@@ -397,12 +397,14 @@ View dashboards, playlists, and query data sources.
 
 Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alertsSummary/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/actiongroups/* |  |
@@ -571,12 +573,14 @@ Enables publishing metrics against Azure resources
 
 Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |

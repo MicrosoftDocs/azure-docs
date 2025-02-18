@@ -4,7 +4,7 @@ description: This article provides a summary of support for updates, one time up
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/29/2025
+ms.date: 02/03/2025
 ms.topic: overview
 zone_pivot_groups: support-matrix-updates
 ---
@@ -257,28 +257,34 @@ Following is the list of supported images and no other marketplace images releas
 
 ### Custom images
 
-Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview)) which are created from below listed operating systems are supported for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md). 
+Custom images (including images uploaded to [Azure Compute gallery](/azure/virtual-machines/linux/tutorial-custom-images#overview))  which are created from below listed operating systems are supported for all Azure Update Manager operations (on-demand operations and customer managed schedules). For instructions on how to use Azure Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).  
 
 #### [Windows operating system](#tab/ci-win)
 
 | Windows operating systems |
 | --- |
+| Windows Server 2025|
 | Windows Server 2022 |
 | Windows Server 2019 |
 | Windows Server 2016 |
 | Windows Server 2012 R2 |
 | Windows Server 2012 |
-  
+
 #### [Linux operating system](#tab/ci-lin)
 
 | Linux operating systems |
 | --- |
-| Oracle Linux 7.x, 8x |
+| Oracle Linux 7.x, 8x, 9x |
 | Red Hat Enterprise 7, 8, 9 |
 | SUSE Linux Enterprise Server 12.x, 15.0-15.4 |
 | Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS, 22.04 LTS |
- 
+| Common Base Linux Mariner 1, 2|
+| Rocky Linux 9|
+| Debian 10,11|
+| Alma Linux 8, 9|
+
 ---
+
 :::zone-end
 
 ::: zone pivot="azure-arc-enabled-servers"
