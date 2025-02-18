@@ -106,11 +106,11 @@ Instead, you would want to use forced tunneling to prevent this. When you enable
 
 Learn more:
 
-* [What are User Defined Routes and IP Forwarding](../../virtual-network/virtual-networks-udr-overview.md)
+* [Virtual network traffic routing](../../virtual-network/virtual-networks-udr-overview.md)
 
 ### Virtual network security appliances
 
-While NSGs, UDRs, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), you might also want to enable security at levels higher than the network.
+While NSGs, UDRs, and forced tunneling provide you a level of security at the network and transport layers of the OSI model, you might also want to enable security at the application layer.
 
 For example, your security requirements might include:
 
@@ -127,9 +127,13 @@ You can access these enhanced network security features by using an Azure partne
 
 ## Azure Firewall
 
-Azure Firewall is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Azure Firewall inspects both east-west and north-south traffic.
 
-Azure Firewall is offered in three SKUs: Standard, Premium, and Basic. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns. [Azure Firewall Basic](../../firewall/basic-features.md) is a simplified SKU that provides the same level of security as the Standard SKU but without the advanced capabilities.
+Azure Firewall is available in three SKUs: Basic, Standard, and Premium. 
+
+* [Azure Firewall Basic](../../firewall/basic-features.md) offers simplified security similar to the Standard SKU but without advanced features.
+* [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security.
+* [Azure Firewall Premium](../../firewall/premium-features.md) includes advanced capabilities such as signature-based IDPS for rapid attack detection by identifying specific patterns.
 
 Learn more:
 
@@ -148,45 +152,46 @@ Azure networking supports the following secure remote access scenarios:
 
 ### Connect individual workstations to a virtual network
 
-You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, let's say you need access to a virtual machine on a virtual network. But your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a [point-to-site VPN](../../vpn-gateway/point-to-site-about.md) connection.
+You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For instance, if you need access to a virtual machine on a virtual network but your security policy prohibits RDP or SSH remote access to individual virtual machines, you can use a [point-to-site VPN](../../vpn-gateway/point-to-site-about.md) connection.
 
-The point-to-site VPN connection enables you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
+A point-to-site VPN connection allows you to establish a private and secure connection between the user and the virtual network. Once the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network, provided they are authenticated and authorized. Point-to-site VPN supports:
 
-* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which TLS/SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
-
-* IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
-
-* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
+* **Secure Socket Tunneling Protocol (SSTP):** A proprietary SSL-based VPN protocol that can penetrate firewalls since most firewalls open TCP port 443, which TLS/SSL uses. SSTP is supported on Windows devices (Windows 7 and later).
+* **IKEv2 VPN:** A standards-based IPsec VPN solution that can be used to connect from Mac devices (OSX versions 10.11 and above).
+* **OpenVPN Protocol:** An SSL/TLS-based VPN protocol that can penetrate firewalls since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above). Supported versions are TLS 1.2 and TLS 1.3 based on the TLS handshake.
 
 Learn more:
 
-* [Configure a point-to-site connection to a virtual network using PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [About Point-to-site VPN routing](../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
-### Connect your on-premises network to a virtual network with a VPN
+### Connect your on-premises network to a virtual network with a VPN Gateway
 
-You might want to connect your entire corporate network, or portions of it, to a virtual network. This is common in hybrid IT scenarios, where organizations extend their on-premises datacenter into Azure. In many cases, organizations host parts of a service in Azure, and parts on-premises. For example,they might do so when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of "cross-premises" connections also make management of Azure located resources more secure, and enable scenarios such as extending Active Directory domain controllers into Azure.
+To connect your entire corporate network or specific segments to a virtual network, consider using a site-to-site VPN. This approach is common in hybrid IT scenarios where parts of a service are hosted both in Azure and on-premises. For example, you might have front-end web servers in Azure and back-end databases on-premises. Site-to-site VPNs enhance the security of managing Azure resources and enable scenarios like extending Active Directory domain controllers into Azure.
 
-One way to accomplish this is to use a site-to-site VPN. The difference between a site-to-site VPN and a point-to-site VPN is that the latter connects a single device to a virtual network. A site-to-site VPN connects an entire network (such as your on-premises network) to a virtual network. Site-to-site VPNs to a virtual network use the highly secure IPsec tunnel mode VPN protocol.
+A site-to-site VPN differs from a point-to-site VPN in that it connects an entire network (such as your on-premises network) to a virtual network, rather than just a single device. Site-to-site VPNs use the highly secure IPsec tunnel mode VPN protocol to establish these connections.
 
 Learn more:
 
-* [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
+* [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+
+Learn more:
+
 * [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Connect your on-premises network to a virtual network with a dedicated WAN link
 
-Point-to-site and site-to-site VPN connections are effective for enabling cross-premises connectivity. However, some organizations consider them to have the following drawbacks:
+Point-to-site and site-to-site VPN connections are useful for enabling cross-premises connectivity. However, they have some limitations:
 
-* VPN connections move data over the internet. This exposes these connections to potential security issues involved with moving data over a public network. In addition, reliability and availability for internet connections cannot be guaranteed.
-* VPN connections to virtual networks might not have the bandwidth for some applications and purposes, as they max out at around 200 Mbps.
+* VPN connections transmit data over the internet, exposing them to potential security risks associated with public networks. Additionally, the reliability and availability of internet connections cannot be guaranteed.
+* VPN connections to virtual networks may not provide sufficient bandwidth for certain applications, typically maxing out at around 200 Mbps.
 
-Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to a virtual network. Azure ExpressRoute, Express route direct, and Express route global reach enable this.
+For organizations requiring the highest levels of security and availability for their cross-premises connections, dedicated WAN links are often preferred. Azure offers solutions such as ExpressRoute, ExpressRoute Direct, and ExpressRoute Global Reach to facilitate these dedicated connections between your on-premises network and Azure virtual networks.
 
 Learn more:
 
-* [ExpressRoute technical overview](../../expressroute/expressroute-introduction.md)
-* [ExpressRoute direct](../../expressroute/expressroute-erdirect-about.md)
-* [Express route global reach](../../expressroute/expressroute-global-reach.md)
+* [ExpressRoute overview](../../expressroute/expressroute-introduction.md)
+* [ExpressRoute Direct](../../expressroute/expressroute-erdirect-about.md)
+* [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md)
 
 ### Connect virtual networks to each other
 
@@ -200,9 +205,9 @@ The advantage of this approach is that the VPN connection is established over th
 
 Learn more:
 
-* [Configure a VNet-to-VNet Connection by using Azure Resource Manager and PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-Another way to connect your virtual networks is  [VNET peering](../../virtual-network/virtual-network-peering-overview.md). This feature allows you to connect two Azure networks so that communication between them happens over the Microsoft backbone infrastructure without it ever going over the Internet. VNET peering can connect two VNETs within the same region or two VNETs across Azure regions. NSGs can be used to limit connectivity between different subnets or systems.
+Another way to connect your virtual networks is  [VNet peering](../../virtual-network/virtual-network-peering-overview.md). This feature allows you to connect two Azure networks so that communication between them happens over the Microsoft backbone infrastructure without it ever going over the Internet. VNet peering can connect two VNets within the same region or two VNet across Azure regions. NSGs can be used to limit connectivity between different subnets or systems.
 
 ## Availability
 
@@ -221,7 +226,7 @@ Load balancing is a mechanism designed to equally distribute connections among m
 
 Organizations that run web-based services often desire to have an HTTP-based load balancer in front of those web services. This helps ensure adequate levels of performance and high availability. Traditional, network-based load balancers rely on network and transport layer protocols. HTTP-based load balancers, on the other hand, make decisions based on characteristics of the HTTP protocol.
 
-Azure Application Gateway provides HTTP-based load balancing for your web-based services. Application Gateway supports:
+Azure Application Gateway and Azure Front Door provides HTTP-based load balancing for your web-based services. Both services support:
 
 * Cookie-based session affinity. This capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This ensures stability of transactions.
 * TLS offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (TLS) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as "TLS offload," because the web servers behind the load balancer don't experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
@@ -230,6 +235,7 @@ Azure Application Gateway provides HTTP-based load balancing for your web-based 
 Learn more:
 
 * [Application Gateway overview](../../application-gateway/overview.md)
+* [Azure Front Door overview](../../frontdoor/front-door-overview.md)
 
 ### Network level load balancing
 
