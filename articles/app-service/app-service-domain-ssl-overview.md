@@ -1,0 +1,25 @@
+# Your Azure App Service Custom Domain & SSL Journey
+
+Building a secure and professional web presence with Azure App Service involves several important steps—from acquiring your domain name to ensuring your site is accessible via HTTPS. Whether you're launching a new app or migrating an existing domain, the process can feel overwhelming without a clear roadmap. This guide is designed to be your main entry point into the world of custom domains and SSL on Azure App Service.
+
+Below, you'll find a series of common scenarios you might encounter, along with practical actions to take at each stage. Each scenario is linked to detailed tutorials that provide step-by-step instructions, helping you move seamlessly from one step to the next. Use the table below to quickly identify your current situation and find the right guidance for your custom domain and SSL journey.
+
+---
+
+| **Scenario** | **Situation** | **Action (What to Do)** | **Next Step (Detailed Tutorial)** |
+|--------------|---------------|-------------------------|-----------------------------------|
+| **1. Need a Domain Name** | You’re just starting out and don’t have a domain name yet, or you prefer to purchase one within Azure. | Acquire your domain using Azure’s integrated purchase feature and update its DNS settings so it can later point to your app. | [Buy and Configure a Domain Name](https://learn.microsoft.com/en-us/azure/app-service/manage-custom-dns-buy-domain) |
+| **2. Point Your Domain to Your Web App** | You have a domain (new or existing) and need to connect it to your Azure App Service. | Update your domain’s DNS records (using an A record or CNAME) to map it to your web app, replacing the default Azure subdomain. | [Map an Existing Custom DNS Name to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain?tabs=root%2Cazurecli) |
+| **3. Secure Your Domain** | Once your domain is mapped, it’s crucial to protect it with HTTPS to ensure secure data transfer. | Obtain an SSL/TLS certificate—either a free, managed option or a third-party certificate—and bind it to your domain. | [Secure a Custom Domain with TLS/SSL](https://learn.microsoft.com/en-us/azure/app-service/tutorial-secure-domain-certificate) |
+| **4. Ongoing Certificate Management** | You want a streamlined process to purchase, manage, and renew your SSL certificates within Azure. | Explore integrated certificate management options that simplify binding and renewal processes. | [Buy and Manage App Service Certificates](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate?tabs=apex%2CRBAC) |
+| **5. Bind Your SSL Certificate** | With your SSL/TLS certificate ready, you need to enforce secure connections on your custom domain. | Bind the certificate to your app via the Azure portal and verify that HTTPS is active. | [Add a TLS/SSL Certificate in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-bindings) |
+| **6. Understand TLS/SSL Protocols** | You’re curious about the technical details behind data encryption and secure communications. | Learn about TLS/SSL protocols, their role in securing data, and the evolution from SSL to modern TLS. | [Overview of TLS/SSL in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview-tls) |
+| **7. Advanced Integration** | For more complex scenarios, you might need to integrate certificate handling directly into your application code or implement mutual TLS. | Implement code-based SSL/TLS certificate integration and consider mutual TLS for two-way authentication where required. | [Use a TLS/SSL Certificate in Your Application Code](https://learn.microsoft.com/en-us/azure/app-service/configure-ssl-certificate-in-code?tabs=linux) <br><br> [Configure TLS Mutual Authentication in Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth?tabs=azureportal%2Cflask) |
+| **8. Enhance Global Performance** | Your app serves a global audience and needs to optimize availability and responsiveness. | Leverage Azure Traffic Manager to distribute traffic efficiently across multiple endpoints. | [Use Traffic Manager with a Custom Domain for Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/configure-domain-traffic-manager) |
+| **9. Migrate an Existing Domain** | You already manage a domain elsewhere and wish to transition it to Azure for better integration. | Plan the migration carefully, update your DNS records, and transfer domain management to Azure to minimize downtime. | [Migrate an Active Domain to Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/manage-custom-dns-migrate-domain) |
+
+---
+
+By following this roadmap, you’ll ensure that your web app not only has a professional custom domain but also benefits from robust security and optimal performance. Each detailed tutorial linked in the table offers step-by-step guidance to help you through every stage of your journey.
+
+Happy configuring!

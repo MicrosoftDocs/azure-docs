@@ -122,10 +122,12 @@
       href: web-sites-monitor.md
 - name: Domain names and certificates
   items:
-    - name: Connect a custom domain name
-      href: app-service-web-tutorial-custom-domain.md
+    - name: Domain name and SSL overview 
+      href: app-service-domain-ssl-overview.md
     - name: Custom domain names
       items:
+        - name: Connect a custom domain name
+          href: app-service-web-tutorial-custom-domain.md
         - name: Buy and configure App Service domain
           href: manage-custom-dns-buy-domain.md
         - name: Use Traffic Manager with custom domain names
