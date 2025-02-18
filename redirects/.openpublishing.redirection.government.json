@@ -5,7 +5,7 @@
             "redirect_url": "/azure/automation/automation-dsc-configuration-based-on-stig",
             "redirect_document_id": false
         },        {
-            "source_path_from_root": "articles/azure-government/documentation-government-stig-windows-vm.md",
+            "source_path_from_root": "/articles/azure-government/documentation-government-stig-windows-vm.md",
             "redirect_url": "/azure/automation/automation-dsc-configuration-based-on-stig",
             "redirect_document_id": false
         },        {
