@@ -1,6 +1,6 @@
 ---
 title: Launch Your First Java Application in Azure Container Apps with a WAR or JAR File
-description: Learn how to deploy a java project in Azure Container Apps with WAR or JAR.
+description: Learn how to deploy a java project in Azure Container Apps with a WAR or JAR file.
 services: container-apps
 author: KarlErickson
 ms.service: azure-container-apps
@@ -13,54 +13,57 @@ zone_pivot_groups: container-apps-java-artifacts
 
 # Quickstart: Launch your first Java application in Azure Container Apps with a WAR or JAR file
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application using a WAR or JAR file.
+This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application by using a WAR or JAR file.
 
 [!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
 
-## Prepare the project
+## Prerequisites
 
-Clone the Spring PetClinic sample application to your machine.
+[!INCLUDE [pet-clinic-prerequisites](includes/pet-clinic-prerequisites.md)]
+
+## Build the project
+
+Build the project by using the following steps:
 
 ::: zone pivot="jar"
 
-```bash
-git clone https://github.com/Azure-Samples/azure-container-apps-java-samples.git
-```
+1. Clone the Spring PetClinic sample application to your machine by using the following command:
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-container-apps-java-samples.git
+    ```
 
 ::: zone-end
 
 ::: zone pivot="war"
 
-```bash
-git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
-```
+    ```bash
+    git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+    ```
 
 ::: zone-end
 
-## Build the project
-
 ::: zone pivot="jar"
 
+1. Navigate to the **spring-petclinic** folder by using the following command:
 
-Change into the *spring-petclinic* folder.
+    ```bash
+    cd azure-container-apps-java-samples/spring-petclinic/spring-petclinic/
+    ```
 
-```bash
-cd azure-container-apps-java-samples/spring-petclinic/spring-petclinic/
-```
+1. Initialize and update the PetClinic to the latest version by using the following command:
 
-Init and update the PetClinc to the latest version.
+    ```bash
+    git submodule update --init --recursive
+    ```
 
-```bash
-git submodule update --init --recursive
-```
+1. Clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process, by using the following command:
 
-Clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
+    ```bash
+    mvn clean verify
+    ```
 
-```bash
-mvn clean verify
-```
-
-After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
+You now have a **/target/petclinic.jar** file.
 
 ::: zone-end
 
@@ -69,19 +72,19 @@ After you execute the build command, a file named *petclinic.jar* is generated i
 > [!NOTE]
 > If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
 
-Change into the *spring-framework-petclinic* folder.
+1. Navigate to the **spring-framework-petclinic** folder by using the following command:
 
-```bash
-cd spring-framework-petclinic
-```
+    ```bash
+    cd spring-framework-petclinic
+    ```
 
-Clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
+1. Clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process, by using the following command:
 
-```bash
-mvn clean verify
-```
+    ```bash
+    mvn clean verify
+    ```
 
-After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
+You now have a **/target/petclinic.war** file.
 
 ::: zone-end
 
@@ -89,24 +92,22 @@ After you execute the build command, a file named *petclinic.war* is generated i
 
 ::: zone pivot="jar"
 
-Deploy the JAR package to Azure Container Apps.
+Deploy the JAR package to Container Apps by using the following command:
 
 > [!NOTE]
 > If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
 
-Now you can deploy your WAR file with the `az containerapp up` CLI command.
-
 ```azurecli
 az containerapp up \
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --subscription <SUBSCRIPTION_ID>\
-  --location <LOCATION> \
-  --environment <ENVIRONMENT_NAME> \
-  --artifact <JAR_FILE_PATH_AND_NAME> \
-  --ingress external \
-  --target-port 8080 \
-  --query properties.configuration.ingress.fqdn
+    --name <CONTAINER_APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --subscription <SUBSCRIPTION_ID>\
+    --location <LOCATION> \
+    --environment <ENVIRONMENT_NAME> \
+    --artifact <JAR_FILE_PATH_AND_NAME> \
+    --ingress external \
+    --target-port 8080 \
+    --query properties.configuration.ingress.fqdn
 ```
 
 > [!NOTE]
@@ -155,8 +156,4 @@ View the application by pasting this URL into a browser. Your app should resembl
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Launch your first Java microservice application with managed Java components](java-microservice-get-started.md)
-> [Launch your first Java AI application](first-java-ai-application.md)
-> [Java build environment variables](java-build-environment-variables.md)
-
+[!INCLUDE [java-app-quickstart-deployment-next-steps](includes/java-app-quickstart-deployment-next-steps.md)]
