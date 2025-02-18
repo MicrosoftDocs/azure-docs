@@ -4,7 +4,7 @@ description: Learn how to migrate Apache HBase clusters in Azure HDInsight to a 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 10/17/2024
+ms.date: 18/02/2025
 ---
 
 # Migrate an Apache HBase cluster to a HDInsight 5.1
@@ -143,10 +143,12 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
    ```bash
    hbase zkcli
-   rmr /hbase-unsecure
+   deleteall /hbase-unsecure
    quit
    ```
-   
+> [!NOTE]
+> In some versions of zk, `rmr` is used instead of `deleteall`.
+
 ### Clean and migrate WAL
 
 Run the following commands, depending on your source HDInsight version and whether the source and destination clusters have Accelerated Writes.
