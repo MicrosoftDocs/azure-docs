@@ -39,18 +39,18 @@ API Management supports WebSocket passthrough.
 
 :::image type="content" source="./media/websocket-api/websocket-api-passthrough.png" alt-text="Visual illustration of WebSocket passthrough flow":::
 
-During the WebSocket passthrough the client application establishes a WebSocket connection with the API Management Gateway, which then establishes a connection with the corresponding backend services. API Management then proxies WebSocket client-server messages.
+During the WebSocket passthrough, the client application establishes a WebSocket connection with the API Management gateway, which then establishes a connection with the corresponding backend services. API Management then proxies WebSocket client-server messages.
 
-1. The client application sends a WebSocket handshake request to APIM gateway, invoking onHandshake operation.
-1. APIM gateway sends WebSocket handshake request to the corresponding backend service.
+1. The client application sends a WebSocket handshake request to the gateway, invoking the onHandshake operation
+1. The API Management gateway sends WebSocket handshake requests to the corresponding backend service.
 1. The backend service upgrades a connection to WebSocket.
-1. APIM gateway upgrades the corresponding connection to WebSocket.
-1. Once the connection pair is established, APIM will broker messages back and forth between the client application and backend service.
-1. The client application sends message to APIM gateway.
-1. APIM gateway forwards the message to the backend service.
-1. The backend service sends a message to APIM gateway.
-1. APIM gateway forwards the message to the client application.
-1. When either side disconnects, APIM terminates the corresponding connection.
+1. THe gateway upgrades the corresponding connection to WebSocket.
+1. After the connection pair is established, API Management brokers messages back and forth between the client application and backend service.
+1. The client application sends a message to the gateway.
+1. The gateway forwards the message to the backend service.
+1. The backend service sends a message to the gateway.
+1. The gateway forwards the message to the client application.
+1. When either side disconnects, API Management terminates the corresponding connection.
 
 > [!NOTE]
 > The client-side and backend-side connections consist of one-to-one mapping. 
@@ -114,9 +114,9 @@ For example, the following screenshot shows  recent WebSocket API responses with
 
 ## Limitations
 
-Below are the current restrictions of WebSocket support in API Management:
+The following are the current restrictions of WebSocket support in API Management:
 
-* WebSocket APIs are not supported yet in the Consumption tier.
+* WebSocket APIs aren't supported yet in the Consumption tier.
 * WebSocket APIs support the following valid buffer types for messages: Close, BinaryFragment, BinaryMessage, UTF8Fragment, and UTF8Message.
 * Currently, the [set-header](set-header-policy.md) policy doesn't support changing certain well-known headers, including `Host` headers, in onHandshake requests.
 * During the TLS handshake with a WebSocket backend, API Management validates that the server certificate is trusted and that its subject name matches the hostname. With HTTP APIs, API Management validates that the certificate is trusted but doesn’t validate that hostname and subject match.
@@ -125,7 +125,7 @@ For WebSocket connection limits, see [API Management limits](../azure-resource-m
 
 ### Unsupported policies
 
-The following policies are not supported by and cannot be applied to the onHandshake operation:
+The following policies aren't supported by and can't be applied to the onHandshake operation:
 * Mock response
 * Get from cache
 * Store to cache
@@ -143,10 +143,10 @@ The following policies are not supported by and cannot be applied to the onHands
 * Validate status code
 
 > [!NOTE]
-> If you applied the policies at higher scopes (i.e., global or product) and they were inherited by a WebSocket API through the policy, they will be skipped at runtime.
+> If you applied the policies at higher scopes (for example, global or product) and the're inherited by a WebSocket API through the policy, they are skipped at runtime.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Next steps
+## Related content
 > [!div class="nextstepaction"]
 > [Transform and protect a published API](transform-api.md)
