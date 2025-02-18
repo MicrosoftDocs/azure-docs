@@ -17,7 +17,7 @@ In this article, you learn how to monitor an Azure Managed Grafana instance by c
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance with access to at least one data source. If you don't have a Managed Grafana instance yet, [create an Azure Managed Grafana instance](./how-to-permissions.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
+- An Azure Managed Grafana instance with access to at least one data source. If you don't have a Managed Grafana instance yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
 
 ## Sign in to Azure
 
