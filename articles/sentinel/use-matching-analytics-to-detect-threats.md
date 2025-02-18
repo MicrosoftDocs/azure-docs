@@ -25,6 +25,7 @@ Take advantage of threat intelligence produced by Microsoft to generate high-fid
 You must install one or more of the supported data connectors to produce high-fidelity alerts and incidents. A premium Microsoft Defender Threat Intelligence license isn't required. Install the appropriate solutions from the **Content hub** to connect these data sources:
 
   - Common Event Format (CEF) via Legacy Agent
+  - Windows DNS via Legacy Agent (Preview)
   - Syslog via Legacy Agent
   - Microsoft 365 (formerly, Office 365)
   - Azure activity logs
@@ -41,7 +42,7 @@ You must install one or more of the supported data connectors to produce high-fi
   |[Windows Server DNS](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns?tab=Overview)  |[DNS connector for Microsoft Sentinel](data-connectors/dns.md) |
   |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](data-connectors/syslog.md)  |
   |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
-  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)       |
+  |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)   |
 
 ## Configure the matching analytics rule
 
@@ -66,6 +67,7 @@ Matching analytics is configured when you enable the **Microsoft Defender Threat
 Microsoft Defender Threat Intelligence Analytics matches your logs with domain, IP, and URL indicators in the following ways:
 
 - **CEF logs** ingested into the Log Analytics `CommonSecurityLog` table match URL and domain indicators if populated in the `RequestURL` field, and IPv4 indicators in the `DestinationIP` field.
+- **Windows DNS logs**, where `SubType == "LookupQuery"` ingested into the `DnsEvents` table matches domain indicators populated in the `Name` field, and IPv4 indicators in the `IPAddresses` field.
 - **Syslog events**, where `Facility == "cron"` ingested into the `Syslog` table matches domain and IPv4 indicators directly from the `SyslogMessage` field.
 - **Office activity logs** ingested into the `OfficeActivity` table match IPv4 indicators directly from the `ClientIP` field.
 - **Azure activity logs** ingested into the `AzureActivity` table match IPv4 indicators directly from the `CallerIpAddress` field.
