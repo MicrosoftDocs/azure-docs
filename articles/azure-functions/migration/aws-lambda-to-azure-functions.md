@@ -49,11 +49,11 @@ A migration from AWS to Azure usually involves more than just one service in iso
 
 Before initiating any migration, it's crucial to conduct a thorough evaluation of your current AWS Lambda deployment and design your end state. This step involves assessing multiple design areas of your existing implementation, identifying direct mapping opportunities, and uncovering potential challenges. These findings have you plan the necessary activities and adjustments to your workload or exectations for a successful transition to Azure Functions.
 
-You can perform the evaluation on these design areas in any order that you wish, however we've discovered that customers that start with $TOPIC establish a good foundation for this process.
+You can perform the evaluation on these design areas in any order that you wish, however we've discovered that customers that start with core serverless capabilities establish a good foundation for this process.
 
 Perform a pre-migration evaluation of the following design areas:
 
-- [Core capabilities](./capabilities.md)
+- [Core serverless capabilities](./capabilities.md)
 - [Identity and access management](./identity-access-management.md)
 - [Deployment](./deployment.md)
 - [Monitoring](./monitoring.md)
@@ -62,7 +62,7 @@ Perform a pre-migration evaluation of the following design areas:
 
 ### Functional and non-functional objectives and targets
 
-Prior to a migration, collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration should assume those targets as measurement of business objectves and you shouldn't compromise on. Collect the following information about your AWS Lambda deployment:
+Prior to a migration, collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration should assume those targets as measurement of business objectves and you shouldn't compromise on them. Collect the following information about your AWS Lambda deployment:
 
 - [Budget and cost of ownership](./function-placeholder.md)
 - [Reliability objectives and current reliability status](./function-placeholder.md)
@@ -95,5 +95,7 @@ See, [Explore Azure optimization opportunities](./function-placeholder.md)
 
 ## Next step
 
+Start pre-migration evaluation with:
+
 > [!div class="nextstepaction"]
-> [Start pre-migration evaluation with $TOPIC](./governance.md)
+> [Core serverless capabilities](./capabilities.md)
