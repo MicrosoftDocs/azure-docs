@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
+title: Quickstart - Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
 description: Learn how to configure backup for Azure Database for PostgreSQL - Flexible Server with a Terraform template.
 ms.devlang: terraform
 ms.custom:

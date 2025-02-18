@@ -1,5 +1,5 @@
 ---
-title: "Quickstart:Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure CLI
+title: Quickstart - Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure CLI
 description: Learn how to create backup policy to protect Azure Database for PostgreSQL - Flexible server using Azure CLI.
 ms.devlang: terraform
 ms.custom:
