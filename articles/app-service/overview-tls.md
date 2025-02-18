@@ -56,7 +56,7 @@ Key benefits include:
 - **Enhanced Privacy**: Encrypts handshake messages, reducing metadata exposure and mitigating downgrade attacks.
 
 #### Default Configuration  
-TLS 1.3 is fully supported in Azure App Service and can be enabled by setting the **Minimum Inbound TLS Version** to **1.3** in the Azure Portal, CLI, or ARM templates.
+TLS 1.3 is fully supported in Azure App Service and can be enabled by setting the **Minimum Inbound TLS Version** to **1.3** in the Azure portal, CLI, or ARM templates.
 
 #### Cipher Suites  
 A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:
@@ -82,7 +82,7 @@ To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will conti
 ## Minimum TLS cipher suite
 
 > [!NOTE]
-> Minimum TLS Cipher Suite is supported on Basic SKUs and higher on multi-tenant App Service.
+> Minimum TLS Cipher Suite is supported on Basic SKUs and higher on multitenant App Service.
 
 The minimum TLS cipher suite includes a fixed list of cipher suites with an optimal priority order that you cannot change. Reordering or reprioritizing the cipher suites isn't recommended as it could expose your web apps to weaker encryption. You also cannot add new or different cipher suites to this list. When you select a minimum cipher suite, the system automatically disables all less secure cipher suites for your web app, without allowing you to selectively disable only some weaker cipher suites.
 
