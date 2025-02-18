@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 09/25/2024
 ms.author: danlep
 ms.custom: engagement-fy23
