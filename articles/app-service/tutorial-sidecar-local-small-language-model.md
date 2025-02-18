@@ -12,7 +12,7 @@ keywords: azure app service, linux, docker, sidecar, ai, chatbot, slm, small lan
 
 In this tutorial, you learn how to run a small language model (SLM) as a sidecar container in Azure App Service and access it in your main Linux container. By the end of this tutorial, you'll have a fashion assistant chat application running in App Service and accessing a model locally.
 
-:::image type="content" source="media/tutorial-sidecar-local-small-language-model/web-app-slm-sidecar.png" alt-text="An image showing a fashion assistant chat app in Azure App Service.":::
+:::image type="content" source="media/tutorial-sidecar-local-small-language-model/web-app-slm-sidecar.png" alt-text="A screenshot showing a fashion assistant chat app in Azure App Service.":::
 
 Running an SLM locally is beneficial if you want to run a chatbot application without sending your business data over the internet to a cloud-based AI chatbot service.
 
