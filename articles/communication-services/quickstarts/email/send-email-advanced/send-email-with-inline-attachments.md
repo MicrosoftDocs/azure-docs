@@ -17,17 +17,17 @@ zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 
 In this quick start, you'll learn about how to send email with inline attachments using our Email SDKs.
 
-::: zone pivot="programming-language-csharp"
-[!INCLUDE [prepend-net](./includes/prepend-net.md)]
-[!INCLUDE [inline-attachments-net](./includes/inline-attachments-net.md)]
-::: zone-end
-
 ::: zone pivot="programming-language-azcli"
 [!INCLUDE [inline-attachments-azcli](./includes/inline-attachments-azcli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
 [!INCLUDE [inline-attachments-powershell](./includes/inline-attachments-powershell.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prepend-net](./includes/prepend-net.md)]
+[!INCLUDE [inline-attachments-net](./includes/inline-attachments-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
