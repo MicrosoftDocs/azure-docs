@@ -48,9 +48,9 @@ To enable connectivity to Azure Communication Services, set up Microsoft Peering
 
    2.2. Under the Peerings section, select **+ Add**. 
 
-   2.2. Choose **Microsoft Peering** and provide the required information, including your Primary and Secondary Subnets, VLAN ID, and ASNs. 
+   2.2. Choose **Microsoft Peering** and provide the required information, including your Primary and Secondary Subnets, VLAN ID, and ASNs.
 
-3. Advertise Routes: Make sure that your on-premises network advertises the appropriate routes to Azure services.
+3. Advertise Routes: Make sure that your on-premises network advertises the correct routes to Azure services.
 
 For detailed instructions, see [Configure ExpressRoute Microsoft Peering](/azure/expressroute/how-to-routefilter-portal). 
 
@@ -60,13 +60,13 @@ Route filters enable you to selectively consume services over ExpressRoute.
 
 1. Create a route filter: 
 
-   1.1 In the Azure portal, search for route filters and select + Create. 
+   1.1 In the Azure portal, search for route filters and select **+ Create**. 
 
    1.2. Provide a name, select your subscription and resource group. 
 
 2. Add Azure Communication Services to the route filter: 
 
-   2.1. After creating the route filter, select Rules and click + Add. 
+   2.1. After creating the route filter, select **Rules** and click **+ Add**. 
 
    2.2. Choose Azure Communication Services from the list of services. 
 
@@ -82,9 +82,9 @@ For more information, see [Configure route filters for Microsoft Peering using A
 
 ### 3. Configure Network Security 
 
-Make sure that your network security policies permit traffic to and from Azure Communication Services. 
+Make sure that your network security policies allow traffic to and from Azure Communication Services. 
 
-   - Firewall rules: Update on-premises firewall settings to permit Azure Communication Services traffic. 
+   - Firewall rules: Update on-premises firewall settings to allow Azure Communication Services traffic. 
 
    - Network Security Groups (NSGs): Configure NSGs in Azure to permit inbound and outbound communication with your on-premises network. 
 
@@ -96,7 +96,7 @@ Make sure that your network security policies permit traffic to and from Azure C
 
 ### 5. Update Application Settings 
 
-- Endpoint configuration: Modify your application's configuration to point to the Azure Communication Services endpoints accessible via ExpressRoute. 
+- Endpoint configuration: Change your application's configuration to point to the Azure Communication Services endpoints accessible via ExpressRoute. 
 
 - SDK settings: If using Azure Communication Services SDKs, ensure they're configured to use the private endpoints. 
 
@@ -104,7 +104,7 @@ Make sure that your network security policies permit traffic to and from Azure C
 
 - Supported regions: Verify that Azure Communication Services is available in your desired region and supports ExpressRoute connectivity. 
 
-- Bandwidth requirements: Assess your bandwidth needs to ensure your ExpressRoute circuit can handle the communication load. 
+- Bandwidth requirements: Assess your bandwidth needs to ensure your ExpressRoute circuit can support the communication load. 
 
 ## Troubleshooting 
 
@@ -120,7 +120,7 @@ No, ExpressRoute currently supports only voice mode by [Direct Routing](../conce
 
 ### Is there an added cost for using ExpressRoute with Azure Communication Services? 
 
-Not directly. While there's no added cost from Azure Communication Services for using ExpressRoute, there are costs associated with provisioning and using an ExpressRoute circuit. For more information, see [ExpressRoute pricing](/pricing/details/expressroute/). 
+Not directly. While there's no added cost from Azure Communication Services for using ExpressRoute, there are costs associated with provisioning and using an ExpressRoute circuit. For more information, see [ExpressRoute pricing](/pricing/details/expressroute). 
 
 ### How does ExpressRoute affect the latency of communication services? 
 
