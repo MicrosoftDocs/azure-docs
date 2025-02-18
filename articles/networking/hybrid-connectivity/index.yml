@@ -22,7 +22,7 @@ highlightedContent:
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
     - title: Azure Networking blogs
       itemType: concept
-      url: hhttps://azure.microsoft.com/blog/category/networking/
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
       itemType: overview
       url: ../security/index.yml
