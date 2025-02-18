@@ -33,5 +33,5 @@ const call = teamsCallAgent.startCall([{ phoneNumber: "+1xxxxxxxxxx" }], teamsCa
 
 To receive calls on behalf of a delegator,
 
-- update delegate permission to enable "receive calls" through [delegator call settings in Microsoft Teams](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8)
-- set up simultaneous ring for delegates through [delegator call settings in Microsoft Teams](https://support.microsoft.com/office/call-forwarding-call-groups-and-simultaneous-ring-in-microsoft-teams-a88da9e8-1343-4d3c-9bda-4b9615e4183e)
+- Update delegate permission to enable "receive calls" through [delegator call settings in Microsoft Teams](https://support.microsoft.com/office/share-a-phone-line-with-a-delegate-in-microsoft-teams-16307929-a51f-43fc-8323-3b1bf115e5a8)
+- Set up simultaneous ring for delegates through [delegator call settings in Microsoft Teams](https://support.microsoft.com/office/call-forwarding-call-groups-and-simultaneous-ring-in-microsoft-teams-a88da9e8-1343-4d3c-9bda-4b9615e4183e)
