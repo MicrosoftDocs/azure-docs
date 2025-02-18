@@ -48,4 +48,4 @@ Ensure you make these code changes in a code branch so the changes doesn't impee
 Build your runbook by documenting the step-by-step activities for your migration.
 
 > [!div class="nextstepaction"]
-> [Perform your migration from AWS Lambda to Azure Functions](./post-migration-checklist.md)
+> [Perform your migration from AWS Lambda to Azure Functions](./perform-migration.md)
