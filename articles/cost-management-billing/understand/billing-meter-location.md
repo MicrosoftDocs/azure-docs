@@ -18,7 +18,7 @@ An Azure billing meter is a collection of information in the Azure billing syste
 
 Some billing meters might apply to only one Azure region or location. Other billing meters are *shared* across multiple or all Azure regions. This difference means that a billing meter can have *a different Azure region* from the geographical location where you deploy a resource. This situation occurs when a billing meter is shared across physical locations.
 
-Azure billing experiences, including the Azure portal, Cost Management + Billing, APIs, your invoice, and cost and usage files always show a billing meter region. The meter region shown in these experiences is to identify the cost any quantity of the consumed service or resource. *The billing meter region shown doesn't identify the physical location of the resource.*
+Most Azure billing experiences, including the Azure portal, Cost Management + Billing, APIs, your invoice, and cost and usage files generally show a billing meter region. The meter region shown in these experiences is to identify the cost any quantity of the consumed service or resource. *The billing meter region shown doesn't identify the physical location of the resource.*
 
 ## Shared billing meter region example
 
