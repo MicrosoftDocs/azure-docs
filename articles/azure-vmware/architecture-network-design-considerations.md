@@ -32,11 +32,11 @@ For AS-Path Prepend, consider the following prerequisites:
 * Use either 2-byte or 4-byte public ASN numbers.
 
 
-### Reserved Private ASNs in Azure VMware Solution
+## Reserved Private ASNs in Azure VMware Solution
 
 Azure VMware Solution utilizes specific private Autonomous System Numbers (ASNs) for its underlay network infrastructure. To prevent conflicts and ensure seamless network integration, customers **must not** use the following ASNs within their network configurations:
 
-#### Reserved ASNs for Underlay Networking
+### Reserved ASNs for Underlay Networking
 
 The following ASNs are reserved for internal Azure VMware Solution infrastructure and should be avoided by customers:
 
@@ -48,7 +48,7 @@ The following ASNs are reserved for internal Azure VMware Solution infrastructur
 
 - **Management ASNs:** 65000 – 65412
 
-#### Impact of Using Reserved ASNs
+### Impact of Using Reserved ASNs
 
 Using any of the ASNs listed above in your environment may lead to BGP session failures, network routing conflicts, or service disruptions. Ensure that your ASN assignments do not overlap with these reserved values.
 
