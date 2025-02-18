@@ -1,7 +1,7 @@
 ---
-title: Copy data from Google BigQuery using legacy
+title: Copy data from Google BigQuery V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Google BigQuery V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
@@ -10,7 +10,7 @@ ms.custom: synapse
 ms.date: 01/26/2025
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics (legacy)
+# Copy data from Google BigQuery V1 using Azure Data Factory or Synapse Analytics 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.

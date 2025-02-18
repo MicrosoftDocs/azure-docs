@@ -143,6 +143,8 @@
         href: expressroute-howto-linkvnet-arm.md
       - name: Azure CLI
         href: expressroute-howto-linkvnet-cli.md
+  - name: Convert legacy connections
+    href: howto-recreate-connections.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
