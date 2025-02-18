@@ -16,7 +16,7 @@ Upgrade an Azure IoT Operations deployment to a newer version. Azure IoT Operati
 
 ## Prerequisites
 
-* Azure CLI. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+* Azure CLI. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
