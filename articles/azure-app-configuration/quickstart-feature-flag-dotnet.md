@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 2/13/2025
+ms.date: 2/19/2024
 ms.author: zhiyuanliang
 #Customer intent: As a .NET developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -185,53 +185,31 @@ You can use Visual Studio to create a new console app project.
         Console.WriteLine("Hello World!");
     }
     ```
+
     ---
 
 ## Build and run the app locally
 
-1. Set an environment variable.
+1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store.
 
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    ### [Windows command prompt](#tab/windowscommandprompt)
 
-    Set an environment variable named **Endpoint** to the endpoint of your App Configuration store found under the **Overview** of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx Endpoint "<endpoint-of-your-app-configuration-store>"
-    ```
-
-    If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export Endpoint='<endpoint-of-your-app-configuration-store>'
-    ```
-
-    ### [Connection string](#tab/connection-string)
-
-   Set an environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under **Access settings** of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command:
+    If you use the Windows command prompt, run the following command.
 
     ```console
     setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
-    If you use Windows PowerShell, run the following command:
-    ```powershell
+
+    Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
+
+    ### [PowerShell](#tab/powershell)
+
+    If you use Windows PowerShell, run the following command.
+
+    ```azurepowershell
     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
     ```
 
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export ConnectionString='<connection-string-of-your-app-configuration-store>'
-    ```
     ---
 
 1. Restart Visual Studio to allow the change to take effect. 

@@ -21,7 +21,7 @@ This guide provides key concepts and instructions for containerization of Window
 
 ::: zone pivot="container-linux"
 
-This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you're new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For sidecar containers (preview), see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+This guide provides key concepts and instructions for containerization of Linux apps in App Service. If you're new to Azure App Service, follow the [custom container quickstart](quickstart-custom-container.md) and [tutorial](tutorial-custom-container.md) first. For sidecar containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
 ::: zone-end
 
@@ -478,7 +478,7 @@ Further troubleshooting information is available at the Azure App Service blog: 
 ## Configure multi-container apps
 
 > [!NOTE]
-> Sidecar containers (preview) will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+> Sidecar containers will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
@@ -562,7 +562,7 @@ The following lists show supported and unsupported Docker Compose configuration 
 ::: zone pivot="container-linux"
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md)
+> [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md)
 
 ::: zone-end
 
