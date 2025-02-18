@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
@@ -287,7 +287,7 @@ To copy data from OData, the following properties are supported in the Copy Acti
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **ODataSource**. | Yes |
 | query | OData query options for filtering data. Example: `"$select=Name,Description&$top=5"`.<br/><br/>**Note**: The OData connector copies data from the combined URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
+| httpRequestTimeout | The  time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the  time-out to get a response, not the  time-out to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 **Example**
 

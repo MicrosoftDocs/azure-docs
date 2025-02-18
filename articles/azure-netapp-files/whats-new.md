@@ -6,13 +6,19 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 01/29/2025
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## February 2025
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
 
 ## January 2025 
 

@@ -58,6 +58,8 @@ For example, subscription A may have physical zone 1 mapped to logical zone 2, w
 
 To understand the mapping between logical and physical zones for your subscription, use the [List Locations Azure Resource Manager API](/rest/api/resources/subscriptions/list-locations). You can use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/what-is-azure-powershell) to retrieve the information from the API.
 
+To compare zone mapping for resilient solutions that span multiple subscriptions, use the dedicated ARM API [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers). To use the `checkZonePeers` API, the feature "Microsoft.Resources/AvailabilityZonePeering" needs to be enabled. For more information about how to enable features, see [Register features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+
 # [CLI](#tab/azure-cli)
 
 ```azurecli
@@ -79,6 +81,9 @@ $locations = ($response.Content | ConvertFrom-Json).value
 ## Availability zones and Azure updates
 
 For each region, Microsoft aims to deploy updates to Azure services within a single availability zone at a time. This approach reduces the impact that updates might have on an active workload, allowing the workload to continue to run in other zones while the update is in process. To take advantage of sequenced zone updates, your workload must be already configured to run across multiple zones. For more information about how Azure deploys updates, see [Advancing safe deployment practices](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/).
+
+> [!NOTE]
+> As reported on [Azure Updates Blog](https://azure.microsoft.com/updates?id=update-on-interavailability-zone-data-transfer-pricing) Azure will not charge for the data transfer across availability zones regardless of using private or public IPs on your Azure resources. With this change, Azure will further encourage and support customers’ efforts in building more resilient and efficient applications and solutions on Azure
 
 ## Inter-zone latency
 

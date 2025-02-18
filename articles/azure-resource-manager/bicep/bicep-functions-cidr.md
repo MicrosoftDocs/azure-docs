@@ -3,7 +3,7 @@ title: Bicep functions - CIDR
 description: Describes the functions to use in a Bicep file to manipulate IP addresses and create IP address ranges.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 06/08/2023
+ms.date: 02/12/2025
 ---
 
 # CIDR functions for Bicep
