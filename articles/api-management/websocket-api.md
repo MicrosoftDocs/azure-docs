@@ -17,7 +17,7 @@ With API Management’s WebSocket API solution, API publishers can quickly add a
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-You can secure WebSocket APIs similar to other APIs by applying API Management's [access control policies](api-management-policies.md#authentication-and-authorization). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
+Similar to other APIs, WebSocket APIs can be secured by applying API Management's [access control policies](api-management-policies.md#authentication-and-authorization). You can also test WebSocket APIs using the API test consoles in both Azure portal and developer portal. Building on existing observability capabilities, API Management provides metrics and logs for monitoring and troubleshooting WebSocket APIs. 
 
 In this article, you will:
 > [!div class="checklist"]
