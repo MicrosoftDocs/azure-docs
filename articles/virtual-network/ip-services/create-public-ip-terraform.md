@@ -36,7 +36,7 @@ In this article, you learn how to:
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-public-ip). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-public-ip/TestRecord.md).
 > 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
 ## Create a resource group
 
