@@ -17,4 +17,4 @@ TODO
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Build migration assets](./perform-migration.md)
+> [Build migration assets](./build-migration-assets.md)
