@@ -142,7 +142,7 @@ spec:
           userDataSecret:
             name: worker-user-data 
           vmSize: <Standard_E4s_v5, Standard_E8s_v5, Standard_E16s_v5>
-          vnet: aro-vnet 
+          vnet: <VNET_NAME> 
           zone: <ZONE>
       taints: 
       - key: node-role.kubernetes.io/infra

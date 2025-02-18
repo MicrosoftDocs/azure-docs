@@ -45,7 +45,7 @@ Before you start, make sure you've completed the following steps:
 
 ## Create an Azure Cache for Redis instance
 
-1. Create a cache in Azure Cache for Redis by using the steps described in [Create a cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Create a cache in Azure Cache for Redis by using the steps described in [Create a Azure Cache for Redis instance](/azure/azure-cache-for-redis/quickstart-create-redis).
 
 2. After you create the cache, under **Settings**, select **Access Keys**. Make a note of the **Primary connection string**.
 

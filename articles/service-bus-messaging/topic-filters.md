@@ -30,7 +30,7 @@ Service Bus supports three types of filters:
 The following sections provide details about these filters.
 
 ### SQL filters
-A **SqlFilter** holds a SQL-like conditional expression that will be evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical `NOT`/`AND`/`OR`, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
+A **SqlFilter** holds a SQL-like conditional expression that is evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical `NOT`/`AND`/`OR`, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
 
 Here's a .NET example for defining a SQL filter:
 
@@ -120,6 +120,13 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 	Action = new SqlRuleAction("SET quantity = quantity / 2;")
 }
 ```
+
+> [!IMPORTANT]
+> When you update system properties through rule actions, note that it might change the expected behavior. Some properties are only evaluated when a message is received in a queue or a topic. Therefore, when you update these properties in a rule action and then deliver them in a subscription, they are ignored. Although, when auto-forwarding to another queue or topic, they are re-evaluated. 
+> 
+> - **ScheduledEnqueueTime**: When you set or update this property, it's ignored on the subscription.
+> - **MessageID with deduplication**: No deduplication is performed in the subscription when the MessageID is updated and results in a duplicate.
+> - **SessionID with partitioning**: In this scenario, the session ID is the partition key for partitioned entities and is used to decide the partition the message is sent to. Changing the sessionID in a rule action means that the partition key is changed after a message has landed in a partition. As a result, the consumer might not receive some of these messages in the session. Even if consumer receives the message, it appears as though they are coming from the wrong partition due to the changed partition key.
 
 ## Usage patterns
 

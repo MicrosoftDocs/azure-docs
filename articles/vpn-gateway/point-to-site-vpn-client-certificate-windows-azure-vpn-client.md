@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 
@@ -23,8 +23,8 @@ Before beginning client configuration steps, verify that you're on the correct V
 
 This article assumes that you've already performed the following prerequisites:
 
-* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md) for steps.
-* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) for steps.
+* You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
+* You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
 * You can either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 
 ### Connection requirements
@@ -63,27 +63,7 @@ If you don't see either file, or you don't have an **AzureVPN** folder, verify t
 
 ## Configure the Azure VPN Client profile
 
-1. Open the Azure VPN Client.
-
-1. Select **+** on the bottom left of the page, then select **Import**.
-
-1. In the window, navigate to the **azurevpnconfig.xml** or **azurevpnconfig_cert.xml** file. Select the file, then select **Open**.
-
-1. On the client profile page, notice that many of the settings are already specified. The preconfigured settings are contained in the VPN client profile package that you imported. Even though most of the settings are already specified, you need to configure settings specific to the client computer.
-
-   From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. You can also (optionally) select a [Secondary Profile](#secondary-profile). For this exercise, select **None**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
-
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel and fix the issue before proceeding. It's possible that one of the following things is causing the problem:
-
-   * The client certificate isn't installed locally on the client computer.
-   * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
-   * The child certificate is corrupt.
-
-1. After the import validates (imports with no errors), select **Save**.
-
-1. In the left pane, locate the **VPN connection**, then select **Connect**.
+[!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
 
 ### Optional settings for the Azure VPN Client
 
@@ -99,4 +79,4 @@ You can configure the Azure VPN Client with optional configuration settings such
 
 ## Next steps
 
-Follow up with any additional server or connection settings. See [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Follow up with any additional server or connection settings. See [Point-to-site configuration steps](point-to-site-certificate-gateway.md).

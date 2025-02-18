@@ -58,7 +58,7 @@ The first step toward better visibility of your resources is to create and assig
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure-basics.md).
 
 1. Run the following command to create a policy definition using the _AuditStorageAccounts.json_ file.
 
@@ -191,7 +191,7 @@ To create a policy definition, use the following procedure:
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure-basics.md).
 
 1. Run the following command to create a policy definition:
 

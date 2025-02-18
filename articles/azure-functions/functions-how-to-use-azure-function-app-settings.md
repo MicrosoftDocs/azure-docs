@@ -3,8 +3,8 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 07/02/2024
-ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 11/11/2024
+ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ---
 
@@ -351,11 +351,22 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 ## Development limitations in the Azure portal
 
+The following table shows the operating systems and languages that support in-portal editing:
+
+| Language | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
+| C# | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔|✔|
+| Python | | | |✔ |✔ |✔ |
+| PowerShell |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
+
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
 
 + In-portal editing is supported only for functions that were created or last modified in the Azure portal.
 + In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
-+ In-portal editing isn't supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).
++ In-portal editing isn't currently supported by the [Flex Consumption plan](flex-consumption-plan.md#considerations).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
 + For Python, development with custom modules isn't currently supported in the portal. To add custom modules to your function app, you must [develop your app locally](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.

@@ -42,7 +42,7 @@ If you have multiple Azure subscriptions, choose the appropriate subscription in
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
-Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ## Create a resource group

@@ -87,7 +87,17 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 ## <a name="knownlimitations"></a>  Known Limitations
 
-* Routing Intent is currently available in Azure public. Microsoft Azure operated by 21Vianet and Azure Government are currently in roadmap.
+* The following table describes the availability of routing intent in different Azure environments.
+    * Routing intent is not available in Microsoft Azure operated by 21 Vianet.
+    * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
+    * Network Virtual Appliances are not available in all Azure Government regions. Contact your NVA partner regarding availability in Azure Government.  
+
+| Cloud Environment| Azure Firewall| Network Virtual Appliance| SaaS solutions|
+|--|--|--| --|
+| Azure Public | Yes | Yes | Yes|
+|Azure Government|Yes| Limited | No|
+|Microsoft Azure operated by 21 Vianet|No|No|No| 
+    
 * Routing Intent simplifies routing by managing route table associations and propagations for all connections (Virtual Network, Site-to-site VPN, Point-to-site VPN, and ExpressRoute). Virtual WANs with custom route tables and customized policies therefore can't be used with the Routing Intent constructs.
 * Encrypted ExpressRoute (Site-to-site VPN tunnels running over ExpressRoute circuits) is supported in hubs where routing intent is configured if Azure Firewall is configured to allow traffic between VPN tunnel endpoints (Site-to-site VPN Gateway private IP and on-premises VPN device private IP). For more information on the required configurations, see [Encrypted ExpressRoute with routing intent](#encryptedER).
 * The following connectivity use cases are **not** supported with Routing Intent:
@@ -133,7 +143,7 @@ foreach($connection in $hubVNETconnections) {
     $addressSpaceCount += $VNET.AddressSpace.AddressPrefixes.Count
   }
   catch{
-    Write-Host "An error ocurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
+    Write-Host "An error occurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
     Write-Host $resourceURI 
     Write-Host "Error Message: " -ForegroundColor Red
     Write-Host $_.Exception.Message -ForegroundColor Red 
@@ -485,6 +495,7 @@ Assuming you have already reviewed  the [Known Limitations](#knownlimitations) s
   * **If you have Internet Routing Policies configured**, make sure the 'Propagate Default Route' or 'Enable Internet Security' setting is set to 'true' for all connections that should learn the 0.0.0.0/0 default route. Connections where this setting is set to 'false' won't learn the 0.0.0.0/0 route, even if Internet Routing Policies are configured.
   * **If you're using Private Endpoints deployed in Virtual Networks connected to the Virtual Hub**, traffic from on-premises destined for Private Endpoints deployed in Virtual Networks connected to the Virtual WAN hub by default **bypasses** the routing intent next hop Azure Firewall, NVA, or SaaS. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints in Spoke Virtual Networks forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed. Configuring  /32 routes corresponding to  Private Endpoint private IP addresses in the Private Traffic text box **will not** ensure traffic symmetry when private routing policies are configured on the hub.
   * **If you're using Encrypted ExpressRoute with Private Routing Policies**, ensure that your Firewall device has a rule configured to allow traffic between the Virtual WAN Site-to-site VPN Gateway private IP tunnel endpoint and on-premises VPN device. ESP  (encrypted outer) packets should log in Azure Firewall logs. For more information on Encrypted ExpressRoute with routing intent, see [Encrypted ExpressRoute documentation](#encryptedER).
+  * **If you're using a user-defined route tables on your spoke virtual networks**, ensure that "Propagate gateway routes" is set to "Yes" on the route table. "Propagate gateway routes" must be enabled for Virtual WAN to advertise routes to workloads deployed in spoke Virtual Networks connected to Virtual WAN. For more information on user-defined route table settings, see [Virtual Network user-defined routing documentation](../virtual-network/virtual-networks-udr-overview.md#border-gateway-protocol).  
 
 ### Troubleshooting Azure Firewall routing issues
 

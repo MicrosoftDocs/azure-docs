@@ -4,15 +4,13 @@ description: Learn about the different host pool management approaches of sessio
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 11/19/2024
 ---
 
 # Host pool management approaches for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Host pools with a session host configuration for Azure Virtual Desktop are currently in PREVIEW.  This preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Host pools with a session host configuration for Azure Virtual Desktop are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Host pools are logical groupings of session host virtual machines that have the same configuration and serve the same workload. You can choose one of two host pool management approaches, *standard* and using a *session host configuration* (preview). In this article, you learn about each management approach and the differences between them to help you decide which one to use.
 
@@ -29,7 +27,7 @@ Creating, updating, and scaling session hosts in a host pool can require much ef
 
 - *[Session host update](session-host-update.md)* updates session hosts **when** there's an update made to the session host configuration. Session host update ensures that all session hosts in the pool have the same configuration.
 
-- *[Autoscale](autoscale-scenarios.md)* dynamically scales the number of session hosts depending on-demand, by powering on and powering off session hosts.
+- *[Autoscale](autoscale-scenarios.md)* dynamically scales the number of session hosts up and down based on the actual usage and the schedules defined in the scaling plan.
 
 > [!IMPORTANT]
 > - The session host configuration management approach can be used with pooled host pools only. When using a host pool with a session host configuration, you can't create, update or scale session hosts outside of the Azure Virtual Desktop service using tools designed for host pools with standard management.
@@ -94,7 +92,7 @@ The following table compares the management approach of host pools with a sessio
 |---|---|---|
 | Create session hosts | [Add session hosts](add-session-hosts-host-pool.md?pivots=host-pool-session-host-configuration) using the Azure portal based on the session host configuration. You can't retrieve a registration token to add session hosts created outside of Azure Virtual Desktop to a host pool. | [Add session hosts](add-session-hosts-host-pool.md?pivots=host-pool-standard) using your preferred method, then use a registration token to add them to a host pool. If you use the Azure portal, you need to input the configuration each time. |
 | Configure session hosts | The session host configuration ensures the configuration of session hosts is consistent. | You have to ensure the configuration of session hosts in the host pool is consistent. Session host configuration isn't available. |
-| Scale session hosts | Use [autoscale](autoscale-scenarios.md) to turn session hosts on and off based on a schedule and usage. | Use [autoscale](autoscale-scenarios.md) to turn session hosts on and off based on a schedule and usage. |
+| Scale session hosts | Use [autoscale](autoscale-scenarios.md) to turn session hosts on and off or create and delete session hosts based on a schedule and usage. | Use [autoscale](autoscale-scenarios.md) to turn session hosts on and off based on a schedule and usage. |
 | Update session host image | Use [session host update](session-host-update.md) to update the image and configuration of your session hosts based on the session host management policy and session host configuration. | Use your own existing tools and processes, such as automated pipelines and custom scripts to update the image and configuration of your session hosts. You can't use session host update. |
 | Automatically power on session hosts | Use [Start VM on Connect](start-virtual-machine-connect.md) to enable end users to turn on their session hosts only when they need them. | Use [Start VM on Connect](start-virtual-machine-connect.md) to enable end users to turn on their session hosts only when they need them. |
 

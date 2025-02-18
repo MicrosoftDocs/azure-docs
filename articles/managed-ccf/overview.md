@@ -16,7 +16,7 @@ Azure Managed Confidential Consortium Framework (Managed CCF) is a new and highl
 
 In fact, the framework runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment, which keeps potential attacks at bay. It also runs on a minimalistic Trusted Computing Base (TCB) and limits the operator's role.
 
-As the name suggests, Azure Managed CCF utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the open-sourced [Confidential Consortium Framework](https://ccf.dev) as the underlying technology to provide a high integrity platform that is tamper-protected and evident. A Managed CCF instance spans across three or more identical machines, each of which run in a dedicated, fully attested hardware-backed enclave. The data integrity is maintained through a consensus-based blockchain.
+As the name suggests, Azure Managed CCF utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the open-sourced [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework/) as the underlying technology to provide a high integrity platform that is tamper-protected and evident. A Managed CCF instance spans across three or more identical machines, each of which run in a dedicated, fully attested hardware-backed enclave. The data integrity is maintained through a consensus-based blockchain.
 
 The following diagram shows a high-level overview of the different layers of the Managed CCF platform and where the application code fits into it.
 

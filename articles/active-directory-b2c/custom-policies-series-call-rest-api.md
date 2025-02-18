@@ -277,7 +277,7 @@ The ClaimsTransformation generates the following JSON object:
 {
    "customerEntity":{
       "email":"john.s@contoso.com",
-      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "userObjectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
       "firstName":"John",
       "lastName":"Smith",
       "accessCode":"88888",

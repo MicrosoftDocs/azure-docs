@@ -5,7 +5,7 @@ description: Learn how to deploy dedicated Azure services into a virtual network
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/03/2024
 ms.author: allensu
 ---
@@ -44,7 +44,7 @@ Deploying services within a virtual network provides the following capabilities:
 | Containers | [Azure Kubernetes Service (AKS)](/azure/aks/concepts-network?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](https://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)<br/>[Azure Functions](../azure-functions/functions-networking-options.md#virtual-network-integration) |No<sup>2</sup><br/> Yes <br/> No <br/> Yes
 | Web | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Container Apps environments](../container-apps/networking.md)<br/>|Yes <br/> Yes <br/> Yes <br/> Yes <br/> Yes
 | Hosted | [Azure Dedicated HSM](/azure/dedicated-hsm/?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|Yes <br/> Yes <br/>
-| Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/enterprise/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
+| Azure Spring Apps | [Deploy in Azure virtual network (VNet injection)](../spring-apps/basic-standard/how-to-deploy-in-azure-virtual-network.md)<br/>| Yes <br/>
 | Virtual desktop infrastructure| [Azure Lab Services](../lab-services/how-to-connect-vnet-injection.md)<br/>| Yes <br/>
 | DevOps | [Azure Load Testing](/azure/load-testing/concept-azure-load-testing-vnet-injection)<br/>| Yes <br/>
 

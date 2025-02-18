@@ -30,7 +30,7 @@ Content in this article is intended for your **security** team.
 
 Before you can start using the **SAP - Security Audit log and Initial Access** workbook, you must have:
 
-- The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
+- A Microsoft Sentinel solution for SAP installed and a data connector configured. For more information, see [Deploy a Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
 - The **SAP - Security Audit log and Initial Access** workbook installed in your Log Analytics workspace enabled for Microsoft Sentinel. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
 
@@ -41,7 +41,9 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
-- If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.  
+- If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.
+
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
 
 ## Supported filters
 
@@ -76,7 +78,7 @@ The following table describes each metric in the **Logon analysis** area:
 
 |Area  |Description  |
 |---------|---------|
-|**Unique user logons per system**     |Shows the number of unique signins for each SAP system, and a graph with the sign-in trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
+|**Unique user logons per system**     |Shows the number of unique sign-ins for each SAP system, and a graph with the sign-in trends over the selected time for each system. <br><br>For example: the 012 system has 1.4-K unique logon attempts in the last 14 days, and in these 14 days the graph shows a relatively rising sign-in trend.         |
 |**Logon types trend**     |Shows a trend of the number of sign ins according to type, for example, login via dialog. <br><br>Hover over the graph to show the number of logons for different dates.|
 |**Logon failures Vs. success by unique users - trend**     |Shows a trend of successful and failed sign ins in the selected period. <br><br>Hover over the graph to show the amount of successful and failed sign ins for different dates.|
 

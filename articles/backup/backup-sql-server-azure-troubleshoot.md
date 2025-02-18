@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 09/19/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -276,19 +276,19 @@ The total string size of files depends not only on the number of files but also 
 ```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
-               WHERE db.name = N'<Database Name>'"
+               WHERE db.name = N'<Database Name>'
 ```
 
 Now arrange them in the following format:
 
 ```json
-[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]
 ```
 
 Here's an example:
 
 ```json
-[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]
 ```
 
 If the string size of the content exceeds 20,000 bytes, the database files are stored differently. During recovery, you won't be able to set the target file path for restore. The files will be restored to the default SQL path provided by SQL Server.
@@ -336,7 +336,7 @@ In the preceding content, you can get the logical name of the database file by u
 ```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
-                WHERE db.name = N'<Database Name>'"
+                WHERE db.name = N'<Database Name>'
 ```
 
 This file should be placed before you trigger the restore operation.

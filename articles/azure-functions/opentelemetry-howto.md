@@ -29,7 +29,7 @@ This article shows you how to configure your function app to export log and trac
 
 + Correlation across traces and logs being generated both at the host and in your application code.
 + Consistent, standards-based generation of exportable telemetry data. 
-+ Integrates with other providers that can consume OpenTeleletry-compliant data. 
++ Integrates with other providers that can consume OpenTelemetry-compliant data. 
 
 OpenTelemetry is enabled at the function app level, both in host configuration (`host.json`) and in your code project. Functions also provides a client optimized experience for exporting OpenTelemetry data from your function code that's running in a language-specific worker process.
 
@@ -207,7 +207,7 @@ These instructions only apply for an OTLP exporter:
 
 1. Add an application setting named `OTEL_FUNCTIONS_WORKER_ENABLED` with value of `True`.
 
-1. Create an [app-level `Modules` folder](functions-reference-powershell.md#function-app-level-modules-folder) in the root of your app and run the following command:
+1. Create an [app-level `Modules` folder](functions-reference-powershell.md#including-modules-in-app-content) in the root of your app and run the following command:
 
     ```powershell
     Save-Module -Name AzureFunctions.PowerShell.OpenTelemetry.SDK

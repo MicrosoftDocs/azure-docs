@@ -3,7 +3,7 @@ title: Work with anomaly detection analytics rules in Microsoft Sentinel
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 03/17/2024
+ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -27,7 +27,7 @@ You can now find anomaly rules displayed in a grid in the **Anomalies** tab in t
 
 1. For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
 
-    For users of the unified security operations platform in the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
+    For users of the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
 
 1. On the **Analytics** page, select the **Anomalies** tab.
 
@@ -74,7 +74,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
 
-    For users of the unified security operations platform in the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
+    For users of the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
 
 1. On the **Analytics** page, select the **Anomalies** tab.
 

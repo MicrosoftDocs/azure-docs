@@ -55,10 +55,11 @@ Large volumes allow workloads to extend beyond the current limitations of regula
 | Volume type | Primary use cases | 
 | - | -- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Service</li><li>Capacities less than 50 TiB</li></ul> |
-| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, FSI)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
+| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
 
 ## More information
 
 * [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
 * [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Understand workload types in Azure NetApp Files](workload-types.md)

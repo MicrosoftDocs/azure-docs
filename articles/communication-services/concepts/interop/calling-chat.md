@@ -22,7 +22,7 @@ To enable calling between your Communication Services users and Teams tenant, al
 ## Get Teams user ID
 
 To start a call with a Teams user or Teams Voice application, you need an identifier of the target. You have the following options to retrieve the ID:
-- User interface of [Microsoft Entra ID](../troubleshooting-info.md?#getting-user-id) or with on-premises directory synchronization [Microsoft Entra Connect](/entra/identity/hybrid/connect/how-to-connect-sync-whatis)
+- User interface of [Microsoft Entra ID](../troubleshooting-info.md?#get-a-user-id) or with on-premises directory synchronization [Microsoft Entra Connect](/entra/identity/hybrid/connect/how-to-connect-sync-whatis)
 - Programmatically via [Microsoft Graph API](/graph/api/resources/users)
 
 ## Calling

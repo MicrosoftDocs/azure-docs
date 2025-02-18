@@ -113,7 +113,7 @@ Replace `resourceEndpoint` with your real resource endpoint value.
 
 ## Create a content hash
 
-The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `Progam.cs` under the `Main` method.
+The content hash is a part of your HMAC signature. Use the following code to compute the content hash. You can add this method to `Program.cs` under the `Main` method.
 
 ```csharp
 static string ComputeContentHash(string content)

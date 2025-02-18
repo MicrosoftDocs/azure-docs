@@ -2,12 +2,11 @@
 title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Bicep'
 titleSuffix: Azure Application Gateway
 description: Learn how to use Bicep to create a Web Application Firewall v2 on Azure Application Gateway.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: quickstart
 ms.date: 10/16/2023
-ms.author: victorh
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-bicep
 ---
 

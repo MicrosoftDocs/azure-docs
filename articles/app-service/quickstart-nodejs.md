@@ -5,7 +5,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: quickstart
-ms.date: 08/28/2024
+ms.date: 12/02/2024
 ms.devlang: javascript
 zone_pivot_groups: app-service-vscode-cli-portal
 ms.custom: mvc, devcenter, devdivchpfy22, devx-track-js, ai-video-demo
@@ -30,7 +30,7 @@ The steps in the video are also described in the following sections.
 :::zone target="docs" pivot="development-environment-vscode"
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install [Visual Studio Code](https://code.visualstudio.com/).
 - Install the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
  <!-- - <a href="https://git-scm.com/" target="_blank">Install Git</a> -->
@@ -40,7 +40,7 @@ The steps in the video are also described in the following sections.
 :::zone target="docs" pivot="development-environment-cli"
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in a shell to create and configure Azure resources.
 
 ::: zone-end
@@ -49,7 +49,7 @@ The steps in the video are also described in the following sections.
 :::zone target="docs" pivot="development-environment-azure-portal"
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- Install [Node.js LTS and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
+- Install [Node.js LTS](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - Have an FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
@@ -60,16 +60,24 @@ In this step, you create a basic Node.js application and ensure it runs on your 
 > [!TIP]
 > If you have already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy to Azure](#deploy-to-azure).
 
-1. Create a Node.js application using the [Express Generator](https://expressjs.com/starter/generator.html), which is installed by default with Node.js and npm.
+1. Create a Node.js application using the [Express Generator](https://expressjs.com/starter/generator.html), which is installed by default with Node.js and npm. 
 
     ```bash
     npx express-generator myExpressApp --view ejs
     ```
 
+    If this is the first time you've installed the generator, npx will ask you to agree to the installation.
+
 1. Change to the application's directory and install the npm packages.
 
     ```bash
     cd myExpressApp && npm install
+    ```
+
+1. Update dependencies to the most secure version.
+
+    ```bash
+    npm audit fix --force
     ```
 
 1. Start the development server with debug information.
@@ -111,7 +119,7 @@ Before you continue, ensure that you have all the prerequisites installed and co
 
     In Visual Studio Code, you should see your Azure email address in the Status Bar and your subscription in the **App Service** explorer.
 
-    ![Screensnot of the Sign in to Azure option.](./media/quickstart-nodejs/sign-in.png)
+    ![Screenshot of the Sign in to Azure option.](./media/quickstart-nodejs/sign-in.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)

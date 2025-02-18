@@ -2,11 +2,11 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 09/20/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Delete an Azure Backup Recovery Services vault
 

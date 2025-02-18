@@ -16,6 +16,7 @@ ms.custom: include file
 |Resource |Limit |
 |---------|---------|
 |Number of private endpoints per virtual network     |  1000       |
+|Number of private endpoints across peered virtual networks     |  4000       |
 |Number of private endpoints per subscription       |   64000       |
 |Number of private link services per subscription         |   800      |
 |Number of private link services per Standard Load Balancer         |   8      |

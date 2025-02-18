@@ -18,11 +18,16 @@ Azure Route Server is a fully managed service that allows you to easily manage r
 
 ### Is Azure Route Server just a virtual machine?
 
-No. Azure Route Server is a service designed with high availability. Your route server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md).
+No. Azure Route Server is a service designed with high availability. Your route server has zone-level redundancy if you deploy it in an Azure region that supports [Availability Zones](../reliability/availability-zones-overview.md).
 
 ### Do I need to peer each NVA with both Azure Route Server instances?
 
-Yes, to ensure that virtual network routes are successfully advertised over the target NVA connections, and to configure High Availability, we recommend peering each NVA instance with both instances of Route Server.
+Yes, to ensure that routes are successfully advertised to Route Server and to configure high availability, it is required to peer each NVA instance with both instances of Route Server and advertise the same routes to both instances. It is also recommended to peer at least 2 NVA instances with both instances of Route Server. 
+
+>[!NOTE]
+> During Route Server maintenance events, BGP peering may go down between your NVA and one of Route Server's instances. As a result, if you configure your NVA to peer with both instances of Route Server, then your connectivity will remain up and running during maintenance events. 
+> 
+
 
 ### Does Azure Route Server store customer data?
 
@@ -36,12 +41,16 @@ Yes, if you peer a virtual network hosting the Azure Route Server to another vir
 
 These public endpoints are required for Azure's underlying SDN and management platform to communicate with Azure Route Server. Because Route Server is considered part of the customer's private network, Azure's underlying platform is unable to directly access and manage Route Server via its private endpoints due to compliance requirements. Connectivity to Route Server's public endpoints is authenticated via certificates, and Azure conducts routine security audits of these public endpoints. As a result, they do not constitute a security exposure of your virtual network.
 
+> [!NOTE]
+> These certificates are signed by an internal certificate authority, so this certificate chain will appear to not be signed by a known trusted authority. As a result, this does not represent an SSL vulnerability.
+>
+
 ### Does Azure Route Server support IPv6?
 
-No. We'll add IPv6 support in the future. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic.
+No. If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will break connectivity for IPv6 traffic. 
 
-> [!WARNING]
-> If you have deployed a virtual network with an IPv6 address space and later deploy an Azure Route Server in the same virtual network, this will also break connectivity for IPv4 traffic. This issue will be fixed in our next release to ensure IPv4 traffic continues to work as expected.
+You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network will continue to function. IPv6 connectivity with this peered virtual network is not supported. 
+
 
 ## Routing
 
@@ -101,7 +110,7 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 ### Does creating a Route Server affect the operation of existing virtual network gateways (VPN or ExpressRoute)?
 
-Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), expect downtime until the operation is complete. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit or its connections to other virtual networks.
+Yes. When you create or delete a Route Server in a virtual network that contains a virtual network gateway (ExpressRoute or VPN), downtime is expected to last 10 minutes. It may take 30-60 minutes for the actual Route Server deployment to complete, and so we recommend scheduling a maintenance window of 60 minutes for deployment. If you have an ExpressRoute circuit connected to the virtual network where you're creating or deleting the Route Server, the downtime doesn't affect the ExpressRoute circuit's connections to other virtual networks.
 
 ### Does Azure Route Server exchange routes by default between NVAs and the virtual network gateways (VPN or ExpressRoute)?
 
@@ -160,6 +169,12 @@ Azure Route Server has the following limits (per deployment).
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+
+### Why am I seeing an error about invalid scope and authorization to perform operations on Route Server resources?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Route Server Roles and Permissions](roles-permissions.md).
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
 
 ## Next steps
 

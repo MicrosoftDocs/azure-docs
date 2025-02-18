@@ -78,7 +78,7 @@ Open ID Connect is an authentication method that uses short-lived tokens. Settin
 
 1. Create a service principal. Replace the `$appID` with the appId from your JSON output.
 
-    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`.
+    This command generates JSON output with a different `Id` and will be used in the next step. The new  `Id` is the `assignee-object-id`.
 
     Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later.
 
@@ -89,12 +89,12 @@ Open ID Connect is an authentication method that uses short-lived tokens. Settin
 1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
-    * Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
+    * Replace `APPLICATION-OBJECT-ID` with the **objectId (of the app registration)** for your Active Directory application.
     * Set a value for `CREDENTIAL-NAME` to reference later.
     * Set the `subject`. The value of this is defined by GitHub depending on your workflow:
       * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
@@ -122,7 +122,7 @@ Create secrets for your Azure credentials, resource group, and subscriptions. Yo
 
 1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (`exampleRG`).
 
-1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`).
 
 # [Open ID Connect](#tab/openid)
 

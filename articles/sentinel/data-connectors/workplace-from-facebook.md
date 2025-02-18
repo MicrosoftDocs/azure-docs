@@ -66,7 +66,7 @@ To integrate with Workplace from Facebook (using Azure Functions) make sure you 
 3. In the **All integrations** view, click **Create custom integration**
 4. Enter the name and description and click **Create**.
 5. In the **Integration details** panel show **App secret** and copy.
-6. In the **Integration permissions** pannel set all read permissions. Refer to [permission page](https://developers.facebook.com/docs/workplace/reference/permissions) for details.
+6. In the **Integration permissions** panel set all read permissions. Refer to [permission page](https://developers.facebook.com/docs/workplace/reference/permissions) for details.
 7. Now proceed to STEP 2 to follow the steps (listed in Option 1 or 2) to Deploy the Azure Function.
 8. Enter the requested parameters and also enter a Token of choice. Copy this Token / Note it for the upcoming step.
 9. After the deployment of Azure Functions completes successfully, open Function App page, select your app, go to **Functions**, click **Get Function URL** and copy this / Note it for the upcoming step.

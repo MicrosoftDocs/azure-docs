@@ -1,0 +1,58 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Managed Redis (preview) FAQ
+  description: Learn the answers to common questions, patterns, and best practices for Azure Managed Redis
+  ms.date: 11/15/2024
+  ms.topic: faq
+  ms.custom:
+    - ignite-2024
+title: Azure Managed Redis (preview) FAQ
+summary: |
+  Learn the answers to common questions, patterns, and best practices for Azure Managed Redis (preview).
+  
+  * [Planning FAQs](managed-redis-planning-faq.yml)
+  * [Development FAQs](managed-redis-development-faq.yml)
+  * [Management FAQs](managed-redis-management-faq.yml)
+  * [Common monitoring and troubleshooting FAQs](managed-redis-monitor-troubleshoot-faq.yml)
+
+sections:
+  - name: Redis licensing change
+    questions:
+      - question: What changes were made to Redis licensing?
+        answer: |
+          The Redis open-source project changed to a dual-license model with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post on the Redis licensing change](https://aka.ms/redis/licensechangeblog).  
+
+      - question: Is Azure Managed Redis now also covered by the RSALv2 and SSPLv1 licenses?  
+        answer: |
+          No, Azure Managed Redis is offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses don't apply to your use of Azure Managed Redis. 
+
+      - question: Will my Azure Managed Redis instance continue to receive patches and bug fixes? 
+        answer: |
+          Yes, Azure Managed Redis, Azure Managed Redis Enterprise, and Enterprise Flash will continue to receive patches and bug fixes even after the licensing announcement.
+
+      - question: What do I need to do as an Azure Managed Redis customer in response to this licensing announcement?
+        answer: |
+          There's no action required for our Azure customers regarding the licensing announcement.
+      
+
+  - name: Deprecated Services
+    questions:
+      - question: Which Azure Managed Redis services were deprecated?
+        answer: |
+          - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+            
+          - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+                          
+
+  - name: General questions
+    questions:
+      - question: What if my Azure Managed Redis question isn't answered here?
+        answer: |
+          If your question isn't listed here, let us know so we can help you find an answer.
+          
+            - To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
+
+            - If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
+            
+            - You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
+          

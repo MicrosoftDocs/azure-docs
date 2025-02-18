@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/18/2024
 ms.author: normesta
 ---
 
@@ -60,8 +60,6 @@ Enter the name for your container. See the [Create a container](storage-quicksta
 ## Create a directory
 
 To create a directory, select the container that you created in the proceeding step. In the container ribbon, choose the **New Folder** button. Enter the name for your directory. When complete, press **Enter** to create the directory. After the directory has been successfully created, it appears in the editor window.
-
-:::image type="content" alt-text="Microsoft Azure Storage Explorer - Create a directory" source="media/data-lake-storage-explorer/create-directory-sml.png" lightbox="media/data-lake-storage-explorer/create-directory-lrg.png" :::
 
 ## Upload blobs to the directory
 

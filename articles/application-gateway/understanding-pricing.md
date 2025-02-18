@@ -4,7 +4,7 @@ description: This article describes the billing process for Azure Application Ga
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 01/19/2024
 ms.author: greglin

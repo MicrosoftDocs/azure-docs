@@ -28,7 +28,7 @@ In this quickstart, you use a single-page application to sign in using a social 
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Node.js](https://nodejs.org/en/download/)
+- [Node.js](https://nodejs.org/en/download/package-manager/)
 - Social account from Facebook, Google, or Microsoft
 - Code sample from GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa):
 

@@ -1,13 +1,13 @@
 ---
-title: Quickstart - Restore the entire SAP HANA system to a snapshot restore point
+title: Quickstart - Restore the entire SAP HANA system to a snapshot restore point using Azure Backup
 description: In this quickstart, learn how to restore the entire SAP HANA system to a snapshot restore point.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/02/2023
-ms.custom: mvc, mode-api
+ms.date: 11/26/2024
+ms.custom: mvc, mode-api, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Restore the entire SAP HANA database to a snapshot restore point
@@ -22,6 +22,8 @@ Azure Backup now allows you to restore the SAP HANA snapshot and storage snapsho
 For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 
 ## Prerequisites
+
+Before you start restoring the database, consider the following prerequisites:
 
 - Ensure that you have the backup configured and have the recovery points created to do restore. Learn more about the [configuration of backup for HANA database instance snapshots on Azure VM](sap-hana-database-instances-backup.md).  
 - Ensure that you have the [required permissions for the snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-the-snapshot-restore).

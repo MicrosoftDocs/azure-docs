@@ -1,5 +1,5 @@
 ---
-title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
+title: How to Use API Portal for VMware Tanzu with the Azure Spring Apps Enterprise Plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
@@ -149,7 +149,7 @@ This section describes how to view and try out APIs with schema definitions in A
 
 1. Configure routing rules to apps.
 
-   To create rules to access the app in Spring Cloud Gateway for Tanzu route configuration, save the following contents to the *sample.json* file.
+   To create rules to access the app in Spring Cloud Gateway for Tanzu route configuration, save the following contents to the **sample.json** file.
 
    ```json
    {

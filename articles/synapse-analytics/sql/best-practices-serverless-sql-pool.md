@@ -1,13 +1,13 @@
 ---
 title: Best practices for serverless SQL pool
-description: Recommendations and best practices for working with serverless SQL pool.
+description: Recommendations and best practices for working with serverless SQL pools in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
 ms.reviewer: whhender, wiassaf
-ms.date: 02/15/2023
+ms.date: 11/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: best-practice
 ---
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics
@@ -23,9 +23,9 @@ Some generic guidelines are:
 - Make sure the storage and serverless SQL pool are in the same region. Storage examples include Azure Data Lake Storage and Azure Cosmos DB.
 - Try to [optimize storage layout](#prepare-files-for-querying) by using partitioning and keeping your files in the range between 100 MB and 10 GB.
 - If you're returning a large number of results, make sure you're using SQL Server Management Studio or Azure Data Studio and not Azure Synapse Studio. Azure Synapse Studio is a web tool that isn't designed for large result sets.
-- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, refer to [Collation types supported for Synapse SQL](reference-collation-types.md).
+- If you're filtering results by string column, try to use a `BIN2_UTF8` collation. For more information on changing collations, see [Collation types supported for Synapse SQL](reference-collation-types.md).
 - Consider caching the results on the client side by using Power BI import mode or Azure Analysis Services, and periodically refresh them. Serverless SQL pools can't provide an interactive experience in Power BI Direct Query mode if you're using complex queries or processing a large amount of data.
-- Maximum concurrency is not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
+- Maximum concurrency isn't limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in that case consider decreasing concurrency and execute queries over a longer period of time if possible.
 
 ## Client applications and network connections
 
@@ -78,7 +78,7 @@ You can use a performance-optimized parser when you query CSV files. For details
 
 ### Manually create statistics for CSV files
 
-Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling is not supported and automatic creation of statistics will not happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics are not automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
+Serverless SQL pool relies on statistics to generate optimal query execution plans. Statistics are automatically created for columns using sampling and in most cases sampling percentage will be less than 100%. This flow is the same for every file format. Have in mind that when reading CSV with parser version 1.0 sampling isn't supported and automatic creation of statistics won't happen with sampling percentage less than 100%. For small tables with estimated low cardinality (number of rows) automatic statistics creation will be triggered with sampling percentage of 100%. That means that fullscan is triggered and automatic statistics are created even for CSV with parser version 1.0. In case statistics aren't automatically created, create statistics manually for columns that you use in queries, particularly those used in DISTINCT, JOIN, WHERE, ORDER BY, and GROUP BY. Check [statistics in serverless SQL pool](develop-tables-statistics.md#statistics-in-serverless-sql-pool) for details.
 
 ## Data types
 
@@ -162,7 +162,7 @@ For more information, read about the [filename](query-data-storage.md#filename-f
 > [!TIP]  
 > Always cast the results of the filepath and filename functions to appropriate data types. If you use character data types, be sure to use the appropriate length.
 
-Functions used for partition elimination, filepath and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
+Functions used for partition elimination, filepath, and filename, aren't currently supported for external tables, other than those created automatically for each table created in Apache Spark for Azure Synapse Analytics.
 
 If your stored data isn't partitioned, consider partitioning it. That way you can use these functions to optimize queries that target those files. When you [query partitioned Apache Spark for Azure Synapse tables](develop-storage-files-spark-tables.md) from serverless SQL pool, the query automatically targets only the necessary files.
 
@@ -186,7 +186,7 @@ As CETAS generates Parquet files, statistics are automatically created when the 
 
 ## Query Azure data
 
-Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
+Serverless SQL pools enable you to query data in Azure Storage or Azure Cosmos DB by using [external tables and the OPENROWSET function](develop-storage-files-overview.md). Make sure that you have proper [permission set up](develop-storage-files-overview.md#permissions) on your storage.
 
 ### Query CSV data
 

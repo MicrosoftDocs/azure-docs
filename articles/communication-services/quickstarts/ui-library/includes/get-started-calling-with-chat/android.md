@@ -13,21 +13,17 @@ ms.service: azure-communication-services
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md).
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md).
 
-## A complete sample
+## Get a complete sample
 
-You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-android) from the GitHub.
+You can get a [complete sample project](https://github.com/Azure-Samples/communication-services-calling-ui-with-chat-android) from GitHub.
 
-   :::image type="content" source="../../media/call-chat-android-experience.gif" alt-text="animation to showcase the experience on Android using call and chat in the same app.":::
+:::image type="content" source="../../media/call-chat-android-experience.gif" alt-text="Animation to showcase the experience on Android using call and chat in the same app.":::
 
 ## Set up the project
 
-Complete the following sections to set up the quickstart project.
-
-### Create a new Android project
-
 In Android Studio, create a new project:
 
-1. In the **File** menu, select **New** > **New Project**.
+1. On the **File** menu, select **New** > **New Project**.
 
 1. In **New Project**, select the **Empty Activity** project template.
 
@@ -35,11 +31,11 @@ In Android Studio, create a new project:
 
 1. Select **Next**.
 
-1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 26: Android 8.0 (Oreo)** or later.
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java** or **Kotlin**. For the minimum SDK, select **API 26: Android 8.0 (Oreo)** or later.
 
 1. Select **Finish**.
 
-   :::image type="content" source="../../media/composite-android-new-project-finish.png" alt-text="Screenshot that shows new project options and the Finish button selected.":::
+   :::image type="content" source="../../media/composite-android-new-project-finish.png" alt-text="Screenshot that shows new project options and the Finish button.":::
 
 ## Install the packages
 
@@ -47,7 +43,7 @@ Complete the following sections to install the required application packages.
 
 ### Add a dependency
 
-In your app-level *UILibraryQuickStart/app/build.gradle* file (in the app folder), add the following dependency:
+In your app-level *UILibraryQuickStart/app/build.gradle* file, add the following dependency:
 
 ```groovy
 dependencies {
@@ -57,7 +53,8 @@ dependencies {
     ...
 }
 ```
-Add META-INF exclusion to the *UILibraryQuickStart/app/build.gradle* `android` section
+
+Add a `META-INF` exclusion to the *UILibraryQuickStart/app/build.gradle* `android` section:
 
 ```groovy
 packaging {
@@ -67,9 +64,9 @@ packaging {
 
 ### Add Maven repositories
 
-Two Maven repositories are required to integrate the library:
+You need two Maven repositories to integrate the library:
 
-- MavenCentral
+- The `mavenCentral` repository
 - The Azure package repository
 
     ```groovy
@@ -83,15 +80,13 @@ Two Maven repositories are required to integrate the library:
     }
     ```
 
+## Connect to the Teams meeting with calling and chat
 
-## Connect to the Teams Meeting with Calling and Chat
+You use `CallComposite` to connect to the call. After a user is admitted to the call, `CallComposite` notifies you by changing the status to `connected`. Then the user can be connected to the chat thread.
 
-- First we will use CallComposite to connect to the call
-- Once user is admitted to the call, CallComposite will notify us by changing status to `connected`
-- Then user can be connected to the chat thread
-- When user clicks `Chat button`, a custom button added to the CallComposite, CallComposite will be minimized and Chat is displayed
+When the user selects the **Chat** button, a custom button is added to `CallComposite`. `CallComposite` is minimized, and **Chat** appears in Teams.
 
-## Add button and chat container view to Activity_main.xml
+## Add a button and chat container view to Activity_main.xml
 
 In the *app/src/main/res/layout/activity_main.xml* layout file, add the following code to create a button to start the composite:
 
@@ -134,27 +129,27 @@ In the *app/src/main/res/layout/activity_main.xml* layout file, add the followin
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Download a Chat Icon
+## Download a Chat icon
 
-- Download an icon from [here](https://github.com/microsoft/fluentui-system-icons/blob/master/android/library/src/main/res/drawable/ic_fluent_chat_24_regular.xml).
-- Save it to the *UILibraryQuickStart/app/src/main/res/drawable*
-- Open it and change `android:fillColor` to the `@color/white`
+1. Download an icon from the [GitHub repository](https://github.com/microsoft/fluentui-system-icons/blob/master/android/library/src/main/res/drawable/ic_fluent_chat_24_regular.xml).
+1. Save the icon to *UILibraryQuickStart/app/src/main/res/drawable*.
+1. Open the icon and change `android:fillColor` to `@color/white`.
 
-## Initialize the composites
+## Initialize the composite
 
-To initialize the Call composite:
+To initialize the call composite, go to `MainActivity` and update connection settings:
 
-- Go to `MainActivity` and update connection settings:
-    - Replace `TEAM_MEETING_LINK` with the Teams meeting link.
-    - Replace `ACS_ENDPOINT` with your ACS resource's endpoint.
-    - Replace `DISPLAY_NAME` with your name.
-    - Replace `USER_ID` with ACS user ID.
-    - Replace `USER_ACCESS_TOKEN` with your token.
+- Replace `TEAM_MEETING_LINK` with the Teams meeting link.
+- Replace `ACS_ENDPOINT` with your Azure Communication Services resource's endpoint.
+- Replace `DISPLAY_NAME` with your name.
+- Replace `USER_ID` with your Azure Communication Services user ID.
+- Replace `USER_ACCESS_TOKEN` with your token.
 
-### Get a Teams meeting chat thread for a Communication Services user
-The Teams meeting details can be retrieved using Graph APIs, detailed in [Graph documentation]()(/graph/api/onlinemeeting-createorget). The Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property
+### Get a Teams meeting chat thread for an Azure Communication Services user
 
-With the Graph APIs, you can also obtain the threadID. The response has a chatInfo object that contains the threadID.
+You can retrieve Teams meeting details by using Graph APIs, as described in the [Graph documentation](/graph/api/onlinemeeting-createorget). The Azure Communication Services Calling SDK accepts a full Teams meeting link or a meeting ID. They're returned as part of the `onlineMeeting` resource, which is accessible under the [joinWebUrl](/graph/api/resources/onlineMeeting) property.
+
+With the Graph APIs, you can also obtain the `threadID` value. The response has a `chatInfo` object that contains the `threadID` value.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -234,8 +229,8 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         callComposite.addOnCallStateChangedEventHandler { callState ->
-            // When user is admitted to the the Teams meeting, call state becoms connected.
-            // Only users admitted to the meeting, can connect the meeting's chat thread.
+            // When a user is admitted to the Teams meeting, the call state becomes connected.
+            // Only users admitted to the meeting can connect to the meeting's chat thread.
             if (callState.code == CallCompositeCallStateCode.CONNECTED) {
                 connectChat()
             }
@@ -367,8 +362,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         callComposite.addOnCallStateChangedEventHandler(callState -> {
-                    // When user is admitted to the the Teams meeting, call state becoms connected.
-                    // Only users admitted to the meeting, can connect the meeting's chat thread.
+                    // When a user is admitted to the Teams meeting, the call state becomes connected.
+                    // Only users admitted to the meeting can connect to the meeting's chat thread.
                     if (callState.getCode() == CallCompositeCallStateCode.CONNECTED) {
                         connectChat();
                     }
@@ -419,4 +414,3 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-

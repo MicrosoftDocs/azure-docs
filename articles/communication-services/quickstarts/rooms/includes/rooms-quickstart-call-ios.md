@@ -281,7 +281,7 @@ func joinRoomCall() {
 }
 ```
 
-`CallObserver` is used to manage mid-call events and remote participants. We'll set the observers in the `setCallAndOberserver` function.
+`CallObserver` is used to manage mid-call events and remote participants. We'll set the observers in the `setCallAndObserver` function.
 
 ```Swift
 func setCallAndObserver(call:Call!, error:Error?) {

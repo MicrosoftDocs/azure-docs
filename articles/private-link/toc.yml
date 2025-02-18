@@ -32,6 +32,12 @@
   - name: Create a Private Link service - ARM template
     displayName: Azure Resource Manager
     href: create-private-link-service-template.md
+  - name: Create a network security perimeter - Azure portal
+    href: create-network-security-perimeter-portal.md
+  - name: Create a network security perimeter - PowerShell
+    href: create-network-security-perimeter-powershell.md
+  - name: Create a network security perimeter - Azure CLI
+    href: create-network-security-perimeter-cli.md
   expanded: true
 - name: Tutorials
   items: 
@@ -58,7 +64,17 @@
   - name: What is a private endpoint?
     href: private-endpoint-overview.md
   - name: Private Link service
-    href: private-link-service-overview.md    
+    href: private-link-service-overview.md
+  - name: Network security perimeter
+    items:
+    - name: What is a network security perimeter?
+      href: network-security-perimeter-concepts.md
+    - name: Transition to a network security perimeter
+      href: network-security-perimeter-transition.md
+    - name: Diagnostic logs
+      href: network-security-perimeter-diagnostic-logs.md
+    - name: Role-based access control permissions
+      href: network-security-perimeter-role-based-access-control-requirements.md
   - name: DNS
     items:  
     - name: Private DNS zone values
@@ -81,6 +97,8 @@
     href: how-to-approve-private-link-cross-subscription.md
   - name: Configure an application security group
     href: configure-asg-private-endpoint.md
+  - name: Monitor Private Link
+    href: monitor-private-link.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints
@@ -115,8 +133,26 @@
     href: /rest/api/virtualnetwork/privateendpoints
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/allversions
+  - name: Monitoring data reference
+    href: monitor-private-link-reference.md
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+  - Name: Network security perimeter
+    items:
+    - name: Azure CLI
+      href: /azure/private-link/create-network-security-perimeter-cli
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /azure/application-gateway/private-link
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: /javascript/azure#azure-sdk
+    - name: Python
+      href: https://azure.microsoft.com/develop/python/
+    - name: REST
+      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

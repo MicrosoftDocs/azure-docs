@@ -39,7 +39,7 @@ A task _assignment_ identifies a storage account and a subset of objects in that
 
 To create an assignment, your identity must be assigned a custom role that contains the following RBAC actions:
 
-- The `Microsot.Authorization.roleAssignments/write` action.
+- The `Microsoft.Authorization/roleAssignments/write` action.
 
 - All of the RBAC actions that are available in the `Microsoft.Storage/StorageAccounts` set of RBAC action.
 

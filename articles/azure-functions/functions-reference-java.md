@@ -453,7 +453,7 @@ In the preceding example, the `queryValue` is bound to the query string paramete
         @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
         final ExecutionContext context
     ) {
-        context.getLogger().info("Java Queue trigger function processed a message: " + message + " with metadaId:" + metadataId );
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " with metadataId:" + metadataId );
         TestData testData = new TestData();
         testData.id = metadataId;
         output.setValue(testData);

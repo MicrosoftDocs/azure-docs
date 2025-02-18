@@ -27,7 +27,7 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
 | **Protocol** | TCP, UDP | TCP, UDP |
-| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network. This includes usage of a single availability set. | Virtual machines in a single availability set or virtual machine scale set. |
+| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
 | **Availability Zones** | Zone-redundant, zonal, or non-zonal frontend IP configurations can be used for inbound and outbound traffic | Not available |

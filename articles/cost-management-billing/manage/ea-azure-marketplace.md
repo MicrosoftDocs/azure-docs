@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/30/2024
+ms.date: 01/06/2025
 ms.author: banders
 ---
 
@@ -26,8 +26,6 @@ New monthly or annually recurring Azure Marketplace purchases are billed in full
 
 Existing, monthly recurring charges continue to renew on the first of each calendar month. Annual charges renew on the anniversary of the purchase date.
 
-
-
 ### Enabling Azure Marketplace purchases
 
 Enterprise administrators can disable or enable Azure Marketplace purchases for all Azure subscriptions under their enrollment. If the enterprise administrator disables purchases, and there are Azure subscriptions that already have Azure Marketplace subscriptions, those Azure Marketplace subscriptions aren't canceled or affected.
@@ -44,7 +42,8 @@ To enable Azure Marketplace purchase in the Azure portal:
 1. Select **Save**.
 
 > [!NOTE]
-> BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
+> - BYOL (bring your own license) and the Free Only option limits the purchase and acquisition of Azure Marketplace SKUs to BYOL and Free SKUs only.
+> - The Azure Marketplace default setting is Enabled for new enrollments by default.
 
 ### Services billed hourly for Azure EA
 

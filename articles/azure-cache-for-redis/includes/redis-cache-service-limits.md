@@ -1,12 +1,9 @@
 ---
-
-
-
 ms.topic: include
 ms.date: 08/16/2024
 
-
 ---
+
 | Resource | Limit |
 | --- | --- |
 | Cache size |1.2 TB |

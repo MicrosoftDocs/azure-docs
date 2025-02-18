@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 12/13/2023
+ms.date: 02/07/2025
 
 #CustomerIntent: As a network administrator, I want to control how traffic is routed from Azure to my on-premises network.
 ---
@@ -36,5 +36,5 @@ Microsoft recommends implementing a connectivity solution using both the Microso
 
 ## Related content
 
-- Learn more about [Azure Route Server](route-server-faq.md).
-- Learn how to [configure Azure Route Server](quickstart-configure-route-server-portal.md).
+- Learn more about [Azure Route Server](route-server-faq.md)
+- Learn how to [configure Azure Route Server](quickstart-configure-route-server-portal.md)

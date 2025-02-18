@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/29/2023
+ms.date: 11/18/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-vnet-types
 ---
@@ -254,7 +254,7 @@ E32          32       256          MemoryOptimized
 Consumption  4        8            Consumption
 ```
 
-Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
+Select a workload profile and use the *Name* field when adding or updating workload profiles with the `az containerapp env workload-profile add` or `az containerapp env workload-profile update` commands for the `--workload-profile-type` option.
 
 ### Show a workload profile
 

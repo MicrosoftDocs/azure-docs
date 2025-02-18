@@ -82,6 +82,10 @@ CommonSecurityLog
 | where ingestion_time() > ago(rule_look_back)
 ```
 
+See more information on the following items used in the preceding example, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
 
 ## Calculate ingestion delay
 

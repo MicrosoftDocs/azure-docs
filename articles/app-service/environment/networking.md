@@ -16,7 +16,11 @@ App Service Environment is a single-tenant deployment of Azure App Service that 
 
 ## Subnet requirements
 
-You must delegate the subnet to `Microsoft.Web/hostingEnvironments`, and the subnet must be empty.
+The following are the minimum set of requirements for the subnet your App Service Environment is in.
+
+- The subnet must be delegated to `Microsoft.Web/hostingEnvironments`.
+- The subnet must be empty.
+- The subnet's `addressPrefix` property must be formatted as a string, not an array. 
 
 The size of the subnet can affect the scaling limits of the App Service plan instances within the App Service Environment. For production scale, we recommend a `/24` address space (256 addresses) for your subnet. If you plan to scale near max capacity of 200 instances in our App Service Environment and you plan frequent up/down scale operations, we recommend a `/23` address space (512 addresses) for your subnet.
 
@@ -137,7 +141,7 @@ For more information about Private Endpoint and Web App, see [Azure Web App Priv
 
 ## DNS
 
-The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 40 characters because of DNS limits. If you have a slot, the slot name is truncated at 19 characters.
+The following sections describe the DNS considerations and configuration that apply inbound to and outbound from your App Service Environment. The examples use the domain suffix `appserviceenvironment.net` from Azure Public Cloud. If you're using other clouds like Azure Government, you need to use their respective domain suffix. For App Service Environment domains, the site name is truncated at 59 characters because of DNS limits. For App Service Environment domains with slots, the site name is truncated at 40 characters and the slot name is truncated at 19 characters because of DNS limits.
 
 ### DNS configuration to your App Service Environment
 

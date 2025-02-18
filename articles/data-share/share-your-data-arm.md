@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -52,7 +52,7 @@ The template performs the following tasks:
 This template is created for learning purposes. In practice, you usually have some data in an existing storage account. You would need to create the role assignment before running a template or a script to create the dataset. Sometimes, you might get the following error message when you deploy the template:
 
 ```plaintext
-"Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
+"Missing permissions for DataShareAccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
 It's because the deployment is trying to create the dataset before the Azure role assignment gets finalized. Despite the error message, the deployment could be successful. You would still be able to walk through [Review deployed resources](#review-deployed-resources).
@@ -67,9 +67,9 @@ It's because the deployment is trying to create the dataset before the Azure rol
     * **Subscription**: select an Azure subscription used to create the data share and the other resources.
     * **Resource group**: select **Create new** to create a new resource group or select an existing resource group.
     * **Location**: select a location for the resource group.
-    * **Project Name**: enter a project name.  The project name is used for generating resource names.  See the variable definitions in the previous template.
-    * **location**: select a location for the resources.  You can use the same location for the resource group.
-    * **Invitation Email**: enter the data share recipient's Azure sign in email address.  Email alias doesn't work.
+    * **Project Name**: enter a project name. The project name is used for generating resource names. See the variable definitions in the previous template.
+    * **location**: select a location for the resources. You can use the same location for the resource group.
+    * **Invitation Email**: enter the data share recipient's Azure sign in email address. Email alias doesn't work.
 
     Use the default value for the rest of the settings.
 1. select **I agree to the terms and conditions stated above**, and the select **Purchase**.
@@ -78,8 +78,8 @@ It's because the deployment is trying to create the dataset before the Azure rol
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Open the data share account that you created.
-1. From the left menu, select **Send Shares**.  You shall see the storage account listed.
-1. Select the storage account.  Under **Details**, you shall see the synchronization setting as you configured in the template.
+1. From the left menu, select **Send Shares**. You shall see the storage account listed.
+1. Select the storage account. Under **Details**, you shall see the synchronization setting as you configured in the template.
 
     ![Azure Data Share Storage Account Synchronization settings](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
 1. Select **Invitations** from the top. You shall see the email address that you specified when you deploy the template. The **Status** shall be **Pending**.
@@ -94,6 +94,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## Next steps
+## Next step
 
 In this quickstart, you learnt how to create an Azure data share and invite recipients. To learn more about how a data consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

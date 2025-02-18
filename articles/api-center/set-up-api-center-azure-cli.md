@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.daate: 06/27/2024
+ms.date: 06/27/2024
 ms.author: danlep 
 ---
 

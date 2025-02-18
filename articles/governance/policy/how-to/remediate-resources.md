@@ -312,7 +312,7 @@ To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyR
 # Login first with Connect-AzAccount if not using Cloud Shell
 
 # Create a remediation for a specific assignment
-Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+Start-AzPolicyRemediation -Name 'myRemediation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
 ```
 
 You might also choose to adjust remediation settings through these optional parameters:

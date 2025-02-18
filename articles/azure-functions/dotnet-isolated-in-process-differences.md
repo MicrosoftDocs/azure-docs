@@ -43,6 +43,7 @@ Use the following table to compare feature and functional differences between th
 | Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
 | [Flex Consumption] | [Supported](./flex-consumption-plan.md#supported-language-stack-versions) | Not supported |
+| .NET Aspire | [Preview](dotnet-isolated-process-guide.md#net-aspire-preview) | Not supported |
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 

@@ -5,7 +5,7 @@ description: Learn how to parameterize linked services in Azure Data Factory and
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/06/2024
+ms.date: 11/18/2024
 author: kromerm
 ms.author: makromer
 ---
@@ -22,7 +22,8 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 > We recommend not to parameterize passwords or secrets. Store all secrets in Azure Key Vault instead, and parameterize the *Secret Name*.
 
 > [!Note]
-> There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
+> 1. There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
+> 2. There is an active bug affecting dataflows with parameters. To avoid issues, it is recommended to use dataflow names without spaces until the bug is resolved.
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
@@ -83,6 +84,7 @@ All the linked service types are supported for parameterization.
 - SharePoint Online List
 - Snowflake
 - SQL Server
+- Vertica
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 

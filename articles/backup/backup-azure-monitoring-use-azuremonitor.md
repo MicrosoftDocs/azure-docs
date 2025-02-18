@@ -1,24 +1,32 @@
 ---
-title: Monitor Azure Backup with Azure Monitor
+title: Azure Monitor Logs in Azure Backup
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 12/30/2024
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
-# Monitor at scale by using Azure Monitor
+# Azure Monitor Logs
 
-Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. But this built-in service is limited in the following scenarios:
+Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. The only pre-requisite for this capability is to have Log Analytics workspace configured. This feature is supported in the following scenarios:
 
-- If you monitor data from multiple Recovery Services vaults across subscriptions
-- If the preferred notification channel is *not* email
-- If users want alerts for more scenarios
-- If you want to view information from an on-premises component such as System Center Data Protection Manager in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center) or [**Backup Alerts**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Monitoring data from multiple Recovery Services vaults across Subscriptions
+- Visibility into custom scenarios
+- Configuring alerts for custom scenarios
+- Viewing information from an on-premises component.  For example, System Center Data Protection Manager information  in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
 
 ## Using Log Analytics workspace
+
+### Prerequisites for using Log Analytics workspace
+
+Before you use Log Analytics for monitoring, consider the following prerequisites:
+
+- Ensure that you have a Log Analytics workspace set up. If not available, [create one](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
+- [Configure Diagnostic Settings](backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) to push data to Log Analytics.
+- [Configure the retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2) of the tables or the Log Analytics workspace based on the desired historical retention.
 
 ### Create alerts by using Log Analytics
 

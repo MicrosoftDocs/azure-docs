@@ -3,7 +3,7 @@ title: Configure TLS for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
 ms.topic: article
 ms.service: azure-cloud-services-classic
-ms.date: 07/23/2024
+ms.date: 11/21/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -158,8 +158,6 @@ Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
 
 1. Select the **Site URL** to open up the web browser.
-
-   ![Click the Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 
 2. In your web browser, modify the link to use **https** instead of **http**, and then visit the page.
 

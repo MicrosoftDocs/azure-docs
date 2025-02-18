@@ -54,7 +54,7 @@ If the virtual machines aren't in the same resource group, use their resource ID
 
 ```azurecli-interactive
 # Test connectivity between two virtual machines that are in two different resource groups over port 3389.
-az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/virtualMachines/VM1' --dest-resource '/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/VM2' --protocol 'TCP' --dest-port '3389'
+az network watcher test-connectivity --source-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup1/providers/Microsoft.Compute/virtualMachines/VM1' --dest-resource '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup2/providers/Microsoft.Compute/virtualMachines/VM2' --protocol 'TCP' --dest-port '3389'
 ```
 
 - If the two virtual machines are communicating with no issues, you see the following results:
@@ -66,14 +66,14 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": "",
               "roundTripTimeAvg": 2,
               "roundTripTimeMax": 2,
@@ -81,32 +81,32 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.0.0.5",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -129,34 +129,34 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.0.0.5",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [
             {
               "context": [
                 {
                   "key": "RuleName",
-                  "value": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM2-nsg/SecurityRules/Deny3389Inbound"
+                  "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM2-nsg/SecurityRules/Deny3389Inbound"
                 }
               ],
               "origin": "Inbound",
@@ -173,18 +173,18 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -208,13 +208,13 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [
             {
               "context": [
                 {
                   "key": "RuleName",
-                  "value": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/Deny3389Outbound"
+                  "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/Deny3389Outbound"
                 }
               ],
               "origin": "Outbound",
@@ -227,21 +227,21 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.0.0.5",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [
             {
               "context": [],
@@ -253,18 +253,18 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -288,28 +288,28 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.0.0.5",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [
             {
               "context": [],
@@ -327,18 +327,18 @@ az network watcher test-connectivity --source-resource '/subscriptions/abcdef01-
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM2",
           "type": "VirtualMachine"
         }
       ],
@@ -374,14 +374,14 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "Internet",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": "",
               "roundTripTimeAvg": 9,
               "roundTripTimeMax": 9,
@@ -389,28 +389,28 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "104.117.244.81",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "Internet",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
@@ -436,13 +436,13 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [
             {
               "context": [
                 {
                   "key": "RuleName",
-                  "value": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/DenyInternetOutbound"
+                  "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/VM1-nsg/SecurityRules/DenyInternetOutbound"
                 }
               ],
               "origin": "Outbound",
@@ -455,33 +455,33 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "context": {},
               "issues": [],
               "linkType": "Internet",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "23.198.7.184",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "Internet",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
@@ -520,14 +520,14 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": "",
               "roundTripTimeAvg": 2,
               "roundTripTimeMax": 2,
@@ -535,32 +535,32 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.10.10.10",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
           "type": "VirtualNetwork"
         }
       ],
@@ -583,44 +583,44 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [],
           "links": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.10.10.10",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/vm2375/ipConfigurations/ipconfig1",
           "type": "VirtualNetwork"
         }
       ],
@@ -644,7 +644,7 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
       "hops": [
         {
           "address": "10.0.0.4",
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
           "issues": [
             {
               "context": [],
@@ -680,33 +680,33 @@ az network watcher test-connectivity --resource-group 'myResourceGroup' --source
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "11111111-1111-1111-1111-111111111111",
+              "nextHopId": "bbbbbbbb-1111-2222-3333-cccccccccccc",
               "resourceId": ""
             }
           ],
           "nextHopIds": [
-            "11111111-1111-1111-1111-111111111111"
+            "bbbbbbbb-1111-2222-3333-cccccccccccc"
           ],
           "previousHopIds": [],
           "previousLinks": [],
-          "resourceId": "/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
+          "resourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/VM1",
           "type": "Source"
         },
         {
           "address": "10.10.10.10",
-          "id": "11111111-1111-1111-1111-111111111111",
+          "id": "bbbbbbbb-1111-2222-3333-cccccccccccc",
           "issues": [],
           "links": [],
           "nextHopIds": [],
           "previousHopIds": [
-            "00000000-0000-0000-0000-000000000000"
+            "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           ],
           "previousLinks": [
             {
               "context": {},
               "issues": [],
               "linkType": "VirtualNetwork",
-              "nextHopId": "00000000-0000-0000-0000-000000000000",
+              "nextHopId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
               "resourceId": ""
             }
           ],

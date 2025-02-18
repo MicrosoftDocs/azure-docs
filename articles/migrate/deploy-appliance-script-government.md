@@ -42,10 +42,10 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover server** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Provide an appliance name and generate a project key in the portal.
-3. Click **Download**, to download the zipped file.
+4. Select **Download**, to download the zipped file.
 
 ### Verify security
 
@@ -102,10 +102,10 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
-2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
-3. Click **Download**, to download the zipped file. 
+1. Select **Download** to download the zipped file.
 
 ### Verify security
 
@@ -153,7 +153,6 @@ After the script has executed successfully, the appliance configuration manager 
 
 Make sure that the appliance can connect to Azure URLs for [government clouds](migrate-appliance.md#government-cloud-urls).
 
-
 ## Set up the appliance for physical servers
 
 1. To set up the appliance, you download the zipped file named AzureMigrateInstaller.zip either from the portal or from [here](https://go.microsoft.com/fwlink/?linkid=2191847).
@@ -163,9 +162,9 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen etc.)**.
-3. Click **Download**, to download the zipped file.
+3. Select **Download** to download the zipped file.
 
 ### Verify security
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Overview of the Azure Digital Twins IoT platform, including its features and value.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2024
+ms.date: 01/27/2025
 ms.topic: overview
 ms.service: azure-digital-twins
 
@@ -35,12 +35,12 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 
 In Azure Digital Twins, you define the digital entities that represent the people, places, and things in your physical environment using custom twin types called [models](concepts-models.md). 
 
-You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a Building type, a Floor type, and an Elevator type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). In ADT, DTDL models describe types of entities according to their state properties, commands, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
+You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a *Building* type, a *Floor* type, and an *Elevator* type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). In Azure Digital Twins, DTDL models describe types of entities according to their state properties, components, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
 >[!TIP]
 >Version 2 of DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot/overview-iot-plug-and-play.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
 
-Once you've defined your data models, use them to create [digital twins](concepts-twins-graph.md) that represent each specific entity in your environment. For example, you might use the Building model definition to create several Building-type twins (Building 1, Building 2, and so on). You can also use the relationships in the model definitions to connect twins to each other, forming a conceptual graph.
+Once you've defined your data models, use them to create [digital twins](concepts-twins-graph.md) that represent each specific entity in your environment. For example, you might use the *Building* model definition to create several *Building*-type twins (*Building 1*, *Building 2*, and so on). You can also use the relationships in the model definitions to connect twins to each other, forming a conceptual graph.
 
 You can view your Azure Digital Twins graph in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md), which provides an interface to help you build and interact with your graph:
 
@@ -52,13 +52,13 @@ Digital models in Azure Digital Twins are live, up-to-date representations of th
 
 To keep digital twin properties current against your environment, you can use [IoT Hub](../iot-hub/about-iot-hub.md) to connect your solution to IoT and IoT Edge devices. These hub-managed devices are represented as part of your twin graph, and provide the data that drives your model. You can create a new IoT Hub to use with Azure Digital Twins, or [connect an existing IoT Hub](how-to-ingest-iot-hub-data.md) along with the devices it already manages.
 
-You can also drive Azure Digital Twins from other data sources, using [REST APIs](concepts-apis-sdks.md) or connectors to other Azure services like [Logic Apps](../logic-apps/logic-apps-overview.md). These methods can help you input data from business systems and incorporate them into your twin graph.
+You can also drive Azure Digital Twins from other data sources, using [REST APIs](concepts-apis-sdks.md) or connectors to other Azure services like [Logic Apps](how-to-use-power-platform-logic-apps-connector.md). These methods can help you input data from business systems and incorporate them into your twin graph.
 
 Azure Digital Twins provides a rich event system to keep your graph current, including data processing that can be customized to match your business logic. You can connect external compute resources, such as [Azure Functions](../azure-functions/functions-overview.md), to drive this data processing in flexible, customized ways.
 
 ## Query for environment insights
 
-Azure Digital Twins provides a powerful [query API​](/rest/api/digital-twins/dataplane/query) to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries, gathering a broad range of insights about your environment and answering custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
+Azure Digital Twins provides a powerful [query API​](/rest/api/digital-twins/dataplane/query) to help you extract insights from the live execution environment. The API can query with extensive search conditions, including property values, relationships, relationship properties, model information, and more. You can also combine queries to gather a broad range of insights about your environment and answer custom questions that are important to you. For more details about the language used to craft these queries, see [Query language](concepts-query-language.md).
 
 ## Visualize environment in 3D Scenes Studio (preview)
 
@@ -113,6 +113,6 @@ You can view a list of common IoT terms and their uses across the Azure IoT serv
 
 ## Next steps
 
-* Dive into working with Azure Digital Twins in [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md) and [Build out an end-to-end solution](tutorial-end-to-end.md) to see example scenarios.
+* Dive into working with Azure Digital Twins in the [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md) quickstart or the [Build out an end-to-end solution](tutorial-end-to-end.md) tutorial.
 
-* Or, start reading about Azure Digital Twins concepts with [DTDL models](concepts-models.md).
+* Or, start learning about Azure Digital Twins concepts with [DTDL models](concepts-models.md).

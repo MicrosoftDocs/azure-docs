@@ -17,6 +17,8 @@ Get started with Azure SignalR Service by using Azure Functions and Python to bu
 > [!NOTE]
 > You can get the code in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python).
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.  You will need the following:
@@ -62,7 +64,7 @@ When you run the `func new` command from the root directory of the project, the 
 
 You can use this sample function as a template for your own functions.  
 
-Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the neccessary import statements, and define global variables that we will be using in the following functions.
+Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the necessary import statements, and define global variables that we will be using in the following functions.
 
 ```python
 import azure.functions as func
@@ -89,7 +91,9 @@ This function hosts a web page for a client.
 
 ### Create the negotiate function
 
-Add the function `negotiate` by adding the following code
+Add the function `negotiate` by adding the following code.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
   ```python
   @app.route(route="negotiate", auth_level=func.AuthLevel.ANONYMOUS, methods=["POST"])

@@ -121,7 +121,7 @@ Azure NetApp Files offers multiple share properties to enhance security for admi
 
 In the below example, access-based enumeration is disabled, so the user has access to the `ABE` directory of `SMBVolume`.
 
-:::image type="content" source="./media/network-attached-storage-permissions/directory-listing-no-access.png" alt-text="Screenshot of directory without access-bassed enumeration." lightbox="./media/network-attached-storage-permissions/directory-listing-no-access.png":::
+:::image type="content" source="./media/network-attached-storage-permissions/directory-listing-no-access.png" alt-text="Screenshot of directory without access-based enumeration." lightbox="./media/network-attached-storage-permissions/directory-listing-no-access.png":::
 
 In the next example, access-based enumeration is enabled, so the `ABE` directory of `SMBVolume` doesn't display for the user.
 

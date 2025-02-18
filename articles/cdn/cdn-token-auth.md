@@ -4,7 +4,6 @@ description: Learn how to use token authentication to secure access to your Azur
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024

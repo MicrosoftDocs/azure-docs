@@ -2,15 +2,15 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 02/13/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Configure and manage backup for Azure Blobs using Azure Backup
 
-Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal.
+Azure Backup allows you to configure operational and vaulted backups to protect block blobs in your storage accounts. This article describes how to configure and manage backups on one or more storage accounts using the Azure portal. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 
 ## Before you start
 
@@ -27,7 +27,6 @@ For more information about the supported scenarios, limitations, and availabilit
 
 - Vaulted backup of blobs is a managed offsite backup solution that transfers data to the backup vault and retains as per the retention configured in the backup policy. You can retain data for a maximum of *10 years*.
 - Currently, you can use the vaulted backup solution to restore data to a different storage account only. While performing restores, ensure that the target storage account doesn't contain any *containers* with the same name as those backed up in a recovery point. If any conflicts arise due to the same name of containers, the restore operation fails.
-- **Ensure the storage accounts that need to be backed up have cross-tenant replication enabled. You can check this by navigating to the storage account > Object replication > Advanced settings. Once here, ensure that the check-box is enabled.**
 
 For more information about the supported scenarios, limitations, and availability, See the [support matrix](blob-backup-support-matrix.md).
 
@@ -152,17 +151,17 @@ Once backup is configured, changes taking place on block blobs in the storage ac
 
 ## Manage backups
 
-You can use Backup Center as your single blade of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Backup Center to do the following:
+You can use [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) as your single blade of glass for managing all your backups. Regarding backup for Azure Blobs, you can use Azure Business Continuity Center to do the following operations:
 
 - As we've seen above, you can use it for creating Backup vaults and policies. You can also view all vaults and policies under the selected subscriptions.
-- Backup Center gives you an easy way to monitor the state of protection of protected storage accounts as well as storage accounts for which backup isn't currently configured.
-- You can configure backup for any storage accounts using the **+Backup** button.
-- You can initiate restores using the **Restore** button and track restores using **Backup jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-backup-support-matrix.md).
+- Azure Business Continuity Center gives you an easy way to [monitor the state of protection](../business-continuity-center/tutorial-monitor-protection-summary.md) of protected storage accounts as well as storage accounts for which [backup isn't currently configured](../business-continuity-center/quick-understand-protection-estate.md#identify-unprotected-resources).
+- You can configure backup for any storage accounts using the **+Configure protection** button.
+- You can initiate restores using the **Restore** button and track restores using **Jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-restore.md?tabs=vaulted-backup).
 - Analyze your backup usage using Backup reports.
 
-    ![Backup Center](./media/blob-backup-configure-manage/backup-center.png)
+    :::image type="content" source="./media/blob-backup-configure-manage/manage-azure-blob-backup.png" alt-text="Screenshot shows the Azure Business  Continuity Center console to manage the Azure Blob backups." lightbox="./media/blob-backup-configure-manage/manage-azure-blob-backup.png":::
 
-For more information, see [Overview of Backup Center](backup-center-overview.md).
+For more information, see [Overview of Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
 
 ## Stop protection
 
@@ -173,18 +172,35 @@ You can stop operational backup for your storage account according to your requi
 
 To stop backup for a storage account, follow these steps:
 
-1. Go to the backup instance for the storage account being backed up.<br><br>You can go to this from the storage account via **Storage account** -> **Data protection** -> **Manage backup settings**, or directly from the Backup Center via **Backup Center** -> **Backup instances** -> search for the storage account name.
+1.Go to the backup instance for the storage account being backed up.
 
-    ![Storage account location](./media/blob-backup-configure-manage/storage-account-location.png)
+   You can go to the backup instance from the storage account via **Storage account** > **Data protection** > **Manage backup settings**, or directly from the Business Continuity Center  via **Business Continuity Center** > **Protected Items** , and then select **Azure Backup** as a **Solution** in the filter. 
 
-    ![Storage account location through Backup Center](./media/blob-backup-configure-manage/storage-account-location-through-backup-center.png)
-
-
-1. In the backup instance, select **Delete** to stop operational backup for the particular storage account. 
+   :::image type="content" source="./media/blob-backup-configure-manage/storage-account-location.png" alt-text="Screenshot shows the Storage account location.":::
+   
+1. Select **stop backup** from the menu.
  
-    ![Stop operational backup](./media/blob-backup-configure-manage/stop-operational-backup.png)
+   :::image type="content" source="./media/blob-backup-configure-manage/stop-operational-backup.png" alt-text="Screenshot shows how to stop operational backup." lightbox="./media/blob-backup-configure-manage/stop-operational-backup.png":::
 
 After stopping backup, you can disable other storage data protection capabilities (enabled for configuring backups) from the data protection blade of the storage account.
+
+## Update the backup instance
+
+After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can even change the containers selected for backup.
+To update the backup instance, follow these steps:
+ 
+1. Go to the **Backup vault** dashboard.
+1. On the **Backup Items** tile, select **Azure Blobs (Azure Storage)** as the datasource type.
+1. On the **Backup instance** blade, select the backup instance for which you want to change the Backup policy, and then select **Edit backup instance**.
+ 
+   :::image type="content" source="./media/blob-backup-configure-manage/edit-backup-instance.png" alt-text="Screenshot shows  how to edit a backup instance." lightbox="./media/blob-backup-configure-manage/edit-backup-instance.png":::
+
+1. Select the new policy that you want to apply to the storage account blobs.
+ 
+   :::image type="content" source="./media/blob-backup-configure-manage/change-backup-policy.png" alt-text="Screenshot shows  how to change a backup policy." lightbox="./media/blob-backup-configure-manage/change-backup-policy.png":::
+
+1. Select **Save**.
+
 
 
 ## Next steps

@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 04/07/2024
 appliesto:
   - Microsoft Sentinel in the Azure portal
-  - Microsoft Sentinel in the Microsoft Defender portal
+  - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
 
@@ -24,6 +24,9 @@ For a video demonstration of attack disruption for SAP, watch the following vide
 > [!VIDEO https://www.youtube.com/embed/-ijnGxRnwks?si=MPC2uNuLD8biqMVj]
 
 Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+
+> [!NOTE]
+> Attack disruption requires a data connector agent and isn't supported for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
 
 ## Attack disruption for SAP and the unified security operations platform
 
@@ -43,7 +46,7 @@ To use attack disruption for SAP, deploy a new agent, or update your current age
 
 For more information, see:
 
-- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
+- [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md)
 - [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md#), especially [Update your system for attack disruption](update-sap-data-connector.md#update-your-system-for-attack-disruption)
 
 ## Related content

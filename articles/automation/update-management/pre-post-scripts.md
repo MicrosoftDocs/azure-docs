@@ -60,7 +60,7 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 |SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageNameMasks |String | A space separated list of package names that are included with the update deployment. |
 |SoftwareUpdateConfigurationSettings.LinuxConfiguration.ExcludedPackageNameMasks |String |A space separated list of package names that are excluded from the update deployment. |
 |SoftwareUpdateConfigurationSettings.LinuxConfiguration.RebootSetting |String |Reboot settings for the update deployment. Values are `IfRequired`, `Never`, `Always`      |
-|SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |String array | A list of resourceIds for the Azure VMs in the update deployment.        |
+|SoftwareUpdateConfigurationSettings.AzureVirtualMachines     |String array | A list of resourceIds for the Azure VMs in the update deployment.        |
 |SoftwareUpdateConfigurationSettings.NonAzureComputerNames|String array |A list of the non-Azure computers FQDNs in the update deployment.|
 
 The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Linux computer:

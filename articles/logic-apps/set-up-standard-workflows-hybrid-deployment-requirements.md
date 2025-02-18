@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 11/04/2024
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -19,31 +19,49 @@ ms.date: 10/14/2024
 > This capability is in preview, incurs charges for usage, and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Logic Apps supports scenarios where you need to use your own managed infrastructure to deploy and host Standard logic app workflows by offering a hybrid deployment model. This model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
+Sometimes you have to set up and manage your own infrastructure to meet specific needs for regulatory compliance, data privacy, or network restrictions. Azure Logic Apps offers a *hybrid deployment model* so that you can deploy and host Standard logic app workflows in on-premises, private cloud, or public cloud scenarios. This model gives you the capabilities to host integration solutions in partially connected environments when you need to use local processing, data storage, and network access. With the hybrid option, you have the freedom and flexibility to choose the best environment for your workflows.
 
-The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+## How hybrid deployment works
 
-- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
+Standard logic app workflows with the hybrid deployment option are powered by an Azure Logic Apps runtime that is hosted in an Azure Container Apps extension. In your workflow, any [built-in operations](../connectors/built-in.md) run locally with the runtime so that you get higher throughput for access to local data sources. If you need access to non-local data resources, for example, cloud-based services such as Microsoft Office 365, Microsoft Teams, Salesforce, GitHub, LinkedIn, or ServiceNow, you can choose operations from [1,000+ connectors hosted in Azure](/connectors/connector-reference/connector-reference-logicapps-connectors) to include in your workflows. For more information, see [Managed (shared) connectors](../connectors/managed.md). Although you need to have internet connectivity to manage your logic app in the Azure portal, the semi-connected nature of this platform lets you absorb any temporary internet connectivity issues.
+
+For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+
+- Azure Arc-enabled Azure Kubernetes Service (AKS) clusters
 - A SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged* infrastructure (HCI)](/azure-stack/hci/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
+
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
 - [Core concepts for Azure Kubernetes Service (AKS)](/azure/aks/concepts-clusters-workloads)
-- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
 - [Custom locations for Azure Arc-enabled Kubernetes clusters](/azure/azure-arc/platform/conceptual-custom-locations)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
+## How billing works
+
+With the hybrid option, you're responsible for the following items:
+
+- Your Azure Arc-enabled Kubernetes infrastructure
+- Your SQL Server license
+- A billing charge of $0.18 USD per vCPU/hour to support Standard logic app workloads
+
+In this billing model, you pay only for what you need and scale resources for dynamic workloads without having to buy for peak usage. For workflows that use Azure-hosted connector operations, such as Microsoft Teams or Microsoft Office 365, [existing Standard (single-tenant) pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) applies to these operation executions.
+
 ## Limitations
 
-- Hybrid deployment is currently available and supported only for Azure Arc-enabled Azure Kubernetes Service (AKS) clusters and Azure Arc-enabled Kubernetes clusters on Azure Stack HCI.
+- Hybrid deployment is currently available and supported only for the following Azure Arc-enabled Kubernetes clusters:
+
+  - Azure Arc-enabled Kubernetes clusters
+  - Azure Arc-enabled Kubernetes clusters on Azure Stack HCI
+  - Azure Arc-enabled Kubernetes clusters on Windows Server
 
 ## Prerequisites
 
@@ -64,12 +82,14 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > [!NOTE]
 >
 > You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
-> and apply the steps in this how-to guide to connect your cluster to Azure Arc and to set up your 
-> connected environment. For more information about Azure Stack HCI, see the following resources:
+> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this guide 
+> to connect your cluster to Azure Arc and set up your connected environment. For more information about 
+> Azure Stack HCI and AKS on Windows Server, see the following resources:
 >
 > - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
 > - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
 > - [Create Kubernetes clusters on Azure Stack HCI using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
+> - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
@@ -584,13 +604,17 @@ Your SQL database requires inbound and outbound connectivity with your Kubernete
 
 ## Set up SMB file share for artifacts storage
 
-To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
+To store artifacts such as maps, schemas, and assemblies for your logic app (container app) resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).
 
 - You need administrator access to set up your SMB file share.
 
 - Your SMB file share must exist in the same network as your Kubernetes cluster and SQL database.
 
 - Your SMB file share requires inbound and outbound connectivity with your Kubernetes cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your Kubernetes cluster or in a peered virtual network.
+
+- Don't use the same exact file share path for multiple logic apps.
+
+- You can use separate SMB file shares for each logic app, or you can use different folders in the same SMB file share as long as those folders aren't nested. For example, don't have a logic app use the root path, and then have another logic app use a subfolder.
 
 - To deploy your logic app using Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share.
 
@@ -635,7 +659,7 @@ Alternatively, for testing purposes, you can use [Azure Files as an SMB file sha
 
 1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
 
-You need these saved values to provide your SMB file share information when you deploy your container app resource.
+You need these saved values to provide your SMB file share information when you deploy your logic app resource.
 
 For more information, see [Create an SMB Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal).
 

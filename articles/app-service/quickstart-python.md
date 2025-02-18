@@ -203,10 +203,6 @@ Azure App Service supports multiple methods to deploy your application code to A
 
 [!INCLUDE [Deploy VS Code](./includes/quickstart-python/deploy-visual-studio-code.md)]
 
-### [Deploy using Local Git](#tab/local-git-deploy)
-
-[!INCLUDE [Deploy Local Git](./includes/quickstart-python/deploy-local-git.md)]
-
 ### [Deploy using a ZIP file](#tab/zip-deploy)
 
 [!INCLUDE [Deploy using ZIP file](./includes/quickstart-python/deploy-zip-file.md)]
@@ -398,7 +394,10 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django or Flask) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Flask) web app with PostgreSQL](./tutorial-python-postgresql-app-flask.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure a Python app](./configure-language-python.md)

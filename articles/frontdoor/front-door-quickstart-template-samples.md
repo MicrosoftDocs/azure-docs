@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-frontdoor
 ms.topic: sample
 ms.custom: devx-track-arm-template, devx-track-bicep
-ms.date: 07/25/2023
+ms.date: 11/18/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---

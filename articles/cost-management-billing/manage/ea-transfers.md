@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/30/2024
+ms.date: 01/06/2025
 ms.author: banders
 ---
 
@@ -105,7 +105,7 @@ Other points to keep in mind before an enrollment transfer:
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
     :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
 
-  - When there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
+  - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You might have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
 - If there's a backdated enrollment transfer, any reservation or savings plan benefit is applicable from the transfer request submission date - not from the effective transfer date.
 
@@ -117,7 +117,9 @@ You might see that an enrollment has the **Transferred** state, even if you didn
 - Expiration date of the prior enrollment number is one day before the effective start date of the new agreement
 - The new agreement has an invoiced Azure Prepayment order that has a current date or is backdated
 - The new enrollment is created in the Azure portal
-- Auto enrollment transfers are executed on the effective start date of the target enrollment. The start date is usually first day of the month. It takes three to four days to complete the enrollment transfer and for it to appear in the Azure portal.
+- Auto enrollment transfers are executed on the effective start date of the target enrollment. 
+    - The start date is normally the first day of the month. It takes three to four days to complete the enrollment transfer and for it to appear in the Azure portal.
+    - After an enrollment is auto transferred, the [Azure Marketplace setting](ea-azure-marketplace.md) resets to the default value of **Enabled**, by design.
 - If the subscription or account was deleted within five days of the effective transfer date, the auto transfer stops automatically and fails.
 
 If there's no missing usage data in the Azure portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.

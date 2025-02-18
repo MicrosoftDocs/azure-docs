@@ -132,7 +132,7 @@ else if (communicationIdentifier instanceof PhoneNumberIdentifier) {
     Log.i(tag, "Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
 }
 else if (communicationIdentifier instanceof UnknownIdentifier) {
-    Log.i(tag, "Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
+    Log.i(tag, "Unknown user: " + ((UnknownIdentifier)communicationIdentifier).getId());
 }
 else {
     // be careful here whether you want to throw because a new SDK version

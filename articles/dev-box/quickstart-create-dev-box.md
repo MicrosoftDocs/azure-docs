@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/30/2024
+ms.date: 01/30/2025
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -39,11 +39,9 @@ Depending on the project configuration and your permissions, you have access to 
 
 To create a dev box in the Microsoft Dev Box developer portal:
 
-1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
+[!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
 
-1. Select **New** > **New dev box**.
-
-1. In **Add a dev box**, enter the following values:
+3. In **Add a dev box**, enter the following values:
 
    | Setting | Value |
    |---|---|
@@ -61,9 +59,9 @@ To create a dev box in the Microsoft Dev Box developer portal:
    - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
    - A notification that the dev box creation process can take 25 minutes or longer.
    
-1. Select **Create** to begin creating your dev box.
+4. Select **Create** to begin creating your dev box.
 
-1. Use the dev box tile in the developer portal to track the progress of creation.
+5. Use the dev box tile in the developer portal to track the progress of creation.
       
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating." lightbox="./media/quickstart-create-dev-box/dev-box-tile-creating.png":::
    
@@ -87,7 +85,7 @@ To connect to a dev box by using the browser:
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser." lightbox="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png":::
 
-A new tab opens with a Remote Desktop session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
+A new tab opens with a new session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
 
 [!INCLUDE [note-windows-app](includes/note-windows-app.md)]
 
@@ -101,4 +99,4 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
-- Learn how to [connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md)
+- Learn how to [Connect with Windows App](/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box)
