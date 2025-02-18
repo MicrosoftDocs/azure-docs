@@ -16,6 +16,14 @@ This article shows you how to use a Dockerfile to deploy the Spring PetClinic sa
 
 [!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
 
+## Prerequisites
+
+[!INCLUDE [pet-clinic-prerequisites](includes/pet-clinic-prerequisites.md)]
+
+## Install the Container Apps CLI extension
+
+[!INCLUDE [pet-clinic-install-azure-container-apps-cli-extension](includes/pet-clinic-install-azure-container-apps-cli-extension.md)]
+
 ## Build the project locally
 
 Build the Spring PetClinic application on your local machine by using the following steps:
@@ -54,55 +62,25 @@ Build the Spring PetClinic application on your local machine by using the follow
 
 ## Deploy the project
 
-Deploy the project by using the following steps:
-
-1. Define the environment variables that are used throughout this article by using the following commands:
-
-    ```bash
-    export RESOURCE_GROUP="petclinic-containerapps"
-    export LOCATION="canadacentral"
-    export ENVIRONMENT="env-petclinic-containerapps"
-    export CONTAINER_APP_NAME="petclinic"
-    ```
-
-1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
-
-1. Build and deploy your first Spring Boot app using the following command, where the `..` (dot dot) tells the command to use the Dockerfile in the folder one level up in the folder structure:
-
-    > [!NOTE] This command does the following things:
-    >
-    > - Creates the resource group.
-    > - Creates an Azure Container Registry.
-    > - Builds the container image and pushes it to the registry.
-    > - Creates the Container Apps environment with a Log Analytics workspace.
-    > - Creates and deploys the container app using the built container image.
+[!INCLUDE [Deploy-pet-clinic-app](C:/wsl.localhost/Ubuntu/home/joshg/repos/azure-docs-pr/articles/container-apps/includes/Deploy-pet-clinic-app.md)]
 
     ```azurecli
     az containerapp up \
-      --resource-group $RESOURCE_GROUP \
-      --name $CONTAINER_APP_NAME \
-      --location $LOCATION \
-      --environment $ENVIRONMENT \
-      --source ..
+        --resource-group $RESOURCE_GROUP \
+        --name $CONTAINER_APP_NAME \
+        --location $LOCATION \
+        --environment $ENVIRONMENT \
+        --source ..
     ```
 
 ## Verify the app status
 
-Once the deployment is done, you can go to the overview page of your container app and set the **Application Url** field. After doing that, you can see the project running in the cloud.
-
-:::image type="content" source="media/java-get-started-dockerfile/validation.png" alt-text="Screenshot of the application details in Azure, with the Application U r l field highlighted":::
+[!INCLUDE [pet-clinic-verify-app-status](includes/pet-clinic-verify-app-status.md)]
 
 ## Clean up resources
 
-If you plan to continue working with more quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, you can remove them to avoid Azure charges, by using the following command:
-
-```azurecli
-az group delete --name $RESOURCE_GROUP
-```
+[!INCLUDE [pet-clinic-clean-up-resources](includes/pet-clinic-clean-up-resources.md)]
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Launch your first Java microservice application with managed Java components in Azure Container Apps](java-microservice-get-started.md)
-> [Launch your first Java AI application](first-java-ai-application.md)
-> [Java build environment variables](java-build-environment-variables.md)
+[!INCLUDE [java-app-quickstart-deployment-next-steps](includes/java-app-quickstart-deployment-next-steps.md)]
