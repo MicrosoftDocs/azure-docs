@@ -1,6 +1,6 @@
 ---
 title: Custom container sessions in Azure Container Apps
-description: Learn to run a container in a custom session in Azure Container Apps.
+description: Learn to run custom container session in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
