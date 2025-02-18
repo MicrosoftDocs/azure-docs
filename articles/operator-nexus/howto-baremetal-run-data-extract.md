@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 2/13/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -25,6 +25,8 @@ The command produces an output file containing the results of the data extract. 
 ## Send command output to a user specified storage account
 
 See [Azure Operator Nexus Cluster support for managed identities and user provided resources](./howto-cluster-managed-identity-user-provided-resources.md)
+
+To access the output, users need the appropriate access to the storage blob. For information on assigning roles to storage accounts, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal).
 
 ### Clear the cluster's CommandOutputSettings
 
@@ -84,7 +86,7 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
-- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
+- [Generate Cluster Common Vulnerabilities and Exposures (CVE) Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
 
