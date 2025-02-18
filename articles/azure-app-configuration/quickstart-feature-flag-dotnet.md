@@ -46,7 +46,7 @@ You can use Visual Studio to create a new console app project.
 
 ## Use the feature flag
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project.
+1. Right-click your project and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest stable versions of the following NuGet packages to your project.
  
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -63,8 +63,6 @@ You can use Visual Studio to create a new console app project.
     Microsoft.FeatureManagement
     ```
     ---
-
-    Make sure that the version of `Microsoft.FeatureManagement` is greater than 3.1.0.
 
 1. Open *Program.cs* and add the following statements.
 
@@ -156,10 +154,6 @@ You can use Visual Studio to create a new console app project.
     var featureManager = new FeatureManager(
         new ConfigurationFeatureDefinitionProvider(configuration));
 
-    IVariantFeatureManager featureManager = new FeatureManager(
-        featureDefinitionProvider, 
-        new FeatureManagementOptions());
-
     if (await featureManager.IsEnabledAsync("Beta"))
     {
         Console.WriteLine("Welcome to the beta!");
@@ -182,11 +176,6 @@ You can use Visual Studio to create a new console app project.
 
         var featureManager = new FeatureManager(
             new ConfigurationFeatureDefinitionProvider(configuration));
-
-
-        IVariantFeatureManager featureManager = new FeatureManager(
-            featureDefinitionProvider, 
-            new FeatureManagementOptions());
 
         if (await featureManager.IsEnabledAsync("Beta"))
         {
