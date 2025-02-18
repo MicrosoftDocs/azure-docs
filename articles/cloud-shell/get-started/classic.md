@@ -20,7 +20,7 @@ To see all resource providers, and the registration status for your subscription
 
 1. Sign in to the [Azure portal][04].
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
-1. On the **Subscriptions** page, select the subscription your subscription.
+1. On the **Subscriptions** page, select your subscription.
 1. On your subscription page, expand **Settings** in left menu and select **Resource providers**.
 1. In the **Filter by name...** box, enter `cloudshell` to search for the resource provider.
 1. Select the **Microsoft.CloudShell** resource provider from the provider list.
