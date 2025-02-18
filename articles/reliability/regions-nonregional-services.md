@@ -31,124 +31,39 @@ When you use [Microsoft Entra ID](https://www.microsoft.com/security/business/id
 
 For more information about data residency in Azure, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
-## AI and machine learning
+## Services by category
 
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure AI Bot Service | Global | |
-
-## Compute
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Performance Diagnostics | Global | |
-| Azure Virtual Desktop | Global | [Some data is stored in a geography.](/azure/virtual-desktop/data-locations) Host pools are located in a specific region. |
-
-## Developer tools
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure DevOps | Geographic | |
-
-## DevOps
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure DevOps | Geographic | |
-
-## Hybrid and multicloud
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure DevOps | Geographic | |
-| Azure Peering Service | Global | |
-| Azure Stack Edge | Geographic | |
-| Microsoft Defender for Cloud | Global | |
-| Microsoft Sentinel | Geographic | |
-
-## Identity
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure AD B2C | Global | |
-| Microsoft Defender for Identity | Global | |
-| Microsoft Entra ID | Geographic and global | Select location during tenant creation, which can be geographic or worldwide. See [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency). |
-
-## Internet of things
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Maps | Global | |
-| Microsoft Defender for IoT | Global | |
-
-## Management and governance
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Advisor | Global | |
-| Azure Blueprints | Global | |
-| Azure Lighthouse | Global | |
-| Azure Policy | Global | |
-| Azure portal | Global | |
-| Azure Resource Graph | Global | |
-| Cloud Shell | Global | |
-| Customer Lockbox for Microsoft Azure | Global | |
-| Management groups | Global | |
-| Microsoft Cost Management | Global | |
-| Microsoft Graph | Global | |
-| Subscriptions | Global | |
-| Traffic Manager | Global | |
-
-## Media
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Content Delivery Network | Global | |
-
-## Migration
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Microsoft Cost Management | Global | |
-
-## Mobile
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Maps | Global | |
-
-## Networking
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Content Delivery Network | Global | |
-| Azure DNS | Global | |
-| Azure Peering Service | Global | |
-| Azure Front Door | Global | |
-| Traffic Manager | Global | |
-
-## Security
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Front Door | Global | |
-| Azure Information Protection | Global | |
-| Microsoft Defender for Cloud | Global | |
-| Microsoft Defender for Identity | Global | |
-| Microsoft Defender for IoT | Global | |
-| Microsoft Intune | Global | |
-| Microsoft Sentinel | Geographic | |
-
-## Virtual desktop infrastructure
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Virtual Desktop | Global | [Some data is stored in a geography.](/azure/virtual-desktop/data-locations) Host pools are located in a specific region. |
-
-## Web
-
-| **Product** | **Type** | **Notes** |
-| --- | --- | --- |
-| Azure Maps | Global | |
-| Azure Static Web Apps | Global | |
-| Content Delivery Network | Global | |
+| Product | Global | Geographic | Notes |
+| --- | --- | --- | --- |
+| Azure AD B2C | &#x2705; | | |
+| Azure Advisor | &#x2705; | | |
+| Azure AI Bot Service | &#x2705; | | |
+| Azure Blueprints | &#x2705; | | |
+| Azure DevOps | | &#x2705; | |
+| Azure DNS | &#x2705; | | |
+| Azure Front Door | &#x2705; | | |
+| Azure Information Protection | &#x2705; | | |
+| Azure Lighthouse | &#x2705; | | |
+| Azure Maps | &#x2705; | | |
+| Azure Peering Service | &#x2705; | | |
+| Azure Performance Diagnostics | &#x2705; | | |
+| Azure Policy | &#x2705; | | |
+| Azure portal | &#x2705; | | |
+| Azure Resource Graph | &#x2705; | | |
+| Azure Stack Edge | |  &#x2705; | |
+| Azure Static Web Apps | &#x2705; | | |
+| Azure Virtual Desktop | &#x2705; | | [Some data is stored in a geography.](/azure/virtual-desktop/data-locations) Host pools are located in a specific region. |
+| Cloud Shell | &#x2705; | | |
+| Content Delivery Network | &#x2705; | | |
+| Customer Lockbox for Microsoft Azure | &#x2705; | | |
+| Management groups | &#x2705; | | |
+| Microsoft Cost Management | &#x2705; | | |
+| Microsoft Defender for Cloud | &#x2705; | | |
+| Microsoft Defender for Identity | &#x2705; | | |
+| Microsoft Defender for IoT | &#x2705; | | |
+| Microsoft Entra ID |  &#x2705; |  &#x2705; | Select location during tenant creation, which can be geographic or worldwide. See [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency). |
+| Microsoft Graph | &#x2705; | | |
+| Microsoft Intune | &#x2705; | | |
+| Microsoft Sentinel | |  &#x2705; | |
+| Subscriptions | &#x2705; | | |
+| Traffic Manager | &#x2705; | | |
