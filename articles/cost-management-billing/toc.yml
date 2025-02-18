@@ -207,6 +207,8 @@
         href: understand/download-azure-invoice.md
       - name: View and download your Azure usage and charges
         href: understand/download-azure-daily-usage.md
+      - name: Shared billing meter regions
+        href: understand/billing-meter-location.md
       - name: Billing meter ID updates
         href: understand/billing-meter-id-updates.md
       - name: Download your invoice
