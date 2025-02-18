@@ -112,7 +112,6 @@ docker --version
    ```
 
    In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
-
    ---
 
 1. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Select **Enter** to run the command.
