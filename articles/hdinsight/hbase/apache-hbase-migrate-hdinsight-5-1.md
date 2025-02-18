@@ -111,7 +111,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    1. Stop the HBase service, it stops remaining servers.
    
    > [!NOTE]
-   > HBase 2.4.11 doesn't t support some of the old Procedures. 
+   > HBase 2.4.11 doesn't support some of the old Procedures. 
    >
    >For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
    >
@@ -147,7 +147,7 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    quit
    ```
 > [!NOTE]
-> In some versions of zk, `rmr` is used instead of `deleteall`.
+> In some versions of Apache ZooKeeper, `rmr` is used instead of `deleteall`.
 
 ### Clean and migrate WAL
 
