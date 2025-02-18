@@ -125,7 +125,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## Create and manage threat intelligence
 
-Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in the Defender portal.
+Threat intelligence powered by Microsoft Sentinel is managed next to Microsoft Defender Threat Intelligence (MDTI) and Threat Analytics in Microsoft's unified SecOps platform.
 
 :::image type="content" source="media/understand-threat-intelligence/intel-management-defender-portal.png" alt-text="Screenshot showing intel management page in the Defender portal." lightbox="media/understand-threat-intelligence/intel-management-defender-portal.png":::
 
