@@ -25,7 +25,7 @@
         href: ./function-placeholder.md
       - name: Performance targets
         href: ./function-placeholder.md
-  - name: Perform the migration process
+  - name: Perform Day-0 migration process
     href: ./perform-migration.md
   - name: Evaluate end-state
     href: ./post-migration-checklist.md
