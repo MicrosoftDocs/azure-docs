@@ -9,6 +9,9 @@ ms.topic: conceptual
 
 # Migrate dependencies associated with AWS Lambda to Azure Functions
 
+| :::image type="icon" source="../../migration/images/goal.svg"::: Transition the capabilities of an existing AWS Lambda to Azure Functions, ensuring no regression in networking, state management, compute resources, code functionality, and other dependencies. |
+| :-- |
+
 ## Scope
 
 > [!NOTE]
@@ -64,7 +67,7 @@ Understand the existing networking, storage, compute, and code dependencies conf
 ### Key technical factors
 
 > [!NOTE]
-> **Content developer**: Enumerate the typical networking, state, and compute-related capabilities of Lambda and the function. Try to achieve a one-to-one mapping in Azure Functions. Make a note of gaps.`
+> **Content developer**: Enumerate the typical networking, state, and compute-related capabilities of Lambda and the function. Try to achieve a one-to-one mapping in Azure Functions. Make a note of gaps.
 
 This table lists the common capabilities used in Lambda functions on AWS, and the recommended equivalent in Azure.
 
@@ -138,8 +141,8 @@ When planning a migration to Azure, expect challenges in understanding Azure exp
 
 ## Azure resources
 
-- Boilerplate: Link to essential Functions platform/service logging & metrics documentation.
-- Boilerplate: Link to essential Functions application logging documentation.
+- Boilerplate: Link to essential Functions networking guide.
+- Boilerplate: Link to essential Functions storage guide.
 - Boilerplate: Link to other essential documentation.
 
 ## Post-migration considerations

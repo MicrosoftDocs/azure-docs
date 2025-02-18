@@ -11,6 +11,7 @@ ms.topic: conceptual
 
 
 | :::image type="icon" source="../../migration/images/goal.svg"::: Maintain the visibility you have in your AWS Lambda environment when replatforming to Azure Functions. Understand how to get comparable logs and metrics in Azure Functions, and your options for retaining existing monitoring data. Transition monitoring alerts and visualizations to operate on Azure, maintaining equivalent observability setup on Azure without any regression.|
+| :-- |
 
 
 ## Scope
