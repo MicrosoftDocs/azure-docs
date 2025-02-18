@@ -1,5 +1,5 @@
 ---
-title: Monitor an Azure Managed Grafana instance with logs
+title: Monitor an Azure Managed Grafana instance using diagnostic settings
 description: Learn how to monitor your instance of Azure Managed Grafana by configuring diagnostic settings and accessing event logs.
 author: maud-lv 
 ms.author: malev 
@@ -7,10 +7,10 @@ ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.custom: engagement-fy23
 ms.date: 10/23/2024
-#customer intent: I want to set up logs in Azure Managed Grafana instance so that I can monitor my Azure Managed Grafana workspace.
+#customer intent: I want to use diagnostic settings to monitor my Azure Managed Grafana workspace.
 ---
 
-# How to monitor your Azure Managed Grafana instance with logs
+# Monitor Azure Managed Grafana using diagnostic settings
 
 In this article, you learn how to monitor an Azure Managed Grafana instance by configuring diagnostic settings and accessing event logs.
 
