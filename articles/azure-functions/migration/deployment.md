@@ -212,8 +212,10 @@ Your migration could fail at any step in the process. Your runbook for the migra
 
 ## Azure resources
 
-- Boilerplate: Link to essential documentation.
-- [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security)
+- Link to Bicep resources for Azure Functions
+- Link to Terraform resources for Azure Functions
+- Link to GitHub actions specific to Azure Functions
+- Link to Azure Pipeline steps specific to Azure Functions
 
 ## Next step
 
