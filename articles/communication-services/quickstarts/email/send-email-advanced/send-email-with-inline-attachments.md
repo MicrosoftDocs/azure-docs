@@ -10,7 +10,7 @@ ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 ---
 
 # Quickstart: Send email with inline attachments
@@ -20,6 +20,14 @@ In this quick start, you'll learn about how to send email with inline attachment
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [inline-attachments-net](./includes/inline-attachments-net.md)]
+::: zone-end
+
+::: zone pivot="programming-language-azcli"
+[!INCLUDE [inline-attachments-azcli](./includes/inline-attachments-azcli.md)]
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+[!INCLUDE [inline-attachments-powershell](./includes/inline-attachments-powershell.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
