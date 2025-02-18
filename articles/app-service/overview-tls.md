@@ -67,7 +67,7 @@ Since TLS 1.3 removes legacy cryptographic algorithms, it's recommended for appl
 
 ### TLS 1.2
 
-TLS 1.2 is the default TLS version for Azure App Service. It provides strong encryption, improved security over older versions, and compliance with industry standards such as PCI DSS. Since TLS 1.2 is the default, no action is required unless you are migrating from an older TLS version. If your app currently uses TLS 1.0 or 1.1, updating to TLS 1.2 is strongly recommended to maintain security, performance, and compliance. Azure App Service supports a predefined set of TLS 1.2 cipher suites to ensure secure communication between clients and your web app. 
+TLS 1.2 is the default TLS version for Azure App Service. It provides strong encryption, improved security over older versions, and compliance with industry standards such as PCI DSS. Since TLS 1.2 is the default, no action is required unless you are migrating from an older TLS version. If your app currently uses TLS 1.0 or 1.1, updating to TLS 1.2 is recommended to maintain security, performance, and compliance. Azure App Service supports a predefined set of TLS 1.2 cipher suites to ensure secure communication between clients and your web app. 
 
 ### TLS 1.0 and 1.1 
 
