@@ -62,7 +62,7 @@ Perform a pre-migration evaluation of the following design areas:
 
 ### Functional and non-functional objectives and targets
 
-Prior to a migration, it's also a good idea to collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration shouldn't see you compromising on those targets. Collect the following information about your AWS Lambda deployment:
+Prior to a migration, collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration should assume those targets as measurement of business objectves and you shouldn't compromise on. Collect the following information about your AWS Lambda deployment:
 
 - [Budget and cost of ownership](./function-placeholder.md)
 - [Reliability objectives and current reliability status](./function-placeholder.md)

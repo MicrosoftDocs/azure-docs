@@ -3,7 +3,7 @@
 - name: Migrate from AWS Lambda
   href: ./aws-lambda-to-azure-functions.md
   items:
-  - name: Perform pre-migration planning
+  - name: Pre-migration planning
     items:
     - name: Core capabilities
       href: ./capabilities.md
@@ -25,7 +25,7 @@
         href: ./function-placeholder.md
       - name: Performance targets
         href: ./function-placeholder.md
-  - name: Perform the migration
+  - name: Perform the migration process
     href: ./perform-migration.md
   - name: Evaluate end-state
     href: ./post-migration-checklist.md
@@ -33,21 +33,17 @@
     items:
     - name: Migrate an event-driven data processing pipeline
       items:
-      - name: Overview and current state
+      - name: Pre-migration evaluation
         href: function-placeholder.md
-      - name: Migration strategy
-        href: function-placeholder.md
-      - name: Step-by-step process
+      - name: Step-by-step migration process
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
     - name: Migrate a microservices workload
       items:
-      - name: Overview and current state
+      - name: Pre-migration evaluation
         href: function-placeholder.md
-      - name: Migration strategy
-        href: function-placeholder.md
-      - name: Step-by-step process
+      - name: Step-by-step migration process
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
