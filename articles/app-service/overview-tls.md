@@ -12,9 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 # Azure App Service TLS overview
 
 > [!NOTE]
-> Customers may be aware of [the retirement notification of TLS 1.0 and 1.1 for interactions with Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/). This retirement does not affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests will continue to run unaffected.
-
-## What does TLS do in App Service?
+> The [retirement of TLS 1.1 and 1.0](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests will continue to run unaffected.
 
 Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps. 
 
@@ -68,6 +66,7 @@ A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite) setting is available wit
 Since TLS 1.3 removes legacy cryptographic algorithms, it is recommended for applications that require modern security standards, improved performance, and reduced latency.
 
 ### TLS 1.2
+
 TLS 1.2 is the default TLS version for Azure App Service. It provides strong encryption, improved security over older versions, and compliance with industry standards such as PCI DSS. Since TLS 1.2 is the default, no action is required unless you are migrating from an older TLS version. If your app currently uses TLS 1.0 or 1.1, updating to TLS 1.2 is strongly recommended to maintain security, performance, and compliance. Azure App Service supports a predefined set of TLS 1.2 cipher suites to ensure secure communication between clients and your web app. 
 
 ### TLS 1.0 and 1.1 
