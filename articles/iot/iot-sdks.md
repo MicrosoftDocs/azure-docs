@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot
 services: iot
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 02/14/2025
 
 ---
 

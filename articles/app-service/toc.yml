@@ -399,6 +399,10 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
+    - name: Run an SLM in sidecar
+      href: tutorial-sidecar-local-small-language-model.md
+    - name: Deploy a .NET app with Azure OpenAI and Azure SQL
+      href: deploy-intelligent-apps-dotnet-to-azure-sql.md
 - name: WordPress
   items:
     - name: WordPress overview

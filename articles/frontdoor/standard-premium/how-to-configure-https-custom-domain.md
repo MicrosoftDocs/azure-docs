@@ -177,7 +177,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 1. Under **Settings**, go to **Domains** and select **+ Add** to add a new custom domain. On the **Add a domain** pane, for **HTTPS**, select **Bring Your Own Certificate (BYOC)**. For **Secret**, select the certificate you want to use from the dropdown list.
 
     > [!NOTE]
-    > The common name of the selected certificate must match the custom domain being added.
+    > The Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate must match the custom domain being added.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-custom-domain-https.png" alt-text="Screenshot that shows the Add a custom domain pane with HTTPS.":::
 

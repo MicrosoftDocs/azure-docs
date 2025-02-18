@@ -15,6 +15,8 @@ ms.custom: devdivchpfy22
 
 In this tutorial, you learn how to use the API Management extension for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 You learn how to:
 
 > [!div class="checklist"]
