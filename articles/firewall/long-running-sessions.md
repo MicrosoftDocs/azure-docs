@@ -37,7 +37,7 @@ Proper idle timeout configuration can:
 **Customizing Idle Timeout**:
 
 - **For North-South traffic**, the TCP idle timeout can be configured between 4 and 15 minutes.
-- **For East-West traffic**, the TCP idle timeout can't be customized.
+- **For East-West traffic**, the TCP idle timeout can't be customized. However, customization options for the East-West traffic idle timeout are planned in a future release.
 
 To customize the TCP idle timeout, customers must submit a support request via Azure Support, since direct configuration through the Azure portal isn't available.
 
