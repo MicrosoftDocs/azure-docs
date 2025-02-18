@@ -19,12 +19,14 @@
       href: ./governance.md
     - name: Additional objectives
       items:
-      - name: Cost of ownership
-        href: ./function-placeholder.md
       - name: Reliability objectives
+        href: ./function-placeholder.md
+      - name: Cost of ownership
         href: ./function-placeholder.md
       - name: Performance targets
         href: ./function-placeholder.md
+  - name: Build migration assets
+    href: ./build-migration-assets.md
   - name: Perform the migration process
     href: ./perform-migration.md
   - name: Evaluate end-state
