@@ -15,7 +15,7 @@ Break glass access using Method D v2.0 is a streamlined approach for administrat
 
 ## Generating SSH Keys using the Nexusidentity Azure CLI
 
-To start with break glass IAM configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
+To start with break glass Identity and Access Management (IAM) configuration, you need to set up SSH keys using the Nexusidentity extension. Make sure you have the following prerequisites installed and updated.
 
 ### Prerequisites
 
@@ -114,7 +114,7 @@ To enable break glass access, administrator can assign below roles to Entra user
 
   - Allows show commands and commands to modify the running configuration.
 
-Once these roles are assigned, the corresponding username and public SSH key will be automatically provisioned across all devices within the designated fabric instance.
+Once these roles are assigned, the corresponding username and public SSH key are automatically provisioned across all devices within the designated fabric instance.
 
 > [!Note]
 > If a subscription owner assigns an user,  the Network Fabric Service Reader or Writer role at the subscription scope, this role assignment will be inherited by all Network Fabric instances. Consequently, the user will be granted the privileges associated with the built-in role across all Network Fabric instances.
@@ -124,7 +124,7 @@ Once these roles are assigned, the corresponding username and public SSH key wil
 
 ## Break-glass access to Network Fabric device
 
-Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow the steps below to use break glass access.
+Once permissions are granted, users can access network fabric devices with their FIDO-2 hardware token (for example, YubiKey). Follow these steps to use break glass access.
 
 1. **Prepare for access**:
 
@@ -132,7 +132,7 @@ Once permissions are granted, users can access network fabric devices with their
 
 2. **Use SSH with the `-J` option**:
 
-   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This involves authentication  first with the jump server and then with the fabric device (using ssh keys).
+   - The `-J` option enables you to log in through a jump server and access a fabric device directly. This process involves authentication first with the jump server and then with the fabric device using SSH keys.
 
    Use the following command format to access a fabric device:
 
