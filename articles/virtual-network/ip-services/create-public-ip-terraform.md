@@ -76,7 +76,7 @@ If it's acceptable for the IP address to change over time, dynamic IP assignment
 
 ## Create a zonal or no-zone IP address
 
-In this section, you learn how to create a zonal and non-zone public IP addresses.
+In this section, you learn how to create a zonal and a non-zone public IP address.
 
 # [**Zonal**](#tab/create-public-ip-zonal)
 
