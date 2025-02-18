@@ -14,6 +14,10 @@ Developers and Operators are often looking for an easy tool to send sample data 
 
 This article highlights the functionality of Azure Event Hubs Data explorer that is made available on the Azure portal.
 
+> [!IMPORTANT]
+> If your Event Hubs namespace can only be accessed via a private endpoint, access Event Hubs Data Explorer from a virtual machine in the same virtual network with the private endpoint, which ensures that the web browser has required access to the private endpoint.
+
+
 Operations run on an Azure Event Hubs namespace are of two kinds.
 
   * Management Operations - Create, update, delete of Event Hubs namespace, and event hubs.
@@ -24,7 +28,6 @@ Operations run on an Azure Event Hubs namespace are of two kinds.
 >  * While events payloads (known as **values** in Kafka) sent using the **Kafka protocol** is visible via the data explorer, the **key** for the specific event isn't visible.
 >  * We advise against using the Event Hubs Data Explorer for larger messages, as it can result in time-outs, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own time-out values.
 >  * The operations that a user can perform using Event Hubs Data Explorer is determined by the [role-based access control (RBAC)](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) role that the user is assigned to. 
-> * If your Event Hubs namespace can only be accessed via a private endpoint, you must run your web browser on a host in the virtual network with the private endpoint, and also ensure that there are no network security gateways (NSGs) in the way.
 
 ## Prerequisites
 
