@@ -102,6 +102,7 @@ The table below lists Azure regions without a region pair:
 | Poland | Poland Central |
 | Qatar | Qatar Central |
 | Spain | Spain Central|
+|Indonesia|Indonesia Central|
 
 ## Next steps
 
