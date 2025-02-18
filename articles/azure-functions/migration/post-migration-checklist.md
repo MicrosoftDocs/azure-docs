@@ -9,10 +9,10 @@ ms.topic: conceptual
 
 # Evaluate your end-state
 
-You have reached the point in your migration where Azure Functions is operating in production, fullfilling like-for-like functionality your workload needed out of its serverless platform. Before you move on, it's important to validate that you've acomplished your goals and establish new baselines for key measurements in your workload. You use these findings to identify any unexpected regressions and prioritize future investements.
+You have reached the point in your migration where Azure Functions is operating in production, fullfilling like-for-like functionality your workload needed out of its serverless platform. Your [migration runbook](./perform-migration.md) should include steps to validate that you've acomplished your goals and establish new baselines for key measurements in your workload. You use these findings to identify any unexpected regressions and prioritize future investements.
 
 > [!IMPORTANT]
-> While this article talks about evaluating production, it's recommended you evaluate throughout the process. Your runbook can be evaluated, your pre-production migration tests can be evaluated. You're encouraged to use this checklist as an assessment throughout this process, not just after your production migration.
+> While this article talks about evaluating production, it's recommended you evaluate throughout the process. Your runbook can be evaluated and your pre-production migration tests can be evaluated. You're encouraged to use this checklist as an assessment throughout this process, not just after your production migration.
 
 | :::image type="icon" source="../../migration/images/goal.svg"::: You're confident that Azure Functions is performing as you planned, correctly completing is functional and non-functional requirements, and you feel safe to decomission your migrated AWS Lambda functionality. |
 | :-- |

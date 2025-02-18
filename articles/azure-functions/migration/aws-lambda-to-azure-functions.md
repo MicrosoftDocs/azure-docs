@@ -72,19 +72,20 @@ Each design area provides baseline comparisons, deviations, and challenges. Thes
 
 With the design areas in place, collect baseline information about the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration should assume those targets as measurement of business objectves and you shouldn't compromise on them. Collect the following information about your AWS Lambda deployment:
 
-- [Budget and cost of ownership](./function-placeholder.md)
 - [Reliability objectives and current reliability status](./function-placeholder.md)
+- [Budget and cost of ownership](./function-placeholder.md)
 - [Performance targets and current performance](./function-placeholder.md)
+
 
 ### Build the migration assets
 
-There's a transition development phase where you'll need to build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. These activities need to happen before you can perform the migration.
+There's a transition development phase where you'll build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. These activities need to happen before you can perform the migration.
 
 Follow the guidance in [Build migration assets](./build-migration-assets.md).
 
 ## Develop a step-by-step process for Day-0 migration
 
-Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions.
+Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions. Use this information to build the steps in your day-of migration runbook.
 
 Follow the how-to in [Perform Day-0 migration activities to transition from AWS Lambda to Azure Functions](./perform-migration.md).
 

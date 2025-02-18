@@ -156,4 +156,4 @@ After you've migrated your Lambda to Azure Functions with a level of satisfactio
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Address $TOPIC in your AWS Lambda migration](./governance.md)
+> [Migrate dependencies to Azure Functions](./dependencies.md)
