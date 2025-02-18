@@ -121,7 +121,7 @@ Make these replacements in the code:
 
 The above command also performs a polling on the messageId and returns the status of the email delivery. The status can be one of the following:
 
-[!INCLUDE [Email Message Status](./email-operation-status.md)]
+[!INCLUDE [Email Message Status](../../includes/email-operation-status.md)]
 
 ### Optional parameters
 
