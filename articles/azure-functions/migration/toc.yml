@@ -20,11 +20,11 @@
     - name: Additional objectives
       items:
       - name: Reliability objectives
-        href: ./function-placeholder.md
+        href: ./reliability.md
       - name: Cost of ownership
-        href: ./function-placeholder.md
+        href: ./cost.md
       - name: Performance targets
-        href: ./function-placeholder.md
+        href: ./performance.md
   - name: Build migration assets
     href: ./build-migration-assets.md
   - name: Perform the migration process
