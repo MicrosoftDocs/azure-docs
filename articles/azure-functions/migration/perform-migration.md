@@ -9,7 +9,16 @@ ms.topic: conceptual
 
 # Perform your migration from AWS Lambda to Azure Functions
 
-This article describes how Microsoft recommends you perform a migration from AWS Lambda to Azure Functions.
+This article describes how Microsoft recommends you perform a migration from AWS Lambda to Azure Functions. Use these recommendations to build your day-of migration plan.
+
+| :::image type="icon" source="../../migration/images/goal.svg"::: Your migration runbook has the steps necessary to complete the core migration activities from AWS Lambda to Azure Functions, or rollback the migration in case of failure. |
+| :-- |
+
+## Build your runbook
+
+Your migration team should have step-by-step instructions to execute, often known as a migration runbook. These steps should detail what happens, by whom, and when. It should also contain provisions for rolling back or halting the migration if there is an unexpected, detremental result during the process. These steps do not need to be automated, as a migration is typically a once-and-done activity.
+
+Use the recommended migration steps below to build your AWS Lambda to Azure Functions migration runbook. Ensure you interleave validation activities into your migration steps.
 
 ## Prerequisites
 
@@ -17,9 +26,9 @@ This article describes how Microsoft recommends you perform a migration from AWS
 > **Content developer**: Work with your SME to summarize all of the core "pre-migration" tasks they should have completed. These need to have been completed, none of these should be "new activities" -- if they are, then instead introduce the topic into the pre-planning activies guides.
 
 - You've prepared by following all of the recommendations in the [pre-migration design areas](./aws-lambda-to-azure-functions.md#perform-pre-migration-planning).
+- You've modified and tested your [application code](./build-migration-assets.md#update-code) to work on Azure Functions.
 - You've a subscription allocated and ready for your resources and you have privileges to create the resources needed in the subscription.
-- You've built out your infrastructure templates to create your Azure Function resource and its required dependencies.
-- You've modified and tested your application code to work on Azure Functions.
+- You've built out your [infrastructure templates](./build-migration-assets.md#build-your-infrastructure-as-code-template) to create your Azure Function resource and its required dependencies.
 
 ## Prepare
 
@@ -70,7 +79,20 @@ Based on your [pre-migration deployment planning](./deployment.md) choice, build
 > [!NOTE]
 > **Content developer**: Have your SME describe how to execute a failback at at least one key point during this type of migration.
 
+## Gain confidence through pre-production and production testing
+
+Your runbook must be tested before you perform your production migration. Simulate your AWS Lambda to Azure Funtions migration to refine and gain confidence in your runbook. Simulate common Azure Function migration failure modes as well, such as:
+
+- List common
+- Failure modes
+- For an Azure Functions migration
+
+> [!TIP]
+> You might be able to pre-deploy Azure resources and test those resources in your production environment before doing your day-of cut over. Where possible, have Azure Functions resources already deployed, using your IaC and pipelines, in your production Azure subscription prior to your cut over. Test your production resources as much as possible before doing the shifting of processing or client traffic.
+
 ## Next step
 
+With all relevant engineering and support staff ready, execute your migration runbook on migration day. Your migration runbook should also include steps for post migration evaluation, to lear about those, see:
+
 > [!div class="nextstepaction"]
-> [Address $TOPIC in your AWS Lambda migration](./governance.md)
+> [Perform a post migration evaluation](./post-migration-checklist.md)

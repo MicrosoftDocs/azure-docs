@@ -70,9 +70,15 @@ Prior to a migration, collect some baseline information on the current run state
 - [Reliability objectives and current reliability status](./function-placeholder.md)
 - [Performance targets and current performance](./function-placeholder.md)
 
-## Follow the recommended migration approach
+## Update code and build deployment assets
 
-Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions.
+A migration to Azure Functions usually requires updates to your application code. You'll also need to build out infrastructure as code templates and deployment pipelines. These activities need to happen before you can perform the migration.
+
+See, [Build migration assets](./build-migration-assets.md).
+
+## Build the recommended migration approach into your runbook
+
+Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions. Use this information to build the steps in your day-of migration runbook.
 
 Follow the how-to in [Perform your migration from AWS Lambda to Azure Functions](./perform-migration.md).
 
