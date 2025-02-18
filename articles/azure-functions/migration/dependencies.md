@@ -9,11 +9,8 @@ ms.topic: conceptual
 
 # Migrate dependencies associated with AWS Lambda to Azure Functions
 
-<<<<<<< HEAD
 | :::image type="icon" source="../../migration/images/goal.svg"::: Transition the capabilities of an existing AWS Lambda to Azure Functions, ensuring no regression in networking, state management, compute resources, code functionality, and other dependencies. |
 | :-- |
-=======
->>>>>>> b1aca24a0d928c289beebbc13b66fd2b88f23154
 
 ## Scope
 
