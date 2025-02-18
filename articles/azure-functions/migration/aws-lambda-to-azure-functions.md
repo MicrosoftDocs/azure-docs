@@ -66,8 +66,8 @@ Each design area provides baseline comparisons, deviations, and challenges. Thes
 
 Prior to a migration, collect some baseline information on the current run state of the system around performance, reliablity, and cost; along with any targets for those numbers. Your migration should assume those targets as measurement of business objectves and you shouldn't compromise on them. Collect the following information about your AWS Lambda deployment:
 
-- [Budget and cost of ownership](./function-placeholder.md)
 - [Reliability objectives and current reliability status](./function-placeholder.md)
+- [Budget and cost of ownership](./function-placeholder.md)
 - [Performance targets and current performance](./function-placeholder.md)
 
 ## Update code and build deployment assets
