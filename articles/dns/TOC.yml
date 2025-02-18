@@ -272,7 +272,7 @@
   - name: Microsoft Q&A question page
     href: /answers/tags/143/azure-virtual-network
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/dns/
   - name: Pricing calculator

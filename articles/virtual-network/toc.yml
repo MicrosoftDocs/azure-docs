@@ -316,7 +316,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback

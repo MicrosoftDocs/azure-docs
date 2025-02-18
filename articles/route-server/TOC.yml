@@ -62,7 +62,7 @@
 - name: Resources
   items:
   - name: Networking Blog
-    href: https://azure.microsoft.com/blog/topics/networking/
+    href: https://azure.microsoft.com/blog/category/networking/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/route-server/
   - name: Pricing calculator
