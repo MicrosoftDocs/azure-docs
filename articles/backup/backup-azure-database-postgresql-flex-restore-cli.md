@@ -1,5 +1,5 @@
 ---
-title: Restore Azure Database for PostgreSQL - Flexible Server via Azure CLI
+title: Restore Azure Database for PostgreSQL - Flexible Server using Azure CLI
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 ms.topic: how-to
 ms.date: 02/18/2025
@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Restore Azure Database for PostgreSQL - Flexible Servers using Azure CLI
 
-This article describes how to restore **Azure Database for PostgreSQL - Flexible Server** to an Azure Database for PostgreSQL - Flexible Server backed-up by Azure Backup.
+This article describes how to restore Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 
 >[!Note]
 >The Original Location Recovery (OLR) option isn't supported for PaaS databases. Instead, use the Alternate-Location Recovery (ALR) to restore from a recovery point and create a new database in the same or another Azure PostgreSQL – Flexible Server, keeping both the source and restored databases.

@@ -1,6 +1,6 @@
 ---
-title: Back up Azure Database for PostgreSQL - flexible Server using Azure CLI
-description: Learn how to back up Azure Database for PostgreSQL - flexible Server using Azure CLI.
+title: Back up Azure Database for PostgreSQL - Flexible Server using Azure CLI
+description: Learn how to back up Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 ms.topic: how-to
 ms.date: 02/28/2025
 ms.custom: devx-track-azurecli, ignite-2024
@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure CLI
 
-This article describes how to back up **Azure Database for PostgreSQL - Flexible Server** using Azure CLI.
+This article describes how to back up Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 
 ## Prerequisites
 
@@ -58,13 +58,13 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 ## Configure backup
 
-Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-cli.md#create-a-backup-policy). Once the vault and policy are created, consider the following critical points to protect an Azure PostgreSQL – Flexible Server database:
+Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-cli.md#create-a-backup-policy). Once the vault and policy are created, protect the Azure Database for PostgreSQL - Flexible Server by following these steps:
 
-- PostgreSQL – Flexible Server database for protection
-- Backup vault to store the backup data
-- Request for backup configuration
+- Fetch the ARM ID of the PostgreSQL - Flexible Server to be protected
+- Grant access to the Backup vault
+- Prepare the backup configuration request
 
-### Fetch the ID of the PostgreSQL - Flexible Server to be protected
+### Fetch the ARM ID of the PostgreSQL - Flexible Server to be protected
 
 Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL – Flexible Server to be protected. This ID serves as the identifier of the database. Let's use an example of a database named `empdb11` under a PostgreSQL - Flexible Server `testposgresql`, which is present in the resource group `ossrg` under a different subscription.
 
@@ -232,4 +232,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).
+- [Restore Azure Database for PostgreSQL - Flexible Server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).

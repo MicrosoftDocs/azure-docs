@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Create a Backup policy for an Azure PostgreSQL - Flexible Server using Azure portal"
-description: Learn how to create a Backup policy for your Azure PostgreSQL - Flexible Server with Azure portal.
+title: "Quickstart: Create a backup policy for an Azure PostgreSQL - Flexible Server using Azure portal"
+description: Learn how to create a backup policy for your Azure PostgreSQL - Flexible Server with Azure portal.
 ms.devlang: terraform
 ms.custom:
   - ignite-2024
@@ -11,15 +11,15 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Quickstart: Create a Backup policy for Azure Database for PostgreSQL - Flexible Server using Azure portal
+#  Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This quickstart describes how to create a Backup policy to protect Azure Database for PostgreSQL - Flexible Server to an Azure Backup Vault using Azure portal.
+This quickstart describes how to create a backup policy to protect Azure Database for PostgreSQL - Flexible Server to an Azure Backup Vault using Azure portal.
 
 Azure Backup policy for Azure Database for PostgreSQL - Flexible Server defines how and when backups are created, the retention period for recovery points, and the rules for data protection and recovery.
 
 ## Prerequisites
 
-Before you create a Backup policy for Azure Database for PostgreSQL - Flexible Server, ensure the following prerequisites are met:
+Before you create a backup policy for Azure Database for PostgreSQL - Flexible Server, ensure the following prerequisites are met:
 
 - [Review the supported scenarios and known limitations](backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.
 - Identify or [create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault) in the same region where you want to back up the Azure Database for PostgreSQL Server instance.

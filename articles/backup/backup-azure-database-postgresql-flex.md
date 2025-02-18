@@ -1,6 +1,6 @@
 ---
-title: Configure backup for Azure Database for PostgreSQL - Flexible Server with long-term retention
-description: Learn about Azure Database for PostgreSQL-  Flexible Server backup configuration with long-term retention.
+title: Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
+description: Learn about how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
 ms.topic: how-to
 ms.date: 02/28/2025
 ms.service: azure-backup
@@ -12,7 +12,7 @@ ms.author: jsuri
 
 # Configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This article describes how to configure backup for Azure Database for PostgreSQL Flexible Server using Azure portal. 
+This article describes how to configure backup for Azure Database for PostgreSQL - Flexible Server using Azure portal. 
 
 ## Prerequisites
 
@@ -22,11 +22,11 @@ Before you configure backup for Azure Database for PostgreSQL - Flexible Server,
 
 [!INCLUDE [Configure protection for Azure Database for PostgreSQL - Flexible Server.](../../includes/configure-postgresql-flexible-server-backup.md)]
 
-### Create a Backup policy
+### Create a backup policy
 
-You can create a Backup policy on the go during the backup configuration flow.
+You can create a backup policy on the go during the backup configuration flow.
 
-To create a Backup policy, follow these steps: 
+To create a backup policy, follow these steps: 
 
 1. On the **Configure Backup** pane, select the **Backup policy** tab.
 2. On the **Backup policy** tab, select **Create new** under **Backup policy**.
@@ -64,4 +64,4 @@ When the backup configuration is complete, you can [run an on-demand backup](tut
 
 ## Next steps
 
-[Restore Azure Database for PostgreSQL - Flexible Server backups using Azure portal](./restore-azure-database-postgresql-flex.md).
+[Restore Azure Database for PostgreSQL - Flexible Server using Azure portal](./restore-azure-database-postgresql-flex.md).

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible Server using Terraform"
-description: Learn how to configure backup for your Azure PostgreSQL - Flexible Server with a Terraform template.
+title: "Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
+description: Learn how to configure backup for Azure Database for PostgreSQL - Flexible Server with a Terraform template.
 ms.devlang: terraform
 ms.custom:
   - ignite-2024
@@ -245,5 +245,5 @@ variable "retention_duration_in_months" {
 
 ## Next steps
 
-[Restore Azure PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).
+[Restore Azure Database for PostgreSQL - Flexible server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).
 

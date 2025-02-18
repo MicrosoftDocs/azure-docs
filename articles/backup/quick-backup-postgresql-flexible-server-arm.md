@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Azure Resource Manager template for PostgreSQL - Flexible Server backup
-description: Learn how to configure backup for your Azure PostgreSQL - Flexible Server with an Azure Resource Manager template.
+title: Quickstart - Configure backup for Azure Database for PostgreSQL - Flexible Server with an Azure Resource Manager template
+description: Learn how to configure backup for Azure Database for Azure PostgreSQL - Flexible Server with an Azure Resource Manager template.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
@@ -181,4 +181,4 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-[Restore Azure PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).
+[Restore Azure Database for PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).

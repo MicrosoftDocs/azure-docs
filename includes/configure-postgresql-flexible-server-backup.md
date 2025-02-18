@@ -10,7 +10,7 @@ ms.author: jsuri
 
 ## Configure backup  for the database
 
-For long-term retention of Azure PostgreSQL – Flexible Server backups using Azure Backup, you can use one of the following methods:
+To configure backup for Azure PostgreSQL – Flexible Server using Azure Backup, you can use one of the following methods:
 
 - Azure PostgreSQL – Flexible Server: Database manage pane
 - Backup vault

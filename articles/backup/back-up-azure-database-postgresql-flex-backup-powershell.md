@@ -1,6 +1,6 @@
 ---
-title: Back up Azure Database for PostgreSQL - flexible server using Azure PowerShell
-description: Learn how to back up Azure Database for PostgreSQL - flexible server using Azure PowerShell.
+title: Back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
+description: Learn how to back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 ms.topic: how-to
 ms.date: 02/28/2025
 ms.custom: devx-track-azurepowershell, ignite-2024
@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 
-This article describes how to back up **Azure Database for PostgreSQL - Flexible Server** using Azure PowerShell.
+This article describes how to back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 
 Learn more about the [supported scenarios and limitations for Azure Database for PostgreSQL - flexible server backup](backup-azure-database-postgresql-flex-support-matrix.md).
 
@@ -46,13 +46,13 @@ Type                : Microsoft.DataProtection/backupVaults
 
 ## Configure backup
 
-Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-powershell.md#create-a-backup-policy). Once the vault and policy are created, consider the following  critical points to protect an Azure PostgreSQL - Flexible Server database:
+Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-powershell.md#create-a-backup-policy). Once the vault and policy are created, protect the Azure Database for PostgreSQL - Flexible Server by following these steps:
 
-- PostgreSQL – Flexible Server database for protection
-- Backup vault to store the backup data
-- Request for backup configuration
+- Fetch the ARM ID of the PostgreSQL - Flexible Server to be protected
+- Grant access to the Backup vault
+- Prepare the backup configuration request
 
-### Fetch the ID of the PostgreSQL - Flexible Server to be protected
+### Fetch the ARM ID of the PostgreSQL - Flexible Server to be protected
 
 Fetch the Azure Resource Manager ID (ARM ID) of PostgreSQL – Flexible Server to be protected. This ID serves as the identifier of the database. Let's use an example of a database named `empdb11` under a PostgreSQL - Flexible Server `testposgresql`, which is present in the resource group `ossrg` under a different subscription.
 
@@ -139,4 +139,4 @@ You can also use the `Az.ResourceGraph` cmdlet to track all jobs across all Back
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).
+- [Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).

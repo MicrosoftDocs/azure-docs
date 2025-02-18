@@ -1,5 +1,5 @@
 ---
-title: Back up Azure Database for PostgreSQL - Flexible servers using in Azure Backup
+title: Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 description: Learn how to back up Azure Database for PostgreSQL - Flexible servers using REST API.
 ms.topic: conceptual
 ms.custom:
@@ -10,9 +10,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure Database for PostgreSQL - Flexible servers using REST API
+# Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 
-This article describes how to manage backups for Azure PostgreSQL flexible servers via REST API.
+This article describes how to back up Azure Database for PostgreSQL - Flexible Severs using REST API.
 
 For information on the Azure PostgreSQL - Flexible server backup supported scenarios, limitations, and authentication mechanisms, see the [overview document](backup-azure-database-postgresql-flex-overview.md).
 
@@ -513,7 +513,7 @@ GET "https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc
 
 ## Next steps
 
-[Restore data from an Azure Database for PostGreSQL - Flexible Server backup using REST API](backup-azure-database-postgresql-flex-use-rest-api-restore.md).
+[Restore Azure Database for PostgreSQL - Flexible Server using REST API](backup-azure-database-postgresql-flex-use-rest-api-restore.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
