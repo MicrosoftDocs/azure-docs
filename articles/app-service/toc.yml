@@ -399,7 +399,7 @@
   items:
     - name: Deploy an application that uses OpenAI on App Service
       href: deploy-intelligent-apps.md
-    - name: Run a SLM in sidecar
+    - name: Run an SLM in sidecar
       href: tutorial-sidecar-local-slm.md
 - name: WordPress
   items:
