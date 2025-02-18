@@ -319,15 +319,24 @@ To work with the code examples in this article, assign the Azure RBAC built-in r
 
 An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a `ShareClient` object.
 
-The following example creates a `ShareClient` object authorized using `DefaultAzureCredential`:
+The following example creates a `ShareClient` object authorized using `DefaultAzureCredential`, then creates a `ShareDirectoryClient` object to work with a directory in the share:
 
 ```csharp
 string accountName = "<account-name>";
 string shareName = "<share-name>";
 
-ShareClient client = new(
+ShareClientOptions options = new ShareClientOptions()
+{
+    AllowSourceTrailingDot = true,
+    AllowTrailingDot = true,
+    ShareTokenIntent = ShareTokenIntent.Backup,
+};
+ShareClient shareClient = new(
    new Uri($"https://{accountName}.file.core.windows.net/{shareName}"),
-   new DefaultAzureCredential());
+   new DefaultAzureCredential(),
+   options);
+
+ShareDirectoryClient directoryClient = shareClient.GetDirectoryClient("sample-directory");
 ```
 
 If you know exactly which credential type you use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
@@ -367,7 +376,7 @@ For information about how to obtain account keys and best practice guidelines fo
 
 To learn more about each of these authorization mechanisms, see [Choose how to authorize access to file data](authorize-data-operations-portal.md).
 
-### Example: Add examples here
+### Example: TODO:Add examples here
 
 ## Related content
 
