@@ -112,7 +112,7 @@ Once you've added the app ID and secret, use the following steps to add the Azur
                }
              },
              "login": {
-               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+               "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
                "scopes": [],
                "loginParameterNames": []
              }
