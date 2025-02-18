@@ -3,7 +3,7 @@ title: Transport Layer Security (TLS) overview
 description: Learn about Transport Layer Security (TLS) on App Service.
 keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
 ms.topic: article
-ms.date: 01/31/2025
+ms.date: 02/18/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -48,9 +48,27 @@ You can use Azure Policy to help audit your resources when it comes to minimum T
 App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM is set to 1.2 on both portal and API. 
 
 ### TLS 1.3
+
+TLS 1.3 is the latest and most secure TLS version supported on Azure App Service. It introduces significant security and performance improvements over TLS 1.2 by simplifying cryptographic algorithms, reducing handshake latency, and enhancing encryption.
+
+Key benefits include:
+- **Stronger Security**: Removes outdated cipher suites, enforces Perfect Forward Secrecy (PFS), and encrypts more of the handshake process.
+- **Faster Handshake**: Reduces round trips, improving connection latency, especially for repeated sessions (0-RTT support).
+- **Better Performance**: Uses streamlined encryption algorithms that lower computational overhead and improve efficiency.
+- **Enhanced Privacy**: Encrypts handshake messages, reducing metadata exposure and mitigating downgrade attacks.
+
+#### Default Configuration  
+TLS 1.3 is fully supported in Azure App Service and can be enabled by setting the **Minimum Inbound TLS Version** to **1.3** in the Azure Portal, CLI, or ARM templates.
+
+#### Cipher Suites  
 A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:
 - TLS_AES_256_GCM_SHA384  
 - TLS_AES_128_GCM_SHA256 
+
+Since TLS 1.3 removes legacy cryptographic algorithms, it is recommended for applications that require modern security standards, improved performance, and reduced latency.
+
+### TLS 1.2
+TLS 1.2 is the default TLS version for Azure App Service. It provides strong encryption, improved security over older versions, and compliance with industry standards such as PCI DSS. Since TLS 1.2 is the default, no action is required unless you are migrating from an older TLS version. If your app currently uses TLS 1.0 or 1.1, updating to TLS 1.2 is strongly recommended to maintain security, performance, and compliance. Azure App Service supports a predefined set of TLS 1.2 cipher suites to ensure secure communication between clients and your web app. 
 
 ### TLS 1.0 and 1.1 
 
