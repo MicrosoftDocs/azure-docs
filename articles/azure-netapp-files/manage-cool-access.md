@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/29/2025
+ms.date: 02/18/2025
 ms.author: anfdocs
 ---
 
@@ -145,10 +145,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
     
     * **Cool Access Tiering Policy** 
 
-        Select either `SnapshotOnly` or `Auto`. 
-        
-        * The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier.
-        * The `Auto` policy encompasses both snapshot copy data and data in the active file system. 
+        Select `Auto`. The `SnapshotOnly` policy is not currently supported. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a volume page. On the Basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
