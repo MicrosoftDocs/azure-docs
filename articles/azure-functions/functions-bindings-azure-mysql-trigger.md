@@ -31,7 +31,7 @@ ADD az_func_updated_at TIMESTAMP DEFAULT
 CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 ```
 
-The leases table contains all columns corresponding to the primary key from the user table and two additional columns _az_func_AttemptCount and _az_func_LeaseExpirationTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
+The leases table contains all columns corresponding to the primary key from the user table and three additional columns _az_func_AttemptCount, _az_func_LeaseExpirationTime, _az_func_SyncCompletedTime. So, if any of the primary key columns happen to have the same name, that will result in an error message listing any conflicts. In this case, the listed primary key columns must be renamed for the trigger to work.
 
 
 ## Functionality Overview
@@ -49,11 +49,11 @@ while (true) {
 ```
 
 Changes are processed in the order that they were made, with the oldest changes being processed first. A couple notes about change processing:
-1. If changes to multiple rows are made at once the exact order that they are sent to the function is based on order by the “az_func_updated_at” column’s data in increasing order.
+1. If changes to multiple row are made once then the exact order they are sent to the function is based on, the ascending order of “az_func_updated_at” column and primary key columns.
 2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop, then only the latest change entry exists for that row will be considered.
 
 > [!NOTE]
->Trigger Binding with table name containing alphanuemric & _(underscore) are supported. Apart from that Trigger Binding doesn't support any other special characters like (-, *, $).
+>Currently, we are not supporting Managed Identity for connections between Functions and Azure Database for MySQL.
 >
 
 
