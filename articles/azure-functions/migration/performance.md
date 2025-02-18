@@ -11,6 +11,9 @@ ms.topic: conceptual
 
 TODO
 
+| :::image type="icon" source="../../migration/images/goal.svg"::: TODO |
+| :-- |
+
 ## Next step
 
 > [!div class="nextstepaction"]
