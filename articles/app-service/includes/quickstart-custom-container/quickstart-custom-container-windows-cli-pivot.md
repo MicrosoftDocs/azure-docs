@@ -66,7 +66,7 @@ az webapp create --name myContainerApp --plan myAppServicePlan --resource-group 
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows-cli.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed runs in background mode.":::
+:::image type="content" source="../../media/quickstart-custom-container/browse-custom-container-windows-cli.png" alt-text="Screenshot of the Windows App Service with messaging that containers without a port exposed runs in background mode." lightbox="../../media/quickstart-custom-container/browse-custom-container-windows-cli.png":::
 
 ## Clean up resources
 

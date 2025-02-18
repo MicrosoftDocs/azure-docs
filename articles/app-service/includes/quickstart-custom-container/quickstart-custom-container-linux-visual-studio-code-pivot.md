@@ -54,66 +54,66 @@ docker --version
 
 1. In Visual Studio Code, open an empty folder and add a file called *Dockerfile*. In the Dockerfile, paste the content based on your desired language framework:
 
-# [.NET](#tab/dotnet)
+   # [.NET](#tab/dotnet)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/dotnetcore:lts
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/dotnetcore:lts
 
-ENV PORT 8080
-EXPOSE 8080
+   ENV PORT 8080
+   EXPOSE 8080
 
-ENV ASPNETCORE_URLS "http://*:${PORT}"
+   ENV ASPNETCORE_URLS "http://*:${PORT}"
 
-ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
-```
+   ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
+   ```
 
-In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
+   In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
 
-# [Node.js](#tab/node)
+   # [Node.js](#tab/node)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/node:10-lts
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/node:10-lts
 
-ENV HOST 0.0.0.0
-ENV PORT 8080
-EXPOSE 8080
+   ENV HOST 0.0.0.0
+   ENV PORT 8080
+   EXPOSE 8080
 
-ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
-```
+   ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
+   ```
 
-In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
+   In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
 
-# [Python](#tab/python)
+   # [Python](#tab/python)
 
-<!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/appsvc/python:latest
+   <!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/appsvc/python:latest
 
-ENV PORT 8080
-EXPOSE 8080
+   ENV PORT 8080
+   EXPOSE 8080
 
-ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
-```
+   ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
+   ```
 
-In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
+   In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
 
-# [Java](#tab/java)
+   # [Java](#tab/java)
 
-<!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
-```dockerfile
-FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
+   <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
 
-ENV PORT 80
-EXPOSE 80
+   ENV PORT 80
+   EXPOSE 80
 
-ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
-```
+   ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
+   ```
 
-In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
+   In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
 
----
+   ---
 
 1. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Select **Enter** to run the command.
 
