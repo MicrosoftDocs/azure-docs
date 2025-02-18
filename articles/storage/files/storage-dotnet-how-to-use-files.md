@@ -139,7 +139,7 @@ In this section, you learn how to use `System.IO` to work with Azure Files resou
 
 For more information and examples, see the following resources:
 
-- [File and Stream I/O](/dotnet/standard/io/) overview
+- [File and Stream I/O overview](/dotnet/standard/io/)
 - [Common I/O tasks](/dotnet/standard/io/common-i-o-tasks)
 
 ### Mount a file share
@@ -322,10 +322,16 @@ An easy and secure way to authorize access and connect to Blob Storage is to obt
 The following example creates a `ShareClient` object authorized using `DefaultAzureCredential`, then creates a `ShareDirectoryClient` object to work with a directory in the share:
 
 ```csharp
+using Azure.Identity;
+using Azure.Storage.Files.Shares;
+using Azure.Storage.Files.Shares.Models;
+
+// ...
+
 string accountName = "<account-name>";
 string shareName = "<share-name>";
 
-ShareClientOptions options = new ShareClientOptions()
+ShareClientOptions options = new()
 {
     AllowSourceTrailingDot = true,
     AllowTrailingDot = true,
