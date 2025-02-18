@@ -1,8 +1,8 @@
 ---
 title: Release notes for Microsoft Azure Data Manager for Energy
 description: This article provides release notes of Azure Data Manager for Energy releases, improvements, bug fixes, and known issues.
-author: nitinnms
-ms.author: nitindwivedi
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 09/20/2022
@@ -24,22 +24,21 @@ This page is updated with the details about the upcoming release approximately a
 <hr width = 100%>
 
 ## February 2025
-
 ### OSDU Reservoir DDMS preview 
-OSDU Reservoir DDMS (M23 version) is available as an opt-in feature on Developer tier as a fully integrated offering for customers and partners. See link for more details.
+OSDU Reservoir DDMS (M23 version) is available as an opt-in feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.
 
 ### Wellbore domain services worker
-Azure Data Manager for Energy now includes support for the Wellbore domain services worker. It is a Python back-end service used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing Wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
+Azure Data Manager for Energy now includes support for the Wellbore domain services worker. It is a Python back-end service used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
 
-### Airflow performance enhancements 
-Airflow infrastructure has been upgraded to support ingestion and conversion DAGs for seismic datasets with high number vertical samples.
+### Scale and Performance improvements for seismic workflows
+Azure Data Manager for Energy has implemented performance and scale enhancements to handle ingestion and conversion of seismic datasets with higher number of vertical samples. Additionally, for consuming these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, allowing a proportional increase in the number of consumers using SDMS APIs.
 
 ## November 2024
-### Scale and Performance improvements for seismic workflows
-To accommodate larger and more complex seismic datasets with higher counts of vertical samples, Azure Data Manager for Energy has implemented scale enhancements. These improvements allow for the running of ingestion and conversion DAGs for such seismic datasets. Additionally, for the consumption of these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, enabling a proportional increase in the number of consumers using SDMS APIs.
-
 ### SOC 2 and ISO certification
-Azure Data Manager for Energy is now SOC 2 and ISO compliant further supporting commitment to ensuring sensitive data is managed security, reinforcing trust and meeting regulatory requirements. All certifications and compliance reports are published [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) and will be regularly updated.
+Azure Data Manager for Energy is now SOC 2 and ISO compliant, reinforcing our commitment to securely managing sensitive data, building trust, and meeting regulatory requirements. All certifications and compliance reports are available [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) and will be regularly updated.
+
+### Support for EDS Naturalization DAG
+Support for the `eds_naturalization` DAG is now available with the Azure Data Manager for Energy M23 release.
 
 ## August 2024
 
