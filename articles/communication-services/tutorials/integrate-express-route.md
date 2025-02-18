@@ -120,7 +120,7 @@ No, ExpressRoute currently supports only voice mode by [Direct Routing](../conce
 
 ### Is there an added cost for using ExpressRoute with Azure Communication Services? 
 
-Not directly. While there's no added cost from Azure Communication Services for using ExpressRoute, there are costs associated with provisioning and using an ExpressRoute circuit. For more information, see [ExpressRoute pricing](/pricing/details/expressroute). 
+Not directly. While there's no added cost from Azure Communication Services for using ExpressRoute, there are costs associated with provisioning and using an ExpressRoute circuit. For more information, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ### How does ExpressRoute affect the latency of communication services? 
 
