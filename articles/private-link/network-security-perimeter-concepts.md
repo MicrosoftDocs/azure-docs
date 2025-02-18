@@ -98,7 +98,8 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
-> 
+> Refer to the respective private link resource documentation for information on currently unsupported scenarios.
+
 ## Limitations of a network security perimeter
 
 ### Regional limitations

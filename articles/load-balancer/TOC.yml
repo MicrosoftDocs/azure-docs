@@ -60,11 +60,11 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load balance VMs with multiple availability sets
       href: tutorial-multi-availability-sets-portal.md
-  - name: Cross-region load balancer
+  - name: Globalload balancer
     items:
-    - name: Create cross-region load balancer - Portal
+    - name: Create global load balancer - Portal
       href: tutorial-cross-region-portal.md
-    - name: Deploy cross-region load balancer - ARM template
+    - name: Deploy global load balancer - ARM template
       href: tutorial-deploy-cross-region-load-balancer-template.md
   - name: Gateway load balancer
     items:
@@ -108,13 +108,13 @@
     href: load-balancer-custom-probe-overview.md
   - name: Cross-subscription load balancer
     href: cross-subscription-overview.md
-  - name: Cross-region load balancer
+  - name: Global load balancer
     href: cross-region-overview.md
   - name: Administrative state
     href: admin-state-overview.md
   - name: Reliability
     items:
-    - name: Availability zones and cross-region load balancer
+    - name: Availability zones and global load balancer
       href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
     - name: Availability zone migration
       href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
