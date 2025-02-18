@@ -107,9 +107,9 @@ const client = new AppConfigurationClient(
 ### [Connection string](#tab/connection-string)
 
 ```javascript
-const connection_string = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 const { AppConfigurationClient } = require("@azure/app-configuration");
 
+const connection_string = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 const client = new AppConfigurationClient(connection_string);
 ```
 ---
