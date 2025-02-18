@@ -91,7 +91,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor an instance
+          - text: Monitor using diagnostic settings
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md

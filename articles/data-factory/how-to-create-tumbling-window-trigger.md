@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window

@@ -92,6 +92,11 @@ Installing the Microsoft Sentinel **SAP Agentless** solution makes the agentless
 
 1. On the **SAP ABAP and S/4 via cloud connector (Preview)** page,  in the **Configuration** area, select **Deploy push connector resources** to deploy a data collection rule (DCR) and Microsoft Entra ID app registration to your subscription.
 
+    When Microsoft Sentinel and Microsoft Entra ID permissions are separated across different people, deployment must be done in two steps. In such cases, the DCR and DCE are deployed successfully in your Microsoft Sentinel resource group, and errors are shown to indicate the missing rights required to create an app registration in Microsoft Entra ID. For more information, see:
+	
+	- [Create Microsoft Entra application](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-microsoft-entra-application)
+	- [Assign permissions to the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#assign-permissions-to-the-dcr)
+
 1. <a name="deployment"></a>Once deployed, note the following values for later use:
 
     - **Immutable ID**
