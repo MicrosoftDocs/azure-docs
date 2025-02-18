@@ -211,11 +211,11 @@ The Standard and High Performance SKUs will be deprecated on September 30, 2025.
 
 ## Migrating a Basic SKU public IP address to Standard SKU
 
-This section outlines important questions and considerations for migrating from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments currently using a Basic SKU public IP address. This does not pertain to deployments that are already using a Standard SKU public IP address. For more information, see [Basic SKU IP deprecation Announcement](https://azure.microsoft.com/en-us/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired.
+This section outlines important questions and considerations for migrating from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployments currently using a Basic SKU public IP address. This does not pertain to deployments that are already using a Standard SKU public IP address. For more information, see [Basic SKU IP deprecation Announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).
  
 ### What is the expected customer impact?
 
-The expected customer impact includes new [pricing](https://azure.microsoft.com/en-us/pricing/details/ip-addresses/) changes and up to 10 minutes of downtime during customer-controlled migration. Customers will have three months to migrate after the release of the migration tool. To qualify for a successful migration, ensure you have the correct IP address space and subnet size.
+The expected customer impact includes new [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/) changes and up to 10 minutes of downtime during customer-controlled migration. Customers will have three months to migrate after the release of the migration tool. To qualify for a successful migration, ensure you have the correct IP address space and subnet size.
  
 ### What is the anticipated timeline for the migration?
 
