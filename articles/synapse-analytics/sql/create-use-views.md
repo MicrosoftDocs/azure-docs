@@ -153,7 +153,7 @@ The views can be created on top of the Azure Cosmos DB containers if the Azure C
 
 This example script uses a database and container you can set up by [following these instructions](query-cosmos-db-analytical-store.md#sample-dataset).
 
->[IMPORTANT]
+>[!IMPORTANT]
 >In the script, replace these values with your own values:
 >- **your-cosmosdb** - the name of your Cosmos DB account
 >- **access-key** - your Cosmos DB account key
@@ -166,7 +166,7 @@ CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=<your-cosmosdb>;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
