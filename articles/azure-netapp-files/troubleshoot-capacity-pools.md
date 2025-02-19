@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 04/18/2024
+ms.date: 04/18/2022
 ms.author: anfdocs
 ---
 # Troubleshoot capacity pool errors
