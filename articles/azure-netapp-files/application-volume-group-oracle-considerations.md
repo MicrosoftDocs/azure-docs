@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date:  04/19/2024
+ms.date:  01/29/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for Oracle 
@@ -32,8 +32,6 @@ This article describes the requirements and considerations you need to be aware 
     * Determine the expected change rate for the database volumes (in case you're using snapshots for backup purposes).
 * Create a VNet and delegated subnet to map the Azure NetApp Files IP addresses. It is recommended that you lay out the VNet and delegated subnet at design time
 * Application volume group for Oracle volumes are deployed in a selectable availability zone for regions that offer availability zones. You need to ensure that the database server is provisioned in the same availability zone as the Azure NetApp Files volumes. You may need to check in which zones the required VM types are available as well as Azure NetApp Files resources. 
-* Application volume group for Oracle currently only supports platform-managed keys for Azure NetApp Files volume encryption at volume creation. 
-    Contact your Azure NetApp Files specialist or CSA if you have questions about transitioning volumes from platform-managed keys to customer-managed keys after volume creation.
 * Application volume group for Oracle creates multiple IP addresses--at a minimum four IP addresses for a single database. For larger Oracle estates distributed across zones, it can be 12 or more IP addresses. Ensure that the delegated subnet has sufficient free IP addresses. It's recommended that you use a delegated subnet with a minimum of 59 IP addresses with a subnet size of /26. For larger Oracle deployments, consider using a /24 network offering 251 IP addresses for the delegated subnet. See [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
 
 > [!IMPORTANT]

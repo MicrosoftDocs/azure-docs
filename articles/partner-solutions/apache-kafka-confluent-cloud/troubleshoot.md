@@ -60,7 +60,7 @@ If you have the correct permissions but still can't delete the resource, contact
 
 ## Unable to use single sign-on
 
-If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
+If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. 
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
 

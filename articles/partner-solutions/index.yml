@@ -57,11 +57,6 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy and master data management.
-    - title: Logz.io
-      imageSrc: ./media/index/logz.io.svg
-      links:
-        - url: ./logzio/overview.md
-          text: Centralize log, metric, and tracing analytics in one observability platform.
     - title: Neon Serverless Postgres
       imageSrc: ./media/index/neon.svg
       links:

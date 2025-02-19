@@ -2,7 +2,7 @@
 title: Manage settings for your Datadog resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/11/2024
 ms.custom:
   - ai-gen-docs-bap
@@ -169,6 +169,49 @@ The portal confirms that you want to install the Datadog agent. Also, the applic
 Select **OK** to begin the installation process for the Datadog agent. The portal shows the status as **Installing** until the agent is installed. After the Datadog agent is installed, the status changes to Installed.
 
 To uninstall Datadog agents on the app service, go to **App Service Extension**. Select the app service and **Uninstall Extension**
+
+## Monitor AKS clusters using the Datadog extension
+You can collect monitoring data from your containerized applications deployed on Azure Kubernetes Service (AKS) by installing the Datadog Agent on your AKS clusters.
+- Select **Datadog organization configurations** > **Azure Kubernetes Services** from the *Service menu*. 
+
+    A list of all AKS Clusters in the subscription displays in the working pane. If you have added multiple subscriptions via the **Monitored Subscriptions** blade, AKS clusters across all of those subscriptions are listed. Filters include *Resource Group*, *Subscription*, *Resource Status* and *Agent Status*.
+
+For each AKS resource, the following info appears:
+
+|  Property                | Description                                                              |
+|--------------------------|--------------------------------------------------------------------------|
+| **Resource Name**        | Name of the AKS Cluster.                                                 |
+| **Resource Group**       | Name of the resource group containing the AKS resource.                  |
+| **Subscription**         | Name of the subscription containing the AKS resource.                    |
+| **Kubernetes Version**   | The version of Kubernetes running in the cluster.                        |
+| **Resource Status**      | Indicates whether the AKS resource is stopped or running.                |
+| **Agent Status**         | Indicates whether the Datadog agent is running on the AKS Cluster.       |
+| **Agent Version**        | Version of the Datadog agent.                                            |
+
+- To install the agent, choose the AKS clusters you would like to monitor and click on **Install Extension**. Select **OK** to begin the installation process for the Datadog agent. After the Datadog agent is installed, the agent status changes to *Installed*.
+
+You can uninstall the Datadog agent on a cluster by selecting the AKS resource and clicking on **Uninstall Extension**.
+
+## Monitor Arc enabled servers using the Datadog agent
+You can monitor your Azure Arc-enabled servers by installing the Datadog agent as an extension.
+- Select **Datadog organization configurations** > **Azure Arc Machines** from the *Service menu*. 
+
+    A list of all Arc-enabled servers in the subscription displays in the working pane. If you have added multiple subscriptions via the **Monitored Subscriptions** blade, resources across all of those subscriptions are listed. Filters include *Resource Group*, *Subscription*, *Resource Status* and *Agent Status*.
+
+For each Arc-enabled server, the following info appears:
+
+|  Property                | Description                                                              |
+|--------------------------|--------------------------------------------------------------------------|
+| **Resource Name**        | Name of the Azure Arc-enabled server.                                    |
+| **Resource Group**       | Name of the resource group containing the Arc-enabled server.            |
+| **Subscription**         | Name of the subscription containing the Arc-enabled server.              |
+| **Resource Status**      | Indicates whether the Arc-enabled server is stopped or running.          |
+| **Agent Status**         | Indicates whether the Datadog agent is running on the Arc-enabled server.|
+| **Agent Version**        | Version of the Datadog agent.                                            |
+
+- To install the agent, choose the Arc-enabled servers you would like to monitor and click on **Install Extension**. Select **OK** to begin the installation process for the Datadog agent. After the Datadog agent is installed, the agent status changes to *Installed*.
+
+You can uninstall the Datadog agent on an Arc server by selecting the resource and clicking on **Uninstall Extension**.
 
 ## Reconfigure single sign-on
 

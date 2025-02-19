@@ -3,8 +3,8 @@ title: Monitor your backups with Backup Explorer
 description: This article describes how to use Backup Explorer to perform real-time monitoring of backups across vaults, subscriptions, regions, and tenants.
 ms.topic: how-to
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitor your backups with Backup Explorer

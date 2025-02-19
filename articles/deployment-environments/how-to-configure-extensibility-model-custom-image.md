@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/10/2025
+ms.date: 01/17/2025
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -69,17 +69,29 @@ For more information about how to create environment definitions that use the AD
 ### [Create a custom image by using a script](#tab/custom-script/)
 ### Create a custom container image by using a script
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create and build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments repo](https://aka.ms/ade/arm-bicep-repo-script). To use the quick start script, fork the repo and then run the script locally.
 
-After you complete the image customization, you can build the image and push it to your container registry by using a script provided by Microsoft to automate the process.
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. 
 
-[!INCLUDE [custom-image-create-arm](includes/custom-image-create-arm.md)]
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
 
-### Build a container image with a script
+- Fork this repository into your personal account.
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
+- Ensure you have permissions to push images to your selected Azure Container Registry.
 
-Rather than building your custom image and pushing it to a container registry yourself, you can use a script to build and push it to a specified container registry. 
+You can call the script using the following command in PowerShell:
 
-[!INCLUDE [custom-image-script](includes/custom-image-script-build.md)]
+```azurepowershell
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
+```
+
+Additionally, if you would like to push to a specific repository and tag name, you can run:
+
+```azurepowershell
+.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+```
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
 
 ### [Create a custom image manually](#tab/custom-manual/)
 ### Create a custom container image manually
@@ -105,11 +117,59 @@ After you complete the image customization, you can build the image and push it 
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **Create a container image leveraging a GitHub workflow:** To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
-- **Create a custom container image:** You can create a workflow that creates a Terraform specific image customized with all the software, settings, and configuration that you need.
- 
+- **Create a custom container image by using a script:** Use the published script to create a Terraform specific image.
+- **Create a custom container image leveraging a GitHub workflow:** Use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+- **Create a custom container image manually:** Create a customized Terraform specific image manually
 
-## Create a container image using a GitHub workflow
+## Create a custom container image
+
+### [Create an image using a script](#tab/terraform-script/)
+
+## Create a custom container image by using a script
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can build an image based on the ADE standard image and push it to your container registry by using a quick start script provided by Microsoft. You can find the script in the [Deployment Environments with Terraform repo](https://aka.ms/ade/terraform-repo-script). To use the quick start script, fork the repo and then run the script locally.
+
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
+
+- Fork this repository into your personal account.
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
+- Ensure you have permissions to push images to your selected Azure Container Registry.
+
+The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. You can call the script using the following command in PowerShell:
+
+```azurepowershell
+.\quickstart-image-build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}'
+```
+
+Additionally, if you would like to push to a specific repository and tag name, you can run:
+
+```azurepowershell
+.\quickstart-image.build.ps1 -Registry '{YOUR_REGISTRY}' -Directory '{DIRECTORY_TO_YOUR_IMAGE}' -Repository '{YOUR_REPOSITORY}' -Tag '{YOUR_TAG}'
+```
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+
+### [Create an image using a GitHub workflow](#tab/github-workflow/)
+
+## Create a custom container image by using a GitHub workflow
+
+To start with, you can use the published GitHub workflow from the Leveraging ADE's Extensibility Model With Terraform repository.
+
+In order to use the workflow, you will need to:
+
+- Fork this repository into your personal account
+- Allow GitHub Actions to connect to Azure via an Microsoft Entra ID application's federated credentials through OIDC. You can find more documentation about this process here
+- Set up Repository Secrets for your repository containing your Microsoft Entra ID application's application ID set as AZURE_CLIENT_ID, the subscription ID set as AZURE_SUBSCRIPTION_ID, and the tenant ID set as AZURE_TENANT_ID
+- Set up Repository Variables for your repository containing your personal Azure Container Registry (ACR) name as REGISTRY_NAME, your preferred repository name as REPOSITORY_NAME, and your preferred tag as TAG for the created image. You can modify your variables between workflow runs to push the generated image to different registries, repositories and tags.
+ 
+Run the workflow by navigating to the Actions tab in your forked repository and selecting the workflow you would like to run. You can then select the Run workflow button to start the workflow.
+
+To use the image in your environment deployments, you need to add the location of the image to your manifest file [Connect the image to your environment definition](#connect-the-image-to-your-environment-definition) and you might need to configure permissions for the ACR to [make the custom image available to ADE](#make-the-custom-image-available-to-ade).
+
+### [Create an image manually](#tab/terraform-manual/)
+
+## Create a custom container image manually
+
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard images.
 
 After you complete the image customization, you must build the image and push it to your container registry.

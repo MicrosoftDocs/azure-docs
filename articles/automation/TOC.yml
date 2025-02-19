@@ -400,8 +400,6 @@
     href: /cli/azure/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation/
-  - name: Azure PowerShell AzureRM
-    href: /powershell/module/azurerm.automation/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST

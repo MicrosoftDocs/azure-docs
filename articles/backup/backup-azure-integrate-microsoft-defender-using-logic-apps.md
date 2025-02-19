@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.date: 03/13/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points

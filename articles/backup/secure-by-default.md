@@ -3,8 +3,8 @@ title: Secure by Default with Azure Backup (Preview)
 description: Learn how to Secure by Default with Azure Backup (Preview).
 ms.topic: overview
 ms.date: 11/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24, ignite-2024
 ---
 

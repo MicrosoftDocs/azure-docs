@@ -46,8 +46,6 @@ items:
     href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
-  - name: Choose the right pricing tier
-    href: choose-pricing-tier.md
   - name: Azure Maps geographic scope
     href: geographic-scope.md
   - name: Consent management

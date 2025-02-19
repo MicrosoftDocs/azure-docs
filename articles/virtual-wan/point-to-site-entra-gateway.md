@@ -1,5 +1,5 @@
 ---
-title: 'Configure P2S User VPN for Microsoft Entra ID authentication: Microsoft-registered client'
+title: Configure P2S User VPN for Microsoft Entra ID authentication - Microsoft-registered client
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN P2S User VPN server settings for Microsoft Entra ID authentication using Microsoft-registered Azure VPN Client.
 services: virtual-wan
@@ -73,7 +73,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
     :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Microsoft Entra ID page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png"::: Configure the following values:
 
    * **Azure Active Directory** - Select **Yes**.
-   * **Audience** - Enter the corresponding value for the Microsoft-registered Azure VPN Client App ID, Azure Public: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. [Custom audience](../vpn-gateway/point-to-site-entra-register-custom-app.md) is also supported for this field.
+   * **Audience** - Enter the corresponding value for the Microsoft-registered Azure VPN Client App ID, Azure Public: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
    * **Issuer** - Enter `https://sts.windows.net/<your Directory ID>/`.
    * **AAD Tenant** - Enter the TenantID for the Microsoft Entra tenant. Make sure there isn't an `/` at the end of the Microsoft Entra tenant URL.
 
