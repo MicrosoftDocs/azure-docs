@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/14/2025
+ms.date: 02/19/2025
 ms.author: cshoe
 ---
 
@@ -267,7 +267,7 @@ This template creates a session pool with the following settings:
 > [!IMPORTANT]
 > The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
 >
-> Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](./sessions-usage.md#session-identifiers)
+> Failure to secure access to sessions could result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](./sessions-usage.md#identifiers)
 
 The following endpoints are available for managing sessions in a pool:
 
@@ -294,7 +294,7 @@ az containerapp sessionpool show \
 
 All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions-usage.md#authentication).
 
-Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions-usage.md#session-identifiers).
+Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions-usage.md#identifiers).
 
 ## Image caching
 

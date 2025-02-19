@@ -5,7 +5,7 @@ services: container-apps
 author: IshitaAsthana
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 11/08/2024
+ms.date: 02/19/2025
 ms.author: iasthana
 ---
 

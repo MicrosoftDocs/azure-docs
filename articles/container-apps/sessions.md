@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/14/2025
+ms.date: 02/19/2025
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -65,7 +65,7 @@ The following states define this lifecycle:
 
 1. **Unallocated**: Once a session is done starting up, it's added to the pool and becomes available for allocation. For custom container sessions, you can specify how many ready sessions to maintain in the pool. This number should be increased if sessions are allocated faster than they're replenished.
 
-1. **Allocated**: When you send a request to a nonrunning session, the pool provides a new session and places it in an allocated state. Subsequent requests with the same session identifier are routed to the same session, allowing for efficient reuse without cold starts. Each allocated session is associated with a [session identifier](./sessions-usage.md#session-identifiers).
+1. **Allocated**: When you send a request to a nonrunning session, the pool provides a new session and places it in an allocated state. Subsequent requests with the same session identifier are routed to the same session, allowing for efficient reuse without cold starts. Each allocated session is associated with a [session identifier](./sessions-usage.md#identifiers).
 
 1. **Destroyed**: If a session doesn't receive requests for a duration defined by the `cooldownPeriodInSeconds` setting, the session and its Hyper-V sandbox are securely deleted. This automatic cleanup setup enhances resource management and security.
 

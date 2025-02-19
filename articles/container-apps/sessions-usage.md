@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 02/14/2025
+ms.date: 02/19/2025
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -26,7 +26,7 @@ A pool management endpoint follows this format:
 https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io
 ```
 
-For more information managing session pools, see [session pools management endpoint](./session-pools.md#management-endpoint)
+For more information managing session pools, see [session pools management endpoint](./session-pool.md#management-endpoint)
 
 ## Forwarding requests to a session's container
 
