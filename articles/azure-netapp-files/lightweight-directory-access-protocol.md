@@ -113,7 +113,7 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
 * LDAP servers can also be used to perform custom name mapping for users. For more information, see [Understand name mapping using LDAP](lightweight-directory-access-protocol-name-mapping.md). 
 * LDAP query time outs 
 
-    By default, LDAP queries time out if they can't completed in a timely fashion. If an LDAP query fails due to a time out, the user and/or group lookup fails, and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query time out settings.
+    By default, LDAP queries time out if they can't completed. If an LDAP query fails due to a time out, the user and/or group lookup fails, and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query time out settings.
 
 ## Next steps 
 

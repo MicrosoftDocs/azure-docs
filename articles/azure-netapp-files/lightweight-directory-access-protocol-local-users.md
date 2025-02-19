@@ -1,5 +1,5 @@
 ---
-title: Understand the allow local NFS users with LDAP option Understand name mapping using LDAP in Azure NetApp Files
+title: Understand the allow local NFS users with LDAP option with LDAP in Azure NetApp Files
 description: This article helps you understand the allow local NFS users option in the lightweight directory access protocol (LDAP).
 services: azure-netapp-files
 author: whyistheinternetbroken
