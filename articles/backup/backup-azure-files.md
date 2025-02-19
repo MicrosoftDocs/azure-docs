@@ -24,7 +24,7 @@ Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-sha
 ## Prerequisites
 
 * Ensure the file share is present in one of the supported storage account types. Review the [support matrix](azure-file-share-support-matrix.md).
-* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
+* Identify or create a [Recovery Services vault](tutorial-backup-azure-files-vault-tier-portal.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * [Create a backup policy for protection of Azure Files](quick-backup-azure-files-vault-tier-portal.md).
 * If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 * Ensure that you allow the **Storage account key access** in the required storage account.
@@ -176,6 +176,8 @@ The following steps explain how you can configure backup for individual file sha
    ![Screenshot shows the list of Vault Essentials.](./media/backup-afs/vault-essentials.png)
 
 ---
+
+Once the backup configuration is complete, you can [run an on-demand backup](tutorial-backup-azure-files-vault-tier-portal.md#run-an-on-demand-backup-job) to create the recovery point.
 
 
 ## Next steps

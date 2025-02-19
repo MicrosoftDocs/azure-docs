@@ -50,7 +50,7 @@ The **Select storage account** pane lists a set of discovered supported storage 
 
 9. On the **Configure Backup** pane, under **Policy Details**, select an existing backup policy from the list for your file share protection
 
-   If a policy doesn't exist, [create a new one](../articles/backup/tutorial-backup-azure-files-vault-tier-portal.md#create-a-backup-policy).
+   If a policy doesn't exist, [create a new one](../articles/backup/quick-backup-azure-files-vault-tier-portal.md).
 
 10. To start protecting the file share, select **Enable Backup**.
  
