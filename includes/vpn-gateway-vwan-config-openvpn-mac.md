@@ -15,7 +15,7 @@
 
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html).
 
-1. If you haven't already done so, download the VPN client profile package from the Azure portal.
+1. Download the VPN client profile package from the Azure portal.
 
 1. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in a text editor.
 

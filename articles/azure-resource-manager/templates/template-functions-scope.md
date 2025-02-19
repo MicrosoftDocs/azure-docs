@@ -3,7 +3,7 @@ title: Template functions - scope
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about deployment scope.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 02/12/2025
 ---
 
 # Scope functions for ARM templates

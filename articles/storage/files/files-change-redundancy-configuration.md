@@ -294,7 +294,7 @@ Make sure the region where your storage account is located supports all of the d
 > [!IMPORTANT]
 > [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
 >
-> - (Europe) West Europe
+> - (North America) Mexico Central
 >
 > [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
 
@@ -313,9 +313,9 @@ The following table lists the redundancy options available for storage account t
 | Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
 | Standard general purpose v2 | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705;                  | &#x2705;                  |
-| Premium file shares         | &#x2705;     | &#x2705;     |                         | &#x2705; <sup>1</sup>     | &#x2705;                  |
+| Premium file shares         | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705; <sup>1</sup>     | &#x2705;                  |
 
-<sup>1</sup> Customer-initiated conversion can be undertaken using either [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>1</sup> Customer-initiated conversion can be undertaken using [Azure Portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](../common/redundancy-migration.md?tabs=powershell#customer-initiated-conversion) or the [Azure CLI](../common/redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 
 ### Protocol support
 
@@ -324,7 +324,7 @@ You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if either of
 - NFSv3 protocol support is enabled for Azure Blob Storage
 - The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
 
-Converting NFSv4.1 shares with public endpoints enabled isn't supported. To change redundancy for NFS shares with public endpoints, follow these steps in order:
+Converting **NFSv4.1 shares with public endpoints enabled isn't supported**. To change redundancy for NFS shares with public endpoints, follow these steps in order:
 
 1. [Disable access](storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
 1. Submit the conversion request to change redundancy of the given storage account.

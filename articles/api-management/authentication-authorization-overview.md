@@ -149,7 +149,7 @@ While authorization is preferred, and OAuth 2.0 has become the dominant method o
 |---------|---------|---------|
 |[Managed identity authentication](authentication-managed-identity-policy.md)     |   Authenticate to backend API with a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md).      |   Recommended for scoped access to a protected backend resource by obtaining a token from Microsoft Entra ID.    |
 |[Certificate authentication](authentication-certificate-policy.md)     |    Authenticate to backend API using a client certificate.      |  Certificate may be stored in key vault.      |
-|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if better options are available.         |
+|[Basic authentication](authentication-basic-policy.md)     |   Authenticate to backend API with username and password that are passed through an Authorization header.      | Discouraged if more secure authentication options are available (for example, managed identity, certificates, credential manager).  If chosen, use [named values](api-management-howto-properties.md) to provide credentials, with secrets protected in a key vault.
 
 ## Next steps
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.

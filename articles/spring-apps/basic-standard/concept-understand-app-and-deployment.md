@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 **This article applies to:** ✅ Basic/Standard ✅ Enterprise
 
-*App* and *Deployment* are the two key concepts in the resource model of Azure Spring Apps. In Azure Spring Apps, an *App* is an abstraction of one business app. One version of code or binary deployed as the *App* runs in a *Deployment*. Apps run in an *Azure Spring Apps service instance*, or simply *service instance*, as shown next.
+*App* and *Deployment* are the two key concepts in the resource model of Azure Spring Apps. In Azure Spring Apps, an App is an abstraction of one business app. One version of code or binary deployed as the App runs in a Deployment. Apps run in an *Azure Spring Apps service instance*, or simply *service instance*, as shown next.
 
 :::image type="content" source="media/concept-understand-app-and-deployment/app-deployment-rev.png" alt-text="Diagram showing the relationship between the apps and deployments." border="false":::
 

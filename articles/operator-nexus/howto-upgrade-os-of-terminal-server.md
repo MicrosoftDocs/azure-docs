@@ -15,14 +15,15 @@ This document provides a step-by-step guide to upgrade the operating system (OS)
 
 ## **Prerequisites**
 
-- **Root account password** for the Terminal Server.
+- User must have **Root account password** for the Terminal Server.
 
 - An **on-premises machine** with access to the Terminal Server for file transfers.
 
 - Download **Latest firmware download**: [Opengear Firmware](https://ftp.opengear.com/download/opengear_appliances/OM/current/). 
 
 >[!Note]
-> This guide has been validated with Opengear firmware version 24.07.1.
+> This guide has been validated with Opengear firmware version 24.07.1, which was upgraded from version 22.06.0, and is supported with Nexus Network Fabric runtime version 4.0.0.
+> Validation for compatibility with Nexus Network Fabric runtime version 5.0.0 is ongoing as part of the Nexus Network Fabric 8.0 release testing.
 
 ## **Stage 1: Pre-upgrade checks (Terminal Server)**
 

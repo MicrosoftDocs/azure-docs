@@ -171,11 +171,7 @@ After you've registered your custom domain, you can then add it to your content 
 
 2. On the **CDN profile** page, select the content delivery network endpoint to add the custom domain.
 
-    :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-endpoint-selection.png" alt-text="Screenshot of content delivery network endpoint selection." border="true":::
-
 3. Select **+ Custom domain**.
-
-   :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png" alt-text="Screenshot of the add custom domain button." border="true":::
 
 4. In **Add a custom domain**, **Endpoint hostname**, gets generated and pre-filled from your content delivery network endpoint URL: **\<endpoint-hostname>**.azureedge.net. You can't change this value.
 
