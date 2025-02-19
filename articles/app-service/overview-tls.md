@@ -3,7 +3,7 @@ title: Transport Layer Security (TLS) overview
 description: Learn about Transport Layer Security (TLS) on App Service.
 keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
 ms.topic: article
-ms.date: 01/31/2025
+ms.date: 02/18/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -12,9 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 # Azure App Service TLS overview
 
 > [!NOTE]
-> Customers may be aware of [the retirement notification of TLS 1.0 and 1.1 for interactions with Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/). This retirement does not affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests will continue to run unaffected.
-
-## What does TLS do in App Service?
+> The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
 
 Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps. 
 
@@ -48,26 +46,45 @@ You can use Azure Policy to help audit your resources when it comes to minimum T
 App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM is set to 1.2 on both portal and API. 
 
 ### TLS 1.3
+
+TLS 1.3 is the latest and most secure TLS version supported on Azure App Service. It introduces significant security and performance improvements over TLS 1.2 by simplifying cryptographic algorithms, reducing handshake latency, and enhancing encryption.
+
+Key benefits include:
+- **Stronger Security**: Removes outdated cipher suites, enforces Perfect Forward Secrecy (PFS), and encrypts more of the handshake process.
+- **Faster Handshake**: Reduces round trips, improving connection latency, especially for repeated sessions (0-RTT support).
+- **Better Performance**: Uses streamlined encryption algorithms that lower computational overhead and improve efficiency.
+- **Enhanced Privacy**: Encrypts handshake messages, reducing metadata exposure and mitigating downgrade attacks.
+
+#### Default Configuration  
+TLS 1.3 is fully supported in Azure App Service and can be enabled by setting the **Minimum Inbound TLS Version** to **1.3** in the Azure portal, CLI, or ARM templates.
+
+#### Cipher Suites  
 A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:
 - TLS_AES_256_GCM_SHA384  
 - TLS_AES_128_GCM_SHA256 
 
+Since TLS 1.3 removes legacy cryptographic algorithms, it's recommended for applications that require modern security standards, improved performance, and reduced latency.
+
+### TLS 1.2
+
+TLS 1.2 is the default TLS version for Azure App Service. It provides strong encryption, improved security over older versions, and compliance with industry standards such as PCI DSS. Since TLS 1.2 is the default, no action is required unless you are migrating from an older TLS version. If your app currently uses TLS 1.0 or 1.1, updating to TLS 1.2 is recommended to maintain security, performance, and compliance. Azure App Service supports a predefined set of TLS 1.2 cipher suites to ensure secure communication between clients and your web app. 
+
 ### TLS 1.0 and 1.1 
 
-TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's generally recommended for customers to use TLS 1.2 or above as the minimum TLS version. When creating a web app, the default minimum TLS version is TLS 1.2.
+TLS 1.0 and 1.1 are considered legacy protocols and are no longer considered secure. It's recommended for customers to use TLS 1.2 or above as the minimum TLS version. When creating a web app, the default minimum TLS version is TLS 1.2.
 
 To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will continue to support TLS 1.0 and 1.1 for incoming requests to your web app. However, since the default minimum TLS version is set to TLS 1.2, you need to update the minimum TLS version configurations on your web app to either TLS 1.0 or 1.1 so the requests won't be rejected. 
 
 > [!IMPORTANT]
-> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to the Azure control plane, for example through ARM or API calls, it is not recommended to use TLS 1.0 or 1.1.
+> Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to the Azure control plane, for example through ARM or API calls, it's not recommended to use TLS 1.0 or 1.1.
 >
 
 ## Minimum TLS cipher suite
 
 > [!NOTE]
-> Minimum TLS Cipher Suite is supported on Basic SKUs and higher on multi-tenant App Service.
+> Minimum TLS Cipher Suite is supported on Basic SKUs and higher on multitenant App Service.
 
-The minimum TLS cipher suite includes a fixed list of cipher suites with an optimal priority order that you cannot change. Reordering or reprioritizing the cipher suites is not recommended as it could expose your web apps to weaker encryption. You also cannot add new or different cipher suites to this list. When you select a minimum cipher suite, the system automatically disables all less secure cipher suites for your web app, without allowing you to selectively disable only some weaker cipher suites.
+The minimum TLS cipher suite includes a fixed list of cipher suites with an optimal priority order that you cannot change. Reordering or reprioritizing the cipher suites isn't recommended as it could expose your web apps to weaker encryption. You also cannot add new or different cipher suites to this list. When you select a minimum cipher suite, the system automatically disables all less secure cipher suites for your web app, without allowing you to selectively disable only some weaker cipher suites.
 
 ### What are cipher suites and how do they work on App Service? 
 

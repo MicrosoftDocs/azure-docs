@@ -16,7 +16,7 @@ New versions of Redis server software are frequently released with new features,
 This article details how to upgrade your Redis instance to the latest version of Redis available in Azure Managed Redis (preview).
 
 > [!IMPORTANT]
-> Following the [standard Redis versioning](https://redis.io/docs/about/releases/), this article only covers upgrades to the _major_ version of Redis, not the _minor_ or _patch_ versions. Updates to the minor and patch versions are made automatically during the normal patching cycle each month.
+> Following the [standard Redis versioning](https://redis.io/about/releases/), this article only covers upgrades to the _major_ version of Redis, not the _minor_ or _patch_ versions. Updates to the minor and patch versions are made automatically during the normal patching cycle each month.
 >
 
 ### Current versions
