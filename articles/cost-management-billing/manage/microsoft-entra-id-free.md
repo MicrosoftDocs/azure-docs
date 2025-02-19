@@ -64,7 +64,7 @@ You can't change the license quantity of the free subscription. Microsoft Entra 
 
 You can't transfer Microsoft Entra ID Free. Your free subscription is tied to your billing account, so you can't transfer it to anyone else.
 
-### Close billing account when Microsoft Entra Free subscription is active
+### Close billing account with an active free subscription
 
 You can *start* billing account closure by calling Support. They can help you close the billing account.
 
