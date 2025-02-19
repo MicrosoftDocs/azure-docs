@@ -72,7 +72,7 @@ When you indicate virtual network integration with your Azure Stream Analytics j
 
 ### Intra-Subnet traffic
 The subnet configuration must enable intra-subnet network traffic. This means that it must allow inbound and outbound traffic where both the source and destination IP addresses reside within the same subnet.
-Learn more [here](./virtual-network/network-security-group-how-it-works#intra-subnet-traffic).
+Learn more [here](../virtual-network/network-security-group-how-it-works.md#intra-subnet-traffic).
 
 ### Last job 
 Several Stream Analytics jobs can utilize the same subnet. The last job here refers to no other jobs utilizing the specified subnet. When the last job has been deleted or removed by associated, Azure Stream Analytics releases the subnet as a resource, which was delegated to ASA as a service. Allow several minutes for this action to be completed. 
