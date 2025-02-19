@@ -35,7 +35,7 @@ In this article, you learn how to:
 > * Create a standard zonal public IPv6 address named **myIPv6Zonal**
 > * Create a standard non-zonal public IPv6 address named **myIPv6NonZonal**
 > * Create a static public IP IPv4 address from an IP prefix
-> * Create a static public IP IPv6 address from a IP prefix
+> * Create a static public IP IPv6 address from an IP prefix
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-public-ip-prefix). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-public-ip-prefix/TestRecord.md).
