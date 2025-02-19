@@ -9,20 +9,23 @@ ms.topic: conceptual
 
 # Evaluate your end-state
 
+| :::image type="icon" source="../../migration/images/goal.svg"::: You're confident that Azure Functions is performing as you planned,  completing is functional and non-functional requirements, and you feel safe to decomission your migrated AWS Lambda functionality. |
+| :-- |
+
 You have reached the point in your migration where Azure Functions is operating in production, fullfilling like-for-like functionality your workload needed out of its serverless platform. Your [Day-0 migration manual](./perform-migration.md) should include steps to validate that you've acomplished your goals and establish new baselines for key measurements in your workload. You use these findings to identify any unexpected regressions and prioritize future investements.
 
-> [!IMPORTANT]
-> While this article talks about evaluating production, it's recommended you evaluate throughout the process. Your runbook can be evaluated and your pre-production migration tests can be evaluated. You're encouraged to use this checklist as an assessment throughout this process, not just after your production migration.
+At this stage, your Azure Functions should be operating in production, similar to how AWS Lambda worked to fulfill the serverless requirements of the workload. Your [Day-0 migration manual](./perform-migration.md) had validation steps to reach your migration goals with a quality bar that's acceptable for your business. It's natural to establish new baselines for key measurements in your workload. Use these findings to identify any unexpected regressions and prioritize future investments.
 
-| :::image type="icon" source="../../migration/images/goal.svg"::: You're confident that Azure Functions is performing as you planned, correctly completing is functional and non-functional requirements, and you feel safe to decomission your migrated AWS Lambda functionality. |
-| :-- |
+> [!IMPORTANT]
+> While this article talks about evaluating the workload in production, it's recommended you use this checklist as an assessment throughout and not just after your production migration.
 
 ## Post-migration evaluation checklist
 
 > [!NOTE]
-> **Content developer**: Generate a list of about 20 items that the workload team should evaluate about the success of the migration. These should map back to the pre-migration design areas, should address meeting user expectations, and cover setting new baselines. The following checklist is just an example, in addition to generic items that you'd see on many services, please this checklist include highly unique items to your service.
+> **Content developer**: Generate a list of about 20 items that the workload team should evaluate about the success of the migration. These should map back to the pre-migration design areas, should address meeting user expectations, and cover setting new baselines. The following checklist is just an example, in addition to generic items that you'd see on many services. Include items that are highly unique to your service.
 
 > [!div class="checklist"]
+>
 > - Your AWS Lambda instances are dormant, not processing any residual traffic or jobs.
 > - There was no, or only an acceptiable amount of state lost, in the migration.
 > - Your clients are completely configured to use the new endpoints.

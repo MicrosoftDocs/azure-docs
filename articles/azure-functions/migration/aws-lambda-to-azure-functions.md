@@ -85,9 +85,9 @@ Follow the guidance in [Build migration assets](./build-migration-assets.md).
 
 ## Develop a step-by-step process for Day-0 migration
 
-Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform a cutover from AWS Lambda to Azure Functions. Use this information to build the steps in your day-of migration runbook.
+Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform before you finally transition from AWS Lambda to Azure Functions. Use this information to develop a step-by-step migration manual.
 
-Follow the how-to in [Perform Day-0 migration activities to transition from AWS Lambda to Azure Functions](./perform-migration.md).
+Follow the recommendations in [Develop a Day-0 migration manual](./perform-migration.md).
 
 ## Evaluate end-state
 
@@ -104,9 +104,7 @@ These examples are based on key learnings from Azure customers who have complete
 
 ## Further optimize on Azure
 
-After you've migrated your Lambda to Azure Functions and your AWS resources are decommissioned, we recommend you explore additional features on Azure. These features can help you in future workload requirements or help close gaps in areas where your AWS Lambda solution was not meeting requirements.
-
-See, [Explore Azure optimization opportunities](./function-placeholder.md)
+After you've migrated your Lambda to Azure Functions and your AWS resources are decommissioned, we recommend you explore additional features on Azure. These features can help you in future workload requirements or help close gaps in areas where your AWS Lambda solution was not meeting requirements. These post-migration recommendations are described in [Explore Azure optimization opportunities](./function-placeholder.md).
 
 ## Next step
 
