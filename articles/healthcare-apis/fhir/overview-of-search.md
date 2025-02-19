@@ -162,11 +162,13 @@ Currently, the FHIR service in Azure Health Data Services only supports the `nex
 
 ## FAQ
 
-What does "partial support" mean in
-[R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json)?
+### What does "partial support" mean in [R4 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/R4/unsupported-search-parameters.json)?
 
 Some of the resource-specific search parameters cover more than one data type, and the FHIR service in Azure Health Data Services may only support that search parameter on one of those data types. For example, Condition-abatement-age and Condition-onset-age cover two different data types, Age and Range; however, the FHIR service in Azure Health Data Services supports those two search parameters on Range, but not on Age.
 
+### Is the $lastn operation for Observations supported?
+
+This is not supported. The alternative approach would be to use _count to restrict resources returned per page and _sort to provide results in descending order.
 
 ## Next steps
 

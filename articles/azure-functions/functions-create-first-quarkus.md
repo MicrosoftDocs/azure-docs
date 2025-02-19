@@ -72,7 +72,6 @@ The resource group is not necessary for this part of the instructions, but it's 
 1. Invoke Quarkus dev mode:
 
     ```bash
-    cd functions-azure
     mvn -DskipTests -DresourceGroup=<yourResourceGroupName> quarkus:dev
     ```
 

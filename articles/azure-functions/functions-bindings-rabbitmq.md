@@ -1,10 +1,10 @@
 ---
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
-author: cachai2
+author: ggailey777
 ms.topic: reference
-ms.date: 11/15/2021
-ms.author: cachai
+ms.date: 11/13/2024
+ms.author: glenga
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -12,11 +12,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RabbitMQ bindings for Azure Functions overview
 
-> [!NOTE]
-> The RabbitMQ bindings are only fully supported on [Premium](functions-premium-plan.md) and [Dedicated App Service](dedicated-plan.md) plans. Consumption plans aren't supported.  
-> RabbitMQ bindings are only supported for Azure Functions version 3.x and later versions.
- 
-Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
+Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). 
+
+[!INCLUDE [functions-rabbitmq-plans-support-note](../../includes/functions-rabbitmq-plans-support-note.md)]
+
+The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
 
 | Action | Type |
 |---------|---------|

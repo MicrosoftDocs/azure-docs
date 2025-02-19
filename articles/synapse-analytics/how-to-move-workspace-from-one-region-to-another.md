@@ -69,7 +69,7 @@ $regionName="<YourTargetRegionName>"
 $containerName="<YourFileSystemName>" # This is the file system name
 $workspaceName="<YourTargetRegionWorkspaceName>"
 
-$sourcRegionWSName="<Your source region workspace name>"
+$sourceRegionWSName="<Your source region workspace name>"
 $sourceRegionRGName="<YourSourceRegionResourceGroupName>"
 $sqlUserName="<SQLUserName>"
 $sqlPassword="<SQLStrongPassword>"
@@ -92,7 +92,6 @@ New-AzStorageAccount -ResourceGroupName $resourceGroupName `
   -Kind StorageV2 `
   -EnableHierarchicalNamespace $true 
 ```
-
 
 #### Create an Azure Synapse workspace
 
@@ -147,7 +146,7 @@ if($StorageAccountNameAvailable)
 Write-Host "Storage account Name is available to be used...creating storage account"
 
 #Creating a Data Lake Storage Gen2 account
-$storgeAccountProvisionStatus=az storage account create `
+$storageAccountProvisionStatus=az storage account create `
   --name $storageAccountName `
   --resource-group $resourceGroupName `
   --location $regionName `
@@ -155,7 +154,7 @@ $storgeAccountProvisionStatus=az storage account create `
   --kind StorageV2 `
   --enable-hierarchical-namespace $true
 
-($storgeAccountProvisionStatus| ConvertFrom-Json).provisioningState
+($storageAccountProvisionStatus| ConvertFrom-Json).provisioningState
 }
 else
 {
@@ -321,7 +320,7 @@ Transform the Azure Synapse SQL pool resource ID to SQL database ID because curr
 For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>`
 
 ```powershell
-$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourcRegionWSName -Name $sqlPoolName
+$pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourceRegionWSName -Name $sqlPoolName
 $databaseId = $pool.Id `
     -replace "Microsoft.Synapse", "Microsoft.Sql" `
     -replace "workspaces", "servers" `

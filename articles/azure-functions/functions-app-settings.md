@@ -910,6 +910,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
 | `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
 | `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated virtual network in Flex|
+| `WEBSITE_MAX_DYNAMIC_APPLICATION_SCALE_OUT` |Replaced by `maximumInstanceCount` in `properties.functionAppConfig.scaleAndConcurrency`|
 | `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
 | `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|

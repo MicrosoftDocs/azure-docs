@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root": "/articles/availability-zones/az-region.md",
-            "redirect_url": "/azure/reliability/availability-zones-service-support",
+            "redirect_url": "/azure/reliability/availability-zones-region-support",
             "redirect_document_id": false
         },
         {

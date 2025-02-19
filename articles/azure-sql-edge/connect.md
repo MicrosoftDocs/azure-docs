@@ -81,7 +81,7 @@ Because two containers that are running on the same host are on the same Docker 
 import pyodbc
 server = 'MySQLEdgeContainer' # Replace this with the actual name of your SQL Edge Docker container
 username = 'sa' # SQL Server username
-password = 'MyStrongestP@ssword' # Replace this with the actual SA password from your deployment
+password = '<password>' # Replace this with the actual SA password from your deployment
 database = 'MyEdgeDatabase' # Replace this with the actual database name from your deployment. If you do not have a database created, you can use Master database.
 db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
 conn = pyodbc.connect(db_connection_string, autocommit=True)
@@ -95,7 +95,7 @@ You might want to connect to the instance of Azure SQL Edge from another machine
 import pyodbc
 server = '192.168.2.121,1600' # Replace this with the actual name or IP address of your SQL Edge Docker container
 username = 'sa' # SQL Server username
-password = 'MyStrongestP@ssword' # Replace this with the actual SA password from your deployment
+password = '<password>' # Replace this with the actual SA password from your deployment
 database = 'MyEdgeDatabase' # Replace this with the actual database name from your deployment. If you do not have a database created, you can use Master database.
 db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
 conn = pyodbc.connect(db_connection_string, autocommit=True)

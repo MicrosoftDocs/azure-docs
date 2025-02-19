@@ -59,6 +59,7 @@ az provider register --namespace Microsoft.OperationsManagement
 az provider register --namespace Microsoft.ResourceConnector
 az provider register --namespace Microsoft.Resources
 az provider register --namespace Microsoft.Storage
+az provider register --namespace Microsoft.NexusIdentity
 ```
 
 ## EncryptionAtHost feature registration

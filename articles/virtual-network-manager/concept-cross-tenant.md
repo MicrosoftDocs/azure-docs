@@ -4,9 +4,8 @@ description: Learn about how cross-tenant connections are supported in Azure Vir
 author: mbender-ms    
 ms.author: mbender
 ms.service: azure-virtual-network-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/22/2024
-ms.custom: template-concept
 ---
 
 

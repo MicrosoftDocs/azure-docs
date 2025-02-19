@@ -6,7 +6,7 @@ description: Learn how to use cross-region replication to provide disaster recov
 
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 12/15/2023
+ms.date: 11/15/2024
 
 ---
 
@@ -39,6 +39,7 @@ _Passive geo-replication_ is only available in the Premium tier of Azure Cache f
 To configure geo-replication between two caches, the following prerequisites must be met:
 
 - Both caches are [Premium tier](cache-overview.md#service-tiers) caches.
+- Both caches should have only one replica per primary per shard.
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache. To use geo-failover, both caches must be the same size.
 - Both caches are created and in a running state.
@@ -49,7 +50,6 @@ To configure geo-replication between two caches, the following prerequisites mus
 
 Some features aren't supported with geo-replication:
 
-- Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
 - Caches with more than one replica can't be geo-replicated.
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
@@ -266,7 +266,7 @@ Geo-replicated caches and their resource groups can't be deleted while linked un
 
 ### What region should I use for my secondary linked cache?
 
-In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../availability-zones/cross-region-replication-azure.md).
+In general, we recommended for your cache to exist in the same Azure region as the application that accesses it. For applications with separate primary and fallback regions, we recommended your primary and secondary caches exist in those same regions. For more information about paired regions, see [Best Practices – Azure Paired regions](../reliability/cross-region-replication-azure.md).
 
 ### Can I configure a firewall with geo-replication?
 

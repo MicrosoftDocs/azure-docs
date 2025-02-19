@@ -52,7 +52,7 @@ If you're experiencing problems,  the **Unknown** health status might suggest th
 
 The **Degraded** health status indicates your gateway has detected a loss in performance, although it's still available for usage.
 
-![Degrated status](media/resource-health-overview/degraded.png)
+![Degraded status](media/resource-health-overview/degraded.png)
 
 ## Next steps
 

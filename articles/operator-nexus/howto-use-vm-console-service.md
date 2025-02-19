@@ -82,7 +82,7 @@ This section provides step-by-step guide to help you to create a Console resourc
 
 :::image type="content" source="media/vm-console-resource.png" alt-text="Diagram of VM Console Resource." lightbox="media/vm-console-resource.png":::
 
-1. To create a ***Console*** resource in the Cluster Manager, you'll need to collect some information, for example, resource group (CM_HOSTED_RESOURCES_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to excute the following commands:
+1. To create a ***Console*** resource in the Cluster Manager, you'll need to collect some information, for example, resource group (CM_HOSTED_RESOURCES_RESOURCE_GROUP) and custom location (CM_EXTENDED_LOCATION). You have to provide the resource group but you can retrieve the custom location if you have access rights to execute the following commands:
 
     ```bash
     export cluster_manager_resource_id=$(az resource list -g ${CM_HOSTED_RESOURCES_RESOURCE_GROUP} --query "[?type=='Microsoft.NetworkCloud/clusterManagers'].id" --output tsv)

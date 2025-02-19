@@ -83,8 +83,8 @@ landingContent:
             url: bgp-howto.md
           - text: Configure forced tunneling
             url: vpn-gateway-forced-tunneling-rm.md
-          - text: Configure active-active gateways
-            url: active-active-portal.md
+          - text: Change a gateway to active-active mode
+            url: gateway-change-active-active.md
 
   # Card
   - title: VPN devices

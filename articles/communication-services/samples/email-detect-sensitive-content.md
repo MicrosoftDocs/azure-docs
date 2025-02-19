@@ -25,7 +25,7 @@ You need to complete these quickstarts to set up the Azure AI resources:
 
 - [Quickstart: Detect Personally Identifying Information (PII) in text](/azure/ai-services/language-service/personally-identifiable-information/quickstart) 
 
-- [Quickstart: Moderate text and images with content safety in Azure AI Studio](/azure/ai-studio/quickstarts/content-safety)
+- [Quickstart: Moderate text and images with content safety in Azure AI Foundry portal](/azure/ai-studio/quickstarts/content-safety)
 
 ## Prerequisite check
 
@@ -70,6 +70,8 @@ From the application directory, install the Azure Communication Services Email c
 `dotnet add package Azure.AI.TextAnalytics`
 
 `dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator`
+
+`dotnet add package Azure.AI.ContentSafety`
 
 ## Create the Main function
 
@@ -136,7 +138,7 @@ Loop through the content to check for any sensitive data. Start the sensitivity 
 Add the following code into the `AnalyzeSensitiveData` function following the line that creates the `TextAnalyticsClient` variable. 
 
 ```csharp
-bool senstiveDataDetected = false;  // we start with a baseline that of no sensitive data
+bool sensitiveDataDetected = false;  // we start with a baseline that of no sensitive data
 var actions = new TextAnalyticsActions
 {
     RecognizePiiEntitiesActions = new List<RecognizePiiEntitiesAction> { new RecognizePiiEntitiesAction() }
@@ -162,7 +164,7 @@ await foreach (var documentResults in operation.Value)
                 {
                     if (document.Entities.Count > 0)
                     {
-                        senstiveDataDetected = true; // Sensitive data detected
+                        sensitiveDataDetected = true; // Sensitive data detected
                     }
 
                 }
@@ -171,7 +173,7 @@ await foreach (var documentResults in operation.Value)
                  
     }
 }
-return senstiveDataDetected;
+return sensitiveDataDetected;
 ```
 
 ## Add function that checks for inappropriate content
@@ -189,7 +191,7 @@ static async Task<bool> AnalyzeInappropriateContent(List<string> documents)
 
 ### Create the Content Safety client with authentication
 
-Create a new function with a Content Safety client that also retrieves your connection information. Add the following code into the `AnalyzeInappropriateContent` function to retrieve the connection key and endpoint for the resource from environment variables named `CONTENT_LANGUAGE_KEY` and `CONTENT_LANGUAGE_ENDPOINT`. It also creates a new `ContentSafetyClient` variable. If you're using the same Azure AI instance for Text Analytics, these values remain the same. For more information about managing your Content Safety connection information, see [Quickstart: Detect Personally Identifiable Information (PII) > Create environment variables](/azure/ai-services/language-service/personally-identifiable-information/quickstart#create-environment-variables). 
+Create a new function with a Content Safety client that also retrieves your connection information. Add the following code into the `AnalyzeInappropriateContent` function to retrieve the connection key and endpoint for the resource from environment variables named `CONTENT_LANGUAGE_KEY` and `CONTENT_LANGUAGE_ENDPOINT`. It also creates a new `ContentSafetyClient` variable. If you're using the same Azure AI instance for Text Analytics, these values remain the same. For more information about managing your Content Safety connection information, see [Quickstart: Create the Content Safety resource](/azure/ai-services/content-safety/how-to/use-blocklist?tabs=windows%2Ccsharp#prerequisites).
 
 ```csharp
 // This example requires environment variables named "CONTENT_LANGUAGE_KEY" and "CONTENT_LANGUAGE_ENDPOINT"
@@ -326,4 +328,4 @@ else
 ## Next steps
 
 - Learn more about [Azure Communication Services](../overview.md).
-- Learn more about [Azure AI Studio](/azure/ai-studio/).
+- Learn more about [Azure AI Foundry](/azure/ai-studio/).

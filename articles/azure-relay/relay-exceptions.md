@@ -2,7 +2,7 @@
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
 description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 ms.topic: article
-ms.date: 08/10/2023
+ms.date: 12/10/2024
 ---
 # Azure Relay exceptions
 
@@ -35,10 +35,10 @@ The following table lists messaging exception types and their causes. It also no
 | [Invalid Operation](/dotnet/api/system.invalidoperationexception) |The requested user operation isn't allowed within the server or service. See the exception message for details. |Check the code and the documentation. Make sure that the requested operation is valid. |Retry doesn't help. |
 | [Operation Canceled](/dotnet/api/system.operationcanceledexception) |An attempt is made to invoke an operation on an object that has already been closed, aborted, or disposed. In rare cases, the ambient transaction is already disposed. |Check the code and make sure it doesn't invoke operations on a disposed object. |Retry doesn't help. |
 | [Unauthorized Access](/dotnet/api/system.unauthorizedaccessexception) |The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object couldn't acquire a token, the token is invalid, or the token doesn't contain the claims required to perform the operation. |Make sure that the token provider is created with the correct values. Check the configuration of the Access Control service. |Retry might help in some cases; add retry logic to code. |
-| [Argument Exception](/dotnet/api/system.argumentexception),<br /> [Argument Null](/dotnet/api/system.argumentnullexception),<br />[Argument Out Of Range](/dotnet/api/system.argumentoutofrangeexception) |One or more of the following has occurred:<br />One or more arguments supplied to the method are invalid.<br /> The URI supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contains one or more path segments.<br />The URI scheme supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) is invalid. <br />The property value is larger than 32 KB. |Check the calling code and make sure the arguments are correct. |Retry doesn't help. |
+| [Argument Exception](/dotnet/api/system.argumentexception),<br /> [Argument Null](/dotnet/api/system.argumentnullexception),<br />[Argument Out Of Range](/dotnet/api/system.argumentoutofrangeexception) |One or more of the following issues has occurred:<br />One or more arguments supplied to the method are invalid.<br /> The URI supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) contains one or more path segments.<br />The URI scheme supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) is invalid. <br />The property value is larger than 32 KB. |Check the calling code and make sure the arguments are correct. |Retry doesn't help. |
 | [Server Busy](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Service isn't able to process the request at this time. |The client can wait for a period of time, then retry the operation. |The client might retry after a specific interval. If a retry results in a different exception, check the retry behavior of that exception. |
 | [Quota Exceeded](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |The messaging entity has reached its maximum allowable size. |Create space in the entity by receiving messages from the entity or its subqueues. See [QuotaExceededException](#quotaexceededexception). |Retry might help if messages have been removed in the meantime. |
-| [Message Size Exceeded](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |A message payload exceeds the 256-KB limit. Note that the 256-KB limit is the total message size. The total message size can include system properties and any Microsoft .NET overhead. |Reduce the size of the message payload, then retry the operation. |Retry doesn't help. |
+| [Message Size Exceeded](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |A message payload exceeds the 256-KB limit. The 256-KB limit is the total message size. The total message size can include system properties and any Microsoft .NET overhead. |Reduce the size of the message payload, then retry the operation. |Retry doesn't help. |
 
 ## QuotaExceededException
 
@@ -68,7 +68,7 @@ There are two common causes for this error:
 
 *   **Incorrect configuration**
     
-    The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see whether the value in your code is set to something too small. Note that CPU usage and the condition of the network can affect the time it takes for an operation to complete. It's a good idea not to set the operation timeout to a very small value.
+    The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see whether the value in your code is set to something too small. CPU usage and the condition of the network can affect the time it takes for an operation to complete. It's a good idea not to set the operation timeout to a very small value.
 *   **Transient service error**
 
     Occasionally, the Relay service might experience delays in processing requests. It might happen, for example, during periods of high traffic. If it occurs, retry your operation after a delay, until the operation is successful. If the same operation continues to fail after multiple attempts, check the [Azure service status site](https://azure.microsoft.com/status/) to see if there are known service outages.

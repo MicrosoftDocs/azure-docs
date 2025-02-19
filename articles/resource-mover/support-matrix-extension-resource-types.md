@@ -1,11 +1,10 @@
 ---
 title: Support of Extension resource types in Azure Resource Mover
-description: Supported Extension resource types  
+description: Supported Extension resource types in Azure Resource Mover.
 author: ankitaduttaMSFT
-manager: sutalasi
 ms.service: azure-resource-mover
 ms.topic: conceptual
-ms.date: 03/29/2024
+ms.date: 12/27/2024
 ms.author: aarthiv
 ms.custom: UpdateFrequency.5
 

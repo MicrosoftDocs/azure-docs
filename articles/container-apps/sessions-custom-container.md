@@ -1,21 +1,20 @@
 ---
-title: Custom container sessions in Azure Container Apps (preview)
+title: Custom container sessions in Azure Container Apps
 description: Learn to run a container in a custom session in Azure Container Apps.
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
 ms.topic: conceptual
-ms.date: 10/02/2024
+ms.date: 10/24/2024
 ms.author: antchu
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Azure Container Apps custom container sessions (preview)
+# Azure Container Apps custom container sessions
 
 In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provide, you can also use custom containers to define your own session sandboxes.
-
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for custom container sessions
 
@@ -90,7 +89,7 @@ This command creates a session pool with the following settings:
 | `--memory` | `0.5Gi` | The required memory. |
 | `--target-port` | `80` | The session port used for ingress traffic. |
 | `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
+| `--network-status` | `EgressDisabled` |Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 | `--max-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
 | `--ready-sessions` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
 | `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |

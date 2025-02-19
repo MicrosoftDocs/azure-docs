@@ -6,8 +6,8 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/14/2024
-# As an Azure Logic Apps developer, I want to create a workflow using trigger and action operations in Azure Logic Apps.
+ms.date: 02/14/2025
+# As an Azure Logic Apps developer, I want to create an integration workflow using trigger and action operations in Azure Logic Apps.
 ---
 
 # Build a workflow with a trigger or action in Azure Logic Apps
@@ -26,10 +26,9 @@ This guide shows the steps for Consumption and Standard logic app workflows.
 
 - To add an action, you have to start with a logic app resource and a workflow that minimally has a trigger.
 
-The following steps use the Azure portal, but you can also use the following tools to create a logic app and workflow:
+The following steps use the Azure portal, but you can also use the following tools to build a logic app workflow:
 
-  - Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-
+  - Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
   - Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 <a name="add-trigger"></a>
@@ -48,29 +47,27 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. Choose either option:
 
-   - To filter the connectors by name, in the search box, enter the name for the connector or trigger that you want.
+   - To filter triggers by name, in the search box, enter the name for the operation collection, connector, or trigger that you want.
 
-   - To filter the connectors based on the following groups, from the **Runtime** list, select either **In-App**, **Shared**, or **Custom**, based on the group that contains the trigger that you want.
+   - To filter the triggers based on the following groups, from the **Runtime** list, select either **In-app**, **Shared**, or **Custom**, based on the group that contains the trigger that you want.
 
      | Runtime | Description |
      |---------|-------------|
-     | **In-App** | Operation collections with triggers that run directly and natively within the Azure Logic Apps runtime. In the legacy designer, this group is the same as the legacy **Built-in** group. |
-     | **Shared** | Connectors with triggers that are Microsoft-managed, hosted, and run in multitenant Azure. In the legacy designer, this group combines the legacy **Standard** and **Enterprise** groups. |
+     | **In-app** | Operation collections with triggers that run directly and natively within the Azure Logic Apps runtime. In previous designer versions, this group is the same as the legacy **Built-in** group. |
+     | **Shared** | Connectors with triggers that are Microsoft-managed, hosted, and run in multitenant Azure. In previous designer versions, this group combines the legacy **Standard** and **Enterprise** groups. |
      | **Custom** | Any connectors with triggers that you created and installed. |
 
-     The following example shows the designer for a Consumption logic app with a blank workflow and shows the **In-App** runtime selected. The list shows the available operation collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
+     The following example shows the designer for a Consumption logic app with a blank workflow and shows the **In-app** runtime selected. The list shows the available collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, pane named Add a trigger, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-consumption.png":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, pane named Add a trigger, and Runtime set to In-app." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-consumption.png":::
 
      The following example shows the designer for a Consumption logic app with a blank workflow and shows the **Shared** runtime selected. The list shows the available connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
      :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, pane named Add a trigger, and Runtime set to Shared." lightbox="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-consumption.png":::
 
-1. In the search box, enter the name for the connector or trigger that you want to find.
+1. From the triggers list, select the trigger that you want. If more triggers exist that aren't shown, select **See more**.
 
-1. From the results list, select the trigger that you want. If a connector has more triggers that aren't shown, select **See more**.
-
-1. If the **Create Connection** pane appears, provide any necessary connection information, which differs based on the connector. When you're done, select **Sign in** or **Create New** to complete the connection.
+1. If the **Create connection** pane appears, provide any necessary connection information, which differs based on the trigger. When you're done, select **Sign in** or **Create new** to complete the connection.
 
 1. After the trigger information box appears, provide the necessary details for your selected trigger.
 
@@ -88,27 +85,27 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. Choose either option:
 
-   - To filter the connectors or triggers list by name, in the search box, enter the name for the connector or trigger that you want.
+   - To filter triggers by name, in the search box, enter the name for the operation collection, connector, or trigger that you want.
 
-   - To filter the connectors based on the following groups, from the **Runtime** list, select either **In-App**, **Shared**, or **Custom**, based on the group that contains the trigger that you want.
+   - To filter triggers based on the following groups, from the **Runtime** list, select either **In-app**, **Shared**, or **Custom**, based on the group that contains the trigger that you want.
 
      | Runtime | Description |
      |---------|-------------|
-     | **In-App** | Operation collections with triggers that run directly and natively within the Azure Logic Apps runtime. In the legacy designer, this group is the same as the legacy **Built-in** group. |
-     | **Shared** | For stateful workflows only, connectors with triggers that are Microsoft-managed, hosted, and run in multitenant Azure. In the legacy designer, this group is the same as the **Azure** group. |
+     | **In-app** | Operation collections with triggers that run directly and natively within the Azure Logic Apps runtime. In previous designer versions, this group is the same as the legacy **Built-in** group. |
+     | **Shared** | For stateful workflows only, connectors with triggers that are Microsoft-managed, hosted, and run in multitenant Azure. In previous designer versions, this group is the same as the **Azure** group. |
      | **Custom** | Any connectors with triggers that you created and installed. |
 
-     The following example shows the designer for a Standard logic app with a blank workflow and shows the **In-App** runtime selected. The list shows the available operation collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+     The following example shows the designer for a Standard logic app with a blank workflow and shows the **In-app** runtime selected. The list shows the available collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, pane named Add a trigger, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, pane named Add a trigger, and Runtime set to In-app." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png":::
 
      The following example shows the designer for a Standard logic app with a blank workflow and shows the **Shared** runtime selected. The list shows the available connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
      :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, pane named Add a trigger, and Runtime set to Shared." lightbox="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard.png":::
 
-1. From the results list, select the trigger that you want. If a connector has more triggers that aren't shown, select **See more**.
+1. From the triggers list, select the trigger that you want. If more triggers exist that aren't shown, select **See more**.
 
-1. If the **Create Connection** pane appears, provide any necessary connection information, which differs based on the connector. When you're done, select **Sign in** or **Create New** to complete the connection.
+1. If the **Create connection** pane appears, provide any necessary connection information, which differs based on the trigger. When you're done, select **Sign in** or **Create new** to complete the connection.
 
 1. After the trigger information box appears, provide the necessary details for your selected trigger.
 
@@ -136,29 +133,27 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. Choose either option:
 
-   - To filter the connectors by name, in the search box, enter the name for the connector or action that you want.
+   - To filter actions by name, in the search box, enter the name for the operation collection, connector, or action that you want.
 
-   - To filter the connectors based on the following groups, from the **Runtime** list, select either **In-App**, **Shared**, or **Custom**, based on the group that contains the action that you want.
+   - To filter actions based on the following groups, from the **Runtime** list, select either **In-app**, **Shared**, or **Custom**, based on the group that contains the action that you want.
 
      | Runtime | Description |
      |---------|-------------|
-     | **In-App** | Operation collections with actions that run directly and natively within the Azure Logic Apps runtime. In the legacy designer, this group is the same as the legacy **Built-in** group. |
-     | **Shared** | Connectors with actions that are Microsoft-managed, hosted, and run in multitenant Azure. In the legacy designer, this group combines the legacy **Standard** and **Enterprise** groups. |
+     | **In-app** | Operation collections with actions that run directly and natively within the Azure Logic Apps runtime. In previous designer versions, this group is the same as the legacy **Built-in** group. |
+     | **Shared** | Connectors with actions that are Microsoft-managed, hosted, and run in multitenant Azure. In previous designer versions, this group combines the legacy **Standard** and **Enterprise** groups. |
      | **Custom** | Any connectors with actions that you created and installed. |
 
-     The following example shows the designer for a Consumption logic app workflow with an existing trigger and shows the **In-App** runtime selected. The list shows the available operation collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
+     The following example shows the designer for a Consumption logic app workflow with an existing trigger and shows the **In-app** runtime selected. The list shows the available collections, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consumption workflow with existing trigger, pane named Add an action, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consumption workflow with existing trigger, pane named Add an action, and Runtime set to In-app." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-consumption.png":::
 
      The following example shows the designer for a Consumption logic app workflow with an existing trigger and shows the **Shared** runtime selected. The list shows the available connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=consumption#connectors-triggers-actions-designer).
 
      :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-consumption.png" alt-text="Screenshot shows Azure portal, designer for Consumption workflow with existing trigger, pane named Add a trigger, and Runtime set to Shared." lightbox="media/create-workflow-with-trigger-or-action/shared-connectors-actions-consumption.png":::
 
-1. In the search box, enter the name for the connector or action that you want to find.
+1. From the actions list, select the action that you want. If more actions exist that aren't shown, select **See more**.
 
-1. From the results list, select the action that you want. If a connector has more actions that aren't shown, select **See more**.
-
-1. If the **Create Connection** pane appears, provide any necessary connection information, which differs based on the connector. When you're done, select **Sign in** or **Create New** to complete the connection.
+1. If the **Create connection** pane appears, provide any necessary connection information, which differs based on the action. When you're done, select **Sign in** or **Create new** to complete the connection.
 
 1. After the action information box appears, provide the necessary details for your selected action.
 
@@ -180,27 +175,27 @@ The following steps use the Azure portal, but you can also use the following too
 
 1. Choose either option:
 
-   - To filter the connectors by name, in the search box, enter the name for the connector or action that you want.
+   - To filter actions by name, in the search box, enter the name for the operation collection, connector, or action that you want.
 
-   - To filter the connectors based on the following groups, from the **Runtime** list, select either **In-App**, **Shared**, or **Custom**, based on the group that contains the action that you want.
+   - To filter actions based on the following groups, from the **Runtime** list, select either **In-app**, **Shared**, or **Custom**, based on the group that contains the action that you want.
 
      | Runtime | Description |
      |---------|-------------|
-     | **In-App** | Operation collections with actions that run directly and natively within the Azure Logic Apps runtime. In the legacy designer, this group is the same as the legacy **Built-in** group. |
-     | **Shared** | For stateful workflows only, connectors with actions that are Microsoft-managed, hosted, and run in multitenant Azure. In the legacy designer, this group is the same as the **Azure** group. |
+     | **In-app** | Operation collections with actions that run directly and natively within the Azure Logic Apps runtime. In previous designer versions, this group is the same as the legacy **Built-in** group. |
+     | **Shared** | For stateful workflows only, connectors with actions that are Microsoft-managed, hosted, and run in multitenant Azure. In previous designer versions, this group is the same as the **Azure** group. |
      | **Custom** | Any connectors with actions that you created and installed. |
 
-     The following example shows the designer for a Standard workflow with an existing trigger and shows the **In-App** group selected. The list shows the available operation collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+     The following example shows the designer for a Standard workflow with an existing trigger and shows the **In-app** group selected. The list shows the available collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app workflow with a trigger, and In-App connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, the designer for Standard logic app workflow with a trigger, and In-app collections and connectors with actions gallery.":::
 
-     The following example shows the designer for a Standard workflow with an existing trigger and shows the **Shared** group selected. The list shows the available operation collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
+     The following example shows the designer for a Standard workflow with an existing trigger and shows the **Shared** group selected. The list shows the available collections and connectors, which appear in a [specific order](create-workflow-with-trigger-or-action.md?tabs=standard#connectors-triggers-actions-designer).
 
-     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot showing Azure portal, the designer for Standard logic app workflow with a trigger, and Shared connectors with actions gallery.":::
+     :::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, the designer for Standard logic app workflow with a trigger, and Shared connectors with actions gallery.":::
 
-1. From the operation collection or connector list, select the collection or connector that you want. After the actions list appears, select the action that you want.
+1. From the actions list, select the action that you want. If more triggers exist that aren't shown, select **See more**.
 
-1. If prompted, provide any necessary connection information, which differs based on the connector. When you're done, select **Create**.
+1. If the **Created connection** pane appears, provide any necessary connection information, which differs based on the connector. When you're done, select **Sign in** or **Create new** to complete the connection.
 
 1. After the action information box appears, provide the necessary details for your selected action.
 
@@ -212,49 +207,49 @@ The following steps use the Azure portal, but you can also use the following too
 
 ## Connectors, triggers, and actions in the designer
 
-In the workflow designer, you can select from hundreds of triggers and actions, collectively called *operations*. Azure Logic Apps organizes these operations into either collections, such as **Schedule**, **HTTP**, and **Data Operations**, or as connectors, such as **Azure Service Bus**, **SQL Server**, **Azure Blob Storage**, and **Office 365 Outlook**. These collections can include triggers, actions, or both.
+In the workflow designer, you can select from 1,400+ triggers and actions, collectively called *operations*. Azure Logic Apps organizes operations into either collections such as **Schedule** and **Data Operations**, or as connectors such as **Azure Blob Storage** and **SQL Server**. Collections and connectors can include triggers, actions, or both.
 
-In the **Add a trigger** or **Add an action** pane, the gallery lists the available operation collections and connectors organized from left to right in ascending order, first numerically if any exist, and then alphabetically. After you select a collection or connector, the triggers or actions appear in ascending order alphabetically.
+When the **Add a trigger** or **Add an action** pane opens, the gallery lists the available collections and connectors from left to right, based on popularity. After you select a collection or connector, the available triggers or actions appear in alphabetically in ascending order.
 
-### In-App (built-in) operations
+### In-app (built-in) operations
 
-The following example shows the **In-App** operations collections and connectors when you add a trigger:
+The following Standard workflow example shows the **In-app** collections and connectors when you add a trigger:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and In-App operations collections and connectors." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and In-app collections and connectors.":::
 
-After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
+After you select a collection or connector, triggers appear by collection or connector name.
 
-The following example selected the **Schedule** operations collection and shows the trigger named **Recurrence**:
+The following example shows the selected **Schedule** collection and its triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Schedule operations collection with Recurrence trigger." lightbox="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Schedule operation collection with Recurrence trigger.":::
 
-The following example shows the **In-App** collections and connectors when you add an action:
+The following example shows the **In-app** collections and connectors when you add an action:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, pane named Add an action, and Runtime set to In-App." lightbox="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Recurrence trigger, pane named Add an action, and Runtime set to In-app.":::
 
-The following example selected the **Azure Queue Storage** connector and shows the available actions:
+The following example shows the selected **Azure Queue Storage** connector and its actions:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Azure Queue Storage connector with actions." lightbox="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/in-app-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow with Azure Queue Storage connector with actions.":::
 
 ### Shared (Azure) operations
 
-The following example shows the **Shared** connectors gallery when you add a trigger:
+The following Standard workflow example shows the **Shared** connectors gallery when you add a trigger:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Shared connectors with triggers." lightbox="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-triggers-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app with blank stateful workflow, and Shared connectors with triggers.":::
 
-After you select a collection or connector, the individual triggers are grouped by collection or connector name and appear in ascending order, first numerically if any exist, and then alphabetically. 
+After you select a collection or connector, triggers appear by collection or connector name.
 
-The following example selected the **365 Training** connector and shows the available triggers:
+The following example shows the selected **365 Training** connector and its triggers:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers." lightbox="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-triggers.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with triggers.":::
 
 The following example shows the **Shared** connectors gallery when you add an action:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow, and Shared connectors with actions." lightbox="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-connectors-actions-standard.png" alt-text="Screenshot shows Azure portal, designer for Standard logic app stateful workflow, and Shared connectors with actions.":::
 
-The following example selected the **365 Training** connector and shows the available actions:
+The following example shows the selected **365 Training** connector and its actions:
 
-:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with actions." lightbox="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions.png":::
+:::image type="content" source="media/create-workflow-with-trigger-or-action/shared-selected-connector-actions.png" alt-text="Screenshot shows Azure portal, workflow designer, and 365 Training connector with actions.":::
 
 For more information, see the following documentation:
 
@@ -264,6 +259,6 @@ For more information, see the following documentation:
 - [Billing and pricing for operations in Consumption workflows](logic-apps-pricing.md#consumption-operations)
 - [Billing and pricing for operations in Standard workflows](logic-apps-pricing.md#standard-operations)
 
-## Next steps
+## Related content
 
 [General information about connectors, triggers, and actions](/connectors/connectors)

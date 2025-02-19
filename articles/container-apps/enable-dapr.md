@@ -1,15 +1,15 @@
 ---
-title: Enable Dapr on your container app
-description: Learn more about enabling Dapr on your Azure Container App service to develop applications.
+title: Enable Dapr on an existing container app
+description: Enable Dapr on your existing Azure Container App service.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 11/25/2024
 ---
 
-# Enable Dapr on your container app
+# Enable Dapr on an existing container app
 
 You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. Azure Container Apps provides three channels through which you can enable Dapr:
 
@@ -24,7 +24,7 @@ The following table outlines the currently supported list of Dapr sidecar config
 | `--enable-dapr`           | `dapr.enabled`            | Enables Dapr on the container app.                                                                                           |
 | `--dapr-app-port`         | `dapr.appPort`            | The port your application is listening on which is used by Dapr for communicating to your application                   |
 | `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`.                  |
-| `--dapr-app-id`           | `dapr.appId`              | A unique Dapr identifier for your container app used for service discovery, state encapsulation and the pub/sub consumer ID. |
+| `--dapr-app-id`           | `dapr.appId`              | A unique Dapr identifier for your container app used for service discovery, state encapsulation, and the pub/sub consumer ID. |
 | `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default is 4 MB.                    |
 | `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. The default 4 KB.                    |
 | `--dapr-api-logging`      | `dapr.enableApiLogging`   | Enables viewing the API calls from your application to the Dapr sidecar.                                                     |
@@ -61,7 +61,7 @@ When using an IaC template, specify the following arguments in the `properties.c
   "dapr": {
     "enabled": true,
     "appId": "nodeapp",
-    "appProcotol": "http",
+    "appProtocol": "http",
     "appPort": 3000
   }
 ```
@@ -91,10 +91,7 @@ Enter the component App ID and select the appropriate headings. If applicable, u
 
 ## Next steps
 
-Try working with Dapr and Azure Container Apps using one of the following tutorials:
-- [Microservices communication using Dapr Pub/Sub][dapr-pubsub]
-- [Event-driven work using Dapr Bindings][dapr-bindings]
-- [Microservices communication using Dapr Service Invocation][dapr-invoke]
+[Learn more about Dapr components in Azure Container Apps.](./dapr-components.md)
 
 <!-- Links External -->
 

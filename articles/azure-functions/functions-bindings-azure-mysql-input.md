@@ -547,6 +547,7 @@ const { app, input } = require('@azure/functions');
 const mysqlInput = input.generic({
     type: 'mysql',
     commandText: 'select * from Products where Cost = @Cost',
+    parameters: '@Cost={Cost}',
     commandType: 'Text',
     connectionStringSetting: 'MySqlConnectionString'
 })

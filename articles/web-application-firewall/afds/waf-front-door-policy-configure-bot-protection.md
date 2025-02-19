@@ -1,13 +1,12 @@
 ---
 title: Configure bot protection for Web Application Firewall with Azure Front Door
 description: Learn how to configure bot protection rule in Azure Web Application Firewall (WAF) for Front Door by using Azure portal.
-author: sowmyam2019
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.custom: devx-track-bicep
 ms.topic: how-to
-services: web-application-firewall
 ms.date: 11/10/2022
-ms.author: victorh
+ms.custom: devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 ---
 

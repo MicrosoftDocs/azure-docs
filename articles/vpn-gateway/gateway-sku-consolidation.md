@@ -73,7 +73,7 @@ No. This migration is seamless and there's no expected downtime during migration
 
 ### Will there be any performance impact on my gateways with this migration?
 
-Yes. AZ SKUs get the benefits of Zone redundancy for VPN gateways in [zone redundant regions](https://learn.microsoft.com/azure/reliability/availability-zones-service-support). If the region doesn't support zone redundancy, the gateway is regional until the region it's deployed to supports zone redundancy.
+Yes. AZ SKUs get the benefits of Zone redundancy for VPN gateways in [Azure regions with availability zones](../reliability/availability-zones-region-support.md). If the region doesn't support zone redundancy, the gateway is regional until the region it's deployed to supports zone redundancy.
 
 ### Is VPN Gateway Basic SKU retiring?
 

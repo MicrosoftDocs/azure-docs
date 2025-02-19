@@ -1,12 +1,12 @@
 ---
 title: Best practices for scaling
-titleSuffix: Azure Cache for Redis
 description: Learn how to scale your Azure Cache for Redis.
 
 
 ms.topic: conceptual
+ms.custom:
+  - ignite-2024
 ms.date: 04/12/2024
-
 ---
 
 # Scaling
@@ -37,6 +37,7 @@ When you scale a cache up or down in the portal, both `maxmemory-reserved` and `
 When you scale a cache up or down programmatically, using PowerShell, CLI or Rest API, any `maxmemory-reserved` or `maxfragmentationmemory-reserved` are ignored as part of the update request. Only your scaling change is honored. You can update these memory settings after the scaling operation has completed.
 
 For more information on scaling and memory, depending on your tier see either:
+
 - [How to scale - Basic, Standard, and Premium tiers](cache-how-to-scale.md#how-to-scale---basic-standard-and-premium-tiers), or 
 - [How to scale up and out - Enterprise and Enterprise Flash tiers](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers).
 
@@ -46,10 +47,6 @@ For more information on scaling and memory, depending on your tier see either:
 ## Minimizing your data helps scaling complete quicker
 
 If preserving the data in the cache isn't a requirement, consider flushing the data prior to scaling. Flushing the cache helps the scaling operation complete more quickly so the new capacity is available sooner. See more details on [how to initiate flush operation.](cache-administration.md#flush-data)
-
-## Scaling Enterprise tier caches
-
-Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in scaling best practices. See [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md) for more information.
 
 ## Next steps
 

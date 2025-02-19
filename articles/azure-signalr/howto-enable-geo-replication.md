@@ -35,12 +35,12 @@ However, managing multiple Azure SignalR Services brings some challenges:
 2. The development team would need to manage two separate Azure SignalR Services, each with distinct domain and connection string.
 3. If a regional outage happens, the traffic needs to be switched to another region.
 
-![Diagram of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png "Mutiple SignalR Example")
+![Diagram of using two Azure SignalR instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/signalr-multiple.png "Multiple SignalR Example")
 
 ## Harnessing geo-replication
 With the new geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned hurdles.
 
-![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/signalr-replica.png "Replica Example")
+![Diagram of using one Azure SignalR instance with replica to handle traffic from two countries/regions.](./media/howto-enable-geo-replication/signalr-replica.png "Replica Example")
 
 ## Create a SignalR replica
 # [Portal](#tab/Portal)

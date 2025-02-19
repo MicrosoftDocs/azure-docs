@@ -97,7 +97,7 @@ The following table lists the claim resolvers with information about the OpenID 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |The `acr_values` query string parameter. | N/A |
-| {OIDC:ClientId} |The `client_id`  query string parameter. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:ClientId} |The `client_id`  query string parameter. | 00001111-aaaa-2222-bbbb-3333cccc4444 |
 | {OIDC:DomainHint} |The `domain_hint`  query string parameter. | facebook.com |
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |

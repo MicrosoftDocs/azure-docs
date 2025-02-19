@@ -52,7 +52,7 @@ Install OT network sensors on-premises, at strategic locations in your network t
 
 - **Air-gapped and on-premises services**:
 
-    If you have an air-gapped environment and want to keep all your OT network data fully on-premises, connect your OT network sensors to an on-premises management console for central visibility and control.
+    If you have an air-gapped environment and want to keep all your OT network data fully on-premises, connect your OT network sensors to the OT sensor console using the UI or CLI commands for central visibility and control.
 
     Continue to view detailed device data and security value in each sensor console.
 

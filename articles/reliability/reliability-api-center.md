@@ -36,4 +36,4 @@ All customer data stays in the region where you deploy an API center. Azure API 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)

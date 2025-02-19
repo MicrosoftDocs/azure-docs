@@ -48,4 +48,4 @@ If your solution needs to always be available, then you should design it to eith
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)

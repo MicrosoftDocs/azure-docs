@@ -89,7 +89,7 @@ The output shows the new resources.
 ```Output
 {
   "etag": "W/\"abcdefgh-1111-2222-bbbb-987654321098\"",
-  "id": "/subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/ddosProtectionPlans/MyDdosProtectionPlan",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/ddosProtectionPlans/MyDdosProtectionPlan",
   "location": "eastus",
   "name": "MyDdosProtectionPlan",
   "provisioningState": "Succeeded",
@@ -99,7 +99,7 @@ The output shows the new resources.
   "type": "Microsoft.Network/ddosProtectionPlans",
   "virtualNetworks": [
     {
-      "id": "/subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet",
       "resourceGroup": "MyResourceGroup"
     }
   ]
@@ -110,12 +110,12 @@ The output shows the new resources.
 
 ```Output
 Name              : MyDdosProtectionPlan
-Id                : /subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/ddosProtectionPlans/MyDdosProtectionPlan
+Id                : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/ddosProtectionPlans/MyDdosProtectionPlan
 Etag              : W/"abcdefgh-1111-2222-bbbb-987654321098"
 ProvisioningState : Succeeded
 VirtualNetworks   : [
                       {
-                        "Id": "/subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet"
+                        "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet"
                       }
                     ]
 ```

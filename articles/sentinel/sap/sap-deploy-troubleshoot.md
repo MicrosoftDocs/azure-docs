@@ -1,24 +1,28 @@
 ---
-title: Microsoft Sentinel solution for SAP applications deployment troubleshooting
-description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications deployment.
+title: Troubleshoot the Microsoft Sentinel solution for SAP applications data connector agent
+description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications data connector agent deployment.
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
-ms.date: 01/09/2023
+ms.date: 11/07/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
+#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector agent so that I can ensure accurate and timely data ingestion and monitoring.
 
 ---
 
 # Troubleshooting your Microsoft Sentinel solution for SAP applications deployment
 
-This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
+This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel and the data connector agent.
 
 Selected troubleshooting procedures are only relevant when your data connector agent is [deployed via the command line](deploy-command-line.md). If you used the recommended procedure to [deploy the agent from the portal](deploy-data-connector-agent-container.md), use the portal to make any configuration changes.
+
+> [!NOTE]
+> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
+>
 
 ## Useful Docker commands
 
@@ -155,7 +159,6 @@ The change takes effect approximately two minutes after you save the file. You d
 1. Enable any events as needed.
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
-
 ### Incorrect workspace ID or key in key vault
 
 If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
@@ -203,6 +206,8 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
+
 ### Missing IP address or transaction code fields in the SAP audit log
 
 In SAP systems with versions for SAP BASIS 7.5 SP12 and above, Microsoft Sentinel can reflect extra fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
@@ -211,7 +216,7 @@ If you're using SAP BASIS versions higher than 7.5 SP12 and are missing IP addre
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites-for-the-data-connector-agent-container) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
 
 ### No data is showing in the SAP table data log
@@ -225,6 +230,8 @@ If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP sy
 The data collector agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check whether the SAP *TZCUSTHELP* report presents any errors. For more information, see [SAP note 481835](<https://me.sap.com/notes/481835/E>).
 
 There might also be issues with the clock on the virtual machine where the data collector agent container is hosted, and any deviation from the clock on the VM from UTC impacts data collection. Even more importantly, the clocks on both the SAP system machines and the data collector agent machines must match.
+
+We recommend that you configure auditing for *all* messages from the audit log, instead of only specific logs. Ingestion cost differences are generally minimal and the data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting. For more information, see [Configure SAP auditing](preparing-sap.md#configure-sap-auditing).
 
 ### Network connectivity issues
 

@@ -72,6 +72,10 @@ landingContent:
             url: tutorial-well-delivery-ddms.md
           - text: Petrel DDMS Tutorial
             url: tutorial-petrel-ddms.md
+          - text: Reservoir DDMS API tutorial
+            url: tutorial-reservoir-ddms-apis.md
+          - text: Reservoir DDMS websocket API tutorial
+            url: tutorial-reservoir-ddms-websocket.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
@@ -84,6 +88,10 @@ landingContent:
             url: how-to-enable-external-data-sources.md
           - text: How to register External Data Sources (EDS)
             url: how-to-register-external-data-sources.md
+          - text: How to enable legal tags restricted COO (Country of Origin)
+            url: how-to-enable-legal-tags-restricted-country-of-origin.md
+          - text: How to enable Reservoir DDMS
+            url: how-to-enable-reservoir-ddms.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide

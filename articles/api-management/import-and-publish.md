@@ -16,6 +16,8 @@ ms.author: danlep
 
 This tutorial shows how to import an OpenAPI specification backend API in JSON format into Azure API Management. For this example, you import the open source [Petstore API](https://petstore3.swagger.io/).
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 Once you import the backend API into API Management, your API Management API becomes a façade for the backend API. You can customize the façade to your needs in API Management without touching the backend API. For more information, see [Transform and protect your API](transform-api.md).
 
 In this tutorial, you learn how to:

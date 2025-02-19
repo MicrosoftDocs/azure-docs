@@ -21,13 +21,15 @@ In this tutorial, you learn how to:
 > * Run the sample functions locally
 > * Deploy the function to Azure Function App
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -39,7 +41,7 @@ In this tutorial, you learn how to:
 
 * A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+* [Node.js](https://nodejs.org/en/download/package-manager/), version 18.x or above.
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 
@@ -635,6 +637,8 @@ In this tutorial, you learn how to:
 
 7. Configure and run the Azure Function app
 
+    [!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
     - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
     - Select **Keys** and copy out the connection string.
 
@@ -658,7 +662,7 @@ In this tutorial, you learn how to:
     And checking the running logs, you can visit your local host static page by visiting: `http://localhost:7071/api/index`.
     
     > [!NOTE]
-    > Some browers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
+    > Some browsers automatically redirect to `https` that leads to wrong url. Suggest to use `Edge` and double check the url if rendering is not success.
 
 ## Deploy Function App to Azure
 

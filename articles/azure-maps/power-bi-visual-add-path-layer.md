@@ -1,20 +1,20 @@
 ---
-title: Path Layer in an Azure Maps Power BI visual
+title: The path layer in Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article describes the path layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 11/11/2024
+ms.date: 11/27/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
 ---
 
-# The Path Layer in Azure Maps Power BI visual 
+# The path layer in Azure Maps Power BI visual 
 
-The Path Layer feature in the Azure Maps Power BI Visual enables the visualization of connections between multiple geographic points.
+The path layer feature in the Azure Maps Power BI Visual enables the visualization of connections between multiple geographic points.
 
-The Path Layer feature can be used in multiple scenarios, such as:
+The path layer feature can be used in multiple scenarios, such as:
 
 - **Route Visualization**: Showing vehicle, ship, or flight paths between locations.
 - **Network Analysis**: Examines connections between nodes in a network, like supply chain routes or communication networks.
@@ -22,9 +22,9 @@ The Path Layer feature can be used in multiple scenarios, such as:
 
 This guide explains how to use this feature effectively.
 
-## Add a Path Layer
+## Add a path layer
 
-This section describes how to add data and configure the Path Layer. Before starting, you need to open your Azure Maps Visual in Power BI. For more information on adding an Azure Maps Visual to your Power BI report, see [Use the Azure Maps Power BI visual].
+This section describes how to add data and configure the path layer. Before starting, you need to open your Azure Maps Visual in Power BI. For more information on adding an Azure Maps Visual to your Power BI report, see [Use the Azure Maps Power BI visual].
 
 | Setting           | Description                                |
 |-------------------|--------------------------------------------|
@@ -35,7 +35,7 @@ This section describes how to add data and configure the Path Layer. Before star
 | Maximum Zoom      | Maximum zoom level the layer is visible at |
 | Minimum Zoom      | Minimum zoom level the layer is visible at |
 
-### Add Data to the Path Layer
+### Add data to the path layer
 
 To draw paths, provide data for "Path ID" and "Point Order":
 
@@ -44,38 +44,38 @@ To draw paths, provide data for "Path ID" and "Point Order":
 
     :::image type="content" source="media/power-bi-visual/path-layer.png" alt-text="A screenshot showing the path layer properties.":::
 
-### Configure a Path Layer
+### Configure a path layer
 
-After adding your data, you can adjust the Path Layer's color, line width, and opacity. Apply settings by legend or path ID, coloring paths, and locations with the same legend identically.
+After adding your data, you can adjust the path layer's color, line width, and opacity. Apply settings by legend or path ID, coloring paths, and locations with the same legend identically.
 
-After adding your data, you can configure the Path Layer according to your requirements. The style of the paths can be customized by adjusting the line color, width, and opacity. These settings can be applied based on legend or path ID. If a legend is provided, paths and locations associated with the same legend share the same color.
+After adding your data, you can configure the path layer according to your requirements. The style of the paths can be customized by adjusting the line color, width, and opacity. These settings can be applied based on legend or path ID. If a legend is provided, paths and locations associated with the same legend share the same color.
 
 :::image type="content" source="media/power-bi-visual/path-layer-configuration.png" alt-text="A screenshot showing the path layer configuration properties, including line color, transparency, and width as well as minimum and maximum zoom.":::
 
-### Interact with a Path Layer
+### Interact with a path layer
 
-The Path Layer feature offers several interactive options:
+The path layer feature offers several interactive options:
 
-- **Hover and Select**: Hover over a path to select points; clicking on a path selects the nearest point. The selected point will also select other reports by legend, path ID, location, and point order.
+- **Hover and Select**: Hover over a path to select points; clicking on a path selects the nearest point. The selected point also selects other reports by legend, path ID, location, and point order.
 - **Tooltips**: Tooltips show information for the nearest point when hovering over a line.
 
     :::image type="content" source="media/power-bi-visual/path-layer-map.png" alt-text="A screenshot showing a map using the path layer.":::
 
-### Explore and customize a Path Layer
+### Explore and customize a path layer
 
-Examine the connections and insights revealed by the Path Layer visualization. Further customize the settings to suit your specific requirements and derive more profound insights from your geospatial data.
+Examine the connections and insights revealed by the path layer visualization. Further customize the settings to suit your specific requirements and derive more profound insights from your geospatial data.
 
-#### Legends in a Path Layer
+#### Legends in a path layer
 
-Adding a field to the legend field well creates a higher level of grouping. Consequently, paths and locations associated with the same legend are colored identically. Here's the process:
+Adding a field to the legend field well creates a higher level of grouping. So, paths and locations associated with the same legend are colored identically. Here's the process:
 
-- **Grouping by Legend**: When a legend is provided, the paths and locations are grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123", and another with legend "MSAirline" and path ID "A123", the Path Layer interprets these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
+- **Grouping by Legend**: When a legend is provided, the paths and locations are grouped based on the legend. For instance, if visualizing flight paths with the airline as the legend, all paths and locations associated with the same airline share the same color. Moreover, if there are two rows, one with legend "Contoso" and path ID "A123" and another with legend "MSAirline" and path ID "A123" the path layer interprets these as two distinct paths: "Contoso-A123" and "MSAirline-A123".
 - **Styling by Legend**: Configure the style (color, line width, opacity) using the legend to visually differentiate path groups.
-- **Interaction by Legend**: When interacting with the Path Layer, selecting a path or point will also select other reports based on legend, path ID, location, and point order. This ensures all related data points are highlighted together.
+- **Interaction by Legend**: When interacting with the path layer, selecting a path or point also selects other reports based on legend, path ID, location, and point order. This ensures all related data points are highlighted together.
 
-#### Handle Origin-Destination Data
+#### Handle origin-destination data
 
-To use origin-destination data in the Path Layer, you must first transform it, as Azure Maps Visual doesn't directly support such data. Use the [Unpivot function in Power Query] to do this. Here’s how:
+To use origin-destination data in the path layer, you must first transform it, as Azure Maps Visual doesn't directly support such data. Use the [Unpivot function in Power Query] to do this. Here’s how:
 
 1. **Import Data**: Import your origin-destination data into Power BI.
 1. **Apply Unpivot Function**: Use the following Power Query to transform the data: 
@@ -96,7 +96,7 @@ To use origin-destination data in the Path Layer, you must first transform it, a
         #"Replaced Values" 
     ```
 
-**Before Transformation**
+**Before transformation**
 
 | origin    | destination   |
 |-----------|---------------|
@@ -106,7 +106,7 @@ To use origin-destination data in the Path Layer, you must first transform it, a
 | Seattle   | Denver        |
 | Boston    | San Francisco |
 
-**After Transformation**
+**After transformation**
 
 | path_id  | point_order  | city          |
 |----------|--------------|---------------|
@@ -124,12 +124,12 @@ To use origin-destination data in the Path Layer, you must first transform it, a
 ## Current limitations
 
 - The path layer is only compatible with specific map data layers, including the Bubble, Reference, Traffic, and Tile layers.
-- The data-bound reference layer is not available when the path layer is enabled.
+- The data-bound reference layer isn't available when the path layer is enabled.
 - Location hierarchy (drill down) is disabled when a Path ID is provided.
 
 ## Conclusion
 
-The Path Layer feature in Azure Maps Visual is a tool for visualizing and analyzing spatial connections. This new capability can be utilized to enhance reports.
+The path layer feature in Azure Maps Visual is a tool for visualizing and analyzing spatial connections. This new capability can be utilized to enhance reports.
 
 [Use the Azure Maps Power BI visual]: power-bi-visual-get-started.md#use-the-azure-maps-power-bi-visual
 [Unpivot function in Power Query]: /power-query/unpivot-column

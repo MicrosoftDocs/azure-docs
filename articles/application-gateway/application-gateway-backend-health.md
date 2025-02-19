@@ -5,7 +5,7 @@ description: Learn how to use Backend health report in Azure Application Gateway
 services: application-gateway
 author: jaesoni
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/30/2024
 ms.author: jaysoni 
 ---

@@ -96,7 +96,7 @@ Each key-value in App Configuration has a content type attribute. You can option
 > [!div class="nextstepaction"]
 > [Point-in-time snapshot](./concept-point-time-snapshot.md)
 
-> [!div class="neSxtstepaction"]
+> [!div class="nextstepaction"]
 > [Feature management](./concept-feature-management.md)
 
 > [!div class="nextstepaction"]
