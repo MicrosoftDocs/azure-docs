@@ -60,7 +60,7 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load balance VMs with multiple availability sets
       href: tutorial-multi-availability-sets-portal.md
-  - name: Globalload balancer
+  - name: Global load balancer
     items:
     - name: Create global load balancer - Portal
       href: tutorial-cross-region-portal.md
@@ -308,8 +308,6 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-load-balancer
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing

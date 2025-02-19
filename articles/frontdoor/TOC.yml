@@ -541,8 +541,6 @@
   items:
   - name: Front Door
     items:
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/frontdoor/
     - name: Pricing calculator
@@ -553,8 +551,6 @@
     items:
     - name: Azure Content Delivery Network billing
       href: ../cdn/cdn-billing.md?toc=/azure/frontdoor/TOC.json
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
     - name: Microsoft Q&A question page
       href: /answers/tags/155/azure-cdn.html
     - name: Pricing
