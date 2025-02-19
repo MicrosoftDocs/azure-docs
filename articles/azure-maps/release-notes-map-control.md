@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.6.0] (CDN: February 18, 2025, npm: TBA)
+### [3.6.0] (CDN: February 18, 2025, npm: February 20)
 
 #### New features
 * Add a new option `StyleOptions.styleOverrides` which controls the visibility of various map elements, including `countryRegion`, `adminDistrict`, `adminDistrict2`, `buildingFootprint`, and `roadDetails`.
