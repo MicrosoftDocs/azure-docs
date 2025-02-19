@@ -14,14 +14,14 @@ ms.date: 10/23/2024
 
 In this guide, you learn how to configure SMTP (Simple Mail Transfer Protocol) settings to generate email alerts in Azure Managed Grafana. Notifications alert users when some given scenarios occur on a Grafana dashboard.
 
-SMTP settings can be enabled on an existing Azure Managed Grafana instance via the Azure portal and the Azure CLI. Enabling SMTP settings while creating a new instance is currently not supported.
+SMTP settings can be enabled on an existing Azure Managed Grafana workspace via the Azure portal and the Azure CLI. Enabling SMTP settings while creating a new workspace is currently not supported.
 
 ## Prerequisites
 
 To follow the steps in this guide, you must have:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance in the Standard plan. If you don't have one yet, [create a new instance](quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana workspace in the Standard plan. If you don't have one yet, [create a new workspace](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you might want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 
 ## Enable and configure SMTP settings
@@ -30,7 +30,7 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
 ### [Portal](#tab/azure-portal)
 
-  1. In the Azure portal, open your Grafana instance and under **Settings**, select **Configuration**.
+  1. In the Azure portal, open your Grafana workspace and under **Settings**, select **Configuration**.
   1. Select the **Email Settings** tab.
          :::image type="content" source="media/smtp-settings/find-settings.png" alt-text="Screenshot of the Azure platform. Selecting the SMTP settings tab.":::
   1. Toggle **SMTP Settings** on, so that **Enable** is displayed.
@@ -50,12 +50,12 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
        :::image type="content" source="media/smtp-settings/save-updated-settings.png" alt-text="Screenshot of the Azure platform. Email Settings tab with new data.":::
 
-  1. Once the process is complete, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the instance turns to **Updating**, and then **Succeeded** once the update is complete.
+  1. Once the process is complete, the message "Updating the selections. Update successful" is displayed in the Azure **Notifications**. In the **Overview** page, the provisioning state of the workspace turns to **Updating**, and then **Succeeded** once the update is complete.
 
 ### [Azure CLI](#tab/azure-cli)
 
 1. Azure Managed Grafana CLI extension 1.1 or above is required to enable or update SMTP settings. To update your extension, run `az extension update --name amg`.
-1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana instance. Replace the placeholders with information from your own instance.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana workspace. Replace the placeholders with information from your own workspace.
 
     ```azurecli
     az grafana update --resource-group <resource-group> \
@@ -72,8 +72,8 @@ Follow these steps to activate SMTP settings, enable email notifications and con
 
     | Parameter            | Example                            | Description                                                                                                                      |
     |----------------------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-    | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana instance's resource group.                                                           |
-    | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                                                                            |
+    | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana workspace's resource group.                                                           |
+    | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana workspace.                                                                            |
     | `--smtp`             | enabled                            | Enter **enabled** to disable SMTP settings.                                                                                      |
     | `--from-address`     | user@domain.com                    | Enter the email address used when sending out emails.                                                                            |
     | `--from-name`        | Azure Managed Grafana Notification | Enter the name used when sending out emails. Default is "Azure Managed Grafana Notification" if parameter isn't given or empty.    |
@@ -136,12 +136,12 @@ To disable SMTP settings, follow these steps.
 ### [Portal](#tab/azure-portal)
 
 1. In the Azure portal, go to **Configuration > Email Settings** and toggle **SMTP Settings** off, so that **Disable** is displayed.
-1. Select **Save** to validate and start updating the Azure Managed Grafana instance.
+1. Select **Save** to validate and start updating the Azure Managed Grafana workspace.
 
 ### [Azure CLI](#tab/azure-cli)
 
 1. Azure Managed Grafana CLI extension 1.1 or above is required to disable SMTP settings. To update your extension, run `az extension update --name amg`.
-1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana instance. Replace the placeholders with information from your own instance.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to configure SMTP settings for a given Azure Managed Grafana workspace. Replace the placeholders with information from your own workspace.
 
     ```azurecli
     az grafana update --resource-group <resource-group> \
@@ -151,8 +151,8 @@ To disable SMTP settings, follow these steps.
 
     | Parameter            | Example                            | Description                                                            |
     |----------------------|------------------------------------|------------------------------------------------------------------------|
-    | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana instance's resource group. |
-    | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana instance.                  |
+    | `--resource-group`   | my-resource-group                  | Enter the name of the Azure Managed Grafana workspace's resource group. |
+    | `--name`             | my-azure-managed-grafana           | Enter the name of the Azure Managed Grafana workspace.                  |
     | `--smtp`             | disabled                           | Enter **disabled** to disable SMTP settings.                           |
 
 ---
@@ -167,7 +167,7 @@ Within the Grafana portal, you can find a list of all Grafana alerting error mes
 The following are some common error messages you might encounter:
 
 - "Authentication failed: The provided authorization grant is invalid, expired, or revoked". Grafana couldn't connect to the SMTP server. Check if the password entered in the SMTP settings in the Azure portal is correct.
-- "Failed to sent test alert: SMTP not configured". SMTP is disabled. Open the Azure Managed Grafana instance in the Azure portal and enable SMTP settings.
+- "Failed to sent test alert: SMTP not configured". SMTP is disabled. Open the Azure Managed Grafana workspace in the Azure portal and enable SMTP settings.
 
 ## Next steps
 

@@ -24,8 +24,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
-- A Microsoft Entra application with a service principal. [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Microsoft Entra tenant as your Azure Managed Grafana instance.
+- An Azure Managed Grafana workspace. [Create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
+- A Microsoft Entra application with a service principal. [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Microsoft Entra tenant as your Azure Managed Grafana workspace.
 
 ## Sign in to Azure
 
@@ -33,7 +33,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Assign an Azure Managed Grafana role to the service principal of your application
 
-1. In the Azure portal, open your Managed Grafana instance.
+1. In the Azure portal, open your Managed Grafana workspace.
 1. Select **Access control (IAM)** in the navigation menu.
 1. Select **Add**, then **Add role assignment**.
 1. Select the **Grafana Editor** role and then **Next**.
@@ -145,7 +145,7 @@ curl -X GET \
 https://<grafana-url>/api/user
 ```
 
-Replace `<access-token>` and `<grafana-url>` with the access token retrieved in the previous step and the endpoint URL of your Grafana instance. For example `https://my-grafana-abcd.cuse.grafana.azure.com`.
+Replace `<access-token>` and `<grafana-url>` with the access token retrieved in the previous step and the endpoint URL of your Grafana workspace. For example `https://my-grafana-abcd.cuse.grafana.azure.com`.
 
 ## Clean up resources
 
