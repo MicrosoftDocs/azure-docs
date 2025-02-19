@@ -22,7 +22,7 @@ Import brings configuration data into an App Configuration store from an existin
 
 This guide shows how to import App Configuration data:
 
-- [from a configuration file in Json, YAML or Properties](#import-data-from-a-configuration-file)
+- [from a configuration file in JSON, YAML or Properties](#import-data-from-a-configuration-file)
 - [from an App Configuration store](#import-data-from-an-app-configuration-store)
 - [from Azure App Service](#import-data-from-azure-app-service)
 
@@ -44,7 +44,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
-    | File type    | Select the file type for import: YAML, Properties, or JSON. | *Json*   |
+    | File type    | Select the file type for import: YAML, Properties, or JSON. | *JSON*   |
 
 1. Click the **Browse** button, and select the file to import.
 
@@ -85,7 +85,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     | Parameter        | Description                                                                                                                                                                                                                                              | Example            |
     |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to Json/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
+    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to JSON/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
     | `--prefix`       | Optional. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store. This prefix will be appended to the front of the "key" property of each imported key-value.                                                               | `TestApp:`         |
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                                                                                                               | `prod`             |
     | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file.                                                                                                      | `application/json` |
@@ -265,7 +265,7 @@ Export writes configuration data stored in App Configuration to another destinat
 
 This guide shows how to export App Configuration data:
 
-- [to a configuration file in Json, YAML or Properties](#export-data-to-a-configuration-file)
+- [to a configuration file in JSON, YAML or Properties](#export-data-to-a-configuration-file)
 - [to an App Configuration store](#export-data-to-an-app-configuration-store)
 - [to an Azure App Service resource](#export-data-to-azure-app-service)
 
@@ -323,7 +323,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     | Parameter        | Description                                                                                                                                                                                                                                             | Example                   |
     |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to Json/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`                     |
+    | `--separator`    | Optional. The separator is the delimiter for flattening the key-values to JSON/YAML. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`                     |
     | `--prefix`       | Optional. Prefix to be trimmed from each key-value's "key" property. A key prefix is the beginning part of a key. Prefixes can be used to manage groups of key-values in a configuration store. Prefix will be ignored for feature flags.                                                | `TestApp:`                |
 
     Example: export all key-values and feature flags with label "prod" to a JSON file.
