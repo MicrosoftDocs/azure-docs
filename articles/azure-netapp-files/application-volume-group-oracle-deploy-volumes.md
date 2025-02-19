@@ -160,14 +160,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 12. The **Volumes Tab** enables you to remove optional volumes. 
 
-    <!-- check -->
     Provide an **Encryption key source**. Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]    
-    > You cannot add a removed volume back to the volume group again without cancelling and restarting the application volume group workflow.
+    > You can't add a removed volume back to the volume group again without canceling and restarting the application volume group workflow.
 
     Select **Volumes** after completing the changes of volumes.
 
@@ -178,7 +177,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows confirmation about removing an optional volume for Oracle.](./media/volume-hard-quota-guidelines/application-volume-remove-confirm-oracle.png) ](./media/volume-hard-quota-guidelines/application-volume-remove-confirm-oracle.png#lightbox)
 
 
-13.	The **Review + Create** tab lists all the volumes that will be created. The process also validates the creation.  
+13.	The **Review + Create** tab lists all the volumes to be created. The process also validates the creation.  
 
     Select **Create Volume Group** to start the volume group creation. 
 
