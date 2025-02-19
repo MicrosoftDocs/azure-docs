@@ -199,11 +199,9 @@
     items:
     - name: Use Azure Resource Graph Explorer
       href: private-dns-arg.md
-  - name: Manage DNS private resolver
-    items:
 - name: Troubleshoot
   items:
-  - name: Troubleshooting guide
+  - name: Troubleshoot Azure DNS
     href: dns-troubleshoot.md
 - name: Reference
   items:
