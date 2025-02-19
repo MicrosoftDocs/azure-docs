@@ -5,7 +5,7 @@ ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 12/17/2024
+ms.date: 02/19/2025
 ms.devlang: azurecli
 ms.custom: engagement-fy23, devx-track-azurecli
 # customer intent: As a developer or a data analyst, I want to create a new Azure Managed Grafana workspace using the Azure CLI.
@@ -16,17 +16,18 @@ ms.custom: engagement-fy23, devx-track-azurecli
 Get started using Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure CLI.
 
 >[!NOTE]
-> Azure Managed Grafana has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To generate a workspace in the Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md).
+> Azure Managed Grafana has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To create a workspace in the Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md).
 
 ## Prerequisites
 
 - An Azure account for work or school with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Minimum required role to create a workspace: resource group Contributor.
+- Minimum required role to access a workspace: resource group Owner.
 
-- Minimum required role to create an instance: resource group Contributor.
-
-- Minimum required role to access an instance: resource group Owner.
     >[!NOTE]
-    > If you don't meet this requirement, once you've created a new Azure Managed Grafana instance, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the instance.
+    > If you don't meet this requirement:
+    >  - once you've created a new Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role
+    >  - or consider creating the workspace using the **Creator can admin (Preview)** feature available from the Azure portal. [Refer to this quickstart for more information](quickstart-managed-grafana-portal.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
