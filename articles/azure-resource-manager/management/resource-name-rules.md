@@ -2,7 +2,7 @@
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 02/06/2025
+ms.date: 02/19/2025
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -678,7 +678,7 @@ In the following tables, the term alphanumeric refers to:
 > | routeTables | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | routeTables / routes | route table | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | serviceEndpointPolicies | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | trafficmanagerprofiles | global | 1-63 | Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric. |
+> | trafficmanagerprofiles | global | 1-63 | Alphanumerics and hyphens<br><br>Start and end with alphanumeric. <br><br>Note: A period/dot (.) is not allowed in the profile name. |
 > | virtualNetworkGateways | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | virtualNetworks | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | virtualnetworks / subnets | virtual network | 1-80 | Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
