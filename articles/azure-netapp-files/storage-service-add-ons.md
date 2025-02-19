@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/19/2024
+ms.date: 02/10/2025
 ms.author: anfdocs
 ---
 # Storage service add-ons for Azure NetApp Files

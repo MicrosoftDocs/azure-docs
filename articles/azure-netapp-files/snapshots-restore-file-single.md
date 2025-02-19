@@ -97,24 +97,24 @@ C:\> net use N: \\scppr2-8336.contoso.com\volume-azure-smb
 N:\> cd ~snapshot
 N:\ dir
 Directory of N:\~snapshot
-09/1110 AM    <DIR>          .
-09/2256 PM    <DIR>          ..
-09/0847 PM                 102,400,000 daily-10-min-past-12am.2021-09-08_0010
-09/0900 PM                 106,400,000 daily-10-min-past-12am.2021-09-09_0010
+09/11/2021  12:10 AM    <DIR>          .
+09/22/2021  07:56 PM    <DIR>          ..
+09/08/2021  01:47 PM           102,400,000 daily-10-min-past-12am.2021-09-08_0010
+09/09/2021  11:00 PM           106,400,000 daily-10-min-past-12am.2021-09-09_0010
 N:\> cd daily-10-min-past-12am.2021-09-08_0010
 N:\> dir
 Directory of N:\~snapshot\daily-10-min-past-12am.2021-09-08_0010
-09/1110 AM    <DIR>          .
-09/2256 PM    <DIR>          ..
-02/2747 PM                 102,400 contoso
-04/2100 PM                 106,400 department1
+09/11/2021  12:10 AM   <DIR>          .
+09/22/2021  07:56 AM   <DIR>          ..
+02/27/2021  01:47 PM              102,400 contoso
+04/21/2021  11:00 PM              106,400 department1
 N:\> cd contoso
 N:\> dir
 Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\contoso
-09/1110 AM    <DIR>          .
-09/2256 PM    <DIR>          ..
-02/2747 PM                 102,400 vm-9981.vmdk
-04/2100 PM                 106,400 vm-7654.vmdk
+09/11/2021  12:10 AM    <DIR>          .
+09/22/2021  07:56 PM    <DIR>          ..
+02/27/2021  01:47 PM                 102,400 vm-9981.vmdk
+04/21/2021  11:00 PM                 106,400 vm-7654.vmdk
 ```
 
 File to be restored to active file system:   
@@ -135,4 +135,4 @@ From the Azure portal:
 
 * [Learn more about snapshots](snapshots-introduction.md) 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com1/azure-netapp-files-snapshot-overview/)
+* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
