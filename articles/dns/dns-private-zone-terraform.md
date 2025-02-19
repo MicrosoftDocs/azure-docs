@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Terraform to configure private DNS zones in Azure'
-description: In this quickstart, you create private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
+description: In this quickstart, you create a private DNS zone, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
 ms.date: 2/18/2025
 ms.custom: devx-track-terraform
