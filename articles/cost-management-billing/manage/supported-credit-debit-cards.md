@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 01/15/2024
+ms.date: 02/19/2025
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 
 ## Supported credit and debit cards
 
-| **Region** | **American Express** | **Discover** | **JCB** | **Mastercard** | **Visa** | **UPI** | **Netbanking** | **SEPA** |
+| **Country or region** | **American Express** | **Discover** | **JCB** | **Mastercard** | **Visa** | **UPI** | **Netbanking** | **SEPA** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Afghanistan | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Albania | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -29,7 +29,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Australia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Austria | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Austria | ✔   |     |     | ✔   | ✔   |     |     |   ✔  |
 | Azerbaijan | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahamas | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bahrain | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -54,6 +54,9 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Chile | ✔   |     |     | ✔   | ✔   |     |     |     |
 | China |     |     |     | ✔   | ✔   |     |     |     |
 | Colombia | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Costa Rica | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Côte d'Ivoire  | ✔   |     |     | ✔   | ✔   |     |     |     |
+| Croatia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Curacao | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Cyprus | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Czechia | ✔   |     |     | ✔   | ✔   |     |     |     |
