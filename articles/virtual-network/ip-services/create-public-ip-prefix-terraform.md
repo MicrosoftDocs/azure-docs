@@ -22,8 +22,6 @@ When you create a public IP address resource, you can assign a static public IP 
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
-- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -138,8 +136,6 @@ Once you create a prefix, you can create static IP addresses from the prefix. In
 
 # [IPv6 address](#tab/ipv6-address)
 
-To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter.
-
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="130-138, 116-128"  highlight="2,21":::
 
 ---
@@ -166,8 +162,8 @@ To delete a public IP prefix, use [az network public-ip prefix delete](/cli/azur
 To delete a public IP prefix, use [Remove-AzPublicIpPrefix](/powershell/module/az.network/remove-azpublicipprefix).
 
 ```azurepowershell
-Remove-AzPublicIpPrefix ResourceGroupName=<resource_group_name> `
-                        Name=<public_ip_prefix_name>
+Remove-AzPublicIpPrefix -ResourceGroupName <resource_group_name> `
+                        -Name <public_ip_prefix_name>
 ```
 
 >[!NOTE]
