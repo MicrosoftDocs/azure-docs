@@ -26,7 +26,7 @@ The OVN-Kubernetes CNI cluster network provider offers the following features:
 * Uses the Generic Network Virtualization Encapsulation (Geneve) protocol rather than the Virtual Extensible LAN (VXLAN) protocol to create an overlay network between nodes.
 
 > [!IMPORTANT]
-> > Since ARO 4.11, OVN-Kubernetes has been the CNI for all new Azure Red Hat OpenShift clusters. For clusters created before then, migrating from the previous SDN standard to OVN is recommended. SDN has been deprecated since version 4.14 and will no longer be supported after version 4.16. You must migrate to OVN-Kubernetes prior to updating to 4.17.
+> Since ARO 4.11, OVN-Kubernetes has been the CNI for all new Azure Red Hat OpenShift clusters. For clusters created before then, migrating from the previous SDN standard to OVN is recommended. SDN has been deprecated since version 4.14 and will no longer be supported after version 4.16. You must migrate to OVN-Kubernetes prior to updating to 4.17.
 > 
 
 For more information about OVN-Kubernetes CNI network provider, see [About the OVN-Kubernetes default Container Network Interface (CNI) network provider](https://docs.openshift.com/container-platform/latest/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
