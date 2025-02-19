@@ -227,13 +227,16 @@ items:
     href: configure-storage-policy.md
   - name: Configure vSAN
     href: configure-vsan.md
-  - name: Configure customer-managed key encryption at rest
-    href: configure-customer-managed-keys.md
+    items:
+     - name: Configure storage policies
+       href: configure-storage-policy.md
+     - name: Configure customer-managed key encryption at rest
+       href: configure-customer-managed-keys.md
   - name: Extend Azure VMware Solution with external storage
     href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
-  - name: Manage and protect VMs on Azure NetApp Files
+  - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
       href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
