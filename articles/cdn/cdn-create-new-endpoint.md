@@ -37,8 +37,6 @@ After you've created a content delivery network profile, you use it to create an
 
 1. On the content delivery network profile page, select **+ Endpoint**.
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Screenshot of create Content Delivery Network endpoint.":::
-
     The **Add an endpoint** pane appears.
 
 3. Enter the following setting values:
@@ -53,8 +51,6 @@ After you've created a content delivery network profile, you use it to create an
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. |
     | **Optimized for** | Leave the default selection, **General web delivery**. |
-
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
 
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
 

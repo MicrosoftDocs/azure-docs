@@ -94,9 +94,7 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Networking feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789

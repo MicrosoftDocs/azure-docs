@@ -454,6 +454,8 @@ items:
         href: how-tos/calling-sdk/capabilities.md
       - name: View PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
+      - name: Shared Line appearance
+        href: how-tos/cte-calling-sdk/shared-line-appearance.md
     - name: Call flows and networking
       items:
       - name: Network recommendations
@@ -470,21 +472,23 @@ items:
       displayName: music mode, audio filters, calling
     - name: Edit audio and video media from the client
       items:
-      - name: Media access
+      - name: Understand media access
         href: concepts/voice-video-calling/media-access.md
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
-      - name: Add video background effects
-        href: quickstarts/voice-video-calling/get-started-video-effects.md
       - name: Add augmented reality filters to video calls
         href: tutorials/add-video-augmented-reality-tutorial.md
+    - name: Set video constraints in a calling app
+      href: quickstarts/voice-video-calling/get-started-video-constraints.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Enable audio effects
+    - name: Enable audio noise suppression improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-    - name: Enable visual effects
-      href: concepts/voice-video-calling/video-effects.md
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
+    - name: Enable video background effects
+      href: quickstarts/voice-video-calling/get-started-video-effects.md
+      displayName: background blur, background replace, background replacement, frosted glass
     - name: Pass user-to-user information (UUI) data in a header
       href: how-tos/calling-sdk/call-context.md
     - name: Data channel
@@ -531,22 +535,20 @@ items:
       href: ../event-grid/communication-services-voice-video-events.md
     - name: View calling events
       href: quickstarts/voice-video-calling/handle-calling-events.md
-  - name: Migrate to Azure Communication Services
+  - name: Migrate from Twilio to Azure Communication Services
     items:
-    - name: Migrate from Twilio Video to Azure Communication Services
+    - name: Benefits of migrating voice and video from Twilio Video to Azure Communication Services
       href: concepts/migrate-to-azure-communication-services.md
-    - name: Migrate from Twilio Video to Azure Communication Services
+    - name: How to migrate voice and video from Twilio Video to Azure Communication Services
       href: tutorials/migrating-to-azure-communication-services-calling.md
       displayName: migration, migrate, Twilio, Twilio Video, move, shift
-    - name: Migrate from Twilio Conversations Chat to Azure Communication Services
+    - name: Benefits of migrating chat from Twilio Conversations Chat to Azure Communication Services
       href: tutorials/migrating-to-azure-communication-services-chat.md
       displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
   - name: Logging and analytics
     items:
     - name: Enable logging with Azure Monitor
       href: concepts/analytics/enable-logging.md
-    - name: Add diagnostic options tag to calling logs
-      href: tutorials/voice-video-calling/diagnostic-options-tag.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Query call logs
       href: concepts/analytics/query-call-logs.md
@@ -575,36 +577,23 @@ items:
         href: concepts/analytics/logs/call-metrics-log-schema.md
     - name: Call diagnostics
       href: concepts/voice-video-calling/call-diagnostics.md
-    - name: Rooms logs
-      href: concepts/analytics/logs/rooms-logs.md
-    - name: Rooms metrics
-      href: concepts/analytics/rooms-metrics.md
     - name: Billing usage logs
       href: concepts/analytics/logs/billing-usage-log-schema.md
-    - name: Closed captions logs
-      href: concepts/analytics/logs/closed-captions-logs.md
-    - name: Enable logging with Azure Monitor
-      href: concepts/analytics/enable-logging.md
     - name: Insights dashboard
       href: concepts/analytics/insights/insights-dashboard.md
-    - name: Voice and video insights
-      href: concepts/analytics/insights/voice-and-video-insights.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Call diagnostics
-      href: concepts/voice-video-calling/call-diagnostics.md
-    - name: Query call logs
-      href: concepts/analytics/query-call-logs.md
     - name: Add diagnostic options tag to calling logs
       href: tutorials/voice-video-calling/diagnostic-options-tag.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Rooms insights
       href: concepts/analytics/insights/rooms-insights.md
+    - name: Rooms logs
+      href: concepts/analytics/logs/rooms-logs.md
+    - name: Rooms metrics
+      href: concepts/analytics/rooms-metrics.md
     - name: Closed captions logs
       href: concepts/analytics/logs/closed-captions-logs.md
     - name: Export SDK telemetry to Application Insights
       href: quickstarts/telemetry-application-insights.md
-    - name: Insights dashboard
-      href: concepts/analytics/insights/insights-dashboard.md
   - name: Quality and diagnostics
     items:
     - name: Optimize call quality
@@ -613,23 +602,15 @@ items:
     - name: Call diagnostics
       href: concepts/voice-video-calling/call-diagnostics.md
       displayName: diagnostics, Survey, feedback, quality, reliability, users, call, quick, debug, diagnose, call debugging, debugging
-    - name: Diagnose your network
-      href: concepts/developer-tools/network-diagnostic.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Diagnose client issues
+    - name: Diagnose client issues with UFD
       href: concepts/voice-video-calling/user-facing-diagnostics.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Diagnose media quality issues
+    - name: Using media quality statistics
       href: concepts/voice-video-calling/media-quality-sdk.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Collect and share log files
       href: tutorials/log-file-retrieval-tutorial.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Tune video quality
-      href: concepts/voice-video-calling/video-constraints.md
-      displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Set video constraints in a calling app
-      href: quickstarts/voice-video-calling/get-started-video-constraints.md
     - name: SDK best practices
       href: concepts/best-practices.md
       displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
