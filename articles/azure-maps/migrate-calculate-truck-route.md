@@ -94,7 +94,7 @@ Included in the body of the request:
 Azure Maps _Route Directions_ API POST request:
 
 ``` http
-https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 Included in the body of the request:

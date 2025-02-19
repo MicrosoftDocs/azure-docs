@@ -205,7 +205,7 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
                 startPoint.geometry.coordinates[0] + ":" +
                 endPoint.geometry.coordinates[1] + "," +
                 endPoint.geometry.coordinates[0];
-    var url = `https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=${query}`;
+    var url = `https://atlas.microsoft.com/route/directions/json?api-version=2025-01-01&query=${query}`;
 
     //Make a search route request
     fetch(url, {

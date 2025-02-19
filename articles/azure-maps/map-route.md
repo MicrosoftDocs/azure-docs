@@ -256,7 +256,7 @@ const onload = () => {
 
     // Send a request to the route API
     let url = "https://atlas.microsoft.com/route/directions/json?";
-    url += "&api-version=1.0";
+    url += "&api-version=2025-01-01";
     url +=
       "&query=" +
       startPoint.geometry.coordinates[1] +
