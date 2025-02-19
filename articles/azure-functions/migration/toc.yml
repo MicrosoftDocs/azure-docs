@@ -19,35 +19,33 @@
       href: ./governance.md
     - name: Additional objectives
       items:
-      - name: Cost of ownership
-        href: ./function-placeholder.md
       - name: Reliability objectives
-        href: ./function-placeholder.md
+        href: ./reliability.md
+      - name: Cost of ownership
+        href: ./cost.md
       - name: Performance targets
-        href: ./function-placeholder.md
-  - name: Perform the migration
+        href: ./performance.md
+  - name: Build migration assets
+    href: ./build-migration-assets.md
+  - name: Perform Day-0 migration activities
     href: ./perform-migration.md
   - name: Evaluate end-state
-    href: ./function-placeholder.md
+    href: ./post-migration-checklist.md
   - name: Migration examples
     items:
     - name: Migrate an event-driven data processing pipeline
       items:
-      - name: Overview and current state
+      - name: Pre-migration evaluation
         href: function-placeholder.md
-      - name: Migration strategy
-        href: function-placeholder.md
-      - name: Step-by-step process
+      - name: Step-by-step migration process
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
     - name: Migrate a microservices workload
       items:
-      - name: Overview and current state
+      - name: Pre-migration evaluation
         href: function-placeholder.md
-      - name: Migration strategy
-        href: function-placeholder.md
-      - name: Step-by-step process
+      - name: Step-by-step migration process
         href: function-placeholder.md
       - name: End-state evaluation
         href: function-placeholder.md
