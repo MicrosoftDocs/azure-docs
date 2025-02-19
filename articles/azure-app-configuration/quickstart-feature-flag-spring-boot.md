@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 02/19/2025
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -102,10 +102,11 @@ To create a new Spring Boot project:
       cloud:
         azure:
           appconfiguration:
-            stores[0]:
-              feature-flags:
-                enabled: 'true'
-              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
+            stores:
+              -
+                feature-flags:
+                  enabled: true
+                endpoint: ${APP_CONFIGURATION_ENDPOINT}
     ```
 
     Additionally, you need to add the following code to your project, unless you want to use Managed Identity:
@@ -147,10 +148,11 @@ To create a new Spring Boot project:
       cloud:
         azure:
           appconfiguration:
-            stores[0]:
-              feature-flags:
-                enabled: 'true'
-              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
+            stores:
+              -
+                feature-flags:
+                  enabled: true
+                connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
     ---
 
@@ -208,27 +210,23 @@ To create a new Spring Boot project:
     ```java
     package com.example.demo;
 
-    import org.springframework.boot.context.properties.ConfigurationProperties;
+    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
+    import org.springframework.web.bind.annotation.GetMapping;
 
     import com.azure.spring.cloud.feature.management.FeatureManager;
-    import org.springframework.web.bind.annotation.GetMapping;
 
 
     @Controller
-    @ConfigurationProperties("controller")
     public class HelloController {
 
+        @Autowired
         private FeatureManager featureManager;
-
-        public HelloController(FeatureManager featureManager) {
-            this.featureManager = featureManager;
-        }
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabled("Beta"));
             return "welcome";
         }
     }
