@@ -80,4 +80,4 @@ In addition to verification of meeting expectations align with the work you did 
 With confidence that your workload can proceed with it's normal lifecycle concerns, budget allocation, and customer satastification, now is a good time to evaluate what additional features and funtionality Azure Functions and the larger Azure offerings can be used for in your workload.
 
 > [!div class="nextstepaction"]
-> [Explore Azure optimization opportunities](./function-placeholder.md)
+> [Explore Azure optimization opportunities](./optimization.md)

@@ -106,7 +106,7 @@ These examples are based on key learnings from Azure customers who have complete
 
 After you've migrated your Lambda to Azure Functions and your AWS resources are decommissioned, we recommend you explore additional features on Azure. These features can help you in future workload requirements or help close gaps in areas where your AWS Lambda solution was not meeting requirements.
 
-See, [Explore Azure optimization opportunities](./function-placeholder.md)
+See, [Explore Azure optimization opportunities](./optimization.md)
 
 ## Next step
 
