@@ -33,7 +33,7 @@ To list all clusters in the current subscription, use the following command:
 Get-AzHDInsightCluster
 ```
 
-## Show cluster
+## Show clusters
 
 To show details of a specific cluster in the current subscription, use the following command:
 

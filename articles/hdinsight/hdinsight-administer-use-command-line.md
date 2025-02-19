@@ -49,7 +49,7 @@ az hdinsight list --resource-group RESOURCE_GROUP_NAME
 az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:name}" --output table
 ```
 
-## Show cluster
+## Show clusters
 
 Use [az HDInsight show](/cli/azure/hdinsight#az-hdinsight-show) to show information for a specified cluster. Edit the following command by replacing `RESOURCE_GROUP_NAME` and `CLUSTER_NAME` with the relevant information. Then enter the command:
 

@@ -34,7 +34,7 @@ On the [HDInsight clusters](#showClusters) page, select your cluster name. The *
 
 :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Screenshot that shows the Azure portal HDInsight cluster essentials.":::
 
-#### Top menu
+### Top menu
 
 | Item| Description |
 |---|---|
@@ -42,52 +42,54 @@ On the [HDInsight clusters](#showClusters) page, select your cluster name. The *
 |Delete|Deletes the cluster. |
 |Refresh|Refreshes the view.|
 
-#### Left menu
+### Left menu
 
-  - **Upper-left menu**
+The left menu has multiple sections.
 
-    | Item| Description |
-    |---|---|
-    |Overview|Provide general information for your cluster.|
-    |Activity log|Show and query activity logs.|
-    |Access control (IAM)|Use role assignments. See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml).|
-    |Tags|Set key/value pairs to define a custom taxonomy of your cloud services. For example, you might create a key named **project**, and then use a common value for all services associated with a specific project.|
-    |Diagnose and solve problems|Display troubleshooting information.|
-    |Quickstart|Display information that helps you get started using HDInsight.|
-    |Tools|Help information for HDInsight-related tools.|
+#### Upper-left menu
 
-  - **Settings menu**  
+| Item| Description |
+|---|---|
+|Overview|Provide general information for your cluster.|
+|Activity log|Show and query activity logs.|
+|Access control (IAM)|Use role assignments. See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml).|
+|Tags|Set key/value pairs to define a custom taxonomy of your cloud services. For example, you might create a key named **project**, and then use a common value for all services associated with a specific project.|
+|Diagnose and solve problems|Display troubleshooting information.|
+|Quickstart|Display information that helps you get started using HDInsight.|
+|Tools|Help information for HDInsight-related tools.|
 
-    | Item| Description |
-    |---|---|
-    |Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
-    |Quota limits|Display the used and available cores for your subscription.|
-    |SSH + Cluster login|Show the instructions to connect to the cluster by using a Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Azure Data Lake Storage Gen2|Configure access to Data Lake Storage Gen2. See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2-portal.md).|
-    |Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
-    |Applications|Add or remove HDInsight applications. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
-    |Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
-    |External metastores|View the [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/) metastores. You can configure the metastores only during the cluster creation process.|
-    |HDInsight partner|Add or remove the current HDInsight partner.|
-    |Properties|View the [cluster properties](#properties).|
-    |Locks|Add a lock to prevent the cluster from being modified or deleted.|
-    |Export template|Display and export the Azure Resource Manager template for the cluster. Currently, you can export only the dependent Azure Storage account. See [Create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
+#### Settings menu  
 
-  - **Monitoring menu**
+| Item| Description |
+|---|---|
+|Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
+|Quota limits|Display the used and available cores for your subscription.|
+|SSH + Cluster login|Show the instructions to connect to the cluster by using a Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|Azure Data Lake Storage Gen2|Configure access to Data Lake Storage Gen2. See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2-portal.md).|
+|Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
+|Applications|Add or remove HDInsight applications. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
+|Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
+|External metastores|View the [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/) metastores. You can configure the metastores only during the cluster creation process.|
+|HDInsight partner|Add or remove the current HDInsight partner.|
+|Properties|View the [cluster properties](#properties).|
+|Locks|Add a lock to prevent the cluster from being modified or deleted.|
+|Export template|Display and export the Azure Resource Manager template for the cluster. Currently, you can export only the dependent Azure Storage account. See [Create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
-    | Item| Description |
-    |---|---|
-    |Alerts|Manage the alerts and actions.|
-    |Metrics|Monitor the cluster metrics in Azure Monitor logs.|
-    |Diagnosis settings|Set where to store the diagnosis metrics.|
-    |Azure Monitor|Monitor your cluster in Azure Monitor.|
+#### Monitoring menu
 
-  - **Support + troubleshooting menu**
+| Item| Description |
+|---|---|
+|Alerts|Manage the alerts and actions.|
+|Metrics|Monitor the cluster metrics in Azure Monitor logs.|
+|Diagnosis settings|Set where to store the diagnosis metrics.|
+|Azure Monitor|Monitor your cluster in Azure Monitor.|
 
-    | Item| Description |
-    |---|---|
-    |Resource health|See [Azure resource health overview](/azure/service-health/resource-health-overview).|
-    |New support request|Create a support ticket with Microsoft Support.|
+#### Support + troubleshooting menu
+
+| Item| Description |
+|---|---|
+|Resource health|See [Azure resource health overview](/azure/service-health/resource-health-overview).|
+|New support request|Create a support ticket with Microsoft Support.|
 
 ## <a name="properties"></a> Cluster properties
 
@@ -131,7 +133,7 @@ On the [cluster home page](#homePage):
 1. On the top menu, select **Delete**.
 1. Follow the instructions on the new page.
 
-For more information, see [Pause or shut down clusters](#pauseshut-down-clusters).
+For more information, see [Pause or shut down clusters](#pause-or-shut-down-clusters).
 
 ## Add more storage accounts
 
@@ -213,9 +215,7 @@ The password changes on all nodes in the cluster.
 1. On the **Submit script action** page, enter the information in the following table.
 
     > [!NOTE]
-    > SSH passwords can't contain the following characters:
-    >
-    > ``` " ' ` / \ < % ~ | $ & ! # ```
+    > SSH passwords can't contain the following characters: " ' ` / \ < % ~ | $ & ! #
     
        | Field | Value |
        | --- | --- |

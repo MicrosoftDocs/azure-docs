@@ -260,8 +260,8 @@ For other ways to transform data by using HDInsight, see [this article on using 
 
 1. From **Navigator**, select `sales` or `sales_raw` to preview the data. After the data is loaded, you can experiment with the dashboard that you want to create. To get started with Power BI dashboards, see the following articles:
 
-* [Introduction to dashboards for Power BI designers](/power-bi/service-dashboards)
-* [Tutorial: Get started with the Power BI service](/power-bi/service-get-started)
+   * [Introduction to dashboards for Power BI designers](/power-bi/service-dashboards)
+   * [Tutorial: Get started with the Power BI service](/power-bi/service-get-started)
 
 ## Clean up resources
 
@@ -280,7 +280,7 @@ If you're not going to continue to use this application, delete all resources so
     az ad sp delete --id $SERVICE_PRINCIPAL
     ```
 
-## Related content
+## Next step
 
 > [!div class="nextstepaction"]
 > [Extract, transform, and load at scale](./hadoop/apache-hadoop-etl-at-scale.md)

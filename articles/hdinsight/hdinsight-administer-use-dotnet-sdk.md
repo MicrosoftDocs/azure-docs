@@ -132,14 +132,10 @@ Use the cluster scaling feature to change the number of worker nodes used by a c
 
 The effect of changing the number of data nodes for each type of cluster supported by HDInsight:
 
-* Apache Hadoop
-  
-    You can seamlessly increase the number of worker nodes in a Hadoop cluster that's running without affecting any pending or running jobs. You can also submit new jobs while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
+* **Apache Hadoop**: You can seamlessly increase the number of worker nodes in a Hadoop cluster that's running without affecting any pending or running jobs. You can also submit new jobs while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
   
     When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. All running and pending jobs fail at the completion of the scaling operation. After the operation is finished, you can resubmit the jobs.
-* Apache HBase
-  
-    You can seamlessly add or remove nodes to your HBase cluster while it's running. Regional servers are automatically balanced within a few minutes of completing the scaling operation. You can also manually balance the regional servers. Sign in to the head node of a cluster and run the following commands from a command prompt window:
+* **Apache HBase**: You can seamlessly add or remove nodes to your HBase cluster while it's running. Regional servers are automatically balanced within a few minutes of completing the scaling operation. You can also manually balance the regional servers. Sign in to the head node of a cluster and run the following commands from a command prompt window:
   
 
     ```bash

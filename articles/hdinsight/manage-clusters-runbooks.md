@@ -161,7 +161,7 @@ Delete the cluster by selecting the `hdinsight-cluster-delete` runbook that you 
 
 When your resource is no longer needed, delete the Automation account that you created to avoid unintended charges. Go to the Azure portal, select the resource group where you created the Automation account, select the Automation account, and then select **Delete**.
 
-## Related content
+## Next step
 
 > [!div class="nextstepaction"]
 > [Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md)
