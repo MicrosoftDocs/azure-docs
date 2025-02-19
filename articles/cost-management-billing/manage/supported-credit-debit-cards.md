@@ -23,7 +23,6 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Afghanistan | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Albania | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Aland Islands | ✔   | ✔   | ✔   | ✔   | ✔   |     |     |     |
 | Algeria |     |     |     | ✔   | ✔   |     |     |     |
 | Angola |     |     |     | ✔   | ✔   |     |     |     |
 | Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |
@@ -40,7 +39,6 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Belize |     |     |     | ✔   | ✔   |     |     |     |
 | Bermuda | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bolivia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bonaire | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Bosnia and Herzegovina | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Botswana | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Brazil | ✔   |     |     | ✔   | ✔   |     |     |     |
