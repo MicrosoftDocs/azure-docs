@@ -406,7 +406,7 @@ Now that you have the required infrastructure, you can put it all together and s
     python tool.py
     ```
 
-1. When prompted, enter a message for your Agent. For example, you can enter "What's on my to-do list?", "Add a task to buy bread," "Mark all my tasks as done," or any other question or action that can be performed on the list. The AI Agent then invokes the API and returns the results. You can also enter "Add an item to the to do list" and the AI Agent prompts you for the details of the item to add.
+1. When prompted, enter a message for your Agent. For example, you can enter "What's on my to-do list?", "Add a task to buy bread," "Mark all my tasks as done," or any other question or action that can be performed on the list. The AI Agent then invokes the API and returns the results. You can also enter "Add an item to the to-do list" and the AI Agent prompts you for the details of the item to add.
 
 ## Next steps
 
