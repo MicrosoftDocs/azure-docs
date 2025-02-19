@@ -308,13 +308,13 @@ Use [PowerShell](?tabs=powershell#view-advertised-and-learned-routes) or [Azure 
 Use the [Get-AzRouteServerPeerAdvertisedRoute](/powershell/module/az.network/get-azrouteserverpeeradvertisedroute) cmdlet to view routes advertised by a route server.
 
 ```azurepowershell-interactive
-Get-AzRouteServerPeerAdvertisedRoute -PeerName 'myNVA' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
+Get-AzRouteServerPeerAdvertisedRoute -PeerName 'myBGPConncetionsName' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
 ```
 
 Use the [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-azrouteserverpeerlearnedroute) cmdlet to view routes learned by a route server.
 
 ```azurepowershell-interactive
-Get-AzRouteServerPeerLearnedRoute -PeerName 'myNVA' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
+Get-AzRouteServerPeerLearnedRoute -PeerName 'myBGPConncetionsName' -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
 ```
 
 | Parameter | Value |
@@ -330,13 +330,13 @@ Use the [az network routeserver peering list-advertised-routes](/cli/azure/netwo
 
 
 ```azurecli-interactive
-az network routeserver peering list-advertised-routes --name 'myNVA' --resource-group 'myResourceGroup' --routeserver 'myRouteServer' 
+az network routeserver peering list-advertised-routes --name 'myBGPConncetionsName' --resource-group 'myResourceGroup' --routeserver 'myRouteServer' 
 ```
 
 Use the [az network routeserver peering list-learned-routes](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-list-learned-routes) command to view routes learned by a route server.
 
 ```azurecli-interactive
-az network routeserver peering list-learned-routes --name 'myNVA' --resource-group 'myResourceGroup' --routeserver 'myRouteServer' 
+az network routeserver peering list-learned-routes --name 'myBGPConncetionsName' --resource-group 'myResourceGroup' --routeserver 'myRouteServer' 
 ```
 
 | Parameter | Value |
