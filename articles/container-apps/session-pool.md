@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Use session pools in Azure Container Apps
 
-TODO
+Azure Container Apps sessions are secure sandboxed environments ideal for running code or applications that require strong isolation from other workloads. Sessions are managed by a pool which provides immediate access to new sessions, and is responsible for handling the lifecycle of each session.
 
 ## Configuration
 
