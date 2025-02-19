@@ -11,6 +11,9 @@ ms.custom: template-how-to
 
 # Create a lab in the Azure Education Hub with REST APIs
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 This article walks you through how to create a lab and verify its creation by using REST APIs.
 
 ## Prerequisites

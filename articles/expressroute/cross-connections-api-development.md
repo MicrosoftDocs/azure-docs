@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/06/2020
 ms.author: duau
 

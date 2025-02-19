@@ -42,9 +42,11 @@ Decide whether you want to run an assessment using sizing criteria based on SQL 
 **Performance-based** | Assess based on collected performance data. | Recommended Azure SQL configuration is based on performance data of SQL Server instances and databases, which includes CPU usage, core counts, database file organization and size, file IOs, and memory usage by each database. You can get optimal recommendations that are right-sized for the SQL workload.
 
 ## Run an assessment
+
 Run an assessment as follows:
-1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
-    
+
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
     :::image type="content" source="../media/tutorial-assess-sql/assess-migrate-inline.png" alt-text="Screenshot of Overview page for Azure Migrate." lightbox="../media/tutorial-assess-sql/assess-migrate-expanded.png":::
 
 1. In **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure SQL**.

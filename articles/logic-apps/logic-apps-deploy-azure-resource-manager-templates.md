@@ -57,7 +57,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](/azure/azure-resource-manager/templates/deploy-powershell)
-* [`New-AzResourceGroupDeployment`](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 
 <a name="cli"></a>
 

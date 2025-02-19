@@ -3,14 +3,12 @@ title: What is Neon Serverless Postgres (Preview)?
 description: Learn about Neon Serverless Postgres (Preview), a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
-ms.custom:
-
-ms.date: 12/02/2024
+ms.date: 01/21/2025
 ---
 
 # What is Neon Serverless Postgres (Preview)?
 
-Easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure with Azure Native integrations. 
+[!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and [Neon](https://neon.tech/) developed this service and manage it together.
 
@@ -31,23 +29,12 @@ Here are the key capabilities provided by the Neon integration:
 - **Single-Sign on to Neon** with no separate sign-up needed from the Neon portal.
 - **Manage all Neon resources** from the Azure portal, and track them in the **All resources** page with your other Azure resources.
 
-## Prerequisites for Neon Serverless Postgres
+## Subscribe to Neon
 
-- An Azure account. If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/free/).
-- Only users with _Owner_ or _Contributor_ access on the Azure subscription can set up the Azure integration. Ensure you have the appropriate access before starting the setup for this integration.
+[!INCLUDE [subscribe](../includes/subscribe.md)] *Neon*.
 
-## Find Neon Serverless Postgres
-
-From [Azure Marketplace](https://azuremarketplace.microsoft.com/), search for _Neon Serverless Postgres_. Once you subscribe, you're directed to the [Create a Neon Serverless Postgres resource](create.md#create-a-neon-serverless-postgres-resource) pane.
-
-You can also find Neon Serverless Postgres in the [Azure portal](https://portal.azure.com/).
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [QuickStart: Get started with Neon](create.md)
 
-> [!div class="nextstepaction"]
-> [Manage your Neon integration through the portal](manage.md)
-
-> [!div class="nextstepaction"]
-> [Neon Serverless Postgres developer resources and tools](tools.md)
+- [Quickstart: Create a Neon Serverless Postgres (Preview) resource](create.md)

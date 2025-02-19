@@ -4,8 +4,8 @@ description: Learn how you can use Azure Backup to send data off the network by 
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 05/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export

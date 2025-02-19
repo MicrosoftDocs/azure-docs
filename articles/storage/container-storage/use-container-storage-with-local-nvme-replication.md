@@ -394,7 +394,92 @@ To check which persistent volume a persistent volume claim is bound to, run:
 kubectl get pvc <persistent-volume-claim-name>
 ```
 
-### Expand a storage pool
+## Enable hyperconvergence (optional) 
+
+### What is hyperconvergence?  
+
+Hyperconvergence in Azure Container Storage enables pods to run on the same host as their corresponding volumes, reducing network overhead and significantly improving read performance. 
+
+* For single-replica workloads, hyperconvergence is **always enabled by default** to maximize data locality. 
+
+* For multi-replica workloads, hyperconvergence is **optional** and must be explicitly enabled. 
+
+When hyperconvergence is enabled for multi-replica volumes, the workload is scheduled on the same host as one of the volume replicas, optimizing data access while still maintaining redundancy. 
+
+### Hyperconvergence behavior for non-replicated vs. replicated volumes 
+
+Non-replicated NVMe/TempSSD volumes:
+
+* Hyperconvergence is **enabled by default**. 
+
+* If no suitable node is available with a localized disk pool, the application pod will fail to start due to insufficient resources. 
+
+* This strict enforcement prevents a non-replicated volume-consuming application from running on a different node than where its storage is provisioned. 
+
+Replicated NVMe/TempSSD volumes:  
+
+* Hyperconvergence is **best effort**. 
+
+* The scheduler will attempt to place the application pod on the same node as one of its volume replicas. 
+
+* If no suitable node is available, the pod will still be scheduled elsewhere, but read performance may be lower than expected.
+
+### How It Works 
+
+When hyperconvergence is enabled, Azure Container Storage prioritizes scheduling pods on the nodes where their volume replicas reside. 
+
+1. The default Kubernetes scheduler assigns scores to all nodes based on standard parameters like CPU, memory, affinities, and tolerations. 
+2. Azure Container Storage Node Affinity Scoring: Azure Container Storage uses preferred node affinities to influence the scheduler’s decision. Thus, each node receives: 
+   * 1 point if it has a valid disk pool. 
+   * 1 point if it already hosts a replica of the volume; these scores are additive and provide a slight preference for nodes with local volume replicas while respecting other scheduling criteria. 
+3. Final Scheduling Decision: The Kubernetes scheduler combines the default scores with Azure Container Storage affinity-based scores. The node with the highest combined score, balancing both Azure Container Storage preferences and Kubernetes default logic, is selected for pod placement.
+
+### When to Use Hyperconvergence 
+**Note**: The following considerations apply only to replicated volumes, as non-replicated volumes always use hyperconvergence by default and cannot be configured otherwise. 
+
+Consider enabling hyperconvergence for replicated volumes when: 
+
+* High read performance is critical – Keeping workloads and storage replicas on the same node reduces network latency and improves read performance. 
+* Data locality can significantly impact performance – Applications that frequently read from storage benefit from reduced cross-node data transfers. 
+
+### When to Not Use Hyperconvergence 
+**Note**: This section applies only to replicated volumes because hyperconvergence is always enforced for non-replicated volumes. 
+
+Hyperconvergence can improve performance by co-locating workloads with their storage, but there are scenarios where it might not be ideal: 
+
+* **Potential resource imbalance**: While hyperconvergence itself doesn't limit the number of applications on a node, if multiple workloads create replicas on the same node and that node runs out of resources (CPU, memory, or storage bandwidth), some workloads might not be able to schedule there. As a result, they might end up running **without hyperconvergence**, despite it being enabled.
+
+### Enable hyperconvergence in Azure Container Storage  
+
+Hyperconvergence is enabled by default for NVMe and temporary disk storage pools with only one replica. This ensures optimized data locality and improved performance for single-replica configurations. For multi-replica setups, hyperconvergence isn't enabled by default but can be configured using the `hyperconverged` parameter in the StoragePool specification. 
+
+The following is an example YAML template to enable hyperconvergence for multi-replica configurations: 
+
+```
+apiVersion: containerstorage.azure.com/v1 
+
+kind: StoragePool 
+
+metadata: 
+
+  name: nvmedisk 
+
+  namespace: acstor 
+
+spec: 
+
+  poolType: 
+
+    ephemeralDisk: 
+
+      diskType: "nvme" 
+
+      replicas: 3 
+
+      hyperconverged: true 
+```
+ 
+## Expand a storage pool
 
 You can expand storage pools backed by local NVMe to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
 
@@ -410,7 +495,7 @@ Because a storage pool backed by Ephemeral Disk uses local storage resources on 
 
 1. Run `kubectl get sp -A` and you should see that the capacity of the storage pool has increased.
 
-### Delete a storage pool
+## Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 
@@ -418,7 +503,7 @@ If you want to delete a storage pool, run the following command. Replace `<stora
 kubectl delete sp -n acstor <storage-pool-name>
 ```
 
-### Optimize performance when using local NVMe
+## Optimize performance when using local NVMe
 
 Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Premium**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 

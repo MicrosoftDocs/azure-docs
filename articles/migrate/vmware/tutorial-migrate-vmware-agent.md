@@ -149,7 +149,7 @@ This procedure describes how to set up the appliance with a downloaded Open Virt
 
 Download the template as follows:
 
-1. In the Azure Migrate project, select **Servers, databases and web apps** under **Migration goals**.
+1. In the Azure Migrate project, select **Servers, databases and web apps**.
 2. In **Servers, databases and web apps** > **Migration and modernization**, select **Discover**.
 3. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 4. In **How do you want to migrate?**, select **Using agent-based replication**.
@@ -318,8 +318,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 
 Do a test migration as follows:
 
-
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
+1. In **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
 
 2. Right-click the VM to test, and select **Test migrate**.
 

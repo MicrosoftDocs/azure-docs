@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Operator Service Manager cluster registry
-description: Azure Operator Service Manager cluster registry provides a locally resilent edge registry service to host Nexus K8s container image artifacts.
+description: Azure Operator Service Manager cluster registry provides a locally resilient edge registry service to host Nexus K8s container image artifacts.
 author: msftadam
 ms.author: adamdor
 ms.date: 10/31/2024
@@ -109,7 +109,7 @@ The following parameters configure the schedule and threshold for the garbage co
 ## High availability and resiliency considerations 
 The AOSM NF extension relies uses a mutating webhook and edge registry to support key features. 
 * Onboarding helm charts without requiring customization of image path.
-* A local cluster registry to accelerate pod operations and enable disconnected-moded support.
+* A local cluster registry to accelerate pod operations and enable disconnected-mode support.
 These essential components need to be highly available and resilient.
 
 ### Summary of changes for HA

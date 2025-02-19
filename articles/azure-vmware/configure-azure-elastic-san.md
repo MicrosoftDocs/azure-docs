@@ -14,6 +14,8 @@ This article explains how to use Azure Elastic SAN as backing storage for Azure 
 
 Azure Elastic storage area network (SAN) addresses the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. For more information on Azure Elastic SAN, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md).
 
+To accompany the steps below, you can use this [interactive demo](https://regale.cloud/microsoft/play/4092/expand-storage-with-elastic-san#/0/0) as a visual representation of what you need to do to connect Elastic SAN and AVS.
+
 ## Prerequisites
 
 The following prerequisites are required to continue.

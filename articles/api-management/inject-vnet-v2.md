@@ -43,9 +43,9 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-### Subnet requirements
+### Dedicated subnet
 
-* The subnet for the API Management instance can't be shared with another Azure resource.
+* The subnet used for virtual network injection can only be used by a single API Management instance. It can't be shared with another Azure resource.
 
 ### Subnet size 
 

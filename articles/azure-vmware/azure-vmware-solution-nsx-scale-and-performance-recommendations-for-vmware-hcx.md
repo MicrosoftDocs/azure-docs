@@ -161,7 +161,7 @@ An Active/Standby configuration with the preferred Edge VM defined allows you to
 :::image type="content" source="media/nsxt/nsx-tier-1-gateway-active-standby.png" alt-text="Diagram showing NSX Tier-1 gateway active standby option." border="false" lightbox="media/nsxt/nsx-tier-1-gateway-active-standby.png":::
 
 >[!NOTE] 
->Microsoft Recommends the Active/Standby HA Mode when additional Tier-1 Gateways are created. This allows customers to seperate Workload and migration traffic across different Edge VMs.  
+>Microsoft Recommends the Active/Standby HA Mode when additional Tier-1 Gateways are created. This allows customers to separate Workload and migration traffic across different Edge VMs.  
 
 ## Create a new Segment for HCX Uplink and attach to the new Tier-1 Gateway 
 

@@ -38,7 +38,7 @@ ms.date: 12/17/2024
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.
 
-1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.  You can also create them by using Resource Manager templates, PowerShell, or the Azure CLI. For more information about how to create an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.  You can also create them by using Resource Manager templates, PowerShell, or the Azure CLI.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Screenshot that shows Create a resource.":::
 

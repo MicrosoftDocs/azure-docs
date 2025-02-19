@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -48,7 +48,7 @@ If you're the Account Administrator or subscription Owner and you canceled a pay
 1. Select **Reactivate**.  
     :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Screenshot that shows Confirm reactivation." :::
 
-For other subscription types (for example, Enterprise Subscription), [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to have your subscription reactivated.
+If you have questions or need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Reactivation process time
 

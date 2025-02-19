@@ -4,7 +4,7 @@ description: This article compares the pricing of Azure CDN Standard Microsoft (
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/11/2024
 ms.author: duau
 ms.reviewer: harishk

@@ -4,7 +4,7 @@ description: This article describes how to configure the Azure Application Gatew
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/01/2024
 ms.author: greglin
 ---
@@ -87,7 +87,9 @@ Depending on whether you're creating new resources or using existing ones, add t
 | Subnet | Use existing| Microsoft.Network/virtualNetworks/subnets/read<br>Microsoft.Network/virtualNetworks/subnets/join/action |
 | IP addresses| Create new| Microsoft.Network/publicIPAddresses/write<br>Microsoft.Network/publicIPAddresses/join/action |
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
-| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action |
+| ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write 
+Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read 
+Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action |
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 ## Roles scope
@@ -234,6 +236,22 @@ To use the route table to allow kubenet to work:
 **Scenario 1:** UDR for virtual appliances
 
 Any scenario where 0.0.0.0/0 needs to be redirected through a virtual appliance, a hub/spoke virtual network, or on-premises (forced tunneling) isn't supported for v2.
+
+## Additional services
+
+To view roles and permissions for other services, see the following links:
+
+- [Azure ExpressRoute](../expressroute/roles-permissions.md) 
+
+- [Azure Firewall](../firewall/roles-permissions.md) 
+
+- [Azure Route Server](../route-server/roles-permissions.md)
+
+- [Azure Virtual WAN](../virtual-wan/roles-permissions.md)
+
+- [Managed NVA](../virtual-wan/roles-permissions.md#nva-resources)
+
+- [Azure VPN Gateway](../vpn-gateway/roles-permissions.md)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Learn how you can deploy Azure Firewall to route a multi hub and sp
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/30/2023
 ms.author: maroja
 ---

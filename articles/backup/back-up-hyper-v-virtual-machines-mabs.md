@@ -2,19 +2,18 @@
 title: Back up Hyper-V virtual machines with MABS
 description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 12/23/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server
 
 This article describes how to back up and restore Hyper-V virtual machines using Microsoft Azure Backup Server (MABS).
 
->[!Note]
->When the trim is performed within the guest OS, the tracking of incremental blocks is reset, resulting in a full backup. The trim within the guest OS releases unused blocks of the virtual disk (VHDX) and optimizes the disk size. However, this reduces the size of the VHDX and changes the SequenceNumber of the tracked incremental blocks, resulting in a full backup size. Unless the purpose is to improve the efficiency of storage on the Hyper-V host side, we recommend you  to stop the trim process within the guest to avoid an increase in backup size.
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 
 ## Supported scenarios
