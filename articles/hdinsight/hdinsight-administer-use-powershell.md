@@ -86,13 +86,13 @@ $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
-$defaultStoreageType = $storageInfo[1]
+$defaultStorageType = $storageInfo[1]
 $defaultStorageName = $storageInfo[0]
 
 echo "Default Storage account name: $defaultStorageName"
-echo "Default Storage account type: $defaultStoreageType"
+echo "Default Storage account type: $defaultStorageType"
 
-if ($defaultStoreageType -eq "blob")
+if ($defaultStorageType -eq "blob")
 {
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value

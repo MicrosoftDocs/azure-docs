@@ -1,7 +1,7 @@
 ---
 title: Questions about importing data
 description: Get answers to common questions about importing RVTools XLSX into Azure migrate
-author: v-sreedevank
+author: SnehaSudhirG
 ms.author: jobingeorge
 ms.topic: conceptual
 ms.service: azure-migrate

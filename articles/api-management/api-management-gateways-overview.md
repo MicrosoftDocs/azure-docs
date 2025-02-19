@@ -77,7 +77,7 @@ The following tables compare features available in the following API Management 
 | [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ | ❌ |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | Standard v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
 | [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |

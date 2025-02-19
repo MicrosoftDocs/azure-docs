@@ -27,9 +27,9 @@ For information about networking options in API Management, see [Use a virtual n
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-## Subnet requirements
+### Dedicated subnet
 
-* The subnet can't be shared with another Azure resource, including another workspace gateway.
+* The subnet used for virtual network integration can only be used by a single workspace gateway. It can't be shared with another Azure resource.
 
 ## Subnet size 
 

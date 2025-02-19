@@ -24,7 +24,7 @@ Correlated metrics are available for monitoring and retrieval for up to 30 days.
 
 
 ## Correlated metrics descriptions and interpretations 
-Correlated metrics are collected per site resource and aggregated across all connected access points. See [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
+Correlated metrics are collected per site resource and aggregated across all connected access points. See [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) for the correlated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
 
 | Metric Name | Definition | Interpretation |
 |-------------|----------------|---------| 

@@ -48,7 +48,7 @@ Start-AzStreamAnalyticsJob `
 
 There are three options for **OutputStartMode**: *JobStartTime*, *CustomTime*, and *LastOutputEventTime*. If this property is absent, the default is *JobStartTime*. See above for more information about these options.
 
-For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
+For more information on the `Start-AzStreamAnalyticsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
 ## Next steps
 

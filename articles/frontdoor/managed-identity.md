@@ -5,7 +5,7 @@ description: This article shows you how to set up managed identities with Azure 
 services: networking
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 ms.author: duau
 ---

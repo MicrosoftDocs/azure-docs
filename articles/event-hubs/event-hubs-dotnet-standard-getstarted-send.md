@@ -186,7 +186,7 @@ This section shows you how to create a .NET Core console application to send eve
     A batch of 3 events has been published.
     ```
     > [!NOTE]
-    > If you get an error "InvalidIssuer: Token issuer is invalid" when using Microsoft Entra authentication, it may be because the wrong Entra Tenant Id is being used. In you code replace'new DefaultAzureCredential()' with 'new DefaultAzureCredential(new DefaultAzureCredentialOptions {TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"})' to explictly specify Entra Tenant Id.
+    > If you get an error "InvalidIssuer: Token issuer is invalid" when using Microsoft Entra authentication, it may be because the wrong Entra Tenant Id is being used. In you code replace'new DefaultAzureCredential()' with 'new DefaultAzureCredential(new DefaultAzureCredentialOptions {TenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"})' to explicitly specify Entra Tenant Id.
 
 
     > [!IMPORTANT]

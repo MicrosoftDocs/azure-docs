@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/22/2024
 ms.author: allensu
 ---
@@ -80,7 +80,7 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 
 ### Is there a limit to the number of subnets in my virtual network?
 
-Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
+Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) for details. Subnet address spaces can't overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 
@@ -124,7 +124,7 @@ No. Multicast and broadcast are not supported.
 
 You can use TCP, UDP, ESP, AH, and ICMP TCP/IP protocols in virtual networks.
 
-Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked in virtual networks. You can't use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68, destination port UDP/67). UDP source port 65330 is reserved for the host.
+Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked in virtual networks. You can't use Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68, destination port UDP/67). UDP ports 4791 and 65330 are reserved for the host.
 
 ### Can I deploy a DHCP server in a virtual network?
 
@@ -195,7 +195,7 @@ Yes. You can specify IP addresses for DNS servers in the virtual network setting
 
 ### How many DNS servers can I specify?
 
-See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
 ### Can I modify my DNS servers after I create the network?
 

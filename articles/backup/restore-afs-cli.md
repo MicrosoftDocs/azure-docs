@@ -4,8 +4,8 @@ description: Learn how to use the Azure CLI to restore backed-up Azure file shar
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.date: 03/20/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure file shares with the Azure CLI

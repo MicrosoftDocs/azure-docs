@@ -16,7 +16,7 @@ This article describes how to use Bicep extensions.
 The syntax for importing Bicep extensions is:
 
 ```bicep
-extionsion <extension-name>
+extension <extension-name>
 ```
 
 The syntax for importing Bicep extensions, which require configuration is:

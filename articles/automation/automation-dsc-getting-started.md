@@ -4,7 +4,7 @@ description: This article tells how to do the most common tasks in Azure Automat
 services: automation
 ms.subservice: desired-state-config
 ms.custom: devx-track-arm-template
-ms.date: 10/22/2024
+ms.date: 01/01/2025
 ms.topic: how-to
 ms.service: azure-automation
 ---
@@ -281,8 +281,7 @@ You can see the following status information for the corresponding consistency c
 You can also select **View raw report** to see the actual data that the node sends to the server. For
 more information about using that data, see [Using a DSC report server][18].
 
-It can take some time after a node is enabled before the first report is available. You might need
-to wait up to 30 minutes for the first report after you enable a node.
+It can take some time before the first report is available, after a node is enabled or restarted. You might need to wait up to 30 minutes after you enable a node or restart a node.
 
 ## Reassign a node to a different node configuration
 

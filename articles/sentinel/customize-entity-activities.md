@@ -191,13 +191,13 @@ Add any of the following parameters to your query:
 
     The `count` parameter adds the following command to your query in the background, even though it's not displayed fully in the editor:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>
     ```
 
     Then, when you use the **Bucket Size** filter in the entity pages, the following command is also added to the query that's run in the background:
 
-    ```kql
+    ```kusto
     Summarize count() by <each parameter you’ve projected in the activity>, bin (TimeGenerated, Bucket in Hours)
     ```
 
@@ -206,6 +206,15 @@ For example:
 :::image type="content" source="./media/customize-entity-activities/new-activity-title.png" alt-text="Screenshot - See the available values for your activity title":::
 
 When you are satisfied with your query and activity title, select **Next : Review**.
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***bin()*** function](/kusto/query/bin-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ### Review and create tab
 

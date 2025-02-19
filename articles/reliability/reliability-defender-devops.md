@@ -59,7 +59,7 @@ To request recovery of a connector created in a downed region:
    resources
     | extend connectorType = tostring(parse_json(properties["environmentName"]))
     | where type == "microsoft.security/securityconnectors"
-    | where connectorType in ("AzureDevOps", "Github", "GitLab")
+    | where connectorType in ("AzureDevOps", "GitHub", "GitLab")
     | project connectorResourceId = id, region = location
 
 1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](/azure/defender-for-cloud/enable-pull-request-annotations) as needed.

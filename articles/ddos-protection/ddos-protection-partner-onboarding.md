@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/06/2023
 ms.author: abell
 ---
+
 # Partnering with Azure DDoS Protection
 This article describes partnering opportunities enabled by the Azure DDoS Protection. This article is designed to help product managers and business development roles understand the investment paths and provide insight into the partnering value propositions.
 

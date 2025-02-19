@@ -52,7 +52,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. 1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 

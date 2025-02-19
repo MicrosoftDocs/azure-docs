@@ -34,7 +34,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure OpenAI service](#azure-openai-service) | Learn how to integrate your SAP workloads with Azure OpenAI service. |
 | [Microsoft Copilot](#microsoft-copilot) | Learn how to integrate your SAP workloads with Microsoft Copilots. |
 | [SAP RISE managed workloads](rise-integration-services.md) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
-| [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user authentication and authorization with Microsoft Entra ID. Single sign-on (SSO) and multifactor authentication (MFA) are the foundation for a secure and seamless user experience. |
+| [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user lifecycle, authentication, and authorization with Microsoft Entra ID. Identity governance, Single sign-on (SSO) and phish-resistant multifactor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender XDR, Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available out-of-the-box SAP solutions enabling your business users to achieve more with less. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
@@ -46,9 +46,9 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
-### Azure OpenAI service
+### Azure OpenAI Service
 
-For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
+For more information about integration with [Azure OpenAI Service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
 - [Streamlining SAP Processes with Azure OpenAI, Copilot Studio, and Power Platform | blog](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/streamlining-sap-processes-with-azure-openai-copilot-studio-and/ba-p/4164338)
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
@@ -136,13 +136,11 @@ Also see the following SAP resources:
 
 For more information about integrations with Microsoft Entra ID and Microsoft Entra ID Governance, see the following Microsoft Entra documentation:
 
+- [SAP Scenarios Hub](https://aka.ms/EntraSAPHub)
+- [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
 - [Manage access to your SAP applications](/entra/id-governance/sap)
 - [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](/entra/fundamentals/scenario-azure-first-sap-identity-integration)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
-- [Provision users from SAP SuccessFactors to Active Directory](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-tutorial)
-- [Provision users from SAP SuccessFactors to Microsoft Entra ID](/entra/identity/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial)
-- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](/entra/identity/saas-apps/sap-successfactors-writeback-tutorial)
-- [Provision users to SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial)
 
 For how to configure single sign-on, see the following Microsoft Entra documentation and tutorials:
 - [SAP Cloud Identity Services - Identity Authentication](/entra/identity/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)

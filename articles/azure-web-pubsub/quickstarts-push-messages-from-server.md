@@ -180,7 +180,7 @@ python -m venv env
 source ./env/bin/activ
 
 pip install azure-messaging-webpubsubservice
-pip install websock
+pip install websockets
 ```
 
 #### Use the WebSocket API to connect to your Web PubSub resource. Create a `subscribe.py` file with the following code
@@ -213,8 +213,8 @@ if __name__ == '__main__':
 
     try:
         asyncio.get_event_loop().run_until_complete(connect(token['url']))
-        except KeyboardInterrupt:
-            pass
+    except KeyboardInterrupt:
+        pass
     
 ```
 

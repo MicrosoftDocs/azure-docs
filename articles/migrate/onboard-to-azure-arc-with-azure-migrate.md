@@ -17,8 +17,8 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 
 ## Before you get started
 
-- [Review the requirements](./tutorial-discover-vmware.md#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
-- Prepare [VMware vCenter](./tutorial-discover-vmware.md#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
+- [Review the requirements](tutorial-discover-vmware.md#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
+- Prepare [VMware vCenter](tutorial-discover-vmware.md#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
 - Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
 - Verify the prerequisites to allow remote connections to the inventory of discovered servers for onboarding them to Azure Arc. 
     1. Allow inbound remote connections to the discovered servers 
@@ -38,7 +38,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 
 ## Set up the Azure Migrate project  
 
-1. Before you start, prepare the [Azure user Account](./tutorial-discover-vmware.md#prepare-an-azure-user-account) and verify you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources required by Azure Migrate. 
+1. Before you start, prepare the [Azure user Account](tutorial-discover-vmware.md#prepare-an-azure-user-account) and verify you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources required by Azure Migrate. 
 2. [Use this article](./create-manage-projects.md) to set up a new Azure Migrate project with the Azure Migrate: Discovery and assessment tool added to it.  
 
     > [!Note]
@@ -57,12 +57,12 @@ Before you set up the appliance,
 
 Next,
 
-- Follow this article to [set up the Azure Migrate appliance](./tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
-- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance) to register the appliance. 
+- Follow this article to [set up the Azure Migrate appliance](tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
+- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance) to register the appliance. 
 
 ## Configure the appliance and start discovery  
 
-Use [this article](./tutorial-discover-vmware.md#start-continuous-discovery) to configure the Azure Migrate appliance and kick off the vCenter Server discovery. 
+Use [this article](tutorial-discover-vmware.md#start-continuous-discovery) to configure the Azure Migrate appliance and kick off the vCenter Server discovery. 
 
 As you configure the appliance for discovery, you need to specify the  details in the appliance configuration manager:
 

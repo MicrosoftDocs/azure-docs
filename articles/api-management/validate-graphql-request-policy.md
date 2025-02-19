@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---
@@ -90,8 +90,10 @@ Available actions are described in the following table.
     * Fragments
     * Unions
     * Interfaces
-    * The schema element  
-     
+    * The schema element
+ 
+* The policy can validate GraphQL requests with up to 250 query fields across all levels.
+  
 ## Error handling
 
 Failure to validate against the GraphQL schema, or a failure for the request's size or depth, is a request error and results in the request being failed with an errors block (but no data block). 

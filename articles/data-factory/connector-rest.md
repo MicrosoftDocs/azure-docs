@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/29/2024
+ms.date: 01/02/2025
 ms.author: makromer
 ---
 
@@ -596,6 +596,9 @@ AlterRow1 sink(allowSchemaDrift: true,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> sink1
 ```
+>[!NOTE]
+> Data Flow generates a total of N+1 API calls when processing N pages. This includes one initial call to infer the schema, followed by N calls corresponding to the number of pages fetched from the source.
+
 
 ## Pagination support
 

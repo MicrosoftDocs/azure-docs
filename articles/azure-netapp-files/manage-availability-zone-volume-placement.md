@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 12/17/2024
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -30,7 +30,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature doesn't create zonal VMs upon volume creation, or vice versa.
 
-* <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). This feature is currently in preview. 
+* <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). 
  
 >[!IMPORTANT]
 >It's not recommended that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).

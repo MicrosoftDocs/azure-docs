@@ -24,6 +24,8 @@ This article contains two parts,
 
 :::image type="content" source="./media/signalr-howto-work-with-app-gateway/architecture.png" alt-text="Diagram that shows the architecture of using SignalR Service with Application Gateway.":::
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ## Set up and configure Application Gateway
 
 ### Create a SignalR Service instance
@@ -138,6 +140,8 @@ When **_AG1_** is created, go to **Health probes** tab under **Settings** sectio
 ### Run chat through Application Gateway
 
 Now, the traffic can reach SignalR Service through the Application Gateway. The customer could use the Application Gateway public IP address or custom domain name to access the resource. Let’s use [this chat application](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/ChatRoom) as an example. Let's start with running it locally.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 - First let's get the connection string of **_ASRS1_**
 

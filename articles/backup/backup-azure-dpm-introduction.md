@@ -2,10 +2,10 @@
 title: Prepare the DPM server to back up workloads
 description: In this article, learn how to prepare for System Center Data Protection Manager (DPM) backups to Azure, using the Azure Backup service.
 ms.topic: overview
-ms.date: 09/09/2024
+ms.date: 12/24/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Prepare to back up workloads to Azure with System Center DPM
@@ -19,6 +19,8 @@ The article provides:
 - Steps for preparing Azure, including setting up a Recovery Services Backup vault, and optionally modifying the type of Azure storage for the vault.
 - Steps for preparing the DPM server, including downloading vault credentials, installing the Azure Backup agent, and registering the DPM server in the vault.
 - Troubleshooting tips for common errors.
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 ## Why back up DPM to Azure?
 
@@ -144,7 +146,7 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
 5. In **Recovery Folder Setting**, specify a location that can be used during data recovery.
 
     - Azure Backup uses this location as a temporary holding area for recovered data.
-    - After finishing data recovery, Azure Backup will clean up the data in this area.
+    - After the data recovery process is complete, Azure Backup will clean up the data in this area.
     - The location must have enough space to hold items that you expect to recover in parallel.
 
     ![Recovery Folder Setting](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
