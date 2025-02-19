@@ -1,5 +1,5 @@
 ---
-title: Perform the migration from AWS Lambda to Azure Functions
+title: Develop a Day-0 migration manual for migrating AWS Lambda to Azure Functions
 description: How to perform a migration from AWS Lambda to Azure Functions
 author: robbyatmicrosoft
 ms.author: robbymillsap
@@ -7,18 +7,12 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
-# Perform your migration from AWS Lambda to Azure Functions
+# Develop a Day-0 migration manual for migrating AWS Lambda to Azure Functions
 
-This article describes how Microsoft recommends you perform a migration from AWS Lambda to Azure Functions. Use these recommendations to build your day-of migration plan.
-
-| :::image type="icon" source="../../migration/images/goal.svg"::: Your migration runbook has the steps necessary to complete the core migration activities from AWS Lambda to Azure Functions, or rollback the migration in case of failure. |
+| :::image type="icon" source="../../migration/images/goal.svg"::: Your migration manual has the steps necessary to complete the migration activities from AWS Lambda to Azure Functions, covering rollback steps in case of failure. |
 | :-- |
 
-## Build your runbook
-
-Your migration team should have step-by-step instructions to execute, often known as a migration runbook. These steps should detail what happens, by whom, and when. It should also contain provisions for rolling back or halting the migration if there is an unexpected, detremental result during the process. These steps do not need to be automated, as a migration is typically a once-and-done activity.
-
-Use the recommended migration steps below to build your AWS Lambda to Azure Functions migration runbook. Ensure you interleave validation activities into your migration steps.
+Your migration team should have a standard operating procedure (SOP) for activities on the day of migration, referred to as Day-0 migration. This manual should include step-by-step instructions, detailing who should conduct each step, what to do, expected outcome, and validation with each logical increment. It should also describe rollback procedures in case of unexpected, detrimental results during the process. These steps do not need to be automated, as migration is typically a one-time activity.
 
 ## Prerequisites
 

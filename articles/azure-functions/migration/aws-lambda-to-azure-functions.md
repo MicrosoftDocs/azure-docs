@@ -77,7 +77,7 @@ With the design areas in place, collect baseline information about the current r
 - [Performance targets and current performance](./function-placeholder.md)
 
 
-### Build the migration assets
+## Build the migration assets
 
 There's a transition development phase where you'll build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. These activities need to happen before you can perform the migration.
 
