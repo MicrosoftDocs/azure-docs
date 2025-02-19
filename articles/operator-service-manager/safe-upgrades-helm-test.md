@@ -27,18 +27,18 @@ As part of the safe upgrade program, AOSM supports the use of helm tests as a ga
 The publisher is responsible for authoring the helm tests during construction of the helm charts. The helm tests are defined in the helm chart under the folder: `<ChartName>/Templates/`. Each test includes a job definition that specifies a container environment and command to run. The container environment should exit successfully for a test to be considered a success. The job definition must include the helm test hook annotation `(helm.sh/hook: test)` to be recognized as a test by helm.
 
 ## Enable helm tests during operations
-AOSM provides a set of configurable install and upgrade options for each nfApp. These existing options are extended with a new `testOptions` parameter. With this parameter the user can specify `testOptions` settings per nfApp and per type of operation. The `testOptions` parameter supports the following parameters:
+AOSM provides a set of configurable install and upgrade options for each nfApp. These existing options are extended with a new `testOptions` parameter. With this parameter, the user can specify `testOptions` settings per nfApp and per type of operation. The `testOptions` parameter supports the following parameters:
 
-* enable	
+* `enable`
   * Enables or disables the helm test on a nfApp after install or upgrade completes.
   * Default value is false.
-* timeout	
+* `timeout`
   * Takes a value that represents the test time-out in minutes.
   * Default value is 20 minutes.
-* rollbackOnTestFailure	
+* `rollbackOnTestFailure`
   * Enables or disables rollback on nfApp helm test failure.
   * Default value is true.
-* filter	
+* `filter`
   * Allows for a method to run only a subset of tests. Accepts a list of strings, where each string in the list represents a test to execute.
   * Default value is no filter and all tests are run.
 
@@ -46,7 +46,7 @@ AOSM provides a set of configurable install and upgrade options for each nfApp. 
 AOSM already supports the NF payload parameters `installOptions` and `upgradeOptions` for each nfApp under `roleOverrideValues`. These parameters are extended to include new `testOptions` settings. Exposing these new parameter settings allows the Operator to control the upgrade behavior at run-time. See the three following examples demonstrating usage of `testOptions`.
 
 ## roleOverrideValues escaped example
-Following is an escaped example `roleOverrideValues` with `testOptions` under `installOptions` and `upgradeOptions` for a component named `application1`. This example uses a `filter`, to execute only tests which match the string provided, uses a custom time-out and enables `rollbackOnTestFailures`.
+Following is an escaped example `roleOverrideValues` with `testOptions` under `installOptions` and `upgradeOptions` for a component named `application1`. This example uses a `filter`, to execute only tests which match the string provided, uses a custom time-out, and enables `rollbackOnTestFailures`.
 
 ``` 
 "roleOverrideValues": [  
@@ -54,7 +54,7 @@ Following is an escaped example `roleOverrideValues` with `testOptions` under `i
 ```
 
 ## roleOverrideValues unescaped example
-Following is an unescaped example `roleOverrideValues` NF Payload with `testOptions` under `installOptions` and `upgradeOptions` for a component named `hellotest`. This example uses a `filter` to execute only tests which match the string provided, uses a custom time-out and enables `rollbackOnTestFailures`.
+Following is an unescaped example `roleOverrideValues` NF Payload with `testOptions` under `installOptions` and `upgradeOptions` for a component named `hellotest`. This example uses a `filter` to execute only tests which match the string provided, uses a custom time-out, and enables `rollbackOnTestFailures`.
 
 ```
 "roleOverrideValues": ["{
