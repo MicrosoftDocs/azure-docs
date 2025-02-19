@@ -27,7 +27,7 @@
         href: ./performance.md
   - name: Build migration assets
     href: ./build-migration-assets.md
-  - name: Perform Day-0 migration activities
+  - name: Develop a Day-0 migration manual
     href: ./perform-migration.md
   - name: Evaluate end-state
     href: ./post-migration-checklist.md
@@ -50,4 +50,4 @@
       - name: End-state evaluation
         href: function-placeholder.md
   - name: Explore Azure optimization opportunities
-    href: optimization.md
+    href: /azure/well-architected/service-guides/azure-functions-security
