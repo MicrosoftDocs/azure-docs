@@ -1,6 +1,6 @@
 - name: DNS documentation
   href: index.yml
-- name: Overview
+- name: Get started
   items:
   - name: Azure DNS overview
     href: dns-overview.md
@@ -12,7 +12,7 @@
     href: dns-private-resolver-overview.md
   - name: What is Azure Traffic Manager?
     href: /azure/traffic-manager/traffic-manager-overview
-- name: Quickstarts
+- name: Test
   items:
   - name: Public DNS
     items:
@@ -49,32 +49,16 @@
     - name: Create a private resolver - ARM Template
       href: dns-private-resolver-get-started-template.md
   expanded: true
-- name: Tutorials
-  items:
-  - name: Public DNS
-    items:
-    - name: Host your domain in Azure DNS
-      href: dns-delegate-domain-azure-dns.md
-    - name: Create child DNS zones
-      href: tutorial-public-dns-zones-child.md
-    - name: Create custom DNS records for a web app
-      href: dns-web-sites-custom-domain.md
-    - name: Create alias records for zone records
-      href: tutorial-alias-rr.md
-    - name: Create alias records for public IP addresses
-      href: tutorial-alias-pip.md
-    - name: Create alias records for Traffic Manager
-      href: tutorial-alias-tm.md
-  - name: Private Resolver
-    items:
-    - name: Set up DNS failover using private resolvers
-      href: tutorial-dns-private-resolver-failover.md
-- name: Concepts
+- name: Design
   items:
   - name: Security
     items:
     - name: DNS security policy
       href: dns-security-policy.md
+    - name: Protect public DNS zones and records
+      href: dns-protect-zones-recordsets.md
+    - name: Protect private DNS zones and records
+      href: dns-protect-private-zones-recordsets.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
@@ -117,7 +101,93 @@
       href: private-resolver-architecture.md
     - name: Resiliency in Azure DNS Private Resolver
       href: private-resolver-reliability.md
-- name: How-to guides
+- name: Deploy
+  items:
+  - name: Public DNS
+    items:
+    - name: Host your domain in Azure DNS
+      href: dns-delegate-domain-azure-dns.md
+    - name: Create child DNS zones
+      href: tutorial-public-dns-zones-child.md
+    - name: Create custom DNS records for a web app
+      href: dns-web-sites-custom-domain.md
+    - name: Create alias records for zone records
+      href: tutorial-alias-rr.md
+    - name: Create alias records for public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Create alias records for Traffic Manager
+      href: tutorial-alias-tm.md
+    - name: Alias records for load balanced web apps
+      href: dns-alias-appservice.md
+    - name: Deploy DNSSEC
+      items:
+       - name: Sign a DNS zone
+         href: dnssec-how-to.md
+       - name: Unsign a DNS zone
+         href: dnssec-unsign.md
+    - name: Manage DNS zones
+      items:
+      - name: Azure portal
+        href: dns-operations-dnszones-portal.md
+      - name: Azure PowerShell
+        href: dns-operations-dnszones.md
+      - name: Azure CLI
+        href: dns-operations-dnszones-cli.md
+      - name: Manage DNS records
+        items:
+        - name: Azure portal
+          href: dns-operations-recordsets-portal.md
+        - name: Azure PowerShell
+          href: dns-operations-recordsets.md
+        - name: Azure CLI
+          href: dns-operations-recordsets-cli.md
+      - name: Manage reverse DNS
+        items:
+        - name: Host reverse lookup zones in Azure DNS
+          href: dns-reverse-dns-hosting.md
+        - name: Manage reverse DNS records for Azure services
+          href: dns-reverse-dns-for-azure-services.md
+      - name: Import and export a DNS zone file
+        items:
+        - name: Azure portal
+          href: dns-import-export-portal.md
+        - name: Azure CLI
+          href: dns-import-export.md
+      - name: Delegate a subdomain
+        items:
+        - name: Azure portal
+          href: delegate-subdomain.md
+        - name: Azure PowerShell
+          href: delegate-subdomain-ps.md
+      - name: Integrate with other Azure services
+        href: dns-for-azure-services.md
+      - name: Automate DNS operations with the .NET SDK
+        href: dns-sdk.md
+      - name: Custom domains for Azure resources
+        href: dns-custom-domain.md
+  - name: Private DNS
+    items:
+    - name: Import and export a DNS zone file
+      items:
+      - name: Azure portal
+        href: private-dns-import-export-portal.md
+      - name: Azure CLI
+        href: private-dns-import-export.md
+      - name: Create and manage reverse DNS zones
+        href: private-reverse-dns.md
+      - name: Use Azure Resource Graph Explorer
+        href: private-dns-arg.md
+      - name: Fallback to internet resolution
+        href: private-dns-fallback.md
+      - name: Private Resolver
+        items:
+        - name: Resolve Azure and on-premises domains
+          href: private-resolver-hybrid-dns.md
+  - name: Private Resolver
+    items:
+    - name: Set up DNS failover using private resolvers
+      href: tutorial-dns-private-resolver-failover.md
+- name: Monitor and manage
   items:
   - name: Monitor and manage DNS traffic
     items:
@@ -127,78 +197,6 @@
       href: monitor-dns.md
     - name: Azure DNS Monitoring data reference
       href: monitor-dns-reference.md
-  - name: Public DNS
-    items:
-    - name: Alias records for load balanced web apps
-      href: dns-alias-appservice.md
-    - name: Manage DNSSEC
-      items:
-      - name: Sign a DNS zone
-        href: dnssec-how-to.md
-      - name: Unsign a DNS zone
-        href: dnssec-unsign.md
-    - name: Manage DNS zones
-      items:
-      - name: Azure portal
-        href: dns-operations-dnszones-portal.md
-      - name: Azure PowerShell
-        href: dns-operations-dnszones.md
-      - name: Azure CLI
-        href: dns-operations-dnszones-cli.md
-    - name: Manage DNS records
-      items:
-      - name: Azure portal
-        href: dns-operations-recordsets-portal.md
-      - name: Azure PowerShell
-        href: dns-operations-recordsets.md
-      - name: Azure CLI
-        href: dns-operations-recordsets-cli.md
-    - name: Manage reverse DNS
-      items:
-      - name: Host reverse lookup zones in Azure DNS
-        href: dns-reverse-dns-hosting.md
-      - name: Manage reverse DNS records for Azure services
-        href: dns-reverse-dns-for-azure-services.md
-    - name: Import and export a DNS zone file
-      items:
-      - name: Azure portal
-        href: dns-import-export-portal.md
-      - name: Azure CLI
-        href: dns-import-export.md
-    - name: Delegate a subdomain
-      items:
-      - name: Azure portal
-        href: delegate-subdomain.md
-      - name: Azure PowerShell
-        href: delegate-subdomain-ps.md
-    - name: Integrate with other Azure services
-      href: dns-for-azure-services.md
-    - name: Protect DNS zones and records
-      href: dns-protect-zones-recordsets.md
-    - name: Automate DNS operations with the .NET SDK
-      href: dns-sdk.md
-    - name: Custom domains for Azure resources
-      href: dns-custom-domain.md
-  - name: Private DNS
-    items:
-    - name: Protect private DNS zones and records
-      href: dns-protect-private-zones-recordsets.md
-    - name: Import and export a DNS zone file
-      items:
-      - name: Azure portal
-        href: private-dns-import-export-portal.md
-      - name: Azure CLI
-        href: private-dns-import-export.md
-    - name: Create and manage reverse DNS zones
-      href: private-reverse-dns.md
-    - name: Use Azure Resource Graph Explorer
-      href: private-dns-arg.md
-    - name: Fallback to internet resolution
-      href: private-dns-fallback.md
-  - name: Private Resolver
-    items:
-    - name: Resolve Azure and on-premises domains
-      href: private-resolver-hybrid-dns.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
