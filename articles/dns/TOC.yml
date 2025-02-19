@@ -51,16 +51,6 @@
   expanded: true
 - name: Design
   items:
-  - name: Security
-    items:
-    - name: DNS security policy
-      href: dns-security-policy.md
-    - name: Protect public DNS zones and records
-      href: dns-protect-zones-recordsets.md
-    - name: Protect private DNS zones and records
-      href: dns-protect-private-zones-recordsets.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
     items:
     - name: Zones and records
@@ -69,8 +59,6 @@
       href: dns-alias.md
     - name: Delegation with Azure DNS
       href: dns-domain-delegation.md
-    - name: DNSSEC
-      href: dnssec.md
     - name: Reverse DNS
       href: dns-reverse-dns-overview.md
     - name: FAQ
@@ -101,6 +89,18 @@
       href: private-resolver-architecture.md
     - name: Resiliency in Azure DNS Private Resolver
       href: private-resolver-reliability.md
+- name: Security
+  items:
+  - name: DNS security policy
+    href: dns-security-policy.md
+  - name: DNSSEC overview
+    href: dnssec.md
+  - name: Protect public DNS zones and records
+    href: dns-protect-zones-recordsets.md
+  - name: Protect private DNS zones and records
+    href: dns-protect-private-zones-recordsets.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
 - name: Deploy
   items:
   - name: Public DNS
