@@ -71,7 +71,7 @@ Create an SA password in the Kubernetes cluster. Kubernetes can manage sensitive
 The following command creates a password for the SA account:
 
    ```azurecli
-   kubectl create secret generic mssql --from-literal=MSQL_SA_PASSWORD="MyC0m9l&xP@ssw0rd" -n <namespace name>
+   kubectl create secret generic mssql --from-literal=MSQL_SA_PASSWORD="<password>" -n <namespace name>
    ```
 
    Replace `MyC0m9l&xP@ssw0rd` with a complex password.

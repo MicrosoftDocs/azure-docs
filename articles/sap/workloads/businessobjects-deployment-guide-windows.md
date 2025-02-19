@@ -126,7 +126,7 @@ The next step is to create Azure files in the storage account. Azure files use a
 
 1. Go to the storage account **azusbobi** > **File shares**.
 1. Select **New file share**.
-1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsouput**.
+1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsoutput**.
 1. Insert the required file share size in **Provisioned capacity**. For example, enter **256 GB**.
 1. Choose **SMB** as **Protocol**.
 1. Select **Create**.
@@ -247,7 +247,7 @@ Follow the latest guide by SAP to prepare servers for the installation of the BI
 
 To install the BI platform on a Windows host, sign in with a user that has local administrative privileges.
 
-Go to the media of the SAP BusinsessObjects BI platform, and run `setup.exe`.
+Go to the media of the SAP BusinessObjects BI platform, and run `setup.exe`.
 
 Follow the instructions in the [SAP Business Intelligence Platform Installation Guide for Windows](https://help.sap.com/viewer/df8899896b364f6c880112f52e4d06c8/4.3.1/en-US/46ae62456e041014910aba7db0e91070.html) that are specific to your version. Here are a few points to note while you install the SAP BOBI platform on Windows:
 
@@ -395,7 +395,7 @@ For an SAP BOBI platform running on Windows VMs, the CMS and audit database can 
 
 - **SQL Database** uses SQL Server technology to create [full backups](/sql/relational-databases/backup-restore/full-database-backups-sql-server?preserve-view=true&view=sql-server-ver15) every week, [differential backups](/sql/relational-databases/backup-restore/differential-backups-sql-server?preserve-view=true&view=sql-server-ver15) every 12 to 24 hours, and [transaction log](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?preserve-view=true&view=sql-server-ver15) backups every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
 
-   Users can choose an option to configure backup storage redundancy between LRS, ZRS, or GRS blobs. Storage redundancy mechanisms store multiple copies of your data to protect it from planned and unplanned events, which includes transient hardware failure, network or power outages, or massive natural disasters. By default, SQL Database stores backup in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). It can be changed based on the business requirement to either LRS or ZRS blobs. For more up-to-date information on SQL Database backup scheduling, retention, and storage consumption, see [Automated backups: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/automated-backups-overview).
+   Users can choose an option to configure backup storage redundancy between LRS, ZRS, or GRS blobs. Storage redundancy mechanisms store multiple copies of your data to protect it from planned and unplanned events, which includes transient hardware failure, network or power outages, or massive natural disasters. By default, SQL Database stores backup in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../reliability/cross-region-replication-azure.md). It can be changed based on the business requirement to either LRS or ZRS blobs. For more up-to-date information on SQL Database backup scheduling, retention, and storage consumption, see [Automated backups: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/automated-backups-overview).
 
 - **Azure Database for MySQL** automatically creates server backups and stores in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is 7 days, which you can [optionally configure](/azure/mysql/howto-restore-server-portal#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](/azure/mysql/concepts-migrate-dump-restore) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](/azure/mysql/concepts-backup).
 
@@ -416,7 +416,7 @@ The following section describes how to achieve high availability on each compone
 
 BI and web application servers don't need a specific high-availability solution, no matter whether they're installed separately or together. You can achieve high availability by redundancy, that is, by configuring multiple instances of BI and web servers in various Azure VMs. You can deploy the VMs in either [flexible scale set](./sap-high-availability-architecture-scenarios.md#virtual-machine-scale-set-with-flexible-orchestration), [availability sets](sap-high-availability-architecture-scenarios.md#multiple-instances-of-virtual-machines-in-the-same-availability-set) or [availability zones](sap-high-availability-architecture-scenarios.md#azure-availability-zones) based on business-required RTO. For deployment across availability zones, make sure all other components in the SAP BOBI platform are designed to be zone redundant too.
 
-Currently, not all Azure regions offer availability zones, so you need to adopt the deployment strategy based on your region. The Azure regions that offer zones are listed in [Azure availability zones](../../availability-zones/az-overview.md).
+Currently, not all Azure regions offer availability zones, so you need to adopt the deployment strategy based on your region. The Azure regions that offer zones are listed in [Azure availability zones](../../reliability/availability-zones-overview.md).
 
 > [!IMPORTANT]
 >
@@ -505,7 +505,7 @@ For a [SQL Database](/azure/azure-sql/database/business-continuity-high-availabi
 
 Option 1: [Geo-redundant database backup restore](/azure/azure-sql/database/recovery-using-backups#geo-restore)
 
-   By default, SQL Database stores data in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). For a SQL database, the backup storage redundancy can be configured at the time of CMS and audit database creation, or it can be updated for an existing database. The changes made to an existing database apply to future backups only. You can restore a database on any SQL database in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. There's a delay between when a backup is taken and when it's geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database.
+   By default, SQL Database stores data in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../reliability/cross-region-replication-azure.md). For a SQL database, the backup storage redundancy can be configured at the time of CMS and audit database creation, or it can be updated for an existing database. The changes made to an existing database apply to future backups only. You can restore a database on any SQL database in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. There's a delay between when a backup is taken and when it's geo-replicated to an Azure blob in a different region. As a result, the restored database can be up to one hour behind the original database.
 
    > [!IMPORTANT]
    > Geo-restore is available for SQL databases configured with geo-redundant [backup storage](/azure/azure-sql/database/automated-backups-overview#backup-storage-redundancy).

@@ -63,7 +63,7 @@ Multiple Azure resources are defined in the template:
    if($userPrincipalId){
        Write-Host "Start provisioning..."
        az group create -l $location -n $resourceGroupName
-       az group deployment create -g $resourceGroupName --template-uri $templateUri  --parameters userPrincipalId=$userPrincipalId
+       az deployment group create -g $resourceGroupName --template-uri $templateUri  --parameters userPrincipalId=$userPrincipalId
    }else {
        Write-Host "User Principal Name cannot be found."
    }

@@ -5,26 +5,31 @@ author: vijain
 ms.author: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 06/19/2024
+ms.date: 10/25/2024
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 ---
 
 # Prepare for VMware agentless migration
 
+This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](../tutorial-migrate-vmware.md) method using the Migration and modernization tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Migration and modernization tool.
-
-Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established-.
+Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.
 Azure Migrate automatically handles these configuration changes for the following operating system versions for both Linux and Windows. This process is called *Hydration*.
+
+> [!Note]
+> If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
 
 **Operating system versions supported for hydration**
 
 - Windows Server 2008 or later
-- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x
 - CentOS Stream
-- SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
+- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
 - Debian 11, 10, 9, 8, 7
@@ -85,7 +90,7 @@ The preparation script executes the following changes based on the OS type of th
 
       - IntelIde.sys
       - Atapi
-      - Storfit
+      - Storflt
       - Storvsc
       - VMbus
 
@@ -134,7 +139,7 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successfull Installation of Azure VM Agent](../media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    ![Successful Installation of Azure VM Agent](../media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)

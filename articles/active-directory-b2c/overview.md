@@ -6,7 +6,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: overview
-ms.date: 01/24/2024
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 

@@ -4,7 +4,6 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024
 ms.author: greglin
@@ -122,7 +121,7 @@ Application Gateway has the following configuration applied:
 Finally we can use the `cURL` command from within [Cloud Shell](https://shell.azure.com/) to establish an HTTP connection to the newly deployed app:
 
 1. Use `kubectl get ingress` to get the Public IP address of Application Gateway
-2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
+2. Use `curl -I -H 'test.agic.contoso.com' <public-ip-address-from-previous-command>`
 
 ![Screenshot of the Bash window in Azure Cloud Shell showing a cURL command successfully establishing an HTTP connection to the test app.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
@@ -282,7 +281,7 @@ appgw:
 # Specify which kubernetes namespace the ingress controller watches
 # Default value is "default"
 # Leaving this variable out or setting it to blank or empty string would
-# result in Ingress Controller observing all acessible namespaces.
+# result in Ingress Controller observing all accessible namespaces.
 #
 # kubernetes:
 #   watchNamespace: <namespace>

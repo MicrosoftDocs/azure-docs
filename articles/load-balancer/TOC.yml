@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
 - name: Quickstarts
   items:
   - name: Create a public load balancer
@@ -58,11 +60,11 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load balance VMs with multiple availability sets
       href: tutorial-multi-availability-sets-portal.md
-  - name: Cross-region load balancer
+  - name: Global load balancer
     items:
-    - name: Create cross-region load balancer - Portal
+    - name: Create global load balancer - Portal
       href: tutorial-cross-region-portal.md
-    - name: Deploy cross-region load balancer - ARM template
+    - name: Deploy global load balancer - ARM template
       href: tutorial-deploy-cross-region-load-balancer-template.md
   - name: Gateway load balancer
     items:
@@ -92,6 +94,8 @@
   items:
   - name: What's new?
     href: whats-new.md
+  - name: Load balancer best practices
+    href: load-balancer-best-practices.md
   - name: Portal settings
     href: manage.md
   - name: Components
@@ -104,13 +108,13 @@
     href: load-balancer-custom-probe-overview.md
   - name: Cross-subscription load balancer
     href: cross-subscription-overview.md
-  - name: Cross-region load balancer
+  - name: Global load balancer
     href: cross-region-overview.md
   - name: Administrative state
     href: admin-state-overview.md
   - name: Reliability
     items:
-    - name: Availability zones and cross-region load balancer
+    - name: Availability zones and global load balancer
       href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
     - name: Availability zone migration
       href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
@@ -222,16 +226,8 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-  - name: Move across regions
-    items:
-    - name: Public load balancer - Portal
-      href: move-across-regions-external-load-balancer-portal.md
-    - name: Public load balancer - PowerShell
-      href: move-across-regions-external-load-balancer-powershell.md
-    - name: Internal load balancer - Portal
-      href: move-across-regions-internal-load-balancer-portal.md
-    - name: Internal load balancer - PowerShell
-      href: move-across-regions-internal-load-balancer-powershell.md
+  - name: Move a load balancer across regions
+    href: move-across-regions-azure-load-balancer.md
   - name: Cross-subscription load balancing
     items:
     - name: Attach a cross-subscription backend to an Azure Load Balancer
@@ -312,8 +308,6 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-load-balancer
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing

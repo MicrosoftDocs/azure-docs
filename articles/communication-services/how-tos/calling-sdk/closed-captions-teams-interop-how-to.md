@@ -22,7 +22,7 @@ Learn how to allow your users to enable closed captions during a Teams interoper
 ::: zone-end
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Closed captions with Typescript](./includes/closed-captions/closed-captions-teams-interop-web.md)]
+[!INCLUDE [Closed captions with TypeScript](./includes/closed-captions/closed-captions-teams-interop-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"

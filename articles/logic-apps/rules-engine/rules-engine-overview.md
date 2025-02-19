@@ -6,7 +6,7 @@ ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 01/27/2025
 
 #CustomerIntent: As an integration developer, I want to learn about integrating business logic and decision management capabilities with Standard workflows in Azure Logic Apps.
 ---
@@ -21,7 +21,7 @@ ms.date: 06/10/2024
 
 Organizations deal with decisions every day, but when you have clear business rules that govern your organization's business logic, these decisions are easier to make. Business rules are the guidelines that shape how a business operates. You can find these rules in manuals, contracts, or agreements, or they can be the unwritten knowledge or expertise of employees. Business rules change over time and affect different types of applications. Many business domains, such as finance, healthcare, insurance, transportation, and telecommunications need to communicate their business rules to their staff so they can implement them in software applications.
 
-Traditional programming languages, such as C++, Java, COBOL, Python, JavaScript, or C#, are designed for programmers. So, nonprogrammers have difficulties changing the business rules that guide how software applications work. These languages also require much time and work to create and update applications. However, business rules engines solve this problem by offering a low-code environment that lets you build applications faster and easier. You can use a rules engine to create and change business rules without having to write code or restart the applications that use them.
+Traditional programming languages, such as C++, Java, COBOL, Python, JavaScript, or C#, are designed for programmers. So, non-programmers have difficulties changing the business rules that guide how software applications work. These languages also require much time and work to create and update applications. However, business rules engines solve this problem by offering a low-code environment that lets you build applications faster and easier. You can use a rules engine to create and change business rules without having to write code or restart the applications that use them.
 
 ## Rules engines in a world of microservices
 

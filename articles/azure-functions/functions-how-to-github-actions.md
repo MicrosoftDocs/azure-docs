@@ -315,7 +315,7 @@ Optional parameters for all function app plans:
 
 Keep the following considerations in mind when using the Azure Functions action: 
 
-+ When using GitHub Actions, the code is deployed to your function app using [Zip deployment for Azure Functions](deployment-zip-push.md). 
++ When using GitHub Actions, the code is deployed using [one deploy](./functions-deployment-technologies.md#one-deploy) to apps on the [Flex Consumption](./flex-consumption-plan.md) plan and [zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md), [Elastic Premium](./functions-premium-plan.md), and [Dedicated (App Service)](./dedicated-plan.md) plans. The exception is Linux Consumption, where [external package URL](./functions-deployment-technologies.md#external-package-url) is used.
 
 + The credentials required by GitHub to connection to Azure for deployment are stored as Secrets in your GitHub repository and accessed in the deployment as `secrets.<SECRET_NAME>`.
 

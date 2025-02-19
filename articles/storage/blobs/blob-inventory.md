@@ -398,6 +398,10 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
 
+### Inventory report object count and data size should not be compared to billing
+
+An inventory report does not include metadata, system logs, and properties, so it shouldn't be compared to the billed object count and data size for the storage account.
+
 ### Inventory jobs take a longer time to complete in certain cases
 
 An inventory job can take a longer amount of time in these cases:

@@ -3,7 +3,7 @@ title: Audit Microsoft Sentinel queries and activities | Microsoft Docs
 description: This article describes how to audit queries and activities performed in Microsoft Sentinel.
 author: batamig
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 11/12/2024
 ms.author: bagol
 
 #Customer intent: As a security analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
@@ -15,14 +15,12 @@ This article describes how you can view audit data for queries run and activitie
 
 Microsoft Sentinel provides access to:
 
-- The **AzureActivity** table, which provides details about all actions taken in Microsoft Sentinel, such as editing alert rules. The **AzureActivity** table does not log specific query data. For more information, see [Auditing with Azure Activity logs](#auditing-with-azure-activity-logs).
+- The **AzureActivity** table, which provides details about all actions taken in Microsoft Sentinel, such as editing alert rules. The **AzureActivity** table doesn't log specific query data. For more information, see [Auditing with Azure Activity logs](#auditing-with-azure-activity-logs).
 
 - The **LAQueryLogs** table, which provides details about the queries run in Log Analytics, including queries run from Microsoft Sentinel. For more information, see [Auditing with LAQueryLogs](#auditing-with-laquerylogs).
 
 > [!TIP]
-> In addition to the manual queries described in this article, Microsoft Sentinel provides a built-in workbook to help you audit the activities in your SOC environment.
->
-> In the Microsoft Sentinel **Workbooks** area, search for the **Workspace audit** workbook.
+> In addition to the manual queries described in this article, we recommend that you use the built-in **Workspace audit** workbook help you audit the activities in your SOC environment. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md).
 
 ## Prerequisites
 
@@ -34,17 +32,20 @@ Microsoft Sentinel provides access to:
 
 Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
 
-You can use the **AzureActivity** table when auditing activity in your SOC environment with Microsoft Sentinel.
+Use the **AzureActivity** table when auditing activity in your SOC environment with Microsoft Sentinel.
 
 **To query the AzureActivity table**:
 
-1. Connect the [Azure Activity](./data-connectors/azure-activity.md) data source to start streaming audit events into a new table called `AzureActivity`. In the Azure portal, query this table in the **[Logs](hunts-custom-queries.md)** page. In the Defender portal, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page. For more information, see 
+1. Install the **Azure Activity solution for Sentinel** solution and connect the [Azure Activity](./data-connectors/azure-activity.md) data connector to start streaming audit events into a new table called `AzureActivity`.
 
-1. Query the data using KQL, like you would any other table.
+1. Query the data using Kusto Query Language (KQL), like you would any other table:
+
+    - In the Azure portal, query this table in the **[Logs](hunts-custom-queries.md)** page.
+    - In the Defender portal, query this table in the **Investigation & response > Hunting > [Advanced hunting](/defender-xdr/advanced-hunting-overview)** page.
 
     The **AzureActivity** table includes data from many services, including Microsoft Sentinel. To filter in only data from Microsoft Sentinel, start your query with the following code:
 
-    ```kql
+    ```kusto
      AzureActivity
     | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS"
     ```
@@ -66,7 +67,7 @@ For more information, see [Microsoft Sentinel data included in Azure Activity lo
 
 The following **AzureActivity** table query lists all actions taken by a specific Microsoft Entra user in the last 24 hours.
 
-```kql
+```kusto
 AzureActivity
 | where OperationNameValue contains "SecurityInsights"
 | where Caller == "[AzureAD username]"
@@ -77,7 +78,7 @@ AzureActivity
 
 The following **AzureActivity** table query lists all the delete operations performed in your Microsoft Sentinel workspace.
 
-```kql
+```kusto
 AzureActivity
 | where OperationNameValue contains "SecurityInsights"
 | where OperationName contains "Delete"
@@ -96,9 +97,7 @@ Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](/azu
 |**Updated**     |  Alert rules<br>Bookmarks <br> Cases <br> Data connectors <br>Incidents <br>Incident comments <br>Threat intelligence reports <br> Workbooks <br>Workflow       |
 
 
-You can also use the Azure Activity logs to check for user authorizations and licenses.
-
-For example, the following table lists selected operations found in Azure Activity logs with the specific resource the log data is pulled from.
+You can also use the Azure Activity logs to check for user authorizations and licenses. For example, the following table lists selected operations found in Azure Activity logs with the specific resource the log data is pulled from.
 
 |Operation name| Resource type|
 |----|----|
@@ -137,7 +136,7 @@ LAQueryLogs data includes information such as:
 - Performance data on each query run
 
 > [!NOTE]
-> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph**, in the Microsoft Sentinel **Hunting** page, or in the Defender portal's **Advanced hunting** page. <!--is this correct?-->
+> - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph**, in the Microsoft Sentinel **Hunting** page, or in the Defender portal's **Advanced hunting** page.
 >
 > - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
 
@@ -151,7 +150,7 @@ LAQueryLogs data includes information such as:
 
     For example, the following query shows how many queries were run in the last week, on a per-day basis:
 
-    ```kql
+    ```kusto
     LAQueryLogs
     | where TimeGenerated > ago(7d)
     | summarize events_count=count() by bin(TimeGenerated, 1d)
@@ -161,9 +160,9 @@ The following sections show more sample queries to run on the **LAQueryLogs** ta
 
 ### The number of queries run where the response wasn't "OK"
 
-The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number will include queries that had failed to run.
+The following **LAQueryLogs** table query shows the number of queries run, where anything other than an HTTP response of **200 OK** was received. For example, this number includes queries that had failed to run.
 
-```kql
+```kusto
 LAQueryLogs
 | where ResponseCode != 200 
 | count 
@@ -173,19 +172,19 @@ LAQueryLogs
 
 The following **LAQueryLogs** table query lists the users who ran the most CPU-intensive queries, based on CPU used and length of query time.
 
-```kql
+```kusto
 LAQueryLogs
 |summarize arg_max(StatsCPUTimeMs, *) by AADClientId
 | extend User = AADEmail, QueryRunTime = StatsCPUTimeMs
 | project User, QueryRunTime, QueryText
-| order by QueryRunTime desc
+| sort by QueryRunTime desc
 ```
 
 ### Show users who ran the most queries in the past week
 
 The following **LAQueryLogs** table query lists the users who ran the most queries in the last week.
 
-```kql
+```kusto
 LAQueryLogs
 | where TimeGenerated > ago(7d)
 | summarize events_count=count() by AADEmail
@@ -200,11 +199,11 @@ LAQueryLogs
 
 ## Configuring alerts for Microsoft Sentinel activities
 
-You may want to use Microsoft Sentinel auditing resources to create proactive alerts.
+You might want to use Microsoft Sentinel auditing resources to create proactive alerts.
 
 For example, if you have sensitive tables in your Microsoft Sentinel workspace, use the following query to notify you each time those tables are queried:
 
-```kql
+```kusto
 LAQueryLogs
 | where QueryText contains "[Name of sensitive table]"
 | where TimeGenerated > ago(1d)
@@ -234,8 +233,22 @@ Use Microsoft Sentinel's own features to monitor events and actions that occur w
 
 - **Monitor data connector health** using the [Connector Health Push Notification Solution](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) playbook to watch for stalled or stopped ingestion, and send notifications when a connector has stopped collecting data or machines have stopped reporting.
 
-## Next steps
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***let*** statement](/kusto/query/let-statement?view=microsoft-sentinel&preserve-view=true)
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***count*** operator](/kusto/query/count-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***ingestion_time()*** function](/kusto/query/ingestion-time-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
 
-In Microsoft Sentinel, use the **Workspace audit** workbook to audit the activities in your SOC environment.
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
-For more information, see [Visualize and monitor your data](monitor-your-data.md).
+## Next step
+
+In Microsoft Sentinel, use the **Workspace audit** workbook to audit the activities in your SOC environment. For more information, see [Visualize and monitor your data](monitor-your-data.md).

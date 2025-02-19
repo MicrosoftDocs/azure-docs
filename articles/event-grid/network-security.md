@@ -22,7 +22,7 @@ You can use service tags to define network access controls on [network security
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | Both | No | No |
+| AzureEventGrid | Azure Event Grid. | Both | No | Yes |
 
 ## IP firewall 
 Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the [authentication mechanisms](security-authentication.md) supported by Event Grid.

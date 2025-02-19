@@ -12,6 +12,8 @@ ms.date: 04/02/2024
 
 The first request between a client and a server is the negotiation request. When you use self-hosted SignalR, you use the request to establish a connection between the client and the server. And when you use Azure SignalR Service, clients connect to the service instead of the application server. This article shares concepts about negotiation protocols and ways to customize a negotiation endpoint.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## What is negotiation?
 
 The response to the `POST [endpoint-base]/negotiate` request contains one of three types of responses:
@@ -155,7 +157,9 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Also register the router to dependency injection:
+Also register the router to dependency injection.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ```cs
 // Sample of configuring multiple endpoints and dependency injection
@@ -200,21 +204,18 @@ You can find a full sample on how to use the Management SDK to redirect SignalR 
 
 ### Azure SignalR Service function extension
 
-When you use an Azure function app, you can work with the function extension. Here's a sample of using `SignalRConnectionInfo` to help you build the negotiation response:
+When you use an Azure function app, you can work with the function extension. Here's a sample of using `SignalRConnectionInfo` in C# isolated worker model to help you build the negotiation response:
 
-```cs
-[FunctionName("negotiate")]
-public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
-{
-    var claims = GetClaims(req.Headers["Authorization"]);
-    return Negotiate(
-        claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value,
-        claims
-    );
-}
-```
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
+
+> [!Warning]
+> For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see the following articles: 
+> * [Secure HTTP endpoints](../azure-functions/security-concepts.md#secure-http-endpoints).
+> * [Authentication and authorization in Azure App Service and Azure Functions](../app-service/overview-authentication-authorization.md)
 
 Then your clients can request the function endpoint `https://<Your Function App Name>.azurewebsites.net/api/negotiate` to get the service URL and access token. You can find a full sample on [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/BidirectionChat).
+
+For `SignalRConnectionInfo` input binding samples in other languages, see [Azure Functions SignalR Service input binding](../azure-functions/functions-bindings-signalr-service-input.md).
 
 ### Self-exposing `/negotiate` endpoint
 

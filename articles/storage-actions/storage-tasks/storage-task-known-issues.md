@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 12/13/2024
 ms.author: normesta
 ---
 
@@ -37,6 +37,10 @@ Azure Storage Actions autoscales its processing tasks based on the volume of dat
 During the preview, Azure Storage Actions can invoke up to 200 million operations per day for a maximum of seven days on a flat-namespace storage account. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 200 million and four billion blobs in a day.
 
 For storage accounts with a hierarchical namespace, Azure Storage Actions can invoke up to 35 million operations per day for a maximum of seven days during the preview. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 35 million to 400 million blobs in a day.
+
+## Restrictions on moving a storage task
+
+You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
 
 ## Overlapping prefix for assignments
 

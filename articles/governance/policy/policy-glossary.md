@@ -31,11 +31,11 @@ Another term used for _group_, specifically in the context of regulatory complia
 ## Custom
 Describes a type of policy definition that is authored by a policy user. It is the alternative to a built-in policy definition.
 ## Definition
-A JSON-defined object that describes a policy, including resource compliance requirements and the effect to take if they are violated. Learn more about the policy definition JSON structure here: [Azure Policy definition structure](./concepts/definition-structure.md).
+A JSON-defined object that describes a policy, including resource compliance requirements and the effect to take if they are violated. Learn more about the policy definition JSON structure here: [Azure Policy definition structure](./concepts/definition-structure-basics.md).
 ## Definition location
 The scope to which an initiative definition or policy definition can be assigned. It can be either a management group or a subscription, and assignments can be made at or below that scope in the hierarchy.
 ## Effect
-The action taken on a resource when the conditions of an applicable policy's rule are met. Learn more about [effects](./concepts/effects.md).
+The action taken on a resource when the conditions of an applicable policy's rule are met. Learn more about [effects](./concepts/effect-basics.md).
 ## Enforcement
 Describes the preventative behavior that certain types of policy effects can have.
 ## Enforcement mode

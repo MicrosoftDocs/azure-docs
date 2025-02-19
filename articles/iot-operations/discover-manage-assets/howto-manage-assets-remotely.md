@@ -4,7 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to manage you
 author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 11/15/2024
 ms.custom:
   - ignite-2023
   - devx-track-azurecli
@@ -14,9 +14,7 @@ ms.custom:
 
 # Manage asset configurations remotely
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-An _asset_ in Azure IoT Operations Preview is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
+An _asset_ in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can have properties, tags, and events that describe its behavior and characteristics.
 
 _OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points. OPC UA tags provide real-time or historical data about the status, performance, quality, or condition of assets.
 
@@ -29,9 +27,9 @@ In the operations experience web UI, an _instance_ represents an Azure IoT Opera
 This article describes how to use the operations experience web UI and the Azure CLI to:
 
 - Define the asset endpoints that connect assets to your Azure IoT Operations instance.
-- Add assets, and define their tags and events to enable dataflow from OPC UA servers to the MQTT broker.
+- Add assets, and define their tags and events to enable data flow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and dataflows.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
 ## Prerequisites
 
@@ -74,10 +72,6 @@ After you select a site, the operations experience displays a list of the Azure 
 > [!TIP]
 > You can use the filter box to search for instances.
 
-After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
-
-:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the instance overview in the operations experience.":::
-
 # [Azure CLI](#tab/cli)
 
 Before you use the `az iot ops asset` commands, sign in to the subscription that contains your Azure IoT Operations deployment:
@@ -87,6 +81,10 @@ az login
 ```
 
 ---
+
+After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
+
+:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the overview page for an instance in the operations experience.":::
 
 ## Create an asset endpoint
 
@@ -116,7 +114,7 @@ An Azure IoT Operations deployment can include an optional built-in OPC PLC simu
 Run the following command:
 
 ```azurecli
-az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
+az iot ops asset endpoint create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} 
 ```
 
 > [!TIP]
@@ -153,7 +151,7 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 1. Use a command like the following example to create your asset endpoint:
 
     ```azurecli
-    az iot ops asset endpoint opcua create --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
+    az iot ops asset endpoint create opcua --name opc-ua-connector-0 --target-address opc.tcp://opcplc-000000:50000 -g {your resource group name} --instance {your instance name} --username-ref "aio-opc-ua-broker-user-authentication/username" --password-ref "aio-opc-ua-broker-user-authentication/password"
     ```
 
 ---
@@ -178,6 +176,7 @@ To add an asset in the operations experience:
     - Asset endpoint. Select your asset endpoint from the list.
     - Asset name
     - Description
+    - The MQTT topic that the asset publishes to. The default is `<namespace>/data/<asset-name>`.
 
 1. Configure the set of properties that you want to associate with the asset. You can accept the default list of properties or add your own. The following properties are available by default:
 

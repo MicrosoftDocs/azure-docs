@@ -3,7 +3,7 @@ title: Continuously update function app code using Azure Pipelines
 description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 11/07/2024
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
 ms.devlang: azurecli
@@ -19,6 +19,9 @@ YAML pipelines are defined using a YAML file in your repository. A step is the s
 You'll use the `AzureFunctionApp` task to deploy to Azure Functions. There are now two versions of the AzureFunctionApp task ([AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1), [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2)). `AzureFunctionApp@2` includes enhanced validation support that makes pipelines less likely to fail because of errors. 
 
 Choose your task version at the top of the article. YAML pipelines aren't available for Azure DevOps 2019 and earlier.
+
+> [!NOTE]
+> The [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) is highly recommended. Deploying to an app on the [Flex Consumption](./flex-consumption-plan.md) plan is only supported in version 2.
 
 ## Prerequisites
 

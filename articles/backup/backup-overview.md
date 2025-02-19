@@ -2,10 +2,10 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 01/30/2024
-ms.custom: mvc, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 01/31/2025
+ms.custom: mvc, engagement-fy24, ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 # What is the Azure Backup service?
 
@@ -23,8 +23,10 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 - **Azure Database for PostgreSQL servers** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
 - **Azure Blobs** - [Overview of operational backup for Azure Blobs](blob-backup-overview.md)
-- **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup (preview)](backup-azure-database-postgresql-flex-overview.md)
+- **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
 - **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
+- **Azure Database for MySQL - Flexible Server backup (preview)** - [Overview of Azure Database for MySQL - Flexible Server  (preview)](backup-azure-mysql-flexible-server-about.md)
+- **SAP ASE (Sybase) database backup on Azure VMs (preview)** - [About SAP ASE (Sybase) database backup on Azure VMs (preview)](sap-ase-database-about.md)
 
 
 ![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)
@@ -47,7 +49,7 @@ Azure Backup delivers these key benefits:
 - **Multiple storage options** - Azure Backup offers three types of replication to keep your storage/data highly available.
   - [Locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replicates your data three times (it creates three copies of your data) in a storage scale unit in a datacenter. All copies of the data exist within the same region. LRS is a low-cost option for protecting your data from local hardware failures.
   - [Geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) is the default and recommended replication option. GRS replicates your data to a secondary region (hundreds of miles away from the primary location of the source data). GRS costs more than LRS, but GRS provides a higher level of durability for your data, even if there's a regional outage.
-  - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
+  - [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing data residency and resiliency in the same region. ZRS has no downtime. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), and must have no downtime, can be backed up in ZRS.
 
     **Zone-redundancy** for Recovery Services vault and Backup vault, as well as optional zone-redundancy for backup data. Learn about [Reliability for Azure Backup](../reliability/reliability-backup.md).
 

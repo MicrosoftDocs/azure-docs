@@ -1,19 +1,19 @@
 ---
-title: Cross-region load balancer
+title: Global load balancer
 titleSuffix: Azure Load Balancer
-description: Overview of cross region load balancer tier for Azure Load Balancer.
+description: Overview of global load balancer tier for Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, references_regions
+ms.custom: references_regions
 ---
 
 # Global Load Balancer
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
+Azure Standard Load Balancer supports global load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.

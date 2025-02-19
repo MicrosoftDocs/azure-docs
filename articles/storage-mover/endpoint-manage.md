@@ -178,7 +178,7 @@ The following steps describe the process of creating a source endpoint.
       $storageMoverName  = "[Storage mover resource's name]"
       $sourceHost        = "[Source share's host name or IP address]"
       $sourceShare       = "[Source share's name]"
-      $targetResourceID  = "/subscriptions/[GUID]/resourceGroups/demoResrouceGroup/"
+      $targetResourceID  = "/subscriptions/[GUID]/resourceGroups/demoResourceGroup/"
       $targetResourceID += "providers/Microsoft.Storage/storageAccounts/demoAccount"
 
       ## For SMB endpoints 

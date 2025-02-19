@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 09/11/2024
+ms.date: 01/23/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -20,8 +20,8 @@ This article includes examples of the ARM and YAML configurations for frequently
 
 The latest management API versions for Azure Container Apps are:
 
-- [`2023-05-01`](/rest/api/containerapps/stable/container-apps?view=rest-containerapps-2023-05-01&preserve-view=true) (stable)
-- [`2023-08-01-preview`](/rest/api/containerapps/container-apps?view=rest-containerapps-2023-08-01-preview&preserve-view=true) (preview)
+- [`2024-03-01`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-03-01&preserve-view=true) (stable)
+- [`2024-10-02-preview`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-10-02-preview&preserve-view=true) (preview)
 
 To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
@@ -48,7 +48,7 @@ To programmatically manage Azure Container Apps with the latest API version, use
 
 ## Container Apps environment
 
-The following tables describe commonly used properties available in the Container Apps environment resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/managed-environments/get?tabs=HTTP).
+The following tables describe commonly used properties available in the Container Apps environment resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/managed-environments/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource
 
@@ -117,7 +117,7 @@ The following example ARM template snippet deploys a Container Apps environment.
 
 ## Container app
 
-The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/container-apps/get?tabs=HTTP).
+The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/container-apps/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
 
@@ -295,7 +295,17 @@ The following example ARM template snippet deploys a container app.
               "mountPath": "/mysecrets",
               "volumeName": "mysecrets"
             }
-              ]
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
+          ]
         }
       ],
       "initContainers": [
@@ -312,6 +322,16 @@ The following example ARM template snippet deploys a container app.
           "args": [
             "-c",
             "while true; do echo hello; sleep 10;done"
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
           ]
         }
       ],
@@ -452,6 +472,11 @@ properties:
         volumeName: azure-files-volume
       - mountPath: "/mysecrets"
         volumeName: mysecrets
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     initContainers:
     - image: repo/testcontainerApp0:v4
       name: testinitcontainerApp0
@@ -463,6 +488,11 @@ properties:
       args:
       - "-c"
       - while true; do echo hello; sleep 10;done
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     scale:
       minReplicas: 1
       maxReplicas: 5
@@ -492,7 +522,7 @@ properties:
 
 ## Container Apps job
 
-The following tables describe the commonly used properties in the Container Apps job resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/jobs/get?tabs=HTTP).
+The following tables describe the commonly used properties in the Container Apps job resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/jobs/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
 

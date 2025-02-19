@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/29/2024
+ms.date: 01/02/2025
 ms.author: makromer
 ---
 
@@ -596,6 +596,9 @@ AlterRow1 sink(allowSchemaDrift: true,
 	skipDuplicateMapInputs: true,
 	skipDuplicateMapOutputs: true) ~> sink1
 ```
+>[!NOTE]
+> Data Flow generates a total of N+1 API calls when processing N pages. This includes one initial call to infer the schema, followed by N calls corresponding to the number of pages fetched from the source.
+
 
 ## Pagination support
 
@@ -928,7 +931,7 @@ The backend will automatically get the next URL based on the RFC 5988 style link
 >
 > :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable R F C 5988 setting for Example 7."::: 
 
-#### Example 8: The next request URL is from the response body when use pagination in mapping data flows
+#### Example 8a: The next request URL is in the response body when using pagination in mapping data flows
 
 This example states how to set the pagination rule and the end condition rule in mapping data flows when the next request URL is from the response body.
 
@@ -951,6 +954,18 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 - If the value of the complete key in the response header equals to true indicates the end of pagination, then the end condition rule can be set as below: 
 
     :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
+
+#### Example 8b: The next request URL is in the response body when using pagination in copy activity
+
+This example demonstrates how to set the pagination rule in a copy activity when the next request URL is contained within the response body.
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8b."::: 
+
+The pagination rules should be set as shown in the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-8b.png" alt-text="Screenshot showing how to set the pagination rule for Example 8b."::: 
 
 #### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
 

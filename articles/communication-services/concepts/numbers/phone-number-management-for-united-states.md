@@ -21,7 +21,7 @@ Use the below tables to find all the relevant information on number availability
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
-| Local       | -                    | -                    | General Availability | General Availability\* |
+| Local       | Public Preview       | Public Preview       | General Availability | General Availability\* |
 | Short code       |General Availability                    |General Availability                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -39,8 +39,13 @@ More details on eligible subscription types are as follows:
 
 \** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
+## Azure subscription billing locations where United States phone numbers are available for 10DLC SMS
+| Country/Region |
+| :---------- |
+|Canada|
+|United States|
 
-## Azure subscription billing locations where United States phone numbers are available
+## Azure subscription billing locations where United States phone numbers are available for calling
 | Country/Region |
 | :---------- |
 |Australia|
@@ -55,6 +60,7 @@ More details on eligible subscription types are as follows:
 |Puerto Rico|
 |Spain|
 |Sweden|
+|Switzerland|
 |United Kingdom|
 |United States|
 

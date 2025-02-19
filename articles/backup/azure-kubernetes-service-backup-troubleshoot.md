@@ -6,8 +6,8 @@ ms.date: 02/29/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Kubernetes Service backup and restore
@@ -82,7 +82,7 @@ This error appears due to absence of these FQDN rules because of which configura
 
 **Resolution**: To resolve the issue, you need to create a *CoreDNS-custom override* for the *DP* endpoint to pass through the public network.
 
-1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later)::
+1. Get Existing CoreDNS-custom YAML in your cluster (save it on your local for reference later):
 
    ```azurecli-interactive
    kubectl get configmap coredns-custom -n kube-system -o yaml
@@ -167,9 +167,9 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 ### BackupPluginPodRestartedDuringBackupError
 
-**Cause**: Backup Extension Pod (dataprotection-microsoft-kubernetes-agent) in your AKS cluster experiencing instability due to insufficient CPU/Memory resources on its current node, leading to OOM (Out of Memory) kill incidents. This could be because of lower compute requested by the backup extension pod.
+**Cause**: Backup Extension Pod (dataprotection-microsoft-kubernetes-agent) in your AKS cluster experiencing instability due to insufficient CPU/Memory resources on its current node, leading to OOM (Out of Memory) kill incidents. This could be because of either lower compute requested by the backup extension pod or a large number of resources of a particular type are being backed up or restored.
 
-**Recommended action**: To address this, we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
+**Recommended action**: To address this, first check the backup logs stored in the blob container provided as input in extension installation to verify if the issue is due to large number of resources. If thats the issue then exclude these resources from the backup configuration and reattempt the operation. Otherwise we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
 
 The current value of compute for this pod is:
 

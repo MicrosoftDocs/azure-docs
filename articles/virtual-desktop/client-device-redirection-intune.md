@@ -1,17 +1,16 @@
 ---
 title: Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
-description: Learn how to configure redirection settings for iOS/iPadOS Windows App and Android Remote Desktop client using Microsoft Intune.
+description: Learn how to configure redirection settings for iOS/iPadOS Windows App, Android Remote Desktop client and Android Windows App (preview) using Microsoft Intune.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/31/2024
+ms.date: 01/15/2025
 ---
 
 # Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune
 
 > [!IMPORTANT]
-> Configure redirection settings for the **Remote Desktop app on Android** using Microsoft Intune is currently in PREVIEW. Configure redirection settings for **Windows App on iOS/iPadOS** using Microsoft Intune is generally available.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Configure redirection settings for the **Remote Desktop app on Android** and **Windows App on Android** using Microsoft Intune are currently in PREVIEW. Configure redirection settings for **Windows App on iOS/iPadOS** using Microsoft Intune is generally available. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!TIP]
 > This article contains information for multiple products that use the Remote Desktop Protocol (RDP) to provide remote access to Windows desktops and applications.
@@ -49,15 +48,19 @@ For Windows App:
 
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
-| iOS and iPadOS | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| iOS and iPadOS | ✅ | ✅ |
+| Android | ✅ | ✅ |
 
 
 For the Remote Desktop app:
 
 | Device platform | Managed devices | Unmanaged devices |
 |--|:--:|:--:|
-| iOS and iPadOS | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
-| Android | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Android | ✅ | ✅ |
+
+> [!IMPORTANT]
+>- You can use Intune mobile application management (MAM) functionality with Windows App on iOS/iPadOS in the Intune commercial service (including Intune for US Government GCC), [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+>- Intune MAM functionality for Windows App on Android is only currently supported in the Intune commercial service.
 
 ## Example scenarios
 
@@ -148,15 +151,21 @@ Before you can configure redirection settings on a client device using Microsoft
 
 - A client device running one of the following versions of Windows App or the Remote Desktop app:
    - For Windows App:
-      - iOS and iPadOS: 11.0.4 or later.
+      - iOS/iPadOS: 11.0.8 or later.
+      - Android: 1.0.0.153 or later.
 
    - Remote Desktop app:
       - Android: 10.0.19.1279 or later.
+
+- The latest version of:
+   - iOS/iPadOS: Microsoft Authenticator app
+   - Android: Company Portal app, installed in the same profile as Windows App for personal devices. Both apps need to either be in a personal profile or in a work profile, not one in each profile.
 
 - There are more Intune prerequisites for configuring app configuration policies, app protection policies, and Conditional Access policies. For more information, see:
    - [App configuration policies for Microsoft Intune](/mem/intune/apps/app-configuration-policies-overview).
    - [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies).
    - [Use app-based Conditional Access policies with Intune](/mem/intune/protect/app-based-conditional-access-intune).
+   
 
 ## Create a managed app filter
 
@@ -184,11 +193,11 @@ To create and apply an app configuration policy for managed devices, follow the 
 
 ## Create an app configuration policy for managed apps
 
-You need to create a separate [app configuration policy for managed apps](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for Windows App (iOS/iPadOS) and the Remote Desktop app (Android), which enables you to provide configuration settings. Don't configure both Android and iOS in the same configuration policy or you won't be able to configure policy targeting based on managed and unmanaged devices.
+You need to create a separate [app configuration policy for managed apps](/mem/intune/apps/app-configuration-policies-overview#managed-devices) for Windows App (iOS/iPadOS) and the Windows App (preview) or Remote Desktop app (Android), which enables you to provide configuration settings. Don't configure both Android and iOS in the same configuration policy or you won't be able to configure policy targeting based on managed and unmanaged devices.
 
 To create and apply an app configuration policy for managed apps, follow the steps in [App configuration policies for Intune App SDK managed apps](/mem/intune/apps/app-configuration-policies-managed-app) and use the following settings:
 
-- On the **Basics** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. 
+- On the **Basics** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. Select **Select custom apps**, then type in **com.microsoft.rdc.androidx.beta** in the Bundle or Package ID field under More Apps for **Windows App (preview)** for Android.
 
 - On the **Settings** tab, expand **General configuration settings**, then enter the following name and value pairs for each redirection setting you want to configure exactly as shown. These values correspond to the RDP properties listed on [Supported RDP properties](/azure/virtual-desktop/rdp-properties#device-redirection), but the syntax is different: 
 
@@ -211,20 +220,21 @@ You need to create a separate [app protection policy](/mem/intune/apps/app-prote
 
 To create and apply an app protection policy, follow the steps in [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies) and use the following settings. 
 
-- On the **Apps** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. 
+- On the **Apps** tab, select **Select public apps**, then search for and select **Remote Desktop** for Android and **Windows App** for iOS/iPadOS. Select **Select custom apps**, then type in **com.microsoft.rdc.androidx.beta** in the Bundle or Package ID field under More Apps for **Windows App (preview)** for Android.
   
 - On the **Data protection** tab, only the following settings are relevant to Windows App and the Remote Desktop app. The other settings don't apply as Windows App and the Remote Desktop app interact with the session host and not with data in the app. On mobile devices, unapproved keyboards are a source of keystroke logging and theft. 
 
    - For iOS and iPadOS, you can configure the following settings:
 
-      - Restrict cut, copy, and paste between other apps
-      - Third-party keyboards
+      - **Send org data to other apps**. Set to **None** to enable [screen capture protection](screen-capture-protection.md). 
+      - **Restrict cut, copy, and paste between other apps**
+      - **Third-party keyboards**
 
    - For Android, you can configure the following settings:
 
-      - Restrict cut, copy, and paste between other apps
-      - Screen capture and Google Assistant
-      - Approved keyboards
+      - **Restrict cut, copy, and paste between other apps**
+      - **Screen capture and Google Assistant**
+      - **Approved keyboards**
 
    > [!TIP]
    > If you disable clipboard redirection in an app configuration policy, you should set **Restrict cut, copy, and paste between other apps** to **Blocked**.
@@ -284,4 +294,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-When creating an app configuration policy or an app protection policy for Android, Remote Desktop is listed twice. Add both apps. This will be updated soon so Remote Desktop is only shown once.
+- Android: Windows App exits without warning if Company Portal and Windows App aren't installed in the same profile. Install both apps either in a personal profile or both apps in a work profile.

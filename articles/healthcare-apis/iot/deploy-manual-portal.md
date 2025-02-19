@@ -158,7 +158,7 @@ To begin the validation process of your MedTech service deployment, select the *
 
 Your validation screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\validate-and-review-tab.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-tab.png":::
+:::image type="content" source="media\deploy-manual-portal\validate-and-review-tab-fix-nov-24.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\deploy-manual-portal\validate-and-review-tab-fix-nov-24.png":::
 
 If your deployment didn't validate, review the validation failure message(s), and troubleshoot the issue(s). Check all properties under each MedTech service tab that you've configured and then try the validation process again.
 
@@ -177,13 +177,13 @@ If your deployment didn't validate, review the validation failure message(s), an
 
 Your screen should look something like this:
 
-:::image type="content" source="media\deploy-manual-portal\created-medtech-service.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service.png":::
+:::image type="content" source="media\deploy-manual-portal\created-medtech-service-fix-nov-24.png" alt-text="Screenshot of the MedTech service deployment completion." lightbox="media\deploy-manual-portal\created-medtech-service-fix-nov-24.png":::
 
 ## Post-deployment
 
 ### Grant resource access to the MedTech service system-managed identity
 
-There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub or write data to the FHIR service.
+There are two post-deployment access steps you must perform or the MedTech service can't read data from the event hub, or write data to the FHIR service.
 
 These steps are:
 

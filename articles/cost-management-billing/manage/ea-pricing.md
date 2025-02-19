@@ -6,7 +6,7 @@ ms.reviewer: paagraw
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 12/08/2023
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -35,7 +35,7 @@ Azure reservation pricing is available in the Azure Price Sheet for the current 
 
 ## Download pricing for an MCA or MPA account
 
-If you have an MCA, you must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. If you have an MPA, you must have the Global Admin and Admin Agent role in the partner organization to view and download pricing.
+If you have an MCA, you must be the billing profile owner, contributor, reader, or invoice manager to view and download pricing. If you have an MPA, you must have the Admin Agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) role in the partner organization to view and download pricing.
 
 ### Download price sheets for billed charges
 

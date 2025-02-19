@@ -1,13 +1,13 @@
 ---
-title: Configure authentication in a sample React SPA by using Azure Active Directory B2C
-description: Learn how to use Azure Active Directory B2C to sign in and sign up users in a React SPA.
+title: Configure authentication in a sample React SPA by using Azure AD B2C
+description: Learn how to use Azure AD B2C to sign in and sign up users in a React SPA. Securely call a protected web API with MSAL React.
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -62,7 +62,7 @@ The following diagram describes the app registrations and the app architecture.
 Before you follow the procedures in this article, make sure that your computer is running:
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/). To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version` in a terminal or command prompt.
 
 ## Step 1: Configure your user flow
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 12/11/2024
 ---
 
 # How to deploy hub and spoke topology with Azure Firewall
@@ -62,9 +62,6 @@ In this task, you create a routing configuration and rule collection that includ
 
 3. Select **Add** to add the routing rule to the rule collection.
 4. Select **Add** to add the rule collection to the routing configuration.
-
-    :::image type="content" source="media/how-to-deploy-hub-spoke-topology-with-azure-firewall/add-routing-rule.png" alt-text="Screenshot of Add a routing rule window with firewall as next hop.":::
-
 5. Select **Review + create** then select **Create**.
 
 ## Deploy the routing configuration

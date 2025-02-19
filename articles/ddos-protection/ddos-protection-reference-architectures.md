@@ -4,8 +4,8 @@ description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.topic: concept-article
+ms.date: 11/20/2024
 ms.author: abell
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -36,7 +36,6 @@ Unsupported resources include:
 * Azure Virtual WAN.
 * Azure API Management in deployment modes other than the supported modes.
 * PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
-* Protected resources that include public IPs created from public IP address prefix.
 * NAT Gateway.
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]

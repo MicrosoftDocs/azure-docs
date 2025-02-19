@@ -44,9 +44,10 @@ To create a lab in Azure DevTest Labs, follow these steps.
    |**Resource group**|Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.|
    |**Lab name**|Enter a name for the lab.|
    |**Location**|If you're creating a new resource group, select an Azure region for the resource group and lab.|
+   |**Artifacts storage account access**|You can configure whether the lab uses a User-assigned Managed Identity or a Shared Key to access the lab storage account. To use a User-assigned Managed Identity, select the appropriate managed identity from the list, otherwise select the Storage Account Shared Key option from the list.|
    |**Public environments**|Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).|
 
-   :::image type="content" source="./media/tutorial-create-custom-lab/create-custom-lab-blade.png" alt-text="Screenshot of the Basic Settings tab of the Create DevTest Labs form.":::
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-create-basic-settings-managed-identity.png" alt-text="Screenshot of the Basic Settings tab of the Create DevTest Labs form.":::
 
 1. Optionally, select the [Auto-shutdown](devtest-lab-create-lab.md#auto-shutdown-tab), [Networking](devtest-lab-create-lab.md#networking-tab), or [Tags](devtest-lab-create-lab.md#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
 
@@ -81,6 +82,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    |**Password**|If you don't use a secret, enter a VM password between 8 and 123 characters long.|
    |**Save as default password**|Select this checkbox to save the password in the Key Vault associated with the lab.|
    |**Virtual machine size**|Keep the default value for the base, or select **Change Size** to select a different size.|
+   |**Hibernation**|Select **Enabled** to enable hibernation for this virtual machine, or select **Disabled** to disable hibernation for this virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.|
    |**OS disk type**|Keep the default value for the base, or select a different option from the dropdown list.|
    |**Artifacts**|Optionally, select **Add or Remove Artifacts** to [select and configure artifacts](devtest-lab-add-vm.md#add-artifacts-during-installation) to add to the VM.|
 

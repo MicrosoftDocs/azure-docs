@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.topic: tutorial
 ms.subservice: authoring
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Azure Data Factory tutorials

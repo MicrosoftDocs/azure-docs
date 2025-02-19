@@ -6,7 +6,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: duau
 ---
@@ -63,8 +63,9 @@ It's recommended to migrate to an Az-enabled SKU for enhanced reliability and hi
 
 ### Limitations
 
-The guided gateway migration experience doesn't support these scenarios:
-* Downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+The guided gateway migration experience doesn't support downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+
+To proceed with migration, a /27 prefix or longer is required in the GatewaySubnet.
 
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 

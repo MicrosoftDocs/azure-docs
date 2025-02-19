@@ -1,23 +1,23 @@
 ---
-title: Copy data from Google BigQuery
+title: Copy data from Google BigQuery V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from Google BigQuery V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/09/2024
+ms.date: 01/26/2025
 ---
 
-# Copy data from Google BigQuery using Azure Data Factory or Synapse Analytics
+# Copy data from Google BigQuery V2 using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Google BigQuery connector provides improved native Google BigQuery support. If you are using the legacy Google BigQuery connector in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) before **October 31, 2024**. Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Google BigQuery V2 connector](connector-google-bigquery.md) provides improved native Google BigQuery support. If you are using the [Google BigQuery V1 connector](connector-google-bigquery-legacy.md) in your solution, please [upgrade your Google BigQuery connector](#upgrade-the-google-bigquery-linked-service) as V1 is at [End of Support stage](connector-deprecation-plan.md). Refer to this [section](#differences-between-google-bigquery-and-google-bigquery-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -33,10 +33,6 @@ This Google BigQuery connector is supported for the following capabilities:
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 The service provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
-
-The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
-
-The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile was also deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes#bigquery_6).
 
 >[!NOTE]
 >This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
@@ -229,11 +225,11 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 To upgrade the Google BigQuery connector, create a new Google BigQuery linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
-## Differences between Google BigQuery and Google BigQuery (legacy)
+## <a name="differences-between-google-bigquery-and-google-bigquery-legacy"></a> Differences between Google BigQuery V2 and V1
 
-The Google BigQuery connector offers new functionalities and is compatible with most features of Google BigQuery (legacy) connector. The table below shows the feature differences between Google BigQuery and Google BigQuery (legacy).
+The Google BigQuery V2 connector offers new functionalities and is compatible with most features of Google BigQuery V1 connector. The table below shows the feature differences between Google BigQuery V2 and V1.
 
-| Google BigQuery  | Google BigQuery (legacy) | 
+| Google BigQuery V2 | Google BigQuery V1 | 
 | :----------- | :------- |
 | Service authentication is supported by the Azure integration runtime and the self-hosted integration runtime.<br>The properties trustedCertPath, useSystemTrustStore, email and keyFilePath are not supported as they are available on the self-hosted integration runtime only. | Service authentication is only supported by the self-hosted integration runtime. <br>Support trustedCertPath, useSystemTrustStore, email and keyFilePath properties. | 
 | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> Decimal<br>Timestamp -> DateTimeOffset<br>Datetime -> DatetimeOffset | The following mappings are used from Google BigQuery data types to interim data types used by the service internally. <br><br>Numeric -> String<br>Timestamp -> DateTime<br>Datetime -> DateTime | 

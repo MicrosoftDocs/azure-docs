@@ -189,7 +189,7 @@ For more information about using MQTT with modules, see [Publish and subscribe w
 
 The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample) contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
 
-The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
+The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://projects.eclipse.org/projects/iot.paho), and the CLI samples use `mosquitto_pub`.
 
 To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutorial-use-mqtt.md).
 
@@ -197,7 +197,7 @@ To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutor
 
 To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
-In order to establish a TLS connection, you may need to download and reference the DigiCert root certificate that Azure uses. Between February 15 and October 15, 2023, Azure IoT Hub is migrating its TLS root certificate from the DigiCert Baltimore Root Certificate to the DigiCert Global Root G2. During the migration period, you should have both certificates on your devices to ensure connectivity. For more information about the migration, see [Migrate IoT resources to a new TLS certificate root](../iot-hub/migrate-tls-certificate.md) For more information about these certificates, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
+In order to establish a TLS connection, you may need to download and reference the DigiCert Global Root G2 root certificate that Azure uses. For more information about this certificate, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
 The following example demonstrates how to implement this configuration, by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation.
 

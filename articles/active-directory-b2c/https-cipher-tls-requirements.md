@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 11/27/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -66,7 +66,7 @@ The following endpoints used in your Azure AD B2C environment must comply with t
 
 ## Check your endpoint compatibility
 
-To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html).
+To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSL LABS](https://www.ssllabs.com/ssltest/analyze.html).
 
 
 ## Next steps

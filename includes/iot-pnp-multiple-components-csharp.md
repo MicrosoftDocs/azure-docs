@@ -116,7 +116,7 @@ await SendTemperatureAsync(Thermostat1, cancellationToken);
 await SendTemperatureAsync(Thermostat2, cancellationToken);
 ```
 
-The `SendTemperatureTelemetryAsync` method uses the `PnpHhelper` class to create messages for each component:
+The `SendTemperatureTelemetryAsync` method uses the `PnpHelper` class to create messages for each component:
 
 ```csharp
 using Message msg = PnpHelper.CreateIothubMessageUtf8(telemetryName, JsonConvert.SerializeObject(currentTemperature), componentName);

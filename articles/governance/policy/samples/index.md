@@ -86,5 +86,5 @@ Azure Government:
 ## Next steps
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

@@ -40,6 +40,7 @@ After submitting the request, you'll see its status. To verify the successful cr
 You can also see that the *Approval State* is *Pending*. The owner of the target resource can approve or deny the private endpoint connection request. If the owner approves the private endpoint connection request, then a private link is established. If denied, then a private link isn't established.
 ![Managed private endpoint creation request status](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)
 
-## Next steps
+## Related content
 
-Learn more about [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md)
+- You can also [deploy managed private endpoints using the Azure CLI](/cli/azure/synapse/managed-private-endpoints).
+- Learn more about [managed private endpoints](./synapse-workspace-managed-private-endpoints.md).

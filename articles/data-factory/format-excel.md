@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 
@@ -15,10 +15,10 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the Excel files**. The service supports both ".xls" and ".xlsx".
 
-Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It is supported as source but not sink. 
+Excel format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md). It's supported as source but not sink. 
 
 >[!NOTE]
->".xls" format is not supported while using [HTTP](connector-http.md).
+>".xls" format isn't supported while using [HTTP](connector-http.md).
 
 ## Dataset properties
 
@@ -35,7 +35,7 @@ For a full list of sections and properties available for defining datasets, see 
 | nullValue        | Specifies the string representation of null value. <br>The default value is **empty string**. | No       |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
 | type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn't support "snappy" & "lz4", and mapping data flow doesn't support "ZipDeflate", "TarGzip" and "Tar".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
-| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
+| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file isn't optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic. | No       |
 
 Below is an example of Excel dataset on Azure Blob Storage:
 
@@ -102,7 +102,7 @@ In mapping data flows, you can read Excel format in the following data stores: [
 
 ### Source properties
 
-The below table lists the properties supported by an Excel source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
+The below table lists the properties supported by an Excel source. You can edit these properties in the **Source options** tab. When using inline dataset, you'll see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
 
 | Name                      | Description                                                  | Required | Allowed values                                            | Data flow script property         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
@@ -112,7 +112,7 @@ The below table lists the properties supported by an Excel source. You can edit 
 | Column to store file name | Create a new column with the source file name and path       | no       | String                                                    | rowUrlColumn                      |
 | After completion          | Delete or move the files after processing. File path starts from the container root | no       | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
 | Filter by last modified   | Choose to filter files based upon when they were last altered | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
-| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+| Allow no files found | If true, an error isn't thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source example
 
@@ -145,9 +145,12 @@ source(allowSchemaDrift: true,
     firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
+>[!NOTE]
+> Mapping data flow doesn't support reading protected Excel files, as these files may contain confidentiality notices or enforce specific access restrictions that limit access to their contents.
+
 ## Handling very large Excel files
 
-The Excel connector does not support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
+The Excel connector doesn't support streaming read for the Copy activity and must load the entire file into memory before data can be read.  To import schema, preview data, or refresh an Excel dataset, the data must be returned before the http request timeout (100s). For large Excel files, these operations may not finish within that timeframe, causing a timeout error.  If you want to move large Excel files (>100MB) into another data store, you can use one of following options to work around this limitation:
 
 - Use the self-hosted integration runtime (SHIR), then use the Copy activity to move the large Excel file into another data store with the SHIR.
 - Split the large Excel file into several smaller ones, then use the Copy activity to move the folder containing the files.
