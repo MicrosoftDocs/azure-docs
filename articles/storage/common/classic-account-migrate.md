@@ -98,6 +98,9 @@ For more information about the migration process, see [Understand storage accoun
 > [!NOTE]
 > Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
 
+> [!IMPORTANT]
+> After migrating your classic resources to Azure Resource Manager within your subscription, ensure that all Classic Admin role assignments are converted to the Owner role in Azure RBAC. Without an assigned Owner, your subscription may become orphaned. For detailed guidance, refer to [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+
 You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)
