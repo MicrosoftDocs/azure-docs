@@ -15,7 +15,7 @@ This article helps you understand concurrency best practices for session slots a
 
 ## NFSv3
 
-NFSv3 does not have a mechanism to negotiate concurrency between the client and the server. The client and the server each defines its limit without consulting the other.  For the best performance, you should line up the maximum number of client-side `sunrpc` slot table entries with that supported without pushback on the server.  When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which is not an ideal performance scenario.
+NFSv3 doesn't have a mechanism to negotiate concurrency between the client and the server. The client and the server each defines its limit without consulting the other.  For the best performance, you should line up the maximum number of client-side `sunrpc` slot table entries with that supported without pushback on the server.  When a client overwhelms the server network stack’s ability to process a workload, the server responds by decreasing the window size for the connection, which isn't an ideal performance scenario.
 
 By default, modern Linux kernels define the per-connection `sunrpc` slot table entry size `sunrpc.tcp_max_slot_table_entries` as supporting 65,536 outstanding operations, as shown in the following table. 
 
@@ -84,26 +84,26 @@ Example 4 uses the reduced per-client `sunrpc.tcp_max_slot_table_entry` value of
 
 * `NFS_Server=10.10.10.10, NFS_Client1=10.10.10.11`
     * `Connection (10.10.10.10:2049, 10.10.10.11:6543,TCP)` 
-        * The client will issue no more than 8 requests in flight to the server per connection.
+        * The client will issue no more than eight requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 * `NFS_Server=10.10.10.10, NFS_Client2=10.10.10.12`
     * `Connection (10.10.10.10:2049, 10.10.10.12:7820,TCP) `
-        * The client will issue no more than 8 requests in flight to the server per connection.
+        * The client will issue no more than eight requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 * `…`
 * `…`
 * `NFS_Server=10.10.10.10, NFS_Client250=10.10.11.13`
     * `Connection (10.10.10.10:2049, 10.10.11.13:4320,TCP) `
-        * The client will issue no more than 8 requests in flight to the server per connection.
+        * The client will issue no more than eight requests in flight to the server per connection.
         * The server will accept no more than 128 requests in flight from this single connection.
 
-When using NFSv3, *you should collectively keep the storage endpoint slot count to 10,000 or less*. It is best to set the per-connection value for `sunrpc.tcp_max_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
+When using NFSv3, *you should collectively keep the storage endpoint slot count to 10,000 or less*. It's best to set the per-connection value for `sunrpc.tcp_max_slot_table_entries` to less than 128 when an application scales out across many network connections (`nconnect` and HPC in general, and EDA in particular).  
 
 ### How to calculate the best `sunrpc.tcp_max_slot_table_entries` 
 
 Using *Littles Law*, you can calculate the total required slot table entry count. In general, consider the following factors:  
 
-* Scale out workloads are often dominantly large sequential in nature.
+* Scale-out workloads are often dominantly large sequential in nature.
 * Database workloads, especially OLTP, are often random in nature. 
 
 The following table shows a sample study of concurrency with arbitrary latencies provided:
@@ -159,7 +159,7 @@ Module = "nfs"
 }
 ```
 
-To tune `max_session_slots`, create a configuration file under `/etc/modprobe.d` as such.  Make sure that no “quotes” are present for the line in the file. Otherwise, the option will not take effect.
+To tune `max_session_slots`, create a configuration file under `/etc/modprobe.d` as such.  Make sure that no “quotes” are present for the line in the file. Otherwise, the option doesn't take effect.
 
 `$ sudo echo “options nfs max_session_slots=180” > /etc/modprobe.d/nfsclient.conf`
 `$ sudo reboot`
