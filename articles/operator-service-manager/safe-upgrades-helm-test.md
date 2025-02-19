@@ -9,7 +9,7 @@ ms.service: azure-operator-service-manager
 ---
 
 # Run tests after install or upgrade
-This article describes how Azure Operator Service Manager (AOSM) can run tests on deployed network functions (NFs) as part install or upgrade operations. When enabled, each network function application (nfApp) will be tested after install or upgrade completion. A successful result of all nfApp tests are required for the NF operation status to complete successfully.
+This article describes how Azure Operator Service Manager (AOSM) can run tests on deployed network functions (NFs) as part install or upgrade operations. When enabled, each network function application (nfApp) will be tested after install or upgrade completion. A successful result across all nfApp tests is required for the NF operation status to complete successfully.
 
 ## Overview
 This feature's scope is to run helm tests as part of the network function install or upgrade operations.
@@ -27,7 +27,7 @@ This feature's scope is to run helm tests as part of the network function instal
 The publisher is responsible for authoring the helm tests during construction of the helm charts. The helm tests are defined in the helm chart under the folder: `<ChartName>/Templates/`. Each test includes a job definition that specifies a container environment and command to run. The container environment should exit successfully for a test to be considered a success. The job definition must include the helm test hook annotation `(helm.sh/hook: test)` to be recognized as a test by helm.
 
 ## Enable helm tests during operations
-AOSM provides a set of configurable install and upgrade options for each component under an NF. These existing options are extended with a new 'testOptions` parameter. This gives the user the ability to specify testOptions per nfApp and as per the type of operation. The following parameters are supported by the testOptions flag:
+AOSM provides a set of configurable install and upgrade options for each component under an NF. These existing options are extended with a new `testOptions` parameter. This parameter gives the user the ability to specify `testOptions` per nfApp and as per the type of operation. The `testOptions` feature supports the following parameters:
 
 * enable	
   * Enables or disables the helm test on a nfApp after install or upgrade completes.
@@ -43,10 +43,10 @@ AOSM provides a set of configurable install and upgrade options for each compone
   * Default value is no filter.
 
 ## Exposing helm test control via parameters
-Users already can use the NF payload parameter `roleOverrideValues` to specify settings for `installOptions` and `upgradeOptions`. These fields are now extended to include settings for `testOptions` which can be specified for each nfApplication and each operation method. See the following example of `roleOverrideValues` usage where the NF Payload speificies  `installOptions` and `upgradeOptions` including `TestOptions` for a component named `application1`.
+Users already can use the NF payload parameter `roleOverrideValues` to specify settings for `installOptions` and `upgradeOptions`. These fields are now extended to include settings for `testOptions` which can be specified for each nfApplication and each operation method. See the following example of `roleOverrideValues` usage where the NF Payload defines  `installOptions` and `upgradeOptions` including `testOptions` for a component named `application1`.
 
 ## roleOverrideValues escaped example:
-Following is an escaped example `roleOverrideValues` with `testOptions` under `installOptions` and `upgradeOptions` for a component named `application1`. This example uses a `filter` to execute only those test which match the string provided.
+Following is an escaped example `roleOverrideValues` with `testOptions` under `installOptions` and `upgradeOptions` for a component named `application1`. This example uses a `filter` to execute only tests which match the string provided.
 
 ``` 
 "roleOverrideValues": [  
@@ -82,7 +82,7 @@ Following is an unescaped example `roleOverrideValues` NF Payload with `testOpti
 ]
 ```
 
-## NF payload complete example
+## NF payload example
 Following is an example NF Payload with `testOptions` under `installOptions` and `upgradeOptions` for a component named `application1`. This example uses a `filter` to execute only those test which match the string provided.
 
 ```
