@@ -31,7 +31,7 @@ Microsoft Entra ID Free provides you with the following services at no cost:
 - On-premises directory synchronization
 - Basic reports
 - Self-service password change for cloud users
-- Single sign-on across Azure, Microsoft 365, and many popular SaaS apps.
+- Single sign-on across Azure, Microsoft 365, and many popular SaaS apps
 
 ## Billing and account management
 
