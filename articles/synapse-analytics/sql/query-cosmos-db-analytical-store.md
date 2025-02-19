@@ -125,7 +125,7 @@ The easiest way to explore data in Azure Cosmos DB is by using the automatic sch
 
 ### [OPENROWSET with key](#tab/openrowset-key)
 
->[IMPORTANT]
+>[!IMPORTANT]
 >In the script, replace these values with your own values:
 >- **your-cosmosdb** - the name of your Cosmos DB account
 >- **yourcosmosdbkey** - your Cosmos DB account key
