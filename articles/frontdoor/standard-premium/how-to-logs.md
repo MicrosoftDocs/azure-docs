@@ -41,7 +41,7 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
       * Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
       * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
     * **Stream to an event hub**
-      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, DataDog, or Sumo. 
+      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
       * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
 
     > [!TIP]

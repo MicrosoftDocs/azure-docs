@@ -46,8 +46,6 @@ This dashboard consists of:
 
 1. From the CDN profile page, select the **Manage** button.
 
-    :::image type="content" source="./media/cdn-edge-performance/cdn-manage-btn.png" alt-text="Screenshot of the manage button from an Azure CDN profile.":::
-
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout. Select on **Dashboard**.
 
