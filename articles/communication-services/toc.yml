@@ -478,6 +478,8 @@ items:
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
       - name: Add augmented reality filters to video calls
         href: tutorials/add-video-augmented-reality-tutorial.md
+    - name: Set video constraints in a calling app
+      href: quickstarts/voice-video-calling/get-started-video-constraints.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
@@ -609,8 +611,6 @@ items:
     - name: Collect and share log files
       href: tutorials/log-file-retrieval-tutorial.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
-    - name: Set video constraints in a calling app
-      href: quickstarts/voice-video-calling/get-started-video-constraints.md
     - name: SDK best practices
       href: concepts/best-practices.md
       displayName: best, practices, before, you, start, diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
