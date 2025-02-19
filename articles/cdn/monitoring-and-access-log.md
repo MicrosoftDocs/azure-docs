@@ -156,7 +156,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts the value for HttpStatusCode is set to **0**.|
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |

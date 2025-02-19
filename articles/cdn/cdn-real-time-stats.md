@@ -27,7 +27,7 @@ The following graphs are available:
 
 ## Accessing real-time status
 
-1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your CDN profile.
 
 2. From the CDN profile blade, click the **Manage** button.
 
