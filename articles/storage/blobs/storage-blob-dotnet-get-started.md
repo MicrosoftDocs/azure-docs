@@ -94,6 +94,8 @@ public BlobServiceClient GetBlobServiceClient(string accountName)
 
 If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
 
+You can also register the client for dependency injection in your .NET app. For more information, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
+
 ## [SAS token](#tab/sas-token)
 
 Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
