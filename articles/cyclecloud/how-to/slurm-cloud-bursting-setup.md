@@ -209,5 +209,5 @@ For further details and advanced configurations, refer to the scripts and docume
 ### Next Steps
 
 * [GitHub repo - cyclecloud-slurm](https://github.com/Azure/cyclecloud-slurm/tree/master)
-* [Azure CycleCloud Documentation](../../cycle_docs_v1/overview.md)
+* [Azure CycleCloud Documentation](../overview.md)
 * [Slurm documentation](https://slurm.schedmd.com/documentation.html)
