@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 02/18/2025
 ms.author: anfdocs
 ---
 # Delete backups of a volume 
@@ -23,6 +23,9 @@ If you need to delete backups to free up space, select an older backup from the 
 
 > [!NOTE]
 > Deleting the last backup on a volume removes the reference point for future incremental backups.
+
+>[!IMPORTANT]
+>Deleted backups aren't recoverable.
 
 ## Steps
 
