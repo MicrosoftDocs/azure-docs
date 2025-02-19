@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 #  Benefits of using Azure NetApp Files for SQL Server deployment
 
-Azure NetApp Files reduces SQL Server total cost of ownership (TCO) as compared to block storage solutions. With block storage, virtual machines have imposed limits on I/O and bandwidth for disk operations. Only network bandwidth limits are applied against Azure NetApp Files, and on egress only at that. In other words, no VM level I/O limits are applied to Azure NetApp Files. Without these I/O limits, SQL Server running on smaller virtual machines connected to Azure NetApp Files can perform as well as SQL Server running on much larger virtual machines. Sizing instances down as such reduces the compute cost to 25% of the former price tag. *You can reduce compute costs with Azure NetApp Files.*  
+Azure NetApp Files reduces SQL Server total cost of ownership (TCO) as compared to block storage solutions. With block storage, virtual machines (VMs) have imposed limits on I/O and bandwidth for disk operations. Only network bandwidth limits are applied against Azure NetApp Files, and on egress only at that. In other words, no VM level I/O limits are applied to Azure NetApp Files. Without these I/O limits, SQL Server running on smaller virtual machines connected to Azure NetApp Files can perform as well as SQL Server running on much larger virtual machines. Sizing instances down as such reduces the compute cost to 25% of the former price tag. *You can reduce compute costs with Azure NetApp Files.*  
 
 Compute costs, however, are small compared to SQL Server license costs. Microsoft SQL Server [licensing](https://download.microsoft.com/download/B/C/0/BC0B2EA7-D99D-42FB-9439-2C56880CAFF4/SQL_Server_2017_Licensing_Datasheet.pdf) is tied to physical core count. As such, decreasing instance size introduces an even larger cost saving for software licensing. *You can reduce software license costs with Azure NetApp Files.*
 
@@ -73,7 +73,7 @@ The [TPC-E](http://www.tpc.org/tpce/) benchmarking tool, by design, stresses *co
 
 The SSB tool generates a SELECT and UPDATE driven workload issuing the said statements directly to the SQL Server database running within the Azure virtual machine. For this project, the SSB workloads ramped from 1 to 100 SQL Server users, with 10 or 12 intermediate points at 15 minutes per user count. All performance metrics from these runs were from the point of view of perfmon, for repeatability SSB ran three times per scenario. 
 
-The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read. The database itself, which SSB created, was 1000 GB in size. It's comprised of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
+The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read. The database itself, which SSB created, was 1000 GB in size. It's composed of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
 
 The SSB benchmark is an open-source tool. It's freely available at the SQL Storage Benchmark GitHub page.
 
