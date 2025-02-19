@@ -95,7 +95,7 @@ The omission of the `zone` field is the default selection for standard public IP
 
 To create an IPv4 public IP prefix with routing preference set to Internet, add **RoutingPreference=Internet** to the `tags` block.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="46-58"  highlight="7-8,10-12:::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="46-58"  highlight="7-8,10-12":::
 
 ---
 
