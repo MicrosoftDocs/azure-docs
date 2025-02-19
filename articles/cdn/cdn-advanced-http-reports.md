@@ -22,8 +22,6 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 
 1. From the CDN profile page, select the **Manage** button.
 
-    ![CDN profile blade manage button](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-
     The CDN management portal opens.
 2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout. Select on **HTTP Large Platform**.
 

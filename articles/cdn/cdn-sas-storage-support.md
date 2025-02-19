@@ -40,7 +40,6 @@ For example:
 
 For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared Access Signature parameters](../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works).
 
-![Screenshot of the content delivery network SAS settings.](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
 <a name='option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn'></a>
 
