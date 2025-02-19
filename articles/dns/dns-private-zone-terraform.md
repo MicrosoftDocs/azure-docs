@@ -4,7 +4,7 @@ description: In this quickstart, you create private DNS zones, network interface
 ms.topic: quickstart
 ms.date: 2/18/2025
 ms.custom: devx-track-terraform
-ms.service: azure-virtual-network
+ms.service: azure-dns
 author: greg-lindsay
 ms.author: greglin
 #customer intent: As a Terraform user, I want to see how to create a private DNS zone and Windows virtual machines in Azure.
@@ -27,7 +27,7 @@ This code creates:
 
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
-> * Create a private DNS zone, and link it to the virtual network.
+> * Create a private DNS zone.
 > * Generate random passwords for the virtual machines.
 > * Create two network interfaces.
 > * Create two Windows virtual machines, and attach the network interfaces.
