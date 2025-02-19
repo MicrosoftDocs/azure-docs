@@ -12,43 +12,43 @@
     href: dns-private-resolver-overview.md
   - name: What is Azure Traffic Manager?
     href: /azure/traffic-manager/traffic-manager-overview
-- name: Test
-  items:
-  - name: Public DNS
+  - name: Quickstarts
     items:
-    - name: Create a public zone - portal
-      href: dns-getstarted-portal.md
-    - name: Create a public zone - PowerShell
-      href: dns-getstarted-powershell.md
-    - name: Create a public zone - CLI
-      href: dns-getstarted-cli.md
-    - name: Create a public zone - Bicep
-      displayName: ARM, Resource Manager, Template
-      href: dns-get-started-bicep.md
-    - name: Create a public zone - ARM Template
-      displayName: Resource Manager
-      href: dns-get-started-template.md
-    - name: Create a public zone - Terraform
-      href: dns-get-started-terraform.md
-  - name: Private DNS
-    items:
-    - name: Create a private zone - portal
-      href: private-dns-getstarted-portal.md
-    - name: Create a private zone - CLI
-      href: private-dns-getstarted-cli.md
-    - name: Create a private zone - PowerShell
-      href: private-dns-getstarted-powershell.md
-  - name: Private resolver
-    items:
-    - name: Create a private resolver - portal
-      href: dns-private-resolver-get-started-portal.md
-    - name: Create a private resolver - PowerShell
-      href: dns-private-resolver-get-started-powershell.md
-    - name: Create a private resolver - Bicep
-      href: dns-private-resolver-get-started-bicep.md
-    - name: Create a private resolver - ARM Template
-      href: dns-private-resolver-get-started-template.md
-  expanded: true
+    - name: Public DNS
+      items:
+      - name: Create a public zone - portal
+        href: dns-getstarted-portal.md
+      - name: Create a public zone - PowerShell
+        href: dns-getstarted-powershell.md
+      - name: Create a public zone - CLI
+        href: dns-getstarted-cli.md
+      - name: Create a public zone - Bicep
+        displayName: ARM, Resource Manager, Template
+        href: dns-get-started-bicep.md
+      - name: Create a public zone - ARM Template
+        displayName: Resource Manager
+        href: dns-get-started-template.md
+      - name: Create a public zone - Terraform
+        href: dns-get-started-terraform.md
+    - name: Private DNS
+      items:
+      - name: Create a private zone - portal
+        href: private-dns-getstarted-portal.md
+      - name: Create a private zone - CLI
+        href: private-dns-getstarted-cli.md
+      - name: Create a private zone - PowerShell
+        href: private-dns-getstarted-powershell.md
+    - name: Private resolver
+      items:
+      - name: Create a private resolver - portal
+        href: dns-private-resolver-get-started-portal.md
+      - name: Create a private resolver - PowerShell
+        href: dns-private-resolver-get-started-powershell.md
+      - name: Create a private resolver - Bicep
+        href: dns-private-resolver-get-started-bicep.md
+      - name: Create a private resolver - ARM Template
+        href: dns-private-resolver-get-started-template.md
+  expanded: false
 - name: Design
   items:
   - name: Security
