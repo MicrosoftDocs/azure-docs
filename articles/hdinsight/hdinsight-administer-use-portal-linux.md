@@ -217,14 +217,14 @@ The password changes on all nodes in the cluster.
     > [!NOTE]
     > SSH passwords can't contain the following characters: " ' ` / \ < % ~ | $ & ! #
     
-       | Field | Value |
-       | --- | --- |
-       | Script type | Select **- Custom** from the dropdown list.|
-       | Name |"Change ssh credentials." |
-       | Bash script URI |The URI to the `changecredentials.sh` file. |
-       | Node types: Head, Worker, Nimbus, Supervisor, or ZooKeeper |Select ✓ for all node types listed. |
-       | Parameters |Enter the SSH username, and then enter the new password. There should be only one space between the username and the password. |
-       | Persist this script action ... |Leave this field clear. |
+    | Field | Value |
+    | --- | --- |
+    | Script type | Select **- Custom** from the dropdown list.|
+    | Name |"Change ssh credentials." |
+    | Bash script URI |The URI to the `changecredentials.sh` file. |
+    | Node types: Head, Worker, Nimbus, Supervisor, or ZooKeeper |Select ✓ for all node types listed. |
+    | Parameters |Enter the SSH username, and then enter the new password. There should be only one space between the username and the password. |
+    | Persist this script action ... |Leave this field clear. |
 
 1. Select **Create** to apply the script. After the script finishes, you can connect to the cluster by using SSH with the new credentials.
 
