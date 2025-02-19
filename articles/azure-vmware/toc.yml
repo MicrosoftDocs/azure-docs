@@ -223,8 +223,6 @@ items:
     href: azure-vmware-solution-citrix.md
 - name: Storage
   items:
-  - name: Configure storage policies
-    href: configure-storage-policy.md
   - name: Configure vSAN
     href: configure-vsan.md
     items:
