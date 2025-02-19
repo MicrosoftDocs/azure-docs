@@ -1,0 +1,55 @@
+- name: Migrate to Azure Functions
+  href: ./function-placeholder.md
+- name: Migrate from AWS Lambda
+  href: ./aws-lambda-to-azure-functions.md
+  items:
+  - name: Perform pre-migration planning
+    items:
+    - name: Core capabilities
+      href: ./capabilities.md
+    - name: Identity and access management
+      href: ./identity-access-management.md
+    - name: Deployment
+      href: ./deployment.md
+    - name: Monitoring
+      href: ./monitoring.md
+    - name: Dependencies
+      href: ./dependencies.md
+    - name: Governance
+      href: ./governance.md
+    - name: Additional objectives
+      items:
+      - name: Cost of ownership
+        href: ./function-placeholder.md
+      - name: Reliability objectives
+        href: ./function-placeholder.md
+      - name: Performance targets
+        href: ./function-placeholder.md
+  - name: Perform the migration
+    href: ./perform-migration.md
+  - name: Evaluate end-state
+    href: ./function-placeholder.md
+  - name: Migration examples
+    items:
+    - name: Migrate an event-driven data processing pipeline
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md
+    - name: Migrate a microservices workload
+      items:
+      - name: Overview and current state
+        href: function-placeholder.md
+      - name: Migration strategy
+        href: function-placeholder.md
+      - name: Step-by-step process
+        href: function-placeholder.md
+      - name: End-state evaluation
+        href: function-placeholder.md
+  - name: Explore Azure optimization opportunities
+    href: /azure/well-architected/service-guides/azure-functions-security
