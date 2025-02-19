@@ -6,7 +6,7 @@ author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 0/28/2025
+ms.date: 01/28/2025
 ---
 # Configure export policy for NFS or dual-protocol volumes
 
