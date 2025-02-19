@@ -107,7 +107,7 @@ Set-AzContext -Subscription '<Azure Subscription B>'
 # Create a resource group  
 $rg = @{
     Name = 'resource-group-b'
-    Location = '<Region for resource group in subscription B>'
+    Location = 'eastus2'
 }
 New-AzResourceGroup @rg
 ```
@@ -120,7 +120,7 @@ With Azure CLI, you switch the subscription context with [`az account set`](/cli
 
 ```azurecli
 # Create a resource group in Azure Subscription B
-az group create --name '<Region for resource group in subscription B>' --location $'<Region for resource group in subscription B>'$
+az group create --name resource-group-b --location eastus2
 ```
 
 > [!NOTE]
