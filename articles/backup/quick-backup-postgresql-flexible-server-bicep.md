@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Bicep template PostgreSQL Backup
+title: Quickstart - Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep template
 description: Learn how to configure backup for your Azure Database for PostgreSQL - Flexible Server with a Bicep template.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/17/2025
+ms.date: 02/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -13,7 +13,7 @@ ms.author: jsuri
 
 # Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Servers with a Bicep template
 
-This quickstart describes how to configure backup Azure Database for PostgreSQL - Flexible Server with an Azure Bicep template and Azure PowerShell.
+This quickstart describes how to configure backup Azure Database for PostgreSQL - Flexible Server with an Azure Bicep template.
 
 [Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple clients, such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article focuses on the process of deploying a Bicep template to create a Backup vault and then configure backup for the Azure PostgreSQL - Flexible Server. Learn more about [developing Bicep templates](../azure-resource-manager/bicep/deploy-cli.md).
 
@@ -184,4 +184,4 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Next steps
 
-[Restore Azure PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md)
+[Restore Azure Database for PostgreSQL - Flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).

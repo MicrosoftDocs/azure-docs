@@ -1,8 +1,8 @@
 ---
-title: Restore Azure Database for PostgreSQL - Flexible Server via Azure PowerShell
+title: Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 ms.topic: how-to
-ms.date: 02/17/2025
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, ignite-2024
 author: jyothisuri
@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 
-This article describes how to restore **Azure Database for PostgreSQL - Flexible Server** to an Azure Database for PostgreSQL - flexible server backed-up by Azure Backup.
+This article describes how to restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 
 >[!Note]
 >The Original Location Recovery (OLR) option isn't supported for PaaS databases. Instead, use the Alternate-Location Recovery (ALR) to restore from a recovery point and create a new database in the same or another Azure PostgreSQL – Flexible server, keeping both the source and restored databases.
@@ -26,7 +26,7 @@ $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -Resourc
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL – Flexible Server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible Server, check the [set of permissions](/backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) needed to backup Azure PostgreSQL – Flexible Server database.
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible Server, check the [set of permissions](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore) needed to backup Azure PostgreSQL – Flexible Server database.
 
 To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
@@ -119,4 +119,4 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Azure PostgreSQL - flexible server Backup](backup-azure-database-postgresql-flex-overview.md)
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).
