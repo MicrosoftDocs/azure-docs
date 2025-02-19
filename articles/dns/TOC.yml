@@ -48,7 +48,7 @@
     items:
     - name: What is Azure Traffic Manager?
       href: /azure/traffic-manager/traffic-manager-overview
-  expanded: false
+  expanded: true
 - name: Design
   items:
   - name: Security
@@ -71,10 +71,10 @@
       href: dns-domain-delegation.md
     - name: DNSSEC
       href: dnssec.md
-    - name: FAQ
-      href: dns-faq.yml
     - name: Reverse DNS
       href: dns-reverse-dns-overview.md
+    - name: FAQ
+      href: dns-faq.yml
   - name: Private DNS
     items:
     - name: What is an Azure Private DNS zone?
@@ -133,20 +133,16 @@
         href: private-dns-import-export-portal.md
       - name: Azure CLI
         href: private-dns-import-export.md
-      - name: Create and manage reverse DNS zones
-        href: private-reverse-dns.md
-      - name: Use Azure Resource Graph Explorer
-        href: private-dns-arg.md
-      - name: Fallback to internet resolution
-        href: private-dns-fallback.md
-      - name: Private Resolver
-        items:
-        - name: Resolve Azure and on-premises domains
-          href: private-resolver-hybrid-dns.md
+    - name: Create and manage reverse DNS zones
+      href: private-reverse-dns.md
+    - name: Fallback to internet resolution
+      href: private-dns-fallback.md
   - name: Private Resolver
     items:
     - name: Set up DNS failover using private resolvers
       href: tutorial-dns-private-resolver-failover.md
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
 - name: Monitor and manage
   items:
   - name: Monitor and manage DNS traffic
@@ -201,6 +197,8 @@
         href: dns-custom-domain.md
   - name: Manage private DNS
     items:
+    - name: Use Azure Resource Graph Explorer
+      href: private-dns-arg.md
   - name: Manage DNS private resolver
     items:
 - name: Troubleshoot
