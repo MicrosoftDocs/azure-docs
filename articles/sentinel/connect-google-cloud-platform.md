@@ -1,3 +1,10 @@
+Hello,
+
+Is there any guidance on how you can remove this connector?
+
+I understand the source (from the GCP side) connection must be disabled but I still don't see the option to disable or disconnect the connection from the Sentinel side. When I attempt to delete the connector it gives me an error. An additional scenario is what if you don't have access to the source anymore to disable the connection at the source?
+
+Thanks
 ---
 title: Ingest Google Cloud Platform log data into Microsoft Sentinel 
 description: This article describes how to ingest service log data from the Google Cloud Platform (GCP) into Microsoft Sentinel.
