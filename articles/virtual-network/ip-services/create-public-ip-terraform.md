@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network
 ms.topic: quickstart
-ms.date: 01/09/2025
+ms.date: 01/18/2025
 ms.custom: mode-api, devx-track-terraform 
 ---
 
@@ -46,7 +46,7 @@ An Azure resource group is a logical container into which Azure resources are de
 
 ## Create public IP
 
-# [**Standard SKU**](#tab/create-public-ip-standard)
+# [Standard SKU](#tab/create-public-ip-standard)
 
 >[!NOTE]
 >Standard SKU public IP is recommended for production workloads. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
@@ -59,11 +59,11 @@ An Azure resource group is a logical container into which Azure resources are de
 > For versions of the API older than 2020-08-01, omit the `zone` field to create a zone-redundant IP address. 
 >
 
-# [**Basic SKU**](#tab/create-public-ip-basic)
+# [Basic SKU](#tab/create-public-ip-basic)
 
 In this section, you create a basic IP. Basic public IPs don't support availability zones.
 
-The following code snippet creates an IPv6 address. For an IPv6 address, set the `version` value to **IPv6**. 
+The following code snippet creates an IPv6 address. For an IPv6 address, set the `ip_version` value to **IPv6**. 
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="20-27":::
 
@@ -78,25 +78,25 @@ If it's acceptable for the IP address to change over time, dynamic IP assignment
 
 In this section, you learn how to create a zonal and a non-zone public IP address.
 
-# [**Zonal**](#tab/create-public-ip-zonal)
+# [Zonal](#tab/create-public-ip-zonal)
 
 The following code snippet creates a standard zonal public IPv4 address in Zone 2 named **myZonalStandardPublicIP**.
 
-To create an IPv6 address, set the `version` value to **IPv6**.
+To create an IPv6 address, set the `ip_version` value to **IPv6**.
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="29-37":::
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-# [**Non-zonal**](#tab/create-public-ip-non-zonal)
+# [Non-zonal](#tab/create-public-ip-non-zonal)
 
 The following code snippet creates a standard public IPv4 address as a non-zonal resource named **myNonZonalStandardPublicIP**. 
 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later. For more information about the API version currently being used, see [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-To create an IPv6 address, set the `version` value to **IPv6**.
+To create an IPv6 address, set the `ip_version` value to **IPv6**.
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="39-46":::
 
@@ -110,7 +110,7 @@ The removal of the `zone` field is the default selection for standard public IP 
 
 Standard SKU static public IPv4 addresses support Routing Preference or the Global Tier feature.
 
-# [**Routing Preference**](#tab/routing-preference)
+# [Routing Preference](#tab/routing-preference)
 
 By default, the routing preference for public IP addresses is set to **Microsoft network**, which delivers traffic over Microsoft's global wide area network to the user. 
 
@@ -122,7 +122,7 @@ The following code snippet creates a new standard zone-redundant public IPv4 add
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip/main.tf" range="48-61":::
 
-# [**Tier**](#tab/tier)
+# [Tier](#tab/tier)
 
 Public IP addresses are associated with a single region. The **Global** tier spans an IP address across multiple regions. **Global** tier is required for the frontends of cross-region load balancers. 
 

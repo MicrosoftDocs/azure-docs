@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 10/17/2024
+ms.date: 02/20/2025
 ms.author: mbender
 ms.custom: 
 ---
@@ -22,7 +22,7 @@ Cross-subscription load balancing allows you to deploy Azure Load Balancer resou
 
 :::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources.":::
 
-The table below illustrates some of the possible scenarios cross-subscription load balancing supports. 
+This table illustrates some of the possible scenarios cross-subscription load balancing supports. 
 
 | **Subscription 1** | **Subscription 2** |
 |----------------|----------------|
@@ -31,7 +31,7 @@ The table below illustrates some of the possible scenarios cross-subscription lo
 | Load Balancer and Frontend IP address | Backend pool resources |
 
 ## Cross-subscription frontend IP configurations
-Cross-subscription frontends allow the frontend IP configuration to reside in a different subscription other than the load balancer’s subscription. To enable cross-subscription frontend IP configurations, the following tag needs to be set to true: “IsRemoteFrontend: True”, and the SyncMode property needs to be enabled on the backend pool. 
+Cross-subscription frontends allow the frontend IP configuration to reside in a different subscription other than the load balancer’s subscription. To enable cross-subscription frontend IP configurations, the following tag needs to be set to true: `IsRemoteFrontend: True`, and the `SyncMode` property needs to be enabled on the backend pool. 
 
 ### Public frontend IP configurations 
 Public IP addresses utilized by an Azure Load Balancer can reside in different subscription than the load balancer. If multiple public IP addresses are attached to a load balancer, each IP address can come from a different subscription. For example, if we have a Load Balancer (deployed in subscription C) with two frontend IPs, the first IP address can reside in subscription B and the second IP address can reside in subscription A.   
@@ -49,15 +49,16 @@ Cross-subscription backends allow backend instances to reside in a different sub
 The backend instances and the virtual network they refer to can be located in a different subscription. Cross-subscription backend pools must utilize a new property known as *SyncMode*. 
 
 ### What is SyncMode
-The *SyncMode* property is a parameter that you can specify when you create a backend pool by using IP addresses and virtual network IDs. This property must be set when using cross-subscription frontends or backends. It has two possible values: “Automatic” or “Manual”.
+The *SyncMode* property is a parameter that you can specify when you create a backend pool by using IP addresses and virtual network IDs. This property must be set when using cross-subscription frontends or backends. It has two possible values: *Automatic* or *Manual*. 
+
 In addition, this property replaces the concept of NIC-based or IP-based backend pools. As a result, backend pools with the SyncMode property configured are a distinct type of backend pool, separate from NIC or IP-based backend pools. Backend pools can either be exclusively NIC-based, IP-based, or SyncMode enabled.  
 
-#### When should I use SyncMode: “Automatic”?
-With SyncMode configured as “Automatic”, backend pool instances are synchronized with the load balancer configuration. As a result, changes to the backend pool instances are automatically reflected in the load balancer’s backend pool configuration. This is relevant when using virtual machine scale sets in the backend pool. When the scale set scales in/out, the backend pool members will automatically be added or removed from the pool accordingly.
-Like NIC (network interface cards) based backend pools, if SyncMode is set to “Automatic”, then each backend instance’s NIC must also reference the load balancer backend pool. As a result, backend instances are added to “Automatic” SyncMode backend pools by updating the NIC resource’s reference to the load balancer.
+#### When should I use Automatic SyncMode
+With SyncMode configured as *Automatic*, backend pool instances are synchronized with the load balancer configuration. As a result, changes to the backend pool instances are automatically reflected in the load balancer’s backend pool configuration. This change is relevant when using virtual machine scale sets in the backend pool. When the scale set scales in/out, the backend pool members are automatically added or removed from the pool accordingly.
+Like NIC (network interface cards) based backend pools, if SyncMode is set to *Automatic*, then each backend instance’s NIC must also reference the load balancer backend pool. As a result, backend instances are added to *Automatic* SyncMode backend pools by updating the NIC resource’s reference to the load balancer.
 
-#### When should I use SyncMode: “Manual”?
-With SyncMode configured as “Manual”, backend pool instances aren't synchronized with the load balancer configuration. This mode allows you to create a backend pool with pre-provisioned private IP addresses that can be used for scenarios such as disaster recovery, active-passive, or dynamic provisioning. When using “Manual” SyncMode backend pools, you're responsible for updating the backend pool when any changes to your backend instances occur, such as with a scale set autoscaling.
+#### When should I use Manual SyncMode 
+With SyncMode configured as *Manual*, backend pool instances aren't synchronized with the load balancer configuration. This mode allows you to create a backend pool with pre-provisioned private IP addresses that can be used for scenarios such as disaster recovery, active-passive, or dynamic provisioning. When using *Manual* SyncMode backend pools, you're responsible for updating the backend pool when any changes to your backend instances occur, such as with a scale set autoscaling.
 
 ## Cross-subscription Global Load Balancer
 
