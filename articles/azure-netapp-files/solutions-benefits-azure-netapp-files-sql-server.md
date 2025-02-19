@@ -73,7 +73,7 @@ The [TPC-E](http://www.tpc.org/tpce/) benchmarking tool, by design, stresses *co
 
 The SSB tool generates a SELECT and UPDATE driven workload issuing the said statements directly to the SQL Server database running within the Azure virtual machine. For this project, the SSB workloads ramped from 1 to 100 SQL Server users, with 10 or 12 intermediate points at 15 minutes per user count. All performance metrics from these runs were from the point of view of perfmon, for repeatability SSB ran three times per scenario. 
 
-The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read. The database itself, which SSB created, was 1000 GB in size. It's comprised of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
+The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read. The database itself, which SSB created, was 1000 GB in size. It's composed of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
 
 The SSB benchmark is an open-source tool. It's freely available at the SQL Storage Benchmark GitHub page.
 

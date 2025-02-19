@@ -10,7 +10,7 @@ ms.custom: include file
 # faq-performance.md
 ---
 
-It's not recommended to use `nconnect` and `sec=krb5*` mount options together. Using these options together can causes performance degradation.
+It's not recommended to use `nconnect` and `sec=krb5*` mount options together. Using these options together can cause performance degradation.
 
 The Generic Security Standard Application Programming Interface (GSS-API) provides a way for applications to protect data sent to peer applications. This data might be sent from a client on one machine to a server on another machine.  
 
