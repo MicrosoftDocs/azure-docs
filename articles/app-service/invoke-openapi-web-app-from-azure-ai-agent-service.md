@@ -17,43 +17,35 @@ ms.collection: ce-skilling-ai-copilot
 
 To complete this tutorial, you need an Azure AI Agent project and a RESTful API hosted on Azure App Service. The API should have an OpenAPI specification that defines the API. The OpenAPI specification for the sample app in this tutorial is provided.
 
-1. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart.md). This quickstart walks you through creating your Azure AI Hub and Agent project. You can also complete the agent configuration and sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
-1. Follow the guidance to create the sample app and deploy it to Azure App Service. The sample app is a simple to-do list API that allows you to create, read, update, and delete items from the list.
+1. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart.md). This quickstart walks you through creating your Azure AI Hub and Agent project. You should complete the agent configuration and agent sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
+1. Follow the guidance in the next section to create the sample app and deploy it to Azure App Service. The sample app is a simple to-do list app that allows you to create, read, update, and delete items from the list.
 
 ## Create and deploy the sample app
 
-1. Ensure you have the [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli) installed and that you're logged into your Azure account. You can sign-in using the following command.
-
+1. Ensure you have the [Azure CLI](/cli/azure/install-azure-cli) installed and that you're logged into your Azure account. You can sign-in using the following command.
   ```bash
   az login
   ```
-
 1. Ensure you have [Git installed](https://git-scm.com/downloads).
 1. Ensure you have the latest [.NET 9.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/9.0).
 1. In the terminal window, use `cd` to go to a working directory.
 1. Clone the sample repository, and then go to the repository root. This repository contains an app based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
-
   ```bash
   git clone https://github.com/Azure-Samples/dotnet-core-api
   cd dotnet-core-api
   ```
-
 1. You can run the app locally to ensure it works. To start the app, run the following commands.
-
   ```bash
   dotnet restore
   dotnet run
   ```
-
 1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
 1. Navigate to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
 1. To stop the app, press `Ctrl+C` in the terminal window.
 1. To deploy the app to Azure App Service, run the following command.
-
   ```bash
   az webapp up
   ```
-
 1. After the app is deployed, navigate to the URL provided in the terminal window to see the app running in Azure App Service. It can take a few minutes for the app to be fully deployed and running. Note this URL for later use.
  
 ## Connect your AI Agent to your App Service API
@@ -63,7 +55,6 @@ To complete this tutorial, you need an Azure AI Agent project and a RESTful API 
 Now that you have the required infrastructure, you can put it all together and start interacting with your API using your AI Agent. For a general overview on how to do get started, see [How to use Azure AI Agent Service with OpenAPI Specified Tools](/azure/ai-services/agents/how-to/tools/openapi-spec.md). That overview includes prerequisites and other requirements including how to include authentication if your API requires it. The provided sample API is publicly accessible so authentication isn't required.
 
 1. This specification is the OpenAPI specification for the sample app that is provided. On your local machine, create a file called `swagger.json` and copy the following contents. 
-
   ```json
   {
     "openapi": "3.0.1",
@@ -314,14 +305,12 @@ Now that you have the required infrastructure, you can put it all together and s
     ]
   }
   ```
-
 1. Replace the placeholder for `APP_SERVICE_URL` with your app's URL that you copied earlier. This URL is in the format `https://<app_name>.azurewebsites.net`.
 1. Review the file to understand the API and its endpoints. The `operationId` values are CRUD operations that can be performed on the to-do list. Once the app is up and running, you can use your AI Agent to invoke the API and perform the various operations on your behalf using natural language. At the end of the specification, you have the `securitySchemes` section. This security section is where you add authentication if your API requires it. This section is left blank for the sample app, but is included because the AI Agent Service requires it.
 
 ### Create the OpenAPI Spec tool definition
 
 1. Create a file in the same directory as your `swagger.json` file called `tool.py`. Copy the following contents into the file. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart.md) to get the required packages installed as well as get you logged into your Azure account.
-
   ```python
   import os
   import jsonref
@@ -394,16 +383,26 @@ Now that you have the required infrastructure, you can put it all together and s
       project_client.agents.delete_agent(agent.id)
       print("Deleted agent")
   ```
-
-1. Replace the placeholder for your project's connection string. If you need help with finding the connection string, see the [Configure and run agent section of the quickstart](/azure/ai-services/agents/quickstart.md#configure-and-run-agent) for details on how to get your connection string.
-1. Review the file to understand how the OpenAPI tool is created and how the AI Agent is invoked. Each time the tool is invoked, the AI Agent uses the OpenAPI specification to determine how to interact with the API. The OpenAPI specification is passed into the file. The `message_content` variable is where you enter the natural language command that you want the AI Agent to perform. You're prompted to enter the message once you run the script. The AI Agent invokes the API and returns the results. It creates and deletes the AI Agent each time you run the script.
+1. Replace the placeholder for your project's connection string. If you need help with finding the connection string, see the [Configure and run agent section of the quickstart](/azure/ai-services/agents/quickstart.md#configure-and-run-agent).
+1. Review the file to understand how the OpenAPI tool is created and how the AI Agent is invoked. The OpenAPI specification is passed into the file. Each time the tool is invoked, the AI Agent uses the OpenAPI specification to determine how to interact with the API. The `message_content` variable is where you enter the natural language command that you want the AI Agent to perform. You're prompted to enter the message once you run the script. The AI Agent invokes the API and returns the results. It creates and deletes the AI Agent each time you run the script.
 
 ## Run the OpenAPI Spec tool
 
 1. Open a terminal and navigate to the directory where you created the `tool.py` and `swagger.json` files. To run the script, run the following command.
-
   ```bash
   python tool.py
   ```
-
 1. When prompted, enter a message for your Agent. For example, you can enter "What's on my to-do list?", "Add a task to buy bread," "Mark all my tasks as done," or any other question or action that can be performed on the list. The AI Agent then invokes the API and returns the results. You can also enter `Add an item to the to do list` and the AI Agent prompts you for the details of the item to add.
+
+## Next steps
+
+Now that you learned how to connect your AI Agent to an API on Azure App Service, you can explore the other AI integrations available with App Service:
+
+> [!div class="nextstepaction"]
+> [Deploy an application that uses OpenAI on Azure App Service](./deploy-intelligent-apps.md)
+
+> [!div class="nextstepaction"]
+> [Run a local SLM in a sidecar container in Azure App Service](./tutorial-sidecar-local-small-language-model.md)
+
+> [!div class="nextstepaction"]
+> [Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service](./deploy-intelligent-apps-dotnet-to-azure-sql.md)
