@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 # Understand name mapping using LDAP in Azure NetApp Files
 
-Name mapping rules with [lightweight directory access protocol (LDAP)](lightweight-directory-access-protocolmd) can be broken down into two main types: *symmetric* and *asymmetric*.
+Name mapping rules with [lightweight directory access protocol (LDAP)](lightweight-directory-access-protocol.md) can be broken down into two main types: *symmetric* and *asymmetric*.
 
 * *Symmetric* name mapping is implicit name mapping between UNIX and Windows users who use the same user name. For example, Windows user `CONTOSO\user1` maps to UNIX user `user1`.  
 * *Asymmetric* name mapping is name mapping between UNIX and Windows users who use **different** user names. For example, Windows user `CONTOSO\user1` maps to UNIX user `user2`.

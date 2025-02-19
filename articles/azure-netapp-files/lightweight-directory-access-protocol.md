@@ -57,13 +57,13 @@ LDAP offers various benefits for your UNIX users and groups as an identity sourc
 The following section discusses the basics of LDAP as it pertains to Azure NetApp Files.
 
 * LDAP information is stored in flat files in an LDAP server and is organized by way of an LDAP schema. You should configure LDAP clients in a way that coordinates their requests and lookups with the schema on the LDAP server.
-* LDAP clients initiate queries by way of an LDAP bind, which is essentially a login to the LDAP server using an account that has read access to the LDAP schema. The LDAP bind configuration on the clients is configured to use the security mechanism that is defined by the LDAP server. Sometimes, they are user name and password exchanges in plain text (simple). In other cases, binds are secured through Simple Authentication and Security Layer methods (`sasl`) such as Kerberos or LDAP over TLS. Azure NetApp Files uses the SMB machine account to bind using SASL authentication for the best possible security.
+* LDAP clients initiate queries by way of an LDAP bind, which is essentially a login to the LDAP server using an account that has read access to the LDAP schema. The LDAP bind configuration on the clients is configured to use the security mechanism that is defined by the LDAP server. Sometimes, they're user name and password exchanges in plain text (simple). In other cases, binds are secured through Simple Authentication and Security Layer methods (`sasl`) such as Kerberos or LDAP over TLS. Azure NetApp Files uses the SMB machine account to bind using SASL authentication for the best possible security.
 * User and group information that is stored in LDAP is queried by clients by using standard LDAP search requests as defined in [RFC 2307](https://datatracker.ietf.org/doc/html/rfc2307). In addition, newer mechanisms, such as [RFC 2307bis](https://datatracker.ietf.org/doc/html/draft-howard-rfc2307bis-02), allow more streamlined user and group lookups. Azure NetApp Files uses a form of RFC 2307bis for its schema lookups in Windows Active Directory. 
 * LDAP servers can store user and group information and netgroup. However, Azure NetApp Files currently can't use netgroup functionality in LDAP on Windows Active Directory.
 * LDAP in Azure NetApp Files operates on port 389. This port currently can't be modified to use a custom port, such as port 636 (LDAP over SSL) or port 3268 (Active Directory Global Catalog searches).
 * Encrypted LDAP communications can be achieved using [LDAP over TLS](configure-ldap-over-tls.md#considerations) (which operates over port 389) or LDAP signing, both of which can be configured on the Active Directory connection.
-* Azure NetApp Files supports LDAP queries that take no longer than 3 seconds to complete. If the LDAP server has many objects, that timeout may be exceeded, and authentication requests can fail. In those cases, consider specifying an [LDAP search scope](https://ldap.com/the-ldap-search-operation/) to filter queries for better performance.
-* Azure NetApp Files also supports specifying preferred LDAP servers to help speed up requests. Use this setting if you want to ensure the LDAP server closest to your Azure NetApp Files region is being used.
+* Azure NetApp Files supports LDAP queries that take no longer than 3 seconds to complete. If the LDAP server has many objects, that time out might be exceeded, and authentication requests can fail. In those cases, consider specifying an [LDAP search scope](https://ldap.com/the-ldap-search-operation/) to filter queries for better performance.
+* Azure NetApp Files also supports specifying preferred LDAP servers to help accelerate requests. Use this setting if you want to ensure the LDAP server closest to your Azure NetApp Files region is being used.
 * If no preferred LDAP server is set, the Active Directory domain name is queried in DNS for LDAP service records to populate the list of LDAP servers available for your region located within that SRV record. You can manually query LDAP service records in DNS from a client using [`nslookup`](/troubleshoot/windows-server/networking/verify-srv-dns-records-have-been-created) or [`dig`](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/) commands. 
 
     For example: 
@@ -111,9 +111,9 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
     contoso.com      internet address = y.y.y.y
     ```
 * LDAP servers can also be used to perform custom name mapping for users. For more information, see [Understand name mapping using LDAP](lightweight-directory-access-protocol-name-mapping.md). 
-* LDAP query timeouts 
+* LDAP query time outs 
 
-    By default, LDAP queries time out if they can't completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup fails, and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query timeout settings.
+    By default, LDAP queries time out if they can't completed in a timely fashion. If an LDAP query fails due to a time out, the user and/or group lookup fails, and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query time out settings.
 
 ## Next steps 
 

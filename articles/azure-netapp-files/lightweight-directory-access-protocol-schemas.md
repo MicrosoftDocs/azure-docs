@@ -1,6 +1,6 @@
 ---
 title: Understand LDAP schemas in Azure NetApp Files
-description: This article helps you understand the allow local NFS users option in the lightweight directory access protocol (LDAP).
+description: This article helps you understand schemas in the lightweight directory access protocol (LDAP).
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
@@ -13,7 +13,7 @@ ms.author: anfdocs
 
 [Lightweight directory access protocol (LDAP)](lightweight-directory-access-protocol.md) schemas are how LDAP servers organize and collect information. LDAP server schemas generally follow the same standards, but different LDAP server providers might have variations on how schemas are presented. 
 
-When Azure NetApp Files queries LDAP, schemas are used to help speed up name lookups because they enable the use of specific attributes to find information about a user, such as the UID. The schema attributes must exist in the LDAP server for Azure NetApp Files to be able to find the entry. Otherwise, LDAP queries might return no data and authentication requests might fail.
+When Azure NetApp Files queries LDAP, schemas are used to help accelerate name lookups because they enable the use of specific attributes to find information about a user, such as the UID. The schema attributes must exist in the LDAP server for Azure NetApp Files to be able to find the entry. Otherwise, LDAP queries might return no data and authentication requests might fail.
 
 For example, if a UID number (such as root=0) must be queried by Azure NetApp Files, then the schema attribute RFC 2307 `uidNumber Attribute` is used. If no UID number `0` exists in LDAP in the `uidNumber` field, then the lookup request fails.
 
@@ -23,8 +23,7 @@ The schema type currently used by Azure NetApp Files is a form of schema based o
 
 This RFC extension fits nicely into how Microsoft Active Directory manages users and groups through the usual management tools. This is because when you add a Windows user to a group (and if that group has a valid numeric GID) using the standard Windows management methods, LDAP lookups will pull the necessary supplemental group information from the usual Windows attribute and find the numeric GIDs automatically.
 
-
-When Azure NetApp Files volumes need to perform LDAP lookups for NFS user identities, a series of attributes defined by an LDAP schema based on RFC-2307bis. The following table shows the attributes used by LDAP lookups, which are the defaults defined in Microsoft Active Directory when UNIX attributes are leveraged. For proper functionality, ensure these attributes are properly populated on user and group accounts in LDAP.
+When Azure NetApp Files volumes need to perform LDAP lookups for NFS user identities, a series of attributes defined by an LDAP schema based on RFC-2307bis. The following table shows the attributes used by LDAP lookups, which are the defaults defined in Microsoft Active Directory when UNIX attributes are used. For proper functionality, ensure these attributes are properly populated on user and group accounts in LDAP.
 
 | UNIX attribute | LDAP Schema Value | 
 | - | - |
@@ -43,13 +42,17 @@ When Azure NetApp Files volumes need to perform LDAP lookups for NFS user identi
 | UNIX member UID | memberUid*** |
 | UNIX group of unique names object class| Group** |
 
+
 \* Required attribute for proper LDAP functionality
+
 \** Populated in Active Directory by default
+
 \*** Not required
 
 ## Understand LDAP attribute indexing
 
-Active Directory LDAP provides an [indexing method for attributes](/windows/win32/adschema/attributes-indexed) that helps speed up lookup requests. This is particularly useful in large directory environments, where an LDAP search can potentially exceed the 10 second timeout value for lookups in Azure NetApp Files. If a search timeout is exceeded, the LDAP lookup will fail and access will not work properly, since the service cannot verify the user or group identity requesting access.
+Active Directory LDAP provides an [indexing method for attributes](/windows/win32/adschema/attributes-indexed) that helps speed up lookup requests. This is particularly useful in large directory environments, where an LDAP search can potentially exceed the 10-second time-out value for lookups in Azure NetApp Files. If a search exceeds its time-out value, the LDAP lookup fails, and access won't work properly because the service cannot verify the user or group identity requesting access.
+
 By default, Microsoft Active Directory LDAP will index the following UNIX attributes used by Azure NetApp Files for LDAP lookups:
 
 - [Common Name (CN)](/windows/win32/adschema/a-cn)
@@ -68,7 +71,7 @@ Attributes are indexed via [the `searchFlags` value](/openspecs/windows_protocol
 
 :::image type="content" source="./media/lightweight-directory-access-protocol-schemas/connection-settings.png" alt-text="Screenshot of connection settings menu." lightbox="./media/lightweight-directory-access-protocol-schemas/connection-settings.png":::
 
-By default, the uid attribute object’s `searchFlags` are set to 0x8 (PRESERVE_ON_DELETE). This default setting esnures that even if the object in Active Directory is deleted, the attribute value remains stored in the directory as a historical record of the user’s attribute.
+By default, the uid attribute object’s `searchFlags` are set to 0x8 (PRESERVE_ON_DELETE). This default setting ensures that even if the object in Active Directory is deleted, the attribute value remains stored in the directory as a historical record of the user’s attribute.
 
 :::image type="content" source="./media/lightweight-directory-access-protocol-schemas/search-flag-no-index.png" alt-text="Screenshot of uid properties menu." lightbox="./media/lightweight-directory-access-protocol-schemas/search-flag-no-index.png":::
 
@@ -78,7 +81,7 @@ In comparison, an attribute that is indexed in Active Directory for LDAP searche
 
 Because of this, queries for uidNumber return faster than queries for uid. For consistency and performance, you can adjust the `searchFlags` value for uid to 9 by adding 0x1 along with the existing value of 0x8, which is (INDEX | PRESERVE_ON_DELETE). This addition maintains the default behavior while adding attribute indexing to the directory.
 
-:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png" alt-text="Screenshot of integer attribute editor." lightbox="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png" alt-text="Screenshot of integer attribute editor." lightbox="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png":::
 
 :::image type="content" source="./media/lightweight-directory-access-protocol-schemas/search-flag-indexed.png" alt-text="Screenshot of uid properties menu with indexing added." lightbox="./media/lightweight-directory-access-protocol-schemas/search-flag-indexed.png":::
 
