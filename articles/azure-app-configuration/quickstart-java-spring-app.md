@@ -6,7 +6,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 02/19/2024
 ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -39,17 +39,20 @@ Now that you have an App Configuration store, you can use the Spring Cloud Azure
 To install the Spring Cloud Azure Config starter module, add the following dependency to your *pom.xml* file:
 
 ```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-</dependency>
+<dependencies>
+    ...
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    </dependency>
+</dependencies>
 
 <dependencyManagement>
     <dependencies>
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.18.0</version>
+        <version>5.20.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -65,7 +68,9 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 
    ```java
    import org.springframework.boot.context.properties.ConfigurationProperties;
+   import org.springframework.stereotype.Component;
 
+   @Component
    @ConfigurationProperties(prefix = "config")
    public class MyProperties {
        private String message;
@@ -83,34 +88,19 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 1. Create a new Java file named *HelloController.java*, and add the following lines:
 
    ```java
+   import org.springframework.beans.factory.annotation.Autowired;
    import org.springframework.web.bind.annotation.GetMapping;
    import org.springframework.web.bind.annotation.RestController;
 
    @RestController
    public class HelloController {
-       private final MyProperties properties;
-
-       public HelloController(MyProperties properties) {
-           this.properties = properties;
-       }
+       
+       @Autowired
+       private MyProperties properties; 
 
        @GetMapping
        public String getMessage() {
            return "Message: " + properties.getMessage();
-       }
-   }
-   ```
-
-1. In the main application Java file, add `@EnableConfigurationProperties` to enable the *MyProperties.java* configuration properties class to take effect and register it with the Spring container.
-
-   ```java
-   import org.springframework.boot.context.properties.EnableConfigurationProperties;
-
-   @SpringBootApplication
-   @EnableConfigurationProperties(MyProperties.class)
-   public class DemoApplication {
-       public static void main(String[] args) {
-           SpringApplication.run(DemoApplication.class, args);
        }
    }
    ```
