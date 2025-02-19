@@ -113,13 +113,14 @@ The following example creates an external data source in serverless or dedicated
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = '<secret>'
+SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
 CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
     CREDENTIAL = sqlondemand
 );
 ```
+
 > [!NOTE]
 > The SQL users need to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](./develop-storage-files-overview.md?tabs=impersonation#permissions).
 
