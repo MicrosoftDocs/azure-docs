@@ -128,7 +128,7 @@ The optional `options` attribute may be used to add mount options for an AMLFS m
 ::: moniker-end
 
 [!NOTE]
-Lustre performs best if nodes unmount prior to shutdown, so it is strongly recommended to enable [Termination Notifications](~/how-to/scheduled-events.md#terminate-notification) for nodes which will mount an AMLFS filesystem.   CycleCloud will register a shutdown script to cleanly unmount the filesystem upon node termination that will be called if Termination Notifications are enabled.
+Lustre performs best if nodes unmount prior to shutdown, so it is strongly recommended to enable [Termination Notifications](~/articles/cyclecloud/how-to/scheduled-events.md#terminate-notification) for nodes which will mount an AMLFS filesystem.   CycleCloud will register a shutdown script to cleanly unmount the filesystem upon node termination that will be called if Termination Notifications are enabled.
 
 
 

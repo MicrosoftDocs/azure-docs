@@ -13,7 +13,7 @@ An Azure CycleCloud installation uses recommended OS images for clusters by defa
 
 Custom and marketplace images are supported in the cluster UI. Instead of selecting a built-in image, check the **Custom Image** box and specify the full _Resource ID_ or _URN_ for the image:
 
-![Custom Images](~/images/custom-image.png)
+![Custom Images](~/articles/cyclecloud/images/custom-image.png)
 
 > [!NOTE]
 > This is only supported in CycleCloud versions >7.7.0

@@ -20,7 +20,7 @@ The CentOS 7.6 HPC Marketplace image contains all of the drivers to enable the I
 
 To use the CentOS 7.6 HPC image when creating your cluster, check the **Custom Image** box on the **Advanced Settings** parameter and enter the value `OpenLogic:CentOS-HPC:7.6:latest`.
 
-![CentOS HPC Image](~/images/hc-marketplace-image.png)
+![CentOS HPC Image](~/articles/cyclecloud/images/hc-marketplace-image.png)
 
 In order to support the older H16r VM series and keep cluster head nodes locked to the same version of CentOS, the default "Cycle CentOS 7" image in the Base OS dropdown deploys CentOS 7.4. While this is fine for most VM series, HB/HC VMs require CentOS 7.6 or newer and a different Mellanox driver. 
 

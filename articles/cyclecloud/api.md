@@ -10,7 +10,7 @@ monikerRange: '>= cyclecloud-8'
 # Operations
 
 ::: moniker range=">= cyclecloud-8"
-[!INCLUDE [operations](~/includes/version-8/api_operations.md)]
+[!INCLUDE [operations](~/articles/cyclecloud/includes/version-8/api_operations.md)]
 ::: moniker-end
 
 ## Resources

@@ -30,5 +30,5 @@ Make sure the cookbook exists in the project
 
 ## More Information
 
-Lean more about [CycleCloud Projects](~/how-to/projects.md)
+Lean more about [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md)
 

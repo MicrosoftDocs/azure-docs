@@ -206,7 +206,7 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.version                 | Default: '2011.11'. This is the Grid Engine version to install and run. This is currently the default and *only* option. In the future additional versions of the Grid Engine software may be supported. |
 | gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.   |
 
-[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+[!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]
 
 ## Known Issues
 
@@ -562,7 +562,7 @@ This example will use the 8.6.1-demo version, but all ge versions > 8.4.0 are su
   * ge-8.6.x-bin-lx-amd64.tar.gz
   * ge-8.6.x-common.tar.gz
 
-2. The CycleCloud CLI must be configured. Documentation is available [here](~/how-to/install-cyclecloud-cli.md) 
+2. The CycleCloud CLI must be configured. Documentation is available [here](~/articles/cyclecloud/how-to/install-cyclecloud-cli.md) 
 
 ### Copy the binaries into the cloud locker
 

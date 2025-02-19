@@ -19,7 +19,7 @@ ms.custom: compute-evergreen
 
 ## Resolution
 
-Azure CycleCloud provides users the ability to configure VMs that become nodes of the cluster by running custom scripts during the VM preparation phase. This functionality is provided through the [CycleCloud Projects](~/how-to/projects.md) system, and is also known as Cluster-Init.
+Azure CycleCloud provides users the ability to configure VMs that become nodes of the cluster by running custom scripts during the VM preparation phase. This functionality is provided through the [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md) system, and is also known as Cluster-Init.
 
 If there are failures or errors when these scripts are executed, Cyclecloud versions 7.9 and later surface these errors in the node details page. The STDERR and STDOUT output of the scripts are included in these error messages. 
 

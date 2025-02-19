@@ -26,7 +26,7 @@ With a rich, declarative, templating format, CycleCloud provides powerful toolin
 
 CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-monitor/overview) and [Azure Cost Management tools](/azure/cost-management/overview-cost-mgt).
 
-![Overview Intro](~/images/overview-gui.png)
+![Overview Intro](~/articles/cyclecloud/images/overview-gui.png)
 
 ### CycleCloud Capabilities
 
@@ -79,7 +79,7 @@ An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCl
 ## Next Steps
 
 * [Try Azure CycleCloud using a Marketplace VM](qs-install-marketplace.md)
-* [Install Azure CycleCloud using an ARM template](~/how-to/install-arm.md)
-* [Install CycleCloud manually](~/how-to/install-manual.md)
+* [Install Azure CycleCloud using an ARM template](~/articles/cyclecloud/how-to/install-arm.md)
+* [Install CycleCloud manually](~/articles/cyclecloud/how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/tutorial.md)
 * [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)

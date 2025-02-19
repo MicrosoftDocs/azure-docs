@@ -8,10 +8,10 @@ ms.author: adjohnso
 
 # Manual Installation
 
-Azure CycleCloud can be installed using an [ARM template](~/how-to/install-arm.md), via [Azure Marketplace](~/qs-install-marketplace.md) or using a container in the [Azure Container Registry](~/how-to/run-in-container.md). We recommend installing using the Azure Marketplace image, but for some production situations it may be useful to manually install CycleCloud as outlined below.
+Azure CycleCloud can be installed using an [ARM template](~/articles/cyclecloud/how-to/install-arm.md), via [Azure Marketplace](~/articles/cyclecloud/qs-install-marketplace.md) or using a container in the [Azure Container Registry](~/articles/cyclecloud/how-to/run-in-container.md). We recommend installing using the Azure Marketplace image, but for some production situations it may be useful to manually install CycleCloud as outlined below.
 
 > [!NOTE]
-> The CycleCloud product encompasses many pieces, including node configuration software known as [Jetpack](~/jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
+> The CycleCloud product encompasses many pieces, including node configuration software known as [Jetpack](~/articles/cyclecloud/jetpack.md), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.
 
 ## System Requirements
 
@@ -200,4 +200,4 @@ Once you have set up your administrator account, you can set your SSH public key
 
 ## Update CycleCloud
 
-See the [Update Azure CycleCloud](~/how-to/upgrade-and-migrate.md) page.
+See the [Update Azure CycleCloud](~/articles/cyclecloud/how-to/upgrade-and-migrate.md) page.

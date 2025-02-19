@@ -19,7 +19,7 @@ For this quickstart, you will need:
 1. An Azure account with an active subscription.
 1. A SSH key
 
-[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/articles/cyclecloud/includes/cloud-shell-try-it.md)]
 
 ### SSH Keypair
 
@@ -45,7 +45,7 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 1. In the search bar, enter "CycleCloud" and select "Azure CycleCloud" from under the **Marketplace** category
 1. Click on the **Create** button to bring up the Create Virtual Machine form.
 
-![Create CycleCloud VM](~/images/create-cyclecloud-vm.png)
+![Create CycleCloud VM](~/articles/cyclecloud/images/create-cyclecloud-vm.png)
 
 ### Customize CycleCloud instance
 
@@ -60,7 +60,7 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 
 The image has a number of recommended default settings including **Size** and built-in **Network Security Groups**. These can be modified if necessary.
 
-![Customize CycleCloud instance](~/images/customize-marketplace-image.png)
+![Customize CycleCloud instance](~/articles/cyclecloud/images/customize-marketplace-image.png)
 
 ## Assign Managed Identity
 
@@ -70,7 +70,7 @@ If you are using Managed Identities for authentication, you should follow the [M
 
 To connect to the CycleCloud webserver, retrieve the public IP address of the CycleServer VM from the Azure Portal.
 
-![Get Public IP address](~/images/get-public-ip.png)
+![Get Public IP address](~/articles/cyclecloud/images/get-public-ip.png)
 
 Browse to `https://<public IP>/`. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 

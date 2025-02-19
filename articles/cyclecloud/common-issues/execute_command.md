@@ -30,4 +30,4 @@ These commands may fail for a variety of reasons which triggers a Chef error. In
 
 ## More Information
 
-Lean more about [CycleCloud Projects](~/how-to/projects.md)
+Lean more about [CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md)

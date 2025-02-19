@@ -27,7 +27,7 @@ You will need:
     * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
     * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/articles/cyclecloud/includes/cloud-shell-try-it.md)]
 
 ### Service Principal
 
@@ -112,11 +112,11 @@ Browse to `https://<FQDN>/`. The installation uses a self-signed SSL certificate
 
 Create a **Site Name** for your installation. You can use any name here:
 
-![CycleCloud Welcome screen](~/images/cc-first-login.png)
+![CycleCloud Welcome screen](~/articles/cyclecloud/images/cc-first-login.png)
 
 The Azure CycleCloud End User License Agreement will be displayed - click to accept it. You will then need to create a CycleCloud admin user for the application server. We recommend using the same username used above. Ensure the password you enter meets the requirements listed. Click **Done** to continue.
 
-![CycleCloud Create New User screen](~/images/create-new-user.png)
+![CycleCloud Create New User screen](~/articles/cyclecloud/images/create-new-user.png)
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
 

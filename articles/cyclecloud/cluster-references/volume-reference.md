@@ -10,7 +10,7 @@ ms.service: azure-cyclecloud
 
 # Volumes
 
-[Volume](~/how-to/mount-disk.md) objects are rank 3 and subordinate to `node` and `nodearray`. A Volume represents an Azure Disk.
+[Volume](~/articles/cyclecloud/how-to/mount-disk.md) objects are rank 3 and subordinate to `node` and `nodearray`. A Volume represents an Azure Disk.
 
 ## Example
 

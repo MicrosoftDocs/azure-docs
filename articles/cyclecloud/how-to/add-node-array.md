@@ -15,7 +15,7 @@ This article shows you how to add a node array to an existing cluster using a te
 
 ## Edit the Cluster Template
 
-In order to add a node array, you must have a [template file](~/how-to/cluster-templates.md) for your cluster. Edit this file and add a new `[[nodearray]]` section underneath `[cluster]`, giving the array a unique name within that cluster.
+In order to add a node array, you must have a [template file](~/articles/cyclecloud/how-to/cluster-templates.md) for your cluster. Edit this file and add a new `[[nodearray]]` section underneath `[cluster]`, giving the array a unique name within that cluster.
 
 For example, the template below contains a node array named "highmem" which uses Standard_M64 VMs instead of the value specified in the node defaults (Standard_D4_v2):
 

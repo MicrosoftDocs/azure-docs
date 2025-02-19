@@ -161,4 +161,4 @@ cyclecloud import_cluster "Contoso" -c Example -t -f ./example-template.txt
 ```
 
 > [!NOTE]
-> Various attributes inside the cluster template will affect how the template appears in the browser. For example, the icon displayed is specified by "IconUrl" and the heading above template uses the "Category" attribute. For a full list of the supported attributes, see [Build a New Cluster Template](~/cluster-references/cluster-reference.md).
+> Various attributes inside the cluster template will affect how the template appears in the browser. For example, the icon displayed is specified by "IconUrl" and the heading above template uses the "Category" attribute. For a full list of the supported attributes, see [Build a New Cluster Template](~/articles/cyclecloud/cluster-references/cluster-reference.md).

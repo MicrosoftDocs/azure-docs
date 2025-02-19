@@ -25,7 +25,7 @@ the event log on the Clusters page. You can edit your node settings and retry th
 
 ## Starting via CycleCloud CLI
 
-The CycleCloud CLI can also [start clusters](~/cli.md#cyclecloud-start_cluster):
+The CycleCloud CLI can also [start clusters](~/articles/cyclecloud/cli.md#cyclecloud-start_cluster):
 
 ```bash
 cyclecloud start_cluster my_cluster_name

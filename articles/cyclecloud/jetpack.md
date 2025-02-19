@@ -112,7 +112,7 @@ jetpack autoscale --file=custom-autoscale.json
 
 ### jetpack download
 
-`jetpack download` downloads a blob that was uploaded with a [project](~/how-to/projects.md) to the node. You must specify the project the blob belongs to.
+`jetpack download` downloads a blob that was uploaded with a [project](~/articles/cyclecloud/how-to/projects.md) to the node. You must specify the project the blob belongs to.
 
 To download the blob big-file.zip that was uploaded as part of the `example-project` project to the current directory:
 
@@ -222,7 +222,7 @@ jetpack shutdown --deallocate
 
 ### jetpack test
 
-`jetpack test` runs any tests that are included with [projects](~/how-to/projects.md) assigned to the node and prints the results to stdout.
+`jetpack test` runs any tests that are included with [projects](~/articles/cyclecloud/how-to/projects.md) assigned to the node and prints the results to stdout.
 
 ### jetpack users
 

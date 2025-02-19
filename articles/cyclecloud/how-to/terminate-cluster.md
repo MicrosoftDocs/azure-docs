@@ -26,7 +26,7 @@ Click **Terminate** in the CycleCloud GUI to shut down all of the cluster's infr
 
 ## Terminate via CycleCloud CLI
 
-The CycleCloud CLI can also [terminate clusters](~/cli.md#cyclecloud-terminate_cluster):
+The CycleCloud CLI can also [terminate clusters](~/articles/cyclecloud/cli.md#cyclecloud-terminate_cluster):
 
 ```bash
 cyclecloud terminate_cluster my_cluster_name
@@ -45,7 +45,7 @@ az group delete --name "{RESOURCE GROUP}"
 
 CycleCloud 8.2.1 supports the **Force Delete** option for VMs, which can provide faster delete times at the risk of possible data loss on the disks. This can be enabled separately for standalone VMs (such as scheduler head nodes) or scaleset VMs (execute nodes). To enable it, go to the **Settings** page in the upper right corner, and **Configure CycleCloud**.
 
-![Force Delete settings](~/images/force-delete-settings.png)
+![Force Delete settings](~/articles/cyclecloud/images/force-delete-settings.png)
 
 This setting affects all VMs managed by CycleCloud, but can be changed at any time.
 

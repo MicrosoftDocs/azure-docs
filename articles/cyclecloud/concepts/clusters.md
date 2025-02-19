@@ -29,11 +29,11 @@ There are however crucial differences between nodearrays and VM scale sets, the 
 
 The topology, or how nodes are organized in a CycleCloud cluster, are defined in text templates that lay out the relationships among nodes of a cluster, and in the case of nested clusters, the parent-child relationship of clusters. The templates also provide the means of defining the role each node play. 
 
-Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using square brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](~/how-to/cluster-templates.md)
+Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using square brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](~/articles/cyclecloud/how-to/cluster-templates.md)
 
 ## Node Preparation and Configuration
 
-CycleCloud provisions VMs from base VM images defined in the cluster template, and through a series of steps managed by the CycleCloud agent ([Jetpack](~/jetpack.md)) during the boot process, initializes and configures the OS on the VM to convert it into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
+CycleCloud provisions VMs from base VM images defined in the cluster template, and through a series of steps managed by the CycleCloud agent ([Jetpack](~/articles/cyclecloud/jetpack.md)) during the boot process, initializes and configures the OS on the VM to convert it into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
 
 ![Node Preparation Diagram](../images/concept_node-prep_diagram.png)
 
@@ -43,7 +43,7 @@ CycleCloud utilizes Chef in a stand-alone mode that does not rely on a centraliz
 
 After these Cookbooks are downloaded, Chef processes the list of Recipes defined in the node's *cluster-init specs*, triggering a preparation and configuration phase that converts the VM into a working HPC node.
 
-Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](~/how-to/projects.md) 
+Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](~/articles/cyclecloud/how-to/projects.md) 
 
 ## Node Orchestration
 
@@ -53,11 +53,11 @@ This element of [Service Discovery](https://en.wikipedia.org/wiki/Service_discov
 
 ## Further Reading
 
-* Create a [Cluster Template](~/how-to/cluster-templates.md)
-* [Start a Cluster](~/how-to/start-cluster.md)
-* [Auto Scaling](~/how-to/configure-autoscaling.md)
-* [Terminate a Cluster](~/how-to/terminate-cluster.md)
-* [Node Configuration Reference](~/cluster-references/configuration-reference.md)
+* Create a [Cluster Template](~/articles/cyclecloud/how-to/cluster-templates.md)
+* [Start a Cluster](~/articles/cyclecloud/how-to/start-cluster.md)
+* [Auto Scaling](~/articles/cyclecloud/how-to/configure-autoscaling.md)
+* [Terminate a Cluster](~/articles/cyclecloud/how-to/terminate-cluster.md)
+* [Node Configuration Reference](~/articles/cyclecloud/cluster-references/configuration-reference.md)
 
 > [!div class="nextstepaction"]
 > [Continue to Scheduling Concepts](./scheduling.md)

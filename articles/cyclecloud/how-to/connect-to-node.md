@@ -68,7 +68,7 @@ You can connect to an node via a bastion server by specifying the IP address on 
 cyclecloud connect htcondor-scheduler --bastion-host 1.1.1.1
 ```
 
-The above command assumes `cyclecloud` as the username, `22` as the port, and loads your default SSH key. To customize these values, see the `--bastion-*` help options for the [`cyclecloud` CLI command](~/cli.md#cyclecloud-connect).
+The above command assumes `cyclecloud` as the username, `22` as the port, and loads your default SSH key. To customize these values, see the `--bastion-*` help options for the [`cyclecloud` CLI command](~/articles/cyclecloud/cli.md#cyclecloud-connect).
 
 Alternately, the CycleCloud CLI can detect the bastion host for you if you add the following directive to your `~/.cycle/config.ini`:
 

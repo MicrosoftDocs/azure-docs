@@ -77,7 +77,7 @@ ComputerNamePrefix | String | Prefix pre-pended to system-generated computer nam
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
-Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
+Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/articles/cyclecloud/how-to/projects.md)
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -91,7 +91,7 @@ ProximityPlacementGroupId | String | The full id for the Proximity Placement Gro
 PlacementGroupId | String | If set, this label is used to place this node in a single placement group with all other nodes that have a matching value for PlacementGroupId. This offers lower latency communication and is required to enable InfiniBand on VM sizes that support it. This is usually set by the scheduler as needed so it does not need to be manually specified.
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
-Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/how-to/projects.md)
+Locker | String | Specify the name of the locker from which to download project specs. See [Use Projects](~/articles/cyclecloud/how-to/projects.md)
 BootDiagnosticsUri | String | Storage URI for boot diagnostics (example: https://mystorageaccount.blob.core.windows.net/), if specified. Storage charges will apply.
 HybridBenefit | Boolean | If true, enables "Azure Hybrid Benefit" licensing for Windows VMs
 NetworkSecurityGroupId | String | If given, the full resource id for a Network Security Group to use for this node. Note: this can also be specified as `SecurityGroup` on a [network interface](network-interface-reference.md).
@@ -225,7 +225,7 @@ Tags | String | Use `tags.my-tag = my-tag-value` to add tags to the deployment i
 
 ### Regular/Spot Attributes
 
-CycleCloud supports the use of Spot VMs via the following attributes. See [Spot Virtual Machines](~/how-to/cluster-templates.md#spot-virtual-machines) for more detail.
+CycleCloud supports the use of Spot VMs via the following attributes. See [Spot Virtual Machines](~/articles/cyclecloud/how-to/cluster-templates.md#spot-virtual-machines) for more detail.
 
 Attribute | String | Definition
 ------ | ----- | ----------

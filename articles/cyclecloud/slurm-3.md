@@ -174,4 +174,4 @@ To switch a cluster to this mode, add `SuspendTime=-1` to the slurm.conf and run
 
 6. For MPI jobs, the only network boundary that exists by default is the partition. There are not multiple "placement groups" per partition like 2.x. So you only have one colocated VMSS per partition. There is also no use of the topology plugin, which necessitated the use of a job submission plugin that is also no longer needed. Instead, submitting to multiple partitions is now the recommended option for use cases that require submitting jobs to multiple placement groups.
 
-[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+[!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]

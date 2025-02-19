@@ -9,7 +9,7 @@ ms.custom: compute-evergreen
 
 # Cluster-Init
 
-Cluster-init objects are subordinate in rank to `node` and `nodearray`. The cluster-init object defines the [CycleCloud project](~/how-to/projects.md) specs to run on a node.
+Cluster-init objects are subordinate in rank to `node` and `nodearray`. The cluster-init object defines the [CycleCloud project](~/articles/cyclecloud/how-to/projects.md) specs to run on a node.
 
 Adding a `[[[cluster-init]]]` section to a node will include a project spec. Cluster-init definition can also be written in short-hand notation:
 

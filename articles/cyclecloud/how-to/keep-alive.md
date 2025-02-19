@@ -27,11 +27,11 @@ The `KeepAlive` attribute will prevent CycleCloud from terminating or deallocati
 
 When a node is manually added to a cluster using  **Add Node**, the `KeepAlive` option is selected by default. Generally, manually created nodes should be terminated manually so `KeepAlive` will prevent autoscaling from terminating them.
 
-![KeepAlive add node dialog](~/images/keep-alive-add-dialog.png)
+![KeepAlive add node dialog](~/articles/cyclecloud/images/keep-alive-add-dialog.png)
 
 In some situations it is useful to prevent an autoscaling node from being terminated. For instance, a user can enable `KeepAlive` through the **Edit** interface to prevent an unresponsive node that warrants further debugging from being terminated by the autoscaler.
 
-![KeepAlive edit node dialog](~/images/keep-alive-edit-dialog.png)
+![KeepAlive edit node dialog](~/articles/cyclecloud/images/keep-alive-edit-dialog.png)
 
 ### via Template
 

@@ -188,19 +188,19 @@ By default, this project uses a UID and GID of 11100 for the Slurm user and 1110
 To override the UID and GID, click the edit button for both the `scheduler` node:
 
 ::: moniker range="=cyclecloud-7"
-![Edit Scheduler](~/images/version-7/slurmmasternodeedit.png "Edit Scheduler")
+![Edit Scheduler](~/articles/cyclecloud/images/version-7/slurmmasternodeedit.png "Edit Scheduler")
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-![Edit Scheduler](~/images/version-8/slurmschednodeedit.png "Edit Scheduler")
+![Edit Scheduler](~/articles/cyclecloud/images/version-8/slurmschednodeedit.png "Edit Scheduler")
 ::: moniker-end
 
 And the `execute` nodearray:
-![Edit Nodearray](~/images/slurmnodearraytab.png "Edit nodearray")
+![Edit Nodearray](~/articles/cyclecloud/images/slurmnodearraytab.png "Edit nodearray")
 
  and add the following attributes to the `Configuration` section:
 
-![Edit Configuration](~/images/slurmnodearrayedit.png "Edit configuration")
+![Edit Configuration](~/articles/cyclecloud/images/slurmnodearrayedit.png "Edit configuration")
 
 ``` ini
     slurm.user.name = slurm
@@ -243,4 +243,4 @@ The following are the Slurm specific configuration options you can toggle to cus
 | munge.user.uid                       | Default: '11101'. The User ID to use for the MUNGE user. |
 | munge.user.gid                       | Default: '11101'. The Group ID to use for the MUNGE user. |
 
-[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+[!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]

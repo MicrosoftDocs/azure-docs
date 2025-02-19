@@ -12,9 +12,9 @@ This article discusses the best practices and useful tips for using Azure CycleC
 
 ## Installation
 
-The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations to prevent unencrypted access to your CycleCloud installation. CycleCloud should not be accessible from the internet, but if needed only port 443 should be exposed. If you want to restrict direct internet access, configure to use a proxy for all internet-bound HTTP and/or HTTPS traffic. To disable unencrypted communications and HTTP access to CycleCloud refer to [SSL configuration](~/how-to/ssl-configuration.md).
+The default installation of CycleCloud uses non-encrypted HTTP running on port 8080. We strongly recommend configuring SSL for all installations to prevent unencrypted access to your CycleCloud installation. CycleCloud should not be accessible from the internet, but if needed only port 443 should be exposed. If you want to restrict direct internet access, configure to use a proxy for all internet-bound HTTP and/or HTTPS traffic. To disable unencrypted communications and HTTP access to CycleCloud refer to [SSL configuration](~/articles/cyclecloud/how-to/ssl-configuration.md).
 
-If you want to also restrict outbound internet access, it is possible to configure CycleCloud to use a proxy for all internet-bound HTTP and/or HTTPS traffic.  See [Operating in a Locked Down Environment](~/how-to/running-in-locked-down-network.md) for details.
+If you want to also restrict outbound internet access, it is possible to configure CycleCloud to use a proxy for all internet-bound HTTP and/or HTTPS traffic.  See [Operating in a Locked Down Environment](~/articles/cyclecloud/how-to/running-in-locked-down-network.md) for details.
 
 ## Authentication and Authorization
 
@@ -30,7 +30,7 @@ The [virtual network](</azure/virtual-network/virtual-networks-overview>) that c
 
 We strongly recommend using at least two subnets. One for the CycleCloud installation VM and any other VMs with the same access policies, and additional subnets for the compute clusters. However, keep in mind that for large clusters, the IP range of the subnet may become a limiting factor. So, in general, the CycleCloud subnet should use a small CIDR (Classless Inter-Domain Routing) range and compute subnets should be large.
 
-CycleCloud uses the Azure Resource Manager for managing clusters. To make calls to Azure Resource Manager, certain permissions are granted to CycleCloud by configuring [Managed Identity](~/how-to/managed-identities.md) on the CycleCloud VM. It is recommended to use either System-assigned or User-assigned Managed Identity. A system-assigned Managed Identity creates an identity in Azure AD that is tied to the lifecycle of that service instance. When that resource is deleted, the managed identity is automatically deleted. A user-assigned Managed Identity can be assigned to one or more instances of an Azure service. In this case, the managed identity is separately managed by the resources used.
+CycleCloud uses the Azure Resource Manager for managing clusters. To make calls to Azure Resource Manager, certain permissions are granted to CycleCloud by configuring [Managed Identity](~/articles/cyclecloud/how-to/managed-identities.md) on the CycleCloud VM. It is recommended to use either System-assigned or User-assigned Managed Identity. A system-assigned Managed Identity creates an identity in Azure AD that is tied to the lifecycle of that service instance. When that resource is deleted, the managed identity is automatically deleted. A user-assigned Managed Identity can be assigned to one or more instances of an Azure service. In this case, the managed identity is separately managed by the resources used.
 
 ## Secured Locked-down environment
 

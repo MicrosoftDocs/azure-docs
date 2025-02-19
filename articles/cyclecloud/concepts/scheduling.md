@@ -19,7 +19,7 @@ A scheduler is a software that accepts a list of jobs (or tasks) and distributes
 
 CycleCloud comes with built-in support for a number of commonly used schedulers (PBS Professional OSS, Slurm, IBM LSF, Grid Engine, and HT Condor), providing templates for deploying these schedulers on Azure. These templates are default topologies, representing best practices for building HPC clusters on Azure that leverage unique specialized features such as [low-latency InfiniBand networking](/azure/virtual-machines/workloads/hpc/enable-infiniband).
 
-Additionally, [Projects](~/how-to/projects.md) are created for each scheduler, and used to install and initialize scheduler daemons on headnodes and compute nodes.
+Additionally, [Projects](~/articles/cyclecloud/how-to/projects.md) are created for each scheduler, and used to install and initialize scheduler daemons on headnodes and compute nodes.
 
 ## Scheduler Adapters
 

@@ -34,11 +34,11 @@ cyclecloud connect [node] -c [cluster] -u cyclecloud
 
 ## Built-In User Management
 
-CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with login permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges for each VM in the cluster. These permissions may be granted through ownership of the cluster, by explicitly sharing permissions to the cluster, or by assigning users to a role which grants global login access. See [CycleCloud User Management](~/concepts/user-management.md) for more information on assigning roles to users.
+CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with login permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges for each VM in the cluster. These permissions may be granted through ownership of the cluster, by explicitly sharing permissions to the cluster, or by assigning users to a role which grants global login access. See [CycleCloud User Management](~/articles/cyclecloud/concepts/user-management.md) for more information on assigning roles to users.
 
 The list of users with login access to nodes is visible on the cluster page under **Users**. Selecting the **show** link will open a dialog with more information.
 
-![Cluster Users Dialog](~/images/cluster_users_dialog.png)
+![Cluster Users Dialog](~/articles/cyclecloud/images/cluster_users_dialog.png)
 
 This dialog shows each individual user as well as the status of user management on each individual node in the cluster. Any errors or warnings when configuring users (such as a UID conflict or a disallowed user name) will be displayed here. Since users are managed via the `jetpackd` daemon on each node, it is possible to make changes to running clusters.
 
@@ -59,7 +59,7 @@ If the user was granted login access via a shared permission, simply remove thos
 
 The built-in user management system is enabled by default on every CycleCloud installation and is an installation-wide setting -- all clusters managed by the CycleCloud server will have this enabled. To disable, navigate to the **CycleCloud** section of the **Settings** page. The pop-up box contains an option for **Node Authentication** and selecting **Disabled** from the drop down will ensure that no local user accounts aside from the VM agent user will be created.
 
-![Disable Node Authentication](~/images/node_auth_disabled.png)
+![Disable Node Authentication](~/articles/cyclecloud/images/node_auth_disabled.png)
 
 ## Third-Party User Management Systems
 

@@ -18,15 +18,15 @@ To display your cluster usage, click on **Create New Alert** within the cluster 
 > [!NOTE]
 > Usage Alerts are informational only. Going over your budget will not stop or pause the instance. The spend amount per cluster is cumulative per time period selected.
 
-![Usage Alert](~/images/usage_alert.png)
+![Usage Alert](~/articles/cyclecloud/images/usage_alert.png)
 
 Current spend within budget:
 
-![Current Spend Within Budget](~/images/within_budget.png)
+![Current Spend Within Budget](~/articles/cyclecloud/images/within_budget.png)
 
 Current spend with overage:
 
-![Current Spend With Overage](~/images/over_budget.png)
+![Current Spend With Overage](~/articles/cyclecloud/images/over_budget.png)
 
 ## Notifications
 
@@ -72,7 +72,7 @@ Cost tracking is on by default, but it does require access to the [RateCard API]
 
 ###  Tracking Costs Through Azure Cost Management
 
-CycleCloud tags VMs with `CycleCloudCluster` and `CycleCloudNodeArray` for the cluster and nodearray that they are in. (See [Tagging Nodes](~/how-to/tag-nodes.md) for more information on tagging.) This makes the costs show up in [Azure Cost Management](https://azure.microsoft.com/services/cost-management/). The benefit of tracking costs this way is that you Azure Cost Management shows the actual costs associated with that VM, including network and disk usage, billed at the actual rate for your subscription. The downside is that costs may take up to 48 hours to be listed there.
+CycleCloud tags VMs with `CycleCloudCluster` and `CycleCloudNodeArray` for the cluster and nodearray that they are in. (See [Tagging Nodes](~/articles/cyclecloud/how-to/tag-nodes.md) for more information on tagging.) This makes the costs show up in [Azure Cost Management](https://azure.microsoft.com/services/cost-management/). The benefit of tracking costs this way is that you Azure Cost Management shows the actual costs associated with that VM, including network and disk usage, billed at the actual rate for your subscription. The downside is that costs may take up to 48 hours to be listed there.
 
 ### Tracking Costs Through CycleCloud
 

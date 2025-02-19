@@ -125,4 +125,4 @@ HTCondor has large number of configuration settings, including user-defined attr
 > [!NOTE]
 > HTCondor configuration attributes containing a . cannot be specified using this method. If such attributes are needed, they should be specified in a cookbook or a file installed with cluster-init.
 
-[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+[!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]

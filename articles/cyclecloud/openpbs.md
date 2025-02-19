@@ -240,7 +240,7 @@ azpbs validate
 
 ::: moniker-end
 
-[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+[!INCLUDE [scheduler-integration](~/articles/cyclecloud/includes/scheduler-integration.md)]
 
 > [!NOTE]
 > CycleCloud does not support the bursting configuration with Open PBS.

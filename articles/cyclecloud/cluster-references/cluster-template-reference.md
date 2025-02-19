@@ -11,7 +11,7 @@ ms.custom: compute-evergreen
 
 # CycleCloud Cluster Template File
 
-CycleCloud clusters are defined in declarative and hierarchical text files called templates. A number of example CycleCloud cluster templates are available for [download](~/download-cluster-templates.md)
+CycleCloud clusters are defined in declarative and hierarchical text files called templates. A number of example CycleCloud cluster templates are available for [download](~/articles/cyclecloud/download-cluster-templates.md)
 
 > [!NOTE]
 > The CycleCloud cluster template file is case insensitive throughout.

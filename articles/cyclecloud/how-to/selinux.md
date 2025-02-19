@@ -14,7 +14,7 @@ Most modern Red Hat based Linux distributions (RHEL, CentOS) come with [Security
 
 Many Azure Cyclecloud HPC clusters use a shared NFS home directory to facilitate the submission of jobs and ease the sharing of information between compute nodes. Clusters that utilize a shared home directory include PBS Pro, Grid Engine, and Slurm.
 
-The default SELinux home directory policy prevents using an NFS mount or anything besides _/home_ for a home directory. For this reason, if [user management](~/concepts/user-management.md) is enabled, CycleCloud will automatically run the necessary commands to both allow a non-standard home directory _/shared/home_ as well as allowing NFS home directories.
+The default SELinux home directory policy prevents using an NFS mount or anything besides _/home_ for a home directory. For this reason, if [user management](~/articles/cyclecloud/concepts/user-management.md) is enabled, CycleCloud will automatically run the necessary commands to both allow a non-standard home directory _/shared/home_ as well as allowing NFS home directories.
 
 To enable a non-standard home directory the following commands are run to first copy the the security context from _/home_ to _/shared/home_ and then to reset the security context recursively on the new home directory:
 

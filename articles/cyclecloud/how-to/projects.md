@@ -42,7 +42,7 @@ If a project is defined on a node but does not exist in the expected storage loc
 
 CycleCloud has internal projects that run by default on all nodes to perform special volume and network handling and setup communication to CycleCloud. These internal projects are mirrored to the locker automatically.  
 
-The user is responsible to mirroring any additional projects to the locker. The [CycleCloud CLI](~/cli.md) has methods to compose projects:
+The user is responsible to mirroring any additional projects to the locker. The [CycleCloud CLI](~/articles/cyclecloud/cli.md) has methods to compose projects:
 
 ```azurecli-interactive
 cyclecloud project init myproject

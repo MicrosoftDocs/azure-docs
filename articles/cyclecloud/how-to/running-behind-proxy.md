@@ -14,7 +14,7 @@ Azure CycleCloud can be configured to use a proxy for all internet-bound HTTP an
 
 To enable proxies, go into the CycleCloud GUI and navigate to the **Settings** tab from the left frame, then double click on the **HTTP(s) Proxies** row. In the configuration dialog that pops up, verify that **Enabled** is checked and enter the proxy details in the form.
 
-![Proxy Settings window](~/images/proxy_settings.png)
+![Proxy Settings window](~/articles/cyclecloud/images/proxy_settings.png)
 
 Changes to the proxy settings will not take effect until after a restart. To restart CycleCloud, run the following command:
 
@@ -36,7 +36,7 @@ CycleCloud requires access to a Blob Storage container in your subscription in o
 
 ## Export HTTPS_PROXY before running the CycleCloud CLI installer
 
-The [CycleCloud CLI installer](~/how-to/install-cyclecloud-cli.md) requires outbound access to install packages via `pip`. Prior to running the install script, be sure to set the **HTTPS_PROXY** environment variable to point to your
+The [CycleCloud CLI installer](~/articles/cyclecloud/how-to/install-cyclecloud-cli.md) requires outbound access to install packages via `pip`. Prior to running the install script, be sure to set the **HTTPS_PROXY** environment variable to point to your
 proxy server and port:
 
 ```bash
@@ -45,7 +45,7 @@ export HTTPS_PROXY=myserver:8080
 
 ## Exporting proxy settings on nodes
 
-If the nodes started by CycleCloud also need to have traffic routed through a proxy server, we suggest the use of [cloud-init](~/how-to/cloud-init.md) to help configure your proxy settings as needed. For example:
+If the nodes started by CycleCloud also need to have traffic routed through a proxy server, we suggest the use of [cloud-init](~/articles/cyclecloud/how-to/cloud-init.md) to help configure your proxy settings as needed. For example:
 
 ```ini
 [node scheduler]

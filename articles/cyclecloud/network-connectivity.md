@@ -36,7 +36,7 @@ via ports 37140 and 37141 on the proxy. A typical deployment has the cluster
 head node designated as the return proxy, but any persistent node can play that
 same role.
 
-More information about configuring the return proxy can be found on this [page](~/how-to/return-proxy.md)
+More information about configuring the return proxy can be found on this [page](~/articles/cyclecloud/how-to/return-proxy.md)
 
 ## VNET Peering
 

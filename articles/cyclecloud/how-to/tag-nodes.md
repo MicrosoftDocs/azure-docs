@@ -50,7 +50,7 @@ CycleCloudNodeArray => "/sites/92xy4vgh/clusters/Demo/nodearrays/Compute"
 #::: moniker range=">=cyclecloud-8"
 > [!NOTE]
 > The CycleCloudCluster and CycleCloudNodeArray tags were added in 8.2 to make it easier to get costs from Azure Cost Management, using a standard format also used for 
-> the subject of [events sent to Event Grid](~/events.md#subject). The value for ClusterId is not constant over time, since the site name and owner can be changed.
+> the subject of [events sent to Event Grid](~/articles/cyclecloud/events.md#subject). The value for ClusterId is not constant over time, since the site name and owner can be changed.
 #::: moniker-end
 
 
@@ -91,4 +91,4 @@ Do not include quotation marks or periods in your tag names.
 
 ## Further Reading
 
-* [Tagging Reference docs](~/cluster-references/node-nodearray-reference.md#tags)
+* [Tagging Reference docs](~/articles/cyclecloud/cluster-references/node-nodearray-reference.md#tags)
