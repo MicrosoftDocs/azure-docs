@@ -452,7 +452,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
     - _"unable to parse all the rules for ruleset"_ when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Missing descriptions for some rules on the Insights tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the `Insights` tab of the report.
-- Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
+- Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - This release requires an active internet connection for dependency analysis.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
 - When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
