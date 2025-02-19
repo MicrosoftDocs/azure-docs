@@ -220,7 +220,7 @@ The expected customer impact includes new [pricing](https://azure.microsoft.com/
 ### What is the anticipated timeline for the migration?
 
 These timelines may be subject to change. Please revisit this for the most updated timeline. Here's the anticipated timeline for the migration tool availability.
- 
+
     | Date                | Event                                                      |
     |---------------------|------------------------------------------------------------|
     | Apr/May 2025        | Migration tooling availability for Active-Passive Gateways. |
