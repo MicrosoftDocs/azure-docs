@@ -60,7 +60,7 @@ The Azure SDK provides two sets of libraries for working with Azure Files resour
   
 ### Libraries for data access
 
-Data plane libraries are designed to handle data access operations at the *directory* or *file* level. The following sections shows the File Shares client library for .NET, Java, Python, JavaScript, and Go.
+Data plane libraries are designed to handle data access operations at the *directory* or *file* level. The following section shows the File Shares client library for .NET, Java, Python, JavaScript, and Go.
 
 ### [.NET](#tab/dotnet)
 
@@ -114,7 +114,7 @@ The following table shows the File Shares client library for data access:
 
 Control plane libraries build on top of the Azure Storage resource provider REST API, allowing you to manage Azure Storage resources. The Azure Storage resource provider is a service that is based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods.
 
-Resource management libraries are designed to handle resource management operations at the *file service* or *file share* level. To learn more about the operations, see [File Services](/rest/api/storagerp/file-services) or [File Shares](/rest/api/storagerp/file-shares). The following sections shows the Azure Storage management libraries for .NET, Java, Python, JavaScript, and Go.
+Resource management libraries are designed to handle resource management operations at the *file service* or *file share* level. To learn more about the operations, see [File Services](/rest/api/storagerp/file-services) or [File Shares](/rest/api/storagerp/file-shares). The following section shows the Azure Storage management libraries for .NET, Java, Python, JavaScript, and Go.
 
 ## [.NET](#tab/dotnet)
 
