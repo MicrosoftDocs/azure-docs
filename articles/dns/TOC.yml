@@ -48,8 +48,6 @@
       href: dns-private-resolver-get-started-powershell.md
     - name: Create a private resolver - Bicep
       href: dns-private-resolver-get-started-bicep.md
-    - name: Create a private resolver - Terraform
-      href: dns-private-resolver-get-started-terraform.md
     - name: Create a private resolver - ARM Template
       href: dns-private-resolver-get-started-template.md
   expanded: true
