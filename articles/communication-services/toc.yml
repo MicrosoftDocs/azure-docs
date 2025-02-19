@@ -483,7 +483,7 @@ items:
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
     - name: Enable audio noise suppression improvements
       href: tutorials/audio-quality-enhancements/add-noise-supression.md
-      displayName: noise suppression, audio quality, noise removal, background noise, deep noise
+      displayName: noise suppression, audio quality, noise removal, background noise, deep noise, voice isolation
     - name: Enable video background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
       displayName: background blur, background replace, background replacement, frosted glass
