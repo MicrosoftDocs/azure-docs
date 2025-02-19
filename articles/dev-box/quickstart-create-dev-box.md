@@ -24,7 +24,7 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Your organization must have configured Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. 
+- Your organization must have Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. 
     - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).  
 - You must have permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
@@ -35,13 +35,13 @@ Microsoft Dev Box enables you to create cloud-hosted developer workstations in a
 Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations. If you have a choice of projects and dev box pools, select the project and dev box pool that best fits your needs. For example, you might choose a project that has a dev box pool located near to you for least latency.
 
 > [!IMPORTANT]
-> You organization must have configured Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. If you don't see any projects or dev box pools, contact your administrator.
+> Your organization must have Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. If you don't see any projects or dev box pools, contact your administrator.
 
 To create a dev box in the Microsoft Dev Box developer portal:
 
 [!INCLUDE [developer-portal-landing-page](includes/developer-portal-landing-page.md)]
 
-3. In **Add a dev box**, enter the following values:
+4. In **Add a dev box**, enter the following values:
 
    | Setting | Value |
    |---|---|
@@ -59,9 +59,9 @@ To create a dev box in the Microsoft Dev Box developer portal:
    - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
    - A notification that the dev box creation process can take 25 minutes or longer.
    
-4. Select **Create** to begin creating your dev box.
+5. Select **Create** to begin creating your dev box.
 
-5. Use the dev box tile in the developer portal to track the progress of creation.
+6. Track the progress of creation by using the dev box tile in the developer portal. The status changes from *Creating* to *Running* when the dev box is ready for you to connect to it.
       
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating." lightbox="./media/quickstart-create-dev-box/dev-box-tile-creating.png":::
    
