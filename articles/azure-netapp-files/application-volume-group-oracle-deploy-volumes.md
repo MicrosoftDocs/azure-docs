@@ -54,7 +54,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 3. In the **ORACLE** tab, provide Oracle-specific information:   
 
     * **Unique System ID (SID)**:    
-        Choose a unique identifier that will be used in the naming proposals for all your storage objects and helps to uniquely identify the volumes for this database.
+        Use the unique Oracle identifier that will be used to identify the volumes for this database in the naming proposals for all your storage objects.
     * **Group name / Group description**:  
         Provide the volume group name and description.
     * **Number of Oracle data volumes (1-8)**:  
@@ -79,9 +79,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Network features**:  
         Select either **Basic** or **Standard** network features. All volumes should use the same network feature. This selection is set for each individual volume.
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.
+        All volumes will be placed in the same manual QoS capacity pool, selected here.
     * **Virtual network**:  
-        Specify an existing VNet where the VMs are placed. 
+        Specify an existing VNet where the Oracle VMs are located.
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
     * **Encryption key source**:
@@ -112,7 +112,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows how to add tags for Oracle.](./media/volume-hard-quota-guidelines/application-add-tags-oracle.png) ](./media/volume-hard-quota-guidelines/application-add-tags-oracle.png#lightbox)
 
 
-7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volumes](configure-ldap-extended-groups.md). These settings need to be common to all volumes. 
+7. In the **Protocols** section of the Volume Group tab, you can select the NFS version, modify the Export Policy, and select [LDAP-enabled volumes](configure-ldap-extended-groups.md). These settings need to be common across all volumes in this volume group. 
 
     > [!NOTE]
     > For optimal performance, use Oracle dNFS to mount the volumes at the database server. We recommend using NFSv3 as a base for dNFS, but NFSv4.1 is also supported. Check the support documentation of your Azure VM operating system for guidance about which NFS protocol version to use in combination with dNFS and your operating system. 
@@ -167,7 +167,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]    
-    > You cannot add a removed volume back to the volume group again.
+    > You cannot add a removed volume back to the volume group again without cancelling and restarting the application volume group workflow.
 
     Select **Volumes** after completing the changes of volumes.
 
