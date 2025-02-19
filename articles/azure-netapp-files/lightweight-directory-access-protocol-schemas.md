@@ -66,26 +66,23 @@ In smaller environments, this doesn't cause issues. But in larger environments (
 
 Attributes are indexed via [the `searchFlags` value](/openspecs/windows_protocols/ms-adts/7c1cdf82-1ecc-4834-827e-d26ff95fb207) for the attribute object, which is configurable via [ADSI Edit](/windows/win32/adsi/about-adsi) in the Schema naming context. Access to ADSI Edit should be approached with caution and requires at minimum [Schema Admin](/services-hub/unified/health/remediation-steps-ad/remove-all-members-from-the-schema-admins-group-unless-you-are-actively-changing-the-schema) privileges. 
 
-
-:::image type="content" source="./media/lightweight-directory-protocol-schemas/____.png" alt-text="Screenshot of connection settings menu." lightbox="./media/lightweight-directory-protocol-schemas/____.png":::
-
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/connection-settings.png" alt-text="Screenshot of connection settings menu." lightbox="./media/lightweight-directory-access-protocol-schemas/connection-settings.png":::
 
 By default, the uid attribute object’s `searchFlags` are set to 0x8 (PRESERVE_ON_DELETE). This default setting esnures that even if the object in Active Directory is deleted, the attribute value remains stored in the directory as a historical record of the user’s attribute.
 
-:::image type="content" source="./media/lightweight-directory-protocol-schemas/____.png" alt-text="Screenshot of uid properties menu." lightbox="./media/lightweight-directory-protocol-schemas/____.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/search-flag-no-index.png" alt-text="Screenshot of uid properties menu." lightbox="./media/lightweight-directory-access-protocol-schemas/search-flag-no-index.png":::
 
 In comparison, an attribute that is indexed in Active Directory for LDAP searches would have the value of 0x1 (or some combination including that value), such as the uidNumber:
 
-:::image type="content" source="./media/lightweight-directory-protocol-schemas/____.png" alt-text="Screenshot of UiDNumber properties menu." lightbox="./media/lightweight-directory-protocol-schemas/____.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/number-properties.png" alt-text="Screenshot of UiDNumber properties menu." lightbox="./media/lightweight-directory-access-protocol-schemas/number-properties.png":::
 
 Because of this, queries for uidNumber return faster than queries for uid. For consistency and performance, you can adjust the `searchFlags` value for uid to 9 by adding 0x1 along with the existing value of 0x8, which is (INDEX | PRESERVE_ON_DELETE). This addition maintains the default behavior while adding attribute indexing to the directory.
 
-:::image type="content" source="./media/lightweight-directory-protocol-schemas/____.png" alt-text="Screenshot of integer attribute editor." lightbox="./media/lightweight-directory-protocol-schemas/____.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png" alt-text="Screenshot of integer attribute editor." lightbox="./media/lightweight-directory-access-protocol-schemas/integer-attribute-editor.png.png":::
 
-:::image type="content" source="./media/lightweight-directory-protocol-schemas/____.png" alt-text="Screenshot of uid properties menu with indexing added." lightbox="./media/lightweight-directory-protocol-schemas/____.png":::
+:::image type="content" source="./media/lightweight-directory-access-protocol-schemas/search-flag-indexed.png" alt-text="Screenshot of uid properties menu with indexing added." lightbox="./media/lightweight-directory-access-protocol-schemas/search-flag-indexed.png":::
 
-With indexing added, searches for user attributes with uid are as fast as searches for other indexed attributes.
-
+With indexing, searches for user attributes with uid are as fast as searches for other indexed attributes.
 
 ## Next steps
 
