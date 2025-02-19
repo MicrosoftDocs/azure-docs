@@ -38,7 +38,7 @@ Migration guidance and tooling offer customers a smooth transition from Azure Sp
 
 ## Migration guidance and tooling for the Azure Spring Apps Basic and Standard plans
 
-The Azure Spring Apps Basic and Standard plans will not accept new customers after March 17, 2025. Existing customers will remain operational until the plans are phased out on March 31, 2028. While the service will generally remain operational until March 31, 2028, we strongly recommend that existing customers migrate their applications off of Azure Spring Apps as soon as possible. This helps ensure as little disruption as possible to your business operations.
+The Azure Spring Apps Basic and Standard plans will not accept new customers after March 17, 2025. Existing customers will remain operational until the plans are phased out on March 31, 2028. Even though the service will generally remain operational until March 31, 2028, we strongly recommend that existing customers migrate their applications off of Azure Spring Apps as soon as possible. This helps ensure as little disruption as possible to your business operations.
 
 The migration tool assisting with a Container Apps environment setup will be available on March 17, 2025. For migration guidance, see [Migrate off Azure Spring Apps documentation](/azure/spring-apps/migration/).
 
