@@ -22,6 +22,7 @@ At this stage, your Azure Functions should be operating in production, similar t
 ## Post-migration evaluation checklist
 
 > [!NOTE]
+
 > **Content developer**: Generate a list of about 20 items that the workload team should evaluate about the success of the migration. These should map back to the pre-migration design areas, should address meeting user expectations, and cover setting new baselines. The following checklist is just an example, in addition to generic items that you'd see on many services. Include items that are highly unique to your service.
 
 > [!div class="checklist"]
@@ -63,7 +64,8 @@ Azure Functions was likely just part of a larger workload that was migrated. In 
 
 ## Post-migration measurement
 
-Start caputring new baselines for new serverless compute platform.
+Start capturing new baselines for new serverless compute platform.
+
 
 > [!div class="checklist"]
 > - Establish a new cost baseline.
@@ -78,9 +80,11 @@ Start caputring new baselines for new serverless compute platform.
 >
 >  Start tracking key reliability metrics such as function hosting availability along with operational metrics such as MTTD, MTTR, and MTBF.
 
+
 ## Next step
 
 With confidence that your workload can proceed with it's normal lifecycle concerns, budget allocation, and customer satastification, now is a good time to evaluate what additional features and funtionality Azure Functions and the larger Azure offerings can be used for in your workload.
 
 > [!div class="nextstepaction"]
 > [Explore Azure optimization opportunities](./function-placeholder.md)
+

@@ -77,6 +77,7 @@ With the design areas in place, collect baseline information about the current r
 - [Performance targets and current performance](./function-placeholder.md)
 
 
+
 ## Build the migration assets
 
 There's a transition development phase where you'll build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. These activities need to happen before you can perform the migration.
@@ -85,9 +86,11 @@ Follow the guidance in [Build migration assets](./build-migration-assets.md).
 
 ## Develop a step-by-step process for Day-0 migration
 
+
 Migrations are often sequenced with a failover and failback strategy, throughly tested in pre-production environment. Learn how Microsoft recommends you prepare and perform before you finally transition from AWS Lambda to Azure Functions. Use this information to develop a step-by-step migration manual.
 
 Follow the recommendations in [Develop a Day-0 migration manual](./perform-migration.md).
+
 
 ## Evaluate end-state
 
@@ -103,6 +106,7 @@ These examples are based on key learnings from Azure customers who have complete
 - [Migrate a microservices workload](./function-placeholder.md)
 
 ## Further optimize on Azure
+
 
 After you've migrated your Lambda to Azure Functions and your AWS resources are decommissioned, we recommend you explore additional features on Azure. These features can help you in future workload requirements or help close gaps in areas where your AWS Lambda solution was not meeting requirements. These post-migration recommendations are described in [Explore Azure optimization opportunities](./function-placeholder.md).
 

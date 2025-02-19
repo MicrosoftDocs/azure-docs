@@ -7,6 +7,7 @@ ms.date: 01/28/2025
 ms.topic: conceptual
 ---
 
+
 # Develop a Day-0 migration manual for migrating AWS Lambda to Azure Functions
 
 | :::image type="icon" source="../../migration/images/goal.svg"::: Your migration manual has the steps necessary to complete the migration activities from AWS Lambda to Azure Functions, covering rollback steps in case of failure. |
@@ -44,6 +45,7 @@ To ensure a smooth migration from AWS Lambda to Azure Functions, make sure you h
 > - Service specific considerations (such as Durable Functions)
 > - Failback strategy
 
+
 ## 2. Perform the migration based on your downtime plan
 
 Based on your [pre-migration deployment planning](./deployment.md) choice, add the appropriate migration steps for doing the actual migration.
@@ -77,6 +79,7 @@ Based on your [pre-migration deployment planning](./deployment.md) choice, add t
 
 > [!NOTE]
 > **Content developer**: Have your SME describe how to execute a failback at at least one key point during this type of migration.
+
 
 ## 3. Test in pre-production and production environments
 
