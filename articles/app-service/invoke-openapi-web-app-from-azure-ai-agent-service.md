@@ -46,7 +46,7 @@ To complete this tutorial, you need an Azure AI Agent project and a RESTful API 
     ```
 
 1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
-1. Navigate to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
+1. Navigate to `http://localhost:5000/api/todo` to see the to-do list.
 1. To stop the app, press `Ctrl+C` in the terminal window.
 1. To deploy the app to Azure App Service, run the following command.
 
