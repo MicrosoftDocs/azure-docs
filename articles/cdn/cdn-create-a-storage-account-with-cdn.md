@@ -37,8 +37,6 @@ To create a storage account, you must be either the service administrator or a c
 
 1. Search for **Storage account** and select **Storage account** from the list. Then select **Create**:
 
-    :::image type="content" source="./media/cdn-create-a-storage-account-with-cdn/cdn-select-new-storage-account.png" alt-text="Screenshot of create a storage account.":::
-
 1. In the **Create storage account pane**, enter the following details:
 
     | Setting | Value |
@@ -71,8 +69,6 @@ To create a storage account, you must be either the service administrator or a c
     | **Pricing tier** | Select one of the options, such as **Microsoft CDN (classic)**. |
 
 1. Select **Create**. After the endpoint is created, it appears in the endpoint list.
-
-	[ ![Screenshot of a storage new content delivery network endpoint.](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png).](./media/cdn-create-a-storage-account-with-cdn/azure-cdn-storage-new-endpoint-list.png#lightbox)
 
 > [!TIP]
 > If you want to specify advanced configuration settings for your content delivery network endpoint, such as [large file download optimization](cdn-optimization-overview.md#large-file-download), you can instead use the [Azure Content Delivery Network extension](cdn-create-new-endpoint.md) to create a content delivery network profile and endpoint.

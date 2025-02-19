@@ -39,10 +39,6 @@ landingContent:
             url: documentation-government-get-started-connect-with-ps.md
           - text: Connect using Visual Studio
             url: documentation-government-connect-vs.md
-          - text: Deploy STIG-compliant Linux VM
-            url: documentation-government-stig-linux-vm.md
-          - text: Deploy STIG-compliant Windows VM
-            url: documentation-government-stig-windows-vm.md
 
   # Card
   - title: Compliance
