@@ -48,16 +48,16 @@ To edit permissions for a specific resource, follow these steps.
 
       :::image type="content" source="media/permissions/permissions-members.png" alt-text="Screenshot of the Azure platform selecting members.":::
 
-1. Select the **Subscription** containing your Managed Grafana workspace.
+1. Select the **Subscription** containing your Azure Managed Grafana workspace.
 1. For **Managed identity**, select **Azure Managed Grafana**.
-1. Select one or several Managed Grafana workspaces.
+1. Select one or several Azure Managed Grafana workspaces.
 1. Click **Select** to confirm
 
       :::image type="content" source="media/permissions/permissions-managed-identities.png" alt-text="Screenshot of the Azure platform selecting the workspace.":::
 
 1. Select **Next**, then **Review + assign** to confirm the assignment of the new permission.
 
-For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+For more information about how to use Azure Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ### [Azure CLI](#tab/azure-cli)
 

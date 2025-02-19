@@ -27,7 +27,7 @@ A Grafana dashboard contains panels and rows. You can import a Grafana dashboard
 
 ## Import a Grafana dashboard
 
-To quickly create a dashboard, import an existing dashboard and add it to your Managed Grafana workspace. You can do so by importing a dashboard template from Grafana Labs, uploading a JSON file or pasting JSON code. 
+To quickly create a dashboard, import an existing dashboard and add it to your Azure Managed Grafana workspace. You can do so by importing a dashboard template from Grafana Labs, uploading a JSON file or pasting JSON code. 
 
 ### Import a dashboard from Grafana Labs 
 

@@ -21,7 +21,7 @@ This guide walks you through the supported Grafana roles and shows you how to us
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a Managed Grafana workspace](./how-to-permissions.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./how-to-permissions.md).
 - You must have Grafana Admin permissions on the workspace.
 
 ## Learn about Grafana roles

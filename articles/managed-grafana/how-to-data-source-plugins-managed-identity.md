@@ -131,7 +131,7 @@ The content below shows how to configure some of the most popular data sources i
 
 ### Azure Monitor
 
-The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana workspace or in the Azure CLI.
+The Azure Monitor data source is automatically added to all new Azure Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana workspace or in the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 

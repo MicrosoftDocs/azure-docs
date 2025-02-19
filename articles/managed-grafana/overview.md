@@ -29,7 +29,7 @@ As a fully managed service, Azure Managed Grafana lets you deploy Grafana withou
 
 You can share Grafana dashboards with people inside and outside of your organization and allow others to join in for monitoring or troubleshooting.
 
-Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana workspace, and you can use managed identities to access Azure data stores, such as Azure Monitor.
+Azure Managed Grafana uses Microsoft Entra ID’s centralized identity management, which allows you to control which users can use a Grafana workspace, and you can use managed identities to access Azure data stores, such as Azure Monitor.
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 

@@ -33,7 +33,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Assign an Azure Managed Grafana role to the service principal of your application
 
-1. In the Azure portal, open your Managed Grafana workspace.
+1. In the Azure portal, open your Azure Managed Grafana workspace.
 1. Select **Access control (IAM)** in the navigation menu.
 1. Select **Add**, then **Add role assignment**.
 1. Select the **Grafana Editor** role and then **Next**.
@@ -77,7 +77,7 @@ You now need to gather some information, which you'll use to get a Grafana API a
 1. Find the Grafana endpoint URL:
 
    1. In the Azure portal, enter *Azure Managed Grafana* in the **Search resources, services, and docs (G+ /)** bar.
-   1. Select **Azure Managed Grafana** and open your Managed Grafana workspace.
+   1. Select **Azure Managed Grafana** and open your Azure Managed Grafana workspace.
    1. Select **Overview** from the left menu and save the **Endpoint** value.
 
     :::image type="content" source="media/tutorial-api/endpoint-url.png" alt-text="Screenshot of the Azure platform. Endpoint displayed in the Overview page.":::

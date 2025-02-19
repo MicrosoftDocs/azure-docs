@@ -57,7 +57,7 @@ You can create up to five different diagnostic settings to send different logs t
 
 Now that you've configured your diagnostic settings, Azure streams all new events to your selected destinations and generate logs. You can now create queries and access logs to monitor your application.
 
-1. In your Managed Grafana workspace, select **Logs** from the left menu. The Azure platform displays a **Queries** page, with suggestions of queries to choose from.
+1. In your Azure Managed Grafana workspace, select **Logs** from the left menu. The Azure platform displays a **Queries** page, with suggestions of queries to choose from.
 
    :::image type="content" source="media/monitoring-logs/menu.png" alt-text="Screenshot of the Azure platform. Open Logs.":::
 
