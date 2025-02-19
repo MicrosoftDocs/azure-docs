@@ -6,22 +6,22 @@ ms.reviewer: sasrin
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/22/2025
+ms.date: 02/19/2025
 ms.author: banders
 #customer intent: As a billing administrator, I want to understand the Microsoft Entra ID Free subscription so that I can manage my billing account and subscriptions.
 ---
 
 # Microsoft Entra ID Free
 
-Microsoft Entra ID Free is a free cloud-based identity management product from Microsoft that you use to manage your subscriptions. You get it as part of your Azure billing account as a customer on the Microsoft Customer Agreement (MCA). It's also free for Microsoft 365. For more information about sign-up, see [Microsoft Entra ID Free](https://www.microsoft.com/security/business/identity-access-management/microsoft-entra-id-free).
+Microsoft Entra ID Free is a free cloud-based identity management product from Microsoft that you use to manage your subscriptions. You get it as part of your Azure billing account as a customer on the Microsoft Customer Agreement (MCA). It's also free for Microsoft 365. For more information about sign-up, see [Microsoft Entra ID Free](https://www.microsoft.com/security/business/microsoft-entra-pricing).
 
 ## Microsoft Entra ID Free purpose
 
-As part of Microsoft's [Secure Future Initiative](https://www.microsoft.com/trust-center/security/secure-future-initiative), we're making improvements to Microsoft Entra tenant management and security. Microsoft couples subscription ownership to a billing account to provide clear ownership and visibility for the Microsoft Entra tenants you own. The subscription tracks new tenants created with the same billing account, allowing you to maintain an inventory of all new tenants. The subscription also helps proves tenant ownership and help regain administrative access if you ever lose administrative access.
+As part of Microsoft's [Secure Future Initiative](https://www.microsoft.com/trust-center/security/secure-future-initiative), we're making improvements to Microsoft Entra ID tenant management and security. Microsoft couples subscription ownership to a billing account to provide clear ownership and visibility for the Microsoft Entra tenants you own. The subscription tracks new tenants created with the same billing account, allowing you to maintain an inventory of all new tenants. The subscription also helps proves tenant ownership and help regain administrative access if you ever lose administrative access.
 
 ## No required action and no cost
 
-When you create a free account, there's no other action required from you. Microsoft Entra ID Free is automatically added to your billing account. You aren't charged for the product and its free product. It remains active as long as your billing account is active.
+When you create a free account, there's no other action required from you. Microsoft Entra ID Free is automatically added to your billing account. You aren't charged for the product and it's a free product. It remains active as long as your billing account is active.
 
 ## Services included
 
@@ -66,7 +66,7 @@ You can't transfer Microsoft Entra ID Free. Your free subscription is tied to yo
 
 ### Close billing account with an active free subscription
 
-You can *start* billing account closure by calling Support. They can help you close the billing account.
+If you're an Azure user and you want to close your billing account, create a [support request](https://go.microsoft.com/fwlink/?linkid=2083458) in the Azure portal.
 
 ## Related content
 
