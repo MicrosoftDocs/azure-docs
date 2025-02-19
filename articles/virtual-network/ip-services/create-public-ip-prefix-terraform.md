@@ -68,13 +68,13 @@ For more information on available prefix sizes, see [Prefix sizes](public-ip-add
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zone redundant IPv4 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="12-22" highlight="5-6,9":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="12-22" highlight="6-7,9":::
 
 # [Zonal IPv4 prefix](#tab/ipv4-zonal)
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zonal IP prefix in zone 2, specify **["2"]** as the `zone` value.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="24-34":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="24-34"  highlight="7-8,10":::
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -83,7 +83,7 @@ To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. 
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a non-zonal IP prefix, omit the `zone` field.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="36-44":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="36-44"  highlight="7-8":::
 
 The omission of the `zone` field is valid in all regions.  
 
@@ -95,7 +95,7 @@ The omission of the `zone` field is the default selection for standard public IP
 
 To create an IPv4 public IP prefix with routing preference set to Internet, add **RoutingPreference=Internet** to the `tags` block.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="46-58":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="46-58"  highlight="7-8,10-12:::
 
 ---
 
@@ -105,13 +105,13 @@ To create an IPv4 public IP prefix with routing preference set to Internet, add 
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a zone redundant IPv6 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="60-70":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="60-70"  highlight="7-8,10":::
 
 # [Zonal IPv6 prefix](#tab/ipv6-zonal)
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a zone redundant IPv6 prefix, specify **["2"]** as the `zone` value.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="72-82":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="72-82"  highlight="7-8,10":::
 
 >[!NOTE]
 >For more information about availability zones, see [What are availability zones?](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -120,7 +120,7 @@ To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. 
 
 To create an IPv6 public IP prefix, specify **IPv6** as the `ip_version` value. To create a non-zonal IP prefix, omit the `zone` field.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="84-92":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="84-92"  highlight="7-8":::
 
 The omission of the `zone` field is valid in all regions.  
 
@@ -134,13 +134,13 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 # [IPv4 address](#tab/ipv4-address)
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="107-115,93-105":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="107-115,93-105"  highlight="2,21":::
 
 # [IPv6 address](#tab/ipv6-address)
 
 To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="130-138, 116-128":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="130-138, 116-128"  highlight="2,21":::
 
 ---
 
