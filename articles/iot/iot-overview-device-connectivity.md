@@ -35,14 +35,19 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 ---
 
-## Primitives
+## Communication methods
 
 # [Edge-based solution](#tab/edge)
 
+Assets use the following industry standards to exchange data with Azure services:
+
+- **OPC UA tags and events**. OPC UA *tags* represent data points. OPC UA *events* represent state changes. The connector for OPC UA is an Azure IoT Operations service that connects to OPC UA servers to retrieve their data and publishes it to topics in the MQTT broker.
+
+- **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5.
 
 # [Cloud-based solution](#tab/cloud)
 
-Azure IoT devices use the following primitives to exchange data with cloud services. Devices use:
+Azure IoT devices use the following primitives to exchange data with cloud services:
 
 - *Device-to-cloud* messages to send time series telemetry to the cloud. For example, temperature data collected from a sensor attached to the device.
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
@@ -55,10 +60,19 @@ To learn more, see [Device-to-cloud communications guidance](../iot-hub/iot-hub-
 
 ---
 
-## Device-facing cloud endpoints
+## Device-facing endpoints
 
 # [Edge-based solution](#tab/edge)
 
+Azure IoT Operations uses *connectors* to discover, manage, and ingress data from assets in an edge-based solution.
+
+- The connector for OPC UA is a data ingress and protocol translation service that enables Azure IoT Operations to ingress data from your assets. The broker receives telemetry and events from your assets and publishes the data to topics in the MQTT broker. The broker is based on the widely used OPC UA standard.
+- The media connector (preview) is a service that makes media from media sources such as edge-attached cameras available to other Azure IoT Operations components.
+- The connector for ONVIF (preview) is a service that discovers and registers ONVIF assets such as cameras. The connector enables you to manage and control ONVIF assets such as cameras connected to your cluster.
+
+When you add a connector to an Azure IoT Operations scenario, you also define an *asset endpoint* that describes the southbound edge connectivity information for one or more assets. An asset endpoint profile includes connection information like the local IP address and authentication information.
+
+To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
 # [Cloud-based solution](#tab/cloud)
 
@@ -81,20 +95,21 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 
 ---
 
-## Device connection strings
+## Authentication
+
+# [Edge-based solution](#tab/edge)
+
+Assets and asset endpoints in Azure IoT Operations are represented as custom resources in the Kubernetes cluster and as resources in Azure. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
+
+Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault.
+
+# [Cloud-based solution](#tab/cloud)
 
 A device connection string provides a device with the information it needs to connect securely to an IoT hub. The connection string includes the following information:
 
 - The hostname of the IoT hub.
 - The device ID registered with the IoT hub.
 - The security information the device needs to establish a secure connection to the IoT hub.
-
-## Authentication
-
-# [Edge-based solution](#tab/edge)
-
-
-# [Cloud-based solution](#tab/cloud)
 
 Azure IoT devices use TLS to verify the authenticity of the IoT hub or DPS endpoint they're connecting to. The device SDKs rely on the device's trusted certificate store to include the DigiCert Global Root G2 TLS certificate they currently need to establish a secure connection to the IoT hub. To learn more, see [Transport Layer Security (TLS) support in IoT Hub](../iot-hub/iot-hub-tls-support.md) and [TLS support in Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/tls-support.md).
 
