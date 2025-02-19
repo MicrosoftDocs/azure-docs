@@ -12,7 +12,7 @@ author: msangapu-msft
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
 
 In this tutorial, you learn how to:
 
@@ -28,11 +28,11 @@ You can complete this tutorial on macOS, Linux, or Windows.
 ## Prerequisites
 
 * <a href="https://git-scm.com/" target="_blank">Install Git.</a>
- * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK.</a>
+ * <a href="https://dotnet.microsoft.com/download/dotnet/9.0" target="_blank">Install the latest .NET 9.0 SDK.</a>
 
-## Create a local ASP.NET Core app
+## Create a local ASP.NET app
 
-In this step, you set up the local ASP.NET Core project. App Service supports the same workflow for APIs written in other languages.
+In this step, you set up the local ASP.NET project. App Service supports the same workflow for APIs written in other languages.
 
 ### Clone the sample application
 
@@ -67,7 +67,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
 
 1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
 
-    ![Screenshot of an ASP.NET Core API running locally.](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
+    ![Screenshot of an ASP.NET API running locally.](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 1. Navigate to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
 
@@ -79,7 +79,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
 
 ## Deploy the app to Azure
 
-In this step, you deploy your .NET Core application to App Service.
+In this step, you deploy your .NET application to App Service.
 
 ### Configure local Git deployment
 
@@ -132,7 +132,7 @@ In this step, you deploy your .NET Core application to App Service.
 
 1. Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and view the Swagger UI.
 
-    ![Screenshot of an ASP.NET Core API running in Azure App Service.](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
+    ![Screenshot of an ASP.NET API running in Azure App Service.](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 1. Navigate to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
 
