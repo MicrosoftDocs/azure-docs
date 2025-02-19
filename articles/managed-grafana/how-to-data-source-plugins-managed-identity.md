@@ -55,7 +55,7 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
 * [Azure DevOps](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
 * [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
-* [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
+* [Datadog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
 * [GitLab](https://grafana.com/grafana/plugins/grafana-gitlab-datasource)
 * [Honeycomb](https://grafana.com/grafana/plugins/grafana-honeycomb-datasource)
