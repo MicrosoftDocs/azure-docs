@@ -14,10 +14,6 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Storage with cool access enhancement:](manage-cool-access.md) cool access tiering policy
-
-    You now have the option to limit tiering to only snapshot copies. 
- 
 ## February 2025
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 

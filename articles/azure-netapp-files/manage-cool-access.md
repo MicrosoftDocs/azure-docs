@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.date: 02/18/2025
 ms.author: anfdocs
 ---
 
@@ -25,6 +25,7 @@ There are several considerations to be aware of when using cool access.
 
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers.
 * Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
+* Cool access supports two tiering policies: `Auto` and `SnapshotOnly`. The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier. The `Auto` policy encompasses both snapshot copy data and data in the active file system.
 * You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
     * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access.
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
@@ -146,7 +147,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
     * **Cool Access Tiering Policy** 
 
         Select either `SnapshotOnly` or `Auto`. 
-        
+
         * The `SnapshotOnly` policy limits data tiering to data in snapshots, while all data blocks associated with files in the active file system remain in the hot tier.
         * The `Auto` policy encompasses both snapshot copy data and data in the active file system. 
 

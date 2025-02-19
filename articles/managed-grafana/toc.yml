@@ -92,7 +92,7 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
-    - name: Monitor Azure Managed Grafana
+    - name: Monitor using diagnostic settings
       href: how-to-monitor-managed-grafana-workspace.md
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
@@ -124,3 +124,6 @@ items:
     href: https://aka.ms/managed-grafana/feature-request
   - name: Support
     href: find-help-open-support-ticket.md
+  - name: VS Code extension for Grafana
+    href: https://marketplace.visualstudio.com/items?itemName=Grafana.grafana-vscode
+    

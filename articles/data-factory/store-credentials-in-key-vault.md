@@ -4,7 +4,7 @@ description: Learn how to store credentials for data stores used in an Azure key
 author: nabhishek
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: abnarain
 ---
 

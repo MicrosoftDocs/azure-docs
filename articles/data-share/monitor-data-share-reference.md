@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Data Share
 description: This article contains important reference material you need when you monitor Azure Data Share.
-ms.date: 02/28/2024
+ms.date: 02/12/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: sidontha

@@ -39,6 +39,8 @@
     href: concepts-view-definition.md
   - name: Azure Policy for associations
     href: concepts-built-in-policy.md
+  - name: Delegated managed identity resource ID
+    href: concepts-delegated-managed-identity-resource-id.md
   - name: Security
     items:
     - name: Security baseline
