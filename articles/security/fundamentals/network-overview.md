@@ -14,7 +14,7 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
-# Azure network security overview
+# Overview of Azure network security 
 
 Network security could be defined as the process of protecting resources from unauthorized access or attack by applying controls to network traffic. The goal is to ensure that only legitimate traffic is allowed. Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
 
