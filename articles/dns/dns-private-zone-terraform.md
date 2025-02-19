@@ -1,26 +1,23 @@
 ---
-title: 'Quickstart: Use Terraform to configure a virtual network in Azure'
-description: In this quickstart, you create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
+title: 'Quickstart: Use Terraform to configure private DNS zones in Azure'
+description: In this quickstart, you create private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
-ms.date: 2/4/2025
+ms.date: 2/18/2025
 ms.custom: devx-track-terraform
 ms.service: azure-virtual-network
 author: greg-lindsay
 ms.author: greglin
-#customer intent: As a Terraform user, I want to see how to create a virtual network with a subnet, a private DNS zone, and Windows virtual machines in Azure.
+#customer intent: As a Terraform user, I want to see how to create a private DNS zone and Windows virtual machines in Azure.
 content_well_notification: 
   - AI-contribution
 ---
 
-# Quickstart: Use Terraform to configure a virtual network in Azure
+# Quickstart: Use Terraform to configure private DNS zones in Azure
 
-In this quickstart, you use Terraform to create a virtual network, subnets, private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
+In this quickstart, you use Terraform to create private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 
-An Azure virtual network is a fundamental component of the Azure networking model, providing isolation and protection for your virtual machines. It's used to control and manage traffic between resources such as virtual machines within a network.
+This code creates:
 
-In addition to the Azure virtual network, this code also creates:
-
-* Subnets within the network.
 * Private DNS zones for name resolution.
 * Network interfaces for the virtual machines.
 * Network security groups to control inbound and outbound traffic.
@@ -30,8 +27,6 @@ In addition to the Azure virtual network, this code also creates:
 
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
-> * Establish a virtual network with a specified name and address.
-> * Set up a subnet specifically within the created virtual network.
 > * Create a private DNS zone, and link it to the virtual network.
 > * Generate random passwords for the virtual machines.
 > * Create two network interfaces.
@@ -122,4 +117,4 @@ In addition to the Azure virtual network, this code also creates:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure virtual network](/search/?terms=Azure%20virtual%20network%20and%20terraform).
+> [See more articles about Azure DNS zones](/search/?terms=Azure%20dns%20zones%20and%20terraform).
