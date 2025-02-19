@@ -447,9 +447,9 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - The flag `--overrideProviderSettings` isn't supported.
 - The flag `--json-output` isn't supported. In a future release, it generates JSON outputs for the **output.yaml** and **dependency.yaml** files.
 - Rules issues:
-    - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules aren't being triggered.
-    - **FileSystem - Java IO** rule isn't being triggered
-    - _"unable to parse all the rules for ruleset"_ when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
+    - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
+    - Error `unable to parse all the rules for ruleset` when running analysis. This error occurs during analysis when the tool fails to parse all rules in the ruleset.
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Missing descriptions for some rules on the **Insights** tab. Some tag rules are lacking descriptions, leading to blank titles appearing on the **Insights** tab of the report.
 - Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
