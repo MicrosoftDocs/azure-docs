@@ -112,7 +112,7 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 > [!NOTE]
-> When create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When creating the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
 
 # [Azure CLI](#tab/azurecli/)
 
