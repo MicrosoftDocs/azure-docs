@@ -119,6 +119,12 @@
       href: tutorial-alias-tm.md
     - name: Alias records for load balanced web apps
       href: dns-alias-appservice.md
+    - name: Integrate with other Azure services
+      href: dns-for-azure-services.md
+    - name: Automate DNS operations with the .NET SDK
+      href: dns-sdk.md
+    - name: Custom domains for Azure resources
+      href: dns-custom-domain.md
     - name: Deploy DNSSEC
       items:
        - name: Sign a DNS zone
@@ -189,19 +195,13 @@
           href: dns-reverse-dns-hosting.md
         - name: Manage reverse DNS records for Azure services
           href: dns-reverse-dns-for-azure-services.md
-      - name: Integrate with other Azure services
-        href: dns-for-azure-services.md
-      - name: Automate DNS operations with the .NET SDK
-        href: dns-sdk.md
-      - name: Custom domains for Azure resources
-        href: dns-custom-domain.md
   - name: Manage private DNS
     items:
     - name: Use Azure Resource Graph Explorer
       href: private-dns-arg.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot Azure DNS
+  - name: Troubleshoot public DNS
     href: dns-troubleshoot.md
 - name: Reference
   items:
