@@ -376,8 +376,6 @@
   - name: Author templates
     displayName: ARM
     href: ../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     displayName: ARM
     href: https://azure.microsoft.com/resources/templates/
