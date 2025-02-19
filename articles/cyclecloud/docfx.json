@@ -1,0 +1,77 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "breadcrumb/toc.yml"
+        ],
+        "group": "cyclecloud-7-group"
+      },
+      {
+        "files": [
+          "**/**.md",
+          "**/**.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ],
+        "group": "cyclecloud-7-group"
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.gif",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "_themes/**",
+          "_themes.pdf/**"
+        ],
+        "group": "cyclecloud-7-group"
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "brand": "azure",
+      "uhfHeaderId": "azure",
+      "feedback_system": "None",
+      "titleSuffix": "Azure CycleCloud",
+      "searchScope": [
+        "Azure",
+        "CycleCloud"
+      ],
+      "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
+      "extendBreadcrumb": true,
+      "ms.service": "azure-cyclecloud",
+      "ms.topic": "conceptual"
+    },
+    "fileMetadata": {
+      "author": {
+        "**.md": "adriankjohnson"
+      },
+      "ms.topic": {
+        "includes/**/*.md": "include",
+        "**/qs-*.md": "quickstart",
+        "tutorials/**/*.md": "tutorial",
+        "how-to/**/*.md": "how-to",
+        "**overview.md": "overview"
+      },
+      "exclude_monikers": {
+      }
+    },
+    "template": [],
+    "groups": {
+      "cyclecloud-7-group": {
+        "dest": "tempdest_cyclecloud_7",
+        "moniker_range": ">= cyclecloud-7"
+      }
+    },
+    "dest": "cycle_docs_v1"
+  }
+}
