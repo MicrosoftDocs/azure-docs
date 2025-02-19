@@ -101,6 +101,7 @@ When the ``None`` compatibility mode is used, Schema Registry doesn't do any com
 ## Client SDKs
 
 You can use one of the following libraries to include an Avro serializer. You can use Avro serializers to serialize and deserialize payloads that contain schema identifiers for the schema registry and Avro-encoded data:
+
 | Programming language | SDK | Samples | 
 | ------ | -----| ----|
 | **.NET** | [Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro) | [.NET Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples) |
