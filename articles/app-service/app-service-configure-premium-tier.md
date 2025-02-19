@@ -52,13 +52,13 @@ To see all the Premium V3 options, select **Explore pricing plans**, then select
 
 ## Scale up an existing app to Premium V3 tier
 
-Before scaling an existing app to Premium V3 tier, make sure that both Premium V3 and the specific SKU in Premium V3 are available. For more information, see [PremiumV3 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
+Before you scale an existing app to Premium V3 tier, make sure that both Premium V3 and the specific SKU in Premium V3 are available. For more information, see [PremiumV3 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
 Depending on your hosting environment, scaling up can require extra steps.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open your App Service app page.
 
-1. In the left navigation of your App Service app page, select **Scale up (App Service plan)**.
+1. In the left navigation of your App Service app page, select **Settings** > **Scale up (App Service plan)**.
 
    :::image type="content" source="media/app-service-configure-premium-tier/scale-up-tier-portal.png" alt-text="Screenshot showing how to scale up your app service plan.":::
 
@@ -78,13 +78,15 @@ If the underlying App Service deployment doesn't support the requested Premium V
 
 ## Scale up from an unsupported resource group and region combination
 
-If your app runs in an App Service deployment where Premium V3 isn't available or in a region that doesn't support Premium V3, redeploy your app to take advantage of Premium V3. If newer Premium V3 SKUs aren't available, you also need to redeploy your app to use newer SKUs in Premium V3.
+If your app runs in an App Service deployment where Premium V3 isn't available or in a region that doesn't support Premium V3, redeploy your app to take advantage of Premium V3. If newer Premium V3 SKUs aren't available, you also need to redeploy your app to use newer SKUs in Premium V3. You have two options:
 
-Create an app in a new resource group and with a new App Service plan. When creating the App Service plan, select the desired Premium V3 tier. This step ensures that the App Service plan is deployed into a deployment unit that supports Premium V3 and the specific SKU in Premium V3. Then, redeploy your application code into the newly created app. Even if you scale the new App Service plan down to a lower tier to save costs, you can always scale up again to Premium V3 and the desired SKU in Premium V3 because the deployment unit supports it.
+- Create an app in a new resource group and with a new App Service plan.
 
-:::image type="content" source="media/app-service-configure-premium-tier/clone-app.png" alt-text="Screenshot showing how to clone your app.":::
+  When creating the App Service plan, select the desired Premium V3 tier. This step ensures that the App Service plan is deployed into a deployment unit that supports Premium V3 and the specific SKU in Premium V3. Then, redeploy your application code into the newly created app. Even if you scale the new App Service plan down to a lower tier to save costs, you can always scale up again to Premium V3 and the desired SKU in Premium V3 because the deployment unit supports it.
 
-In the **Clone app** page, you can create an App Service plan using Premium V3 in the region you want, and specify the app settings and configuration that you want to clone.
+- In the **Development tools** > **Clone app** page, you can create an App Service plan using Premium V3 in the region you want, and specify the app settings and configuration that you want to clone.
+
+  :::image type="content" source="media/app-service-configure-premium-tier/clone-app.png" alt-text="Screenshot showing how to clone your app.":::
 
 ## Automate with scripts
 
