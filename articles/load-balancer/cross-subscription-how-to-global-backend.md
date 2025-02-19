@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 02/20/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,8 +23,8 @@ A [cross-subscription load balancer](cross-subscription-overview.md) can referen
 
 - Two Azure subscriptions. 
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- A global public IP address deployed in **Azure Subscription A**.
-- A regional load balancer deployed in **Azure Subscription B**.
+- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
+- A regional load balancer deployed in **Azure Subscription A**.
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see Install Azure PowerShell module. If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
@@ -38,8 +38,8 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 - Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/free/)
-- A global public IP address deployed in **Azure Subscription A**.
-- A regional load balancer deployed in **Azure Subscription B**.
+- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
+- A regional load balancer deployed in **Azure Subscription A**.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -55,7 +55,7 @@ If you choose to install and use the CLI locally, this quickstart requires Azure
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the regional load balancer information with [`Get-AzLoadBalancer`](/powershell/module/az.network/get-azloadbalancer) and [`Get-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/get-azloadbalancerfrontendipconfig). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
+With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount), and change your subscription context with [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) to **Azure Subscription A**. Then get the regional load balancer information with [`Get-AzLoadBalancer`](/powershell/module/az.network/get-azloadbalancer) and [`Get-AzLoadBalancerFrontendIpConfig`](/powershell/module/az.network/get-azloadbalancerfrontendipconfig). You need the Azure subscription ID, resource group name, and virtual network name from your environment.
  
 
 ```azurepowershell
@@ -64,15 +64,15 @@ With Azure PowerShell, you sign into Azure with [`Connect-AzAccount`](/powershel
 Connect-AzAccount
 
 # Set the subscription context to Azure Subscription A
-Set-AzContext -Subscription '<Azure Subscription A>'     
+Set-AzContext -Subscription 'd9f0f529-83ab-4840-9c8b-76db5d68517f'     
 
 # Get the Virtual Network information with Get-AzVirtualNetwork
 $rlb= @{
-    Name = '<regional load balancer name>'
-    ResourceGroupName = '<Resource Group Subscription A>'
+    Name = 'load-balancer-reg'
+    ResourceGroupName = 'myResourceGroup'
 }
-$RLB-info = Get-AzLoadBalancer @rlb
-$RLBFE = Get-AzLoadBalancerFrontendIpConfig @ RLB-info
+$rlbinfo = Get-AzLoadBalancer @rlb
+$rlbfe = Get-AzLoadBalancerFrontendIpConfig @rlbinfo
 
 ```
 
@@ -86,7 +86,7 @@ With Azure CLI, you'll sign into Azure with [az login](/cli/azure/reference-inde
 
 # Sign in to Azure CLI and change subscription to Azure Subscription B
 Az login
-Az account set –subscription <Azure Subscription A>
+Az account set –subscription d9f0f529-83ab-4840-9c8b-76db5d68517f
 ```
 
 ---
