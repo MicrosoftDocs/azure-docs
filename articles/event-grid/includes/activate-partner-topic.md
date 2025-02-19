@@ -1,10 +1,10 @@
 ---
- title: include file
- description: include file
+ title: Activate a partner topic
+ description: Shows how to activate a partner topic. 
  author: spelluru
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 10/31/2022
+ ms.date: 02/14/2025
  ms.author: spelluru
  ms.custom: include file
 ---

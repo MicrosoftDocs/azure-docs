@@ -19,6 +19,9 @@ This article describes how [Azure App Service](overview.md) runs Python apps, ho
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
 
+> [!NOTE]
+> Currently App Service requires `requirements.txt` in your project's root directory, even if you're using modern Python packaging tools such as `pyproject.toml`.
+
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
 
 You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI for configuration:

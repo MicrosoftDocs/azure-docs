@@ -233,8 +233,6 @@ items:
   items:
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

@@ -244,7 +244,7 @@ If you provided your own Microsoft Entra user object ID as the optional value fo
 * BodyTemperature
 * BloodPressure
 
-To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md). You need to use the following values in your Postman `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
+To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using REST Client](../fhir/using-rest-client.md). You need to use the following values `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
 
 ## Next steps
 
