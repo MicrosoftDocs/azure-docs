@@ -3,7 +3,7 @@ title: Manage Azure Files backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure Files backed up by Azure Backup.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 03/05/2025
+ms.date: 02/27/2025
 author: jyothisuri
 ms.author: jsuri
 

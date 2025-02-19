@@ -74,10 +74,10 @@
       href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
     href: quick-install-backup-extension.md
+  - name: Create a backup policy for Azure Files  
+    href: quick-backup-azure-files-vault-tier-portal.md
   - name: Configure vaulted backup for Azure Files  
-    items:
-    - name: With Azure Portal
-      href: quick-backup-azure-files-vault-tier-portal.md
+    items:    
     - name: With Azure PowerShell
       href: quick-backup-azure-files-vault-tier-powershell.md
     - name: With Azure CLI

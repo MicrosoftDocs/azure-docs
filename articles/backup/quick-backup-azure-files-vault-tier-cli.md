@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Azure CLI for Azure Files vaulted backup
-description: Learn how to back up your Azure Files to vault-tier with Azure CLI.
+title: Quickstart - Configure vaulted backup for Azure Files using Azure CLI
+description: Learn how to configure vaulted backup for Azure Files using Azure CLI.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 10/07/2024
+ms.date: 02/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri

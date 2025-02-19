@@ -2,7 +2,7 @@
 title: Back up Azure files by using PowerShell
 description: In this article, learn how to back up Azure Files by using the Azure Backup service and PowerShell. 
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 02/27/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: jyothisuri
