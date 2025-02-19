@@ -29,8 +29,8 @@ These slot table entries define the limits of concurrency. Values this high are 
 
 A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS operations per second using Oracle Direct NFS, which is a technology similar in concept to the `nconnect`  mount option:
 
-* Considering a latency of 0.5 ms, a concurrency of 55 is needed to achieve 110,000 IOPS.
-* Considering a latency of 1 ms, a concurrency of 155 is needed to achieve 155,000 IOPS.
+* Considering a latency of 0.5 ms, a concurrency of 55 is needed to achieve 110,000 I/OPS.
+* Considering a latency of 1 ms, a concurrency of 155 is needed to achieve 155,000 I/OPS.
 
 ![Oracle DNFS latency curve](./media/shared/performance-oracle-dnfs-latency-curve.png)  
 
@@ -62,20 +62,20 @@ Example 2 is based on a single client workload with a `sunrpc.tcp_max_slot_table
 
 #### Example 3 – One NFS client, 100 `sunrpc.tcp_max_slot_table_entries`, and `nconnect=8` for a maximum concurrency of 800
 
-Example 3 is based on a single client workload, but with a lower  `sunrpc.tcp_max_slot_table_entry` value of 100. This time, the `nconnect=8` mount option used spreading the workload across 8 connection. With this setting, a concurrency of 800 is achievable spread across the 8 connections.  This amount is the concurrency needed to achieve 400,000 IOPS.
+Example 3 is based on a single client workload, but with a lower  `sunrpc.tcp_max_slot_table_entry` value of 100. This time, the `nconnect=8` mount option used spreading the workload across 8 connection. With this setting, a concurrency of 800 is achievable spread across the 8 connections.  This amount is the concurrency needed to achieve 400,000 I/OPS.
 
 * `NFS_Server=10.10.10.10, NFS_Client=10.10.10.11`
     * `Connection 1 (10.10.10.10:2049, 10.10.10.11:6543,TCP), Connection 2 (10.10.10.10:2049, 10.10.10.11:6454,TCP)… Connection 8 (10.10.10.10:2049, 10.10.10.11:7321,TCP)`
     * Connection 1
-        * The client will issue no more than 100 requests in flight to the server from  this connection.
+        * The client issues no more than 100 requests in flight to the server from  this connection.
         * The server is expected to accept no more than 128 requests in flight from the client for this connection.
     * Connection 2
-        * The client will issue no more than 100 requests in flight to the server from  this connection.
+        * The client issues no more than 100 requests in flight to the server from  this connection.
         * The server is expected to accept no more than 128 requests in flight from the client for this connection.
     * `…`
     * `…`
     * Connection 8
-        * The client will issue no more than 100 requests in flight to the server from  this connection.
+        * The client issues no more than 100 requests in flight to the server from  this connection.
         * The server is expected to accept no more than 128 requests in flight from the client for this connection.
 
 #### Example 4 – 250 NFS clients, 8 `sunrpc.tcp_max_slot_table_entries`, and no `nconnect` for a maximum concurrency of 2000
@@ -104,16 +104,16 @@ When using NFSv3, *you should collectively keep the storage endpoint slot count 
 Using *Littles Law*, you can calculate the total required slot table entry count. In general, consider the following factors:  
 
 * Scale-out workloads are often dominantly large sequential in nature.
-* Database workloads, especially OLTP, are often random in nature. 
+* Database workloads, especially online transaction processing, are often random in nature. 
 
 The following table shows a sample study of concurrency with arbitrary latencies provided:
 
 |     I/O size    |     Latency    |     I/O or throughput    |     Concurrency    |
 |-|-|-|-|
-|     8 KiB    |     0.5 ms    |     110,000 IOPS \| 859 MiB/s    |     55    |
-|     8 KiB    |     2 ms    |     400,000 IOPS \| 3,125 MiB/s    |     800    |
-|     256 KiB    |     2 ms    |     16,000 IOPS \| 4,000 MiB/s    |     32    |
-|     256 KiB    |     4 ms    |     32,000 IOPS \| 8,000 MiB/s    |     128    |
+|     8 KiB    |     0.5 ms    |     110,000 I/OPS \| 859 MiB/s    |     55    |
+|     8 KiB    |     2 ms    |     400,000 I/OPS \| 3,125 MiB/s    |     800    |
+|     256 KiB    |     2 ms    |     16,000 I/OPS \| 4,000 MiB/s    |     32    |
+|     256 KiB    |     4 ms    |     32,000 I/OPS \| 8,000 MiB/s    |     128    |
 
 ### How to calculate concurrency settings by connection count
 
@@ -258,5 +258,5 @@ The following example shows Packet 14 (server maximum requests):
 * [Linux filesystem cache best practices for Azure NetApp Files](performance-linux-filesystem-cache.md)
 * [Linux NFS mount options best practices for Azure NetApp Files](performance-linux-mount-options.md)
 * [Linux NFS read-ahead best practices](performance-linux-nfs-read-ahead.md)
-* [Azure virtual machine SKUs best practices](performance-virtual-machine-sku.md) 
+* [Azure virtual machine stock keeping unit SKU best practices](performance-virtual-machine-sku.md) 
 * [Performance benchmarks for Linux](performance-benchmarks-linux.md) 
