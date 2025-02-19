@@ -64,9 +64,9 @@
       href: jobs.md
     - name: Dynamic sessions
       items:
-      - name: Sessions overview
+      - name: Overview
         href: sessions.md
-      - name: Sessions usage
+      - name: Usage
         href: sessions-usage.md
       - name: Session pools
         href: session-pool.md

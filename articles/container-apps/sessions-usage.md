@@ -12,7 +12,7 @@ ms.custom: references_regions, ignite-2024
 
 # Use dynamic sessions in Azure Container Apps
 
-Azure Container Apps dynamic [sessions](sessions.md) offer isolated, secure contexts when you need to run code or applications separately from other workloads. Sessions run inside a [session pool](session-pool.md) which provides immediate access to new and existing sessions.
+Azure Container Apps dynamic [sessions](sessions.md) offer isolated, secure contexts when you need to run code or applications separately from other workloads. Sessions run inside a [session pool](session-pool.md) which provides immediate access to new and existing sessions. These sessions are ideal for scenarios where user-generated input needs to be processed in a controlled manner or when integrating third-party services that require executing code in an isolated environment.
 
 This article shows you how to manage and interact with dynamic sessions.
 
@@ -30,13 +30,11 @@ For more information managing session pools, see [session pools management endpo
 
 ## Forwarding requests to a session's container
 
-To send a request into a session's container, you use the management endpoint as the root for your request.
-
-Anything in the path following the base pool management endpoint is forwarded to the session's container.
+To send a request into a session's container, you use the management endpoint as the root for your request. Anything in the path following the base pool management endpoint is forwarded to the session's container.
 
 For example, if you make a call to: `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session's container at `0.0.0.0:<TARGET_PORT>/api/uploadfile`.
 
-## Continuous session interaction
+## Continuous interaction
 
 As you continue to make calls to the same session, the session remains [allocated](sessions.md#session-lifecycle) in the pool. Once there are no requests to the session after the cooldown period has elapsed, the session is automatically destroyed.
 
@@ -80,7 +78,7 @@ The identifier must be a string that is 4 to 128 characters long and can contain
 
 ## Work with files
 
-You can upload and download files and list all files to a session.
+You can upload and download files, and list all the files in a session.
 
 ### Upload a file
 
@@ -168,6 +166,20 @@ Dynamic sessions are built to run untrusted code and applications in a secure an
 Only configure or upload sensitive data to a session if you trust the users of the session.
 
 By default, sessions are prevented from making outbound network requests. You can control network access by configuring network status settings on the session pool.
+
+- **Use strong, unique session identifiers**: Always generate session identifiers that are long and complex to prevent brute-force attacks. Use cryptographic algorithms to create identifiers that are hard to guess.
+
+- **Limit session visibility**: Set strict access controls to ensure that session identifiers are only visible to the session pool. Avoid exposing session IDs in URLs or logs.
+
+- **Implement short expiration times**: Configure session identifiers to expire after a short period of inactivity. This approach minimizes the risk of sessions being hijacked after a user has finished interacting with your application.
+
+- **Regularly rotate session credentials**: Periodically review and update the credentials associated with your sessions. Rotation decreases the risk of unauthorized access.
+
+- **Utilize secure transmission protocols**: Always use HTTPS to encrypt data in transit, including session identifiers. This approach protects against man-in-the-middle attacks.
+
+- **Monitor session activity**: Implement logging and monitoring to track session activities. Use these logs to identify unusual patterns or potential security breaches.
+
+- **Validate user input**: Treat all user input as dangerous. Use input validation and sanitation techniques to protect against injection attacks and ensure that only trusted data is processed.
 
 To fully secure your sessions, you can:
 
