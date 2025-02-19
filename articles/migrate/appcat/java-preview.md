@@ -366,7 +366,7 @@ This release contains the following fixes and enhancements.
 - `--analyze-known-libraries` flag: Now works on Windows.
 - Directory cleanup: Extra directories created during analysis on Windows are now automatically cleaned up.
 - `--json-output` flag: Now operational.
-- Rules parsing error: The error _"unable to parse all the rules for ruleset"_ has been resolved.
+- Rules parsing error: The error `unable to parse all the rules for ruleset` has been resolved.
 - Insights tab descriptions: Missing rule descriptions have been added.
 - Internet connection dependency: Analysis no longer fails without an internet connection.
 - `--context-lines` flag: Now behaves as expected when set to 0.
