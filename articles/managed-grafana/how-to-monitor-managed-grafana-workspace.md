@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 10/23/2024
 #customer intent: I want to use diagnostic settings to monitor my Azure Managed Grafana workspace.
+---
 
 # Monitor Azure Managed Grafana using diagnostic settings
 

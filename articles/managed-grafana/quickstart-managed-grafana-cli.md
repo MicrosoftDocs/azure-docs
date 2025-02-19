@@ -21,10 +21,8 @@ Get started using Azure Managed Grafana by creating an Azure Managed Grafana wor
 ## Prerequisites
 
 - An Azure account for work or school with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-
 - Minimum required role to create a workspace: resource group Contributor.
-
-- Minimum required role to access a workspace: resource group Owner.
+- Minimum required role to access the Grafana UI: resource group Owner.
     >[!NOTE]
     > If you don't meet this requirement, once you've created a new Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the workspace.
 
