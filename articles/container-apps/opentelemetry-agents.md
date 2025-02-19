@@ -23,7 +23,7 @@ This article shows you how to set up and configure an OpenTelemetry agent for yo
 
 OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI, or through Terraform (via the [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs)).
 
-Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
+Each endpoint type (Azure Monitor Application Insights, Datadog, and OTLP) has specific configuration requirements.
 
 ## Prerequisites
 
@@ -528,8 +528,8 @@ To configure an agent, use the `destinations` array to define which agents your 
 |---|---|
 | Select a data type. | You can configure logs, metrics, and/or traces individually. |
 | Enable or disable any data type. | You can choose to send only traces and no other data. |
-| Send one data type to multiple endpoints. | You can send logs to both DataDog and an OTLP-configured endpoint. |
-| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to DataDog. |
+| Send one data type to multiple endpoints. | You can send logs to both Datadog and an OTLP-configured endpoint. |
+| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to Datadog. |
 | Disable sending all data types. | You can choose to not send any data through the OpenTelemetry agent. |
 
 ### By endpoint
@@ -540,7 +540,7 @@ To configure an agent, use the `destinations` array to define which agents your 
 The following example ARM template shows how to use an OTLP endpoint named `customDashboard`. It sends:
 - traces to app insights and `customDashboard`
 - logs to app insights and `customDashboard`
-- metrics to DataDog and `customDashboard`
+- metrics to Datadog and `customDashboard`
 
 ```json
 {
