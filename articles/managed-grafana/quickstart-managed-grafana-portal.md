@@ -51,7 +51,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
       >You can use a user-assigned managed identity instead of the default system-assigned managed identity once the Azure Managed Grafana resource is deployed. To learn more, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
 
     - If you're a subscription Owner or a User Access Administrator:
-       - the box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default. This role assignment allows Azure Managed Grafana to access and display monitoring data from various Azure services.
+       - the box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default. This role assignment allows Azure Managed Grafana to access and display monitoring data from the resources in your Azure subscription.
         - the box **Include myself** under **Grafana administrator role** is checked. This option grants you the Grafana administrator role, and lets you manage access rights. Optionally select **Add** to share this right with team members.
     - If you're not a subscription Owner or a User Access Administrator, you can either:
         - ask a subscription Owner or a User Access Administrator to assign you the Grafana Admin role

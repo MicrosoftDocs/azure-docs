@@ -14,7 +14,7 @@ This article guides you to troubleshoot errors with Azure Managed Grafana, and s
 
 ## Access right alerts are displayed when creating the workspace
 
-When creating a Managed Grafana instance from the Azure portal, the user gets  an alert in the **Basics** tab: **You might not have enough access right at below subscription or resource group to enable all features, please see next 'Permission' tab for details.**
+When creating a Managed Grafana instance from the Azure portal, the user gets an alert in the **Basics** tab: **You might not have enough access right at below subscription or resource group to enable all features, please see next 'Permission' tab for details.**
 
 :::image type="content" source="media/troubleshoot/troubleshoot-access-rights-alert.png" alt-text="Screenshot of the Azure platform: insufficient access rights alert.":::
 
