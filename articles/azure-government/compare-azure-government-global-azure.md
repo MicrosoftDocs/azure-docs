@@ -96,7 +96,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
-||Azure Monitor<br>*Application Insights*|{region}.in.applicationinsights.azure.com|{region}.in.applicationinsights.azure.us||
+||Azure Monitor<br>*Application Insights*|{region}.in.applicationinsights.azure.com|{region}.in.applicationinsights.azure.us|[Additional endpoints](/azure/azure-monitor/ip-addresses#outgoing-ports)|
 ||Azure Monitor<br>*Log Analytics*|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
 |||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
