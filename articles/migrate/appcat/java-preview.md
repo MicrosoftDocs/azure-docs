@@ -428,8 +428,8 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 
 - The flag `--overrideProviderSettings` isn't supported.
 - Rules issues:
-    - **azure-system-config-01000**, **http-session-01000**, **java-removals-00150** rules aren't being triggered.
-    - **FileSystem - Java IO** rule isn't being triggered
+    - `azure-system-config-01000`, `http-session-01000`, `java-removals-00150` rules aren't being triggered.
+    - `FileSystem - Java IO` rule isn't being triggered.
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
