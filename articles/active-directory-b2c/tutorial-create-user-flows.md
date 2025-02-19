@@ -213,7 +213,7 @@ Next, specify that the application should be treated as a public client:
 1. Ensure that **"isFallbackPublicClient": true** is set in the application manifest:
     1. In the left menu, under **Manage**, select **Manifest** to open application manifest.
     1. Switch from the **Microsoft Graph App Manifest (New)** tab to the **AAD Graph App Manifest (Deprecating Soon)** tab.
-    1. Find **allowPublicClient** key and ensure its value is set to **true**.
+    1. Find **isFallbackPublicClient** key and ensure its value is set to **true**.
 
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
