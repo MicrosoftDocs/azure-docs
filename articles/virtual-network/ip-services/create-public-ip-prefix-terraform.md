@@ -68,7 +68,7 @@ For more information on available prefix sizes, see [Prefix sizes](public-ip-add
 
 To create an IPv4 public IP prefix, specify **IPv4** as the `ip_version` value. To create a zone redundant IPv4 prefix, specify **["1", "2", "3"]** as the `zone` value.
 
-:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="12-22" highlight="6-7,9":::
+:::code language="terraform" source="~/terraform_samples/quickstart/101-virtual-network-public-ip-prefix/main.tf" range="12-22" highlight="7-8,10":::
 
 # [Zonal IPv4 prefix](#tab/ipv4-zonal)
 
@@ -130,7 +130,7 @@ The omission of the `zone` field is the default selection for standard public IP
 
 ## Create a static public IP address from a prefix
 
-Once you create a prefix, you must create static IP addresses from the prefix. In this section, you see how to create a prefix and then create an address that points to the prefix.
+Once you create a prefix, you can create static IP addresses from the prefix. In this section, you see how to create a prefix and then create an address that points to the prefix.
 
 # [IPv4 address](#tab/ipv4-address)
 
