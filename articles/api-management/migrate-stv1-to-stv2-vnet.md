@@ -27,7 +27,7 @@ For a VNet-inject instance, you have the following migration options:
 
 Under certain, less frequent conditions, migration in the same subnet may not be possible or behaves differently. For more information, see [Special conditions and scenarios](#special-conditions-and-scenarios).
 
-If you need to migrate a *non-VNnet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
+If you need to migrate a *non-VNet-injected* API Management hosted on the `stv1` platform, see [Migrate a non-VNet-injected API Management instance to the stv2 platform](migrate-stv1-to-stv2-no-vnet.md).
 
 [!INCLUDE [api-management-migration-alert](../../includes/api-management-migration-alert.md)]
 

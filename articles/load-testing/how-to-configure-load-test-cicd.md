@@ -365,7 +365,7 @@ Update your CI workflow to run a load test for your Azure load testing resource 
 
 1. Sign into the Azure subscription by using the service principal.
 
-    Use the `clientId`, `clientSecret`, and `tenandId` values you stored previously.
+    Use the `clientId`, `clientSecret`, and `tenantId` values you stored previously.
 
     ```azurecli-interactive
     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID

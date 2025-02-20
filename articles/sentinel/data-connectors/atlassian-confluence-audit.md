@@ -2,7 +2,7 @@
 title: "Atlassian Confluence Audit (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Atlassian Confluence Audit (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 11/20/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -69,7 +69,7 @@ To integrate with Atlassian Confluence Audit (using Azure Functions) make sure y
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Confluence Audit data connector using an ARM Tempate.
+Use this method for automated deployment of the Confluence Audit data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

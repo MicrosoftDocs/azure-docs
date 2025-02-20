@@ -1,32 +1,23 @@
 ---
-title: 'Quickstart: Publish and subscribe on an MQTT topic using portal'
+title: Publish and subscribe on an MQTT topic using portal
 description: 'Quickstart guide to use Azure Event Grid’s MQTT broker feature and Azure portal to publish and subscribe MQTT messages on a topic.'
 ms.topic: quickstart
-ms.custom:
-  - build-2023
-  - ignite-2023
-ms.date: 11/15/2023
+ms.date: 12/13/2024
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
+# Customer intent: I want to know how to publish and subscribe to an Azure Event Grid MQTT topic using Azure portal.
 ---
 
 # Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal
-
-In this article, you use the Azure portal to do the following tasks:
-
-1. Create an Event Grid namespace and enable MQTT broker
-2. Create sub resources such as clients, client groups, and topic spaces
-3. Grant clients access to publish and subscribe to topic spaces
-4. Publish and receive messages between clients
-
+In this quickstart, you use the Azure portal to create an Event Grid namespace with MQTT broker enabled, create sub resources such as clients, client groups, and topic spaces, grant clients access to publish and subscribe to topic spaces, and then publish and receive messages between clients.
  
 
 ## Prerequisites
 
 - Create an [Azure free account](https://azure.microsoft.com/free/) If you don't have an Azure subscription. 
 - Read through [Event Grid overview](overview.md) before starting this tutorial, if you're new to Azure Event Grid.
-- Ensure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments.
+- Ensure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
 - You need an X.509 client certificate to generate the thumbprint and authenticate the client connection.
 
 ## Generate sample client certificate and thumbprint
@@ -98,11 +89,11 @@ After a successful installation of Step, you should open a command prompt in you
 1. Client authentication name is defaulted to the client name. For this tutorial, change it to `client1-authn-ID`. You need to include this name as `Username` in the CONNECT packet.
 1. In this tutorial, you use thumbprint based authentication. Include the first client certificate’s thumbprint in the **Primary Thumbprint**. 
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of client 1 configuration.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client1-metadata.png" alt-text="Screenshot of the configuration of client 1.":::
 6. Select **Create** on the toolbar to create another client.
 7. Repeat the above steps to create a second client named `client2`. Change the authentication name to `client2-authn-ID` and include the **second** client certificate’s thumbprint in the **Primary Thumbprint**. 
 
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of client 2 configuration.":::
+    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqtt-client2-metadata.png" alt-text="Screenshot of the configuration of client 2.":::
 
     > [!NOTE]
     > - To keep the QuickStart simple, you'll be using Thumbprint match for authentication. For detailed steps on using X.509 CA certificate chain for client authentication, see [client authentication using certificate chain](./mqtt-certificate-chain-client-authentication.md).
@@ -115,7 +106,6 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png" alt-text="Screenshot of Topic spaces page with create button selected." lightbox="./media/mqtt-publish-and-subscribe-portal/create-topic-space-menu.png":::
 1. Provide a **name** for the topic space, on the **Create topic space** page.
-1. Select **+ Add topic template**.
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/create-topic-space-name.png" alt-text="Screenshot of Create topic space with the name.":::
 1. Enter `contosotopics/topic1` for the topic template, and then select **Create** to create the topic space.
@@ -145,8 +135,7 @@ After a successful installation of Step, you should open a command prompt in you
 ## Connecting the clients to the EG Namespace using MQTTX app
 
 1. For publish / subscribe MQTT messages, you can use any of your favorite tools. For demonstration purpose, publish / subscribe is shown using MQTTX app, which can be downloaded from https://mqttx.app/.
-
-    :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-add-client.png" alt-text="Screenshot showing MQTTX app left rail to add new client.":::
+1. Select **+** on the navigation bar to the left. 
 1. Configure client1 with  
     - **Name** as `client1` (this value can be anything)
     - **Client ID** as `client1-session1` (Client ID in the CONNECT packet is used to identify the session ID for the client connection)
@@ -160,7 +149,7 @@ After a successful installation of Step, you should open a command prompt in you
 1. Update the **port** to **8883**.
 1. Toggle **SSL/TLS** to ON.
 1. Toggle **SSL Secure** to ON, to ensure service certificate validation.
-1. Select **Certificate** as **Self signed**.
+1. Select **Certificate** as **CA or Self signed certificates**.
 1. Provide the path for client certificate file.
 1. Provide the path for the client key file.
 1. Rest of the settings can be left with predefined default values.
@@ -192,7 +181,7 @@ After a successful installation of Step, you should open a command prompt in you
 
     :::image type="content" source="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png" alt-text="Screenshot showing the message received by the subscribing client on MQTTX app." lightbox="./media/mqtt-publish-and-subscribe-portal/mqttx-app-subscribe-message.png":::
 
-## Next steps
+## Related content
 - [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
 - [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

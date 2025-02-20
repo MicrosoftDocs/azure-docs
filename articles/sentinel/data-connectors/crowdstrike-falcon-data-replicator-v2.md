@@ -2,7 +2,7 @@
 title: "Crowdstrike Falcon Data Replicator V2 (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Crowdstrike Falcon Data Replicator V2 (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 05/30/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -59,7 +59,7 @@ Prerequisites
 1. Configure FDR in CrowdStrike - You must contact the [CrowdStrike support team](https://supportportal.crowdstrike.com/) to enable CrowdStrike FDR.
 	 - Once CrowdStrike FDR is enabled,  from the CrowdStrike console, navigate to Support --> API Clients and Keys. 
 	 - You need to Create new credentials to copy the AWS Access Key ID, AWS Secret Access Key, SQS Queue URL and AWS Region. 
-2.  Register AAD application - For DCR to authentiate to ingest data into log analytics, you must use AAD application. 
+2.  Register AAD application - For DCR to authenticate to ingest data into log analytics, you must use AAD application. 
 	 - [Follow the instructions here](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application) (steps 1-5) to get **AAD Tenant Id**, **AAD Client Id** and **AAD Client Secret**. 
 	 - For **AAD Principal** Id of this application, access the AAD App through [AAD Portal](https://aad.portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview/menuId/) and capture Object Id from the application overview page.
 
@@ -69,7 +69,7 @@ Choose ONE from the following two deployment options to deploy the connector and
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of the Crowdstrike Falcon Data Replicator connector V2 using an ARM Tempate.
+Use this method for automated deployment of the Crowdstrike Falcon Data Replicator connector V2 using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -89,7 +89,7 @@ Use the following step-by-step instructions to deploy the Crowdstrike Falcon Dat
 1. Deploy the required DCE,  DCR(s) and the Custom Tables by using the [Data Collection Resource ARM template](https://aka.ms/sentinel-CrowdstrikeReplicatorV2-azuredeploy-data-resource) 
 2. After successful deployment of DCE and DCR(s), get the below information and keep it handy (required during Azure Functions app deployment).
 	 - DCE log ingestion - Follow the instructions available at [Create data collection endpoint](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-data-collection-endpoint) (Step 3).
-	 - Immutable Ids of one or more DCRs (as applicable) - Follow the instructions available at [Collect information from the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-the-dcr) (Stpe 2).
+	 - Immutable Ids of one or more DCRs (as applicable) - Follow the instructions available at [Collect information from the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-the-dcr) (Step 2).
 
 
 **2. Deploy a Function App**

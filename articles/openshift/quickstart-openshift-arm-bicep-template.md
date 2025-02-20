@@ -164,7 +164,7 @@ Save the following example as *azuredeploy.json*:
           "type": "string",
           "defaultValue": "172.30.0.0/16",
           "metadata": {
-              "decription": "Cidr of service"
+              "description": "Cidr of service"
           }
       },
       "clusterName" : {

@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/24/2024
 ms.custom: devx-track-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Database for PostgreSQL backups

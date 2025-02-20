@@ -226,7 +226,7 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 
 ### Example: client reads entity state
 
-The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
+The following Azure HTTP Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
 ```csharp
 [FunctionName("GetCounter")]
 public static async Task<HttpResponseMessage> GetCounter(
@@ -266,7 +266,7 @@ public static async Task<int> Run(
 ::: zone pivot="isolated"
 ### Example: client signals entity
 
-The following Azure Http Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
+The following Azure HTTP Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
 
 ```csharp
 [Function("DeleteCounter")]
@@ -282,7 +282,7 @@ public static async Task<HttpResponseData> DeleteCounter(
 
 ### Example: client reads entity state
 
-The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
+The following Azure HTTP Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
 
 ```csharp
 [Function("GetCounter")]

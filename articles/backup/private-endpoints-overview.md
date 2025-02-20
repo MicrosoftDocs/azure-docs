@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 11/20/2024
 ms.custom:
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview and concepts of private endpoints (v1 experience) for Azure Backup

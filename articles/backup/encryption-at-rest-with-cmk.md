@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/30/2024
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Encrypt backup data by using customer-managed keys

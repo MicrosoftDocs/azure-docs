@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurepowershell
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Azure Data Factory managed virtual network
@@ -115,7 +115,7 @@ You can utilize the table below as a reference to determine the optimal number o
 
 | Activity Type | Capacity |
 | --------------------------- | --------------------------------------------- |
-| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 10 per node |
+| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 4 per node |
 | External activity | Approximately 800 per node |
 
 

@@ -1,5 +1,5 @@
 ---
-title: Access an app in Azure Spring Apps in a virtual network
+title: Access an App in Azure Spring Apps in a Virtual Network
 description: Shows how to access an app in Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler
@@ -42,7 +42,7 @@ Use the following steps to create a private DNS zone for an application in the p
 
 1. On the **Private DNS zones** page, select **Add**.
 
-1. Fill out the form on the **Create Private DNS zone** page. For **Name**, enter *private.azuremicroservices.io*.
+1. Fill out the form on the **Create Private DNS zone** page. For **Name**, enter **private.azuremicroservices.io**.
 
 1. Select **Review + Create**.
 
@@ -212,9 +212,9 @@ Use the following steps to use the private DNS zone to translate/resolve DNS:
    |----------------|-----------------------------------------------------------------------------------------------------------------------------|
    | **Name**       | Enter *\**.                                                                                                                 |
    | **Type**       | Select **A**.                                                                                                               |
-   | **TTL**        | Enter *1*.                                                                                                                  |
+   | **TTL**        | Enter **1**.                                                                                                                  |
    | **TTL unit**   | Select **Hours**.                                                                                                           |
-   | **IP address** | Enter the [IP address](#find-the-ip-address-for-your-application). The following screenshot uses the IP address *10.1.0.7*. |
+   | **IP address** | Enter the [IP address](#find-the-ip-address-for-your-application). The following screenshot uses the IP address **10.1.0.7**. |
 
    :::image type="content" source="media/access-app-virtual-network/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/access-app-virtual-network/private-dns-zone-add-record.png":::
 
@@ -246,7 +246,7 @@ Use the following steps to link the private DNS zone you created to the virtual 
 
 1. Select **Virtual network links**, and then select **Add**.
 
-1. For **Link name**, enter *azure-spring-apps-dns-link*.
+1. For **Link name**, enter **azure-spring-apps-dns-link**.
 
 1. For **Virtual network**, select the virtual network you created previously.
 

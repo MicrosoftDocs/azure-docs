@@ -47,7 +47,7 @@ By default, Azure will drop out of order fragments, that is, fragmented packets 
 
 #### Tune the MTU
 
-We don't recommend customers increase the MTU on VM NICs. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance.
+You may be able to increase intra Virtual Network throughput performance by increasing MTU for your VM's traffic. If the VM needs to communicate with destinations that are not in the Virtual Network that have a similar MTU set, fragmentation will likely occur which will decrease performance. See [Configure Maximum Transmission Unit (MTU) for virtual machines in Azure](./how-to-virtual-machine-mtu.md) for more information about MTU tuning in Azure. 
 
 #### Large send offload
 
@@ -79,7 +79,7 @@ The PMTUD process is inefficient and affects network performance. When packets a
 
 If you use VMs that perform encapsulation (like IPsec VPNs), there are some additional considerations regarding packet size and MTU. VPNs add more headers to packets, which increases the packet size and requires a smaller MSS.
 
-For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPSec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
+For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel interface MTU to 1,400. For more information, see the [VPN devices and IPsec/IKE parameters page](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 ### Latency, round-trip time, and TCP window scaling
 

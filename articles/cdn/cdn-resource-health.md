@@ -4,7 +4,6 @@ description: Learn how to monitor the health of your Azure Content Delivery Netw
 services: cdn
 author: duongau
 manager: kumudd
-ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
@@ -28,16 +27,11 @@ Azure Content Delivery Network Resource health is a subset of [Azure resource he
 
 2. Select the **Settings** button.
 
-    ![Settings button](./media/cdn-resource-health/cdn-profile-settings.png)
-
 3. Under *Support + troubleshooting*, select **Resource health**.
-
-    ![Screenshot of Content Delivery Network resource health.](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP]
 > You can also find content delivery network resources listed in the *Resource health* tile in the *Help + support* blade. You can quickly get to *Help + support* by clicking the circled **?** in the upper right corner of the portal.
->
-> ![Help + support](./media/cdn-resource-health/cdn-help-support.png)
+
 
 ## Azure Content Delivery Network-specific messages
 

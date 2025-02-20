@@ -2,7 +2,7 @@
 title: "TheHive Project - TheHive (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector TheHive Project - TheHive (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -61,7 +61,7 @@ To integrate with TheHive Project - TheHive (using Azure Functions) make sure yo
 
  Follow the [instructions](https://docs.thehive-project.org/thehive/installation-and-configuration/configuration/webhooks/) to configure Webhooks.
 
-1. Authentication method is *Beared Auth*.
+1. Authentication method is *Bearer Auth*.
 2. Generate the **TheHiveBearerToken** according to your password policy.
 3. Setup Webhook notifications in the *application.conf* file including **TheHiveBearerToken** parameter.
 

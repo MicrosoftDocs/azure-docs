@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to route Azure Digital Twins events, both within the service and externally to other Azure services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/08/2023
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23

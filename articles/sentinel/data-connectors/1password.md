@@ -2,7 +2,7 @@
 title: "1Password (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector 1Password (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 07/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -72,7 +72,7 @@ To integrate with 1Password (using Azure Functions) make sure you have:
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the 1Password connector using an ARM Tempate.
+This method provides an automated deployment of the 1Password connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

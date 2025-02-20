@@ -152,8 +152,6 @@ landingContent:
           url: quickstart-feature-flag-javascript.md
       - linkListType: tutorial
         links: 
-        - text: Use feature flags in ASP.NET Core
-          url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
         - text: Enable conditional features with feature filters
@@ -163,9 +161,13 @@ landingContent:
         - text: Roll out features to targeted audience
           url: howto-targetingfilter.md
         - text: Use variant feature flags
-          url: use-variant-feature-flags.md
+          url: howto-variant-feature-flags.md
+        - text: Use variant feature flags in Python
+          url: howto-variant-feature-flags-python.md
       - linkListType: reference
         links:
+        - text: Overview
+          url: feature-management-overview.md
         - text: .NET feature management
           url: feature-management-dotnet-reference.md
         - text: .NET feature management API reference
@@ -176,11 +178,15 @@ landingContent:
           url: feature-management-python-reference.md
         - text: Python feature management API reference
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+        - text: JavaScript feature management
+          url: feature-management-javascript-reference.md
 
   - title: Client libraries and tools
     linkLists:
       - linkListType: reference
         links:
+        - text: Overview
+          url: configuration-provider-overview.md
         - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Java Spring provider
@@ -188,7 +194,7 @@ landingContent:
         - text: Python provider
           url: https://pypi.org/project/azure-appconfiguration-provider/
         - text: JavaScript provider
-          url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration
+          url: reference-javascript-provider.md
         - text: Kubernetes provider
           url: reference-kubernetes-provider.md
       - linkListType: reference

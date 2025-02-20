@@ -37,20 +37,22 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 ### User access
 Azure Communication Services supports three levels of user access control, using the chat tokens. See [Identity and Tokens](../identity-model.md) for details. Participants don't have write-access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they get an error. 
 
-### Chat Data 
+### Chat Data
+
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
 
 [!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
 
 You can choose between indefinite thread retention, automatic deletion between 30 and 90 days via the retention policy on the [Create Chat Thread API](/rest/api/communication/chat/chat/create-chat-thread), or immediate deletion using the APIs [Delete Chat Message](/rest/api/communication/chat/chat-thread/delete-chat-message) or [Delete Chat Thread](/rest/api/communication/chat/chat/delete-chat-thread). 
 
-Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy has deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, open a support ticket as quickly as possible within the 30 day window after you create a thread so we can assist you.
+Any thread created before the new retention policy isn't affected unless you specifically change the policy for that thread. If you submit a support request for a deleted chat thread more than 30 days after the retention policy deleted that thread, it can no longer be retrieved and no information about that thread is available. If needed, [open a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) as quickly as possible within the 30 day window after you create a thread so we can assist you.
 
-Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, refer to the [data residency and privacy page](../privacy.md). 
+Chat thread participants can use `ListMessages` to view message history for a particular thread. The `ListMessages` API can't return the history of a thread if the thread is deleted. Users that are removed from a chat thread are able to view previous message history but can't send or receive new messages. Accidentally deleted messages aren't recoverable by the system. To learn more about data being stored in Azure Communication Services chat service, see [Region availability and data residency](../privacy.md).
 
 For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](../interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
 
 ### Service limits
+
 - The maximum number of participants allowed in a chat thread is 250.
 - The maximum message size allowed is approximately 28 KB.
 - For chat threads with more than 20 participants, read receipts and typing indicator features aren't supported.
@@ -59,7 +61,7 @@ For customers that use Virtual appointments, refer to our Teams Interoperability
 - Moreover, in Teams Interop scenarios, there are the following limitations:
     - The Teams user's display name in typing indicator event is blank.
     - Read receipt isn't supported.
-    - Certain identities are not supported (i.e. [Bot users](/microsoftteams/platform/bots/what-are-bots), [Skype users](https://support.microsoft.com/en-us/office/use-skype-in-microsoft-teams-4382ea15-f963-413d-8982-491c1b9ae3bf), [non-enterprise users](https://support.microsoft.com/en-us/office/learn-more-about-subscriptions-for-microsoft-teams-free-1061bbd0-6d97-46a6-8ca0-21059be3eee3), etc.)
+    - Certain identities aren't supported, such as [Bot users](/microsoftteams/platform/bots/what-are-bots), [Skype users](https://support.microsoft.com/en-us/office/use-skype-in-microsoft-teams-4382ea15-f963-413d-8982-491c1b9ae3bf), [non-enterprise users](https://support.microsoft.com/en-us/office/learn-more-about-subscriptions-for-microsoft-teams-free-1061bbd0-6d97-46a6-8ca0-21059be3eee3), and similar.
   
 ## Chat architecture
 
@@ -76,7 +78,7 @@ You can use Azure AI services with the Chat service to build use cases like:
 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Generate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
-- Add a [Power Virtual Agent](https://powervirtualagents.microsoft.com/en-us/) (PVA) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
+- Add an [Agent](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio/) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
 - Configure a bot to run on one or more social channels alongside the Chat channel.
 
 :::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
@@ -90,13 +92,13 @@ System messages are generated when
 - a participant was added or removed 
 - the chat thread topic was updated.
 
-When you call `List Messages` or `Get Messages` on a chat thread, the result contains both kind of messages in chronological order. For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services defaults to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitizes the content to ensure that it's rendered safely on client devices.
+When you call `List Messages` or `Get Messages` on a chat thread, the result contains both kind of messages in chronological order. For user-generated messages, the message type can be set in `SendMessageOptions` when sending a message to chat thread. If no value is provided, Communication Services defaults to `text` type. Setting this value is important when sending HTML. When `html` is specified, Communication Services sanitizes the content to ensure that it rendered safely on client devices.
  - `text`: A plain text message composed and sent by a user as part of a chat thread. 
  - `html`: A formatted message using html, composed and sent by a user as part of chat thread. 
 
 Types of system messages: 
  - `participantAdded`: System message that indicates one or more participants are in the chat thread.
- - `participantRemoved`: System message that indicates a participant has been removed from the chat thread.
+ - `participantRemoved`: System message that indicates a participant is removed from the chat thread.
  - `topicUpdated`: System message that indicates the thread topic is updated.
 
 ## Real-time notifications
@@ -122,13 +124,13 @@ The client app can subscribe to following events:
 
 ## Server events
 
-This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see what kinds of chat events can be used by developers, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
+This feature lets server applications listen to events such as when a message is sent and when a participant is joining or leaving the chat. Server applications can react to these events, adding/removing participants to the chat, archiving chats, performing analysis, and many other scenarios for orchestration. To see which chat events are available to developers, see [Azure Communication Services as an Azure Event Grid source](../../../event-grid/event-schema-communication-services.md?bc=/azure/bread/toc.json&toc=/azure/communication-services/toc.json).
 
 ## Push notifications 
 
-Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your participants while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing this notifies your application participants about incoming chats and messages when the mobile app is not running in the foreground.    
+Android and iOS Chat SDKs support push notifications. To send push notifications for messages missed by your participants while they were away, connect a Notification Hub resource with Communication Services resource to send push notifications. Doing so notifies your application participants about incoming chats and messages when the mobile app isn't running in the foreground.    
     
-IOS and Android SDK support the below event:
+IOS and Android SDK support the following events:
 - `chatMessageReceived` - when a participant sends a new message to a chat thread.     
    
 Android SDK supports extra events:
@@ -150,6 +152,9 @@ For more information, see [Push Notifications](../notifications.md).
 > [!div class="nextstepaction"]
 > [Get started with chat](../../quickstarts/chat/get-started.md)
 
+
 ## Related articles
 
 - Familiarize yourself with the [Chat SDK](./sdk-features.md)
+- Access control for participants on a thread using [Identity and Tokens](../identity-model.md)
+- Build an application or a mobile app with [UI Library](../ui-library/ui-library-overview.md)

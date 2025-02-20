@@ -9,12 +9,16 @@ ms.author: daknappe
 
 # Use features of the Remote Desktop client for macOS when connecting to Azure Virtual Desktop
 
+> [!TIP]
+> To ensure a seamless experience, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
+
 Once you've connected to Azure Virtual Desktop using the Remote Desktop client, it's important to know how to use the features. This article shows you how to use the features available in the Remote Desktop client for macOS. If you want to learn how to connect to Azure Virtual Desktop, see [Connect to Azure Virtual Desktop with the Remote Desktop client for macOS](connect-macos.md).
 
 You can find a list of all the Remote Desktop clients at [Remote Desktop clients overview](remote-desktop-clients-overview.md). For more information about the differences between the clients, see [Compare the Remote Desktop clients](../compare-remote-desktop-clients.md).
 
 > [!NOTE]
 > Some of the settings in this article can be overridden by your admin, such as being able to copy and paste between your local device and your remote session. If some of these settings are disabled, please contact your admin.
+
 
 ## Edit, refresh, or delete a workspace
 
