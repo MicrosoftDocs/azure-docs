@@ -12,7 +12,7 @@ ms.date: 02/12/2025
 
 # Preview API life cycle
 
-The Azure App Configuration preview APIs (all APIs that ends in `-preview`) are always deprecated 90 days after a newer preview API version is released. The process may differ for older API versions.[^1]
+The Azure App Configuration preview APIs (all APIs that ends in `-preview`) are always deprecated 90 days after a newer preview API version is released. The process may differ for older API versions.
 
 We love when people try our preview features and give us feedback, so we encourage you to use the preview APIs.
 
@@ -22,6 +22,9 @@ After an API version is deprecated, it will no longer function! We recommend you
 
 You should perform these updates at a minimum every 6-9 months. If you fail to do so, you'll be notified that you're using a soon-to-be deprecated 
 API version as deprecation approaches.
+
+[!NOTE]
+> API versions before 2023-09-01-preview won't follow the 90 day pattern outlined in the beginning of this document. Refer to the [Upcoming Deprecations](#upcoming-deprecations) and [Completed Deprecations](#completed-deprecations) tables to see if an API version you're using has a deprecation date. 
 
 ## How to check what API versions you're using
 
@@ -69,4 +72,3 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 | API version        | Announce Date     | Deprecation Date  |
 |--------------------|-------------------|-------------------|
 
-[^1]: API versions before 2023-09-01-preview won't follow the 90 day pattern outlined in the beginning of this document. Refer to the [Upcoming Deprecations](#upcoming-deprecations) and [Completed Deprecations](#completed-deprecations) tables to see if an API version you're using has a deprecation date. 
