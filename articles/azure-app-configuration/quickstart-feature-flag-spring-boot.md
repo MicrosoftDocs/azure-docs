@@ -71,7 +71,7 @@ To create a new Spring Boot project:
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.18.0</version>
+        <version>5.20.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
@@ -85,40 +85,36 @@ To create a new Spring Boot project:
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following line to the file.
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following to the file.
 
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
+You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
 
-   If you are using a properties file, use the following code:
-   ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
-    ```
-    
-    If you are using a yaml file, use the following code:
-    ```yaml
-    spring:
-      cloud:
-        azure:
-          appconfiguration:
-            stores:
-              -
-                feature-flags:
-                  enabled: true
-                endpoint: ${APP_CONFIGURATION_ENDPOINT}
-    ```
+If you are using a properties file, use the following code:
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+```
 
-    Additionally, you need to add the following code to your project, unless you want to use Managed Identity:
+If you are using a yaml file, use the following code:
+```yaml
+spring:
+    cloud:
+    azure:
+        appconfiguration:
+        stores:
+            -
+            feature-flags:
+                enabled: true
+            endpoint: ${APP_CONFIGURATION_ENDPOINT}
+```
+
+1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
 
     ```java
-    import org.springframework.stereotype.Component;
-    
     import com.azure.data.appconfiguration.ConfigurationClientBuilder;
     import com.azure.identity.DefaultAzureCredentialBuilder;
     import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
     
-    @Component
     public class AppConfigCredential implements ConfigurationClientCustomizer {
     
         @Override
@@ -128,37 +124,33 @@ To create a new Spring Boot project:
     }
     ```
 
-    And add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyApplication` with your application name and package:
+1. Create a new file named `MyConfiguration.java` and add the following lines:
+
+    ```java
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+    
+    @Configuration
+    public class MyConfiguration {
+    
+    
+        @Bean
+        public AppConfigCredential clientSetup() {
+            return new AppConfigCredential();
+        }
+        
+    }
+    ```
+
+1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.MyApplication
+    com.example.MyConfiguration
     ```
-
-    ### [Connection string](#tab/connection-string)
-   If you are using a properties file, use the following code:
-   ```properties
-    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
-    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
-    ```
-
-   If you are using a yaml file, use the following code:
-    ```yaml
-    spring:
-      cloud:
-        azure:
-          appconfiguration:
-            stores:
-              -
-                feature-flags:
-                  enabled: true
-                connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
-    ```
-    ---
 
 1. Set an environment variable.
 
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
@@ -178,32 +170,6 @@ To create a new Spring Boot project:
     ```bash
     export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
-
-    ### [Connection string](#tab/connection-string)
-    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx APP_CONFIGURATION_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
-    ```
-
-   If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:APP_CONFIGURATION_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
-    ```
-    ---
-
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
-
-    ---
 
 1. Create a new Java file named *HelloController.java* in the package directory of your app.
 
