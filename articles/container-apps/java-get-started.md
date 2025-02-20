@@ -15,11 +15,7 @@ zone_pivot_groups: container-apps-java-artifacts
 
 This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application by using a WAR or JAR file.
 
-[!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
-
-## Prerequisites
-
-[!INCLUDE [pet-clinic-prerequisites](includes/pet-clinic-prerequisites.md)]
+[!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
 ## Build the project
 
