@@ -26,13 +26,13 @@ This article shows you how to deploy the Spring PetClinic sample application to 
 
 ## Prepare the project
 
-In a browser window, go to the GitHub reposity for [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git), and fork the reposity.
+In a browser window, go to the GitHub repository for [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git), and fork the repository.
 
 Select the `Fork` button at the top of the repo to fork the repo to your account. Then copy the repo URL to use it in the next step.
 
 ## Deploy the project
 
-[!INCLUDE [Deploy-pet-clinic-app](C:/wsl.localhost/Ubuntu/home/joshg/repos/azure-docs-pr/articles/container-apps/includes/Deploy-pet-clinic-app.md)]
+[!INCLUDE [Deploy-pet-clinic-app](includes/Deploy-pet-clinic-app.md)]
 
  ```azurecli
 az containerapp up \
@@ -49,7 +49,7 @@ When you push new code to the repository, the GitHub Action does the following t
 - Builds the container image and pushes it to the Azure Container Registry.
 - Deploys the container image to the created container app.
 
-## Verify app status
+## Verify the app status
 
 [!INCLUDE [pet-clinic-verify-app-status](includes/pet-clinic-verify-app-status.md)]
 
