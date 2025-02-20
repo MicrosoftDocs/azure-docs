@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-bicep
 
 # Use path-based routing with Azure Container Apps (preview)
 
-In this article, you learn how to use path-based routing with Azure Container Apps.
+In this article, you learn how to use path-based routing with Azure Container Apps. With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path.
 
 ## Prerequisites
 
@@ -224,6 +224,15 @@ resource httpRouteConfig 'Microsoft.App/managedEnvironments/httpRouteConfigs@202
 output fqdn string = httpRouteConfig.properties.fqdn
 ```
 
+1. Deploy the Bicep file with the following command:
+
+```azurecli
+az deployment group create `
+  --name $ROUTE_CONFIG_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --template-file routing.bicep
+```
+
 1. In the output, find `outputs`, which contains your HTTP route configuration's fully qualified domain name (FQDN). For example:
 
 ```
@@ -247,7 +256,7 @@ output fqdn string = httpRouteConfig.properties.fqdn
 
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
->[!CAUTION]
+> [!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
 
 ```azurecli
@@ -262,3 +271,4 @@ az group delete --name my-container-apps
 - [Quickstart and samples](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master)
 - [Azure CLI reference](/cli/azure/containerapp/env/http-route-config?view=azure-cli-latest)
 - [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
+- [ARM template reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-arm-template)
