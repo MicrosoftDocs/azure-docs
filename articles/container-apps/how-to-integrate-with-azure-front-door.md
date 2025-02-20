@@ -6,20 +6,137 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 02/03/2025
+ms.date: 02/20/2025
 ms.author: cshoe
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Create a private link to an Azure Container App with Azure Front Door (preview)
 
 In this article, you learn how to connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. In this tutorial, you create an Azure Container Apps workload profiles environment, an Azure Front Door, and connect them securely through a private link. You then verify the connectivity between your container app and the Azure Front Door.
 
+::: zone pivot="azure-portal"
+
 ## Prerequisites
 
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 
-- This feature is only available with the [Azure CLI](/cli/azure/install-azure-cli). To ensure you're running the latest version of the Azure CLI, run the following command.
+- This feature is only supported for workload profile environments.
+
+## Create a container app
+
+Create a resource group to organize the services related to your container app deployment.
+
+Begin by signing in to the [Azure portal](https://portal.azure.com).
+
+1. Search for **Container Apps** in the top search bar.
+1. Select **Container Apps** in the search results.
+1. Select the **Create** button.
+
+1. In the *Create Container App* page, in the *Basics* tab, enter the following values.
+
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select the **Create new resource group** link and enter **my-container-apps**. |
+    | Container app name |  Enter **my-container-app**. |
+    | Deployment source | Select **Container image**. |
+    | Region | Select **Central US**. |
+
+1. In the *Create Container Apps Environment* field, select the **Create new environment** link.
+
+1. In the *Create Container Apps Environment* page, in the *Basics* tab, enter the following values:
+
+    | Setting | Value |
+    |--|--|
+    | Environment name | Enter **my-environment**. |
+    | Zone redundancy | Select **Disabled** |
+
+1. Select the **Networking** tab.
+
+1. Set *Public Network Access* to **Disable: Block all incoming traffic from the public internet.**
+
+1. Leave **Use your own virtual network** set to **No**.
+
+1. Leave **Enable private endpoints** set to **No**.
+
+1. Select **Create**.
+
+1. In the *Create Container App* page, select the **Container** tab.
+
+1. Select **Use quickstart image**.
+
+<!-- Deploy the container app -->
+[!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
+
+1. When you browse to the container app endpoint, you see the following message:
+
+    ```
+    The public network access on this managed environment is disabled. To connect to this managed environment, please use the Private Endpoint from inside your virtual network. To learn more https://aka.ms/PrivateEndpointTroubleshooting.
+    ```
+
+    Instead, you use an AFD endpoint to access your container app.
+
+## Create an Azure Front Door profile
+
+1. Search for **Front Door** in the top search bar.
+1. Select **Front Door and CDN profiles** in the search results.
+1. Select **Azure Front Door** and **Quick Create**.
+1. Select the **Continue to create a Front Door** button.
+
+1. In the *Create a Front Door profile* page, in the *Basics* tab, do the following.
+
+1. Under the **Subscription** field, you might see the error `Microsoft.Cdn is not registered for the subscription.`. To resolve this:
+    1. Browse to your subscription page and select **Settings** > **Resource providers**. 
+    1. Select **Microsoft.Cdn** from the provider list.
+    1. Select **Register**.
+
+1. For *Resource group*, select **my-container-apps**.
+
+1. For *Name*, enter **my-afd-profile**.
+
+1. Set *Tier* to **Premium**. Private link is not supported for origins in an AFD profile on the Standard tier.
+
+1. Set *Endpoint name* to **my-afd-endpoint**.
+
+1. Set *Origin type* to **Container Apps**.
+
+1. Set *Origin host name* to the hostname of your container app. Your hostname looks like the following example: `my-container-app.orangeplant-77e5875b.centralus.azurecontainerapps.io`.
+
+1. Select **Enable private link service**.
+
+1. Set *Region* to **(US) Central US**.
+
+1. Set *Target sub resource* to **managedEnvironments**.
+
+1. In the *Request message* field, enter **AFD Private Link Request**.
+
+1. Select **Review + create**.
+
+
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the container app and all the associated services by removing the resource group.
+
+1. Select the **my-container-apps** resource group from the *Overview* section.
+1. Select the **Delete resource group** button at the top of the resource group *Overview*.
+1. Enter the resource group name **my-container-apps** in the *Are you sure you want to delete "my-container-apps"* confirmation dialog.
+1. Select **Delete**.
+
+    The process to delete the resource group could take a few minutes to complete.
+
+::: zone-end
+
+::: zone pivot="azure-cli"
+
+## Prerequisites
+
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+
+- To ensure you're running the latest version of the [Azure CLI](/cli/azure/install-azure-cli), run the following command.
 
     ```azurecli
     az upgrade
@@ -119,11 +236,17 @@ az group create \
         --output tsv)
     ```
 
-    If you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled. Instead, you use an AFD endpoint to access your container app.
+1. When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because the container app environment has public access disabled. Instead, you use an AFD endpoint to access your container app.
 
 ## Create an Azure Front Door profile
 
-Create an AFD profile. Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
+1. Make sure the `Microsoft.Cdn` resource provider is registered for your subscription.
+
+```azurecli
+az provider register --namespace Microsoft.Cdn
+```
+
+1. Create an AFD profile. Private link is not supported for origins in an AFD profile with SKU `Standard_AzureFrontDoor`.
 
 ```azurecli
 az afd profile create \
@@ -264,6 +387,11 @@ If you're not going to continue to use this application, you can remove the **my
 ```azurecli
 az group delete --name $RESOURCE_GROUP
 ```
+
+::: zone-end
+
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Related content
 

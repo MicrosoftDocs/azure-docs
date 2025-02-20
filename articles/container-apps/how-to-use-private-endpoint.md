@@ -34,28 +34,28 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-1. In the *Create Container App* page on the *Basics* tab, enter the following values.
+1. In the *Create Container App* page, in the *Basics* tab, enter the following values.
 
     | Setting | Action |
     |---|---|
     | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new** and enter **my-container-apps**. |
+    | Resource group | Select the **Create new resource group** link and enter **my-container-apps**. |
     | Container app name |  Enter **my-container-app**. |
     | Deployment source | Select **Container image**. |
     | Region | Select **Central US**. |
 
-1. In the *Create Container Apps Environment* field, select the **Create new** link.
+1. In the *Create Container Apps Environment* field, select the **Create new environment** link.
 
-1. In the *Create Container Apps Environment* page on the *Basics* tab, enter the following values:
+1. In the *Create Container Apps Environment* page, in the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
     | Zone redundancy | Select **Disabled** |
 
-1. Select the **Networking** tab to create a virtual network (VNet). By default, public network access is enabled, which means private endpoints are disabled.
+1. Select the **Networking** tab.
 
-1. Disable public network access.
+1. Set *Public Network Access* to **Disable: Block all incoming traffic from the public internet.** By default, public network access is enabled, which means private endpoints are disabled.
 
 1. Leave **Use your own virtual network** set to **No**.
     You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
@@ -76,21 +76,18 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
-1. In the *Create Container App* page on the *Basics* tab, select **Next : Container >**.
+1. In the *Create Container App* page, select the **Container** tab.
 
-1. In the *Create Container App* page on the *Container* tab, select **Use quickstart image**.
+1. Select **Use quickstart image**.
 
-1. Select **Review and create** at the bottom of the page.  
+<!-- Deploy the container app -->
+[!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
 
-    If no errors are found, the *Create* button is enabled.  
+1. When you browse to the container app endpoint, you see the following message:
 
-    If there are errors, any tab containing errors is marked with a red dot.  Navigate to the appropriate tab.  Fields containing an error are highlighted in red.  Once all errors are fixed, select **Review and create** again.
-
-1. Select **Create**.
-
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you see the message: *Your deployment is complete*.
-
-    When you browse to the container app endpoint, you receive `ERR_CONNECTION_CLOSED` because your container app environment has public access disabled. Instead, you access your container app using your private endpoint.
+    ```
+    The public network access on this managed environment is disabled. To connect to this managed environment, please use the Private Endpoint from inside your virtual network. To learn more https://aka.ms/PrivateEndpointTroubleshooting.
+    ```
 
 ::: zone-end
 
