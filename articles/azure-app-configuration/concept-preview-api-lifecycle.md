@@ -36,7 +36,7 @@ az monitor activity-log list --offset 30d --max-events 10000 --namespace Microso
 
 ## How to find the available API versions
 
-If you want to know what API versions are available, you can use the following command for a resource:
+If you want to know what API versions are available, you can use the following command for a resource type:
 
 ```bash
 az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?resourceType=='configurationStores'].apiVersions"
