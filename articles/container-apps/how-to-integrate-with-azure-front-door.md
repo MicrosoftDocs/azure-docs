@@ -116,7 +116,25 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
+1. After the deployment completes, select **Go to resource**.
 
+1. In the *Front Door and CDN profile* overview page, find your *Endpoint hostname*. It looks like the following example. Make a note of this hostname.
+
+    ```
+    my-afd-endpoint.<HASH>.b01.azurefd.net
+    ```
+
+1. Browse to the overview page for the environment named *my-environment* you created previously.
+
+1. Expand **Settings** > **Networking**.
+
+1. You see a link for the private endpoint connection requests. For example, `1 private endpoint`. Select this link.
+
+1. In the *Private endpoint connections* page, approve each connection with the description `AFD Private Link Request`.
+
+1. Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image.
+
+    It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
