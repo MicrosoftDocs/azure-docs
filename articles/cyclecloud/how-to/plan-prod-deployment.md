@@ -17,7 +17,7 @@ ms.author: adjohnso
 * Define which [Resource Group](/azure/azure-resource-manager/management/manage-resource-groups-portal) will host clusters or if CycleCloud should create them (default setting)
 * Create a storage account for [locker access](./storage-blobs.md)
 * Determine if SSH keys, AD or LDAP will be [used for authentication](./user-access.md)
-* Determine if CycleCloud will use a Service Principal or a Managed Identity (recommended with a single subscription) [Choosing between a Service Principal and a Managed Identity](./service-principals.md#choosing-between-a-service-principal-and-a-managed-identity)
+* Determine if CycleCloud will use a Service Principal or a Managed Identity (recommended with a single subscription) [Choosing between a Service Principal and a Managed Identity](./service-principals.md#using-service-principal)
 * Confirm which SKU will be used for CycleCloud: [CycleCloud System Requirements](./install-manual.md#system-requirements)
 * Will the environment be deployed in a locked down network? If so, take into account the following requirements: [Operating in a locked down network](./running-in-locked-down-network.md)
 * [Deploy the CycleCloud server](../qs-install-marketplace.md)
