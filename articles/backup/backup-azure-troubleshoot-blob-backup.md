@@ -2,7 +2,7 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 09/16/2024
+ms.date: 02/20/2025
 ms.service: azure-backup
 ms.reviewer: geg
 author: jyothisuri
@@ -168,6 +168,30 @@ This article provides troubleshooting information to address issues you encounte
 **Error message**: The operation can't be performed while a restore is in progress on the source account. 
 
 **Recommendation**: You need to retrigger the operation once the in-progress restore completes. 
+
+### UserErrorMaxConcurrentOperationLimitReached
+
+**Error code**: `UserErrorMaxConcurrentOperationLimitReached`
+
+**Error message**: The operation can't start because the number of allowed concurrent operations has reached the maximum limit.
+
+**Cause**: This error appears due to the following reasons:
+
+- A backup job is already in progress and another one is triggered (either scheduled or ad hoc).
+- A long-running backup is in progress; it might be caused by a large account with a high number of blobs and versions. The initial backup (IR) takes longer depending on the account size, number of blobs, and versions.
+
+**Recommended action**: To resolve the error, follow these steps:
+
+- Wait for the ongoing operation(s) to complete before starting a new one.
+- To reduce the backup duration, consider cleaning up older versions using an appropriate Lifecycle Management (LCM) policy.
+
+### UserErrorConflictingFeatureEnabled
+
+**Error code**: `UserErrorConflictingFeatureEnabled`
+
+**Error message**: **Permanent delete** is a conflicting job for point-in-time-restore, which is blocking protection/backup.
+        
+**Recommended action**: Disable the conflicting job (such as **Permanent delete**) on the storage account and retry the operation. 
 
 ## Common errors for Azure Blob vaulted backup
 
