@@ -73,14 +73,4 @@ Build the Spring PetClinic application on your local machine by using the follow
         --source ..
     ```
 
-## Verify the app status
-
-[!INCLUDE [pet-clinic-verify-app-status](includes/pet-clinic-verify-app-status.md)]
-
-## Clean up resources
-
-[!INCLUDE [pet-clinic-clean-up-resources](includes/pet-clinic-clean-up-resources.md)]
-
-## Next steps
-
-[!INCLUDE [java-app-quickstart-deployment-next-steps](includes/java-app-quickstart-deployment-next-steps.md)]
+[!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
