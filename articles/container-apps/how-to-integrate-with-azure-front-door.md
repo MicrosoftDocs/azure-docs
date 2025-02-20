@@ -78,7 +78,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
     Instead, you use an AFD endpoint to access your container app.
 
-## Create an Azure Front Door profile
+## Create an Azure Front Door profile and endpoint
 
 1. Search for **Front Door** in the top search bar.
 1. Select **Front Door and CDN profiles** in the search results.
@@ -124,6 +124,8 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
     my-afd-endpoint.<HASH>.b01.azurefd.net
     ```
 
+## Approve the private endpoint connection
+
 1. Browse to the overview page for the environment named *my-environment* you created previously.
 
 1. Expand **Settings** > **Networking**.
@@ -132,7 +134,9 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. In the *Private endpoint connections* page, approve each connection with the description `AFD Private Link Request`.
 
-1. Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image.
+## Access your container app from Azure Front Door
+
+Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image.
 
     It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
