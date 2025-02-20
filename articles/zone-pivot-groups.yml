@@ -761,6 +761,22 @@ groups:
     title: C# SmtpClient
   - id: smtp-method-powershell
     title: Windows PowerShell
+- id: acs-smtp-role-assignment
+  title: SMTP Sending Method
+  prompt: Choose a role type
+  pivots:
+  - id: smtp-role-builtin
+    title: Built-in Role
+  - id: smtp-role-custom
+    title: Custom Role
+- id: acs-smtp-username-creation
+  title: SMTP Username Creation
+  prompt: Choose a creation method
+  pivots:
+  - id: smtp-create-portal
+    title: Azure Portal
+  - id: smtp-method-azurecli
+    title: Azure CLI
 # Owner: mimart
 - id: b2c-policy-type
   title: Azure AD B2C policy type
