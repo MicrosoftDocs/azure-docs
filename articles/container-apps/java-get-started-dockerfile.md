@@ -14,15 +14,7 @@ ms.author: hangwan
 
 This article shows you how to use a Dockerfile to deploy the Spring PetClinic sample application to Azure Container Apps.
 
-[!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
-
-## Prerequisites
-
-[!INCLUDE [pet-clinic-prerequisites](includes/pet-clinic-prerequisites.md)]
-
-## Install the Container Apps CLI extension
-
-[!INCLUDE [pet-clinic-install-azure-container-apps-cli-extension](includes/pet-clinic-install-azure-container-apps-cli-extension.md)]
+[!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
 ## Build the project locally
 
