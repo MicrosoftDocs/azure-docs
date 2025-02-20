@@ -59,38 +59,7 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
-    - name: Private Deployment
-      href: application-gateway-private-deployment.md
-    - name: Private Link
-      href: private-link.md
-  - name: SSL
-    items:
-    - name: SSL termination and end to end SSL
-      href: ssl-overview.md
-    - name: SSL policy overview
-      href: application-gateway-ssl-policy-overview.md
-    - name: Mutual authentication
-      href: mutual-authentication-overview.md
-    - name: Using Key Vault
-      href: key-vault-certs.md
-    - name: SSL certificate management
-      href: ssl-certificate-management.md
-  - name: Health monitoring
-    items:
-    - name: Monitor Application Gateway
-      href: monitor-application-gateway.md
-    - name: Health probe
-      href: application-gateway-probe-overview.md
-    - name: Backend health
-      href: application-gateway-backend-health.md      
-    - name: Diagnostic logs
-      href: application-gateway-diagnostics.md
-    - name: Metrics
-      href: application-gateway-metrics.md
+
   - name: TCP/TLS proxy
     href: tcp-tls-proxy-overview.md
   - name: Support for working remotely
@@ -107,10 +76,28 @@
     href: understanding-pricing.md
   - name: FAQ
     href: application-gateway-faq.yml
-- name: Deploy
+- name: Security
   items:
+  - name: Private Deployment
+    href: application-gateway-private-deployment.md
+  - name: Private Link
+    href: private-link.md
   - name: Secure with SSL
     href: create-ssl-portal.md
+  - name: SSL termination and end to end SSL
+    href: ssl-overview.md
+  - name: SSL policy overview
+    href: application-gateway-ssl-policy-overview.md
+  - name: Mutual authentication
+    href: mutual-authentication-overview.md
+  - name: Using Key Vault
+    href: key-vault-certs.md
+  - name: SSL certificate management
+    href: ssl-certificate-management.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+- name: Deploy
+  items:
   - name: Host multiple sites
     href: create-multiple-sites-portal.md
   - name: Route by URL
@@ -315,6 +302,18 @@
     href: classic-to-resource-manager.md
   - name: Configure Private Link
     href: private-link-configure.md
+- name: Health monitoring
+  items:
+  - name: Monitor Application Gateway
+    href: monitor-application-gateway.md
+  - name: Health probe
+    href: application-gateway-probe-overview.md
+  - name: Backend health
+    href: application-gateway-backend-health.md      
+  - name: Diagnostic logs
+    href: application-gateway-diagnostics.md
+  - name: Metrics
+    href: application-gateway-metrics.md
 - name: Troubleshoot
   items:
   - name: ILB with an App Service Environment
