@@ -45,6 +45,8 @@ Assets use the following industry standards to exchange data with Azure services
 
 - **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5.
 
+Once asset data is received, Azure IoT Operations uses *data flows* to process and route data to cloud endpoints or other edge components.
+
 # [Cloud-based solution](#tab/cloud)
 
 Azure IoT devices use the following primitives to exchange data with cloud services:
@@ -101,7 +103,9 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 
 Assets and asset endpoints in Azure IoT Operations are represented as custom resources in the Kubernetes cluster and as resources in Azure. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
 
-Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault.
+Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault. Access to the Azure key vault is configured with a user-assigned managed identity.
+
+Any Azure IoT Operations components that require cloud connections, like data flow enpoints that send data to cloud resources, use a user-assigned managed identity. For more information, see [Enable secure settings in Azure IoT Operations](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md).
 
 # [Cloud-based solution](#tab/cloud)
 
@@ -132,7 +136,7 @@ To learn more about security in your IoT solution, see [Security architecture fo
 
 # [Edge-based solution](#tab/edge)
 
-Industrial IoT scenarios often use the [open platform communications unified architecture (OPC UA)](https://opcfoundation.org/about/opc-technologies/opc-ua/) industry standard open interface. To enable connectivity to the Azure cloud, use Azure IoT Operations. To learn more, see [What is Azure IoT Operations?](../iot-operations/get-started/overview-iot-operations.md).
+The MQTT broker underpins the messaging layer in IoT Operations and supports both MQTT v3.1.1 and MQTT v5.
 
 # [Cloud-based solution](#tab/cloud)
 
