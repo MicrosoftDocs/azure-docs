@@ -112,7 +112,6 @@ docker --version
 
    ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
    ```
-
    ---
 
 1. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Select **Enter** to run the command.
