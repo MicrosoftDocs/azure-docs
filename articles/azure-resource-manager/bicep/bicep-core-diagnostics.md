@@ -171,7 +171,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP167' />BCP167 | Error | Expected the "{" character or the "if" keyword at this location. |
 | <a id='BCP168' />BCP168 | Error | Length must not be a negative value. |
 | <a id='BCP169' />BCP169 | Error | Expected resource name to contain {expectedSlashCount} "/" character(s). The number of name segments must match the number of segments in the resource type. |
-| <a id='BCP170' />BCP170 | Error | Expected resource name to not contain any "/" characters. Child resources with a parent resource reference (via the parent property or via nesting) must not contain a fully qualified name. |
+| <a id='BCP170' />[BCP170](./diagnostics/bcp170.md) | Error | Expected resource name to not contain any "/" characters. Child resources with a parent resource reference (via the parent property or via nesting) must not contain a fully qualified name. |
 | <a id='BCP171' />BCP171 | Error | Resource type "{resourceType}" isn't a valid child resource of parent "{parentResourceType}". |
 | <a id='BCP172' />BCP172 | Error | The resource type can't be validated due to an error in parent resource "{resourceName}". |
 | <a id='BCP173' />BCP173 | Error | The property "{property}" can't be used in an existing resource declaration. |
