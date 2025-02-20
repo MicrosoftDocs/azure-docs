@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to #Don't change
-ms.date: 02/05/2025
+ms.date: 02/19/2025
 
 #customer intent: As a network administrator, I want to disable SNAT requirement for private endpoint traffic through NVA so that I can ensure symmetric routing and comply with internal logging standards.
 
@@ -13,13 +13,13 @@ ms.date: 02/05/2025
 
 # How to Guide: Disable SNAT requirement for Private Endpoint Traffic through NVA
 
-Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA VMs to notify the Microsoft platform that you wish to opt into this feature. This means SNATing will no longer be necessary for private endpoint destined traffic traversing through your NVA.
+Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA VMs to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
 
-Enabling this feature provides a more streamlined experience for guaranteeing symmetric routing without impacting non-private endpoint traffic. It also allows you to follow internal compliance standards where the source of traffic origination needs to be available during logging. This feature is available in all regions.
+Enabling this feature provides a more streamlined experience for guaranteeing symmetric routing without affecting nonprivate endpoint traffic. It also allows you to follow internal compliance standards where the source of traffic origination needs to be available during logging. This feature is available in all regions.
 
 
 > [!NOTE]
-> Disabling SNAT for private endpoint traffic passing through a Network Virtual Appliance (NVA) will cause a one-time reset of all long-running private endpoint connections established through the NVA. To minimize disruption, it is recommended to configure this feature during a maintenance window. This update will only impact traffic passing through your NVA; private endpoint traffic that bypasses the NVA will not be affected.
+> Disabling SNAT for private endpoint traffic passing through a Network Virtual Appliance (NVA) causes a one-time reset of all long-running private endpoint connections established through the NVA. To minimize disruption, it's recommended to configure this feature during a maintenance window. This update will only affect traffic passing through your NVA; private endpoint traffic that bypasses the NVA won't be affected.
 
 
 ## Prerequisites
@@ -31,7 +31,7 @@ Enabling this feature provides a more streamlined experience for guaranteeing sy
 
 ### Disable SNAT requirement for Private Endpoint Traffic through NVA
 
-The type of NVA you are using will determine how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine you will add a tag on the NIC while on the VMSS you will enable the tag on the VM instance.
+The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set (VMSS) you enable the tag on the VMSS instance.
 
 #### Add Tag to your VM NIC
 
@@ -41,7 +41,7 @@ The type of NVA you are using will determine how to disable SNAT for private end
 1. In the search bar at the top, type "Virtual machines" and select it from the services.
 1. From the list of VMs, select your virtual machine.
 1. In the left navigation pane under **Settings**, select **Networking**, then select **Network settings**.
-1. Under the **Network Interface** section, click on the NIC name. Now you are in the Network interface blade.
+1. Under the **Network Interface** section, select on the NIC name. Now you are in the Network interface pane.
 1. In the left navigation pane under **Overview**, select **Tags**.
 1. Add a new tag with the following details:
 
@@ -53,7 +53,7 @@ The type of NVA you are using will determine how to disable SNAT for private end
 1. Select **Apply** to save the tag.
 
 > [!NOTE]
-> The tag is case-sensitive. Ensure you enter it exactly as shown above.
+> The tag is case-sensitive. Ensure you enter it exactly as shown.
 
 # [**PowerShell**](#tab/vm-nic-powershell)
 
@@ -118,7 +118,7 @@ Verify the tag is present in the VM's NIC settings or VMSS settings.
 
 1. Navigate to the **Tags** service in the Azure portal.
 1. In the **Filter by** field, type `disableSnatOnPL`.
-1. Select the tag from the list. Here you will see all resources with the tag.
+1. Select the tag from the list. Here you see all resources with the tag.
 1. Select the resource to view the tag details.
 
 To learn more, see [View resources by tag](../azure-resource-manager/management/tag-resources-portal.md#view-resources-by-tag).
