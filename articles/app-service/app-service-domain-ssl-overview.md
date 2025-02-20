@@ -1,13 +1,15 @@
 ---
-title: "Custom Domains & SSL Overview"
-description: "A technical roadmap for configuring custom domains and SSL/TLS in Azure App Service. Covers domain purchase, DNS mapping, certificate binding, and advanced security configurations."
-keywords: "Azure App Service, custom domain, SSL, TLS, HTTPS, DNS mapping, certificate binding, security configuration"
+title: Custom Domains & SSL Overview
+description: A technical roadmap for configuring custom domains and SSL/TLS in Azure App Service. Covers domain purchase, DNS mapping, certificate binding, and advanced security configurations.
+keywords: Azure App Service, custom domain, SSL, TLS, HTTPS, DNS mapping, certificate binding, security configuration
 
+ms.service: azure-app-service
 ms.topic: overview
 ms.date: 02/14/2025
 ms.custom: mvc
 ms.author: msangapu
 author: msangapu-msft
+#customer intent: As an Azure App Service user, I want to learn about custom domains and SSL, so I can configure it for my own apps.
 ---
 
 # Azure App Service domain name & SSL journey
