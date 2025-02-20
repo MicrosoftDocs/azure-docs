@@ -36,7 +36,7 @@ In this tutorial, you will...
 
 ## Get started with the building scenario
 
-The sample project used in this tutorial represents a real-world building scenario, containing a floor, a room, and a thermostat device. These components are digitally represented in an Azure Digital Twins instance, which are connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to enable movement of data.
+The sample project used in this tutorial represents a real-world building scenario, containing a floor, a room, and a thermostat device. These components are digitally represented in an Azure Digital Twins instance, which is connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to enable movement of data.
 
 The following diagram represents the full scenario. 
 
@@ -230,7 +230,7 @@ az iot hub create --name <name-for-your-IoT-hub> --resource-group <your-resource
 
 The output of this command is information about the IoT hub that was created.
 
-Save the **name** that you gave to your IoT hub. You use it later.
+Save the **name** of your IoT hub to use later.
 
 ### Connect the IoT hub to the Azure function
 
@@ -255,7 +255,7 @@ The output shows information about the event subscription that you created. You 
 
 ### Register the simulated device with IoT Hub 
 
-This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device connects to this representation, which is how device data events flow from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
+This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device connects to this representation, which is how device data flows from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
 
 In the Azure CLI, create a device in IoT Hub with the following command:
 
