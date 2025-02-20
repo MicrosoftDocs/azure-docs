@@ -17,10 +17,8 @@ Source network address translation (SNAT) is no longer required for private endp
 
 Enabling this feature provides a more streamlined experience for guaranteeing symmetric routing without affecting nonprivate endpoint traffic. It also allows you to follow internal compliance standards where the source of traffic origination needs to be available during logging. This feature is available in all regions.
 
-
 > [!NOTE]
 > Disabling SNAT for private endpoint traffic passing through a Network Virtual Appliance (NVA) causes a one-time reset of all long-running private endpoint connections established through the NVA. To minimize disruption, it's recommended to configure this feature during a maintenance window. This update will only affect traffic passing through your NVA; private endpoint traffic that bypasses the NVA won't be affected.
-
 
 ## Prerequisites
 
