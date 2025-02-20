@@ -110,7 +110,7 @@ Here we add the tag to the VMSS instance.
     Update-AzVmss -ResourceGroupName "MyResourceGroup" -Name "myVmss" -VirtualMachineScaleSet $vmss
 ```
 
-# [Azure CLI](#tab/vmss-cl) 
+# [Azure CLI](#tab/vmss-cli) 
 
 1. Use the following Azure CLI command to add the tag to your VMSS:
 
