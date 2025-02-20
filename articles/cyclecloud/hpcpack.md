@@ -1,9 +1,9 @@
 ---
 title: Microsoft HPC Pack Integration
 description: Microsoft HPC Pack configuration in Azure CycleCloud
-author: prkannap
+author: padmalathas
 ms.date: 05/24/2021
-ms.author: prkannap
+ms.author: padmalathas
 monikerRange : '>= cyclecloud-8'
 ---
 
