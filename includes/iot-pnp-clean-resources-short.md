@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dominicbetts
 ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 02/14/2025
 ---
 
 ## Clean up resources

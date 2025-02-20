@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 01/29/2025
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
@@ -17,6 +17,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Cross-zone region replication](cross-zone-region-replication-configure.md) (preview)
 
     Cross-zone region replication is an extension to cross-region and cross-zone replication. With cross-zone region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. This feature is in preview.
+
+## February 2025
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
 
 ## January 2025 
 
