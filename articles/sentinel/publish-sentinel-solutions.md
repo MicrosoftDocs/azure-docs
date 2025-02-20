@@ -44,7 +44,7 @@ Complete the following steps to create the offer and configure the top-level att
 
    |Field| Description|
    |--|--|
-   |**Offer ID**| The offer ID should be the same as offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub at */Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json*. We recommend using the naming convention for offer ID as *azure-sentinel-solution-\<your-solution-name\>*. For example, *azure-sentinel-solution-ciscoumbrella*. Use only lowercase, alphanumeric characters, dashes, or underscores. ID can't end with "-preview" and can't be modified after selecting **Create**. <br/><br/> Offer ID: Max. 50 characters.|
+   |**Offer ID**| The offer ID should be the same as offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub at */Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json*. We recommend using the naming convention for offer ID as *azure-sentinel-solution-\<your-solution-name\>*. For example, *azure-sentinel-solution-ciscoumbrella*. Use only lowercase, alphanumeric characters, dashes, or underscores. ID can't end with "-preview" and can't be modified after selecting **Create**. <br/><br/> Offer ID: Max length is 50 characters.|
    |**Offer alias**| This name isn't used in the marketplace listing and is solely for reference within Partner Center.|
    |**Publisher**|Select the publisher ID that you want to use to publish your Microsoft Sentinel solution. The publisher selected can't be modified after creation of the offer.|
     
