@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) v2 custom rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/30/2024
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -14,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a preconfigured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you might want to write your own rules to augment the core rule set (CRS) rules. Your custom rules can either block, allow, or log requested traffic based on matching criteria. If the WAF policy is set to detection mode, and a custom block rule is triggered, the request is logged and no blocking action is taken.
 
-Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further custom or managed rules are evaluated. Custom rules can be enabled/disabled on demand.
+Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow, block, or log). If a custom rule is triggered, and an allow or block action is taken, no further actions from custom or managed rules is taken. In the event of a custom rule triggering an allow or a block action, you may still see some log events for rule matches from configured ruleset (Core Rule Set/Default Rule Set) but those rules aren't enforced. The log events show merely due to the optimization enforced by the WAF engine for parallel rule processing and can be safely ignored. Custom rules can be enabled/disabled on demand.
 
 For example, you can block all requests from an IP address in the range 192.168.5.0/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.0/24), and the action is to block the traffic. You also set the rule's name, priority and enabled/disabled state.
 
@@ -27,7 +26,7 @@ If you want to use **or** between two different conditions,then the two conditio
 Regular expressions are also supported in custom rules, just like in the CRS rulesets. For examples, see Examples 3 and 5 in [Create and use custom web application firewall rules](create-custom-waf-rules.md).
 
 > [!NOTE]
-> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+> The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
 > [!CAUTION]
 > Any redirect rules applied at the application gateway level will bypass WAF custom rules. See [Application Gateway redirect overview](../../application-gateway/redirect-overview.md) for more information about redirect rules.
@@ -162,6 +161,9 @@ A list of strings with names of transformations to do before the match is attemp
 ### Match values [required]
 
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
+
+> [!NOTE]
+> If your WAF is running Core Rule Set (CRS) 3.1, or any other earlier CRS version, the match value only allows letters, numbers and punctuation marks. Quotation marks `"`, `'` and spaces are not supported.
 
 Supported HTTP request method values include:
 - GET

@@ -25,7 +25,7 @@ You get the error "The provided manifest file is invalid: Invalid OVF manifest e
 
 ### Remediation
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 1. If deployment still fails and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 1. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
@@ -109,7 +109,7 @@ This issue happens when the Azure user account that was used to sign in from the
 You have two options:
 
 - To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal.
-- You can also assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
+- You can also assign the required roles and [permissions](tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
 
 <a name='azure-active-directory-aad-operation-failed-with-status-forbidden-error-occurs-during-appliance-registration'></a>
 
@@ -119,7 +119,7 @@ You're unable to complete registration because of insufficient Microsoft Entra I
 
 ### Remediation
 
-Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Microsoft Entra applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Microsoft Entra applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" error occurs during appliance registration
 
@@ -129,7 +129,7 @@ This issue usually happens when the Azure user account used to register the appl
 
 ### Remediation
 
-1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
+1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](tutorial-discover-vmware.md#prepare-an-azure-user-account).
 1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](/azure/key-vault/general/assign-access-policy-portal).
 1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Migrate: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md).
 1. If you have the required permissions and connectivity, retry the registration on the appliance after some time.
@@ -253,8 +253,8 @@ if ($Session -eq $null -or $Session.TestConnection() -eq $false)
 Write-Host "Connection established with $Hostname"
 #Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct" 
 
-$HostIntance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
-$HostIntance | fl *
+$HostInstance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
+$HostInstance | fl *
 ````
 
 When you run the preceding code, you need to provide the hostname of the target server. It can be IP address/FQDN/hostname. After that, you're prompted to provide the credentials to connect to the server.
@@ -320,6 +320,6 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 ## Next steps
 
 - Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
-- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+- Learn how to migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
 
 

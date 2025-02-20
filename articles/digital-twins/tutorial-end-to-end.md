@@ -420,4 +420,4 @@ In this tutorial, you created an end-to-end scenario that shows Azure Digital Tw
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
 
 > [!div class="nextstepaction"]
-> [Custom models](concepts-models.md)
+> [DTDL models](concepts-models.md)

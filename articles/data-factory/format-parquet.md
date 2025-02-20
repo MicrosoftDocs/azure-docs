@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 
@@ -36,7 +36,7 @@ For a list of supported features for all available connectors, visit the [Connec
 ## Using Self-hosted Integration Runtime
 
 > [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment), JDK 23 (Java Devleopment Kit),  or OpenJDK** on your IR machine. Check the following paragraph with more details.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment), JDK 23 (Java Development Kit),  or OpenJDK** on your IR machine. Check the following paragraph with more details.
 
 For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 

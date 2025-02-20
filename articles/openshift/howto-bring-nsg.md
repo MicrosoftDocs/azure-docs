@@ -80,7 +80,7 @@ This article shows how to use the "bring your own" Network Security Group (NSG) 
     ```
     az aro create \
     --resource-group BASE_RESOURCE_GROUP_NAME \
-    --name CLSUTER_NAME \
+    --name CLUSTER_NAME \
     --vnet VNET_NAME \
     --master-subnet MASTER_SUBNET_NAME \
     --worker-subnet WORKER_SUBNET_NAME \

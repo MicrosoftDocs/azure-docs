@@ -40,7 +40,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+            url: https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D
 
 
   # Card

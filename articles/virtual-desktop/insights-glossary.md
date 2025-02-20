@@ -53,7 +53,7 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
 
      - Errors marked as "service" or "ServiceError = TRUE" happened in the Azure Virtual Desktop service.
      - Errors marked as "deployment" or tagged "ServiceError = FALSE" happened outside of the Azure Virtual Desktop service.
-     - To learn more about the ServiceError tag, see [Common error scenarios](./troubleshoot-set-up-overview.md).
+     - To learn more about the ServiceError tag, see [Common error scenarios](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
 
 - Source: this category gives a more specific description of where the error happened.
 
@@ -67,7 +67,7 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
 
      - Client: software running on the end-user machine that provides the interface to the Azure Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
-Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](./troubleshoot-set-up-overview.md).
+Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).
 
 ## Gateway region codes
 
@@ -281,7 +281,7 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 
 - To get started, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md).
 - To estimate, measure, and manage your data storage costs, see [Estimate Azure Monitor costs](insights-costs.md).
-- If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
+- If you encounter a problem, check out our [troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-insights) for help and known issues.
 
 
 You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](/azure/advisor/advisor-overview).
@@ -290,6 +290,6 @@ If you need help or have any questions, check out our community resources:
 
 - Ask questions or make suggestions to the community at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
    
-- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
+- To learn how to leave feedback, see [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview#report-issues).
 
 - You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

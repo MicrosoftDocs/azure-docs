@@ -352,7 +352,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | MessageText                | Message text                     |
 | MonitoringObjectName       | MTE Monitor object name, XAL only |
 | MonitorShortName           | MTE Monitor short name, XAL only |
-| SAPProcesType              | System Log: SAP process type, SAL only |
+| SAPProcessType             | System Log: SAP process type, SAL only |
 | B* - Background Processing |                                  |
 | D* - Dialog Processing     |                                  |
 | U* - Update Tasks          |                                  |

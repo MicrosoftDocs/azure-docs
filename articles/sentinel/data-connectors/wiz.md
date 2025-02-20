@@ -2,7 +2,7 @@
 title: "Wiz connector for Microsoft Sentinel"
 description: "Learn how to install the connector Wiz to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -53,7 +53,7 @@ Creates an Azure Key Vault with all the required parameters stored as secrets.
 STEP 1 - Get your Wiz credentials
 
 
-Follow the instructions on [Wiz documentation](https://docs.wiz.io/wiz-docs/docs/azure-sentinel-native-integration#collect-authentication-info-from-wiz) to get the erquired credentials.
+Follow the instructions on [Wiz documentation](https://docs.wiz.io/wiz-docs/docs/azure-sentinel-native-integration#collect-authentication-info-from-wiz) to get the required credentials.
 
 STEP 2 - Deploy the connector and the associated Azure Function
 
@@ -74,7 +74,7 @@ Option 1: Deploy using the Azure Resource Manager (ARM) Template
 >- Enter the Workspace credentials **AzureLogsAnalyticsWorkspaceId** and **AzureLogAnalyticsWorkspaceSharedKey**
 >- Choose the Wiz data types you want to send to Microsoft Sentinel, choose at least one from **Wiz Issues**, **Vulnerability Findings**, and **Audit Logs**.
  
->- (optional) follow [Wiz documentation](https://docs.wiz.io/wiz-docs/docs/azure-sentinel-native-integration#optional-create-a-filter-for-wiz-queries) to add **IssuesQueryFilter**, **VulnerbailitiesQueryFilter**, and **AuditLogsQueryFilter**.
+>- (optional) follow [Wiz documentation](https://docs.wiz.io/wiz-docs/docs/azure-sentinel-native-integration#optional-create-a-filter-for-wiz-queries) to add **IssuesQueryFilter**, **VulnerabilitiesQueryFilter**, and **AuditLogsQueryFilter**.
  
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 5. Click **Purchase** to deploy.

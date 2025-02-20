@@ -18,7 +18,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 :::image type="content" source="./media/handler-service-bus/queue.png" lightbox="./media/handler-service-bus/queue.png" alt-text="Screenshot showing the configuration of a Service Bus queue handler.":::
 
 > [!NOTE]
-> Session enabled queues are not supported as event handlers for Azure Event Grid events
+> If you are using session enabled queue/topic subscription as the destination, you need to set the session property on the event using Delivery Property with the header name 'SessionId'.
  
 ### Use Azure CLI
 Use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription) command with `--endpoint-type` set to `servicebusqueue` and `--endpoint` set to `/subscriptions/{AZURE SUBSCRIPTION}/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<NAMESPACE NAME>/queues/<QUEUE NAME>`. Here's an example:

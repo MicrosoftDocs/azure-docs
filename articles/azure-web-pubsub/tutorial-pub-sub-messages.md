@@ -46,6 +46,8 @@ If you're creating the project on a local machine, you need to install the depen
 
 ---
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prepare your environment
 
 # [Local Azure CLI](#tab/LocalBash)
@@ -91,6 +93,8 @@ At this point, your Azure account is the only one authorized to perform any oper
 ## Create a subscriber client
 
 Clients connect to the Azure Web PubSub service through the standard WebSocket protocol using [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) authentication. The service SDK provides helper methods to generate the token. In this tutorial, the subscriber directly generates the token from *ConnectionString*. In real applications, a server-side application usually handles the authentication/authorization workflow. To better understand the workflow, see the tutorial [Build a chat app](./tutorial-build-chat.md).
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
 
 # [C#](#tab/csharp)
 

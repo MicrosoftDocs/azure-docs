@@ -42,10 +42,54 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Create a file named *app.js* and add the following code.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management")
+    const { DefaultAzureCredential } = require("@azure/identity");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+    const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
+
+    async function run() {
+        // Connect to Azure App Configuration using endpoint and token credential
+        const settings = await load(endpoint, credential, {
+            featureFlagOptions: {
+                enabled: true,
+                // Note: selectors must be explicitly provided for feature flags.
+                selectors: [{
+                    keyFilter: "*"
+                }],
+                refresh: {
+                    enabled: true,
+                    refreshIntervalInMs: 10_000
+                }
+            }
+        });
+
+        // Create a feature flag provider which uses a map as feature flag source
+        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
+        // Create a feature manager which will evaluate the feature flag
+        const fm = new FeatureManager(ffProvider);
+
+        while (true) {
+            await settings.refresh(); // Refresh to get the latest feature flag settings
+            const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
+            console.log(`Beta is enabled: ${isEnabled}`);
+            await sleepInMs(5000);
+        }
+    }
+
+    run().catch(console.error);
+    ```
+
+    ### [Connection string](#tab/connection-string)
+    ``` javascript
+    const sleepInMs = require("util").promisify(setTimeout);
+    const { load } = require("@azure/app-configuration-provider");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
     const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
     async function run() {
@@ -80,42 +124,54 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     run().catch(console.error);
     ```
 
+    ---
+
 ## Run the application
 
-1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
+1. Set the environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<app-configuration-store-connection-string>"
+    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
-    ### [PowerShell](#tab/powershell)
+    If you use PowerShell, run the following command:
 
-    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    ```powershell
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
-    ### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```bash
+    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
 
-    ### [Linux](#tab/linux)
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
 
-    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```cmd
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
     ```
 
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    
     ---
 
 1. Run the following command to run the app locally:
@@ -139,3 +195,23 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ``` console
     Beta is enabled: true
     ```
+
+## Next steps
+
+For the full feature rundown of the JavaScript.NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript Feature Management](./feature-management-javascript-reference.md)
+
+While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)

@@ -2,7 +2,7 @@
 title: "GitHub (using Webhooks) (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector GitHub (using Webhooks) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -70,7 +70,7 @@ To integrate with GitHub (using Webhooks) (using Azure Functions) make sure you 
 
 
 
-*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a dealy for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
+*Now we are done with the GitHub Webhook configuration. Once the GitHub events triggered and after the delay of 20 to 30 mins (As there will be a delay for LogAnalytics to spin up the resources for the first time), you should be able to see all the transactional events from the GitHub into LogAnalytics workspace table called "githubscanaudit_CL".*
 
  For more details, Click [here](https://aka.ms/sentinel-gitHubwebhooksteps)
 

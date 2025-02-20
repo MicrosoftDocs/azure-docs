@@ -404,7 +404,7 @@
         items:
           - name: IoT Edge on VM
             href: azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md
-          - name: Nvidia DeepStream module
+          - name: NVIDIA DeepStream module
             href: azure-stack-edge-deploy-nvidia-deepstream-module.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
@@ -511,7 +511,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2407 - Current
+    - name: 2501 - Current
+      href: azure-stack-edge-gpu-2501-release-notes.md
+    - name: 2407
       href: azure-stack-edge-gpu-2407-release-notes.md
     - name: 2403
       href: azure-stack-edge-gpu-2403-release-notes.md

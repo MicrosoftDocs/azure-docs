@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 12/06/2024
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
@@ -127,6 +127,14 @@ The steps for this task use a VNet based on the values in the following configur
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -ExtendedLocation $ExtendedLocation -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+
+   > [!NOTE]
+   > To create the gateway in an [Azure Extended Zone](../extended-zones/overview.md), you must first [request access to the Extended Zone](../extended-zones/request-access.md). Once you have access, you can create the gateway.
+   >
+   > The following considerations apply when creating a virtual network gateway in an Extended Zone:
+   > - Availability Zones aren't supported in Azure Extended Zones.
+   > - The following SKUs are currently supported in Azure Extended Zones: *Standard*, *HighPerformance*, *UltraPerformance*.
+   > - Local SKU circuit isn't supported with gateways in Azure Extended Zone.
 
 ## Verify the gateway was created
 

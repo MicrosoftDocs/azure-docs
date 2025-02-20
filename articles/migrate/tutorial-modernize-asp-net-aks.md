@@ -1,15 +1,19 @@
 ---
 title: Modernize ASP.NET web apps to Azure Kubernetes Service
 description: At-scale migration of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
-author: anraghun
-ms.author: anraghun
+author: SnehaSudhirG
+ms.author: sudhirsneha
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/18/2024
-ms.custom: template-tutorial, engagement-fy24
+ms.date: 12/31/2024
+ms.custom: template-tutorial, engagement-fy25
 ---
 
-# Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
+# Modernize ASP.NET web apps to Azure Kubernetes Service (Retired)
+
+> [!Important]
+> This feature is retired. For guidance on migrating ASP.NET web apps to AKS, refer to the [ASP.NET app containerization and migration to Azure Kubernetes Service](tutorial-app-containerization-aspnet-kubernetes.md)
+documentation.
 
 This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](/azure/aks/intro-kubernetes) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMware. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
 
@@ -29,7 +33,7 @@ In this tutorial, you'll learn how to:
 Before you begin this tutorial, you should address the following:
 
  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
- - [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
+ - [Complete the first tutorial](tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
  - Go to the existing project or [create a new project](./create-manage-projects.md).
 
 ### Limitations
@@ -143,7 +147,7 @@ Once you begin replication, Azure Migrate creates a replication job which can be
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/select-overview.png" alt-text="Screenshot of the Overview option selected.":::
 
-2. Select **Azure Migrate: Server Migration** hub > **Modernization (Preview)** > **Jobs**.
+2. Select **Migration and modernization** hub > **Modernization (Preview)** > **Jobs**.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/migration-hub-jobs.png" alt-text="Screenshot of the Jobs tab in the migration hub.":::
 
@@ -186,7 +190,7 @@ With the container image ready, run a test migration to ensure your application 
 
 If the test migration fails:
 
-1. Navigate to **Azure Migrate: Server Migration** hub > **Modernization (Preview)** > **Jobs**.
+1. Navigate to **Migration and modernization** hub > **Modernization (Preview)** > **Jobs**.
 2. Select the **Initiate test migrate** job that failed.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/migration-hub-jobs-failed-test-migrate.png" alt-text="Screenshot of the failed test migrate job.":::

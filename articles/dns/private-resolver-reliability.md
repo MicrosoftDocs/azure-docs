@@ -5,7 +5,7 @@ author: greg-lindsay #Required; your GitHub user alias, with correct capitalizat
 ms.author: greglin #Required; Microsoft alias of author; optional team alias.
 ms.custom: subject-reliability
 ms.service: azure-dns
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/30/2023 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure DNS Private Resolver. I need to avoid failures and respond to them so that I can minimize down time and data loss.
 ---

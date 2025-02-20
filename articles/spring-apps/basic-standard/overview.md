@@ -186,8 +186,6 @@ The following diagram shows the architecture of a virtual network in Azure Sprin
 
 The following articles help you get started using the Standard consumption and dedicated plan:
 
-* [Provision an Azure Spring Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)
-* [Create an Azure Spring Apps Standard consumption and dedicated plan instance in an Azure Container Apps environment with a virtual network](../consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md)
 * [Access applications using Azure Spring Apps Standard consumption and dedicated plan in a virtual network](../consumption-dedicated/quickstart-access-standard-consumption-within-virtual-network.md)
 * [Deploy an event-driven application to Azure Spring Apps](quickstart-deploy-event-driven-app.md)
 * [Set up autoscale for applications in Azure Spring Apps Standard consumption and dedicated plan](../consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md)

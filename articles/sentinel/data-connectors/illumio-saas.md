@@ -2,7 +2,7 @@
 title: "Illumio SaaS (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Illumio SaaS (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -68,7 +68,7 @@ To integrate with Illumio SaaS (using Azure Functions) make sure you have:
 Prerequisites
 
 1. Ensure AWS SQS is configured for the s3 bucket from which flow and auditable event logs are going to be pulled. In case, Illumio provides bucket, please contact Illumio support for sqs url, s3 bucket name and aws credentials. 
- 2. Register AAD application - For DCR (Data collection rule) to authentiate to ingest data into log analytics, you must use Entra application. 1. [Follow the instructions here](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application) (steps 1-5) to get **AAD Tenant Id**, **AAD Client Id** and **AAD Client Secret**. 
+ 2. Register AAD application - For DCR (Data collection rule) to authenticate to ingest data into log analytics, you must use Entra application. 1. [Follow the instructions here](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application) (steps 1-5) to get **AAD Tenant Id**, **AAD Client Id** and **AAD Client Secret**. 
  2. Ensure you have created a log analytics workspace. 
 Please keep note of the name and region where it has been deployed.
 
@@ -78,7 +78,7 @@ Choose one of the approaches from below options. Either use the below ARM templa
 
 1. Azure Resource Manager (ARM) Template
 
-Use this method for automated deployment of Azure resources using an ARM Tempate.
+Use this method for automated deployment of Azure resources using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -90,7 +90,7 @@ Use this method for automated deployment of Azure resources using an ARM Tempate
 
 2. Deploy additional function apps to handle scale
 
-Use this method for automated deployment of additional function apps using an ARM Tempate.
+Use this method for automated deployment of additional function apps using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

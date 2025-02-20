@@ -3,14 +3,14 @@ title: Back up Azure Blobs using Azure CLI
 description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 11/26/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/12/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure Blobs in a storage account using Azure CLI
 
-This article describes how to back up [Azure Blobs](./blob-backup-overview.md) using Azure CLI. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
+This article describes how to back up [Azure Blobs](./blob-backup-overview.md) using Azure CLI. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 
 For information on the Azure Blobs regions availability, supported scenarios, and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
@@ -31,7 +31,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
   "eTag": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
   "identity": {
-    "principalId": "2ca1d5f7-38b3-4b61-aa45-8147d7e0edbc",
+    "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "type": "SystemAssigned"
   },

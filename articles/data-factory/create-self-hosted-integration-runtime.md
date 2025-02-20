@@ -378,7 +378,7 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
 
 ### Configure proxy server settings when using a private endpoint
 
-If your company's network architure involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
+If your company's network architecture involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
 
 1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config_ as a backup of the original file.
 1. Open Notepad running as administrator.
@@ -516,7 +516,7 @@ Follow these steps:
 # - signed in user needs rights to modify NSG (e.g. Network contributor) and to read status of the SHIR (e.g. reader), plus reader on the subscription
 
 param (
-    [string]$synapseRresourceGroupName = "synapse_test",
+    [string]$synapseResourceGroupName = "synapse_test",
     [string]$nsgResourceGroupName = "adf_shir_rg",
     [string]$synapseWorkspaceName = "synapse-test-jugi2",
     [string]$integrationRuntimeName = "IntegrationRuntime2",
@@ -535,7 +535,7 @@ if (-not $azAccount) {
 
 # Retrieve the URLs of the connections from the Synapse self-hosted integration runtime
 $urls = az synapse integration-runtime get-status `
-    --resource-group $synapseRresourceGroupName `
+    --resource-group $synapseResourceGroupName `
     --workspace-name $synapseWorkspaceName `
     --name $integrationRuntimeName `
     --query "properties.serviceUrls" -o tsv

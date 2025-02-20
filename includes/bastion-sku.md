@@ -12,7 +12,7 @@ ms.topic: include
 | Connect to target VMs in same virtual network | Yes | Yes | Yes | Yes |
 | Connect to target VMs in peered virtual networks | No| [Yes](../articles/bastion/vnet-peering.md) |  [Yes](../articles/bastion/vnet-peering.md)|[Yes](../articles/bastion/vnet-peering.md) |
 | Support for concurrent connections | No | Yes | Yes| Yes |
-| Access Linux VM Private Keys in Azure Key Vault (AKV) | No| Yes | Yes | Yes |
+| Access Linux VM Private Keys in Azure Key Vault (AKV) | Yes| Yes | Yes | Yes |
 | Connect to Linux VM using SSH | Yes| [Yes](../articles/bastion/bastion-connect-vm-ssh-linux.md) | [Yes](../articles/bastion/bastion-connect-vm-ssh-linux.md)|[Yes](../articles/bastion/bastion-connect-vm-ssh-linux.md) |
 | Connect to Windows VM using RDP | Yes| [Yes](../articles/bastion/bastion-connect-vm-rdp-windows.md) | [Yes](../articles/bastion/bastion-connect-vm-rdp-windows.md)| [Yes](../articles/bastion/bastion-connect-vm-rdp-windows.md)|
 | Connect to Linux VM using RDP | No|  No | Yes | Yes |

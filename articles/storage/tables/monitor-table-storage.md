@@ -178,7 +178,7 @@ The following example shows how to list a metric definition at the account level
 
         foreach (var metricDefinition in metricDefinitions)
         {
-            // Enumrate metric definition:
+            // Enumerate metric definition:
             //    Id
             //    ResourceId
             //    Name
@@ -225,7 +225,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
         foreach (var metric in Response.Value)
         {
-            // Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -278,7 +278,7 @@ The following example shows how to read metric data on the metric supporting mul
 
         foreach (var metric in Response.Value)
         {
-            //Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type

@@ -2,10 +2,10 @@
 title: Manage SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to manage and monitor SQL server databases in Azure VM that are backed up by Azure Backup.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/09/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 
 ---
 
@@ -18,7 +18,7 @@ This article explains how to manage and monitor the SQL server databases that ar
 
 ## Monitor jobs
 
-The Azure Backup service triggers jobs that run in the background. This includes scenarios, such as triggering backup, restore operations, and disabling backup. You can track these jobs using their IDs.
+The Azure Backup service triggers jobs that run in the background. This includes scenarios, such as triggering backup, restore operations, and disabling backup. You can track these jobs using their IDs. Learn more about [managing backup and restore jobs](backup-azure-arm-userestapi-managejobs.md).
 
 ### Fetch job information from operations
 
@@ -182,8 +182,8 @@ X-Powered-By                  : ASP.NET
 
 Body:
 {
-  "id": "9c3521c9-0bc9-4092-96e3-065262eaee11",
-  "name": "9c3521c9-0bc9-4092-96e3-065262eaee11",
+  "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "name": "TestOBJ",
   "status": "Succeeded",
   "startTime": "2021-11-26T05:36:36.5262731Z",
   "endTime": "2021-11-26T05:36:36.5262731Z",
@@ -197,15 +197,15 @@ Body:
 Then, track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
 
 ```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/9c3521c9-0bc9-4092-96e3-065262eaee11?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/0000aaaa-11bb-cccc-dd22-eeeeee333333?api-version=2016-12-01
 ```
 
 ### Response body
 
 ```json
 {
-  "id": "9c3521c9-0bc9-4092-96e3-065262eaee11",
-  "name": "9c3521c9-0bc9-4092-96e3-065262eaee11",
+  "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "name": "TestOBJ",
   "status": "Succeeded",
   "startTime": "2021-11-26T05:36:36.5262731Z",
   "endTime": "2021-11-26T05:36:36.5262731Z",

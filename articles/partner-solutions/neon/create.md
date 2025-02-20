@@ -4,7 +4,7 @@ description: Learn how to create a resource for  Neon Serverless Postgres (Previ
 author: ProfessorKendrick
 ms.author: kkendrick
 ms.topic: quickstart
-ms.date: 11/22/2024
+ms.date: 12/02/2024
 
 ---
 # Quickstart: Create a Neon Serverless Postgres (Preview) resource
@@ -28,8 +28,6 @@ To create your Neon Serverless Postgres resource, start at the Azure portal home
 1. Choose **Neon Serverless Postgres** from the *Services* search results.
 
 1. Select the **+ Create** option.
-
-## Create a Neon Serverless Postgres Resource
 
 The **Create a Neon Serverless Postgres** Resource pane opens to the *Basics* tab by default.
 

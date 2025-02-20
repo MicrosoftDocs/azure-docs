@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss, or Java SE apps to run on Azure 
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: article
-ms.date: 07/17/2024
+ms.date: 01/28/2025
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
@@ -33,6 +33,45 @@ To show all supported Java versions, run the following command in the [Cloud She
 ```azurecli-interactive
 az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
 ```
+
+### Get Java version in Linux container
+
+For more detailed version information in the Linux container, [open an SSH session with the container](configure-linux-open-ssh-session.md?pivots=container-linux). Here are a few examples of what you can run.
+
+::: zone pivot="java-javase,java-tomcat,java-jboss"
+
+To view the Java version in the SSH session:
+
+```bash
+java -version
+```
+
+::: zone-end
+
+::: zone pivot="java-tomcat"
+
+To view the Tomcat server version in the SSH session:
+
+```bash
+sh /usr/local/tomcat/version.sh
+```
+
+Or, if your Tomcat server is in a custom location, find `version.sh` with:
+
+```bash
+find / -name "version.sh"
+```
+
+::: zone-end
+
+::: zone pivot="java-jboss"
+
+To view the JBoss server version in the SSH session:
+```bash
+$JBOSS_HOME/bin/jboss-cli.sh --connect --commands=:product-info
+```
+
+::: zone-end
 
 # [Windows](#tab/windows)
 
@@ -631,7 +670,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name myApp -
 <Valve prefix="site_access_log.${catalina.instance.name}" pattern="%h %l %u %t &quot;%r&quot; %s %b %D %{x-arr-log-id}i" directory="${site.logdir}/http/RawLogs" maxDays="${site.logRetentionDays}" className="org.apache.catalina.valves.AccessLogValve" suffix=".txt"/>
  ```
 * `directory` is set to `AZURE_LOGGING_DIR`, which defaults to `home\logFiles`
-* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `0` [forever]
+* `maxDays` is to `WEBSITE_HTTPLOGGING_RETENTION_DAYS`, which defaults to `7`. This aligns with the Application Logging platform default
  
 On Linux, it has all of the same customization, plus:
  

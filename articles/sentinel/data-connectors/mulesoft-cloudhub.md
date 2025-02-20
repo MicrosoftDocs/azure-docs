@@ -2,7 +2,7 @@
 title: "MuleSoft Cloudhub (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector MuleSoft Cloudhub (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -79,7 +79,7 @@ To integrate with MuleSoft Cloudhub (using Azure Functions) make sure you have:
 
 **Option 1 - Azure Resource Manager (ARM) Template**
 
-Use this method for automated deployment of the MuleSoft Cloudhub data connector using an ARM Tempate.
+Use this method for automated deployment of the MuleSoft Cloudhub data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

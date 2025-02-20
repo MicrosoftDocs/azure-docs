@@ -26,7 +26,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes      | Yes      | Yes     | Yes |
 | Virtual network injection support                                                               | No          | Yes       | No    | No       | No       | No       | Yes    | Yes |
-| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes       | No       | Yes  | No   |
+| Private endpoint support for inbound connections                                                               | No          | Yes       | Yes    | No       | Yes      | Yes (preview)       | Yes  | No   |
 | Outbound virtual network integration support                                                             | No          | No       | No    | No       | No       | Yes       | No    | Yes |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | No       | No       | Yes     | No |
 | Availability zones                                                                           | No          | No        | No    | No       | No       | No       | Yes     | No  |
