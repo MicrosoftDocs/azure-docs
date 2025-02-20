@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Azure Bicep template for Azure Files vaulted backup
-description: Learn how to back up your Azure Files to vault-tier with an Azure Bicep template.
+title: Quickstart - Configure vaulted backup for Azure Files using Azure Bicep
+description: Learn how to configure vaulted backup for Azure Files using Azure Bicep.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 10/07/2024
+ms.date: 02/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -231,6 +231,6 @@ To deploy the template, follow these steps:
 
 ## Next steps
 
--  [Track the backup job](manage-afs-powershell.md#track-backup-and-restore-jobs)
-- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md)
+-  [Track the backup job using Azure PowerShell](manage-afs-powershell.md#track-backup-and-restore-jobs).
+- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
 

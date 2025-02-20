@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Azure Terraform template for Azure Files vaulted backup
-description: Learn how to back up your Azure Files to vault-tier with an Azure Terraform template.
+title: Quickstart - Configure vaulted backup for Azure Files using Azure Terraform
+description: Learn how to configure vaulted backup for Azure Files using Azure Terraform.
 ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 10/07/2024
+ms.date: 02/27/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -244,9 +244,6 @@ terraform apply main.tfplan
 
 If you encounter issues while using Terraform on Azure, see the [troubleshooting guide](/azure/developer/terraform/troubleshoot).
 
-## Next step
+## Next steps
 
-In this quickstart, you learned how to deploy a storage account with File Share, create a Recovery services vault, and configure backup for the File Share.
-**Learn more about**:
-
-[Restore Azure Files](restore-afs.md)
+[Restore Azure Files using Azure portal](restore-afs.md).

@@ -1,26 +1,17 @@
 ---
-title: Back up Azure files by using PowerShell
-description: In this article, learn how to back up Azure Files by using the Azure Backup service and PowerShell. 
+title: Back up Azure files using PowerShell
+description: Learn how to use Azure PowerShell to back up Azure Files through an Azure Backup Recovery Services vault.
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 02/27/2025
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up Azure Files by using Azure PowerShell
+# Back up Azure Files using Azure PowerShell
 
 This article describes how to use Azure PowerShell to back up Azure Files through an [Azure Backup](backup-overview.md) Recovery Services vault.
-
-This article explains how to:
-
-> [!div class="checklist"]
->
-> * Set up PowerShell and register the Recovery Services provider.
-> * Create a Recovery Services vault.
-> * Configure backup for Azure Files.
-> * Run a backup job.
 
 ## Prerequisites
 
@@ -451,5 +442,5 @@ Azure Files snapshots are used while the backups are taken. Usually the job fini
 
 ## Next steps
 
-* Learn about [backing up Azure Files in the Azure portal](backup-afs.md).
-* Refer to the [sample script on GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) for using an Azure Automation runbook to schedule backups.
+- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
+- [Sample script on GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) for using an Azure Automation runbook to schedule backups.

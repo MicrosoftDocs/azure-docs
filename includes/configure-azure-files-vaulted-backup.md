@@ -7,11 +7,11 @@ ms.service: azure-backup
 ---
 
 
-## Configure backups
+## Configure backup
 
 Azure Backup allows you to use a single backup policy to back up one or more Azure Files to the same vault in an Azure region.
 
-To configure vaulted backup for storage accounts, follow these steps:
+To configure backup for Azure Files, follow these steps:
 
 1. Go to **Business Continuity Center** > **Overview**, and then select **+ Configure protection**.
 
@@ -50,13 +50,15 @@ The **Select storage account** pane lists a set of discovered supported storage 
 
 9. On the **Configure Backup** pane, under **Policy Details**, select an existing backup policy from the list for your file share protection
 
-   If a policy doesn't exist, [create a new one](../articles/backup/tutorial-backup-azure-files-vault-tier-portal.md#create-a-backup-policy).
+   If a policy doesn't exist, [create a new one](../articles/backup/quick-backup-azure-files-vault-tier-portal.md).
 
 10. To start protecting the file share, select **Enable Backup**.
  
     :::image type="content" source="./media/configure-azure-files-vaulted-backup/enable-backup.png" alt-text="Screenshot shows how to enable protection.":::
 
 
+>[!Note]
+>You can also configure snapshot backup and vaulted backup (preview) for Azure Files from the [Recovery Services vault](../articles/backup/backup-azure-files.md?tabs=recovery-services-vault#configure-the-backup) or [File Share](../articles/backup/backup-azure-files.md?tabs=file-share-pane#configure-the-backup) panes.
 
 
 
