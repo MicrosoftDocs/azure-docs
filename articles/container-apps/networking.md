@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic:  conceptual
-ms.date: 08/29/2023
+ms.date: 02/20/2025
 ms.author: cshoe
 ---
 
@@ -386,6 +386,10 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 ```
 
 ---
+
+### Path-based routing
+
+
 
 ## DNS
 

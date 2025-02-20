@@ -354,6 +354,8 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
+        - name: Use path-based routing
+          href: how-to-use-path-based-rousing.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
