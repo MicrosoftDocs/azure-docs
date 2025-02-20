@@ -44,7 +44,7 @@ During the WebSocket passthrough, the client application establishes a WebSocket
 1. The client application sends a WebSocket handshake request to the gateway, invoking the onHandshake operation
 1. The API Management gateway applies configured policies and sends WebSocket handshake requests to the corresponding backend service.
 1. The backend service upgrades a connection to WebSocket.
-1. THe gateway upgrades the corresponding connection to WebSocket.
+1. The gateway upgrades the corresponding connection to WebSocket.
 1. After the connection pair is established, API Management brokers messages back and forth between the client application and backend service.
 1. The client application sends a message to the gateway.
 1. The gateway forwards the message to the backend service.
@@ -57,7 +57,7 @@ During the WebSocket passthrough, the client application establishes a WebSocket
 
 ## onHandshake operation
 
-Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client application tries to establish a WebSocket connection with a backend service, it will first send an [opening handshake request](https://tools.ietf.org/html/rfc6455#page-6). Each WebSocket API in API Management has an onHandshake operation. onHandshake is an immutable, unremovable, automatically created system operation. The onHandshake operation enables API publishers to intercept these handshake requests and apply API Management policies to them.
+Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client application tries to establish a WebSocket connection with a backend service, it first sends an [opening handshake request](https://tools.ietf.org/html/rfc6455#page-6). Each WebSocket API in API Management has an onHandshake operation. onHandshake is an immutable, unremovable, automatically created system operation. The onHandshake operation enables API publishers to intercept these handshake requests and apply API Management policies to them.
 
 :::image type="content" source="./media/websocket-api/onhandshake-screen.png" alt-text="onHandshake screen example":::
 
@@ -72,7 +72,7 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 
     | Field | Description |
     |----------------|-------|
-    | Display name | The name by which your WebSocket API will be displayed. |
+    | Display name | The name by which your WebSocket API is displayed. |
     | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
     | WebSocket URL | The base URL with your websocket name. For example: *ws://example.com/your-socket-name* |
     | URL scheme | Accept the default |
