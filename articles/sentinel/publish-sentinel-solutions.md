@@ -51,7 +51,7 @@ Complete the following steps to create the offer and configure the top-level att
    > [!NOTE]
    > To make any changes to the Offer ID, Offer type, or publisher ID, you must delete the offer and recreate it. To delete an offer, you can navigate to the "Offer overview" tab and select on "Delete offer." This action isn't reversible.
 
-   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer id and offer name configuration."  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer ID and offer name configuration."  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
 
 ## Offer setup
 Complete the following steps to configure the properties under the **Offer setup** tab in Partner Center. This screen shows the selections made during initial offer creation. You can change the offer alias from this page (if needed). 
