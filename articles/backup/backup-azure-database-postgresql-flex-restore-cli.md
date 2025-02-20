@@ -22,7 +22,7 @@ Let's use an existing Backup vault `TestBkpVault`, under the resource group `tes
 
 Before you restore from Azure Database for PostgreSQL – Flexible Server backups, review the following prerequisites:
  
-- Ensure that you have the required permissions for the restore operation.
+- Ensure that you have the [required permissions for the restore operation](backup-azure-database-postgresql-flex-overview.md#azure-backup-authentication-with-the-postgresql-server).
 - Ensure that the target storage account for the restore has the `AllowCrossTenantReplication` property set to `true`.
 
 >[!Note]
@@ -32,7 +32,7 @@ Before you restore from Azure Database for PostgreSQL – Flexible Server backup
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL – Flexible Server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible server, check the [set of permissions](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) needed to backup Azure PostgreSQL – Flexible Server database.
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL – Flexible server, check the [set of permissions](backup-azure-database-postgresql-flex-overview.md#azure-backup-authentication-with-the-postgresql-server) needed to backup Azure PostgreSQL – Flexible Server database.
 
 To restore the recovery point as files to a storage account, the **Backup vault's system-assigned managed identity** needs access on the **target storage account**.
 
