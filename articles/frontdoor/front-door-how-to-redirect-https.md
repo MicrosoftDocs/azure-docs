@@ -28,8 +28,6 @@ This guide explains how to redirect traffic from HTTP to HTTPS for an Azure Fron
 
 3. Select the **+** icon under *Routing rules* to create a new route. Name the route, for example, **HttpToHttpsRedirect**, and set the *Accepted Protocol* to **HTTP only**. Choose the *Frontend/domains* you want to redirect from HTTP to HTTPS.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Screenshot of adding a route in Front Door designer.":::
-
 4. In the *Route Details* section, set the *Route Type* to **Redirect**. Choose **Moved (301)** for *Redirect type* and **HTTPS only** for *Redirect protocol*.
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Screenshot of adding an HTTP to HTTPS redirect route.":::

@@ -40,11 +40,11 @@ In this section, you create a route server. Prior to creating the route server, 
     New-AzResourceGroup = -Name 'RouteServerRG' -Location 'WestUS'
     ```
 
-1. The route server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the route server. Create a subnet configuration for **RouteServerSubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
+1. The route server requires a dedicated subnet named *RouteServerSubnet*. Please configure a subnet size of minimum /26 or larger. Create a subnet configuration for **RouteServerSubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
 
     ```azurepowershell-interactive
     # Create subnet configuration.
-    $subnet = New-AzVirtualNetworkSubnetConfig -Name 'RouteServerSubnet' -AddressPrefix '10.0.1.0/27'
+    $subnet = New-AzVirtualNetworkSubnetConfig -Name 'RouteServerSubnet' -AddressPrefix '10.0.1.0/26'
     ```
 
 1. Create a virtual network using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet. The following example creates a default virtual network named **myRouteServerVNet** in the **WestUS** region.

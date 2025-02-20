@@ -461,5 +461,5 @@ You might also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
 - [Learn about authentication](../concepts/authentication.md)

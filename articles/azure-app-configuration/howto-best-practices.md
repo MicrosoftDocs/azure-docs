@@ -89,7 +89,7 @@ You can also make your App Configuration data accessible to your application as 
 
 Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
 
-* Increase the refresh interval, especially if your configuration values do not change frequently. Specify a new refresh interval using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Increase the refresh interval, especially if your configuration values do not change frequently. Specify a new refresh interval using the [`SetRefreshInterval` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setrefreshinterval).
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 

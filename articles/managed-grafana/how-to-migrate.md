@@ -16,7 +16,7 @@ zone_pivot_groups: grafana-cli-portal
 
 ::: zone pivot="experience-azcli"
 
-This guide shows how to migrate content from a local or a cloud-managed Grafana instance to Azure Managed Grafana using the Azure CLI. The following elements can be migrated automatically:
+This guide shows how to migrate content from a local or a cloud-managed Grafana to Azure Managed Grafana using the Azure CLI. The following elements can be migrated automatically:
 
 * data sources
 * folders
@@ -29,7 +29,7 @@ This guide shows how to migrate content from a local or a cloud-managed Grafana 
 
 * A Grafana instance to migrate over to Azure Managed Grafana
 * [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
-* Minimum access required in both instances: Grafana Admin
+* Minimum access required in both workspaces: Grafana Admin
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ::: zone-end
@@ -63,33 +63,33 @@ Start by creating a service account token to grant the necessary permissions to 
     :::image type="content" source="media/migration/add-service-account.png" alt-text="Screenshot of the Grafana UI  showing the Add service account action." lightbox="media/migration/add-service-account.png":::
 
     > [!TIP] 
-    > This step requires using Grafana service accounts. If you're migrating from an Azure Managed Grafana instance, [enable service accounts in Azure Managed Grafana](./how-to-service-accounts.md#enable-service-accounts).
+    > This step requires using Grafana service accounts. If you're migrating from an Azure Managed Grafana workspace, [enable service accounts in Azure Managed Grafana](./how-to-service-accounts.md#enable-service-accounts).
 
 1. Enter a display name for the new service account, select the **Admin** role, **Apply**, and **Create**.
 1. Once the service account has been created, select **Add token**, optionally set an expiration date, and select **Generate token**. Remember to copy the token now as you won't be able to see it again once you leave this page.
 
 ## Run the Grafana migrate command
 
-In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token>` with the name and resource group of the Azure Managed Grafana instance you want to migrate to (target), the endpoint of the Grafana you're collecting content from (source), and the service account token you created earlier.
+In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token>` with the name and resource group of the Azure Managed Grafana workspace you want to migrate to (target), the endpoint of the Grafana you're collecting content from (source), and the service account token you created earlier.
 
 ```azurecli
 az grafana migrate --name <target-grafana> --resource-group <target-grafana-resource-group> --src-endpoint <source-grafana-endpoint> --src-token-or-key <source-token>
 ```
-The Azure CLI output lists all the elements that were migrated over to your Azure Managed Grafana instance. 
+The Azure CLI output lists all the elements that were migrated over to your Azure Managed Grafana workspace. 
 
 Optional parameters for this command include:
 
 * `--dry-run`: Preview changes without committing.
 * `--folders-to-exclude`: Folders to exclude in backup or sync.
 * `--folders-to-include`: Folders to include in backup or sync.
-* `--overwrite`: If you try to migrate a dashboard that already exists in your target Grafana instance, by default, Azure Managed Grafana skips the creation of the new data source to avoid creating a duplicate. The overwrite option lets you overwrite previous dashboards, library panels, and folders with the same uid or title.
+* `--overwrite`: If you try to migrate a dashboard that already exists in your target Grafana workspace, by default, Azure Managed Grafana skips the creation of the new data source to avoid creating a duplicate. The overwrite option lets you overwrite previous dashboards, library panels, and folders with the same uid or title.
 
 ## Finalize Grafana migration
 
-Go to your target instance and check that you can find everything you migrated from your Grafana instance.
+Go to your target workspace and check that you can find everything you migrated from your Grafana instance.
 
 > [!IMPORTANT]
-> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your target instance to successfully configure your data sources.
+> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your target workspace to successfully configure your data sources.
 
 ::: zone-end
 
@@ -127,7 +127,7 @@ For more information about how to create and edit dashboards, go to [Create a da
 
 ## Install data source plugins
 
-Core data source plugins supported by your instance's pricing plan are installed by default. To install other optional plugins, follow the process below:
+Core data source plugins supported by your workspace's pricing plan are installed by default. To install other optional plugins, follow the process below:
 
 1. Open your workspace in the Azure portal and go to **Plugin management (Preview)**.
 1. Choose a plugin to install by selecting its checkbox and select **Save**.

@@ -111,6 +111,8 @@ items:
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Export Standard from portal to Visual Studio Code
+      href: export-standard-logic-app-to-visual-studio-code.md
     - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Add and run C# scripts

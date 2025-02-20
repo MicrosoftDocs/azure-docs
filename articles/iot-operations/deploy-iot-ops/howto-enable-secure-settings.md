@@ -19,7 +19,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * An Azure IoT Operations instance deployed with test settings. For example, you chose **Test Settings** when following the instructions in [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md).
 
-* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The latest version of the **connectedk8s** extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
