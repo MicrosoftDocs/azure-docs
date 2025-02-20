@@ -26,7 +26,7 @@ To perform the procedures described in this article, make sure that you have:
 
     |Update scenario  |Method details  |
     |---------|---------|
-    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
+    |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors-with-the-latest-ot-monitoring-software) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
     |**Locally managed sensors**     |  Locally managed sensors can be updated using a downloaded update package directly on an OT sensor console. |
 
 - **Required access permissions**:
