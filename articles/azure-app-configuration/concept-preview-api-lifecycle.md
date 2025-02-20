@@ -12,8 +12,7 @@ ms.date: 02/12/2025
 
 # Preview API life cycle
 
-The Azure App Configuration preview APIs (APIs that end in `-preview`) have a lifespan of ~one year from their release date.
-This means that you can expect the 2024-06-01-preview API to be deprecated somewhere around June 1, 2025. 
+The Azure App Configuration preview APIs (all APIs that ends in `-preview`) are always deprecated 90 days after a newer preview API version is released. The process may differ for older API versions.[^1]
 
 We love when people try our preview features and give us feedback, so we encourage you to use the preview APIs.
 
@@ -29,10 +28,21 @@ API version as deprecation approaches.
 If you're unsure what client or tool is using this API version, check the [activity logs](/azure/azure-monitor/essentials/activity-log)
 using the following command:
 
+### [bash](#tab/bash)
+
 ```bash
 API_VERSION=<impacted API version, such as 2021-10-01-preview>
-az monitor activity-log list --offset 30d --max-events 10000 --namespace Microsoft.AppConfiguration --query "[?eventName.value == 'EndRequest' && contains(not_null(httpRequest.uri,''), '${API_VERSION}')]"
+az monitor activity-log list --offset 30d --max-events 10000 --namespace Microsoft.AppConfiguration --query "[?eventName.value == 'EndRequest' && httpRequest.uri != null && contains(httpRequest.uri, '$API_VERSION')].[eventTimestamp, httpRequest.uri]" --output table
 ```
+
+### [PowerShell](#tab/PowerShell)
+
+```powershell
+$API_VERSION=<impacted API version, such as 2021-10-01-preview>
+az monitor activity-log list --offset 30d --max-events 10000 --namespace Microsoft.AppConfiguration | ConvertFrom-Json | Where-Object { $_.eventName.value -eq "EndRequest" -and $_.httpRequest.uri -match $API_VERSION } | Select-Object eventTimestamp, httpRequest | Format-Table -Wrap -AutoSize
+```
+
+---
 
 ## How to find the available API versions
 
@@ -58,3 +68,5 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 
 | API version        | Announce Date     | Deprecation Date  |
 |--------------------|-------------------|-------------------|
+
+[^1]: API versions before 2023-09-01-preview won't follow the 90 day pattern outlined in the beginning of this document. Refer to the [Upcoming Deprecations](#upcoming-deprecations) and [Completed Deprecations](#completed-deprecations) tables to see if an API version you're using has a deprecation date. 
