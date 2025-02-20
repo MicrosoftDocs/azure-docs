@@ -138,7 +138,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP130' />BCP130 | Error | Decorators aren't allowed here. |
 | <a id='BCP132' />[BCP132](./diagnostics/bcp132.md) | Error | Expected a declaration after the decorator. |
 | <a id='BCP133' />BCP133 | Error | The unicode escape sequence isn't valid. Valid unicode escape sequences range from \\u{0} to \\u{10FFFF}. |
-| <a id='BCP134' />BCP134 | Error | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} isn't valid for this module. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
+| <a id='BCP134' />BCP134 | Error | Scope \<scope-name> isn't valid for this module. Permitted scopes: \<scope-name>. |
 | <a id='BCP135' />[BCP135](./diagnostics/bcp135.md) | Error | Scope \<scope-name> isn't valid for this resource type. Permitted scopes: \<scope-name>. |
 | <a id='BCP136' />BCP136 | Error | Expected a loop item variable identifier at this location. |
 | <a id='BCP137' />BCP137 | Error | Loop expected an expression of type "{LanguageConstants.Array}" but the provided value is of type "{actualType}". |
