@@ -143,7 +143,7 @@ In Microsoft Sentinel, use the following query to check the records added to the
 ```kql
 SecurityAlert
 |  where ProviderName == "IoTSecurity"
-|  where VendorOriginalId == "Defender for IoT Alert ID"
+|  where VendorOriginalId == "<Defender for IoT Alert ID>"
 | sort by TimeGenerated desc
 ```
 
