@@ -152,11 +152,88 @@ az containerapp env http-route-config create \
   --query properties.fqdn
 ```
 
-    Your HTTP route configuration fully qualified domain name (FQDN) looks like this example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io`
+    Your HTTP route configuration's fully qualified domain name (FQDN) looks like this example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io`
 
 ::: zone-end
 
 ::: zone pivot="bicep"
+
+1. Create the following Bicep file and save it as `routing.bicep`.
+
+```bicep
+resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+  name: 'my-container-apps-env'
+  location: 'eastus'
+  tags: {}
+  properties: {
+    workloadProfiles: [
+        {
+            workloadProfileType: 'Consumption'
+            name: 'Consumption'
+        }
+    ]
+  }
+}
+
+resource httpRouteConfig 'Microsoft.App/managedEnvironments/httpRouteConfigs@2024-10-02-preview' = {
+  parent: containerAppsEnvironment
+  name: 'my-route-config'
+  location: 'eastus'
+  properties: {
+    rules: [
+        {
+            description: 'App 1 rule'
+            routes: [
+                {
+                    match: {
+                        prefix: '/app1'
+                    }
+                    action: {
+                        prefixRewrite: '/'
+                    }
+                }
+            ]
+            targets: [
+                {
+                    containerApp: 'my-container-app-1'
+                }
+            ]
+        }
+        {
+            description: 'App 2 rule'
+            routes: [
+                {
+                    match: {
+                        path: '/app2'
+                    }
+                    action: {
+                        prefixRewrite: '/'
+                    }
+                }
+            ]
+            targets: [
+                {
+                    containerApp: 'my-container-app-2'
+                }
+            ]
+        }
+    ]
+  }
+}
+
+output fqdn string = httpRouteConfig.properties.fqdn
+```
+
+1. In the output, find `outputs`, which contains your HTTP route configuration's fully qualified domain name (FQDN). For example:
+
+```
+    "outputs": {
+      "fqdn": {
+        "type": "String",
+        "value": "my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io"
+      }
+    },
+```
 
 ::: zone-end
 
@@ -184,3 +261,4 @@ az group delete --name my-container-apps
 
 - [Quickstart and samples](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master)
 - [Azure CLI reference](/cli/azure/containerapp/env/http-route-config?view=azure-cli-latest)
+- [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
