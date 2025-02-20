@@ -12,7 +12,7 @@ ms.date: 02/12/2025
 
 # Preview API life cycle
 
-The Azure App Configuration preview APIs (all APIs that ends in `-preview`) are always deprecated 90 days after a newer preview API version is released. The process may differ for older API versions.
+The Azure App Configuration preview APIs (all APIs that ends in `-preview`) are deprecated 90 days after a newer preview API version is released. The process may differ for older API versions.
 
 We love when people try our preview features and give us feedback, so we encourage you to use the preview APIs.
 
