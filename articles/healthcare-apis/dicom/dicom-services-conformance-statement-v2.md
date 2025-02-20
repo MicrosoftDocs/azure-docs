@@ -117,11 +117,12 @@ Expiry headers allow users to specify a future deletion time when storing.
 
 In order to set an expiry time, the following headers must be set on POST or PUT requests.
 
-| Header                                | Accepted Values    | Description                                                                                  |
-| :------------------------------------ | :----------------- | :------------------------------------------------------------------------------------------- |
-| `msdicom-expiry-option`               | `RelativeToNow`    | How the deletion time is calculated. Currently the only supported option is `RelativeToNow`  |
-| `msdicom-expiry-level`                | `Study`            | The level at which the expiry should be set. Currently only supported at the `Study` level.  |
-| `msdicom-expiry-time-milliseconds`    | Integer values > 0 | The number of milliseconds after which the study should be deleted.                          |
+| Header                                | Accepted Values    | Description                                                                                  | Required |
+| :------------------------------------ | :----------------- | :------------------------------------------------------------------------------------------- | :------- |
+| `msdicom-expiry-time-milliseconds`    | `Integer Value`> 0 | The number of milliseconds after which the study should be deleted.                          | Yes      |
+| `msdicom-expiry-option`               | `RelativeToNow`    | How the deletion time is calculated. Currently the only supported option is `RelativeToNow`  | No       |
+| `msdicom-expiry-level`                | `Study`            | The level at which the expiry should be set. Currently only supported at the `Study` level.  | No       |
+
 
 At this time, expiry is only supported at the study level, meaning that all instances of a study will be deleted at the same time. If multiple instances are stored for the same study in separate requests, the deletion will be based on the expiry headers sent in the last STOW request. In the case that the last STOW request doesn't specify expiry headers, the study won't be scheduled for deletion and any previously sent expiry headers will be ignored.
 
