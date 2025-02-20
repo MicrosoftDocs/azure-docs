@@ -73,7 +73,7 @@ For more information about custom CA certificates and certificate authorities, s
 | thumbprint | Certificate thumbprint. | No | N/A |
 | serial-number | Certificate serial number. | No | N/A |
 | common-name | Certificate common name (part of Subject string). | No | N/A |
-| subject | Subject string. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*.| No | N/A up 
+| subject | Subject string. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*.| No | N/A | 
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | No | N/A |
 | issuer-subject | Issuer's subject. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*. | No | N/A |
 | issuer-thumbprint | Issuer thumbprint. | No | N/A |
