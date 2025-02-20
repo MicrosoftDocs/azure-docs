@@ -146,16 +146,4 @@ You can find more applicable build environment variables in [Java build environm
 
 ::: zone-end
 
-## Verify the app status
-
-In this example, `containerapp up` command includes the `--query properties.configuration.ingress.fqdn` argument, which returns the fully qualified domain name (FQDN), also known as the app's URL.
-
-:::image type="content" source="media/java-deploy-war-file/validation.png" alt-text="Screenshot of validation.":::
-
-View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
-
-:::image type="content" source="media/java-get-started-petclinic/azure-container-apps-petclinic-warfile.png" alt-text="Home page of the PetClinic.":::
-
-## Next steps
-
-[!INCLUDE [java-app-quickstart-deployment-next-steps](includes/java-app-quickstart-deployment-next-steps.md)]
+[!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
