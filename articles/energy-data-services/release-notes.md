@@ -24,11 +24,11 @@ This page is updated with the details about the upcoming release approximately a
 <hr width = 100%>
 
 ## February 2025
-### OSDU Reservoir DDMS preview 
-OSDU Reservoir DDMS (M23 version) is available as an opt-in feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.
+### Reservoir DDMS preview 
+Reservoir DDMS (M23 version) is available as a preview feature on Azure Data Manager for Energy Developer tier as a fully integrated offering for customers and partners. See [How to enable Reservoir DDMS (Preview)](how-to-enable-reservoir-ddms.md) for more details.
 
 ### Wellbore domain services worker
-Azure Data Manager for Energy now includes support for the Wellbore domain services worker. It is a Python back-end service used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
+Azure Data Manager for Energy now includes support for the Wellbore domain services worker, which enhances Wellbore DDMS performance and scalability when handling large bulk data (> 1 GB). This Python back-end service is used internally by the OSDU&reg; Wellbore Domain Data Management Service (WDDMS). It provides an internal API for accessing wellbore bulk data, facilitating efficient data management and processing. See [ADR: Worker Service for Wellbore Bulk Data Access](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/wellbore/wellbore-domain-services/-/issues/73) for more details.
 
 ### Scale and Performance improvements for seismic workflows
 Azure Data Manager for Energy has implemented performance and scale enhancements to handle ingestion and conversion of seismic datasets with higher number of vertical samples. Additionally, for consuming these datasets via seismic streaming applications, Azure Data Manager for Energy now supports up to 4x higher throughput, allowing a proportional increase in the number of consumers using SDMS APIs.
@@ -37,8 +37,11 @@ Azure Data Manager for Energy has implemented performance and scale enhancements
 ### SOC 2 and ISO certification
 Azure Data Manager for Energy is now SOC 2 and ISO compliant, reinforcing our commitment to securely managing sensitive data, building trust, and meeting regulatory requirements. All certifications and compliance reports are available [here](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3) and will be regularly updated.
 
-### Support for EDS Naturalization DAG
-Support for the `eds_naturalization` DAG is now available with the Azure Data Manager for Energy M23 release.
+### Support for EDS Naturalization DAG (Preview)
+Support for the `eds_naturalization` DAG is now available as a preview feature with the Azure Data Manager for Energy M23 release.
+
+### Create legal tags for restricted COO (Country of Origin)
+OSDU&reg; defines `residencyRisk` for data originating from certain countries in the default configuration [DefaultCountryCode.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads). This configuration can now be edited in an OSDU&reg; compliant manner to allow the creation of legal tags and the ingestion of data from such countries on Azure Data Manager for Energy. These configurations apply at a partition level. See [How to enable legal tag creation for OSDU&reg; restricted COO (Country of Origin) data?](how-to-enable-legal-tags-restricted-country-of-origin.md) for more details.
 
 ## August 2024
 
