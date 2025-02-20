@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
 ---
 
-To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
+To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v2` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -31,7 +31,7 @@ jobs:
     steps:
       # Checkout the repo
       - uses: actions/checkout@main
-      - uses: azure/login@v1
+      - uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -89,7 +89,7 @@ jobs:
     # checkout the repo
     - uses: actions/checkout@main
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -140,7 +140,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -240,7 +240,7 @@ jobs:
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
    
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -292,7 +292,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}

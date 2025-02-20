@@ -9,7 +9,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 06/25/2024
+ms.date: 02/18/2025
 ms.author: danlep
 ---
 
