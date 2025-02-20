@@ -324,16 +324,16 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | Microsoft.Migrate/assessmentProjects/sapcollectors/delete | Deletes the sap Collector which are available in the given location |
 > | Microsoft.Migrate/assessmentProjects/servercollectors/read | Gets the properties of Server collector |
 > | Microsoft.Migrate/assessmentProjects/servercollectors/write | Creates a new Server collector or updates an existing Server collector |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessmentOptions/read | Gets the properties of the springBoot AssessmentOptions |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessments/read | Gets the properties of the springBoot Assessment |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessments/write | Creates a springBoot Assessment or updates an existing springBoot Assessment |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessments/delete | Deletes the springBoot Assessment which are available in the given location |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessments/downloadurl/action | Get Blob SAS URI for the springBoot AssessmentReport |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessmentOptions/read | Gets the properties of the SpringBoot AssessmentOptions |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessments/read | Gets the properties of the SpringBoot Assessment |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessments/write | Creates a SpringBoot Assessment or updates an existing SpringBoot Assessment |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessments/delete | Deletes the SpringBoot Assessment which are available in the given location |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessments/downloadurl/action | Get Blob SAS URI for the SpringBoot AssessmentReport |
 > | Microsoft.Migrate/assessmentProjects/springBootAssessments/assessedApplications/read | Gets the properties of the assessedApplications  |
-> | Microsoft.Migrate/assessmentProjects/springBootAssessments/summaries/read | Gets the properties of the springBoot AssessmentSummary |
-> | Microsoft.Migrate/assessmentProjects/springBootcollectors/read | Gets the properties of the springBoot Collector |
-> | Microsoft.Migrate/assessmentProjects/springBootcollectors/write | Creates a springBoot Collector or updates an existing springBoot Collector |
-> | Microsoft.Migrate/assessmentProjects/springBootcollectors/delete | Deletes the springBoot Collector which are available in the given location |
+> | Microsoft.Migrate/assessmentProjects/springBootAssessments/summaries/read | Gets the properties of the SpringBoot AssessmentSummary |
+> | Microsoft.Migrate/assessmentProjects/springBootcollectors/read | Gets the properties of the SpringBoot Collector |
+> | Microsoft.Migrate/assessmentProjects/springBootcollectors/write | Creates a SpringBoot Collector or updates an existing SpringBoot Collector |
+> | Microsoft.Migrate/assessmentProjects/springBootcollectors/delete | Deletes the SpringBoot Collector which are available in the given location |
 > | Microsoft.Migrate/assessmentProjects/sqlAssessmentOptions/read | Gets the SQL assessment options which are available in the given location |
 > | Microsoft.Migrate/assessmentProjects/sqlcollectors/read | Gets the properties of SQL collector |
 > | Microsoft.Migrate/assessmentProjects/sqlcollectors/write | Creates a new SQL collector or updates an existing SQL collector |
