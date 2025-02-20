@@ -6,6 +6,8 @@ ms.date: 02/19/2025
 ms.author: danlep
 ---
 
+## Automatic migration
+
 Starting September 2024, we'll automatically migrate remaining `stv1` service instances to the `stv2` compute platform. All affected customers will be notified of the upcoming automatic migration a week in advance. Automatic migration might cause downtime for your upstream API consumers. You may still migrate your own instances before automatic migration takes place.
 
 ### Virtual network configuration may be removed during automatic migration

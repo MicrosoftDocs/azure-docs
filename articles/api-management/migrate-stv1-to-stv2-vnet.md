@@ -241,6 +241,9 @@ Under certain conditions, [Option 1: Migrate and keep same subnet](#option-1-mig
 
 * **Azure Key Vault blocked** - If access to Azure Key Vault is currently blocked, you must migrate using Option 2, including setting up NSG rules in the new subnet for access to Azure Key Vault.
 
+[!INCLUDE [api-management-automatic-migration](../../includes/api-management-automatic-migration.md)]
+
+
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 
 ## Frequently asked questions
