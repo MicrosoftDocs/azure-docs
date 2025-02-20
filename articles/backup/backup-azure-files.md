@@ -185,4 +185,4 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 Learn how to:
 
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portalR](manage-afs-backup.md).
+* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
