@@ -48,8 +48,6 @@ Reports support any selected date range from the previous 90 days. With data poi
 
 1. In the navigation pane, select **Reports** or **Security** under *Analytics*.
 
-   :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of Reports landing page":::
-
 1. Select the report you want to view.
 
    * Traffic by domain
@@ -96,8 +94,6 @@ Reports support any selected date range from the previous 90 days. With data poi
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension.":::
 
 1. If you want to export the data to a CSV file, select the *Download CSV* link on the selected tab.
-
-    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports.":::
 
 ### Export reports in CSV format
 
