@@ -30,7 +30,7 @@ This article helps you troubleshoot errors that might happen in Azure Logic Apps
 | Missing AS2 message headers | **Invalid AS2 headers. One of the "AS2-To" or "AS2-From" headers is empty.** | A received AS2 message didn't contain the headers for **AS2-From**, **AS2-To**, or both. Check the AS2 message headers for **AS2-From** and **AS2-To**, and correct them based on your agreement setup. |
 | Missing AS2 message body and headers | **The request content is null or empty.** | A received AS2 message didn't contain a message body. Make sure that a message body exists. |
 | AS2 message decryption failure | **`[processed/Error: decryption-failed]`** | Apply the `@base64ToBinary()` function to the AS2Message before sending the message to the trading partner. See [Example - AS2 message decryption failure example](#as2-decryption-failure). |
-| Message Disposition Notification (MDN) decryption failure | **`[processed/Error: decryption-failed]`** | Apply the `@base64ToBinary()` function to the MDN before sending the notification to the partner. See [Example - Message Disposition Notification (MDN) decryption failure](mdn-decryption-failure). |
+| Message Disposition Notification (MDN) decryption failure | **`[processed/Error: decryption-failed]`** | Apply the `@base64ToBinary()` function to the MDN before sending the notification to the partner. See [Example - Message Disposition Notification (MDN) decryption failure](#mdn-decryption-failure). |
 | Missing signing certificate | **The Signing Certificate has not been configured for AS2 party. AS2-From: partner1 AS2-To: partner2** | Set the AS2 agreement settings with the correct certificate for the signature. |
 
 <a name="as2-decryption-failure"></a>
