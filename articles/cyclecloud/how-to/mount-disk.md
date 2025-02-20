@@ -110,7 +110,7 @@ For example:
 > `Azure.Encryption.DiskEncryptionSetId = /subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/diskEncryptionSets/$DISK-ENCRYPTION-SET-NAME`.
 > However, you do not need to set `Azure.Encryption.Type`.
 
-CycleCloud 8.5 also supports [Confidential disk encryption](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#confidential-os-disk-encryption). This scheme protects all critical partitions of the disk and makes the protected disk content accessible only to the VM. Confidential disk encryption is per-disk, and requires the *Security Encryption Type* to be set to `DiskWithVMGuestState`. 
+CycleCloud 8.5 also supports [Confidential disk encryption](/azure/confidential-computing/confidential-vm-overview#confidential-os-disk-encryption). This scheme protects all critical partitions of the disk and makes the protected disk content accessible only to the VM. Confidential disk encryption is per-disk, and requires the *Security Encryption Type* to be set to `DiskWithVMGuestState`. 
 
 For example, to use Confidential encryption on the OS disk:
 
