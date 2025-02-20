@@ -10,7 +10,7 @@ ms.date: 02/18/2025
 ms.author: hangwan
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps using a Dockerfile
+# Quickstart: Launch your first Java application in Azure Container Apps by using a Dockerfile
 
 This article shows you how to use a Dockerfile to deploy the Spring PetClinic sample application to Azure Container Apps.
 
