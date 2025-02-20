@@ -19,7 +19,7 @@ ms.reviewer: jushiman
 This article steps through using the Azure portal to create a Compute Fleet.
 
 
-## Login to Azure
+## Log in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
