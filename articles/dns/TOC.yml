@@ -38,6 +38,8 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
+    - name: Create a private zone - Terraform
+      href: dns-private-zone-terraform.md
   - name: Private resolver
     items:
     - name: Create a private resolver - portal
