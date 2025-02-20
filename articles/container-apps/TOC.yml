@@ -42,12 +42,6 @@
           href: jobs-get-started-cli.md
 - name: Key concepts
   items:
-    - name: Compute and billing structures
-      items:
-      - name: Overview
-        href: structure.md
-      - name: Consumption-only environment type
-        href: environment-type-consumption-only.md
     - name: Compare container options in Azure
       href: compare-options.md
     - name: Plans
@@ -63,10 +57,14 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      href: sessions.md
-
-
-
+      items:
+      - name: Overview
+        href: sessions.md
+        displayName: Dynamic sessions overview
+      - name: Code interpreter sessions
+        href: sessions-code-interpreter.md
+      - name: Custom container sessions
+        href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -81,11 +79,6 @@
       href: containerapp-up.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
-
-    - name: Create and deploy a container app from code
-      href: tutorial-deploy-from-code.md
-    - name: Update a container app deployed from code
-      href: tutorial-update-from-code.md 
     - name: Connect to apps & services
       items:
         - name: Connect to services
@@ -135,27 +128,15 @@
       items:
         - name: Code interpreter sessions
           items:
-
-          - name: Overview
-            href: sessions-code-interpreter.md
-          - name: Tutorials
-            items:
-            - name: Use a LLM agent
-              items:
-
-              - name: AutoGen
-                href: sessions-tutorial-autogen.md
-              - name: LangChain
-                href: sessions-tutorial-langchain.md
-              - name: LlamaIndex
-                href: sessions-tutorial-llamaindex.md
-              - name: Semantic Kernel
-                href: sessions-tutorial-semantic-kernel.md
-
-- name: Use the REST API
-              items:
-
-          - name: JavaScript Code interpreter (preview)
+          - name: AutoGen
+            href: sessions-tutorial-autogen.md
+          - name: LangChain
+            href: sessions-tutorial-langchain.md
+          - name: LlamaIndex
+            href: sessions-tutorial-llamaindex.md
+          - name: Semantic Kernel
+            href: sessions-tutorial-semantic-kernel.md
+          - name: JavaScript Code Interpreter (preview)
             href: sessions-tutorial-nodejs.md
     - name: Event-driven processing
       items:
@@ -313,11 +294,12 @@
   items:
     - name: Architecture overview
       href: networking.md
-    - name: 
-
-
+    - name: Environments
+      items:
+        - name: Deploy with an external environment
           href: vnet-custom.md
- 
+        - name: Deploy with an internal environment
+          href: vnet-custom-internal.md
     - name: Ingress
       items:
         - name: Overview
@@ -351,8 +333,8 @@
           href: how-to-use-private-endpoint.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
-
-
+    - name: Use a custom VNET
+      href: vnet-custom.md
 - name: Languages and runtimes
   items:
     - name: .NET
