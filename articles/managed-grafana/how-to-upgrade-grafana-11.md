@@ -5,7 +5,7 @@ description: "Learn how to upgrade an Azure Managed Grafana workspace from Grafa
 ms.service: azure-managed-grafana
 author: maud-lv  
 ms.author: malev 
-ms.date: 02/31/2025 
+ms.date: 02/28/2025 
 ms.topic: how-to 
 # customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspce from Grafana 10 to Grafana 11.
 --- 
@@ -45,7 +45,7 @@ In the Azure portal:
   1. In the left menu, under **Settings** select **Configuration**.
   1. Review the Grafana version listed under **Grafana Version**. If version 10 is selected in the dropdown menu, your workspace is on the Grafana version that is reaching end of life and is scheduled for retirement. We recommend that you upgrade your workspace to Grafana 11 by following the steps below. If your Grafana version is Grafana 11, no further action is necessary.
 
-      :::image type="content" source="media/grafana-11-upgrade/check-grafana-version.png" alt-text="Screenshot of the Azure platform showing Grafana Version 9.":::
+      :::image type="content" source="media/grafana-11-upgrade/check-grafana-version.jpg" alt-text="Screenshot of the Azure platform showing Grafana Version 9.":::
   
 ### [Azure CLI](#tab/azure-cli)
 
@@ -74,7 +74,7 @@ In the Azure portal:
 1. Under **Grafana Version**, select **11**.
 1. Select **Save** on top to save the new settings and trigger the upgrade to Grafana version 11.
 
-    :::image type="content" source="media/grafana-11-upgrade/save-upgrade.png" alt-text="Screenshot of the Azure portal showing Grafana version 11 selected in the dropdown menu and the Save button highlighted.":::
+    :::image type="content" source="media/grafana-11-upgrade/save-upgrade.jpg" alt-text="Screenshot of the Azure portal showing Grafana version 11 selected in the dropdown menu and the Save button highlighted.":::
 
 1. A notification appears, indicating that the upgrade is in progress. In the **Overview** page, Grafana’s **Provisioning State** is **Provisioning** until the upgrade is complete. After a few minutes, a notification appears, and the provisioning state becomes **Succeeded**.
 
