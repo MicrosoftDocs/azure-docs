@@ -120,11 +120,11 @@ You can select a virtual network for test migrations. Azure Migrate automaticall
 The **Test Migration** button could be disabled in the following scenarios:
 
 * You can't begin a test migration until an initial replication is completed for the VM. The **Test Migration** button is disabled until the initial replication process is completed. You can perform a test migration after your VM is in a delta-sync stage.
-* The button can be disabled if a test migration was already completed, but a test-migration cleanup wasn't performed for that VM. Perform a test migration cleanup and retry the operation.
+* The button can be disabled if a test migration was already completed but a test-migration cleanup wasn't performed for that VM. Perform a test migration cleanup and retry the operation.
 
 ### What happens if I don’t clean up my test migration?
 
-A test migration simulates the actual migration by creating a test Azure VM by using replicated data. The server is deployed with a point-in-time copy of the replicated data to the target `Resource Group` (that you select when you enable replication) with a `-test` suffix. Test migrations are intended to validate server functionality to minimize post-migration problems.
+A test migration simulates the actual migration by creating a test Azure VM by using replicated data. The server is deployed with a point-in-time copy of the replicated data to the target resource group (selected when you enable replication) with a `-test` suffix. Test migrations are intended to validate server functionality to minimize post-migration problems.
 
 If the test migration isn't cleaned up after testing, the test VM continues to run in Azure and incurs charges. To clean up after a test migration, go to the **Replicating machines** view in the **Migration and modernization** tool, and use the **Cleanup test migration** action on the machine.
 
@@ -132,7 +132,7 @@ If the test migration isn't cleaned up after testing, the test VM continues to r
 
 After you migrate your VM/server successfully, you can view and manage the VM from the **Virtual Machines** pane. Connect to the migrated VM to validate.
 
-You can also review the **Job status** for the operation to check if the migration was successfully completed. If you see any errors, resolve them, and retry the migration operation.
+You can also review the **Job status** for the operation to check if the migration was successfully completed. If you see any errors, resolve them and then retry the migration operation.
 
 ### What happens if I don't stop replication after migration?
 
@@ -182,7 +182,7 @@ The **Migration and modernization** tool now supports Windows OS upgrade during 
 
 ### Do I need VMware vCenter to migrate VMware VMs?
 
-To [migrate VMware VMs](server-migrate-overview.md) by using VMware agent-based or agentless migration, vCenter Server must manage the ESXi hosts on which VMs are located. If you don't have vCenter Server, you can migrate VMware VMs as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).
+For you to [migrate VMware VMs](server-migrate-overview.md) by using VMware agent-based or agentless migration, vCenter Server must manage the ESXi hosts on which VMs are located. If you don't have vCenter Server, you can migrate VMware VMs as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).
 
 ### Can I consolidate multiple source VMs into one VM while migrating?
 
@@ -198,7 +198,7 @@ You can migrate your on-premises Windows Server 2008 and 2008 R2 servers to Azur
 
 We recommend that you migrate your applications to Azure instances running a newer version of Windows Server to ensure that you're effectively using the flexibility and reliability of the Azure cloud.
 
-If you still choose to migrate Windows Server 2003 to Azure, you can use the **Migration and modernization** tool if your Windows Server deployment is a VM that runs on VMware or Hyper-V. Review this article to [prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
+If you still choose to migrate Windows Server 2003 to Azure, you can use the **Migration and modernization** tool if your Windows Server deployment is a VM that runs on VMware or Hyper-V. For more information, see [Prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
 
 ## Agentless VMware migration
 
@@ -216,9 +216,9 @@ The incremental replication phase addresses any data changes that occurred since
 
 VMware changed-block tracking technology keeps track of changes between replication cycles for VMware VMs. At the start of the replication cycle, a VM snapshot is taken and changed-block tracking is used to compile the changes between the current snapshot and the last successfully replicated snapshot. To keep replication for the VM in sync, only data that changed since the last completed replication cycle needs to be replicated.
 
-At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica-change tracking engine keeps track of changes between consecutive replication cycles.
+At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica change-tracking engine keeps track of changes between consecutive replication cycles.
 
-When you perform the `Migrate` operation on a replicating VM, you can shut down the on-premises VM, and perform one final incremental replication to ensure zero data loss. When the replication is performed, the replica-managed disks that correspond to the VM are used to create the VM in Azure.
+When you perform the `Migrate` operation on a replicating VM, you can shut down the on-premises VM and perform one final incremental replication to ensure zero data loss. When the replication is performed, the replica-managed disks that correspond to the VM are used to create the VM in Azure.
 
 To get started, refer to the [VMware agentless migration](tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
@@ -241,9 +241,9 @@ You can estimate the bandwidth or time needed for agentless VMware VM migration 
 
 ### How do I throttle replication when using the Azure Migrate appliance for agentless VMware replication?
 
-You can throttle by using `NetQosPolicy`. This throttling method applies to only the outbound connections from the Azure Migrate appliance. For example:
+You can throttle by using `NetQosPolicy`. This throttling method applies to only the outbound connections from the Azure Migrate appliance.
 
-The `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`. You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
+For example, the `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`. You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
 ```powershell
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
@@ -305,20 +305,20 @@ The formula to schedule the next replication cycle is: (Previous cycle time / 2)
 
 For example, if a VM takes four hours for a delta cycle, the next cycle is scheduled in two hours, and not in the next hour. The process is different immediately after initial replication, when the first delta cycle is scheduled immediately.
 
-### I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs that correspond to one of the appliances.
+### I deployed two (or more) appliances to discover VMs in my vCenter Server. But when I try to migrate the VMs, I only see VMs that correspond to one of the appliances.
 
 If you set up multiple appliances, there can be no overlap among the VMs on the provided vCenter accounts. A discovery with such an overlap is an unsupported scenario.
 
 ### How does agentless replication affect VMware servers?
 
-Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
+Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPS in your environment.
 
 ### Can powered-off VMs be replicated?
 
 Replication of VMware VMs while they're powered off is supported, but only in the agentless approach.
 
  > [!IMPORTANT]
-> We can't guarantee that a powered-off VM boots successfully, because we can't verify its operational state before replication.
+> We can't guarantee that a powered-off VM will boot successfully, because we can't verify its operational state before replication.
 
 We highly recommend that you perform a test migration to ensure everything proceeds smoothly during the actual migration. This method can be useful when the initial replication process is lengthy, or for high-churn VMs, such as database servers or other disk-intensive workloads.
 
@@ -347,7 +347,7 @@ You should install the replication appliance on a dedicated machine. You shouldn
 
 ### Can I migrate AWS VMs running Amazon Linux operating system?
 
-VMs running Amazon Linux can't be migrated as-is, because Amazon Linux OS is supported only on AWS.
+VMs running Amazon Linux can't be migrated as is, because Amazon Linux OS is supported only on AWS.
 
 To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then, you can migrate the workload that runs on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration, like tools for databases or deployment tools for web servers.
 
@@ -377,7 +377,7 @@ VMware changed-block tracking technology is used to keep track of changes betwee
 
 At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the VM. Similarly, for Hyper-V VMs, the Hyper-V replica change-tracking engine is used to keep track of changes between consecutive replication cycles.
 
-When you perform the `Migrate` operation on a replicating VM, you can shut down the on-premises VM and perform one final incremental replication to ensure zero data loss. On performing the migration, the replica-managed disks that correspond to the VM are used to create the VM in Azure.
+When you perform the `Migrate` operation on a replicating VM, you can shut down the on-premises VM and perform one final incremental replication to ensure zero data loss. The replica-managed disks that correspond to the VM are used to create the VM in Azure.
 
 To get started, refer to the [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorial.
 
