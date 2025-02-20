@@ -114,6 +114,8 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Review + create**.
 
+1. Select **Create**.
+
 
 
 ## Clean up resources
