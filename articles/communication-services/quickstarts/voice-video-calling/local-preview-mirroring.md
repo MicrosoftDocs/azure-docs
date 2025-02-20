@@ -18,22 +18,19 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 # Quickstart: Mirror local preview
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Pre-call diagnostics with Windows](./includes/local-preview-mirroring/local-preview-mirrorings-windows.md)]
+[!INCLUDE [Local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirrorings-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Pre-call diagnostics with Android](./includes/local-preview-mirroring/local-preview-mirroring-android.md)]
+[!INCLUDE [Local preview mirroring on Android](./includes/local-preview-mirroring/local-preview-mirroring-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Pre-call diagnostics with iOS](./includes/local-preview-mirroring/local-preview-mirroring-ios.md)]
+[!INCLUDE [Local preview mirroring on iOS](./includes/local-preview-mirroring/local-preview-mirroring-ios.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Check your network condition with the diagnostics tool](../../concepts/developer-tools/network-diagnostic.md).
-- [Explore User-Facing Diagnostic APIs](../../concepts/voice-video-calling/user-facing-diagnostics.md).
-- [Enable Media Quality Statistics in your application](../../concepts/voice-video-calling/media-quality-sdk.md).
 - [Consume call logs with Azure Monitor](../../concepts/analytics/logs/voice-and-video-logs.md).
 
 ## Related articles
