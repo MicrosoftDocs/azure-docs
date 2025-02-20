@@ -16,11 +16,11 @@ ms.date: 01/09/2023
 
 This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Microsoft Sentinel.
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
 
 ## Prerequisites
 
-This article is a continuation on from [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
+This article is a continuation on from [Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
 
 ## Specify authentication parameters for Azure and Microsoft Sentinel APIs
 
@@ -39,7 +39,7 @@ This procedure describes how to configure authentication parameters for Microsof
 
 1. Select the authentication methods to use:
 
-    - While you can use a different set of methods from the [Azure defaults](notebook-get-started.md#specify-the-azure-cloud-and-azure-authentication-methods), this usage isn't a typical configuration.
+    - While you can use a different set of methods from the defaults, this usage isn't a typical configuration. For more information, see the [**Getting Started Guide For Azure Sentinel ML Notebooks** notebook](notebook-get-started.md).
     - Unless you want to use the **env** (environment variable) authentication, leave the **clientId**, **tenantId**, and **clientSecret** fields empty.
     - While not recommended, MSTICPy also supports using client app IDs and secrets for your authentication. In such cases, define your **clientId**, **tenantId**, and **clientSecret** fields directly in the **Data Providers** tab.
 
@@ -88,16 +88,14 @@ This procedure describes how to define other components that are automatically l
 
 Supported components include, in the following order:
 
-1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
-1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
+1. **TILookup:** The TI provider library you want to use
+1. **GeoIP:** The GeoIP provider you want to use
 1. **AzureData:** The module you use to query details about [Azure resources](#specify-authentication-parameters-for-azure-and-microsoft-sentinel-apis)
 1. **AzureSentinelAPI:** The module you use to query the [Microsoft Sentinel API](#specify-authentication-parameters-for-azure-and-microsoft-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
-> [!NOTE]
-> The components load in this order because the Pivot component needs query and other providers loaded to find the pivot functions that it attaches to entities. For more information, see [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/data_analysis/PivotFunctions.html).
->
+The components load in this order because the Pivot component needs query and other providers loaded to find the pivot functions that it attaches to entities. For more information, see [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/data_analysis/PivotFunctions.html). For more information, see the [**Getting Started Guide For Azure Sentinel ML Notebooks** notebook](notebook-get-started.md).
 
 **To define auto-loaded MSTICPy components**:
 
@@ -110,8 +108,7 @@ Supported components include, in the following order:
 
 1. In the **Autoload Components** tab, define any parameter values as needed. For example:
 
-   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Add GeoIP provider settings](notebook-get-started.md#add-geoip-provider-settings).
-
+   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.
    - **AzureData and AzureSentinelAPI components**.  Define the following values:
 
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
