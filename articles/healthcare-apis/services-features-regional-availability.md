@@ -30,7 +30,7 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| South Africa North |    | &check; | - | - | - | - |
+| South Africa North | - | &check; | - | - | - | - |
 
 ### Asia
 
@@ -74,7 +74,7 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | MedTech service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|-----------------|---------------------------|--------|
-| Qatar Central | &check; |          | - | - | - | - |
+| Qatar Central | &check; | Private Preview | - | - | - | - |
 
 ### United States
 
