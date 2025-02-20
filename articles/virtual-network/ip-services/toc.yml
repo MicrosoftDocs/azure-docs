@@ -23,6 +23,8 @@ items:
     href: create-public-ip-prefix-powershell.md
   - name: Create public IP prefix - Azure CLI
     href: create-public-ip-prefix-cli.md
+  - name: Create public IP prefix - Terraform
+    href: create-public-ip-prefix-terraform.md
   expanded: true
 - name: Tutorials
   items:
@@ -169,10 +171,8 @@ items:
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback

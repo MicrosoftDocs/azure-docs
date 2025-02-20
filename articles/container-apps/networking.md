@@ -103,7 +103,7 @@ For every app in Azure Container Apps, there are two URLs.
 
 The Container Apps runtime initially generates a fully qualified domain name (FQDN) used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the FQDN of your container app.
 
-A second URL is also generated for you. This location grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
+A second URL is also generated for you. This location grants access to the log streaming service and the console. If necessary, you may need to add `https://<region>.azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
 
 ## Ports and IP addresses
 

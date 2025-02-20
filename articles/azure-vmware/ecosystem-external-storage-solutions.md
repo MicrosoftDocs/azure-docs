@@ -9,7 +9,7 @@ ms.date: 12/09/2024
 ms.custom: engagement-fy23
 --- 
 
-# Extend Azure VMware Solution with external storage solutions
+# External storage solutions
 
 Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offers VMware vSAN as the primary storage option. VMware vSAN provides high-performance NVMe storage for virtual machines. However, it has a limited capacity. The exact amount of storage available in vSAN depends on several factors, including the number and type of nodes in the cluster type; the RAID and FTT (Failures To Tolerate) settings; and the deduplication and compression performance of a particular workload. 
 
