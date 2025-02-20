@@ -20,5 +20,7 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 
 ````swift
-
+var renderer = try VideoStreamRenderer(localVideoStream: localVideoStream)
+var view = try renderer?.createView(withOptions: CreateViewOptions(scalingMode: scalingMode))
+var view?.layer.transform = CATransform3DMakeAffineTransform(CGAffineTransformMakeScale(-1.0, 1.0))
 ````

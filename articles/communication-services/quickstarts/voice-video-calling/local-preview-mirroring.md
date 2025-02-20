@@ -17,20 +17,16 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 
 # Quickstart: Mirror local preview
 
-::: zone pivot="platform-web"
-[!INCLUDE [Pre-call diagnostics with JavaScript](./includes/pre-call-diagnostics/pre-call-diagnostics-javascript.md)]
-::: zone-end
-
 ::: zone pivot="platform-windows"
-[!INCLUDE [Pre-call diagnostics with Windows](./includes/pre-call-diagnostics/pre-call-diagnostics-windows.md)]
+[!INCLUDE [Pre-call diagnostics with Windows](./includes/local-preview-mirroring/local-preview-mirrorings-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Pre-call diagnostics with Android](./includes/pre-call-diagnostics/pre-call-diagnostics-android.md)]
+[!INCLUDE [Pre-call diagnostics with Android](./includes/local-preview-mirroring/local-preview-mirroring-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Pre-call diagnostics with iOS](./includes/pre-call-diagnostics/pre-call-diagnostics-ios.md)]
+[!INCLUDE [Pre-call diagnostics with iOS](./includes/local-preview-mirroring/local-preview-mirroring-ios.md)]
 ::: zone-end
 
 ## Next steps
