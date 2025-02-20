@@ -56,6 +56,8 @@ docker --version
 
    # [.NET](#tab/dotnet)
 
+   In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
+
    <!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
    ```dockerfile
    FROM mcr.microsoft.com/appsvc/dotnetcore:lts
@@ -68,9 +70,9 @@ docker --version
    ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
    ```
 
-   In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
-
    # [Node.js](#tab/node)
+
+   In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
 
    <!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
    ```dockerfile
@@ -83,9 +85,9 @@ docker --version
    ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
    ```
 
-   In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
-
    # [Python](#tab/python)
+
+   In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
 
    <!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
    ```dockerfile
@@ -97,9 +99,9 @@ docker --version
    ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
    ```
 
-   In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
-
    # [Java](#tab/java)
+
+   In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
 
    <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
    ```dockerfile
@@ -111,7 +113,6 @@ docker --version
    ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
    ```
 
-In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
    ---
 
 1. [Open the Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), and type **Docker Images: Build Image**. Select **Enter** to run the command.
