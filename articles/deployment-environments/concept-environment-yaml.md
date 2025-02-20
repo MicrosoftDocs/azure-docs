@@ -117,7 +117,7 @@ parameters:
     required: true
 
   - id: supportsHttpsTrafficOnly
-    name: 'Supports Https Traffic Only'
+    name: 'Supports HTTPS Traffic Only'
     description: 'Allows https traffic only to Storage Account and Functions App if set to true.'
     type: boolean
 
