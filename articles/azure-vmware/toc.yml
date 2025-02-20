@@ -230,7 +230,7 @@ items:
        href: configure-storage-policy.md
      - name: Configure customer-managed key encryption at rest
        href: configure-customer-managed-keys.md
-  - name: Extend Azure VMware Solution with external storage
+  - name: External storage solutions
     href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
