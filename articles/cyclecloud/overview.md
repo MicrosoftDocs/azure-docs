@@ -40,6 +40,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-m
 | [**Template Clusters**](./download-cluster-templates.md)<br>Use CycleCloud templates to share cluster topologies with the community | ![Template sample](./images/overview-github-tn.png) |
 | [**Customize and Extend Functionality**](./api.md)<br>Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers | ![REST sample](./images/overview-rest-tn.png) |
 | [**Integrate into Existing Workflows**](./how-to/install-cyclecloud-cli.md)<br>Integrate into existing workflows and tools using the built-in CLI | ![CLI sample](./images/overview-cli-tn.png) |
+
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -52,6 +53,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-m
 | [**Template Clusters**](./download-cluster-templates.md)<br>Use CycleCloud templates to share cluster topologies with the community | ![Template sample](./images/overview-github-tn.png) |
 | [**Customize and Extend Functionality**](./api.md)<br>Use the comprehensive RESTful API to customize and extend functionality, deploy your own scheduler, and support into existing workload managers | ![REST sample](./images/overview-rest-tn.png) |
 | [**Integrate into Existing Workflows**](./how-to/install-cyclecloud-cli.md)<br>Integrate into existing workflows and tools using the built-in CLI | ![CLI sample](./images/overview-cli-tn.png) |
+
 ::: moniker-end
 
 ## How Do I Use Azure CycleCloud?
