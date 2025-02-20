@@ -17,8 +17,6 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 
 ## Mirror local preview
 
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-
 ````swift
 var renderer = try VideoStreamRenderer(localVideoStream: localVideoStream)
 var view = try renderer?.createView(withOptions: CreateViewOptions(scalingMode: scalingMode))

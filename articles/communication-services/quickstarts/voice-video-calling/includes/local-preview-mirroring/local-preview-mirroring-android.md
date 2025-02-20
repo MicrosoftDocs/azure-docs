@@ -17,8 +17,6 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 
 ## Mirror local preview
 
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-
 ````java
 VideoStreamRenderer renderer = new VideoStreamRenderer(localVideoStream, this);
 VideoStreamRendererView view = renderer.createView(new CreateViewOptions(scalingMode));

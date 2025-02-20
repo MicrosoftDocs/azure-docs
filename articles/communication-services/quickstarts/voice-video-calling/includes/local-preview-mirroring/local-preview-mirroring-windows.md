@@ -17,8 +17,6 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 
 ## Mirror local preview
 
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
-
 ````csharp
 var uri = await localOutgoingVideoStream.StartPreviewAsync();
 mediaPlayerElement.Source = MediaSource.CreateFromUri(uri);
