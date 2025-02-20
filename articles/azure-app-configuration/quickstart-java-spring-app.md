@@ -105,7 +105,7 @@ To use the Spring Cloud Azure Config starter to have your application communicat
    }
    ```
 
-1. You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
+1. By default, the library connects to the App Configuration store by Managed Identity. There are multiple ways to provide other authentication info. You can use the [Spring Cloud Azure authentication](/azure/developer/java/spring-framework/authentication) or provide your own credential. In this example, you provide your own credential. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Then create a new file named *AppConfigCredential.java* and add the following lines:
 
     ```java
     import org.springframework.stereotype.Component;
