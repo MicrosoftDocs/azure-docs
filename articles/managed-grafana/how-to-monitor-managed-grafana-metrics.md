@@ -37,7 +37,7 @@ These metrics can be accessed from your Azure Managed Grafana workspace, from Az
 1. Configure your chart:
     * The scope and metric namespace are prepopulated.
     * Select a metric from the list.
-    * Select an aggregation type along: count, average, min and max.
+    * Select an aggregation type among: **Count**, **Avg**, **Min**, **Max**, **Sum**.
     * Select the time range and granularity that are relevant for your investigation.
 
    :::image type="content" source="media/monitoring-metrics/metric-chart.png" alt-text="Screenshot of the Azure platform showing a metric chart.":::
