@@ -143,7 +143,7 @@ The following policies aren't supported by and can't be applied to the onHandsha
 * Validate status code
 
 > [!NOTE]
-> If you applied the policies at higher scopes (for example, global or product) and the're inherited by a WebSocket API through the policy, they are skipped at runtime.
+> If you applied the policies at higher scopes (for example, global or product) and they're inherited by a WebSocket API through the policy, they are skipped at runtime.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
