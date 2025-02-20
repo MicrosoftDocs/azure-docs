@@ -120,7 +120,8 @@ You can move an HDInsight cluster to another Azure resource group or another sub
 
 On the [cluster home page](#homePage):
 
-1. On the top menu, select **Move** .
+1. On the top menu, select **Move**.
+
 1. Select **Move to another resource group** or **Move to another subscription**.
 1. Follow the instructions on the new page.
 

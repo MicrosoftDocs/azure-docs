@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * Azure CLI, at least version 2.2.0. See [Install the Azure CLI](/cli/azure/install-azure-cli).
-* jq, a command-line JSON processor. See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* jq, a command-line JSON processor. See the [jq website](https://jqlang.org/).
 * A member of the [Azure built-in role: Owner](../role-based-access-control/built-in-roles.md).
 * If you use PowerShell to trigger the Azure Data Factory pipeline, you need the [Az PowerShell module](/powershell/azure/).
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) to visualize business insights at the end of this tutorial.
