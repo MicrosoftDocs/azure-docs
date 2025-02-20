@@ -3,7 +3,7 @@ title: Bicep warnings and error codes
 description: Lists the warnings and error codes.
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
-ms.date: 08/16/2024
+ms.date: 02/20/2025
 ---
 
 # Bicep core diagnostics
@@ -54,7 +54,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP045' />BCP045 | Error | Can't apply operator "{operatorName}" to operands of type "{type1}" and "{type2}".{(additionalInfo is null? string.Empty : " " + additionalInfo)} |
 | <a id='BCP046' />BCP046 | Error | Expected a value of type "{type}". |
 | <a id='BCP047' />BCP047 | Error | String interpolation is unsupported for specifying the resource type. |
-| <a id='BCP048' />BCP048 | Error | Can't resolve function overload. For details, see the documentation. |
+| <a id='BCP048' />[BCP048](./diagnostics/bcp048.md) | Error | Can't resolve function overload.|
 | <a id='BCP049' />BCP049 | Error | The array index must be of type "{LanguageConstants.String}" or "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | <a id='BCP050' />BCP050 | Error | The specified path is empty. |
 | <a id='BCP051' />BCP051 | Error | The specified path begins with "/". Files must be referenced using relative paths. |
@@ -75,7 +75,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP067' />BCP067 | Error | Can't call functions on type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
 | <a id='BCP068' />BCP068 | Error | Expected a resource type string. Specify a valid resource type of format "\<types>@\<apiVersion>". |
 | <a id='BCP069' />BCP069 | Error | The function "{function}" isn't supported. Use the "{@operator}" operator instead. |
-| <a id='BCP070' />BCP070 | Error | Argument of type "{argumentType}" isn't assignable to parameter of type "{parameterType}". |
+| <a id='BCP070' />[BCP070](./diagnostics/bcp070.md) | Error | Argument of type \<argument-type> isn't assignable to parameter of type \<parameter-type>. |
 | <a id='BCP071' />[BCP071](./diagnostics/bcp071.md) | Error | Expected \<argument-count>, but got \<argument-count>. |
 | <a id='BCP072' />[BCP072](./diagnostics/bcp072.md) | Error | This symbol can't be referenced here. Only other parameters can be referenced in parameter default values. |
 | <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | Error/Warning | The property \<property-name> is read-only. Expressions can't be assigned to read-only properties. |

@@ -633,6 +633,8 @@
       href: diagnostics/bcp037.md
     - name: BCP040
       href: diagnostics/bcp040.md
+    - name: BCP048
+      href: diagnostics/bcp048.md
     - name: BCP052
       href: diagnostics/bcp052.md
     - name: BCP053
@@ -645,6 +647,8 @@
       href: diagnostics/bcp062.md
     - name: BCP063
       href: diagnostics/bcp063.md
+    - name: BCP070
+      href: diagnostics/bcp070.md
     - name: BCP071
       href: diagnostics/bcp071.md
     - name: BCP072
