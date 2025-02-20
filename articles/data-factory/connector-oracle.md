@@ -111,21 +111,21 @@ For `server` property, you can specify it in one of the following three ways:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-More connection properties you can set in connection string per your case:
+More connection properties you can set in linked service per your case:
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
 | encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
-| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `AES256` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `(AES256)` |
 | cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
-| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `SHA512` |
-| initialLOBFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `(SHA512)` |
+| initialLobFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
 | fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
 | statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
 | initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
 | enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
-| supportLegacyDataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0 's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
-| fetchTSWTZasTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportLegacyDataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
+| supportV1DataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
+| fetchTswtzAsTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
 
 **Example:**
 
@@ -134,6 +134,7 @@ More connection properties you can set in connection string per your case:
     "name": "OracleLinkedService",
     "properties": {
         "type": "Oracle",
+        "version": "2.0",
         "typeProperties": {
             "server": "<server name>", 
             "username": "<user name>", 
@@ -155,6 +156,7 @@ More connection properties you can set in connection string per your case:
     "name": "OracleLinkedService",
     "properties": {
         "type": "Oracle",
+        "version": "2.0",
         "typeProperties": {
             "server": "<server name>", 
             "username": "<user name>", 
@@ -331,7 +333,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>Apply when the useLegacyDataTypes is true. | No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will be applied when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -468,7 +470,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 ## Data type mapping for Oracle
 
-When you copy data from and to Oracle, the following mappings apply from Oracle's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from and to Oracle, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
@@ -487,14 +489,8 @@ When you copy data from and to Oracle, the following mappings apply from Oracle'
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER | IBigDecimal | Double |
-| NUMBER (1-4,0) |Int16 | Int16 |
-| NUMBER (5-9,0) |Int32 | Int32 |
-| NUMBER (10-18,0) |Int64 | Int64 |
-| NUMBER(p < 8 && ((s <= 0 && p-s <= 38) \|\| (s > 0 && s <= 44))) |Single | Decimal |
-| NUMBER(p >= 16 && p <= 28) |IBigDecimal | Decimal |
-| NUMBER (p > 28) |IBigDecimal | String |
-| Other NUMBER (p,s) |Double | Decimal |
+| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, IBigDecimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | IBigDecimal |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
@@ -504,11 +500,34 @@ When you copy data from and to Oracle, the following mappings apply from Oracle'
 | XMLTYPE |String |String |
 
 > [!NOTE]
-> If convertDecimalToInteger is not set, the return type will be Decimal.
+> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Security
+
+To avoid the security risks in the server properties, you can refer to an allow list to configure which properties in the server can be set. The allow list includes the following properties.
+
+| Property |Description | Sample |
+|:--- |:--- |:--- |
+| ***Connect Required*** |  |  |
+| HOST | The host name or IP address used to connect to the Oracle database. | sales-svr |
+| PORT | The server port for the Oracle database. | 1521 |
+| PROTOCOL | The transport protocol to be used while connecting to the Oracle database. | tcp |
+| SERVICE_NAME | Specifies the logical representation of a database. | sales.us.example.com |
+| SID | Specifies the name that identifies a specific instance of an Oracle database. | sales |
+| INSTANCE_NAME | Specifies the database instance to access. | sales1 |
+| SERVER | Specifies type of service handler. | dedicated |
+| ***Match Version 1.0*** |  |  |
+| CONNECT_TIMEOUT | Specifies the amount of time, in milliseconds, seconds, or minutes, in which clients must establish Oracle Net connections to database instances. | 10ms |
+| RETRY_COUNT | Specifies the number of times to connect before terminating the connection attempt. | 3 |
+| RETRY_DELAY | Specifies the delay between connection retries. | 5 |
+| SSL_VERSION | Define valid Transport Layer Security (TLS) versions to be used for connections. | TLSv1.3 |
+| ***Most Secure Behavior*** |  |  |
+| SSL_SERVER_DN_MATCH | Enforce server-side certificate validation through distinguished name (DN) matching. | TRUE |
+| SSL_SERVER_CERT_DN | Specifies the distinguished name (DN) of the database server. | cn=finance,cn=OracleContext,c=us,o=example |
 
 ## Upgrade the Oracle connector
 
