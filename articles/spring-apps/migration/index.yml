@@ -1,0 +1,59 @@
+### YamlMime:Landing
+
+title: Migrate off Azure Spring Apps documentation # < 60 chars
+summary: "Recommendations for migrating from Azure Spring Apps to other Azure services." #< 160 chars
+
+metadata:
+  title: Migrate off Azure Spring Apps
+  description: Recommendations for migrating from Azure Spring Apps to other Azure services.
+  ms.service: azure-spring-apps
+  ms.custom: devx-track-java, devx-track-extended-java
+  ms.topic: landing-page
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 01/27/2025
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card (optional)
+  - title: Migrate off deprecated Tanzu Components
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: migrate-off-deprecated-tanzu-components.md
+          - text: Migrate Application Configuration Service
+            url: migrate-enterprise-application-configuration-service.md
+          - text: Migrate Application Live View
+            url: migrate-application-live-view.md
+
+  # Card (optional)
+  - title: Migrate to Azure Container Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: migrate-to-azure-container-apps-overview.md
+          - text: Provisioning
+            url: migrate-to-azure-container-apps-provision.md
+          - text: App containerization
+            url: migrate-to-azure-container-apps-build-overview.md
+          - text: Application
+            url: migrate-to-azure-container-apps-application-overview.md
+          - text: Network
+            url: migrate-to-azure-container-apps-network.md
+          - text: Monitoring
+            url: migrate-to-azure-container-apps-monitoring.md
+          - text: Tools and automation
+            url: migrate-to-azure-container-apps-automation.md
+
+  # Card (optional)
+  - title: Migrate to Azure Kubernetes Service (AKS)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Migrate to AKS
+            url: migrate-to-aks-overview.md

@@ -7,8 +7,8 @@ ms.service: azure-backup
 ms.custom:
   - engagement-fy23
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure File share backup

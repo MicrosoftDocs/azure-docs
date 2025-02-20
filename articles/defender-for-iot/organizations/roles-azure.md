@@ -31,7 +31,7 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 |  **[Modify values on the Plans and pricing page](how-to-manage-subscriptions.md)**  <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
 |  **[View values on the Sites and sensors page](how-to-manage-sensors-on-the-cloud.md)** <br>Apply per subscription only  |   ✔   |   ✔    | ✔ | ✔|
 |  **[Modify values on the Sites and sensors page](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)** , including remote OT sensor updates<br>Apply per subscription only  |   -    |   ✔    | ✔ | ✔|
-|  **[Recover on-premises management console passwords](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal)** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ | <!-- change to ot console or remove the entire line? -->
+|  **[Recover OT sensor passwords](how-to-manage-sensors-on-the-cloud.md#sensor-deployment-and-access)** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |
 |  **[Download OT threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#manually-update-locally-managed-sensors)** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 |  **[Push OT threat intelligence updates](how-to-work-with-threat-intelligence-packages.md#manually-push-updates-to-cloud-connected-sensors)** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **[View Azure alerts](how-to-manage-cloud-alerts.md)** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
@@ -44,6 +44,11 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 | **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
 
 For an overview on creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles). To set up a role, you need to add permissions from the actions listed in the [Internet of Things security permissions table](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity).
+
+>[!Important]
+>
+> After adding a new subscription to Defender for IoT, the initial login for that subscription must be performed using either the Owner or Contributor roles. For all subsequent logins the Security Admin role is sufficient.
+>
 
 ## Next steps
 

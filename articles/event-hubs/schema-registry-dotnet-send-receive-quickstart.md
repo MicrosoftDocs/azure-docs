@@ -266,7 +266,7 @@ This section shows how to write a .NET Core console application that receives ev
     // connection string for the Azure Storage account
     const string blobStorageConnectionString = "AZURESTORAGECONNECTIONSTRING";
     
-    // name of the blob container that will be userd as a checkpoint store
+    // name of the blob container that will be used as a checkpoint store
     const string blobContainerName = "BLOBCONTAINERNAME";
     
     // Create a blob container client that the event processor will use 

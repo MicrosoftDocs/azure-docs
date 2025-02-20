@@ -5,8 +5,8 @@ ms.topic: overview
 ms.custom: references_regions
 ms.date: 12/18/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About enhanced soft delete for Azure Backup

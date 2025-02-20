@@ -328,6 +328,8 @@ The output returns a string, which is the key of the cache entry on which apply 
 
 There are three types of connections that are allowed from an Azure Functions instance to a Redis Cache in your deployments. For local development, you can also use service principal secrets. Use the `appsettings` to configure each of the following types of client authentication, assuming the `Connection` was set to `Redis` in the function.
 
+[!INCLUDE [functions-azure-redis-cache-authentication-note](../../includes/functions-azure-redis-cache-authentication-note.md)]
+
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)

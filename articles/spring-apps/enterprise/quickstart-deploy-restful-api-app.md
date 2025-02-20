@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy RESTful API application to Azure Spring Apps
+title: Quickstart - Deploy RESTful API Application to Azure Spring Apps
 description: Learn how to deploy RESTful API application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps

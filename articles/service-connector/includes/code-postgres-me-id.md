@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
     import java.sql.*;
     
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
-    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    String pluginName = "com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
     ```
 
@@ -332,7 +332,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
 
     # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client_id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
     # For service principal

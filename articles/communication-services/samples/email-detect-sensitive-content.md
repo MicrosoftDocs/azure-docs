@@ -25,7 +25,7 @@ You need to complete these quickstarts to set up the Azure AI resources:
 
 - [Quickstart: Detect Personally Identifying Information (PII) in text](/azure/ai-services/language-service/personally-identifiable-information/quickstart) 
 
-- [Quickstart: Moderate text and images with content safety in Azure AI Studio](/azure/ai-studio/quickstarts/content-safety)
+- [Quickstart: Moderate text and images with content safety in Azure AI Foundry portal](/azure/ai-studio/quickstarts/content-safety)
 
 ## Prerequisite check
 
@@ -328,4 +328,4 @@ else
 ## Next steps
 
 - Learn more about [Azure Communication Services](../overview.md).
-- Learn more about [Azure AI Studio](/azure/ai-studio/).
+- Learn more about [Azure AI Foundry](/azure/ai-studio/).

@@ -8,8 +8,8 @@ ms.custom:
   - ignite-2023
   - ignite-2024
 ms.service: azure-business-continuity-center
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Business Continuity Center

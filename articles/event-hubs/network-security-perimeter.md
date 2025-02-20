@@ -30,7 +30,7 @@ Operating as a service under Azure Private Link, the Network Security Perimeter 
 1. Under the **Resources** section, click on the **Associate** button and navigate to the Event Hubs namespace you want to add. 
 
 ## Related Content
-- For an overview of [network service perimeter](https://aka.ms/networksecurityperimeter)
-- For monitoring with [diagnostic logs in network security perimeter](https://aka.ms/networksecurityperimeter)
+- For an overview of [network service perimeter](../private-link/network-security-perimeter-concepts.md)
+- For monitoring with [diagnostic logs in network security perimeter](../private-link/network-security-perimeter-concepts.md)
 - For other Event Hubs security features, see [Network Security for Azure Event Hubs](./network-security.md)
 - For additional information on using private endpoints, see [Use Private Endpoints](./private-link-service.md)

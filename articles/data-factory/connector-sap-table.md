@@ -46,6 +46,9 @@ Specifically, this SAP table connector supports:
 - Connecting to an SAP application server or SAP message server.
 - Retrieving data via default or custom RFC.
 
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
 
 1. Use SAP GUI to connect to the SAP System. 
@@ -203,6 +206,9 @@ The following properties are supported for the SAP BW Open Hub linked service:
     }
 }
 ```
+
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
 
 ## Dataset properties
 
