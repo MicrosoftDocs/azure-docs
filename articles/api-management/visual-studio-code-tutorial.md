@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 02/20/2025
 ms.custom: devdivchpfy22
 ---
 
@@ -113,7 +113,7 @@ You need a subscription key for your API Management instance to test the importe
 1. In the Explorer pane, expand the **Operations** node under the *petstore* API that you imported.
 1. Select an operation such as *[GET] Find pet by ID*, and then right-click the operation and select **Test Operation**.
 1. In the editor window, substitute `5` for the `petId` parameter in the request URL.
-1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
+1. In the editor window, next to **Ocp-Apim-Subscription-Key**, paste the subscription key that you copied.
 1. Select **Send request**.
 
 :::image type="content" source="media/visual-studio-code-tutorial/test-api.png" alt-text="Screenshot of sending API request from Visual Studio Code.":::
