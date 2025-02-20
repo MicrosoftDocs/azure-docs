@@ -26,17 +26,11 @@ Verify that your deployment meets the following prerequisites before attempting 
 ## Restart the NVA
 
 1. Navigate to your Virtual WAN hub and select **Network Virtual Appliances** under Third-party providers.
-    :::image type="content" source="./media/network-virtual-appliance-restart/find-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA in Azure portal."lightbox="./media/network-virtual-appliance-restart/find-network-virtual-appliance.png":::
 2. Select **Manage configurations** for the NVA you want to restart.
-    :::image type="content" source="./media/network-virtual-appliance-restart/manage-configurations.png"alt-text="Screenshot showing how to manage configurations for NVA."lightbox="./media/network-virtual-appliance-restart/manage-configurations.png":::
 3. Select **Instances** under Settings.
-    :::image type="content" source="./media/network-virtual-appliance-restart/instances.png"alt-text="Screenshot showing instance level settings for NVA."lightbox="./media/network-virtual-appliance-restart/instances.png":::
 4. Select the instance of the NVA you want to restart.
-    :::image type="content" source="./media/network-virtual-appliance-restart/select-instance.png"alt-text="Screenshot showing how to select an NVA instance."lightbox="./media/network-virtual-appliance-restart/select-instance.png":::
 5. Select **Restart**.
-    :::image type="content" source="./media/network-virtual-appliance-restart/restart.png"alt-text="Screenshot showing how to restart an NVA instance."lightbox="./media/network-virtual-appliance-restart/restart.png":::
 6. Confirm the restart by selecting **Yes**.
-    :::image type="content" source="./media/network-virtual-appliance-restart/confirm-restart.png"alt-text="Screenshot showing how to confirm you want to restart an NVA instance."lightbox="./media/network-virtual-appliance-restart/confirm-restart.png":::
 ## Troubleshooting
 
 The following section describes common issues associated with restarting an NVA instance.
