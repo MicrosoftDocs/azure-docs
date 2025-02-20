@@ -42,7 +42,7 @@ The use of either Trusted Launch or Confidential VMs enables other security feat
 > [!NOTE] 
 > These attributes have no effect with the default Standard security type.
 
-In addition, Confidential VMs enable a new [disk encryption scheme](https://learn.microsoft.com/azure/confidential-computing/confidential-vm-overview#confidential-os-disk-encryption).
+In addition, Confidential VMs enable a new [disk encryption scheme](/azure/confidential-computing/confidential-vm-overview#confidential-os-disk-encryption).
 This scheme protects all critical partitions of the disk and makes the protected disk content accessible only to the VM. Similar to Server-Side Encryption, the default is *Platform-Managed Keys* but you can use *Customer-Managed Keys* instead. 
 Use of Customer-Managed Keys for Confidential encryption requires a *Disk Encryption Set* whose encryption type is `ConfidentialVmEncryptedWithCustomerKey`. See [Disk Encryption](./mount-disk.md#disk-encryption) for more.
 
