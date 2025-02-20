@@ -111,6 +111,8 @@ items:
           href: how-to-move-between-resource-groups-subscriptions.md
         - name: Monitor Azure Load Testing
           href: monitor-load-testing.md
+        - name: Manage usage limits
+          href: how-to-manage-usage-limits.md
 
 - name: Samples
   items:
