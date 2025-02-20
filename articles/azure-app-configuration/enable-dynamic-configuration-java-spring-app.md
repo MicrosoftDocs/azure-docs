@@ -60,7 +60,7 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the cache i
     `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh is triggered, and false if not. False means either the cache expiration time isn't expired, there was no change, or another thread is currently checking for a refresh.
 
     > [!NOTE]
-    > For libraries such a Spring WebFlux that requires non-blocking calls, `refreshConfigurations()` needs to be wrapped in a thread loading configurations requiring a blocking call. 
+    > For libraries such a Spring WebFlux that requires non-blocking calls, `refreshConfigurations()` needs to be wrapped in a thread as loading configurations requiring a blocking call. 
     >
     >    ```java
     >    new Thread(() -> refresh.refreshConfigurations().block()).start();
