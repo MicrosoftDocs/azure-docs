@@ -33,7 +33,7 @@ To create a backup policy, follow these steps:
 
    :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/create-backup-policy.png" alt-text="Screenshot shows how to start creating a Backup policy." lightbox="./media/tutorial-backup-azure-files-vault-tier-portal/create-backup-policy.png":::
  
-2. On the **Start: Create Policy** pane, select the **Datasource type** as **Azure Files (Azure Storage)**, select a Recovery Services vault by clicking **Select vault**, and then select **Continue**.
+2. On the **Start: Create Policy** pane, select the **Datasource type** as **Azure Files (Azure Storage)**. In the **Select vault** link, you can select a Recovery Services vault, and then select **Continue**.
 
    :::image type="content" source="./media/tutorial-backup-azure-files-vault-tier-portal/start-create-policy.png" alt-text="Screenshot shows how to set the datasource type and vault for the Backup policy." lightbox="./media/tutorial-backup-azure-files-vault-tier-portal/start-create-policy.png":::
 

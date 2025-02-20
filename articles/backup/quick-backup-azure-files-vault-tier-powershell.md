@@ -53,8 +53,8 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## Next step
 
-- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md)
-- [Manage Azure Files backups using Azure PowerShell](manage-afs-powershell.md?tabs=vault-standard)
+- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
+- [Manage Azure Files backups using Azure PowerShell](manage-afs-powershell.md?tabs=vault-standard).
 
 
  

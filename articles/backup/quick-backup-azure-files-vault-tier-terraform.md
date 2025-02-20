@@ -246,7 +246,4 @@ If you encounter issues while using Terraform on Azure, see the [troubleshooting
 
 ## Next step
 
-In this quickstart, you learned how to deploy a storage account with File Share, create a Recovery services vault, and configure backup for the File Share.
-**Learn more about**:
-
-[Restore Azure Files](restore-afs.md)
+[Restore Azure Files using Azure portal](restore-afs.md).

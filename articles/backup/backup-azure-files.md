@@ -15,7 +15,7 @@ This article describes how to back up [Azure Files](../storage/files/storage-fil
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup seamlessly integrates with Azure File Sync, centralizing your file share data and backups. The simple, reliable, and secure solution allows you to protect your enterprise file shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 
-Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts.  You can:
+[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts.  You can:
 
 - Define backup schedules and retention settings.
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
@@ -184,5 +184,5 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 
 Learn how to:
 
-* [Restore Azure Files](restore-afs.md).
-* [Manage Azure Files backups](manage-afs-backup.md).
+* [Restore Azure Files using Azure portal](restore-afs.md).
+* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).

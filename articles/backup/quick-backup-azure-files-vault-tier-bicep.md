@@ -231,6 +231,6 @@ To deploy the template, follow these steps:
 
 ## Next steps
 
--  [Track the backup job](manage-afs-powershell.md#track-backup-and-restore-jobs)
-- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md)
+-  [Track the backup job using Azure PowerShell](manage-afs-powershell.md#track-backup-and-restore-jobs).
+- [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
 

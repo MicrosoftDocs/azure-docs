@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Files backups with the Azure CLI
-description: Learn how to use the Azure CLI to manage and monitor Azure Files backed up by Azure Backup.
+description: Learn how to manage and monitor the backed-up Azure Files using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 02/27/2025
@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Manage Azure Files backups with the Azure CLI
 
-This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) via [Azure Backup](./backup-overview.md) using Azure CLI. The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. You can also perform these steps with the [Azure portal](https://portal.azure.com/).
+This article describes how to manage and monitor the backed-up Azure Files ([snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups) using Azure CLI. The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. You can also perform these steps with the [Azure portal](https://portal.azure.com/).
 
 ## Prerequisites
 
@@ -489,4 +489,4 @@ az backup container unregister --vault-name azurefilesvault --resource-group azu
 
 ## Next steps
 
-For more information, see [Troubleshoot Azure Files backup](troubleshoot-azure-files.md).
+[Troubleshoot Azure Files backup](troubleshoot-azure-files.md).

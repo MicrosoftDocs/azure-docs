@@ -95,8 +95,8 @@ output
 
 ## Next step
 
-- [Restore Azure Files using CLI](restore-afs-cli.md)
-- [Manage Azure Files backups using CLI](manage-afs-backup-cli.md?tabs=vault-standard)
+- [Restore Azure Files using CLI](restore-afs-cli.md).
+- [Manage Azure Files backups using CLI](manage-afs-backup-cli.md?tabs=vault-standard).
 
 
  
