@@ -50,7 +50,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
         @GetMapping
         public String getMessage() throws InterruptedException, ExecutionException {
             if (refresh != null) {
-                refresh.refreshConfigurations();
+                refresh.refreshConfigurations().block();
             }
             return "Message: " + properties.getMessage();
         }
@@ -59,6 +59,13 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
 
     `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh is triggered, and false if not. False means either the cache expiration time isn't expired, there was no change, or another thread is currently checking for a refresh.
 
+    > [!NOTE]
+    > For libraries such a Spring WebFlux that requires non-blocking calls, `refreshConfigurations()` needs to be wrapped in a thread loading configurations requiring a blocking call. 
+    >
+    >    ```java
+    >    new Thread(() -> refresh.refreshConfigurations().block()).start();
+    >    ```
+            
 1.  To enable refresh update `bootstrap.properties`:
 
     ```properties
