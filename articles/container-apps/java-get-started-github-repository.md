@@ -49,14 +49,4 @@ When you push new code to the repository, the GitHub Action does the following t
 - Builds the container image and pushes it to the Azure Container Registry.
 - Deploys the container image to the created container app.
 
-## Verify the app status
-
-[!INCLUDE [pet-clinic-verify-app-status](includes/pet-clinic-verify-app-status.md)]
-
-## Clean up resources
-
-[!INCLUDE [pet-clinic-clean-up-resources](includes/pet-clinic-clean-up-resources.md)]
-
-## Next steps
-
-[!INCLUDE [java-app-quickstart-deployment-next-steps](includes/java-app-quickstart-deployment-next-steps.md)]
+[!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
