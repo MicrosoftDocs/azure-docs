@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Terraform to configure private DNS zones in Azure'
 description: In this quickstart, you create a private DNS zone, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 ms.topic: quickstart
-ms.date: 2/18/2025
+ms.date: 2/19/2025
 ms.custom: devx-track-terraform
 ms.service: azure-dns
 author: greg-lindsay
@@ -16,17 +16,12 @@ content_well_notification:
 
 In this quickstart, you use Terraform to create private DNS zones, network interfaces, Windows virtual machines, a private DNS A record, network security groups, and a network security rule in Azure.
 
-This code creates:
-
-* Private DNS zones for name resolution.
-* Network interfaces for the virtual machines.
-* Network security groups to control inbound and outbound traffic.
-* Windows virtual machines with random passwords for administration.
-
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
 > * Create an Azure resource group with a unique name.
+> * Establish a virtual network with a specified name and address.
+> * Set up a subnet within the created virtual network.
 > * Create a private DNS zone.
 > * Generate random passwords for the virtual machines.
 > * Create two network interfaces.
