@@ -153,14 +153,6 @@ This article provides troubleshooting information to address issues you encounte
 
 **Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend you to re-trigger the operation after modifying the protected container list using the edit backup instance option.
 
-### UserErrorCrossTenantOrsPolicyDisabled
-
-**Error code**: `UserErrorCrossTenantOrsPolicyDisabled`
-
-**Error message**: Cross tenant object replication policy disabled.
-
-**Recommendation**: Enable cross-tenant object replication policy on storage account and trigger the operation again. To check this, go to the *storage account* > **Object replication** > **Advanced settings**, and ensure that the checkbox is enabled.
-
 ### UserErrorPitrRestoreInProgress
 
 **Error code**: `UserErrorPitrRestoreInProgress`
