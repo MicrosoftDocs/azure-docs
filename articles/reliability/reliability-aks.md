@@ -59,13 +59,15 @@ You can configure AKS to be *zone redundant*, which means your resources are s
 
 You can deploy zone redundant AKS resources into any [Azure region that supports availability zones](./availability-zones-region-support.md).
 
-<!-- Add information about the different types of node pools customers can deploy (maybe we add another subsection for this? -->
+For more information, see [Availability zones in Azure Kubernetes Service (AKS)](/azure/aks/availability-zones-overview).
 
 ### Region support
 
 <!-- Add information on HA/DR docs, how to load balance across multiple clusters, Fleet -->
 
 ### Requirements
+
+
 
 ### Considerations
 
