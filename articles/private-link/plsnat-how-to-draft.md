@@ -94,7 +94,7 @@ The type of NVA you're using determines how to disable SNAT for private endpoint
 > [!NOTE]
 > The tag is case-sensitive. Ensure you enter it exactly as shown above.
 
-# [**PowerShell**](#tab/vmss-powershell) 
+# [**PowerShell**](#tab/vmss-cli) 
 
 1. Use the following PowerShell command to add the tag to your VMSS:
 
