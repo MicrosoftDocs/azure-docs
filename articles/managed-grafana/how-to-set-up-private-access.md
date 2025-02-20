@@ -18,7 +18,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An existing Azure Managed Grafana instance in the Standard tier. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
+- An existing Azure Managed Grafana workspace in the Standard tier. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
 
 ## Disable public access to a workspace
 
@@ -209,7 +209,7 @@ If you have issues with a private endpoint, check the following guide: [Troubles
 
 ## Next step
 
-In this how-to guide, you learned how to set up private access from your users to an Azure Managed Grafana workspace. To learn how to configure private access between a Managed Grafana workspace and a data source, see:
+In this how-to guide, you learned how to set up private access from your users to an Azure Managed Grafana workspace. To learn how to configure private access between an Azure Managed Grafana workspace and a data source, see:
 
 > [!div class="nextstepaction"]
 > [Connect to a data source privately](how-to-connect-to-data-source-privately.md)
