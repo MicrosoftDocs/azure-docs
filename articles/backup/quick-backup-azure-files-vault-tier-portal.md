@@ -54,6 +54,9 @@ To create a backup policy, follow these steps:
  
 7. To create the Backup policy, select **Create**.  
 
+>[!Note]
+>You can also create a backup policy on the go while configuring backup for Azure Files.
+
 ## Next step
 
 [Configure backup for Azure Files using Azure portal](tutorial-backup-azure-files-vault-tier-portal.md#configure-backup).
