@@ -37,7 +37,7 @@ The type of NVA you're using determines how to disable SNAT for private endpoint
 
 Here we add the tag to the VM NIC. 
 
-# [**Portal**](#tab/vm-nic-portal)
+# [Portal](#tab/vm-nic-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar at the top, type "Virtual machines" and select it from the services.
@@ -57,7 +57,7 @@ Here we add the tag to the VM NIC.
 > [!NOTE]
 > The tag is case-sensitive. Ensure you enter it exactly as shown.
 
-# [**PowerShell**](#tab/vm-nic-powershell)
+# [PowerShell](#tab/vm-nic-powershell)
 
 1. Use the following PowerShell command to add the tag to your VM NIC:
 
@@ -69,19 +69,20 @@ Here we add the tag to the VM NIC.
     Set-AzResource -ResourceId $nic.Id -Tag $tags -Force
 ```
 
-# [**Azure CLI**](#tab/vm-nic-cli)
+# [Azure CLI](#tab/vm-nic-cli)
 
 1. Use the following CLI command to add the tag to your VM NIC:
 
 ```azurecli-interactive
     az network nic update --name "myNIC" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=string:"true"
 ```
+---
 
-#### Add Tag to your VMSS
+### Add Tag to your VMSS
 
 Here we add the tag to the VMSS instance. 
 
-# [**Portal**](#tab/vmss-powershell)  
+# [Portal](#tab/vmss-portal)  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar at the top, type "Virtual machine scale sets" and select it from the services.
@@ -99,7 +100,7 @@ Here we add the tag to the VMSS instance.
 > [!NOTE]
 > The tag is case-sensitive. Ensure you enter it exactly as shown.
 
-# [**PowerShell**](#tab/vmss-cli) 
+# [PowerShell](#tab/vmss-powershell) 
 
 1. Use the following PowerShell command to add the tag to your VMSS:
 
@@ -109,13 +110,14 @@ Here we add the tag to the VMSS instance.
     Update-AzVmss -ResourceGroupName "MyResourceGroup" -Name "myVmss" -VirtualMachineScaleSet $vmss
 ```
 
-# [**Azure CLI**](#tab/vmss-powershell) 
+# [Azure CLI](#tab/vmss-cl) 
 
 1. Use the following Azure CLI command to add the tag to your VMSS:
 
 ```azurecli-interactive
     az vmss update --name "myVmss" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=true
 ```
+---
 
 #### Validate the Tag
 
