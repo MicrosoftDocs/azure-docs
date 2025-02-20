@@ -7,7 +7,7 @@ author: wsilveiranz
 ms.author: wsilveira
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/19/2024
+ms.date: 02/20/2025
 # As an Azure Logic Apps developer, I want to export my Standard logic app and workflows from the Azure portal into Visual Studio Code.
 ---
 
