@@ -23,7 +23,7 @@ After an API version is deprecated, it will no longer function! We recommend you
 You should perform these updates at a minimum every 6-9 months. If you fail to do so, you'll be notified that you're using a soon-to-be deprecated 
 API version as deprecation approaches.
 
-[!NOTE]
+> [!NOTE]
 > API versions before 2023-09-01-preview won't follow the 90 day pattern outlined in the beginning of this document. Refer to the [Upcoming Deprecations](#upcoming-deprecations) and [Completed Deprecations](#completed-deprecations) tables to see if a preview API version you're using has a deprecation date. 
 
 ## How to check what API versions you're using
