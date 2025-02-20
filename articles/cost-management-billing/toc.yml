@@ -227,6 +227,8 @@
         href: manage/check-free-service-usage.md
       - name: Upgrade free account
         href: manage/upgrade-azure-subscription.md
+      - name: Microsoft Entra ID Free
+        href: manage/microsoft-entra-id-free.md
   - name: Manage payment methods
     items:
     - name: Pay your Azure bill

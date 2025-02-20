@@ -40,7 +40,7 @@ To use Elastic SAN with Azure VMware Solution, you can use any of these three ho
 
 - AV52 
 
-Using AV64 with Elastic SAN is not currently supported.
+- AV64
 
 ## Set up Elastic SAN
 
