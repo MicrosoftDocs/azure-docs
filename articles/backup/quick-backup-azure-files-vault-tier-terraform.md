@@ -244,6 +244,6 @@ terraform apply main.tfplan
 
 If you encounter issues while using Terraform on Azure, see the [troubleshooting guide](/azure/developer/terraform/troubleshoot).
 
-## Next step
+## Next steps
 
 [Restore Azure Files using Azure portal](restore-afs.md).

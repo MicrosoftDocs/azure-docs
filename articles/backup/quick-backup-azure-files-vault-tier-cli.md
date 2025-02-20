@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure CLI
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure CLI. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can also perform these steps with [Azure PowerShell](quick-backup-azure-files-vault-tier-powershell.md) or in the [Azure portal](quick-backup-azure-files-vault-tier-portal.md).
+This quickstart describes how to configure vaulted backup for Azure Files using Azure CLI. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can also perform these steps with [Azure PowerShell](quick-backup-azure-files-vault-tier-powershell.md) or in the [Azure portal](tutorial-backup-azure-files-vault-tier-portal.md#configure-backup).
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backups offer an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions. You can:
 
@@ -93,7 +93,7 @@ output
 }
 ```
 
-## Next step
+## Next steps
 
 - [Restore Azure Files using CLI](restore-afs-cli.md).
 - [Manage Azure Files backups using CLI](manage-afs-backup-cli.md?tabs=vault-standard).

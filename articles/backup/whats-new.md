@@ -105,7 +105,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
 
-Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. Manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 

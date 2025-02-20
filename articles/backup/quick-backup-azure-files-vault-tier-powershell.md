@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure PowerShell
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure PowerShell. You can also configure backup with [Azure CLI](quick-backup-azure-files-vault-tier-cli.md) or in the [Azure portal](quick-backup-azure-files-vault-tier-portal.md).
+This quickstart describes how to configure vaulted backup for Azure Files using Azure PowerShell. You can also configure backup with [Azure CLI](quick-backup-azure-files-vault-tier-cli.md) or in the [Azure portal](tutorial-backup-azure-files-vault-tier-portal.md#configure-backup).
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backups offer an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions. You can:
 
@@ -51,7 +51,7 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
-## Next step
+## Next steps
 
 - [Restore Azure Files using Azure PowerShell](restore-afs-powershell.md).
 - [Manage Azure Files backups using Azure PowerShell](manage-afs-powershell.md?tabs=vault-standard).

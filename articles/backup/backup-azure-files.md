@@ -92,7 +92,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
    1. Configure the *Snapshot retention* and *Vault retention* duration to determine the expiry date of the recovery points.
 
       >[!Note]
-      >The *vault tier * provides longer retention than the *snapshot tier*. 
+      >The *vault tier* provides longer retention than the *snapshot tier*. 
    1. Select **OK** to create the backup policy.
 
       :::image type="content" source="./media/backup-afs/create-backup-policy-for-azure-file-share.png" alt-text="Screenshot shows how to create a new backup policy for Azure Files." lightbox="./media/backup-afs/create-backup-policy-for-azure-file-share.png":::
@@ -185,4 +185,4 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 Learn how to:
 
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
+* [Manage Azure Files backups using Azure portalR](manage-afs-backup.md).

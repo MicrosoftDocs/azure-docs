@@ -93,7 +93,7 @@ To run an on-demand backup, follow these steps:
 
 
 
-## Next step
+## Next steps
 
 [Restore Azure Files using Azure portal](restore-afs.md?tabs=full-share-recovery).
 
