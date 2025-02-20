@@ -47,7 +47,7 @@ This article helps you troubleshoot errors that might happen in Azure Logic Apps
 ``` 
 
 <a name="mdn-decryption-failure"></a>
-### Message Disposition Notification (MDN) decryption failure example
+### Example - Message Disposition Notification (MDN) decryption failure
 
 ```json
 "Response": {
@@ -68,7 +68,7 @@ This article helps you troubleshoot errors that might happen in Azure Logic Apps
 | Leading or trailing space found | **Error encountered during parsing. The EDIFACT transaction set with ID '123456' contained in interchange (without group) with ID '987654', with sender ID 'Partner1', receiver ID 'Partner2' is being suspended with following errors: "Leading Trailing separator found"** | Set up or edit the agreement settings to allow leading and trailing whitespace. See [Example - Allow leading and trailing whitespace](#allow-leading-trailing-whitespace). |
 
 <a name="allow-leading-trailing-whitespace"></a>
-### Set up agreement settings to allow leading and trailing whitespace
+### Example - Set up agreement settings to allow leading and trailing whitespace
 
 ![Screenshot shows example for setting to allow leading and trailing whitespace.](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
