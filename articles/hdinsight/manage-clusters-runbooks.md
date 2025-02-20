@@ -58,7 +58,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     | Confirm password | `SECURE_PASSWORD` |
 
 1. Select **Create**.
-1. Repeat the same process for a new credential `ssh-password` with the username `sshuser` and a password of your choice. Select **Create**. This credential is used to store the Secure Shell protocol password for your cluster.
+1. Repeat the same process for a new credential **ssh-password** with the username **sshuser** and a password of your choice. Select **Create**. This credential is used to store the Secure Shell protocol password for your cluster.
 
     :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="Screenshot that shows creating a new credential." border="true":::
 
@@ -66,7 +66,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Under **Process Automation**, select **Runbooks**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** pane, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **PowerShell** from the **Runbook type** dropdown list.
+1. On the **Create a runbook** pane, enter a name for the runbook, such as **hdinsight-cluster-create**. Select **PowerShell** from the **Runbook type** dropdown list.
 1. Select **Create**.
 
     :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="Screenshot that shows creating a runbook." border="true":::
@@ -122,7 +122,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 1. Under **Process Automation**, select **Runbooks**.
 1. Select **Create a runbook**.
-1. On the **Create a runbook** pane, enter a name for the runbook, such as `hdinsight-cluster-delete`. Select **PowerShell** from the **Runbook type** dropdown list.
+1. On the **Create a runbook** pane, enter a name for the runbook, such as **hdinsight-cluster-delete**. Select **PowerShell** from the **Runbook type** dropdown list.
 1. Select **Create**.
 1. Enter the following code on the **Edit PowerShell Runbook** screen, and then select **Publish**.
 
@@ -147,7 +147,7 @@ This section explains how to run runbooks.
 ### Create a cluster
 
 1. View the list of runbooks for your Automation account. Under **Process Automation**, select **Runbooks**.
-1. Select `hdinsight-cluster-create` or the name that you used when you created your cluster creation runbook.
+1. Select **hdinsight-cluster-create** or the name that you used when you created your cluster creation runbook.
 1. Select **Start** to run the runbook immediately. You can also schedule runbooks to run periodically. For more information, see [Schedule a runbook in Automation](../automation/shared-resources/schedules.md).
 1. Enter the required parameters for the script, and select **OK**. This step creates a new HDInsight cluster with the name that you specified in the **CLUSTERNAME** parameter.
 
@@ -155,7 +155,7 @@ This section explains how to run runbooks.
 
 ### Delete a cluster
 
-Delete the cluster by selecting the `hdinsight-cluster-delete` runbook that you created. Select **Start**, enter the **CLUSTERNAME** parameter, and select **OK**.
+Delete the cluster by selecting the **hdinsight-cluster-delete** runbook that you created. Select **Start**, enter the **CLUSTERNAME** parameter, and select **OK**.
 
 ## Clean up resources
 

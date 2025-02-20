@@ -83,21 +83,21 @@ Choose the version of HDInsight for this cluster. For more information, see [Sup
 
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
-* **Cluster login username**: Default username is *admin*. It uses the basic configuration on the Azure portal. It's also called *Cluster user* or *HTTP user*.
+* **Cluster login username**: Default username is **admin**. It uses the basic configuration on the Azure portal. It's also called **Cluster user** or **HTTP user**.
 * **Secure Shell (SSH) username**: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 The HTTP username has the following restrictions:
 
-* **Allowed special characters**: `_` and `@`
-* **Characters not allowed**: `#;."',/:`!*?$(){}[]<>|&--=+%~^space`
+* **Allowed special characters**: _ and @
+* **Characters not allowed**: #;."',/:!*?$(){}[]<>|&--=+%~^space
 * **Maximum length**: 20
 
 The SSH username has the following restrictions:
 
-* **Allowed special characters**:`_` and `@`
-* **Characters not allowed**: `#;."',/:`!*?$(){}[]<>|&--=+%~^space`
+* **Allowed special characters**: _ and @
+* **Characters not allowed**: #;."',/:!*?$(){}[]<>|&--=+%~^space
 * **Maximum length**: 64
-* **Reserved names**: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, `actuser`, adm, admin2, aspnet, backup, console, David, guest, John, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
+* **Reserved names**: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, David, guest, John, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 ## Storage
 

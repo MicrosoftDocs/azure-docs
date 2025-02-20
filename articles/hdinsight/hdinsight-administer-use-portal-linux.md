@@ -38,9 +38,9 @@ On the [HDInsight clusters](#showClusters) page, select your cluster name. The *
 
 | Item| Description |
 |---|---|
-|Move|Moves the cluster to another resource group or to another subscription.|
-|Delete|Deletes the cluster. |
-|Refresh|Refreshes the view.|
+|**Move**|Moves the cluster to another resource group or to another subscription.|
+|**Delete**|Deletes the cluster. |
+|**Refresh**|Refreshes the view.|
 
 ### Left menu
 
@@ -50,46 +50,46 @@ The left menu has multiple sections.
 
 | Item| Description |
 |---|---|
-|Overview|Provide general information for your cluster.|
-|Activity log|Show and query activity logs.|
-|Access control (IAM)|Use role assignments. See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml).|
-|Tags|Set key/value pairs to define a custom taxonomy of your cloud services. For example, you might create a key named **project**, and then use a common value for all services associated with a specific project.|
-|Diagnose and solve problems|Display troubleshooting information.|
-|Quickstart|Display information that helps you get started using HDInsight.|
-|Tools|Help information for HDInsight-related tools.|
+|**Overview**|Provide general information for your cluster.|
+|**Activity log**|Show and query activity logs.|
+|**Access control (IAM)**|Use role assignments. See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.yml).|
+|**Tags**|Set key/value pairs to define a custom taxonomy of your cloud services. For example, you might create a key named **project**, and then use a common value for all services associated with a specific project.|
+|**Diagnose and solve problems**|Display troubleshooting information.|
+|**Quickstart**|Display information that helps you get started using HDInsight.|
+|**Tools**|Help information for HDInsight-related tools.|
 
 #### Settings menu  
 
 | Item| Description |
 |---|---|
-|Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
-|Quota limits|Display the used and available cores for your subscription.|
-|SSH + Cluster login|Show the instructions to connect to the cluster by using a Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-|Azure Data Lake Storage Gen2|Configure access to Data Lake Storage Gen2. See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2-portal.md).|
-|Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
-|Applications|Add or remove HDInsight applications. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
-|Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
-|External metastores|View the [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/) metastores. You can configure the metastores only during the cluster creation process.|
-|HDInsight partner|Add or remove the current HDInsight partner.|
-|Properties|View the [cluster properties](#properties).|
-|Locks|Add a lock to prevent the cluster from being modified or deleted.|
-|Export template|Display and export the Azure Resource Manager template for the cluster. Currently, you can export only the dependent Azure Storage account. See [Create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
+|**Cluster size**|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
+|**Quota limits**|Display the used and available cores for your subscription.|
+|**SSH + Cluster login**|Show the instructions to connect to the cluster by using a Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
+|**Azure Data Lake Storage Gen2**|Configure access to Data Lake Storage Gen2. See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-use-data-lake-storage-gen2-portal.md).|
+|**Storage accounts**|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
+|**Applications**|Add or remove HDInsight applications. See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
+|**Script actions**|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
+|**External metastores**|View the [Apache Hive](https://hive.apache.org/) and [Apache Oozie](https://oozie.apache.org/) metastores. You can configure the metastores only during the cluster creation process.|
+|**HDInsight partner**|Add or remove the current HDInsight partner.|
+|**Properties**|View the [cluster properties](#properties).|
+|**Locks**|Add a lock to prevent the cluster from being modified or deleted.|
+|**Export template**|Display and export the Azure Resource Manager template for the cluster. Currently, you can export only the dependent Azure Storage account. See [Create Linux-based Apache Hadoop clusters in HDInsight by using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
 #### Monitoring menu
 
 | Item| Description |
 |---|---|
-|Alerts|Manage the alerts and actions.|
-|Metrics|Monitor the cluster metrics in Azure Monitor logs.|
-|Diagnosis settings|Set where to store the diagnosis metrics.|
-|Azure Monitor|Monitor your cluster in Azure Monitor.|
+|**Alerts**|Manage the alerts and actions.|
+|**Metrics**|Monitor the cluster metrics in Azure Monitor logs.|
+|**Diagnosis settings**|Set where to store the diagnosis metrics.|
+|**Azure Monitor**|Monitor your cluster in Azure Monitor.|
 
 #### Support + troubleshooting menu
 
 | Item| Description |
 |---|---|
-|Resource health|See [Azure resource health overview](/azure/service-health/resource-health-overview).|
-|New support request|Create a support ticket with Microsoft Support.|
+|**Resource health**|See [Azure resource health overview](/azure/service-health/resource-health-overview).|
+|**New support request**|Create a support ticket with Microsoft Support.|
 
 ## <a name="properties"></a> Cluster properties
 
@@ -97,22 +97,22 @@ On the [cluster home page](#homePage), under **Settings**, select **Properties**
 
 |Item | Description |
 |---|---|
-|HOSTNAME|Cluster name.|
-|CLUSTER URL|The URL for the Ambari web interface.|
-|Private Endpoint|The private endpoint for the cluster.|
-|Secure Shell |The username and host name to use to access the cluster via SSH.|
-|STATUS|One of Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timeout, DeleteQueued, DeleteTimeout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
-|REGION|Azure location. For a list of supported Azure locations, see the **Region** dropdown list on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).|
-|DATE CREATED|The date the cluster was deployed.|
-|OPERATING SYSTEM|Either Windows or Linux.|
-|TYPE|Hadoop, HBase, or Spark.|
-|Version|See [HDInsight versions](hdinsight-component-versioning.md).|
-|Minimum TLS version|The Transport Layer Security (TLS) version.|
-|SUBSCRIPTION|Subscription name.|
-|DEFAULT DATA SOURCE|The default cluster file system.|
-|Worker nodes sizes|The selected virtual machine (VM) size of the worker nodes.|
-|Head node size|The selected VM size of the head nodes.|
-|Virtual network|The name of the virtual network, where the cluster is deployed, if one was selected at deployment time.|
+|**HOSTNAME**|Cluster name.|
+|**CLUSTER URL**|The URL for the Ambari web interface.|
+|**Private Endpoint**|The private endpoint for the cluster.|
+|**Secure Shell** |The username and host name to use to access the cluster via SSH.|
+|**STATUS**|One of Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timeout, DeleteQueued, DeleteTimeout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
+|**REGION**|Azure location. For a list of supported Azure locations, see the **Region** dropdown list on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).|
+|**DATE CREATED**|The date the cluster was deployed.|
+|**OPERATING SYSTEM**|Either Windows or Linux.|
+|**TYPE**|Hadoop, HBase, or Spark.|
+|**Version**|See [HDInsight versions](hdinsight-component-versioning.md).|
+|**Minimum TLS version**|The Transport Layer Security (TLS) version.|
+|**SUBSCRIPTION**|Subscription name.|
+|**DEFAULT DATA SOURCE**|The default cluster file system.|
+|**Worker nodes sizes**|The selected virtual machine (VM) size of the worker nodes.|
+|**Head node size**|The selected VM size of the head nodes.|
+|**Virtual network**|The name of the virtual network, where the cluster is deployed, if one was selected at deployment time.|
 
 ## Move clusters
 
@@ -149,12 +149,12 @@ For more information, see [Scale HDInsight clusters](./hdinsight-scaling-best-pr
 
 Most Hadoop jobs are batch jobs that run only occasionally. For most Hadoop clusters, there are large periods of time when the cluster isn't used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Because the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
-You can program the process in many ways:
+You can program the process in many ways. You can use:
 
-- Use Azure Data Factory. See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight by using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
-- Use Azure PowerShell. See [Analyze flight delay data](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
-- Use the Azure CLI. See [Manage Azure HDInsight clusters by using the Azure CLI](hdinsight-administer-use-command-line.md).
-- Use the HDInsight .NET SDK. See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+- **Azure Data Factory**: See [Create on-demand Linux-based Apache Hadoop clusters in HDInsight by using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) for creating on-demand HDInsight linked services.
+- **Azure PowerShell**: See [Analyze flight delay data](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
+- **Azure CLI**: See [Manage Azure HDInsight clusters by using the Azure CLI](hdinsight-administer-use-command-line.md).
+- **HDInsight .NET SDK**: See [Submit Apache Hadoop jobs](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 For pricing information, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/). To delete a cluster from the portal, see [Delete clusters](#delete-clusters).
 
@@ -200,7 +200,7 @@ The password changes on all nodes in the cluster.
 1. Use a text editor to save the following text as a file named `changecredentials.sh`.
 
     > [!IMPORTANT]  
-    > You must use an editor that uses LF as the line ending. If the editor uses CRLF, the script doesn't work.
+    > You must use an editor that uses `LF` as the line ending. If the editor uses `CRLF`, the script doesn't work.
 
     ```bash
     #! /bin/bash
@@ -219,12 +219,12 @@ The password changes on all nodes in the cluster.
     
     | Field | Value |
     | --- | --- |
-    | Script type | Select **- Custom** from the dropdown list.|
-    | Name |"Change ssh credentials." |
-    | Bash script URI |The URI to the `changecredentials.sh` file. |
-    | Node types: Head, Worker, Nimbus, Supervisor, or ZooKeeper |Select ✓ for all node types listed. |
-    | Parameters |Enter the SSH username, and then enter the new password. There should be only one space between the username and the password. |
-    | Persist this script action ... |Leave this field clear. |
+    | **Script type** | Select **- Custom** from the dropdown list.|
+    | **Name** |"Change ssh credentials." |
+    | **Bash script URI** |The URI to the `changecredentials.sh` file. |
+    | **Node types: Head, Worker, Nimbus, Supervisor, or ZooKeeper** |Select ✓ for all node types listed. |
+    | **Parameters** |Enter the SSH username, and then enter the new password. There should be only one space between the username and the password. |
+    | **Persist this script action ...** |Leave this field clear. |
 
 1. Select **Create** to apply the script. After the script finishes, you can connect to the cluster by using SSH with the new credentials.
 

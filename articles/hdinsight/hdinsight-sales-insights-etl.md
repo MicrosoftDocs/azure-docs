@@ -249,16 +249,16 @@ For other ways to transform data by using HDInsight, see [this article on using 
 1. Select **Connect**.
 
 1. In the **HDInsight Interactive Query** dialog:
-    1. In the **Server** text box, enter the name of your LLAP cluster in the format of `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. In the **database** text box, enter `default`.
+    1. In the **Server** text box, enter the name of your LLAP cluster in the format of **https://LLAPCLUSTERNAME.azurehdinsight.net**.
+    1. In the **database** text box, enter **default**.
     1. Select **OK**.
 
 1. In the **AzureHive** dialog:
-    1. In the **User name** text box, enter `admin`.
-    1. In the **Password** text box, enter `Thisisapassword1`.
+    1. In the **User name** text box, enter **admin**.
+    1. In the **Password** text box, enter **Thisisapassword1**.
     1. Select **Connect**.
 
-1. From **Navigator**, select `sales` or `sales_raw` to preview the data. After the data is loaded, you can experiment with the dashboard that you want to create. To get started with Power BI dashboards, see the following articles:
+1. From **Navigator**, select **sales** or **sales_raw** to preview the data. After the data is loaded, you can experiment with the dashboard that you want to create. To get started with Power BI dashboards, see the following articles:
 
    * [Introduction to dashboards for Power BI designers](/power-bi/service-dashboards)
    * [Tutorial: Get started with the Power BI service](/power-bi/service-get-started)

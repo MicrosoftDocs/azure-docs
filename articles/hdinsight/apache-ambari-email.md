@@ -59,20 +59,20 @@ In this tutorial, you learn how to:
 
     |Property |Description |
     |---|---|
-    |Name|Provide a name for the notification.|
-    |Groups|Configure as desired.|
-    |Severity|Configure as desired.|
-    |Description|Optional.|
-    |Method|Leave as **EMAIL**.|
-    |Email To|Provide emails to receive notifications, separated by a comma.|
-    |SMTP Server|`smtp.sendgrid.net`|
-    |SMTP Port|Use 25 or 587, for unencrypted/Transport Layer Security (TLS) connections.|
-    |Email From|Provide an email address. The address doesn't need to be authentic.|
-    |Use authentication|Select this checkbox.|
-    |Username|Use `apikey` directly if you use SendGrid.|
-    |Password|Provide the password that you copied when you created the SendGrid API key in Azure.|
-    |Password Confirmation|Reenter password.|
-    |Start TLS|Select this checkbox.|
+    |**Name**|Provide a name for the notification.|
+    |**Groups**|Configure as desired.|
+    |**Severity**|Configure as desired.|
+    |**Description**|Optional.|
+    |**Method**|Leave as **EMAIL**.|
+    |**Email To**|Provide emails to receive notifications, separated by a comma.|
+    |**SMTP Server**|`smtp.sendgrid.net`|
+    |**SMTP Port**|Use 25 or 587, for unencrypted/Transport Layer Security (TLS) connections.|
+    |**Email From**|Provide an email address. The address doesn't need to be authentic.|
+    |**Use authentication**|Select this checkbox.|
+    |**Username**|Use `apikey` directly if you use SendGrid.|
+    |**Password**|Provide the password that you copied when you created the SendGrid API key in Azure.|
+    |**Password Confirmation**|Reenter password.|
+    |**Start TLS**|Select this checkbox.|
 
     :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Screenshot that shows the Create Alert Notification dialog.":::
 
@@ -91,7 +91,7 @@ If you select the **Start TLS** checkbox in the **Create Alert Notification** di
 1. Go to the Ambari UI.
 1. Go to **Alerts** > **ManageNotifications** > **Edit (Edit Notification)**.
 1. Select **Add Property**.
-1. Add the new property `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
+1. Add the new property **mail.smtp.ssl.protocols** with a value of **TLSv1.2**.
 
 ## Related content
 
