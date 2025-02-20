@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot KubernetesCluster problems pertaining to a not ready node
+title: Troubleshoot KubernetesCluster with a node in NotReady
 description: Learn what to do when you see a node in NotReady in your kubernetesCluster.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
@@ -15,12 +15,12 @@ Follow this troubleshooting guide if you see a kubernetesCluster with a node in 
 ## Prerequisites
 
 - Ability to run kubectl commands against the KubernetesCluster
-- Familiarize yourself with the capabilities referenced in this article by reviewing the [BMM actions](howto-baremetal-functions.md).
+- Familiarity with the capabilities referenced in this article by reviewing the [Baremetalmachine actions](howto-baremetal-functions.md).
 
 ## Cause
 
-- After Baremetalmachine restart or Cluster runtime upgrade a node may enter the **NotReady** status. 
-- Tainting, cordoning, or powering off a Baremetalmachine will cause nodes running on that Baremetalmachine to become **NotReady**. If possible, remove the taint, uncordon, or power on the Baremetalmachine. If not possible, the following the procedure below may allow the node to reschedule to a different Baremetalmachine.
+- After Baremetalmachine restart or Cluster runtime upgrade, a node may enter the **NotReady** status. 
+- Tainting, cordoning, or powering off a Baremetalmachine causes nodes running on that Baremetalmachine to become **NotReady**. If possible, remove the taint, uncordon, or power on the Baremetalmachine. If not possible, the following the procedure below may allow the node to reschedule to a different Baremetalmachine.
 
 ## Procedure
 
