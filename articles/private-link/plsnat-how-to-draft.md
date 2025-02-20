@@ -35,6 +35,8 @@ The type of NVA you're using determines how to disable SNAT for private endpoint
 
 #### Add Tag to your VM NIC
 
+Here we add the tag to the VM NIC. 
+
 # [**Portal**](#tab/vm-nic-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -77,7 +79,10 @@ The type of NVA you're using determines how to disable SNAT for private endpoint
 
 #### Add Tag to your VMSS
 
+Here we add the tag to the VMSS instance. 
+
 # [**Portal**](#tab/vmss-powershell)  
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar at the top, type "Virtual machine scale sets" and select it from the services.
 1. From the list of scale sets, select your VMSS.
@@ -90,9 +95,9 @@ The type of NVA you're using determines how to disable SNAT for private endpoint
    | Value | `true` |
 
 1. Select **Apply** to save the tag.
-1. 
+
 > [!NOTE]
-> The tag is case-sensitive. Ensure you enter it exactly as shown above.
+> The tag is case-sensitive. Ensure you enter it exactly as shown.
 
 # [**PowerShell**](#tab/vmss-cli) 
 
