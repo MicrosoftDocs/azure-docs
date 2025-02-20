@@ -80,22 +80,22 @@ To create a new Spring Boot project:
 ```
 
 > [!NOTE]
-> * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
+> * There's a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
 
 ## Connect to an App Configuration store
 
 
-1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file does not exist, create it. Add the following to the file.
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it. Add the following to the file.
 
 You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
 
-If you are using a properties file, use the following code:
+If you're using a properties file, use the following code:
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
 spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
 ```
 
-If you are using a yaml file, use the following code:
+If you're using a yaml file, use the following code:
 ```yaml
 spring:
     cloud:
