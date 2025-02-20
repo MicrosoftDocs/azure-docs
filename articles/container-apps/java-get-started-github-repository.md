@@ -14,15 +14,7 @@ ms.author: hangwan
 
 This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps by using a Github Repository.
 
-[!INCLUDE [introduction-to-pet-clinic-deployment](includes/introduction-to-pet-clinic-deployment.md)]
-
-## Prerequisites
-
-[!INCLUDE [pet-clinic-prerequisites](includes/pet-clinic-prerequisites.md)]
-
-## Install the Container Apps CLI extension
-
-[!INCLUDE [pet-clinic-install-azure-container-apps-cli-extension](includes/pet-clinic-install-azure-container-apps-cli-extension.md)]
+[!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
 ## Prepare the project
 
