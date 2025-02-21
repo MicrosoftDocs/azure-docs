@@ -53,7 +53,7 @@ az extension add --name containerapp --upgrade
 ```
 
 > [!NOTE]
-> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](../articles/container-apps/whats-new.md), install the Container Apps extension with `--allow-preview true`.
+> Starting in May 2024, Azure CLI extensions no longer enable preview features by default. To access Container Apps [preview features](whats-new.md), install the Container Apps extension with `--allow-preview true`.
 > ```azurecli
 > az extension add --name containerapp --upgrade --allow-preview true
 > ```
@@ -89,68 +89,68 @@ $ROUTE_CONFIG_NAME="my-route-config"
 
 ## Create container apps
 
-Run the following command to create your first container app. This container app uses the Container Apps quickstart image.
+1. Run the following command to create your first container app. This container app uses the Container Apps quickstart image.
 
-```azurecli
-az containerapp up \
-  --name $CONTAINER_APP_1_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --environment $ENVIRONMENT_NAME \
-  --image $CONTAINER_APP_1_IMAGE \
-  --target-port $CONTAINER_APP_1_TARGET_PORT \
-  --ingress external \
-  --query properties.configuration.ingress.fqdn
-```
+    ```azurecli
+    az containerapp up \
+      --name $CONTAINER_APP_1_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --environment $ENVIRONMENT_NAME \
+      --image $CONTAINER_APP_1_IMAGE \
+      --target-port $CONTAINER_APP_1_TARGET_PORT \
+      --ingress external \
+      --query properties.configuration.ingress.fqdn
+    ```
 
-Run the following command to create your second container app. This container app uses the ASP.NET quickstart image.
+1. Run the following command to create your second container app. This container app uses the ASP.NET quickstart image.
 
-```azurecli
-az containerapp up \
-  --name $CONTAINER_APP_2_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --environment $ENVIRONMENT_NAME \
-  --image $CONTAINER_APP_2_IMAGE \
-  --target-port $CONTAINER_APP_2_TARGET_PORT \
-  --ingress external \
-  --query properties.configuration.ingress.fqdn
+    ```azurecli
+    az containerapp up \
+      --name $CONTAINER_APP_2_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --environment $ENVIRONMENT_NAME \
+      --image $CONTAINER_APP_2_IMAGE \
+      --target-port $CONTAINER_APP_2_TARGET_PORT \
+      --ingress external \
+      --query properties.configuration.ingress.fqdn
 ```
 
 ## Create HTTP route configuration
 
 1. Create the following YAML file and save it as `routing.yml`.
 
-```yaml
-rules:
-  - description: App 1 rule
-    routes:
-      - match:
-          prefix: /app1
-        action:
-          prefixRewrite: /
-    targets:
-      - containerApp: my-container-app-1
-  - description: App 2 rule
-    routes:
-      - match:
-          path: /app2
-        action:
-          prefixRewrite: /
-    targets:
-      - containerApp: my-container-app-2
-```
+    ```yaml
+    rules:
+      - description: App 1 rule
+        routes:
+          - match:
+              prefix: /app1
+            action:
+              prefixRewrite: /
+        targets:
+          - containerApp: my-container-app-1
+      - description: App 2 rule
+        routes:
+          - match:
+              path: /app2
+            action:
+              prefixRewrite: /
+        targets:
+          - containerApp: my-container-app-2
+    ```
 
 1. Run the following command to create the HTTP route configuration.
 
-```azurecli
-az containerapp env http-route-config create \
-  --http-route-config-name $ROUTE_CONFIG_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --name $ENVIRONMENT_NAME \
-  --yaml routing.yml \
-  --query properties.fqdn
-```
+    ```azurecli
+    az containerapp env http-route-config create \
+      --http-route-config-name $ROUTE_CONFIG_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --name $ENVIRONMENT_NAME \
+      --yaml routing.yml \
+      --query properties.fqdn
+    ```
 
     Your HTTP route configuration's fully qualified domain name (FQDN) looks like this example: `my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io`
 
@@ -160,89 +160,89 @@ az containerapp env http-route-config create \
 
 1. Create the following Bicep file and save it as `routing.bicep`.
 
-```bicep
-resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
-  name: 'my-container-apps-env'
-  location: 'eastus'
-  tags: {}
-  properties: {
-    workloadProfiles: [
-        {
-            workloadProfileType: 'Consumption'
-            name: 'Consumption'
-        }
-    ]
-  }
-}
+    ```bicep
+    resource containerAppsEnvironment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+      name: 'my-container-apps-env'
+      location: 'eastus'
+      tags: {}
+      properties: {
+        workloadProfiles: [
+            {
+                workloadProfileType: 'Consumption'
+                name: 'Consumption'
+            }
+        ]
+      }
+    }
 
-resource httpRouteConfig 'Microsoft.App/managedEnvironments/httpRouteConfigs@2024-10-02-preview' = {
-  parent: containerAppsEnvironment
-  name: 'my-route-config'
-  location: 'eastus'
-  properties: {
-    rules: [
-        {
-            description: 'App 1 rule'
-            routes: [
-                {
-                    match: {
-                        prefix: '/app1'
+    resource httpRouteConfig 'Microsoft.App/managedEnvironments/httpRouteConfigs@2024-10-02-preview' = {
+      parent: containerAppsEnvironment
+      name: 'my-route-config'
+      location: 'eastus'
+      properties: {
+        rules: [
+            {
+                description: 'App 1 rule'
+                routes: [
+                    {
+                        match: {
+                            prefix: '/app1'
+                        }
+                        action: {
+                            prefixRewrite: '/'
+                        }
                     }
-                    action: {
-                        prefixRewrite: '/'
+                ]
+                targets: [
+                    {
+                        containerApp: 'my-container-app-1'
                     }
-                }
-            ]
-            targets: [
-                {
-                    containerApp: 'my-container-app-1'
-                }
-            ]
-        }
-        {
-            description: 'App 2 rule'
-            routes: [
-                {
-                    match: {
-                        path: '/app2'
+                ]
+            }
+            {
+                description: 'App 2 rule'
+                routes: [
+                    {
+                        match: {
+                            path: '/app2'
+                        }
+                        action: {
+                            prefixRewrite: '/'
+                        }
                     }
-                    action: {
-                        prefixRewrite: '/'
+                ]
+                targets: [
+                    {
+                        containerApp: 'my-container-app-2'
                     }
-                }
-            ]
-            targets: [
-                {
-                    containerApp: 'my-container-app-2'
-                }
-            ]
-        }
-    ]
-  }
-}
+                ]
+            }
+        ]
+      }
+    }
 
-output fqdn string = httpRouteConfig.properties.fqdn
-```
+    output fqdn string = httpRouteConfig.properties.fqdn
+    ```
 
 1. Deploy the Bicep file with the following command:
 
-```azurecli
-az deployment group create `
-  --name $ROUTE_CONFIG_NAME `
-  --resource-group $RESOURCE_GROUP `
-  --template-file routing.bicep
-```
+    ```azurecli
+    az deployment group create `
+      --name $ROUTE_CONFIG_NAME `
+      --resource-group $RESOURCE_GROUP `
+      --template-file routing.bicep
+    ```
 
 1. In the output, find `outputs`, which contains your HTTP route configuration's fully qualified domain name (FQDN). For example:
 
-```
-    "outputs": {
-      "fqdn": {
-        "type": "String",
-        "value": "my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io"
-      }
-    },
-```
+    ```
+        "outputs": {
+          "fqdn": {
+            "type": "String",
+            "value": "my-route-config.ambitiouspebble-11ba6155.eastus.azurecontainerapps.io"
+          }
+        },
+    ```
 
 ::: zone-end
 
@@ -269,6 +269,6 @@ az group delete --name my-container-apps
 ## Related content
 
 - [Sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master)
-- [Azure CLI reference](/cli/azure/containerapp/env/http-route-config?view=azure-cli-latest)
+- [Azure CLI reference](/cli/azure/containerapp/env/http-route-config)
 - [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
 - [ARM template reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-arm-template)
