@@ -61,7 +61,7 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 
     Make a note of the output from this command to use in the next steps.
 
-1. Create the k3s config file:
+1. Create the k3s config file on the machine where you deployed your Kubernetes cluster:
 
     ```bash
     sudo nano /etc/rancher/k3s/config.yaml
@@ -90,7 +90,7 @@ Secrets management for Azure IoT Operations uses the Secret Store extension to s
 To set up secrets management:
 
 1. [Create an Azure key vault](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) that's used to store secrets, and [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.
-1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) for the Secret Store extension.
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) for the *secret store* extension to use to access the key vault.
 1. Use the [az iot ops secretsync enable](/cli/azure/iot/ops/secretsync#az-iot-ops-secretsync-enable) command to set up the Azure IoT Operations instance for secret synchronization. This command:
 
     - Creates a federated identity credential by using the user-assigned managed identity.
