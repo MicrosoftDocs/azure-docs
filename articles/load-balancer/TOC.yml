@@ -140,7 +140,7 @@
         href: cross-subscription-how-to-global-backend.md
       - name: Create a cross-subscription internal load balancer
         href: cross-subscription-how-to-internal-load-balancer.md
-      expanded: false
+    expanded: false
   - name: NAT gateway integration
     items:
     - name: Integrate NAT gateway public load balancer
