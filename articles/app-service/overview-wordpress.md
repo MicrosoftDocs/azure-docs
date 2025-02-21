@@ -15,13 +15,26 @@ ms.custom: mvc, linux-related-content
 
 # What is WordPress on App Service?
 
-[WordPress](https://www.wordpress.org) is an open source Content Management System (CMS) used by over 40% of the web to create websites, blogs, and other applications. WordPress can be run on a few different Azure services: [AKS](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks), [Virtual Machines](/azure/virtual-machines/linux/tutorial-lamp-stack#install-wordpress), [Azure Container Apps](https://github.com/Azure-Samples/apptemplate-wordpress-on-ACA) and Azure App Service. For a full list of WordPress options on Azure, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=wordpress&page=1).
+[WordPress](https://www.wordpress.org) is an open-source Content Management System (CMS) that powers over 40% of the web, allowing users to create and manage websites, blogs, and e-commerce platforms. **WordPress on Azure App Service** provides a **fully managed hosting solution** that allows users to focus on creating content while **Azure handles infrastructure, security, and performance optimizations**. This offering integrates key Azure services such as:
 
-With WordPress on Azure App Service, you can focus on creating content while Azure takes care of the infrastructure, security, and performance needs. App Service provides a streamlined and scalable platform for hosting WordPress websites. By using Azure's powerful infrastructure, including **Azure App Service**, **Azure Database for MySQL**, **Azure CDN**, and **Azure Blob Storage**, you can quickly deploy and manage a secure, high-performance WordPress site.
+- **Azure App Service** – A scalable platform-as-a-service (PaaS) optimized for running WordPress.
+- **Azure Database for MySQL** – A managed database service for WordPress backend storage.
+- **Azure CDN** – Improves website load times and performance by caching content globally.
+- **Azure Blob Storage** – Offloads media files to reduce server load and enhance scalability.
 
-This solution is designed to meet the needs of both small and large-scale deployments, whether you're running a personal blog, a corporate website, or an e-commerce platform. With features like automated updates, advanced security, and global availability, WordPress on Azure App Service simplifies infrastructure management, so you can focus on your content and audience.
+This solution is designed for **both small and large-scale deployments**, making it an ideal choice for personal blogs, corporate websites, and high-traffic e-commerce platforms. With **automated updates, built-in security, and global availability**, WordPress on Azure App Service simplifies infrastructure management while ensuring high availability and performance.
 
 [**Quickstart documentation**](quickstart-wordpress.md) | [**Create a WordPress site using the Azure portal**](https://portal.azure.com/#create/WordPress.WordPress)
+
+## Other WordPress hosting options on Azure
+
+WordPress can also be hosted on other Azure services based on specific requirements:
+
+- [Azure Kubernetes Service (AKS)](/azure/mysql/flexible-server/tutorial-deploy-wordpress-on-aks) – For containerized deployments with microservices.
+- [Azure Virtual Machines (VMs)](/azure/virtual-machines/linux/tutorial-lamp-stack#install-wordpress) – For full control over server configurations.
+- [Azure Container Apps](https://github.com/Azure-Samples/apptemplate-wordpress-on-ACA) – For hosting containerized WordPress instances.
+
+For a full list of WordPress hosting options, see [WordPress on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=wordpress&page=1).
 
 ## How does App Service simplify WordPress?
 
