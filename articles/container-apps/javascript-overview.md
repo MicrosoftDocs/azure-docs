@@ -190,7 +190,7 @@ For production builds, make sure you use the correct version tag, which may not 
             node-version: '22'
 
         - name: Install dependencies
-        run: npm install
+        run: npm ci
 
         - name: Build the app
         run: npm run build
