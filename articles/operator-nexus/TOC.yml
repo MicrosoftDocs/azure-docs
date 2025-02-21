@@ -367,6 +367,8 @@
           href: troubleshoot-internet-host-virtual-machine.md
         - name: Troubleshoot VM errors after BMM restart
           href: troubleshoot-vm-error-after-reboot.md
+        - name: Troubleshoot NotReady KuberentesCluster node
+          href: troubleshoot-not-ready-kubernetes-cluster-node.md
         - name:
             Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
