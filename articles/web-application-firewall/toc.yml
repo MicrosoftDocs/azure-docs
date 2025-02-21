@@ -109,16 +109,23 @@ items:
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
     - name: Exclusion lists
-      href: ./afds/waf-front-door-exclusion.md
+      items:
+      - name: Overview
+        href: ./afds/waf-front-door-exclusion.md
+      - name: Configure exclusion lists
+        href: ./afds/waf-front-door-exclusion-configure.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
+    - name: Configure WAF policy - PowerShell
+      href: ./afds/waf-front-door-custom-rules-powershell.md
     - name: Rate limiting
       href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
-      href: ./afds/waf-front-door-geo-filtering.md
-    - name: Best practices
-      href: ./afds/waf-front-door-best-practices.md
-
+      items:
+      - name: Geo-filtering
+        href: ./afds/waf-front-door-geo-filtering.md
+      - name: Configure a geo-filtering WAF policy
+        href: ./afds/waf-front-door-tutorial-geo-filtering.md
   - name: Use Azure Policy
     href: ./shared/waf-azure-policy.md
   - name: Configure policies using Firewall Manager
@@ -135,26 +142,18 @@ items:
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
-- name: How-to guides
+- name: Front Door
   items:
-  - name: Front Door
-    items:
-    - name: Configure WAF policy - PowerShell
-      href: ./afds/waf-front-door-custom-rules-powershell.md
-    - name: Configure bot protection
-      href: ./afds/waf-front-door-policy-configure-bot-protection.md
-    - name: Configure exclusion lists
-      href: ./afds/waf-front-door-exclusion-configure.md
-    - name: Configure custom response code
-      href: ./afds/waf-front-door-configure-custom-response-code.md
-    - name: Configure IP restrictions
-      href: ./afds/waf-front-door-configure-ip-restriction.md
-    - name: Configure rate limit
-      href: ./afds/waf-front-door-rate-limit-configure.md
-    - name: Configure a geo-filtering WAF policy
-      href: ./afds/waf-front-door-tutorial-geo-filtering.md
-    - name: Monitoring and logging
-      href: ./afds/waf-front-door-monitor.md
+  - name: Configure bot protection
+    href: ./afds/waf-front-door-policy-configure-bot-protection.md
+  - name: Configure custom response code
+    href: ./afds/waf-front-door-configure-custom-response-code.md
+  - name: Configure IP restrictions
+    href: ./afds/waf-front-door-configure-ip-restriction.md
+  - name: Configure rate limit
+    href: ./afds/waf-front-door-rate-limit-configure.md
+  - name: Monitoring and logging
+    href: ./afds/waf-front-door-monitor.md
 - name: Security
   items:
   - name: Security baseline
@@ -193,6 +192,10 @@ items:
       href: ./ag/log-analytics.md
     - name: Troubleshoot
       href: ./ag/web-application-firewall-troubleshoot.md
+  - name: Front Door
+    items:
+    - name: Best practices
+      href: ./afds/waf-front-door-best-practices.md
 - name: Reference
   items:
   - name: Azure PowerShell
