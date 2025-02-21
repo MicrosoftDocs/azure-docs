@@ -28,7 +28,7 @@ Consider a situation where you deploy an Azure service in the US West region. Th
 
 The Azure region where you deploy a resource determines its physical location. The billing meter's location doesn't affect the actual resource location. So, the meter region location can differ from the resource location, causing the variation.
 
-To avoid any confusion, keep the distinction between a billing meter region and Azure resource region in mind.
+To avoid any confusion, keep the distinction between a billing meter region and an Azure resource region in mind.
 
 ## Related content
 
