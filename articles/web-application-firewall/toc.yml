@@ -79,10 +79,10 @@ items:
         href: ./ag/custom-waf-rules-overview.md
       - name: Geomatch custom rules
         href: ./ag/geomatch-custom-rules.md
-     - name: Configure WAF v2 custom rule - PowerShell
-       href: ./ag/configure-waf-custom-rules.md
-     - name: Custom rule examples
-       href: ./ag/create-custom-waf-rules.md
+      - name: Configure WAF v2 custom rule - PowerShell
+        href: ./ag/configure-waf-custom-rules.md
+      - name: Custom rule examples
+        href: ./ag/create-custom-waf-rules.md
     - name: Exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
     - name: Request size limits
@@ -145,8 +145,6 @@ items:
     href: waf-javascript-challenge.md
 - name: How-to guides
   items:
-  - name: Application Gateway
-    items:
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell
