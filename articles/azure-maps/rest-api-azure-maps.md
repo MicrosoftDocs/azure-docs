@@ -12,7 +12,7 @@ ms.subservice: rest-api
 
 # Azure Maps Rest API
 
-Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information and weather data into your web, mobile and server-side solutions.
+Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use Azure Maps to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information, and weather data into your web, mobile and server-side solutions.
 
 The following tables show overviews of the services that Azure Maps offers:
 
@@ -27,18 +27,18 @@ The most recent stable release of the Azure Maps services.
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
-| [Spatial] |  2022-08-01  | Use geofences, great circle distances and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
+| [Spatial] |  2022-08-01  | Use geofences, great circle distances, and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
 | [Traffic] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
-| [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details and weather along a route. |
+| [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details, and weather along a route. |
 
 ## Previous releases
 
-There are previous stable releases of an Azure Maps service that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
+There are previous stable releases of an Azure Maps service that are still in use. The services in this list have a more recent version available, and some are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Render][Render v1] |  1.0  | Get road, satellite/aerial, weather, traffic map tiles and static map images.<BR>The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API need to be updated to use the latest version of the [Render] API. |
+| [Render][Render v1] |  1.0  | Get road, satellite/aerial, weather, traffic map tiles, and static map images.<BR>The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API need to be updated to use the latest version of the [Render] API. |
 | [Render][render-2022-08-01] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Search][Search v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 | [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
