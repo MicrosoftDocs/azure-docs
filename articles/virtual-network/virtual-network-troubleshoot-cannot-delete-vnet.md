@@ -71,8 +71,6 @@ If these steps don't resolve the issue, use these [Azure CLI commands](/azure/co
 
 If the Active Directory Domain Service is enabled and connected to the virtual network, you cannot delete this virtual network. 
 
-![Screenshot of the Microsoft Entra Domain Services screen in Azure portal. The Available in Virtual Network/Subnet field is highlighted.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
-
 To disable the service, see [Disable Microsoft Entra Domain Services using the Azure portal](../active-directory-domain-services/delete-aadds.md).
 
 ### Check whether the virtual network is connected to other resource

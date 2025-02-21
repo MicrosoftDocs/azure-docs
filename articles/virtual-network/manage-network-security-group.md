@@ -55,8 +55,6 @@ The number of NSGs that you can create for each Azure region and subscription is
     | Network security group name | Enter a name for the NSG that you're creating. |
     | Region | Select the region that you want. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-network-security-group.png" alt-text="Screenshot that shows creating a NSG in the Azure portal.":::
-
 1. Select **Review + create**.
 
 1. After you see the **Validation passed** message, select **Create**.
@@ -504,7 +502,6 @@ An application security group contains zero or more network interfaces. To learn
     | Name | Enter a name for the application security group that you're creating. |
     | Region | Select the region in which you want to create the application security group. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-application-security-group.png" alt-text="Screenshot that shows creating an application security group in the Azure portal.":::
 
 1. Select **Review + create**.
 
