@@ -84,29 +84,29 @@ To create a new Spring Boot project:
 
 ## Connect to an App Configuration store
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it.
+    
+    If you're using a properties file, use the following code:
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
+    ```
+    
+    If you're using a yaml file, use the following code:
+    ```yaml
+    spring:
+        cloud:
+        azure:
+            appconfiguration:
+            stores:
+                -
+                feature-flags:
+                    enabled: true
+                endpoint: ${APP_CONFIGURATION_ENDPOINT}
+    ```
 
-1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it. Add the following to the file.
-
-You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. Create a new file named *AppConfigCredential.java* and add the following lines:
-
-If you're using a properties file, use the following code:
-```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
-spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
-```
-
-If you're using a yaml file, use the following code:
-```yaml
-spring:
-    cloud:
-    azure:
-        appconfiguration:
-        stores:
-            -
-            feature-flags:
-                enabled: true
-            endpoint: ${APP_CONFIGURATION_ENDPOINT}
-```
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
 1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
 
@@ -149,27 +149,25 @@ spring:
     com.example.MyConfiguration
     ```
 
-1. Set an environment variable.
-
-    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    ### [Connection string](#tab/connection-string)
+   If you are using a properties file, use the following code:
+   ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-    If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+   If you are using a yaml file, use the following code:
+    ```yaml
+    spring:
+      cloud:
+        azure:
+          appconfiguration:
+            stores[0]:
+              feature-flags:
+                enabled: 'true'
+              connection-string: ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
-    ```
+    ---
 
 1. Create a new Java file named *HelloController.java* in the package directory of your app.
 
@@ -289,6 +287,28 @@ spring:
     ```
 
 ## Build and run the app locally
+
+1. Set an environment variable.
+
+    Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_ENDPOINT "endpoint-of-your-app-configuration-store"
+    ```
+
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    ```
 
 1. Build your Spring Boot application with Maven and run it.
 

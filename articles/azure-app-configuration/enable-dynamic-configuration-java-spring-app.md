@@ -29,7 +29,7 @@ Refresh allows you to update your configuration values without having to restart
 
 To use manual refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-App Configuration exposes `AppConfigurationRefresh`, which checks if the cache is expired. If the cache is expired, it triggers a refresh.
+App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh interval has passed. If the refresh interval has passed, it triggers a refresh.
 
 1. To use `AppConfigurationRefresh`, update HelloController.
 
@@ -113,8 +113,8 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the cache i
 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
 
-> [!NOTE]
-> The library checks for changes only after the refresh interval passes. If the interval hasn't passed, no change is displayed. Wait for the interval to pass, then trigger the refresh check.
+    > [!NOTE]
+    > The library checks for changes only after the refresh interval passes. If the interval hasn't passed, no change is displayed. Wait for the interval to pass, then trigger the refresh check.
 
 ## Use automated refresh
 
@@ -177,8 +177,8 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes, as the first request returns using the original scope.
 
-> [!NOTE]
-> The library checks for changes only after the refresh interval passes. If the refresh interval hasn't passed, it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
+    > [!NOTE]
+    > The library checks for changes only after the refresh interval passes. If the refresh interval hasn't passed, it doesn't check for changes. Wait for the interval to pass, then trigger the refresh check.
 
 ## Next steps
 
