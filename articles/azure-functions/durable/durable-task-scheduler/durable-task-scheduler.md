@@ -13,6 +13,8 @@ The Durable Task Scheduler (DTS) is a new backend for Durable Functions. DTS is 
 
 > [!NOTE]
 > For more information on the supported storage providers for Durable Functions and how they compare, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
+>
+> DTS currently only supports Durable Functions running on Functions Premium and App Service plans. 
 
 ## Architecture 
 The Durable Task Scheduler (DTS) is designed from the ground up to be the fastest and most efficient backend for Durable Functions. DTS has its own dedicated compute and memory resources optimized for:
@@ -76,9 +78,9 @@ Since all task hubs in a DTS resource share the same storage and compute resourc
 
 
 ### Other features
-- **DTS emulator**: DTS offers an [emulator for local development](./quickstart-durable-task-scheduler.md) through a docker image. 
+- **DTS emulator**: DTS offers an [emulator for local development](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) through a docker image. 
 
-- **Managed identity support**: DTS can only be [accessed through identity-based authentication](./quickstart-durable-task-scheduler.md).
+- **Managed identity support**: DTS and DTS dashboard supports [identity-based authentication](./quickstart-durable-task-scheduler.md).
 
 
 ## Pricing 
@@ -100,13 +102,12 @@ The following table outlines the supported regions and their current rates for D
 
 | Region | Regional uplift | Current rate per month |
 | ------------------- | --------------- | ---------------------- |
-| US West 2           | 0%              | $500                   |
-| US North Central    | 20%             | $600                   |
+| West US 2           | 0%              | $500                   |
+| North Central US    | 20%             | $600                   |
 | UK South            | 25%             | $625                   |
-| SE Central          | 30%             | $650                   |
-| EU North            | 20%             | $600                   |
-| AU East             | 45%             | $725                   |
-
+| Sweden Central      | 30%             | $650                   |
+| North Europe        | 20%             | $600                   |
+| Australia East      | 45%             | $725                   |
 
 ### Determining the number of Capacity Units needed
 
