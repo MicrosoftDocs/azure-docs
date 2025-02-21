@@ -33,8 +33,6 @@ When increasing the virtual hub capacity, the virtual hub router will continue t
 
 Capacity is configured on the **Basics** tab **Virtual hub capacity** setting when you create your virtual hub.
 
-:::image type="content" source="./media/hub-settings/basics-hub.png" alt-text="Screenshot shows capacity.":::
-
 #### Edit virtual hub capacity
 
 Adjust the virtual hub capacity when you need to support additional virtual machines and the aggregate throughput of the virtual hub router.
