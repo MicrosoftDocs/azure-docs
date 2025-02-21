@@ -69,6 +69,11 @@
       "source_path_from_root": "/articles/deployment-environments/how-to-create-environment-with-azure-developer.md",
       "redirect_url": "/azure/deployment-environments/how-to-configure-azure-developer-cli-deployment-environments.md",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/ade-roadmap.md",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-deployment-environments.md",
+      "redirect_document_id": false
     }      
   ]
 }
