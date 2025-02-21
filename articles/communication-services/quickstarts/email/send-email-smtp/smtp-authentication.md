@@ -89,3 +89,26 @@ When assigning the Microsoft Entra application a role for the Azure Communicatio
     :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment.":::
 1. After confirming the scope and members, click **Review + assign**.
     :::image type="content" source="../media/email-smtp-select-assign.png" alt-text="Screenshot that shows assigning the custom role.":::
+
+## SMTP Authentication Password
+The password is one of the Microsoft Entra application's client secrets.
+    :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Microsoft Entra client secret.":::
+
+## Requirements for SMTP AUTH client submission
+
+- **Authentication**: Username and password authentication is supported using an SMTP username that is linked to a Microsoft Entra application details. The Azure Communication Services SMTP service will use the Microsoft Entra application details to get an access token on behalf of the user and use that to submit the email. Because the Microsoft Entra is used, access can be revoked immediately by either changing the Microsoft Entra by changing the access controls for the Azure Communication Services Resource.
+- **Azure Communication Service**: An Azure Communication Services Resource with a connected Azure Communication Email Resource and domain is required.
+- **Transport Layer Security (TLS)**: Your device must be able to use TLS version 1.2 and above.
+- **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
+- **DNS**: Use the DNS name smtp.azurecomm.net. Don't use an IP address for the Microsoft 365 or Office 365 server, as IP Addresses aren't supported.
+
+## How to set up SMTP AUTH client submission
+
+Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). Provided your scenario aligns with the prerequisites for SMTP AUTH client submission, these settings allow you to send emails from your device or application using SMTP Commands.
+
+| Device or Application setting | Value |
+|--|--|
+|Server / smart host | smtp.azurecomm.net |
+|Port |Port 587 (recommended) or port 25|
+|TLS / StartTLS | Enabled|
+|Username and password | Enter the SMTP Username and one Microsoft Entra application's client secrets. |
