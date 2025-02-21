@@ -43,13 +43,13 @@ The following information is passed to the server in the query:
 
 * The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
-    | Cache |  Default Timeout |
+    | Cache |  Default time out |
     |-|-|
     | Group membership list  | 24-hour TTL  |
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
 
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    Caches have a specific time-out period called *Time to Live*. After the time-out period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
     
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 
