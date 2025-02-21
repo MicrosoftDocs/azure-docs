@@ -138,7 +138,7 @@ const isConsentRequired = callRecordingApi.isTeamsConsentRequired;
 callRecordingApi.grantTeamsConsent();
 ```
 
-For more information, see [Manage call recording on the client > Explicit consent](how-tos/calling-sdk/record-calls#explicit-consent).
+For more information, see [Manage call recording on the client > Explicit consent](./how-tos/calling-sdk/record-calls#explicit-consent.md).
 
 ### Breakout rooms in the Web Calling SDK
 
@@ -166,16 +166,15 @@ The Azure Communication Services survey data is available in the following Teams
 - Teams Call Quality Connector for Power BI: [Use Power BI to analyze CQD data for Microsoft Teams - Microsoft Teams](/microsoftteams/cqd-power-bi-query-templates)
 - Teams Graph API: [Microsoft Graph overview and userFeedback resource type – Microsoft Graph v1.0](/graph/overview)
 
-For more information, see [Azure Communication Services End of Call Survey overview](concepts/voice-video-calling/end-of-call-survey-concept#view-survey-data-as-a-teams-administrator).
+For more information, see [Azure Communication Services End of Call Survey overview](./concepts/voice-video-calling/end-of-call-survey-concept#view-survey-data-as-a-teams-administrator).
 
 ### Identify web calling participants with custom data tags
 
-Now developers can add up to three custom data attributes to call participants with the WebJS calling client and view them in Azure Monitor. You can use these customizable attributes to enhance your post-call analysis. Since you have control over the data creation, you can use it for A/B testing, labeling such as west coast, release version, and so on. You can use [Call Diagnostics](concepts/voice-video-calling/call-diagnostics#use-diagnosticoptions-to-view-tagged-calls-in-call-diagnostics) to search for these attributes or create custom queries with [Log Analytics](concepts/analytics/query-call-logs).
+Now developers can add up to three custom data attributes to call participants with the WebJS calling client and view them in Azure Monitor. You can use these customizable attributes to enhance your post-call analysis. Since you have control over the data creation, you can use it for A/B testing, labeling such as west coast, release version, and so on. You can use [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics#use-diagnosticoptions-to-view-tagged-calls-in-call-diagnostics) to search for these attributes or create custom queries with [Log Analytics](./concepts/analytics/query-call-logs.md).
 
 :::image type="content" source="media/whats-new-images/call-diagnostics-test.png" alt-text="Screen capture of Microsoft Azure Call Diagnostics showing the label call diagnostics test and new diagnostic options custom data tags." lightbox="media/whats-new-images/call-diagnostics-test.png":::
 
-For more information, see [Tutorial on how to attach custom tags to your client telemetry](tutorials/voice-video-calling/diagnostic-options-tag).
-
+For more information, see [Tutorial on how to attach custom tags to your client telemetry](./tutorials/voice-video-calling/diagnostic-options-tag.md).
 
 ## December 2024
 
