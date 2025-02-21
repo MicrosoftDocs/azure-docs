@@ -15,7 +15,7 @@ zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 
 # Quickstart: Send email with inline attachments
 
-In this quick start, you'll learn about how to send email with inline attachments using our Email SDKs.
+In this quickstart, you'll learn about how to send email with inline attachments using our Email SDKs.
 
 ::: zone pivot="programming-language-azcli"
 [!INCLUDE [inline-attachments-azcli](./includes/inline-attachments-azcli.md)]

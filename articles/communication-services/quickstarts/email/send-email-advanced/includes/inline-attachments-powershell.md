@@ -152,7 +152,10 @@ The following optional parameters are available in Azure PowerShell.
 
 - `ContentPlainText` used to specify the plain text body of the email.
 
-- `Attachment` sets the list of email attachments and inline attachments. This parameter accepts an array of file paths or attachment objects. Please note that we limit the total size of an email request (which includes both regular and inline attachments) to 10MB.
+- `Attachment` sets the list of email attachments and inline attachments. This parameter accepts an array of file paths or attachment objects.
+
+>[!NOTE] 
+> Please note that we limit the total size of an email request (which includes both regular and inline attachments) to 10MB.
 
 - `Header` custom email headers to be passed and sets email importance level (high, normal, or low).
 

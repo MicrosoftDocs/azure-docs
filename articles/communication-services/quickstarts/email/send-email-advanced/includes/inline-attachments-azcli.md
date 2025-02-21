@@ -75,7 +75,7 @@ After you add the environment variable, run `source ~/.bash_profile` from your c
 
 ---
 
-## Send an email message with inline attachments
+## Send an email message with inline attachment
 
 ```azurecli-interactive
 az communication email send
@@ -83,21 +83,21 @@ az communication email send
 	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
 	--to "<emailalias@emaildomain.com>"
 	--subject "Welcome to Azure Communication Services Email"
-	--attachment-types "<attachmenttype>" # MIME type of the content being attached. example:"png"
-	--inline-attachment "<filepath>/<my-inline-image>" # example:"MicrosoftLogo.png/MSLogo"
-	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<my-inline-image>' alt='<alternatetext>'/></body></html>"
+	--attachment-types "<inlineattachmenttype1>" # MIME type of the content being attached. Example: "png"
+	--inline-attachment "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
+	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid>' alt='<alternatetext>'/></body></html>"
 ```
-
 Make these replacements in the code:
 
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-- Replace `<attachmenttype>` with the actual attchment type of the file.
-- Replace `<filepath>/<my-inline-image>` with the file path to your attachment and the cid name or id for your inline attachment.
-- Replace `<my-inline-image>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
+- Replace `<inlineattachmenttype1>` with the actual attchment type of the file.
+- Replace `<filepath>/<contentid>` with the file path to your attachment and the cid name or id for your inline attachment.
+- Replace `<contentid>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
+- Replace `<alternatetext>` with a descriptive text for the image to help with accessibility.
 
-## Send an email message with multiple inline attachments
+## Send an email message with attachment and inline attachment
 
 ```azurecli-interactive
 az communication email send
@@ -105,9 +105,10 @@ az communication email send
 	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
 	--to "<emailalias@emaildomain.com>"
 	--subject "Welcome to Azure Communication Services Email"
-	--attachment-types "<attachmenttype1>" "<attachmenttype2>" "<attachmenttype3>" # MIME type of the content being attached.
-	--inline-attachment "<filepath1>/<my-inline-image1>" "<filepath2>/<my-inline-image2>" "<filepath3>/<my-inline-image3>"
-	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<my-inline-image1>' alt='<alternatetext>'/><img src='cid:<my-inline-image2>' alt='<alternatetext>'/><img src='cid:<my-inline-image3>' alt='<alternatetext>'/></body></html>"
+	--attachment-types "<attachmenttype1>" "<inlineattachmenttype1>" # MIME type of the content being attached. Example1: "jpg" "png" & Example2: "png" "png"
+	--attachments "<filepath>" # Example: "MSLogo.jpg"
+	--inline-attachment "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
+	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid>' alt='<alternatetext>'/></body></html>"
 ```
 
 Make these replacements in the code:
@@ -115,9 +116,36 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-- Replace `<attachmenttype1>` `<attachmenttype2>` `<attachmenttype3>` with the actual attchment type of the file.
-- Replace `<filepath1>/<my-inline-image1>` `<filepath2>/<my-inline-image2>` `<filepath3>/<my-inline-image13>`  with the file path to your attachment and the cid name or id for your inline attachment.
-- Replace `<my-inline-image1>` `<my-inline-image2>` `<my-inline-image3>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
+- Replace `<attachmenttype1>` `<inlineattachmenttype1>` with the actual attchment type of the file.
+- Replace `<filepath>` with the file path to your attachment.
+- Replace `<filepath>/<contentid>` with the file path to your attachment and the cid name or id for your inline attachment.
+- Replace `<contentid>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
+- Replace `<alternatetext>` with a descriptive text for the image to help with accessibility.
+
+## Send an email message with multiple attachments and inline attachments
+
+```azurecli-interactive
+az communication email send
+	--connection-string "yourConnectionString"
+	--sender "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>"
+	--to "<emailalias@emaildomain.com>"
+	--subject "Welcome to Azure Communication Services Email"
+	--attachment-types "<attachmenttype1>" "<attachmenttype2>" "<inlineattachmenttype1>" "<inlineattachmenttype2>" "<inlineattachmenttype3>" # MIME type of the content being attached. Example: "png" "jpg" "png" "jpg" "bmp"
+	--attachments "<filepath1>" "<filepath2>"
+	--inline-attachment "<filepath1>/<contentid1>" "<filepath2>/<contentid2>" "<filepath3>/<contentid3>"
+	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid1>' alt='<alternatetext>'/><img src='cid:<contentid2>' alt='<alternatetext>'/><img src='cid:<contentid3>' alt='<alternatetext>'/></body></html>"
+```
+
+Make these replacements in the code:
+
+- Replace `<yourConnectionString>` with your connection string.
+- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
+- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
+- Replace `<attachmenttype1>` `<attachmenttype2>` `<inlineattachmenttype1>` `<inlineattachmenttype2>` `<inlineattachmenttype3>` with the actual attchment types of the file.
+- Replace `<filepath1>` `<filepath2>` with the file paths to your attachment.
+- Replace `<filepath1>/<contentid1>` `<filepath2>/<contentid2>` `<filepath3>/<contentid3>`  with the file paths to your attachment and the cid name or id for your inline attachment.
+- Replace `<contentid1>` `<contentid2>` `<contentid3>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
+- Replace `<alternatetext>` with a descriptive text for the image to help with accessibility.
 
 The above command also performs a polling on the messageId and returns the status of the email delivery. The status can be one of the following:
 
@@ -143,9 +171,13 @@ The following optional parameters are available in Azure CLI.
 
 - `--attachments` sets the list of email attachments.
 
+>[!NOTE] 
+> Please note that we limit the total size of an email request (which includes both regular and inline attachments) to 10MB.
+
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
 - `--inline-attachment` parameter embeds an attachment directly within the email body, instead of as a separate downloadable file. It is commonly used for images or media files that should appear inline in the email content.
 
-Also, you can use a list of recipients with `--cc` and `--bcc` similar to `--to`. There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
+>[!NOTE] 
+> There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
  

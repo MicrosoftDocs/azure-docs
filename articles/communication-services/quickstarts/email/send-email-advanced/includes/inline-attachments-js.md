@@ -10,6 +10,10 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+Get started with Azure Communication Services by using javascript to send Email messages.
+
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
 ## Send an email message with inline attachments
 
 We can add an inline attachment by defining one or more attachment objects, making sure to include a unique `contentId` for each, and adding them to our message. Read the attachment file and encode it using Base64.
