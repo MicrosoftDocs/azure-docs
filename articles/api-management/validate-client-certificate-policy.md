@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2025
 ms.author: danlep
 ---
@@ -64,7 +64,7 @@ For more information about custom CA certificates and certificate authorities, s
 
 | Element             | Description                                  | Required |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-|   identities      |  Add this element to specify one or more `identity` elements with defined claims on the client certificate.       |    No        |
+|   identities      |  Add this element to specify up to 10 `identity` subelements with defined claims on the client certificate.       |    No        |
 
 ## identity attributes
 
@@ -73,7 +73,7 @@ For more information about custom CA certificates and certificate authorities, s
 | thumbprint | Certificate thumbprint. | No | N/A |
 | serial-number | Certificate serial number. | No | N/A |
 | common-name | Certificate common name (part of Subject string). | No | N/A |
-| subject | Subject string. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*.| No | N/A |
+| subject | Subject string. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*.| No | N/A | 
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | No | N/A |
 | issuer-subject | Issuer's subject. Must follow format of Distinguished Name, which consists of comma-separated name attributes, for example, *"CN=MyName, OU=MyOrgUnit, C=US..."*. | No | N/A |
 | issuer-thumbprint | Issuer thumbprint. | No | N/A |

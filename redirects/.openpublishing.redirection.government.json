@@ -1,6 +1,14 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-government/documentation-government-stig-linux-vm.md",
+            "redirect_url": "/azure/automation/automation-dsc-configuration-based-on-stig",
+            "redirect_document_id": false
+        },        {
+            "source_path_from_root": "/articles/azure-government/documentation-government-stig-windows-vm.md",
+            "redirect_url": "/azure/automation/automation-dsc-configuration-based-on-stig",
+            "redirect_document_id": false
+        },        {
             "source_path_from_root": "/articles/azure-government-developer-guide.md",
             "redirect_url": "/azure/azure-government/documentation-government-developer-guide",
             "redirect_document_id": false

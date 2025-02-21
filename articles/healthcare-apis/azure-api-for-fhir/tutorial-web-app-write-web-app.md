@@ -146,7 +146,7 @@ From here, you can go back to your web application resource and open the URL fou
 
 ## Next Steps
 
-You’ve successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. As a next step, check out the Azure API for FHIR supported features.
+You’ve successfully deployed the Azure API for FHIR, registered a public client application, and created a small web application. As a next step, check out the Azure API for FHIR supported features.
 
 >[!div class="nextstepaction"]
 >[Supported Features](fhir-features-supported.md)

@@ -99,4 +99,4 @@ The user identity is intended to act as a primary key for logs and metrics colle
 > [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 For more information, see the following articles:
-- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)

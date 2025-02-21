@@ -17,7 +17,7 @@ Here are a few example scenarios where you can use Azure Stream Analytics:
 * Anomaly detection in sensor data to detect spikes, dips, and slow positive and negative changes
 * Geo-spatial analytics for fleet management and driverless vehicles
 * Remote monitoring and predictive maintenance of high value assets
-* Clickstream analytics to determine customer behavior
+* Click stream analytics to determine customer behavior
 * Analyze real-time telemetry streams and logs from applications and IoT devices
 
 :::image type="content" source="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png" alt-text="Diagram that shows the stages Ingest, Analyze, and Deliver stages of a streaming pipeline." lightbox="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png":::
