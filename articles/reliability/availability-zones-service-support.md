@@ -46,6 +46,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | --- | --- |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+| Azure Document Intelligence Service | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
 ### Analytics
 
