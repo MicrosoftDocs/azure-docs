@@ -28,9 +28,6 @@ For Azure Firewall limitations, see [Azure subscription and service limits, quot
 
 Azure Firewall Standard has the following known issues:
 
-> [!NOTE]
-> Any issue that applies to Standard also applies to Premium.
-
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
 |DNAT support for private IP addresses limited to Standard and Premium versions|Support for DNAT on Azure Firewall private IP address is intended for enterprises, so is limited to the Standard and Premium Firewall versions.| None|
@@ -64,8 +61,10 @@ Azure Firewall Standard has the following known issues:
 
 ## Azure Firewall Premium
 
-Azure Firewall Premium has the following known issues:
+> [!NOTE]
+> Any issue that applies to Standard also applies to Premium.
 
+Azure Firewall Premium has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
