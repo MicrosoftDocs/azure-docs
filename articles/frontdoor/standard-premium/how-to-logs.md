@@ -23,8 +23,6 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 
 1. Within the profile, navigate to **Monitoring**, select **Diagnostic Setting** and then choose **Add diagnostic setting**.
 
-   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Screenshot of diagnostic settings landing page.":::
-
 1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
 
 1. Select the **log** options for **FrontDoorAccessLog**, **FrontDoorHealthProbeLog**, and **FrontDoorWebApplicationFirewallLog**.

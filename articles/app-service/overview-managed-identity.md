@@ -31,7 +31,22 @@ This video shows you how to use managed identities for App Service.
 
 The steps in the video are also described in the following sections.
 
+## Prerequisites
+
+To perform the steps covered in this document, you must have a minimum set of permissions over your Azure resources. The specific permissions set you need will vary based on your scenario. The most common scenarios are summarized in the following table:
+
+| Scenario | Required permission | Example built-in roles |
+|-|-|-|
+| [Create a system-assigned identity for your app](#add-a-system-assigned-identity) | `Microsoft.Web/sites/write` over the app (or `Microsoft.Web/sites/slots/write` over the slot) | [Website Contributor] |
+| [Create a user-assigned identity][create-user-assigned] | `Microsoft.ManagedIdentity/userAssignedIdentities/write` over the resource group in which the identity will be created | [Managed Identity Contributor] |
+| [Assign a user-assigned identity to your app](#add-a-user-assigned-identity) | `Microsoft.Web/sites/write` over the app (or `Microsoft.Web/sites/slots/write` over the slot),<br/>`Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` over the identity | [Website Contributor] and [Managed Identity Operator] |
+| [Create Azure role assignments][role-assignment] | `Microsoft.Authorization/roleAssignments/write` (over the target resource scope) | [Role Based Access Control Administrator] or [User Access Administrator] |
+
+A different set of permissions might be needed for other scenarios.
+
 ## Add a system-assigned identity
+
+To enable a system-assigned managed identity on your app or slot, you need write permissions over that app or slot. The [Website Contributor] role provides these permissions.
 
 # [Azure portal](#tab/portal)
 
@@ -135,11 +150,13 @@ If you need to reference these properties in a later stage in the template, you 
 
 Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
 
+To assign a user-assigned managed identity to your app or slot, you need write permissions over that app or slot. The [Website Contributor] role provides these permissions. You must also have permission to assign the user-assigned managed identity you will be using. The [Managed Identity Operator] role provides these permissions.
+
 # [Azure portal](#tab/portal)
 
 First, you'll need to create a user-assigned identity resource.
 
-1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+1. Create a user-assigned managed identity resource according to [these instructions][create-user-assigned].
 
 1. In the left navigation for your app's page, scroll down to the **Settings** group.
 
@@ -256,10 +273,12 @@ The principalId is a unique identifier for the identity that's used for Microsof
 
 ## Configure target resource
 
-You may need to configure the target resource to allow access from your app or function. For example, if you [request a token](#connect-to-azure-services-in-app-code) to access Key Vault, you must also add an access policy that includes the managed identity of your app or function. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+You need to configure the target resource to allow access from your app. For most Azure services, you do this by [creating a role assignment][role-assignment]. Some services use mechanisms other than Azure RBAC. Refer to the documentation for each target resource to understand how to configure access using an identity. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+For example, if you [request a token](#connect-to-azure-services-in-app-code) to access a secret in Key Vault, you must also create a role assignment that allows the managed identity to work with secrets in the target vault. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database and other services.
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
 
 ## Connect to Azure services in app code
 
@@ -363,9 +382,12 @@ $accessToken = $tokenResponse.access_token
 -----
 
 For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
+
 ## <a name="remove"></a>Remove an identity
 
 When you remove a system-assigned identity, it's deleted from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when you delete the app resource itself.
+
+To remove a managed identity from your app or slot, you need write permissions over that app or slot. The [Website Contributor] role provides these permissions.
 
 # [Azure portal](#tab/portal)
 
@@ -453,3 +475,11 @@ The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens.
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
 - [Call Microsoft Graph securely using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
 - [Connect securely to services with Key Vault secrets](tutorial-connect-msi-key-vault.md)
+
+[create-user-assigned]: /entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity
+[role-assignment]: ../role-based-access-control/role-assignments-steps.md
+[Managed Identity Contributor]: ../role-based-access-control/built-in-roles/identity.md#managed-identity-contributor
+[Managed Identity Operator]: ../role-based-access-control/built-in-roles/identity.md#managed-identity-operator
+[Website Contributor]: ../role-based-access-control/built-in-roles/web-and-mobile.md#website-contributor
+[Role Based Access Control Administrator]: ../role-based-access-control/built-in-roles/privileged.md#role-based-access-control-administrator
+[User Access Administrator]: ../role-based-access-control/built-in-roles/privileged.md#user-access-administrator
