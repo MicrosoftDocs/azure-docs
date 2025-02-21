@@ -18,7 +18,7 @@ zone_pivot_groups: acs-plat-web-windows-android-ios
 # Quickstart: Mirror local preview
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirrorings-windows.md)]
+[!INCLUDE [Local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirroring-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
