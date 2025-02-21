@@ -84,9 +84,9 @@ To create a new Spring Boot project:
 
 ## Connect to an App Configuration store
 
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 1. Navigate to the `resources` directory of your app and open the `bootstrap.properties` or `bootstrap.yaml` file. If the file doesn't exist, create it.
     
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     If you're using a properties file, use the following code:
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
