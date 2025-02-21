@@ -90,7 +90,7 @@ items:
       items:
       - name: Overview
         href: ./ag/bot-protection-overview.md
-      - name: Bot protection
+      - name: Configure bot protection
         href: ./ag/bot-protection.md
     - name: WAF engine
       href: ./ag/waf-engine.md
