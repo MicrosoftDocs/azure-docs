@@ -16,6 +16,8 @@ items:
     items:
     - name: Web Application Firewall on Azure Front Door
       href: ./afds/afds-overview.md
+    - name: FAQ
+      href: ./afds/waf-faq.yml
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
 - name: Deploy
@@ -36,7 +38,7 @@ items:
       href: ./ag/quick-create-template.md
   - name: Front Door
     items:
-    - name: Configure WAF policy - portal
+    - name: Create WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
 - name: Configure
   items:
@@ -89,7 +91,7 @@ items:
       - name: Overview
         href: ./ag/bot-protection-overview.md
       - name: Bot protection
-      href: ./ag/bot-protection.md
+        href: ./ag/bot-protection.md
     - name: WAF engine
       href: ./ag/waf-engine.md
     - name: Rate limiting
@@ -98,14 +100,6 @@ items:
         href: ./ag/rate-limiting-overview.md
       - name: Create rate limiting rules
         href: ./ag/rate-limiting-configure.md
-    - name: Best practices
-      href: ./ag/best-practices.md
-    - name: Resource logs
-      href: ./ag/web-application-firewall-logs.md
-    - name: Monitoring and logging
-      href: ./ag/application-gateway-waf-metrics.md
-    - name: Troubleshoot
-      href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
     items:
     - name: Tuning
@@ -118,54 +112,15 @@ items:
       href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
-    - name: Sensitive Data Protection
-      href: ./afds/waf-sensitive-data-protection-frontdoor.md
     - name: Rate limiting
       href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
     - name: Best practices
       href: ./afds/waf-front-door-best-practices.md
-    - name: FAQ
-      href: ./afds/waf-faq.yml
-- name: Security
-  items:
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
-  - name: Sensitive Data Protection
-    href: ./ag/waf-sensitive-data-protection.md
-  - name: Mask sensitive data
-    href: ./ag/waf-sensitive-data-protection-configure.md
-  - name: Application DDoS protection
-    href: ./shared/application-ddos-protection.md
-  - name: Microsoft Copilot for Security
-    href: waf-copilot.md
-  - name: WAF and Azure Policy
+
+  - name: Use Azure Policy
     href: ./shared/waf-azure-policy.md
-  - name: JavaScript challenge
-    href: waf-javascript-challenge.md
-- name: How-to guides
-  items:
-  - name: Front Door
-    items:
-    - name: Configure WAF policy - PowerShell
-      href: ./afds/waf-front-door-custom-rules-powershell.md
-    - name: Configure bot protection
-      href: ./afds/waf-front-door-policy-configure-bot-protection.md
-    - name: Configure exclusion lists
-      href: ./afds/waf-front-door-exclusion-configure.md
-    - name: Configure custom response code
-      href: ./afds/waf-front-door-configure-custom-response-code.md
-    - name: Configure IP restrictions
-      href: ./afds/waf-front-door-configure-ip-restriction.md
-    - name: Mask sensitive data
-      href: ./afds/waf-sensitive-data-protection-configure-frontdoor.md
-    - name: Configure rate limit
-      href: ./afds/waf-front-door-rate-limit-configure.md
-    - name: Configure a geo-filtering WAF policy
-      href: ./afds/waf-front-door-tutorial-geo-filtering.md
-    - name: Monitoring and logging
-      href: ./afds/waf-front-door-monitor.md
   - name: Configure policies using Firewall Manager
     href: ./shared/manage-policies.md
   - name: Protect APIs hosted in APIM using Web Application Firewall
@@ -180,22 +135,66 @@ items:
     href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
-- name: Troubleshoot
+- name: How-to guides
   items:
-  - name: Troubleshoot WAF
-    href: ./ag/web-application-firewall-troubleshoot.md
-  - name: Log analytics
-    href: ./ag/log-analytics.md
+  - name: Front Door
+    items:
+    - name: Configure WAF policy - PowerShell
+      href: ./afds/waf-front-door-custom-rules-powershell.md
+    - name: Configure bot protection
+      href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure exclusion lists
+      href: ./afds/waf-front-door-exclusion-configure.md
+    - name: Configure custom response code
+      href: ./afds/waf-front-door-configure-custom-response-code.md
+    - name: Configure IP restrictions
+      href: ./afds/waf-front-door-configure-ip-restriction.md
+    - name: Configure rate limit
+      href: ./afds/waf-front-door-rate-limit-configure.md
+    - name: Configure a geo-filtering WAF policy
+      href: ./afds/waf-front-door-tutorial-geo-filtering.md
+    - name: Monitoring and logging
+      href: ./afds/waf-front-door-monitor.md
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+  - name: Sensitive Data Protection
+    items:
+      - name: Application Gateway
+        items:
+        - name: Overview
+          href: ./ag/waf-sensitive-data-protection.md
+        - name: Mask sensitive data
+          href: ./ag/waf-sensitive-data-protection-configure.md
+      - name: Front Door
+        items:
+        - name: Overview
+          href: ./afds/waf-sensitive-data-protection-frontdoor.md
+        - name: Mask sensitive data
+          href: ./afds/waf-sensitive-data-protection-configure-frontdoor.md
+  - name: Application DDoS protection
+    href: ./shared/application-ddos-protection.md
+  - name: Microsoft Copilot for Security
+    href: waf-copilot.md
+  - name: JavaScript challenge
+    href: waf-javascript-challenge.md
+- name: Operational excellence
+  items:
+  - name: Application Gateway
+    items:
+    - name: Best practices
+      href: ./ag/best-practices.md
+    - name: Resource logs
+      href: ./ag/web-application-firewall-logs.md
+    - name: Monitoring and logging
+      href: ./ag/application-gateway-waf-metrics.md
+    - name: Log analytics
+      href: ./ag/log-analytics.md
+    - name: Troubleshoot
+      href: ./ag/web-application-firewall-troubleshoot.md
 - name: Reference
   items:
-  - name: Azure CLI
-    items:
-    - name: Front Door
-      href: /cli/azure/network/front-door/waf-policy
-    - name: Application Gateway
-      href: /cli/azure/network/application-gateway
-    - name: CDN
-      href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: Azure PowerShell
     items:
     - name: Front Door
@@ -204,6 +203,14 @@ items:
       href: /powershell/module/az.network/#application_gateway
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
+  - name: Azure CLI
+    items:
+    - name: Front Door
+      href: /cli/azure/network/front-door/waf-policy
+    - name: Application Gateway
+      href: /cli/azure/network/application-gateway
+    - name: CDN
+      href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: REST API
     items:
     - name: Front Door
