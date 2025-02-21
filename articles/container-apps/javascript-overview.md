@@ -256,7 +256,7 @@ Regularly update your dependencies to avoid security vulnerabilities. Use tools 
 
 ## Error handling
 
-Implement robust error handling in your Node.js application. Use middleware in Express to handle errors gracefully.
+Implement robust error handling in your Node.js application. Use middleware in Express or Fastify to handle errors gracefully.
 
 ```typescript
 // src/middleware/errorHandler.ts
