@@ -3,7 +3,7 @@ title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: jojohpm
 ms.author: jojoh
-ms.date: 01/07/2025
+ms.date: 02/20/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -114,7 +114,7 @@ Note: A template simplifies export creation by preselecting a set of commonly us
 6. Specify the storage container and directory path for the export file.
 7. Choose the **Format** as CSV or Parquet.
 8. Choose the **Compression type** as **None**, **Gzip** for CSV file format, or **Snappy** for the parquet file format. 
-9. **File partitioning** is enabled by default. It splits large files into smaller ones.
+9. **File partitioning** is enabled by default. It splits large files into smaller ones and can't be disabled.
 10. **Overwrite data** is enabled by default. For daily exports, it replaces the previous day's file with an updated file.
 11. Select **Next** to move to the **Review + create** tab.  
     :::image type="content" source="./media/tutorial-improved-exports/new-export-example.png" border="true" alt-text="Screenshot showing the New export dialog." lightbox="./media/tutorial-improved-exports/new-export-example.png" :::
