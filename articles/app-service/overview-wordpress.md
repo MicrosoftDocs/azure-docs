@@ -5,15 +5,26 @@ keywords: app service, azure app service, wordpress, preview, app service on lin
 author: msangapu-msft
 ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 12/10/2024
+ms.date: 2/21/2025
 # ms.devlang: wordpress
 ms.author: msangapu
 ms.subservice: wordpress
 ms.custom: mvc, linux-related-content
+ms.collection: ce-skilling-ai-copilot
 #customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.
 ---
 
 # What is WordPress on App Service?
+
+> [!TIP]
+>
+> You can also ask Azure Copilot these questions:
+>
+> - *what are the pricing options for wordpress on app service?*
+> - *What are the benefits of using Azure App Service for WordPress?*
+> - *How does wordpress on app service compare with wordpress on AKS?*
+>
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 [WordPress](https://www.wordpress.org) is an open-source Content Management System (CMS) that powers over 40% of the web, allowing users to create and manage websites, blogs, and e-commerce platforms. **WordPress on Azure App Service** provides a **fully managed hosting solution** that allows users to focus on creating content while **Azure handles infrastructure, security, and performance optimizations**. This offering integrates key Azure services such as:
 
