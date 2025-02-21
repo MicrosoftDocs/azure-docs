@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # Quickstart: How to assign a role to an Entra application for SMTP authentication
 
-In this quick start, you learn about how to use an Entra application to create the authentication credentials for using SMTP to send an email using Azure Communication Services.
+In this quick start, you learn about how to use an Entra application to create the authentication credentials for using Simple Mail Transfer Protocol (SMTP) to send an email using Azure Communication Services.
 
 ## Prerequisites
 
@@ -24,20 +24,20 @@ In this quick start, you learn about how to use an Entra application to create t
 
 ## Using a Microsoft Entra Application for SMTP authentication
 
-Application developers who build apps that send email using the SMTP protocol need to implement secure, modern authentication. Azure Communication Services does this by leveraging Microsoft Entra application service principals. Combining the Azure Communication Services Resource and the Microsoft Entra application service principal's information, the SMTP services undertakes authentication with Microsoft Entra on the user's behalf to ensure a secure and seamless email transmission. After creating a Microsoft Entra application, the application is linked to the Communication Service resource by creating an SMTP Username resource. SMTP Username resources are user-defined and can be either use an email format or be freeform. If an SMTP username uses the email format, the domain must be one of the Communication Service resource's linked domains. The Microsoft Entra application must also be given access to the Communication resource using either a built-in role or a custom role with the required permissions.
+Application developers who build apps that send email using the SMTP protocol need to implement secure, modern authentication. Azure Communication Services uses Microsoft Entra application service principals to provide secure authentication. Combining the Azure Communication Services Resource and the Microsoft Entra application service principal's information, the SMTP services undertakes authentication with Microsoft Entra on the user's behalf to ensure a secure and seamless email transmission. After creating a Microsoft Entra application, the application is linked to the Communication Service resource by creating an SMTP Username resource. SMTP Username resources are user-defined and can be either use an email format or be freeform. If an SMTP username uses the email format, the domain must be one of the Communication Service resource's linked domains. The Microsoft Entra application must also be given access to the Communication resource using either a built-in role or a custom role with the required permissions.
 
 ## Creating an SMTP Username using the Azure Portal
 1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
     :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
 1. Click **+Add* SMTP Username* and then select the Entra application. The username can be cursom text or an email address.
     :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
-1. The SMTP Username will now appear in the list. The status will be **Ready to use** if all of the requirements for sending an email using the username and SMTP have been met.
+1. Verify the SMTP Username is in the list. The status will be **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
     :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
 
 ## Assigning the built-in 'Communication and Email Service Owner' role to the Microsoft Entra application
 The **Communication and Email Service Owner** role can be assigned to an Entra application to give it access to a Communication Service resource.
 
-1. In the portal, navigate to the Azure Communication Service Resource that will be used to send emails using SMTP and then open **Access control (IAM)**.
+1. In the portal, navigate to the Azure Communication Service Resource used to send emails using SMTP and then open **Access control (IAM)**.
     :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control for the Communication resource.":::
 1. Click **+Add** and then select **Add role assignment**.
     :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment for the Communication resource.":::
@@ -96,7 +96,7 @@ The password is one of the Microsoft Entra application's client secrets.
 
 ## Requirements for SMTP AUTH client submission
 
-- **Authentication**: Username and password authentication is supported using an SMTP username that is linked to a Microsoft Entra application details. The Azure Communication Services SMTP service will use the Microsoft Entra application details to get an access token on behalf of the user and use that to submit the email. Because the Microsoft Entra is used, access can be revoked immediately by either changing the Microsoft Entra by changing the access controls for the Azure Communication Services Resource.
+- **Authentication**: Username and password authentication is supported using an SMTP username that is linked to a Microsoft Entra application details. The Azure Communication Services SMTP service will use the Microsoft Entra application details to get an access token on behalf of the user and use that to submit the email.
 - **Azure Communication Service**: An Azure Communication Services Resource with a connected Azure Communication Email Resource and domain is required.
 - **Transport Layer Security (TLS)**: Your device must be able to use TLS version 1.2 and above.
 - **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
