@@ -100,7 +100,7 @@ Here's an example of the `ThreatIntelligenceIndicators` table.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png" alt-text="Screenshot that shows the ThreatIntelligenceIndicator table showing indicator with SourceSystem of Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-logs.png":::
 
-Here's an example of the **Threat Intelligence** page.
+Here's an example of searching for the indicators in the management interface.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png" alt-text="Screenshot that shows the Threat Intelligence overview with indicator selected showing the source as Microsoft Threat Intelligence Analytics." lightbox="media/use-matching-analytics-to-detect-threats/matching-analytics-threat-intelligence.png":::
 
@@ -110,7 +110,7 @@ Along with high-fidelity alerts and incidents, some Microsoft Defender Threat In
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot that shows an incident with a link to the Microsoft Defender Threat Intelligence reference article.":::
 
-For more information, see [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti).
+For more information, see [Searching and pivoting with Intel Explorer](/defender/threat-intelligence/searching-and-pivoting).
 
 ## Related content
 
