@@ -238,6 +238,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [How frequently does RDB and AOF persistence write to my blobs, and should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 - [Will having firewall exceptions on the storage account affect persistence](#will-having-firewall-exceptions-on-the-storage-account-affect-persistence)
 - [How do I check if soft delete is enabled on my storage account?](#how-do-i-check-if-soft-delete-is-enabled-on-my-storage-account)
+- [Can I choose to use a storage account in a different subscription than the one in which my cache is located?](#Can-I-choose-to-use-a-storage-account-in-a-different-subscription-than-the-one-in-which-my-cache-is-located)
 
 ### RDB persistence
 
@@ -368,6 +369,10 @@ With the Premium tier, you can't use Append-only File (AOF) persistence with mul
 ### How do I check if soft delete is enabled on my storage account?
 
 Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of _Enable soft delete for blobs_. For more information on soft delete in Azure storage accounts, see [Enable soft delete for blobs](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal).
+
+### Can I choose to use a storage account in a different subscription than the one in which my cache is located?
+
+You can choose a storage account in a different subscription only if you're using managed identity as the authentication method.
 
 ## Next steps
 
