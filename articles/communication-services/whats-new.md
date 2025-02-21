@@ -43,20 +43,20 @@ SmsClient smsClient = new SmsClient(connectionString);
 smsClient.OptOuts.Add("<from-phone-number>", new List<string> { "<to-phone-number1>", "<to-phone-number2>" });
 ```
 
-#### Get Started with the Opt-Out Management API
+#### Get started with opt-Out management
 
 For more information, see:
 
 - [Short Message Service (SMS) Opt-Out Management API for Azure Communication Services](./concepts/sms/opt-out-api-concept.md).
 - [Send OptOut API requests with API using hash message authentication code (HMAC)](./quickstarts/sms/opt-out-api-quickstart.md).
 
-### Real Time Text (RTT)
+### Real-time text (RTT)
 
-Real-time text (RTT) is a system for transmitting text over the internet. RTT enables the recipient to receive and display the text at the same rate as it is being produced without the user needing to press send. This ability provides the effect of immediate and continuous communication.
+Real-time text (RTT) is a system for transmitting text over the internet. RTT enables the recipient to receive and display the text at the same rate as it is being produced without the user pressing send. This ability provides the effect of immediate and continuous communication.
 
 :::image type="content" source="media/whats-new-images/rtt-demo.gif" alt-text="Animated image simulating real time text between people in a meeting and a person using a mobile device.":::
 
-Unlike traditional chat messaging, in which the recipient sees the full message only after it's completed and sent, RTT provides an immediate and continuous stream of communication.
+Unlike traditional chat messaging, in which the recipient sees the full message only after it is completed and sent, RTT provides an immediate and continuous stream of communication.
 
 For example, in a video or voice call, a user typing "Hello, how are you?" sees each character appear on the recipient’s screen as they type: "H," then "He," then "Hel," and so on. This messaging of text creates a dynamic, conversational experience that mirrors spoken communication. 
 
@@ -87,13 +87,13 @@ Azure Communication Services is committed to providing solutions that meet these
 
 Multitasking is an essential part of how we work and communicate today. With this in mind, Azure Communication Services introduces picture-in-picture (PiP) mode for video calling applications. This powerful feature enhances user experience by enabling a video stream to continue in a floating, movable window while users navigate other applications on their devices.
 
-:::image type="content" source="media/whats-new-images/picture-in-picture.png" alt-text="Screen capture of a mobile device using picture-in-picture." lightbox="media/whats-new-images/picture-in-picture.png":::
+:::image type="content" source="media/whats-new-images/picture-in-picture.png" alt-text="Animation of a mobile device using picture-in-picture mode." lightbox="media/whats-new-images/picture-in-picture.png":::
 
 #### Why we need picture-in-picture (PiP) mode
 
 PiP mode lets users keep their video calls visible and uninterrupted as they switch between apps or multitask. For example, healthcare professionals can input electronic health records (EHR) in Epic while maintaining video communication with patients. Similarly, users in industries like banking or customer service can seamlessly switch to other tasks without ending the call.
 
-#### How It Works
+#### How it works
 
 The Native Calling SDK and UI make it simple to implement PiP in your app. It provides built-in features to:
 
@@ -107,7 +107,7 @@ PiP keeps calls active in both the foreground and background. This ability ensur
 - Switch between video streams.
 - Return to the calling experience instantly via the floating PiP window.
 
-#### Why PiP Matters
+#### Why PiP matters
 
 A traditional full-screen video UI can limit multitasking, but PiP empowers users to stay productive without sacrificing connectivity. Key benefits include:
 
@@ -129,7 +129,7 @@ Explicit consent for Teams meetings recording and transcription is now generally
 
 When a Teams meeting recording or transcription is initiated, participants' microphones and cameras are disabled until they provide consent using the new Azure Communication Services API. Once consent is given, participants can unmute and enable their cameras.
 
-If a user joins a meeting already in progress, they follow the same procedure. However, this feature isn't supported in Android, iOS, or Windows calling SDK, nor in the Web and Mobile UI library. It's only supported in Teams meetings and Teams group calls, with plans to expand within the broader Azure Communication Services ecosystem.
+If a user joins a meeting already in progress, they follow the same procedure. However, this feature isn't supported in Android, iOS, or Windows calling SDK, nor in the Web and Mobile UI library. Explicit consent is only supported in Teams meetings and Teams group calls, with plans to expand within the broader Azure Communication Services ecosystem.
 
 To implement explicit consent for recording and transcription in your Teams meetings, you can use the following sample code to check if consent is required and to grant consent:
 
@@ -144,7 +144,7 @@ For more information, see [Manage call recording on the client > Explicit consen
 
 Breakout rooms are now available in the Web Calling SDK, enhancing flexibility and collaboration in online meetings. This feature allows participants to join smaller, focused groups within a larger meeting, boosting productivity and engagement. Whether it's dividing students into small groups for focused discussions, ensuring private and confidential discussions with clients, or conducting virtual consultations with private patient discussions, breakout rooms offer versatile and useful applications.
 
-Breakout rooms enable participants to join an another call linked to the main meeting. Users can join and return to the main room as set by the organizers. Participants can view members, engage in chat, and see details of the breakout room. Breakout room managers can access specific room information and join them.
+Breakout rooms enable participants to join another call linked to the main meeting. Users can join and return to the main room as set by the organizers. Participants can view members, engage in chat, and see details of the breakout room. Breakout room managers can access specific room information and join them.
 
 :::image type="content" source="media/whats-new-images/breakout-rooms-calling-sdk.png" alt-text="Screenshot of Microsoft Teams breakout rooms using the web Calling SDK." lightbox="media/whats-new-images/breakout-rooms-calling-sdk.png":::
 
@@ -156,7 +156,7 @@ For more information, see [Breakout rooms](how-tos/calling-sdk/breakoutrooms.md)
 
 Teams admins can now view Azure Communication Services survey data in Teams support tools.
 
-When your Azure Communication Services SDKs submit a survey as part of any [Teams interop meeting scenario](how-tos/calling-sdk/teams-interoperability.md), the survey data is now available through the Teams meeting organizer's support tools.  capability is in addition to the Azure Communication Services admins access in the Azure Monitor logs.
+When your Azure Communication Services SDKs submit a survey as part of any [Teams interop meeting scenario](how-tos/calling-sdk/teams-interoperability.md), the survey data is now available through the Teams meeting organizer's support tools. This capability is in addition to the Azure Communication Services admins access in the Azure Monitor logs.
 
 This update enables Teams admins analyze subjective quality feedback from their Azure Communication Services meeting participants alongside their Teams participants. The specific Teams survey dimensions are referred to as ‘rating’ and can be located here.
 
