@@ -4,7 +4,7 @@ description: Learn about the tools and resources needed to run JavaScript applic
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-js
 ms.topic: conceptual
 ms.date: 02/14/2025
 ms.author: cshoe
@@ -32,15 +32,15 @@ AZURE_COSMOS_DB_ENDPOINT=https://your-cosmos-db.documents.azure.com:443/
 A well-configured Dockerfile is essential for containerizing your application:
 * **Common Setup – Use a Base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
 * **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development or production.
-* **Optimized Base Image – Node.js Variant**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead.
-* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container.
+* **Optimized Base Image – Node.js Variant**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead. The development environment can add dependencies in its own Dockerfile.
+* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
 * **Multi-stage Builds – Separate Build and Runtime**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
 * **Prebuild Artifacts – Compile/Bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can further minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile will also optimize caching and rebuild times.
 * **Development Environments – Docker Compose**: Use Docker Compose for development environments. Docker Compose allows you to define and run multi-container Docker applications, which can be useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services if necessary.
 
 ### Base Dockerfile
 
-This file serves as a common starting point for your Node.js images. You can use it with a FROM directive in your other Dockerfiles.
+This file serves as a common starting point for your Node.js images. You can use it with a FROM directive in your other Dockerfiles. Use either a version number or a commit to support the most up to date and secure version of the image. 
 
 ```yaml
 # Dockerfile.base
@@ -81,6 +81,8 @@ docker build \
 
 In this build, the environment variables PORT and ENABLE_DEBUG are set to 4000 and true, respectively, instead of their default values.
 
+Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+
 ### Development environment with Docker Compose
 
 This configuration uses a dedicated development Dockerfile (Dockerfile.dev) along with volume mounts for live reloading and local source sync.
@@ -115,7 +117,7 @@ PORT=4000 ENABLE_DEBUG=true docker compose up
 
 ### Production Dockerfile
 
-This multi-stage Dockerfile builds your application and produces a lean runtime image. 
+This multi-stage Dockerfile builds your application and produces a lean runtime image. Make sure to have your `.dockerignore` already in our source code so that the `COPY . .` command doesn't copy in any files specific to the development environment you don't need in production. 
 
 ```yaml
 # Stage 1: Builder
@@ -159,6 +161,9 @@ To run a container from the built production image with custom environment varia
 ```bash
 docker run -e PORT=4000 -e ENABLE_DEBUG=true -p 4000:4000 -p 9229:9229 my-production-image:latest
 ```
+
+For production builds, make sure you use the correct version tag, which may not be `latest`. Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
+
 
 ## Deployment
 * Continuous Integration/Continuous Deployment (CI/CD) - Set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
@@ -206,7 +211,7 @@ docker run -e PORT=4000 -e ENABLE_DEBUG=true -p 4000:4000 -p 9229:9229 my-produc
             --env-vars NODE_ENV=production PORT=3000
     ```
 
-* Docker Registry - Push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
+* Docker Registry - Sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
 
     ```bash
     # Tag the image
@@ -267,10 +272,11 @@ export function errorHandler(err: any, req: Request, res: Response, next: NextFu
 
 Properly shutting down your application is crucial to ensure that in-flight requests complete and resources are released correctly. This helps prevent data loss and maintains a smooth user experience during deployments or scale-in events. The following example demonstrates one approach using Node.js and Express to handle shutdown signals gracefully. 
 
-```javascript
-const express = require('express');
+```typescript
+import express from 'express';
+import healthRouter from './health.js';
+
 const app = express();
-const healthRouter = require('./health');
 
 app.use(healthRouter);
 
@@ -283,7 +289,7 @@ process.on('SIGTERM', () => {
     console.log('Server closed');
     process.exit(0);
   });
-  
+
   // Force close after 30s
   setTimeout(() => {
     console.error('Could not close connections in time, forcing shutdown');
