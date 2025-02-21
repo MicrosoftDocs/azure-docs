@@ -39,8 +39,6 @@
       href: manage-ddos-ip-protection-template.md
   - name: Switch tiers
     href: ddos-switch-ddos-protection-tier.md
-  - name: Manage permissions and restrictions
-    href: manage-permissions.md
 - name: Deploy
   items:
   - name: Deploy Route Server with DDoS Protection
@@ -77,6 +75,8 @@
     href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
   - name: Onboard partners
     href: ddos-protection-partner-onboarding.md
+  - name: Manage permissions and restrictions
+    href: manage-permissions.md
 - name: Operational excellence
   items:
   - name: Configure Monitoring and Logging
