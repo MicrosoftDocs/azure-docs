@@ -54,7 +54,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Select tamper-proof hardware for assets**: Choose asset hardware with built-in mechanisms to detect physical tampering, such as the opening of the device cover or the removal of a part of the device. These tamper signals can be part of the data stream uploaded to the cloud, alerting operators to these events.
 
-- **Enable secure updates for asset firmware**: Use services like Device Update for IoT Hub for over-the-air updates for your assets. Build assets with secure paths for updates and cryptographic assurance of firmware versions to secure your assets during and after updates.
+- **Enable secure updates for asset firmware**: Use services that enable over-the-air updates for your assets. Build assets with secure paths for updates and cryptographic assurance of firmware versions to secure your assets during and after updates.
 
 - **Deploy asset hardware securely**: Ensure that asset hardware deployment is as tamper-proof as possible, especially in unsecure locations such as public spaces or unsupervised locales. Only enable necessary features to minimize the physical attack footprint, such as securely covering USB ports if they are not needed.
 
