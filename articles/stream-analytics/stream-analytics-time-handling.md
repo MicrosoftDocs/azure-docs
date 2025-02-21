@@ -1,11 +1,11 @@
 ---
 title: Understand time handling in Azure Stream Analytics
 description: Learn how to choose the best start time, handle late and early events, and about time handling metrics in Azure Stream Analytics.
-author: xujxu
-ms.author: xujiang1
+author: ahartoon
+ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 12/17/2024
+ms.date: 02/19/2025
 ---
 
 # Understand time handling in Azure Stream Analytics
@@ -133,7 +133,7 @@ You can observe a number of the Event ordering time tolerance effects through [A
 
 ## Watermark delay details
 
-The **Watermark delay** metric is computed as the wall clock time of the processing node minus the largest watermark it has seen so far. For more information, see the [watermark delay blog post](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/).
+The **Watermark delay** metric is computed as the wall clock time of the processing node minus the largest watermark it has seen so far. For more information, see [watermark delay](./stream-analytics-job-analysis-with-metric-dimensions.md)
 
 There can be several reasons this metric value is larger than 0 under normal operation:
 

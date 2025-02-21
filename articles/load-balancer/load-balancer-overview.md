@@ -6,13 +6,16 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 06/18/2024
+ms.date: 02/19/2024
 ms.author: mbender
 ms.custom: template-overview, engagement-fy23
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ---
 
 # What is Azure Load Balancer?
+
+>[!Important]
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
 *Load balancing* refers to efficiently distributing incoming network traffic across a group of backend servers or resources.
 
@@ -25,6 +28,8 @@ Alternatively, an [internal (or private) load balancer](./components.md#frontend
 :::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram that depicts a load balancer directing traffic.":::
 
 For more information on the service's individual components, see [Azure Load Balancer components](./components.md).
+
+Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. For more information, see [Azure Load Balancer SKUs](skus.md).
 
 ## Why use Azure Load Balancer?
 
@@ -74,9 +79,9 @@ Key scenarios that you can accomplish by using Azure Standard Load Balancer incl
 
 ## Pricing and SLA
 
-For Standard Load Balancer pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements (SLAs), see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
+For [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements (SLAs), see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
 
-Basic Load Balancer is offered at no charge and has no SLA.
+Basic Load Balancer is offered at no charge and has no SLA. Also, it will be retired on September 30, 2025.
 
 ## What's new?
 

@@ -78,7 +78,7 @@ You can use Azure AI services with the Chat service to build use cases like:
 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Generate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
-- Add a [Power Virtual Agent](https://powervirtualagents.microsoft.com/en-us/) (PVA) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/power-virtual-agents/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
+- Add an [Agent](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio/) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
 - Configure a bot to run on one or more social channels alongside the Chat channel.
 
 :::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
@@ -152,6 +152,9 @@ For more information, see [Push Notifications](../notifications.md).
 > [!div class="nextstepaction"]
 > [Get started with chat](../../quickstarts/chat/get-started.md)
 
+
 ## Related articles
 
 - Familiarize yourself with the [Chat SDK](./sdk-features.md)
+- Access control for participants on a thread using [Identity and Tokens](../identity-model.md)
+- Build an application or a mobile app with [UI Library](../ui-library/ui-library-overview.md)

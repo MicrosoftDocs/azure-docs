@@ -171,7 +171,7 @@ param bgpPeers array = []
 param fabricPeeringEnabled string = 'False'
 
 
-resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2024-07-01' = {
+resource kubernetescluster 'Microsoft.NetworkCloud/kubernetesClusters@2025-02-01' = {
   name: kubernetesClusterName
   location: location
   tags: tags

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 01/14/2025
 ms.author: anfdocs
 ---
 # Manage a manual QoS capacity pool
@@ -40,7 +40,7 @@ You can change a capacity pool that currently uses the auto QoS type to use the 
 
 ## Monitor the throughput of a manual QoS capacity pool  
 
-Metrics are available to help you monitor the read and write throughput of a volume.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
+Metrics are available to help you monitor the read and write throughput of a volume. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
 
 ## Modify the allotted throughput of a manual QoS volume 
 

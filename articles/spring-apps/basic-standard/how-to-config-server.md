@@ -1,5 +1,5 @@
 ---
-title: Configure your managed Spring Cloud Config Server
+title: Configure Your Managed Spring Cloud Config Server
 titleSuffix: Azure Spring Apps
 description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal
 author: KarlErickson
@@ -286,7 +286,7 @@ This section shows you how to enter repository information for a public or priva
 Use the following steps to enter repo information for a public repository:
 
 1. In the **Default repository** section, in the **Uri** box, paste the repository URI.
-1. For the **Label** setting, enter *config*.
+1. For the **Label** setting, enter **config**.
 1. Ensure that the **Authentication** setting is **Public**.
 1. Select **Apply**.
 
@@ -484,7 +484,7 @@ Use the following steps to automatically refresh values from Config Server:
    }
    ```
 
-1. Enable autorefresh and set the appropriate refresh interval in your *application.yml* file. In the following example, the client polls for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
+1. Enable autorefresh and set the appropriate refresh interval in your **application.yml** file. In the following example, the client polls for configuration changes every 60 seconds, which is the minimum value you can set for a refresh interval.
 
    By default, autorefresh is set to `false` and the refresh-interval is set to `60 seconds`.
 

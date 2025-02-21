@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 01/24/2025
+ms.date: 01/27/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -61,7 +61,6 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
   - If your storage account contains more than 100 containers, you need to select *up to 100 containers* to back up.
   - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
-- Currently, you can perform only *one backup* per day (that includes scheduled and on-demand backups). Backup fails if you attempt to perform more than one backup operation a day.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
 - Cool and archived blobs are currently not supported.
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).

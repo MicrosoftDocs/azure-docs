@@ -11,6 +11,9 @@ ms.custom: template-how-to
 
 # Add students to a lab in the Azure Education Hub with REST APIs
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 This article walks through how to add students to a lab in the Azure Education Hub by using REST APIs.
 
 ## Prerequisites

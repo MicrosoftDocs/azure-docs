@@ -124,7 +124,7 @@ You may also want to:
 - [Check UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Azure Azure Communication Services end user Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)
