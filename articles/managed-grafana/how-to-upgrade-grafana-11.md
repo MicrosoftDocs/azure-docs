@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Upgrade to Grafana 11
 
-Azure Managed Grafana will stop offering Grafana 10 as a supported software version on July 31, 2025. This guide provides information about the retirement of Grafana 10 and shows you how to update your Azure Managed Grafana workspace to Grafana 11.
+Azure Managed Grafana will stop offering Grafana 10 as a supported software version on July 31, 2025. This guide provides information about the retirement of Grafana 10 and guides you through updating your Azure Managed Grafana workspace to Grafana 11.
 
 > [!IMPORTANT]
 > We recommend that you upgrade your workspace to Grafana 10 before August 2025. In August 2025, if your workspace is still running Grafana version 10, it will be automatically upgraded to Grafana 11.
@@ -62,6 +62,9 @@ The version number is listed in the output after `grafanaMajorVersion`. If versi
 
 Upgrade from Grafana 10 to Grafana 11 by following the steps below.
 
+> [!IMPORTANT]  
+> Grafana 11 includes significant breaking changes. Make sure to review the [Grafana Breaking changes in Grafana v11.0](https://grafana.com/docs/grafana/latest/breaking-changes/breaking-changes-v11-0/) article thoroughly before upgrading your workspace.
+
 > [!CAUTION]  
 > Upgrading to Grafana 11 is irreversible.
 
@@ -69,7 +72,7 @@ Upgrade from Grafana 10 to Grafana 11 by following the steps below.
 
 In the Azure portal:
 
-1. Open your Azure Managed Grafana workspace and in the left menu, under **Settings**, select **Configuration**.
+1. Once you have reviewed the breaking changes in Grafana 11 and are ready to proceed with the upgrade, open your workspace and select **Settings** > **Configuration** from the left menu.
 1. Under **Grafana Version**, select **11**.
 1. Select **Save** on top to save the new settings and trigger the upgrade to Grafana version 11.
 
@@ -81,7 +84,7 @@ In the Azure portal:
 
 In the Azure CLI:
 
-1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command and replace `<azure-managed-grafana-workspace>` with the name of your Azure Managed Grafana workspace.
+1. Once you have reviewed the breaking changes in Grafana 11 and are ready to proceed with the upgrade, run the [az grafana update](/cli/azure/grafana#az-grafana-update) command and replace `<azure-managed-grafana-workspace>` with the name of your Azure Managed Grafana workspace.
 
     ```azurecli
     az grafana update --name <azure-managed-grafana-workspace> --major-version 11
@@ -92,7 +95,7 @@ In the Azure CLI:
 
 ## Next step
 
-In this how-to guide, you learned how to upgrade your Azure Managed Grafana workspace from Grafana 10 to Grafana 11. If needed, go to the following guide for support.
+In this article, you have been guided through upgrading your Azure Managed Grafana workspace from Grafana 10 to Grafana 11. If needed, go to the following guide for additional support.
 
 > [!div class="nextstepaction"]
 > [Find help or open a support ticket](./find-help-open-support-ticket.md)
