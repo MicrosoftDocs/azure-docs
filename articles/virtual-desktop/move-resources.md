@@ -9,7 +9,9 @@ ms.custom: docs_inherited
 ---
 # Move Azure Virtual Desktop resource between regions
 
-In this article, we'll tell you how to move Azure Virtual Desktop resources between Azure regions.
+In this article, we'll guide you how to move Azure Virtual Desktop resources between Azure regions. 
+
+Pooled and persistent VMs require different approaches. For pooled VMs, follow the guidance to redeploy the host pool, then delete the old one. Profiles, custom images, and shared resources will need additional attention. For persistent VMs require special handling and may need to be copied between regions if necessary. To ensure a smooth transition, consider an intermediate step, such as an active-active period, to fully test the environment before completing the migration.
 
 >[!NOTE]
 >This process doesn't perform an actual resource move. Instead, you delete the old resources and recreate them in the region you want to move the resources to. We recommend you test this process before using it on production workloads to understand how it will impact your deployment.
@@ -43,8 +45,10 @@ To export a template:
 2. Once you've selected the resource group, go to **Overview** > **Resources** and select all the resources you want to move.
 
 3. Select the **...** button in the upper right-hand corner of the **Resources** tab. Once the drop-down menu opens, select **Export template**.
+![Select "Export template"](https://github.com/user-attachments/assets/54670114-ce5a-4f16-85d3-c55b18b207e5)
 
 4. Select **Download** to download a local copy of the generated template.
+![Select "Download"](https://github.com/user-attachments/assets/a5bc4034-b8cc-47f8-99ad-fb1a21331368)
 
 5. Right-click the zip file and select **Extract All**.
 
@@ -54,13 +58,14 @@ Next, you'll need to modify the template to include the region you're moving you
 
 To modify the template you exported:
 
-1. Open the template.json file you extracted from the zip folder and a text editor of your choice, such as Notepad.
+1. Open the *template.json* file you extracted from the zip folder and a text editor of your choice, such as Notepad.
 
-2. In each resource inside the template file, find the "location" property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+2. In each resource inside the template file, find the *"location"* property and modify it to the location you want to move them to. For example, if your deployment's currently in the East US region but you want to move it to the West US region, you'd change the "eastus" location to "westus." Ensure all of the *"location"* properties are updated. Learn more about which Azure regions you can use at [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#geographies).
+![Update the "location" property](https://github.com/user-attachments/assets/df8fbf1d-4c8f-4e9c-a5b8-a066c23cca50)
 
-3. If you are moving a host pool, remove the "publicNetworkAccess" parameter, if present.
+3. If you are moving a host pool, remove the *"publicNetworkAccess"* parameter, if present.
 
-## Delete original resources
+## Delete the original resources
 
 Once you have the template ready, you'll need to delete the original resources to prevent name conflicts.
 
@@ -69,10 +74,12 @@ To delete the original resources:
 1. Go back to the **Resources** tab mentioned in [Export a template](#export-a-template) and select all the resources you exported to the template.
 
 2. Next, select the **...** button again, then select **Delete** from the drop-down menu.
+![Select "Delete"](https://github.com/user-attachments/assets/11328a07-10ce-45c8-a259-a0567afccb19)
 
 3. If you see a message asking you to confirm the deletion, select **Confirm**.
 
 4. Wait a few minutes for the resources to finish deleting. Once you're done, they should disappear from the resource list.
+![Finish the deletion](https://github.com/user-attachments/assets/d1c04340-f02c-477d-bf95-138f236c9484)
 
 ## Deploy the modified template
 
@@ -81,17 +88,26 @@ Finally, you'll need to deploy your modified template in the new region.
 To deploy the template:
 
 1. In the Azure portal, search for and select **Deploy a custom template**.
+![Select "Deploy a custom template"](https://github.com/user-attachments/assets/987c0e08-df98-4692-b5be-ea08635d5c7c)
+
 2. In the custom deployment menu, select **Build your own template in the editor**.
+![Select "Build your own template in the editor"](https://github.com/user-attachments/assets/fc5a50f8-addd-4cb2-b8b8-d80e7cd29bc3)
+
 3. Next, select **Load file** and upload your modified template file. 
+![Select "Load file"](https://github.com/user-attachments/assets/40e4af63-7803-470d-a471-9947326030f6)
+
    
    >[!NOTE]
-   > Make sure to upload the template.json file, not the parameters.json file.
+   > Make sure to upload the *template.json* file, not the parameters.json file.
 
 4. When you're done uploading the template, select **Save**.
+![Select "Save"](https://github.com/user-attachments/assets/b4e0f7e9-fd7f-42f9-afa5-c6744fc3e0e1)
+
 5. In the next menu, select **Review + create**.
 6. Under **Instance details**, make sure the **Region** shows the region you changed the location to in [Modify the exported template](#modify-the-exported-template). If not, select the correct region from the drop-down menu.
 7. If everything looks correct, select **Create**.
 8. Wait a few minutes for the template to deploy. Once it's finished, the resources should appear in your resource list.
+![Finish the deployment](https://github.com/user-attachments/assets/6dda39c0-51c1-446a-ba52-e5ada48e3432)
 
 ## Next steps
 
