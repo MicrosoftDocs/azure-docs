@@ -201,7 +201,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP198' />BCP198 | Error | The tag "{badTag}" isn't valid. Valid characters are alphanumeric, ".", "_", or "-" but the tag can't begin with ".", "_", or "-". |
 | <a id='BCP199' />BCP199 | Error | Module path "{badRepository}" exceeds the maximum length of {maxLength} characters. |
 | <a id='BCP200' />BCP200 | Error | The registry "{badRegistry}" exceeds the maximum length of {maxLength} characters. |
-| <a id='BCP201' />BCP201 | Error | Expected a provider specification string of with a valid format at this location. Valid formats are "br:\<providerRegistryHost>/\<providerRepositoryPath>@\<providerVersion>" or "br/\<providerAlias>:\<providerName>@\<providerVersion>". |
+| <a id='BCP201' />[BCP201](./diagnostics/bcp201.md) | Error | Expected an extension specification string. This should either be a relative path, or a valid OCI artifact specification. |
 | <a id='BCP202' />BCP202 | Error | Expected a provider alias name at this location. |
 | <a id='BCP203' />BCP203 | Error | Using provider statements requires enabling EXPERIMENTAL feature "Extensibility". |
 | <a id='BCP204' />BCP204 | Error | Provider namespace "{identifier}" isn't recognized. |
