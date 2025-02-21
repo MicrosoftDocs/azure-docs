@@ -31,7 +31,7 @@ AZURE_COSMOS_DB_ENDPOINT=https://your-cosmos-db.documents.azure.com:443/
 
 A well-configured Dockerfile is essential for containerizing your application:
 * **Common Setup – Use a Base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
-* **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development or production.
+* **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
 * **Optimized Base Image – Node.js Variant**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead. The development environment can add dependencies in its own Dockerfile.
 * **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
 * **Multi-stage Builds – Separate Build and Runtime**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
