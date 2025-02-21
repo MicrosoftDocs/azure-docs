@@ -19,7 +19,7 @@ You can enrich data by using the *contextualization datasets* function. When inc
 
 To load sample data into the state store, use the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli).
 
-For example, consider the following dataset with a few records, using the JSON lines format:
+For example, consider the following dataset with a few records, using the [JSON lines format](https://jsonlines.org/):
 
 ```json
 { "Position": "Analyst", "BaseSalary": 70000, "WorkingHours": "Regular" }
