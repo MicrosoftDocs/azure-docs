@@ -237,7 +237,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP235' />BCP235 | Error | Specified JSONPath doesn't exist in the given file or is invalid. |
 | <a id='BCP236' />BCP236 | Error | Expected a new line or comma character at this location. |
 | <a id='BCP237' />BCP237 | Error | Expected a comma character at this location. |
-| <a id='BCP238' />BCP238 | Error | Unexpected new line character after a comma. |
+| <a id='BCP238' />[BCP238](./diagnostics/bcp238.md) | Error | Unexpected new line character after a comma. |
 | <a id='BCP239' />BCP239 | Error | Identifier "{name}" is a reserved Bicep symbol name and can't be used in this context. |
 | <a id='BCP240' />BCP240 | Error | The "parent" property only permits direct references to resources. Expressions aren't supported. |
 | <a id='BCP241' />BCP241 | Warning | The \<function-name> function is deprecated and will be removed in a future release of Bicep. Add a comment to https://github.com/Azure/bicep/issues/2017 if you believe this will impact your workflow. |
