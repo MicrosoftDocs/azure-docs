@@ -75,7 +75,7 @@ az network dns zone create -g mydnsresourcegroup -n 2.0.192.in-addr.arpa
 
 ### IPv6
 
-Azure Public DNS does not currently support IPv6 reverse DNS zones or records.
+Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
 
 ## Create a DNS PTR record
 
@@ -120,7 +120,7 @@ az network dns record-set ptr add-record -g mydnsresourcegroup -z 2.0.192.in-add
 
 ### IPv6
 
-Azure Public DNS does not currently support IPv6 reverse DNS zones or records.
+Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
 
 ### IPv4
 
@@ -150,7 +150,7 @@ az network dns record-set list -g mydnsresourcegroup -z 2.0.192.in-addr.arpa
 
 ### IPv6
 
-Azure Public DNS does not currently support IPv6 reverse DNS zones or records.
+Azure Public DNS doesn't currently support IPv6 reverse DNS zones or records.
 
 ## FAQ
 
@@ -166,7 +166,7 @@ Hosting the reverse DNS lookup zone for your ISP-assigned IP block in Azure DNS 
 
 ### Can I host reverse DNS lookup zones for both IPv4 and IPv6 addresses in Azure DNS?
 
-Only IPv4 reverse zones are supported. This article explains how to create IPv4 reverse DNS lookup zones in Azure DNS. IPv6 reverse lookup zones are not currently supported.
+Only IPv4 reverse zones are supported. This article explains how to create IPv4 reverse DNS lookup zones in Azure DNS. IPv6 reverse lookup zones aren't currently supported.
 
 ### Can I import an existing reverse DNS lookup zone?
 
