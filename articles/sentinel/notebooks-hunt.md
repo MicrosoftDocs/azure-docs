@@ -156,7 +156,7 @@ To launch your Microsoft Sentinel notebook in your Azure Machine Learning worksp
 1. Select the **Templates** tab to see the notebooks that Microsoft Sentinel provides.
 1. Select a notebook to view its description, required data types, and data sources.
 
-1. When you find the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace.
+1. When you find the notebook you want to use, select **Create from template** and **Save** to clone it into your own workspace. Only Azure Machine Learning workspaces in the same subscription can be selected.
 
 1. Edit the name as needed. If the notebook already exists in your workspace, overwrite the existing notebook or create a new one. By default, your notebook is saved in /Users/<Your_User_Name>/ directory of selected AML workspace.
 
