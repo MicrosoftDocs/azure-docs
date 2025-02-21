@@ -16,12 +16,13 @@ This article lists the known issues for [Azure Firewall](overview.md) and is upd
 For Azure Firewall limitations, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 > [!IMPORTANT]
-> ## Capacity constraint
-> These regions are currently experiencing capacity constraint for Azure Firewall Standard and Premium SKU.
+> **Capacity constraints**
 > 
-> | Region | Restriction | Recommendation |
+> The following zones are currently experiencing capacity constraints for both Standard and Premium SKUs:
+> 
+> | Zones | Restrictions | Recommendation |
 > | -- | -- | -- |
-> |Unavailable firewall deployments: </br>- **Physical zone 2** in **_North Europe_** </br>- **Physical zone 3** in **_South East Asia_**  | You can’t deploy a new firewall with physical zone 2 in North Europe and physical zone 3 in South East Asia. Additionally, if you stop an existing firewall that is deployed in these zones, it can't be restarted. For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | For new firewalls, deploy with the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment). 
+> |**Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia. </br></br>- If you stop an existing Azure Firewall that is deployed in this zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
 
 ## Azure Firewall Standard
 
