@@ -31,7 +31,8 @@ If ADU.200703.R _isn't_ on your devices for some reason - such as if you created
 - Update your devices to [Device Update Agent version 1.1.0 or later](https://github.com/Azure/iot-hub-device-update/releases/tag/1.1.0). Agent versions 1.1.0 and later include the capability to _automatically_ retrieve the latest root key, meaning rotation events including the one on August 26 won't require any action from you.
 - Update your devices to just add ADU.200703.R, without updating to a different Device Update Agent version.
 
->[!NOTE]: If you want to use Device Update for IoT Hub to perform either option 1 or option 2, **you must import those updates before August 26**. Otherwise you'll need to update your devices using another process so that they will have ADU.200703.R and be able to get new content from the Device Update service again.
+>[!NOTE] 
+>If you want to use Device Update for IoT Hub to perform either option 1 or option 2, **you must import those updates before August 26**. Otherwise you'll need to update your devices using another process so that they will have ADU.200703.R and be able to get new content from the Device Update service again.
 
 ## How to validate if your devices are impacted
 
@@ -45,7 +46,8 @@ The Device Update team created a test mechanism to validate if your devices can 
 
 By policy, Device Update for IoT Hub will rotate root keys every 2.5 years. However, if a security breach were to occur, it might be necessary to _revoke_ a root key at an unscheduled time and with little advance warning. To prepare for future rotations as well as the possibility of a revocation, a new root key will soon be made available. An announcement will be made on this page and via e-mail to Azure subscription owners with instructions once the key is available. 
 
->[!NOTE] It's strongly recommended to adopt Device Update Agent version 1.1.0 or later, which will automatically obtain all future root keys for your devices as needed, including during a revocation event. If you are unable to adopt Device Update Agent version 1.1.0 or later, plan to update your devices to add the new root key once available as quickly as possible before August 26, 2025, so two valid root keys will be available on your devices after the August 26 rotation.
+>[!NOTE] 
+>It's strongly recommended to adopt Device Update Agent version 1.1.0 or later, which will automatically obtain all future root keys for your devices as needed, including during a revocation event. If you are unable to adopt Device Update Agent version 1.1.0 or later, plan to update your devices to add the new root key once available as quickly as possible before August 26, 2025, so two valid root keys will be available on your devices after the August 26 rotation.
 
 ## More information
 
