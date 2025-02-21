@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 02/21/2025
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
@@ -108,8 +108,8 @@ The following information is passed to the server in the query:
 
     To resolve the users and group from an LDAP server for large topologies, set the values of the **User DN**, **Group DN**, and **Group Membership Filter** options on the Active Directory Connections page as follows:
 
-    * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
-    * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+    * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. Multiple organizational units can be specified using a semicolon, for example: `OU=subdirectory1,OU=directory1,DC=domain,DC=com;OU=subdirectory2,OU=directory2,DC=domain,DC=com`
+    * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. For example, setting `(gidNumber=9*)` searches for `gidNumbers` starting with 9. You can also use two filters together: `(|(cn=*22)(cn=*33))` searches for CN values ending in 22 or 33. 
     * If a user is a member of more than 256 groups, only 256 groups will be listed. 
     * Refer to [errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) if you run into errors.
 

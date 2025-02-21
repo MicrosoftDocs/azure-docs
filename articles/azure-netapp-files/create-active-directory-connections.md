@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/21/2024
+ms.date: 02/21/2025
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -132,7 +132,7 @@ For more information about the relationship between NetApp accounts and subscrip
     * **Organizational unit path**  
         This is the LDAP path for the organizational unit (OU) where SMB server computer accounts will be created. That is, `OU=second level, OU=first level`. For example, if you want to use an OU called `ANF` created at the root of the domain, the value would be `OU=ANF`.
 
-        If no value is provided, Azure NetApp Files will use the `CN=Computers` container. 
+        If no value is provided, Azure NetApp Files uses the `CN=Computers` container. 
 
         If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers`
 
