@@ -48,11 +48,51 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 ## Asset security
 
+- **Secrets management**: Use [Azure Key Vault](/azure/key-vault/general/overview) to store and manage asset's sensitive information such as keys, passwords, certificates, and secrets. Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets. To learn more, see [Manage secrets for your Azure IoT Operations deployment](../iot-operations/secure-iot-ops/howto-manage-secrets.md).
+
+- **Certificate management**: Managing certificates is crucial for ensuring secure communication between assets and your edge runtime environment. Azure IoT Operations provides tools for managing certificates, including issuing, renewing, and revoking certificates. To learn more, see [Certificate management for Azure IoT Operations internal communication](../iot-operations/secure-iot-ops/concept-default-root-ca.md).
+
+- **Select tamper-proof hardware for assets**: Choose asset hardware with built-in mechanisms to detect physical tampering, such as the opening of the device cover or the removal of a part of the device. These tamper signals can be part of the data stream uploaded to the cloud, alerting operators to these events.
+
+- **Enable secure updates for asset firmware**: Use services like Device Update for IoT Hub for over-the-air updates for your assets. Build assets with secure paths for updates and cryptographic assurance of firmware versions to secure your assets during and after updates.
+
+- **Deploy asset hardware securely**: Ensure that asset hardware deployment is as tamper-proof as possible, especially in unsecure locations such as public spaces or unsupervised locales. Only enable necessary features to minimize the physical attack footprint, such as securely covering USB ports if they are not needed.
+
+- **Follow device manufacturer security and deployment best practices**: If the device manufacturer provides security and deployment guidance, follow that guidance in addition to the generic guidance listed in this article.
+
 ## Connection security
+
+- **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-based solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
+
+- **Consider using enterprise firewalls or proxies to manage outbound traffic**: If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](../iot-operations/overview-deploy.md#azure-iot-operations-endpoints) to your allowlist.
+
+- **Encrypt internal traffic of message broker**: Ensuring the security of internal communications within your edge infrastructure is important to maintain data integrity and confidentiality. You should configure the MQTT broker to encrypt internal traffic and data in transit between the MQTT broker frontend and backend pods. To learn more, see [Configure encryption of broker internal traffic and internal certificates](../iot-operations/secure-iot-ops/howto-encrypt-internal-traffic.md).
+
+- **Configure TLS with automatic certificate management for listeners**: Azure IoT Operations provides automatic certificate management for listeners. This reduces the administrative overhead of manually managing certificates, ensures timely renewals, and helps maintain compliance with security policies. To learn more, see [Configure TLS with automatic certificate management for listeners](../iot-operations/secure-iot-ops/howto-configure-tls.md).
+
 
 ## Edge security
 
+- **Keep the edge runtime environment up-to-date**: Keep your cluster and Azure IoT Operations deployment up-to-date with the latest patches and minor releases to get all available security and bug fixes. For production deployments, [turn off auto-upgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
+
+- **Verify the integrity of docker and helm images**: Before deploying any image to your cluster, verify that the image is signed by Microsoft. To learn more, see [Validate image signing](../iot-operations/secure-iot-ops/howto-validate-images.md).
+
+- **Always use X.509 certificates or Kubernetes service account tokens for authentication with your MQTT broker**: An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. To learn more, see [Configure MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md).
+
+- **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md).
+
+- **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+
+- **In isolated network environments use Azure IoT Layered Network Management**: Azure IoT Layered Network Management (preview) service is a component that facilitates the connection between Azure and clusters in isolated network environment. In industrial scenarios, the isolated network follows the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
+
 ## Cloud security
+
+- **Use user-assigned managed identities for cloud connections**: Always use managed identity authentication. When possible, [use user-assigned managed identity](../connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
+
+- **Deploy observability resources and set up logs**: Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. [Deploy observability resources](../configure-observability-monitoring/howto-configure-observability.md) on your cluster before deploying Azure IoT Operations.
+
+- **Secure access to assets and asset endpoints with Azure role-based access control (Azure RBAC)**: Assets and asset endpoints in Azure IoT Operations have representations in both the Kubernetes cluster and the Azure portal. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. Azure RBAC is an authorization system that enables you to manage access to Azure resources. You can use Azure RBAC to grant permissions to users, groups, and applications at a certain scope. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
+
 
 # [Cloud-based solution](#tab/cloud)
 
