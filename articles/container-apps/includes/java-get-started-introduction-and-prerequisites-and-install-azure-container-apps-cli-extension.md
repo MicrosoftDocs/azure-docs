@@ -8,7 +8,7 @@ ms.date: 02/18/2025
 
 You can deploy your Java application with many different options, including a local file system, a code repository, Maven, an IDE, a WAR file, a JAR file, or even directly from the source code. By the end of this tutorial, you deploy a web application that you can manage through the Azure portal. The following screenshot shows the PetClinic application deployed to Azure:
 
-:::image type="content" source="../media/java-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the PetClinic app." lightbox="media/java-get-started/azure-container-apps-petclinic-warfile.png":::
+:::image type="content" source="../media/java-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the PetClinic app." lightbox="../media/java-get-started/azure-container-apps-petclinic-warfile.png":::
 
 ## Install the Container Apps CLI extension
 
@@ -24,7 +24,7 @@ az extension add
 ## Prerequisites
 
 - An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
-- The *Contributor* or *Owner* [permission](../role-based-access-control/role-assignments-portal.yml?tabs=current) on the Azure subscription.
+- The *Contributor* or *Owner* [permission](../../role-based-access-control/role-assignments-portal.yml?tabs=current) on the Azure subscription.
 - [A GitHub Account](https://github.com/join).
 - [git](https://git-scm.com/downloads)
 - [Azure CLI](/cli/azure/install-azure-cli).
