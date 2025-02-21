@@ -1,6 +1,6 @@
 ---
-title: Manage cross-zone region replication for Azure NetApp Files
-description: Describes how to manage disaster recovery by using Azure NetApp Files cross-zone region replication.
+title: Manage cross-zone-region replication for Azure NetApp Files
+description: Describes how to manage disaster recovery by using Azure NetApp Files cross-zone-region replication.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 11/20/2024
 ms.author: anfdocs 
 ---
-# Manage cross-zone region replication for Azure NetApp Files (preview)
+# Manage cross-zone-region replication for Azure NetApp Files (preview)
 
 Azure NetApp Files supports volume cross-zone and cross-region replication on the same source volume. 
 
 ## Requirements 
 
-- Cross-zone region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
+- Cross-zone-region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
 - Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
 
 ## Register the feature
 
-Cross-zone region replication for Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
+Cross-zone-region replication for Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
 
 1. Register the feature
 
@@ -50,7 +50,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. In the source volume’s menu, select **Replication**. Confirm there are two volumes listed under **Destination volumes**. 
 
 >[!NOTE]
->With cross-zone region replication, you can create a combination of a cross-zone and a cross-region replication relationship, two cross-region replication relationships, or two cross-zone replication relationships. The cross-zone relationship can be within the same zone.
+>With cross-zone-region replication, you can create a combination of a cross-zone and a cross-region replication relationship, two cross-region replication relationships, or two cross-zone replication relationships. The cross-zone relationship can be within the same zone.
 
 
 <!-- replace image -->
