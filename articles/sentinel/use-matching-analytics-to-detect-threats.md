@@ -60,7 +60,7 @@ Matching analytics is configured when you enable the **Microsoft Defender Threat
 
 1. Select **Review** > **Create**.
 
-:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="Screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule enabled on the Active rules tab.":::
+:::image type="content" source="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png" alt-text="Screenshot that shows the Microsoft Defender Threat Intelligence Analytics rule enabled on the Active rules tab." lightbox="media/use-matching-analytics-to-detect-threats/configure-matching-analytics-rule.png":::
 
 ## Data sources and indicators
 
@@ -106,7 +106,7 @@ Here's an example of the **Threat Intelligence** page.
 
 ## Get more context from Microsoft Defender Threat Intelligence
 
-Along with high-fidelity alerts and incidents, some Microsoft Defender Threat Intelligence indicators include a link to a reference article in the Microsoft Defender Threat Intelligence community portal.
+Along with high-fidelity alerts and incidents, some Microsoft Defender Threat Intelligence indicators include a link to a reference article in Intel Explorer.
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot that shows an incident with a link to the Microsoft Defender Threat Intelligence reference article.":::
 
