@@ -10,7 +10,7 @@ ms.date: 02/18/2025
 
 Once the deployment is done, you can go to the overview page of your container app and set the **Application Url** field. After doing that, you can see the project running in the cloud.
 
-:::image type="content" source="media/java-get-started/validation.png" alt-text="Screenshot of the application details in Azure, with the Application URL field highlighted" lightbox="media/java-get-started/validation.png":::
+:::image type="content" source="../media/java-get-started/validation.png" alt-text="Screenshot of the application details in Azure, with the Application URL field highlighted" lightbox="../media/java-get-started/validation.png":::
 
 ## Clean up resources
 
