@@ -12,12 +12,10 @@ ms.author: azfuncdf
 
 Durable Functions is a set of Azure Functions triggers and bindings that are internally powered by the [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx). DTFx supports various backend storage providers, including the Azure Storage provider used by Durable Functions. Starting in Durable Functions **v2.5.0**, users can configure their function apps to use DTFx storage providers other than the Azure Storage provider.
 
-Durable Functions supports two types of backend providers: "Bring your own (BYO)" and Azure managed. The BYO options include *Azure Storage, Netherite, and Microsoft SQL Server (MSSQL)*. The Azure managed option is the new *Durable Task Scheduler* currently in preview. 
-
 > [!NOTE]
 > The default Azure Storage provider for Durable Functions is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate backend provider.
 
-This article describes all supported backend providers, compares them against each other, and provides basic information about how to get started using them.
+Durable Functions supports two types of backend providers: "Bring your own (BYO)" and Azure managed. The BYO options include *Azure Storage, Netherite, and Microsoft SQL Server (MSSQL)*. The Azure managed option is the new *Durable Task Scheduler* currently in preview. This article describes all supported backend providers, compares them against each other, and provides basic information about how to get started using them.
 
 > [!NOTE]
 > It's not currently possible to migrate data from one storage backend provider to another. If you want to use a new provider, you should create a new app configured with the new provider.
