@@ -1,7 +1,8 @@
 items:
 - name: Azure Web Application Firewall documentation
   href: index.yml
-- name: Overview
+- name: Get started
+  expanded: true
   items:
   - name: What is Azure Web Application Firewall?
     href: overview.md
@@ -9,66 +10,101 @@ items:
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
-    - name: What's new
-      href: ./ag/ag-overview.md#whats-new
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
       href: ./afds/afds-overview.md
-  - name: Content Delivery Network
-    items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Application Gateway
-    expanded: true
-    items:
-     - name: Deploy WAF v2 - Bicep
-       displayName: ARM, Template, Resource Manager
-       href: ./ag/quick-create-bicep.md
-     - name: Deploy WAF v2 - ARM template
-       displayName: Resource Manager
-       href: ./ag/quick-create-template.md
-- name: Tutorials
+
+
+
+- name: Deploy
   items:
   - name: Application Gateway
     items:
-     - name: Enable Web Application Firewall
-       href: ./ag/application-gateway-web-application-firewall-portal.md
+    - name: Enable Web Application Firewall
+      items:
+      - name: Azure portal
+        href: ./ag/application-gateway-web-application-firewall-portal.md
+      - name: Azure PowerShell
+        href: ./ag/tutorial-restrict-web-traffic-powershell.md
+      - name: Azure CLI
+        href: ./ag/tutorial-restrict-web-traffic-cli.md
+    - name: Create Web Application Firewall v2 - Bicep
+      href: ./ag/quick-create-bicep.md
+    - name: Deploy Web Application Firewall v2 - ARM template
+      href: ./ag/quick-create-template.md
   - name: Front Door
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Concepts
+- name: Configure
   items:
   - name: Application Gateway
     items:
+    - name: WAF policy
+      items:
+      - name: WAF Policy overview
+        href: ./ag/policy-overview.md
+      - name: Create WAF policy
+        href: ./ag/create-waf-policy-ag.md
+      - name: Per-site policies
+        href: ./ag/per-site-policies.md
+      - name: Associate a policy with an existing Application Gateway
+        href: ./ag/associate-waf-policy-existing-gateway.md
+      - name: Upgrade WAF
+        items:
+       - name: Upgrade to WAF policy
+         href: ./ag/upgrade-ag-waf-policy.md
+       - name: Upgrade using PowerShell
+         href: ./ag/migrate-policy.md
     - name: Managed rules
-      href: ./ag/application-gateway-crs-rulegroups-rules.md
-    - name: Custom rules overview
-      href: ./ag/custom-waf-rules-overview.md
-    - name: Geomatch custom rules
-      href: ./ag/geomatch-custom-rules.md
+      items:
+      - name: Overview
+        href: ./ag/application-gateway-crs-rulegroups-rules.md
+      - name: Customize managed rules
+        items:
+        - name: Azure portal
+          href: ./ag/application-gateway-customize-waf-rules-portal.md
+        - name: Azure PowerShell
+          href: ./ag/application-gateway-customize-waf-rules-powershell.md
+        - name: Azure CLI
+          href: ./ag/application-gateway-customize-waf-rules-cli.md
+    - name: Custom rules
+      items:
+      - name: Overview
+        href: ./ag/custom-waf-rules-overview.md
+      - name: Geomatch custom rules
+        href: ./ag/geomatch-custom-rules.md
+     - name: Configure WAF v2 custom rule - PowerShell
+       href: ./ag/configure-waf-custom-rules.md
+     - name: Custom rule examples
+       href: ./ag/create-custom-waf-rules.md
     - name: Exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
     - name: Request size limits
       href: ./ag/application-gateway-waf-request-size-limits.md
-    - name: WAF Policy overview
-      href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: Bot protection
+      href: ./ag/bot-protection.md
     - name: WAF engine
       href: ./ag/waf-engine.md
-    - name: Sensitive Data Protection
-      href: ./ag/waf-sensitive-data-protection.md
     - name: Rate limiting
       href: ./ag/rate-limiting-overview.md
+    - name: Create rate limiting rules
+      href: ./ag/rate-limiting-configure.md
     - name: Best practices
       href: ./ag/best-practices.md
-    - name: FAQ
-      href: ./ag/application-gateway-waf-faq.yml
+    - name: Resource logs
+      href: ./ag/web-application-firewall-logs.md
+    - name: Monitoring and logging
+      href: ./ag/application-gateway-waf-metrics.md
+    - name: Troubleshoot WAF
+      href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
     items:
     - name: Tuning
@@ -91,14 +127,18 @@ items:
       href: ./afds/waf-front-door-best-practices.md
     - name: FAQ
       href: ./afds/waf-faq.yml
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
-    - name: Application DDoS protection
-      href: ./shared/application-ddos-protection.md
-    - name: Microsoft Copilot for Security
-      href: waf-copilot.md
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+  - name: Sensitive Data Protection
+    href: ./ag/waf-sensitive-data-protection.md
+  - name: Mask sensitive data
+    href: ./ag/waf-sensitive-data-protection-configure.md
+  - name: Application DDoS protection
+    href: ./shared/application-ddos-protection.md
+  - name: Microsoft Copilot for Security
+    href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
   - name: JavaScript challenge
@@ -107,48 +147,6 @@ items:
   items:
   - name: Application Gateway
     items:
-     - name: Create WAF policy
-       href: ./ag/create-waf-policy-ag.md
-     - name: Configure Web Application Firewall
-       items:
-       - name: Azure PowerShell
-         href: ./ag/tutorial-restrict-web-traffic-powershell.md
-       - name: Azure CLI
-         href: ./ag/tutorial-restrict-web-traffic-cli.md
-     - name: Upgrade WAF
-       items:
-       - name: Upgrade to WAF policy
-         href: ./ag/upgrade-ag-waf-policy.md
-       - name: Upgrade using PowerShell
-         href: ./ag/migrate-policy.md
-     - name: Per-site policies
-       href: ./ag/per-site-policies.md
-     - name: Customize WAF rules
-       items:
-       - name: Azure portal
-         href: ./ag/application-gateway-customize-waf-rules-portal.md
-       - name: Azure PowerShell
-         href: ./ag/application-gateway-customize-waf-rules-powershell.md
-       - name: Azure CLI
-         href: ./ag/application-gateway-customize-waf-rules-cli.md
-     - name: Configure WAF v2 custom rule - PowerShell
-       href: ./ag/configure-waf-custom-rules.md
-     - name: Custom rule examples
-       href: ./ag/create-custom-waf-rules.md
-     - name: Bot protection
-       href: ./ag/bot-protection.md
-     - name: Associate a policy with an existing Application Gateway
-       href: ./ag/associate-waf-policy-existing-gateway.md
-     - name: Resource logs
-       href: ./ag/web-application-firewall-logs.md
-     - name: Monitoring and logging
-       href: ./ag/application-gateway-waf-metrics.md
-     - name: Mask sensitive data
-       href: ./ag/waf-sensitive-data-protection-configure.md
-     - name: Create rate limiting rules
-       href: ./ag/rate-limiting-configure.md
-     - name: Troubleshoot WAF
-       href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
     items:
     - name: Configure WAF policy - PowerShell
@@ -185,20 +183,12 @@ items:
     href: geomatch-custom-rules-examples.md
 - name: Troubleshoot
   items:
-     - name: Application Gateway
-       items:
-        - name: Troubleshoot WAF
-          href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Log analytics
-          href: ./ag/log-analytics.md
+  - name: Troubleshoot WAF
+    href: ./ag/web-application-firewall-troubleshoot.md
+  - name: Log analytics
+    href: ./ag/log-analytics.md
 - name: Reference
   items:
-  - name: Managed rules
-    items:
-     - name: Front Door
-       href: ./afds/waf-front-door-drs.md
-     - name: Application Gateway
-       href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
     items:
     - name: Front Door
