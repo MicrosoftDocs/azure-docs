@@ -3,16 +3,16 @@ title: Quickstart - Local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
 description: This quickstart describes how to mirror local preview
 author: yassirbisteni
-manager: bobgao
+manager: gaobob
 
 ms.author: yassirb
-ms.date: 19/02/2025
+ms.date: 2/21/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 
-zone_pivot_groups: acs-plat-web-windows-android-ios
+zone_pivot_groups: acs-plat-windows-android-ios
 ---
 
 # Quickstart: Mirror local preview
