@@ -105,8 +105,6 @@ To create a NIC, use the following procedure.
 1. On the **Network interfaces** page, select **Create**.
 1. On the **Create network interface** screen, enter or select values for the NIC settings.
 
-   :::image type="content" source="./media/virtual-network-network-interface/create-network-interface.png" alt-text="Screenshot of the Create network interface screen in the Azure portal.":::
-
 1. Select **Review + create**, and when validation passes, select **Create**.
 
 # [Azure CLI](#tab/azure-cli)

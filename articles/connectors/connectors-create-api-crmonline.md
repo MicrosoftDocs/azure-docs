@@ -5,12 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/20/2025
 ---
 
 # Connect to Dynamics 365 from workflows in Azure Logic Apps (Deprecated)
 
 > [!IMPORTANT]
+> 
 > The Dynamics 365 connector is officially deprecated and is no longer available. Instead, use the 
 > [Microsoft Dataverse connector](/connectors/commondataserviceforapps/) to access Microsoft Dataverse 
 > used for Microsoft Dynamics 365 Sales, Microsoft Dynamics 365 Customer Service, Microsoft Dynamics 365 
