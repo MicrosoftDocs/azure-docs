@@ -4,11 +4,16 @@ description: Learn how to configure and manage data persistence your Premium tie
 
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 02/21/2025
 ---
 # Configure data persistence for an Azure Cache for Redis instance
 
-[Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](cache-high-availability.md) strategy with Azure Cache for Redis.
+[Redis persistence](https://redis.io/topics/persistence) allows you to persist the data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](cache-high-availability.md) strategy with Azure Cache for Redis.
+
+> [!IMPORTANT]
+>
+> The data persistence functionality provides resilience for unexpected Redis node failures. Data persistence is not a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance, th corrupted data is also persisted. To make backups of your Redis instance, use the [export feature](cache--how-to-import-export-data.md).  
+>
 
 > [!WARNING]
 >
@@ -17,10 +22,6 @@ ms.date: 04/10/2023
 
 >[!WARNING]
 > The _always write_ option for AOF persistence on the Enterprise and Enterprise Flash tiers is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
->
-> [!IMPORTANT]
->
-> Data persistence is meant to provide resilience for unexpected Redis node failures, but it is not a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance this data will also be persisted. To make backups of your Redis instance, use the [export feature](managed-redis-how-to-import-export-data.md).  
 >
 
 ## Scope of availability
