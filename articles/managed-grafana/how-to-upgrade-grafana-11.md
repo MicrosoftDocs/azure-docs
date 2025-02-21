@@ -15,7 +15,7 @@ ms.topic: how-to
 Azure Managed Grafana will stop offering Grafana 10 as a supported software version on July 31, 2025. This guide provides information about the retirement of Grafana 10 and guides you through updating your Azure Managed Grafana workspace to Grafana 11.
 
 > [!IMPORTANT]
-> We recommend that you upgrade your workspace to Grafana 10 before August 2025. In August 2025, if your workspace is still running Grafana version 10, it will be automatically upgraded to Grafana 11.
+> We recommend that you familiarize yourself with the [breaking changes introduced in Grafana 11](https://grafana.com/docs/grafana/latest/breaking-changes/breaking-changes-v11-0/) and upgrade your workspace to Grafana 11 before August 2025. If your workspace is still running Grafana version 10 in August 2025, it will be automatically upgraded to Grafana 11.
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ The version number is listed in the output after `grafanaMajorVersion`. If versi
 
 ---
 
-## Upgrade from Grafana 10 to Grafana 11
+## Upgrade to Grafana 11
 
 Upgrade from Grafana 10 to Grafana 11 by following the steps below.
 
