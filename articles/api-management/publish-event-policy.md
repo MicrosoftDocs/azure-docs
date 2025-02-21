@@ -53,6 +53,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 ### Usage notes
 
 * This policy is invoked only when a related GraphQL query or mutation is executed.
+* Resolver should *not* be defined for the corresponding subscription itself. Using `publish-event` policy on related query or mutation is sufficient to trigger subscription events.
 
 ## Example
 
