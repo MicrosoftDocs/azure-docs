@@ -31,11 +31,8 @@ Application developers who build apps that send email using the SMTP protocol ne
     :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
 1. Click **+Add* SMTP Username* and then select the Entra application. The username can be cursom text or an email address.
     :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
-1. Click **+Add* SMTP Username* and then select the Entra application. The username can be cursom text or an email address.
+1. The SMTP Username will now appear in the list. The status will be **Ready to use** if all of the requirements for sending an email using the username and SMTP have been met.
     :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
-
-## Creating an SMTP Username using Azure CLI
-
 
 ## Assigning the built-in 'Communication and Email Service Owner' role to the Microsoft Entra application
 The **Communication and Email Service Owner** role can be assigned to an Entra application to give it access to a Communication Service resource.
