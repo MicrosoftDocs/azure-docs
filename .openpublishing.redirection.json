@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-grid/event-schema-storage-actions.md",
+      "redirect_url": "/azure/storage-actions/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/hdinsight-aks/index.yml",
       "redirect_url": "/previous-versions/azure/hdinsight-aks",
       "redirect_document_id": false
@@ -5933,6 +5938,11 @@
     {
       "source_path_from_root": "/articles/reliability/reliability-hdinsight-on-aks.md",
       "redirect_url": "/azure/reliability/overview-reliability-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/reliability/sovereign-cloud-china.md",
+      "redirect_url": "/azure/china/concepts-service-availability",
       "redirect_document_id": false
     },
     {
