@@ -1125,6 +1125,30 @@
       href: monitor-analytics-rule-integrity.md
   - name: Auditing Microsoft Sentinel with Azure Activity Logs
     href: audit-sentinel-data.md
+  - name: Remove Microsoft Sentinel from your workspaces
+    href: offboard.md
+- name: Build and publish Microsoft Sentinel solutions
+  items:
+  - name: Overview
+    href: sentinel-integration-guide.md
+  - name: Partner integrations best practices
+    href: partner-integrations.md
+  - name: Creating codeless data connectors (CCP)
+    href: create-codeless-connector.md
+  - name: Creating analytics rules
+    href: sentinel-analytic-rules-creation.md
+  - name: Creating hunting queries
+    href: sentinel-hunting-rules-creation.md
+  - name: Creating workbooks
+    href: sentinel-workbook-creation.md
+  - name: Creating playbooks
+    href: sentinel-playbook-creation.md
+  - name: Creating ASIM parsers
+    href: normalization-develop-parsers.md
+  - name: Publish solutions
+    href: publish-sentinel-solutions.md
+  - name: Solution lifecycle post publish
+    href: sentinel-solutions-post-publish-tracking.md
   - name: Remove Microsoft Sentinel from your workspace
     items:
     - name: Overview
@@ -1143,28 +1167,6 @@
     href: /rest/api/securityinsights/
   - name: OOTB content centralization changes
     href: sentinel-content-centralize.md
-  - name: Build and publish Microsoft Sentinel solutions
-    items:
-    - name: Overview
-      href: sentinel-integration-guide.md
-    - name: Partner integrations best practices
-      href: partner-integrations.md
-    - name: Creating codeless data connectors (CCP)
-      href: create-codeless-connector.md
-    - name: Creating analytics rules
-      href: sentinel-analytic-rules-creation.md
-    - name: Creating hunting queries
-      href: sentinel-hunting-rules-creation.md
-    - name: Creating workbooks
-      href: sentinel-workbook-creation.md
-    - name: Creating playbooks
-      href: sentinel-playbook-creation.md
-    - name: Creating ASIM parsers
-      href: normalization-develop-parsers.md
-    - name: Publish solutions
-      href: publish-sentinel-solutions.md
-    - name: Solution lifecycle post publish
-      href: sentinel-solutions-post-publish-tracking.md
   - name: Management references
     items:
     - name: Microsoft Sentinel Logic Apps connector

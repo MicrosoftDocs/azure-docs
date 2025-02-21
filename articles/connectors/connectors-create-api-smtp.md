@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ---
 
 # Connect to your SMTP account from Azure Logic Apps
@@ -43,23 +43,18 @@ such as a Salesforce trigger, if you have a Salesforce account.
   record is created, your logic app sends an email 
   from your SMTP account about the new record.
 
+## Connector reference
+
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/smtpconnector/).
+
 ## Connect to SMTP
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com), 
-and open your logic app in Logic App Designer, if not open already.
+and open your logic app resource and workflow in the designer, if not open already.
 
-1. Under the last step where you want to add an SMTP action, 
-choose **New step**. 
-
-   To add an action between steps, 
-   move your pointer over the arrow between steps. 
-   Choose the plus sign (**+**) that appears, 
-   and then select **Add an action**.
-
-1. In the search box, enter "smtp" as your filter. 
-Under the actions list, select the action you want.
+1. [Follow these general steps to add the **SMTP** action that you want](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action). 
 
 1. When prompted, provide this connection information:
 
@@ -71,15 +66,10 @@ Under the actions list, select the action you want.
    | **Password** | Yes | Your password for your SMTP account | 
    | **SMTP Server Port** | No | A specific port on your SMTP server you want to use | 
    | **Enable SSL?** | No | Turn on or turn off TLS/SSL encryption. | 
-   |||| 
 
 1. Provide the necessary details for your selected action. 
 
 1. Save your logic app or continue building your logic app's workflow.
-
-## Connector reference
-
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/smtpconnector/).
 
 ## Next steps
 

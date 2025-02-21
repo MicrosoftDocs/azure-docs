@@ -9,7 +9,11 @@ ms.date: 12/31/2024
 ms.custom: template-tutorial, engagement-fy25
 ---
 
-# Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
+# Modernize ASP.NET web apps to Azure Kubernetes Service (Retired)
+
+> [!Important]
+> This feature is retired. For guidance on migrating ASP.NET web apps to AKS, refer to the [ASP.NET app containerization and migration to Azure Kubernetes Service](tutorial-app-containerization-aspnet-kubernetes.md)
+documentation.
 
 This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](/azure/aks/intro-kubernetes) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMware. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
 
