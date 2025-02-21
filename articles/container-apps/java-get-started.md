@@ -33,6 +33,8 @@ Build the project by using the following steps:
 
 ::: zone pivot="war"
 
+1. Clone the Spring PetClinic application to your machine by using the following command:
+
     ```bash
     git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
     ```
