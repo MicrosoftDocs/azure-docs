@@ -1273,8 +1273,6 @@
       href: stix-objects-api.md
     - name: Legacy upload indicator API reference
       href: upload-indicators-api.md
-  - name: Compare playbooks, workbooks, and notebooks
-    href: resources.md
   - name: Operations guide
     href: ops-guide.md
 - name: Resources
