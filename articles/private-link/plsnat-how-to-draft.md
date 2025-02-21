@@ -72,7 +72,7 @@ Here we add the tag to the VM NIC.
 1. Use the following CLI command to add the tag to your VM NIC:
 
 ```azurecli-interactive
-    az network nic update --name "myNIC" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=string:"true"
+    az network nic update --name "myNIC" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=\'true\'
 ```
 ---
 
