@@ -11,13 +11,13 @@ author: kalyaninamuduri
 ---
 
 # Register existing SAP system
-In this how-to guide, you learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management and monitoring capabilities through the Azure portal. For example, you can:
+In this how-to guide, you learn how to register an existing SAP system with *Azure Center for SAP solutions*. After you register an SAP system with Azure Center for SAP solutions, you can use its visualization, management, and monitoring capabilities through the Azure portal. For example, you can:
 
 - View and track the SAP system as an Azure resource, called the *Virtual Instance for SAP solutions (VIS)*.
 - Get recommendations for your SAP infrastructure, Operating System configurations etc. based on quality checks that evaluate best practices for SAP on Azure.
 - Get health and status information about your SAP system.
 - Start and Stop SAP application tier.
-- Start and Stop individual instances of ASCS, App server and HANA Database.
+- Start and Stop individual instances of ASCS, App server, and HANA Database.
 - Monitor the Azure infrastructure metrics for the SAP system resources.
 - View Cost Analysis for the SAP system.
 
@@ -34,7 +34,7 @@ When you register a system with Azure Center for SAP solutions, the following re
 
 ## Prerequisites
 
-### Azure infrastructure level pre-requisites
+### Azure infrastructure level prerequisites
 
 - Check that you're trying to register a [supported SAP system configuration](#supported-systems)
 - Grant access to Azure Storage accounts, Azure Resource Manager and Microsoft Entra services from the virtual network where the SAP system exists. Use one of these options:
@@ -50,7 +50,7 @@ When you register a system with Azure Center for SAP solutions, the following re
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.\
 
-### SAP system level pre-requisites
+### SAP system level prerequisites
 
 - sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
     - File path on Linux VMs: /usr/sap/hostctrl/exe
@@ -59,7 +59,7 @@ When you register a system with Azure Center for SAP solutions, the following re
     - To start hostctrl sapstartsrv, use this command for Linux VMs: 'hostexecstart -start'
     - To start instance sapstartsrv, use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
     - To check status of hostctrl sapstartsrv use this command for Windows VMs: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
-- For successful discovery and registration of the SAP system, ensure there's network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
+- For successful discovery and registration of the SAP system, ensure there's network connectivity between ASCS, App, and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
 - On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
 
 ## Supported systems
@@ -97,7 +97,7 @@ To provide permissions to the SAP system resources to a user-assigned managed id
 1. Once the permissions are assigned, this managed identity can be used in Azure Center for SAP solutions to register and manage SAP systems.
 
 ## Managed storage account network access settings
-ACSS deploys a **managed storage account** into your subscription, for each SAP system being registered. When you register your SAP system using Azure Portal, PowerShell or REST API, you have the option to choose **network access** setting for the storage account. You can choose either public network access or access from specific virtual networks. 
+ACSS deploys a **managed storage account** into your subscription, for each SAP system being registered. When you register your SAP system using Azure portal, PowerShell, or REST API, you have the option to choose **network access** setting for the storage account. You can choose either public network access or access from specific virtual networks. 
 
 To secure the managed storage account and limit access to only the virtual network that has your SAP virtual machines, you can choose the network access setting as **Enable access from specific Virtual Networks**. You can learn more about storage account network security in [this documentation](../../storage/common/storage-network-security.md). 
 
@@ -140,8 +140,8 @@ If the registration doesn't succeed, see [what to do when an SAP system registra
 
 ## Fix registration failure
 
-- The process of registering an SAP system with Azure Center for SAP solutions might fail when any of the [pre-requisites aren't met](#prerequisites). 
-- Review the pre-requisites and ensure the configurations are as suggested.
+- The process of registering an SAP system with Azure Center for SAP solutions might fail when any of the [prerequisites aren't met](#prerequisites). 
+- Review the prerequisites and ensure the configurations are as suggested.
 - Review any error messages displayed on the VIS resource on Azure portal. Follow any recommended actions.
 - Once you have fixed the configuration causing the issue, retry registration using the **Retry** action available on the Virtual Instance for SAP solutions page on Azure portal.
 
@@ -181,11 +181,11 @@ This error happens when the Database identifier is incorrectly configured on the
 1. Log in to the VM using bastion or serial console.
 2. If the VM agent exists and isn't running, then restart the waagent.
   - sudo systemctl status waagent. 
-3. If the service isn't running then restart this service. To restart use the following steps:
+3. If the service isn't running then restart this service. To restart, use the following steps:
   - sudo systemctl stop waagent
   - sudo systemctl start waagent
 4. If this doesn't solve the issue, try updating the VM Agent using [this document](/azure/virtual-machines/extensions/update-linux-agent)
-5. If the VM agent doesn't exist or needs to be re-installed, then follow [this documentation](/azure/virtual-machines/extensions/update-linux-agent).
+5. If the VM agent doesn't exist or needs to be reinstalled, then follow [this documentation](/azure/virtual-machines/extensions/update-linux-agent).
 
 To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent).
 
@@ -193,7 +193,7 @@ To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/tr
 **Cause:** This issue occurs when multiple ASCS (MESSAGESERVER and/or ENQREP) instances present in the configured SAP, which isn't a valid configuration. Ensure that there exists only one ASCS instance for the SID. 
 
 **Solution:** To fix the issue, you'll need to reconfigure the SAP system so that there's only one ASCS instance present for the SID. Perform below steps:
-1. Logon to the affected server, at operating system level, as "'sid'adm";
+1. Log on to the affected server, at operating system level, as "'sid'adm";
 2. Run "ps -ef | grep sapstartsrv", and take note of the command line related to the sapstartsrv process from the affected instance;
 3. Run "sapcontrol -nr <$$> -function StopService". Run the "ps" command again (see the previous step), and ensure that the sapstartsrv process was stopped (<$$> is the number of the affected instance);
 4. Access the folder "/usr/sap/'SID'/SYS/global/sapcontrol".
