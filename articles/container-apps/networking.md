@@ -387,9 +387,11 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 
 ---
 
-### Path-based routing
+### Path-based routing (preview)
 
-TODO1
+With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request.
+
+To learn more about using path-based routing, see [Use path-based routing](how-to-use-path-based-routing.md) and the [Path-based routing sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master).
 
 ## DNS
 

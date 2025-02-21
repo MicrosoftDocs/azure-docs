@@ -13,7 +13,7 @@ zone_pivot_groups: azure-cli-bicep
 
 # Use path-based routing with Azure Container Apps (preview)
 
-In this article, you learn how to use path-based routing with Azure Container Apps. With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path.
+In this article, you learn how to use path-based routing with Azure Container Apps. With path-based routing, you create a fully qualified domain name (FQDN) on your container apps environment. You then use rules to route requests to this FQDN to different container apps, depending on the path of each request.
 
 ## Prerequisites
 
@@ -268,7 +268,7 @@ az group delete --name my-container-apps
 
 ## Related content
 
-- [Quickstart and samples](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master)
+- [Sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master)
 - [Azure CLI reference](/cli/azure/containerapp/env/http-route-config?view=azure-cli-latest)
 - [Bicep reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-bicep)
 - [ARM template reference](/azure/templates/microsoft.app/2024-10-02-preview/managedenvironments/httprouteconfigs?pivots=deployment-language-arm-template)
