@@ -1,5 +1,5 @@
 ---
-title: How to monitor Spring Boot apps using New Relic Java agent
+title: How to Monitor Spring Boot Apps Using New Relic Java Agent
 titleSuffix: Azure Spring Apps
 description: Learn how to monitor Spring Boot applications using the New Relic Java agent.
 author: KarlErickson
@@ -65,7 +65,7 @@ Use the following procedure to access the agent:
              NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
    ```
 
-Azure Spring Apps preinstalls the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+Azure Spring Apps preinstalls the New Relic Java agent to **/opt/agents/newrelic/java/newrelic-agent.jar**. Customers can activate the agent from applications' **JVM options**, and configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Azure portal
 
@@ -111,7 +111,7 @@ You can also run a provisioning automation pipeline using Terraform, Bicep, or a
 
 ### Automate provisioning using Terraform
 
-To configure the environment variables in a Terraform template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
+To configure the environment variables in a Terraform template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Manages an Active Azure Spring Apps Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment).
 
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
@@ -127,7 +127,7 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
 
 ### Automate provisioning using a Bicep file
 
-To configure the environment variables in a Bicep file, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
+To configure the environment variables in a Bicep file, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=bicep).
 
 ```bicep
 deploymentSettings: {
@@ -142,7 +142,7 @@ deploymentSettings: {
 
 ### Automate provisioning using an ARM template
 
-To configure the environment variables in an ARM template, add the following code to the template, replacing the *\<...>* placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
+To configure the environment variables in an ARM template, add the following code to the template, replacing the `<...>` placeholders with your own values. For more information, see [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json).
 
 ```json
 "deploymentSettings": {

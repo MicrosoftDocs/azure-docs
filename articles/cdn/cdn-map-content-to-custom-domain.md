@@ -171,11 +171,7 @@ After you've registered your custom domain, you can then add it to your content 
 
 2. On the **CDN profile** page, select the content delivery network endpoint to add the custom domain.
 
-    :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-endpoint-selection.png" alt-text="Screenshot of content delivery network endpoint selection." border="true":::
-
 3. Select **+ Custom domain**.
-
-   :::image type="content" source="media/cdn-map-content-to-custom-domain/cdn-custom-domain-button.png" alt-text="Screenshot of the add custom domain button." border="true":::
 
 4. In **Add a custom domain**, **Endpoint hostname**, gets generated and pre-filled from your content delivery network endpoint URL: **\<endpoint-hostname>**.azureedge.net. You can't change this value.
 
@@ -188,9 +184,7 @@ After you've registered your custom domain, you can then add it to your content 
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
-   It can take some time for the new custom domain settings to propagate to all content delivery network edge nodes:
-    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to 10 minutes for the new custom domain settings to propagate to all content delivery network edge nodes.
 
 # [**PowerShell**](#tab/azure-powershell)
 
@@ -198,7 +192,6 @@ After you've registered your custom domain, you can then add it to your content 
 
 ```azurepowershell-interactive
     Connect-AzAccount
-
 ```
 
 2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) to map the custom domain to your content delivery network endpoint.
@@ -222,10 +215,7 @@ After you've registered your custom domain, you can then add it to your content 
 
 Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain gets validated.
 
-   It can take some time for the new custom domain settings to propagate to all content delivery network edge nodes:
-
-- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-- For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to 10 minutes for the new custom domain settings to propagate to all content delivery network edge nodes.
 
 ---
 

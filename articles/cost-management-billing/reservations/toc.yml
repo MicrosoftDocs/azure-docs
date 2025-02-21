@@ -61,8 +61,6 @@
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Virtual machine software
-      href: understand-vm-software-reservation-discount.md
   - name: Windows and SQL costs not included
     href: reserved-instance-windows-software-costs.md
   - name: Usage data for individual subscriptions

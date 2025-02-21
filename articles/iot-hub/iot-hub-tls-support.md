@@ -28,7 +28,7 @@ For Advanced Message Queuing Protocol (AMQP) and Message Queuing Telemetry Trans
 
 For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication wasn't complete, then IoT Hub rejects the connection
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Authenticate identities with X.509 certificates](authenticate-authorize-x509.md).
 
 ### IoT Hub's server TLS certificate
 
@@ -160,7 +160,7 @@ Use the following links to configure TLS 1.2 and allowed ciphers in IoT Hub clie
 | Python   | Version 2.0.0 or newer             | [Link](https://aka.ms/Tls_Python_SDK_IoT) |
 | C#       | Version 1.21.4 or newer            | [Link](https://aka.ms/Tls_CSharp_SDK_IoT) |
 | Java     | Version 1.19.0 or newer            | [Link](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
+| Node.js   | Version 1.12.2 or newer            | [Link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hub. For this purpose, use the [IoT Edge documentation page](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
 

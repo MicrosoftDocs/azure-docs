@@ -1,21 +1,23 @@
 ---
-title: Understand Device Update for IoT Hub authentication and authorization
-description: Understand how Device Update for IoT Hub uses Azure RBAC to provide authentication and authorization for users and service APIs.
-author: vimeht
-ms.author: vimeht
-ms.date: 10/21/2022
+title: Azure role-based access control (RBAC) and Azure Device Update for IoT Hub
+description: Understand how Azure Device Update for IoT Hub uses Azure role-based access control (RBAC) to provide authentication and authorization for users and service APIs.
+author: andrewbrownmsft
+ms.author: andbrown
+ms.date: 01/21/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Azure role-based access control (RBAC) and Device Update
+# Azure RBAC and Azure Device Update for IoT Hub
 
-Device Update uses Azure RBAC to provide authentication and authorization for users and service APIs. In order for other users and applications to have access to Device Update, users or applications must be granted access to this resource. It is also necessary to [configure access for Azure Device Update service principal](./device-update-control-access.md#configuring-access-for-azure-device-update-service-principal-in-the-iot-hub) for successfully deploying updates and managing your devices.
+For users and applications to access Azure Device Update for IoT Hub, they must be granted access to the Device Update resource. The Device Update service principal must also get access to its associated IoT hub to deploy updates and manage devices.
 
-## Configure access control roles
+This article explains how Device Update and Azure IoT Hub use Azure role-based access control (Azure RBAC) to provide authentication and authorization for users and service APIs. The article also describes Microsoft Entra ID authentication for Device Update REST APIs, and support for managed identities in Device Update and Azure IoT Hub.
 
- These are the roles that are supported by Device Update:
+## Device Update access control roles
+
+Device Update supports the following RBAC roles. For more information, see [Configure access control to the Device Update account](configure-access-control-device-update.md#configure-access-control-for-device-update-account).
 
 |   Role Name   | Description  |
 | :--------- | :---- |
@@ -23,111 +25,117 @@ Device Update uses Azure RBAC to provide authentication and authorization for us
 |  Device Update Reader| Can view all updates and deployments |
 |  Device Update Content Administrator | Can view, import, and delete updates  |
 |  Device Update Content Reader | Can view updates  |
-|  Device Update Deployments Administrator | Can manage deployment of updates to devices|
+|  Device Update Deployments Administrator | Can manage deployments of updates to devices|
 |  Device Update Deployments Reader| Can view deployments of updates to devices |
 
-A combination of roles can be used to provide the right level of access. For example, a developer can import and manage updates using the Device Update Content Administrator role, but needs a Device Update Deployments Reader role to view the progress of an update. Conversely, a solution operator with the Device Update Reader role can view all updates, but needs to use the Device Update Deployments Administrator role to deploy a specific update to devices.
+You can assign a combination of roles to provide the right level of access. For example, you can use the Device Update Content Administrator role to import and manage updates, but you need the Device Update Deployments Reader role to view the progress of an update. Conversely, with the Device Update Reader role you can view all updates, but you need the Device Update Deployments Administrator role to deploy an update to devices.
 
-## Configuring access for Azure Device Update service principal in the IoT Hub
+## Device Update service principal access to IoT Hub
 
-Device Update for IoT Hub communicates with the IoT Hub for deployments and manage updates at scale. In order to enable Device Update to do this, users need to set IoT Hub Data Contributor access for Azure Device Update Service Principal in the IoT Hub permissions. 
+Device Update communicates with its associated IoT hub to deploy and manage updates at scale. To enable this communication, you need to grant the Device Update service principal access to the IoT hub with IoT Hub Data Contributor role.
 
-Deployment, device and update management and diagnostic actions will not be allowed if these permissions are not set. Operations that will be blocked will include:
-* Create Deployment
-* Cancel Deployment
-* Retry Deployment 
-* Get Device
+Granting this permission allows the following deployment, device and update management, and diagnostic actions:
 
-The permission can be set from IoT Hub Access Control (IAM). Refer to [Configure Access for Azure Device update service principal in linked IoT hub](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub)
+- Create deployment
+- Cancel deployment
+- Retry deployment 
+- Get device
 
-## Authenticate to Device Update REST APIs
+You can set this permission from the IoT hub **Access Control (IAM)** page. For more information, see [Configure IoT hub access for the Device Update service principal](configure-access-control-device-update.md#configure-access-for-azure-device-update-service-principal-in-linked-iot-hub).
+
+## Device Update REST APIs
 
 Device Update uses Microsoft Entra ID for authentication to its REST APIs. To get started, you need to create and configure a client application.
 
 <a name='create-client-azure-ad-app'></a>
+### Create a client Microsoft Entra app
 
-### Create client Microsoft Entra app
+To integrate an application or service with Microsoft Entra ID, first [register a client application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Client application setup varies depending on the authorization flow you need: users, applications, or managed identities. For example:
 
-To integrate an application or service with Microsoft Entra ID, first [register a client application with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md). Client application setup will vary depending on the authorization flow you'll need (users, applications or managed identities). For example, to call Device Update from:
+- To call Device Update from a mobile or desktop application, select **Public client/native (mobile & desktop)** in **Select a platform** and enter `https://login.microsoftonline.com/common/oauth2/nativeclient` for the **Redirect URI**.
+- To call Device Update from a website with implicit sign-on, use **Web** platform. Under **Implicit grant and hybrid flows**, select **Access tokens (used for implicit flows)**.
 
-* Mobile or desktop application, add **Mobile and desktop applications** platform with `https://login.microsoftonline.com/common/oauth2/nativeclient` for the Redirect URI.
-* Website with implicit sign-on, add **Web** platform and select **Access tokens (used for implicit flows)**.
-
->[!NOTE]
->Microsoft recommends that you use the most secure authentication flow available. Implicit flow authentication requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+  >[!NOTE]
+  >Use the most secure authentication flow available. Implicit flow authentication requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should use this flow only when other more secure flows, such as managed identities, aren't viable.
 
 ### Configure permissions
 
-Next, add permissions for calling Device Update to your app:
+Next, grant permissions to your app to call Device Update.
 
 1. Go to the **API permissions** page of your app and select **Add a permission**.
-2. Go to **APIs my organization uses** and search for **Azure Device Update**.
-3. Select **user_impersonation** permission and select **Add permissions**.
+1. Go to **APIs my organization uses** and search for **Azure Device Update**.
+1. Select **user_impersonation** permission and select **Add permissions**.
 
 ### Request authorization token
 
-The Device Update REST API requires an OAuth 2.0 authorization token in the request header. The following sections show some examples of ways to request an authorization token.
+The Device Update REST API requires an OAuth 2.0 authorization token in the request header. The following sections show examples of some ways to request an authorization token.
 
-#### Using Azure CLI
+#### Azure CLI
 
 ```azurecli
 az login
 az account get-access-token --resource 'https://api.adu.microsoft.com/'
 ```
 
-#### Using PowerShell MSAL Library
+#### PowerShell MSAL Library
 
-[MSAL.PS](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). It supports various authentication methods.
+[`MSAL.PS`](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) that supports various authentication methods.
 
-_Using user credentials_:
+- User credentials:
 
-```powershell
-$clientId = '<app_id>'
-$tenantId = '<tenant_id>'
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+  ```powershell
+  $clientId = '<app_id>'
+  $tenantId = '<tenant_id>'
+  $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+  $Scope = 'https://api.adu.microsoft.com/user_impersonation'
+  
+  Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+  ```
 
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
-```
+- User credentials with device code:
 
-_Using user credentials with device code_:
+  ```powershell
+  $clientId = '<app_id>’
+  $tenantId = '<tenant_id>’
+  $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+  $Scope = 'https://api.adu.microsoft.com/user_impersonation'
+  
+  Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+  ```
 
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+- App credentials:
 
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
-```
-
-_Using app credentials_:
-
-```powershell
-$clientId = '<app_id>’
-$tenantId = '<tenant_id>’
-$cert = '<client_certificate>'
-$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
-$Scope = 'https://api.adu.microsoft.com/.default'
-
-Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
-```
+  ```powershell
+  $clientId = '<app_id>’
+  $tenantId = '<tenant_id>’
+  $cert = '<client_certificate>'
+  $authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+  $Scope = 'https://api.adu.microsoft.com/.default'
+  
+  Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
+  ```
 
 ## Support for managed identities
 
-Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. This eliminates the needs for developers having to manage credentials by providing an identity. Device Update for IoT Hub supports system-assigned managed identities.
+Managed identities provide Azure services with secure, automatically managed Microsoft Entra ID identities. Managed identities eliminate the need for developers to manage credentials by providing identities. Device Update supports system-assigned managed identities.
 
-### System-assigned managed identity
+To add a system-assigned managed identity for Device Update:
 
-To add and remove a system-assigned managed identity in Azure portal:
-1. Sign in to the Azure portal and navigate to your desired Device Update for IoT Hub account.
-2. Navigate to Identity in your Device Update for IoT Hub portal
-3. Navigate to Identity in your IoT Hub portal
-4. Under System-assigned tab, select On and click Save.
+1. In the Azure portal, go to your Device Update account.
+1. In the left navigation, select **Settings** > **Identity**.
+1. Under **System assigned** on the **Identity** page, set **Status** to **On**.
+1. Select **Save**, and then select **Yes**.
 
-To remove system-assigned managed identity from a Device Update for IoT hub account, select Off and click Save.
+To add a system-assigned managed identity for IoT Hub:
 
+1. In the Azure portal, go to your IoT hub.
+1. In the left navigation, select **Security settings** > **Identity**.
+1. Under **System-assigned** on the **Identity** page, select **On** under **Status**.
+1. Select **Save**, and then select **Yes**.
 
+To remove system-assigned managed identity from a Device Update account or IoT hub, set or select **Off** on the **Identity** page, and then select **Save**.
 
-## Next Steps
-* [Create device update resources and configure access control roles](./create-device-update-account.md)
+## Related content
+
+- [Create Azure Device Update for IoT Hub resources](create-device-update-account.md)
+- [Configure access control for Device Update resources](configure-access-control-device-update.md)

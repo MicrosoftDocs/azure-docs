@@ -2,7 +2,7 @@
 title: "Darktrace Connector REST API connector for Microsoft Sentinel"
 description: "Learn how to install the connector Darktrace Connector REST API to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

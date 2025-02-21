@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 01/14/2025
+ms.date: 02/10/2025
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: include
@@ -15,8 +15,6 @@ When possible, we recommend that you configure new P2S User VPN gateways using t
 **Considerations**
 
 * A P2S User VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
-
-* At this time, the newer Microsoft-registered App ID doesn't support as many Audience values as the older, manually registered app. If you need an Audience value for anything other than Azure Public or Custom, use the older manually registered method and values.
 
 * The Azure VPN Client for Linux isn't backward compatible with P2S gateways configured to use the older Audience values that align with the manually registered app. However, the Azure VPN Client for Linux does support Custom Audience values.
 

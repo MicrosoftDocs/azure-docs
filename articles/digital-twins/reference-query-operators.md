@@ -5,8 +5,8 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language operators
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
-ms.topic: article
+ms.date: 01/27/2025
+ms.topic: reference
 ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -78,10 +78,4 @@ Here's an example using `NOT`. The following query returns twins who don't meet 
 ## Limitations
 
 The following limits apply to queries using operators.
-* [Limit for IN/NIN](#limit-for-innin)
-
-See the section below for more details.
-
-### Limit for IN/NIN
-
-The limit for the number of values that can be included in an `IN` or `NIN` set is 100 values.
+* Contains operators: The limit for the number of values that can be included in an `IN` or `NIN` set is 100 values.

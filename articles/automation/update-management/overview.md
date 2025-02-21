@@ -174,7 +174,7 @@ sudo yum -q --security check-update
 > [!NOTE]
 > Currently there's no supported method to enable native classification-data availability on CentOS. At this time, we provide limited support to customers who might have enabled this feature on their own.
 
-**Redhat** - To classify updates on Red Hat Enterprise version 6, you must install the YUM security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of YUM itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
+**Red Hat** - To classify updates on Red Hat Enterprise version 6, you must install the YUM security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of YUM itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
 
 ## Integrate Update Management with Configuration Manager

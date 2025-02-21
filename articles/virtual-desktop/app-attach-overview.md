@@ -224,7 +224,7 @@ Each session host mounts application images from the file share. You need to con
 
 - For Azure NetApp Files, you can [create an SMB volume](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) and configure NTFS permissions to give read access to each session host's computer object. Your session hosts need to be joined to Active Directory Domain Services or Microsoft Entra Domain Services.
 
-You can verify the permissions are correct by using [PsExec](/sysinternals/downloads/psexec). For more information, see [Check file share access](troubleshoot-app-attach.md#check-file-share-access).
+You can verify the permissions are correct by using [PsExec](/sysinternals/downloads/psexec). For more information, see [Check file share access](/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach#check-file-share-access).
 
 ### Performance
 

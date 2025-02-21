@@ -108,7 +108,6 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
    :::image type="content" source="./media/quickstart-any-to-any-template/resources.png" alt-text="Example of resources" lightbox="./media/quickstart-any-to-any-template/resources.png":::
 
 1. Click the virtual WAN to view the hubs. On the virtual WAN page, click each hub to view connections and other hub information.
-   :::image type="content" source="./media/quickstart-any-to-any-template/hub.png" alt-text="Example of hubs" lightbox="./media/quickstart-any-to-any-template/hub.png":::
 
 ## <a name="complete"></a>Complete the hybrid configuration
 
