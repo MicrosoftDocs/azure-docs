@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 02/02/2024
+ms.date: 02/21/2025
 ---
 
 # Integrate Neon Serverless Postgres with Service Connector
