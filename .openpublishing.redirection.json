@@ -31,6 +31,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-grid/event-schema-storage-actions.md",
+      "redirect_url": "/azure/storage-actions/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/hdinsight-aks/index.yml",
       "redirect_url": "/previous-versions/azure/hdinsight-aks",
       "redirect_document_id": false
