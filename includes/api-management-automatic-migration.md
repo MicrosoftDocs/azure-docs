@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/19/2025
+ms.date: 02/21/2025
 ms.author: danlep
 ---
 
@@ -13,6 +13,8 @@ After the retirement date, we'll automatically migrate remaining `stv1` service 
 ### Virtual network configuration may be removed during automatic migration
 
 Im most cases, automatic migration retains the virtual network settings of your API Management instance, if they're configured. Under certain [special conditions](../articles/api-management/migrate-stv1-to-stv2-vnet.md#special-conditions-and-scenarios), the virtual network configuration of your `stv1` service instance is removed during automatic migration and, as a security measure, access to your service endpoints is blocked. If the network settings were removed during the migration process, you'll see a message in the portal similar to: `We have blocked access to all endpoints for your service`.
+
+:::image type="content" source="media/api-management-automatic-migration/blocked-access.png" alt-text="Screenshot of blocked access to API Management in the portal.":::
 
 While access is blocked, access to the API gateway, developer portal, direct management API, and Git repository is disabled. To restore access to your service endpoints:
 
