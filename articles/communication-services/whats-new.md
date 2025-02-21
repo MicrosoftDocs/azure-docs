@@ -170,7 +170,7 @@ For more information, see [Azure Communication Services End of Call Survey overv
 
 ### Identify web calling participants with custom data tags
 
-Now developers can add up to three custom data attributes to call participants with the WebJS calling client and view them in Azure Monitor. You can use these customizable attributes to enhance your post-call analysis. Since you have control over the data creation, you can use it for A/B testing, labeling such as west coast, release version, and so on. You can use [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics.md#use-diagnosticoptions-to-view-tagged-calls-in-call-diagnostics) to search for these attributes or create custom queries with [Log Analytics](./concepts/analytics/query-call-logs.md).
+Now developers can add up to three custom data attributes to call participants with the WebJS calling client and view them in Azure Monitor. You can use these customizable attributes to enhance your post-call analysis. Since you have control over the data creation, you can use it for A/B testing, labeling such as west coast, release version, and so on. You can use [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics.md#how-can-i-use-diagnosticoptions-to-view-tagged-calls-in-call-diagnostics) to search for these attributes or create custom queries with [Log Analytics](./concepts/analytics/query-call-logs.md).
 
 :::image type="content" source="media/whats-new-images/call-diagnostics-test.png" alt-text="Screen capture of Microsoft Azure Call Diagnostics showing the label call diagnostics test and new diagnostic options custom data tags." lightbox="media/whats-new-images/call-diagnostics-test.png":::
 
