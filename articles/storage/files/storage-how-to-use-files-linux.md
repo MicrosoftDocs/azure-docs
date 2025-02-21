@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 02/21/2025
 ms.author: kendownie
 ---
 
@@ -111,8 +111,6 @@ On other distributions, use the appropriate package manager or [compile from sou
 ## Permissions
 
 All mounting scripts in this article will mount the file shares using the default 0755 Linux file and folder permissions. This means read, write, and execute for the file/directory owner, read and execute for users in the owner group, and read and execute for other users. Depending on your organization's security policies, you might want to set alternate `uid`/`gid` or `dir_mode` and `file_mode` permissions in the mount options.
-
-You can also get Unix-style permissions support by adding `modefromsid,idsfromsid` mount options to your mount command. For this to work, all the clients need to mount using these options, and the UIDs/GIDs must be uniform across all clients.
 
 For more information on how to set permissions, see [Unix symbolic notation](https://en.wikipedia.org/wiki/File-system_permissions#Symbolic_notation). See [mount options](#mount-options) for a list of mount options.
 
