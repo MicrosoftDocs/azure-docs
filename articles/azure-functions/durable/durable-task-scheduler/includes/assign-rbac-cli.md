@@ -2,25 +2,13 @@
 ms.service: azure-functions
 ms.topic: include
 ms.date: 01/30/2025
+ms.author: jiayma
+ms.reviewer: azfuncdf
+author: lilyjma
 ---
 
-### Assign Azure Role-Based Access Control (RBAC) permission to developer identity
-
-Before running the app, give your developer identity the **Durable Task Data Contributor** role so you have permission to access Durable Task Scheduler. 
-
-> [!NOTE]
-> Learn [how identity-based connection works](../../../functions-reference.md#local-development-with-identity-based-connections) during local development. 
-
-#### Set the assignee
-
-Get your developer credential ID:
-
-```bash
-  assignee=$(az ad user show --id "someone@microsoft.com" --query "id" --output tsv)
-```
-
-#### Set the scope 
-Setting the scope on the Task Hub or Scheduler level is sufficient. 
+1. Set the scope 
+Granting access on the scheduler scope will give access to *all* task hubs in that scheduler.
 
 **Task Hub**
 
@@ -33,25 +21,7 @@ Setting the scope on the Task Hub or Scheduler level is sufficient.
   scope="/subscriptions/${subscription}/resourceGroups/${rg}/providers/Microsoft.DurableTask/schedulers/${scheduler}"
 ```
 
-If you need to set scope on the resource group or subscription level, you can set it like the following examples:
-
-**Resource group**
-
-Scopes access to all schedulers in a resource group.
-
-```bash
-  scope="/subscriptions/${subscription}/resourceGroups/${rg}"
-```
-
-**Subscription**
-
-Scopes access to all resource groups in a subscription.
-
-```bash
-  scope="/subscriptions/${subscription}"
-```
-
-#### Grant access
+1. Grant access
 
 Run the following command to create the role assignment and grant access.
 
