@@ -19,12 +19,3 @@ ms.author: danlep
     1. On the **Principal** tab,  **Select principal**, search for  the resource name of your managed identity, and then select **Next**.
          If you're using a system-assigned identity, the principal is the name of your API Management instance.
     1. Select **Next** again. On the **Review + create** tab, select **Create**.
-    
-    **To configure Azure RBAC access:<br/>**
-
-    1. In the left menu, select **Access control (IAM)**.
-    1. On the **Access control (IAM)** page, select **Add role assignment**.
-    1. On the **Role** tab, select **Key Vault Secrets User**.
-    1. On the **Members** tab, select **Managed identity** > **+ Select members**.
-    1. On the **Select managed identity** page, select the system-assigned managed identity or a user-assigned managed identity associated with your API Management instance, and then select **Select**.
-    1. Select **Review + assign**.

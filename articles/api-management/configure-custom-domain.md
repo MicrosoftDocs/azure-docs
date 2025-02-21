@@ -91,6 +91,7 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     
     [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
+    [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
 

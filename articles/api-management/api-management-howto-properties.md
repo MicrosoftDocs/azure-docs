@@ -61,6 +61,7 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 [!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
 
+[!INCLUDE [api-management-key-vault-secret-access](../../includes/api-management-key-vault-secret-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
