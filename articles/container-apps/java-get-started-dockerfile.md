@@ -56,7 +56,7 @@ Build the Spring PetClinic application on your local machine by using the follow
 
 Deploy the project by using the following steps:
 
-1. Define the environment variables that are used throughout this article by using the following commands:
+1. Set environment variables by using the following commands:
 
     ```bash
     export RESOURCE_GROUP="pet-clinic-container-apps"
