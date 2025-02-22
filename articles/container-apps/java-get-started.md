@@ -1,6 +1,6 @@
 ---
 title: Launch Your First Java Application in Azure Container Apps with a WAR or JAR File
-description: Learn how to deploy a java project in Azure Container Apps with a WAR or JAR file.
+description: Shows how to deploy a Java project in Azure Container Apps with a WAR or JAR file.
 services: container-apps
 author: KarlErickson
 ms.service: azure-container-apps
@@ -23,7 +23,7 @@ Build the project by using the following steps:
 
 ::: zone pivot="jar"
 
-1. Clone the Spring PetClinic sample application to your machine by using the following command:
+1. Clone the [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) repo by using the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-container-apps-java-samples.git
@@ -33,7 +33,7 @@ Build the project by using the following steps:
 
 ::: zone pivot="war"
 
-1. Clone the Spring PetClinic application to your machine by using the following command:
+1. Clone the [Spring PetClinic Sample Application](https://github.com/spring-petclinic/spring-framework-petclinic) repo by using the following command:
 
     ```bash
     git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
@@ -49,13 +49,15 @@ Build the project by using the following steps:
     cd azure-container-apps-java-samples/spring-petclinic/spring-petclinic/
     ```
 
-1. Initialize and update the PetClinic to the latest version by using the following command:
+1. Initialize and update the Spring **PetClinic Sample Application** repo to the latest version by using the following command:
 
     ```bash
-    git submodule update --init --recursive
+    git submodule update \ 
+        --init \
+        --recursive
     ```
 
-1. Clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process, by using the following command:
+1. To clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process, use the following command:
 
     ```bash
     mvn clean verify
@@ -68,7 +70,7 @@ You now have a **/target/petclinic.jar** file.
 ::: zone pivot="war"
 
 > [!NOTE]
-> If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
+> You have the option of specifying the Tomcat version by using environment variables. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 1. Navigate to the **spring-framework-petclinic** folder by using the following command:
 
@@ -93,12 +95,12 @@ You now have a **/target/petclinic.war** file.
 Deploy the JAR package to Container Apps by using the following command:
 
 > [!NOTE]
-> If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
+> You have the option of specifying the JDK version by using environment variables. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 ```azurecli
 az containerapp up \
-    --name <CONTAINER_APP_NAME> \
     --resource-group <RESOURCE_GROUP> \
+    --name <CONTAINER_APP_NAME> \
     --subscription <SUBSCRIPTION_ID>\
     --location <LOCATION> \
     --environment <ENVIRONMENT_NAME> \
@@ -109,38 +111,31 @@ az containerapp up \
 ```
 
 > [!NOTE]
-> The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
-
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
+> The default JDK version is 17. To change the JDK version for compatibility with your application, use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument.
 
 ::: zone-end
 
 ::: zone pivot="war"
 
-Deploy the WAR package to Azure Container Apps.
-
-Now you can deploy your WAR file with the `az containerapp up` CLI command.
+Deploy the WAR file to Azure Container Apps by using the following command:
 
 ```azurecli
 az containerapp up \
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --subscription <SUBSCRIPTION>\
-  --location <LOCATION> \
-  --environment <ENVIRONMENT_NAME> \
-  --artifact <WAR_FILE_PATH_AND_NAME> \
-  --build-env-vars BP_TOMCAT_VERSION=10.* \
-  --ingress external \
-  --target-port 8080 \
-  --query properties.configuration.ingress.fqdn
+    --resource-group <RESOURCE_GROUP> \
+    --name <CONTAINER_APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --subscription <SUBSCRIPTION>\
+    --location <LOCATION> \
+    --environment <ENVIRONMENT_NAME> \
+    --artifact <WAR_FILE_PATH_AND_NAME> \
+    --build-env-vars BP_TOMCAT_VERSION=10.* \
+    --ingress external \
+    --target-port 8080 \
+    --query properties.configuration.ingress.fqdn
 ```
 
 > [!NOTE]
-> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
-
-In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
-
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
+> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
 
 ::: zone-end
 
