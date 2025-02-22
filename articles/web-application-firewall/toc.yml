@@ -102,24 +102,24 @@ items:
         href: ./ag/rate-limiting-configure.md
   - name: Front Door
     items:
-    - name: Tuning
-      href: ./afds/waf-front-door-tuning.md
-    - name: Managed rules
-      href: ./afds/waf-front-door-drs.md
-    - name: Custom rules
-      href: ./afds/waf-front-door-custom-rules.md
-    - name: Exclusion lists
-      items:
-      - name: Overview
-        href: ./afds/waf-front-door-exclusion.md
-      - name: Configure exclusion lists
-        href: ./afds/waf-front-door-exclusion-configure.md
     - name: WAF Policy
       items:
       - name: Policy settings
         href: ./afds/waf-front-door-policy-settings.md
       - name: Configure WAF policy - PowerShell
         href: ./afds/waf-front-door-custom-rules-powershell.md
+    - name: Managed rules
+      href: ./afds/waf-front-door-drs.md
+    - name: Custom rules
+      href: ./afds/waf-front-door-custom-rules.md
+    - name: Tuning
+      href: ./afds/waf-front-door-tuning.md
+    - name: Exclusion lists
+      items:
+      - name: Overview
+        href: ./afds/waf-front-door-exclusion.md
+      - name: Configure exclusion lists
+        href: ./afds/waf-front-door-exclusion-configure.md
     - name: Rate limiting
       items:
       - name: Overview
@@ -184,11 +184,11 @@ items:
     items:
     - name: Best practices
       href: ./ag/best-practices.md
-    - name: Resource logs
-      href: ./ag/web-application-firewall-logs.md
     - name: Monitoring and logging
       href: ./ag/application-gateway-waf-metrics.md
-    - name: Log analytics
+    - name: Resource logs
+      href: ./ag/web-application-firewall-logs.md
+    - name: Log Analytics
       href: ./ag/log-analytics.md
     - name: Troubleshoot
       href: ./ag/web-application-firewall-troubleshoot.md
