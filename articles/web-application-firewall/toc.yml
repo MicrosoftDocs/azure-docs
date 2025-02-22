@@ -18,6 +18,8 @@ items:
       href: ./afds/afds-overview.md
     - name: FAQ
       href: ./afds/waf-faq.yml
+  - name: Azure CDN
+    items:
     - name: Web Application Firewall on Azure CDN
       href: ./cdn/cdn-overview.md
 - name: Deploy
