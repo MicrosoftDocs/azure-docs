@@ -5,7 +5,7 @@ author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.author: johnmarc
-ms.date: 04/17/2023
+ms.date: 02/18/2025
 topic: overview
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal, ovn, ovn-kubernetes, CNI, Container Network Interface
 #Customer intent: I need to configure OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters.
@@ -25,12 +25,13 @@ The OVN-Kubernetes CNI cluster network provider offers the following features:
 * Implements Kubernetes network policy support, including ingress and egress rules.
 * Uses the Generic Network Virtualization Encapsulation (Geneve) protocol rather than the Virtual Extensible LAN (VXLAN) protocol to create an overlay network between nodes.
 
-> [!NOTE]
-> As of ARO 4.11, OVN-Kubernetes is the CNI for all ARO clusters. In already existing clusters, migrating from the previous SDN standard to OVN is not supported.
+> [!IMPORTANT]
+> Since ARO 4.11, OVN-Kubernetes has been the CNI for all new Azure Red Hat OpenShift clusters. For clusters created before then, migrating from the previous SDN standard to OVN is recommended. SDN has been deprecated since version 4.14 and will no longer be supported after version 4.16. You must migrate to OVN-Kubernetes prior to updating to 4.17.
 > 
-> If your cluster uses any part of the 100.64.0.0/16 IP address range, you cannot migrate to OVN-Kubernetes because it uses this IP address range internally.
 
 For more information about OVN-Kubernetes CNI network provider, see [About the OVN-Kubernetes default Container Network Interface (CNI) network provider](https://docs.openshift.com/container-platform/latest/networking/ovn_kubernetes_network_provider/about-ovn-kubernetes.html).
+
+For information about migrating from SDN to OVN-Kubernetes, see [Migrate from OpenShift SDN to OVN-Kubernetes](howto-sdn-to-ovn.md).
 
 ## Recommended content
 

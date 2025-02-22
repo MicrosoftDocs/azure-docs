@@ -1,8 +1,8 @@
 ---
-title: Replicate Azure Stack VMs to Azure using Azure Site Recovery
-description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
+title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
+description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 02/05/2025
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ms.service: azure-site-recovery
