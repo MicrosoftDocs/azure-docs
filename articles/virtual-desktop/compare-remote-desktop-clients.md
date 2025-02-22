@@ -521,7 +521,7 @@ The following table shows which credential types are available for each platform
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ |
 | Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -536,7 +536,7 @@ The following table shows which credential types are available for each platform
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ |
 | Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -562,7 +562,7 @@ When connecting to a remote session, there are multiple ways to authenticate. If
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -576,7 +576,7 @@ When connecting to a remote session, there are multiple ways to authenticate. If
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -601,7 +601,7 @@ The following table shows which types of credential are available when authentic
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -614,7 +614,7 @@ The following table shows which types of credential are available when authentic
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ |
