@@ -292,7 +292,7 @@ The following example shows how to update an existing http server to use refresh
 
 In most cases, the refresh operation of the App Configuration provider can be treated as a no-op. It will only send requests to check the value in App Configuration when the refresh interval time you set has passed.
 
-We recommend to implement request-driven configuration refresh for your web application. The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle, when there is no request incoming. When your app is active, you can use a middleware or similar mechanism to trigger the `appConfig.refresh()` call upon every incoming request to your application.
+We recommend implementing request-driven configuration refresh for your web application. The configuration refresh is triggered by the incoming requests to your web app. No refresh will occur if your app is idle, when there is no request incoming. When your app is active, you can use a middleware or similar mechanism to trigger the `appConfig.refresh()` call upon every incoming request to your application.
 
 - If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. New attempts to check for changes will be made periodically while there are new incoming requests to your app.
 
