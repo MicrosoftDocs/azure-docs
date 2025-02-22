@@ -20,7 +20,7 @@ This article shows you how to use a Dockerfile to deploy the Spring PetClinic sa
 
 Build the Spring PetClinic application on your local machine by using the following steps:
 
-1. Clone the Spring PetClinic sample application by using the following command:
+1. Clone the [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples) repo by using the following command:
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-container-apps-java-samples.git
@@ -32,13 +32,13 @@ Build the Spring PetClinic application on your local machine by using the follow
     cd azure-container-apps-java-samples/spring-petclinic/spring-petclinic/
     ```
 
-1. Initialize and update the PetClinic to the latest version by using the following command:
+1. Initialize and update the PetClinic application to the latest version by using the following command:
 
     ```bash
     git submodule update --init --recursive
     ```
 
-1. Build the project by using the following command:
+1. Build the PetClinic application by using the following command:
 
     ```bash
     ./mvnw clean install
@@ -67,7 +67,7 @@ Deploy the project by using the following steps:
 
 1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
-1. Build and deploy your first Spring Boot app using the following command, where the `..` (dot dot) tells the command to use the Dockerfile in the folder one level up in the folder structure:
+1. Build and deploy your first Spring Boot app by using the following command. The `..` indicates that you're using the Dockerfile in the parent folder.
 
     > [!NOTE]
     > This command accomplishes the following tasks:
