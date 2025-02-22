@@ -10,17 +10,6 @@ You can deploy your Java application with many different options, including a lo
 
 :::image type="content" source="../media/java-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the PetClinic app." lightbox="../media/java-get-started/azure-container-apps-petclinic-warfile.png":::
 
-## Install the Container Apps CLI extension
-
-Use the the following command to install the latest version of the Container Apps CLI extension:
-
-```azurecli
-az extension add 
-    --name containerapp
-    --upgrade
-    --allow-preview
-```
-
 ## Prerequisites
 
 - An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
@@ -31,3 +20,14 @@ az extension add
 - The Azure Container Apps CLI extension, version 0.3.47 or higher.
 - The [Java Development Kit](/java/openjdk/install), version 17 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
+
+## Install the Container Apps CLI extension
+
+Use the the following command to install the latest version of the Container Apps CLI extension:
+
+```azurecli
+az extension add 
+    --name containerapp
+    --upgrade
+    --allow-preview
+```
