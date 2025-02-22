@@ -70,7 +70,7 @@ Deploy the project by using the following steps:
 1. Build and deploy your first Spring Boot app using the following command, where the `..` (dot dot) tells the command to use the Dockerfile in the folder one level up in the folder structure:
 
     > [!NOTE]
-    > This command does the following things:
+    > This command accomplishes the following tasks:
     >
     > - Creates the resource group.
     > - Creates an Azure Container Registry.
