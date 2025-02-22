@@ -317,7 +317,7 @@ We recommend to implement request-driven configuration refresh for your web appl
     |----------------|---------------------------|-------------|--------------------|
     | *message*      | *Hello World - Updated!*  | Leave empty | Leave empty        |
 
-1. After about 15 seconds, refresh the page and the message should be updated.
+1. After about 15 seconds, refresh the page for multiple times and the message should be updated.
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of browser with an updated message from App Configuration.](./media/dynamic-refresh-javascript/http-server-refreshed.png)
