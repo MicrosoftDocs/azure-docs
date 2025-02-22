@@ -29,10 +29,10 @@ Deploy the project by using the following steps:
 1. Define the environment variables that are used throughout this article by using the following commands:
 
     ```bash
-    export RESOURCE_GROUP="petclinic-containerapps"
-    export LOCATION="canadacentral"
-    export ENVIRONMENT="env-petclinic-containerapps"
-    export CONTAINER_APP_NAME="petclinic"
+    export RESOURCE_GROUP="pet-clinic-container-apps"
+    export LOCATION="canada-central"
+    export ENVIRONMENT="env-pet-clinic-container-apps"
+    export CONTAINER_APP_NAME="pet-clinic"
     ```
 
 1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
