@@ -12,13 +12,13 @@ ms.service: dev-box
 
 #### [No existing dev boxes](#tab/no-existing-dev-boxes)
 
-1. If you don't have any dev boxes, you see this screen. Select **New dev box**.
+2. If you don't have any dev boxes, you see this screen. Select **New dev box**.
 
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-dev-box.png" alt-text="Screenshot of the developer portal with new dev box highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-dev-box.png":::
 
 #### [Existing dev boxes](#tab/existing-dev-boxes)
 
-1. Select **New** > **New dev box**.
+2. Select **New** > **New dev box**.
  
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-menu.png":::
  

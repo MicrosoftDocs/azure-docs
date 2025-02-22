@@ -1,7 +1,7 @@
 ---
 title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
+description: Learn how to use claim resolvers in Azure AD B2C custom policies to provide context information and populate claims with dynamic values.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/17/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -161,7 +161,7 @@ The following table lists the [OAuth2 identity provider](oauth2-technical-profil
 | {oauth2:access_token} | The OAuth2 identity provider access token. The `access_token` attribute. | `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni...` |
 | {oauth2:token_type}   | The type of the access token. The `token_type` attribute. | Bearer  |
 | {oauth2:expires_in}   | The length of time that the access token is valid in seconds. The `expires_in` attribute. The output claim [DataType](claimsschema.md#datatype) must be `int` or `long`. | 960000 |
-| {oauth2:refresh_token} | The OAuth2 identity provider refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
+| {oauth2:refresh_token} | The OAuth2 identity providers refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
 
 To use the OAuth2 identity provider claim resolvers, set the output claim's `PartnerClaimType` attribute to the claim resolver.  The following example demonstrates how the get the external identity provider claims:
 
@@ -312,6 +312,6 @@ In a [Relying party](relyingparty.md) policy technical profile, you may want to 
   </RelyingParty>
 ```
 
-## Next steps
+## Related content
 
 - Find more [claims resolvers samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-resolver) on the Azure AD B2C community GitHub repo

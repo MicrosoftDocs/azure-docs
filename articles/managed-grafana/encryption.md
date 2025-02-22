@@ -37,4 +37,4 @@ In this model, all key management aspects such as key issuance, rotation, and ba
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor your Azure Managed Grafana instance](how-to-monitor-managed-grafana-workspace.md)
+> [Monitor Azure Managed Grafana](how-to-monitor-managed-grafana-workspace.md)
