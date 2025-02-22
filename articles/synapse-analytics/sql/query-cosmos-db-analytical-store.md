@@ -117,10 +117,6 @@ To follow along with this article showcasing how to query Azure Cosmos DB data w
 * An Azure Cosmos DB database named `covid`
 * Two Azure Cosmos DB containers named `Ecdc` and `Cord19` loaded with the preceding sample datasets
 
-You can use the following connection string for testing purpose:
-
-`Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==`
-
 Note that this connection doesn't guarantee performance because this account might be located in remote region compared to your Synapse SQL endpoint.
 
 ## Explore Azure Cosmos DB data with automatic schema inference
@@ -129,11 +125,16 @@ The easiest way to explore data in Azure Cosmos DB is by using the automatic sch
 
 ### [OPENROWSET with key](#tab/openrowset-key)
 
+>[!IMPORTANT]
+>In the script, replace these values with your own values:
+>- **your-cosmosdb** - the name of your Cosmos DB account
+>- **yourcosmosdbkey** - your Cosmos DB account key
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       'Account=your-cosmosdb;Database=covid;Key=yourcosmosdbkey',
        Ecdc) as documents
 ```
 
@@ -142,12 +143,12 @@ FROM OPENROWSET(
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'yourcosmosdbkey';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
@@ -171,7 +172,7 @@ If you need to explore data from the other container in the same Azure Cosmos DB
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       'Account=your-cosmosdb;Database=covid;Key=yourcosmosdbkey',
        Cord19) as cord19
 ```
 
@@ -197,7 +198,7 @@ These flat JSON documents in Azure Cosmos DB can be represented as a set of rows
 SELECT TOP 10 *
 FROM OPENROWSET(
       'CosmosDB',
-      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+      'Account=your-cosmosdb;Database=covid;Key=yourcosmosdbkey',
        Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
@@ -207,12 +208,12 @@ FROM OPENROWSET(
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
-    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+    WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'yourcosmosdbkey';
 */
 SELECT TOP 10 *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
@@ -238,13 +239,13 @@ Once you identify the schema, you can prepare a view on top of your Azure Cosmos
 
 ```sql
 CREATE CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'yourcosmosdbkey';
 GO
 CREATE OR ALTER VIEW Ecdc
 AS SELECT *
 FROM OPENROWSET(
       PROVIDER = 'CosmosDB',
-      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      CONNECTION = 'Account=your-cosmosdb;Database=covid',
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
@@ -278,7 +279,7 @@ The nested objects and arrays in Azure Cosmos DB are represented as JSON strings
 SELECT TOP 10 *
 FROM OPENROWSET( 
        'CosmosDB',
-       'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+       'Account=your-cosmosdb;Database=covid;Key=yourcosmosdbkey',
        Cord19)
 WITH (  paper_id    varchar(8000),
         title        varchar(1000) '$.metadata.title',
@@ -332,7 +333,7 @@ SELECT
 FROM
     OPENROWSET(
       'CosmosDB',
-      'Account=synapselink-cosmosdb-sqlsample;Database=covid;Key=s5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==',
+      'Account=your-cosmosdb;Database=covid;Key=yourcosmosdbkey',
        Cord19
     ) WITH ( title varchar(1000) '$.metadata.title',
              authors varchar(max) '$.metadata.authors' ) AS docs

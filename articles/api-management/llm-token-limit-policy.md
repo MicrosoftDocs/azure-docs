@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 08/08/2024
+ms.date: 02/18/2025
 ms.author: danlep
 ---
 

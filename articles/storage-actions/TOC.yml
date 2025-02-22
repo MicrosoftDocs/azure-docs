@@ -45,8 +45,6 @@ items:
     href: /cli/azure/storage-actions
   - name: Monitoring data Reference
     href: storage-tasks/storage-tasks-monitor-data-reference.md
-  - name: Storage Tasks events
-    href: ../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json
   - name: Resource Manager template
     items:
     - name: Storage task
