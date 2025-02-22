@@ -24,7 +24,7 @@ az extension add
 ## Prerequisites
 
 - An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
-- The *Contributor* or *Owner* [permission](../../role-based-access-control/role-assignments-portal.yml?tabs=current) on the Azure subscription.
+- The `Contributor` or `Owner` [permission](../../role-based-access-control/role-assignments-portal.yml?tabs=current) on the Azure subscription.
 - [A GitHub Account](https://github.com/join).
 - [git](https://git-scm.com/downloads)
 - [Azure CLI](/cli/azure/install-azure-cli).
