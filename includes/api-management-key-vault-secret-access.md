@@ -5,6 +5,8 @@ ms.topic: include
 ms.date: 02/21/2025
 ms.author: danlep
 ---   
+[!INCLUDE [api-management-key-vault-access](api-management-key-vault-access.md)]
+    
 **To configure Azure RBAC access:<br/>**
 
 1. In the left menu, select **Access control (IAM)**.
