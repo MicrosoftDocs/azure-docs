@@ -48,6 +48,8 @@ If you prefer, you can complete this procedure using [Azure PowerShell](deploy-p
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[Physical and logical](../reliability/availability-zones-overview.md)
+
 ## Set up the network
 
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and a test server.
