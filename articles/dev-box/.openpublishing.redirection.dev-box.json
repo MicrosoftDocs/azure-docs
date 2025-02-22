@@ -76,7 +76,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": " articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
+      "source_path_from_root": "/articles/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app.md",
       "redirect_url": "/azure/dev-box/how-to-create-dev-boxes-developer-portal",
       "redirect_document_id": false
     }
