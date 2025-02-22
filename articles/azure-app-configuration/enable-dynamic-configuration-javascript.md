@@ -92,9 +92,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```javascript
     // Polling for configuration changes every 5 seconds
     while (true) {
-        await sleepInMs(5000); // Waiting before the next refresh
-        await appConfig.refresh(); // Refreshing the configuration setting
         console.log(appConfig.get("message")); // Consume current value of message from a Map
+        appConfig.refresh(); // Refreshing the configuration setting asynchronously
+        await sleepInMs(5000); // Waiting before the next refresh
     }
     ```
 
@@ -103,9 +103,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
     ```javascript
     // Polling for configuration changes every 5 seconds
     while (true) {
-        await sleepInMs(5000); // Waiting before the next refresh
-        await appConfig.refresh(); // Refreshing the configuration setting
         console.log(config.message); // Consume current value of message from an object
+        appConfig.refresh(); // Refreshing the configuration setting asynchronously
+        await sleepInMs(5000); // Waiting before the next refresh
     }
     ```
 
@@ -133,9 +133,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
         // Polling for configuration changes every 5 seconds
         while (true) {
-            await sleepInMs(5000); // Waiting before the next refresh
-            await appConfig.refresh(); // Refreshing the configuration setting
             console.log(appConfig.get("message")); // Consume current value of message from a Map
+            appConfig.refresh(); // Refreshing the configuration setting asynchronously
+            await sleepInMs(5000); // Waiting before the next refresh
         }
     }
 
@@ -170,9 +170,9 @@ You can connect to App Configuration using either Microsoft Entra ID (recommende
 
         // Polling for configuration changes every 5 seconds
         while (true) {
-            await sleepInMs(5000); // Waiting before the next refresh
-            await appConfig.refresh(); // Refreshing the configuration setting
             console.log(config.message); // Consume current value of message from an object
+            appConfig.refresh(); // Refreshing the configuration setting asynchronously
+            await sleepInMs(5000); // Waiting before the next refresh
         }
     }
 
