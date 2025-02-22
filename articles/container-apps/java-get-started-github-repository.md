@@ -18,15 +18,13 @@ This article shows you how to deploy the Spring PetClinic sample application to 
 
 ## Prepare the project
 
-In a browser window, go to the GitHub repository for [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git), and fork the repository.
-
-Select the `Fork` button at the top of the repo to fork the repo to your account. Then copy the repo URL to use it in the next step.
+Use the **Fork** button on the [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git) page to fork the repo to your personal GitHub account.
 
 ## Deploy the project
 
 Deploy the project by using the following steps:
 
-1. Define the environment variables that are used throughout this article by using the following commands:
+1. Set environment variables by using the following commands:
 
     ```bash
     export RESOURCE_GROUP="pet-clinic-container-apps"
@@ -37,7 +35,7 @@ Deploy the project by using the following steps:
 
 1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
-1. Build and deploy your first Spring Boot app using the following command, where the `..` (dot dot) tells the command to use the Dockerfile in the folder one level up in the folder structure:
+1. Build and deploy your Spring Boot app using the following command:
 
     > [!NOTE]
     > This command does the following things:
@@ -55,7 +53,7 @@ Deploy the project by using the following steps:
         --location $LOCATION \
         --environment $ENVIRONMENT \
         --context-path ./spring-petclinic \
-        --repo <YOUR_GITHUB_REPOSITORY_NAME>
+        --repo <url-of-your-github-fork>
     ```
 
 When you push new code to the repository, the GitHub Action does the following things:
