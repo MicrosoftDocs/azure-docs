@@ -113,6 +113,9 @@ az containerapp up \
 
 Deploy the WAR file to Azure Container Apps by using the following command:
 
+> [!NOTE]
+> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
+
 ```azurecli
 az containerapp up \
     --resource-group <RESOURCE_GROUP> \
@@ -127,9 +130,6 @@ az containerapp up \
     --target-port 8080 \
     --query properties.configuration.ingress.fqdn
 ```
-
-> [!NOTE]
-> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 ::: zone-end
 
