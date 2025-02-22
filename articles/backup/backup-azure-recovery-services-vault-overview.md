@@ -2,10 +2,10 @@
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
 ms.topic: overview
-ms.date: 09/30/2024
+ms.date: 01/17/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Recovery Services vaults overview
@@ -72,6 +72,7 @@ Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-avai
 
 Use the following articles to:
 
+- Create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md)
 - [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)
 - [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Back up a Windows Server](backup-windows-with-mars-agent.md)

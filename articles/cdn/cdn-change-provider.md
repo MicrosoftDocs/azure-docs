@@ -25,8 +25,6 @@ The purpose of this article is to share best practices when migrating from one c
 
 **Azure Front Door:** release two new tiers (Standard and Premium) on March 29, 2022, which is the next generation Azure Front Door. It combines the capabilities of Azure Front Door (classic), Microsoft content delivery network (classic), and Web Application Firewall. With features such as private link integration, enhancements to rules engine, diagnostics, and a one-stop secure application acceleration for Azure customers. For more information about Azure Front Door, see [Azure Front Door overview](../frontdoor/front-door-overview.md).
 
-**Azure CDN Standard/Premium from Edgio:** is an alternative to Azure Front Door for your general content delivery network and media solutions. Azure Content Delivery Network from Edgio is optimized for large media streaming workloads. It has unique content delivery network features such as cache warmup, log delivery services, and reporting features.
-
 ## Pricing comparison
 
 Switching between content delivery network profiles might introduce changes to your content delivery overall cost. For more information about service pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure content delivery network pricing](https://azure.microsoft.com/pricing/details/cdn/).
@@ -57,7 +55,7 @@ Create a small-scale proof of concept testing environment with your potential re
 - Define success criteria:
     - Cost - does the new content delivery network profile meet your cost requirements?
     - Performance - does the new content delivery network profile meet the performance requirements of your workload?
-- Create a new profile - for example, Azure Content Delivery Network with Edgio.
+- Create a new profile.
 - Configure your new profile with similar configuration settings as your existing profile.
 - Fine tune caching and compression configuration settings to meet your requirements.
 
@@ -94,4 +92,3 @@ For more information, see [Failover content delivery network endpoints with Traf
 ## Next Steps
 
 - Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-- Create an [Azure Content Delivery Network from Edgio](cdn-create-endpoint-how-to.md) profile.

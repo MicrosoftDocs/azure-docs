@@ -7,9 +7,6 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
-    - name: Roadmap for Azure Deployment Environments
-      displayName: roadmap, future, features, enhancements, coming soon, in development
-      href: ade-roadmap.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
@@ -61,6 +58,8 @@ items:
 - name: Configure the ADE extensibility model
   expanded: false
   items:
+    - name: What is the ADE Extensibility Model?
+      href: concept-extensibility-model.md
     - name: Configure ARM or Bicep container image
       displayName: custom image, container, custom runner, extensibility, ARM, Bicep
       href: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=arm-bicep

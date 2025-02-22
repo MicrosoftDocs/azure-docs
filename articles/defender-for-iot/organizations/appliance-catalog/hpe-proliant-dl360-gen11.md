@@ -29,10 +29,10 @@ The following image displays the hardware elements on the HPE ProLiant DL360 Gen
 |**Processor** | INT Xeon-S 4510 CPU for HPE OEM  |
 |**Chipset** | Intel C262|
 |**Memory** | 4 HPE 32GB (1x32GB) Dual Rank x8 DDR5-5600 CAS-46-45-45 EC8 Registered Smart Memory Kit |
-|**Storage**| 6 HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |
+|**Storage**| 8 HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |
 |**Network controller**| On-board: 8 x 1 Gb |
 |**Management**     | HPE iLO Advanced         |
-|**Power**            |HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |
+|**Power**            |HPE 1000W flex slot power supply with 96% efficiency, 100-240 VAC input, 80 Plus Titanium certified |
 |**Rack support**     | HPE 1U Rail 3 kit        |
 
 ## HPE DL360 Gen 11 Plus (NHP 4SFF) - Bill of materials
@@ -44,14 +44,14 @@ The following image displays the hardware elements on the HPE ProLiant DL360 Gen
 |**P67824-B21** | INT Xeon-S 4510 CPU for HPE OEM |2|
 |**P64706-B21** | HPE 32GB (1x32GB) Dual Rank x8 DDR5-5600 CAS-46-45-45 EC8 Registered Smart Memory Kit |4|
 |**P48896-B21** | HPE ProLiant DL360 Gen11 8SFF x4 U.3 Tri-Mode Backplane Kit |1|
-|**P28352-B21** | HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |6|
+|**P28352-B21** | HPE 2.4TB SAS 12G Mission Critical 10K SFF BC 3-year Warranty 512e Multi Vendor HDD |8|
 |**P48901-B21** | HPE ProLiant DL360 Gen11 x16 Full Height Riser Kit |1|
 |**P51178-B21** | Broadcom BCM5719 Ethernet 1Gb 4-port BASE-T Adapter for HPE |1|
 |**P47789-B21** | HPE MR216i-o Gen11 x16 Lanes without Cache OCP SPDM Storage Controller |1|
 |**P10097-B21** | Broadcom BCM57416 Ethernet 10Gb 2-port BASE-T OCP3 Adapter for HPE |1|
 |**P48907-B21** | HPE ProLiant DL3X0 Gen11 1U Standard Fan Kit |1|
 |**P54697-B21** | HPE ProLiant DL3X0 Gen11 1U 2P Standard Fan Kit |1|
-|**865438-B21** | HPE 800W Flex Slot Titanium Hot Plug Low Halogen Power Supply Kit |2|
+|**P03178-B21** | HPE 1000W flex slot power supply with 96% efficiency, 100-240 VAC input, 80 Plus Titanium certified |2|
 |**AF573A** | HPE C13 - C14 WW 250V 10Amp Flint Gray 2.0m Jumper Cord |2|
 |**P48830-B21** | HPE ProLiant DL3XX Gen11 CPU2 to OCP2 x8 Enablement Kit  |1|
 |**P52416-B21** | HPE ProLiant DL360 Gen11 OROC Tri-Mode Cable Kit |1|

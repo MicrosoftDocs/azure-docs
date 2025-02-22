@@ -8,6 +8,8 @@ ms.date: 11/17/2022
 
 IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use C# to connect to and control an IoT Plug and Play device that's connected to your solution.
 
+[!INCLUDE [iot-authentication-service-connection-string](iot-authentication-service-connection-string.md)]
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]

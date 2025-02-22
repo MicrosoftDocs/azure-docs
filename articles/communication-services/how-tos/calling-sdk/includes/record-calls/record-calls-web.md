@@ -10,7 +10,7 @@ ms.author: rifox
 > [!NOTE]
 > This API is provided as a preview for developers and might change based on feedback that we receive. Don't use this API in a production environment. To use this API, use the beta release of the Azure Communication Services Calling Web SDK.
 
-### Cloud recording
+### Cloud and compliance recording
 
 Call recording is an extended feature of the core Call API. You first need to import calling features from the Calling SDK:
 

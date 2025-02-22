@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to explore preview features and provides a list of the recent previews you might be interested in.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/26/2024
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

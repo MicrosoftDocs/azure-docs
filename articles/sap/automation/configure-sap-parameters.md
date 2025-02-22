@@ -130,7 +130,7 @@ The following tables contain the parameters stored in the *sap-parameters.yaml* 
 > | Parameter                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
 > | `domain_name`                | Defines the Windows domain name, for example, sap.contoso.net                                                    | Required   |
-> | `domain`                     | Defines the Windows domain Netbios name, for example, sap                                                        | Optional   |
+> | `domain`                     | Defines the Windows domain NetBIOS name, for example, sap                                                        | Optional   |
 > | SQL                          |                                                                                                                  |            |
 > | `use_sql_for_SAP`            | Uses the SAP-defined SQL Server media, defaults to `true`                                                        | Optional   |
 > | `win_cluster_share_type`     | Defines the cluster type (CSD/FS), defaults to CSD                                                               | Optional   |

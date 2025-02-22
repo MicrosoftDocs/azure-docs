@@ -25,10 +25,6 @@ When updating your on-premises software, we recommend:
 
 - Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
 
-> [!NOTE]
-> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
->
-
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### OT monitoring software versions (sensor versions)
@@ -373,7 +369,7 @@ This version includes the following new updates and fixes:
 This version includes the following new updates and fixes:
 
 - [Define and view OT sensor settings from the Azure portal](configure-sensor-settings-portal.md)
-- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors)
+- [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-environment)
@@ -530,8 +526,6 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
-- [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
 
 ## Next steps

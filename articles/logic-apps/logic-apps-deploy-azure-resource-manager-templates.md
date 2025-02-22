@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -57,7 +57,7 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 For more information, see these topics:
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](/azure/azure-resource-manager/templates/deploy-powershell)
-* [`New-AzResourceGroupDeployment`](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 
 <a name="cli"></a>
 

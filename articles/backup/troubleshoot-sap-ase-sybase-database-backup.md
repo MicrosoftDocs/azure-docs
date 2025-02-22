@@ -4,8 +4,8 @@ description: Learn to troubleshoot SAP ASE (Sybase) database backup using Azure 
 ms.topic: troubleshooting
 ms.date: 11/23/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting SAP ASE (Sybase) database backup (preview)

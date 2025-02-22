@@ -2,11 +2,11 @@
 title: Support Matrix for Azure file share backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: reference
-ms.date: 01/06/2025
+ms.date: 02/19/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure file share backup
@@ -30,7 +30,9 @@ Azure file shares backup is available in all regions, **except** for Germany Cen
 
 Vaulted backup for Azure Files (preview) is available in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, Central US, Central India, North Europe, Australia East, West US, East US, South India, France Central, Canada Central, North Central US, East US 2, Australia Southeast, Germany North, France South, West US 2, Brazil South, Japan West, Germany West Central, Canada East, Korea South, Jio India West, Korea Central, South Africa West, Japan East, Norway East, Switzerland West, Norway West, South Africa North, UAE North, West Europe, Sweden Central, Switzerland North.
 
-Cross Region Restore is currently not supported in Sweden Central, UAE North, Jio India West.
+Cross Region Restore is currently supported in the following regions: Australia East, West US, North Central US, East US, East US2, West US2, South India, Australia Southeast, Brazil South, Canada East, Korea Central, Norway East, South Africa North, Switzerland North, France Central, Germany North, Japan West, Korea South, South Africa West, Switzerland West, Canada Central, France South, Germany West Central,  Japan East, Norway West, West Europe. This feature isn't supported in Sweden Central, UAE North, Jio India West.
+
+Migration of  File shares protected with snapshot backup to vaulted backup is supported in the following regions: UK South, UK West, Southeast Asia, East Asia, West Central US, and India Central.
 
 ---
 
@@ -55,7 +57,7 @@ Cross Subscription Backup (CSB) for Azure File share (preview) is currently avai
 
 | Storage account details | Support |
 | --- | --- |
-| Account Kind | Azure Backup supports Azure file shares present in general-purpose v2, and file storage type storage accounts. |
+| Account Kind | Azure Backup supports Azure file shares present in general-purpose v2, and file storage type storage accounts. <br><br> Storage accounts configured with private endpoints are supported. However, a private endpoint on the vault doesn't apply to Azure Files backup scenarios.  |
 
 >[!Important]
 >The source Storage Account must have the **Allow storage account key access** setting enabled for successful Azure Files backup and restore.

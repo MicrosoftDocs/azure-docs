@@ -65,7 +65,7 @@ For this tutorial, the simplest configuration is for the Hyper-V hosts and the V
 
 1. Make sure that Hyper-V hosts and the Virtual Machine Manager server, if relevant, can access the required URLs listed in the following table.
 1. If you're controlling access by IP address, make sure that:
-    - IP address-based firewall rules can connect to [Azure Datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS port (443).
+    - IP address-based firewall rules can connect to [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) and the HTTPS port (443).
     - Allow IP address ranges for the Azure region of your subscription.
 
 ### Required URLs

@@ -102,7 +102,7 @@ Use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token con
  
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
-To obtain an access token, you can use tools such as Postman, the REST Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Microsoft Entra authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+To obtain an access token, you can use tools such as REST Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Microsoft Entra authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## Encryption
 

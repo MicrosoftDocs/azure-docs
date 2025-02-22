@@ -4,8 +4,8 @@ description: In this tutorial, you'll learn about how create a resource guard an
 ms.topic: tutorial
 ms.date: 09/25/2023
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Tutorial: Create a Resource Guard and enable Multi-user authorization in Azure Backup
 

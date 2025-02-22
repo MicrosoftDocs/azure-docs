@@ -212,7 +212,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Please note that we do not currently support key vaults with private endpoints or private link integration for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 

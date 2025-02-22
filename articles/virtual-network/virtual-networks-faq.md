@@ -80,7 +80,7 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 
 ### Is there a limit to the number of subnets in my virtual network?
 
-Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
+Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) for details. Subnet address spaces can't overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 
@@ -195,7 +195,7 @@ Yes. You can specify IP addresses for DNS servers in the virtual network setting
 
 ### How many DNS servers can I specify?
 
-See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
 ### Can I modify my DNS servers after I create the network?
 

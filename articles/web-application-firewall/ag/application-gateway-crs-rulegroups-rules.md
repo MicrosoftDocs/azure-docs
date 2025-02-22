@@ -2,12 +2,11 @@
 title: CRS and DRS rule groups and rules
 titleSuffix: Azure Web Application Firewall
 description: This page provides information on web application firewall CRS and DRS rule groups and rules.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 10/23/2024
-ms.author: victorh
-ms.topic: conceptual
 ---
 
 # Web Application Firewall DRS and CRS rule groups and rules
@@ -187,6 +186,9 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 ### OWASP CRS 3.0
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
+
+> [!NOTE]
+> CRS 3.0 and lower ruleset versions are no longer supported for new WAF policies. We recommend you upgrade to the latest CRS 3.2/DRS 2.1 and greater versions.  
 
 |Rule group name|Description|
 |---|---|

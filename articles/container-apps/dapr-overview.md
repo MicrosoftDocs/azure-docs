@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 12/11/2024
+ms.date: 01/08/2025
 ---
 
 # Microservice APIs powered by Dapr
@@ -24,6 +24,17 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 | 1     | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring a set of Dapr arguments. These values apply to all revisions of a given container app when running in multiple revisions mode.                                                                                           |
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
+
+## Versioning
+
+Dapr versions in Azure Container Apps include:
+- A semantic versioning prefix, such as `1.13.6`, which denotes compatibility with the corresponding OSS Dapr runtime version APIs and related tools like SDKs, CLI, etc.
+- A `-msft.<number>` suffix, which denotes incorporating Azure-specific customizations for enhanced security and production readiness.
+
+The complete version format for Dapr in Azure Container Apps can look something like `1.13.6-msft.1`.
+
+> [!NOTE]
+> The `<number>` in the suffix may not always increment sequentially. For example, version `1.13.6-msft.3` may skip `1.13.6-msft.2`. 
 
 ## Supported Dapr APIs, components, and tooling
 
@@ -57,16 +68,7 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 
 ### Compatible SDKs
 
-Dapr's latest client SDK packages are compatible with Azure Container Apps. You can use any of the [supported, GA Dapr APIs](#managed-apis) with the following Dapr client SDK versions:
-
-| Language | SDK version |
-| -------- | ------- |
-| Java | 1.12.0 | 
-| Go | 1.11.0 | 
-| Python | 1.14.0 |
-| .NET | 1.14.0 | 
-| JavaScript | 3.3.1 | 
-| Rust | 0.15.1 | 
+Dapr's latest client SDK packages are compatible with Azure Container Apps. You can use Dapr SDKs with any of the [supported, GA Dapr v1.12 runtime APIs](#managed-apis). 
 
 > [!NOTE] 
 > Currently, the Dapr server extensions, actor, and workflow SDK packages are not compatible with Azure Container Apps. [Learn more about all of the Dapr SDK packages.](https://docs.dapr.io/developing-applications/sdks/)

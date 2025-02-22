@@ -52,7 +52,7 @@ sections:
           - Follow the steps to present your existing VID for Trusted Signing. For this process, VIDs must include your address in addition to your name. Ensure that your VIDs have your address on them before using them for Trusted Signing.
       - question: What if I need assistance with identity validation?
         answer: | 
-          - For questions about identity validation in Trusted Signing, contact us by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**). Azure support doesn't resolve identity validation issues for Trusted Signing.
+          - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
       - question: What is the cost of using Trusted Signing?
         answer: | 
           - For pricing information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
