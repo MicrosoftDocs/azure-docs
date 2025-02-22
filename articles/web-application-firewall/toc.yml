@@ -144,16 +144,10 @@ items:
     href: ./shared/waf-azure-policy.md
   - name: Configure policies using Firewall Manager
     href: ./shared/manage-policies.md
-  - name: Protect APIs hosted in APIM using Web Application Firewall
+  - name: Protect APIs hosted in APIM
     href: ./afds/protect-api-hosted-apim-by-waf.md
-  - name: Protect Azure OpenAI using Azure Web Application Firewall
+  - name: Protect Azure OpenAI
     href: ./afds/protect-azure-open-ai.md
-  - name: Using Microsoft Sentinel with Web Application Firewall
-    href: waf-sentinel.md
-  - name: Detect new threats using Microsoft Sentinel
-    href: waf-new-threat-detection.md
-  - name: Automated detection and response
-    href: ./afds/automated-detection-response-with-sentinel.md
   - name: Use geomatch custom rules to enhance network security
     href: geomatch-custom-rules-examples.md
 - name: Security
@@ -174,6 +168,14 @@ items:
           href: ./afds/waf-sensitive-data-protection-frontdoor.md
         - name: Mask sensitive data
           href: ./afds/waf-sensitive-data-protection-configure-frontdoor.md
+  - name: Microsoft Sentinel
+    items:
+    - name: Using Microsoft Sentinel with Web Application Firewall
+      href: waf-sentinel.md
+    - name: Detect new threats using Microsoft Sentinel
+      href: waf-new-threat-detection.md
+    - name: Automated detection and response
+      href: ./afds/automated-detection-response-with-sentinel.md
   - name: Application DDoS protection
     href: ./shared/application-ddos-protection.md
   - name: Microsoft Copilot for Security
