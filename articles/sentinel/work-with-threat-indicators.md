@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 # Work with Microsoft Sentinel threat intelligence
 
-Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Azure portal or using Microsoft's unified SecOps platform.
+Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Azure portal or the Defender portal.
 
 - Create threat intelligence objects using structured threat information expression (STIX)
 - Manage threat intelligence by viewing, curating, and visualizing 

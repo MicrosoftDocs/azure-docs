@@ -2,11 +2,11 @@
 title: Azure Firewall SNAT private IP address ranges
 description: You can configure IP address ranges for SNAT. 
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/02/2023
-ms.author: victorh 
+ms.author: duau
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -160,8 +160,6 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 
    The **Edit Private IP Prefixes** page opens:
 
-   :::image type="content" source="media/snat-private-range/private-ip-ranges-snat.png" alt-text="Screenshot of edit private IP prefixes.":::
-
 1. By default, **IANAPrivateRanges** is configured.
 2. Edit the private IP address ranges for your environment and then select **Save**.
 
@@ -170,9 +168,6 @@ You can use the Azure portal to specify private IP address ranges for the firewa
 1.	Select your resource group, and then select your firewall policy.
 2.	Select **Private IP ranges (SNAT)** in the **Settings** column.
 3. Select the conditions to perform SNAT for your environment under **Perform SNAT** to customize the SNAT configuration.
-      :::image type="content" source="media/snat-private-range/firewall-default-snat-behavior.png" alt-text="Screenshot of Private IP ranges (SNAT)." lightbox="media/snat-private-range/firewall-default-snat-behavior.png":::
-
-
 4.	 Select **Apply**.
 
 ## Auto-learn SNAT routes (preview)
@@ -293,9 +288,7 @@ Use the portal to complete the following tasks:
 - Add a subnet named **RouteServerSubnet** to your existing firewall VNet. The size of the subnet should be at least /27.
 - Deploy a Route Server into the existing firewall VNet. For information about Azure Route Server, see [Quickstart: Create and configure Route Server using the Azure portal](../route-server/quickstart-configure-route-server-portal.md).
 - Add the route server on the firewall **Learned SNAT IP Prefixes (preview)** page.
-   :::image type="content" source="media/snat-private-range/add-route-server.png" alt-text="Screenshot showing firewall add a route server." lightbox="media/snat-private-range/add-route-server.png":::
 - Modify your firewall policy to enable **Auto-learn IP prefixes (preview)** in the **Private IP ranges (SNAT)** section.
-   :::image type="content" source="media/snat-private-range/auto-learn.png" alt-text="Screenshot showing firewall policy Private IP ranges (SNAT) settings." lightbox="media/snat-private-range/auto-learn.png":::
 - You can see the learned routes on the **Learned SNAT IP Prefixes (preview)** page.
 
 
