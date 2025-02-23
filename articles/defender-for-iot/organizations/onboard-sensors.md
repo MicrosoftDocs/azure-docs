@@ -54,7 +54,7 @@ This procedure describes how to onboard an OT network sensor with Defender for I
 
         If you don't yet have a subscription to select, select **Onboard subscription** to [add an OT plan to your Azure subscription](getting-started.md).
 
-    1. (Optional) Toggle on the **Cloud connected** option to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.<!-- Due to UI changes this may need to change to: In the **Sensor type** field, select from the dropdown options.  -->
+    1. (Optional) Toggle on the **Cloud connected** option to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.
 
         For more information, see [Cloud-connected vs. local OT sensors](architecture.md#cloud-connected-vs-local-ot-sensors).
 
