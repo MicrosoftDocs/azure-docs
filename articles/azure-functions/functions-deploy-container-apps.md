@@ -137,7 +137,28 @@ If you're using a private registry, you need to include the fully qualified doma
 ---
 
 Specifying `--workload-profile-name "Consumption"` creates your app in an environment using the default `Consumption` workload profile, which costs the same as running in a Container Apps Consumption plan. When you first create the function app, it pulls the initial image from your registry. 
+
+## Update application settings
+
+To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with an equivalent setting that uses the user-assigned managed identity to connect to the storage account.
+
+1. Remove the existing `AzureWebJobsStorage` connection string setting:
+
+    ```azurecli    
+    az functionapp config appsettings delete --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --setting-names AzureWebJobsStorage 
+    ```
+
+    The [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app. Replace `<APP_NAME>` with the name of your function app. 
+
+1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
+ 
+    ```azurecli
+    clientId=$(az identity show --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsQuickstart-rg --query 'clientId' -o tsv)
+    az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsQuickstart-rg --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId
+    ```
   
+    In this example, replace `<APP_NAME>`, `<USER_IDENTITY_NAME>`, `<STORAGE_NAME>` with your function app name, the name of your identity, and the storage account name, respectively. 
+
 At this point, your functions are running in a Container Apps environment, with the required application settings already added. When needed, you can add other settings in your functions app in the standard way for Functions. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 >[!TIP] 
