@@ -52,9 +52,9 @@ Build the Spring PetClinic application on your local machine by using the follow
 
 1. After the application is up, access it locally at `http://localhost:8080`.
 
-## Deploy the project
+## Deploy the PetClinic application to Azure Container Apps
 
-Deploy the project by using the following steps:
+Deploy the PetClinic application to Azure Container Apps by using the following steps:
 
 1. Set environment variables by using the following commands:
 
@@ -73,7 +73,7 @@ Deploy the project by using the following steps:
     > This command accomplishes the following tasks:
     >
     > - Creates the resource group.
-    > - Creates an Azure Container Registry.
+    > - Creates an Azure container registry.
     > - Builds the container image and pushes it to the registry.
     > - Creates the Container Apps environment with a Log Analytics workspace.
     > - Creates and deploys the container app using the built container image.
