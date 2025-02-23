@@ -18,7 +18,7 @@ This article shows you how to deploy the Spring PetClinic sample application to 
 
 ## Prepare the project
 
-Use the **Fork** button on the [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git) page to fork the repo to your personal GitHub account.
+Use the **Fork** button on the [Azure Container Apps Java Samples](https://github.com/Azure-Samples/azure-container-apps-java-samples.git) repo page to fork the repo to your personal GitHub account.
 
 ## Deploy the project
 
@@ -33,21 +33,21 @@ Deploy the project by using the following steps:
     export CONTAINER_APP_NAME="pet-clinic"
     ```
 
-1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
+1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Quickstart: Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
-1. Build and deploy your Spring Boot app using the following command:
+1. Build and deploy your Spring Boot app by using the following command:
 
     > [!NOTE]
-    > This command does the following things:
+    > This command performs the following tasks:
     >
     > - Creates the resource group.
-    > - Creates an Azure Container Registry.
+    > - Creates an Azure container registry.
     > - Builds the container image and pushes it to the registry.
     > - Creates the Container Apps environment with a Log Analytics workspace.
-    > - Creates and deploys the container app using the built container image.
+    > - Creates and deploys the container app by using the built container image.
 
     ```azurecli
-        az containerapp up \
+    az containerapp up \
         --resource-group $RESOURCE_GROUP \
         --name $CONTAINER_APP_NAME \
         --location $LOCATION \
@@ -56,9 +56,9 @@ Deploy the project by using the following steps:
         --repo <url-of-your-github-fork>
     ```
 
-When you push new code to the repository, the GitHub Action does the following things:
+When you push new code to the repository, the GitHub Action performs the following tasks:
 
-- Builds the container image and pushes it to the Azure Container Registry.
+- Builds the container image and pushes it to the Azure container registry.
 - Deploys the container image to the created container app.
 
 [!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
