@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 01/14/2025
+ms.date: 02/23/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -17,6 +17,16 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## February 2025
+
+- [Customize settings for the SAP agentless solution](#customize-settings-for-the-sap-agentless-solution)
+
+### Customize settings for the SAP agentless solution
+
+The SAP agentless solution is now customizable using the SAP Cloud Integration Suite key value pairs, allowing you to adjust the solution's behavior to meet your organization's needs. 
+
+For more information, see [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md) and [Customize your SAP agentless connector for Microsoft Sentinel](sap/configure-agentless.md).
 
 ## January 2025
 
