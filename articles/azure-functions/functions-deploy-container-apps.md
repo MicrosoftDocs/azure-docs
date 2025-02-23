@@ -24,14 +24,14 @@ Before you can deploy your container to Azure, you need to create three resource
 * A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
 * An Azure Container Apps environment with a Log Analytics workspace.
-* A user-assigned managed identity that enables your function app to securely connect, using Microsoft Entra authentication, to both the Azure Storage account and to the Azure Container Registry instance, when deploying from a container registry instance. While you can use the system-assigned managed identity that belongs to only your app, you can have more than one user-assigned managed identity assigned to your app. This is the recommended type of identity for this scenario.
+* A user-assigned managed identity that enables your function app to securely connect, using Microsoft Entra authentication, to both the Azure Storage account and to the Azure Container Registry instance, when deploying from a container registry instance. While you can use the system-assigned managed identity that belongs to only your app, you can have more than one user-assigned managed identity assigned to your app. This identity type is recommended for this scenario.
 
 >[!NOTE]  
 >Docker Hub doesn't support managed identities. 
 
 Use these commands to create your required Azure resources: 
 
-1. If you haven't done so already, sign in to Azure.
+1. If necessary, sign in to Azure:
 
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account. Use `az account set` when you have more than one subscription associated with your account.
 
@@ -98,9 +98,9 @@ Use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 
 ### [Azure Container Registry](#tab/acr)
 
 >[!TIP]  
-> To make sure that your function app uses a managed identity-based connection to your registry instance, don't set the `--image` parameter in `az functionapp create`. When you set `--image` to the fully-qualified name of your image in the repository, shared secret credentials are obtained from your registry and stored in app settings. 
+> To make sure that your function app uses a managed identity-based connection to your registry instance, don't set the `--image` parameter in `az functionapp create`. When you set `--image` to the fully qualified name of your image in the repository, shared secret credentials are obtained from your registry and stored in app settings. 
 
-First you must get fully-qualified ID value of your user-assigned managed identity with pull access to the registry, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it. 
+First you must get fully qualified ID value of your user-assigned managed identity with pull access to the registry, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it. 
 
 ```azurecli
 UAMI_RESOURCE_ID=$(az identity show --name $uami_name --resource-group $group --query id -o tsv)
@@ -111,7 +111,7 @@ In [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create), the 
 
 In this example, replace `<APP_NAME>`, `<STORAGE_NAME>`, and `<USER_IDENTITY_NAME>` with a name for your new function app as well as the name of your storage account and the identity. 
 
-Finally, you must update the [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) site setting to the fully-qualified name of your image in the repository. You must also update the [`acrUseManagedIdentityCreds`](./functions-app-settings.md#acrusemanagedidentitycreds) and  [`acrUserManagedIdentityID`](./functions-app-settings.md#acrusermanagedidentityid) site settings so that managed identities are used when obtaining the image from the registry.   
+Finally, you must update the [`linuxFxVersion`](./functions-app-settings.md#linuxfxversion) site setting to the fully qualified name of your image in the repository. You must also update the [`acrUseManagedIdentityCreds`](./functions-app-settings.md#acrusemanagedidentitycreds) and  [`acrUserManagedIdentityID`](./functions-app-settings.md#acrusermanagedidentityid) site settings so that managed identities are used when obtaining the image from the registry.   
 
 ```azurecli
 UAMI_RESOURCE_ID=$(az identity show --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --query id -o tsv)
@@ -124,7 +124,7 @@ In this example, replace `<APP_NAME>`, `<REGISTRY_NAME>`, and `<USER_IDENTITY_NA
 
 ### [Docker Hub](#tab/docker)
 
-First you must get fully-qualified ID value of your user-assigned managed identity, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it.
+First you must get fully qualified ID value of your user-assigned managed identity, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it.
 
 ```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --workload-profile-name "Consumption" --resource-group AzureFunctionsContainers-rg --functions-version 4 --assign-identity --image <DOCKER_ID>/azurefunctionsimage:v1.0.0  
