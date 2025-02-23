@@ -41,9 +41,9 @@ You can also create a dev box through the Azure CLI dev center extension. For mo
 
 After you create your dev box, you can connect to it from the developer portal.
 
-Connecting to your dev box from the developer portal launches the Windows App remote desktop client, which provides an enhanced user experience, including support for multiple monitors. It's available on multiple platforms, including Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers. For more information, see [Get started with Windows App](https://aka.ms/dev-box/windows-app).
+Connecting to your dev box from the developer portal launches the Windows App remote desktop client, which provides an enhanced user experience, including support for multiple monitors. Windows App is available on multiple platforms, including Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers. For more information, see [Get started with Windows App](https://aka.ms/dev-box/windows-app).
 
-Alternately, You can use the **browser** for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
+For lighter workloads, or when you access your dev box via your phone or laptop, you can connect to your dev box from the **browser**. Connecting from the browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
 ## Explore dev box actions
 
