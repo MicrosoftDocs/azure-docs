@@ -2,10 +2,10 @@
 author: cephalin
 ms.author: cephalin
 ms.topic: include
-ms.date: 01/22/2024
+ms.date: 01/16/2025
 ---
 
-The `publish-profile` input should reference the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you [created earlier](../../deploy-github-actions.md?tabs=applevel#2-configure-the-github-secret).
+The `publish-profile` input should reference the `AZURE_WEBAPP_PUBLISH_PROFILE` GitHub secret that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -51,8 +51,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy an ASP.NET MVC app that uses NuGet and `publish-profile` for authentication. 
-
+Build and deploy an ASP.NET MVC app that uses NuGet and `publish-profile` for authentication.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -94,7 +93,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Java Spring Boot app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven
@@ -123,7 +122,7 @@ jobs:
         package: my/target/*.jar
 ```
 
-To deploy a `war` instead of a `jar`, change the `package` value. 
+To deploy a `war` instead of a `jar`, change the `package` value.
 
 
 ```yaml
@@ -179,7 +178,7 @@ jobs:
           package: '*.war'
 ```
 
-You can find this full example using multiple jobs for build and deploy [here](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-publish-profile.yml) as well.
+You can find this [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-publish-profile.yml) using multiple jobs for build and deploy.
 
 # [Node.js](#tab/nodejs)
 

@@ -84,9 +84,14 @@ To buy an Azure OpenAI Service reservation, follow these steps:
 
 ## Cancel, exchange, or refund reservations
 
-*Exchange isn't supported for Azure OpenAI Service Provisioned reservations*.
+You can exchange or cancel reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
 
-You can cancel or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+If you want to exchange your Azure OpenAI Service reservation, you can do so by following these steps:
+
+1. Sign in to the Azure portal and go to the Reservations page.
+2. Select the Azure OpenAI Service reservation that you want to refund and select **Exchange**.
+3. Select the new reservation to purchase.
+4. Review the terms and conditions and agree to them.
 
 If you want to request a refund for your Azure OpenAI Service reservation, you can do so by following these steps:
 

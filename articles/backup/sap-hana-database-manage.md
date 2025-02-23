@@ -4,8 +4,8 @@ description: In this article, you'll learn common tasks for managing and monitor
 ms.topic: how-to
 ms.date: 10/23/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Manage and monitor backed up SAP HANA databases

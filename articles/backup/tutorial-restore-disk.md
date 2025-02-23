@@ -2,11 +2,11 @@
 title: Tutorial - Restore a VM with Azure CLI
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 11/22/2024
+ms.date: 01/20/2025
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore a VM with Azure CLI
@@ -278,22 +278,8 @@ Now get the SAS token for this container and template as detailed [here](../azur
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
-connection=$(az storage account show-connection-string \
-    --resource-group mystorageaccountRG \
-    --name mystorageaccount \
-    --query connectionString)
-token=$(az storage blob generate-sas \
-    --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --expiry $expiretime \
-    --permissions r \
-    --output tsv \
-    --connection-string $connection)
-url=$(az storage blob url \
-   --container-name myVM-daa1931199fd4a22ae601f46d8812276 \
-    --name azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json \
-    --output tsv \
-    --connection-string $connection)
+token=$(az storage blob generate-sas --account-name $storageAccountName --container-name $containerName --name $templateName --permissions r --expiry $expiretime --auth-mode login --as-user --https-only --output tsv)
+url=$(az storage blob url --account-name $storageAccountName --container-name $containerName --name $templateName --output tsv --auth-mode login)
 ```
 
 ### Deploy the template to create the VM

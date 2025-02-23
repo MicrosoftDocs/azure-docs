@@ -4,8 +4,8 @@ description: In this article, learn how to update vault's configuration using RE
 ms.topic: how-to
 ms.date: 10/20/2024
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 # Update Azure Recovery Services vault configurations using REST API

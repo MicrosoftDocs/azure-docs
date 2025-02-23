@@ -109,7 +109,6 @@ To deploy this template properly, you must use the button to Deploy to Azure but
    :::image type="content" source="./media/quickstart-route-shared-services-template/resources.png" alt-text="Example of resources" lightbox="./media/quickstart-route-shared-services-template/resources.png":::
 
 1. Click the virtual WAN to view the hubs. On the virtual WAN page, click each hub to view connections and other hub information.
-   :::image type="content" source="./media/quickstart-route-shared-services-template/hub.png" alt-text="Example of hubs" lightbox="./media/quickstart-route-shared-services-template/hub.png":::
 
 ## <a name="complete"></a>Complete the hybrid configuration
 

@@ -3,13 +3,13 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/11/2023
+ms.date: 01/13/2025
 ms.custom: engagement-fy23
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager (SRM)
 
-This article explains how to implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs. The solution in this article uses [VMware Site Recovery Manager (SRM)](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) and vSphere Replication with Azure VMware Solution. Instances of VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
+This article explains how to implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs. The solution in this article uses [VMware Site Recovery Manager (SRM)](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8.html) and vSphere Replication with Azure VMware Solution. Instances of VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
 
 VMware SRM is a disaster recovery solution designed to minimize downtime of the virtual machines in an Azure VMware Solution environment if there was a disaster. VMware SRM automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Also, built-in nondisruptive testing ensures your recovery time objectives are met. Overall, VMware SRM simplifies management through automation and ensures fast and highly predictable recovery times.
 
@@ -91,7 +91,7 @@ Ensure you provide the remote user the VMware VRM administrator and VMware SRM a
 1. In your on-premises data center, install VMware SRM and vSphere Replication.
 
    > [!NOTE]
-   > Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
+   > Use the [Two-site Topology with one vCenter Server instance per PSC](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-appliance-overview/site-recovery-manager-and-vcenter-server-deployment-models/srm-in-a-two-site-topology-with-one-vcenter-server-per-platform-services-controller.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://knowledge.broadcom.com/external/article?legacyId=2087769) are opened.
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
 1. The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
@@ -200,27 +200,23 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 After you created the site pairing, use the following VMware documentation for end-to-end protection of VMs from the Azure portal.
 
-- [Using vSphere Replication with Site Recovery Manager (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-2C77C830-892D-45FF-BA4F-80AC10085DBE.html)
+- [Using vSphere Replication with Site Recovery Manager](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/replicating-virtual-machines/using-vsphere-replication-with-srm.html)
 
-- [Inventory Mappings for Array-Based Replication Protection Groups and vSphere Replication Protection Groups (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-2E2B4F84-D388-456B-AA3A-57FA8D47063D.html)
+- [Inventory Mappings for Array-Based Replication Protection Groups and vSphere Replication Protection Groups](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/about-inventory-mappings/inventory-mappings-and-datastore-protection-groups-and-vsphere-replication-protection-groups.html)
 
-- [About Placeholder Virtual Machines (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-EFE73B20-1C68-4D2C-8C86-A6E3C6214F07.html)
+- [About Placeholder Virtual Machines](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/about-placeholder-virtual-machines.html)
 
-- [vSphere Replication Protection Groups (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-CCF2E768-736E-4EAA-B3BE-50182635BC49.html)
+- [vSphere Replication Protection Groups)](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/creating-and-managing-protection-groups/vsphere-replication-protection-groups.html)
 
-- [Creating, Testing, and Running Recovery Plans (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-AF6BF11B-4FB7-4543-A873-329FDF1524A4.html)
+- [Creating, Testing, and Running Recovery Plans](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/creating-testing-and-running-recovery-plans.html)
 
-- [Configuring a Recovery Plan (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-FAC499CE-2994-46EF-9164-6D97EAF52C68.html)
+- [Configuring a Recovery Plan](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/configuring-a-recovery-plan.html)
 
-- [Customizing IP Properties for Virtual Machines (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-25B33730-14BE-4268-9D88-1129011AFB39.html)
+- [Customizing IP Properties for Virtual Machines](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/customizing-ip-properties-for-virtual-machines.html)
 
-- [How Site Recovery Manager Reprotects Virtual Machines with vSphere Replication (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-1DE0E76D-1BA7-44D8-AEA2-5B2218E219B1.html)
+- [How Site Recovery Manager Reprotects Virtual Machines with vSphere Replication](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/reprotecting-virtual-machines-after-a-recovery/how-srm-performs-reprotect-with-vsphere-replication.html)
 
-- [Perform a Failback (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-556E84C0-F8B7-4F9F-AAB0-0891C084EDE4.html)
-
-   >[!NOTE]
-   >If IP Customization Rules have been defined for network mappings between the Azure VMware Solution environment and the on-premises environment, these rules will not be applied on failback from the Azure VMware Solution environment to the on-premises environment due to a [known issue](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html#knownissues) with SRM 8.3.0. You can work around this limitation by removing protection from all VMs in the Protection Group and then reconfiguring protection on them prior to initiating the failback.
-
+- [Perform a Failback)](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/restoring-the-pre-recovery-site-configuration-by-performing-failback/perform-a-failback.html)
 
 ## Ongoing management of your VMware SRM solution
 
@@ -296,19 +292,19 @@ VMware and Microsoft support teams engage each other as needed to troubleshoot V
 
 ## References
 
-- [VMware Site Recovery Manager Documentation](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
-- [Compatibility Matrices for VMware Site Recovery Manager 8.3](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-compat-matrix-8-3.html)
-- [VMware SRM 8.3 release notes](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/rn/srm-releasenotes-8-3.html)
-- [VMware vSphere Replication Documentation](https://docs.vmware.com/en/vSphere-Replication/index.html)
-- [Compatibility Matrices for vSphere Replication 8.3](https://docs.vmware.com/en/vSphere-Replication/8.3/rn/vsphere-replication-compat-matrix-8-3.html)
-- [Operational Limits of Site Recovery Manager 8.3](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-3AD7D565-8A27-450C-8493-7B53F995BB14.html)
-- [Operational Limits of vSphere Replication 8.3](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-E114BAB8-F423-45D4-B029-91A5D551AC47.html)
-- [Calculate bandwidth for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
-- [SRM installation and configuration](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html)
-- [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/index.html)
-- [Prerequisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
-- [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
-- [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
+- [VMware Site Recovery Manager Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8.html)
+- [Compatibility Matrices for VMware Site Recovery Manager 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/compatibility-matrices-for-vmware-site-recovery-manager-88.html)
+- [VMware SRM 8.8 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/vmware-site-recovery-manager-88-release-notes.html)
+- [VMware vSphere Replication Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8.html)
+- [Compatibility Matrices for vSphere Replication 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/release-notes/compatibility-matrices-for-vsphere-replication-88.html)
+- [Operational Limits of Site Recovery Manager 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html)
+- [Operational Limits of vSphere Replication 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8/vsphere-replication-system-requirements/operational-limits-of-vsphere-replication.html)
+- [Calculate bandwidth for vSphere Replication](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8/vsphere-replication-system-requirements/bandwidth-requirements-for-vsphere-replication/calculate-bandwidth-for-vsphere-replication.html)
+- [SRM installation and configuration](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8.html)
+- [vSphere Replication administration](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8.html)
+- [Prerequisites and Best Practices for SRM installation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-appliance-overview/prerequisites-for-srm-server-installation.html)
+- [Network ports for SRM](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-system-requirements/network-ports-for-vmware-site-recovery.html)
+- [Network ports for vSphere Replication](https://knowledge.broadcom.com/external/article?legacyId=2087769)
 
 
 

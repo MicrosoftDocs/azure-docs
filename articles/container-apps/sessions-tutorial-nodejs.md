@@ -21,7 +21,7 @@ In this tutorial you:
 > * Pass in JavaScript code for the container app to run
 
 > [!NOTE]
-> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#preview-limitations).
+> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#region-availability).
 
 ## Prerequisites
 

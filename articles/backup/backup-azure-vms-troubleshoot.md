@@ -5,8 +5,8 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 10/21/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshooting backup failures on Azure virtual machines

@@ -49,7 +49,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |Audit logs|N/A|
 
 1. Optionally, enrich exported messages with extra key-value pair metadata. The following enrichments are available for the telemetry, property changes, device connectivity, and device lifecycle data export types:
-<a name="DataExportEnrichmnents"></a>
+<a name="DataExportEnrichments"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**, which adds to each message:
        - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.

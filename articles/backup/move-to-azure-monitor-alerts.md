@@ -4,8 +4,8 @@ description: Learn how to back up Classic Alerts in the Azure Recovery Services 
 ms.topic: how-to
 ms.date: 12/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 

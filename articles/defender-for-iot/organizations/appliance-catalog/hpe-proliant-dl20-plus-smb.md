@@ -9,8 +9,6 @@ ms.topic: reference
 
 This article describes the **HPE ProLiant DL20 Gen10 Plus** appliance for OT sensors monitoring production lines.
 
-The HPE ProLiant DL20 Gen10 Plus is also available for the on-premises management console.
-
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500|
@@ -182,4 +180,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

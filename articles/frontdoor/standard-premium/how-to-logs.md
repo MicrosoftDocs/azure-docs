@@ -5,7 +5,7 @@ services: front-door
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 01/06/2025
 ms.author: duau
 ---
 
@@ -23,11 +23,12 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 
 1. Within the profile, navigate to **Monitoring**, select **Diagnostic Setting** and then choose **Add diagnostic setting**.
 
-   :::image type="content" source="../media/how-to-logging/front-door-logging-1.png" alt-text="Screenshot of diagnostic settings landing page.":::
-
 1. Under **Diagnostic settings**, enter a name for **Diagnostic settings name**.
 
 1. Select the **log** options for **FrontDoorAccessLog**, **FrontDoorHealthProbeLog**, and **FrontDoorWebApplicationFirewallLog**.
+
+   > [!NOTE]
+   > **FrontDoorWebApplicationFirewallLog** is only available for Premium tier.
 
 1. Select the **Destination details**. The destination options are: 
 
@@ -38,7 +39,7 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
       * Storage accounts are best used for scenarios when logs are stored for a longer duration and are reviewed when needed.
       * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
     * **Stream to an event hub**
-      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, DataDog, or Sumo. 
+      * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
       * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
 
     > [!TIP]

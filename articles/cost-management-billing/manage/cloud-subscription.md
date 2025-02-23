@@ -6,7 +6,7 @@ ms.reviewer: macyso
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 11/21/2024
+ms.date: 01/22/2025
 ms.author: banders
 #customer intent: As a billing admin, I want to understand what a cloud subscription is so that I can manage my resources effectively.
 ---

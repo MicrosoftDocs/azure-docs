@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/03/2025
+ms.date: 09/05/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -72,7 +72,6 @@ Azure NetApp Files storage with cool access is supported for the following regio
 * Switzerland North 
 * Switzerland West 
 * Sweden Central
-* Taiwan North
 * UAE Central
 * UAE North 
 * UK South

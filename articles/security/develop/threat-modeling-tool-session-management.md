@@ -214,7 +214,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 | **Applicable Technologies** | MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
 | **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
-| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
+| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromScript attribute value should be set to True. |
 
 ### Example
 Following configuration shows the correct configuration:

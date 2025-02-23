@@ -39,20 +39,13 @@ You can also control cache settings from the Azure portal by setting content del
 
 The preferred method for setting a blob's `Cache-Control` header is to use caching rules in the Azure portal. For more information about content delivery network caching rules, see [Control Azure Content Delivery Network caching behavior with caching rules](cdn-caching-rules.md).
 
-> [!NOTE]
-> Caching rules are available only for **Azure CDN Standard from Edgio** profiles. For **Azure CDN Premium from Edgio** profiles, you must use the [Azure Content Delivery Network rules engine](./cdn-verizon-premium-rules-engine.md) in the **Manage** portal for similar functionality.
-
 **To navigate to the CDN caching rules page**:
 
 1. In the Azure portal, select a content delivery network profile, then select the endpoint for the blob.
 
 2. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 **To set a Blob storage service's Cache-Control headers by using global caching rules:**
 

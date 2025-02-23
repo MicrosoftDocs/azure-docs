@@ -612,7 +612,7 @@ Use managed identity or service principal.
 
 #### [Managed identity](#tab/msi)
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
 > Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
@@ -792,7 +792,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
 
-    For **SLES 12 SP5**, if your `fence-agents` version is lower then `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and below**, you need to install below additional packages.
+    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and below**, you need to install below additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
