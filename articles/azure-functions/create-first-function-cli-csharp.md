@@ -27,9 +27,11 @@ Before you begin, you must have the following:
 
 + One of the following tools for creating Azure resources:
 
-    + [Azure CLI](/cli/azure/install-azure-cli) [version 2.4](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
+    + [Azure CLI](/cli/azure/install-azure-cli) [version 2.60](/cli/azure/release-notes-azure-cli#november-05-2024) or later.
 
     + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
+
++ The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -133,19 +135,20 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
 1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
-[!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
+[!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-flex-cli.md)]
 
 4. Create the function app in Azure:
-
-    # [Azure CLI](#tab/azure-cli)
-
+    <!---Replace tabs when PowerShell cmdlets support Flex Consumption plans.
+    ### [Azure CLI](#tab/azure-cli)
+    -->
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    userId=$(az identity show --name func-host-storage-user --resource-group AzureFunctionsQuickstart-rg --query 'id' -o tsv)
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0 --assign-identity $userId --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value $userId  --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
-
-    # [Azure PowerShell](#tab/azure-powershell)
+    <!---
+    ### [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
     New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 4 -Location '<REGION>'
@@ -154,10 +157,31 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.
 
     ---
+    -->
+    In this example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, replace `<REGION>` with your region, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
-    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+    This command creates a function app running in your specified language runtime on Linux in the [Flex Consumption Plan](flex-consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+## Update application settings
+
+To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with an equivalent setting that uses the user-assigned managed identity to connect to the storage account.
+
+1. Remove the existing `AzureWebJobsStorage` connection string setting:
+
+    ```azurecli    
+    az functionapp config appsettings delete --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --setting-names AzureWebJobsStorage 
+    ```
+
+    The [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app.
+
+1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
+ 
+    ```azurecli
+    clientId=$(az identity show --name func-host-storage-user --resource-group AzureFunctionsQuickstart-rg --query 'clientId' -o tsv)
+    az functionapp config appsettings set --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId
+    ```
+     
+At this point, the Functions host is able to connect to the storage account securely using managed identities. You can now deploy your project code to the Azure resources
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
