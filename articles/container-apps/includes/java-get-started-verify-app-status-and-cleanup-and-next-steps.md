@@ -8,7 +8,7 @@ ms.date: 02/18/2025
 
 ## Verify the app status
 
-Once the deployment is done, you can go to the overview page of your container app and set the **Application Url** field. After doing that, you can see the project running in the cloud. The following screenshot shows the application status of the app running in Azure.
+Once the deployment is done, you can navigate to the overview page of your container app and set the **Application Url** field. After doing that, you can see the project running in the cloud. The following screenshot shows the application status of the app running on Azure.
 
 :::image type="content" source="../media/java-get-started/validation.png" alt-text="Screenshot of the application details in Azure, with the Application URL field highlighted." lightbox="../media/java-get-started/validation.png":::
 
