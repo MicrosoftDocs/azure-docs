@@ -61,7 +61,7 @@ Learn more about writing parsers in [Developing ASIM parsers](normalization-deve
  
 To normalize data at ingest, you need to use a [Data Collection Rule (DCR)](/azure/azure-monitor/essentials/data-collection-rule-overview). The procedure for implementing the DCR depends on the method used to ingest the data. For more information, see the article [Transform or customize data at ingestion time in Microsoft Sentinel](configure-data-transformation.md).
 
-A [KQL](/kusto/query/kusto-sentinel-overview) transformation query is the core of a DCR. The KQL version used in DCRs is slightly different than the version used elsewhere in Microsoft Sentinel to accommodate for requirements of pipeline event processing. Therefore, you need to modify any query-time parser to use it in a DCR. For more information on the differences, and how to convert a query-time parser to an ingest-time parser, read about the [DCR KQL limitations](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations).
+A [KQL](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) transformation query is the core of a DCR. The KQL version used in DCRs is slightly different than the version used elsewhere in Microsoft Sentinel to accommodate for requirements of pipeline event processing. Therefore, you need to modify any query-time parser to use it in a DCR. For more information on the differences, and how to convert a query-time parser to an ingest-time parser, read about the [DCR KQL limitations](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations).
 
 
 ## <a name="next-steps"></a>Next steps

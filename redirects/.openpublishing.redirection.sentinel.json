@@ -2219,6 +2219,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/awake-security.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/awake-security-via-legacy-agent",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/sentinel/kusto-resources.md",
+          "redirect_url": "/kusto/query/kql-learning-resources?view=microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json",
+          "redirect_document_id": false
         }
     ]
 }
