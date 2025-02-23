@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/migrate/tutorial-modernize-asp-net-aks.md",
-      "redirect_url": "articles/migrate/migrate-services-overview",
+      "redirect_url": "/azure/migrate/migrate-services-overview",
       "redirect_document_id": false
     },
     {
