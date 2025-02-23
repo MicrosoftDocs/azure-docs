@@ -57,7 +57,7 @@ Build the project by using the following steps:
         --recursive
     ```
 
-1. Use the following command to clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process:
+1. Use the following command to clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during these processes:
 
     ```bash
     mvn clean verify
@@ -75,7 +75,7 @@ You now have a **/target/petclinic.jar** file.
     cd spring-framework-petclinic
     ```
 
-1. Clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during this process, by using the following command:
+1. Clean the Maven build area, compile the project's code, create a JAR file, and skip all tests during these processes, by using the following command:
 
     ```bash
     mvn clean verify
@@ -114,7 +114,7 @@ az containerapp up \
 Deploy the WAR file to Azure Container Apps by using the following command:
 
 > [!NOTE]
-> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
+> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to 10 (including any minor versions) by setting `BP_TOMCAT_VERSION=10.*`. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 ```azurecli
 az containerapp up \
