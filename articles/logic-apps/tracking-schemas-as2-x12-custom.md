@@ -1,16 +1,17 @@
 ---
-title: B2B message monitoring using tracking schemas
-description: Create tracking schemas to monitor B2B messages such as AS2, X12, or custom in Azure Logic Apps.
+title: B2B message tracking schemas - Consumption workflows
+description: Create tracking schemas to monitor B2B messages such as AS2, X12, or custom for Consumption workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 02/28/2024
+# As a B2B integration solutions developer, I want to know about tracking schemas to monitor B2b messages for Consumption workflows in Azure Logic Apps.
 ---
 
-# Tracking schemas for monitoring B2B messages in Azure Logic Apps
+# B2B tracking schemas for Consumption workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
 

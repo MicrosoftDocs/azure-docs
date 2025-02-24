@@ -1,15 +1,14 @@
 ---
-title: Monitor and track B2B transactions in workflows
-description: Set up monitoring and tracking for B2B transactions or messages in enterprise integration workflows with Azure Logic Apps.
+title: Monitor and track B2B transactions - Standard workflows
+description: Set up monitoring and tracking for B2B transactions or messages in Standard workflows for Azure Logic Apps.
 services: logic-apps
-ms.service: azure-logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
 ms.date: 02/28/2025
-# As a B2B integration solutions developer, I want to learn how to monitor and track B2B transactions in my workflows created with Azure Logic Apps.
+# As a B2B integration solutions developer, I want to learn how to monitor and track B2B transactions in my Standard workflows created with Azure Logic Apps.
 ---
 
-# Monitor and track B2B transactions in workflows created with Azure Logic Apps (Preview)
+# Monitor and track B2B transactions in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -28,6 +27,10 @@ For example, you get a tracking dashboard so you that can efficiently monitor, s
 
 This guide provides a short overview about how B2B tracking works, how to set up this capability for your Standard logic app resource and workflows, and how to open the tracking dashboard.
 
+## Limitations and known issues
+
+- In the preview release, tracking currently handles only X12 and AS2 transactions.
+
 ## How does B2B tracking work
 
 The following table describes how various components work together to support B2B tracking:
@@ -38,10 +41,6 @@ The following table describes how various components work together to support B2
 | Data ingestion | The generated tracking data gets directly pushed transactionally through your integration account to an Azure Data Explorer cluster and database, which provides lossless and reliable storage. |
 | Structured storage | Azure Data Explorer provides fast indexing and querying capabilities, which you use to effectively filter, search, and analyze transactions. |
 | Tracking dashboard | This dedicated B2B monitoring dashboard visualizes transaction flow, which helps you track acknowledgments such as MDN and 997, detect failures, and troubleshoot problems in real time. |
-
-## Limitations and known issues
-
-- In the preview release, tracking currently handles only X12 and AS2 transactions.
 
 ## Prerequisites
 
@@ -139,6 +138,22 @@ For tracking to work correctly, make sure that all the following conditions are 
 
 The following tables list the properties available for each message type that B2B currently supports:
 
+#### AS2 message properties
+
+| Column name | Expanded name |
+|-------------|---------------|
+| **AgreementName**| Agreement name |
+| **SenderParternerName** | Sender partner |
+| **ReceiverPartnerName** | Receiver partner |
+| **MessageStatus** | Message status |
+| **MessageDirection** | Message direction (send or receive) |
+| **MessageTime** | Message time |
+| **MessageClientTrackingId** | Message client tracking ID |
+| **MessageId** | Message ID from the message header |
+| **IsMdnExpected** | Is a Message Disposition Notification (MDN) expected (**`true`** or **`false`**) |
+| **AckStatus** | Acknowledgement status |
+| **CorrelationMessageId** | An ID that correlates the message with an MDN |
+
 #### X12 message properties
 
 | Column name | Expanded name |
@@ -159,22 +174,6 @@ The following tables list the properties available for each message type that B2
 | **TransactionSetAckStatus** | Transaction set acknowledgment status |
 | **FunctionalAckStatus** | Functional acknowledgment status |
 
-#### AS2 message properties
-
-| Column name | Expanded name |
-|-------------|---------------|
-| **AgreementName**| Agreement name |
-| **SenderParternerName** | Sender partner |
-| **ReceiverPartnerName** | Receiver partner |
-| **MessageStatus** | Message status |
-| **MessageDirection** | Message direction (send or receive) |
-| **MessageTime** | Message time |
-| **MessageClientTrackingId** | Message client tracking ID |
-| **MessageId** | Message ID from the message header |
-| **IsMdnExpected** | Is a Message Disposition Notification (MDN) expected (**`true`** or **`false`**) |
-| **AckStatus** | Acknowledgement status |
-| **CorrelationMessageId** | An ID that correlates the message with an MDN |
-
 ## Related content
 
-- [Database table schemas for B2B tracking]()
+- [Tracking table schemas for B2B transactions - Standard workflows](tracking-table-schemas-standard.md)
