@@ -33,7 +33,7 @@ Deploy the project by using the following steps:
     export CONTAINER_APP_NAME="pet-clinic"
     ```
 
-1. If you haven't yet done so yet, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Quickstart: Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
+1. If you haven't yet, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Quickstart: Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
 1. Build and deploy your Spring Boot app by using the following command:
 
