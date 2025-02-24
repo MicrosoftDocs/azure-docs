@@ -11,9 +11,6 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you create a function app running in a Linux container and deploy it to Azure Functions. 
 
->[!IMPORTANT]
->This article currently shows how to connect to the container registry by using shared secret credentials. For the best security, you should instead use only a managed identity-based connection to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](../articles/azure-functions/functions-reference.md#connections).
-
 Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 > [!TIP]
