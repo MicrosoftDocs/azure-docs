@@ -183,7 +183,7 @@ Azure CLI is used here to deploy the template. You can also use the Azure portal
 
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
-Open up a terminal where the Azure CLI is installed and run the code below to create a Node.js app on Linux.
+Open up a terminal where the Azure CLI is installed and run the code below to create a .NET app.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
