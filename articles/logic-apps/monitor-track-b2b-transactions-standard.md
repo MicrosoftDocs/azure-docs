@@ -29,7 +29,7 @@ This guide provides a short overview about how B2B tracking works, how to set up
 
 ## Limitations and known issues
 
-- In the preview release, tracking currently handles only X12 and AS2 transactions.
+- In this preview release, tracking currently handles only X12 and AS2 transactions.
 
 ## How does B2B tracking work
 
@@ -48,7 +48,7 @@ The following table describes how various components work together to support B2
 
 - A Premium-level integration account. If you don't have this integration account, see [Create and manage integration accounts for B2B workflows in Azure Logic Apps](/azure/logic-apps/enterprise-integration/create-integration-account).
 
-- A Standard workflow that uses X12 or AS2 built-in actions
+- A Standard workflow that uses AS2 or X12 built-in actions
 
   Currently, B2B tracking supports only transactions processed by these actions.
 
@@ -151,7 +151,7 @@ The following tables list the properties available for each message type that B2
 | **MessageClientTrackingId** | Message client tracking ID |
 | **MessageId** | Message ID from the message header |
 | **IsMdnExpected** | Is a Message Disposition Notification (MDN) expected (**`true`** or **`false`**) |
-| **AckStatus** | Acknowledgement status |
+| **AckStatus** | Acknowledgment status |
 | **CorrelationMessageId** | An ID that correlates the message with an MDN |
 
 #### X12 message properties
@@ -170,7 +170,7 @@ The following tables list the properties available for each message type that B2
 | **TransactionSetStatus** | Transaction set status |
 | **TransactionSetControlNumber** | Transaction set control number |
 | **IsFunctionalAckExpected** | Is a functional acknowledgment expected (**`true`** or **`false`**) |
-| **AckStatus** | Acknowledgement status |
+| **AckStatus** | Acknowledgment status |
 | **TransactionSetAckStatus** | Transaction set acknowledgment status |
 | **FunctionalAckStatus** | Functional acknowledgment status |
 
