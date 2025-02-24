@@ -26,19 +26,19 @@ In this example, you will use Apache Spark to perform some analysis on taxi trip
 1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
    
    ```python
-    from azureml.opendatasets import NycTlcYellow
-    from dateutil import parser
-    from datetime import datetime
+   from azureml.opendatasets import NycTlcYellow
+   from dateutil import parser
+   from datetime import datetime
 
-    end_date = parser.parse('2018-06-06')
-    start_date = parser.parse('2018-05-01')
-    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-    filtered_df = nyc_tlc.to_spark_dataframe()
+   end_date = parser.parse('2018-06-06')
+   start_date = parser.parse('2018-05-01')
+   nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+   filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
    ```
 2. Using Apache Spark SQL, we will create a database called NycTlcTutorial. We will use this database to store the results of our data processing.
    ```python
    %%pyspark
-    spark.sql("CREATE DATABASE IF NOT EXISTS NycTlcTutorial")
+   spark.sql("CREATE DATABASE IF NOT EXISTS NycTlcTutorial")
    ```
 3. Next, we will use Spark dataframe operations to process the data. In the following code, we perform the following transformations:
    1. The removal of columns which are not needed.
@@ -63,10 +63,10 @@ In this example, you will use Apache Spark to perform some analysis on taxi trip
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
 4. Finally, we will save our dataframe using the Apache Spark ```saveAsTable``` method. This will allow you to later query and connect to the same table using serverless SQL pools.
-  ```python
-     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
-  ```
-   
+    ```python
+    taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+    ```
+
 ## Query data using serverless SQL pools
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool. This is powered through the Synapse [shared metadata management](../metadata/overview.md) capability. As a result, the Spark created databases and their parquet-backed tables become visible in the workspace serverless SQL pool.
 
