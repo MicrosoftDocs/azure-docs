@@ -79,7 +79,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Http://hl7.org/fhir/ValueSet/cpt-all",
+                            "system": "http://hl7.org/fhir/ValueSet/cpt-all",
                             "code": "70460",
                             "display": "Ct head/brain w/dye"
                           }

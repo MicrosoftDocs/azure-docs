@@ -186,7 +186,7 @@ The following image shows how the relationship builder connects all of these use
 
 ### Curate threat intelligence
 
-Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP).
+Configure which TI objects can be shared with appropriate audiences by designating a sensitivity level called Traffic Light Protocol (TLP). 
 
 | TLP color | Sensitivity |
 |---|---|
@@ -195,7 +195,9 @@ Configure which TI objects can be shared with appropriate audiences by designati
 | Amber | Information can be shared with members of the organization, but not publicly. It's intended to be used within the organization to protect sensitive information. |
 | Red | Information is highly sensitive and shouldn't be shared outside of the specific group or meeting where it was originally disclosed. |
 
-Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
+Set TLP values for TI objects in the UI when you create or edit them. Setting TLP through the API is less intuitive and requires choosing one of four `marking-definition` object GUIDs. For more information on configuring TLP through the API, see [object_marking_refs in the Common properties of the upload API](stix-objects-api.md#common-properties) 
+
+Another way to curate TI is with tags. Tagging threat intelligence is a quick way to group objects together to make them easier to find. Typically, you might apply tags related to a particular incident. But, if an object represents threats from a particular known actor or well-known attack campaign, consider creating a relationship instead of a tag. After you search and filter for the threat intelligence that you want to work with, tag them individually or multiselect and tag them all at once. Because tagging is free-form, we recommend that you create standard naming conventions for threat intelligence tags.
 
 For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#create-threat-intelligence).
 

@@ -110,6 +110,8 @@ This preview doesn't support the following services, operations, and protocols o
 - Server message block (SMB) protocol with Azure Files can only be achieved through IP allowlisting at this time.
 - [Azure Blob Inventory](../blobs/blob-inventory.md)
 
+- Vaulted backups for Azure Blob Storage
+
 We recommend you don't enable network security perimeter if you need to use any of these services, operations, or protocols. This is to prevent any potential data loss or data exfiltration risk.
 
 > [!WARNING]
