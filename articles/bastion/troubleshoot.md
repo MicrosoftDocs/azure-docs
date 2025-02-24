@@ -82,7 +82,7 @@ Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just
 
 **Q:** Is file transfer supported with Azure Bastion?
 
-**A:** Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](https://learn.microsoft.com/en-us/azure/bastion/vm-upload-download-native).
+**A:** Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can't upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](./vm-upload-download-native.md).
 
 ## <a name="blackscreen"></a>Black screen in the Azure portal
 
