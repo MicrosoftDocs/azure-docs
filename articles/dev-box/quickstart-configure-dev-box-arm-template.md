@@ -108,7 +108,9 @@ Microsoft Dev Box automatically creates a resource group for each network connec
  
 ## Clean up resources 
 
-When you no longer need them, delete the resource group: Go to the Azure portal, select the resource group that contains these resources, and then select Delete. 
+When you no longer need these resources, you can delete the resource group.
+
+Go to the Azure portal, select the resource group that contains the resources, and then select **Delete**. 
 
 ## Find more templates
 
