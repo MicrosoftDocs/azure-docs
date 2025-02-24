@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Configure a network fabric controller"
 description: Learn commands to create and modify a network fabric controller in Azure Operator Nexus instances.
-author: jdasari
-ms.author: jdasari
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 07/20/2023
@@ -15,7 +15,7 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 ## Prerequisites
 
-You must implement all the prerequisites prior to creating an NFC.
+Before configuring NFC, ensure you meet the following requirements:
 
 Names, such as for resources, shouldn't contain the underscore (\_) character.
 
@@ -23,12 +23,54 @@ Names, such as for resources, shouldn't contain the underscore (\_) character.
 
 Validate the ExpressRoute circuit(s) for correct connectivity (CircuitID)(AuthID);  NFC provisioning would fail if connectivity is incorrect.
 
+## VM SKU update for Network Fabric Controller  
+
+New deployments of Network Fabric Controller will utilize the new VM SKU.  
+
+### Minimum vCPU requirement
+
+The new VM SKU requires a minimum of **120 vCPUs** to ensure optimal performance and resource availability.  
+
+### Checking VM Quota for the new SKU
+
+To check if your subscription has sufficient vCPU quota for the new SKU, follow these steps:  
+
+1. **Azure Portal**:  
+   - Navigate to **Azure Portal** → **Subscriptions**  
+
+   - Go to **Usage + quotas**  
+   
+   - Search for the required VM SKU  
+   
+   - Check the **Total Quota** and **Current Usage**  
+
+2. **Azure CLI**:  
+   
+   Run the following command to check your available quota:  
+
+   ```azurecli
+      az vm list-usage --location <region> --output table
+   ```
+
+Look for the **vCPUs** quota and ensure it meets the minimum requirement.  
+
+### Requesting additional vCPU Quota  
+
+If your quota is insufficient, request an increase by:  
+
+- Submitting a quota increase request via **Azure Portal** → **Help + Support** → **New Support Request** 
+
+- Selecting **Quota** as the issue type and specifying the required increase  
+
+> [!Note]
+> Ensure your quota request is approved before proceeding with the deployment.  
 
 ## Create a Network Fabric Controller
 
 You must create a resource group before you create your NFC.
 
-**Note**: You should create a separate Resource Group for each NFC.
+>[!Note]
+> You should create a separate Resource Group for each NFC.
 
 You create resource groups by running the following commands:
 
