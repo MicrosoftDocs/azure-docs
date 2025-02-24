@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/migrate/tutorial-modernize-asp-net-aks.md",
+      "redirect_url": "/azure/migrate/migrate-services-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/databox-online/azure-stack-edge-gpu-deploy-sample-module-marketplace.md",
       "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1",
       "redirect_document_id": false
