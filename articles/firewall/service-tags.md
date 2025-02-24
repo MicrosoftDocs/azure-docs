@@ -2,11 +2,11 @@
 title: Overview of Azure Firewall service tags
 description: A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 08/31/2023
-ms.author: victorh 
+ms.author: duau 
 ms.custom: devx-track-azurepowershell
 ---
 

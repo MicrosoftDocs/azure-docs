@@ -2,11 +2,11 @@
 title: Deploy & configure Azure Firewall using the Azure portal
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 01/24/2025
-ms.author: victorh
+ms.author: duau
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
