@@ -12,7 +12,7 @@ ms.author: hangwan
 
 # Quickstart: Launch your first Java application in Azure Container Apps by using a GitHub Repository
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps by using a Github Repository.
+This article shows you how to use a GitHub repository to deploy the Spring PetClinic sample application to Azure Container Apps.
 
 [!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
@@ -24,7 +24,7 @@ Use the **Fork** button on the [Azure Container Apps Java Samples](https://githu
 
 Deploy the project by using the following steps:
 
-1. Set environment variables by using the following commands:
+1. Set the necessary environment variables by using the following commands:
 
     ```bash
     export RESOURCE_GROUP="pet-clinic-container-apps"
@@ -33,7 +33,7 @@ Deploy the project by using the following steps:
     export CONTAINER_APP_NAME="pet-clinic"
     ```
 
-1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Quickstart: Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
+1. If you haven't yet done so yet, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Quickstart: Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
 1. Build and deploy your Spring Boot app by using the following command:
 
