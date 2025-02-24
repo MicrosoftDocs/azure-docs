@@ -152,8 +152,19 @@
   items: 
     - name: Inbound connectivity
       items:
-      - name: Inbound NAT rules
-        href: inbound-nat-rules.md
+      - name: Inbound NAT rule
+        items:
+        - name: Inbound NAT rules
+          href: inbound-nat-rules.md
+        - name: Create a single VM inbound NAT rule
+          href: tutorial-load-balancer-port-forwarding-portal.md
+        - name: Create a multiple VMs inbound NAT rule
+          href: tutorial-nat-rule-multi-instance-portal.md
+        - name: Manage inbound NAT rules
+          href: manage-inbound-nat-rules.md
+        - name: Migrate Inbound NAT Pools to NAT Rules
+          href: load-balancer-nat-pool-migration.md
+        expanded: false
       - name: High Availability ports
         href: load-balancer-ha-ports-overview.md
       - name: Multiple frontends
@@ -164,8 +175,6 @@
         href: load-balancer-floating-ip.md
       - name: Manage load balancer rules
         href: manage-rules-how-to.md
-      - name: Manage inbound NAT rules
-        href: manage-inbound-nat-rules.md
       - name: Configure TCP reset and idle timeout
         href: load-balancer-tcp-idle-timeout.md
       - name: Configure distribution mode for Load Balancer
@@ -181,15 +190,6 @@
         href: ../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md?toc=/azure/load-balancer/toc.json
       - name: Outbound only load balancer configuration
         href: egress-only.md
-      expanded: false
-    - name: Inbound NAT rule
-      items:
-      - name: Create a single VM inbound NAT rule
-        href: tutorial-load-balancer-port-forwarding-portal.md
-      - name: Create a multiple VMs inbound NAT rule
-        href: tutorial-nat-rule-multi-instance-portal.md
-      - name: Migrate Inbound NAT Pools to NAT Rules
-        href: load-balancer-nat-pool-migration.md
       expanded: false
     - name: IPv6
       items:
