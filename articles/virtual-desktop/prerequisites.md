@@ -252,6 +252,7 @@ You can deploy host pools, workspaces, and application groups in the following A
     :::column-end:::
     :::column:::
        - North Europe
+       - South Africa North
        - South Central US
        - UK South
        - UK West
@@ -260,7 +261,6 @@ You can deploy host pools, workspaces, and application groups in the following A
        - West US
        - West US 2
        - West US 3
-       - South Africa North
     :::column-end:::
 :::row-end:::
 
