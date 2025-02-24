@@ -220,4 +220,5 @@ Now that you've learned how to search for exploits of a common vulnerability usi
     - [Alert properties](customize-alert-details.md)
 
 - Learn about [other kinds of analytics rules](detect-threats-built-in.md) in Microsoft Sentinel and their function.
-- Learn more about writing queries in Kusto Query Language (KQL). To learn more about KQL, see this [overview](/kusto/query/?view=microsoft-sentinel&preserve-view=true), learn some [best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true), and keep this handy [quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true).
+- Learn more about writing queries in Kusto Query Language (KQL). To learn more about KQL, see this [overview](/kusto/query/?view=microsoft-sentinel&preserve-view=true), learn some [best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json), and keep this handy [quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true).
+
