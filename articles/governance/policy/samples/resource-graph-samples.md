@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Graph sample queries for Azure Policy
+title: Azure Resource Graph sample queries for Azure 
 description: Sample Azure Resource Graph queries for Azure Policy showing use of resource types and tables to access Azure Policy related resources and properties.
 ms.date: 09/30/2024
 ms.topic: sample
