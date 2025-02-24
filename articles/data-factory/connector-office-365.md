@@ -46,7 +46,7 @@ For now, within a single copy activity and data flow, you can only **ingest data
 
 To copy and transform data from Microsoft 365 (Office 365) into Azure, you need to complete the following prerequisite steps:
 
-- Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
+- Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/graph/data-connect-quickstart).
 - Create and configure a Microsoft Entra web application in Microsoft Entra ID.  For instructions, see [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you use to define the linked service for Microsoft 365 (Office 365):
   - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
