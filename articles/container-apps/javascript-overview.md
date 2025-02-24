@@ -410,6 +410,8 @@ This approach offers a flexible solution that allows you to restart the containe
 
 ## Maintenance and performance considerations
 
+To maintain and optimize your application's performance over time, ensure you efficiently manage environment variable changes, monitor your resources, keep your dependencies up-to-date, configure scaling correctly, and set up monitoring alerts.
+
 ### Environment variable changes
 
 Since each change to environment variables requires a new deployed revision, make all changes to the app's secrets at once. When changes are complete, link the secrets to the revision's environment variables. This approach minimizes the number of revisions and helps maintain a clean deployment history.
