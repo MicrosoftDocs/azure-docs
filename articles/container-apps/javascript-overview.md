@@ -172,6 +172,7 @@ For production builds, make sure you use the correct version tag, which may not 
 
 
 ## Deployment
+
 To support continuous integration/continuous deployment (CI/CD), set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
 
 ```yaml
@@ -241,10 +242,15 @@ Security considerations for JavaScript developers using Azure Container Apps inc
 
 ### Secure environment variables
 
-Ensure sensitive information such as database connection strings and API keys are stored securely. Use Azure Key Vault to manage secrets and environment variables securely.
+Ensure sensitive information such as database connection strings and API keys are stored securely. Use Azure Key Vault to manage secrets and environment variables securely. 
 
-```bash
-az keyvault secret set --vault-name myKeyVault --name "CosmosDBConnectionString" --value "<your-connection-string>"
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
+
+```azurecli
+az keyvault secret set \
+  --vault-name <KEY_VAULT_APP> \
+  --name "CosmosDBConnectionString" \
+  --value "<YOUR_CONNECTION_STRING>"
 ```
 
 ### HTTPS and certificates
@@ -402,9 +408,13 @@ You can implement remote debugging with the following steps:
 
 1. Trigger debug mode by setting the environment variable `ENABLE_DEBUG` to `true`. For example, using the Azure CLI:
 
-   ```bash
-   az containerapp update --name my-container-app --env-vars ENABLE_DEBUG=true
+   ```azurecli
+   az containerapp update \
+     --name <CONTAINER_APP> \
+     --env-vars ENABLE_DEBUG=true
    ```
+
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
 
 This approach offers a flexible solution that allows you to restart the container in debug mode by updating an environment variable at startup. It avoids the need to create a new revision with different `CMD` settings every time you need to debug your application.
 
@@ -434,12 +444,12 @@ npm install
 
 Configure autoscaling based on the application's load. Azure Container Apps supports horizontal scaling, which automatically adjusts the number of container instances based on CPU or memory usage.
 
-The following example demonstrates how to set a CPU-based scale rule.
+The following example demonstrates how to set a CPU-based scale rule. Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
 
-```bash
+```azurecli
 az containerapp revision set-scale \
-  --name my-container-app \
-  --resource-group my-resource-group \
+  --name <CONTAINER_APP> \
+  --resource-group <RESOURCE_GROUP> \
   --min-replicas 1 \
   --max-replicas 10 \
   --cpu 80
@@ -451,9 +461,7 @@ Set up monitoring and alerts to track the performance and health of your applica
 
 Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
 
-Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
-
-```bash
+```azurecli
 az monitor metrics alert create \
   --name "HighCPUUsage" \
   --resource-group my-resource-group \
@@ -472,13 +480,13 @@ When your application runs into run time issues on Azure Container Apps, you can
 
 ### Logging
 
-Enable and configure logging to capture application logs. Use Azure Monitor and Log Analytics to collect and analyze logs.
+Enable and configure logging to capture application logs. Use Azure Monitor and Log Analytics to collect and analyze logs. Before running these commands, make sure to replace the placeholders surrounded by `<>` with your values.
 
 1. Create a new workspace.
 
     ```azurecli
     az monitor log-analytics workspace create \
-        --resource-group my-resource-group \
+        --resource-group <RESOURCE_GROUP> \
         --workspace-name <WORKSPACE_NAME>
     ```
 
@@ -486,7 +494,7 @@ Enable and configure logging to capture application logs. Use Azure Monitor and 
 
     ```azurecli            
     az monitor diagnostic-settings create \
-        --resource my-container-app \
+        --resource <CONTAINER_APP> \
         --workspace <WORKSPACE_NAME> \
         --logs '[{"category": "ContainerAppConsoleLogs","enabled": true}]'
     ```
