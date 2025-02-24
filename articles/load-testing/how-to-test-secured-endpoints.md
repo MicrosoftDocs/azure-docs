@@ -310,6 +310,8 @@ The following code snippet gives an example of how to configure a managed identi
           identity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
 ```
 ---
+> [!IMPORTANT]
+> [Load distribution across regions](./how-to-generate-load-from-multiple-regions.md) is not enabled when you use managed identities for authentication. 
    
 ## Related content
 
