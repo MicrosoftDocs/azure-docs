@@ -227,11 +227,11 @@ Add following key-values to the App Configuration store and leave **Label** and 
 
 ### Set up the App Configuration Kubernetes Provider
 
-1. Install Azure App Configuration Kubernetes Provider to your AKS cluster:
+1. Install the Azure App Configuration Kubernetes Provider on your AKS cluster. You can do this either as an AKS extension or by using a Helm chart. The AKS extension allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Additionally, using the AKS extension facilitates automatic minor and patch version updates, ensuring your system remains up-to-date.
    
     #### [AKS extension](#tab/extension)
 
-    Install the k8s-extension Azure CLI extension by running the following commands:
+    Install the `k8s-extension` to your Azure CLI extensions:
 
     ```azurecli
     az extension add --name k8s-extension
@@ -243,7 +243,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
 
-    Install the latest version of Azure App Configuration Kubernetes Provider via the Azure App Configuration extension. Replace the value of the `cluster-name` and `resource-group` parameters with your AKS instance:
+    Install the AKS extension for App Configuration. Replace the `cluster-name` and `resource-group` parameter values with those of your AKS instance:
 
     ```azurecli
     az k8s-extension create --cluster-type managedClusters \
@@ -253,11 +253,11 @@ Add following key-values to the App Configuration store and leave **Label** and 
         --extension-type Microsoft.AppConfiguration
     ```
     
-    For more information or detailed installation instructions of Azure App Configuration AKS extension, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
+    For more information see [Install Azure App Configuration AKS extension](/azure/aks/azure-app-configuration).
   
     #### [Helm chart](#tab/helm)
 
-    Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
+    Run the following command to obtain access credentials for your AKS cluster. Replace the `name` and `resource-group` parameter values with those of your AKS instance:
    
     ```azurecli
     az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
