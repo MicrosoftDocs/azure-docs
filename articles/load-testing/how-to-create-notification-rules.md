@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn how to configure notifications for events in Azure Load Testing, enabling notifications for test completions, scheduled tests, and other key events.
 services: load-testing
 ms.service: azure-load-testing
-author: saloniagrawal1997
-ms.author: salagrawal
+author: ninallam
+ms.author: ninallam
 ms.topic: how-to
 ms.date: 01/09/2025
 ---
@@ -33,7 +33,7 @@ Azure Load Testing supports the following events for notifications:
 
 ### Action Groups
 
-[Action Groups](../../../azure-monitor-docs/articles/azure-monitor/alerts/action-groups.md) are collections of notification preferences and actions that can be triggered by events. In the context of Azure Load Testing, they enable users to route notifications to email recipients, webhooks, or integrated tools like Azure Logic Apps.
+[Action Groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) are collections of notification preferences and actions that can be triggered by events. In the context of Azure Load Testing, they enable users to route notifications to email recipients, webhooks, or integrated tools like Azure Logic Apps.
 
 > [!NOTE]
 >  Action groups might incur additional costs. To view associated costs, refer to the [Azure Monitor pricing details.](https://azure.microsoft.com/pricing/details/monitor/)
