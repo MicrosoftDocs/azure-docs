@@ -17,7 +17,7 @@ Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Gra
 This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
 
 > [!NOTE]
-> Microsoft 365 Data Flow connector is currently in preview. To participate, use this sign-up form: [M365 + Analytics Preview](https://aka.ms/m365-analytics-preview).
+> Microsoft 365 Data Flow connector is currently in preview. To participate, use this sign-up form: [Microsoft 365 + Analytics Preview](https://aka.ms/m365-analytics-preview).
 
 ## Supported capabilities
 
@@ -40,13 +40,13 @@ For now, within a single copy activity and data flow, you can only **ingest data
 >- Service Principal authentication is the only authentication mechanism supported for Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 as destination stores.
 
 > [!NOTE]
-> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime are not supported.
+> Please use Azure integration runtime in both source and sink linked services. The self-hosted integration runtime and the managed virtual network integration runtime aren't supported.
 
 ## Prerequisites
 
 To copy and transform data from Microsoft 365 (Office 365) into Azure, you need to complete the following prerequisite steps:
 
-- Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
+- Your Microsoft 365 (Office 365) tenant admin must complete on-boarding actions as described [here](/graph/data-connect-quickstart).
 - Create and configure a Microsoft Entra web application in Microsoft Entra ID.  For instructions, see [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you use to define the linked service for Microsoft 365 (Office 365):
   - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
@@ -56,7 +56,7 @@ To copy and transform data from Microsoft 365 (Office 365) into Azure, you need 
 
 ## Approving new data access requests
 
-If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
+If this is the first time you're requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you'll see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
 Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request.
 
@@ -116,8 +116,8 @@ The following properties are supported for Microsoft 365 (Office 365) linked ser
 
 >[!NOTE]
 > The difference between **office365TenantId** and **servicePrincipalTenantId** and the corresponding value to provide:
->- If you are an enterprise developer developing an application against Microsoft 365 (Office 365) data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's Microsoft Entra tenant ID.
->- If you are an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) Microsoft Entra tenant ID and servicePrincipalTenantId will be your company's Microsoft Entra tenant ID.
+>- If you're an enterprise developer developing an application against Microsoft 365 (Office 365) data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's Microsoft Entra tenant ID.
+>- If you're an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) Microsoft Entra tenant ID and servicePrincipalTenantId will be your company's Microsoft Entra tenant ID.
 
 **Example:**
 
@@ -150,7 +150,7 @@ To copy data from Microsoft 365 (Office 365), the following properties are suppo
 | type | The type property of the dataset must be set to: **Office365Table** | Yes |
 | tableName | Name of the dataset to extract from Microsoft 365 (Office 365). Refer [here](/graph/data-connect-datasets#datasets) for the list of Microsoft 365 (Office 365) datasets available for extraction. | Yes |
 
-If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFilterUri` in dataset, it is still supported as-is, while you are suggested to use the new model in activity source going forward.
+If you were setting `dateFilterColumn`, `startTime`, `endTime`, and `userScopeFilterUri` in dataset, it's still supported as-is, while you're suggested to use the new model in activity source going forward.
 
 **Example**
 
@@ -184,7 +184,7 @@ To copy data from Microsoft 365 (Office 365), the following properties are suppo
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **Office365Source** | Yes |
 | allowedGroups | Group selection predicate.  Use this property to select up to 10 user groups for whom the data will be retrieved.  If no groups are specified, then data will be returned for the entire organization. | No |
-| userScopeFilterUri | When `allowedGroups` property is not specified, you can use a predicate expression that is applied on the entire tenant to filter the specific rows to extract from Microsoft 365 (Office 365). The predicate format should match the query format of Microsoft Graph APIs, e.g. `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
+| userScopeFilterUri | When `allowedGroups` property isn't specified, you can use a predicate expression that is applied on the entire tenant to filter the specific rows to extract from Microsoft 365 (Office 365). The predicate format should match the query format of Microsoft Graph APIs, e.g. `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Name of the DateTime filter column. Use this property to limit the time range for which Microsoft 365 (Office 365) data is extracted. | Yes if dataset has one or more DateTime columns. Refer [here](/graph/data-connect-filtering#filtering) for list of datasets that require this DateTime filter. |
 | startTime | Start DateTime value to filter on. | Yes if `dateFilterColumn` is specified |
 | endTime | End DateTime value to filter on. | Yes if `dateFilterColumn` is specified |
