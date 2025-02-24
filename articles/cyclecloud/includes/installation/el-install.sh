@@ -1,0 +1,1 @@
+sudo yum -y -qq install cyclecloud8
