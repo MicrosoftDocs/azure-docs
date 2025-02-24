@@ -21,7 +21,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Date Search Logic Update**: When searching for a date, the logic now ensures that any date range containing the searched date is included in the results. Previously, it only matched a date if the entire range was inside the searched date.
 
-**Health Checks for Improved Resiliency**: Added health checks to enhance the resilience of the service such as retriable exceptions, enhanced diagnostic logging and catching time out exceptions.
+**Health Checks for Improved Resiliency**: Added health checks to enhance the resilience of the service such as retriable exceptions, enhanced diagnostic logging, and catching time out exceptions.
 
 ## January 2025
 
@@ -33,7 +33,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Transaction Failure Exception**: A new FHIR-specific exception type has been introduced to handle Cosmos DB transaction failures, replacing the generic `InvalidOperationExceptions`.
 
-**CMK Error Handling**: Improved error handling for operations dependent on customer-managed keys. Users will now see a more specific error message and a link to [Microsoft's troubleshooting guide](../fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
+**CMK Error Handling**: Improved error handling for operations dependent on customer-managed keys. Users now see a more specific error message and a link to [Microsoft's troubleshooting guide](../fhir/configure-customer-managed-keys.md) if issues occur related to CMK.
 
 ## Related content
 
