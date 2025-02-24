@@ -42,9 +42,6 @@ The table below shows which combinations of authentication methods and clients a
 
 This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Neon Serverless Postgres using Service Connector.
 
-> [!NOTE]
-> System-assigned managed identity, User-assigned managed identity and Service principal are only supported on Azure CLI.
-
 ## Default environment variable names or application properties and sample code
 
 Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Neon Serverless Postgres. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
