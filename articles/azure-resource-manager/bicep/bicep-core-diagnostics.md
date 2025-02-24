@@ -138,8 +138,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP130' />BCP130 | Error | Decorators aren't allowed here. |
 | <a id='BCP132' />[BCP132](./diagnostics/bcp132.md) | Error | Expected a declaration after the decorator. |
 | <a id='BCP133' />BCP133 | Error | The unicode escape sequence isn't valid. Valid unicode escape sequences range from \\u{0} to \\u{10FFFF}. |
-| <a id='BCP134' />BCP134 | Warning | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} isn't valid for this module. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
-| <a id='BCP135' />BCP135 | Warning | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} isn't valid for this resource type. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
+| <a id='BCP134' />BCP134 | Error | Scope \<scope-name> isn't valid for this module. Permitted scopes: \<scope-name>. |
+| <a id='BCP135' />[BCP135](./diagnostics/bcp135.md) | Error | Scope \<scope-name> isn't valid for this resource type. Permitted scopes: \<scope-name>. |
 | <a id='BCP136' />BCP136 | Error | Expected a loop item variable identifier at this location. |
 | <a id='BCP137' />BCP137 | Error | Loop expected an expression of type "{LanguageConstants.Array}" but the provided value is of type "{actualType}". |
 | <a id='BCP138' />BCP138 | Error | For-expressions aren't supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties. |
@@ -201,7 +201,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP198' />BCP198 | Error | The tag "{badTag}" isn't valid. Valid characters are alphanumeric, ".", "_", or "-" but the tag can't begin with ".", "_", or "-". |
 | <a id='BCP199' />BCP199 | Error | Module path "{badRepository}" exceeds the maximum length of {maxLength} characters. |
 | <a id='BCP200' />BCP200 | Error | The registry "{badRegistry}" exceeds the maximum length of {maxLength} characters. |
-| <a id='BCP201' />BCP201 | Error | Expected a provider specification string of with a valid format at this location. Valid formats are "br:\<providerRegistryHost>/\<providerRepositoryPath>@\<providerVersion>" or "br/\<providerAlias>:\<providerName>@\<providerVersion>". |
+| <a id='BCP201' />[BCP201](./diagnostics/bcp201.md) | Error | Expected an extension specification string. This should either be a relative path, or a valid OCI artifact specification. |
 | <a id='BCP202' />BCP202 | Error | Expected a provider alias name at this location. |
 | <a id='BCP203' />BCP203 | Error | Using provider statements requires enabling EXPERIMENTAL feature "Extensibility". |
 | <a id='BCP204' />BCP204 | Error | Provider namespace "{identifier}" isn't recognized. |
@@ -237,7 +237,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP235' />BCP235 | Error | Specified JSONPath doesn't exist in the given file or is invalid. |
 | <a id='BCP236' />BCP236 | Error | Expected a new line or comma character at this location. |
 | <a id='BCP237' />BCP237 | Error | Expected a comma character at this location. |
-| <a id='BCP238' />BCP238 | Error | Unexpected new line character after a comma. |
+| <a id='BCP238' />[BCP238](./diagnostics/bcp238.md) | Error | Unexpected new line character after a comma. |
 | <a id='BCP239' />BCP239 | Error | Identifier "{name}" is a reserved Bicep symbol name and can't be used in this context. |
 | <a id='BCP240' />BCP240 | Error | The "parent" property only permits direct references to resources. Expressions aren't supported. |
 | <a id='BCP241' />BCP241 | Warning | The \<function-name> function is deprecated and will be removed in a future release of Bicep. Add a comment to https://github.com/Azure/bicep/issues/2017 if you believe this will impact your workflow. |
