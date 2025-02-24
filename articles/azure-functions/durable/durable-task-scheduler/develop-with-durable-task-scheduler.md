@@ -121,7 +121,7 @@ az extension add --upgrade --name durabletask
 
 You can create Durable Task Scheduler and task hub on Azure portal  via two ways: *Function app integrated creation* and *top-level creation*. The benefit of the former is that it automatically creates the managed identity resource and RBAC assignment needed for your app to access DTS. If you created a scheduler through the top-level creation approach, see [assign RBAC]() section to configure access for your app. 
 
-### [Function app integrated creation](#tab/function-app-integrated-creation)  
+# [Function app integrated creation](#tab/function-app-integrated-creation)  
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. 
 
 > [!NOTE]
@@ -150,7 +150,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 5. Click **Create** once validation passes. 
 
-### [Top-level creation](#tab/top-level-creation) 
+# [Top-level creation](#tab/top-level-creation) 
 
 1. In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
@@ -164,8 +164,9 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 Deployment may take around 15 to 20 minutes. 
 
-::: zone-end 
+
 ---
+::: zone-end 
 
 ## View all Durable Task Scheduler resources in a subscription
 ::: zone pivot="az-cli" 
