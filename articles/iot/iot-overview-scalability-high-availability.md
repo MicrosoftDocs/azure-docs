@@ -3,11 +3,10 @@ title: IoT solution scalability and high availability
 description: An overview of the scalability, high availability, and disaster recovery options for an IoT solution.
 ms.service: azure-iot
 services: iot
-author: dominicbetts
-ms.author: dobett
+author: asergaz
+ms.author: sergaz
 ms.topic: overview
-ms.date: 06/20/2024
-ms.custom: template-overview
+ms.date: 02/24/2025
 # Customer intent: As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
 ---
 
@@ -15,9 +14,21 @@ ms.custom: template-overview
 
 This overview introduces the key concepts around the options for scalability, high availability, and disaster recovery in an Azure IoT solution. Each section includes links to content that provides further detail and guidance.
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recover in an IoT solution.
+# [Edge-based solution](#tab/edge)
 
-:::image type="content" source="media/iot-overview-scalability-high-availability/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false" lightbox="media/iot-overview-scalability-high-availability/iot-architecture.svg":::
+The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recovery in an edge-based IoT solution:
+
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-scalability-high-availability/iot-edge-scalability-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting scalability, high availability, and disaster recovery." border="false":::
+
+# [Cloud-based solution](#tab/cloud)
+
+The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recovery in a cloud-based IoT solution:
+
+<!-- Art Library Source# ConceptArt-0-000-032 -->
+:::image type="content" source="media/iot-overview-scalability-high-availability/iot-cloud-scalability-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting scalability, high availability, and disaster recovery." border="false":::
+
+---
 
 ## IoT solution scalability
 
