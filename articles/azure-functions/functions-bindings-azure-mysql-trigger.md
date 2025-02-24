@@ -200,7 +200,7 @@ ON UPDATE CURRENT_TIMESTAMP;
 
 The MySQL trigger binds to a `IReadOnlyList<MySqlChange<T>>`, a list of `MySqlChange` objects each with two properties:
 - **Item:** the item that was changed. The type of the item should follow the table schema as seen in the `Product` class.
-- **Operation:** a value from `MySqlChangeOperation` enum. The possible values is `Update` for both insert and update.
+- **Operation:** a value from `MySqlChangeOperation` enum. The possible value is `Update` for both insert and update.
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `Products` table:
 
