@@ -58,13 +58,13 @@ The following services are currently supported for Customer Lockbox for Microsof
 - ElasticSan
 - Kusto (Dashboards)
 - Microsoft Azure Attestation
+- Microsoft Entra Diagnostics Data
 - OpenAI
 - Spring Cloud
 - Unified Vision Service
 - Virtual Machines in Azure
 
-> [!NOTE]
-> When you enable Customer Lockbox for Microsoft Azure on your tenant, the Entra diagnostics data also becomes in-scope for Azure Lockbox.
+
 
 ## Enable Customer Lockbox for Microsoft Azure
 
