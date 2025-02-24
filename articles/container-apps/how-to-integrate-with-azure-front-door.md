@@ -36,7 +36,7 @@ In this article, you learn how to connect directly from Azure Front Door to your
 
 - This feature is only supported for workload profile environments.
 
-- This feature is only supported in [certain regions](/azure/frontdoor/private-link#region-availability).
+- This feature is only available in [supported regions](/azure/frontdoor/private-link#region-availability).
 
 For more information about prerequisites and setup, see [Quickstart: Deploy your first container app with containerapp up](get-started.md?tabs=bash).
 
