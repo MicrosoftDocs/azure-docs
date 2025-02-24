@@ -64,8 +64,6 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Unified Vision Service
 - Virtual Machines in Azure
 
-
-
 ## Enable Customer Lockbox for Microsoft Azure
 
 You can now enable Customer Lockbox for Microsoft Azure from the [Administration module](https://aka.ms/customerlockbox/administration).  
