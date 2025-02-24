@@ -20,16 +20,16 @@ The `DataBoundaryTenantAdministrator` built-in role is required to configure dat
 
 To opt your tenant into an Azure EU Data Boundary:
 
-- Create a new tenant within an EU country or region to configure a Microsoft Entra EU Data Boundary. For more information on how to create a new tenant within an EU country or region, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
-- Before creating any new subscriptions or resources, deploy a Microsoft.Resources/dataBoundaries resource with an EU configuration.
-- Create a subscription and deploy Azure resources.
+1. Create a new tenant within an EU country or region to configure a Microsoft Entra EU Data Boundary. For more information on how to create a new tenant within an EU country or region, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant).
+1. Before creating any new subscriptions or resources, deploy a Microsoft.Resources/dataBoundaries resource with an EU configuration.
+1. Create a subscription and deploy Azure resources.
 
 ## Permissions required
 
 To configure data boundary, the `DataBoundaryTenantAdministrator` built-in role is required at the tenant scope.  Use the following steps to assign the role:
 
-- Elevate access to manage all Azure subscriptions and management groups. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
-- With the User Access Administrator privilege, grant yourself the `DataBoundaryTenantAdministrator` role at the tenant scope (`/`) by using Azure CLI or Azure PowerShell or REST API.
+1. Elevate access to manage all Azure subscriptions and management groups. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
+1. With the User Access Administrator privilege, grant yourself the `DataBoundaryTenantAdministrator` role at the tenant scope (`/`) by using Azure CLI or Azure PowerShell or REST API.
 
   # [Azure CLI](#tab/azure-cli)
 
