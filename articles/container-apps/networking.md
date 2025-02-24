@@ -399,7 +399,7 @@ With path-based routing, you create a fully qualified domain name (FQDN) on your
 
 - Security: You can implement security measures tailored to each container app. This helps you to reduce the attack surface of your application.
 
-To learn how to configure path-based routing on your container apps environment, see [Use path-based routing](how-to-use-path-based-routing.md) and the [Path-based routing sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master).
+To learn how to configure path-based routing on your container apps environment, see [Use path-based routing](path-based-routing.md) and the [Path-based routing sample repository](https://github.com/Tratcher/HttpRouteConfigBicep/tree/master).
 
 ## DNS
 

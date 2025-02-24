@@ -355,7 +355,7 @@
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
         - name: Use path-based routing
-          href: how-to-use-path-based-routing.md
+          href: path-based-routing.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
