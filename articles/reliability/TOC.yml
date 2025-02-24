@@ -30,8 +30,6 @@
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
-    - name: Azure availability zone migration baseline
-      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
