@@ -68,26 +68,27 @@ Use these commands to create your required Azure resources:
     ```
     This command can take a few minutes to complete.
 
-1. Create a general-purpose storage account in your resource group and region.
+1. Create a general-purpose storage account in your resource group and region, without shared key access.
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location eastus --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --location eastus --resource-group AzureFunctionsContainers-rg --sku Standard_LRS --allow-blob-public-access false --allow-shared-key-access false
     ```
 
-    The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
+    The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account that can only be accessed by using Micrososft Entra-authenticated identities that have been granted permissions to specific resources. 
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
 
-1. Create a managed identity and grant it access to your storage account and pull permissions in your registry instance. 
+1. Create a managed identity and use the returned `principalId` to grant it both access to your storage account and pull permissions in your registry instance. 
 
     ```azurecli
-    ACR_ID=$(az acr show --name <REGISTRY_NAME> --query id --output tsv)
-    
-    UAMI_ID=$(az identity create --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --location eastus --query principalId -o tsv) 
-    az role assignment create --assignee $UAMI_ID --role acrpull --scope $ACR_ID
+    principalId=$(az identity create --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --location eastus --query principalId -o tsv) 
+    acrId=$(az acr show --name <REGISTRY_NAME> --query id --output tsv)
+    az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role acrpull --scope $acrId
+    storageId=$(az storage account show --resource-group AzureFunctionsContainers-rg --name glengatestaca2 --query 'id' -o tsv)
+    az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role "Storage Blob Data Owner" --scope $storageId
     ```
 
-    The [`az identity create`](/cli/azure/identity#az-identity-create) command creates a user-assigned managed identity and the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) adds your identity to the `acrpull` role in your registry. Replace `<REGISTRY_NAME>` and `<USER_IDENTITY_NAME>` with the name your existing container registry and name for your managed identity, respectively. The managed identity can now be used by an app to access Azure Container Registry without using shared secrets.  
+    The [`az identity create`](/cli/azure/identity#az-identity-create) command creates a user-assigned managed identity and the [`az role assignment create`](/cli/azure/role/assignment#az-role-assignment-create) commands adds your identity to the required roles. Replace `<REGISTRY_NAME>`, `<USER_IDENTITY_NAME>`, and `<STORAGE_NAME>` with the name your existing container registry, the name for your managed identity, and the storage account name, respectively. The managed identity can now be used by an app to access both the storage account and Azure Container Registry without using shared secrets.  
   
 ## Create and configure a function app on Azure with the image
 
@@ -100,7 +101,7 @@ Use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 
 >[!TIP]  
 > To make sure that your function app uses a managed identity-based connection to your registry instance, don't set the `--image` parameter in `az functionapp create`. When you set `--image` to the fully qualified name of your image in the repository, shared secret credentials are obtained from your registry and stored in app settings. 
 
-First you must get fully qualified ID value of your user-assigned managed identity with pull access to the registry, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it. 
+First you must get the fully qualified ID value of your user-assigned managed identity with pull access to the registry, and then use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app using the default image and with this identity assigned to it. 
 
 ```azurecli
 UAMI_RESOURCE_ID=$(az identity show --name $uami_name --resource-group $group --query id -o tsv)
@@ -145,7 +146,7 @@ To enable the Functions host to connect to the default storage account using sha
 1. Remove the existing `AzureWebJobsStorage` connection string setting:
 
     ```azurecli    
-    az functionapp config appsettings delete --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --setting-names AzureWebJobsStorage 
+    az functionapp config appsettings delete --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --setting-names AzureWebJobsStorage 
     ```
 
     The [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app. Replace `<APP_NAME>` with the name of your function app. 
@@ -153,8 +154,8 @@ To enable the Functions host to connect to the default storage account using sha
 1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
  
     ```azurecli
-    clientId=$(az identity show --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsQuickstart-rg --query 'clientId' -o tsv)
-    az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsQuickstart-rg --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId
+    clientId=$(az identity show --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --query 'clientId' -o tsv)
+    az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId
     ```
   
     In this example, replace `<APP_NAME>`, `<USER_IDENTITY_NAME>`, `<STORAGE_NAME>` with your function app name, the name of your identity, and the storage account name, respectively. 
