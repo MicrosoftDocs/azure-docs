@@ -1,8 +1,8 @@
 ---
 title: Get resource changes
 description: Get resource changes at scale using Change Analysis and Azure Resource Graph queries.
-author: iancarter-msft
-ms.author: iancarter
+author: juliamwang6
+ms.author: juliawang
 ms.date: 06/14/2024
 ms.topic: how-to
 ---
@@ -64,6 +64,8 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
 ```
 
 [See the full reference guide for change resource properties.](/rest/api/resources/changes)
+> [!NOTE]
+> Snapshots are not currently supported for deleted resources.
 
 ## Run a query
 

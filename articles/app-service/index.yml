@@ -73,7 +73,7 @@ landingContent:
           - text: Node.js and MongoDB
             url: tutorial-nodejs-mongodb-app.md
           - text: Python (Django) and PostgreSQL
-            url: tutorial-python-postgresql-app.md
+            url: tutorial-python-postgresql-app-django.md            
           - text: PHP and MySQL
             url: tutorial-php-mysql-app.md
       - linkListType: reference

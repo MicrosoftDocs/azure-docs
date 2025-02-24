@@ -123,12 +123,10 @@
   - name: Author templates
     displayName: ARM
     href: ../../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway-for-containers
+    href: https://stackoverflow.com/questions/tagged/azure-app-gateway-for-containers
  

@@ -496,18 +496,18 @@ The following IDs are used for a [time-based one-time password (TOTP) display co
       </LocalizedResources>
 ```
 
-## Restful service error messages
+## RESTful service error messages
 
-The following IDs are used for [Restful service technical profile](restful-technical-profile.md) error messages:
+The following IDs are used for [RESTful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
-| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. Restful service URL: {0} |
-| `UserMessageIfCircuitOpen` | {0} Restful Service URL: {1} |
-| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
-| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
+| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. RESTful service URL: {0} |
+| `UserMessageIfCircuitOpen` | {0} RESTful Service URL: {1} |
+| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. RESTful service URL: {0} |
+| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. RESTful service URL: {1} |
 
-### Restful service example
+### RESTful service example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -667,21 +667,20 @@ This example shows localized messages for CAPTCHA display control.
 ```xml
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="newCaptcha_arialabel">Create new CAPTCHA</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="switchCaptchaType_title">Switch CAPTCHA type to {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_visual_help">Enter the characters you see</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_title">Press audio button to play the challenge</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_help"> Enter the characters you hear</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"  StringId="charsnotmatched_error"> The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage"  StringId="api_error"> Api error on CAPTCHA control</LocalizedString>
-          <LocalizedString ElementType="UxElement"  StringId="captcha_resolved"> Success!</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="newCaptcha_arialabel">Create new CAPTCHA</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="switchCaptchaType_title">Switch CAPTCHA type to {0}</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_visual_help">Enter the characters you see</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_audio_title">Press audio button to play the challenge</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captchatype_audio_help">Enter the characters you hear</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="charsnotmatched_error">The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="api_error">API error on CAPTCHA control</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="captcha_resolved">Success!</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="DisplayName">Help us beat the bots</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
 ```
 
-## Next steps
-
+## Related content
 See the following articles for localization examples:
 
 - [Language customization with custom policy in Azure AD B2C](language-customization.md)

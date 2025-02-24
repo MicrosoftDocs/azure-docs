@@ -3,18 +3,20 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: include
-ms.date: 11/17/2022
+ms.date: 02/14/2025
 ---
 
 This tutorial shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the telemetry it sends. The sample application is written in C# and is included in the Azure IoT SDK for C#. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)
 
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]
 
-You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
+You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators `/`, if you're following along on Windows be sure to swap these separators for `\`.
 
 * The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
 * [Git](https://git-scm.com/downloads).
@@ -46,7 +48,7 @@ To run the sample, run the following command:
 dotnet run
 ```
 
-The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
+The device is now ready to receive commands and property updates, and is sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Use Azure IoT explorer to validate the code
 

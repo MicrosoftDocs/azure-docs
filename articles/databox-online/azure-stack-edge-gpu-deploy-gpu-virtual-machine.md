@@ -38,7 +38,7 @@ Follow these steps when deploying GPU VMs on your device via the Azure portal:
 
 1. To create GPU VMs, follow all the steps in [Deploy VM on your Azure Stack Edge using Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md), with these configuration requirements:
 
-    - On the **Basics** tab, select a [VM size from N-series, optimized for GPUs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized). Based on the GPU model on your device, Nvidia T4 or Nvidia A2, the dropdown list will display the corresponding supported GPU VM sizes.  
+    - On the **Basics** tab, select a [VM size from N-series, optimized for GPUs](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized). Based on the GPU model on your device, NVIDIA T4 or NVIDIA A2, the dropdown list will display the corresponding supported GPU VM sizes.  
 
        ![Screenshot of Basics tab for "Add a virtual machine" in Azure Stack Edge. Size option, with a supported VM size for GPU VMs, is highlighted.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/basics-vm-size-for-gpu.png)
 
@@ -97,7 +97,7 @@ After the VM is created, you can [deploy the GPU extension using the extension t
 
 ## Install GPU extension after deployment
 
-To take advantage of the GPU capabilities of Azure N-series VMs, Nvidia GPU drivers must be installed. From the Azure portal, you can install the GPU extension during or after VM deployment. If you're using templates, you'll install the GPU extension after you create the VM.
+To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA GPU drivers must be installed. From the Azure portal, you can install the GPU extension during or after VM deployment. If you're using templates, you'll install the GPU extension after you create the VM.
 
 ---
 

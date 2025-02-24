@@ -37,8 +37,6 @@ After you've created a content delivery network profile, you use it to create an
 
 1. On the content delivery network profile page, select **+ Endpoint**.
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-select-endpoint.png" alt-text="Screenshot of create Content Delivery Network endpoint.":::
-
     The **Add an endpoint** pane appears.
 
 3. Enter the following setting values:
@@ -54,16 +52,11 @@ After you've created a content delivery network profile, you use it to create an
     | **Origin port** | Leave the default port values. |
     | **Optimized for** | Leave the default selection, **General web delivery**. |
 
-    :::image type="content" source="./media/cdn-create-new-endpoint/cdn-add-endpoint.png" alt-text="Add endpoint pane.":::
-
 3. Select **Add** to create the new endpoint. After the endpoint is created, it appears in the list of endpoints for the profile.
 
     :::image type="content" source="./media/cdn-create-new-endpoint/cdn-endpoint-success.png" alt-text="View added endpoint.":::
 
-   The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Microsoft** usually completes within one minute in 10 minutes, and **Standard Edgio** and **Premium Edgio** in up to 30 minutes.
-
-> [!NOTE]
-> For *Edgio CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Edgio supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make the configuration change again.
+    It can take up to ten minutes for the endpoint to propagate and be ready to serve content.
 
 ## Clean up resources
 

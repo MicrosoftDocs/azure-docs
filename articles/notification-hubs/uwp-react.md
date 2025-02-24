@@ -396,7 +396,7 @@ You can run the API solution locally or on any IIS server, or deploy it as an Az
 
 7. Once the backend is published, add the generated URL into **config.js**, located under the **/app** folder. Be sure to append `/api/` after the URL.
 
-## Run React native frontend application for Windows
+## Run React Native frontend application for Windows
 
 The application requires both the mobile application (either Android or iOS) and UWP manager application running simultaneously. Follow these steps to run both of them:
 
