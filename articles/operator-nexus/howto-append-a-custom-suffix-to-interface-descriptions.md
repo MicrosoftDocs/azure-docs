@@ -1,0 +1,80 @@
+---
+title: How to append a custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
+description: Learn how to append and remove a custom suffix from interface descriptions in Azure Operator Nexus Network Fabric for enhanced operational annotations.
+author: sushantjrao
+ms.author: sushrao
+ms.service: azure-operator-nexus
+ms.topic: how-to
+ms.date: 02/24/2025
+ms.custom: template-how-to
+---
+
+# Append a custom suffix to interface descriptions
+
+This guide explains how to append a user-defined suffix (additionalDescription) to interface descriptions. This feature enhances flexibility for operational annotations, allowing users to tailor interface descriptions for specific maintenance or operational requirements.
+
+## Prerequisites
+- **Azure CLI**: Version 2.61 or higher
+
+### Steps to append a custom suffix
+
+### 1. Check current interface description
+Before making changes, verify the current interface description:
+
+```Azure CLI
+az networkfabric interface show --device nffab5-8-0-gf-AggrRack-CE1 \
+  -g Fab5NF-8-0-GF \
+  --resource-name Ethernet22-1 --query description
+```
+
+### 2. Append a suffix to the interface description
+To add a suffix, use the following command:
+
+```Azure CLI
+az networkfabric interface update --additional-description "support-ticket1234-jkl" \
+  --device nffab5-8-0-gf-AggrRack-CE1 \
+  -g Fab5NF-8-0-GF \
+  --resource-name Ethernet22-1
+```
+
+### Example:
+
+#### **Original Description:**
+
+```Azure CLI
+AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
+```
+
+#### **Updated Description:**
+
+```Azure CLI
+AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-`support-ticket1234-jkl`
+```
+
+## Removing the Suffix
+
+To restore the default description, set `additionalDescription` to an empty string (`""`):
+
+```Azure CLI
+az networkfabric interface update --additional-description "" \
+  --device nffab5-8-0-gf-AggrRack-CE1 \
+  -g Fab5NF-8-0-GF \
+  --resource-name Ethernet22-1
+```
+
+After running this command, the interface description reverts to its original state:
+
+```
+AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
+```
+
+## Supported Interface Types
+This feature is available for:
+- **Agg Rack CE**
+- **Agg Rack Management**
+- **Comp Rack TOR**
+- **Comp Rack Management**
+- **NPB Device**
+
+> [!NOTE]
+> - **Existing deployments** will retain the **current descriptions** until fabric instances are **migrated to Release 8.0**. After migration, users must update the description via **API**.
