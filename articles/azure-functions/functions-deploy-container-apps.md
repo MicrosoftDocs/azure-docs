@@ -24,7 +24,7 @@ Before you can deploy your container to Azure, you need to create three resource
 * A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
 * An Azure Container Apps environment with a Log Analytics workspace.
-* A user-assigned managed identity that enables your function app to securely connect, using Microsoft Entra authentication, to both the Azure Storage account and to the Azure Container Registry instance, when deploying from a container registry instance. While you can use the system-assigned managed identity that belongs to only your app, you can have more than one user-assigned managed identity assigned to your app. This identity type is recommended for this scenario.
+* A user-assigned managed identity, which enables your function app to securely connect to Azure resources without using shared secrets. Connections to both the Azure Storage account and to the Azure Container Registry instance are instead made using Microsoft Entra authentication with the identity, which is recommended for this scenario.
 
 >[!NOTE]  
 >Docker Hub doesn't support managed identities. 
