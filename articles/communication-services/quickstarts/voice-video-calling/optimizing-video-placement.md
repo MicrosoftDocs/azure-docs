@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: This document provides comprehensive guidelines for placing videos on a web page based on resolution size to optimize video placement and enhance overall page performance.
 author: sloanster
 services: azure-communication-services
-ms.date: 02/23/2025
+ms.date: 02/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -84,6 +84,7 @@ Items to Note:
 - It's crucial to review and adhere to the ['Optimal Video Count (OVC)'](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web) to ensure that the total number of rendered videos remains below the OVC value threshold.
 - Each client can specify which user's video they want to receive and set individual resolution sizes on their respective machines.
 - It's important to note that each participant's ability to send a specific video resolution can vary. Some computers are equipped with higher quality cameras, enabling them to transmit a 1080p video. Conversely, some mobile browsers may have lower video transmission capabilities, such as only 540p. If you embedded the video resolution to be 1080p or 720p in a page, the incoming video may not match that resolution. In this case, a video stream is upscaled. to fill the video renderer size.
+- Currently, a maximum of two 720p video streams can be rendered on a web page. If more than two 720p streams are enabled, all 720p video renditions will be streamed at 540P.
 - Azure Communication Services video [Simulcast](../../concepts/voice-video-calling/simulcast.md) ability enhances video streaming by enabling a single video to be delivered by an end client at multiple resolutions and bitrates simultaneously. This functionality allows viewers with varying network conditions to select which video rendition to select to receive for the best possible video quality without buffering or interruptions. By optimizing bandwidth usage, simulcast sends higher resolution streams only to users who can support them, thereby minimizing unnecessary data transmission. Simulcast improves the overall user experience by providing stable and consistent video quality and enables adaptive streaming. However, It's important to note that simulcast isn't supported on all browser devices. Currently, simulcast is unavailable when sending videos on mobile browsers or macOS Safari. If a participant attempts to render 720p video from a user on iOS Safari, Android Chrome, or macOS Safari, but another participant on the call tries to render the same video at a smaller resolution, both receive the smaller resolution. This is because those devices prioritize smaller resolutions when simulcast send are unsupported.  
 
 ## Conclusion
