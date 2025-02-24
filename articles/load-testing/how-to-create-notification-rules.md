@@ -11,7 +11,7 @@ ms.date: 01/09/2025
 ---
 
 
-# Configure Notifications for Azure Load Testing
+# Configure notifications for Azure Load Testing
 
 Learn how to configure notifications for events in Azure Load Testing. For example, you can set up notifications to alert you when a test run completes or when a scheduled test run begins. Notifications enable you to stay informed about test run updates, schedules, and test results through email or webhooks.
 
@@ -19,19 +19,19 @@ Learn how to configure notifications for events in Azure Load Testing. For examp
 
 Azure Load Testing allows you to configure notifications to receive updates for key events, such as test completion or schedule changes. These notifications can help you automate follow-up actions and improve team collaboration.
 
-## Supported Events
+## Supported events
 
 Azure Load Testing supports the following events for notifications:
 
-1. Test Run Started: Notifications for all test runs when they start.
+- Test Run Started: Notifications for all test runs when they start.
 
-1. Test Run Completed: Notifications when a test run is completed, including failed tests or failed results.
+- Test Run Completed: Notifications when a test run is completed, including failed tests or failed results.
 
-1. Schedule Events: Notifications when schedules complete or are disabled.
+- Schedule Events: Notifications when schedules complete or are disabled.
 
-## Supported Notification Channels
+## Supported notification channels
 
-### Action Groups
+### Action groups
 
 [Action Groups](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) are collections of notification preferences and actions that can be triggered by events. In the context of Azure Load Testing, they enable users to route notifications to email recipients, webhooks, or integrated tools like Azure Logic Apps.
 
@@ -42,23 +42,23 @@ Azure Load Testing supports the following events for notifications:
 
 To configure notifications, ensure you meet the following requirements:
 
-1. Permissions: You should have at least the "Load Test Owner" or "Owner/Contributor" role at the resource level.
+- Permissions: You should have at least the "Load Test Owner" or "Owner/Contributor" role at the resource level.
 
-2. Action Group Creation: To create Action Groups, ensure you have the required permissions or contact your system administrator.
+- Action Group Creation: To create Action Groups, ensure you have the required permissions or contact your system administrator.
 
-## Configure Notifications in the Azure Portal
+## Configure notifications in the Azure portal
 
-1. In the [Azure portal] (https://portal.azure.com/), navigate to your Load Test Resource. In the left navigation menu, select **Notifications**.
+1. In the [Azure portal](https://portal.azure.com/), navigate to your Load Test Resource. In the left navigation menu, select **Notifications**.
 
-:::image type="content" source="media/how-to-create-notification-rules/notification-blade.png" alt-text="Screenshot that shows the Notification menu item in the resource overview page in the Azure portal.":::
+    :::image type="content" source="media/how-to-create-notification-rules/notification-blade.png" alt-text="Screenshot that shows the Notification menu item in the resource overview page in the Azure portal.":::
    
 2. Click **Create notification rule**.
    
 3. In the **Scope** tab, provide a name for the notification rule. Select from one of the following scopes:
 
-  - All tests: The notification rule is applicable for all current and future tests.
-  
-  - Specific Test: Select one or more tests in the resource on which the notification rule is applicable by clicking on Add Test.
+    - All tests: The notification rule is applicable for all current and future tests.
+    
+    - Specific Test: Select one or more tests in the resource on which the notification rule is applicable by clicking on Add Test.
     
 :::image type="content" source="media/how-to-create-notification-rules/scope-selection.png" alt-text="Screenshot that shows the added test in the scope of a notification rule.":::
 
@@ -75,7 +75,7 @@ To configure notifications, ensure you meet the following requirements:
 
 5. Choose an existing Action Group or create a new Action Group. To select an Action Group, select **Add action group** and choose from the available ones in the tenant.
 
-   If you need to create one, refer to the Action Group [creation guide](https://docs.azure.cn/en-us/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal). Ensure you have at least write permissions for the resource group where you are creating the Action Group.
+   If you need to create one, refer to the Action Group [creation guide](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal). Ensure you have at least write permissions for the resource group where you are creating the Action Group.
 
 :::image type="content" source="media/how-to-create-notification-rules/selected-action-group-list.png" alt-text="Screenshot that shows the added action groups in the notification rule.":::
 
@@ -86,13 +86,13 @@ To configure notifications, ensure you meet the following requirements:
 
 :::image type="content" source="media/how-to-create-notification-rules/notification-rules-list.png" alt-text="Screenshot that shows the list of notification rules added.":::
 
-## Linking Notification Rules to Tests
+## Linking notification rules to tests
 
 You can associate existing Notification Rules with specific tests or create new Notification Rules as needed. Follow the steps below.
 
 1. For an existing test, go to the **Test** page, and click **Notifications**. A right context-pane pops up.
 
-:::image type="content" source="media/how-to-create-notification-rules/link-nr-to-test.png" alt-text="Screenshot that shows the list of notification rules associated with a test.":::
+:::image type="content" source="media/how-to-create-notification-rules/link-notification-rule-to-test.png" alt-text="Screenshot that shows the list of notification rules associated with a test.":::
 
 2. You can associate a test with a rule by selecting it, and remove the test from the rule by deselecting it. 
    
@@ -100,7 +100,7 @@ You can associate existing Notification Rules with specific tests or create new 
    
 4. After making the changes, click on **Apply**.
 
-## Edit a Notification Rule
+## Edit a notification rule
 
 1. In the Azure portal, navigate to your Load Test Resource. In the left navigation menu, select **Notifications**.
 
@@ -110,7 +110,7 @@ You can associate existing Notification Rules with specific tests or create new 
 
 4. Save your changes.
 
-## Delete a Notification Rule
+## Delete a notification rule
 
 1. In the Azure portal, navigate to your Load Test Resource. In the left navigation menu, select **Notifications**.
 
