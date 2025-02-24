@@ -6,7 +6,7 @@ author: KarlErickson
 ms.service: azure-container-apps
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: quickstart
-ms.date: 02/18/2025
+ms.date: 02/24/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-java-artifacts
 ---

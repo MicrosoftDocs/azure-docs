@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 02/18/2025
+ms.date: 02/24/2025
 ---
 
 ## Verify the app status

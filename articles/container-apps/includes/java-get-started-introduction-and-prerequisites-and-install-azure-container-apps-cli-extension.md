@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 02/18/2025
+ms.date: 02/24/2025
 ---
 
 You can deploy your Java application with many different options, including a local file system, a code repository, Maven, an IDE, a WAR file, a JAR file, or even directly from the source code. By the end of this tutorial, you deploy a web application that you can manage through the Azure portal. The following screenshot shows the home page of the PetClinic application deployed to Azure Container Apps:
