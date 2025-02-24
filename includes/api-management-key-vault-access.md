@@ -14,7 +14,7 @@ ms.author: danlep
 **To add a key vault access policy:<br/>**
 
 1. In the left menu, select **Access policies**.
-1. On the **Access policies** page,select **+ Create**.
+1. On the **Access policies** page, select **+ Create**.
 1. On the **Permissions** tab, under **Secret permissions**, select **Get** and **List**, then select **Next**.
 1. On the **Principal** tab,  **Select principal**, search for  the resource name of your managed identity, and then select **Next**.
      If you're using a system-assigned identity, the principal is the name of your API Management instance.
