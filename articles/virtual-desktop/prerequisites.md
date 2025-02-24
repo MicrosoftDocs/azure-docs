@@ -247,10 +247,12 @@ You can deploy host pools, workspaces, and application groups in the following A
        - East US
        - East US 2
        - Japan East
+       - Japan West
        - North Central US
     :::column-end:::
     :::column:::
        - North Europe
+       - South Africa North
        - South Central US
        - UK South
        - UK West

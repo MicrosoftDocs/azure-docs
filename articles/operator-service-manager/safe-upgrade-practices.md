@@ -38,7 +38,7 @@ For each NfApp, the reput update request supports increasing a helm chart versio
 * NFApps which are only in the new NFDV are installed.
 * NFApps deployed, but not referenced by the new NFDV, are deleted.
   
-To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm tests, the rollbackOnTestFailure parameter us honored. With rollbackOnTestFailure/true, the failed chart is rolled back. With rollbackOnTestFailure/false, no rollback is executed.
+To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For more details on standalone helm testing, see the following learn article: [Run tests after install or upgrade](safe-upgrades-helm-test.md)
 
 ## Considerations for in-service upgrades
 Azure Operator Service Manager generally supports in service upgrades, an upgrade method which advances a deployment version without interrupting the running service. Some considerations are necessary to ensure the proper behavior of AOSM during ISSU operations. 
