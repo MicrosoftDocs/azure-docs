@@ -609,7 +609,7 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 #### 1.10.0
 Security improvements.
 
-CEL is enabled by default.
+CEL is enabled by default. Feature Flag is no longer needed to enable CEL. New CRD configpodstatuses.status.gatekeeper.sh is introduced
 - Released February 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.18.2
