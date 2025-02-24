@@ -9,17 +9,19 @@ ms.date: 02/24/2025
 ms.custom: template-how-to
 ---
 
-# Append a custom suffix to interface descriptions
+# Append a custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
 
-This guide explains how to append a user-defined suffix (additionalDescription) to interface descriptions. This feature enhances flexibility for operational annotations, allowing users to tailor interface descriptions for specific maintenance or operational requirements.
+This guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. This feature provides enhanced flexibility for operational annotations, allowing users to customize interface descriptions for specific maintenance or operational requirements.
 
 ## Prerequisites
+
 - **Azure CLI**: Version 2.61 or higher
 
-### Steps to append a custom suffix
+## Steps to append a custom suffix
 
-### 1. Check current interface description
-Before making changes, verify the current interface description:
+### 1. Check the current iterface description
+
+Before making changes, verify the existing interface description using the following command:
 
 ```Azure CLI
 az networkfabric interface show --device nffab5-8-0-gf-AggrRack-CE1 \
@@ -28,7 +30,8 @@ az networkfabric interface show --device nffab5-8-0-gf-AggrRack-CE1 \
 ```
 
 ### 2. Append a suffix to the interface description
-To add a suffix, use the following command:
+
+To add a custom suffix, use the following command:
 
 ```Azure CLI
 az networkfabric interface update --additional-description "support-ticket1234-jkl" \
@@ -37,21 +40,28 @@ az networkfabric interface update --additional-description "support-ticket1234-j
   --resource-name Ethernet22-1
 ```
 
-### Example:
+### 3. Commit the configuration
 
-#### **Original Description:**
+After updating the description, apply the changes to the fabric:
+
+```Azure CLI
+az networkfabric fabric commit-configuration --resource-name nffab5-8-0-gf -g Fab5NF-8-0-GF
+```
+
+### Example
+
+#### **Original interface description:**
 
 ```Azure CLI
 AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 ```
 
 #### **Updated Description:**
-
 ```Azure CLI
 AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-`support-ticket1234-jkl`
 ```
 
-## Removing the Suffix
+## Removing the interface description
 
 To restore the default description, set `additionalDescription` to an empty string (`""`):
 
@@ -62,19 +72,29 @@ az networkfabric interface update --additional-description "" \
   --resource-name Ethernet22-1
 ```
 
-After running this command, the interface description reverts to its original state:
+### 3. Commit the configuration
+
+After removing the suffix, apply the changes to the fabric:
+
+```Azure CLI
+az networkfabric fabric commit-configuration --resource-name nffab5-8-0-gf -g Fab5NF-8-0-GF
+```
+
+Once committed, the interface description reverts to its original state:
 
 ```
 AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 ```
 
-## Supported Interface Types
-This feature is available for:
-- **Agg Rack CE**
-- **Agg Rack Management**
-- **Comp Rack TOR**
-- **Comp Rack Management**
-- **NPB Device**
+## Supported interface types
 
-> [!NOTE]
-> - **Existing deployments** will retain the **current descriptions** until fabric instances are **migrated to Release 8.0**. After migration, users must update the description via **API**.
+This feature is available for the following interface types:
+
+- **Agg Rack CE**  
+- **Agg Rack Management**  
+- **Comp Rack TOR**  
+- **Comp Rack Management**  
+- **NPB Device**  
+
+> [!Note]  
+> **Existing deployments** will retain their **current descriptions** until fabric instances are **migrated to Release 8.0**. After migration, users must update descriptions via the **API**.

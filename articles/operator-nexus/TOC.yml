@@ -272,7 +272,7 @@
         - name: How to reboot a Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-a-network-device.md
         - name: How to append a custom suffix to interface descriptions
-          href: howto-append-a-custom-suffix-to-interface-descriptions
+          href: howto-append-a-custom-suffix-to-interface-descriptions.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
