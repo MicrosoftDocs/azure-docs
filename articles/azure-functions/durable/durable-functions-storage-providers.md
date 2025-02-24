@@ -31,7 +31,7 @@ The key benefits of the Durable Task Scheduler include:
 * Supports the highest throughput of all backends today.
 * Support for authentication using managed identity.
 
-Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/manage-durable-task-scheduler.md). 
+Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/develop-with-durable-task-scheduler.md). 
 
 The source code for Durable Task Scheduler can be found in the [TODO]() GitHub repo.
 

@@ -3,7 +3,7 @@ title: "Quickstart: Set a Durable Functions app to use the Durable Task Schedule
 description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
 author: lilyjma
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 02/24/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 ---
@@ -173,7 +173,7 @@ You should see the functions in your app listed. If your app is the created foll
 ## Run your app in Azure 
 
 ### Create required resources
-Create a DTS instance and Azure Functions app on Azure following the "[Function app integrated creation](./develop-with-durable-task-scheduler.md#function-app-integrated-creation)" flow. When DTS is created as part of function app creation, a managed identity with the RBAC (role-based access control) permission required to access DTS is automatically created and assigned to the app. This sets up the identity-based authentication required by DTS so no extra configuration is needed. 
+Create a DTS instance and Azure Functions app on Azure following the [Function app integrated creation](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-dts) flow. When DTS is created as part of function app creation, a managed identity with the RBAC (role-based access control) permission required to access DTS is automatically created and assigned to the app. This sets up the identity-based authentication required by DTS so no extra configuration is needed. 
 
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 

@@ -1849,13 +1849,13 @@ groups:
     title: Power Platform
   #owner: jiayma
   - id: dts-devexp
-  title: DTS development experience
-  prompt: Choose an option
-  pivots:
-  - id: az-cli
-    title: Azure CLI
-  - id: az-portal
-    title: Azure portal
+    title: DTS development experience
+    prompt: Choose an option
+    pivots:
+    - id: az-cli
+      title: Azure CLI
+    - id: az-portal
+      title: Azure portal
 # Owner: Deepika0530
 - id: acs-ps-azclips-azclipython
   title: Programming languages
