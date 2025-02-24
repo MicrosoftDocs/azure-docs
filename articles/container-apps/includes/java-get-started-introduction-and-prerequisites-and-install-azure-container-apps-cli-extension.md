@@ -23,7 +23,7 @@ You can deploy your Java application with many different options, including a lo
 
 ## Install the Container Apps CLI extension
 
-Use the the following command to install the latest version of the Azure Container Apps CLI extension:
+Use the following command to install the latest version of the Azure Container Apps CLI extension:
 
 ```azurecli
 az extension add \
