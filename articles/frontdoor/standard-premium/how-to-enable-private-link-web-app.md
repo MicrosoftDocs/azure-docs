@@ -66,11 +66,7 @@ In this section, you map the Private Link service to a private endpoint within A
 
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
-    :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-pending-approval.png" alt-text="Screenshot of pending private endpoint request.":::
-
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your web app through Azure Front Door Premium. Direct access to the web app from the public internet is disabled once private endpoint is enabled.
-
-    :::image type="content" source="../media/how-to-enable-private-link-app-service/private-endpoint-approved.png" alt-text="Screenshot of approved endpoint request.":::
 
 ## Next steps
 

@@ -171,4 +171,5 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-mysql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-mysql-output.md)
+- [Trigger Binding](./functions-bindings-azure-mysql-trigger.md)
 

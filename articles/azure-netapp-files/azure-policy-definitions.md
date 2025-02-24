@@ -4,7 +4,7 @@ description: Describes the Azure Policy custom definitions and built-in definiti
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 09/02/2024
 ms.author: anfdocs
 ---
 # Azure Policy definitions for Azure NetApp Files  

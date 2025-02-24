@@ -30,8 +30,6 @@ Caching can significantly decrease latency and reduce the load on origin servers
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true) and navigate to your Azure Front Door profile.
 
 1. Select **Front Door manager** and then select your route.
-   
-    :::image type="content" source="./media/how-to-configure-caching/select-route.png" alt-text="Screenshot of endpoint landing page.":::
 
 1. Select **Enable caching**.
 
