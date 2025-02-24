@@ -71,9 +71,6 @@ The table below lists each product that offers migration guidance and/or informa
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure availability zone migration baseline](availability-zones-baseline.md)
-
-> [!div class="nextstepaction"]
 > [Azure services with availability zones](availability-zones-service-support.md)
 
 > [!div class="nextstepaction"]
