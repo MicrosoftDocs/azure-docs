@@ -15,7 +15,7 @@ You can find a list of all the Remote Desktop clients at [Remote Desktop clients
 
 ## Partner thin client devices
 
-The following partners have thin client devices that have been approved to use with Azure Virtual Desktop. Visit their documentation to learn how to connect to Azure Virtual Desktop with thin clients.
+The following partners have thin client devices that are approved to use with Azure Virtual Desktop. Visit their documentation to learn how to connect to Azure Virtual Desktop with thin clients.
 
 | Partner | Partner documentation | Partner support |
 |:-|:-|:-|
@@ -28,7 +28,7 @@ The following partners have thin client devices that have been approved to use w
 | Unicon | [Unicon documentation](https://www.unicon.com/avd-windows365) | [Unicon support](https://www.unicon.com/support) |
 
 >[!IMPORTANT]
->If you encounter an issue when trying to connect to Azure Virtual Desktop, you must verify whether it's unique to your approved partner thin client. You can verify whether this is a unique issue by trying to reproduce it on [any first-party Remote Desktop client](remote-desktop-clients-overview.md). If you can't reproduce the issue on a first-party client, then you must contact your client's provider for support.
+>If you encounter an issue when trying to connect to Azure Virtual Desktop, you must verify whether it's unique to your approved partner thin client. First, try to reproduce it on [any first-party Remote Desktop client](remote-desktop-clients-overview.md). If you can't reproduce the issue on a first-party client, then you must contact your client's provider for support.
 
 ## Next steps
 
