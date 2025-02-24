@@ -24,7 +24,7 @@ You can divide security in an edge-based IoT solution into the following three a
 
 - **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
 
-- **Connection security**: Ensure all data in transit between the asset, edge and cloud services is confidential and tamper-proof.
+- **Connection security**: Ensure all data in transit between the asset, edge, and cloud services is confidential and tamper-proof.
 
 - **Edge security**: Secure your data while it moves through, and is stored in the edge.
 
@@ -35,7 +35,7 @@ Typically on an edge-based solution, you want to secure your end-to-end operatio
 - View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 - Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).
 - Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
-- Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
+- Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (Azure RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
 
 ## Microsoft Defender for IoT and for Containers
 
@@ -56,7 +56,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Enable secure updates for asset firmware**: Use services that enable over-the-air updates for your assets. Build assets with secure paths for updates and cryptographic assurance of firmware versions to secure your assets during and after updates.
 
-- **Deploy asset hardware securely**: Ensure that asset hardware deployment is as tamper-proof as possible, especially in unsecure locations such as public spaces or unsupervised locales. Only enable necessary features to minimize the physical attack footprint, such as securely covering USB ports if they are not needed.
+- **Deploy asset hardware securely**: Ensure that asset hardware deployment is as tamper-proof as possible, especially in unsecure locations such as public spaces or unsupervised locales. Only enable necessary features to minimize the physical attack footprint, such as securely covering USB ports if they aren't needed.
 
 - **Follow device manufacturer security and deployment best practices**: If the device manufacturer provides security and deployment guidance, follow that guidance in addition to the generic guidance listed in this article.
 
@@ -90,7 +90,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Deploy observability resources and set up logs**: Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. [Deploy observability resources](../iot-operations/configure-observability-monitoring/howto-configure-observability.md) on your cluster before deploying Azure IoT Operations.
 
-- **Secure access to assets and asset endpoints with Azure role-based access control (Azure RBAC)**: Assets and asset endpoints in Azure IoT Operations have representations in both the Kubernetes cluster and the Azure portal. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. Azure RBAC is an authorization system that enables you to manage access to Azure resources. You can use Azure RBAC to grant permissions to users, groups, and applications at a certain scope. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
+- **Secure access to assets and asset endpoints with Azure RBAC**: Assets and asset endpoints in Azure IoT Operations have representations in both the Kubernetes cluster and the Azure portal. You can use Azure RBAC to secure access to these resources. Azure RBAC is an authorization system that enables you to manage access to Azure resources. You can use Azure RBAC to grant permissions to users, groups, and applications at a certain scope. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
 
 
 # [Cloud-based solution](#tab/cloud)
@@ -101,7 +101,7 @@ The following diagram shows a high-level view of the components in a typical clo
 :::image type="content" source="media/iot-overview-security/iot-cloud-security-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting security." border="false":::
 
 
-You can divide security in an cloud-based IoT solution into the following three areas:
+You can divide security in a cloud-based IoT solution into the following three areas:
 
 - **Device security**: Secure the IoT device while it's deployed in the wild.
 
@@ -141,7 +141,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 - **Keep the system up-to-date**: Ensure that device operating systems and all device drivers are upgraded to the latest versions. Keeping operating systems up-to-date helps ensure that they're protected against malicious attacks.
 
-- **Protect against malicious activity**: If the operating system permits, install the latest antivirus and antimalware capabilities on each device operating system.
+- **Protect against malicious activity**: If the operating system permits, install the latest antivirus and anti-malware capabilities on each device operating system.
 
 - **Audit frequently**: Auditing IoT infrastructure for security-related issues is key when responding to security incidents. Most operating systems provide built-in event logging that you should review frequently to make sure no security breach has occurred. A device can send audit information as a separate telemetry stream to the cloud service where it can be analyzed.
 
