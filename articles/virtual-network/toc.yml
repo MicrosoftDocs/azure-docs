@@ -142,7 +142,7 @@
       href: manage-route-table.yml
     - name: Ansible
       href: /azure/developer/ansible/route-table-configure?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
-  - name: Scenarios
+  - name: Hybrid connectivity
     items:
     - name: Configure a VNet-to-VNet VPN gateway connection
       href: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
