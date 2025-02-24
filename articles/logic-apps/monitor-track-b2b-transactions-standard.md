@@ -174,6 +174,122 @@ The following tables list the properties available for each message type that B2
 | **TransactionSetAckStatus** | Transaction set acknowledgment status |
 | **FunctionalAckStatus** | Functional acknowledgment status |
 
+## Tracking table schema
+
+In your Azure Data Explorer cluster, the database stores transaction data in a structured format.
+
+- The table named **AS2TrackRecords** stores AS2 transactions.
+- The table named **EdiTrackRecords** stores X12 and EDIFACT transactions.
+
+This table structure provides the capability for you to efficiently query and retrieve B2B tracking data, provide structured insights into message flow, processing status, and troubleshoot problems.
+
+> [!NOTE]
+>
+> If you want to [create a tracking store](#manage-with-rest-api) using the Azure Logic Apps REST API, 
+> you must first manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your 
+> Azure Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
+> Your database must also grant **Ingester** permissions to your integration account resource.
+
+<a name="manage-with-rest-api"></a>
+
+## Manage tracking stores with the REST API
+
+You can use the Azure Logic Apps REST API to programmatically create, update, delete, and retrieve your tracking store.
+
+## Create or update a tracking store
+
+Create a tracking store or update an existing one.
+
+> [!NOTE]
+>
+> In this release, your integration account currently supports only one tracking store.
+> Before you create a tracking store using the Azure Logic Apps REST API, you must first 
+> manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your Azure 
+> Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
+> Your database must also grant **Ingester** permissions to your integration account resource.
+
+`PUT https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores/{tracking-store-name}?api-version=2016-06-01`
+
+**Request body**
+
+```json
+{ 
+  "properties": {
+    "adxClusterUri": "https://{cluster-name}.kusto.windows.net",
+    "databaseName": "{database-name}"
+  }
+}
+```
+
+| Parameter | Description |
+|-----------|-------------|
+| **{subscription-ID}** | The ID for the Azure subscription associated with your integration account. |
+| **{resource-group-name}** | The name for the resource group where your integration account exists. |
+| **{integration-account-name}** | The name for your integration account. |
+| **{tracking-store-name}** | The name for the tracking store. |
+| **{cluster-name}** | The name for your cluster in Azure Data Explorer. |
+| **{database-name}** | The name for the database in your Azure Data Explorer cluster. |
+
+#### Response
+
+Return the details for the created or updated tracking store.
+
+### Get a specific tracking store
+
+Get the details about a specific tracking store.
+
+`GET https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores/{tracking-store-name}?api-version=2016-06-01`
+
+Parameters: 
+
+| Parameter | Description |
+|-----------|-------------|
+| **{subscription-ID}** | The ID for the Azure subscription associated with your integration account. |
+| **{resource-group-name}** | The name for the resource group where your integration account exists. |
+| **{integration-account-name}** | The name for your integration account. |
+| **{tracking-store-name}** | The name for the tracking store. |
+
+#### Response
+
+Return the details about the specified tracking store.
+
+### Get all tracking stores
+
+Get all the tracking stores in your integration account.
+
+> [!NOTE]
+>
+> In this release, your integration account currently supports only one tracking store.
+
+`GET https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores?api-version=2016-06-01`
+
+| Parameter | Description |
+|-----------|-------------|
+| **{subscription-ID}** | The ID for the Azure subscription associated with your integration account. |
+| **{resource-group-name}** | The name for the resource group where your integration account exists. |
+| **{integration-account-name}** | The name for your integration account. |
+
+#### Response
+
+Return a list of tracking stores associated with your integration account.
+
+### Delete a tracking store
+
+Delete an existing tracking store from your integration account.
+
+`DELETE https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores/{tracking-store-name}?api-version=2016-06-01`
+
+| Parameter | Description |
+|-----------|-------------|
+| **{subscription-ID}** | The ID for the Azure subscription associated with your integration account. |
+| **{resource-group-name}** | The name for the resource group where your integration account exists. |
+| **{integration-account-name}** | The name for your integration account. |
+| **{tracking-store-name}** | The name for the tracking store. |
+
+#### Response
+
+Return a success response for a successfully deleted tracking store.
+
 ## Related content
 
 - [Tracking table schemas for B2B transactions - Standard workflows](tracking-table-schemas-standard.md)
