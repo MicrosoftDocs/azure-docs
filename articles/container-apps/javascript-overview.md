@@ -174,58 +174,58 @@ For production builds, make sure you use the correct version tag, which may not 
 ## Deployment
 To support continuous integration/continuous deployment (CI/CD), set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
 
-  ```yaml
-  # .github/workflows/deploy.yml
-  name: Deploy to Azure
+```yaml
+# .github/workflows/deploy.yml
+name: Deploy to Azure
 
-  on:
-  push:
-      branches:
-      - main
+on:
+push:
+    branches:
+    - main
 
-  jobs:
-  build-and-deploy:
-      runs-on: ubuntu-latest
+jobs:
+build-and-deploy:
+    runs-on: ubuntu-latest
 
-      steps:
-      - uses: actions/checkout@v4
+    steps:
+    - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-          node-version: '22'
+    - name: Set up Node.js
+    uses: actions/setup-node@v4
+    with:
+        node-version: '22'
 
-      - name: Install dependencies
-      run: npm ci
+    - name: Install dependencies
+    run: npm ci
 
-      - name: Build the app
-      run: npm run build
+    - name: Build the app
+    run: npm run build
 
-      - name: Log in to Azure
-      uses: azure/login@v2
-      with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Log in to Azure
+    uses: azure/login@v2
+    with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Azure Container Apps
-      run: |
-          az containerapp up \
-          --name my-container-app \
-          --resource-group my-resource-group \
-          --image my-docker-image \
-          --environment my-environment \
-          --cpu 1 --memory 2Gi \
-          --env-vars NODE_ENV=production PORT=3000
-  ```
+    - name: Deploy to Azure Container Apps
+    run: |
+        az containerapp up \
+        --name my-container-app \
+        --resource-group my-resource-group \
+        --image my-docker-image \
+        --environment my-environment \
+        --cpu 1 --memory 2Gi \
+        --env-vars NODE_ENV=production PORT=3000
+```
 
 When using Docker Registry, sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
 
-  ```bash
-  # Tag the image
-  docker tag my-app:latest myregistry.azurecr.io/my-app:latest
+```bash
+# Tag the image
+docker tag my-app:latest myregistry.azurecr.io/my-app:latest
 
-  # Push the image
-  docker push myregistry.azurecr.io/my-app:latest
-  ```
+# Push the image
+docker push myregistry.azurecr.io/my-app:latest
+```
 
 ## Cold starts
 
@@ -243,9 +243,9 @@ Security considerations for JavaScript developers using Azure Container Apps inc
 
 Ensure sensitive information such as database connection strings and API keys are stored securely. Use Azure Key Vault to manage secrets and environment variables securely.
 
-  ```bash
-  az keyvault secret set --vault-name myKeyVault --name "CosmosDBConnectionString" --value "<your-connection-string>"
-  ```
+```bash
+az keyvault secret set --vault-name myKeyVault --name "CosmosDBConnectionString" --value "<your-connection-string>"
+```
 
 ### HTTPS and certificates
 
@@ -255,9 +255,9 @@ Ensure your application is served over HTTPS. Azure Container Apps can manage [c
 
 Regularly update your dependencies to avoid security vulnerabilities. Use tools like `npm audit` to check for vulnerabilities.
 
-  ```bash
-  npm audit
-  ```
+```bash
+npm audit
+```
 
 
 ## Error handling
