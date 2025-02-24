@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: ankitadutta
-ms.date: 12/23/2024
+ms.date: 02/05/2025
 ---
 
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
@@ -78,10 +78,9 @@ The tool has two main phases: profiling and report generation. There is also a t
 > [!NOTE]
 >The tool can profile only VMs with VMDK and RDM disks. It can't profile VMs with iSCSI or NFS disks. Site Recovery does support iSCSI and NFS disks for VMware servers. Because the deployment planner isn't inside the guest and it profiles only by using vCenter performance counters, the tool doesn't have visibility into these disk types.
 
-
 ## Download and extract the deployment planner tool
 
-1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/7d07e00c-87c2-4413-b062-50c7095589ec/ASRDeploymentPlanner-v3.1.zip).
+1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/7491a137-315d-40ca-9307-f74f913f7e6a/ASRDeploymentPlanner-v3.2.zip).
 The tool is packaged in a `.zip` folder. The current version of the tool supports only the VMware to Azure scenario.
 
 2. Copy the `.zip` folder to the Windows server from which you want to run the tool.

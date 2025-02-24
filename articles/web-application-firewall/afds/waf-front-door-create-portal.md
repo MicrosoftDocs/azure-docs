@@ -4,10 +4,8 @@ description: In this tutorial, you learn how to create a web application firewal
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
-services: web-application-firewall
 ms.topic: tutorial
 ms.date: 07/15/2024
-ms.custom: template-tutorial, engagement-fy23
 ---
 
 # Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal
