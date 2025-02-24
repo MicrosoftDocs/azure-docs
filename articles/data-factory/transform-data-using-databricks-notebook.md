@@ -26,10 +26,6 @@ You perform the following steps in this tutorial:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-For an eleven-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
-
 ## Prerequisites
 
   - **Azure Databricks workspace**. [Create a Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.

@@ -64,7 +64,7 @@
 | Maximum rules per route | 100 | 100 |
 | Maximum rules per rule set | 100 | 100 |
 | Maximum bandwidth<sup>1</sup> | 75 Gbps | 75 Gbps |
-| Maximum requests per second per profile<sup>1</sup> | 100,000 | 100,000 |
+| Maximum requests per second per profile<sup>1,</sup><sup>2</sup> | 100,000 | 100,000 |
 | Path patterns to match for a routing rule | 25 | 50 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
@@ -87,11 +87,14 @@
 
 <sup>1</sup>If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+<sup>2</sup>Azure Front Door currently has a 5,000 RPS (Receive Packet Steering) per POP limit.
+
 #### Timeout values
 
 ##### From Client to Front Door
 
-* Front Door has an idle TCP connection timeout of 61 seconds.
+* Header timeout - After establishing TCP/TLS connection, Front Door has a 5-second timeout for receiving all headers from the client. The connection is terminated if the client doesn't send headers within 5 seconds. You can't configure this timeout value.
+* HTTP keep-alive timeout - Front Door has a 90-second HTTP keep-alive timeout. The connection is terminated if the client doesn't send data for 90 seconds. You can't configure this timeout value.
 
 ##### Front Door to application back-end
 

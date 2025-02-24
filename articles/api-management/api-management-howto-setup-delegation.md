@@ -178,7 +178,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-### NodeJS code to generate hash of returnUrl
+### Node.js code to generate hash of returnUrl
 
 ```
 var crypto = require('crypto');
