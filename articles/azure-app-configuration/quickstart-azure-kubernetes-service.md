@@ -231,7 +231,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
    
     #### [AKS extension](#tab/extension)
 
-    Install the `k8s-extension` to your Azure CLI extensions:
+    Add the `k8s-extension` to your Azure CLI extensions:
 
     ```azurecli
     az extension add --name k8s-extension
