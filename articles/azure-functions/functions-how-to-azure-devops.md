@@ -202,7 +202,14 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-- task: AzureFunctionApp@1 # Add this at the end of your file
+- task: DownloadBuildArtifacts@1 # Add this at the end of your file
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'drop'
+    itemPattern: '**/*.zip'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: AzureFunctionApp@1
   inputs:
     azureSubscription: <Azure service connection>
     appType: functionAppLinux # default is functionApp
