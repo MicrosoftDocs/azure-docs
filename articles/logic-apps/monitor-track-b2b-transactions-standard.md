@@ -190,6 +190,8 @@ This table structure provides the capability for you to efficiently query and re
 > Azure Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
 > Your database must also grant **Ingester** permissions to your integration account resource.
 
+For more information, see [Tracking table schemas for B2B transactions - Standard workflows](tracking-table-schemas-standard.md).
+
 <a name="manage-with-rest-api"></a>
 
 ## Manage tracking stores with the REST API
