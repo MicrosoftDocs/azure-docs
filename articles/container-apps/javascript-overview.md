@@ -20,6 +20,8 @@ Azure Container Apps can run any containerized JavaScript application in the clo
 ### Environment Variables
 Environment variables are crucial for configuring your application. Use a `.env` file to manage these variables locally and ensure they're securely managed in production with a service like [Azure Key Vault](/azure/key-vault/).
 
+The following example shows you how to create variables for your application.
+
 ```bash
 # .env
 NODE_ENV=production
@@ -30,17 +32,17 @@ AZURE_COSMOS_DB_ENDPOINT=https://your-cosmos-db.documents.azure.com:443/
 ### Containers
 
 A well-configured Dockerfile is essential for containerizing your application:
-* **Common Setup – Use a Base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
+* **Use a base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
 * **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
 * **Optimized Base Image – Node.js Variant**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead. The development environment can add dependencies in its own Dockerfile.
 * **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
-* **Multi-stage Builds – Separate Build and Runtime**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
-* **Prebuild Artifacts – Compile/Bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can further minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile will also optimize caching and rebuild times.
-* **Development Environments – Docker Compose**: Use Docker Compose for development environments. Docker Compose allows you to define and run multi-container Docker applications, which can be useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services if necessary.
+* **Separate build and runtime with multi-stage builds**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
+* **Prebuild artifacts by compiling and bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile also optimizes caching and rebuild times.
+* **Docker Compose for development environments**: Docker Compose allows you to define and run multi-container Docker applications, which is useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services when necessary.
 
 ### Base Dockerfile
 
-This file serves as a common starting point for your Node.js images. You can use it with a FROM directive in your other Dockerfiles. Use either a version number or a commit to support the most up to date and secure version of the image. 
+This file serves as a common starting point for your Node.js images. You can use it with a `FROM` directive in Dockerfiles that reference this base image. Use either a version number or a commit to support the most up to date and secure version of the image. 
 
 ```yaml
 # Dockerfile.base
@@ -69,7 +71,9 @@ EXPOSE 9229
 # This image focuses on common steps; project-specific Dockerfiles can extend this.
 ```
 
-When you pass in values using the --build-arg flag during the build process, those values override the hardcoded default values in your Dockerfile. For example, using:
+When you pass in values using the `--build-arg` flag during the build process, the passed in values override the hardcoded default values in your Dockerfile.
+
+For example:
 
 ```bash
 docker build \
@@ -79,13 +83,13 @@ docker build \
   -f Dockerfile.base .
 ```
 
-In this build, the environment variables PORT and ENABLE_DEBUG are set to 4000 and true, respectively, instead of their default values.
+In this example, the environment variables `PORT` and `ENABLE_DEBUG` are set to explicit values, instead of their default values.
 
 Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
 ### Development environment with Docker Compose
 
-This configuration uses a dedicated development Dockerfile (Dockerfile.dev) along with volume mounts for live reloading and local source sync.
+The following example configuration uses a dedicated development Dockerfile (*Dockerfile.dev*) along with volume mounts for live reloading and local source sync.
 
 ```yaml
 version: "3.8"
@@ -117,7 +121,7 @@ PORT=4000 ENABLE_DEBUG=true docker compose up
 
 ### Production Dockerfile
 
-This multi-stage Dockerfile builds your application and produces a lean runtime image. Make sure to have your `.dockerignore` already in our source code so that the `COPY . .` command doesn't copy in any files specific to the development environment you don't need in production. 
+This multi-stage Dockerfile builds your application and produces a lean runtime image. Make sure to have your `.dockerignore` file already in your source code so that the `COPY . .` command doesn't copy in any files specific to the development environment that you don't need in production. 
 
 ```yaml
 # Stage 1: Builder
@@ -166,7 +170,7 @@ For production builds, make sure you use the correct version tag, which may not 
 
 
 ## Deployment
-* Continuous Integration/Continuous Deployment (CI/CD) - Set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
+To support continuous integration/continuous deployment (CI/CD), set up a CI/CD pipeline using GitHub Actions, Azure DevOps, or another CI/CD tool to automate the deployment process.
 
     ```yaml
     # .github/workflows/deploy.yml
@@ -211,7 +215,7 @@ For production builds, make sure you use the correct version tag, which may not 
             --env-vars NODE_ENV=production PORT=3000
     ```
 
-* Docker Registry - Sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
+When using Docker Registry, sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
 
     ```bash
     # Tag the image
@@ -223,31 +227,30 @@ For production builds, make sure you use the correct version tag, which may not 
 
 ## Cold starts
 
-Optimize your production build by including only the essential code and dependencies. Use one of the following approaches:
+Optimize your production build by including only the essential code and dependencies. To ensure your payload is as lean as possible, use one of the following approaches:
 
-- **Multi-stage Docker builds or bundlers (e.g., Webpack, Rollup):**  
-  Compile and bundle only what is needed for production. This minimizes your container size and improves cold start times.
+- **Multi-stage Docker builds or bundlers**: Use build and bundling tools like Webpack or Rollup to help you create the smallest payload possible for your container. When you compile and bundle only what is needed for production, you help minimize your container size and aid in improving cold start times.
 
-- **Manage your dependencies carefully:**  
-  Keep your `node_modules` folder lean by including only the packages required for running the production code.  
-  - Don't list development or test dependencies in the `dependencies` section of your `package.json`.  
-  - Remove any unused dependencies.  
-  - Ensure your `package.json` and lock file remain consistent.
+- **Manage dependencies carefully:** Keep your `node_modules` folder lean by including only the packages required for running production code. Don't list development or test dependencies in the `dependencies` section of your `package.json`.  Remove any unused dependencies and ensure your `package.json` and lock file remain consistent.
 
 ## Security
 
-* Secure Environment Variables
+
+### Secure environment variables
+
 Ensure sensitive information such as database connection strings and API keys are stored securely. Use Azure Key Vault to manage secrets and environment variables securely.
 
     ```bash
     az keyvault secret set --vault-name myKeyVault --name "CosmosDBConnectionString" --value "<your-connection-string>"
     ```
 
-* HTTPS and Certificates
+### HTTPS and certificates
+
 Ensure your application is served over HTTPS. Azure Container Apps can manage [certificates](certificates-overview.md) for you. Configure your [custom domain](custom-domains-managed-certificates.md) and certificate in the Azure portal.
 
-* Dependency Management
-Regularly update your dependencies to avoid security vulnerabilities. Use tools like npm audit to check for vulnerabilities.
+### Dependency Management
+
+Regularly update your dependencies to avoid security vulnerabilities. Use tools like `npm audit` to check for vulnerabilities.
 
     ```bash
     npm audit
@@ -268,7 +271,7 @@ export function errorHandler(err: any, req: Request, res: Response, next: NextFu
 }
 ```
 
-## Gracefully shutting down
+## Graceful shut downs
 
 Properly shutting down your application is crucial to ensure that in-flight requests complete and resources are released correctly. This helps prevent data loss and maintains a smooth user experience during deployments or scale-in events. The following example demonstrates one approach using Node.js and Express to handle shutdown signals gracefully. 
 
@@ -300,32 +303,33 @@ process.on('SIGTERM', () => {
 
 ## Logging
 
-In Azure Container Apps, both console.log and console.error calls are automatically captured and logged. Azure Container Apps captures the standard output (stdout) and standard error (stderr) streams from your application and makes them available in Azure Monitor and Log Analytics.
+In Azure Container Apps, both `console.log` and `console.error` calls are automatically captured and logged. Azure Container Apps captures the standard output (`stdout`) and standard error (`stderr`) streams from your application and makes them available in Azure Monitor and Log Analytics.
 
 ### Setting Up Logging in Azure Container Apps
 
 
-To ensure that your logs are properly captured and accessible, you need to configure diagnostic settings for your Azure Container App. Here’s how you can set it up:
+To ensure that your logs are properly captured and accessible, you need to configure diagnostic settings for your Azure Container App. Set up is a two-step process.
 
 1. Enable Diagnostic Settings: Use the Azure CLI to enable diagnostic settings for your Azure Container App.
 
-    ```bash
+    Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
+ 
+    ```azurecli
     az monitor diagnostic-settings create \
-    --resource /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Web/containerApps/{container-app-name} \
+    --resource /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/containerApps/<CONTAINER_APP_NAME> \
     --name "containerapp-logs" \
-    --workspace {log-analytics-workspace-id} \
+    --workspace <LOG_ANALYTICS_WORKSPACE_ID> \
     --logs '[{"category": "ContainerAppConsoleLogs","enabled": true}]'
     ```
 
-Replace {subscription-id}, {resource-group}, {container-app-name}, and {log-analytics-workspace-id} with your actual values.
 
-2. Access Logs in Azure portal: You can access the logs in the Azure portal by navigating to your Log Analytics workspace and querying the logs.
+1. Access logs in the portal by going to your Log Analytics workspace and querying the logs.
 
 ### Using Logging Libraries
 
-While `console.log` and `console.error` are automatically captured, using a logging library like **Winston** provides more flexibility and control over your logging. This flexibility allows you to format logs, set log levels, and output logs to multiple destinations (for example, files, external logging services).
+While `console.log` and `console.error` are automatically captured, using a logging library like Winston provides more flexibility and control over your logging. This flexibility allows you to format logs, set log levels, and output logs to multiple destinations like files or external logging services.
 
-Here’s an example using winston:
+The following example demonstrates how configure use Winston to store high-fidelity logs.
 
 ```typescript
 // src/logger.ts
@@ -346,7 +350,7 @@ const logger = createLogger({
 export default logger;
 ```
 
-Here's an example of using the logger in your application:
+To use the logger, use the following syntax in your application:
 
 ```typescript
 import logger from './logger';
@@ -357,12 +361,13 @@ logger.error('This is an error message');
 
 ## Remote debugging
 
-For JavaScript and Node.js developers, remote debugging in Azure Container Apps is made easy with Node’s built-in inspector. Instead of hardcoding debug settings into your Dockerfile’s CMD, you can dynamically enable remote debugging by using a shell script as your container's entrypoint. This script checks an environment variable (for example, `ENABLE_DEBUG`) when the container starts. If the variable is set to `true`, the script launches Node.js in debug mode (using `--inspect` or `--inspect-brk`); otherwise, it starts the application normally.
+To enable remote debugging, you can use Node’s built-in inspector. Instead of hardcoding debug settings into your Dockerfile’s `CMD`, you can dynamically enable remote debugging by using a shell script as your container's entrypoint. 
 
-Implement debugging with the following steps:
+The following script checks an environment variable (for example, `ENABLE_DEBUG`) when the container starts. If the variable is set to `true`, the script launches Node.js in debug mode (using `--inspect` or `--inspect-brk`). Otherwise, the container starts the application normally.
 
-1. **Create an Entrypoint Script**  
-   Create a file named `entrypoint.sh` at the root of your project with the following content:
+You can implement remote debugging with the following steps:
+
+1. Create an entry point script in a file named `entrypoint.sh` at the root of your project with the following content:
 
    ```bash
    #!/bin/sh
@@ -376,8 +381,7 @@ Implement debugging with the following steps:
    fi
    ```
 
-2. **Update Your Dockerfile**  
-   Modify your Dockerfile to copy the `entrypoint.sh` script into the container and set it as the entrypoint. Also, expose the debug port if needed:
+1. Modify your Dockerfile to copy the `entrypoint.sh` script into the container and set it as the entry point. Also, expose the debug port if needed:
 
     ```yaml
     # Copy the entrypoint script to the container
@@ -393,27 +397,27 @@ Implement debugging with the following steps:
     ENTRYPOINT ["sh", "/usr/src/app/entrypoint.sh"]
     ```
 
-3. **Triggering Debug Mode**  
-   When deploying your Azure Container App, set the environment variable `ENABLE_DEBUG` to `true` to start the container in debug mode. For example, using the Azure CLI:
+1. Trigger debug mode by setting the environment variable `ENABLE_DEBUG` to `true`. For example, using the Azure CLI:
 
    ```bash
    az containerapp update --name my-container-app --env-vars ENABLE_DEBUG=true
    ```
 
-This approach offers a flexible solution that allows you to restart the container in debug mode by updating an environment variable at startup. It avoids the need to create a new revision with different CMD settings every time you need to debug your application.
+This approach offers a flexible solution that allows you to restart the container in debug mode by updating an environment variable at startup. It avoids the need to create a new revision with different `CMD` settings every time you need to debug your application.
 
-## Maintenance and Performance Considerations
+## Maintenance and performance considerations
 
-### Environment Variable Changes
-Each change to environment variables requires a new deployed revision. It's best to make all the changes to the app's secrets at once, then link the secrets to the revision's environment variables. This minimizes the number of revisions and helps maintain a clean deployment history.
+### Environment variable changes
 
-### Resource Allocation
+Since each change to environment variables requires a new deployed revision, make all changes to the app's secrets at once. When changes are complete, link the secrets to the revision's environment variables. This approach minimizes the number of revisions and helps maintain a clean deployment history.
 
-Monitor and adjust the CPU and memory allocation for your containers based on the application's performance and usage patterns. Over-provisioning can lead to unnecessary costs, while under-provisioning can cause performance issues. 
+### Resource allocation
 
-### Dependency Updates
+Monitor and adjust CPU and memory allocation for your containers based on the application's performance and usage patterns. Over-provisioning can lead to unnecessary costs, while under-provisioning can cause performance issues. 
 
-Regularly update your dependencies to benefit from performance improvements and security patches. Use tools like npm-check-updates to automate this process.
+### Dependency updates
+
+Regularly update your dependencies to benefit from performance improvements and security patches. Use tools like `npm-check-updates` to automate this process.
 
 ```bash
 npm install -g npm-check-updates
@@ -423,7 +427,9 @@ npm install
 
 ### Scaling
 
-Configure autoscaling based on the application's load. Azure Container Apps supports horizontal scaling, which can automatically adjust the number of container instances based on CPU or memory usage.
+Configure autoscaling based on the application's load. Azure Container Apps supports horizontal scaling, which automatically adjusts the number of container instances based on CPU or memory usage.
+
+The following example demonstrates how to set a CPU-based scale rule.
 
 ```bash
 az containerapp revision set-scale \
@@ -438,39 +444,56 @@ az containerapp revision set-scale \
 
 Set up monitoring and alerts to track the performance and health of your application. Use Azure Monitor to create alerts for specific metrics such as CPU usage, memory usage, and response times.
 
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
+
 ```bash
 az monitor metrics alert create \
   --name "HighCPUUsage" \
   --resource-group my-resource-group \
-  --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ContainerInstance/containerGroups/{container-group} \
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerInstance/containerGroups/<CONTAINER_GROUP> \
   --condition "avg Percentage CPU > 80" \
   --description "Alert when CPU usage is above 80%"
 ```
 
 ## Resource management
 
-Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) extension for Visual Studio Code to quickly create and deploy containerized apps directly from VS Code:
-
-* Create your first container app
-* Edit and deploy your app
+Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) extension for Visual Studio Code to quickly create, edit, and deploy containerized apps directly from Visual Studio Code.
 
 ## Troubleshooting
 
-* Logging - Enable and configure logging to capture application logs. Use Azure Monitor and Log Analytics to collect and analyze logs.
+### Logging
 
-    ```bash
-    az monitor log-analytics workspace create --resource-group my-resource-group --workspace-name myWorkspace
-    az monitor diagnostic-settings create --resource my-container-app --workspace myWorkspace --logs '[{"category": "ContainerAppConsoleLogs","enabled": true}]'
+Enable and configure logging to capture application logs. Use Azure Monitor and Log Analytics to collect and analyze logs.
+
+First, create a new workspace.
+
+    ```azurecli
+    az monitor log-analytics workspace create \
+        --resource-group my-resource-group \
+        --workspace-name <WORKSPACE_NAME>
     ```
 
-* Debugging - Use [remote debugging](#remote-debugging) tools to connect to your running container. Ensure your Dockerfile exposes the necessary ports for debugging.
+Then create a new workspace setting.
+
+    ```azurecli            
+    az monitor diagnostic-settings create \
+        --resource my-container-app \
+        --workspace <WORKSPACE_NAME> \
+        --logs '[{"category": "ContainerAppConsoleLogs","enabled": true}]'
+    ```
+
+### Debugging
+
+Use [remote debugging](#remote-debugging) tools to connect to your running container. Ensure your Dockerfile exposes the necessary ports for debugging.
 
     ```yaml
     # Expose the debugging port
     EXPOSE 9229
     ```
 
-* Health Checks - Configure health checks to monitor the health of your application. This ensures that Azure Container Apps can restart your container if it becomes unresponsive.
+### Health checks
+
+Configure health checks to monitor the health of your application. This ensures that Azure Container Apps can restart your container if it becomes unresponsive.
 
     ```yaml
     # Azure Container Apps YAML configuration
@@ -484,7 +507,7 @@ Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemNa
         periodSeconds: 10
     ```
 
-## More resources
+## Related content
 
 * [Development container prebuilds](https://containers.dev/guide/prebuild#tips)
 * [Containers in development and production](https://github.com/orgs/devcontainers/discussions/123)
