@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Nexus Kubernetes Cluster stuck (unable to reschedule) workloads due to power failure
+title: Troubleshoot Nexus Kubernetes Cluster Stuck (Unable to Reschedule) Workloads Due to Power Failure
 description: Troubleshooting Nexus Kubernetes Cluster workloads stuck (unable to reschedule) on not-ready nodes due to bare-metal node power failure.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
@@ -8,7 +8,7 @@ ms.date: 02/18/2025
 ms.author: nyeemakhtar
 author: mdnyeemakhtar
 ---
-# Troubleshooting stuck (unable to reschedule) workloads in a Nexus Kubernetes Cluster due to power failure
+# Troubleshoot stuck (unable to reschedule) workloads in a Nexus Kubernetes Cluster due to power failure
 
 What is a stuck workload?
 
@@ -23,7 +23,7 @@ This guide details troubleshooting steps for cases where workloads on a Nexus Ku
 * Permissions to view Azure resources in the subscription where the Nexus Kubernetes Cluster is deployed
 * Necessary permissions to make changes using `kubectl` commands in Nexus Kubernetes Cluster (for example, deleting nodes)
 
-## Diagnosing Stuck Workloads
+## Diagnose stuck workloads
 
 If you observe that your applications aren't responding as expected, your workloads might be stuck on the not-ready nodes. To diagnose stuck workloads on Nexus Kubernetes Cluster not-ready nodes, look for the following symptoms:
 
@@ -47,7 +47,7 @@ If you observe that your applications aren't responding as expected, your worklo
 
    ![stuck workload on not-ready nodes](media/naks-workload-stuck-on-not-ready-nodes.png)
 
-## Diagnosing Power Failure
+## Diagnose power failure
 
 Once you have confirmed that the workloads are stuck on the not-ready nodes, the next step will help you diagnose if Nexus Kubernetes Cluster nodes are not-ready due to power failure of one or more bare-metal machines.
 
