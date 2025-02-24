@@ -20,13 +20,6 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
-Typically on an edge-based solution, you want to secure your end-to-end operations by using Azure security capabilities. Azure IoT Operations has built-in security capabilities such as [secrets management](../iot-operations/secure-iot-ops/howto-manage-secrets.md), [certificate management](../iot-operations/secure-iot-ops/concept-default-root-ca.md), and [secure settings](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md) on an [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) cluster. When a Kubernetes cluster is connected to Azure, an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit, and several other security features are enabled, such as:
-
-- View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
-- Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).
-- Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
-- Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
-
 You can divide security in an edge-based IoT solution into the following three areas:
 
 - **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
@@ -36,6 +29,13 @@ You can divide security in an edge-based IoT solution into the following three a
 - **Edge security**: Secure your data while it moves through, and is stored in the edge.
 
 - **Cloud security**: Secure your data while it moves through, and is stored in the cloud.
+
+Typically on an edge-based solution, you want to secure your end-to-end operations by using Azure security capabilities. Azure IoT Operations has built-in security capabilities such as [secrets management](../iot-operations/secure-iot-ops/howto-manage-secrets.md), [certificate management](../iot-operations/secure-iot-ops/concept-default-root-ca.md), and [secure settings](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md) on an [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview) cluster. When a Kubernetes cluster is connected to Azure, an outbound connection to Azure is initiated, using industry-standard SSL to secure data in transit, and several other security features are enabled, such as:
+
+- View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+- Enforce threat protection using [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction).
+- Ensure governance through applying policies with [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
+- Grant access and connect to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](/azure/azure-arc/kubernetes/azure-rbac) on your cluster.
 
 ## Microsoft Defender for IoT and for Containers
 
@@ -70,6 +70,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Configure TLS with automatic certificate management for listeners in your MQTT broker**: Azure IoT Operations provides automatic certificate management for listeners in your MQTT broker. This reduces the administrative overhead of manually managing certificates, ensures timely renewals, and helps maintain compliance with security policies. To learn more, see [Secure MQTT broker communication by using BrokerListener](../iot-operations/manage-mqtt-broker/howto-configure-brokerlistener.md).
 
+- **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
 
 ## Edge security
 
@@ -81,9 +82,7 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
 
-- **Set up a secure connection to OPC UA server**: When connecting to an OPC UA server, you should determine which OPC UA servers you trust to securely establish a session with. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
-
-- **In isolated network environments use Azure IoT Layered Network Management**: Azure IoT Layered Network Management (preview) service is a component that facilitates the connection between Azure and clusters in isolated network environment. In industrial scenarios, the isolated network follows the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
+- **Configure isolated network environments by using Azure IoT Layered Network Management (preview)**: Azure IoT Layered Network Management (preview) is a component that facilitates the connection between Azure and clusters in isolated network environments. In industrial scenarios, the isolated networks follow the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
 
 ## Cloud security
 
@@ -196,7 +195,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 To learn more about IoT security, see:
 
+- [Concepts for keeping your cloud-native workload secure](https://kubernetes.io/docs/concepts/security/)
 - [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
 - [IoT Central security guide](../iot-central/core/overview-iot-central-security.md)
-- [Security architecture for IoT solutions](iot-security-architecture.md)
 - [Well-Architected Framework perspective on Azure IoT Hub](/azure/well-architected/service-guides/iot-hub)
