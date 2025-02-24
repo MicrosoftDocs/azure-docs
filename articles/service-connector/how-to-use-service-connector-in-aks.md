@@ -42,7 +42,7 @@ The AKS-specific creation options are listed below. Refer to the [Azure portal](
 
 Service Connector for AKS displays only non-credential configurations in the list configuration views. Users should manually check the credentials in the [associated Kubernetes resource](#creating-the-kubernetes-resources) if needed.
 
-Using the Azure CLI command [az aks connection list-configuration](/cli/azure/aks/connection?view=azure-cli-latest#az-aks-connection-list-configuration), the value of a credential configuration is an empty string. In the Azure portal, the value of a credential configuration is hidden, as shown below.
+Using the Azure CLI command [az aks connection list-configuration](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-list-configuration), the value of a credential configuration is an empty string. In the Azure portal, the value of a credential configuration is hidden, as shown below.
 
 :::image type="content" source="./media/aks-tutorial/aks-listconfig.png" alt-text="Screenshot of the AKS connection listing configuration":::
 
@@ -54,7 +54,7 @@ Service Connector for AKS doesn't validate configuration value changes made with
 - Checking IP firewall rules for access to the target service
 - Ensuring role assignment for workload identity to access the target service
 
-The output of the Azure CLI command [az aks connection validate](/cli/azure/aks/connection?view=azure-cli-latest#az-aks-connection-validate) is always `success`. The same applies to the Azure portal, as shown below.
+The output of the Azure CLI command [az aks connection validate](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-validate) is always `success`. The same applies to the Azure portal, as shown below.
 
 :::image type="content" source="./media/aks-tutorial/aks-validate.png" alt-text="Screenshot of the AKS connection validation":::
 
