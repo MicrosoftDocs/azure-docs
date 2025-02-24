@@ -311,7 +311,7 @@ In Azure Container Apps, both `console.log` and `console.error` calls are automa
 ### Setting Up Logging in Azure Container Apps
 
 
-To ensure that your logs are properly captured and accessible, you need to configure diagnostic settings for your Azure Container App. Set up is a two-step process.
+To ensure that your logs are properly captured and accessible, you need to configure diagnostic settings for your Azure Container App. Setup is a two-step process.
 
 1. Enable Diagnostic Settings: Use the Azure CLI to enable diagnostic settings for your Azure Container App.
 
@@ -332,7 +332,7 @@ To ensure that your logs are properly captured and accessible, you need to confi
 
 While `console.log` and `console.error` are automatically captured, using a logging library like Winston provides more flexibility and control over your logging. This flexibility allows you to format logs, set log levels, and output logs to multiple destinations like files or external logging services.
 
-The following example demonstrates how configure use Winston to store high-fidelity logs.
+The following example demonstrates how to configure use Winston to store high-fidelity logs.
 
 ```typescript
 // src/logger.ts
@@ -500,7 +500,7 @@ Use [remote debugging](#remote-debugging) tools to connect to your running conta
 
 ### Health checks
 
-Configure health checks to monitor the health of your application. This ensures that Azure Container Apps can restart your container if it becomes unresponsive.
+Configure health checks to monitor the health of your application. This feature ensures that Azure Container Apps can restart your container if it becomes unresponsive.
 
     ```yaml
     # Azure Container Apps YAML configuration
