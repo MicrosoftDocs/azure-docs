@@ -121,26 +121,29 @@ The MySQL trigger binds to a `IReadOnlyList<MySqlChange<T>>`, a list of `MySqlCh
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are changes to the `Product` table:
 
 ```cs
-using System.Collections.Generic;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Extensions.MySql;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using AzureMySqlSamples.Common;
 
 namespace AzureMySqlSamples.TriggerBindingSamples
 {
-    public static class ProductsTrigger
-    {
-        [FunctionName(nameof(ProductsTrigger))]
+        private static readonly Action<ILogger, string, Exception> _loggerMessage = LoggerMessage.Define<string>(LogLevel.Information, eventId: new EventId(0, "INFO"), formatString: "{Message}");
+
+        [Function(nameof(ProductsTrigger))]
         public static void Run(
             [MySqlTrigger("Products", "MySqlConnectionString")]
-            IReadOnlyList<MySqlChange<Product>> changes,
-            ILogger logger)
+            IReadOnlyList<MySqlChange<Product>> changes, FunctionContext context)
         {
+            ILogger logger = context.GetLogger("ProductsTrigger");
             // The output is used to inspect the trigger binding parameter in test methods.
-            logger.LogInformation("MySQL Changes: " + JsonConvert.SerializeObject(changes));
+            foreach (MySqlChange<Product> change in changes)
+            {
+                Product product = change.Item;
+                _loggerMessage(logger, $"Change operation: {change.Operation}", null);
+                _loggerMessage(logger, $"Product Id: {product.ProductId}, Name: {product.Name}, Cost: {product.Cost}", null);
+            }
         }
-    }
 }
 ```
 
@@ -205,8 +208,8 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 using System.Collections.Generic;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.MySql;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using Microsoft.Extensions.Logging; 
+using AzureMySqlSamples.Common; 
 
 namespace AzureMySqlSamples.TriggerBindingSamples
 {
@@ -219,7 +222,12 @@ namespace AzureMySqlSamples.TriggerBindingSamples
             ILogger logger)
         {
             // The output is used to inspect the trigger binding parameter in test methods.
-            logger.LogInformation("MySQL Changes: " + JsonConvert.SerializeObject(changes));
+            foreach (MySqlChange<Product> change in changes)
+            {
+                Product product = change.Item;
+                logger.LogInformation($"Change operation: {change.Operation}");
+                logger.LogInformation($"Product Id: {product.ProductId}, Name: {product.Name}, Cost: {product.Cost}");
+            }
         }
     }
 }
@@ -539,21 +547,20 @@ The following is sample python code for the function_app.py file:
 
 ```python
 import json
- 
+import logging
 import azure.functions as func
- 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
- 
-@app.generic_trigger(arg_name="changes", type="mysqlTrigger",
-                     table_name="Products",
-                     connection_string_setting="AzureWebJobsMySqlConnectionString")
-@app.generic_output_binding(arg_name="r", type="mysql",
-                            command_text="Products1",
-                            connection_string_setting="AzureWebJobsMySqlConnectionString")
-def mysql_trigger(changes, r: func.Out[func.MySqlRow]) -> str:
-    row = func.MySqlRow.from_dict(json.loads(changes)[0]["Item"])
-    r.set(row)
-    return "OK"
+
+app = func.FunctionApp()
+
+# The function gets triggered when a change (Insert, Update)
+# is made to the Products table.
+@app.function_name(name="ProductsTrigger")
+@app.mysql_trigger(arg_name="products",
+table_name="Products",
+connection_string_setting="MySqlConnectionString")
+
+def products_trigger(products: str) -> None:
+logging.info("MySQL Changes: %s", json.loads(products))
 ```
 
 # [v1](#tab/python-v1)
