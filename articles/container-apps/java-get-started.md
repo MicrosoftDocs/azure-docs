@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps-java-artifacts
 
 # Quickstart: Launch your first Java application in Azure Container Apps with a WAR or JAR file
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps with a web application by using a WAR or JAR file.
+This article shows you how to use a WAR or JAR file to deploy the Spring PetClinic sample application to Azure Container Apps.
 
 [!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
@@ -92,7 +92,7 @@ You now have a **/target/petclinic.war** file.
 Deploy the JAR package to Container Apps by using the following command:
 
 > [!NOTE]
-> The default JDK version is 17. You have the option of specifying the JDK version by using environment variables. To change the JDK version for compatibility with your application, use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
+> The default JDK version is 17. You have the option of specifying the version by using environment variables. To change the JDK version for compatibility with your application, use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 ```azurecli
 az containerapp up \
@@ -114,7 +114,7 @@ az containerapp up \
 Deploy the WAR file to Azure Container Apps by using the following command:
 
 > [!NOTE]
-> The default Tomcat version is 9. To change the Tomcat version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to 10 (including any minor versions) by setting `BP_TOMCAT_VERSION=10.*`. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
+> The default Tomcat version is 9. To change the version for compatibility with your application, use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument. In this example, the Tomcat version is set to 10 (including any minor versions) by setting `BP_TOMCAT_VERSION=10.*`. For more information, see [Build environment variables for Java in Azure Container Apps (preview)](java-build-environment-variables.md).
 
 ```azurecli
 az containerapp up \
