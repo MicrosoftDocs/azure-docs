@@ -30,7 +30,7 @@ author: lilyjma
 
 1. In the **Select members** pane, search for your name or email: 
 
-    :::image type="content" source="/media/configure-durable-task-scheduler/user-principal-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type in the portal.":::
+    :::image type="content" source="../media/configure-durable-task-scheduler/user-principal-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type in the portal.":::
 
 1. Pick your email and click the **Select** button.
 

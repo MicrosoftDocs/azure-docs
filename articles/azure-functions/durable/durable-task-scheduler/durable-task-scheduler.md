@@ -2,7 +2,7 @@
 title: Durable Task Scheduler storage provider for Durable Functions (preview)
 description: Learn about the characteristics of the Durable Functions Durable Task Scheduler storage provider.
 ms.topic: conceptual
-ms.date: 02/13/2025
+ms.date: 02/24/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
@@ -22,6 +22,19 @@ The Durable Task Scheduler (DTS) is designed from the ground up to be the fastes
 - Storing history at scale with minimal latency
 
 [TODO - a brief discussion of DTS architecture and why it's fast]
+
+## Supported regions
+
+DTS is currently supported in the following regions.
+- Australia East
+- North Europe
+- Sweden Central
+- UK South
+- North Central US
+- West US 2
+
+You can create up to five schedulers per region per subscription. To increase this limit, [submit a request in the Durable Task Scheduler repository](todo). 
+
 
 ## Feature highlight
 The following features are available at the current stage of public preview. More features are under development. See [roadmap and how to request new features]()[TODO]. 
