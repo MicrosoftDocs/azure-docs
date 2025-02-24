@@ -1,0 +1,27 @@
+- name: Azure Service Groups documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What are Azure Service Groups?
+    href: service-groups-overview.md
+  - name: What are Azure Relationships?
+    href: relationships-overview.md
+  - name: What are Azure Management Groups?
+    href: management-groups-overview.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Create a service group
+    href: service-groups-quickstart.md
+- name: Concepts
+  items:
+  - name: Grouping capability
+    href: ./concepts/grouping.md
+  - name: Organize resources
+    href: ./concepts/organize-resources.md
+  - name: Service groups relationships
+    href: ./concepts/service-groups-relationships.md
+- name: How-to guides
+  items:
+  - name: Consume service groups
+    href: ./how-to/consume-service-groups.md
