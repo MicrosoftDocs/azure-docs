@@ -158,7 +158,7 @@ resource webApp 'Microsoft.Web/sites@2024-04-01' = {
 
 ```
 
-Three Azure resources are defined in the template:
+Two Azure resources are defined in the template:
 
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
