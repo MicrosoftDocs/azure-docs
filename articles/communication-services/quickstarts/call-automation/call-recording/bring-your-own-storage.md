@@ -1,5 +1,5 @@
 ---
-ms.author: dbasantes
+ms.author: rahulva
 title: Azure Communication Services Call Recording Bring Your Own Storage
 titleSuffix: An Azure Communication Services document
 description: Quickstart for Bring your own storage
@@ -97,6 +97,12 @@ Refer to this example of the event schema.
     "eventTime": "string" // ISO 8601 date time for when the event was created
 }
 ```
+### Notification and Action for recording export failure.
+
+Failure to export recording file can occur due to incorrect configuration settings or in case of service outages.
+In both cases, the failure notification will include the download url to obtain the recordings. 
+Please download recordings from the location in failure notification within 24 hours.
+
 ### Folder Structure for Call Recording
 
 Recordings are stored in the following format as shown in the diagram.
