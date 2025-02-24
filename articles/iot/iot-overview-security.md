@@ -195,6 +195,7 @@ Microsoft Defender for IoT can automatically monitor some of the recommendations
 
 To learn more about IoT security, see:
 
+- [Azure security baseline for Azure Arc enabled Kubernetes](/security/benchmark/azure/baselines/azure-arc-enabled-kubernetes-security-baseline?toc=/azure/azure-arc/kubernetes/toc.json)
 - [Concepts for keeping your cloud-native workload secure](https://kubernetes.io/docs/concepts/security/)
 - [Azure security baseline for Azure IoT Hub](/security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json)
 - [IoT Central security guide](../iot-central/core/overview-iot-central-security.md)
