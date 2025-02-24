@@ -48,7 +48,7 @@ You can generate caches for your Visual Studio solution as part of an automated 
     devenv SolutionName /PopulateSolutionCache /LocalCache /Build [SolnConfigName [/Project ProjName [/ProjectConfig ProjConfigName]] [/Out OutputFilename]]
     ```
     
-    This command will open your solution, execute a build, and generate the caches for the specified solution. The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once [posted to a connected Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries). You can then [create a new dev box](quickstart-configure-dev-box-service.md#create-a-dev-box-definition) based off this image.
+    This command will open your solution, execute a build, and generate the caches for the specified solution. The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once posted to an [attached Azure Compute Gallery](how-to-configure-azure-compute-gallery.md).. You can then [create a new dev box](quickstart-configure-dev-box-service.md#create-a-dev-box-definition) based off this image.
     
     The `/Build` flag is optional, but without it some caches that require a build to have completed won't be available. For more information on the `build` command, see [Build command-line reference](/visualstudio/ide/reference/build-devenv-exe). 
 
