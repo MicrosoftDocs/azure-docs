@@ -1,12 +1,12 @@
 ---
 title: Use Azure Firewall to protect Azure Virtual Desktop
 description: Learn how to use Azure Firewall to protect Azure Virtual Desktop deployments.
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 01/31/2025
-ms.author: victorh
+ms.author: duau
 ---
 
 # Use Azure Firewall to protect Azure Virtual Desktop deployments
