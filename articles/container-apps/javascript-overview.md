@@ -446,6 +446,8 @@ Set up monitoring and alerts to track the performance and health of your applica
 
 Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
 
+Before running this command, make sure to replace the placeholders surrounded by `<>` with your values.
+
 ```bash
 az monitor metrics alert create \
   --name "HighCPUUsage" \
