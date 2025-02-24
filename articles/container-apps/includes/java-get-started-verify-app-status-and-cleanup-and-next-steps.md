@@ -10,7 +10,7 @@ ms.date: 02/18/2025
 
 Once the deployment is done, from the Azure portal, you can navigate to the **Overview** page of your container app and set the **Application Url** field. After doing that, you can see the project running in the cloud. The following screenshot shows the application status of the app running on Azure:
 
-:::image type="content" source="../media/java-get-started/azure-container-apps-spring-pet-clinic-in-azure-portal.png" alt-text="Screenshot of the application details in Azure, with the Application U r l field highlighted." lightbox="../media/java-get-started/azure-container-apps-spring-pet-clinic-in-azure-portal.png":::
+:::image type="content" source="../media/java-get-started/azure-container-apps-spring-pet-clinic-in-azure-portal.png" alt-text="Screenshot of the application details in Azure, with the Application URL field highlighted." lightbox="../media/java-get-started/azure-container-apps-spring-pet-clinic-in-azure-portal.png":::
 
 ## Clean up resources
 
