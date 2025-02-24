@@ -58,15 +58,15 @@ AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 
 #### **Updated Description:**
 ```Azure CLI
-AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-`support-ticket1234-jkl`
+AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-support-ticket1234-jkl
 ```
 
 ## Removing the interface description
 
-To restore the default description, set `additionalDescription` to an empty string (`""`):
+To restore the default description, set `additionalDescription` to an empty string with a space (`" "`) or null:
 
 ```Azure CLI
-az networkfabric interface update --additional-description "" \
+az networkfabric interface update --additional-description " " \
   --device nffab5-8-0-gf-AggrRack-CE1 \
   -g Fab5NF-8-0-GF \
   --resource-name Ethernet22-1
