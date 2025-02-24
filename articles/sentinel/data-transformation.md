@@ -12,7 +12,7 @@ ms.date: 09/25/2024
 
 # Custom data ingestion and transformation in Microsoft Sentinel
 
-[Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) serves as the data platform for Microsoft Sentinel. All logs ingested into Microsoft Sentinel are stored in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview), and [log queries](/azure/azure-monitor/logs/log-query-overview) written in [Kusto Query Language (KQL)](/kusto/query/kusto-sentinel-overview?view=microsoft-sentinel&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) are used to detect threats and monitor your network activity.
+[Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) serves as the data platform for Microsoft Sentinel. All logs ingested into Microsoft Sentinel are stored in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview), and [log queries](/azure/azure-monitor/logs/log-query-overview) written in [Kusto Query Language (KQL)](/kusto/query/kusto-sentinel-overview?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) are used to detect threats and monitor your network activity.
 
 Log Analytics gives you a high level of control over the data that gets ingested to your workspace with custom data ingestion and [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview). DCRs allow you to both collect and manipulate your data before it's stored in your workspace. DCRs both format and send data to both standard Log Analytics tables and customizable tables for data sources that produce unique log formats.
 
