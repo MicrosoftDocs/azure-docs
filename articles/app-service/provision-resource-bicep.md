@@ -89,6 +89,33 @@ This template contains several parameters that are predefined for your convenien
 
 ---
 
+## Deploy the template
+
+Copy and paste the template to your preferred editor/IDE and save the file to your local working directory.
+
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Bicep Deployment Commands](../azure-resource-manager/bicep/deploy-cli.md).
+
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+
+Open up a terminal where the Azure CLI is installed and run the code below to create a Node.js app on Linux.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "southcentralus" &&
+az deployment group create --resource-group myResourceGroup --template-file <path-to-template>
+```
+
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+
+| Language    | Example                                              |
+|-------------|------------------------------------------------------|
+| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                 |
+| **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
+| **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
+| **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.8"                     |
+
+---
+
 ::: zone-end  
 
 ::: zone pivot="app-service-bicep-windows-container"
@@ -148,8 +175,6 @@ This template contains several parameters that are predefined for your convenien
 
 ---
 
-::: zone-end 
-
 ## Deploy the template
 
 Copy and paste the template to your preferred editor/IDE and save the file to your local working directory.
@@ -165,17 +190,7 @@ az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup --template-file <path-to-template>
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
-
-| Language    | Example                                              |
-|-------------|------------------------------------------------------|
-| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                 |
-| **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
-| **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
-| **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.8"                     |
-
----
+::: zone-end 
 
 ## Validate the deployment
 
