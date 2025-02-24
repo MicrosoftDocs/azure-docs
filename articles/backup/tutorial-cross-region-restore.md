@@ -2,7 +2,7 @@
 title: Tutorial - Configure and run Cross Region Restore for Azure database for PostgreSQL
 description: Learn how to configure and run Cross Region Restore for Azure database for PostgreSQL using Azure Backup.
 ms.topic: tutorial
-ms.date: 02/01/2024
+ms.date: 11/22/2024
 ms.service: azure-backup
 ms.author: jsuri
 ---
