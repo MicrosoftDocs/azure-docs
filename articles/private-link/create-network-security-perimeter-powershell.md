@@ -23,44 +23,28 @@ Get started with network security perimeter by creating a network security perim
 
 [!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
-- The latest version of the Azure PowerShell module with tools for network security perimeter.
+- Install the Az.Tools.Installer module:
   
     ```azurepowershell
     # Install the Az.Tools.Installer module    
     Install-Module -Name Az.Tools.Installer -Repository PSGallery
     ```
 
-- Use `Az.Tools.Installer` to install the preview build of the `Az.Network`:
+- Install the preview build of the `Az.Network`:
 
     ```azurepowershell-interactive
-    # Install the preview build of the Az.Network module
-    Install-Module -Name Az.Tools.Installer -Repository PSGallery -allowprerelease -force
-
-    # List the current versions of the Az.Network module available in the PowerShell Gallery
-    Find-Module -Name Az.Network -Allversions -AllowPrerelease
-
-    # Install the preview build of the Az.Network module using the 
-
-    Install-AzModule -Name Az.Network -AllowPrerelease -Force
-    Install-AzModule -Path <previewVersionNumber>
+    # Install the preview build of the Az.Network module 
+    Install-Module -Name Az.Network -AllowPrerelease -Force -RequiredVersion 7.13.0-preview
     ```
-    > [!NOTE]
-    > The preview version of the Az.Network module is required to use network security perimeter capabilities. The latest version of the Az.Network module is available in the PowerShell Gallery. Look for the newest version that ends in `-preview`.
-
-- If you choose to use Azure PowerShell locally:
-  - [Install the latest version of the Az PowerShell module](/powershell/azure/install-azure-powershell).
-  - Connect to your Azure account using the
-    [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-- If you choose to use Azure Cloud Shell:
-  - For more information on Azure Cloud Shell, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
+    
+- You can choose to use Azure PowerShell locally or use [Azure Cloud Shell](/azure/cloud-shell/overview).
 - To get help with the PowerShell cmdlets, use the `Get-Help` command:
     ```azurepowershell-interactive
-    
     # Get help for a specific command
-    get-help -Name <powershell-command> - full
+    Get-Help -Name <powershell-command> - full
 
     # Example
-    get-help -Name New-AzNetworkSecurityPerimeter - full
+    Get-Help -Name New-AzNetworkSecurityPerimeter - full
     ```
 
 ## Sign in to your Azure account and select your subscription
