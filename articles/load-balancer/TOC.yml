@@ -119,11 +119,8 @@
     items:
     - name: Global load balancer overview
       href: cross-region-overview.md
-    - name: Create a global load balancer - Portal
+    - name: Create a global load balancer
       href: tutorial-cross-region-portal.md
-    - name: Create a global load balancer - PowerShell
-      href: tutorial-cross-region-powershell.md
-    - name: Create a global load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
     - name: Deploy a global load balancer - ARM template
       href: tutorial-deploy-cross-region-load-balancer-template.md
