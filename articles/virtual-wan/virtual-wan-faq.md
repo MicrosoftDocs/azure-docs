@@ -383,6 +383,8 @@ The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns su
 
 IPv6 isn't supported in the Virtual WAN hub and its gateways. If you connect a spoke VNet with an IPv6 address range to the Virtual WAN hub, then only IPv4 connectivity with this spoke VNet will function. IPv6 connectivity with this spoke VNet is not supported. 
 
+If you advertise IPv6 prefixes from on-premises, this will break IPv4 connectivity for your Azure resources. 
+
 For the point-to-site User VPN scenario with internet breakout via Azure Firewall, you'll likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices, by default, use IPv6 addresses.
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?

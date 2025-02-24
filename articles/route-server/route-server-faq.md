@@ -51,6 +51,8 @@ No. If you have deployed a virtual network with an IPv6 address space and later 
 
 You can peer a virtual network with an IPv6 address space to Route Server's virtual network, and IPv4 connectivity with this peered dual-stack virtual network will continue to function. IPv6 connectivity with this peered virtual network is not supported. 
 
+If you advertise IPv6 prefixes from on-premises, this will break IPv4 connectivity for your Azure resources. 
+
 
 ## Routing
 
