@@ -84,7 +84,7 @@ az communication email send
 	--to "<emailalias@emaildomain.com>"
 	--subject "Welcome to Azure Communication Services Email"
 	--attachment-types "<inlineattachmenttype1>" # MIME type of the content being attached. Example: "png"
-	--inline-attachment "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
+	--inline-attachments "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
 	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid>' alt='<alternatetext>'/></body></html>"
 ```
 Make these replacements in the code:
@@ -107,7 +107,7 @@ az communication email send
 	--subject "Welcome to Azure Communication Services Email"
 	--attachment-types "<attachmenttype1>" "<inlineattachmenttype1>" # MIME type of the content being attached. Example1: "jpg" "png" & Example2: "png" "png"
 	--attachments "<filepath>" # Example: "MSLogo.jpg"
-	--inline-attachment "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
+	--inline-attachments "<filepath>/<contentid>" # Example: "MicrosoftLogo.png/MSLogo"
 	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid>' alt='<alternatetext>'/></body></html>"
 ```
 
@@ -132,7 +132,7 @@ az communication email send
 	--subject "Welcome to Azure Communication Services Email"
 	--attachment-types "<attachmenttype1>" "<attachmenttype2>" "<inlineattachmenttype1>" "<inlineattachmenttype2>" "<inlineattachmenttype3>" # MIME type of the content being attached. Example: "png" "jpg" "png" "jpg" "bmp"
 	--attachments "<filepath1>" "<filepath2>"
-	--inline-attachment "<filepath1>/<contentid1>" "<filepath2>/<contentid2>" "<filepath3>/<contentid3>"
+	--inline-attachments "<filepath1>/<contentid1>" "<filepath2>/<contentid2>" "<filepath3>/<contentid3>"
 	--html "<html><head><title>Welcome to Azure Communication Services Email</title></head><body><h1>This email message is sent from Azure Communication Services Email using Azure CLI.</h1><img src='cid:<contentid1>' alt='<alternatetext>'/><img src='cid:<contentid2>' alt='<alternatetext>'/><img src='cid:<contentid3>' alt='<alternatetext>'/></body></html>"
 ```
 
@@ -176,7 +176,7 @@ The following optional parameters are available in Azure CLI.
 
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
-- `--inline-attachment` parameter embeds an attachment directly within the email body, instead of as a separate downloadable file. It is commonly used for images or media files that should appear inline in the email content.
+- `--inline-attachments` parameter embeds an attachment directly within the email body, instead of as a separate downloadable file. It is commonly used for images or media files that should appear inline in the email content.
 
 >[!NOTE] 
 > There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
