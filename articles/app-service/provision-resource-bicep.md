@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 11/18/2022
-zone_pivot_groups:  app-service-bicep
+zone_pivot_groups: app-service-bicep
 ---
 
 # Create App Service app using Bicep
@@ -91,7 +91,7 @@ This template contains several parameters that are predefined for your convenien
 
 ::: zone-end  
 
-::: zone pivot="app-service-bicep-windows-containers"
+::: zone pivot="app-service-bicep-windows-container"
 
 The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Windows and a sample .NET "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
