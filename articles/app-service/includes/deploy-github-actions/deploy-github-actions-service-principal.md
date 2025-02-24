@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
 ---
 
-To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you created earlier.
+To deploy with the service principal you configured, use the `azure/login@v2` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -27,7 +27,7 @@ jobs:
     steps:
       # Checkout the repo
       - uses: actions/checkout@main
-      - uses: azure/login@v1
+      - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -79,7 +79,7 @@ jobs:
     # checkout the repo
     - uses: actions/checkout@main
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -110,7 +110,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Java Spring Boot app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven
@@ -124,7 +124,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Set up JDK 1.8
@@ -219,7 +219,7 @@ jobs:
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
    
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
@@ -267,7 +267,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 

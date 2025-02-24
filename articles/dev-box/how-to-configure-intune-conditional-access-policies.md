@@ -120,6 +120,9 @@ You want to allow developer access to the developer portal only. Developers shou
 
 ### Create a new policy
 
+> [!Note]
+> The application **Microsoft Developer Portal** was renamed from **Fidalgo Dev Portal Public**, so it is possible for certain tenants to still see the previous name. Even though they have a different name, they still have the same application ID, and thus it is the right app. If you want to try fixing this, you can delete and re-add the tenant's service principal for the app.
+
 Follow these steps:
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).

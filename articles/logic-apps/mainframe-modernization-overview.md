@@ -5,7 +5,7 @@ author: haroldcampos
 ms.author: hcampos
 ms.service: azure-logic-apps
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 02/20/2025
 
 #CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
 ---

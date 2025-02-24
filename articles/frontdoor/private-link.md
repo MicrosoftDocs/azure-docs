@@ -29,8 +29,6 @@ After you enable an origin for Private Link and approve the private endpoint con
 
 Once your request is approved, a private IP address gets assigned from the Azure Front Door managed virtual network. Traffic between your Azure Front Door and your origin communicates using the established private link over the Microsoft backbone network. Incoming traffic to your origin is now secured when arriving at your Azure Front Door.
 
-:::image type="content" source="./media/private-link/enable-private-endpoint.png" alt-text="Screenshot of enable Private Link service checkbox from origin configuration page.":::
-
 ## Supported origins
 
 Origin support for direct private endpoint connectivity is currently limited to:

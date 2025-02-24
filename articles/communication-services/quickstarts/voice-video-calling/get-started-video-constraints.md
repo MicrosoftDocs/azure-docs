@@ -1,11 +1,11 @@
 ---
-ms.author: chengyuanlai
+ms.author: micahvivion
 title: Quickstart - Set video constraints in your calling app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to set video constraints in your existing calling app using Azure Communication Services.
 author: sloanster
 services: azure-communication-services
-ms.date: 07/13/2023
+ms.date: 02/18/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling

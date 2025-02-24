@@ -45,11 +45,7 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 2. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 **To set a Blob storage service's Cache-Control headers by using global caching rules:**
 

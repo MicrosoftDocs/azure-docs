@@ -221,6 +221,8 @@ items:
       items:
       - name: Configure lifecycle management policies
         href: lifecycle-management-policy-configure.md
+      - name: Lifecycle management performance characteristics
+        href: lifecycle-management-performance-characteristics.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
