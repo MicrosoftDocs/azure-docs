@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ms.topic:  how-to
-ms.date: 02/20/2025
+ms.date: 02/24/2025
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -124,7 +124,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
     my-afd-endpoint.<HASH>.b01.azurefd.net
     ```
 
-## Approve the private endpoint connection
+## Approve the private endpoint connection request
 
 1. Browse to the overview page for the environment named *my-environment* you created previously.
 
@@ -132,7 +132,9 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 1. You see a link for the private endpoint connection requests. For example, `1 private endpoint`. Select this link.
 
-1. In the *Private endpoint connections* page, approve each connection with the description `AFD Private Link Request`.
+1. In the *Private endpoint connections* page, approve each private endpoint connection request with the description `AFD Private Link Request`.
+
+    Azure Front Door might create multiple private endpoint connection requests. This is a known issue.
 
 ## Access your container app from Azure Front Door
 
