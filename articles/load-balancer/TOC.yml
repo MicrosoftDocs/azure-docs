@@ -121,7 +121,6 @@
       href: cross-region-overview.md
     - name: Create a global load balancer
       href: tutorial-cross-region-portal.md
-      href: tutorial-cross-region-cli.md
     - name: Deploy a global load balancer - ARM template
       href: tutorial-deploy-cross-region-load-balancer-template.md
     expanded: false
