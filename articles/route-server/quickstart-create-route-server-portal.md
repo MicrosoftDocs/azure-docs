@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 02/10/2025
+ms.date: 02/24/2025
 ms.custom: mode-ui
 ---
 
@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 In this quickstart, you learn how to create an Azure Route Server to peer with a network virtual appliance (NVA) in your virtual network using the Azure portal.
 
-:::image type="content" source="./media/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal.":::
+:::image type="content" source="./media/route-server-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal.":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
