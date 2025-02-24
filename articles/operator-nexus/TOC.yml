@@ -269,6 +269,8 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
+        - name: How to Reboot a Network Device in Azure Operator Nexus Network Fabric
+          href: howto-reboot-a-network-device.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
