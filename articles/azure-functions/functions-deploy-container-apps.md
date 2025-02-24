@@ -74,7 +74,7 @@ Use these commands to create your required Azure resources:
     az storage account create --name <STORAGE_NAME> --location eastus --resource-group AzureFunctionsContainers-rg --sku Standard_LRS --allow-blob-public-access false --allow-shared-key-access false
     ```
 
-    The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account that can only be accessed by using Micrososft Entra-authenticated identities that have been granted permissions to specific resources. 
+    The [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) command creates the storage account that can only be accessed by using Microsoft Entra-authenticated identities that have been granted permissions to specific resources. 
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
 
