@@ -15,7 +15,7 @@ This guide explains how to reboot a **Network device** in Azure Nexus Network Fa
 
 A **new POST action** has been added to the **device resource**, enabling users to trigger a reboot and monitor its success or failure using the **configuration state property**.  
 
-## Reboot modes
+## Reboot Modes
 
 ### Graceful reboot without ZTP (default mode)  
 
@@ -37,7 +37,7 @@ Use the following Azure CLI command:
 az networkfabric device reboot --network-device-name <DeviceName> --resource-group <ResourceGroupName> --reboot-type GracefulRebootWithoutZTP
 ```
 
-## Considerations  
+#### Considerations  
 
 While the device is in **maintenance mode**, the following operations are **blocked**:  
 
@@ -50,17 +50,17 @@ While the device is in **maintenance mode**, the following operations are **bloc
 Maintenance mode is **automatically removed** after the reboot is completed successfully.  
 
 
-## Ungraceful reboot without ZTP  
+### Ungraceful reboot without ZTP  
 
 An **ungraceful reboot** is a faster restart option that **does not** place the device in maintenance mode.  
 
-### How it works
+#### How it works
 
 - The device **immediately reboots** using the **last known good configuration**.
 
 - Unlike the graceful reboot, the device **remains operational** without entering maintenance mode.
 
-### Command to execute an ungraceful reboot  
+#### Command to execute an ungraceful reboot  
 
 Use the following **Azure CLI command**:  
 
@@ -70,7 +70,7 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 ```
 
-## Considerations  
+#### Considerations  
 
 - The **fabric** is still placed in **maintenance mode**, but the **device itself is not**.
 
