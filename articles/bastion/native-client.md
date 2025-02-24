@@ -27,6 +27,8 @@ If you haven't already deployed Bastion to your virtual network, you can deploy 
 1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
 
 1. Before you create the bastion host, go to the **Advanced** tab and check the box for **Native Client Support**, along with the checkboxes for any other features that you want to deploy.
+>[!NOTE]
+>[Session recording cannot be enabled](session-recording.md#before-you-begin) with Native Client Support.
 
    :::image type="content" source="./media/native-client/new-host.png" alt-text="Screenshot that shows settings for a new bastion host with Native Client Support box selected." lightbox="./media/native-client/new-host.png":::
 
