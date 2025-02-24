@@ -14,4 +14,4 @@ ms.custom: include file
 ---
 
 >[!IMPORTANT]
->The options for this procedure differ if you've registered for the [Application volume group for SAP HANA extension 1 preview](../application-volume-group-considerations.md#extension-1-requirements-considerations). Select the correct tab for your configuration. To take advantage of the feature, you must [register for extension 1](../application-volume-group-deploy-first-host.md#register-for-extension-1).
+>The options for this procedure differ if you're using [Application volume group for SAP HANA extension 1](../application-volume-group-considerations.md#extension-1-requirements-considerations). Select the correct tab for your configuration. To take advantage of the feature, you must [register for extension 1](../application-volume-group-deploy-first-host.md#register-for-extension-1).
