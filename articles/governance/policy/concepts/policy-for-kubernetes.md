@@ -614,6 +614,7 @@ CEL is enabled by default. Feature Flag is no longer needed to enable CEL. New C
 - Kubernetes 1.27+
 - Gatekeeper 3.18.2
 ##### Gatekeeper 3.18.2-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
 
 #### 1.9.1
 Security improvements.
