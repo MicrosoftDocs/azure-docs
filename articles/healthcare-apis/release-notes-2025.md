@@ -17,7 +17,7 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 
 ## February 2025
 
-**Selectable Search Parameters**: Customers can tune search parameters using the [selectable search parameters](fhir/selectable-search-parameters) capability. The capability provides a `$status` endpoint to validate the status of the search parameter. To avoid conflicts, the change now prevents updates to the search parameter status when a reindex job is in progress.
+**Selectable Search Parameters**: Customers can tune search parameters using the [selectable search parameters](./fhir/selectable-search-parameters.md) capability. The capability provides a `$status` endpoint to validate the status of the search parameter. To avoid conflicts, the change now prevents updates to the search parameter status when a reindex job is in progress.
  
 **Schema Upgrade Changes**: To improve customer experience during schema upgrades, the service now ensures that instances are initialized up to the minimum supported schema version. If a schema upgrade is in progress, the service will continue to respond while initializing the instance in parallel.
  
