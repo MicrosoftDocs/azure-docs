@@ -46,6 +46,10 @@ landingContent:
             url: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
   - title: Languages
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Supported languages in Azure Functions
+            url: supported-languages.md
       - linkListType: how-to-guide
         links:
           - text: C#
@@ -58,18 +62,16 @@ landingContent:
             url: functions-reference-powershell.md
           - text: Python
             url: functions-reference-python.md
-          - text: Rust/Go
-            url: create-first-function-vs-code-other.md
           - text: TypeScript
             url: functions-reference-node.md?tabs=typescript
+          - text: Other languages (Rust/Go)
+            url: create-first-function-vs-code-other.md
   - title: Develop functions
     linkLists:
       - linkListType: concept
         links:
           - text: Azure Functions developer guide
             url: functions-reference.md
-          - text: Supported languages in Azure Functions
-            url: supported-languages.md
           - text: Azure Functions triggers and bindings concepts
             url: functions-triggers-bindings.md
           - text: Code and test Azure Functions locally
