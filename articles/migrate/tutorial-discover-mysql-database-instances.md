@@ -222,7 +222,7 @@ After successfully setting up the appliance using the installer script, configur
 1. Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 1. On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 
-   :::image type="content" source="./media/tutorial-discover-mysql-database-instances/kubernetes-appliance-pending-actions.png" alt-text="Screenshot that show the appliance count for pending action.":::
+   :::image type="content" source="./media/tutorial-discover-mysql-database-instances/kubernetes-appliance-pending-actions.png" alt-text="Screenshot shows the appliance count for pending action.":::
 
 1. In **Overview** > **Manage** > **Appliances**, a filtered list of appliances appears with actions pending.
 1. Find the Kubernetes-based appliance that you set up and select **Credentials unavailable** status to configure the appliance.
