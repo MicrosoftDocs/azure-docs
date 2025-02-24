@@ -56,7 +56,7 @@ Build the Spring PetClinic application on your local machine by using the follow
 
 Deploy the PetClinic application to Azure Container Apps by using the following steps:
 
-1. Set environment variables by using the following commands:
+1. Set the necessary environment variables by using the following commands:
 
     ```bash
     export RESOURCE_GROUP="pet-clinic-container-apps"
@@ -65,9 +65,9 @@ Deploy the PetClinic application to Azure Container Apps by using the following 
     export CONTAINER_APP_NAME="pet-clinic"
     ```
 
-1. If you haven't done so, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
+1. If you haven't done so yet, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
-1. Build and deploy your first Spring Boot app by using the following command. The `..` indicates that you're using the Dockerfile in the parent folder.
+1. Build and deploy the Spring PetClinic app by using the following command. The `..` (dot dot) indicates that you're using the Dockerfile in the parent folder.
 
     > [!NOTE]
     > This command accomplishes the following tasks:
