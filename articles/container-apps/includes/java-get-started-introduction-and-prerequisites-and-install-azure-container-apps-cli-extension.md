@@ -8,7 +8,7 @@ ms.date: 02/18/2025
 
 You can deploy your Java application with many different options, including a local file system, a code repository, Maven, an IDE, a WAR file, a JAR file, or even directly from the source code. By the end of this tutorial, you deploy a web application that you can manage through the Azure portal. The following screenshot shows the PetClinic application deployed to Azure.
 
-:::image type="content" source="../media/java-get-started/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of the home page of the PetClinic app." lightbox="../media/java-get-started/azure-container-apps-petclinic-warfile.png":::
+:::image type="content" source="../media/java-get-started/azure-container-apps-spring-pet-clinic-home-page.png" alt-text="Screenshot of the home page of the PetClinic app." lightbox="../media/java-get-started/azure-container-apps-spring-pet-clinic-home-page.png":::
 
 ## Prerequisites
 
