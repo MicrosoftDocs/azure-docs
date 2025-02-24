@@ -17,6 +17,8 @@ Azure Container Apps can run any containerized JavaScript application in the clo
 
 ## Configuration
 
+Azure Container Apps enable you to streamline the deployment of your JavaScript applications through effective containerization including setting up environment variables, designing efficient Dockerfiles, and organizing your application's build process. 
+
 ### Environment Variables
 Environment variables are crucial for configuring your application. Use a `.env` file to manage these variables locally and ensure they're securely managed in production with a service like [Azure Key Vault](/azure/key-vault/).
 
@@ -79,8 +81,8 @@ For example:
 docker build \
   --build-arg PORT_DEFAULT=4000 \
   --build-arg ENABLE_DEBUG_DEFAULT=true \
-  -t my-custom-image:latest \
-  -f Dockerfile.base .
+  --tag my-custom-image:latest \
+  --file Dockerfile.base .
 ```
 
 In this example, the environment variables `PORT` and `ENABLE_DEBUG` are set to explicit values, instead of their default values.
@@ -235,6 +237,7 @@ Optimize your production build by including only the essential code and dependen
 
 ## Security
 
+Security considerations for JavaScript developers using Azure Container Apps includes securing environment variables (such as using Azure Key Vault), ensuring HTTPS with proper certificate management, maintaining up-to-date dependencies with regular audits, and implementing robust logging and monitoring to quickly detect and respond to threats.
 
 ### Secure environment variables
 
@@ -462,6 +465,8 @@ az monitor metrics alert create \
 Use the [Azure Container Apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecontainerapps) extension for Visual Studio Code to quickly create, edit, and deploy containerized apps directly from Visual Studio Code.
 
 ## Troubleshooting
+
+When your application runs into run time issues on Azure Container Apps, you can use logging, remote debugging, and health check alerts to find and resolve the issue. 
 
 ### Logging
 
