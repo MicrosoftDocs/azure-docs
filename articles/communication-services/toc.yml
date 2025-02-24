@@ -995,6 +995,8 @@ items:
       href: how-tos/call-automation/audio-streaming-quickstart.md
   - name: Logging and analytics
     items:
+    - name: Enable logging with Azure Monitor
+      href: concepts/analytics/enable-logging.md
     - name: Call Automation insights
       href: concepts/analytics/insights/call-automation-insights.md
     - name: Call Automation logs
@@ -1007,10 +1009,10 @@ items:
       href: concepts/analytics/insights/call-recording-insights.md
   - name: Troubleshooting and known issues
     items:
+    - name: Troubleshooting response codes
+      href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=automation
     - name: Call Automation known issues
       href: concepts/voice-video-calling/known-issues-call-automation.md
-  - name: Troubleshooting response codes
-    href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md?pivots=automation
   - name: Samples and tutorials
     items:
     - name: Secure webhook endpoints
@@ -1024,7 +1026,7 @@ items:
   - name: References
     items:
     - name: Call Automation (REST)
-      href: /rest/api/communication/callautomation/call-connection
+      href: /rest/api/communication/callautomation/operation-groups
     - name: Call Automation (JavaScript)
       href: /javascript/api/overview/azure/communication-call-automation-readme
     - name: Call Automation (.NET)
