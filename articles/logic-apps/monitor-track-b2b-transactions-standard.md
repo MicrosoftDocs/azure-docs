@@ -21,7 +21,7 @@ To make sure that business operations run smoothly, maintain compliance, and tro
 
 With a Premium-level integration account, you can set up B2B tracking for Standard workflows using Azure Data Explorer. This capability accurately tracks all B2B transactions by having Azure Data Explorer store every transaction in a cluster and database, which provide lossless tracking along with visualization and querying capabilities.
 
-For example, you get a tracking dashboard so you that can efficiently monitor, search, and analyze B2B transactions. For more detailed analysis, you can create advanced queries in your cluster database. With tracking data stored in Azure Data Explorer, you can extend Microsoft PowerBI dashboards or build custom dashboards with your data.
+For example, you get a tracking dashboard so you that can efficiently monitor, search, and analyze B2B transactions. For more detailed analysis, you can create advanced queries in your cluster database. With tracking data stored in Azure Data Explorer, you can extend Microsoft Power BI dashboards or build custom dashboards with your data.
 
 :::image type="content" source="media/monitor-track-b2b-transactions/dashboard-example-overview.png" alt-text="Screenshot shows Azure portal, Premium integration account, and B2B tracking dashboard.":::
 

@@ -12,13 +12,13 @@ ms.date: 02/28/2025
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-Azure Logic Apps includes built-in tracking that you can enable for parts of your Standard workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, this guide helps you better understand the tables that store B2B tracking data for your transctions.
+Azure Logic Apps includes built-in tracking that you can enable for parts of your Standard workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, this guide helps you better understand the tables that store B2B tracking data for your transactions.
 
 <a name="as2-table"></a>
 
 ## AS2 tracking table - AS2TrackRecords
 
-The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 tracking data. The following sample decribes the query that creates this table:
+The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 tracking data. The following sample describes the query that creates this table:
 
 ```kusto
 .create table AS2TrackRecords (
@@ -52,7 +52,7 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
 
 ## X12 tracking table – EdiTrackRecords
 
-The Azure Database Explorer table named **EdiTrackRecords** stores all X12 tracking data. The following sample decribes the query that creates this table:
+The Azure Database Explorer table named **EdiTrackRecords** stores all X12 tracking data. The following sample describes the query that creates this table:
 
 ```kusto
 .create table EdiTrackRecords (
