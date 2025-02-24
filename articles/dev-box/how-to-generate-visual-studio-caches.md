@@ -78,6 +78,7 @@ The generated caches will then be included in the [custom image](how-to-customiz
 
 ## Related content
 
-- [Download and install Visual Studio 17.8 or later](https://visualstudio.microsoft.com/vs/).
+- [Quickstart: Configure Microsoft Dev Box by using an ARM template](quickstart-configure-dev-box-arm-template.md)
+- [Download and install Visual Studio 17.8 or later](https://visualstudio.microsoft.com/vs/)
 
 We’d love to hear your feedback, input, and suggestions on Visual Studio precaching in Microsoft Dev Box via the [Developer Community](https://developercommunity.visualstudio.com/home).
