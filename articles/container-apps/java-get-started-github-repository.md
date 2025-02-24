@@ -1,6 +1,6 @@
 ---
 title: Launch your First Java Application in Azure Container Apps by Using a GitHub Repository
-description: Learn how to deploy a java project in Azure Container Apps by using a GitHub Repository.
+description: Learn how to deploy a Java project in Azure Container Apps by using a GitHub Repository.
 services: container-apps
 author: KarlErickson
 ms.service: azure-container-apps
