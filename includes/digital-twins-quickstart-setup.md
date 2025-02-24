@@ -5,7 +5,7 @@
  author: baanders
  ms.service: azure-digital-twins
  ms.topic: include
- ms.date: 5/9/2022
+ ms.date: 02/24/2022
  ms.author: baanders
  ms.custom: include file
 ---
@@ -25,9 +25,9 @@
 
 4. Select **Review + Create** to finish creating your instance.
     
-5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
+5. You see a summary page showing the details that you entered. Confirm and create the instance by selecting **Create**.
 
-This will take you to an Overview page tracking the deployment status of the instance.
+This selection takes you to an Overview page tracking the deployment status of the instance.
 
 :::image type="content" source="../articles/digital-twins/media/quickstart-azure-digital-twins-explorer/deployment-in-progress.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is in progress.":::
 
