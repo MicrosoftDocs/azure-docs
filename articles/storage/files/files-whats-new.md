@@ -34,7 +34,7 @@ When managed identities are configured for an Azure File Sync deployment, system
 -	Registered server authentication to Azure file share 
 -	Registered server authentication to Storage Sync Service
 
-Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](file-sync-managed-identities.md).
+Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
 
 #### Azure File Sync v19 release
 
