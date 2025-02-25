@@ -790,8 +790,8 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | ------------- | ----------- | ---------- | ----------- |
 > | labcenters | No | No | No |
 > | labs | **Yes** | No | No |
-> | labs / environments | **Yes** | **Yes** | No |
-> | labs / servicerunners | **Yes** | **Yes** | No |
+> | labs / environments | **Yes** |No| No |
+> | labs / servicerunners | **Yes** |No| No |
 > | labs / virtualmachines | **Yes** | No | No |
 > | schedules | **Yes** | **Yes** | No |
 
