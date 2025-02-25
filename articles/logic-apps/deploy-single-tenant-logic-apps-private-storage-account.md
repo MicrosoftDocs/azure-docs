@@ -106,7 +106,25 @@ The following errors commonly happen with a private storage account that's behin
 | Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 
-First, check out the environment variables WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE. Make sure they point to the correct storage account and the correct file share. Make sure there is no typo, and storage account and file share were not accidently deleted.
+1. In the Azure portal, make sure that the storage account and file share still exist.
+
+1. On the logic app resource menu, under **Settings**, select **Environment variables**.
+
+   1. On the **App settings** tab, find the settings named **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** and **WEBSITE_CONTENTSHARE**.
+
+   1. Check that these settings specify the correct storage account and file share, respectively. Make sure no spelling errors exist.
+
+1. On the logic app resource menu, select **Diagnose and solve problems**. Find and run the following detectors: **Logic App Down or Reporting Errors** and **Network Troubleshooter**
+
+   These detectors provide insights and suggestions for fixing the problem.
+
+The following list includes more troubleshooting actions that you can take to find the cause:
+
+> [!NOTE]
+>
+> Your logic app resource and workflows aren't running when these errors occur, 
+> so you can't use the Kudu console debugging capability in Azure for troubleshooting.
+
 
 Second, open the **Diagnose and solve problems** blade of the logic app. You can find and run these two detectors: **Logic App Down or Reporting Errors** and **Network Troubleshooter**. They will provide insights and suggest actions to fix the problem.
 
