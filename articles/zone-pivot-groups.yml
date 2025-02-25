@@ -792,6 +792,15 @@ groups:
     title: Linux
   - id: github-actions-containers-windows
     title: Windows
+    # Owner: jefmarti
+- id: app-service-bicep
+  title: App Service Bicep
+  prompt: Choose a platform
+  pivots:
+  - id: app-service-bicep-linux
+    title: Linux
+  - id: app-service-bicep-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components

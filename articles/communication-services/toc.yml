@@ -274,6 +274,10 @@ items:
       href: /java/api/overview/azure/communication-email-readme
     - name: Email (Python)
       href: /python/api/overview/azure/communication-email-readme
+    - name: Email (Azure CLI)
+      href: /cli/azure/communication/email
+    - name: Email (PowerShell)
+      href: /powershell/module/az.communication
 - name: SMS
   items:
   - name: Overview

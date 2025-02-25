@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 02/19/2025
 ms.author: kendownie
 ms.custom: ai-video-demo
 ai-usage: ai-assisted
@@ -81,7 +81,7 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key.
 
 > [!IMPORTANT]
-> Using the storage account key isn't recommended in production environments for security reasons. Use [identity-based authentication](storage-files-active-directory-overview.md) instead.
+> Connecting to a file share using the storage account key is only appropriate for admin access. Mounting the share with the Active Directory or Micosoft Entra identity of the user is preferred. See [identity-based authentication overview](storage-files-active-directory-overview.md).
 
 To get this script:
 
@@ -99,7 +99,7 @@ To get this script:
 1. Select the drive letter to mount the share to.
 1. Copy the provided script.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-script.png" alt-text="Screenshot of connect blade, copy button on script is highlighted.":::
 
 1. Paste the script into a shell on the host you'd like to mount the file share to, and run it.
 
