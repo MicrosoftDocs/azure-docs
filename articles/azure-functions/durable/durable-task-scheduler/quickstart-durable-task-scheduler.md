@@ -209,7 +209,7 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
 > [!NOTE]
-> You can also [use the Azure CLI](./develop-with-durable-task-scheduler.md&pivots=az-cli#accessing-dts-dashboard) to check orchestration details.
+> You can also [use the Azure CLI](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) to check orchestration details.
 
 ## Clean up resources
 
