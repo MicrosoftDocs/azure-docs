@@ -129,7 +129,6 @@ The following list includes more troubleshooting actions that you can take to fi
 
 
 
-Finally, you can perform some troubleshooting actions in attempt to find the cause. As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
 
 - Create an Azure virtual machine (VM) inside a different subnet within the same virtual network that's integrated with your logic app. Try to connect from the VM to the storage account.
 
