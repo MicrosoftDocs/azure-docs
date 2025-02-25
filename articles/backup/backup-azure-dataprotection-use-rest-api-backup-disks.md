@@ -2,7 +2,7 @@
 title: Back up Azure Disks using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure Disks using REST API.
 ms.topic: how-to
-ms.date: 05/27/2024
+ms.date: 02/09/2025
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
 author: jyothisuri
 ms.author: jsuri
@@ -515,3 +515,4 @@ For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

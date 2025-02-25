@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/02/2024
+ms.date: 02/05/2025
 ms.author: anfdocs
 ---
 
@@ -68,6 +68,10 @@ After deployment, volume sizes and throughput settings can be adjusted like any 
 #### Compliance and data residency
 
 Volume placement within the application volume group enables organizations to address compliance and data residency requirements by specifying the geographical location or Azure region where data should be stored. You can ensure that volumes are provisioned in compliance with regulatory mandates or organizational policies governing data sovereignty, privacy, and residency, thereby mitigating compliance risks and ensuring data governance.
+
+#### Customer managed key support
+
+Azure NetApp Files application volume group for SAP HANA extension 1 and Oracle support volume deployments with customer-managed keys, offering increased security and compliance. 
 
 #### Constrained zone resource availability
 

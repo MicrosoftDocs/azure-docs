@@ -46,6 +46,8 @@ items:
     href: updates-maintenance-schedules.md
   - name: Assessment options
     href: assessment-options.md
+  - name: Cross-subscription patching
+    href: cross-subscription-patching.md
   - name: Overview of Pre and Post Events
     href: pre-post-scripts-overview.md
   - name: Access Azure Update Manager operations data using Azure Resource Graph
@@ -92,6 +94,8 @@ items:
       href: manage-update-settings.md
     - name: Schedule updates
       href: scheduled-patching.md
+    - name: Manage cross-subscription patching
+      href: enable-cross-subscription-patching.md
     - name: Dynamic scope
       items:
       - name: Overview

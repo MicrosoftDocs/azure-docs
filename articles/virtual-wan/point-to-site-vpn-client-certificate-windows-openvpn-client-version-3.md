@@ -5,16 +5,20 @@ description: Learn how to configure VPN clients for P2S User VPN configurations 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 02/04/2025
 ms.author: cherylmc
 ---
 
 # Configure OpenVPN Connect 3.x clients for P2S User VPN certificate authentication connections - Windows
 
-If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN Connect client 3.x** and connect to your virtual network. There are some configuration differences between the [OpenVPN 2.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md) client and the OpenVPN Connect 3.x client. This article focuses on the OpenVPN Connect 3.x client.
+If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certificate authentication, you can connect to your virtual network using the OpenVPN Client. This article walks you through the steps to configure the **OpenVPN Connect client 3.x** and connect to your virtual network. There are some configuration differences between the [OpenVPN 2.x](point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md) client and the OpenVPN Connect 3.x client.
 
 > [!NOTE]
 > The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft doesn't oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and haven't been validated by OpenVPN Inc. They're intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN gateway in a User VPN point-to-site VPN setup.
+
+For other VPN client configuration articles, see the following table:
+
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## Before you begin
 

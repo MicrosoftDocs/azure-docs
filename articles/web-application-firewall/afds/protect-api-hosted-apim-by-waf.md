@@ -1,11 +1,10 @@
 ---
-title:        Protect APIs hosted in APIM using Azure Web Application Firewall with Azure Front Door
-description:  This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
-author:      sowmyam2019 # GitHub alias
-ms.author:   sowmyam # Microsoft alias
+title: Protect APIs hosted in APIM using Azure Web Application Firewall with Azure Front Door
+description: This article guides you through a process of creating an API in APIM and protects it from a web application attack using Azure Web Application Firewall integrated with Azure Front Door.
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.topic:    how-to
-ms.reviewer: vhorne
+ms.topic: how-to
 ms.date: 07/13/2023
 ---
 

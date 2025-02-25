@@ -57,7 +57,7 @@ When you deploy your polyglot applications to the Enterprise plan, assign specif
 | .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) |
 | Python | [Status of Python versions](https://devguide.python.org/versions/)                                    |
 | Go     | [Go release history](https://go.dev/doc/devel/release)                                                |
-| NodeJS | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
+| Node.js | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
 | PHP    | [PHP supported versions](https://www.php.net/supported-versions.php)                                  |
 
 ### Stack image support

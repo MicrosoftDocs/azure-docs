@@ -52,7 +52,7 @@ After connecting the eventstream, use the **Open Eventstream** button to see it 
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-#### Verify dataflow
+#### Verify data flow
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
@@ -69,9 +69,9 @@ Follow these steps to check your work so far, and make sure data is flowing into
 
 In this section, you create a KQL database in your Microsoft Fabric workspace to use as a destination for your data.
 
-1. First, create a Real-Time Intelligence eventhouse (for detailed instructions, see [Create an eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1)). When the eventhouse is created, it automatically contains a default KQL database of the same name.
+1. First, create a Real-Time Intelligence Eventhouse (for detailed instructions, see [Create an Eventhouse](/fabric/real-time-intelligence/create-eventhouse#create-an-eventhouse-1)). When the Eventhouse is created, it automatically contains a default KQL database of the same name.
 
-1. Next, create a new table in the default database in your eventhouse (for detailed instructions, see [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database)). Name it *OPCUA* and manually enter the following schema.
+1. Next, create a new table in the default database in your Eventhouse (for detailed instructions, see [Create an empty table in your KQL database](/fabric/real-time-intelligence/create-empty-table#create-an-empty-table-in-your-kql-database)). Name it *OPCUA* and manually enter the following schema.
 
     | Column name | Data type |
     | --- | --- |
@@ -89,7 +89,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Clear the sample query, and run the following KQL query to create a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight.Value"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ```
 
 ### Add eventstream data to KQL database
@@ -164,4 +164,4 @@ Now that you're finished with the quickstart experience, this section contains i
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, eventhouse, and Real-Time Dashboard. Additionally, you might want to delete the dashboard template file that you downloaded to your computer.
+You can also delete your Microsoft Fabric workspace and/or all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard. Additionally, you might want to delete the dashboard template file that you downloaded to your computer.

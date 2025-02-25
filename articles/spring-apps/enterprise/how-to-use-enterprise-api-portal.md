@@ -149,7 +149,7 @@ This section describes how to view and try out APIs with schema definitions in A
 
 1. Configure routing rules to apps.
 
-   To create rules to access the app in Spring Cloud Gateway for Tanzu route configuration, save the following contents to the *sample.json* file.
+   To create rules to access the app in Spring Cloud Gateway for Tanzu route configuration, save the following contents to the **sample.json** file.
 
    ```json
    {

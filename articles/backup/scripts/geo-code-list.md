@@ -144,14 +144,6 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="UGTR"	RegionName="USGov Arizona"	/>
 <GeoCodeRegionNameMap	GeoCode="UDCR"	RegionName="USDoD East"	/>
 <GeoCodeRegionNameMap	GeoCode="UDER"	RegionName="USDoD Central"	/>
-<GeoCodeRegionNameMap	GeoCode="RXE"	RegionName="USSec East"	/>
-<GeoCodeRegionNameMap	GeoCode="RXW"	RegionName="USSec West"	/>
-<GeoCodeRegionNameMap	GeoCode="RXER"	RegionName="USSec West"	/>
-<GeoCodeRegionNameMap	GeoCode="RXWR"	RegionName="USSec East"	/>
-<GeoCodeRegionNameMap	GeoCode="EXE"	RegionName="USNat East"	/>
-<GeoCodeRegionNameMap	GeoCode="EXW"	RegionName="USNat West"	/>
-<GeoCodeRegionNameMap	GeoCode="EXER"	RegionName="USNat West"	/>
-<GeoCodeRegionNameMap	GeoCode="EXWR"	RegionName="USNat East"	/>
 <GeoCodeRegionNameMap	GeoCode="BJB"	RegionName="China North"	/>
 <GeoCodeRegionNameMap	GeoCode="SHA"	RegionName="China East"	/>
 <GeoCodeRegionNameMap	GeoCode="BJB2"	RegionName="China North 2"	/>

@@ -20,7 +20,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure reliability overview
-            url: overview.md
+            url: overview.md          
+          - text: What's new
+            url: whats-new.md
   # Card
   - title: Reliability fundamentals
     linkLists:

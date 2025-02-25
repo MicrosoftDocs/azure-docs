@@ -13,9 +13,14 @@ adobe-target: true
 
 # Configure a Linux Python app for Azure App Service
 
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2303112)
+
 This article describes how [Azure App Service](overview.md) runs Python apps, how you can migrate existing apps to Azure, and how you can customize the behavior of App Service when you need to. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
 The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or when you deploy a [zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy).
+
+> [!NOTE]
+> Currently App Service requires `requirements.txt` in your project's root directory, even if you're using modern Python packaging tools such as `pyproject.toml`.
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Flask](tutorial-python-postgresql-app-flask.md), [Django](tutorial-python-postgresql-app-django.md), or [FastAPI](tutorial-python-postgresql-app-fastapi.md) with PostgreSQL tutorial.
 
@@ -115,7 +120,7 @@ Existing web applications can be redeployed to Azure as follows:
 
 1. **Continuous deployment**: Set up continuous deployment from GitHub Actions, Bitbucket, or Azure Repos as described in the article [Continuous deployment to Azure App Service](deploy-continuous-deployment.md). Or, set up continuous deployment from Local Git as described in the article [Local Git deployment to Azure App Service](deploy-local-git.md).
 
-1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - generate database schema](tutorial-python-postgresql-app-django.md#4-generate-database-schema).
+1. **Custom actions**: To perform actions within the App Service container that hosts your app, such as Django database migrations, you can [connect to the container through SSH](configure-linux-open-ssh-session.md). For an example of running Django database migrations, see [Tutorial: Deploy a Django web app with PostgreSQL - generate database schema](tutorial-python-postgresql-app-django.md#5-generate-database-schema).
     - When using continuous deployment, you can perform those actions using post-build commands as described earlier under [Customize build automation](#customize-build-automation).
 
 With these steps completed, you should be able to commit changes to your source repository and have those updates automatically deployed to App Service.

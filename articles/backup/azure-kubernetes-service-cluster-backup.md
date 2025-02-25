@@ -62,8 +62,6 @@ To create a backup policy:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-rules.png" alt-text="Screenshot that shows the retention settings." lightbox="./media/azure-kubernetes-service-cluster-backup/retention-rules.png":::
 
-   You can also create extra retention rules to store backups for a longer duration that are taken daily or weekly.
-
    > [!NOTE]
    >
    > - In addition to first successful backup of the day, you can define the retention rules for first successful backup of the week, month, and year. In terms of priority, the order is year, month, week, and day.
