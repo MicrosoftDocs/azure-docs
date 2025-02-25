@@ -23,7 +23,7 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons but the `<script>` tag should be added in the `<head>` tag. From selfasserted page layout version 2.1.21 / unifiedssp version 2.1.10 / multifactor version 1.2.10 onwards B2C doesn't support adding scripts in `<body>` tag (as this can pose a risk for cross site scripting attack). Migrating existing scripts from `<body>` to `<head>` may at-times require rewriting existing scripts with mutation observers for proper working.
+With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons but the `<script>` tag should be added in the `<head>` tag. From selfasserted page layout version 2.1.21 / unifiedssp version 2.1.10 / multifactor version 1.2.10 onwards B2C doesn't support adding scripts in `<body>` tag (as this can pose a risk for cross site scripting attack). 
 
 The `<script>` tag should be added in the `<head>` tag in two ways:  
 
@@ -33,12 +33,23 @@ The `<script>` tag should be added in the `<head>` tag in two ways:
 	<script src="my-script.js" defer></script>
 	```
 
-
 2. Adding `async` attribute that specifies that the script is downloaded in parallel to parsing the page, then the script is executed as soon as it is available (before parsing completes):
 
 	 ```javascript
 	<script src="my-script.js" async></script>	
 	```
+In either case, you may use inline scripts or an external script. If you wish to manipulate elements that Azure AD B2C dynamically adds to the template, you will need to use a mutation observer, as the elements will not be available when using deferred javascript execution or waiting for the  DOMContentLoaded event.
+
+```javascript
+var observer = new MutationObserver(() => {
+  var apiElement = document.getElementById('api');
+  if (apiElement) {
+    yourInitFunction(apiElement); // call your initialization here
+    observer.disconnect();
+  }
+});
+observer.observe(document, { attributes: false, childList: true, characterData: false, subtree: true });
+```
 
 To enable JavaScript and advance HTML tags and attributes:
 
