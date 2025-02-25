@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 
 > [!NOTE]
-> - A Kubernetes-based appliance is required to discover MySQL database instances. [Learn more] (migrate-appliance.md) about scenarios covered by a Windows-based appliance.
+> - A Kubernetes-based appliance is required to discover MySQL database instances. [Learn more](migrate-appliance.md) about scenarios covered by a Windows-based appliance.
 
 
 ## Supported regions
@@ -146,8 +146,8 @@ Before you execute the installer script, ensure that you have verified the follo
 **Packaged Kubernetes cluster**
 
  - Run the script after you connect to a Linux machine on its terminal that has met the networking prerequisite and OS compatibility.  
- - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
- - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
+ - Ensure that you install curl on the server. For Ubuntu, you can install it using the command </br>`sudo apt-get install curl` </br> For other OS (RHEL), you can use the command </br>  `yum install curl`.
+ - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command </br> `sudo snap install microk8s --classic --channel=1.29/stable`.</br> Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
 **Bring your own cluster**
  
