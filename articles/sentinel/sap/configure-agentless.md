@@ -37,41 +37,25 @@ A default key-value mapping file is stored at  [TBD link to GitHub](xref). Downl
 
 This section provides a reference of customizable parameters for the SAP agentless connector for Microsoft Sentinel.
 
-### offset-in-seconds
+### changedocs-object-classes
 
-Determines the offset, in seconds, for both the start and end times of a data collection window. Use this parameter to delay data collection by the configured number of seconds.
+List of object classes that are ingested from Change Docs logs.
 
-- **Allowed values:** Integer, between **1**-**600**
-- **Default value:** **60**
+- **Allowed values:** Comma separated list of object classes
+- **Default value:** BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA
 
-### ingestion-cycle-days
+### collect-audit-logs
 
-Time, in days, given to ingest the full User Master data, including all roles and users. This parameter doesn't affect the ingestion of changes to User Master data.
-
-- **Allowed values:** Integer, between **1**-**14**
-- **Default value:** **1**
-
-### force-audit-log-to-read-from-all-clients
-
-Determines whether the Audit Log is read from all clients.
-
-- **Allowed values:**
-  - **true**: Read from all clients
-  - **false**: Not read from all clients
-- **Default value:** **false**
-
-### collect-changedocs-logs
-
-Determines whether Change Docs logs are ingested or not.
+Determines whether Audit Log data is ingested or not.
 
 - **Allowed values:**
   - **true**: Ingested
   - **false**: Not ingested
 - **Default value:** **true**
 
-### collect-audit-logs
+### collect-changedocs-logs
 
-Determines whether Audit Log data is ingested or not.
+Determines whether Change Docs logs are ingested or not.
 
 - **Allowed values:**
   - **true**: Ingested
@@ -87,12 +71,28 @@ Determines whether User Master data is ingested or not.
   - **false**: Not ingested
 - **Default value:** **true**
 
-### changedocs-object-classes
+### force-audit-log-to-read-from-all-clients
 
-List of object classes that are ingested from Change Docs logs.
+Determines whether the Audit Log is read from all clients.
 
-- **Allowed values:** Comma separated list of object classes
-- **Default value:** BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA
+- **Allowed values:**
+  - **true**: Read from all clients
+  - **false**: Not read from all clients
+- **Default value:** **false**
+
+### ingestion-cycle-days
+
+Time, in days, given to ingest the full User Master data, including all roles and users. This parameter doesn't affect the ingestion of changes to User Master data.
+
+- **Allowed values:** Integer, between **1**-**14**
+- **Default value:** **1**
+
+### offset-in-seconds
+
+Determines the offset, in seconds, for both the start and end times of a data collection window. Use this parameter to delay data collection by the configured number of seconds.
+
+- **Allowed values:** Integer, between **1**-**600**
+- **Default value:** **60**
 
 
 ## Related content
