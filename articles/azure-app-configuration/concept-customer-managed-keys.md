@@ -19,11 +19,6 @@ Azure App Configuration encrypts sensitive information at rest by using a 256-bi
 > [!IMPORTANT]
 > If the identity assigned to the App Configuration instance is no longer authorized to unwrap the instance's encryption key, or if the managed key is permanently deleted, or if the managed key version in use becomes expired, then it will no longer be possible to decrypt sensitive information stored in the App Configuration instance. By using Azure Key Vault's [soft delete](/azure/key-vault/general/soft-delete-overview) function, you mitigate the chance of accidentally deleting your encryption key. By omitting key version when configuring managed key encryption and setting up [key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation) in key vault, you mitigate the possibility of the underlying managed key expiring.
 
-When users enable the customer-managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. Users can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again. Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
-
-> [!NOTE]
-> All Azure App Configuration data is stored for up to 24 hours in an isolated backup. This includes the unwrapped encryption key. This data isn't immediately available to the service or service team. In the event of an emergency restore, Azure App Configuration will revoke itself again from the managed key data.
-
 ## Requirements
 
 The following components are required to successfully enable the customer-managed key capability for Azure App Configuration:
@@ -108,9 +103,32 @@ After these resources are configured, use the following steps so that the Azure 
     The command uses system-assigned managed identity to authenticate with the key vault by default. 
 
     > [!NOTE]
-    > When using a user-assigned managed identity to access the customer managed key, you can specify its client ID explicitly by adding `--identity-client-id <client ID of your user assigned identity>` to the command.
+    > When using a user-assigned managed identity to access the customer-managed key, you can specify its client ID explicitly by adding `--identity-client-id <client ID of your user assigned identity>` to the command.
 
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
+
+## Access Revocation
+
+When users enable the customer-managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. Users can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again. Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
+
+> [!NOTE]
+> All Azure App Configuration data is stored for up to 24 hours in an isolated backup. This includes the unwrapped encryption key. This data isn't immediately available to the service or service team. In the event of an emergency restore, Azure App Configuration will revoke itself again from the managed key data.
+
+## Key Rotation
+
+When customer-managed key is configured on an App Configuration instance it is necessary to periodically rotate the managed key to ensure that it never expires. [Key vault key auto-rotation](https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation) can be configured to avoid the need to manually rotate encryption keys, and thus ensure that the latest version of a key remains valid. When relying on key vault key auto-rotation, you should ensure your App Configuration instance's managed key configuration does not reference a specific key version. Omitting the version allows App Configuration to always move to the latest version of the key vault key when an auto-rotation is performed. Failure to rotate the managed key can be considered a security concern, but additionally a lack of rotation can result in loss of access to the App Configuration instance. This is due to the fact that if the managed key version in use expires, then App Configuration will not be able to decrypt data.
+
+To recap, the following best practices are encouraged:
+
+* Enable [key vault key auto-rotation](https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation) for your managed key.
+* Omit using a specific version of a key vault key when setting up customer-managed key encryption.
+
+### Versioned vs versionless keys
+
+Setting up customer-managed key encryption requires passing an identifier of a key in key vault. A key vault key identifier may or may not contain a version. Our recommendation is to omit version when configuring customer-managed key encryption to enable auto-rotation. Using a versioned key should be considered carefully as failure to manually rotate will result in loss of access to the App Configuration instance if the key version in question expires.
+
+* Versionless key identifier example: `https://{my key vault}.vault.azure.net/keys/{key-name}`
+* Versioned key identifier example (not recommended): `https://{my key vault}.vault.azure.net/keys/{key-name}/{key-version}`
 
 ## Next Steps
 
