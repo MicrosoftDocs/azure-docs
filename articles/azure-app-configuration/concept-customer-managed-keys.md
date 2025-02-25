@@ -116,11 +116,11 @@ When users enable the customer-managed key capability on their Azure App Configu
 
 ## Key Rotation
 
-When customer-managed key is configured on an App Configuration instance it is necessary to periodically rotate the managed key to ensure that it never expires. [Key vault key auto-rotation](https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation) can be configured to avoid the need to manually rotate encryption keys, and thus ensure that the latest version of a key remains valid. When relying on key vault key auto-rotation, you should ensure your App Configuration instance's managed key configuration does not reference a specific key version. Omitting the version allows App Configuration to always move to the latest version of the key vault key when an auto-rotation is performed. Failure to rotate the managed key can be considered a security concern, but additionally a lack of rotation can result in loss of access to the App Configuration instance. This is due to the fact that if the managed key version in use expires, then App Configuration will not be able to decrypt data.
+When customer-managed key is configured on an App Configuration instance it is necessary to periodically rotate the managed key to ensure that it never expires. [Key vault key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation) can be configured to avoid the need to manually rotate encryption keys, and thus ensure that the latest version of a key remains valid. When relying on key vault key auto-rotation, you should ensure your App Configuration instance's managed key configuration does not reference a specific key version. Omitting the version allows App Configuration to always move to the latest version of the key vault key when an auto-rotation is performed. Failure to rotate the managed key can be considered a security concern, but additionally a lack of rotation can result in loss of access to the App Configuration instance. This is due to the fact that if the managed key version in use expires, then App Configuration will not be able to decrypt data.
 
 To recap, the following best practices are encouraged:
 
-* Enable [key vault key auto-rotation](https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation) for your managed key.
+* Enable [key vault key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation) for your managed key.
 * Omit using a specific version of a key vault key when setting up customer-managed key encryption.
 
 ### Versioned vs versionless keys
