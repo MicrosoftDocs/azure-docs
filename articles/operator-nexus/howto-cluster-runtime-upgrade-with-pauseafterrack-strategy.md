@@ -1,4 +1,4 @@
-
+---
 title: "Azure Operator Nexus: Runtime upgrade with PauseAfterRack strategy"
 description: Learn to execute a cluster runtime upgrade for Operator Nexus with a PauseAfterRack strategy
 author: bartpinto
@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 02/25/2025
 # ms.custom: template-include
 ---
-# Upgrading cluster runtime with a `PauseAfterRack` strategy
 
-Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. All existing thresholds will still be honored.
+# Upgrading cluster runtime with `PauseAfterRack` strategy
+
+Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. The complete list of cluster upgrade settings are discussed in  [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
 
 ## Prerequisites
 
 > [!NOTE]
-> Upgrades with the PauseAfterRack strategy is available starting API version 2024-07-01.
+> Upgrade with the PauseAfterRack strategy is available starting API version 2024-07-01.
 
 1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md).
 1. The latest `networkcloud` CLI extension is required. It can be installed following the steps listed [here](./howto-install-cli-extensions.md).
@@ -52,14 +53,14 @@ Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
       "waitTimeMinutes": 15,
    ```
 
-3. Trigger runtime bundle upgrade as usual from Azure portal / CLI. For reference [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md)
+3. Trigger runtime bundle upgrade as usual from Azure portal or CLI. See [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
 
-4. Once the control plane and management plane upgrades complete, the runtime upgrade will be paused, awaiting user action to resume the upgrade for Rack 1.
+4. Once the control plane and management plane upgrades complete, the runtime upgrade is paused, awaiting user action to start the upgrade for Rack 1.
 
 :::image type="content" source="media/runtime-upgrade-cluster-paused.png" alt-text="Screenshot showing Paused Runtime Upgrade.":::
 
 > [!NOTE]
-> This message will be available in logs for programmatic access, for more details follow [List of logs available for streaming in Azure Operator Nexus](list-logs-available.md)
+> This message is available in logs for programmatic access. For more details, follow [List of logs available for streaming in Azure Operator Nexus](list-logs-available.md)
 
 5. To resume the runtime upgrade, execute the following `az networkcloud` cli command.
 
@@ -69,7 +70,7 @@ Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
    --subscription="<SUBSCRIPTION>"
    ```
 
-6. Repeat step 5 for each rack until all racks have been upgraded to the latest runtime bundle.
+6. Repeat step 5 for each rack until all racks are upgraded to the latest runtime bundle.
 
 ## Related content
 
