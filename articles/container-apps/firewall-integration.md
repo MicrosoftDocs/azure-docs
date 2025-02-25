@@ -1,6 +1,6 @@
 ---
-title: Securing a custom VNET in Azure Container Apps
-description: Firewall settings to secure a custom VNET in Azure Container Apps
+title: Securing a virtual network in Azure Container Apps
+description: Firewall settings to secure a virtual network in Azure Container Apps
 services: container-apps
 author: CaryChai
 ms.service: azure-container-apps
@@ -9,13 +9,13 @@ ms.date: 01/09/2025
 ms.author: cachai
 ---
 
-# Securing a custom VNET in Azure Container Apps  with Network Security Groups
+# Securing a virtual network in Azure Container Apps  with Network Security Groups
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-2) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./using-azure-firewall.md) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking-configuration.md#ports-and-ip-addresses) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Control outbound traffic with user defined routes](./user-defined-routes.md).
 
 In the Consumption only environment, express routes aren't supported, and custom user-defined routes (UDRs) have limited support. For more information on the level of UDR support available in a Consumption-only environment, see the [FAQ](faq.yml#do-consumption-only-environments-support-custom-user-defined-routes-).
 

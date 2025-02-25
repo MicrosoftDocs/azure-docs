@@ -20,11 +20,11 @@ Azure creates a default route table for your virtual networks on create. By impl
 
 You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
-See the [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) in [networking in Azure Container Apps](./networking.md) for more information.
+See [configuring UDR with Azure Firewall](using-azure-firewall.md) for more information.
 
 ## Prerequisites
 
-* **Workload profiles environment**: A workload profiles environment that's integrated with a custom virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
+* **Workload profiles environment**: A workload profiles environment that's integrated with a virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles environment](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
 
 * **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
@@ -122,7 +122,7 @@ Your virtual networks in Azure have default route tables in place when you creat
 ## Configure firewall policies
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall) to determine which service tags you need.
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](using-azure-firewall.md) to determine which service tags you need.
 
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 
