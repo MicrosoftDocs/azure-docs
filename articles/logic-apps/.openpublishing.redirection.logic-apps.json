@@ -1,9 +1,14 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/monitor-b2b-messages-log-analytics.md",
+            "redirect_url": "/azure/logic-apps/monitor-track-b2b-messages-consumption",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/tracking-schemas-as2-x12-custom.md",
             "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
-            "redirect_document_id": false
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/logic-apps/install-on-premises-data-gateway.md",

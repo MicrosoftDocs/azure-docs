@@ -487,10 +487,10 @@ items:
         href: monitor-workflows-collect-diagnostic-data.md
       - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
+      - name: Monitor and track B2B messages - Consumption workflows
+        href: monitor-track-b2b-messages-consumption.md
       - name: Monitor and track B2B transactions - Standard workflows
         href: monitor-track-b2b-transactions-standard.md
-      - name: Monitor B2B messages with Azure Monitor logs - Consumption workflows
-        href: monitor-b2b-messages-log-analytics.md
       - name: Tracking schemas for B2B messages - Consumption workflows
         href: tracking-schemas-consumption.md
       - name: Tracking table schemas for B2B transactions - Standard workflows
