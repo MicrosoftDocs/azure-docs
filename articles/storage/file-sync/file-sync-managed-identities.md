@@ -92,8 +92,8 @@ If the value for the **ActiveAuthType** property is **Certificate** and the **La
 
 > [!NOTE]
 > Once a server is configured to use the system-assigned managed identity by following the steps in the following section, the **LatestApplicationId** property is no longer used (will be empty), the **ActiveAuthType** property value will be changed to **ManagedIdentity**, and the **ApplicationId** property will have a GUID which is the system-assigned managed identity.
----
 
+---
 ## Configure your Azure File Sync deployment to use system-assigned managed identities
 # [Portal](#tab/azure-portal) 
 
@@ -142,8 +142,8 @@ Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configur
 
 > [!NOTE]
 > Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
----
 
+---
 ### How to check if the Storage Sync Service is using a system-assigned managed identity
 
 # [Portal](#tab/azure-portal)  
@@ -163,7 +163,6 @@ Get-AzStorageSyncService -ResourceGroupName <string> -StorageSyncServiceName <st
 Verify the value for the **UseIdentity** property is **True**. If the value is **False**, the Storage Sync Service is using shared keys to authenticate to the Azure file shares.
 
 ---
-
 ### How to check if a registered server is configured to use a system-assigned managed identity
 
 # [Portal](#tab/azure-portal) 
@@ -184,8 +183,8 @@ Verify the **ApplicationId** property has a GUID which indicates the server is c
 
 > [!NOTE]
 > Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and Azure file shares.
----
 
+---
 ## More information
 Once the Storage Sync Service and registered server(s) are configured to use a system-assigned managed identity:
   - New endpoints (cloud or server) that are created will use a system-assigned managed identity to authenticate to the Azure file share.
