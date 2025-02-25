@@ -1,7 +1,7 @@
 ---
 title: Configure security headers with Standard/Premium Rule Set
 titleSuffix: Azure Front Door
-description: Learn how to use Azure Front Door Standard/Premium rule sets to configure security headers and prevent browser-based vulnerabilities.. 
+description: Learn how to use Azure Front Door Standard/Premium rule sets to configure security headers and prevent browser-based vulnerabilities.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
@@ -14,7 +14,7 @@ ms.author: yuajia
 
 This article shows how to implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 
-The following example shows you how to add a Content-Security-Policy header to all incoming requests that matches the path in the Route. Here, we only allow scripts from our trusted site, **https://contoso.azure-api.net** to run on our application.
+The following example shows you how to add a Content-Security-Policy header to all incoming requests that matches the path in the Route. Here, we only allow scripts from our trusted site, `https://contoso.azure-api.net` to run on our application.
 
 ## Prerequisites
 
@@ -44,11 +44,11 @@ The following example shows you how to add a Content-Security-Policy header to a
 
 ### Deleting a Rule
 
-In the preceding steps, you configured Content-Security-Policy header with Rule set. If you no longer want a rule, you can select the Rule Set name and then select Delete rule. 
+In the preceding steps, you configured Content-Security-Policy header with Rule set. If you no longer want a rule, you can select the **Rule Set** and then select **Delete rule**. 
 
 ### Deleting a Rule Set
 
-If you want to delete a Rule Set, make sure you disassociate it from all routes before deleting. For detailed guidance on deleting a rule set, see [Configure your rule set](how-to-configure-rule-set.md).
+If you want to delete a Rule Set, make sure you disassociate it from all routes before deleting. For detailed guidance on deleting a rule set, see [Configure rule sets in Azure Front Door](how-to-configure-rule-set.md).
 
 ## Next step
 
