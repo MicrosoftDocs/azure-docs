@@ -579,8 +579,8 @@ If you do not want pre-cancelled invocations to be sent to the worker, you can a
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
-> This occurs when the cancellation token is cancelled (via the events defined above), but the host did not send the invocation to the worker because the cancellation token was cancelled 
-> _before_ we send the invocation to the worker, and can be controlled by the `SendCanceledInvocationsToWorker` property.
+> This occurs when the cancellation token is cancelled (via the events defined above) _before_ the host has sent an incoming invocation
+> request to the worker.
 
 ## Bindings 
 
