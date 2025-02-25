@@ -128,7 +128,6 @@ The following list includes more troubleshooting actions that you can take to fi
 > so you can't use the Kudu console debugging capability in Azure for troubleshooting.
 
 
-Second, open the **Diagnose and solve problems** blade of the logic app. You can find and run these two detectors: **Logic App Down or Reporting Errors** and **Network Troubleshooter**. They will provide insights and suggest actions to fix the problem.
 
 Finally, you can perform some troubleshooting actions in attempt to find the cause. As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
 
