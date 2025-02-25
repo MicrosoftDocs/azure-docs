@@ -48,8 +48,8 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 Update the peer information associated with this subscription using New-AzPeerAsn:
 
 ```powershell
-$contactDetails = New-AzPeerAsnContactDetail -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
-New-AzPeerAsn -Name "Contoso_1234" -PeerName "Contoso" -PeerAsn 1234 -ContactDetail $contactDetails
+$contactDetails = New-AzPeeringAsnContactDetailObject -Role Noc -Email "noc@contoso.com" -Phone "+1 (555) 555-5555"
+New-AzPeeringAsn -Name "Contoso_1234" -PeerName "Contoso" -PeerAsn 1234 -PeerContactDetail $contactDetails
 ```
 
 > [!NOTE]
