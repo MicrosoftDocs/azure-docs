@@ -14,8 +14,11 @@ This article describes how to discover MySQL database instances running on serve
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Set up Kubernetes based appliance for discovery of MySQL database instances
-> - Configure the appliance and initiate continuous discovery 
+> - [Set up Kubernetes based appliance for discovery of MySQL database instances](#set-up-kubernetes-based-appliance)
+> - [Encryption at rest](#encryption-at-rest)
+> - [Configure the appliance and initiate continuous discovery](#configure-kubernetes-based-appliance)
+> - [Clean up of setup](#clean-up-of-setup)
+> - [Overview of Discovery results](#overview-of-discovery-results)
 
 
 > [!NOTE]
@@ -42,14 +45,14 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- Before you begin to discover MySQL database instances, use the relevant tutorial to create an Azure Migrate project as per your requirements in one of the [supported regions](#supported-regions):
+- Before you begin to discover MySQL database instances, use the below tutorials to create an Azure Migrate project as per your requirements in one of the [supported regions](#supported-regions):
 
    - [Discover servers running in a VMware environment](tutorial-discover-vmware.md)
    - [Discover servers running in Hyper-V environment](tutorial-discover-hyper-v.md)
    - [Discover physical servers](tutorial-discover-physical.md)
    - [Discover AWS instances](tutorial-discover-aws.md)
    - [Discover GCP instances](tutorial-discover-gcp.md)
-   - 
+   
 - After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
 - Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
 
@@ -142,7 +145,7 @@ Before you execute the installer script, ensure that you have verified the follo
 
 **Packaged Kubernetes cluster**
 
- - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking prerequisite and OS compatibility.  
+ - Run the script after you connect to a Linux machine on its terminal that has met the networking prerequisite and OS compatibility.  
  - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
  - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
@@ -152,7 +155,7 @@ Before you execute the installer script, ensure that you have verified the follo
  - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command </br> `sudo apt-get install curl` </br> and for other OS (RHEL), you can use the command </br> `yum install curl`
 
 > [!Important]
-> Don't edit the script before you execute it. You can only edit the script when want to [clean up the setup](#clean-up-of-setup).
+> Don't edit the script before you execute it. You can only edit the script when you want to [clean up the setup](#clean-up-of-setup).
 
 After you save the script on the Linux server, follow these steps:
 

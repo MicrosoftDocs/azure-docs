@@ -42,8 +42,8 @@ MySQL assessments are performed on the **performance-based** sizing criteria, ma
 
 You can assess your on-premises MySQL instances using the configuration and utilization data collected by lightweight Azure Migrate appliances, which discover the instances and databases and send the data to the Azure Migrate service.
 
-1. Deploy the Azure Migrate appliances to discover the MySQL instances: [Refer this tutorial](tutorial-discover-mysql-database-instances.md) to deploy the Azure Migrate appliances and discover the MySQL instances that you want to assess.
-1. Create a MySQL assessment: Refer this [tutorial](create-mysql-assessment.md) to create a new assessment and review the reports.
+1. Deploy the Azure Migrate appliances to discover the MySQL instances: See this [tutorial](tutorial-discover-mysql-database-instances.md) to deploy the Azure Migrate appliances and discover the MySQL instances that you want to assess.
+1. Create a MySQL assessment: See this [tutorial](create-mysql-assessment.md) to create a new assessment and review the reports.
 
 ## Properties to create and customize a MySQL assessment
 
@@ -73,12 +73,12 @@ The Azure Database for MySQL assessment properties includes:
 
 | **Setting** | **Details**
 | --- | ---
-| **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. Azure Migrate recommends the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> Select *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> Select *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
+| **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report, we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
 
 
 ## Performance data calculation for MySQL instances
 
-The appliance collects performance data for compute settings with these steps:
+The appliance collects the following performance data for compute settings: 
 
 - The appliance collects a real-time sample point. For MySQL instances, it collects a sample point every 30 seconds.
 - The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max and means for each counter to Azure.
@@ -133,7 +133,7 @@ Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL
 ## Confidence ratings
 
 Each MySQL assessment is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
--  The rating is based on the availability of data points that are needed to compute the assessment.
+-  The rating is based on the availability of data points that are required to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the MySQL instances and databases, which include:
   - CPU utilization (%)
   -	Memory utilization (%)
