@@ -169,7 +169,7 @@ docker run \
   --env PORT=4000 \
   --env ENABLE_DEBUG=true \
   --publish 4000:4000 \
-  --publish 9229:9229 
+  --publish 9229:9229 \
   <IMAGE>:<TAG>
 ```
 
