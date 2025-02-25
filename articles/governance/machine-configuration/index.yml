@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Machine Configuration documentation
+title: Azure Machine Configuration documentation hello world
 summary: >-
   Azure Machine Configuration (formerly called Azure Policy Guest Configuration)
   provides native capability to audit or configure operating system settings as code, both for
