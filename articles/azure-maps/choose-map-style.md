@@ -84,7 +84,7 @@ map.setStyle({ style: 'satellite' });
 ----------------------------------------------------------------------------------------------->
 
 ## Customize the base map
-The base map can be customized with the `styleOverrides` option. To see all available options, see [styleOverrides].
+For more information on all available options, see [styleOverrides].
 
 The following code shows how to disable country/region borders and building footprints on the map.
 
@@ -99,7 +99,7 @@ var map = new atlas.Map('map', {
 });
 ```
 
-Here are the effects of all five available `styleOverrides` options:
+Here are examples of all five available `styleOverrides` options:
 
 1. Country/region borders
    
@@ -147,9 +147,9 @@ styleOverrides: {
 :::image type="content" source="./media/choose-map-style/road-details.gif" alt-text="Road details":::
 
 > [!NOTE]
-> For the supported map styles on each `styleOverrides` option, please read [styleOverrides] API documentation for more details.
+> For more information on the supported map styles on each `styleOverrides` option, see the [styleOverrides] API documentation.
 
-For a fully functional sample that shows how the different styles affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For the source code for this sample, see [Map style options source code].
+For a sample showing the different styles and how they affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For this samples source code, see [Map style options source code].
 
 ## Add the style picker control
 
