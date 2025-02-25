@@ -8,9 +8,9 @@ ms.date: 02/24/2025
 
 # Code and test Azure Functions locally
 
-While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. When you use Functions, using your favorite code editor and development tools to create and test functions on your local computer becomes easier. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
+Whenever possible, you should create and validate your Azure Functions code project in a local development environment. Azure Functions Core Tools provides a local runtime version of Azure Functions that integrates with popular development tools for an integrated development, debugging, and deployments. Your local functions can even connect to live Azure services.
 
-This article provides some shared guidance for local development, such as working with the [local.settings.json file](#local-settings-file). It also links development environment-specific guidance.
+This article provides some shared guidance for local development, such as working with the [local.settings.json file](#local-settings-file). It also links to development environment-specific guidance.
 
 >[!TIP]  
 >You can find detailed information about how to develop functions locally in the linked IDE-specific guidance articles.    
@@ -67,8 +67,6 @@ These local development environments support function development in your chosen
 | [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./create-first-function-cli-python.md).|
 
 ::: zone-end
-
-[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
 Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
 
