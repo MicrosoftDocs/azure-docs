@@ -138,9 +138,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 
 ## Access your container app from Azure Front Door
 
-Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image.
-
-    It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
+Browse to the AFD endpoint hostname you recorded previously. You see the output for the quickstart container app image. It takes a few minutes for your AFD profile to be deployed globally, so if you do not see the expected output at first, wait a few minutes and then refresh.
 
 ## Clean up resources
 
