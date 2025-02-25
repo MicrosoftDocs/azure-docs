@@ -93,7 +93,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
 
 1. Go to the **Monitoring** tab and select the circuit(s) for which you want to enable alerts. This action will automatically set up the recommended alert rules for your new ExpressRoute circuit(s).
 
-:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/configure-circuit-alerts.png" alt-text="Screenshot of alert rules configured for ExpressRoute circuit.":::
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/configure-circuit-alerts.png" alt-text="Screenshot of alert rules configured for ExpressRoute circuit.":::
 
 1. Select **Review + create** and then select **Create** to deploy the ExpressRoute circuit.
 
