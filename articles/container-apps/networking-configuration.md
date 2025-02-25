@@ -2,11 +2,11 @@
 title: Networking configuration in Azure Container Apps environment
 description: Learn how to configure networking in Azure Container Apps.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 10/03/2024
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Networking configuration in Azure Container Apps environment

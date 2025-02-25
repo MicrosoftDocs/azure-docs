@@ -2,11 +2,11 @@
 title: Using Azure Firewall with Azure Container Apps
 description: Learn about securing Azure Container Apps using Azure Firewall.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
 ms.date: 10/03/2024
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Integrating with Azure Firewall

@@ -136,7 +136,7 @@ In order to connect to your container apps through a private endpoint, you must 
 
 | Service | subresource | Private DNS zone name |
 |--|--|--|
-| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | private link.{regionName}.azurecontainerapps.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
 
 You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
 

@@ -2,11 +2,11 @@
 title: Securing a virtual network in Azure Container Apps
 description: Firewall settings to secure a virtual network in Azure Container Apps
 services: container-apps
-author: CaryChai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  reference
 ms.date: 01/09/2025
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Securing a virtual network in Azure Container Apps  with Network Security Groups

@@ -2,9 +2,9 @@
 title: Container Apps outbound traffic control with Azure Firewall
 description: Use Azure Firewall to route outbound traffic from Container Apps to the internet, private IP addresses, and Azure services.
 services: container-apps
-author: cachai2
+author: craigshoemaker
 ms.service: azure-container-apps
-ms.author: cachai
+ms.author: cshoe
 ms.topic: article
 ms.date: 08/29/2023
 ---
@@ -122,7 +122,7 @@ Your virtual networks in Azure have default route tables in place when you creat
 ## Configure firewall policies
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDN's and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](using-azure-firewall.md) to determine which service tags you need.
+> When using UDR with Azure Firewall in Azure Container Apps, you will need to add certain FQDNs and service tags to the allowlist for the firewall. Please refer to [configuring UDR with Azure Firewall](using-azure-firewall.md) to determine which service tags you need.
 
 Now, all outbound traffic from your container app is routed to the firewall. Currently, the firewall still allows all outbound traffic through. In order to manage what outbound traffic is allowed or denied, you need to configure firewall policies.
 

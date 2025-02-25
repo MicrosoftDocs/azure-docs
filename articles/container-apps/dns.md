@@ -2,11 +2,11 @@
 title: Configure a DNS for virtual networks in Azure Container Apps environments
 description: Learn how to configure DNS for virtual networks in Azure Container Apps.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 10/03/2024
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # DNS for virtual networks in Azure Container Apps environments

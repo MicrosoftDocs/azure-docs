@@ -2,11 +2,11 @@
 title: Configuring virtual networks Azure Container Apps environments
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
-author: cachai
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 11/21/2023
-ms.author: cachai
+ms.author: cshoe
 ---
 
 # Virtual network configuration
@@ -67,7 +67,7 @@ Different environment types have different subnet requirements:
     | /26 | 52 | 26 | 260 |
     | /27 | 20 | 10 | 100 |
 
-    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
     <sup>2</sup> This is accounting for apps in single revision mode. 
 
 # [Consumption-only environment](#tab/consumption-only-env)
