@@ -322,7 +322,7 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
         - For `storageType`, use `AzureFile` for SMB, or `NfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
         - For `storageName`, use the name of the storage you defined in the environment.
         - The `mountOptions` is a comma-separated string of mount options. For more information see [Use mountOptions settings in Azure Files](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files).
-        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](manage-secrets#secrets-volume-mounts).
+        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](./manage-secrets.md#secrets-volume-mounts).
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
@@ -582,7 +582,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
         - For `storageType`, use `AzureFile` for SMB, or `NfsAzureFile` for NFS. This value must match the storage type you defined in the environment.
         - For `storageName`, use the name of the storage you defined in the environment.
         - The `mountOptions` is a comma-separated string of mount options. For more information see [Use mountOptions settings in Azure Files](/troubleshoot/azure/azure-kubernetes/storage/mountoptions-settings-azure-files).
-        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](manage-secrets#secrets-volume-mounts).
+        - The `secrets` list is a list of secrets to mount in the volume. For more information see [Mounting secrets in a volume](./manage-secrets.md#secrets-volume-mounts).
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
