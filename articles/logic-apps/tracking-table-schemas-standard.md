@@ -18,7 +18,7 @@ Azure Logic Apps includes built-in tracking that you can enable for parts of you
 
 ## AS2 tracking table - AS2TrackRecords
 
-The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 tracking data. The following sample describes the query that creates this table:
+The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 tracking data. The following sample describes the query that creates this table and the required order for specifying the table columns:
 
 ```kusto
 .create table AS2TrackRecords (
@@ -31,19 +31,19 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
    EventTime: datetime, // Time of the event.
    Error: dynamic, // Error, if any.
    RecordType: string, // Type of tracking record.
-   Direction: string, // Message flow direction, which is either 'receive' or 'send'.
-   IsMessageFailed: bool, // Whether the message failed.
+   Direction: string, // Message flow direction, which is either 'send' or 'receive'.
+   IsMessageFailed: bool, // Whether the AS2 message failed.
    MessageProperties: dynamic, // Message properties.
    AdditionalProperties: dynamic, // Additional properties.
    TrackingId: string, // Custom tracking ID, if any.
-   AgreementName: string, // Name for the agreement that resolves the messages.
+   AgreementName: string, // Name for the AS2 agreement that resolves the messages.
    As2From: string, // Name for the AS2 message sender in the AS2 message headers.
    As2To: string, // Name for the AS2 message receiver in the AS2 headers.
    ReceiverPartnerName: string, // Partner name for the AS2 message receiver.
    SenderPartnerName: string, // Partner name for the AS2 message sender.
    MessageId: string, // AS2 message ID in the AS2 message headers.
    OriginalMessageId: string,// Original AS2 message ID.
-   CorrelationMessageId: string, // AS2 message ID used to correlate messages with Message Disposition Notifications (MDNs).
+   CorrelationMessageId: string, // Message ID for correlating AS2 messages with Message Disposition Notifications (MDNs).
    IsMdnExpected: bool // Whether to use the default value, if unknown.
 )
 ```
@@ -52,7 +52,7 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
 
 ## X12 tracking table – EdiTrackRecords
 
-The Azure Database Explorer table named **EdiTrackRecords** stores all X12 tracking data. The following sample describes the query that creates this table:
+The Azure Database Explorer table named **EdiTrackRecords** stores all X12 tracking data. The following sample describes the query that creates this table and the required order for specifying the table columns:
 
 ```kusto
 .create table EdiTrackRecords (
@@ -72,14 +72,14 @@ The Azure Database Explorer table named **EdiTrackRecords** stores all X12 track
    TrackingId: string, // Custom tracking ID, if any.
    AgreementName: string, // Name for the agreement that resolves the messages.
    SenderPartnerName: string, // Partner name for the message sender.
-   ReceiverPartnerName: string, // Partner name for the message receiver.
-   SenderQualifier: string, // Qualifier for the partner message sender.
-   SenderIdentifier: string, // Identifier for the partner message sender.
-   ReceiverQualifier: string, // Qualifier for the partner message receiver.
-   ReceiverIdentifier: string, // Identiifer for the partner message receiver.
+   ReceiverPartnerName: string, // Partner name for the X12 message receiver.
+   SenderQualifier: string, // Qualifier for the partner X12 message sender.
+   SenderIdentifier: string, // Identifier for the partner X12 message sender.
+   ReceiverQualifier: string, // Qualifier for the partner X12 message receiver.
+   ReceiverIdentifier: string, // Identiifer for the partner X12 message receiver.
    TransactionSetControlNumber: string, // Control number for the transaction set.
-   FunctionalGroupControlNumber: string, // Control number for the functional group of the functional acknowledgment.
-   InterchangeControlNumber: string, // Control number for the interchange of the functional acknowledgment.
+   FunctionalGroupControlNumber: string, // Functional group control number for the functional acknowledgment.
+   InterchangeControlNumber: string, // Interchange control number for the functional acknowledgment.
    MessageType: string, // Transaction set or document type.
    RespondingTransactionSetControlNumber: string, // Control number for the responding transaction set, in case of acknowledgment.
    RespondingFunctionalGroupControlNumber: string, // Control number for the responding functional group, in case of acknowledgment.
@@ -90,4 +90,4 @@ The Azure Database Explorer table named **EdiTrackRecords** stores all X12 track
 
 ## Related content
 
-- [Monitor and track B2B transactions - Standard workflows](monitor-track-b2b-transactions.md)
+- [Monitor and track B2B transactions - Standard workflows](monitor-track-b2b-transactions-standard.md)

@@ -45,8 +45,14 @@ For more information about the resource types for Azure Logic Apps, see [Azure L
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account.
 
-- To monitor an automated business-to-business (B2B) messaging workflow in Azure Logic Apps, see [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
-- For a reference guide to the syntax and attributes for the tracking schemas, see [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md).
+- To monitor a Consumption workflow that handles business-to-business (B2B) messages in Azure Logic Apps, see [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
+
+- To monitor a Standard workflow that handles business-to-business (B2B) messages in Azure Logic Apps, see [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md).
+
+- For a reference guide to the syntax and attributes for the tracking schemas, see the following documentation:
+
+  - [Tracking schemas for B2B messages in Consumption workflows](tracking-schemas-as2-x12-custom.md)
+  - [Tracking table schemas for B2B transactions in Standard workflows](tracking-table-schemas-standard.md)
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
