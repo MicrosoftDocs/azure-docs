@@ -58,7 +58,7 @@ To integrate with Qualys VM KnowledgeBase (using Azure Functions) make sure you 
 ## Vendor installation instructions
 
 
-> [NOTE]
+> [!NOTE]
 > This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias QualysVM Knowledgebase and load the function code, on the second line of the query, enter the hostname(s) of your QualysVM Knowledgebase device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
@@ -81,7 +81,7 @@ To integrate with Qualys VM KnowledgeBase (using Azure Functions) make sure you 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Before deploying the Qualys KB connector, have the Workspace ID and Workspace Primary Key (can be copied from the following), as well as the Qualys API username and password, readily available.
 
 
