@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/tracking-schemas-as2-x12-custom.md",
+            "redirect_url": "/azure/logic-apps/tracking-schemas-consumption",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/install-on-premises-data-gateway.md",
             "redirect_url": "/data-integration/gateway/service-gateway-install",
             "redirect_document_id": false

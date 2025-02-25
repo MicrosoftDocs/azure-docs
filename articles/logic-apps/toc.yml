@@ -492,7 +492,7 @@ items:
       - name: Monitor B2B messages with Azure Monitor logs - Consumption workflows
         href: monitor-b2b-messages-log-analytics.md
       - name: Tracking schemas for B2B messages - Consumption workflows
-        href: tracking-schemas-as2-x12-custom.md
+        href: tracking-schemas-consumption.md
       - name: Tracking table schemas for B2B transactions - Standard workflows
         href: tracking-table-schemas-standard.md
       - name: Create monitoring and tracking queries
