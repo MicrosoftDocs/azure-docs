@@ -35,11 +35,17 @@ AZURE_COSMOS_DB_ENDPOINT=https://<YOUR_COSMOSDB_RESOURCE_NAME>.documents.azure.c
 
 A well-configured Dockerfile is essential for containerizing your application:
 * **Use a base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
-* **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
+
+* **Parameterization of build arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
+
 * **Optimized Node.js base image**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead.
-* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
+
+* **Copy only essentials files**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
+
 * **Separate build and runtime with multi-stage builds**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
+
 * **Prebuild artifacts by compiling and bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile also optimizes caching and rebuild times.
+
 * **Docker Compose for development environments**: Docker Compose allows you to define and run multi-container Docker applications, which is useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services when necessary.
 
 ### Base Dockerfile
