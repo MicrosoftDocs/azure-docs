@@ -46,13 +46,14 @@ To integrate with Garrison ULTRA Remote Logs (using Azure Functions) make sure y
 
 Deployment - Azure Resource Manager (ARM) Template
 
-These steps outline the automated deployment of the Garrison ULTRA Remote Logs data connector using an ARM Tempate.
+These steps outline the automated deployment of the Garrison ULTRA Remote Logs data connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Frefs%2Fheads%2Fmaster%2FSolutions%2FGarrison%2520ULTRA%2FData%2520Connectors%2FGarrisonULTRARemoteLogs%2Fazuredeploy_DataCollectionResources.json) 			
 2. Provide the required details such as Resource Group, Microsoft Sentinel Workspace and ingestion configurations 
-> **NOTE:** It is recommended to create a new Resource Group for deployment of these resources.
+> [!NOTE]
+> It is recommended to create a new Resource Group for deployment of these resources.
 3. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
 4. Click **Purchase** to deploy.
 
