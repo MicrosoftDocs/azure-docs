@@ -164,6 +164,7 @@ To check if the Storage Sync Service is using a system-assigned managed identity
 Get-AzStorageSyncService -ResourceGroupName <string> -StorageSyncServiceName <string>
 ```
 Verify the value for the **UseIdentity** property is **True**. If the value is **False**, the Storage Sync Service is using shared keys to authenticate to the Azure file shares.
+---
 
 ### How to check if a registered server is configured to use a system-assigned managed identity
 
