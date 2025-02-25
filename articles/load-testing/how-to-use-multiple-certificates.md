@@ -95,6 +95,6 @@ Review all configurations to ensure correctness. Click **Create Test** to finali
    
 ## Related content
 
-* [Use a Managed Identity in Azure Load Testing](./how-to-use-a-managed-identity)
+* [Use a Managed Identity in Azure Load Testing](./how-to-use-a-managed-identity.md)
 
-* [Use Secrets and Certificates in Azure Load Testing](./how-to-use-secrets-and-certificates)
+* [Use Secrets and Certificates in Azure Load Testing](./how-to-use-secrets-and-certificates.md)
