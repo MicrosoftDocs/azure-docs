@@ -2,8 +2,8 @@
 title: 'Quickstart: Build your first static web app'
 description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
-author: craigshoemaker
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ms.date: 09/18/2024
 ms.topic: quickstart
 ms.service: azure-static-web-apps
