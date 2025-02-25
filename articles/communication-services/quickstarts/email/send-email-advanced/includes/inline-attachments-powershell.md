@@ -62,7 +62,7 @@ $emailAttachment = @(
         ContentInBase64 = $fileBytes
         ContentType = "<image/png>"
         Name = "<inline-attachment.png>"
-        contentId = "<inline-attachment>"
+        contentId = "<contentId>"
     }
 )
 
@@ -71,7 +71,7 @@ $message = @{
     RecipientTo = @($emailRecipientTo)  # Array of email address objects
     SenderAddress = '<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>'
     Attachment = @($emailAttachment) # Array of attachments
-    ContentHtml = "<html><head><title>Enter title</title></head><body><img src='cid:<inline-attachment>' alt='Company Logo'/><h1>This is the first email from ACS - Azure PowerShell</h1></body></html>"
+    ContentHtml = "<html><head><title>Enter title</title></head><body><img src='cid:<contentId>' alt='Company Logo'/><h1>This is the first email from ACS - Azure PowerShell</h1></body></html>"
     ContentPlainText = "This is the first email from ACS - Azure PowerShell"
 }
 ```
@@ -84,7 +84,7 @@ Make these replacements in the code:
 - Replace `<image file path>` with the actual file paths of the attachments you want to send.
 - Replace `<image/png>` with the appropriate content types for your attachments.
 - Replace `<inline-attachment.png>` with the filenames of your attachments.
-- Replace `<inline-attachment>` with the Content-ID for your inline attachment.
+- Replace `<contentId>` with the Content-ID for your inline attachment.
 
 Queues an email message to be sent to one or more inline attachments.
 
@@ -109,19 +109,19 @@ $emailAttachment = @(
         ContentInBase64 = $fileBytes1
         ContentType = "<image/png>"
         Name = "<inline-attachment1.png>"
-        contentId = "<inline-attachment1>"
+        contentId = "<contentId1>"
     },
     @{
         ContentInBase64 = $fileBytes2
         ContentType = "<image/png>"
         Name = "<inline-attachment2.png>"
-        contentId = "<inline-attachment2>"
+        contentId = "<contentId2>"
     },
     @{
         ContentInBase64 = $fileBytes3
         ContentType = "<image/png>"
         Name = "<inline-attachment3.png>"
-        contentId = "<inline-attachment3>"
+        contentId = "<contentId3>"
     }
 )
 
@@ -130,7 +130,7 @@ $message = @{
     RecipientTo = @($emailRecipientTo)  # Array of email address objects
     SenderAddress = '<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>'
     Attachment = @($emailAttachment) # Array of attachments
-    ContentHtml = "<html><head><title>Enter title</title></head><body><img src='cid:<inline-attachment1>' alt='Company Logo'/><img src='cid:<inline-attachment2>' alt='Company Logo'/><img src='cid:<inline-attachment3>' alt='Company Logo'/><h1>This is the first email from ACS - Azure PowerShell</h1></body></html>"
+    ContentHtml = "<html><head><title>Enter title</title></head><body><img src='cid:<contentId1>' alt='Company Logo'/><img src='cid:<contentId2>' alt='Company Logo'/><img src='cid:<contentId3>' alt='Company Logo'/><h1>This is the first email from ACS - Azure PowerShell</h1></body></html>"
     ContentPlainText = "This is the first email from ACS - Azure PowerShell"
 }
 ```
@@ -142,7 +142,7 @@ Make these replacements in the code:
 - Replace `<image file path1>` `<image file path2>` `<image file path3>` with the actual file paths of the attachments you want to send.
 - Replace `<image/png>` with the appropriate content types for your attachments.
 - Replace `<inline-attachment1.png>` `<inline-attachment2.png>` `<inline-attachment3.png>` with the filenames of your attachments.
-- Replace `<inline-attachment1>` `<inline-attachment2>` `<inline-attachment3>` with the Content-ID for your inline attachment.
+- Replace `<contentId1>` `<contentId2>` `<contentId3>` with the Content-ID for your inline attachment.
 
 ### Optional parameters
 
