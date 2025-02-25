@@ -82,6 +82,7 @@ To check if your registered servers have a system-assigned managed identity, per
 Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
 
 In the Registered Servers section, click the **Ready to use Managed ID** tile. This tile displays a list of servers that have a system-assigned managed identity. If your server is not listed, perform the steps to [Enable a system-assigned managed identity on your registered servers]( #enable-a-system-assigned-managed-identity-on-your-registered-servers).  
+
 # [PowerShell](#tab/azure-powershell) 
 To check if your registered servers have a system-assigned managed identity, run the following PowerShell command:
 
