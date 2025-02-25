@@ -25,22 +25,26 @@ Validate the ExpressRoute circuit(s) for correct connectivity (CircuitID)(AuthID
 
 ## VM SKU update for Network Fabric Controller  
 
-New deployments of Network Fabric Controller will utilize the new VM SKU.  
+With the latest update, all new NFC Cluster deployments will use the `Standard_D8s_v3` virtual machine SKU instead of `Standard_Ds4_v2`. 
+This change is required due to the limited availability of `Standard_Ds4_v2` in several Azure regions.
+
+> [!Note]
+> Existing NFC Clusters will continue to run on `Standard_Ds4_v2`.
 
 ### Minimum vCPU requirement
 
-The new VM SKU requires a minimum of **120 vCPUs** to ensure optimal performance and resource availability.  
+The new VM SKU 'DSv3' requires a minimum of **120 vCPUs** to ensure optimal performance and resource availability.  
 
 ### Checking VM Quota for the new SKU
 
-To check if your subscription has sufficient vCPU quota for the new SKU, follow these steps:  
+To check if your subscription has sufficient vCPU quota for the new SKU 'DSv3', follow these steps:  
 
 1. **Azure Portal**:  
    - Navigate to **Azure Portal** → **Subscriptions**  
 
    - Go to **Usage + quotas**  
    
-   - Search for the required VM SKU  
+   - Search for the required VM SKU 'DSv3' 
    
    - Check the **Total Quota** and **Current Usage**  
 
