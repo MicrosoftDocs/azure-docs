@@ -231,3 +231,5 @@ When you run your load test, Azure Load Testing retrieves the client certificate
 ## Related content
 
 * Learn more about [how to parameterize a load test](./how-to-parameterize-load-tests.md).
+
+* Learn more about [using multiple certificates in a load test](./how-to-use-multiple-certificates.md).
