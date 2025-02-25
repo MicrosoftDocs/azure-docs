@@ -198,7 +198,7 @@ For more information, see [Tracking table schemas for B2B transactions - Standar
 
 You can use the Azure Logic Apps REST API to programmatically create, update, delete, and retrieve your tracking store.
 
-## Create or update a tracking store
+### Create or update a tracking store
 
 Create a tracking store or update an existing one.
 
