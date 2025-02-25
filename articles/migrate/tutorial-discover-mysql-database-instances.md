@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 
 > [!NOTE]
-> - A Kubernetes-based appliance is required to discover MySQL database instances. [Learn more].(migrate-appliance.md) about scenarios covered by a Windows-based appliance.
+> - A Kubernetes-based appliance is required to discover MySQL database instances [Learn more].(migrate-appliance.md) about scenarios covered by a Windows-based appliance.
 > - This tutorial shows you the quickest path for trying out a scenario. They use default options where possible.
 
 
@@ -94,10 +94,10 @@ After you have performed server discovery and software inventory using the Azure
 
    1. You can select a Key Vault from the drop-down or **Create new** Key Vault. This Key Vault is used to process the credentials provided in the project to start discovery of MySQL database instances.
 
-    > [!Note]
-    > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When you create/select a Key Vault, ensure that purge protection is disabled else there will be issues in processing of credentials through the Key Vault.
+   > [!Note]
+   > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When you create/select a Key Vault, ensure that purge protection is disabled else there will be issues in processing of credentials through the Key Vault.
 
-   ---
+    ---
 
 1.	After you provide the appliance name and Key Vault, select **Generate script** to generate an installer script that you can download or copy the script and save it as Deploy.sh on a Linux server on-premises.
 
