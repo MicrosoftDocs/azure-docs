@@ -1,8 +1,8 @@
 ---
-title: Authentication and Authorization
-description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
+title: Authentication and Authorization in Azure App Service and Azure Functions
+description: Learn about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 09/27/2024
 ms.reviewer: mahender
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
@@ -13,17 +13,17 @@ ms.author: cephalin
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-Azure App Service provides built-in authentication and authorization capabilities (sometimes called *Easy Auth*), so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, mobile back end, and [functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
+Azure App Service provides built-in authentication (signing in users) and authorization (providing access to secure data) capabilities. These capabilities are sometimes called *Easy Auth*. You can use them to sign in users and access data by writing minimal or no code in your web app, RESTful API, mobile back end, and [functions](../azure-functions/functions-overview.md).
+
+This article describes how App Service helps simplify authentication and authorization for your app.
 
 ## Reasons to use built-in authentication
 
-You're not required to use the built-in authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities.
-
-However, implementing a secure solution for authentication (signing in users) and authorization (providing access to secure data) can take significant effort. You need to follow industry best practices and standards. You also need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
+To implement authentication and authorization, you can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication and authorization can take significant effort. You need to follow industry best practices and standards. You also need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
 The built-in capabilities of App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, so you can focus on the rest of your application.
 
-With Azure App Service, you can integrate a variety of authentication capabilities into your web app or API without implementing them yourself. This feature is built directly into the platform and doesn't require any particular language, SDK, security expertise, or even any code. You can integrate it with multiple login providers, such as Microsoft Entra, Facebook, Google, and X.
+With App Service, you can integrate a variety of authentication capabilities into your web app or API without implementing them yourself. This feature is built directly into the platform and doesn't require any particular language, SDK, security expertise, or even any code. You can integrate it with multiple login providers, such as Microsoft Entra, Facebook, Google, and X.
 
 Your app might need to support more complex scenarios, such as Visual Studio integration or incremental consent. Several authentication solutions are available to support these scenarios. To learn more, read [Authentication scenarios and recommendations](identity-scenarios.md).
 
@@ -33,12 +33,12 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 
 | Provider | Sign-in endpoint | How-to guidance |
 | - | - | - |
-| [Microsoft Entra](/entra/index) | `/.auth/login/aad` | [App Service Microsoft Entra platform login](configure-authentication-provider-aad.md) |
+| [Microsoft Entra](/entra/index) | `/.auth/login/aad` | [App Service Microsoft Entra platform sign-in](configure-authentication-provider-aad.md) |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google sign-in](configure-authentication-provider-google.md) |
 | [X](https://developer.x.com/en/docs/basics/authentication) | `/.auth/login/x` | [App Service X login](configure-authentication-provider-twitter.md) |
-| [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) | `/.auth/login/github` | [App Service GitHub login](configure-authentication-provider-github.md) |
-| [Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service sign-in with Apple login (preview)](configure-authentication-provider-apple.md) |
+| [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) | `/.auth/login/github` | [App Service GitHub sign-in](configure-authentication-provider-github.md) |
+| [Apple](https://developer.apple.com/sign-in-with-apple/) | `/.auth/login/apple` | [App Service sign-in via Apple sign-in (preview)](configure-authentication-provider-apple.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [App Service OpenID Connect sign-in](configure-authentication-provider-openid-connect.md) |
 
 When you configure this feature with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
@@ -78,7 +78,7 @@ The authentication and authorization module runs as a native [IIS module](/iis/g
 
 #### Feature architecture on Linux and containers
 
-The authentication and authorization module runs in a separate container, isolated from your application code. By using the [Ambassador pattern](/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it doesn't run in-process, no direct integration with specific language frameworks is possible. However, the relevant information that your app needs is passed through via request headers.
+The authentication and authorization module runs in a separate container that's isolated from your application code. By using the [Ambassador pattern](/azure/architecture/patterns/ambassador), the module interacts with the incoming traffic to perform similar functionality as on Windows. Because it doesn't run in process, no direct integration with specific language frameworks is possible. However, the relevant information that your app needs is passed through via request headers.
 
 ### Authentication flow
 
@@ -100,7 +100,7 @@ The following table shows the steps of the authentication flow.
 | 1. Sign in the user | Provider redirects the client to `/.auth/login/<provider>`. | Client code signs in the user directly with the provider's SDK and receives an authentication token. For more information, see the provider's documentation. |
 | 2. Conduct post-authentication | Provider redirects the client to `/.auth/login/<provider>/callback`. | Client code [posts the token from the provider](configure-authentication-customize-sign-in-out.md#client-directed-sign-in) to `/.auth/login/<provider>` for validation. |
 | 3. Establish an authenticated session | App Service adds an authenticated cookie to the response. | App Service returns its own authentication token to the client code. |
-| 4. Serve authenticated content | Client includes an authentication cookie in subsequent requests (automatically handled by browser). | Client code presents the authentication token in the `X-ZUMO-AUTH` header. |
+| 4. Serve authenticated content | Client includes an authentication cookie in subsequent requests (automatically handled by the browser). | Client code presents the authentication token in the `X-ZUMO-AUTH` header. |
 
 For client browsers, App Service can automatically direct all unauthenticated users to `/.auth/login/<provider>`. You can also present users with one or more `/.auth/login/<provider>` links to sign in to your app by using their provider of choice.
 
@@ -144,7 +144,7 @@ If your application code needs to access data from these providers on the user's
 - Post to the authenticated user's Facebook timeline.
 - Read the user's corporate data by using the Microsoft Graph API.
 
-But with the token store, you just [retrieve the tokens](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](configure-authentication-oauth-tokens.md#refresh-auth-tokens) when they become invalid.
+With the token store, you just [retrieve the tokens](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](configure-authentication-oauth-tokens.md#refresh-auth-tokens) when they become invalid.
 
 The ID tokens, access tokens, and refresh tokens are cached for the authenticated session. Only the associated user can access them.
 
@@ -156,20 +156,20 @@ If you [enable application logging](troubleshoot-diagnostic-logs.md), authentica
 
 If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module might have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
-### Cross-site request forgery mitigation
+### Mitigation of cross-site request forgery
 
-App Service authentication mitigates CSRF by inspecting client requests for the following conditions:
+App Service authentication mitigates cross-site request forgery by inspecting client requests for the following conditions:
 
-- It's a `POST` request that authenticated using a session cookie.
-- The request came from a known browser (as determined by the HTTP `User-Agent` header).
+- It's a `POST` request that authenticated through a session cookie.
+- The request came from a known browser, as determined by the HTTP `User-Agent` header.
 - The HTTP `Origin` or HTTP `Referer` header is missing or is not in the configured list of approved external domains for redirection.
-- The HTTP `Origin` header is missing or is not in the configured list of CORS origins.
+- The HTTP `Origin` header is missing or is not in the configured list of cross-origin resource sharing (CORS) origins.
 
-When a request fulfills all these conditions, App Service authentication automatically rejects it. You can workaround this mitigation logic by adding your external domain to the redirect list to **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**.
+When a request fulfills all these conditions, App Service authentication automatically rejects it. You can work around this mitigation logic by adding your external domain to the redirect list in **Authentication** > **Edit authentication settings** > **Allowed external redirect URLs**.
 
 ## Considerations for using Azure Front Door
 
-When you're using Azure App Service with authentication behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
+When you're using Azure App Service with authentication behind Azure Front Door or other reverse proxies, consider the following actions.
 
 ### Disable Azure Front Door caching
 
@@ -177,15 +177,15 @@ Disable [Azure Front Door caching](../frontdoor/front-door-caching.md) for the a
 
 ### Use the Azure Front Door endpoint for redirects
 
-App Service is usually not accessible directly when exposed via Azure Front Door. This can be prevented, for example, by exposing App Service via Private Link in Azure Front Door Premium. To prevent the authentication workflow to redirect traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
+App Service is usually not accessible directly when it's exposed via Azure Front Door. You can prevent this behavior, for example, by exposing App Service via Azure Private Link in Azure Front Door Premium. To prevent the authentication workflow from redirecting traffic back to App Service directly, it's important to configure the application to redirect back to `https://<front-door-endpoint>/.auth/login/<provider>/callback`.
 
 ### Ensure that App Service is using the right redirect URI
 
-In some configurations, App Service is using the App Service FQDN as the redirect URI instead of the Azure Front Door FQDN. This configuration causes a problem when the client is being redirected to App Service instead of Azure Front Door. To change it, set `forwardProxy` to `Standard` to make App Service respect the `X-Forwarded-Host` header set by Azure Front Door.
+In some configurations, App Service uses its fully qualified domain name (FQDN) as the redirect URI, instead of the Azure Front Door FQDN. This configuration causes a problem when the client is redirected to App Service instead of Azure Front Door. To change it, set `forwardProxy` to `Standard` to make App Service respect the `X-Forwarded-Host` header that Azure Front Door set.
 
-Other reverse proxies like Azure Application Gateway or 3rd-party products might use different headers and need a different forwardProxy setting.
+Other reverse proxies, like Azure Application Gateway or non-Microsoft products, might use different headers and need a different `forwardProxy` setting.
 
-This configuration cannot be done via the Azure portal today and needs to be done via `az rest`.
+You can't change the `forwardProxy` configuration via the Azure portal. You need to use `az rest`.
 
 #### Export settings
 
@@ -203,7 +203,7 @@ Search for:
 }
 ```
 
-Ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` header used by Azure Front Door.
+Ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` header that Azure Front Door uses.
 
 #### Import settings
 
@@ -211,14 +211,17 @@ Ensure that `convention` is set to `Standard` to respect the `X-Forwarded-Host` 
 
 ## Related content
 
-- [How-To: Configure your App Service or Azure Functions app to use Microsoft Entra login](configure-authentication-provider-aad.md)
-- [Customize sign-ins and sign-outs](configure-authentication-customize-sign-in-out.md)
-- [Work with OAuth tokens and sessions](configure-authentication-oauth-tokens.md)
-- [Access user and application claims](configure-authentication-user-identities.md)
-- [File-based configuration](configure-authentication-file-based.md)
+For more information about App Service authentication, see:
 
-Samples:
-- [Tutorial: Add authentication to your web app running on Azure App Service](scenario-secure-app-authentication-app-service.md)
-- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows or Linux)](tutorial-auth-aad.md)
-- [.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-- [Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+- [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md)
+- [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md)
+- [Work with OAuth tokens in Azure App Service authentication](configure-authentication-oauth-tokens.md)
+- [Work with user identities in Azure App Service authentication](configure-authentication-user-identities.md)
+- [File-based configuration in Azure App Service authentication](configure-authentication-file-based.md)
+
+For samples, see:
+
+- [Quickstart: Add app authentication to your web app running on Azure App Service](scenario-secure-app-authentication-app-service.md)
+- [Tutorial: Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md)
+- [.NET Core integration of Azure AppService Easy Auth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) (non-Microsoft GitHub content)
+- [Getting Azure App Service authentication working with .NET Core](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication) (non-Microsoft GitHub content)
