@@ -18,7 +18,7 @@ Azure Load Testing supports the use of multiple certificates for secure communic
 ## Prerequisites
 Before you begin, ensure the following:
 - You have an [Azure Key Vault](https://jmeter-plugins.org/wiki/PluginsManager/) instance set up to store secrets.
-- You have the ]Managed Identity (MI)] (./how-to-use-a-managed-identity) of your Azure Load Testing resource configured.
+- You have the [Managed Identity (MI)](./how-to-use-a-managed-identity) of your Azure Load Testing resource configured.
 - You have created a [Java KeyStore (JKS)](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) file containing all required certificates. 
 - You have stored the JKS password as a secret in Azure Key Vault.
 
@@ -48,7 +48,7 @@ Before you begin, ensure the following:
 When your test runs, the managed identity associated with your load testing resource can now read the secret for your load test from your Key Vault.
 Now that you've added a secret in Azure Key Vault and configured a secret for your load test, move to use secrets in Apache JMeter.
 
-### Step 3: Use keystore xonfiguration and JSR223 PreProcessor
+### Step 3: Use keystore configuration and JSR223 PreProcessor
 **Keystore configuration**
 
 1. In your JMeter script, add the **Keystore Configuration** element to manage SSL certificates.
