@@ -103,7 +103,7 @@ The following errors commonly happen with a private storage account that's behin
 | Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\\home\\site\\wwwroot\\host.json' is denied."` |
 | Unable to connect to file share | `"System.Private.CoreLib: The network path was not found: 'C:\home\data\Functions\secrets\Sentinels'."` |
 | Unable to authenticate to file share | `"System.Private.CoreLib: The user name or password is incorrect: 'C:\home\data\Functions\secrets\Sentinels'."` |
-| Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."`|
+| Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 
 First, check out the environment variables WEBSITE_CONTENTAZUREFILECONNECTIONSTRING and WEBSITE_CONTENTSHARE. Make sure they point to the correct storage account and the correct file share. Make sure there is no typo, and storage account and file share were not accidently deleted.
