@@ -54,4 +54,4 @@ This option supports exporting only ARM JSON templates. It retrieves an exact co
 
 * Learn how to export ARM JSON templates with [Azure CLI](../templates/export-template-cli.md), [Azure PowerShell](../templates/export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 * Learn the [Bicep file structure and syntax](./file.md).
-* Learn how to [decompile ARM JSON tempaltes to Bicep](./decompile.md).
+* Learn how to [decompile ARM JSON templates to Bicep](./decompile.md).
