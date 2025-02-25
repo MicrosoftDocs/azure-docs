@@ -24,7 +24,7 @@ Consider the following support scenarios when you back up Azure Database for Pos
 - Vaulted backup restores are only available as **Restore to Files** in user specified storage containers. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 - Backups for the PostgreSQL server are supported when the Backup Vault is in the same or a different subscription as the database, provided they are within the same tenant and region. Restores are supported across regions (Azure Paired) and across subscriptions within the same tenant.
 - For vaulted backups, entire server is backed up with all databases. Backup of specific databases isn't supported.
-- Recommended server size limit for vaulted backup operation is **1 TB**. Triggering backup on server size exceeding 1 TB might fail.
+- Recommended limit for the maximum server size is **1 TB**. While backups can be attempted on server size exceeding 1 TB, which aren't officially supported, and the success of vaulted backups for such server can't be guaranteed.
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
 - Private endpoint-enabled Azure Database for PostgreSQL - Flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
