@@ -146,6 +146,7 @@ Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configur
 
 > [!NOTE]
 > Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
+---
 
 ### How to check if the Storage Sync Service is using a system-assigned managed identity
 
