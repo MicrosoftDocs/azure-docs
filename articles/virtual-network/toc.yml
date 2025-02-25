@@ -1,4 +1,5 @@
-VNet- name: Virtual Network documentation
+VNet
+- name: Virtual Network documentation
   href: index.yml
 - name: Overview
   items:
