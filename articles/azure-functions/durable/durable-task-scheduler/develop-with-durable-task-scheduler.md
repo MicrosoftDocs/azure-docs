@@ -246,7 +246,7 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 
 ## Configure identity-based authentication for app to access DTS
 
-DTS *only* supports identity-based authentication, either **user-assigned** or **system-assigned** managed identity. However, user-assigned identities are recommended, as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
+DTS *only* supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is de-provisioned.
 
 The following sections demonstrate how to configure identity resources for your Durable Functions app to access a scheduler and its task hubs. 
 

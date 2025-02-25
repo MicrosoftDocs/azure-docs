@@ -112,7 +112,7 @@ Add connection information for local development:
 
 ## Set up DTS emulator 
 
-1. Pull the docker image containing the emulator 
+1. Pull the docker image containing the emulator. 
 
    ```bash
    docker pull <tag>
@@ -121,7 +121,7 @@ Add connection information for local development:
    - **For M-series macs,** use tag: [TODO]
    - **For Windows and other AMD 64 machines,** use tag: [TODO]
 
-1. Run the emulator
+1. Run the emulator.
 
    ```bash
    docker run -itP <tag>
@@ -134,13 +134,13 @@ Add connection information for local development:
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
-1. Update the connection string in *local.settings.json*. In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`
+1. Update the connection string in *local.settings.json*. In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
 
 ## Test locally 
 
 1. Start [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite).
 
-1. Go to the root directory of your app and run the application:
+1. Go to the root directory of your app and run the application.
 
    ```sh
    func start
@@ -186,7 +186,7 @@ Add connection information for local development:
 
 ### Create required resources
 
-Create a DTS instance and Azure Functions app on Azure following the Function app integrated creation flow. 
+Create a DTS instance and Azure Functions app on Azure following the *Function app integrated creation flow*. 
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
@@ -209,7 +209,7 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
 > [!NOTE]
-> You can also use the Azure CLI to check orchestration details.
+> You can also [use the Azure CLI](./develop-with-durable-task-scheduler.md&pivots=az-cli#accessing-dts-dashboard) to check orchestration details.
 
 ## Clean up resources
 
