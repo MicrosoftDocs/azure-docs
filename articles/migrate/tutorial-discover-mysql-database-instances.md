@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 
 > [!NOTE]
-> - A Kubernetes-based appliance is required to discover MySQL database instances [Learn more].(migrate-appliance.md) about scenarios covered by a Windows-based appliance.
+> - A Kubernetes-based appliance is required to discover MySQL database instances. [Learn more] (migrate-appliance.md) about scenarios covered by a Windows-based appliance.
 > - This tutorial shows you the quickest path for trying out a scenario. They use default options where possible.
 
 
@@ -58,7 +58,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 
 ## Set up Kubernetes-based appliance
 
-After you have performed server discovery and software inventory using the Azure Migrate appliance, follow these steps to enable discovery of MySQL database instances by setting up a Kubernetes appliance:
+After you performed the server discovery and software inventory using the Azure Migrate appliance, follow these steps to enable discovery of MySQL database instances by setting up a Kubernetes appliance:
 
 ### Onboard Kubernetes-based appliance
 
@@ -112,7 +112,7 @@ After you have performed server discovery and software inventory using the Azure
 
 ### Connect using an outbound proxy server
 
-If your machine is behind an outbound proxy server, requests must be routed via the outbound proxy server. Follow these steps to provide proxy settings:
+If your machine is behind an outbound proxy server, requests must be routed via the outbound proxy server. To provide proxy settings, follow these steps:
 
 1. Open the terminal on the server and execute the following command to set up environment variables as a root user: `sudo su -`
 1. On the deployment machine, set the environment variables needed for `deploy.sh` to use the outbound proxy server:
