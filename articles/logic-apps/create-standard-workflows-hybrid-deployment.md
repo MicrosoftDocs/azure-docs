@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/28/2024
+ms.date: 02/28/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -29,12 +29,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 - Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
 
-- The following capabilities currently aren't available in this preview release:
-
-  - Managed identity authentication
-  - SAP access through the SAP built-in connector
-  - C# custom code with .NET Framework and the built-in action named **Call local function in this logic app**
-  - XSLT 1.0 for custom code
+- Managed identity authentication for managed API connectors currently isn't available in this preview release.
 
   Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
 

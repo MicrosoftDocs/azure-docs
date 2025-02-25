@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 02/28/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -53,7 +53,9 @@ With the hybrid option, you're responsible for the following items:
 - Your SQL Server license
 - A billing charge of $0.18 USD per vCPU/hour to support Standard logic app workloads
 
-In this billing model, you pay only for what you need and scale resources for dynamic workloads without having to buy for peak usage. For workflows that use Azure-hosted connector operations, such as Microsoft Teams or Microsoft Office 365, [existing Standard (single-tenant) pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing) applies to these operation executions.
+In this billing model, you pay only for what you need and scale resources for dynamic workloads without having to buy for peak usage. The CPU allocation that you select at logic app creation affects your billing rate.
+
+For workflows that use Azure-hosted connector operations, such as Microsoft Teams or Microsoft Office 365, see [existing Standard (single-tenant) pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing), which applies to these operation executions.
 
 ## Limitations
 
