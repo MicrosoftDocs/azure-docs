@@ -15,31 +15,31 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Database for P
 
 ## Supported regions
 
-Azure Database for PostgreSQL - Flexible server backup is now available in all public regions.
+Azure Database for PostgreSQL - Flexible server backup is generally available in the following regions: East Asia, Central India, Southeast Asia, UK South, and UK West. However, this feature is currently in preview for other regions.
 
 ## Support scenarios
 
 Consider the following support scenarios when you back up Azure Database for PostgreSQL – Flexible Server:
 
-- PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to rebuild the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
-
+- Vaulted backup restores are only available as **Restore to Files** in user specified storage containers. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 - Backups for the PostgreSQL server are supported when the Backup Vault is in the same or a different subscription as the database, provided they are within the same tenant and region. Restores are supported across regions (Azure Paired) and across subscriptions within the same tenant.
-
-- Recommended limit for the maximum server size is 4 TB.  
-
+- For vaulted backups, entire server is backed up with all databases. Backup of specific databases isn't supported.
+- Recommended server size limit for vaulted backup operation is **1 TB**. Triggering backup on server size exceeding 1 TB might fail.
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
-
-- Private endpoint-enabled Azure PostgreSQL flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
-
-- Backups for PGSQLFlex will exclude databases owned by `azuresu` or `azure_pg_admin`, including the native `postgres` database. As a result, databases with these owners cannot be backed up or restored. 
-
+- Private endpoint-enabled Azure Database for PostgreSQL - Flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
+- Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
 
 ## Limitation
 
 Azure Database for PostgreSQL – Flexible Server backups include the following limitations:
 
-- Restoring backups directly to the flexible server isn't supported.
-- Backing up individual databases isn't supported; only the entire server can be backed up.
+- Vaulted backup doesn't support storage in archive tier.
+- Vaulted backup isn't supported on replicas; backup can be configured only on primary servers.
+- For restore operation, item level recovery (recovery of specific databases) isn't supported.
+- Weekly backups are supported for only one day in the week on which backup is initiated.
+- Vaulted backups don't support tables containing a row with **BYTEA length exceeding 500 MB**.
+
+
 
 ## Next steps
 
