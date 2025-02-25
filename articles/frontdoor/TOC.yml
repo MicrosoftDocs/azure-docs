@@ -127,7 +127,7 @@
           - name: Configure HTTPS on a custom domain
             href: front-door-custom-domain-https.md
           - name: Add a root or apex domain
-            href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
+            href: standard-premium/how-to-add-security-headers.md
     - name: Rules engine
       items:
       - name: Overview
@@ -138,6 +138,8 @@
         href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
       - name: Configure a rule set
         href: standard-premium/how-to-configure-rule-set.md
+      - name: Configure security headers
+        href: front-door-security-headers.md?pivots=front-door-standard-premium
       - name: Server variables
         href: rule-set-server-variables.md
       - name: URL rewrite
