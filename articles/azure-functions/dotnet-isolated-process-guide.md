@@ -575,7 +575,7 @@ If you do not want pre-cancelled invocations to be sent to the worker, you can a
 ```
 
 > [!IMPORTANT]
-> Warning: Setting `SendCanceledInvocationsToWorker` to `false` may lead to a `FunctionInvocationCanceled` exception with the following log: 
+> Setting `SendCanceledInvocationsToWorker` to `false` may lead to a `FunctionInvocationCanceled` exception with the following log: 
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
