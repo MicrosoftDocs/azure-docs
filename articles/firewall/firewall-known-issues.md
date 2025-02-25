@@ -22,7 +22,7 @@ For Azure Firewall limitations, see [Azure subscription and service limits, quot
 > 
 > | Zones | Restrictions | Recommendation |
 > | -- | -- | -- |
-> |**Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia. </br></br>- If you stop an existing Azure Firewall that is deployed in this zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
+> |- **Physical zone 2** in **_North Europe_** </br>- **Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia or zone 2 in North Europe. </br></br>- If you stop an existing Azure Firewall that is deployed in these zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
 
 ## Azure Firewall Standard
 

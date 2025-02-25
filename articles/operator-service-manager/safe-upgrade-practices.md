@@ -38,7 +38,7 @@ For each NfApp, the reput update request supports increasing a helm chart versio
 * NFApps which are only in the new NFDV are installed.
 * NFApps deployed, but not referenced by the new NFDV, are deleted.
   
-To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm tests, the rollbackOnTestFailure parameter us honored. With rollbackOnTestFailure/true, the failed chart is rolled back. With rollbackOnTestFailure/false, no rollback is executed.
+To ensure outcomes, NfApp testing is supported using helm, either helm upgrade pre/post tests, or standalone helm tests. For pre/post tests failures, the atomic parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For more information on standalone helm testing, see the following article: [Run tests after install or upgrade](safe-upgrades-helm-test.md)
 
 ## Considerations for in-service upgrades
 Azure Operator Service Manager generally supports in service upgrades, an upgrade method which advances a deployment version without interrupting the running service. Some considerations are necessary to ensure the proper behavior of AOSM during ISSU operations. 
@@ -307,19 +307,19 @@ The NF ARM template is used by operator to submit the roleOverrideValues variabl
 ```
 
 ## Skip NfApps which have no change
-The SkipUpgrade feature is designed to optimize the time taken for CNF upgrades. When the publisher enables this flag in the `RoleOverrideValues` under `UpgradeOptions`, the AOSM service layer performs certain prechecks, to determine whether an upgrade for a specific `NFApplication` can be skipped. If all precheck criteria are met, the upgrade is skipped for that application. Otherwise, an upgrade is executed at the cluster level.
+The `skipUpgrade` feature is designed to optimize the time taken for CNF upgrades. When the publisher enables this flag in the `roleOverrideValues` under `upgradeOptions`, the AOSM service layer performs certain prechecks, to determine whether an upgrade for a specific `nFApplication` can be skipped. If all precheck criteria are met, the upgrade is skipped for that application. Otherwise, an upgrade is executed at the cluster level.
 
 ### Precheck Criteria
 An upgrade can be skipped if all the following conditions are met:
-1. The `NFApplication` provisioning state is Succeeded.
+1. The `nfApplication` provisioning state is Succeeded.
 2. There is no change in the Helm chart name or version.
 3. There is no change in the Helm values.
 
-### Enabling or Disabling the SkipUpgrade Feature
-The SkipUpgrade feature is **disabled by default**. If this optional parameter is not specified in `RoleOverrideValues` under `UpgradeOptions`, CNF upgrades proceed in the traditional manner, where the `NFApplications` are upgraded at the cluster level.
+### Enabling or disabling the skipUpgrade feature
+The `skipUpgrade` feature is **disabled by default**. If this optional parameter is not specified in `roleOverrideValues` under `upgradeOptions`, CNF upgrades proceed in the traditional manner, where the `nfApplications` are upgraded at the cluster level.
 
-#### Enabling SkipUpgrade withing Network Function Resource
-To enable the SkipUpgrade feature via `RoleOverrideValues`, refer to the following example.
+#### Enabling SkipUpgrade within Network Function Resource
+To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the following example.
 
 ```json
 {
