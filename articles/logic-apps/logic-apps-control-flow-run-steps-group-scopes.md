@@ -243,8 +243,7 @@ the scope's status is equal to "Failed" or "Aborted".
    
       `actions('Scope')?['status']`
 
-      ![image](https://github.com/user-attachments/assets/a87d2ee7-0b06-48a6-b374-aa10a8c5a1b0)
-
+      ![Screenshot shows Expression editor with result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    
