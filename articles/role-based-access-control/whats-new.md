@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 02/18/2025
+ms.date: 02/26/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| February 2025 | Limits | Updates to [Azure RBAC limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). |
 | February 2025 | Security | Added instructions for how to detect elevate access events using Microsoft Sentinel. See [Detect elevate access events using Microsoft Sentinel](elevate-access-global-admin.md#detect-elevate-access-events-using-microsoft-sentinel). |
 | February 2025 | Permissions | Updated list of permissions for the Azure Container Registry. See [Microsoft.ContainerRegistry](permissions/containers.md#microsoftcontainerregistry). |
 | February 2025 | Roles | Added [Locks Contributor](built-in-roles/security.md#locks-contributor) role. |
