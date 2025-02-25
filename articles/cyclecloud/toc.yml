@@ -223,11 +223,11 @@
     - name: Microsoft HPC Pack
       href: hpcpack.md
   - name: Log Locations
-    href: log_locations.md
+    href: log-locations.md
   - name: Events
     href: events.md
   - name: Error Messages
-    href: error_messages.md
+    href: error-messages.md
 - name: Resources
   items:
   - name: Get Azure CycleCloud

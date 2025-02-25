@@ -11,7 +11,7 @@ ms.custom: compute-evergreen
 
 CycleCloud is not a scheduler, but rather a platform that enables users to deploy their own scheduler on Azure, to manage and distribute jobs into a cluster of nodes. Additionally, CycleCloud provides a REST API and a Python library for developing autoscaling adapters for schedulers, enabling these managed clusters to size up or down according to the length of job queues and governance policies.
 
-![Orchestration Diagram](../images/concept_orchestration_diagram.png)
+![Orchestration Diagram](../images/concept-orchestration-diagram.png)
 
 ## Schedulers
 

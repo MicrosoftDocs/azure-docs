@@ -14,7 +14,7 @@ CycleCloud clusters can be monitored by customizing alerts and notifications. Ad
 
 A log of all Azure CycleCloud activity can be found in the Event Log, which is located in the sidebar:
 
-![Event Log](~/articles/cyclecloud/images/event_log.png)
+![Event Log](~/articles/cyclecloud/images/event-log.png)
 
 You can search the log for a specific event or keyword with the search bar located in the upper right corner. The log can also be changed to show information based on three parameters:
 

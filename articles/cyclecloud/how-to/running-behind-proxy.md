@@ -14,7 +14,7 @@ Azure CycleCloud can be configured to use a proxy for all internet-bound HTTP an
 
 To enable proxies, go into the CycleCloud GUI and navigate to the **Settings** tab from the left frame, then double click on the **HTTP(s) Proxies** row. In the configuration dialog that pops up, verify that **Enabled** is checked and enter the proxy details in the form.
 
-![Proxy Settings window](~/articles/cyclecloud/images/proxy_settings.png)
+![Proxy Settings window](~/articles/cyclecloud/images/proxy-settings.png)
 
 Changes to the proxy settings will not take effect until after a restart. To restart CycleCloud, run the following command:
 

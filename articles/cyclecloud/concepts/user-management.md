@@ -16,7 +16,7 @@ For more information on managing cluster users, please refer to [Cluster User Ac
 
 The user management page in CycleCloud can be accessed through the **Settings** link on the sidebar.  The **Users** tab will display a list of all users. Click on the **Create** button to add a new user.
 
-![Create User Dialog](~/articles/cyclecloud/images/create_user_dialog.png)
+![Create User Dialog](~/articles/cyclecloud/images/create-user-dialog.png)
 
 A dialog will appear for adding a new user account. Select the **Password Reset** box to force the user to change their password on first login.
 
@@ -58,7 +58,7 @@ Each user in a group may also be assigned the `Group Node Admin` or `Group Node 
 
 While viewing a cluster, select the **Access** button to see a list of every user with permissions to the cluster.
 
-![Cluster Access Dialog](~/articles/cyclecloud/images/cluster_access_dialog.png)
+![Cluster Access Dialog](~/articles/cyclecloud/images/cluster-access-dialog.png)
 
 This dialog shows a comprehensive list of every CycleCloud user with access to the cluster. By default, the owner is the user who created the cluster and has full permission to manage and log in to all nodes with administrator (sudo) privileges. Shared permissions grant explicit access to only the current cluster and may be modified by selecting each row. To share permissions with a new user, use the **Add User** button at the bottom of the list and select the permissions to share.
 

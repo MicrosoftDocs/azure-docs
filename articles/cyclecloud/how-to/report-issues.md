@@ -11,7 +11,7 @@ The process of creating and managing a cluster is inherently very complex. While
 
 When an anticipated issue (such as failure to acquire a resource due to misconfiguration) arises, a recommendation instructs users how to remedy it. But even when unanticipated errors occur, CycleCloud includes relevant context to aid in troubleshooting.
 
-> See [common error messages in CycleCloud](../error_messages.md).
+> See [common error messages in CycleCloud](../error-messages.md).
 
 In most cases, users should be able to troubleshoot and address the issues by themselves. However, a reporting mechanism allows users to file a support request with Azure CycleCloud.
 
