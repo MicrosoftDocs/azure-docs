@@ -9,15 +9,15 @@ author: lilyjma
 
 1. Navigate to the Function app creation blade and select **App Service** as a hosting option.
 
-   :::image type="content" source="media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
 1. In the **Create Function App (App Service)** blade, fill in the information in the **Basics** tab. 
 
-   :::image type="content" source="media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
 
 1. After filling out other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as the backend provider for your Durable Functions. Note that in addition to a scheduler resource, a task hub will be created.
 
-   :::image type="content" source="media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
 
    > [!NOTE]
    > It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
@@ -26,6 +26,6 @@ author: lilyjma
    - The RBAC assigned to it (*Durable Task Data Contributor*) 
    - The assignment scope (on the task hub level):
 
-   :::image type="content" source="media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 
 1. Click **Create** once validation passes. 
