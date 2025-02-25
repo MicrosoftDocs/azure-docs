@@ -75,9 +75,9 @@ To enable a system-assigned managed identity on a registered server that has the
 # [Portal](#tab/azure-portal) 
 To check if your registered servers have a system-assigned managed identity, perform the following steps using the portal:  
 
-Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
 
-In the Registered Servers section, click the **Ready to use Managed ID** tile. This tile displays a list of servers that have a system-assigned managed identity. If your server is not listed, perform the steps to [Enable a system-assigned managed identity on your registered servers]( #enable-a-system-assigned-managed-identity-on-your-registered-servers).  
+2. In the Registered Servers section, click the **Ready to use Managed ID** tile. This tile displays a list of servers that have a system-assigned managed identity. If your server is not listed, perform the steps to [Enable a system-assigned managed identity on your registered servers]( #enable-a-system-assigned-managed-identity-on-your-registered-servers).  
 
 # [PowerShell](#tab/azure-powershell) 
 To check if your registered servers have a system-assigned managed identity, run the following PowerShell command:
@@ -99,9 +99,9 @@ If the value for the **ActiveAuthType** property is **Certificate** and the **La
 
 To configure the Storage Sync Service and registered servers to use system-assigned managed identities, perform the following steps in the portal: 
 
-Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
 
-Click “”Turn on Managed identity” to begin setup. 
+2. Click **Turn on Managed identity** to begin setup. 
 
 The following steps are performed and will take several minutes (or longer for large topologies) to complete: 
 
@@ -118,7 +118,6 @@ The following steps are performed and will take several minutes (or longer for l
 - Configures registered server(s) to use system-assigned managed identity.  
 
 > [!NOTE] 
-
 > Once the registered server(s) are configured to use a system-assigned managed identity, it can take up to one hour before the server uses the system-assigned managed identity to authenticate to the Storage Sync Service and file shares.
 
 
@@ -150,9 +149,9 @@ Use the **Set-AzStorageSyncServiceIdentity** cmdlet anytime you need to configur
 
 To check if the Storage Sync Service is using a system-assigned managed identity, perform the following steps in the portal: 
 
-Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
 
-In the Registered Servers section, if you have at least one server listed in the **Using Managed ID” tile, your service is configured to use managed identities.  
+2. In the Registered Servers section, if you have at least one server listed in the **Using Managed ID** tile, your service is configured to use managed identities.  
 
 # [PowerShell](#tab/azure-powershell) 
 To check if the Storage Sync Service is using a system-assigned managed identity, run the following command from an elevated PowerShell window:
@@ -169,9 +168,9 @@ Verify the value for the **UseIdentity** property is **True**. If the value is *
 
 To check if a registered server is configured to use a system-assigned managed identity, perform the following steps in the portal: 
 
-Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
+1. Go to your **Storage Sync Service** in the Azure portal, expand **Settings** and select **Managed identity (preview)**. 
 
-In the **Registered Servers** section, click the **Using Managed ID** tile and verify the server is listed. 
+2. In the Registered Servers section, click the **Using Managed ID** tile and verify the server is listed. 
 
 # [PowerShell](#tab/azure-powershell) 
 To check if a registered server is configured to use a system-assigned managed identity, run the following command from an elevated PowerShell window:
