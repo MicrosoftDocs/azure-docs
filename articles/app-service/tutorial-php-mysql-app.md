@@ -63,11 +63,11 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column-end:::
 :::row-end:::
 
-> [!TIP]
+<!-- > [!TIP]
 > You can ask [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) about this repository. For example:
 >
 > * *@workspace What does this project do?*
-> * *@workspace What does the .devcontainer folder do?*
+> * *@workspace What does the .devcontainer folder do?* -->
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -608,7 +608,7 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_REDIS_SSL
     </pre>
 
-    Settings beginnging with `AZURE_MYSQL_` are connection variables for the MySQL database in Azure, and settings beginnging with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. For your convenience, the AZD template shows you the direct link to the app's app settings page in the Azure portal.
+    Settings beginnging with `AZURE_MYSQL_` are connection variables for the MySQL database, and settings beginnging with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. For your convenience, the AZD template shows you the direct link to the app's app settings page in the Azure portal.
 
 1. From the explorer, open *config/database.php*. This is the configuration file for database and Redis cache connections.
 
@@ -661,7 +661,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. From the explorer, open *infra/resources.bicep*. This is the Bicp template file that defines the created Azure resources.
 
-1. Find the part that defines the app settings (lines 515-518) and uncomment them. These app settings are:
+1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     
     |Setting  |Description  |
     |---------|---------|
@@ -671,7 +671,7 @@ The AZD template you use generated the connectivity variables for you already as
     |`APP_DEBUG`     | Enable debug mode pages in Laravel (see [Laravel documentation](https://laravel.com/docs/10.x/configuration#debug-mode)).      |
     |`APP_KEY`     | [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration). The AZD template already created a Key Vault secret (lines 212-217), so you access it with a [Key Vault reference](app-service-key-vault-references.md).       |
 
-1. In *infra/resources.bicep*, find the resource definition for the App Service app and uncomment line 314: 
+1. In *infra/resources.bicep*, find the resource definition for the App Service app and uncomment line 315: 
 
     ```bicep
     appCommandLine: 'cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload'
@@ -679,14 +679,14 @@ The AZD template you use generated the connectivity variables for you already as
 
     [Laravel application lifecycle](https://laravel.com/docs/10.x/lifecycle#lifecycle-overview) begins in the */public* directory instead of the application root. The default PHP container for App Service uses Nginx, which starts in the application root. To change the site root, you need to change the Nginx configuration file in the PHP container (*/etc/nginx/sites-available/default*). For your convenience, the sample repository contains a replacement configuration file called *default*, which tells Nginx to look in the */public* directory. This custom command in `appCommandLine` runs every time the app starts to apply the file replacement each time the Linux container is reloaded from a clean state.
 
-1. Back in the codespace terminal, run `azd deploy`.
+1. Back in the codespace terminal, run `azd up` again.
  
     ```bash
-    azd deploy
+    azd up
     ```
 
 > [!TIP]
-> You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
+> `azd up` runs `azd package`, `azd provision`, and `azd deploy` together, and it makes sense because you're making both infrastructure and application changes. To make infrastructure changes only, run `azd provision`. To just deploy changes to application code, run `azd deploy`.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
