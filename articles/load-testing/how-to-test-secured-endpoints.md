@@ -233,12 +233,12 @@ When you run your load test, Azure Load Testing retrieves the client certificate
 
 In this scenario, the application endpoint requires that you [use a managed identity to authenticate](/entra/architecture/service-accounts-managed-identities). You can use both system-assigned and user-assigned managed identities. 
 
-The flow for authenticating using a maanged identity is:
+The flow for authenticating using a managed identity is:
 
-1. Assign the managed identity that the target endpoint identifies to the Azure Load Testing reosurce. 
+1. Assign the managed identity that the target endpoint identifies to the Azure Load Testing resource. 
 1. Select the managed identity in the load test configuration.
 
-You need to set up your load tests script to [fetch access token using managed identity](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) and to use the token to authenticate the requests to the target endpoint. For example, you can get a token through a HTTP REST call to the Azure Instance Metadata Service (IMDS) endpoint and then pass the token to a request using the  `Authorization` HTTP header.  
+You need to set up your load tests script to [fetch access token using managed identity](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) and to use the token to authenticate the requests to the target endpoint. For example, you can get a token through an HTTP REST call to the Azure Instance Metadata Service (IMDS) endpoint and then pass the token to a request using the  `Authorization` HTTP header.  
 
 ### Assign the managed identity  
 
@@ -248,7 +248,7 @@ You can use either a system-assigned managed identity or a user-assigned managed
 
 * To use a system-assigned managed identity, first [assign a system-assigned managed identity](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#assign-a-system-assigned-identity-to-a-load-testing-resource) to your Azure Load Testing resource. Once it is enabled, provide the required RBAC permissions for this identity on the target endpoint. 
 
-* To use a user-assigned managed identity, first [assign the user-assigned identity](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#assign-a-user-assigned-identity-to-a-load-testing-resource) to your Azure Load Testing resource. If this identiy does not have the required RBAC permissions on the target endpoint, provide the required permissions. If your test script uses multiple user-assigned multiple identities, assign the multiple identities to your resource and ensure that they have the required RBAC permissions. 
+* To use a user-assigned managed identity, first [assign the user-assigned identity](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#assign-a-user-assigned-identity-to-a-load-testing-resource) to your Azure Load Testing resource. If this identity does not have the required RBAC permissions on the target endpoint, provide the required permissions. If your test script uses multiple user-assigned multiple identities, assign the multiple identities to your resource and ensure that they have the required RBAC permissions. 
 
 ### Select the managed identity in the load test configuration
 
@@ -266,7 +266,7 @@ To select and configure a managed identity for authentication in the Azure porta
 
 1. On the **Test plan** tab, configure the **Managed identity for authentication scenarios**. Select 'System-assigned identity' or 'User-assigned identity' as required.
 
-    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png" alt-text="Screenshot that shows how to select managed identity for authnetication in a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png":::
+    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png" alt-text="Screenshot that shows how to select managed identity for authentication in a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png":::
 
 1. If you selected 'User-assigned identity', select the required identities from the **User-assigned identity** dropdown. 
    
