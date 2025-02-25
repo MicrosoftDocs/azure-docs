@@ -37,8 +37,6 @@ The following limitations apply during the public preview:
 
 ## Configure subnet peering
 
-<update this for your feature.>
-
 - The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - To access the subnet peering preview feature, you need your Azure subscription to be registered for the feature. 
