@@ -666,7 +666,7 @@ The AZD template you use generated the connectivity variables for you already as
     |Setting  |Description  |
     |---------|---------|
     |`CACHE_DRIVER`     | Tells Laravel to use Redis as its cache (see [Laravel documentation](https://laravel.com/docs/10.x/cache#configuration)).        |
-    |`MYSQL_ATTR_SSL_CA`     | Needed to [open a TLS connection to MySQL in Azure](../mysql/flexible-server/how-to-connect-tls-ssl). The certificate file is included in the sample repository for convenience. This variable is used by the mysql connection in *config/database.php*      |
+    |`MYSQL_ATTR_SSL_CA`     | Needed to [open a TLS connection to MySQL in Azure](/azure/mysql/flexible-server/how-to-connect-tls-ssl). The certificate file is included in the sample repository for convenience. This variable is used by the mysql connection in *config/database.php*      |
     |`LOG_CHANNEL`     | Tells Laravel to pipe logs to `stderr`, which makes it available to the App Service logs (see [Laravel documentation](https://laravel.com/docs/10.x/logging)).       |
     |`APP_DEBUG`     | Enable debug mode pages in Laravel (see [Laravel documentation](https://laravel.com/docs/10.x/configuration#debug-mode)).      |
     |`APP_KEY`     | [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration). The AZD template already created a Key Vault secret (lines 212-217), so you access it with a [Key Vault reference](app-service-key-vault-references.md).       |
