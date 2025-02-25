@@ -31,7 +31,7 @@ Each App Service plan defines:
 The *pricing tier* of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system that you select at creation time. These are the categories of pricing tiers:
 
 | Category | Tiers | Description |
-|---|---|---|
+|-|-|-|
 | Shared compute | Free, Shared | Free and Shared, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources. The resources can't scale out. These tiers are intended for only development and testing purposes. |
 | Dedicated compute | Basic, Standard, Premium, PremiumV2, PremiumV3 | The Basic, Standard, Premium, PremiumV2, and PremiumV3 tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out. |
 | Isolated | Isolated, IsolatedV2 | The Isolated and IsolatedV2 tiers run dedicated Azure VMs on dedicated Azure virtual networks. They provide network isolation on top of compute isolation to your apps. They provide the maximum scale-out capabilities. |
@@ -51,7 +51,7 @@ PremiumV3 also supports higher scale via increased instance count, while still p
 Multiple VM sizes are available for this tier, including 4-to-1 and 8-to-1 memory-to-core ratios:
 
 | App Service plan | Cores (vCPU) | Memory (GiB) |
-|---|---|---|
+|-|-|-|
 | P0v3 | 1 | 4 |
 | P1v3 | 2 | 8 |
 | P1mv3 | 2 | 16 |
