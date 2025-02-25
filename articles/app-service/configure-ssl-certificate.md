@@ -153,7 +153,8 @@ The service principal app ID or assignee value is the ID for the App Service res
 
 > [!NOTE]
 > Do not delete these access policy permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
-
+>
+> If key vault is configured to disable public access, ensure that Microsoft services have access by checking the 'Allow trusted Microsoft services to bypass this firewall' checkbox. See [Key Vault firewall enabled trusted services only](/azure/key-vault/general/network-security?WT.mc_id=Portal-Microsoft_Azure_KeyVault#key-vault-firewall-enabled-trusted-services-only) documentation for more information.
 ---
 
 #### [Azure CLI](#tab/azure-cli/rbac)

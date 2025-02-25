@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 02/20/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
@@ -78,16 +78,13 @@ After a few minutes, this .NET web application is deployed as MyFirstAzureWebApp
 
 ## 3. Add a sidecar container
 
-In this section, you add a sidecar container to your Linux app. The portal experience is still being rolled out. If it's not available to you yet, continue with the **Use ARM template** tab below.
+In this section, you add a sidecar container to your Linux app.
 
 ### [Use portal UI](#tab/portal) 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the app's management page
 1. In the app's management page, from the left menu, select **Deployment Center**.
 1. Select the banner **Interested in adding containers to run alongside your app? Click here to give it a try.**
-    
-    If you can't see the banner, then the portal UI isn't rolled out for your subscription yet. Select the **Use ARM template** tab here instead and continue.
-
 1. When the page reloads, select the **Containers (new)** tab.
 1. Select **Add** and configure the new container as follows:
     - **Name**: *otel-collector*
@@ -272,5 +269,7 @@ You can use a similar approach to instrument apps in other language stacks. For 
 
 ## More resources
 
+- [Run a local SLM in a sidecar container in Azure App Service](tutorial-sidecar-local-small-language-model.md)
+- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
 - [Deploy to App Service using GitHub Actions](deploy-github-actions.md)
 - [OpenTelemetry](https://opentelemetry.io/)

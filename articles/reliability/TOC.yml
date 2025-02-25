@@ -430,12 +430,6 @@
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Service availability by category
       href: availability-service-by-category.md
-    - name: Service availability by sovereign cloud
-      items:
-      - name: US Government
-        href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-      - name: Microsoft Azure operated by 21Vianet
-        href: sovereign-cloud-china.md
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability testing - Chaos engineering
