@@ -106,6 +106,8 @@ The following errors commonly happen with a private storage account that's behin
 | Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 
+To help you troubleshoot these problems and find the root cause, follow these steps:
+
 1. In the Azure portal, make sure that the storage account and file share still exist.
 
 1. On the logic app resource menu, under **Settings**, select **Environment variables**.
