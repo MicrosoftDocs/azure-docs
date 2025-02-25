@@ -81,7 +81,7 @@ For example:
 docker build \
   --build-arg PORT_DEFAULT=4000 \
   --build-arg ENABLE_DEBUG_DEFAULT=true \
-  --tag my-custom-image:latest \
+  --tag <IMAGE>:<TAG> \
   --file Dockerfile.base .
 ```
 
@@ -170,7 +170,7 @@ docker run \
   --env ENABLE_DEBUG=true \
   --publish 4000:4000 \
   --publish 9229:9229 
-  <IMAGE_NAME>:latest
+  <IMAGE>:<TAG>
 ```
 
 For production builds, make sure you use the correct version tag, which may not be `latest`. Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
@@ -197,30 +197,30 @@ build-and-deploy:
     - uses: actions/checkout@v4
 
     - name: Set up Node.js
-    uses: actions/setup-node@v4
-    with:
-        node-version: '22'
+      uses: actions/setup-node@v4
+      with:
+          node-version: '22'
 
     - name: Install dependencies
-    run: npm ci
+      run: npm ci
 
     - name: Build the app
-    run: npm run build
+      run: npm run build
 
     - name: Log in to Azure
-    uses: azure/login@v2
-    with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      uses: azure/login@v2
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy to Azure Container Apps
-    run: |
-        az containerapp up \
-        --name my-container-app \
-        --resource-group my-resource-group \
-        --image my-docker-image \
-        --environment my-environment \
-        --cpu 1 --memory 2Gi \
-        --env-vars NODE_ENV=production PORT=3000
+      run: |
+          az containerapp up \
+          --name my-container-app \
+          --resource-group my-resource-group \
+          --image my-image:my_tag \
+          --environment my-environment \
+          --cpu 1 --memory 2Gi \
+          --env-vars NODE_ENV=production PORT=3000
 ```
 
 When using Docker Registry, sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
