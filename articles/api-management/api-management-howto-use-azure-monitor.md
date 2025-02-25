@@ -132,7 +132,7 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 > [!NOTE]
 > The Consumption tier doesn't support the collection of resource logs.
 
-[!INCLUDE [api-management-diagonstic-settigs](../../includes/api-management-diagonstic-settings.md)]
+[!INCLUDE [api-management-diagnostic-settigs](../../includes/api-management-diagnostic-settings.md)]
  
 ## View logs and metrics in Azure Log Analytics
 
