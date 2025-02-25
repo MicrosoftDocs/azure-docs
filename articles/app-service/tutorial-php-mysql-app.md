@@ -12,7 +12,7 @@ ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
 
-This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL Flexible Server). You'll also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Laravel app running on Azure App Service on Linux.
+This tutorial shows how to create a secure PHP app in Azure App Service connects to a MySQL database (using Azure Database for MySQL Flexible Server). You'll also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Laravel app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -540,31 +540,33 @@ In this step, you create the Azure resources and deploy a sample app to App Serv
 
 The GitHub codespace already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
+1. Generate a Laravel encryption key with `php artisan key:generate --show`:
+
+    ```bash
+    php artisan key:generate --show
+    ```  
+
 1. Sign into Azure by running the `azd auth login` command and following the prompt:
 
     ```bash
     azd auth login
     ```  
 
-1. From the repository root, run `azd init`.
-
-    ```bash
-    azd init --template tomcat-app-service-mysql-infra
-    ```
-
-1. When prompted, give the following answers:
-    
-    |Question  |Answer  |
-    |---------|---------|
-    |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
-    |What would you like to do with these files?     | **Keep my existing files unchanged**        |
-    |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
-
 1. Create the necessary Azure resources and deploy the app code with the `azd up` command. Follow the prompt to select the desired subscription and location for the Azure resources.
 
     ```bash
     azd up
     ```  
+
+1. When prompted, give the following answers:
+    
+    |Question  |Answer  |
+    |---------|---------|
+    |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
+    |Select an Azure Subscription to use| Select your subscription. |
+    |Select an Azure location to use| Select a location. |
+    |Enter a value for the 'appKey' infrastructure secured parameter| Use the output of `php artisan key:generate --show` here. The AZD template creates a Key Vault secret for it that you can use in your app. |
+    |Enter a value for the 'databasePassword' infrastructure secured parameter| Database password for MySQL. It must be at least 8 characters long and contain uppercase letters, lowercase letters, numbers, and special characters.|
 
     The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
@@ -580,8 +582,6 @@ The GitHub codespace already has the [Azure Developer CLI](/azure/developer/azur
     - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
-
-    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -707,9 +707,7 @@ With the MySQL database protected by the virtual network, the easiest way to run
     php artisan migrate --force
     ```
     
-    If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
-
-    :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
+    If it succeeds, App Service is [connecting successfully to the database](#i-get-the-error-during-database-migrations-php_network_getaddresses-getaddrinfo-for-mysqldb-failed-no-address-associated-with-hostname).
 
 > [!NOTE]
 > Only changes to files in `/home` can persist beyond app restarts.
@@ -767,6 +765,10 @@ azd down
 #### I get the error during database migrations `php_network_getaddresses: getaddrinfo for mysqldb failed: No address associated with hostname...`
 
 It indicates that MySQL connection variables are not properly configured. Verify that the `AZURE_MYSQL_` app settings are properly configured in [3. Use Azure connection strings in application code](#3-use-azure-connection-strings-in-application-code).
+
+#### I get a blank page in the browser.
+
+It indicates that App Service can't find the PHP start files in */public*. Follow the steps in [4. Configure Laravel settings in web app](#4-configure-laravel-settings-in-web-app).
 
 #### I get a debug page in the browser saying `Unsupported cipher or incorrect key length.`
 
