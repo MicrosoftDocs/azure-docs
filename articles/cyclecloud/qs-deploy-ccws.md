@@ -40,34 +40,34 @@ For this quickstart, you will need:
 ### File-system
 #### Users' home directory - Create New
 Specify where the users' home directory should be located. Create a new **Builtin NFS** will use the scheduler VM as an NFS server with an attached datadisk.
-![Screenshot of the File-system mount for /shared and /home Builtin NFS create new options screen](./images/ccws/marketplace-fs001.png)
+![Screenshot of the File-system mount for /shared and /home Builtin NFS create new options screen](./images/ccws/marketplace-fs-001.png)
 
 
 Create a new **Azure NetApp Files** will create an ANF account, pool and, volume of the specified capacity and service level.
-![Screenshot of the File-system mount for /shared and /home Azure NetApp files create new options screen](./images/ccws/marketplace-fs002.png)
+![Screenshot of the File-system mount for /shared and /home Azure NetApp files create new options screen](./images/ccws/marketplace-fs-002.png)
 
 #### Users' home directory - Use Existing
 If you have an existing NFS mount point, then select the **Use Existing** option and specify the settings to mount it.
-![Screenshot of the File-system mount for /shared and /home use external NFS options screen](./images/ccws/marketplace-fs003.png)
+![Screenshot of the File-system mount for /shared and /home use external NFS options screen](./images/ccws/marketplace-fs-003.png)
 
 #### Additional file-system mount - Create New
 If you need to mount an additional file-system for your project data, you can either create a new one or specify an existing one. You can create a new Azure NetApp Files volume or an Azure Managed Lustre Filesystem.
 
-![Screenshot of the Additional File-system mount for create new Azure NetApp Files](./images/ccws/marketplace-fs004.png)
+![Screenshot of the Additional File-system mount for create new Azure NetApp Files](./images/ccws/marketplace-fs-004.png)
 
-![Screenshot of the Additional File-system mount for create new Azure Managed Lustre](./images/ccws/marketplace-fs005.png)
+![Screenshot of the Additional File-system mount for create new Azure Managed Lustre](./images/ccws/marketplace-fs-005.png)
 
 #### Additional file-system mount - Use Existing
 If you have an existing external NFS mount point or an Azure Managed Lustre Filesystem, you can specify the mount options.
 
-![Screenshot of the Additional File-system mount for an existing external NFS](./images/ccws/marketplace-fs006.png)
+![Screenshot of the Additional File-system mount for an existing external NFS](./images/ccws/marketplace-fs-006.png)
 
 ### Networking
 Specify here if you want to create a new Virtual Network and subnets or use an existing one.
 
 #### Create a new Virtual Network
 
-![Screenshot of the Networking options for creating a new one](./images/ccws/marketplace-networking001.png)
+![Screenshot of the Networking options for creating a new one](./images/ccws/marketplace-networking-001.png)
 
 - Pick the CIDR that will match with the number of compute nodes you are targeting and specify a base IP address,
 - It is a best practice to create a Bastion if you don't have direct connectivity provided by your corporate IT,
@@ -77,7 +77,7 @@ Specify here if you want to create a new Virtual Network and subnets or use an e
 #### Use existing Virtual Network
 Before using an existing virtual network, check for the pre-requisites in [Plan your CycleCloud Workspace for Slurm Deployment](./how-to/ccws/plan-your-deployment.md#brownfield-deployment)
 
-![Screenshot of the Networking options for using an existing one](./images/ccws/marketplace-networking002.png)
+![Screenshot of the Networking options for using an existing one](./images/ccws/marketplace-networking-002.png)
 
 ### Slurm Settings
 Specify the VM size and image to use for the Scheduler and the Login nodes. Images are the HPC Images provided in the Azure Marketplace with the associated URIs:
