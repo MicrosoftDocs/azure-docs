@@ -132,27 +132,7 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 > [!NOTE]
 > The Consumption tier doesn't support the collection of resource logs.
 
-To configure resource logs:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-2. Select **Monitoring** > **Diagnostic settings**.
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu in the portal.":::
-
-1. Select **+ Add diagnostic setting**.
-1. Select the logs or metrics that you want to collect.
-
-   You have several options about where to send the logs and metrics. For example, archive resource logs along with metrics to a storage account, stream them to an event hub, or send them to a Log Analytics workspace.
-
-   > [!TIP]
-   > If you select a Log Analytics workspace, you can choose to store the data in the resource-specific ApiManagementGatewayLogs table or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
-
-1. After configuring details for the log destination or destinations, select **Save**. 
-
-> [!NOTE]
-> Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2022-09-01-preview. 
-
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
+[!INCLUDE [api-management-diagonstic-settigs](../../includes/api-management-diagonstic-settings.md)]
  
 ## View logs and metrics in Azure Log Analytics
 

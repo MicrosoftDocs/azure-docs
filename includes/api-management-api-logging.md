@@ -8,7 +8,7 @@ ms.author: danlep
 
 When you create a diagnostic setting to enable collection of gateway or LLM resource logs, logging is enabled with default settings, which do not include details of request or responses such as response bodies. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the gateway log data, enable logging of LLM request or response messages, or disable logging for some APIs.
 
-For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
+For details about the logging settings, see [Diagnostic logging settings reference](../articles/api-management/diagnostic-logs-reference.md).
 
 To configure logging settings for all APIs:
 
