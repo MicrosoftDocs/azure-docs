@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 02/20/2025
+ms.date: 02/24/2025
 ms.custom: devdivchpfy22
 ---
 

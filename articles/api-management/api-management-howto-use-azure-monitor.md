@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 11/01/2024
+ms.date: 02/24/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -154,25 +154,9 @@ To configure resource logs:
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
  
-## View logs and metrics in Azure Monitor
+## View logs and metrics in Azure Log Analytics
 
-If you enable collection of logs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. 
-
-To view the data:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Select **Logs** from the left menu.
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu in the portal.":::
-
-1. Run queries to view the data. Several [sample queries](/azure/azure-monitor/logs/queries) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the ApiManagementGatewayLogs table:
-
-    ```kusto
-    ApiManagementGatewayLogs
-    | where TimeGenerated > ago(1d) 
-    ```
-
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal." lightbox="media/api-management-howto-use-azure-monitor/query-resource-logs.png":::
+[!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
 
 For more information about using resource logs for API Management, see:
 
@@ -180,29 +164,10 @@ For more information about using resource logs for API Management, see:
 
 * [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
-* [API Management resource log schema reference](gateway-log-schema-reference.md). 
-
 ## Modify API logging settings
 
-By default, when you create a diagnostic setting to enable collection of resource logs, logging is enabled for all APIs, with default settings. You can adjust the logging settings for all APIs, or override them for individual APIs. For example, adjust the sampling rate or the verbosity of the data, enable logging of headers or request or response payloads, or disable logging for some APIs.
+[!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
 
-For details about the logging settings, see [Diagnostic logging settings reference](diagnostic-logs-reference.md).
-
-To configure logging settings for all APIs:
-
-1. In the left menu of your API Management instance, select **APIs** > **APIs** > **All APIs**.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**. 
-
-To configure logging settings for a specific API:
-
-1. In the left menu of your API Management instance, select **APIs** > **APIs** and then the name of the API.
-1. Select the **Settings** tab from the top bar.
-1. Scroll down to the **Diagnostic Logs** section, and select the **Azure Monitor** tab.
-1. Review the settings and make changes if needed. Select **Save**. 
-
-[!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
 
 ## Next steps
 
