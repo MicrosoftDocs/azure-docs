@@ -83,13 +83,13 @@ Support for Azure NetApp Files large volumes is available in the following regio
 * Australia Central 2
 * Australia East
 * Australia Southeast
-* Asia East
 * Brazil South
 * Brazil Southeast
 * Canada Central
 * Canada East
 * Central India
 * Central US
+* East Asia
 * East US
 * East US 2
 * France Central
