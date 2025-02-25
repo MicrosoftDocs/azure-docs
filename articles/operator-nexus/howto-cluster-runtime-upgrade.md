@@ -48,7 +48,7 @@ Available upgrades are retrievable via the Azure CLI:
 ```azurecli
 az networkcloud cluster show --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
---subscription <SUBSCRIPTION> | grep -A8 availableUpgradeVersions
+--subscription "<SUBSCRIPTION>" | grep -A8 availableUpgradeVersions
 ```
 
 In the output, you can find the `availableUpgradeVersions` property and look at the `targetClusterVersion` field:
@@ -73,12 +73,12 @@ If there are no available cluster upgrades, the list is empty.
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update --name "<CLUSTER>" /
+az networkcloud cluster update --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
---update-strategy strategy-type="<strategyType>" threshold-type="<thresholdType" \
-threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> \
-wait-time-minutes=<waitTimeBetweenRacks> \
---subscription <SUBSCRIPTION>
+--update-strategy strategy-type="<strategyType>" threshold-type="<thresholdType>" \
+threshold-value="<thresholdValue>" max-unavailable="<maxNodesOffline>" \
+wait-time-minutes="<waitTimeBetweenRacks>" \
+--subscription "<SUBSCRIPTION>"
 ```
 
 Required parameters:
@@ -97,7 +97,7 @@ az networkcloud cluster update --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
 --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" \
 threshold-value=60 wait-time-minutes=1 \
---subscription <SUBSCRIPTION>
+--subscription "<SUBSCRIPTION>"
 ```
 
 Verify update:
@@ -105,7 +105,7 @@ Verify update:
 ```
 az networkcloud cluster show --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
---subscription <SUBSCRIPTION> | grep -A5 updateStrategy
+--subscription "<SUBSCRIPTION>" | grep -A5 updateStrategy
 
   "updateStrategy": {
     "maxUnavailable": 32767,
@@ -124,7 +124,7 @@ az networkcloud cluster update --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
 --update-strategy strategy-type="Rack" threshold-type="CountSuccess" \
 threshold-value=10 wait-time-minutes=1 \
---subscription <SUBSCRIPTION>
+--subscription "<SUBSCRIPTION>"
 ```
 
 Verify update:
@@ -132,7 +132,7 @@ Verify update:
 ```
 az networkcloud cluster show --name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
---subscription <SUBSCRIPTION> | grep -A5 updateStrategy
+--subscription "<SUBSCRIPTION>" | grep -A5 updateStrategy
 
   "updateStrategy": {
     "maxUnavailable": 32767,
@@ -156,7 +156,7 @@ To perform an upgrade of the runtime, use the following Azure CLI command:
 az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
 --target-cluster-version "<versionNumber>" \
 --resource-group "<CLUSTER_RG>" \
---subscription <SUBSCRIPTION>
+--subscription "<SUBSCRIPTION>"
 ```
 
 The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack by Rack for the worker nodes.
@@ -180,7 +180,7 @@ To view the upgrade status through the Azure CLI, use `az networkcloud cluster s
 ```azurecli
 az networkcloud cluster show --cluster-name "<CLUSTER>" \
 --resource-group "<CLUSTER_RG>" \
---subscription <SUBSCRIPTION>
+--subscription "<SUBSCRIPTION>"
 ```
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
