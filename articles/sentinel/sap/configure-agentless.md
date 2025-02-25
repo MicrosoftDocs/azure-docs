@@ -37,15 +37,62 @@ A default key-value mapping file is stored at  [TBD link to GitHub](xref). Downl
 
 This section provides a reference of customizable parameters for the SAP agentless connector for Microsoft Sentinel.
 
-|Name  |Description  |Allowed values  |Default value  |
-|---------|---------|---------|---------|
-|**offset-in-seconds**     |    Determines the offset, in seconds, for both the start and end times of a data collection window. Use this parameter to delay data collection by the configured number of seconds.  |  Integer, between **1**-**600**    |    **60**     |
-|**ingestion-cycle-days**     |  Time, in days, given to ingest the full User Master data, including all roles and users. This parameter doesn't affect the ingestion of changes to User Master data.  |  Integer, between **1**-**14**       |    **1**     |
-|**force-audit-log-to-read-from-all-clients**     |    Determines whether the Audit Log is read from all clients.     |  - **true**: Read from all clients <br>- **false**: Not read from all clients    |    false     |
-|**collect-changedocs-logs**     |   Determines whether Change Docs logs are ingested or not.       |     - **true**: Ingested <br>- **false**: Not ingested    |    **true**     |
-|**collect-audit-logs**     |    Determines whether Audit Log data is ingested or not.     |      - **true**: Ingested <br>- **false**: Not ingested     |    **true**     |
-|**collect-user-master-data**     |   Determines whether User Master data is ingested or not.      |   - **true**: Ingested <br>- **false**: Not ingested    |  **true**       |
-|**changedocs-object-classes**     |   List of object classes that are ingested from Change Docs logs.      |  Comma separated list of object classes       |    BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA     |
+### offset-in-seconds
+
+Determines the offset, in seconds, for both the start and end times of a data collection window. Use this parameter to delay data collection by the configured number of seconds.
+
+- **Allowed values:** Integer, between **1**-**600**
+- **Default value:** **60**
+
+### ingestion-cycle-days
+
+Time, in days, given to ingest the full User Master data, including all roles and users. This parameter doesn't affect the ingestion of changes to User Master data.
+
+- **Allowed values:** Integer, between **1**-**14**
+- **Default value:** **1**
+
+### force-audit-log-to-read-from-all-clients
+
+Determines whether the Audit Log is read from all clients.
+
+- **Allowed values:**
+  - **true**: Read from all clients
+  - **false**: Not read from all clients
+- **Default value:** **false**
+
+### collect-changedocs-logs
+
+Determines whether Change Docs logs are ingested or not.
+
+- **Allowed values:**
+  - **true**: Ingested
+  - **false**: Not ingested
+- **Default value:** **true**
+
+### collect-audit-logs
+
+Determines whether Audit Log data is ingested or not.
+
+- **Allowed values:**
+  - **true**: Ingested
+  - **false**: Not ingested
+- **Default value:** **true**
+
+### collect-user-master-data
+
+Determines whether User Master data is ingested or not.
+
+- **Allowed values:**
+  - **true**: Ingested
+  - **false**: Not ingested
+- **Default value:** **true**
+
+### changedocs-object-classes
+
+List of object classes that are ingested from Change Docs logs.
+
+- **Allowed values:** Comma separated list of object classes
+- **Default value:** BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA
 
 
 ## Related content
