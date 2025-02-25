@@ -6,7 +6,7 @@ author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 10/12/2022
-ms.author: aapowell
+ms.author: wujia
 ms.custom: devx-track-js, engagement-fy23
 ---
 
