@@ -22,7 +22,7 @@ ms.author: shamkh
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for Javascript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Messages SDK for JavaScript.
 
 | Class Name | Description |
 | --- | --- |
