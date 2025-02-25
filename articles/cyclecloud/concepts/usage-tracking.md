@@ -18,15 +18,15 @@ To display your cluster usage, click on **Create New Alert** within the cluster 
 > [!NOTE]
 > Usage Alerts are informational only. Going over your budget will not stop or pause the instance. The spend amount per cluster is cumulative per time period selected.
 
-![Usage Alert](~/articles/cyclecloud/images/usage_alert.png)
+![Usage Alert](~/articles/cyclecloud/images/usage-alert.png)
 
 Current spend within budget:
 
-![Current Spend Within Budget](~/articles/cyclecloud/images/within_budget.png)
+![Current Spend Within Budget](~/articles/cyclecloud/images/within-budget.png)
 
 Current spend with overage:
 
-![Current Spend With Overage](~/articles/cyclecloud/images/over_budget.png)
+![Current Spend With Overage](~/articles/cyclecloud/images/over-budget.png)
 
 ## Notifications
 

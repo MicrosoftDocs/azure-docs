@@ -57,9 +57,9 @@ the server **ad.example.com**, so _ldaps://ad.example.com_ is entered as the URL
 To enable Entra ID Authentication:
 1. Launch Cyclecloud, and then navigate to **Settings** in the upper right-hand corner
 1. Select the table row named **Authentication** and click **Configure** or double-click on the row. In the pop-up dialog, select the **Entra ID** section.
-![Authentication setting in CycleCloud GUI](../images/entra_setup/entra22.png)
+![Authentication setting in CycleCloud GUI](../images/entra-setup/entra22.png)
 1. Then, you will see a window with three sections. Stay in the **Entra ID** section.
-![Entra ID Authentication Configuration menu](../images/entra_setup/entra23.png)
+![Entra ID Authentication Configuration menu](../images/entra-setup/entra23.png)
 1. Check the **Enable Entra ID authentication** checkbox. 
 1. Find the **Overview** page for your Microsoft Entra application in the Azure Portal and fill in the Tenant ID and Client ID based off those values.
 1. By default, the endpoint is set to https://login.microsoftonline.com (the Public endpoint). However, you may also set a custom endpoint, such as one for a government cloud environment.
