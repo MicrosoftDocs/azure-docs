@@ -6,8 +6,8 @@ ms.date: 07/31/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Install Azure Backup extension in an AKS cluster  

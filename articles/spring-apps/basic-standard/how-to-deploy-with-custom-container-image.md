@@ -1,5 +1,5 @@
 ---
-title: How to deploy applications in Azure Spring Apps with a custom container image
+title: How to Deploy Applications in Azure Spring Apps with a Custom Container Image
 description: How to deploy applications in Azure Spring Apps with a custom container image
 author: KarlErickson
 ms.author: xiangy
@@ -81,7 +81,7 @@ To disable listening on a port for images that aren't web applications, add the 
 
    :::image type="content" source="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png" alt-text="Screenshot of Azure portal Create App page with Runtime platform dropdown showing and Custom Container selected." lightbox="media/how-to-deploy-with-custom-container-image/create-app-custom-container.png":::
 
-1. Select **Edit** under *Image*, then fill in the fields as shown in the following image:
+1. Select **Edit** under **Image**, then fill in the fields as shown in the following image:
 
    :::image type="content" source="media/how-to-deploy-with-custom-container-image/custom-image-settings.png" alt-text="Screenshot of Azure portal that shows the Custom Image Settings pane." lightbox="media/how-to-deploy-with-custom-container-image/custom-image-settings.png":::
 
@@ -142,15 +142,15 @@ The following points will help you address common situations when deploying with
 
 There are two options to trust a Certificate Authority:
 
-**Option 1: Upload via Azure Spring Apps**
+Option 1: Upload via Azure Spring Apps
 
-To load the CA certs into your apps, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). Then the certs will be mounted into the location */etc/azure-spring-cloud/certs/public/*.
+To load the CA certs into your apps, see [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md). Then the certs will be mounted into the location **/etc/azure-spring-cloud/certs/public/**.
 
-**Option 2: Manual installation in the image**
+Option 2: Manual installation in the image
 
 To trust a CA in the image, set the following variables depending on your environment:
 
-* You must import Java applications into the trust store by adding the following lines into your *Dockerfile*:
+* You must import Java applications into the trust store by adding the following lines into your **Dockerfile**:
 
   ```dockerfile
   ADD EnterpriseRootCA.crt /opt/
@@ -191,9 +191,9 @@ If you deployed the instance to a VNet, make sure you allow the network traffic 
 
 ### Install an APM into the image manually
 
-The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the *Dockerfile* using the following steps:
+The installation steps vary on different application performance monitors (APMs) and languages. The following steps are for New Relic with Java applications. You must modify the **Dockerfile** using the following steps:
 
-1. Download and install the agent file into the image by adding the following to the *Dockerfile*:
+1. Download and install the agent file into the image by adding the following to the **Dockerfile**:
 
    ```dockerfile
    ADD newrelic-agent.jar /opt/agents/newrelic/java/newrelic-agent.jar

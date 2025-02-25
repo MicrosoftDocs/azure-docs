@@ -91,6 +91,6 @@ For planning and designing highly available connections, including active-active
 
 * For information about virtual network peering, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
-* View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+* View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-networking-limits).
 
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

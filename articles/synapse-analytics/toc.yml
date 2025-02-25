@@ -580,7 +580,7 @@ items:
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
         displayName: csv
-      - name: Query partitioned files using file metadata
+      - name: Use file metadata in queries
         href: sql/query-specific-files.md
       - name: Create and use views
         href: sql/create-use-views.md

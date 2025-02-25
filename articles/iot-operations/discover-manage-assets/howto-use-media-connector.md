@@ -93,7 +93,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: contoso-secret
-type: Qpaque
+type: Opaque
 data:
   username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
   password: "<YOUR CAMERA PASSWORD BASE64 ENCODED>"

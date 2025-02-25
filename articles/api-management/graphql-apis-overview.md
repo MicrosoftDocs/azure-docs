@@ -21,7 +21,7 @@ API Management helps you import, manage, protect, test, publish, and monitor Gra
 
 |Pass-through GraphQL   |Synthetic GraphQL  |
 |---------|---------|
-| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers, for example, to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs     |
+| ▪️ Pass-through API to existing GraphQL service endpoint<br><br/>▪️ Support for GraphQL queries, mutations, and subscriptions  |   ▪️ API based on a custom GraphQL schema<br></br>▪️ Support for GraphQL queries, mutations, and subscriptions<br/><br/>▪️  Configure custom resolvers, for example, to HTTP data sources<br/><br/>▪️ Develop GraphQL schemas and GraphQL-based clients while consuming data from legacy APIs<br/><br/>▪️ Synthetic subscriptions do not require resolvers. See [publish-event](publish-event-policy.md) policy.    |
 
 ## Availability
 

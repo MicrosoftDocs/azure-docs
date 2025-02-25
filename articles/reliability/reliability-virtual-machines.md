@@ -105,7 +105,7 @@ Before you upgrade your next set of nodes in another zone, you should perform th
 To learn how to migrate a VM to availability zone support, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](./migrate-vm.md).
 
 - Move a VM to another subscription or resource group
-    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-cli)
+    - [CLI](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-azure-cli)
     - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
 - [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)

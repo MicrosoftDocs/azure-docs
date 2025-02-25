@@ -51,7 +51,7 @@ Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
-- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU.
+- For Internal load balancer, all virtual machines behind the load balancer must be on a supported virtual machine SKU.
 
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 

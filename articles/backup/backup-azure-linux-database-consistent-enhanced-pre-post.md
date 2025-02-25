@@ -4,8 +4,8 @@ description: Learn how Azure Backup allows you to take database consistent snaps
 ms.topic: how-to
 ms.custom: linux-related-content
 ms.date: 09/11/2024 
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Enhanced prepost scripts for database consistent snapshot

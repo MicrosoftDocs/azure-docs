@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure single sign-on for applications using the Azure Spring Apps Enterprise plan
+title: Quickstart - Configure Single Sign-on for Applications Using the Azure Spring Apps Enterprise Plan
 description: Describes single sign-on configuration for the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com

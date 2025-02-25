@@ -24,7 +24,7 @@ that you can call from workflows:
 * Expand the reach, discoverability, and use for your service.
 
 Basically, connectors are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](https://swagger.io/specification/) for documentation, 
+[OpenAPI metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language to build connectors, 
 such as .NET, Java, Python, or Node.js. 
@@ -64,7 +64,7 @@ easy API hosting.
 
 Custom APIs and [custom connectors](../logic-apps/custom-connector-overview.md) 
 are web APIs that use REST for pluggable interfaces, 
-[Swagger metadata format](https://swagger.io/specification/) for documentation, 
+[OpenAPI metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. And because these APIs and connectors 
 are REST APIs that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, Python, or Node.js, for building custom APIs and connectors.
@@ -93,7 +93,7 @@ For more information, review the following documentation:
 ## Helpful tools
 
 A custom API works best with logic apps when the API also has a 
-[Swagger document](https://swagger.io/specification/) 
+[OpenAPI document](https://swagger.io/specification/) 
 that describes the API's operations and parameters.
 Many libraries, like [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), 
 can automatically generate the Swagger file for you. 

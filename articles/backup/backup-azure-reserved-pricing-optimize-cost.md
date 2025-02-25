@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.date: 04/16/2024
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Optimize costs for Azure Backup Storage with reserved capacity

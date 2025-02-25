@@ -5,8 +5,8 @@ ms.topic: tutorial
 ms.date: 01/20/2025
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore a VM with Azure CLI

@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 11/19/2024
+ms.date: 02/10/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,34 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## January 2025
+
+Here's what changed in January 2025:
+
+### Quickstart for Azure Virtual Desktop is now in preview 
+
+Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production. 
+
+When you use QuickStart, it deploys a sample Azure Virtual Desktop environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete. 
+
+For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
+
+### iOS, iPadOS, and Android now support screen capture protection via Intune Mobile Application Management (MAM) 
+
+Screen capture protection helps prevent sensitive information from being captured on client devices. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing. 
+
+You can now use Intune MAM policies to configure screen capture protection on iOS, iPadOS, and Android. For more information, see [Screen capture protection in Azure Virtual Desktop](screen-capture-protection.md). 
+
+### Intune Mobile Application Management (MAM) support on Windows App on Android (preview) for devices running Android 15  
+
+Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn’t take effect.   
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md). 
+
+## December 2024
+
+There were no changes to Azure Virtual Desktop in December 2024.
 
 ## November 2024
 
@@ -78,7 +106,7 @@ For more information see [Azure Virtual Desktop identities and authentication]
 
 Here's what changed in October 2024:
 
-### Yubikey smart card redirection on iOS and iPadOS is now in preview 
+### YubiKey smart card redirection on iOS and iPadOS is now in preview 
 
 Yubico and Microsoft have partnered to provide smart card redirection for iOS and iPadOS Windows App users, which is available in preview starting in version 11.0.4. The Yubico integration supports the latest [YubiKey 5 portfolio](https://www.yubico.com/products/yubikey-5-overview/).  
 

@@ -4,8 +4,8 @@ description: This article describes how to use the old and new diagnostics event
 ms,service: backup
 ms.topic: how-to
 ms.date: 12/30/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy2
 ---
 

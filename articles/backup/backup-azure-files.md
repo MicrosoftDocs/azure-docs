@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 01/06/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure File shares

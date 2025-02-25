@@ -1,5 +1,5 @@
 ---
-title: How to start or stop an Azure Spring Apps service instance
+title: How to Start or Stop an Azure Spring Apps Service Instance
 description: Describes how to start or stop an Azure Spring Apps service instance
 author: KarlErickson
 ms.author: wepa

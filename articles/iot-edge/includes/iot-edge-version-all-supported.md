@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-**Applies to:** ![IoT Edge 1.5 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.5 ![IoT Edge 1.4 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.4
+**Applies to:** ![IoT Edge 1.5 checkmark](./media/iot-edge-version/yes-icon.png) IoT Edge 1.5
 
 > [!IMPORTANT]
 > IoT Edge 1.5 LTS is the [supported release](../support.md#releases). IoT Edge 1.4 LTS is end of life as of November 12, 2024. If you are on an earlier release, see [Update IoT Edge](../how-to-update-iot-edge.md).

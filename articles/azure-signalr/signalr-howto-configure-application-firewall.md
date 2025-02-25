@@ -17,7 +17,7 @@ The Application Firewall provides sophisticated control over client connections 
 
 ## What Does the Application Firewall Do?
 
-The Application Firewall consists of various rule lists. Currently, there is a rule list called *Client Connection Count Rules*. Future updates will support more rule lists to control aspects like connection lifetime and message throughput.
+The Application Firewall consists of various rule lists. Currently, there are two rule lists called *Client Connection Count Rules* and *Client Traffic Control Rules*. Future updates will support more rule lists to control aspects such as connection lifetime.
 
 This guideline is divided into three parts:
 1. Introduction to different application firewall rules.
@@ -56,7 +56,18 @@ Client Connection Count Rules restrict concurrent client connections. When a cli
 > [!WARNING]
 > * **Avoid using too aggressive maxCount**. Client connections may close without completing the TCP handshake. SignalR service can't detect those "half-closed" connections immediately. The connection is taken as active until the heartbeat failure. Therefore, aggressive throttling strategies might unexpectedly throttle clients. A smoother approach is to **leave some buffer** for the connection count, for example: double the *maxCount*.
 
+## Client Traffic Control Rules
+Client Traffic Control Rules restrict the inbound throughput of client connections. When a client attempts to send a message, the rules are checked **sequentially**. Within each *aggregation window*, the message size will be aggregated to check against *max inbound message*. If any rule is violated, the connection is disconnected. 
 
+   #### TrafficThrottleByUserIdRule
+   This rule limits the inbound throughput of a user. 
+
+   #### TrafficThrottleByJwtSignatureRule
+   This rule limits the inbound throughput of each token.
+
+   #### TrafficThrottleByJwtCustomClaimRule
+   This rule limits the inbound throughput of the same claim.
+   
 
 ## Set up Application Firewall 
 
@@ -73,7 +84,7 @@ Use Visual Studio Code or your favorite editor to create a file with the followi
 @description('The name for your SignalR service')
 param resourceName string = 'contoso'
 
-resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
+resource signalr 'Microsoft.SignalRService/signalr@2024-10-01-preview' = {
   name: resourceName
   properties: {
     applicationFirewall:{
@@ -101,6 +112,42 @@ resource signalr 'Microsoft.SignalRService/signalr@2024-04-01-preview' = {
                 claimName: 'paidUser'
             }
         ]
+         clientTrafficControlRules:[
+        // Add or remove rules as needed
+        {
+            // This rule will be skipped if no userId is set
+            type: 'TrafficThrottleByUserIdRule'
+            // Every minute
+            aggregationWindowInSeconds: 60
+            // 10MB
+            maxInboundMessageBytes: 10485760
+        }
+        {
+            type: 'TrafficThrottleByJwtSignatureRule'
+            // Every 30 seconds
+            aggregationWindowInSeconds: 30
+            // 5MB
+            maxInboundMessageBytes: 5242880
+        }
+        {
+            // This rule will be skipped if no freeUser claim is set
+            type: 'TrafficThrottleByJwtCustomClaimRule'
+            // Every 10 minutes
+            aggregationWindowInSeconds: 600
+            // 1MB
+            maxInboundMessageBytes: 1048576
+            claimName: 'freeUser'
+        }
+        {
+            // This rule will be skipped if no paidUser claim is set
+            type: 'TrafficThrottleByJwtCustomClaimRule'  
+            // Every 30 seconds
+            aggregationWindowInSeconds: 30
+            // 1MB
+            maxInboundMessageBytes: 1048576
+            claimName: 'paidUser'
+        }
+      ]
     }
   }
 }

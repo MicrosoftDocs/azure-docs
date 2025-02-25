@@ -26,7 +26,7 @@ When using Apache Spark in Azure Synapse Analytics, there are various built-in o
 Learn more about the data visualization and data analysis options by viewing the article on how to [visualize data using Azure Synapse Notebooks](../spark/apache-spark-data-visualization.md).
 
 ## Feature engineering
-By default, the Synapse Runtime includes a set of libraries that are commonly used for feature engineering. For large datasets, you can use Spark SQL, MLlib, and Koalas for feature engineering. For smaller datasets, third-party libraries like Numpy, Pandas, and Scikit-learn also provide useful methods for these scenarios.
+By default, the Synapse Runtime includes a set of libraries that are commonly used for feature engineering. For large datasets, you can use Spark SQL, MLlib, and Koalas for feature engineering. For smaller datasets, third-party libraries like NumPy, Pandas, and Scikit-learn also provide useful methods for these scenarios.
 
 ## Train models
 There are several options when training machine learning models using Azure Spark in Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning, and various other open-source libraries. 

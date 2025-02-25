@@ -17,6 +17,9 @@ This guide demonstrates how to use `TXT` and `ALIAS` records to configure your a
 
 The following procedure requires you to copy settings from an Azure DNS zone you create and your existing static web app. Consider opening the Azure portal in two different windows to make it easier to switch between the two services.
 
+> [!NOTE]
+> Apex domain changes can take up to 72 hours to propagate.
+
 ## Validate domain ownership
 
 1. Open the [Azure portal](https://portal.azure.com).

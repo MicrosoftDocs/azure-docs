@@ -26,7 +26,7 @@ Prior to the release of this feature, if you wanted to use SFTP to transfer data
 
 Now, with SFTP support for Azure Blob Storage, you can enable SFTP support for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22.
 
-This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
+This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support-how-to.md).
 
 > [!NOTE]
 > SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.

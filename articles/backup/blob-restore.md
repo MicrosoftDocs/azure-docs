@@ -3,8 +3,8 @@ title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
 ms.date: 12/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Blobs

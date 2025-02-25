@@ -4,8 +4,8 @@ description: Learn how to use the Azure CLI to manage and monitor Azure file sha
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 09/11/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 
 ---
 

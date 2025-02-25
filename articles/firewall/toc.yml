@@ -123,7 +123,7 @@ items:
       href: ftp-support.md
     - name: Performance
       href: firewall-performance.md
-    - name: Long running TCP sessions
+    - name: TCP idle timeout behavior
       href: long-running-sessions.md
     - name: Easy upgrade/downgrade
       href: easy-upgrade.md
@@ -167,6 +167,8 @@ items:
        href: premium-deploy-certificates-enterprise-ca.md
      - name: Use Azure Policy
        href: firewall-azure-policy.md
+     - name: Secured hub customer public IP
+       href: secured-hub-customer-public-ip.md
   - name: Protect
     items:
     - name: Protect Azure Virtual Desktop
@@ -237,8 +239,6 @@ items:
     href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing

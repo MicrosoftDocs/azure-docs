@@ -5,7 +5,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 02/13/2025
 ---
 
 # Retrieve the IP address of a Workflow Orchestration Manager cluster

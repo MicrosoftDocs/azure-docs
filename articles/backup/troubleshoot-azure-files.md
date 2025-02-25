@@ -4,8 +4,8 @@ description: This article is troubleshooting information about issues occurring 
 ms.service: azure-backup
 ms.date: 01/15/2025
 ms.topic: troubleshooting
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
