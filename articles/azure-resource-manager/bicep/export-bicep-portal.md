@@ -48,7 +48,7 @@ To export one resource:
 
 ## Export template after deployment
 
-This option supports exporting only ARM JSON templates. It retrieves an exact copy of the template used for deployment, allowing you to select a specific deployment from the deployment history. After exporting, you can [decompile](../articles/azure-resource-manager/bicep/decompile.md) them into to Bicep files. For more information about saving from history and the export options, see [Choose the right export option](../templates/export-template-portal.md#choose-the-right-export-option).
+This option supports exporting only ARM JSON templates. It retrieves an exact copy of the template used for deployment, allowing you to select a specific deployment from the deployment history. After exporting, you can [decompile](./decompile.md) them into to Bicep files. For more information about saving from history and the export options, see [Choose the right export option](../templates/export-template-portal.md#choose-the-right-export-option).
 
 ## Next steps
 
