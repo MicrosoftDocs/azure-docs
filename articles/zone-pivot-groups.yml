@@ -792,6 +792,15 @@ groups:
     title: Linux
   - id: github-actions-containers-windows
     title: Windows
+    # Owner: jefmarti
+- id: app-service-bicep
+  title: App Service Bicep
+  prompt: Choose a platform
+  pivots:
+  - id: app-service-bicep-linux
+    title: Linux
+  - id: app-service-bicep-windows-container
+    title: Windows container
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1176,6 +1185,16 @@ groups:
   - id: expressroute-preview
     title: Preview
 # Owner: hmb
+- id: front-door-dev-exp-portal-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-portal
+    title: Azure portal
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 - id: front-door-dev-exp-portal-cli
   title: Front Door Developer experience
   prompt: "Select the developer experience:"
@@ -1829,3 +1848,23 @@ groups:
     title: Azure portal
   - id: platform-nocode
     title: Power Platform
+# Owner: Deepika0530
+- id: acs-ps-azclips-azclipython
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-powershell
+    title: Azure PowerShell
+  - id: platform-azclips
+    title: Azure CLI in PowerShell script
+  - id: platform-azclipython
+    title: Azure CLI in Python script
+#owner: shaas
+- id: data-box-sku
+  title: Data Box SKUs
+  prompt: Choose a Data Box SKU
+  pivots:
+  - id: dbx-ng
+    title: Data Box Next Gen
+  - id: dbx
+    title: Data Box

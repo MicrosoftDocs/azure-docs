@@ -11,7 +11,7 @@ Before you begin, it's a good idea to read the overview of [machine configuratio
 
 [A video walk-through of this document is available][02].
 
-Machine configuration uses [PowerShell Desired State Configuration (PSDSC)][03] version 3 to audit
+Machine configuration uses [PowerShell Desired State Configuration (PSDSC)][03] version 2 to audit
 and configure machines. The DSC configuration defines the state that the machine should be in.
 There's many notable differences in how DSC is implemented in machine configuration.
 

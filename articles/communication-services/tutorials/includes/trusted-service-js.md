@@ -30,7 +30,7 @@ For this tutorial we'll be creating an Azure Function that will serve as a trust
 
 This service is responsible for authenticating users to Azure Communication Services. Users of your Communication Services applications will require an `Access Token` in order to participate in chat threads and VoIP calls. The Azure Function will work as a trusted middleman between the user and the Communication Services. This allows you to provision access tokens without exposing your resource connection string to your users.
 
-For more information, see the [client-server architecture](../../concepts/client-and-server-architecture.md) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
+For more information, see the [client-server architecture](../../concepts/identity-model.md#client-server-architecture) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
 
 ## Setting up
 

@@ -3,7 +3,7 @@ title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
 
 
-
+ms.collection: ce-skilling-ai-copilot
 ms.topic: overview
 ms.custom:
   - ignite-2024

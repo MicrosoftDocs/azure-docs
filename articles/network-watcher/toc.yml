@@ -139,12 +139,6 @@
     items:
     - name: Manage packet captures
       href: packet-capture-manage.md
-    - name: Manage packet captures for scale sets
-      items:
-      - name: Azure portal
-        href: network-watcher-packet-capture-manage-portal-vmss.md
-      - name: Azure PowerShell
-        href: network-watcher-packet-capture-manage-powershell-vmss.md
     - name: Analyze a packet capture
       items:
       - name: Inspect to find anomalies
@@ -199,10 +193,6 @@
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Enable traffic analytics using Azure policy
       href: traffic-analytics-policy-portal.md
-    - name: Perform compliance and audit your network
-      href: network-watcher-nsg-auditing-powershell.md
-  - name: Determine relative latency between a location and Azure region
-    href: view-relative-latencies.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -227,13 +217,15 @@
   items:
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=cd276b66-8326-ec11-b6e6-000d3a4f0789
   - name: Azure support
     href: https://azure.microsoft.com/support/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?query=network%20watcher
+    href: https://azure.microsoft.com/updates/?filters=%5B%22Network+Watcher%22%5D
   - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla/network-watcher/
+    href: https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher

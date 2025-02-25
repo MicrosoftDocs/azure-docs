@@ -334,7 +334,7 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
     :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
 
-    See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
+    See [our instructions](automation/run-playbooks.md#configure-playbook-permissions-for-incidents-in-a-multitenant-deployment) for setting this up.
 
 ## Creating and managing automation rules
 

@@ -13,7 +13,7 @@ keywords: azure, openshift, aro, red hat, lockbox
 
 # Authorize support requests for cluster access with Azure Lockbox
 
-In some circumstances, a support agent at Microsoft may need access to your OpenShift cluster resources. The Azure Lockbox feature works with Azure Redhat OpenShift to provide customers a way to review and approve or reject requests from Microsoft support to access their cluster resources. This ability can be important for financial, government, or other regulatory industries where there's extra scrutiny regarding access to resources.
+In some circumstances, a support agent at Microsoft may need access to your OpenShift cluster resources. The Azure Lockbox feature works with Azure Red Hat OpenShift to provide customers a way to review and approve or reject requests from Microsoft support to access their cluster resources. This ability can be important for financial, government, or other regulatory industries where there's extra scrutiny regarding access to resources.
 
 With Azure Lockbox, whenever a support ticket is created, you have the ability to grant consent to Microsoft support agents to access your cluster resources. The actions that the support engineer can take are limited to those [listed below](#aro-lockbox-actions). Azure Lockbox will tell you exactly what action the support agent is trying to execute.
 

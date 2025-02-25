@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 01/27/2025
 ms.author: cshoe
 ms.custom:
 ---
@@ -15,6 +15,8 @@ ms.custom:
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
 Many user interfaces rely heavily on user authentication data. The direct-access endpoint is a utility API that exposes user information without having to implement a custom function. Beyond convenience, the direct-access endpoint isn't subject to cold start delays that are associated with serverless architecture.
+
+This article shows you how to read user information from a deployed application. If you want to read emulated user information during local development, see [Authorization and authentication emulation](./local-development.md#authorization-and-authentication-emulation).
 
 ## Client principal data
 

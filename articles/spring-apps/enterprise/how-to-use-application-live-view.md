@@ -1,5 +1,5 @@
 ---
-title: Use Application Live View with the Azure Spring Apps Enterprise plan
+title: Use Application Live View with the Azure Spring Apps Enterprise Plan
 description: Learn how to use Application Live View for VMware Tanzu.
 author: KarlErickson
 ms.author: yuwzho
@@ -12,6 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 # Use Application Live View with the Azure Spring Apps Enterprise plan
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
+> [!NOTE]
+> Application Live View for VMware Tanzu reaches the end of support on August 31, 2025. We recommend migrating it to self-hosted [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin). For more information on how to perform the migration, see [Migrate Application Live View to Spring Boot Admin](../migration/migrate-application-live-view.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
@@ -37,7 +40,7 @@ Application Live View only supports Spring Boot applications.
 
 You can enable Application Live View when you provision an Azure Spring Apps Enterprise plan instance. If you already have a provisioned Azure Spring Apps Enterprise resource, see the [Manage Application Live View in existing Enterprise plan instances](#manage-application-live-view-in-existing-enterprise-plan-instances) section of this article.
 
-You can enable Application Live View using the Azure portal or Azure CLI.
+You can enable Application Live View using the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
@@ -50,11 +53,11 @@ Use the following steps to enable Application Live View using the Azure portal:
    :::image type="content" source="media/how-to-use-application-live-view/create.png" alt-text="Screenshot of the VMware Tanzu settings tab with the Enable App Live View checkbox selected." lightbox="media/how-to-use-application-live-view/create.png":::
 
 1. Specify other settings, and then select **Review and Create**.
-1. Make sure that **Enable Application Live View** and **Enable Dev Tools Portal** are set to *Yes* on the **Review and Create** tab, and then select **Create** to create the Enterprise plan instance.
+1. Make sure that **Enable Application Live View** and **Enable Dev Tools Portal** are set to **Yes** on the **Review and Create** tab, and then select **Create** to create the Enterprise plan instance.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-Use the following steps to provision an Azure Spring Apps service instance using the Azure CLI.
+Use the following steps to provision an Azure Spring Apps service instance using the Azure CLI:
 
 1. Use the following command to sign in to the Azure CLI and specify your active subscription:
 
@@ -111,7 +114,7 @@ Azure Spring Apps runs the Application Live View in connector mode.
 
 After you provision the Azure Spring Apps Enterprise plan instance, you can obtain its running state and resource consumption, or manage Application Live View.
 
-You can monitor Application Live View using the Azure portal or Azure CLI.
+You can monitor Application Live View using the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/Portal)
 
@@ -141,7 +144,7 @@ Application Live View lets you view live metrics for Spring Boot applications an
 
 Use the following steps to deploy an app and monitor it in Application Live View:
 
-1. Add the following dependency to your application's *pom.xml* file.
+1. Add the following dependency to your application's **pom.xml** file.
 
    ```xml
    <dependency>
@@ -150,7 +153,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
     </dependency>
    ```
 
-1. Add the following execution goal to your Maven plugin in the *pom.xml* file to expose build information:
+1. Add the following execution goal to your Maven plugin in the **pom.xml** file to expose build information:
 
    ```xml
    <plugin>
@@ -171,7 +174,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
    </plugin>
    ```
 
-1. Enable the actuator endpoint by adding the following configuration in *application.properties*:
+1. Enable the actuator endpoint by adding the following configuration in **application.properties**:
 
    ```properties
    management.endpoints.web.exposure.include=info,health
@@ -212,7 +215,7 @@ Use the following steps to deploy an app and monitor it in Application Live View
 
 ## Manage Application Live View in existing Enterprise plan instances
 
-You can enable Application Live View in an existing Azure Spring Apps Enterprise plan instance using the Azure portal or Azure CLI.
+You can enable Application Live View in an existing Azure Spring Apps Enterprise plan instance using the Azure portal or the Azure CLI.
 
 If you enabled Dev Tools Portal and exposed a public endpoint, use <kbd>Ctrl</kbd>+<kbd>F5</kbd> to deactivate the browser cache after you enable Application Live View.
 
@@ -245,9 +248,9 @@ To access the Application Live View dashboard, you must enable Dev Tools Portal 
 
 ```azurecli
 az spring dev-tool create \
-   --resource-group <resource-group-name> \
-   --service <Azure-Spring-Apps-service-instance-name> \
-   --assign-endpoint
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --assign-endpoint
 ```
 
 ---
@@ -256,7 +259,7 @@ az spring dev-tool create \
 
 Application Live View can automatically connect and monitor Spring boot apps with default actuator settings. The default HTTP port of the actuator endpoints are same as the HTTP port of the application and all actuator endpoints are accessible by the default context path of the application, which has the `/actuator` suffix.
 
-If the port (`management.server.port=`) or the context path (`management.endpoints.web.base-path=/`) are customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To enable Application Live View to continue monitoring such apps, use the following steps to configure the app deployment to customize the actuator endpoints.
+If the port - `management.server.port=` - or the context path - `management.endpoints.web.base-path=/` - are customized for an app, Application Live View stops connecting and monitoring the app and reports 404 for the app. To enable Application Live View to continue monitoring such apps, configure the app deployment to customize the actuator endpoints.
 
 ### [Azure portal](#tab/Portal)
 

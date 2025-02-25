@@ -1,5 +1,5 @@
 ---
-title: How to use Logback to write logs to custom persistent storage in Azure Spring Apps | Microsoft Docs
+title: How to Use Logback to Write Logs to Custom Persistent Storage in Azure Spring Apps
 description: How to use Logback to write logs to custom persistent storage in Azure Spring Apps.
 author: KarlErickson
 ms.author: xuycao
@@ -21,10 +21,10 @@ This article shows you how to load Logback and write logs to custom persistent s
 
 > [!NOTE]
 > When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
-> - *logback-spring.xml*
-> - *logback.xml*
-> - *logback-spring.groovy*
-> - *logback.groovy*
+> - **logback-spring.xml**
+> - **logback.xml**
+> - **logback-spring.groovy**
+> - **logback.groovy**
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ In the preceding example, there are two placeholders named `{LOGS}` in the path 
         --service <spring-instance-name>
    ```
 
-    Go to the Azure Storage Account resource you bound and find the Azure file share that was attached as persistent storage. In this example, the logs will be written to the *spring-boot-logger.log* file at the root of your Azure file share. All of the rotated log files will be stored in the */archived* folder in your Azure file share.
+    Go to the Azure Storage Account resource you bound and find the Azure file share that was attached as persistent storage. In this example, the logs will be written to the **spring-boot-logger.log** file at the root of your Azure file share. All of the rotated log files will be stored in the **/archived** folder in your Azure file share.
 
 1. Optionally, use the following command to update the path or persistent storage of an existing app:
 

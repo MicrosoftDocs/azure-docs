@@ -1,27 +1,26 @@
 ---
-title: Manage resource groups - Azure CLI
+title: Manage Resource Groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
-author: mumian
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/09/2025
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
-# Manage Azure Resource Groups by using Azure CLI
+# Manage Azure resource groups by using Azure CLI
 
-Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
+Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups.
 
 ## Prerequisites
 
 * Azure CLI. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* After installing, sign in for the first time. For more information, see [How to sign in to the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
+* An authenticated account. After installing Azure CLI, sign in for the first time. For more information, see [How to sign in to the Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli).
 
 ## What is a resource group
 
-A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you might need to ensure that your data is stored in a particular region.
 
 ## Create resource groups
 
@@ -139,5 +138,6 @@ To manage access to a resource group, use [Azure role-based access control (Azur
 
 ## Next steps
 
+* To manage Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
 * To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 * To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).

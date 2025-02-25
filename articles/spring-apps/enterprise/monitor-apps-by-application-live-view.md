@@ -1,25 +1,28 @@
 ---
-title: Monitor apps using Application Live View with the Azure Spring Apps Enterprise plan
+title: Monitor Apps Using Application Live View with the Azure Spring Apps Enterprise Plan
 description: Learn how to monitor apps using Application Live View with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: yuwzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Monitor apps using Application Live View with the Azure Spring Apps Enterprise plan
 
 [!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
+> [!NOTE]
+> Application Live View for VMware Tanzu reaches the end of support on August 31, 2025. We recommend migrating it to self-hosted [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin). For more information on how to perform the migration, see [Migrate Application Live View to Spring Boot Admin](../migration/migrate-application-live-view.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
+
 **This article applies to:** ❎ Basic/Standard ✅ Enterprise
+
+This article describes Application Live View UI features and the pages and views included in the Application Live View user interface.
 
 [Application Live View for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.4/tap/app-live-view-about-app-live-view.html) is a lightweight insights and troubleshooting tool that helps app developers and app operators look inside running apps.
 
 Application Live View provides visual insights into running apps by inspecting Spring Boot Actuator information. It provides a live view of the data from inside the app only. Application Live View doesn't store any of the app data for further analysis or historical views. The easy-to-use interface lets you troubleshoot, learn, and maintain an overview of certain aspects of the apps. It provides a certain level of control to users to let them change some parameters such as log levels and environment properties of running apps.
-
-This article describes the Application Live View UI features, and the pages and views included in the Application Live View user interface.
 
 ## Prerequisites
 

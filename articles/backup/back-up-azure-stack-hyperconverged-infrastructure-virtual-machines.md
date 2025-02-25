@@ -2,7 +2,7 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 11/23/2024
+ms.date: 02/20/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
@@ -29,7 +29,7 @@ MABS can back up Azure Local virtual machines in the following scenarios:
 
 
 
-- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2.
+- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Local.
 
    The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
 

@@ -1463,10 +1463,12 @@ Allows users to edit and delete Hierarchy Settings
 
 Allows for creating managed application resources.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Solutions](../permissions/management-and-governance.md#microsoftsolutions)/applications/* |  |
 > | [Microsoft.Solutions](../permissions/management-and-governance.md#microsoftsolutions)/register/action | Register the subscription for Microsoft.Solutions |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/* |  |
@@ -1510,10 +1512,12 @@ Allows for creating managed application resources.
 
 Lets you read and perform actions on Managed Application resources
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Solutions](../permissions/management-and-governance.md#microsoftsolutions)/applications/read | Lists all the applications within a subscription. |
 > | [Microsoft.Solutions](../permissions/management-and-governance.md#microsoftsolutions)/*/action |  |
 > | **NotActions** |  |
@@ -1553,10 +1557,12 @@ Lets you read and perform actions on Managed Application resources
 
 Lets you read resources in a managed app and request JIT access.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Solutions](../permissions/management-and-governance.md#microsoftsolutions)/jitRequests/* |  |
 > | **NotActions** |  |
@@ -2010,12 +2016,14 @@ Lets one read all the reservations in a tenant
 
 Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy.
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/governance/policy/overview)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyassignments/* | Create and manage policy assignments |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policydefinitions/* | Create and manage policy definitions |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyexemptions/* | Create and manage policy exemptions |

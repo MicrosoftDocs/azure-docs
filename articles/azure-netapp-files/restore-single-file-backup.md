@@ -29,6 +29,9 @@ To restore individual files no longer available in an online snapshot [single-fi
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
 * The restore operation doesn't work if a directory or a soft link path is entered in the file list field.
 
+>[!IMPORTANT]
+>Only _regular_ volumes can be restored single-file restore from backups. This feature is not supported with [large volumes](large-volumes-requirements-considerations.md). 
+
 ## Register the feature
 
 Before using single file backup restore for the first time, you need to register the feature first.

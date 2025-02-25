@@ -1,5 +1,5 @@
 ---
-title: Java memory management
+title: Java Memory Management
 titleSuffix: Azure Spring Apps
 description: Introduces concepts for Java memory management to help you understand Java applications in Azure Spring Apps.
 author: KarlErickson

@@ -1,5 +1,5 @@
 ---
-title: How to enable your own persistent storage in Azure Spring Apps | Microsoft Docs
+title: How to Enable Your Own Persistent Storage in Azure Spring Apps
 description: Learn how to bring your own storage as persistent storages in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -170,16 +170,16 @@ Use the following best practices when you add your own persistent storage to Azu
 
 - In the Azure Storage Account, avoid regenerating the account key that you're using. The storage account contains two different keys. Use a step-by-step approach to ensure that the persistent storage remains available to applications during key regeneration.
 
-   For example, use the following steps to ensure that the persistent storage remains available if you used *key1* to bind a storage account to Azure Spring Apps.
+   For example, use the following steps to ensure that the persistent storage remains available if you used `key1` to bind a storage account to Azure Spring Apps.
 
-   1. Regenerate *key2*.
-   1. Update the account key of the storage resource to use the regenerated *key2*.
+   1. Regenerate `key2`.
+   1. Update the account key of the storage resource to use the regenerated `key2`.
    1. Restart the applications that mount the persistent storage from this storage resource. Use the `az spring storage list-persistent-storage` command to list all related applications.
-   1. Regenerate *key1*.
+   1. Regenerate `key1`.
 
 - If you delete an Azure Storage account or Azure file share, avoid possible errors by removing the corresponding storage resource or persistent storage in the applications.
 
-- If you'd like to write files to the same path for every individual application instance, but keep them in separate subdirectories from the perspective of the file share, you could use the *SubPath* option. Note that the *SubPath* option is incompatible with *Read only* because *SubPath* is used for writing new files and *Read only* is used for reading existing files.
+- If you'd like to write files to the same path for every individual application instance, but keep them in separate subdirectories from the perspective of the file share, you could use the `SubPath` option. Note that the `SubPath` option is incompatible with `Read only` because `SubPath` is used for writing new files and `Read only` is used for reading existing files.
 
 ## FAQ
 
@@ -193,13 +193,13 @@ This section addresses frequently asked questions about using your own persisten
 
   *Azure Spring Apps reserves the following mount paths:*
 
-  - */tmp*
-  - */persistent*
-  - */secrets*
-  - */app-insights/agents*
-  - */etc/azure-spring-cloud/certs*
-  - */app-insights/agents/settings*
-  - */app-lifecycle/settings*
+  - **/tmp**
+  - **/persistent**
+  - **/secrets**
+  - **/app-insights/agents**
+  - **/etc/azure-spring-cloud/certs**
+  - **/app-insights/agents/settings**
+  - **/app-lifecycle/settings**
 
 - What are the available mount options?
 

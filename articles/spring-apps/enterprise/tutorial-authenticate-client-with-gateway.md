@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Authenticate client with Spring Cloud Gateway on Azure Spring Apps
+title: Tutorial - Authenticate Client with Spring Cloud Gateway on Azure Spring Apps
 description: Learn how to authenticate client with Spring Cloud Gateway on Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps

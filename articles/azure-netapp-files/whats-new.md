@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/20/2024
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 
@@ -17,6 +17,18 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Restore individual files using single-file restore from backup](restore-single-file-backup.md)
 
     Azure NetApp Files provides ways to quickly [restore data from snapshots](snapshots-introduction.md) (mainly at the volume level). You have the options to restore entire volume from a snapshot or backup and to perform single-file restores from snapshots. You can now also restore individual files from Azure NetApp Files backups, without the need to issue a full restore to a volume first. This will drastically reduce your RTO (Recovery Time Objective) and lower costs, especially on large sized volumes, by avoiding full volumes restore operations. Administrators can simply issue a restore of individual files directly from the snapshot in the backup.
+
+## February 2025
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
 
 ## December 2024
 
@@ -47,8 +59,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, Switzerland North, UK South, US Central, US East, US East 2, and US South, US West and US West 2 regions.
   
 ## September 2024 
 
@@ -421,7 +431,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

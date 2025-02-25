@@ -42,6 +42,12 @@
           href: jobs-get-started-cli.md
 - name: Key concepts
   items:
+    - name: Compute and billing structures
+      items:
+      - name: Overview
+        href: structure.md
+      - name: Consumption-only environment type
+        href: environment-type-consumption-only.md
     - name: Compare container options in Azure
       href: compare-options.md
     - name: Plans
@@ -57,14 +63,7 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      items:
-      - name: Overview
-        href: sessions.md
-        displayName: Dynamic sessions overview
-      - name: Code interpreter sessions
-        href: sessions-code-interpreter.md
-      - name: Custom container sessions
-        href: sessions-custom-container.md
+      href: sessions.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
@@ -79,6 +78,10 @@
       href: containerapp-up.md
     - name: Create and deploy a container app using the CLI
       href: tutorial-deploy-first-app-cli.md
+    - name: Create and deploy a container app from code
+      href: tutorial-deploy-from-code.md
+    - name: Update a container app deployed from code
+      href: tutorial-update-from-code.md
     - name: Connect to apps & services
       items:
         - name: Connect to services
@@ -128,22 +131,48 @@
       items:
         - name: Code interpreter sessions
           items:
-          - name: AutoGen
-            href: sessions-tutorial-autogen.md
-          - name: LangChain
-            href: sessions-tutorial-langchain.md
-          - name: LlamaIndex
-            href: sessions-tutorial-llamaindex.md
-          - name: Semantic Kernel
-            href: sessions-tutorial-semantic-kernel.md
-          - name: JavaScript Code Interpreter (preview)
-            href: sessions-tutorial-nodejs.md
+          - name: Overview
+            href: sessions-code-interpreter.md
+          - name: Tutorials
+            items:
+            - name: Use a LLM agent
+              items:
+              - name: AutoGen
+                href: sessions-tutorial-autogen.md
+              - name: LangChain
+                href: sessions-tutorial-langchain.md
+              - name: LlamaIndex
+                href: sessions-tutorial-llamaindex.md
+              - name: Semantic Kernel
+                href: sessions-tutorial-semantic-kernel.md
+            - name: Use the REST API
+              items:
+              - name: JavaScript Code interpreter (preview)
+                href: sessions-tutorial-nodejs.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
     - name: Event-driven processing
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
-      href: troubleshooting.md
+      items:
+        - name: Overview
+          href: troubleshooting.md
+        - name: Errors and failures
+          items:
+          - name: Container create
+            href: troubleshoot-container-create-failures.md
+          - name: Open Container Initiative (OCI)
+            href: troubleshoot-open-container-initiative-errors.md
+          - name: Health probe
+            href: troubleshoot-health-probe-failures.md
+          - name: Image pull
+            href: troubleshoot-image-pull-failures.md
+          - name: Storage mount
+            href: troubleshoot-storage-mount-failures.md
+          - name: Target port
+            href: troubleshoot-target-port-settings.md
     - name: Reliability in Azure Container Apps
       href: ../reliability/reliability-azure-container-apps.md?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
 - name: Observability
@@ -161,6 +190,8 @@
       href: log-streaming.md
     - name: Container console
       href: container-console.md
+    - name: Container debug console
+      href: container-debug-console.md
     - name: Metrics
       href: metrics.md
     - name: Log monitoring
@@ -352,6 +383,16 @@
         displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
+      - name: Artificial Intelligence
+        items:
+        - name: PetClinic AI
+          items: 
+          - name: Overview
+            href: java-petclinic-ai-overview.md
+            displayName: java
+          - name: Deploy the PetClinic AI sample
+            href: java-petclinic-ai-tutorial.md
+            displayName: java
         displayName: java
       - name: Launch your first Java microservice apps with managed Java components
         href: java-microservice-get-started.md

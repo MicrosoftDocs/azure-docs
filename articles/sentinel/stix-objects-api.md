@@ -289,7 +289,7 @@ The objects are sent as an array, so the `recordIndex` begins at `0`.
 
 #### Sample indicator
 
-In this example, the indicator is marked with the green TLP. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
+In this example, the indicator is marked with the green TLP by using `marking-definition--089a6ecb-cc15-43cc-9494-767639779123` in the `object_marking_refs` common property. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
 
 ```json
 {

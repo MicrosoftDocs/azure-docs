@@ -18,6 +18,48 @@ items:
     href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+  - name: Migrate to Azure Container Apps
+    expanded: false
+    items:
+    - name: Overview
+      href: ../migration/migrate-to-azure-container-apps-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Provisioning
+      href: ../migration/migrate-to-azure-container-apps-provision.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Application
+      expanded: true
+      items:
+        - name: Overview
+          href: ../migration/migrate-to-azure-container-apps-application-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+        - name: Custom domain
+          href: ../migration/migrate-to-azure-container-apps-custom-domain.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+        - name: Blue-green deployment
+          href: ../migration/migrate-to-azure-container-apps-blue-green.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Managed Components
+      expanded: true
+      items:
+        - name: Eureka Server
+          href: ../migration/migrate-to-azure-container-apps-components-eureka.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+        - name: Config Server
+          href: ../migration/migrate-to-azure-container-apps-components-config-server.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Networking
+      href: ../migration/migrate-to-azure-container-apps-network.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Monitoring
+      href: ../migration/migrate-to-azure-container-apps-monitoring.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+    - name: Tools and automation
+      href: ../migration/migrate-to-azure-container-apps-automation.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+  - name: Migrate to Azure Kubernetes Service
+    href: ../migration/migrate-to-aks-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+  - name: App containerization
+    expanded: false
+    items:
+      - name: Overview
+        href: ../migration/migrate-to-azure-container-apps-build-overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      - name: Build an image from artifacts
+        href: ../migration/migrate-to-azure-container-apps-build-artifacts.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      - name: Build an image using Paketo
+        href: ../migration/migrate-to-azure-container-apps-build-buildpacks.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      - name: Integrate with APM
+        href: ../migration/migrate-to-azure-container-apps-build-application-performance-monitoring.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -102,7 +144,7 @@ items:
       href: quickstart-deploy-infrastructure-vnet-bicep.md?tabs=azure-spring-apps-standard
     - name: Provision using an ARM template
       href: quickstart-deploy-infrastructure-vnet.md
-    - name: Provision using Azure CLI
+    - name: Provision using the Azure CLI
       href: quickstart-deploy-infrastructure-vnet-azure-cli.md?tabs=azure-spring-apps-standard
     - name: Provision using Terraform
       href: quickstart-deploy-infrastructure-vnet-terraform.md

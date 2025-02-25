@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Build and deploy apps to the Azure Spring Apps Enterprise plan"
+title: "Quickstart - Build and Deploy Apps to the Azure Spring Apps Enterprise Plan"
 description: Describes app deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com

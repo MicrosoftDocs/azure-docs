@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 09/29/2023
+ms.date: 01/27/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -70,7 +70,7 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields are provided." lightbox="media/power-bi-visual/bubble-layer.png":::
 
-1. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **City** column.  
+1. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **BussinessName** column.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored bubbles on the map after legend field is provided." lightbox="media/power-bi-visual/bubble-layer-with-legend-color.png":::
 
@@ -78,7 +78,10 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="A screenshot of the Azure Maps visual displaying points as colored and scaled bubbles on the map that demonstrate the size field." lightbox="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png":::
 
-1. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 25%, smaller radius, and the black border.  
+    > [!NOTE]
+    > Unlike the other screenshots in this section, this screenshot demonstrates [Geocoding in Azure Maps Power BI Visual], using coordinate fields (lat/lon) instead of providing a physical address.
+
+1. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as shown previously, but with the bubble layers fill transparency option set to 25%, smaller radius, and a black border.  
 
     :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="A screenshot of the Azure Maps visual displaying points as bubbles on the map with a custom style." lightbox="media/power-bi-visual/bubble-layer-styled.png":::
 
@@ -219,3 +222,4 @@ Customize the visual:
 [Understanding layers in the Azure Maps Power BI visual]: power-bi-visual-understanding-layers.md
 [view]: #view
 [The location field]: power-bi-visual-geocode.md#the-location-field
+[Geocoding in Azure Maps Power BI Visual]: power-bi-visual-geocode.md

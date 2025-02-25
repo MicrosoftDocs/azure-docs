@@ -167,7 +167,7 @@
             href: point-to-site-certificate-client-linux-azure-vpn-client.md
           - name: OpenVPN client
             href: point-to-site-vpn-client-certificate-openvpn-linux.md
-          - name: IKEv2 -strongSwan
+          - name: IKEv2 - strongSwan
             href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
           items:
@@ -183,7 +183,7 @@
           items:
           - name: Azure PowerShell
             href: vpn-gateway-certificates-point-to-site.md
-          - name: Makecert
+          - name: MakeCert
             href: vpn-gateway-certificates-point-to-site-makecert.md
         - name: .pem files
           items:
@@ -201,6 +201,8 @@
           href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
+        - name: Change from manually registered to Microsoft-registered VPN client
+          href: point-to-site-entra-gateway-update.md
         - name: Create or modify custom audience app ID
           href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
@@ -217,8 +219,6 @@
           href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
-      - name: Migrate manually registered client to Microsoft-registered client
-        href: point-to-site-entra-gateway-update.md
     - name: RADIUS authentication
       items:
       - name: P2S gateway configuration
@@ -371,8 +371,6 @@
     href: monitor-vpn-gateway-reference.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page

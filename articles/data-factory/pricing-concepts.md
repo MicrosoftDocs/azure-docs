@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.reviewer: jburchel
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Understanding Azure Data Factory pricing through examples

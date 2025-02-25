@@ -1,5 +1,5 @@
 ---
-title:  Connect to an app instance for troubleshooting
+title:  Connect to an App Instance for Troubleshooting
 description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
 author: KarlErickson
 ms.author: xiangy

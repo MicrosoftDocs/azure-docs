@@ -1,5 +1,5 @@
 ---
-title: Debug your apps remotely in Azure Spring Apps
+title: Debug Your Apps Remotely in Azure Spring Apps
 description: Learn how to debug your apps remotely in Azure Spring Apps.
 ms.service: azure-spring-apps
 ms.topic: how-to
