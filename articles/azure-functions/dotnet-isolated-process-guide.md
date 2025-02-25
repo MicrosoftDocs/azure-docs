@@ -555,6 +555,33 @@ public async Task HandleCancellationCleanup(
 }
 ```
 
+#### Scenarios that lead to cancellation token being cancelled
+
+The cancellation token is cancelled when any of the following events occur:
+
+1. Client Disconnects: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
+2. Function App Restarts: if you or the platform restart your Function App around the same time an invocation is requested. This should not have any impact as when the host starts back up it will retry the request.
+    - Restarts could occur due to worker instance movements, worker instance updates, or scaling
+
+For the dotnet-isolated worker, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ we get to sending the invocation request to the worker.
+
+If you do not want pre-cancelled invocations to be sent to the worker, you can add the following property to your host.json file to disable this behaviour.
+
+```json
+{
+    "version": "2.0",
+    "SendCanceledInvocationsToWorker": "false"
+}
+```
+
+> [!IMPORTANT]
+> Warning: Setting `SendCanceledInvocationsToWorker` to `false` may lead to a `FunctionInvocationCanceled` exception with the following log: 
+> 
+> `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
+> 
+> This occurs when the cancellation token is cancelled (via the events defined above), but the host did not send the invocation to the worker because the cancellation token was cancelled 
+> _before_ we send the invocation to the worker, and can be controlled by the `SendCanceledInvocationsToWorker` property.
+
 ## Bindings 
 
 Bindings are defined by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 
