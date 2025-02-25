@@ -49,7 +49,7 @@ items:
       href: tutorial-discover-spring-boot.md
     - name: Discover SAP systems (preview)
       href: tutorial-discover-sap-systems.md
-    - name: Discovery MySQL databases (preview)
+    - name: Discover MySQL databases (preview)
       href: tutorial-discover-mysql-database-instances.md
   - name: Decide
     items:
@@ -91,7 +91,7 @@ items:
       href: tutorial-discover-import.md
     - name: Assess SAP systems for migration (preview)
       href: tutorial-assess-sap-systems.md
-    - name: Assess MySQL databases for migration to Azure DB for MySQL (preview)
+    - name: Assess MySQL databases for migration to Azure Database for MySQL (preview)
       href: create-mysql-assessment.md 
   - name: Migrate
     items:

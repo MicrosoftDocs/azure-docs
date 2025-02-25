@@ -20,8 +20,6 @@ In this tutorial, you learn how to:
 
 > [!NOTE]
 > - A Kubernetes-based appliance is required to discover MySQL database instances. [Learn more] (migrate-appliance.md) about scenarios covered by a Windows-based appliance.
-> - This tutorial shows you the quickest path for trying out a scenario. They use default options where possible.
-
 
 
 ## Supported regions
@@ -43,14 +41,17 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- Before you begin to discover MySQL database instances, use the following tutorials to first create an Azure Migrate project in one of the supported regions and ensure you've performed server discovery using the Azure Migrate appliance:
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/).
+- Before you begin to discover MySQL database instances, use the relevant tutorial to create an Azure Migrate project as per your requirements in one of the [supported regions](#supported-regions):
+
    - [Discover servers running in a VMware environment](tutorial-discover-vmware.md)
    - [Discover servers running in Hyper-V environment](tutorial-discover-hyper-v.md)
    - [Discover physical servers](tutorial-discover-physical.md)
    - [Discover AWS instances](tutorial-discover-aws.md)
    - [Discover GCP instances](tutorial-discover-gcp.md)
-- Ensure that you perform software inventory by providing the server credentials to the appliance configuration manager. [Learn more](how-to-discover-applications.md)
+   - 
+- After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
+- Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
 
 > [!NOTE]
 > Only Azure Migrate projects created with public endpoint connectivity are supported. Private endpoint projects aren't supported.
@@ -58,25 +59,27 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 
 ## Set up Kubernetes-based appliance
 
-After you performed the server discovery and software inventory using the Azure Migrate appliance, follow these steps to enable discovery of MySQL database instances by setting up a Kubernetes appliance:
+After you complete the server discovery and software inventory using the Azure Migrate appliance, follow these steps to enable discovery of MySQL database instances by setting up a Kubernetes appliance:
 
 ### Onboard Kubernetes-based appliance
 
 1. Sign in to the  [Azure portal](https://portal.azure.com) and search for **Azure Migrate**.
 1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
-1. Select the project where you want to set up the Azure Migrate appliance.
+1. Select the Azure Migrate project to set up the Kubernetes-based appliance
 1. You'll see a message above **Azure Migrate: Discovery and assessment** tile to onboard a Kubernetes-based appliance to enable discovery of MySQL databases and Spring Boot applications. Select the link on the message to get started with onboarding the Kubernetes-based appliance.
 
     :::image type="content" source="./media/tutorial-discover-mysql-database-instances/kubernetes-appliance-install-message.png" alt-text="Screenshot on how to get started onboarding kubernetes based appliance." lightbox="media/tutorial-discover-mysql-database-instances/kubernetes-appliance-install-message.png":::
    
-1. Under **Choose an appliance**, you can select one from the following options:
+1. In the Onboard Kubernetes-based appliance page, under the **Setup appliance** section, choose either one of the options.
 
    - **Install appliance using packaged Kubernetes cluster** (recommended). You must set up a Kubernetes-cluster on a Linux server and then use the installer script to set up the Azure Migrate appliance. 
    - **Bring your own Kubernetes cluster**: You must bring your own Kubernetes cluster running on-premises, connect it to Azure Arc, and use the installer script to set up the appliance.
 
    #### [Install appliance using packaged Kubernetes cluster (recommended)](#tab/appliance-kcluster)
 
-   1. In **Provide appliance details for Azure Migrate**, the appliance name is prepopulated, but you can choose to provide your own friendly name to the appliance.
+   To install an appliance using the packaged Kubernetes cluster, follow these steps:
+
+   1. In **Provide appliance details for Azure Migrate**, the appliance name is shown by default, but you can choose to provide your own friendly name to the appliance.
 
    1. Select a Key Vault from the drop-down list or **Create new** Key Vault. This Key Vault is used to process the credentials provided in the project to start discovery of MySQL database instances.
 
@@ -84,24 +87,27 @@ After you performed the server discovery and software inventory using the Azure 
       > You can select or create in the same subscription and region as that of the Azure Migrate Project. When you create/select Key Vault, ensure it doesn't have purge protection enabled, else there will be issues in processing of credentials through the Key Vault. 
 
    #### [Bring your own Kubernetes cluster](#tab/appliance-byo-kcluster)
+   
+   To bring your own Kubernetes cluster, follow these steps:
 
    1. In **Choose connected cluster**, select an existing Azure Arc connected cluster from your subscription. If you don't have an existing connected cluster, you can Arc-enable a Kubernetes cluster running on-premises by following the steps [here](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
       > [!Note]
       > You can only select an existing connected cluster that's deployed in the same region as your Azure Migrate project.
 
-   1. In **Provide appliance details for Azure Migrate**, the appliance name is prepopulated, but you can choose to provide your own friendly name.
+   1. In **Provide appliance details for Azure Migrate**, the appliance name is provided by default. However, you can provide a friendly name.
 
    1. You can select a Key Vault from the drop-down or **Create new** Key Vault. This Key Vault is used to process the credentials provided in the project to start discovery of MySQL database instances.
 
    > [!Note]
-   > The Key Vault can be chosen or created in the same subscription and region as that of the Azure Migrate project. When you create/select a Key Vault, ensure that purge protection is disabled else there will be issues in processing of credentials through the Key Vault.
+   > You can choose or create the Key Vault in the same subscription and region as that of the Azure Migrate project. When you create/select a Key Vault, ensure that purge protection is disabled else, there will be issues in processing of credentials through the Key Vault.
 
     ---
 
-1.	After you provide the appliance name and Key Vault, select **Generate script** to generate an installer script that you can download or copy the script and save it as Deploy.sh on a Linux server on-premises.
+1.	After you provide the appliance name and Key Vault, select **Generate script** to generate an installer script that you can download or copy the script and save it as </br>
+  `Deploy.sh` on a Linux server on-premises.
 
-1.	Before executing the script, ensure that you meet the following prerequisites on the Linux server:
+1.	Before you execute the script, ensure that the following prerequisites on the Linux server are met:
 
     **Support** | **Details**
     ---- | ----
@@ -114,8 +120,9 @@ After you performed the server discovery and software inventory using the Azure 
 
 If your machine is behind an outbound proxy server, requests must be routed via the outbound proxy server. To provide proxy settings, follow these steps:
 
-1. Open the terminal on the server and execute the following command to set up environment variables as a root user: `sudo su -`
-1. On the deployment machine, set the environment variables needed for `deploy.sh` to use the outbound proxy server:
+1. Open the terminal on the server and execute the following command to set up environment variables as a root user: </br>
+   `sudo su -`
+1. On the deployment machine, set the environment variables needed for </br> `deploy.sh` </br> to use the outbound proxy server:
     
     ```
     export HTTP_PROXY=”<proxy-server-ip-address>:<port>”
@@ -127,27 +134,25 @@ If your machine is behind an outbound proxy server, requests must be routed via 
    `export PROXY_CERT=””`
 
    > [!Note] 
-   > The machine uses proxy details while installing the required prerequisites to run the `deploy.sh script`. It won't override the proxy settings of the Azure Arc-enabled Kubernetes cluster.
+   > The machine uses proxy details while installing the required prerequisites to run the </br>`deploy.sh script`. </br> It won't override the proxy settings of the Azure Arc-enabled Kubernetes cluster.
 
 ### Execute the installer script
 
-You can execute the installer script using the following two options:
+Before you execute the installer script, ensure that you have verified the following prerequisites:
 
 **Packaged Kubernetes cluster**
 
-> [!Note]
-> - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking prerequisite and OS compatibility.  
-> - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
-> - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
+ - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking prerequisite and OS compatibility.  
+ - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
+ - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
 **Bring your own cluster**
-
-> [!Note]
-> - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
-> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the `yum install curl` command.
+ 
+ - Run the script after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
+ - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command </br> `sudo apt-get install curl` </br> and for other OS (RHEL), you can use the command </br> `yum install curl`
 
 > [!Important]
-> Don't edit the script unless you want to clean up the setup.
+> Don't edit the script before you execute it. You can only edit the script when want to [clean up the setup](#clean-up-of-setup).
 
 After you save the script on the Linux server, follow these steps:
 
@@ -158,22 +163,24 @@ After you save the script on the Linux server, follow these steps:
 
 1. Follow the instructions in the script and sign in with your Azure user account when prompted. 
 
-1. The script performs the following steps: 
+1. The script performs the following: 
 
-    1. Install required CLI extensions
-    2. Register Azure Resource Providers 
-    3. Check for prerequisites like connectivity to required endpoints 
-    4. Set up MicroK8s Kubernetes cluster 
-    5. Install the required operators on the cluster 
-    6. Create the required Migrate resources 
+    1. Installs required CLI extensions
+    2. Registers Azure Resource Providers 
+    3. Checks for prerequisites like connectivity to required endpoints 
+    4. Sets up MicroK8s Kubernetes cluster 
+    5. Installs the required operators on the cluster 
+    6. Creates the required Migrate resources 
     
 1. After the script is executed successfully, configure the appliance through the portal.
 
 
 > [!NOTE]
-> If you encounter any issue during script execution, you need to rerun the script and it would resume from the last successful state. In case you want to perform a complete fresh install, see [cleanup of setup](tutorial-discover-spring-boot.md#cleanup-of-setup) details before you rerun the script.
+> Rerun the script if you encounter any issue during script execution and it would resume from the last successful state. In case you want to perform a complete fresh install, see [cleanup of setup](#clean-up-of-setup) details before you rerun the script.
 
 ## Encryption at rest
+
+To ensure that Kubernetes secrets are secured, go through the following recommendations:
 
 #### [Packaged Kubernetes cluster](#tab/cluster)
 
@@ -182,7 +189,7 @@ As you're setting a packaged appliance, we have shared responsibility to ensure 
 
 #### [Bring your own Kubernetes cluster](#tab/encrypt-rest)
 
-As you're bringing your own Kubernetes cluster, there's a shared responsibility to ensure that the secrets are secured. 
+As you bring your own Kubernetes cluster, there's a shared responsibility to ensure that the secrets are secured. 
 - We recommend you choose a Kubernetes cluster with disk encryption for its services. 
 - [Learn more](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/) about encrypting data at rest in Kubernetes.
 
@@ -191,7 +198,8 @@ As you're bringing your own Kubernetes cluster, there's a shared responsibility 
 
 ## Configure Kubernetes-based appliance
 
-After successfully setting up the appliance using the installer script, configure the appliance by following these steps:
+After you successfully set up the appliance using the installer script, configure the appliance by following these steps:
+
 1. Go to the Azure Migrate project where you started onboarding the Kubernetes-based appliance.
 1. On the **Azure Migrate: Discovery and assessment** tile, select the appliance count for **Pending action** under appliances summary. 
 
@@ -211,7 +219,7 @@ After successfully setting up the appliance using the installer script, configur
 
 1. For a more detailed and accurate assessment of your MySQL database instances hosted on Linux servers, you’ll also need to add the server credentials. Select **Add credentials** once again and add the Linux server credentials under the credential type **Linux guest**. 
 
-1. After adding the credentials, refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action. After the credentials are successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
+1. After you add the credentials, refresh the page to see the **Sync status** of the credential. If status is **Incomplete**, you can select the status to review the error encountered and take the recommended action. After the credentials are successfully synced, wait for 24 hours before you can review the discovered inventory by filtering for the specific workload in the **Discovered servers** page.
 
    > [!NOTE]
    > You can add/update credentials any time by navigating to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage** > **Appliances** page, selecting **Manage credentials** from the options available in the Kubernetes-based appliance. 

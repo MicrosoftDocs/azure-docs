@@ -11,21 +11,19 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 # Tutorial: Assess MySQL databases for migration to Azure Database for MySQL (preview)
 
 
-As part of your migration journey to Azure, you assess your workloads to measure cloud readiness, identify risks, and estimate costs and complexity. This article shows you how to assess discovered MySQL database instances in preparation for migration to Azure Database for MySQL, using the Azure Migrate: Discovery and assessment tool.
+As part of your migration journey to Azure, you assess the workloads to measure cloud readiness, identify risks, and estimate costs and complexity. This tutorial describes how to assess discovered MySQL database instances before migrating to Azure Database for MySQL, using the Azure Migrate: Discovery and assessment tool.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Run an assessment based on MySQL performance and configuration data.
-> - Review a MySQL assessment.
-
-> [!NOTE]
-> Tutorials show the quickest path for trying out a scenario and use default options where possible.
+> - [Run an assessment based on MySQL performance and configuration data](#run-an-assessment).
+> - [View a MySQL assessment](#view-an-assessment).
+> - [Review confidence ratings](#review-confidence-ratings)
 
 
 ## Prerequisites
 
- - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. 
- - Before assessing your MySQL database instance migration to Azure Database for MySQL, [follow this tutorial](tutorial-discover-mysql-database-instances.md) to make sure you've discovered the MySQL instances you want to assess using the Azure Migrate appliances.
+ - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/). 
+ - Before you assess your MySQL database instance migration to Azure Database for MySQL, ensure you've [discovered the MySQL instances](tutorial-discover-mysql-database-instances.md) that you want to assess using the Azure Migrate appliances.
 
 
 ## Run an assessment
@@ -40,12 +38,13 @@ To create and run a MySQL assessment, follow these steps:
    
    :::image type="content" source="./media/create-mysql-assessment/assess-mysql-database.png" alt-text="Screenshot on how to get started with assessment of mysql database.":::
    
-1. In **Create assessment**, you can see the assessment type preselected as **MySQL assessment** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+1. In **Create assessment**, you can see the **Assessment type** as *MySQL assessment* and the **Discovery source** as *Servers discovered from Azure Migrate appliance* selected by default.
+
 1. Select **Edit** to review the assessment settings. 
 
    :::image type="content" source="./media/create-mysql-assessment/edit-mysql-assessment-settings.png" alt-text="Screenshot on how to edit mysql assessment settings.":::
 
-1. In **Assessment properties**, set the necessary values or retain the default values:
+1. In **Assessment properties**, you can retain the default values or set the necessary values:
 
    **Target and pricing settings**
 
@@ -59,6 +58,7 @@ To create and run a MySQL assessment, follow these steps:
    | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 
    **Assessment criteria**
+
    | **Setting** | **Details** |
    | --- | --- |
    | **Sizing criteria**  | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to MySQL instances to recommend an optimal-sized Azure Database for MySQL instance configuration.
@@ -67,11 +67,12 @@ To create and run a MySQL assessment, follow these steps:
    | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.
 
    **Azure DB for MySQL – Flexible Server sizing**
+
    | **Setting** | **Details** |
    | --- | --- |
-   | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. Azure Migrate recommends the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> Select only *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> Select only *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
+   | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure Database for MySQL. <br/><br> By default, all three service tiers are selected. As per the assessment report,  we recommend the best suited service tier for your servers based on your Environment Type and the collected performance data. <br/><br> - Select only *General Purpose* if you want an Azure Database for MySQL configuration designed for business workloads that require balanced computing and memory with scalable I/O throughput. <br/><br> - Select only *Business Critical* if you want an Azure Database for MySQL configuration designed for high-performance database workloads that require in-memory performance for faster transaction processing and higher concurrency.
 
-1. Select **OK** if you made changes.
+1. Select **OK**.
 
    :::image type="content" source="./media/create-mysql-assessment/save-mysql-assessment-settings.png" alt-text="Screenshot on how to edit mysql assessment settings.":::
    
@@ -85,16 +86,19 @@ To create and run a MySQL assessment, follow these steps:
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
 
-## Review an assessment
+## View an assessment
 
-To review an assessment, follow these steps:
+To view an assessment, follow these steps:
 
 1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Databases** assessment. If you don't see the number populated, select **Refresh** to get the latest updates. 
     
    :::image type="content" source="./media/create-mysql-assessment/databases-assessments.png" alt-text="Screenshot on how to review the assessment.":::
    
 1. Select the MySQL assessment which you wish to view.
-1. Review the assessment summary. You can also edit the assessment settings, recalculate the assessment or export the assessment into an Excel spreadsheet. 
+1. Review the assessment summary. 
+   - Select **Settings** to edit the assessment settings.
+   - Select **Recalculate assessment** to recalculate the assessment.
+   - Select **Export** to export the assessment into an Excel spreadsheet. 
  
     :::image type="content" source="./media/create-mysql-assessment/mysql-assessment-overview.png" alt-text="Screenshot on how to recalculate the assessment.":::
    
@@ -112,7 +116,7 @@ The assessment overview page provides the following information:
  - **Migration scenarios:** This section summarizes the readiness and cost estimates for migrating all the assessed MySQL database instances to Azure Database for MySQL. Selecting **View Details** takes you to the **Instances to Azure Database for MySQL** tab, where you can select the **Instances to Azure Database for MySQL** recommended strategy to view the detailed assessment report.
 
 
-### Review MySQL version and End of life details
+### View MySQL version and End of life details
 
 Select **View version and End of life** to see a graphical distribution of the MySQL versions of all the instances and their EOL status. 
 
@@ -120,32 +124,35 @@ Select **View version and End of life** to see a graphical distribution of the M
 
 ## Review readiness recommended Azure configuration and cost estimates
 
-1. The **Instances to Azure DB for MySQL** page displays a Readiness chart and a Monthly cost estimate chart aggregated for all MySQL instances in the assessed group. It also highlights the top recommended Azure DB for MySQL configurations and top migration issues/warnings, as shown in the screenshot below. 
+To view MySQL instances's readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute, and storage options along with the associated costs, follow these steps:
+
+- The **Instances to Azure DB for MySQL** page displays a Readiness chart and a Monthly cost estimate chart aggregated for all MySQL instances in the assessed group. It also highlights the top recommended Azure DB for MySQL configurations and top migration issues/warnings, as shown below. 
 
    :::image type="content" source="./media/create-mysql-assessment/mysql-assessment-instances-to-azure.png" alt-text="Screenshot that shows a summary of readiness and cost.":::
 
-1. The grid at the bottom of the page contains more details about each instance, including the instance and server name, number of user databases, readiness, MySQL version EOL status, recommended Azure Database for MySQL compute configuration and total monthly cost estimates.
-1. Review the **Readiness** column for the assessed MySQL instances. 
+- The grid at the bottom of the page contains more details about each instance, including the instance and server name, number of user databases, readiness, MySQL version EOL status, recommended Azure Database for MySQL compute configuration and total monthly cost estimates.
+
+- Review the **Readiness** column for the assessed MySQL instances. 
 
     - **Ready**: The instance is ready to be migrated to Azure Database for MySQL without any migration issues or warnings.
     - **Ready with conditions**: The instance has one or more non-critical compatibility issues or migration warnings for migrating to Azure Database for MySQL. You can select on the hyperlink and review the migration warnings and the recommended remediation guidance.
     - **Not ready**: The instance has compatibility issues that may block the migration to Azure Database for MySQL, or the assessment couldn't find an Azure Database for MySQL configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the migration issues and recommendation to make the instance ready for the desired target deployment type.
     - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. 
     
-1. Select the instance name to drill down to a detailed summary of the instance, including readiness, source instance properties, recommended Azure configuration and a monthly cost estimate breakdown between compute, storage, and IO. 
+- Select the instance name to drill down to a detailed summary of the instance, including readiness, source instance properties, recommended Azure configuration and a monthly cost estimate breakdown between compute, storage, and IO. 
 
     :::image type="content" source="./media/create-mysql-assessment/mysql-assessment-instance-drilldown.png" alt-text="Screenshot that shows the readiness for the assessed MySQL instances.":::
 
-1. Select the **Readiness** tab to view the migration issues and warnings for that instance.
-1. Select the **Source properties** tab to view source instance details like MySQL edition, version, version EOL status, and total storage size. Here, you can also review the source instance’s aggregated performance data used to recommend target Azure configuration. Including:
+- Select the **Readiness** tab to view the migration issues and warnings for that instance.
+- Select the **Source properties** tab to view source instance details like MySQL edition, version, version EOL status, and total storage size. Here, you can also review the source instance’s aggregated performance data used to recommend target Azure configuration. Including:
         - vCores utilized
         - Memory utilized (GB)
         - IOPS
         - Connections
         - Read-write %
         
-1. Select the **Target recommendations** tab for a detailed view of the recommended Azure configuration and cost estimates, along with the reasons for the suggested configuration.
-1. Select the **User databases** tab to review the list of user databases and their sizes.
+- Select the **Target recommendations** tab for a detailed view of the recommended Azure configuration and cost estimates, along with the reasons for the suggested configuration.
+- Select the **User databases** tab to review the list of user databases and their sizes.
 
 
 ## Review confidence ratings
