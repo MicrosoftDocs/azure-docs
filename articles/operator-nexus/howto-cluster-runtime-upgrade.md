@@ -1,12 +1,12 @@
 ---
 title: "Azure Operator Nexus: Runtime upgrade"
 description: Learn to execute a cluster runtime upgrade for Operator Nexus
-author: gedrivera
-ms.author: eduardori
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 02/25/2025
 # ms.custom: template-include
 ---
 
@@ -16,11 +16,14 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 
 ## Prerequisites
 
-- The [Install Azure CLI](/cli/azure/install-azure-cli) must be installed.
-- The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](./howto-install-cli-extensions.md).
-- Access to the Azure portal for the target cluster to be upgraded.
-- You must be logged in to the same subscription as your target cluster via `az login`
-- Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
+1. Install the latest version of the [appropriate CLI extensions](howto-install-cli-extensions.md).
+1. The latest `networkcloud` CLI extension is required. It can be installed following the steps listed [here](./howto-install-cli-extensions.md).
+1. Subscription access to run the Azure Operator Nexus network fabric (NF) and network cloud (NC) CLI extension commands.
+1. Collect the following information:
+   - Subscription ID (`SUBSCRIPTION`)
+   - Cluster name (`CLUSTER`)
+   - Resource group (`CLUSTER_RG`)
+1. Target cluster must be healthy in a running state, with all control plane nodes healthy.
 
 ## Checking current runtime version
 Verify current cluster runtime version before upgrade:
@@ -43,9 +46,9 @@ From the **available upgrade versions** tab, we're able to see the different clu
 Available upgrades are retrievable via the Azure CLI:
 
 ```azurecli
-az networkcloud cluster show --name "<clusterName>" /
---resource-group "<resourceGroup>" /
---subscription <subscriptionID>
+az networkcloud cluster show --name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--subscription <SUBSCRIPTION> | grep -A8 availableUpgradeVersions
 ```
 
 In the output, you can find the `availableUpgradeVersions` property and look at the `targetClusterVersion` field:
@@ -70,17 +73,16 @@ If there are no available cluster upgrades, the list is empty.
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update /
---name "<clusterName>" /
---resource-group "<resourceGroup>" /
---update-strategy strategy-type="<strategyType>" threshold-type="<thresholdType" /
-threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
-wait-time-minutes=<waitTimeBetweenRacks> /
---subscription <subscriptionID>
+az networkcloud cluster update --name "<CLUSTER>" /
+--resource-group "<CLUSTER_RG>" \
+--update-strategy strategy-type="<strategyType>" threshold-type="<thresholdType" \
+threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> \
+wait-time-minutes=<waitTimeBetweenRacks> \
+--subscription <SUBSCRIPTION>
 ```
 
 Required parameters:
-- strategy-type: Defines the update strategy. This can be `Rack` (Rack by Rack) OR `PauseAfterRack` (Pause for user before each Rack starts). The default value is `Rack`. To carry out a Cluster runtime upgrade using the `PauseAfterRack` strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
+- strategy-type: Defines the update strategy. This can be `Rack` (Rack by Rack) OR `PauseAfterRack` (Pause for user before each Rack starts). The default value is `Rack`. To carry out a Cluster runtime upgrade using the `PauseAfterRack` strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md)
 - threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. This can be `PercentSuccess` OR `CountSuccess`. The default value is `PercentSuccess`.
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is `80`.
 
@@ -91,19 +93,19 @@ Optional parameters:
 The following example is for a customer using Rack by Rack strategy with a Percent Success of 60% and a 1-minute pause.
 
 ```azurecli
-az networkcloud cluster update --name "<clusterName>" /
---resource-group "<resourceGroup>" /
---update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
-threshold-value=60 wait-time-minutes=1 /
---subscription <subscriptionID>
+az networkcloud cluster update --name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" \
+threshold-value=60 wait-time-minutes=1 \
+--subscription <SUBSCRIPTION>
 ```
 
 Verify update:
 
 ```
-az networkcloud cluster show --resource-group "<resourceGroup>" /
---name "<clusterName>" /
---subscription <subscriptionID>| grep -A5 updateStrategy
+az networkcloud cluster show --name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--subscription <SUBSCRIPTION> | grep -A5 updateStrategy
 
   "updateStrategy": {
     "maxUnavailable": 32767,
@@ -118,19 +120,19 @@ In this example, if less than 60% of the compute nodes being provisioned in a ra
 The following example is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1-minute pause.
 
 ```azurecli
-az networkcloud cluster update --name "<clusterName>" /
---resource-group "<resourceGroup>" /
---update-strategy strategy-type="Rack" threshold-type="CountSuccess" /
-threshold-value=10 wait-time-minutes=1 /
---subscription <subscriptionID>
+az networkcloud cluster update --name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--update-strategy strategy-type="Rack" threshold-type="CountSuccess" \
+threshold-value=10 wait-time-minutes=1 \
+--subscription <SUBSCRIPTION>
 ```
 
 Verify update:
 
 ```
-az networkcloud cluster show --resource-group "<resourceGroup>" /
---name "<clusterName>" /
---subscription <subscriptionID>| grep -A5 updateStrategy
+az networkcloud cluster show --name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--subscription <SUBSCRIPTION> | grep -A5 updateStrategy
 
   "updateStrategy": {
     "maxUnavailable": 32767,
@@ -151,10 +153,10 @@ In this example, if less than 10 compute nodes being provisioned in a rack fail 
 To perform an upgrade of the runtime, use the following Azure CLI command:
 
 ```azurecli
-az networkcloud cluster update-version --cluster-name "<clusterName>" /
---target-cluster-version "<versionNumber>" /
---resource-group "<resourceGroupName>" /
---subscription <subscriptionID>
+az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
+--target-cluster-version "<versionNumber>" \
+--resource-group "<CLUSTER_RG>" \
+--subscription <SUBSCRIPTION>
 ```
 
 The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack by Rack for the worker nodes.
@@ -176,9 +178,9 @@ The Cluster upgrade is complete when detailedStatus is set to `Running` and deta
 To view the upgrade status through the Azure CLI, use `az networkcloud cluster show`.
 
 ```azurecli
-az networkcloud cluster show --cluster-name "<clusterName>" /
---resource-group "<resourceGroupName>" /
---subscription <subscriptionID>
+az networkcloud cluster show --cluster-name "<CLUSTER>" \
+--resource-group "<CLUSTER_RG>" \
+--subscription <SUBSCRIPTION>
 ```
 
 The output should be the target cluster's information and the cluster's detailed status and detail status message should be present.
@@ -201,7 +203,6 @@ A guide for identifying issues with provisioning worker nodes is provided at [Tr
 ### Hardware Failure doesn't require Upgrade re-execution
 
 If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine would be provisioned with the previous runtime version when it is repaired. It will be upgraded along with the rack when the rack starts its upgrade.
-
 ### After a runtime upgrade, the cluster shows "Failed" Provisioning State
 
 During a runtime upgrade, the cluster enters a state of `Upgrading`. If the runtime upgrade fails, the cluster goes into a `Failed` provisioning state. Infrastructure components (e.g the Storage Appliance) may cause failures during the upgrade. In some scenarios, it may be necessary to diagnose the failure with Microsoft support.
