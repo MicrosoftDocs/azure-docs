@@ -122,9 +122,8 @@
       href: web-sites-monitor.md
 - name: Domain names and certificates
   items:
-    - name: Domain names and certs overview 
-      href: app-service-domain-ssl-overview.md
-      displayName: custom domains, Domain names, certificates, ssl, tls
+    - name: Domain and cert quickstart
+      href: tutorial-secure-domain-certificate.md
     - name: Domain names
       items:
         - name: Connect a domain name
