@@ -17,7 +17,7 @@ Azure Container Apps can run any containerized JavaScript application in the clo
 
 ## Configuration
 
-Azure Container Apps enable you to streamline the deployment of your JavaScript applications through effective containerization including setting up environment variables, designing efficient Dockerfiles, and organizing your application's build process. 
+Azure Container Apps enable you for streamlining the deployment of your JavaScript applications through effective containerization including setting up environment variables, designing efficient Dockerfiles, and organizing your application's build process. 
 
 ### Environment Variables
 Environment variables are crucial for configuring your application. Use a `.env` file to manage these variables locally and ensure they're securely managed in production with a service like [Azure Key Vault](/azure/key-vault/).
@@ -37,14 +37,14 @@ A well-configured Dockerfile is essential for containerizing your application:
 * **Use a base Dockerfile**: If multiple projects share a common setup, you can create a base Dockerfile that includes these common steps. Each project's Dockerfile can then start with `FROM` this base image and add project-specific configurations.
 * **Parameterization – Build Arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
 * **Optimized Node.js base image**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead.
-* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file is helps speed up builds in cases where developers copied in unnecessary files.
+* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file helps speedup builds in cases where developers copied in unnecessary files.
 * **Separate build and runtime with multi-stage builds**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
 * **Prebuild artifacts by compiling and bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile also optimizes caching and rebuild times.
-* **Docker Compose for development environments**: Docker Compose allows you to define and run multi-container Docker applications, which is useful for setting up development environments. You can include the build context and Dockerfile in the compose file, allowing you to use different Dockerfiles for different services when necessary.
+* **Docker Compose for development environments**: Docker Compose allows you to define and run multi-container Docker applications. This multi-container approach is useful for setting up development environments. You can include the build context and Dockerfile in the compose file. This level of encapsulation allows you to use different Dockerfiles for different services when necessary.
 
 ### Base Dockerfile
 
-This file serves as a common starting point for your Node.js images. You can use it with a `FROM` directive in Dockerfiles that reference this base image. Use either a version number or a commit to support the most up to date and secure version of the image. 
+This file serves as a common starting point for your Node.js images. You can use it with a `FROM` directive in Dockerfiles that reference this base image. Use either a version number or a commit to support the recent and secure version of the image. 
 
 ```yaml
 # Dockerfile.base
@@ -89,7 +89,7 @@ In this example, the environment variables `PORT` and `ENABLE_DEBUG` are set to 
 
 Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
-### Development environment with Docker Compose
+### Setup development environment with Docker Compose
 
 The following example configuration uses a dedicated development Dockerfile (*Dockerfile.dev*) along with volume mounts for live reloading and local source sync.
 
@@ -223,7 +223,7 @@ build-and-deploy:
           --env-vars NODE_ENV=production PORT=3000
 ```
 
-When using Docker Registry, sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
+When you use Docker Registry, sign into your registry then push your Docker images to a container registry like Azure Container Registry (ACR) or Docker Hub.
 
 ```bash
 # Tag the image
@@ -345,7 +345,7 @@ To ensure that your logs are properly captured and accessible, you need to confi
 
 While `console.log` and `console.error` are automatically captured, using a logging library like Winston provides more flexibility and control over your logging. This flexibility allows you to format logs, set log levels, and output logs to multiple destinations like files or external logging services.
 
-The following example demonstrates how to configure use Winston to store high-fidelity logs.
+The following example demonstrates how to configure Winston to store high-fidelity logs.
 
 ```typescript
 // src/logger.ts
@@ -508,7 +508,7 @@ Enable and configure logging to capture application logs. Use Azure Monitor and 
 
 ### Debugging
 
-Use [remote debugging](#remote-debugging) tools to connect to your running container. Ensure your Dockerfile exposes the necessary ports for debugging.
+You use [remote debugging](#remote-debugging) tools to connect to the running container. Ensure your Dockerfile exposes the necessary ports for debugging.
 
 ```yaml
 # Expose the debugging port
