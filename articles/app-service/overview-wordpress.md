@@ -20,9 +20,9 @@ ms.collection: ce-skilling-ai-copilot
 >
 > You can also ask Azure Copilot these questions:
 >
-> - *what are the pricing options for wordpress on app service?*
+> - *What are the pricing options for WordPress on App Service?*
 > - *What are the benefits of using Azure App Service for WordPress?*
-> - *How does wordpress on app service compare with wordpress on AKS?*
+> - *How does WordPress on App Service compare with WordPress on AKS?*
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
