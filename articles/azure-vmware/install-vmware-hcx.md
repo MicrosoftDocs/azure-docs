@@ -93,7 +93,7 @@ Use the following steps to download the VMware HCX Connector OVA file, and then 
 1. Under **Administration** > **System Updates**, select **Request Download Link**. If the box is greyed, wait a few seconds for it to generate a link. 
 
 1. Either download or receive a link for the VMware HCX Connector OVA file you deploy on your local vCenter Server. 
-1. In your on-premises vCenter Server, select an [OVF template](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/deploying-ovf-templatesvsphere-vm-admin/deploy-an-ovf-template-flex-and-h5vsphere-vm-admin.html) to deploy the VMware HCX Connector to your on-premises vSphere cluster. 
+1. In your on-premises vCenter Server, select an [OVF template](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0.html) to deploy the VMware HCX Connector to your on-premises vSphere cluster. 
 1. Navigate to and select the OVA file that you downloaded and then select **Open**. 
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot of browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png"::: 
