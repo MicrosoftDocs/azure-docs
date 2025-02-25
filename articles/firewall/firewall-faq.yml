@@ -3,12 +3,12 @@ metadata:
   title: Azure Firewall FAQ
   description: FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources.
   services: firewall
-  author: vhorne
+  author: duongau
   ms.service: azure-firewall
   ms.custom: devx-track-azurepowershell
   ms.topic: faq
   ms.date: 02/29/2024
-  ms.author: victorh
+  ms.author: duau
 title: Azure Firewall FAQ
 summary: |
 
