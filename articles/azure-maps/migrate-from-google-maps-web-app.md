@@ -1690,7 +1690,7 @@ The following are some more code samples related to Google Maps migration:
 * [Search for points of interest]
 * [Get information from a coordinate (reverse geocode)]
 * [Show directions from A to B]
-* [Search Autosuggest with JQuery UI]
+* [Search Autosuggest with jQuery UI]
 
 ## Google Maps V3 to Azure Maps Web SDK class mapping
 
@@ -1870,7 +1870,7 @@ Learn more about migrating to Azure Maps:
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
 [road tiles]: /rest/api/maps/render/get-map-tile
 [satellite tiles]: /rest/api/maps/render/get-map-static-image
-[Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[Search Autosuggest with jQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view
 [Show directions from A to B]: map-route.md
