@@ -133,7 +133,7 @@ VNet- name: Virtual Network documentation
       - name: Different deployment model and subscription
         href: create-peering-different-deployment-models-subscriptions.md
     - name: Manage a virtual network peering
-      href: virtual-network-manage-peering.mds
+      href: virtual-network-manage-peering.md
     - name: Update the address space for a peered virtual network
       href: update-virtual-network-peering-address-space.yml
     - name: Configure subnet peering
