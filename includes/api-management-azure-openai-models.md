@@ -17,5 +17,8 @@ The policy is used with APIs [added to API Management from the Azure OpenAI Serv
 | Chat completion     |  gpt-3.5<br/><br/>gpt-4 |
 | Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
 
+> [!NOTE]
+> Traditional completion APIs are only available with legacy model versions and support is limited.
+
 For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models).
 
