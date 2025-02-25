@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: concept-article
-ms.date: 02/20/2025
+ms.date: 02/25/2025
 appliesto: Microsoft Sentinel with Defender XDR in the Defender portal
 
 
@@ -41,13 +41,12 @@ If you have the appropriate permissions to view data from primary and secondary 
 
 |Capability  |Workspace scope |
 |---------|---------|
-|**Search**     |   The results from the global search at the top of the browser page in the Defender portal only include relevant primary workspace data. There's no aggregated view of all relevant workspace data from the global search.    |
+|**Search**     |   The results from the global search at the top of the browser page in the Defender portal provide an aggregated view of all relevant workspace data that you have permissions to view.    |
 |Investigation & response > Incidents & alerts > **Incidents**   | View incidents from different workspaces in a unified queue or filter the view by workspace.      |
 |Investigation & response > Incidents & alerts > **Alerts**     |   View alerts from different workspaces in a unified queue or filter the view by workspace.  <br><br> Alert correlation is segmented by workspace.      |
 |Entities: From an incident or alert > select a device, user, or other entity asset  |  View all relevant entity data from multiple workspaces in a single entity page. Entity pages aggregates alerts, incidents, and timeline events from all workspaces to provide deeper insights into entity behavior.   <br><br>Filter by workspace in **Incidents and alerts**, **Timeline**, and **Insights** tabs. The **Overview** tab displays entity metadata aggregated from all workspaces.    |
 |Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the brower. Or, run queries across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). The results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
 |**Microsoft Sentinel** experiences|View data from one workspace  for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser. The **Workbooks** page only shows workbooks associated with the primary workspace.|
-|Microsoft Sentinel > **Automation**|Instead of creating the same rule in each workspace separately, deploy copies of an automation rule across multiple workspaces by using the automation rule creation wizard. <br><br>Like the other Microsoft Sentinel experiences, the **Automation** page displays rules from a single workspace.  Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser.|
 |**SOC optimization**|Data and recommendations is aggregated from multiple workspaces. |
 
 
