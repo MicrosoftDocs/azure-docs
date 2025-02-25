@@ -43,7 +43,7 @@ However, its capabilities go well beyond this. With proper configuration, you ca
 
 ## Limitations
 
-**Rate limits** - To manage a large number of assets through API/SPN (Service Principal Name), be mindful of rate limits and distribute the load among multiple Service principals to avoid throttling issues.
+**Rate limits** - To manage a large number of assets through API/SPN (Service Principal), be mindful of rate limits and distribute the load among multiple Service principals to avoid any throttling issues.
 
 ## Next steps
 

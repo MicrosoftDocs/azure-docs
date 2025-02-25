@@ -12,7 +12,7 @@ ms.date: 02/19/2025
 
 # Quickstart: Create an Azure Managed Grafana workspace using the Azure portal
 
-In this quickstart, you get started with Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure portal. Creating a workspace will generate a Grafana instance.
+In this quickstart, you get started with Azure Managed Grafana by creating an Azure Managed Grafana workspace using the Azure portal.
 
 ## Prerequisites
 
@@ -36,10 +36,10 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
     | Subscription ID     | *my-subscription*   | Select the Azure subscription you want to use.                                                                                                                                                                                                                                                                                  |
     | Resource group name | *my-resource-group* | Create a resource group for your Azure Managed Grafana resources.                                                                                                                                                                                                                                                               |
     | Location            | *(US) East US*      | Use Location to specify the geographic location in which to host your resource. Choose the location closest to you.                                                                                                                                                                                                             |
-    | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Azure Managed Grafana instance URL.                                                                                                                                                                                                                    |
+    | Name                | *my-grafana*        | Enter a unique resource name. It will be used as the domain name in your Azure Managed Grafana workspace URL.                                                                                                                                                                                                                    |
     | Pricing Plan        | *Essential (preview)* | Choose between the Essential (preview) or the Standard plan. The Essential plan is the cheapest option you can use to evaluate the service. This plan doesn't have an SLA and isn't recommended for production use. For more information about Azure Managed Grafana plans, go to [pricing plans](overview.md#service-tiers). |
 
-1. If you've chosen the Standard plan, optionally enable zone redundancy for your new instance.
+1. If you've chosen the Standard plan, optionally enable zone redundancy for your new workspace.
 1. Select **Next : Advanced >** to access additional options:
     - **Enable API key creation** is set to **Disable** by default.
     - If you've opted for the Standard plan, optionally enable the **Deterministic outbound IP** feature, which is set to **Disable** by default.
@@ -47,34 +47,39 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
 1. Select **Next : Permission >** to control access rights for your Grafana instance and data sources:
     - **System assigned managed identity** is set to **On**.
 
-      >[!NOTE]
-      >You can use a user-assigned managed identity instead of the default system-assigned managed identity once the Azure Managed Grafana resource is deployed. To learn more, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
+      > [!NOTE]
+      > You can use a user-assigned managed identity instead of the default system-assigned managed identity once the Azure Managed Grafana resource is deployed. For more information, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
 
     - If you're a subscription Owner or a User Access Administrator:
-       - the box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default. This role assignment allows Azure Managed Grafana to access and display monitoring data from various Azure services.
+        - the box **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is checked by default. This role assignment allows Azure Managed Grafana to access and display monitoring data from various Azure services.
         - the box **Include myself** under **Grafana administrator role** is checked. This option grants you the Grafana administrator role, and lets you manage access rights. Optionally select **Add** to share this right with team members.
     - If you're not a subscription Owner or a User Access Administrator, you can either:
         - ask a subscription Owner or a User Access Administrator to assign you the Grafana Admin role
-        - or enable **Creator can admin (Preview)**. This option available in preview grants you the Grafana admin access required to access and managed the Grafana resource.
+        - or enable **Creator can admin (Preview)** as a temporary workaround. This option available in preview grants you the required permissions to access and manage the Grafana resource.
 
-        >[!NOTE]
-        > The **Creator can admin (Preview)** feature can only be enabled when creating the workspace. It can be disabled from the **Configuration** menu if the workspace creator doesn't need this level of access anymore. Once disabled, it cannot be enabled again. If the access has been disabled and the user needs to access this Grafana instance again, consider [granting them another Grafana role](how-to-manage-access-permissions-users-identities.md).
+        > [!NOTE]
+        > The **Creator can admin (Preview)** feature can only be enabled when creating the workspace. It can be disabled from the **Configuration** menu if the workspace creator doesn't need this level of access anymore. Once disabled, it cannot be enabled again. If this option is disabled and the user needs to access this Grafana instance again, they will need to [a Grafana role](how-to-manage-access-permissions-users-identities.md).
 
 1. Optionally select **Next : Tags** and add tags to categorize resources.
 
 1. Select **Next : Review + create >**. After validation runs, select **Create**. Your Azure Managed Grafana resource is deploying.
 
-## Access your Azure Managed Grafana instance
+    :::image type="content" source="media/quickstart-portal/create-form-validation.png" alt-text="Screenshot of the Azure portal. Create workspace form. Validation.":::
+
+## Access your Azure Managed Grafana workspace
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.
 
-1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account.
+1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account. 
 
     :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 
-    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of an Azure Managed Grafana instance.":::
+    You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
-You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
+    :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of an Azure Managed Grafana workspace.":::
+
+> [!IMPORTANT]
+> The **Creator can admin (Preview)** option is designed to be used for testing purposes. Whenever possible, we recommend assgining a [Grafana role](how-to-manage-access-permissions-users-identities.md) to all team members who need to access the Grafana portal and disabling the **Creator can edit** option.
 
 ## Clean up resources
 

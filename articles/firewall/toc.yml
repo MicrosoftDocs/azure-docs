@@ -123,7 +123,7 @@ items:
       href: ftp-support.md
     - name: Performance
       href: firewall-performance.md
-    - name: Long running TCP sessions
+    - name: TCP idle timeout behavior
       href: long-running-sessions.md
     - name: Easy upgrade/downgrade
       href: easy-upgrade.md
