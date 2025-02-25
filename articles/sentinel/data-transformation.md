@@ -18,7 +18,7 @@ Log Analytics gives you a high level of control over the data that gets ingested
 
 ## Azure Monitor tools for custom data ingestion in Microsoft Sentinel
 
-Microsoft Sentinel uses the following Azure Montitor tools to control custom data ingestion:
+Microsoft Sentinel uses the following Azure Monitor tools to control custom data ingestion:
 
 - [**Transformations**](/azure/azure-monitor/essentials/data-collection-transformations) are defined in DCRs and apply KQL queries to incoming data before it's stored in your workspace. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
 
