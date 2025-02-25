@@ -189,7 +189,7 @@ The following table describes the attributes in a tracking schema for an X12 tra
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreement-name}{group-control-number}{transaction-set-control-number}** |
@@ -251,7 +251,7 @@ The following table describes the attributes in a tracking schema for an X12 tra
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreement-name}{group-control-number}{transaction-set-control-number}** |
@@ -313,7 +313,7 @@ The following table describes the attributes in a tracking schema for an X12 int
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
@@ -369,7 +369,7 @@ The following table describes the attributes in a tracking schema for an X12 int
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
@@ -427,7 +427,7 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
@@ -488,7 +488,7 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
 | **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 messsage sender |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
