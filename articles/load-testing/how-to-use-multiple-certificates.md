@@ -18,7 +18,7 @@ Azure Load Testing supports the use of multiple certificates for secure communic
 ## Prerequisites
 Before you begin, ensure the following:
 - You have an [Azure Key Vault](https://jmeter-plugins.org/wiki/PluginsManager/) instance set up to store secrets.
-- You have the [Managed Identity (MI)](./how-to-use-a-managed-identity) of your Azure Load Testing resource configured.
+- You have the [Managed Identity (MI)](./how-to-use-a-managed-identity.md) of your Azure Load Testing resource configured.
 - You have created a [Java KeyStore (JKS)](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) file containing all required certificates. 
 - You have stored the JKS password as a secret in Azure Key Vault.
 
