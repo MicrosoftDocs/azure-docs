@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 02/24/2025
 ms.author: yuajia
 ---
 
@@ -34,6 +34,9 @@ The following example shows you how to add a Content-Security-Policy header to a
 
 > [!NOTE]
 > In this scenario, we did not add [match conditions](concept-rule-set-match-conditions.md) to the rule. All incoming requests that match the path defined in the associated route will have this rule applied. If you would like it to only apply to a subset of those requests, be sure to add your specific **match conditions** to this rule.
+
+> [!NOTE]
+> If you are using Web Application Firewall (WAF) with your Azure Front Door, and the WAF blocks a request, HSTS headers will not be added to the request even if they are enabled on the Azure Front Door.
 
 ## Clean up resources
 
