@@ -54,7 +54,7 @@ Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
 
 3. Trigger runtime bundle upgrade as usual from Azure portal / CLI. For reference [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md)
 
-4. Once the control plane and management plane upgrades complete, the runtime upgrade will be paused, awaiting user action to resume the upgrade for Rack 2.
+4. Once the control plane and management plane upgrades complete, the runtime upgrade will be paused, awaiting user action to resume the upgrade for Rack 1.
 
 :::image type="content" source="media/runtime-upgrade-cluster-paused.png" alt-text="Screenshot showing Paused Runtime Upgrade.":::
 
