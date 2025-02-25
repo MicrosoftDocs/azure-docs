@@ -154,7 +154,7 @@
       items:
       - name: Inbound NAT rule
         items:
-        - name: Inbound NAT rules
+        - name: Inbound NAT rules overview
           href: inbound-nat-rules.md
         - name: Create a single VM inbound NAT rule
           href: tutorial-load-balancer-port-forwarding-portal.md
