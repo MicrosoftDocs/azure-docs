@@ -237,8 +237,10 @@ The mobile phone that owns the number you provided in the `to` value also receiv
 > [!div class="nextstepaction"]
 > [Explore Azure Communication Services APIs](/rest/api/communication/)
 
+> [!div class="nextstepaction"]
 > [Read more about authentication](/rest/api/communication/authentication)
 
+> [!div class="nextstepaction"]
 > [Learn more about Postman](https://learning.postman.com/)
 
 You might also want to:
