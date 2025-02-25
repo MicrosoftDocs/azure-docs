@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-arm-template
-ms.date: 12/24/2025
+ms.date: 02/24/2025
 # Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
 
