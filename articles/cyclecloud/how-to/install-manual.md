@@ -50,11 +50,22 @@ If this file exists, the contents will indicate if it is an Enterprise-Linux bas
 
 First, download the Microsoft signing key and add to Apt's trusted keyring:
 
-:::code language="bash" source="../includes/installation/ubuntu-setup.sh":::
+```bash
+sudo apt-get -qq update && sudo apt-get -y -qq install curl gnupg2
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc |
+  gpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/microsoft.gpg
+
+```
 
 Then, configure Apt to pull from the CycleCloud repository:
 
-:::code language="bash" source="../includes/installation/ubuntu-repo.sh":::
+```bash
+echo "deb [signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/cyclecloud stable main" |
+  sudo tee /etc/apt/sources.list.d/cyclecloud.list > /dev/null
+sudo apt-get -qq update 
+```
 
 Finally, install CycleCloud with `apt`:
 
@@ -65,7 +76,9 @@ sudo apt -y install cyclecloud
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
 
-:::code language="bash" source="../includes/installation/ubuntu-install.sh":::
+```bash
+sudo apt-get -y -q install cyclecloud8
+```
 
 ::: moniker-end
 
@@ -76,7 +89,15 @@ sudo apt -y install cyclecloud
 
 First, configure a _cyclecloud.repo_ file:
 
-:::code language="bash" source="../includes/installation/el-repo.sh":::
+```bash
+cat | sudo tee /etc/yum.repos.d/cyclecloud.repo > /dev/null <<EOF
+[cyclecloud]
+name=cyclecloud
+baseurl=https://packages.microsoft.com/yumrepos/cyclecloud
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+```
 
 Finally, install cyclecloud with `yum` (or `dnf`):
 
@@ -87,7 +108,9 @@ sudo yum -y install cyclecloud
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
 
-:::code language="bash" source="../includes/installation/el-install.sh":::
+```bash
+sudo yum -y -qq install cyclecloud8
+```
 ::: moniker-end
 
 ::: moniker range="<=cyclecloud-7"
@@ -125,7 +148,11 @@ Note that these instructions switch to only using Insiders builds. You can switc
 
 To install the Insiders build on Debian or Ubuntu, run the following:
 
-:::code language="bash" source="../includes/installation/ubuntu-repo-insiders.sh":::
+```bash
+echo "deb [signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/cyclecloud-insiders stable main" |
+  sudo tee /etc/apt/sources.list.d/cyclecloud.list > /dev/null
+sudo apt-get -qq update 
+```
 
 This is the same as the [standard installation steps above](#installing-on-debian-or-ubuntu) but with [https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/](https://packages.microsoft.com/repos/cyclecloud-insiders/pool/main/c/cyclecloud8/) instead.
 
@@ -133,7 +160,15 @@ This is the same as the [standard installation steps above](#installing-on-debia
 
 To install the Insiders build on Enterprise Linux, run the following:
 
-:::code language="bash" source="../includes/installation/el-repo-insiders.sh":::
+```bash
+cat | sudo tee /etc/yum.repos.d/cyclecloud.repo > /dev/null <<EOF
+[cyclecloud]
+name=cyclecloud
+baseurl=https://packages.microsoft.com/yumrepos/cyclecloud-insiders
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+```
 
 This is the same as the [standard installation steps above](#installing-on-enterprise-linux-rhel-clones) but with [https://packages.microsoft.com/yumrepos/cyclecloud-insiders/](https://packages.microsoft.com/yumrepos/cyclecloud-insiders/) instead.
 
