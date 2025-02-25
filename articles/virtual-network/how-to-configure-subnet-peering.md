@@ -1,5 +1,5 @@
 ---
-title: How to configure subnet peering - Preview
+title: Configure subnet peering - Preview
 titleSuffix: Azure Virtual Network
 description: Learn how to configure subnet peering for an Azure virtual network.
 author: amit916new
