@@ -128,7 +128,6 @@ The following list includes more troubleshooting actions that you can take to fi
 > so you can't use the Kudu console debugging capability in Azure for troubleshooting.
 
 
-
 - Create an Azure virtual machine (VM) inside a different subnet within the same virtual network that's integrated with your logic app. Try to connect from the VM to the storage account.
 
 - Check access to the storage account services by using the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/#overview).
