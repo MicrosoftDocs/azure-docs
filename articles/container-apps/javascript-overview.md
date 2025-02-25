@@ -28,7 +28,7 @@ The following example shows you how to create variables for your application.
 # .env
 NODE_ENV=production
 PORT=3000
-AZURE_COSMOS_DB_ENDPOINT=https://your-cosmos-db.documents.azure.com:443/
+AZURE_COSMOS_DB_ENDPOINT=https://<YOUR_COSMOSDB_RESOURCE_NAME>.documents.azure.com:443/
 ```
 
 ### Containers
@@ -165,7 +165,12 @@ The entrypoint script allows you to connect to your container app for [remote de
 To run a container from the built production image with custom environment variables, run:
 
 ```bash
-docker run -e PORT=4000 -e ENABLE_DEBUG=true -p 4000:4000 -p 9229:9229 my-production-image:latest
+docker run \
+  --env PORT=4000 \
+  --env ENABLE_DEBUG=true \
+  --publish 4000:4000 \
+  --publish 9229:9229 
+  <IMAGE_NAME>:latest
 ```
 
 For production builds, make sure you use the correct version tag, which may not be `latest`. Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
@@ -222,10 +227,12 @@ When using Docker Registry, sign into your registry then push your Docker images
 
 ```bash
 # Tag the image
-docker tag my-app:latest myregistry.azurecr.io/my-app:latest
+docker tag \
+  <IMAGE>:<TAG> \
+  <AZURE_REGISTRY>.azurecr.io/<IMAGE>:<TAG>
 
 # Push the image
-docker push myregistry.azurecr.io/my-app:latest
+docker push <AZURE_REGISTRY>.azurecr.io/<IMAGE>:<TAG>
 ```
 
 ## Cold starts
@@ -249,8 +256,8 @@ Before running this command, make sure to replace the placeholders surrounded by
 ```azurecli
 az keyvault secret set \
   --vault-name <KEY_VAULT_APP> \
-  --name "CosmosDBConnectionString" \
-  --value "<YOUR_CONNECTION_STRING>"
+  --name "<SECRET_NAME>" \
+  --value "<CONNECTION_STRING>"
 ```
 
 ### HTTPS and certificates
@@ -464,7 +471,7 @@ Before running this command, make sure to replace the placeholders surrounded by
 ```azurecli
 az monitor metrics alert create \
   --name "HighCPUUsage" \
-  --resource-group my-resource-group \
+  --resource-group <RESOURCE_GROUP> \
   --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerInstance/containerGroups/<CONTAINER_GROUP> \
   --condition "avg Percentage CPU > 80" \
   --description "Alert when CPU usage is above 80%"
