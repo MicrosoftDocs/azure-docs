@@ -557,13 +557,14 @@ public async Task HandleCancellationCleanup(
 
 #### Scenarios that lead to cancellation token being cancelled
 
-The cancellation token is cancelled when any of the following events occur:
+The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
+and those could vary depending on the trigger type being used. Some common reasons are:
 
-1. Client Disconnects: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
-2. Function App Restarts: if you or the platform restart your Function App around the same time an invocation is requested. This should not have any impact as when the host starts back up it will retry the request.
-    - Restarts could occur due to worker instance movements, worker instance updates, or scaling
+1. Client Disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
+2. Function App Restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
+   A restart can occur due to worker instance movements, worker instance updates, or scaling.
 
-For the dotnet-isolated worker, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ we get to sending the invocation request to the worker.
+For the dotnet-isolated worker, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
 
 If you do not want pre-cancelled invocations to be sent to the worker, you can add the following property to your host.json file to disable this behaviour.
 
@@ -579,7 +580,7 @@ If you do not want pre-cancelled invocations to be sent to the worker, you can a
 > 
 > `Cancellation has been requested. The invocation request with id '{invocationId}' is canceled and will not be sent to the worker`
 > 
-> This occurs when the cancellation token is cancelled (via the events defined above) _before_ the host has sent an incoming invocation
+> This occurs when the cancellation token is cancelled (as a result of one of the events described above) _before_ the host has sent an incoming invocation
 > request to the worker.
 
 ## Bindings 
