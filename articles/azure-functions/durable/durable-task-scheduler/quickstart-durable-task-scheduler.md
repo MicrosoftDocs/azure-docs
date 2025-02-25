@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Set a Durable Functions app to use the Durable Task Scheduler storage provider (preview)"
+title: "Quickstart: Set a Durable Functions app to use Durable Task Scheduler (preview)"
 description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
 author: lilyjma
 ms.topic: how-to
@@ -12,7 +12,9 @@ ms.reviewer: azfuncdf
 
 Use Durable Functions, a feature of [Azure Functions](../../functions-overview.md), to write stateful functions in a serverless environment. Scenarios where Durable Functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
-Durable Functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler (DTS)](../durable-functions-storage-providers.md#dts) as the backend.
+Durable Functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
+
+In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler (DTS)](../durable-functions-storage-providers.md#dts) as the backend.
 
 > [!NOTE]
 >
@@ -20,7 +22,7 @@ Durable Functions supports several [storage providers](../durable-functions-stor
 >
 > - Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the DTS. Similarly, the task hub contents that are created by using DTS can't be preserved if you switch to a different backend provider.
 >
-> - DTS currently only supports Durable Functions running on Functions Premium and App Service plans. 
+> - DTS currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
 
 ## Prerequisites
 
@@ -44,16 +46,21 @@ You'll also need to have the following installed:
 - [Azurite](../../../storage/common/storage-use-azurite.md), which is the Azure Storage emulator needed by the function app
 
 ## Add the Durable Task Scheduler extension (.NET only)
-First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
-1. Add a reference to the extension in your _.csproj_ file and then build the project. 
-2. Use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
-3. Install the extension by using the following [Azure Functions Core Tools CLI](../../functions-run-local.md#install-the-azure-functions-core-tools) command:
 
-```cmd
-func extensions install --package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged 
-```
+First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
+
+1. Add a reference to the extension in your _.csproj_ file and then build the project. 
+
+1. Use the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command to add extension packages.
+
+1. Install the extension by using the following [Azure Functions Core Tools CLI](../../functions-run-local.md#install-the-azure-functions-core-tools) command:
+
+   ```cmd
+   func extensions install --package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged 
+   ```
 
 ## Specify the required extension bundles (non .NET languages)
+
 [TODO]
 Update the `extensionBundle` property to use the preview version that contains the DTS package: 
 
@@ -67,6 +74,7 @@ Update the `extensionBundle` property to use the preview version that contains t
 ```
 
 ## Update host.json
+
 Update the host.json as follows to use Durable Task Scheduler as the backend. 
 
 ```json
@@ -84,6 +92,7 @@ Update the host.json as follows to use Durable Task Scheduler as the backend.
 ```
 
 ## Configure local.settings.json 
+
 Add connection information for local development:
 
 ```json
@@ -97,32 +106,35 @@ Add connection information for local development:
   }
 }
 ```
->[!NOTE]
+
+> [!NOTE]
 > For local development, it's easiest to use `default` task hub. It is possible to set up other task hubs but that needs extra configuration. 
 
 ## Set up DTS emulator 
+
 1. Pull the docker image containing the emulator 
 
-```bash
-  docker pull <tag>
-```
-- For M-series macs, use tag: [TODO]
-- For Windows and other AMD 64 machines, use tag: [TODO]
+   ```bash
+   docker pull <tag>
+   ```
 
-2. Run the emulator
+   - **For M-series macs,** use tag: [TODO]
+   - **For Windows and other AMD 64 machines,** use tag: [TODO]
 
-```bash
-  docker run -itP <tag>
-```
+1. Run the emulator
 
-You'll noticed three ports exposed: `8080`, `8081`, and `8082`. These are the static ports that the container exposes, which are mapped dynamically by default. There are multiple ports because DTS exposes multiple ports for different purposes:
-  - `8080`: gRPC endpoint that allows an app to connect to DTS
-  - `8081`: Endpiont for metrics gathering
-  - `8082`: Endpoint for DTS dashboard
+   ```bash
+   docker run -itP <tag>
+   ```
 
-:::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
+   You'll notice three ports exposed: `8080`, `8081`, and `8082`. These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:
+   - `8080`: gRPC endpoint that allows an app to connect to DTS
+   - `8081`: Endpiont for metrics gathering
+   - `8082`: Endpoint for DTS dashboard
 
-3. Update connection string in *local.settings.json*. In the example above, port `55000` is mapped to `8080` which is the gRPC, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`
+   :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
+
+1. Update the connection string in *local.settings.json*. In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`
 
 ## Test locally 
 
@@ -130,68 +142,74 @@ You'll noticed three ports exposed: `8080`, `8081`, and `8082`. These are the st
 
 1. Go to the root directory of your app and run the application:
 
-```sh
-func start
-```
+   ```sh
+   func start
+   ```
 
-You should see the functions in your app listed. If your app is the created following Durable Functions quickstarts, you should see something similar to the following:
+   You should see a list of the functions in your app. If you created your app following one of the Durable Functions quickstarts, you should see something similar to the following:
 
-:::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
+   :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
-1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint. This will start an orchestration instance. 
+1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using an HTTP test tool. 
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar. You should see the status on the orchestration instance:
+1. Copy the URL value for `statusQueryGetUri` and paste it in your browser's address bar. You should see the status on the orchestration instance:
 
-```json
-  {
-    "name": "DurableFunctionsOrchestrationCSharp1",
-    "instanceId": "b50f8b723f2f44149ab9fd2e3790a0e8",
-    "runtimeStatus": "Completed",
-    "input": null,
-    "customStatus": null,
-    "output": [
-      "Hello Tokyo!",
-      "Hello Seattle!",
-      "Hello London!"
-    ],
-    "createdTime": "2025-02-21T21:09:59Z",
-    "lastUpdatedTime": "2025-02-21T21:10:00Z"
-  }
-```
+   ```json
+     {
+       "name": "DurableFunctionsOrchestrationCSharp1",
+       "instanceId": "b50f8b723f2f44149ab9fd2e3790a0e8",
+       "runtimeStatus": "Completed",
+       "input": null,
+       "customStatus": null,
+       "output": [
+         "Hello Tokyo!",
+         "Hello Seattle!",
+         "Hello London!"
+       ],
+       "createdTime": "2025-02-21T21:09:59Z",
+       "lastUpdatedTime": "2025-02-21T21:10:00Z"
+     }
+   ```
 
-1. The DTS dashboard has more details about the orchestration instance. To get to the dashboard, go to the Docker desktop app and click on the `8082` link. 
+1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the [DTS dashboard](./durable-task-scheduler-dashboard.md). 
 
-:::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
+   :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
-1. Click on the *default* task hub to see dashboard. 
+1. Click on the *default* task hub to see its dashboard. 
 
 > [!NOTE] 
-> The DTS emulator stores orchestration data in memory, which means all data will be lost when it's shuts down. 
+> The DTS emulator stores orchestration data in memory, which means all data is lost when it shuts down. 
 >
 > Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
 
 ## Run your app in Azure 
 
 ### Create required resources
-Create a DTS instance and Azure Functions app on Azure following the [Function app integrated creation](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-dts) flow. When DTS is created as part of function app creation, a managed identity with the RBAC (role-based access control) permission required to access DTS is automatically created and assigned to the app. This sets up the identity-based authentication required by DTS so no extra configuration is needed. 
+
+Create a DTS instance and Azure Functions app on Azure following the Function app integrated creation flow. 
+
+[!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
+
+### Deploy your function app to Azure
 
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 
 ### Test your function app in Azure
 
-If your app is created following Durable Functions quickstarts, you can test following instructions in the [previous section](#test-locally). To get your functions' URL, run the following:  
+If you created your app by following one of the Durable Functions quickstarts, you can test using the instructions for [testing locally](#test-locally). 
+
+To get your functions' URL, run the following command.   
   
-  ```bash
-    az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output table
-  ```
+```bash
+az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output table
+```
 
 ### Use DTS dashboard to check orchestration details 
 
-1. To access the dashboard, you developer identity needs have the required RBAC role **Durable Task Data Contributor** [assigned to it](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard). Assignment on the task hub scope is sufficient. 
+[!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
-1. Go to https://dashboard.durabletask.dev/ and click on "Add Endpoint". Fill in the required information (all found on Azure portal) to connect to the task hub used by the app. 
-
-1. Drill into the specifics of an orchestration instance by clicking on the *OrchestrationID*. 
+> [!NOTE]
+> You can also use the Azure CLI to check orchestration details.
 
 ## Clean up resources
 
