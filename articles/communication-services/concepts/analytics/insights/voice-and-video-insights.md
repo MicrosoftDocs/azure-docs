@@ -14,9 +14,7 @@ ms.subservice: data
 
 # Voice and video Insights
 
-This document introduces the Voice and Video section of your Insights dashboard. 
-
-<!-- and how to use Copilot in Azure to monitor and improve your call quality.  -->
+This document introduces the Voice and Video section of your Insights dashboard and how to use Copilot in Azure to monitor and improve your call quality.
 
 ## Overview
 In each Communications Resource, we provide an Insights feature that 
