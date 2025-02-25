@@ -563,7 +563,7 @@ and those could vary depending on the trigger type being used. Some common reaso
 1. Client Disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
 2. Function App Restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
-    - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](https://learn.microsoft.com/azure/azure-functions/functions-bindings-error-pages?tabs=fixed-delay%2Cisolated-process%2Cnode-v4%2Cpython-v2&pivots=programming-language-csharp#retries) for further information.
+    - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
 For the dotnet-isolated worker, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
 
