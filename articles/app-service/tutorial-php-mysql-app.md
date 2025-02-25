@@ -608,11 +608,11 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_REDIS_SSL
     </pre>
 
-    Settings beginnging with `AZURE_MYSQL_` are connection variables for the MySQL database, and settings beginnging with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. For your convenience, the AZD template shows you the direct link to the app's app settings page in the Azure portal.
+    Settings beginning with `AZURE_MYSQL_` are connection variables for the MySQL database, and settings beginning with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. For your convenience, the AZD template shows you the direct link to the app's app settings page in the Azure portal.
 
 1. From the explorer, open *config/database.php*. This is the configuration file for database and Redis cache connections.
 
-1. Find the part that defines the `mysql` connection (lines 46-64) and replace `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` with the `AZURE_MYSQL_` app settings from the AZD output. Your `mysql` connection should look like hte following code.
+1. Find the part that defines the `mysql` connection (lines 46-64) and replace `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` with the `AZURE_MYSQL_` app settings from the AZD output. Your `mysql` connection should look like the following code.
 
     ```php
     'mysql' => [
@@ -655,11 +655,11 @@ The AZD template you use generated the connectivity variables for you already as
     For more information on Redis cache configuration in Laravel, see [Laravel documentation](https://laravel.com/docs/10.x/redis#configuration).
 
     > [!NOTE]
-    > Remember that your changes are not deployed yet. You'll deploy them at the end of the next step.
+    > Remember that your changes aren't deployed yet. You'll deploy them at the end of the next step.
 
 ## 4. Configure Laravel settings in web app
 
-1. From the explorer, open *infra/resources.bicep*. This is the Bicp template file that defines the created Azure resources.
+1. From the explorer, open *infra/resources.bicep*. This is the Bicep template file that defines the created Azure resources.
 
 1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     
@@ -764,7 +764,7 @@ azd down
 
 #### I get the error during database migrations `php_network_getaddresses: getaddrinfo for mysqldb failed: No address associated with hostname...`
 
-It indicates that MySQL connection variables are not properly configured. Verify that the `AZURE_MYSQL_` app settings are properly configured in [3. Use Azure connection strings in application code](#3-use-azure-connection-strings-in-application-code).
+It indicates that MySQL connection variables aren't properly configured. Verify that the `AZURE_MYSQL_` app settings are properly configured in [3. Use Azure connection strings in application code](#3-use-azure-connection-strings-in-application-code).
 
 #### I get a blank page in the browser.
 
@@ -780,11 +780,11 @@ This error and similar errors indicate that you didn't run `composer install` be
 
 #### I get a debug page in the browser saying `php_network_getaddresses: getaddrinfo for redishost failed: Name or service not known.`
 
-It indicates that Redis connection variables are not properly configured. Verify that the `AZURE_REDIS_` app settings are properly configured in [3. Use Azure connection strings in application code](#3-use-azure-connection-strings-in-application-code).
+It indicates that Redis connection variables aren't properly configured. Verify that the `AZURE_REDIS_` app settings are properly configured in [3. Use Azure connection strings in application code](#3-use-azure-connection-strings-in-application-code).
 
 #### I get a debug page in the browser saying `SQLSTATE[42S02]: Base table or view not found: 1146 Table 'XXXX-XXXXXXXXX-mysql-database.tasks' doesn't exist`
 
-It means you haven't run database migrations, or database migrations were not successful. Follow the steps at [5. Generate database schema](#5-generate-database-schema).
+It means you haven't run database migrations, or database migrations weren't successful. Follow the steps at [5. Generate database schema](#5-generate-database-schema).
 
 ## Frequently asked questions
 
