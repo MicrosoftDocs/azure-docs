@@ -90,7 +90,7 @@ The local.settings.json file stores app settings and settings used by local deve
 > [!IMPORTANT]  
 > Because the local.settings.json may contain secrets, such as connection strings, you should never store it in a remote repository. Tools that support Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
 
-The local settings file has this structure:
+The **local.settings.json** file has this structure:
 
 ```json
 {
