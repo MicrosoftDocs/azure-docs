@@ -39,7 +39,7 @@ A well-configured Dockerfile is essential for containerizing your application:
 * **Parameterization of build arguments**: You can use build arguments (`ARG`) in your Dockerfile to make it more flexible. This way, you can pass in different values for these arguments when building for development, staging or production.
 
 * **Optimized Node.js base image**: Ensure you're using an appropriate **Node.js base image**. Consider using smaller, optimized images such as the Alpine variants to reduce overhead.
-* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file helps speedup builds in cases where developers copied in unnecessary files.
+* **Minimal Files – Copy Only Essentials**: Focus on copying only the necessary files into your container. Create a `.dockerignore` file to ensure development files aren't copied in such as `.env` and `node_modules`. This file helps speed up builds in cases where developers copied in unnecessary files.
 * **Separate build and runtime with multi-stage builds**: Use multi-stage builds to create a lean final image by separating the build environment from the runtime environment.
 
 * **Prebuild artifacts by compiling and bundling**: Prebuilding your application artifacts (such as compiling TypeScript or bundling JavaScript) before copying them into the runtime stage can minimize image size, speed up container deployment, and improve cold start performance. Careful ordering of instructions in your Dockerfile also optimizes caching and rebuild times.
@@ -92,7 +92,7 @@ In this example, the environment variables `PORT` and `ENABLE_DEBUG` are set to 
 
 Container image tagging conventions such as the use of `latest` are a convention. Learn more about [recommendations for tagging and versioning container images](/azure/container-registry/container-registry-image-tag-version).
 
-### Setup development environment with Docker Compose
+### Set up development environment with Docker Compose
 
 The following example configuration uses a dedicated development Dockerfile (*Dockerfile.dev*) along with volume mounts for live reloading and local source sync.
 
