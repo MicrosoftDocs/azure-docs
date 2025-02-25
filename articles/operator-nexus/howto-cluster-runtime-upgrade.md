@@ -82,8 +82,8 @@ wait-time-minutes="<waitTimeBetweenRacks>" \
 ```
 
 Required parameters:
-- strategy-type: Defines the update strategy. This can be `Rack` (Rack by Rack) OR `PauseAfterRack` (Pause for user before each Rack starts). The default value is `Rack`. To carry out a Cluster runtime upgrade using the `PauseAfterRack` strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md)
-- threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. This can be `PercentSuccess` OR `CountSuccess`. The default value is `PercentSuccess`.
+- strategy-type: Defines the update strategy. Setting used are `Rack` (Rack by Rack) OR `PauseAfterRack` (Pause for user before each Rack starts). The default value is `Rack`. To perform a cluster runtime upgrade using the `PauseAfterRack` strategy, follow the steps outlined in [Upgrade Cluster Runtime with PauseAfterRack Strategy](howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md).
+- threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. Settings used are `PercentSuccess` OR `CountSuccess`. The default value is `PercentSuccess`.
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is `80`.
 
 Optional parameters:
@@ -115,7 +115,7 @@ az networkcloud cluster show --name "<CLUSTER>" \
       "waitTimeMinutes": 1
 ```
 
-In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster upgrade will wait indefintely until the condition is met. If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hadware must be repaired before the upgrade can continue.
+In this example, if less than 60% of the compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster upgrade waits indefinitely until the condition is met. If 60% or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hardware must be repaired before the upgrade can continue.
 
 The following example is for a customer using Rack by Rack strategy with a threshold type CountSuccess of 10 nodes per rack and a 1-minute pause.
 
@@ -142,11 +142,11 @@ az networkcloud cluster show --name "<CLUSTER>" \
       "waitTimeMinutes": 1
 ```
 
-In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster upgrade will wait indefintely until the condition is met. If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hadware must be repaired before the upgrade can continue.
+In this example, if less than 10 compute nodes being provisioned in a rack fail to provision (on a Rack by Rack basis), the cluster upgrade will wait indefinitely until the condition is met. If 10 or more of the compute nodes are successfully provisioned, cluster deployment moves on to the next rack of compute nodes. If there are too many failures in the rack, the hardware must be repaired before the upgrade can continue.
 
 > [!NOTE]
 > ***`update-strategy` cannot be changed after the cluster runtime upgrade has started.***
-> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
+> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the "Cluster" status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
 ## Upgrade cluster runtime using CLI
 
@@ -161,7 +161,7 @@ az networkcloud cluster update-version --cluster-name "<CLUSTER>" \
 
 The runtime upgrade is a long process. The upgrade first upgrades the management nodes and then sequentially Rack by Rack for the worker nodes.
 The upgrade is considered to be finished when 80% of worker nodes per rack and 100% of management nodes are successfully upgraded.
-Workloads might be impacted while the worker nodes in a rack are in the process of being upgraded, however workloads in all other racks are not impacted. Consideration of workload placement in light of this implementation design is encouraged.
+Workloads might be impacted while the worker nodes in a rack are in the process of being upgraded, however workloads in all other racks aren't impacted. Consideration of workload placement in light of this implementation design is encouraged.
 
 Upgrading all the nodes takes multiple hours, depending upon how many racks exist for the Cluster.
 Due to the length of the upgrade process, the Cluster's detail status should be checked periodically for the current state of the upgrade.
@@ -202,7 +202,7 @@ A guide for identifying issues with provisioning worker nodes is provided at [Tr
  
 ### Hardware Failure doesn't require Upgrade re-execution
 
-If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine would be provisioned with the previous runtime version when it is repaired. It will be upgraded along with the rack when the rack starts its upgrade.
+If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine would be provisioned with the previous runtime version when it's repaired. It is upgraded along with the rack when the rack starts its upgrade.
 ### After a runtime upgrade, the cluster shows "Failed" Provisioning State
 
 During a runtime upgrade, the cluster enters a state of `Upgrading`. If the runtime upgrade fails, the cluster goes into a `Failed` provisioning state. Infrastructure components (e.g the Storage Appliance) may cause failures during the upgrade. In some scenarios, it may be necessary to diagnose the failure with Microsoft support.
