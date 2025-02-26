@@ -231,7 +231,7 @@ This section shows you how to use the Azure Maps Route service to get directions
                 endPoint.geometry.coordinates[1] + "," +
                 endPoint.geometry.coordinates[0];
     //Make a search route request for a truck vehicle type
-    var truckRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=1.0&travelMode=truck&vehicleWidth=2&vehicleHeight=2&vehicleLength=5&vehicleLoadType=USHazmatClass2&query=${query}`;
+    var truckRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=2025-01-01&travelMode=truck&vehicleWidth=2&vehicleHeight=2&vehicleLength=5&vehicleLoadType=USHazmatClass2&query=${query}`;
     fetch(truckRouteUrl, {
         headers: {
             "Subscription-Key": map.authentication.getToken()
@@ -275,7 +275,7 @@ This section shows you how to use the Azure Maps Route service to get directions
 2. Next, append the following JavaScript code to create a route for a car.
 
     ```JavaScript
-    var carRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=${query}`;
+    var carRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=2025-01-01&query=${query}`;
     fetch(carRouteUrl, {
         headers: {
             "Subscription-Key": map.authentication.getToken()
