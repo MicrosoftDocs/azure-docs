@@ -128,7 +128,8 @@ az role assignment create \
   --role "Security Reader" \
   --subscription "$SUBSCRIPTION_ID" \
   --assignee-object-id "$OBJECT_ID" \
-  --assignee-principal-type ServicePrincipal
+  --assignee-principal-type ServicePrincipal \
+  --scope "/subscriptions/$SUBSCRIPTION_ID"
 
 echo "Done. Security Reader role assignment created"
 ```
