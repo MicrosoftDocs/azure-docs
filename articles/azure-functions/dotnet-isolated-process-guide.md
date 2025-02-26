@@ -565,7 +565,7 @@ and those could vary depending on the trigger type being used. Some common reaso
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
     - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
-For the dotnet-isolated worker, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
+For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
 
 If you do not want pre-cancelled invocations to be sent to the worker, you can add the following property to your host.json file to disable this behaviour.
 
