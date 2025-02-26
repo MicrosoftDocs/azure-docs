@@ -83,7 +83,7 @@ The vCPU usage for your Standard logic app affects your billing charges. The fol
 
 ### Billing charge calculation
 
-The following formula calculates your billing charge per hour, which is based on vCPU usage and the rate of $0.18 USD per hour:
+The following formula calculates your billing charge per hour, which is based on vCPU usage and at the rate of $0.18 USD per hour while your logic app is enabled:
 
 **Charge per hour** = (**vCPU usage**) x (**rate per hour**)
 
