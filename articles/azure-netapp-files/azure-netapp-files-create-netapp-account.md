@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 02/04/2025
 ms.author: anfdocs
 ---
 
@@ -19,7 +19,7 @@ You must register your subscription for using the NetApp Resource Provider. For 
 
 ## Steps
 
-1. Sign in to the Azure portal.
+1. Log into the Azure portal.
 1. Access the Azure NetApp Files pane by using one of the following methods:
    * Search for **Azure NetApp Files** in the Azure portal search box.
    * Select **All services** in the navigation, and then filter to Azure NetApp Files.

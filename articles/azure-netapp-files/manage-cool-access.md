@@ -177,6 +177,10 @@ In a capacity pool enabled for cool access, you can enable an existing volume to
         * Cool access is **disabled**: 
             * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
             * After you disable the cool access setting on the volume, the cool access retrieval policy remains the same.
+    * **Cool Access Tiering policy**     
+
+        Select `Auto`. The `SnapshotOnly` policy is not currently supported. 
+
 
     :::image type="content" source="./media/manage-cool-access/cool-access-existing-volume.png" alt-text="Screenshot that shows the Enable Cool Access checkbox selected. " lightbox="./media/manage-cool-access/cool-access-existing-volume.png"::: 
 

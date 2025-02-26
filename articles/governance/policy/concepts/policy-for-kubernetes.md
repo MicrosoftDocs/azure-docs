@@ -609,11 +609,13 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 #### 1.10.0
 Security improvements.
 
-CEL is enabled by default.
+CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
 - Released February 2025
 - Kubernetes 1.27+
 - Gatekeeper 3.18.2
 ##### Gatekeeper 3.18.2-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
 
 #### 1.9.1
 Security improvements.
