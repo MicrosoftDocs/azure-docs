@@ -32,7 +32,13 @@ The following diagram shows a high-level view of the components in a typical clo
 
 ## IoT solution scalability
 
-An IoT solution might need to support millions of connected devices. You need to ensure that the components in your solution can scale to meet the demands.
+An IoT solution might need to support millions of connected assets and devices. You need to ensure that the components in your solution can scale to meet the demands.
+
+# [Edge-based solution](#tab/edge)
+
+Deploy Azure IoT Operations on a multi-node cluster to ensure that you can handle increased traffic or workload demands. When Azure IoT Operations runs on a multi-node cluster, it can process more data and take advantage of the high-availability capabilities of Kubernetes. The MQTT Broker does automatically replicates states across multiple nodes governed by the Broker's *cardinality* setting. Replicas are distributed across different nodes in a multi-node cluster and data isn't lost if there's one set of replicas running and healthy. To learn more, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-cardinality-directly).
+
+# [Cloud-based solution](#tab/cloud)
 
 Use the Device Provisioning Service (DPS) to provision devices at scale. DPS is a helper service for IoT Hub and IoT Central that enables zero-touch device provisioning at scale. To learn more, see [Best practices for large-scale IoT device deployments](../iot-dps/concepts-deploy-at-scale.md).
 
@@ -44,7 +50,7 @@ For a guide to scalability in an IoT Central solution, see [IoT Central scalabil
 
 For devices that connect to an IoT hub directly or to an IoT hub in an IoT Central application, make sure that the devices continue to connect as your solution scales. To learn more, see [Manage device reconnections after autoscale](./concepts-manage-device-reconnections.md) and [Handle connection failures](../iot-central/core/concepts-device-implementation.md#best-practices).
 
-IoT Edge can help to help scale your solution. IoT Edge lets you move cloud analytics and custom business logic from the cloud to your devices. This approach lets your cloud solution focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud. For more information, see [Azure IoT Edge](../iot-edge/about-iot-edge.md).
+IoT Edge can help scale your solution. IoT Edge lets you move cloud analytics and custom business logic from the cloud to your devices. This approach lets your cloud solution focus on business insights instead of data management. Scale out your IoT solution by packaging your business logic into standard containers, deploy those containers to your devices, and monitor them from the cloud. For more information, see [Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 Service tiers and pricing plans:
 
@@ -59,9 +65,16 @@ Service limits and quotas:
 - [IoT Hub limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits)
 - [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits)
 
+---
+
+
 ## High availability and disaster recovery
 
 IoT solutions are often business-critical. You need to ensure that your solution can continue to operate if a failure occurs. You also need to ensure that you can recover your solution following a disaster.
+
+# [Edge-based solution](#tab/edge)
+
+# [Cloud-based solution](#tab/cloud)
 
 To learn more about the high availability and disaster recovery capabilities the IoT services in your solution, see the following articles:
 
@@ -76,3 +89,5 @@ The following tutorials and guides provide more detail and guidance:
 - [How to manually migrate an Azure IoT hub to a new Azure region](../iot-hub/migrate-hub-arm.md)
 - [Manage device reconnections to create resilient applications (IoT Hub and IoT Central)](./concepts-manage-device-reconnections.md)
 - [IoT Central device best practices](../iot-central/core/concepts-device-implementation.md#best-practices)
+
+---
