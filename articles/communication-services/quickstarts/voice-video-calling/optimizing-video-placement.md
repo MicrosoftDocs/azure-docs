@@ -53,8 +53,7 @@ To improve the end user experience, we need to understand how internet speeds ar
 
 When placing multiple videos on a web page, consider the user's network bandwidth. Higher resolution videos require more data to stream. The more overall videos placed on a page, the more bandwidth each one consumes. If someone connects to the internet via a connection with lower overall bandwidth throughput, their ability to stream higher resolution videos or multiple videos on a page are limited. Conversely, if someone has higher internet bandwidth for both inbound and outbound traffic, they have a greater ability to deliver and consume high-resolution videos and accommodate more videos on the page.
 
-
-## Best practices for optimal number of videos on a page
+## Best practices for optimal number of videos to subscribe to
 
 ### Prioritize content
 
@@ -63,6 +62,10 @@ Highlight the most important or engaging videos prominently on the page. Ensure 
 ### Implement lazy loading
 
 Lazy loading delays the loading of videos until they're needed or in the viewport. This method can significantly enhance page performance, especially when multiple videos are present.
+
+### Use the Web UI Library
+
+The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. It offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable, allowing developers to focus on building functionality rather than designing from scratch. This library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By leveraging the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, by utilizing the Web UI will take out the guesswork of how to determine how many optimal. optimal videos you can subscribe to at a time.
 
 ### Use optimal video count API
 
@@ -81,7 +84,7 @@ When there's a change in the optimal video count value, if the result indicates 
 
 Conversely, if the optimal count decreases and is [less than the current number of videos on the page](../../resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md), consider disposing of a video using the dispose method and updating the application layout accordingly.
 
-## Determine the maximum resolution sizes for a page.
+## Determine the maximum resolution sizes
 
 In the  version 1.33 and later of the WebJS SDK:
 
@@ -90,17 +93,18 @@ In the  version 1.33 and later of the WebJS SDK:
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
 
-## Considerations for the optimal number of concurrent video streams 
+## Considerations for optimal number of concurrent video subscriptions
 
 - To ensure that the total number of rendered videos remains below the OVC value threshold, review and adhere to the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
 - Each client can specify which user's video they want to receive and set individual resolution sizes on their respective machines.
 - Each participant's ability to send a specific video resolution can vary. Some computers are equipped with higher quality cameras, enabling them to transmit a 1080p video. Conversely, some mobile browsers have lower video transmission capabilities, such as only 540p. If you embedded the video resolution to be 1080p or 720p in a page, the incoming video might not match that resolution. In this case, the system upscales the video stream to fill the video renderer size.
 - Currently, a maximum of two 720p video streams can be rendered on a web page. If more than two 720p streams are enabled, all 720p video renditions are streamed at 540p.
+- The maximum number of incoming remote streams that can be subscribed to is 16 video streams plus 1 screen sharing on desktop browsers, and 4 video streams plus 1 screen sharing on web mobile browsers.
 - Azure Communication Services video [Simulcast](../../concepts/voice-video-calling/simulcast.md) ability enhances video streaming by enabling a single video delivered by an end client at multiple resolutions and bitrates simultaneously.
 
    This function enables viewers with varying network conditions to select which video rendition to select to receive for the best possible video quality without buffering or interruptions. By optimizing bandwidth usage, simulcast sends higher resolution streams only to users who can support them. This behavior minimizes unnecessary data transmission. Simulcast improves the overall user experience by providing stable and consistent video quality and enables adaptive streaming.
 
-   Simulcast isn't supported on all browser devices. Currently, simulcast is unavailable when sending videos on mobile browsers or macOS Safari. If a participant attempts to render 720p video from a user on iOS Safari, Android Chrome, or macOS Safari and another participant on the call tries to render the same video at a smaller resolution, both receive the smaller resolution. This change happens because the devices prioritize smaller resolutions when simulcast send isn't supported.  
+   Simulcast isn't supported on all browser devices. Currently, simulcast is unavailable when sending videos on mobile browsers or macOS Safari. If a participant attempts to render 720p video from a user on iOS Safari, Android Chrome, or macOS Safari and another participant on the call tries to render the same video at a smaller resolution, both receive the smaller resolution. This change happens because the devices prioritize smaller resolutions when simulcast send isn't supported.
 
 ## Conclusion
 
