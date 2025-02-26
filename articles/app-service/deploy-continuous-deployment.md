@@ -1,14 +1,26 @@
 ---
-title: Configure continuous deployment
-description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
-ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
-ms.topic: article
-ms.date: 02/29/2024
+title: Configure Continuous Deployment
+description: Learn how to configure CI/CD to Azure App Service from GitHub, Bitbucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 author: cephalin
 ms.author: cephalin
+ms.service: Azure App Service
+ms.topic: how-to #Don't change
+ms.date: 02/29/2024
+ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
+
+#customer intent: As a <role>, I want <what> so that <why>.
+
 ---
 
-# Continuous deployment to Azure App Service
+# Configure continuous deployment to Azure App Service
+
+<!-- Required: Introductory paragraphs (no heading)
+
+Write a brief introduction that can help the user
+determine whether the article is relevant for them
+and to describe the task the article covers.
+
+-->
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
@@ -18,9 +30,9 @@ ms.author: cephalin
 
 ## Configure the deployment source
 
-1. In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
+1. In the [Azure portal](https://portal.azure.com), go to the management pane for your App Service app.
 
-1. In the left pane, select **Deployment Center**. Then select **Settings**. 
+1. In the service menu, select **Deployment Center**. Then select **Settings**.
 
 1. In the **Source** box, select one of the CI/CD options:
 
@@ -30,11 +42,11 @@ Select the tab that corresponds to your build provider to continue.
 
 # [GitHub](#tab/github)
 
-4. [GitHub Actions](?tabs=githubactions#what-are-the-build-providers) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** > **OK**.
+1. [GitHub Actions](?tabs=githubactions#what-are-the-build-providers) is the default build provider. To change the provider, select **Change provider** > **App Service Build Service** > **OK**.
 
 1. If you're deploying from GitHub for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
-1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** you want. 
+1. After you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** you want.
 
     If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
@@ -46,19 +58,19 @@ Select the tab that corresponds to your build provider to continue.
 1. (Optional) To see the file before saving your changes, select **Preview file**. App Service selects a workflow template based on the [language stack setting](configure-common.md#configure-language-stack-settings) of your app and commits it into your selected GitHub repository.
 
 1. Select **Save**.
-   
+
     New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
 
 # [Bitbucket](#tab/bitbucket)
 
 The Bitbucket integration uses the App Service Build Services for build automation.
 
-4. If you're deploying from Bitbucket for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
+1. If you're deploying from Bitbucket for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from a different user's repository, select **Change Account**.
 
 1. For Bitbucket, select the Bitbucket **Team**, **Repository**, and **Branch** you want to deploy continuously.
 
 1. Select **Save**.
-   
+
     New commits in the selected repository and branch now deploy continuously into your App Service app. You can track the commits and deployments on the **Logs** tab.
 
 # [Local Git](#tab/local)
@@ -67,7 +79,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 # [Azure Repos](#tab/repos)
 
-4. App Service Build Service is the default build provider.
+1. App Service Build Service is the default build provider.
 
     > [!NOTE]
     > To use Azure Pipelines as the build provider for your App Service app, configure it directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
@@ -181,6 +193,6 @@ For more information on the alternative steps, see [Deploy to App Service using 
 
 The message indicates that the selected user-assigned managed identity doesn't have the required role [to enable OpenID Connect](#what-does-the-user-assigned-identity-option-do-for-github-actions) between the GitHub repository and the App Service app. The identity must have one of the following roles on the app: **Owner**, **Contributor**, **Websites Contributor**. The least privileged role that the identity needs is **Websites Contributor**.
 
-## More resources
+## Related content
 
 * [Use Azure PowerShell](/powershell/azure/)
