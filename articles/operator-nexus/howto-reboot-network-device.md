@@ -72,7 +72,7 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 #### Considerations  
 
-- The **fabric** is still placed in **maintenance mode**, but the **device itself is not**.
+- The **Fabric** is still placed in **maintenance mode**, but the **device itself is not**.
 
 - **Blocked operations during the reboot:**
 
@@ -107,14 +107,14 @@ For devices running **Arista EOS**, the reboot process is triggered via the **gN
 
 ### Key difference in ungraceful reboot 
 
-- In an **ungraceful reboot**, the **device itself is not placed in maintenance mode**, but the **fabric still enters maintenance mode**.  
+- In an **ungraceful reboot**, the **device itself is not placed in maintenance mode**, but the **Fabric still enters maintenance mode**.  
 
 ## Summary of key differences  
 
 | **Feature**  | **Graceful Reboot Without ZTP** | **Ungraceful Reboot Without ZTP** |  
 |-------------|--------------------------------|----------------------------------|  
 | **Puts device in maintenance mode?** | ✅ Yes | ❌ No |  
-| **Puts fabric in maintenance mode?** | ✅ Yes | ✅ Yes |  
+| **Puts Fabric in maintenance mode?** | ✅ Yes | ✅ Yes |  
 | **Uses last known good configuration?** | ✅ Yes | ✅ Yes |  
 | **Blocks configuration updates, upgrades, and replacement flows?** | ✅ Yes | ✅ Yes |  
 | **Persists runRW configuration?** | ✅ Yes | ✅ Yes |

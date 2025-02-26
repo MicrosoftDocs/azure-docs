@@ -19,13 +19,13 @@ An Isolation Domain resource enables the creation of layer-2 and layer-3 network
 
 -   **Layer-3 isolation domain with Internal Networks** - provides workloads the ability to connect across a layer 3 (IP) network.
 
--   **Layer-3 isolation domain with External Network** - provides workloads the ability to connect across a layer 3 network, and provides connectivity to the operator's network outside of the Operator Nexus network fabric.
+-   **Layer-3 isolation domain with External Network** - provides workloads the ability to connect across a layer 3 network, and provides connectivity to the operator's network outside of the Operator Nexus Network Fabric.
 
 An isolation domain offers:
 
 -   Unified network capabilities with full integration with your compute resources, enabling connectivity between your Operator Nexus platform workloads.
 
--   Northbound connectivity with customer routers using BGP peering sessions between the Operator Nexus network fabric and the operator's external network.
+-   Northbound connectivity with customer routers using BGP peering sessions between the Operator Nexus Network Fabric and the operator's external network.
 
 -   Southbound connectivity with telco workloads using internal networks.
 
@@ -47,16 +47,16 @@ The L2VRF feature in Nexus enhances the flexibility and scalability of network c
 
 - **Extended VLAN Support:** The Layer 2 Isolation Domain (ISD) ARM resource now supports a new read-write property called extendedVlan, which defaults to false. When this property is set, the CEs are configured to trunk through the VLAN ID of the L2 ISD to the PE.
 
-- **Dynamic Configuration:** The extendedVlan property can be dynamically toggled, and changes apply at the point of the next fabric commit.
+- **Dynamic Configuration:** The extendedVlan property can be dynamically toggled, and changes apply at the point of the next Fabric commit.
     
 - **Traffic Agnosticism:** Nexus is agnostic to the traffic running over this network and does not run any hosts or services on it. Address management, security, and services (DNS, DHCP, NTP, etc.) are user responsibilities.
 
 ## Layer 3 Isolation Domains
 
-A layer 3 isolation domain provides workloads with the ability to exchange layer-3 routing information through the Operator Nexus network fabric and with external networks.
+A layer 3 isolation domain provides workloads with the ability to exchange layer-3 routing information through the Operator Nexus Network Fabric and with external networks.
 
 Layer-3 isolation domains can provide two types of network:
 
--   **Internal Network** - a Layer 3 Isolation Domain Internal Network enables east-west layer 3 communication between workloads on the Operator Nexus Network fabric. An internal network is a complete solution for layer-3 inter and intra-rack communication for compute workloads. Each workload can connect to multiple internal networks.
+-   **Internal Network** - a Layer 3 Isolation Domain Internal Network enables east-west layer 3 communication between workloads on the Operator Nexus Network Fabric. An internal network is a complete solution for layer-3 inter and intra-rack communication for compute workloads. Each workload can connect to multiple internal networks.
 
--   **External Network** - a Layer 3 Isolation Domain External Network enables workloads to communicate with external services via the operator network. An external network creates a communication channel between Operator Nexus workloads and services hosted outside of the Operator Nexus network fabric. Each Layer 3 isolation domain supports one external network.
+-   **External Network** - a Layer 3 Isolation Domain External Network enables workloads to communicate with external services via the operator network. An external network creates a communication channel between Operator Nexus workloads and services hosted outside of the Operator Nexus Network Fabric. Each Layer 3 isolation domain supports one external network.

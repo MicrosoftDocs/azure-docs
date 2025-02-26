@@ -96,9 +96,9 @@ Use the `--storage-account-configuration` parameter to define the storage locati
 }
 ```
 
-## Create a new fabric instance
+## Create a new Fabric instance
 
-Use the following command to create a new fabric instance with BYO storage:
+Use the following command to create a new Fabric instance with BYO storage:
 
 ```azurecli
 az networkfabric fabric create --resource-name <fabricname> \
@@ -108,9 +108,9 @@ az networkfabric fabric create --resource-name <fabricname> \
     --mi-user-assigned "/subscriptions/<uamisubscriptionid>/resourceGroups/<uamiresourcegroupname>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uaminame>"
 ```
 
-## Update an existing fabric instance
+## Update an existing Fabric instance
 
-For existing deployments, update the fabric with the required parameters:
+For existing deployments, update the Fabric with the required parameters:
 
 ```azurecli
 az networkfabric fabric update --resource-name <fabricname> \

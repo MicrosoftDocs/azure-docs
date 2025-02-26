@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Break-Glass access using In-Band management
 
-In the Nexus Network Fabric (NNF), there is an out-of-band management network where most fabric devices are connected to management switches via management ports (Ma1). The only exceptions are the Terminal Server and Aggregation Management Switches.
+In the Nexus Network Fabric (NNF), there is an out-of-band management network where most Fabric devices are connected to management switches via management ports (Ma1). The only exceptions are the Terminal Server and Aggregation Management Switches.
 To address the potential single point of failure posed by the management switch, Microsoft team has provided the Redundant In-band Management Break Glass Access feature. 
 
 > [!Note]
@@ -189,4 +189,4 @@ ipv6 prefix-list trusted_sources_v6
 ```
 
 > [!Note]
-> For Greenfield deployments, provide a list of trusted IP prefixes or use default resources created by the system. <br> For Brownfield deployments, ensure configurations are in place during upgrades and use PATCH operations to update the network fabric.
+> For new deployments, provide a list of trusted IP prefixes or use default resources created by the system. <br> For existing deployments, ensure configurations are in place during upgrades and use PATCH operations to update the network Fabric.

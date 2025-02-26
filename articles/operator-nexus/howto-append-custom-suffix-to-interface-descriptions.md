@@ -61,7 +61,7 @@ az networkfabric interface update --additional-description "example-description"
 
 ### 3. Commit the configuration
 
-After updating the description, apply the changes to the fabric:
+After updating the description, apply the changes to the Fabric:
 
 ```Azure CLI
 az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
@@ -108,7 +108,7 @@ az networkfabric interface update --additional-description "example-description"
 
 ### 3. Commit the configuration
 
-After removing the suffix, apply the changes to the fabric:
+After removing the suffix, apply the changes to the Fabric:
 
 ```Azure CLI
 az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
@@ -138,4 +138,4 @@ This feature is available for the following interface types:
 - **NPB Device**  
 
 > [!Note]  
-> **Existing deployments** will retain their **current descriptions** until fabric instances are **migrated to Release 8.0**. After migration, users must update descriptions via the **API**.
+> **Existing deployments** will retain their **current descriptions** until Fabric instances are **migrated to Release 8.0**. After migration, users must update descriptions via the **API**.
