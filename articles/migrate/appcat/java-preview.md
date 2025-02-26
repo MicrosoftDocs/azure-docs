@@ -2,7 +2,8 @@
 title: Azure Migrate Application and Code Assessment for Java Version 7
 description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
-ms.author: brborges
+ms.author: karler
+ms.reviewer: brborges
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
