@@ -238,19 +238,20 @@ In this section, you publish your project to Azure in a function app running Lin
     # [macOS](#tab/macos)
 
     ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build handler.go
     ```
 
     # [Linux](#tab/linux)
 
     ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
+    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build handler.go
     ```
 
     # [Windows](#tab/windows)
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
+    set CGO_ENABLED=0
     go build handler.go
     ```
 
