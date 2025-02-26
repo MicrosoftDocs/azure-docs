@@ -11,7 +11,7 @@ ms.author: akashdubey
 
 # How to use the BlobFuse2 secure get command to display the value of a parameter from an encrypted BlobFuse2 configuration file
 
-Use the `blobfuse2 secure get` command to display the value of a specified parameter from an encrypted BlobFuse2 configuration file.
+Use the `blobfuse2 secure get` command to display the value of a specified parameter from an encrypted blobfuse2 configuration file.
 
 ## Syntax
 
@@ -36,9 +36,9 @@ The following flags are inherited from parent command [`blobfuse2 secure`](blobf
 
 | Flag | Value type | Default value | Description |
 |--|--|--|--|
-| config-file        | string  | ./config.yaml                  | The path configuration file       |
-| output-file        | string  |                                | Path and name for the output file |
-| passphrase         | string  |                                | The Key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
+| config-file        | string  | ./config.yaml                  | The path of the encrypted configuration file       |
+| output-file        | string  |                                | The path and name for the output file |
+| passphrase         | string  |                                | The key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
 
 ### Flags that apply only to the BlobFuse2 secure get command
 
@@ -46,16 +46,16 @@ The following flags apply only to command `blobfuse2 secure get` command:
 
 | Flag | Short<br />version | Value<br />type | Default<br />value | Description |
 |--|--|--|--|--|
-| key | | string | | Configuration key (parameter) to be searched in an encrypted config file |
+| key | | string | | Configuration key (parameter) to be searched in an encrypted configuration file |
 
 ## Examples
 
 > [!NOTE]
-> The following examples assume you have already created a configuration file in the current directory.
+> The following examples assume you have already created a encrypted configuration file in the current directory.
 
 Get the value of parameter `logging.log_level` from an encrypted BlobFuse2 configuration file using a passphrase:
 
-`blobfuse2 secure get --config-file=./config.yaml --passphrase=PASSPHRASE --key=logging.log_level`
+`blobfuse2 secure get --config-file=./config.yaml --passphrase=PASSPHRASESAMPLE --key=logging.log_level`
 
 ## See also
 
