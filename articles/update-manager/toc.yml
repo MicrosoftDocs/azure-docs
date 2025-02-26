@@ -27,12 +27,16 @@ items:
       href: support-matrix-updates.md
     - name: Automatic VM Guest Patching
       href: support-matrix-automatic-guest-patching.md
-  - name: Supported update types and update sources
+    - name: Unsupported workloads
+      href: unsupported-workloads.md
+  - name: Supported update sources and update types
     items:
-    - name: Supported updates
+    - name: Supported updates, Types, Microsoft updates and Third-party updates
       href: support-matrix.md
-    - name: Ubuntu Pro support
-      href: security-awareness-ubuntu-support.md
+  - name: Extended Security Updates
+    href: extended-security-updates.md
+  - name: Ubuntu Pro support
+    href: security-awareness-ubuntu-support.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates

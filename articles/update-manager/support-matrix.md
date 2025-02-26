@@ -1,35 +1,32 @@
 ---
-title: Azure Update Manager support matrix
-description: This article provides a summary of supported regions and operating system settings.
+title: Azure Update Manager supported OS, update sources, and types
+description: This article provides information on update sources, and types of updates and best practices for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 01/29/2025
+ms.date: 02/26/2025
 ms.topic: overview
-ms.custom: references_regions
 ---
 
 # Supported updates for Azure Update Manager
 
-This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Azure Update Manager. 
+This article provides detailed information on the supported operating systems, update sources, and types of updates that can be managed using Azure Update Manager. Additionally, it outlines the system requirements for machines or servers managed by Azure Update Manager.
 
-### Supported update sources
+## Supported update sources
+
+Azure Update Manager honors the update source settings on the machine and will fetch updates accordingly. AUM doesn't publish or provide updates.
 For more information, see the  supported [update sources](workflow-update-manager.md#update-source). 
 
-### Supported update types
+## Supported update types
 The following types of updates are supported.
 
-#### Operating system updates
-Update Manager supports operating system updates for both Windows and Linux.
+**Operating system updates** - Azure Update Manager supports operating system updates for both Windows and Linux.
 
-Update Manager doesn't support driver updates.
-
-#### Extended Security Updates (ESU) for Windows Server
-
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available by default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
+>[!NOTE]
+> Update Manager doesn't support driver updates.
 
 
-#### Microsoft application updates on Windows
+## Microsoft application updates on Windows
 
 By default, the Windows Update client is configured to provide updates only for the Windows operating system. 
 
@@ -70,18 +67,6 @@ Update Manager relies on the locally configured update repository to update supp
 Third party application updates are supported in Azure Update Manager. If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package isn't available for assessment and installation if you remove it.
 
 ---
-
-As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
-
-## Unsupported workloads
-
-The following table lists the workloads that aren't supported.
-
-   | **Workloads**| **Notes**
-   |----------|-------------|
-   | Windows client | For client operating systems such as Windows 10 and Windows 11, we recommend [Microsoft Intune](/mem/intune/) to manage updates.|
-   | Virtual Machine Scale Sets| We recommend that you use [Automatic upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) to patch the Virtual Machine Scale Sets.|
-   | Azure Kubernetes Service nodes| We recommend the patching described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](/azure/aks/node-updates-kured).|
 
 As Update Manager depends on your machine's OS package manager or update service, ensure that the Linux package manager or Windows Update client is enabled and can connect with an update source or repository. If you're running a Windows Server OS on your machine, see [Configure Windows Update settings](configure-wu-agent.md).
 
