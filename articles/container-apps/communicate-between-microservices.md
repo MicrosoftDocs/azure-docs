@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 02/03/2025
+ms.date: 02/18/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-type
 ---
@@ -35,8 +35,6 @@ In this tutorial, you learn to:
 In the [code to cloud quickstart](./quickstart-code-to-cloud.md), a back end web API is deployed to return a list of music albums. If you didn't deploy the album API microservice, return to [Quickstart: Deploy your code to Azure Container Apps](quickstart-code-to-cloud.md) to continue.
 
 ## Setup
-
-If you're currently authenticated to Azure and have the environment variables that are defined from the quickstart, then skip the following steps and go directly to [Prepare the GitHub repository](#prepare-the-github-repository).
 
 [!INCLUDE [container-apps-code-to-cloud-setup.md](../../includes/container-apps-code-to-cloud-setup.md)]
 

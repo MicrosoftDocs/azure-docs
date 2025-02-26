@@ -11,7 +11,7 @@ ms.date: 02/12/2025
 #customer intent: As a Data Manager, I want to learn how to use OSDU Reservoir DDMS APIs to read reservoir data.
 
 ---
-# Use Reservoir DDMS APIs
+# Tutorial: Use Reservoir DDMS API endpoints
 
 In this article, you learn how to read data from Reservoir DDMS REST APIs with curl commands. 
 
@@ -517,3 +517,6 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     	}
     ]
     ```
+
+## Related content
+[Tutorial: Use Reservoir DDMS websocket API endpoints](tutorial-reservoir-ddms-websocket.md)
