@@ -81,7 +81,7 @@ You can use Azure Resource Group Deployment task or Azure CLI task to deploy a B
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureSubscription: '${{ parameters.azureServiceConnection }}'
+        azureResourceManagerConnection: '${{ parameters.azureServiceConnection }}'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(resourceGroupName)'
         location: '$(location)'
