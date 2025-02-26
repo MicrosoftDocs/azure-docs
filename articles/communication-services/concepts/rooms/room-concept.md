@@ -168,7 +168,7 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
 | - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
 | - Start call captions | ✔️ | ✔️ | ✔️ |
-| - Change captions language | ✔️ | ✔️ | ❌ |
+| - Change captions language | ✔️ | ✔️ | ✔️ |
 | - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |
