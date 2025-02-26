@@ -220,8 +220,12 @@
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
         - name: How to append a custom suffix to interface descriptions
           href: howto-append-a-custom-suffix-to-interface-descriptions.md
+        - name: How to reboot a Network Device in Azure Operator Nexus Network Fabric
+          href: howto-reboot-a-network-device.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
+        - name: How to upgrade os of terminal server
+          href: howto-upgrade-os-of-terminal-server.md
     - name: Cluster
       expanded: false
       items:
@@ -273,8 +277,7 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
-        - name: How to reboot a Network Device in Azure Operator Nexus Network Fabric
-          href: howto-reboot-a-network-device.md
+
 
     - name: Nexus Virtual Machine
       expanded: false
