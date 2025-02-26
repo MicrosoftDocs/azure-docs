@@ -23,7 +23,7 @@ ms.subservice: b2c
 
 Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Microsoft Entra ID SSPR technical profile to generate and send a code to an email address, and then verify the code. The Microsoft Entra ID SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
 
-This technical profile:
+This technical profile: test
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
 - Uses the Microsoft Entra SSPR service to generate and send a code to an email address, and then verifies the code.
