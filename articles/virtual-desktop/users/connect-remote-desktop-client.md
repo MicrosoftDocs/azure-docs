@@ -137,8 +137,8 @@ Before you can access your resources, you'll need to meet the prerequisites:
 > [!IMPORTANT]
 > Starting June 15, 2025, the Remote Desktop Web client will have updated browser requirements. Ensure your browser is updated and meets the following requirements by this date:
 >- Remote Desktop will only support browser versions that are 12 months old on a rolling basis.
->- Your browser must have AVC media pack installed.
->- Ensure your browser has WebGL enabled.
+>- Your browser must support the AVEC codec.
+>- Ensure your browser has WebGL enabled. WebGL is enabled by default on most recent browser versions.
 
 
 ---
