@@ -11,7 +11,7 @@ ms.date: 02/21/2025
 
 # Integrate Neon Serverless Postgres with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Neon Serverless Postgres to other cloud services using Service Connector. You might still be able to connect to Neon Serverless Postgres in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
+This page shows supported authentication methods and clients, and shows sample code you can use to connect Neon Serverless Postgres from Azure compute services using Service Connector. You might still be able to connect to Neon Serverless Postgres in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
 ## Supported compute services
 
