@@ -27,6 +27,7 @@ This release introduces new features, bug fixes for Service Bus emulator. The de
 - SQL Actions and Filters are now compatible with Service bus emulator.
 - Provides Health check API in Service Bus emulator. It can be accessed at *http://localhost:5300/health*
 - Provides user configurable health check interval for SQL.
+- Added support for updating LockDuration to a minimum of 5 seconds.
 - Other bug fixes.
 
 ## Previous releases
