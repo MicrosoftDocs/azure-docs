@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 ---
 
-# Place video on a web page based on resolution size
+# Best practices for subscribing to incoming video feeds
 
 A crucial element to consider when building web pages is how to best integrate video into the page layout. The placement and number of videos can impact page performance, user quality experience, and overall aesthetic. This article includes guidelines to help developers determine how many videos to place on a web page and the best video resolution size to optimize the end user experience.
 
@@ -53,7 +53,7 @@ To improve the end user experience, we need to understand how internet speeds ar
 
 When placing multiple videos on a web page, consider the user's network bandwidth. Higher resolution videos require more data to stream. The more overall videos placed on a page, the more bandwidth each one consumes. If someone connects to the internet via a connection with lower overall bandwidth throughput, their ability to stream higher resolution videos or multiple videos on a page are limited. Conversely, if someone has higher internet bandwidth for both inbound and outbound traffic, they have a greater ability to deliver and consume high-resolution videos and accommodate more videos on the page.
 
-## Best practices for optimal number of videos to subscribe to
+## Optimal number of videos to subscribe
 
 ### Prioritize content
 
@@ -93,7 +93,7 @@ In the  version 1.33 and later of the WebJS SDK:
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
 
-## Considerations for optimal number of concurrent video subscriptions
+## Other considerations to consider
 
 - To ensure that the total number of rendered videos remains below the OVC value threshold, review and adhere to the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
 - Each client can specify which user's video they want to receive and set individual resolution sizes on their respective machines.
