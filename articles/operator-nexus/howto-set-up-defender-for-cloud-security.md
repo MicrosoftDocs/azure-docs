@@ -60,9 +60,9 @@ To set up a Defender for Servers plan:
 
 To enable the Microsoft Defender for Endpoint (MDE) agent on baremetal machines within your Nexus Cluster, you must grant the nc-platform-extension identity of the cluster the ability to onboard the MDE agent on your behalf.
 
-The nc-platform-extension identity does not exist prior to deploying the Operator Nexus cluster, as such the following example must be performed after the cluster is deployed.
+The nc-platform-extension identity does not exist prior to deploying the Operator Nexus cluster. The following example must be performed after the Cluster is deployed.
 
-The required permission is ```Microsoft.Security/mdeOnboardings/read```. This permission can be assigned to the nc-platform-extension identity using the built-in role ```Security Reader``` or a custom role with the same permission can be created.
+The required permission is ```Microsoft.Security/mdeOnboardings/read```. Assign this permission to the nc-platform-extension identity using the built-in role ```Security Reader``` or a custom role with the same permission can be created.
 
 > [!IMPORTANT]
 > The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
