@@ -29,7 +29,7 @@ With the latest update, all new NFC Cluster deployments will use the `Standard_D
 This change is required due to the limited availability of `Standard_Ds4_v2` in several Azure regions.
 
 > [!Note]
-> Existing NFC Clusters will continue to run on `Standard_Ds4_v2`.
+> Existing NFC Clusters will continue to run on `Standard_Ds4_v2.
 
 ### Minimum vCPU requirement
 

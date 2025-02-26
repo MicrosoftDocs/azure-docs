@@ -25,7 +25,7 @@ A **graceful reboot** ensures a stable restart process by temporarily placing th
 
 - The device enters **maintenance mode** before the reboot.
 
-- The reboot uses the **last known good configuration** stored on the device.
+- The reboot uses the **last saved configuration** stored on the device.
 
 - Upon successful restart, the device **exits maintenance mode** automatically.  
 
@@ -56,7 +56,7 @@ An **ungraceful reboot** is a faster restart option that **does not** place the 
 
 #### How it works
 
-- The device **immediately reboots** using the **last known good configuration**.
+- The device **immediately reboots** using the **last saved configuration**.
 
 - Unlike the graceful reboot, the device **remains operational** without entering maintenance mode.
 
