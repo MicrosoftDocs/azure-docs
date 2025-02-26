@@ -670,11 +670,15 @@ When mounting a file share from Azure Files, in addition to the mount path, you 
 
 - The mount path is the path in the container where you want to mount the volume.
 - The sub path is the path in the volume you want to mount.
-- The sub path is optional. If not specified, the volume root is mounted.
-- The sub path should be a relative path from the volume root. The sub path should not start with `/`. Specifying a sub path that starts with `/` might prevent your container app from starting up. For example, `my-volume-folder` is a valid sub path, whereas `/my-volume-folder` is not.
-- The sub path can refer to either a folder or a file in the volume.
-    - If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
-    - If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container. For example, if the sub path is `my-volume-folder/my-volume-file` and the mount path is `/my-container-folder/my-container-file`, the folder `/my-container-folder` should exist in the container, but should not already contain the file `my-container-file`.
-- If the sub path has a trailing `/`, whether it refers to a folder or file, the trailing `/` is ignored.
+
+The sub path is optional. If not specified, the volume root is mounted.
+
+The sub path should be a relative path from the volume root. The sub path should not start with `/`. Specifying a sub path that starts with `/` might prevent your container app from starting up. For example, `my-volume-folder` is a valid sub path, whereas `/my-volume-folder` is not.
+
+The sub path can refer to either a folder or a file in the volume.
+- If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
+- If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container. For example, if the sub path is `my-volume-folder/my-volume-file` and the mount path is `/my-container-folder/my-container-file`, the folder `/my-container-folder` should exist in the container, but should not already contain the file `my-container-file`.
+
+If the sub path has a trailing `/`, whether it refers to a folder or file, the trailing `/` is ignored.
 
 For more information see [using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath).
