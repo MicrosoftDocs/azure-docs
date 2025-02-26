@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 09/30/2024
-ms.author: seal
+ms.author: karler
+ms.reviewer: seal
 ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
 ---
