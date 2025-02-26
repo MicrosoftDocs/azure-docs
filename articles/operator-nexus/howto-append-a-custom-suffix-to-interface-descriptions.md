@@ -40,6 +40,16 @@ az networkfabric interface update --additional-description "support-ticket1234-j
   --resource-name Ethernet22-1
 ```
 
+#### Parameter Details:
+
+| Parameter                  | Description                                      | Constraints |
+|----------------------------|--------------------------------------------------|-------------|
+| `--additional-description` | Additional description for the interface update. | Alphanumeric (A-Za-z0-9), `-` and `_` allowed. Max 64 characters. |
+| `--device`                 | Name of the network fabric device.               | No specific constraints provided. |
+| `-g, --resource-group`     | Name of the resource group where the device resides. | No specific constraints provided. |
+| `--resource-name`          | Name of the network interface resource.          | No specific constraints provided. |
+
+
 ### 3. Commit the configuration
 
 After updating the description, apply the changes to the fabric:
