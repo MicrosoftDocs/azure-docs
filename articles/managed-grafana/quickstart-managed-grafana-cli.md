@@ -6,7 +6,6 @@ ms.topic: quickstart
 author: maud-lv
 ms.author: malev
 ms.date: 02/19/2025
-ms.date: 02/19/2025
 ms.devlang: azurecli
 ms.custom: engagement-fy23, devx-track-azurecli
 # customer intent: As a developer or a data analyst, I want to create a new Azure Managed Grafana workspace using the Azure CLI.
