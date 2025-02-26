@@ -63,19 +63,19 @@ The following is a sample workflow for creating and using a workspace.
 
 ## Workspace gateway
 
-Each workspace is associated with one or more workspace gateways to enable runtime of APIs managed within the workspace. A workspace gateway is a standalone Azure resource (*workspace gateway premium*) with the same core functionality as the gateway built into your API Management service. Workspace gateways are managed independently from the API Management service and from each other.
+Each workspace is configured with a *workspace gateway* to enable runtime of APIs managed within the workspace. A workspace gateway is a standalone Azure resource (*workspace gateway premium*) with the same core functionality as the gateway built into your API Management service. 
 
 Workspace gateways are managed independently from the API Management service and from each other. They allow for isolation of runtime between workspaces or use cases, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to workspaces. 
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
 
-### Dedicated versus shared workspace gateways
+### Associate workspaces with a workspace gateway
+
+ Depending on your organization's needs, you can associate one workspace or up to several workspaces with a workspace gateway. 
 
 > [!NOTE]
-> Associating multiple workspaces to a workspace gateway is available only for workspace gateways created after March 1, 2025. 
-
-Each workspace gateway can be associated with one or multiple workspaces:
+> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after March 1, 2025. 
 
 * A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
 * Configuration and computing resources are shared by all workspaces deployed on a gateway.
@@ -83,7 +83,7 @@ Each workspace gateway can be associated with one or multiple workspaces:
 
 Consider reliability, security, and cost when choosing a deployment model for workspaces.
 
-* **Use dedicated gateways for mission-critical workloads** - To maximize API reliability and security, assign each mission-critical workspace to its own dedicated gateway, avoiding shared use with other workspaces.
+* **Use dedicated gateways for mission-critical workloads** - To maximize API reliability and security, assign each mission-critical workspace to its own gateway, avoiding shared use with other workspaces.
 * **Balance reliability, security, and cost** - Associate multiple workspaces with a gateway to balance reliability, security, and cost for non-critical workloads. Distributing workspaces across at least two gateways helps prevent issues, such as resource exhaustion or configuration errors, from impacting all APIs within the organization.
 * **Use distinct gateways for different use cases** - Group workspaces on a gateway based on a use case or network requirements. For instance, separate internal and external APIs by assigning them to different gateways.
 **Prepare to quarantine troubled workspaces** - Use a proxy, such as Azure Application Gateway or Azure Front Door, in front of shared workspace gateways to simplify moving a workspace that's causing resource exhaustion to a different gateway, preventing impact on other workspaces sharing the gateway.
@@ -97,7 +97,7 @@ Consider reliability, security, and cost when choosing a deployment model for wo
 
 Each workspace gateway provides a unique hostname for APIs managed in an associated workspace. Default hostnames follow the pattern `<gateway-name>-<hash>.gateway.<region>.azure-api.net`. Use the gateway hostname to route API requests to your workspace's APIs.
 
-Currently, custom hostnames aren't supported for workspace gateways. You can configure a proxy, such as Azure Application Gateway or Azure Front Door, with a custom hostname.
+Currently, custom hostnames aren't supported for workspace gateways. You can configure Azure Application Gateway or Azure Front Door with a custom hostname in front of a workspace gateway.
 
 ### Network isolation
 
