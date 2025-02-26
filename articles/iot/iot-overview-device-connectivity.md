@@ -6,25 +6,25 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 02/28/2024
+ms.date: 02/25/2025
 ms.custom:
   - template-overview
   - ignite-2023
 # Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device infrastructure and connectivity so that I can easily find relevant content.
 ---
 
-# Device infrastructure and connectivity
+# Asset and device infrastructure and connectivity
 
 This overview introduces the key concepts around how devices connect to the cloud in a typical Azure IoT solution. The article also introduces optional infrastructure elements such as gateways and bridges. Each section includes links to content that provides further detail and guidance.
 
-# [Edge-based solution](#tab/edge)
+### [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the assets and the IoT edge environment shown in the diagram:
+The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the connectivity between the assets and the edge environment shown in the diagram:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting device connectivity areas." border="false" lightbox="media/iot-overview-device-connectivity/iot-edge-connectivity-architecture.svg":::
 
-# [Cloud-based solution](#tab/cloud)
+### [Cloud-based solution](#tab/cloud)
 
 IoT Central applications use the IoT Hub and the Device Provisioning Service (DPS) services internally. Therefore, the concepts in this article apply whether you're using IoT Central to explore an IoT scenario or building your solution by using IoT Hub and DPS.
 
@@ -37,17 +37,21 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 ## Communication methods
 
-# [Edge-based solution](#tab/edge)
+### [Edge-based solution](#tab/edge)
 
-Assets use the following industry standards to exchange data with Azure services:
+To exchange data with Azure services, assets use industry standards such as:
 
-- **OPC UA tags and events**. OPC UA *tags* represent data points. OPC UA *events* represent state changes. The connector for OPC UA is an Azure IoT Operations service that connects to OPC UA servers to retrieve their data and publishes it to topics in the MQTT broker.
+- **OPC UA tags and events**. OPC UA *tags* represent data points. OPC UA *events* represent state changes. The connector for OPC UA is an Azure IoT Operations service that connects to OPC UA servers to retrieve their data and publishes it to topics in the MQTT broker. [OPC Foundation](https://opcfoundation.org/)
 
-- **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5.
+- **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5. [MQTT](https://mqtt.org/)
+
+- **ONVIF media specifications** (preview). The connector for ONVIF in Azure IoT Operations focuses on support for camera devices that implement the ONVIF profiles for basic (S) or advanced (T) video streaming. [ONVIF](https://www.onvif.org/)
+
+- **Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP** (preview). The media connector makes images and video from media sources such as IP cameras available to other Azure IoT Operations components.
 
 Once asset data is received, Azure IoT Operations uses *data flows* to process and route data to cloud endpoints or other edge components.
 
-# [Cloud-based solution](#tab/cloud)
+### [Cloud-based solution](#tab/cloud)
 
 Azure IoT devices use the following primitives to exchange data with cloud services:
 
@@ -62,9 +66,9 @@ To learn more, see [Device-to-cloud communications guidance](../iot-hub/iot-hub-
 
 ---
 
-## Device-facing endpoints
+## Asset and device endpoints
 
-# [Edge-based solution](#tab/edge)
+### [Edge-based solution](#tab/edge)
 
 Azure IoT Operations uses *connectors* to discover, manage, and ingress data from assets in an edge-based solution.
 
@@ -76,7 +80,7 @@ When you add a connector to an Azure IoT Operations scenario, you also define an
 
 To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
-# [Cloud-based solution](#tab/cloud)
+### [Cloud-based solution](#tab/cloud)
 
 An Azure IoT hub exposes a collection of per-device endpoints that let devices exchange data with the cloud. These endpoints include:
 
@@ -99,15 +103,15 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 
 ## Authentication
 
-# [Edge-based solution](#tab/edge)
+### [Edge-based solution](#tab/edge)
 
 Assets and asset endpoints in Azure IoT Operations are represented as custom resources in the Kubernetes cluster and as resources in Azure. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
 
 Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault. Access to the Azure key vault is configured with a user-assigned managed identity.
 
-Any Azure IoT Operations components that require cloud connections, like data flow enpoints that send data to cloud resources, use a user-assigned managed identity. For more information, see [Enable secure settings in Azure IoT Operations](../iot-operations/deploy-iot-ops/howto-enable-secure-settings.md).
+The connector for OPC UA is an OPC UA client application that uses a single OPC UA application instance certificate for all the sessions it establishes to collect telemetry data from OPC UA servers. By default, the connector uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate.
 
-# [Cloud-based solution](#tab/cloud)
+### [Cloud-based solution](#tab/cloud)
 
 A device connection string provides a device with the information it needs to connect securely to an IoT hub. The connection string includes the following information:
 
@@ -134,11 +138,16 @@ To learn more about security in your IoT solution, see [Security architecture fo
 
 ## Protocols
 
-# [Edge-based solution](#tab/edge)
+### [Edge-based solution](#tab/edge)
 
-The MQTT broker underpins the messaging layer in IoT Operations and supports both MQTT v3.1.1 and MQTT v5.
+To exchange data with Azure services, assets use industry standards such as:
 
-# [Cloud-based solution](#tab/cloud)
+- [MQTT v3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html) and [MQTT v5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
+- [OPC UA](https://opcfoundation.org/)
+- [ONVIF](https://www.onvif.org/) (preview)
+- Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP (preview).
+
+### [Cloud-based solution](#tab/cloud)
 
 An IoT device can use one of several network protocols when it connects to an IoT Hub or DPS endpoint:
 
@@ -162,6 +171,22 @@ To learn more about how to choose a protocol for your devices to connect to the 
 
 ## Connection patterns
 
+### [Edge-based solution](#tab/edge)
+
+### Connection through edge servers 
+
+Azure IoT Operations enables a one-to-many connection pattern at the edge. A single deployment can ingest data from multiple industrial assets at the edge, then handle communication with the cloud.
+
+The OPC UA standard is built around assets connecting to servers. The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, and monitor data changes and events in connected assets. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
+
+The media connector can process video streams (RTSP) directly from cameras. It can also access media servers where multiple cameras store their videos or images. Once the media connector connect to a single external media server, it can save, process, or route the snapshots or video streams to an edge or cloud endpoint.
+
+### Isolated network connections
+
+Azure IoT Operations includes the Layered Network Management (preview) service For IoT scenarios that implement isolated network environments according to [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95) and [Purdue Enterprise Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) standards. The service can route network traffic from a non-internet facing layer through an internet facing layer and then to Azure.
+
+### [Cloud-based solution](#tab/cloud)
+
 There are two broad categories of connection patterns that IoT devices use to connect to the cloud:
 
 ### Persistent connections
@@ -172,6 +197,8 @@ Persistent connections are required when your solution needs *command and contro
 
 Ephemeral connections are brief connections for devices to send telemetry to your IoT hub. After a device sends the telemetry, it drops the connection. The device reconnects when it has more telemetry to send. Ephemeral connections aren't suitable for command and control scenarios. A device client can use the HTTP API if all it needs to do is send telemetry.
 
+---
+
 ## Field gateways
 
 Field gateways (sometimes referred to as edge gateways) are typically deployed on-premises and close to your IoT devices. Field gateways handle communication with the cloud on behalf of your IoT devices. Field gateways can:
@@ -180,6 +207,12 @@ Field gateways (sometimes referred to as edge gateways) are typically deployed o
 - Manage offline and disconnected scenarios. For example, buffering telemetry when the cloud endpoint is unreachable.
 - Filter, compress, or aggregate telemetry before sending it to the cloud.
 - Run logic at the edge to remove the latency associated with running logic on behalf of devices in the cloud. For example, detecting a spike in temperature and opening a valve in response.
+
+### [Edge-based solution](#tab/edge)
+
+As an edge-based solution, Azure IoT Operations acts as a field gateway. Using the connectors and the MQTT broker, an Azure IoT Operations deployment communicates with assets and equipment, either directly or through a server, so that they don't need their own cloud connections. Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
+
+### [Cloud-based solution](#tab/cloud)
 
 You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
@@ -190,6 +223,8 @@ An IoT Edge device can maintain a [persistent connection](#persistent-connection
 A device bridge enables devices that are connected to a non-Microsoft cloud to connect to your IoT solution. Examples of non-Microsoft clouds include [Sigfox](https://www.sigfox.com/), [Particle Device Cloud](https://www.particle.io/), and [The Things Network](https://www.thethingsnetwork.org/).
 
 The open source IoT Central Device Bridge acts as a translator that forwards telemetry to an IoT Central application. To learn more, see [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge). There are non-Microsoft bridge solutions, such as [Tartabit IoT Bridge](/shows/internet-of-things-show/onboarding-constrained-devices-into-azure-using-tartabits-iot-bridge), for connecting devices to an IoT hub.
+
+---
 
 ## Next steps
 
