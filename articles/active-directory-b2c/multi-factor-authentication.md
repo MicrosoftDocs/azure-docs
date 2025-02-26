@@ -133,8 +133,6 @@ In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. The 
 
 Learn how to [delete a user's Software OATH token authentication method](/graph/api/softwareoathauthenticationmethod-delete) using the Microsoft Graph API.
 
-::: zone pivot="b2c-custom-policy"
-
 ### SMS pricing tiers by country/region
 
 The following table provides details about the different pricing tiers for SMS based authentication services across various countries or regions. For pricing details, see [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
