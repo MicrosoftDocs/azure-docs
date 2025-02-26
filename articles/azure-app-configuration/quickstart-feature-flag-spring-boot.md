@@ -150,13 +150,13 @@ To create a new Spring Boot project:
     ```
 
     ### [Connection string](#tab/connection-string)
-   If you are using a properties file, use the following code:
-   ```properties
+    If you are using a properties file, use the following code:
+    ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_CONNECTION_STRING}
     spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
-   If you are using a yaml file, use the following code:
+    If you are using a yaml file, use the following code:
     ```yaml
     spring:
       cloud:
@@ -290,6 +290,7 @@ To create a new Spring Boot project:
 
 1. Set an environment variable.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     Set the environment variable named **APP_CONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
@@ -309,6 +310,32 @@ To create a new Spring Boot project:
     ```bash
     export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
+
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **APP_CONFIGURATION_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx APP_CONFIGURATION_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    ```
+
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    ```
+    ---
+
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
+
+    ---
 
 1. Build your Spring Boot application with Maven and run it.
 
