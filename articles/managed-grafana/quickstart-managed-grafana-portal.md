@@ -68,7 +68,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
 
 1. Once the deployment is complete, select **Go to resource** to open your resource.
 
-1. In the **Overview** tab's Essentials section, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account. 
+1. In the **Overview** tab, select the **Endpoint** URL. Single sign-on via Microsoft Entra ID has been configured for you automatically. If prompted, enter your Azure account. 
 
     :::image type="content" source="media/quickstart-portal/grafana-overview.png" alt-text="Screenshot of the Azure portal. Endpoint URL display.":::
 
@@ -77,7 +77,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
     :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of an Azure Managed Grafana workspace.":::
 
 > [!IMPORTANT]
-> The **Creator can admin (Preview)** option is designed to be used for testing purposes. Whenever possible, we recommend assgining a [Grafana role](how-to-manage-access-permissions-users-identities.md) to all team members who need to access the Grafana portal and disabling the **Creator can edit** option.
+> The **Creator can admin (Preview)** option is designed to be used for testing purposes. Whenever possible, we recommend assigning a [Grafana role](how-to-manage-access-permissions-users-identities.md) to all team members who need to access the Grafana portal and disabling the **Creator can edit** option.
 
 ## Clean up resources
 

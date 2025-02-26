@@ -17,7 +17,6 @@ Get started using Azure Managed Grafana by creating an Azure Managed Grafana wor
 
 >[!NOTE]
 > Azure Managed Grafana has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To create a workspace in the Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md).
-> Azure Managed Grafana has [two pricing plans](overview.md#service-tiers). This guides takes you through creating a new workspace in the Standard plan. To create a workspace in the Essential (preview) plan, [use the Azure portal](quickstart-managed-grafana-portal.md).
 
 ## Prerequisites
 
@@ -31,7 +30,6 @@ Get started using Azure Managed Grafana by creating an Azure Managed Grafana wor
     >  - once you've created the Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role
     >  - or consider creating the workspace using the **Creator can admin (Preview)** feature available from the Azure portal as a temporary workaround. [Refer to this quickstart for more information](quickstart-managed-grafana-portal.md).
 
- [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Sign in to Azure
