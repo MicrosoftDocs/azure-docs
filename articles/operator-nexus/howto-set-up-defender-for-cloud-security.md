@@ -56,6 +56,83 @@ To set up a Defender for Servers plan:
       :::image type="content" source="media/security/nexus-defender-for-servers-plan-settings.png" alt-text="Screenshot of Defender for Servers plan settings for Operator Nexus." lightbox="media/security/nexus-defender-for-servers-plan-settings.png":::
     * Click Continue to save any changed settings.
 
+### Grant MDE Onboarding Permissions
+
+To enable the Microsoft Defender for Endpoint (MDE) agent on baremetal machines within your Nexus Cluster, you must grant the nc-platform-extension identity of the cluster the ability to onboard the MDE agent on your behalf.
+
+The nc-platform-extension identity does not exist prior to deploying the Operator Nexus cluster, as such the following example must be performed after the cluster is deployed.
+
+The required permission is ```Microsoft.Security/mdeOnboardings/read```. This permission can be assigned to the nc-platform-extension identity using the built-in role ```Security Reader``` or a custom role with the same permission can be created.
+
+> [!IMPORTANT]
+> The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
+
+Below is an example bash script using the az CLI for granting the nc-platform-extension identity the ability to onboard the MDE agent on your behalf.
+
+```bash
+#!/usr/bin/env bash
+
+# Usage: ./script.sh /subscriptions/<subID>/resourceGroups/<rgName>/providers/Microsoft.NetworkCloud/clusters/<clusterName>
+
+CLUSTER_ID="$1"
+
+if [ -z "$CLUSTER_ID" ]; then
+  echo "Usage: $0 <Full Azure Network Cloud Cluster Resource ID>"
+  exit 1
+fi
+
+# 1. Extract Subscription ID by splitting on '/' and taking the 3rd field:
+SUBSCRIPTION_ID=$(echo "$CLUSTER_ID" | cut -d'/' -f3)
+echo "Subscription ID: $SUBSCRIPTION_ID"
+
+# 2. Extract the actual cluster name from the last segment in the resource ID
+CLUSTER_NAME=$(basename "$CLUSTER_ID")
+echo "Cluster name: $CLUSTER_NAME"
+
+# 3. Retrieve the Managed Resource Group name
+MRG_NAME=$(az networkcloud cluster show \
+  --ids "$CLUSTER_ID" \
+  --query "managedResourceGroupConfiguration.name" \
+  --output tsv)
+echo "Managed Resource Group name: $MRG_NAME"
+
+# 4. Retrieve the extension's principal ID
+PRINCIPAL_ID=$(az k8s-extension show \
+  --name nc-platform-extension \
+  --cluster-name "$CLUSTER_NAME" \
+  --resource-group "$MRG_NAME" \
+  --cluster-type connectedClusters \
+  --query "identity.principalId" \
+  --output tsv)
+
+echo "Extension Principal ID: $PRINCIPAL_ID"
+
+# 5. Show the full service principal object
+echo "Showing service principal details"
+az ad sp show --id "$PRINCIPAL_ID"
+
+# 6. Show just the object ID
+OBJECT_ID=$(az ad sp show --id "$PRINCIPAL_ID" --query "id" --output tsv)
+echo "Service Principal Object ID: $OBJECT_ID"
+
+# 7. Show additional properties (ObjectID, AppID, DisplayName) in a table
+echo "Service principal summary:"
+az ad sp show \
+  --id "$PRINCIPAL_ID" \
+  --query "{ObjectID:id, AppID:appId, DisplayName:displayName}" \
+  --output table
+
+# 8. Create a Security Reader role assignment at subscription level
+echo "Creating Security Reader role assignment at subscription level"
+az role assignment create \
+  --role "Security Reader" \
+  --subscription "$SUBSCRIPTION_ID" \
+  --assignee-object-id "$OBJECT_ID" \
+  --assignee-principal-type ServicePrincipal
+
+echo "Done. Security Reader role assignment created"
+
+
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  
 > [!IMPORTANT]
