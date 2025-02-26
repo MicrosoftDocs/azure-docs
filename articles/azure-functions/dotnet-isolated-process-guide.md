@@ -555,7 +555,7 @@ public async Task HandleCancellationCleanup(
 }
 ```
 
-#### Scenarios that lead to cancellation token being cancelled
+#### Scenarios that lead to cancellation
 
 The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
 and those could vary depending on the trigger type being used. Some common reasons are:
