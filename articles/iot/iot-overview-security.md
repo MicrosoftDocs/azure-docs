@@ -21,7 +21,7 @@ The following diagram shows a high-level view of the components in a typical edg
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-security/iot-edge-security-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting security." border="false":::
 
-You can divide security in an edge-based IoT solution into the following three areas:
+You can divide security in an edge-based IoT solution into the following four areas:
 
 - **Asset security**: Secure the physical or virtual item of value that you want to manage, monitor, and collect data from.
 
