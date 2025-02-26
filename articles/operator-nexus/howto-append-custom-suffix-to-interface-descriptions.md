@@ -1,6 +1,6 @@
 ---
-title: How to append a custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
-description: Learn how to append and remove a custom suffix from interface descriptions in Azure Operator Nexus Network Fabric for enhanced operational annotations.
+title: How to append custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
+description: Learn how to append and remove custom suffix from interface descriptions in Azure Operator Nexus Network Fabric for enhanced operational annotations.
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -9,7 +9,7 @@ ms.date: 02/24/2025
 ms.custom: template-how-to
 ---
 
-# Append a custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
+# Append custom suffix to interface descriptions in Azure Operator Nexus Network Fabric
 
 This guide explains how to append a user-defined suffix (`additionalDescription`) to interface descriptions in Azure Operator Nexus Network Fabric. This feature provides enhanced flexibility for operational annotations, allowing users to customize interface descriptions for specific maintenance or operational requirements.
 
