@@ -109,7 +109,7 @@ To install the Dynatrace OneAgent, select the App Service and select **Install E
 
 ## Monitor Arc enabled servers using Dynatrace OneAgent
  
-Azure Arc delivers a consistent multicloud and on-premises management platform, allowing users to manage applications and services extending across data centers, multiple clouds and edge. [Learn More] ()
+Azure Arc delivers a consistent multicloud and on-premises management platform, allowing users to manage applications and services extending across data centers, multiple clouds and edge. 
  
 You can install Dynatrace OneAgent to monitor Azure Arc-enabled servers as an extension. Select ARC Machine Extension under Dynatrace environment config in the Resource menu. In the working pane, you see a list of all Arc-enabled servers in the subscription. Filters include _Resource Group, Subscription, Resource Status and Agent Status_.
  
