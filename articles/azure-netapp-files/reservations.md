@@ -91,7 +91,7 @@ To purchase a reservation:
     :::image type="content" source="./media/reservations/subscription-scope.png" alt-text="Screenshot of the subscription choices." lightbox="./media/reservations/subscription-scope.png":::
 
 1. Select **Add to cart**. 
-1. In the cart, choose the quantity of provisioned throughput units you want to purchase. For example, choosing 64 covers up to 64 deployed provisioned throughput units every hour. 
+1. In the cart, choose the quantity of capacity pools you want to purchase.
 1. Select **Next: Review + Buy** to review your purchase choices and their prices. 
 1. Select **Buy now**. 
 1. After purchase, you can select **View this reservation** to review your purchase status. 

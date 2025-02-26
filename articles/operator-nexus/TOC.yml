@@ -367,6 +367,8 @@
           href: troubleshoot-internet-host-virtual-machine.md
         - name: Troubleshoot VM errors after BMM restart
           href: troubleshoot-vm-error-after-reboot.md
+        - name: Troubleshoot NotReady KuberentesCluster node
+          href: troubleshoot-not-ready-kubernetes-cluster-node.md
         - name:
             Troubleshooting dual-stack configuration issues for Nexus Kubernetes
             cluster
@@ -375,6 +377,11 @@
           href: troubleshoot-neighbor-group-creation-error.md
         - name: Troubleshoot NAKS Cluster Node Packet Loss
           href: troubleshoot-packet-loss.md
+        - name: Troubleshoot Nexus Kubernetes Cluster stuck (unable to reschedule) workloads
+          expanded: false
+          items:
+            - name: Due To Bare Metal Machine Power Failure
+              href: troubleshoot-kubernetes-cluster-stuck-workloads-due-to-power-failure.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
