@@ -63,7 +63,8 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the data flow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<NAMESPACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
+    | Host                 | The hostname of the Event Hubs host. You can search for an existing Event Hubs host or enter the host name manually using the format `<NAMESPACE>.servicebus.windows.net`. |
+    | Port                 | The port of the Event Hubs host. For Event Hubs, the port is `9093`. |
     | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
