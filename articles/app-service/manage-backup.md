@@ -369,9 +369,9 @@ You can back up to a firewall-protected storage account if it's part of the same
 
 ### How do I restore to an app in the same subscription but in a different region?
 
-You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup)
+You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup).
 
-Key Considerations:
+#### Key considerations
 Ensure that the backup storage for the source app is accessible by the target app.
 The restoration process in the Azure portal allows selecting an app in a different region as long as it remains within the same subscription.
 
