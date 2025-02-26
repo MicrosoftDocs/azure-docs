@@ -887,7 +887,7 @@
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/defender-for-iot/device-builders/*.md": "defender-for-iot",
         "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
-        "articles/defender-for-iot/organizations/appliance-catalog/*.md": "defender-for-iot",
+        "articles/defender-for-iot/organizations/**/*.yml": "defender-for-iot",
         "articles/defender-for-iot/organizations/**/*.md": "defender-for-iot",
         "articles/deployment-environments/**/*.md": "azure-deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
