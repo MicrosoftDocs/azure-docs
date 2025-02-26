@@ -98,6 +98,7 @@ Availability for file access log is limited to the following regions:
 - Canada East
 - Central India
 - Central US
+- East US
 - East US 2
 - Japan West
 - North Europe
