@@ -22,7 +22,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door](../create-front-door-portal.md).
-- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance](../../api-management/get-started-create-service-instance.md)
+- Have a functioning Azure API Management instance deployed in public mode (Virtual Network mode will not work). For more information on how to create an API Management instance, see [Create a new Azure API Management instance](../../api-management/get-started-create-service-instance.md)
 
 ## Create an origin group and add the API Management instance as an origin
 
