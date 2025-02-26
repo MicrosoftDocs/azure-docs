@@ -11,7 +11,11 @@ ms.collection: ce-skilling-ai-copilot
 
 # Invoke an OpenAPI App Service web app from Azure AI Agent Service
 
-[Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. In the following tutorial, you're using an Azure AI Agent to invoke an API hosted on Azure App Service.
+[Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
+
+Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent.
+
+In the following tutorial, you're using an Azure AI Agent to invoke an API hosted on Azure App Service.
 
 ## Prerequisites
 
@@ -344,14 +348,13 @@ Now that you have the required infrastructure, you can put it all together and s
     # Create Auth object for the OpenApiTool (note that connection or managed identity auth setup requires additional setup in Azure)
     auth = OpenApiAnonymousAuthDetails()
     
-    # Initialize agent OpenAPI tool using the read in OpenAPI spec
-    # openapi = OpenApiTool(name="GetWeatherForecast", spec=openapi_spec, description="Retrieve weather information", auth=auth)
+    # Initialize agent OpenAPI tool using the OpenAPI spec
     openapi = OpenApiTool(name="toDolistAgent", spec=openapi_spec, description="Manage the to do list", auth=auth)
     
     # Prompt for the message content
     message_content = input("Message content: ")
     
-    # Create agent with OpenAPI tool and process assistant run
+    # Create agent with OpenAPI tool
     with project_client:
         agent = project_client.agents.create_agent(
             model="gpt-4o-mini",
@@ -381,9 +384,8 @@ Now that you have the required infrastructure, you can put it all together and s
             # Check if you got "Rate limit is exceeded.", then you want to get more quota
             print(f"Run failed: {run.last_error}")
     
-        # Fetch and log all messages
+        # Fetch all messages
         messages = project_client.agents.list_messages(thread_id=thread.id)
-        # print(f"Messages: {messages}")
     
         # Get the last message from the sender
         last_msg = messages.get_last_text_message_by_role("assistant")
