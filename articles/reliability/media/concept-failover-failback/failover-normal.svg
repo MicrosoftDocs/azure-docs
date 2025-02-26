@@ -6,7 +6,7 @@
 		class="st36">
 	<style type="text/css">
 	<![CDATA[
-		.st1 {fill:#ffffff;stroke:#c7c8c8;stroke-width:0.25}
+		.st1 {fill:#ffffff;stroke:none;stroke-width:0.25}
 		.st2 {fill:#0078d4;fill-opacity:0.23;stroke:none;stroke-linecap:butt;stroke-width:0.561468}
 		.st3 {fill:#000000;font-family:Segoe UI;font-size:1.16666em}
 		.st4 {fill:none;stroke:none;stroke-linecap:butt;stroke-width:0.75}
@@ -192,12 +192,12 @@
 					class="st6"/>
 		</g>
 		<g id="shape174-43" transform="translate(414.25,-48.082)">
-			<title>圆角矩形.124</title>
+			<title>圆角矩形.174</title>
 			<path d="M2.83 480.5 L137.17 480.5 A2.83157 2.83157 -180 0 0 140 477.67 L140 219 A2.83157 2.83157 -180 0 0 137.17 216.16
 						 L2.83 216.16 A2.83157 2.83157 -180 0 0 0 219 L0 477.67 A2.83157 2.83157 -180 0 0 2.83 480.5 Z" class="st7"/>
 		</g>
 		<g id="shape175-45" transform="translate(564.25,-48.082)">
-			<title>圆角矩形.125</title>
+			<title>圆角矩形.175</title>
 			<path d="M2.83 480.5 L137.17 480.5 A2.83157 2.83157 -180 0 0 140 477.67 L140 219 A2.83157 2.83157 -180 0 0 137.17 216.16
 						 L2.83 216.16 A2.83157 2.83157 -180 0 0 0 219 L0 477.67 A2.83157 2.83157 -180 0 0 2.83 480.5 Z" class="st7"/>
 		</g>
@@ -233,7 +233,7 @@
 			<text x="11.99" y="444.37" class="st10">Database <tspan x="19.12" dy="1.2em" class="st11">replica</tspan><tspan
 						x="13.84" dy="1.2em" class="st11">(passive)</tspan></text>		</g>
 		<g id="group184-66" transform="translate(584.25,-59.25)">
-			<title>圆柱形.136</title>
+			<title>圆柱形.184</title>
 			<g id="shape185-67">
 				<title>Sheet.185</title>
 				<path d="M0 470.4 A42.5197 10.1039 -180 1 0 85.04 470.4 L85.04 389.56 L0 389.56 L0 470.4 Z" class="st14"/>
