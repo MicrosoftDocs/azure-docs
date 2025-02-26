@@ -40,7 +40,7 @@ ideas.
 
 Use the following steps to configure data at scale for Azure Automation State Configuration:
 
-1. Organize the information in your preferred file format. For example, *JSON*, *Yaml*, or *PSD1*.
+1. Organize the information in your preferred file format. For example, *JSON*, *YAML*, or *PSD1*.
 1. Use the cmdlets to generate configuration data files by [consolidating the information][12] from
    each file in to single view of a server or server role.
 1. Use the generated files with [DSC Configuration scripts][05] to generate *MOF* files and
