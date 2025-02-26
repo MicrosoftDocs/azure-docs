@@ -160,22 +160,35 @@ For more information on how threat intel is updated, see [View your threat intel
 
 ### Find and view your indicators with queries
 
-This procedure describes how to view your threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
+This procedure describes how to view your threat indicators with queries, regardless of the source feed or method you used to ingest them.
 
-Threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
+Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
-To view your threat intelligence indicators:
+>[!IMPORTANT]
+>Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
+>
+
+#### [Azure portal](#tab/azure-portal)
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.
 
-   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
-
-1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
 1. Select the **Preview data** icon (the eye) next to the table name. Select **See in query editor** to run a query that shows records from this table.
 
-    Your results should look similar to the sample threat indicator shown here.
+Your results should look similar to the sample threat indicator shown here.
 
-    :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
+:::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
+
+#### [Defender portal](#tab/defender-portal)
+
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
+
+1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
+
+:::image type="content" source="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png":::
+
+---
+
+For more information, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
 ### Visualize your threat intelligence with workbooks
 
