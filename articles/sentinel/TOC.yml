@@ -908,7 +908,7 @@
   - name: Kusto Query Language
     items:
     - name: Overview
-      href: /kusto/query/kusto-sentinel-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Query best practices
       href: /kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
@@ -917,8 +917,10 @@
       href: /kusto/query/splunk-cheat-sheet?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: KQL quick reference
       href: /kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Common tasks with KQL for Microsoft Sentinel
+      href: /kusto/query/tutorials/common-tasks-microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
-      href: kusto-resources.md 
+      href: /kusto/query/kql-learning-resources?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json 
   - name: Create custom query
     href: hunts-custom-queries.md
   - name: Bookmarks
