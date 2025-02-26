@@ -50,7 +50,7 @@ To encrypt the sensitive data from the JSON payload on an on-premises self-hoste
 
 Please ensure the following prerequisites are met:
 - Remote access option is enabled on the self-hosted integration runtime.
-- Powershell 7.0 or higher is used to execute the cmdlet.
+- PowerShell 7.0 or higher is used to execute the cmdlet.
 
 ```powershell
 New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName 'test-selfhost-ir' -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
