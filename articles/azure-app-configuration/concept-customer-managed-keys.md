@@ -107,6 +107,29 @@ After these resources are configured, use the following steps so that the Azure 
 
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
 
+## Disable customer-managed key encryption for your App Configuration store
+
+1. Use the Azure CLI to update your App Configuration instance and remove the customer-managed key configuration. Replace `contoso-resource-group` and `contoso-app-config` with the appropriate values for your setup.
+
+    ```azurecli
+    az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name ""
+    ```
+
+    This command removes the customer-managed key configuration from your App Configuration instance.
+
+1. Verify that the customer-managed key configuration has been removed by checking the properties of your App Configuration instance.
+
+    ```azurecli
+    az appconfig show -g contoso-resource-group -n contoso-app-config --query "encryption"
+    ```
+
+    The output should show that the `encryption.keyVaultProperties` property is set to `null`.
+
+Your Azure App Configuration instance is now configured to use Microsoft managed keys for encryption.
+
+> [!NOTE]
+> Disabling customer-managed key encryption will revert your App Configuration instance to use Microsoft managed keys. Ensure that this change aligns with your organization's security policies and compliance requirements.
+
 ## Access Revocation
 
 When users enable the customer-managed key capability on their Azure App Configuration instance, they control the service’s ability to access their sensitive information. The managed key serves as a root encryption key. Users can revoke their App Configuration instance’s access to their managed key by changing their key vault access policy. When this access is revoked, App Configuration will lose the ability to decrypt user data within one hour. At this point, the App Configuration instance will forbid all access attempts. This situation is recoverable by granting the service access to the managed key once again. Within one hour, App Configuration will be able to decrypt user data and operate under normal conditions.
