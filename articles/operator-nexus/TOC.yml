@@ -226,6 +226,8 @@
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade os of terminal server
           href: howto-upgrade-os-of-terminal-server.md
+        - name: How to restrict serial port access and set timeout on terminal-server
+          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md           
     - name: Cluster
       expanded: false
       items:
