@@ -12,7 +12,7 @@ ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 ---
 
-# Best practices for subscribing to incoming video feeds
+# Best practices for subscribing to video feeds
 
 A crucial element to consider when building web pages is how to best integrate video into the page layout. The placement and number of videos can impact page performance, user quality experience, and overall aesthetic. This article includes guidelines to help developers determine how many videos to place on a web page and the best video resolution size to optimize the end user experience.
 
