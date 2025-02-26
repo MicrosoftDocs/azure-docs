@@ -299,9 +299,9 @@ If you're onboarding Microsoft Sentinel to the Defender portal, select the "Comp
 
 The following fields have been renamed in the unified version. Therefore, if you're onboarding Microsoft Sentinel to the Defender portal, check your queries for any references to these fields, and update them if necessary.
 
-| Log Analytics field name        | Unified schema field name | Comments |
-| ------------------------------- | ------------------------- | -------- |
-| **AccountCloudSID**             | **CloudSid**              |          |
+| Log Analytics field name        | Unified schema field name |
+| ------------------------------- | ------------------------- |
+| **AccountCloudSID**             | **CloudSid**              |
 | **AccountCreationTime**         | **CreatedDateTime**       |
 | **AccountSID**                  | **OnPremSid**             |
 | **AccountTenantId**             | **TenantId**              |
@@ -310,13 +310,35 @@ The following fields have been renamed in the unified version. Therefore, if you
 | **MailAddress**                 | **EmailAddress**          |
 | **OnPremisesAccountObjectId**   | **OnPremObjectId**        |
 | **OnPremisesDistinguishedName** | **DistinguishedName**     |
+| **RiskState**                   | **RiskStatus**            |
 | **SAMAccountName**              | **AccountName**           |
 | **SourceSystem**                | **IdentityEnvironment**   |
 | **StreetAddress**               | **Address**               |
 | **Type**                        | **IdentityType**          |
 | **UserType**                    | **TenantMembershipType**  |
 
+The following field names no longer exist in the unified version. Be sure to remove them from any queries that reference them.
 
+- **GroupMembership**
+- **TenantID**&mdash;this field does *not* contain the same information as the **TenantId** field that replaces the **AccountTenantId** field.
+- **UserState**
+- **UserStateChangedOn**
+
+The following fields, while they exist in the Log Analytics schema, are not used by Microsoft Sentinel at all, and they no longer exist in the unified version:
+
+- Applications
+- EntityRiskScore
+- ExtensionProperty
+- InvestigationPriority
+- InvestigationPriorityPercentile
+- IsMFARegistered
+- IsServiceAccount
+- LastSeenDate
+- OnPremisesExtensionAttributes
+- RelatedAccounts
+- ServicePrincipals
+- Tags
+- UACFlags
 
 ---
 
