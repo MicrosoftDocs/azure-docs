@@ -108,41 +108,41 @@ To create a new Spring Boot project:
 
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
-1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
-
-    ```java
-    import com.azure.data.appconfiguration.ConfigurationClientBuilder;
-    import com.azure.identity.DefaultAzureCredentialBuilder;
-    import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
+    1. Add the following code to your project, unless you want to use Managed Identity. Create a new file named `AppConfigCredential.java`:
     
-    public class AppConfigCredential implements ConfigurationClientCustomizer {
-    
-        @Override
-        public void customize(ConfigurationClientBuilder builder, String endpoint) {
-            builder.credential(new DefaultAzureCredentialBuilder().build());
-        }
-    }
-    ```
-
-1. Create a new file named `MyConfiguration.java` and add the following lines:
-
-    ```java
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.context.annotation.Configuration;
-    
-    @Configuration
-    public class MyConfiguration {
-    
-    
-        @Bean
-        public AppConfigCredential clientSetup() {
-            return new AppConfigCredential();
-        }
+        ```java
+        import com.azure.data.appconfiguration.ConfigurationClientBuilder;
+        import com.azure.identity.DefaultAzureCredentialBuilder;
+        import com.azure.spring.cloud.appconfiguration.config.ConfigurationClientCustomizer;
         
-    }
-    ```
+        public class AppConfigCredential implements ConfigurationClientCustomizer {
+        
+            @Override
+            public void customize(ConfigurationClientBuilder builder, String endpoint) {
+                builder.credential(new DefaultAzureCredentialBuilder().build());
+            }
+        }
+        ```
+    
+    1. Create a new file named `MyConfiguration.java` and add the following lines:
+    
+        ```java
+        import org.springframework.context.annotation.Bean;
+        import org.springframework.context.annotation.Configuration;
+        
+        @Configuration
+        public class MyConfiguration {
+        
+        
+            @Bean
+            public AppConfigCredential clientSetup() {
+                return new AppConfigCredential();
+            }
+            
+        }
+        ```
 
-1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
+    1. Add configuration Bootstrap Configuration, by creating `spring.factories` file under `resources/META-INF` directory and add the following lines and updating `com.example.MyConfiguration` with your application package:
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
