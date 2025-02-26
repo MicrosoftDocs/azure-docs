@@ -25,7 +25,7 @@ Follow the steps in this article to:
 
 > [!NOTE]
 > * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
-> * We're introducing the ability to associate multiple workspaces with a shared workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024. Shared gateways will only be available in workspaces created after the service update. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> * Associating multiple workspaces to a workspace gateway is available only for workspace gateways created after March 1, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Follow the steps in this article to:
 
     :::image type="content" source="media/how-to-create-workspace/create-workspace-gateway.png" alt-text="Screenshot of creating a workspace gateway in the portal.":::
 
-    * Select **Create new** to create a new workspace gateway, or select **Use existing** to share an existing workspace gateway.
+    * Select **Create new** to create a new workspace gateway, or select **Use existing** to associate the workspace with an existing gateway that has other workspaces deployed on it.
 
     * If you choose to create a new gateway:
         * In **Gateway details**, enter a new gateway name and select the number of scale **Units**. The gateway costs are based on the number of units. For more information, see [API Management pricing](https://aka.ms/apimpricing).

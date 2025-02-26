@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 02/25/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -70,16 +70,16 @@ Workspace gateways are managed independently from the API Management service and
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
 
-### Dedicated versus shared workspace gateway
+### Dedicated versus shared workspace gateways
 
 > [!NOTE]
-> We're introducing the ability to associate multiple workspaces with a shared workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024. Shared gateways will only be available in workspaces created after the service update. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> Associating multiple workspaces to a workspace gateway is available only for workspace gateways created after March 1, 2025. 
 
-A workspace gateway can be either *dedicated* to a single workspace or *shared* among multiple workspaces:
+Each workspace gateway can be associated with one or multiple workspaces:
 
-* **Dedicated** - Provides isolation of runtime between workspaces, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to a workspace.
-
-* **Shared** - Shares gateway settings including scale, hostname, networking, and TLS configuration, and computing resources such as CPU and memory by multiple workspaces.
+* A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
+* Configuration and computing resources are shared by all workspaces deployed on a gateway.
+* Bugs in an API or anomalous traffic may cause exhaustion of these resources, affecting all workspaces on that gateway. In other words, the more workspaces are deployed on a gateway, the higher the risk that an API from a workspace will experience reliability issues caused by an API from another workspace.
 
 Consider reliability, security, and cost when choosing a deployment model for workspaces.
 
@@ -90,12 +90,14 @@ Consider reliability, security, and cost when choosing a deployment model for wo
 
 > [!NOTE]
 > * A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription
-> * All workspaces that share a workspace gateway must be in the same API Management instance
-> * A shared gateway can be associated with up to 30 workspaces (contact support to increase this limit)
+> * All workspaces associated with a workspace gateway must be in the same API Management instance
+> * A workspace gateway can be associated with up to 30 workspaces (contact support to increase this limit)
 
 ### Gateway hostname
 
-Each workspace gateway provides a unique hostname for APIs managed in an associated workspace. Default hostnames follow the pattern `<gateway-name>-<hash>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways. Use the gateway hostname to route API requests to your workspace's APIs.
+Each workspace gateway provides a unique hostname for APIs managed in an associated workspace. Default hostnames follow the pattern `<gateway-name>-<hash>.gateway.<region>.azure-api.net`. Use the gateway hostname to route API requests to your workspace's APIs.
+
+Currently, custom hostnames aren't supported for workspace gateways. You can configure a proxy, such as Azure Application Gateway or Azure Front Door, with a custom hostname.
 
 ### Network isolation
 
@@ -161,7 +163,7 @@ Workspaces are designed to be self-contained to maximize segregation of administ
 
 ## Migrate from preview workspaces
 
-If you created preview workspaces in Azure API Management and want to continue using them, migrate your workspaces to the generally available version by associating a dedicated or shared workspace gateway with each workspace.
+If you created preview workspaces in Azure API Management and want to continue using them, migrate your workspaces to the generally available version by associating a workspace gateway with each workspace.
 
 For details and to learn about other changes that could affect your preview workspaces, see [Workspaces breaking changes (March 2025)](breaking-changes/workspaces-breaking-changes-march-2025.md).
 

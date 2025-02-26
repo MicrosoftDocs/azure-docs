@@ -186,6 +186,14 @@ API Management service owners can also create custom groups or use external grou
 * [How to create and use groups][How to create and use groups]
 * [How to manage user accounts](api-management-howto-create-or-invite-developers.md)
 
+### Workspaces
+
+Workspaces support a federated API management model by allowing decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with one or more workspace gateways that route API traffic to its backend services.
+
+**More information**:
+
+* [Workspaces in API Management](workspaces-overview.md)
+
 ### Policies
 
 With [policies][API Management policies], an API provider can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
