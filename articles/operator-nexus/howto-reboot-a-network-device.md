@@ -84,6 +84,14 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 
 - The **current runRW configuration persists** across the reboot.  
 
+## Administrative and Configuration State During Reboot  
+
+- When a reboot is triggered, the **administrative state** changes to **UnderMaintenance** in the device overview.  
+- Upon a successful reboot, the **administrative state** transitions back to **Enabled**.  
+- If the reboot fails:  
+  - The **configuration state** remains in **Failed**.  
+  - The **administrative state** remains in **UnderMaintenance**.  
+  
 ## Technical Details: Interaction Between Network Fabric (NNF) and Arista Devices  
 
 For devices running **Arista EOS**, the reboot process is triggered via the **gNOI System Reboot API** with the following parameters:  
