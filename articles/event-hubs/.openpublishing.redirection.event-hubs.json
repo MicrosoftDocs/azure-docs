@@ -1,6 +1,11 @@
 {
   "redirections": [
-    {
+  {
+      "source_path": "azure-event-hubs-kafka-overview.md",
+      "redirect_url": "/azure/event-hubs/azure-event-hubs-apache-kafka-overview",
+      "redirect_document_id": false
+  },   
+  {
       "source_path": "send-and-receive-events-using-data-generator.md",
       "redirect_url": "/azure/event-hubs/event-hubs-data-explorer",
       "redirect_document_id": false

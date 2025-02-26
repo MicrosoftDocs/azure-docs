@@ -1,22 +1,19 @@
 ---
 title: What is a secured virtual hub?
 description: Learn about secured virtual hubs
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 06/13/2023
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 01/07/2025
+ms.author: duau
 ---
 
 # What is a secured virtual hub?
 
 A virtual hub is a Microsoft-managed virtual network that enables connectivity from other resources. When a virtual hub is created from a Virtual WAN in the Azure portal, a virtual hub VNet and gateways (optional) are created as its components.
 
-A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. Multiple secured hubs can be deployed within the same region or across regions part of the same Virtual WAN resource. Use Firewall Manager in the Azure Portal to add additional secured hubs. 
-
-> [!IMPORTANT]
-> Currently, Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar and Poland Central.
+A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. Multiple secured hubs can be deployed within the same region or across regions part of the same Virtual WAN resource. Use Firewall Manager in the Azure portal to add more secured hubs. 
 
 You can use a secured virtual hub to filter traffic between virtual networks (V2V), branch-to-branch (B2B)<sup>*</sup>, branch offices (B2V) and traffic to the Internet (B2I/V2I). A secured virtual hub provides automated routing. There's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 

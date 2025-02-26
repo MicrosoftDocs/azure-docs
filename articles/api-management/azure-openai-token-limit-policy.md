@@ -8,14 +8,14 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
-ms.topic: article
-ms.date: 06/25/2024
+ms.topic: reference
+ms.date: 02/18/2025
 ms.author: danlep
 ---
 
 # Limit Azure OpenAI API token usage
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to a specified number per minute. When the token usage is exceeded, the caller receives a `429 Too Many Requests` response status code.
 

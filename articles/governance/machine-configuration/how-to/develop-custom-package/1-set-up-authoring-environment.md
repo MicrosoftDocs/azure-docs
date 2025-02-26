@@ -24,7 +24,7 @@ Support for applying configurations through machine configuration is introduced 
 
 Operating systems where the module can be installed:
 
-- Ubuntu 18
+- Ubuntu 18 or higher
 - Windows
 
 The module can be installed on a machine running PowerShell 7.x. Install the versions of PowerShell

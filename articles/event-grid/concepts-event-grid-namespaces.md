@@ -1,13 +1,11 @@
 ---
-ms.date: 11/15/2023
+ms.date: 12/16/2024
 author: robece
 ms.author: robece
 title: Concepts for Event Grid namespace topics
 description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
-ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-  - build-2024
+ms.topic: concept-article
+# Customer intent: I want to know concepts of Azure Event Grid namespaces. 
 ---
 
 # Azure Event Grid namespace concepts
@@ -15,7 +13,7 @@ ms.custom:
 This article introduces you to the main concepts and functionality associated to namespace topics.
 
 ## Events
-An **event** is the smallest amount of information that fully describes something that happened in a system. We often refer to an event as a discrete event because it represents a distinct, self-standing fact about a system that provides an insight that can be actionable. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Event every also has a `type`, which usually is a unique identifier that describes the kind of announcement the event is used for. 
+An **event** is the smallest amount of information that fully describes something that happened in a system. We often refer to an event as a discrete event because it represents a distinct, self-standing fact about a system that provides an insight that can be actionable. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has a `type`, which usually is a unique identifier that describes the kind of announcement the event is used for. 
 
 For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the URL of the captured file. An event about a new order in your Orders microservice might have an `orderId` attribute and a URL attribute to the order’s state representation. A few more examples of event types include: `com.yourcompany.Orders.OrderCreated`, `org.yourorg.GeneralLedger.AccountChanged`, `io.solutionname.Auth.MaximumNumberOfUserLoginAttemptsReached`. 
 
@@ -131,7 +129,7 @@ Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https:/
 
 [!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
-## Next steps
+## Related content
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To get started using namespace topics, refer to [publish events using namespace topics](publish-events-using-namespace-topics.md).

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/26/2024
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management

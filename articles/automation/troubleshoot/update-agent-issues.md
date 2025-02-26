@@ -140,7 +140,7 @@ $endpoint = $jrdsEndpointLocationMoniker + “-jobruntimedata-prod-su1.azure-aut
 (Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded  
 ```
 
-### Https connection
+### HTTPS connection
 Simplifies the ongoing management of your network security rules. Allow the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
@@ -413,7 +413,7 @@ CheckResultMessageArguments :
 
 RuleId                      : HttpsConnection 
 RuleGroupId                 : connectivity 
-RuleName                    : Https connection 
+RuleName                    : HTTPS connection 
 RuleGroupName               : connectivity 
 RuleDescription             : Check if VM is able to make https requests. 
 CheckResult                 : Passed 

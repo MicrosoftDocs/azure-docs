@@ -37,7 +37,7 @@ You'll be informed about the modules that will be installed, which you can confi
 
 ### 2. Connect to Microsoft Teams module
 
-When the module is installed and ready, you can connect to the MicrosftTeams module with the following command. You'll be prompted with an interactive window to log in. The user account that you're going to use needs to have Teams administrator permissions. Otherwise, you might get an `access denied` response in the next steps.
+When the module is installed and ready, you can connect to the MicrosoftTeams module with the following command. You'll be prompted with an interactive window to log in. The user account that you're going to use needs to have Teams administrator permissions. Otherwise, you might get an `access denied` response in the next steps.
 
 ```script
 Connect-MicrosoftTeams
@@ -47,7 +47,7 @@ Connect-MicrosoftTeams
 
 Interoperability with Communication Services resources is controlled via tenant configuration and assigned policy. Teams tenant has a single tenant configuration, and Teams users have assigned global policy or custom policy. For more information, see [Assign Policies in Teams](/microsoftteams/policy-assignment-overview).
 
-After successful login, you can run the cmdlet [Set-CsTeamsAcsFederationConfiguration](/powershell/module/teams/set-csteamsacsfederationconfiguration) to enable Communication Services resource in your tenant. Replace the text `IMMUTABLE_RESOURCE_ID` with an immutable resource ID in your communication resource. You can find more details on how to get this information [here](../troubleshooting-info.md#getting-immutable-resource-id).
+After successful login, you can run the cmdlet [Set-CsTeamsAcsFederationConfiguration](/powershell/module/teams/set-csteamsacsfederationconfiguration) to enable Communication Services resource in your tenant. Replace the text `IMMUTABLE_RESOURCE_ID` with an immutable resource ID in your communication resource. You can find more details on how to get this information [here](../troubleshooting-info.md#get-an-immutable-resource-id).
 
 ```script
 $allowlist = @('IMMUTABLE_RESOURCE_ID')

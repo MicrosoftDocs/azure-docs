@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.topic: article
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.date: 09/13/2024
+ms.date: 12/06/2024
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -18,7 +18,7 @@ Azure Red Hat OpenShift is a managed OpenShift service that lets you quickly dep
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, you'll need to run Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+Ensure you're using Azure CLI version 2.67.0 or higher. Use `az --version` to find the version of Azure CLI you have installed. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription doesn't meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](/azure/azure-portal/supportability/per-vm-quota-requests).
 
@@ -110,6 +110,9 @@ If you provide a custom domain for your cluster, note the following points:
 ### Create a virtual network containing two empty subnets
 
 Next, you'll create a virtual network containing two empty subnets. If you have existing virtual network that meets your needs, you can skip this step.
+
+For information about networking and requirements, see [Networking for Azure Red Hat Openshift](concepts-networking.md#networking-for-azure-red-hat-openshift).
+
 
 1. **Set the following variables in the shell environment in which you will execute the `az` commands.**
 

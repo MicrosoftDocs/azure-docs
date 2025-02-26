@@ -5,7 +5,7 @@ description: This article explains the concept of what an origin and origin grou
 services: front-door
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers

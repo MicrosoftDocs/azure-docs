@@ -4,7 +4,7 @@ description: Learn about custom domains when using Azure Front Door.
 services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/31/2023
 ms.author: jodowns
 ---

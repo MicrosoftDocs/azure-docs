@@ -1,6 +1,16 @@
 {
   "redirections": [    
     {
+      "source_path": "transport-layer-security.md",
+      "redirect_url": "/azure/event-grid/transport-layer-security-configure-minimum-version",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-network-security-perimeter.md",
+      "redirect_url": "/azure/event-grid/network-security",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "webhook-event-delivery.md",
       "redirect_url": "/azure/event-grid/end-point-validation-cloud-events-schema",
       "redirect_document_id": false

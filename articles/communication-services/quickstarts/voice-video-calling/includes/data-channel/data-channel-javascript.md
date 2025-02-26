@@ -38,7 +38,7 @@ When a receiver object is created, the SDK emits the event along with the receiv
 ```js
 dataChannel.on('dataChannelReceiverCreated', receiver => {
     // receiver.channelId
-    // reciever.senderParticipantIdentifier, which shows the sender id
+    // receiver.senderParticipantIdentifier, which shows the sender id
 });
 ```
 

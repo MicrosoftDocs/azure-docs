@@ -99,7 +99,7 @@ Azure file share scale targets apply at the file share level.
 | Maximum storage size | 100 TiB | 256 TiB | 100 TiB |
 | Maximum number of files | Unlimited | Unlimited | Unlimited |
 | Maximum IOPS | 102,400 IOPS (dependent on provisioning) | 50,000 IOPS (dependent on provisioning) | 20,000 IOPS |
-| Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 IOPS (dependent on provisioning) | Up to storage account limits |
+| Maximum throughput | 10,340 MiB / sec (dependent on provisioning) | 5,120 MiB / sec (dependent on provisioning) | Up to storage account limits |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots | 200 snapshots |
 | Maximum filename length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters | 2,048 characters |
 | Maximum length of individual pathname component<sup>2</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters | 255 characters |
@@ -162,7 +162,7 @@ The following table indicates which targets are soft, representing the Microsoft
 | Storage Sync Services per region | 100 Storage Sync Services | Yes |
 | Storage Sync Services per subscription | 15 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 200 sync groups | Yes |
-| Registered servers per Storage Sync Service | 99 servers | Yes |
+| Registered servers per Storage Sync Service | 100 servers | Yes |
 | Private endpoints per Storage Sync Service | 100 private endpoints | Yes |
 | Cloud endpoints per sync group | 1 cloud endpoint | Yes |
 | Server endpoints per sync group | 100 server endpoints | Yes |

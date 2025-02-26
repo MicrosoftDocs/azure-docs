@@ -1,8 +1,9 @@
 ---
 title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
-ms.topic: article
-ms.date: 02/15/2023
+ms.topic: how-to
+ms.date: 12/10/2024
+# Customer intent: As an Azure Relay user, I want to know how to restrict access to an Azure Relay namespace to certain IP addresses or ranges. 
 ---
 
 # Configure IP firewall for an Azure Relay namespace
@@ -12,7 +13,7 @@ This feature is helpful in scenarios in which Azure Relay should be only accessi
 
 
 ## Enable IP firewall rules
-The IP firewall rules are applied at the namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+The IP firewall rules are applied at the namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that doesn't match an allowed IP rule on the namespace is rejected as unauthorized. The response doesn't mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 ### Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a namespace. 
@@ -123,7 +124,7 @@ To deploy the template, follow the instructions for [Azure Resource Manager](../
 
 [!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
-## Next steps
+## Related content
 To learn about other network security-related features, see [Network security](network-security.md).
 
 

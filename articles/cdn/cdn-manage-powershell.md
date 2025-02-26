@@ -195,19 +195,6 @@ Update-AzCdnEndpoint -Name cdnposhdoc -ProfileName CdnPoshDemo -ResourceGroupNam
 Clear-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc -ContentFilePath @("/images/kitten.png","/video/rickroll.mp4")
 ```
 
-## Pre-load some assets
-
-> [!NOTE]
-> Pre-loading is only available on Azure Content Delivery Network from Edgio profiles.
-
-`Import-AzCdnEndpointContent` pre-loads assets into the content delivery network cache.
-
-```powershell
-Import-AzCdnEndpointContent -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc -ContentFilePath @("/images/kitten.png","/video/rickroll.mp4")`
-```
-
-<a name='startingstopping-cdn-endpoints'></a>
-
 ## Starting/Stopping content delivery network endpoints
 
 `Start-AzCdnEndpoint` and `Stop-AzCdnEndpoint` can be used to start and stop individual endpoints or groups of endpoints.

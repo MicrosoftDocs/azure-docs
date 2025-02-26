@@ -4,7 +4,7 @@ description: Identify key questions for capacity and performance planning of an 
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/13/2023
+ms.date: 12/02/2024
 ---
 
 # Capacity planning for HDInsight clusters

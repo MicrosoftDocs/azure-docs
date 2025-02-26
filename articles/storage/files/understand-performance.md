@@ -26,7 +26,7 @@ Before reading this article, it's helpful to understand some key terms relating 
 
 -   **IO operations per second (IOPS)**
 
-    IOPS, or input/output operations per second, measures the number of file system operations per second. The term "IO" is interchangable with the terms "operation" and "transaction" in the Azure Files documentation.
+    IOPS, or input/output operations per second, measures the number of file system operations per second. The term "IO" is interchangeable with the terms "operation" and "transaction" in the Azure Files documentation.
 
 -   **I/O size**
 

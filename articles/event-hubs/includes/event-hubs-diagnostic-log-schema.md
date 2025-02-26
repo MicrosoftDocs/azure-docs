@@ -182,7 +182,7 @@ Resource specific table entry:
     "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
     "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2021 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
     "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
-    "timeGenerated (UTC) : "9/28/2022 8:40:06 PM +00:00",
+    "timeGenerated (UTC)" : "9/28/2022 8:40:06 PM +00:00",
     "Provider" : "EVENTHUB",
     "Type" : "AZMSAutoscaleLogs"
 }

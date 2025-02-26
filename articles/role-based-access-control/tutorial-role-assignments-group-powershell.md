@@ -59,7 +59,7 @@ To assign a role, you need a user, group, or service principal. If you don't alr
    ```output
    DisplayName         Id                                   MailNickname Description GroupTypes
    -----------         --                                   ------------ ----------- ----------
-   RBAC Tutorial Group 11111111-1111-1111-1111-111111111111 NotSet                   {}
+   RBAC Tutorial Group aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
    ```
 
 If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
@@ -91,7 +91,7 @@ You use a resource group to show how to assign a role at a resource group scope.
    Location          : westus
    ProvisioningState : Succeeded
    Tags              :
-   ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+   ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
    ```
 
 ## Grant access
@@ -107,13 +107,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```output
     DisplayName         Id                                   MailNickname Description GroupTypes
     -----------         --                                   ------------ ----------- ----------
-    RBAC Tutorial Group 11111111-1111-1111-1111-111111111111 NotSet                   {}
+    RBAC Tutorial Group aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb NotSet                   {}
     ```
 
 1. Save the group object ID in a variable.
 
     ```azurepowershell
-    $groupId = "11111111-1111-1111-1111-111111111111"
+    $groupId = "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     ```
 
 1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
@@ -125,14 +125,14 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```Example
     Name     : Pay-As-You-Go
     Id       : 00000000-0000-0000-0000-000000000000
-    TenantId : 22222222-2222-2222-2222-222222222222
+    TenantId : aaaabbbb-0000-cccc-1111-dddd2222eeee
     State    : Enabled
     ```
 
 1. Save the subscription scope in a variable.
 
     ```azurepowershell
-    $subScope = "/subscriptions/00000000-0000-0000-0000-000000000000"
+    $subScope = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
     ```
 
 1. Assign the [Reader](built-in-roles.md#reader) role to the group at the subscription scope.
@@ -144,13 +144,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/44444444-4444-4444-4444-444444444444
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -164,13 +164,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -184,13 +184,13 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```
@@ -204,23 +204,23 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     ```
 
     ```Example
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rbac-tutorial-resource-group
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Contributor
     RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     
-    RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+    RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/roleAssignments/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
+    Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Reader
     RoleDefinitionId   : acdd72a7-3385-48ef-bd42-f606fba81ae7
-    ObjectId           : 11111111-1111-1111-1111-111111111111
+    ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ObjectType         : Group
     CanDelegate        : False
     ```

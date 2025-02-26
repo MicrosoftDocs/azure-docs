@@ -165,7 +165,7 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap] and one or more layers, each layer consisting of a [style] + [tileset] tuple.
 
-The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
+The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfigurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
 
 The following JSON is an example of a default map configuration. See the following table for a description of each element of the file:
 

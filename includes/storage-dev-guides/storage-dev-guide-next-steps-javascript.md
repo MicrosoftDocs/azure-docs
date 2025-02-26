@@ -12,4 +12,4 @@ ms.custom: include file
 
 ## Related content
 
-- This article is part of the Blob Storage developer guide for JavaScript/Typescript. To learn more, see the full list of developer guide articles at [Build your JavaScript/Typescript app](../../articles/storage/blobs/storage-blob-javascript-get-started.md#build-your-app).
+- This article is part of the Blob Storage developer guide for JavaScript/TypeScript. To learn more, see the full list of developer guide articles at [Build your JavaScript/TypeScript app](../../articles/storage/blobs/storage-blob-javascript-get-started.md#build-your-app).

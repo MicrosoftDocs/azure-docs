@@ -79,7 +79,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "24627-2",
                             "display": "CT CHEST"
                           }

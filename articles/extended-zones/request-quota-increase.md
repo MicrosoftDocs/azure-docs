@@ -5,14 +5,10 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 11/19/2024
 ---
 
 # Request a quota increase in the Azure portal
-
-> [!IMPORTANT]
-> Azure Extended Zones service is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you learn how to request a quota increase for your Azure Extended Zone resources using the Azure portal.
 

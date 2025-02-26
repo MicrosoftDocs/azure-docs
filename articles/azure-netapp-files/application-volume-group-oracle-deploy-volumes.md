@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Deploy application volume group for Oracle
@@ -45,7 +45,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Steps 
 
-1. From your NetApp account, select **Application volume groups**, and click **+Add Group**.
+1. From your NetApp account, select **Application volume groups** then **+Add Group**.
 
     [ ![Screenshot that shows how to add a group for Oracle.](./media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png) ](./media/volume-hard-quota-guidelines/application-volume-group-oracle-add-group.png#lightbox)
 
@@ -66,7 +66,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     * **Oracle database storage throughput (MiB/s)**:   
         Specify the total throughput required for your database. If you select more than one database volume, the throughput is distributed evenly among all volumes. You may change each individual volume once the proposals have been created. See Step in this article.
 
-    Click **Next: Volume Group**.
+    Select **Next: Volume Group**.
 
     [ ![Screenshot that shows the Oracle tag for creating a volume group.](./media/volume-hard-quota-guidelines/application-oracle-tag.png) ](./media/volume-hard-quota-guidelines/application-oracle-tag.png#lightbox)
 
@@ -84,6 +84,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+    * **Encryption key source**:
+        Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     Select **Next: Tags**. Continue with Step 6. 
 
@@ -101,7 +103,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Next: Tags**. 
 
-    [ ![Screenshot that shows the option for proximity placement group.](./media/volume-hard-quota-guidelines/proximity-placement-group-oracle.png) ](./media/volume-hard-quota-guidelines/proximity-placement-group-oracle.png#lightbox)
+    [ ![Screenshot that shows the option for proximity placement group.](./media/application-volume-group-add-volume-secondary/proximity-placement-group-oracle.png) ](./media/application-volume-group-add-volume-secondary/proximity-placement-group-oracle.png#lightbox)
 
 6. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.   
 
@@ -156,7 +158,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the Volume Details - Tags tab of Create a Volume Group page for Oracle.](./media/volume-hard-quota-guidelines/application-create-volume-details-tags-tab-oracle.png) ](./media/volume-hard-quota-guidelines/application-create-volume-details-tags-tab-oracle.png#lightbox)
 
-12. The **Volumes Tab** enables you to remove optional volumes.  
+12. The **Volumes Tab** enables you to remove optional volumes. 
+
+    <!-- check -->
+    Provide an **Encryption key source**. Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
+
     On the Volumes tab, optional volumes are marked with an asterisk (`*`) in front of the name.   
     If you want to remove the optional volumes such as `ORA1-ora-data4` volume or `ORA1-ora-binary` volume from the volume group, select the volume then **Remove volume**. Confirm the removal in the dialog box that appears.
 
@@ -188,7 +194,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     [ ![Screenshot that shows the new volume group for Oracle.](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png) ](./media/volume-hard-quota-guidelines/application-new-volume-group-oracle.png#lightbox)
 
 
-15. Following complete, in **Volumes** you can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
+15. Following completion, in **Volumes** you can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
 
 ## Next steps
 

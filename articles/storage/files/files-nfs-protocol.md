@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 07/10/2024
+ms.date: 02/19/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -68,7 +68,7 @@ The status of items that appear in this table might change over time as support 
 | Storage feature | Supported for NFS shares |
 |-----------------|---------|
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
-| [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ⛔ |
+| [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ✔️ |
 | Encryption at rest|	✔️ |
 | Encryption in transit| ⛔ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |

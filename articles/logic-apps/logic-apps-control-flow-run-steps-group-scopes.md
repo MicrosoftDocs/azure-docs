@@ -334,7 +334,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
     },
     "else": {
       "actions": {
-        "Scope_succeded": {
+        "Scope_succeeded": {
           "type": "ApiConnection",
           "inputs": {
             "body": {

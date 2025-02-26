@@ -121,5 +121,6 @@ Follow these steps:
 
 ## Next steps
 
--  [Reliability for Azure Backup](./reliability-backup.md)
--  [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Reliability for Azure Backup](./reliability-backup.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)

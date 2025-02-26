@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 01/18/2024
+ms.date: 01/27/2025
 ms.topic: conceptual
 ms.service: azure-digital-twins
 
@@ -27,8 +27,6 @@ Microsoft has partnered with domain experts to create DTDL model sets based on i
 | Smart cities | [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities) | Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). | You can also read more about the partnerships and approach for smart cities in the following blog post and embedded video: [Smart Cities Ontology for Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/smart-cities-ontology-for-digital-twins/ba-p/2166585). |
 | Energy grids | [Digital Twins Definition Language (DTDL) ontology for Energy Grid](https://github.com/Azure/opendigitaltwins-energygrid/) | This ontology was created to help solution providers accelerate development of digital twin solutions for energy use cases like monitoring grid assets, outage and impact analysis, simulation, and predictive maintenance. Additionally, the ontology can be used to enable the digital transformation and modernization of the energy grid. It's adapted from the [Common Information Model (CIM)](https://cimug.ucaiug.org/), a global standard for energy grid assets management, power system operations modeling, and physical energy commodity market. | You can also read more about the partnerships and approach for energy grids in the following blog post: [Energy Grid Ontology for Digital Twins](https://techcommunity.microsoft.com/t5/internet-of-things/energy-grid-ontology-for-digital-twins-is-now-available/ba-p/2325134). |
 | Manufacturing | [Manufacturing Ontologies](https://github.com/digitaltwinconsortium/ManufacturingOntologies) | These ontologies were created to help solution providers accelerate development of digital twin solutions for manufacturing use cases like asset condition monitoring, simulation, OEE calculation, and predictive maintenance. Additionally, the ontologies can be used to enable the digital transformation and modernization of factories and plants. They are adapted from [OPC UA](https://opcfoundation.org), [ISA95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95) and the [Asset Administration Shell](https://reference.opcfoundation.org/I4AAS/v100/docs/4.1), three global standards widely used in the manufacturing space. | Visit the repository to read more about this ontology and explore a sample solution for ingesting OPC UA data into Azure Digital Twins. |
-
-Each ontology is focused on an initial set of models. You can contribute to the ontologies by suggesting extensions or other improvements through the GitHub contribution process in each ontology repository.
 
 ## Next steps
 

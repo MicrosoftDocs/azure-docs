@@ -117,7 +117,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
 |{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-00001111-aaaa-2222-bbbb-3333cccc4444.api.dfp.dynamics.com/v1.0/`|
 |{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
-|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`00001111-aaaa-2222-bbbb-3333cccc4444` or `consoto.onmicrosoft.com` |
+|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`00001111-aaaa-2222-bbbb-3333cccc4444` or `contoso.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
 |{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
 |{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you send the data to. Your custom policy should call the API endpoint, including the query string parameter `x-ms-dfpenvid=your-env-id>`|

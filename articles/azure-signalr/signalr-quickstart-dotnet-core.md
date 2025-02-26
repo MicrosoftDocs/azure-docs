@@ -22,6 +22,8 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 Ready to start?
 
 > [!div class="nextstepaction"]
@@ -63,6 +65,8 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
    ```
 
 1. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager.
+
+    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
     This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for to establish a connection. Replace the value in the following command with the connection string for your SignalR Service resource.
 

@@ -104,7 +104,7 @@ The following example **passes**.
 }
 ```
 
-### CreateUiDefintion example
+### CreateUiDefinition example
 
 The following example **fails** because in _createUiDefinition.json_ the leading curly brace (`{`) is missing from the `outputs` section.
 

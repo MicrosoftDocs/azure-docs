@@ -52,4 +52,4 @@ For single region geographies in a disaster scenario, the virtual network and th
 
 ## Next steps
 
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)

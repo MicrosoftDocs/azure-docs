@@ -54,7 +54,7 @@ npm install @azure/communication-calling --save
 
 ### Set up the app framework
 
-This quickstart uses Webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
+This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
 npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
@@ -296,7 +296,7 @@ subscribeToCall = (call) => {
 
 /**
  * Subscribe to a remote participant obj.
- * Listen for property changes and collection udpates.
+ * Listen for property changes and collection updates.
  */
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
@@ -312,7 +312,7 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
             subscribeToRemoteVideoStream(remoteVideoStream)
         });
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
-        // notified when the remoteParticiapant adds new videoStreams and removes video streams.
+        // notified when the remoteParticipant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
             // Subscribe to new remote participant's video streams that were added.
             e.added.forEach(remoteVideoStream => {

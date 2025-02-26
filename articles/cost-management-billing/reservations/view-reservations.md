@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 

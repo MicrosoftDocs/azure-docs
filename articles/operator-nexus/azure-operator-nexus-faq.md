@@ -50,7 +50,7 @@ From Infrastructure perspective, the data is managed via Azure APIs. The telemet
           
 For tenant workloads, the images get stored in ACRs (Azure Container Registry) and once deployed. Microsoft provides an option to collect the telemetry from tenant workloads into Azure but Customers can choose alternative tooling they wish to collect telemetry data or to analyze it.
 
-### If an Azure region doesn't exist in my country, can I still use Operator Nexus?
+### If an Azure region doesn't exist in my country/region, can I still use Operator Nexus?
 Yes, all you need is ExpressRoute connectivity to an Azure region. ExpressRoute connectivity is available at many locations. For more information, see the [Geo-locations](../expressroute/expressroute-locations.md#locations) and [connectivity providers](../expressroute/expressroute-locations.md#partners). 
 
 ### Can I move my resources from one subscription to another?
