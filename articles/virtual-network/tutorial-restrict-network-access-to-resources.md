@@ -522,8 +522,6 @@ The steps required to restrict network access to resources created through Azure
     
     The key is used to create a file share in a later step. Enter `$storageAcctKey` and note the value. You manually enter it in a later step when you map the file share to a drive in a virtual machine.
 
-     For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
-
 ### [CLI](#tab/cli)
 
 The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this article includes steps to restrict network access for an Azure Storage account, as an example.
