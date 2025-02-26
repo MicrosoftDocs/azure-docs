@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| February 2025 | Roles | Added [Chaos Studio Target Contributor](built-in-roles/devops.md#chaos-studio-target-contributor) role. |
 | February 2025 | Security | Added instructions for how to detect elevate access events using Microsoft Sentinel. See [Detect elevate access events using Microsoft Sentinel](elevate-access-global-admin.md#detect-elevate-access-events-using-microsoft-sentinel). |
 | February 2025 | Permissions | Updated list of permissions for the Azure Container Registry. See [Microsoft.ContainerRegistry](permissions/containers.md#microsoftcontainerregistry). |
 | February 2025 | Roles | Added [Locks Contributor](built-in-roles/security.md#locks-contributor) role. |
