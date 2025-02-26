@@ -3,7 +3,7 @@ title: Get started with the Remote Desktop client for Azure Virtual Desktop
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client.
 author: sipastak
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 02/26/2025
 ms.custom: "se-defect-target"
 ms.author: sipastak
 ---
@@ -137,7 +137,7 @@ Before you can access your resources, you'll need to meet the prerequisites:
 > [!IMPORTANT]
 > Starting June 15, 2025, the Remote Desktop Web client will have updated browser requirements. Ensure your browser is updated and meets the following requirements by this date:
 >- Remote Desktop will only support browser versions that are 12 months old on a rolling basis.
->- Your browser must support the AVEC codec.
+>- Your browser must support the AVC codec.
 >- Ensure your browser has WebGL enabled. WebGL is enabled by default on most recent browser versions.
 
 
