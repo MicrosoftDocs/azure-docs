@@ -31,27 +31,27 @@ In this article, you'll learn how to:
 
 1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
 
-:::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text="Illustrates the assessment page to create the assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text="Illustrates the assessment page to create the assessment.":::
 
 1. In **Assessments** page, select **Create assessment**
 
-:::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Illustrates to how to create the assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Illustrates to how to create the assessment.":::
 
 1. Provide a suitable name for the assessment, then select **Add Workloads**
 
-:::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Illustrates how to add the workloads.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Illustrates how to add the workloads.":::
 
 1. Use the appropriate filters, select the web apps and then select **Add**
 
-:::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Illustrates how to select web apps and add.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Illustrates how to select web apps and add.":::
 
 1. Review the selected workloads and then select **Next**.
 
-:::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Explains how to review the selected workloads.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Explains how to review the selected workloads.":::
 
 1. On the **General** settings tab, modify the assessment settings that apply to all Azure target.
 
-:::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text="Explains how to modify assessment settings.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text="Explains how to modify assessment settings.":::
 
 Settings | Possible values | Comments
 --- | --- | ---
@@ -67,8 +67,7 @@ Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service 
 
 1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings. 
 
-:::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
-
+    :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
 
 **AKS settings**
 
@@ -78,7 +77,6 @@ Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> Hi
 AKS pricing tier   | Standard  | Pricing tier for AKS 
 Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
 
-
 **App Service Settings** 
 
 Settings | Possible values | Comments
@@ -87,11 +85,10 @@ Isolation required    | No <br/> Yes   | The isolated plan enables customers to 
 
 1. Now, review and create the assessment. 
 
-:::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Illustrate how to review and create assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Illustrate how to review and create assessment.":::
 
 ## Next steps
 
 - Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context). 
 - Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
-- 
