@@ -342,10 +342,11 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 #### Bugfix Related Updates
-The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO - Remove Redundant Image Downloads to Improve Install/Upgrade Time
-* NFO	- SNS Delete API Fix for Pre-Delete Jobs not able to download images
+* RP - Increase component timeout during delete operations to 2 hours and 30 minutes. (2501290010002055)
+* NFO	- Fix for SNS delete Pre & Post hooks not able to download images (2501270010002100)
+* NFO - Remove redundant image downloads to improve install/upgrade time 
 * NFO - Artifact Controller Logging Improvement
 
 #### Security Related Updates
