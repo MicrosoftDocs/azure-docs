@@ -50,13 +50,18 @@ Ultimately, the ability for a given service to be upgraded without interruption 
 When planning for an upgrade using Azure Operator Service Manager, address the following requirements in advance of upgrade execution to optimize the time spent attempting the upgrade.
 
 - Onboard updated artifacts using publisher and/or designer workflows.
-  - Publisher, store, network service design group (NSDG), and network function design group (NFDG) are static and do not change.
-    - A new artifact manifest is needed to store the new charts and images. For more information, see onboarding documentation for details on uploading new charts and images.
+  - Publisher, artifact store, network service design group (NSDG), and network function design group (NFDG) are immutabe and cannot change.
+    - Changing one of these resources would require deployment of a new NF via put.
+  - A new artifact manifest is needed to store the new charts and images.
+    - For more information, see [onboarding documentation](how-to-manage-artifacts-nexus.md) for details on uploading new charts and images.
   - A new NFDV, and optionally network service design version (NSDV), is needed.
     - We cover basic changes to the NFDV in the step by step section.
     - New NSDV is only required if a new configuration group schema (CGS) version is being introduced.
   - If necessary, new CGS.
     - Required if an upgrade introduces new exposed configuration parameters. 
+
+> [!NOTE]
+> NSDVs and NFDVs with different major versions can be supported in the same NSDG and NFDG
 
 - Create updated artifacts using Operator workflow.
   - If necessary, create new configuration group values (CGVs) based on new CGS.
