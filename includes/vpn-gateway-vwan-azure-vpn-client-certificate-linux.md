@@ -30,6 +30,9 @@ For certificate authentication, a client certificate must be installed on each c
 
 Generate the client public certificate data and private key in **.pem** format using the following commands. To run the commands, you need to have the public Root certificate **caCert.pem** and the private key of Root certificate **caKey.pem**. For more information, see [Generate and export certificates - Linux - OpenSSL](../articles/vpn-gateway/point-to-site-certificates-linux-openssl.md).
 
+> [!NOTE]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ```
 export PASSWORD="password"
 export USERNAME=$(hostnamectl --static)

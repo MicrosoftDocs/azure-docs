@@ -24,9 +24,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create an instance in the Azure portal
+          - text: Create a workspace in the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create an instance in the Azure CLI
+          - text: Create a workspace in the Azure CLI
             url: quickstart-managed-grafana-cli.md
   
   - title: Manage dashboards

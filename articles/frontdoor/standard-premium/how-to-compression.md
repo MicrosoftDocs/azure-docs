@@ -40,12 +40,9 @@ You can enable compression in the following ways:
 1. From the Azure Front Door Standard/Premium profile page, go to **Front Door manager** and select the endpoint you want to enable compression.
 
 1. Within the endpoint, select the **route** you want to enable compression on.
-
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-1.png" alt-text="Screenshot of the Azure Front Door manager landing page." lightbox="../media/how-to-compression/front-door-compression-endpoint-manager-1-expanded.png":::   
+  
 
 1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
-
-   :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screenshot of Azure Front Door Manager showing the 'Enable compression' radio button.":::   
 
 1. Select **Update** to save the configuration.
 
@@ -59,8 +56,6 @@ You can enable compression in the following ways:
 
 1. Ensure **Enable caching** is checked, then select the checkbox for **Enable compression**.
 
-     :::image type="content" source="../media/how-to-compression/front-door-compression-endpoint-manager-2.png" alt-text="Screenshot of the Optimizations page showing the 'Enable compression' radio button."::: 
-
 1. Select **Update**.
 
 ## Modify compression content type
@@ -71,7 +66,6 @@ You can modify the default list of MIME types on Optimizations page.
 
 1. Select the three dots next to the **route** that has compression *Enabled*. Then select **View Compressed file types**.
 
-   :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type.png" alt-text="Screenshot of optimization page." lightbox="../media/how-to-compression/front-door-compression-edit-content-type-expanded.png"::: 
 
 1. Delete default formats or select **Add** to add new content types.
 
@@ -98,8 +92,6 @@ You can disable compression in the following ways:
 1. From the Azure Front Door Standard/Premium profile page, go to **Optimizations** under Settings. Then select the **route** that has compression *Enabled*.
 
 1. Select the three dots next to the **route** that has compression *Enabled*, then select *Configure route*.
-
-    :::image type="content" source="../media/how-to-compression/front-door-disable-compression-optimization.png" alt-text="Screenshot of disable compression in optimization page."::: 
 
 1. Uncheck the **Enable compression** box.
 

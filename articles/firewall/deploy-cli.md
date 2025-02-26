@@ -2,11 +2,11 @@
 title: Deploy and configure Azure Firewall using Azure CLI
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli
 ms.date: 10/31/2022
-ms.author: victorh
+ms.author: duau
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
