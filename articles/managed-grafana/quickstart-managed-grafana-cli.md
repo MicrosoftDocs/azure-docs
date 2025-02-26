@@ -23,16 +23,13 @@ Get started using Azure Managed Grafana by creating an Azure Managed Grafana wor
 - An Azure account for work or school with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - Minimum required role to create a workspace: resource group Contributor.
 - Minimum required role to access the Grafana UI: resource group Owner.
-- Minimum required role to create a workspace: resource group Contributor.
-- Minimum required role to access the Grafana UI: resource group Owner.
 
     >[!NOTE]
-    > If you don't meet this requirement, once you've created a new Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role on the workspace.
-    > If you don't meet this requirement:
-    >  - once you've created a new Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role
-    >  - or consider creating the workspace using the **Creator can admin (Preview)** feature available from the Azure portal. [Refer to this quickstart for more information](quickstart-managed-grafana-portal.md).
+    > If you're not a resource group Owner:
+    >  - once you've created the Azure Managed Grafana workspace, ask a User Access Administrator, subscription Owner or resource group Owner to grant you a Grafana Admin, Grafana Editor or Grafana Viewer role
+    >  - or consider creating the workspace using the **Creator can admin (Preview)** feature available from the Azure portal as a temporary workaround. [Refer to this quickstart for more information](quickstart-managed-grafana-portal.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+ [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Sign in to Azure
 
