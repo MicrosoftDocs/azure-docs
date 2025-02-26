@@ -11,7 +11,7 @@ ms.author: akashdubey
 
 # How to use the BlobFuse2 secure set command to change the value of a parameter in an encrypted BlobFuse2 configuration file
 
-Use the `blobfuse2 secure set` command to change the value of a specified parameter in an encrypted BlobFuse2 configuration file.
+Use the `blobfuse2 secure set` command to change the value of a specified parameter in an encrypted blobfuse2 configuration file.
 
 ## Syntax
 
@@ -36,9 +36,9 @@ The following flags are inherited from parent command [`blobfuse2 secure`](blobf
 
 | Flag | Value type | Default value | Description |
 |--|--|--|--|
-| config-file        | string  | ./config.yaml                  | The path configuration file       |
-| output-file        | string  |                                | Path and name for the output file |
-| passphrase         | string  |                                | The Key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
+| config-file        | string  | ./config.yaml                  | The path of the encrypted configuration file       |
+| output-file        | string  |                                | The path and name for the output file |
+| passphrase         | string  |                                | The key to be used for encryption or decryption<br />Can also be specified by environment variable BLOBFUSE2_SECURE_CONFIG_PASSPHRASE.<br />The key must be 16 (AES-128), 24 (AES-192), or 32 (AES-256) bytes in length. |
 
 ### Flags that apply only to the BlobFuse2 secure set command
 
@@ -46,8 +46,8 @@ The following flags apply only to command `blobfuse2 secure set` command:
 
 | Flag | Short<br />version | Value<br />type | Default<br />value | Description |
 |--|--|--|--|--|
-| key   | | string | | Configuration key (parameter) to be updated in an encrypted config file |
-| value | | string | | New value for the configuration key (parameter) to be updated in an encrypted config file |
+| key   | | string | | The configuration key (parameter) to be updated in an encrypted configuration file |
+| value | | string | | The new value for the configuration key (parameter) to be updated in an encrypted configuration file |
 
 ## Examples
 
@@ -56,7 +56,7 @@ The following flags apply only to command `blobfuse2 secure set` command:
 
 Set the value of parameter `logging.log_level` in an encrypted BlobFuse2 configuration file to "log_debug":
 
-`blobfuse2 secure set --config-file=config.yaml --passphrase=PASSPHRASE --key=logging.log_level --value=log_debug`
+`blobfuse2 secure set --config-file=./config.yaml --passphrase=PASSPHRASESAMPLE --key=logging.log_level --value=log_debug`
 
 ## See also
 
