@@ -2,7 +2,8 @@
 title: Migrate Application Live View to Spring Boot Admin
 description: Learn the migration path from the Application Live View component to self-hosted Spring Boot Admin.
 author: KarlErickson
-ms.author: zlhe
+ms.author: karler
+ms.reviewer: zlhe
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 01/29/2025

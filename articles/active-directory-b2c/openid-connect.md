@@ -1,5 +1,6 @@
 ---
-title: Web sign in with OpenID Connect - Azure Active Directory B2C
+title: Web sign in with OpenID Connect
+titleSuffix: Azure AD B2C
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 
 author: kengaderdus
@@ -8,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -316,6 +317,6 @@ After logout, the user is redirected to the URI you specify in the `post_logout_
 
 To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
-## Next steps
+## Related content
 
 - Learn more about [Azure AD B2C session](session-behavior.md).

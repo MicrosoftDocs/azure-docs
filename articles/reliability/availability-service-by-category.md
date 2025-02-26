@@ -44,22 +44,23 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Site Recovery                     | Azure Database for MySQL            |
 > | Azure SQL                               | Azure Database for PostgreSQL       |
 > | Azure Storage Accounts                  | Azure DDoS Protection               |
-> | Azure Storage Data Lake Storage         | Azure Event Grid                    |
-> | Azure Storage: Blob Storage             | Azure Firewall                      |
-> | Azure Storage: Disk Storage             | Azure Firewall Manager              |
-> | Azure Virtual Machine Scale Sets        | Azure Functions                     |
-> | Azure Virtual Machines                  | Azure HDInsight                     |
-> | Azure Virtual Network                   | Azure IoT Hub                       |
-> | Azure VPN Gateway                       | Azure Kubernetes Service (AKS)      |
-> | Virtual Machines: Av2-series            | Azure Logic Apps                    |
-> | Virtual Machines: Bs-series             | Azure Media Services                |
-> | Virtual Machines: Ddv5 and Ddsv5-series | Azure Monitor: Application Insights |
-> | Virtual Machines: Dv2 and DSv2-series   | Azure Monitor: Log Analytics        |
-> | Virtual Machines: Dv3 and DSv3-series   | Azure Network Watcher               | 
-> | Virtual Machines: Dv5 and DSv5-series   | Azure Private Link                  |
-> | Virtual Machines: Edv5 and Edsv5-series | Azure Storage: Files Storage        |
-> | Virtual Machines: Ev3 and Esv3-series   | Azure Storage: Premium Blob Storage |
-> | Virtual Machines: Ev5 and Esv5-series   | Azure Virtual WAN                   |
+> | Azure Storage Data Lake Storage         | Azure DNS Private Resolver          |
+> | Azure Storage: Blob Storage             | Azure Event Grid                    |
+> | Azure Storage: Disk Storage             | Azure Firewall                      |
+> | Azure Virtual Machine Scale Sets        | Azure Firewall Manager              |
+> | Azure Virtual Machines                  | Azure Functions                     |
+> | Azure Virtual Network                   | Azure HDInsight                     |
+> | Azure VPN Gateway                       | Azure IoT Hub                       |
+> | Virtual Machines: Av2-series            | Azure Kubernetes Service (AKS)      |
+> | Virtual Machines: Bs-series             | Azure Logic Apps                    |
+> | Virtual Machines: Ddv5 and Ddsv5-series | Azure Media Services                |
+> | Virtual Machines: Dv2 and DSv2-series   | Azure Monitor: Application Insights |
+> | Virtual Machines: Dv3 and DSv3-series   | Azure Monitor: Log Analytics        |
+> | Virtual Machines: Dv5 and DSv5-series   | Azure Network Watcher               | 
+> | Virtual Machines: Edv5 and Edsv5-series | Azure Private Link                  |
+> | Virtual Machines: Ev3 and Esv3-series   | Azure Storage: Files Storage        |
+> | Virtual Machines: Ev5 and Esv5-series   | Azure Storage: Premium Blob Storage |
+> |                                         | Azure Virtual WAN                   |
 > |                                         | Microsoft Entra Domain Services     |
 > |                                         | Virtual Machines: Ddsv4-series      |
 > |                                         | Virtual Machines: Ddv4-series       |

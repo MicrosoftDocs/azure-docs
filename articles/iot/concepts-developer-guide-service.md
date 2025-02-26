@@ -21,6 +21,8 @@ IoT Plug and Play lets you use devices that have announced their model ID with y
 
 If you're using IoT Central, you can use the IoT Central UI and REST API to interact with IoT Plug and Play devices connected to your application.
 
+[!INCLUDE [iot-authentication-service-connection-string](../../includes/iot-authentication-service-connection-string.md)]
+
 ## Service SDKs
 
 Use the Azure IoT service SDKs in your solution to interact with devices and modules. For example, you can use the service SDKs to read and update twin properties and invoke commands. Supported languages include C#, Java, Node.js, and Python.
