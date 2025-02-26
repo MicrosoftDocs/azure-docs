@@ -29,11 +29,7 @@ If you have your own domain, and the domain isn't already associated with [anoth
 
 1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+ Add** to add a new domain.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-new-custom-domain.png" alt-text="Screenshot that shows the domain configuration landing pane.":::
-
 1. On the **Add a domain** pane, enter or select the following information. Then select **Add** to onboard the custom domain.
-
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-domain-azure-managed.png" alt-text="Screenshot that shows the Add a domain pane with Azure managed DNS selected.":::
 
     | Setting | Value |
     |--|--|
@@ -52,8 +48,6 @@ If you have your own domain, and the domain isn't already associated with [anoth
 If you have your own domain, and the domain is associated with [another Azure service that prevalidates domains for Azure Front Door](../domain.md#domain-validation), follow these steps:
 
 1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+ Add** to add a new domain.
-
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-new-custom-domain.png" alt-text="Screenshot that shows the Domains landing pane.":::
 
 1. On the **Add a domain** pane, enter or select the following information. Then select **Add** to onboard the custom domain.
 
@@ -160,19 +154,13 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 1. Under **Settings**, go to **Secrets** and select **+ Add certificate**.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate.png" alt-text="Screenshot that shows the Azure Front Door secret landing pane.":::
-
 1. On the **Add certificate** pane, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium.
 
 1. When you select a certificate, you must [select the certificate version](../domain.md#rotate-own-certificate). If you select **Latest**, Azure Front Door automatically updates whenever the certificate is rotated (renewed). You can also select a specific certificate version if you prefer to manage certificate rotation yourself.
 
    Leave the version selection as **Latest** and select **Add**.
 
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate-page.png" alt-text="Screenshot that shows the Add certificate pane.":::
-
 1. After the certificate gets provisioned successfully, you can use it when you add a new custom domain.
-
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/successful-certificate-provisioned.png" alt-text="Screenshot that shows the certificate successfully added to secrets.":::
 
 1. Under **Settings**, go to **Domains** and select **+ Add** to add a new custom domain. On the **Add a domain** pane, for **HTTPS**, select **Bring Your Own Certificate (BYOC)**. For **Secret**, select the certificate you want to use from the dropdown list.
 
@@ -196,8 +184,6 @@ You can change a domain between using an Azure Front Door-managed certificate an
    If you select **Bring Your Own Certificate (BYOC)**, follow the preceding steps to select a certificate.
 
 1. Select **Update** to change the associated certificate with a domain.
-
-    :::image type="content" source="../media/how-to-configure-https-custom-domain/certificate-details-page.png" alt-text="Screenshot that shows the Certificate details pane.":::
 
 ## Next steps
 

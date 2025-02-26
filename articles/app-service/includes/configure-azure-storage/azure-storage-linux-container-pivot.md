@@ -218,6 +218,9 @@ To validate that the Azure Storage is mounted successfully for the app:
     1. Regenerate **key2**.
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
     1. Regenerate **key1**.
+ 
+#### Configuration
+- If needing to use a real time file system, where changes to alter, add, or remove files are expected to be shown quickly, then use _Azure Files_ as the storage type when mounting storage. Azure Blob should be used when files are static and aren't expected to be changed. 
 
 #### Troubleshooting
 

@@ -26,17 +26,11 @@ To configure virtual hub routing preference for an existing virtual hub, use the
 
 1. Click the hub that you want to configure. On the **Virtual HUB** page, click **Edit virtual hub**.
 
-   :::image type="content" source="./media/howto-virtual-hub-routing-preference/hub-edit.png" alt-text="Screenshot shows Edit virtual hub." lightbox="./media/howto-virtual-hub-routing-preference/hub-edit.png":::
-
 1. On the **Edit virtual hub** page, select from the dropdown to configure **Hub routing preference**. To determine the setting to use, see [About virtual hub routing preference](about-virtual-hub-routing-preference.md).
 
    Click **Confirm** to save the settings.
 
-   :::image type="content" source="./media/howto-virtual-hub-routing-preference/select.png" alt-text="Screenshot shows the dropdown showing ExpressRoute, VPN, and AS PATH options." lightbox="./media/howto-virtual-hub-routing-preference/select.png":::
-
 1. After the settings have saved, you can verify the configuration on the **Overview** page for the virtual hub.
-
-   :::image type="content" source="./media/howto-virtual-hub-routing-preference/view-preference.png" alt-text="Screenshot shows virtual hub Overview page with routing preference." lightbox="./media/howto-virtual-hub-routing-preference/view-preference-expand.png":::
 
 ## Next steps
 
