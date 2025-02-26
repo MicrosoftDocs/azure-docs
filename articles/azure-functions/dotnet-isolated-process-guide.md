@@ -567,7 +567,7 @@ and those could vary depending on the trigger type being used. Some common reaso
 
 For the isolated worker model, the host we will send the invocation through to the worker _even_ if the cancellation token was cancelled _before_ the host is able to send the invocation request to the worker.
 
-If you do not want pre-cancelled invocations to be sent to the worker, you can add the following property to your host.json file to disable this behaviour.
+If you do not want pre-cancelled invocations to be sent to the worker, you can add the `SendCanceledInvocationsToWorker` property to your `host.json` file to disable this behaviour. The following example shows a `host.json` file that uses this property:
 
 ```json
 {
