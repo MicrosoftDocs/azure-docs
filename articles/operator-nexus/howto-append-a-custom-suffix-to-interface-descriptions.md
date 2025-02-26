@@ -24,30 +24,42 @@ This guide explains how to append a user-defined suffix (`additionalDescription`
 Before making changes, verify the existing interface description using the following command:
 
 ```Azure CLI
-az networkfabric interface show --device nffab5-8-0-gf-AggrRack-CE1 \
-  -g Fab5NF-8-0-GF \
-  --resource-name Ethernet22-1 --query description
+az networkfabric interface show -g "example-rg" \
+  --network-device-name "example-device" \
+  --resource-name "example-interface" --query description
 ```
+
+### Parameter Details  
+
+| Parameter                     | Short Form | Description |
+|--------------------------------|-----------|-------------|
+| `az networkfabric interface show` | N/A       | Displays details of a specified network fabric interface. |
+| `-g, --resource-group`        | `-g`      | Name of the resource group where the network device resides. |
+| `--network-device-name`       | N/A       | Name of the Network Fabric device. |
+| `--resource-name`             | N/A       | Name of the network interface resource. |
+| `--query`                     | N/A       | Filters the output to show only the specified field (e.g., `description`). |
 
 ### 2. Append a suffix to the interface description
 
 To add a custom suffix, use the following command:
 
 ```Azure CLI
-az networkfabric interface update --additional-description "support-ticket1234-jkl" \
-  --device nffab5-8-0-gf-AggrRack-CE1 \
-  -g Fab5NF-8-0-GF \
-  --resource-name Ethernet22-1
+az networkfabric interface update --additional-description "example-description" \
+  --device "example-device" \
+  -g "example-resource-group" \
+  --resource-name "example-interface"
 ```
 
-#### Parameter Details:
+### Parameter Details  
 
-| Parameter                  | Description                                      | Constraints |
-|----------------------------|--------------------------------------------------|-------------|
-| `--additional-description` | Additional description for the interface update. | Alphanumeric (A-Za-z0-9), `-` and `_` allowed. Max 64 characters. |
-| `--device`                 | Name of the network fabric device.               | No specific constraints provided. |
-| `-g, --resource-group`     | Name of the resource group where the device resides. | No specific constraints provided. |
-| `--resource-name`          | Name of the network interface resource.          | No specific constraints provided. |
+| Parameter                | Description                                      | Constraints |
+|--------------------------|--------------------------------------------------|-------------|
+| `--additional-description` | Provides an additional description for the interface update. | Alphanumeric (`A-Z`, `a-z`, `0-9`), `-`, and `_` allowed. Max 64 characters. Can be an empty string with a space or null. |
+| `--device`               | Specifies the name of the Network Fabric device. | No specific constraints. |
+| `-g, --resource-group`   | Defines the name of the resource group where the device is located. | No specific constraints. |
+| `--resource-name`        | Indicates the name of the network interface resource. | No specific constraints. |
+
+Let me know if you'd like any further refinements! 🚀
 
 
 ### 3. Commit the configuration
@@ -55,9 +67,16 @@ az networkfabric interface update --additional-description "support-ticket1234-j
 After updating the description, apply the changes to the fabric:
 
 ```Azure CLI
-az networkfabric fabric commit-configuration --resource-name nffab5-8-0-gf -g Fab5NF-8-0-GF
+az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
 ```
+Parameter Details:
 
+| Parameter            | Short Form | Description |
+|----------------------|-----------|-------------|
+| `--resource-group`  | `-g`      | Name of the resource group. |
+| `--resource-name`   | N/A       | Name of the Network Fabric. |
+
+Let me know if you need any modifications or additional parameters! 🚀
 ### Example
 
 #### **Original interface description:**
@@ -68,7 +87,7 @@ AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 
 #### **Updated Description:**
 ```Azure CLI
-AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-support-ticket1234-jkl
+AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-Additional_description-1234
 ```
 
 ## Removing the interface description
@@ -76,19 +95,35 @@ AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23-support-ticket1234-j
 To restore the default description, set `additionalDescription` to an empty string with a space (`" "`) or null:
 
 ```Azure CLI
-az networkfabric interface update --additional-description " " \
-  --device nffab5-8-0-gf-AggrRack-CE1 \
-  -g Fab5NF-8-0-GF \
-  --resource-name Ethernet22-1
+az networkfabric interface update --additional-description "example-description" \
+  --device "example-device" \
+  -g "example-resource-group" \
+  --resource-name "example-interface"
 ```
+
+### Parameter Details  
+
+| Parameter                | Description                                      | Constraints |
+|--------------------------|--------------------------------------------------|-------------|
+| `--additional-description` | Provides an additional description for the interface update. | Alphanumeric (`A-Z`, `a-z`, `0-9`), `-`, and `_` allowed. Max 64 characters. Can be an empty string with a space or null. |
+| `--device`               | Specifies the name of the Network Fabric device. | No specific constraints. |
+| `-g, --resource-group`   | Defines the name of the resource group where the device is located. | No specific constraints. |
+| `--resource-name`        | Indicates the name of the network interface resource. | No specific constraints. |
 
 ### 3. Commit the configuration
 
 After removing the suffix, apply the changes to the fabric:
 
 ```Azure CLI
-az networkfabric fabric commit-configuration --resource-name nffab5-8-0-gf -g Fab5NF-8-0-GF
+az networkfabric fabric commit-configuration --resource-group "example-rg" --resource-name "example-fabric"
 ```
+
+Parameter Details:
+
+| Parameter            | Short Form | Description |
+|----------------------|-----------|-------------|
+| `--resource-group`  | `-g`      | Name of the resource group. |
+| `--resource-name`   | N/A       | Name of the Network Fabric. |
 
 Once committed, the interface description reverts to its original state:
 
