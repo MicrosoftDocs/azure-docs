@@ -35,7 +35,7 @@ You need at least [owner](devtest-lab-add-devtest-user.md#owner) or [contributor
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Screenshot of lab overview page showing add button." lightbox="./media/devtest-lab-add-vm/portal-lab-add-vm.png":::
 
-1. On the **Create a Choose a base** pane, provide the following information:
+1. On the **Create a lab secret** pane, provide the following information:
     - **Name**: Enter a name for the secret.
     - **Value**: Enter the value of the secret. You see this name in the drop-down list when creating a VM, formula, or while adding certain artifacts that require a token or password.
     - **Scope**:
