@@ -20,14 +20,14 @@ This article primarily applies to the scenario where you  onboard Microsoft Sent
 
 ## Primary and secondary workspaces
 
-When you onboard Microsoft Sentinel you select a primary workspace. A Primary workspace's alerts are correlated with Microsoft Defender XDR data, which results in incidents that include alerts from Microsoft Sentinel's primary workspace and Defender XDR. 
+When you onboard Microsoft Sentinel, you select a primary workspace. A Primary workspace's alerts are correlated with Microsoft Defender XDR data, which results in incidents that include alerts from Microsoft Sentinel's primary workspace and Defender XDR. 
 
 - All Defender XDR alerts and incidents are synced back to the primary workspace.  
 - All other onboard workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data.
 - The Defender portal supports one primary workspace and up to 99 secondary workspaces per tenant for Microsoft Sentinel.
 - One primary workspace must always be connected when using Microsoft's unified SecOps platform.
 
-Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center. 
+Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center.
 
 ## Primary workspace changes
 
@@ -45,14 +45,14 @@ If you have the appropriate permissions to view data from primary and secondary 
 |Investigation & response > Incidents & alerts > **Incidents**   | View incidents from different workspaces in a unified queue or filter the view by workspace.      |
 |Investigation & response > Incidents & alerts > **Alerts**     |   View alerts from different workspaces in a unified queue or filter the view by workspace.  <br><br> Alert correlation is segmented by workspace.      |
 |Entities: From an incident or alert > select a device, user, or other entity asset  |  View all relevant entity data from multiple workspaces in a single entity page. Entity pages aggregates alerts, incidents, and timeline events from all workspaces to provide deeper insights into entity behavior.   <br><br>Filter by workspace in **Incidents and alerts**, **Timeline**, and **Insights** tabs. The **Overview** tab displays entity metadata aggregated from all workspaces.    |
-|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the brower. Or, run queries across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). The results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
-|**Microsoft Sentinel** experiences|View data from one workspace  for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser. The **Workbooks** page only shows workbooks associated with the primary workspace.|
-|**SOC optimization**|Data and recommendations is aggregated from multiple workspaces. |
+|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the brower. Or, run queries across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). Be aware that the results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
+|**Microsoft Sentinel** experiences|View data from one workspace for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser for most pages. The **Workbooks** and **Automation** pages only shows data associated with the primary workspace.|
+|**SOC optimization**|Data and recommendations are aggregated from multiple workspaces. |
 
 
 ## Permissions to view workspace data
 
-After you connect Microsoft Sentinel to the Defender portal, your existing Azure role-based access control (RBAC) permissions allow you to work with the Microsoft Sentinel features and workspaces that you have access to.
+After you connect Microsoft Sentinel to the Defender portal, your existing Azure role-based access control (RBAC) permissions allow you to view and work with the Microsoft Sentinel features and workspaces that you have access to.
 
 
 |Workspace |Access  |
@@ -60,7 +60,7 @@ After you connect Microsoft Sentinel to the Defender portal, your existing Azure
 |Primary    | If you have access to the primary workspace, you're able to read and manage data from the workspace and Defender XDR.      |
 |Secondary    |   If you have access to a secondary workspace, you're able to read and manage data from the workspace only. The secondary workspaces don't include Defender XDR data.       |
 
-Exception: If you've already onboarded one workspace to the Defender portal,  any alerts created by using custom detections on AlertInfo and AlertEvidance tables before Mid January are visible to all users.
+**Exception:** If you've already onboarded one workspace to the Defender portal,  any alerts created by using custom detections on `AlertInfo` and `AlertEvidance` tables before mid January are visible to all users.
 
 For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 

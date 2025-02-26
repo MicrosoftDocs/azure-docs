@@ -4,7 +4,7 @@ description: Learn how using Microsoft Defender XDR together with Microsoft Sent
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/25/2025
+ms.date: 02/26/2025
 appliesto:
 - Microsoft Sentinel in the Azure portal
 - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
@@ -106,11 +106,13 @@ How you integrate Defender XDR depends on whether you plan to onboard Microsoft 
 
 ### Defender portal integration
 
-If you onboard Microsoft Sentinel to the Defender portal and are licensed for Defender XDR, Microsoft Sentinel is automatically connected to Defender XDR. The data connector for Defender XDR is automatically set up for you. 
+If you onboard Microsoft Sentinel to the Defender portal and are licensed for Defender XDR, Microsoft Sentinel is automatically connected to Defender XDR. The data connector for Defender XDR is automatically set up for you. Any data connectors for the alert providers included in the Defender XDR connector are disconnected. This includes the following data connectors:
 
-
-
-For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/defender-xdr/microsoft-sentinel-onboard).
+- Microsoft Defender for Cloud Apps (alerts)
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Identity
+- Microsoft Defender for Office 365
+- Microsoft Entra Id Protection
 
 ### Azure portal integration
 
@@ -119,18 +121,6 @@ If you want to sync Defender XDR data to Microsoft Sentinel in the Azure portal,
 - First, install the **Microsoft Defender XDR** solution for Microsoft Sentinel from the **Content hub**. Then, enable the **Microsoft Defender XDR** data connector to collect incidents and alerts. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 
 - After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. It can take up to 10 minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
-
-### Data connectors disconnected with integration
-
-In Microsoft Sentinel, after Defender XDR is connected, any data connectors for the alert providers included in the Defender XDR connector are disconnected. This includes the following data connectors:
-
-- Microsoft Defender for Cloud Apps (alerts)
-- Microsoft Defender for Endpoint
-- Microsoft Defender for Identity
-- Microsoft Defender for Office 365
-- Microsoft Entra Id Protection
-
-What's included in the Defender XDR data connector is covered in [Incident correlation and alerts](#incident-correlation-and-alerts).
 
 ### Ingestion costs
  
