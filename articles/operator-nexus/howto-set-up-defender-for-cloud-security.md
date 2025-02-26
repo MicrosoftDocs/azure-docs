@@ -131,7 +131,7 @@ az role assignment create \
   --assignee-principal-type ServicePrincipal
 
 echo "Done. Security Reader role assignment created"
-
+```
 
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  
