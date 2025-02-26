@@ -83,8 +83,6 @@ Both Defender for IoT and Defender for Containers can automatically monitor some
 
 - **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
 
-- **Configure isolated network environments by using Azure IoT Layered Network Management (preview)**: Azure IoT Layered Network Management (preview) is a component that facilitates the connection between Azure and clusters in isolated network environments. In industrial scenarios, the isolated networks follow the *[ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95)/[Purdue Network architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture)*. To learn more, see [What is Azure IoT Layered Network Management (preview)?](../iot-operations/manage-layered-network/overview-layered-network.md).
-
 ## Cloud security
 
 - **Use user-assigned managed identities for cloud connections**: Always use managed identity authentication. When possible, [use user-assigned managed identity](../iot-operations/connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
