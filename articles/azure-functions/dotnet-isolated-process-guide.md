@@ -560,8 +560,8 @@ public async Task HandleCancellationCleanup(
 The cancellation token is signaled when the function invocation is canceled. Several reasons could lead to a cancellation,
 and those could vary depending on the trigger type being used. Some common reasons are:
 
-1. Client Disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
-2. Function App Restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
+1. Client disconnect: the client that is invoking your function disconnected. This is most likely for HttpTrigger functions.
+2. Function app restart: if you, or the platform, restart (or stop) the Function App around the same time an invocation is requested.
    A restart can occur due to worker instance movements, worker instance updates, or scaling.
     - Invocations in-flight during a restart event may be retried depending on how they were triggered. Please refer to the [retry documentation](./functions-bindings-error-pages.md#retries) for further information.
 
