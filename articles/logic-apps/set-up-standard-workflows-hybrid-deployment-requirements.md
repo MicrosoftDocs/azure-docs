@@ -49,45 +49,51 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 ## How billing works
 
-The hybrid option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage.
-
-You're responsible for the following items:
+The hybrid option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage. You're responsible for the following items:
 
 - Your Azure Arc-enabled Kubernetes infrastructure
 
 - Your SQL Server license
 
-- vCPU usage billed at a rate of $0.18 USD per hour to support Standard logic app workloads
+- Billing charges for vCPU usage to support Standard logic app workloads
 
-  For more information, see [Calculation for vCPU usage](#vcpu-usage-calculation).
+  For more information, see the following sections:
 
-- Any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
+  - [vCPU usage calculation](#vcpu-usage-calculation)
+  - [Billing charge calculation](#billing-charge-calculation)
+
+- Billing charges for any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, in your logic app workflows.
+
+  These operation executions follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
 
 <a name="vcpu-usage-calculation"></a>
 
 ### vCPU usage calculation
 
-Your Standard logic app resource uses vCPU and memory allocation and [replica scaling] that affects your billing charge.
+The vCPU usage for your Standard logic app affects your billing charges. The following formula calculates the vCPU usage for your logic app:
 
-(create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal)
+**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
 
-By default, your Standard logic app resource uses a specific number of vCPU cores. You can change this number of cores up to the maximum. 
-Each new instance of a logic app resource revision or version has a maximum of two vCPU cores. By default, each logic app resource uses one vCPU core out of this maximum 
+| Value | Description |
+|-------|-------------|
+| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: The extra vCPUs that you allocate come from replica vCPUs. For more information, see the next row. |
+| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet scaling needs. <br><br>**Note**: Each replica can have two vCPUs. The extra vCPUs that you allocate to your logic app come from replica vCPUs. |
 
-of the maximum two vCPU cores for each [replica](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal). You can increase this usage to the maximum two vCPU cores. 
+<a name="billing-charge-calculation"></a>
 
-Based on the allocated value multiplied by the number of replicas, the VCPU usage of the app will be calculated.
+### Billing charge calculation
 
-The vCPU usage per hour is calculated based on the following formula:
+The following formula calculates your billing charge per hour, which is based on vCPU usage and the rate of $0.18 USD per hour:
 
-(# of allocated vCPU cores) * (# of replicas) * (billing rate) * (# of hours)
+**Charge per hour** = (**vCPU usage**) x (**rate per hour**)
 
-For example, if you change the replica scaling, the following table shows some example billed calculations:
+For example, the following table shows some example billing charge calculations:
 
-| # of vCPUs | # of replicas | vCPU usage | Billing rate | Billing charge per hour |
-|------------|---------------|------------|--------------|-------------------------|
-| 0.5 | 2 | 1 | $0.18 | $0.18 |
-| 0.5 | 1 | 0.5 | $0.18 | $0.09 |
+| # of allocated vCPUs | # of replicas | vCPU usage | $USD rate per hour | Charge per hour |
+|----------------------|---------------|------------|--------------------|-----------------|
+| 1 | 1 | (1 x 1) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
+| 0.5 | 2 | (0.5 x 2) = 1 | $0.18 | (1 x $0.18) = **$0.18** |
+| 0.5 | 1 | (0.5 x 1) = 0.5 | $0.18 | (0.5 x $0.18) = **$0.09** |
 
 ## Limitations
 
