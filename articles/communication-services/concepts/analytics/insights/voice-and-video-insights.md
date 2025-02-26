@@ -120,7 +120,7 @@ The **Quality** tab under **Voice and video** allows users to inspect the qualit
 
 - The proportion of **Impacted calls**, where an impacted call is defined as a call that has at least one poor quality stream
 
-- **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are [SIP codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes), which are numeric codes that describe the specific status of a signaling request. SIP codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of SIP code categories is shown in the pie chart on the left hand side, while a list of the specific SIP codes for participant end reasons is provided on the right hand side
+- **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are documented in our [Call Codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes) documentation, which are numeric codes that describe the specific status of an operation. Call Codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of Call Codes is shown in the pie chart on the left hand side, while a list of the specific codes for participant end reasons is provided on the right hand side.
 
 <!-- :::image type="content" source="..\media\workbooks\voice-and-video-quality.png" alt-text="Screenshot of voice and video quality."::: -->
 
@@ -170,6 +170,11 @@ If you have multiple Azure Communications Services resource IDs, you must enable
 Your organization manages access to [Copilot in Azure](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Voice and Video Insights sections will display multiple Copilot icons you can interact with.
 
 Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information helps it identify fixes. If you want, you can use the visuals without Copilot in a limited capacity. 
+
+### Can I use the legacy version of Voice and Video Insights?
+You can find the legacy version of Voice and Video Insights inside your Azure Communication Services resource tab:
+
+:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
 
 ## Next steps
 
