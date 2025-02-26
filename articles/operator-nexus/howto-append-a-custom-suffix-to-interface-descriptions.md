@@ -19,7 +19,7 @@ This guide explains how to append a user-defined suffix (`additionalDescription`
 
 ## Steps to append a custom suffix
 
-### 1. Check the current iterface description
+### 1. Check the current interface description
 
 Before making changes, verify the existing interface description using the following command:
 
@@ -59,9 +59,6 @@ az networkfabric interface update --additional-description "example-description"
 | `-g, --resource-group`   | Defines the name of the resource group where the device is located. | No specific constraints. |
 | `--resource-name`        | Indicates the name of the network interface resource. | No specific constraints. |
 
-Let me know if you'd like any further refinements! 🚀
-
-
 ### 3. Commit the configuration
 
 After updating the description, apply the changes to the fabric:
@@ -76,7 +73,6 @@ Parameter Details:
 | `--resource-group`  | `-g`      | Name of the resource group. |
 | `--resource-name`   | N/A       | Name of the Network Fabric. |
 
-Let me know if you need any modifications or additional parameters! 🚀
 ### Example
 
 #### **Original interface description:**
