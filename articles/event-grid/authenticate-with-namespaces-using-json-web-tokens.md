@@ -17,7 +17,7 @@ Azure Event Grid's MQTT broker supports custom JWT authentication, which enables
 
 To use custom JWT authentication for namespaces, you need to have the following prerequisites: 
 
-- Identity provider that can issue Json Web Tokens. 
+- Identity provider that can issue JSON Web Tokens. 
 - CA certificate that includes your public keys used to validate the client tokens. 
 - Azure Key Vault account to host the CA certificate that includes your public keys. 
 
