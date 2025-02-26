@@ -60,7 +60,7 @@ ms.author: wchi
         </dependencies>
     </dependencyManagement>
     ```
-1. Set up a Spring App application, more details in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?tabs=password%2Cservice-connector).
+1. Set up a Spring Boot application, more details in this [section](/azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?tabs=password%2Cservice-connector).
 
 ### [Python](#tab/python)
 
