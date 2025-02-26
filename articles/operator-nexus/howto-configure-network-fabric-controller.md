@@ -109,10 +109,8 @@ az networkfabric controller create \
 --debug --no-wait
 ```
 
-> [!Note] The NFC creation takes between 30-45 mins.
-> Use the `show` command to monitor NFC creation progress.
-> You see different provisioning states such as, Accepted, updating and Succeeded/Failed.
-> Delete and recreate the NFC if the creation fails (`Failed`).
+> [!Note] 
+> The NFC creation takes between 30-45 mins. <br> > Use the `show` command to monitor NFC creation progress. <br> You see different provisioning states such as, Accepted, updating and Succeeded/Failed. <br> > Delete and recreate the NFC if the creation fails (`Failed`).
 
 The expected output only shows running as soon as you execute via AzureCLI
 
