@@ -238,11 +238,11 @@ After you finish building your workflow, you can deploy your logic app to your A
 
 ---
 
-<a name="change-cpu-memory"></a>
+<a name="change-vcpu-memory"></a>
 
-## Change CPU and memory allocation in the Azure portal
+## Change vCPU and memory allocation in the Azure portal
 
-To edit the CPU and memory settings for your Standard logic app resource, follow these steps:
+You can edit the vCPU and memory settings for your Standard logic app resource. These changes affect the [billing charge](set-up-standard-workflows-hybrid-deployment-requirements.md#billing) for your Standard logic app workloads.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -254,7 +254,7 @@ To edit the CPU and memory settings for your Standard logic app resource, follow
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **CPU cores** | - Default: 1 <br>- Minimum: 0.25 <br>- Maximum: 2 | Determines the CPU cores to assign to your container instance. You can increase this value by 0.25 cores up to the maximum value. The total number across all container instances for this logic app is limited to 2 cores. |
+   | **CPU cores** | - Default: 1 <br>- Minimum: 0.25 <br>- Maximum: 2 | Determines the vCPU cores to assign to your container instance. You can increase this value by 0.25 cores up to the maximum value. The total number across all container instances for this logic app is limited to 2 cores. |
    | **Memory** | - Default: 2 <br>- Minimum: 0.1 <br>- Maximum: 4 | Determines the memory capacity in gibibytes (Gi) to assign to your container instance. You can increase this value by 0.1 Gi up to the maximum value. The total capacity across all container instances for this logic app is limited to 4 Gi. |
 
 1. When you finish, select **Save**.

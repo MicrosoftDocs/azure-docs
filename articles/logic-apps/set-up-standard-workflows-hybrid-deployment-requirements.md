@@ -45,17 +45,49 @@ For more information, see the following documentation:
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
+<a name="billing"></a>
+
 ## How billing works
 
-With the hybrid option, you're responsible for the following items:
+The hybrid option uses a billing model where you pay only for what you need and can scale resources for dynamic workloads without having to buy for peak usage.
+
+You're responsible for the following items:
 
 - Your Azure Arc-enabled Kubernetes infrastructure
+
 - Your SQL Server license
-- A billing charge of $0.18 USD per vCPU/hour to support Standard logic app workloads
 
-In this billing model, you pay only for what you need and scale resources for dynamic workloads without having to buy for peak usage. The CPU allocation that you select at logic app creation affects your billing rate.
+- vCPU usage billed at a rate of $0.18 USD per hour to support Standard logic app workloads
 
-For workflows that use Azure-hosted connector operations, such as Microsoft Teams or Microsoft Office 365, see [existing Standard (single-tenant) pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing), which applies to these operation executions.
+  For more information, see [Calculation for vCPU usage](#vcpu-usage-calculation).
+
+- Any [managed (shared) connector operations](../connectors/managed.md), such as Microsoft Teams or Microsoft Office 365, follow [Standard pricing](https://azure.microsoft.com/pricing/details/logic-apps/#pricing).
+
+<a name="vcpu-usage-calculation"></a>
+
+### vCPU usage calculation
+
+Your Standard logic app resource uses vCPU and memory allocation and [replica scaling] that affects your billing charge.
+
+(create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal)
+
+By default, your Standard logic app resource uses a specific number of vCPU cores. You can change this number of cores up to the maximum. 
+Each new instance of a logic app resource revision or version has a maximum of two vCPU cores. By default, each logic app resource uses one vCPU core out of this maximum 
+
+of the maximum two vCPU cores for each [replica](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal). You can increase this usage to the maximum two vCPU cores. 
+
+Based on the allocated value multiplied by the number of replicas, the VCPU usage of the app will be calculated.
+
+The vCPU usage per hour is calculated based on the following formula:
+
+(# of allocated vCPU cores) * (# of replicas) * (billing rate) * (# of hours)
+
+For example, if you change the replica scaling, the following table shows some example billed calculations:
+
+| # of vCPUs | # of replicas | vCPU usage | Billing rate | Billing charge per hour |
+|------------|---------------|------------|--------------|-------------------------|
+| 0.5 | 2 | 1 | $0.18 | $0.18 |
+| 0.5 | 1 | 0.5 | $0.18 | $0.09 |
 
 ## Limitations
 
