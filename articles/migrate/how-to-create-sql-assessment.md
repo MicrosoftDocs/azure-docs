@@ -1,0 +1,97 @@
+---
+title: Create an SQL assessment with Azure Migrate | Microsoft Docs
+description: Describes how to create SQL Azure assessment with the Azure Migrate 
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.service: azure-migrate
+ms.topic: how-to
+ms.date: 02/19/2025
+ms.custom: engagement-fy23
+---
+
+# Create SQL assessment
+
+This article explains how to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive remonneded target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
+
+In this article, you'll learn how to:
+
+1. Set up your Azure Migrate environment to assess web applications.
+1. Select a set of related applications discovered using Azure Migrate appliance.
+1. Provide assessment configuration, including preferred Azure targets, target regions, and Azure reserved instances.
+1. Create a web assessment with a recommended modernization path.
+
+## Prerequisites
+
+1. Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md) [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
+1. Check the appliance requirement[Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
+1. Follow the [steps][Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
+
+## Create a workload assessment for web apps
+
+1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
+
+:::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text="Illustrates the assessment page to create the assessment.":::
+
+1. In **Assessments** page, select **Create assessment**
+
+:::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Illustrates to how to create the assessment.":::
+
+1. Provide a suitable name for the assessment, then select **Add Workloads**
+
+:::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Illustrates how to add the workloads.":::
+
+1. Use the appropriate filters, select the web apps and then select **Add**
+
+:::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Illustrates how to select web apps and add.":::
+
+1. Review the selected workloads and then select **Next**.
+
+:::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Explains how to review the selected workloads.":::
+
+1. On the **General** settings tab, modify the assessment settings that apply to all Azure target.
+
+:::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text="Explains how to modify assessment settings.":::
+
+Settings | Possible values | Comments
+--- | --- | ---
+Default target location  | All locations supported by Azure targets  | Used to generate regional cost for Azure targets. 
+Default Environment  | Production <br/> Dev/Test . | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. 
+Currency  | All common currencies such as USD, INR, GBP, Euro  | We generate the cost in the currency selected here.
+Program/offer  |Pay-as-you-go <br/.> Enterprise Agreement  | Allows you to toggle between pay-as-you-go and Enterprise Agreement offers. 
+Default savings option  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/> None | Select a savings option if you've opted for Reserved Instances or Savings Plan.
+Discount Percentage  | Numeric decimal value  | Use this option to factor in any custom discount agreements with Microsoft. It's disabled if Savings options are selected. 
+EA subscription  | Subscription ID  | Select the subscription ID for which you have an Enterprise Agreement. 
+Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
+Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. \
+
+1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings. 
+
+:::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
+
+
+**AKS settings**
+
+Settings | Possible values | Comments
+--- | --- | ---
+Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> High performance compute <br/> Isolated <br/> Memory optimized <br/> Storage optimized   | Selecting a specific SKU category ensures that we recommend the best AKS node SKUs from that category. 
+AKS pricing tier   | Standard  | Pricing tier for AKS 
+Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
+
+
+**App Service Settings** 
+
+Settings | Possible values | Comments
+--- | --- | ---
+Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
+
+1. Now, review and create the assessment. 
+
+:::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Illustrate how to review and create assessment.":::
+
+## Next steps
+
+- Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
+- Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context). 
+- Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
+- 
