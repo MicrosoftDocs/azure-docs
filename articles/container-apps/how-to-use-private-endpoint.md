@@ -58,7 +58,7 @@ Begin by signing in to the [Azure portal](https://portal.azure.com).
 1. Disable public network access.
 
 1. Leave **Use your own virtual network** set to **No**.
-    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+    You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
 1. Set *Enable private endpoints* to **Yes**.
 
@@ -147,7 +147,7 @@ az group create \
 
 ## Create a virtual network
 
-1. Create an Azure virtual network (VNet). You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+1. Create an Azure virtual network (VNet). You can use an existing VNet, but private endpoints are only supported by workload profiles environments, which require a subnet with a minimum CIDR range of `/27` or larger. To learn more about subnet sizing, see the [networking architecture overview](./custom-virtual-networks.md#subnet).
 
     ```azurecli
     az network vnet create \

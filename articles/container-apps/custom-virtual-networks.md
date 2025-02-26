@@ -123,6 +123,12 @@ If you're using the CLI, the parameter to define the subnet resource ID is `infr
 
 If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
+## NAT gateway integration
+
+You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
+
+When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

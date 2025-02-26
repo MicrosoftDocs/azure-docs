@@ -28,11 +28,11 @@ Container Apps has two different [environment types](environment.md#types), whic
 | Workload profiles | Consumption, Dedicated | Supports user defined routes (UDR), egress through NAT Gateway, and creating private endpoints on the container app environment. The minimum required subnet size is `/27`. | 
 | Consumption only | Consumption | Doesn't support user defined routes (UDR), egress through NAT Gateway, peering through a remote gateway, or other custom egress. The minimum required subnet size is `/23`. | 
 
+For more information see [Environment types](/azure/container-apps/structure#environment-types).
+
 ## Virtual network type
 
 By default, Container Apps are integrated with the Azure network, but you have the option to provide an existing VNet as you create your environment instead. Once you create an environment with either the default Azure network or an existing VNet, the network type can't be changed.
-
-### Existing VNets
 
 Use an existing VNet when you need Azure networking features like:
 
@@ -93,6 +93,8 @@ Azure networking policies are supported with the public network access flag.
 |[Cross origin resource sharing (CORS)](cors.md) | Enable CORS for your container app, which allows requests made through the browser to a domain that doesn't match the page's origin. |
 |[Virtual networks](custom-virtual-networks.md) | Configure the VNet for your container app environment. |
 |[DNS](dns.md) | Configure DNS for your container app environment's VNet. |
+|[Private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
+|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
 ## Outbound features
 
@@ -149,8 +151,8 @@ You can also [use private endpoints with a private connection to Azure Front Doo
 |[Enable User Defined Routes (UDR)](user-defined-routes.md) | Enable user defined routes (UDR). |
 |[Secure a custom VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
 |[Use Mutual Transport Layer Security (mTLS)](mtls.md) | Build an mTLS application in Azure Container Apps. |
-|[Use a private endpoint](how-to-use-private-endpoint.md) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
-|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
+|[Use a private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
+|[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
 
 ## Next steps
 

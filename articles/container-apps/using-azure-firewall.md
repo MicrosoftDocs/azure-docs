@@ -56,12 +56,6 @@ Network rules allow or deny traffic based on the network and transport layer. Wh
 > [!NOTE]
 > For Azure resources you are using with Azure Firewall not listed in this article, please refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).
 
-## NAT gateway integration
-
-You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
-
-When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
