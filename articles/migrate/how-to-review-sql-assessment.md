@@ -22,9 +22,9 @@ The recommended deployment involves selecting an Azure SQL deployment type that 
 > Migrating instances to SQL Server on Azure VM is the preferred approach for migrating SQL Server instances. When SQL Server credentials are unavailable, the Azure SQL assessment provides right-sized lift-and-shift, recommendations, specifically suggesting a move to SQL Server on Azure VM.
 
 **Migrate all instances to Azure SQL MI**: 
-This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There is no storage cost for the first 32-GB instance per month, with another storage costs aplied in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
+This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There's no storage cost for the first 32-GB instance per month, with another storage costs applied in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
 
-This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There is no storage cost for the first 32 GB/instance/month, with additional storage costs applied in 32 GB increments.
+This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There's no storage cost for the first 32-GB instance per month, with other storage costs applied in 32-GB increments.
 
 **Migrate all instances to SQL Server on Azure VM**: 
 This strategy offers readiness and cost estimates for migrating all SQL Server instances to SQL Server on Azure VM.
@@ -34,7 +34,7 @@ This strategy offers readiness and cost estimates for migrating all SQL Server i
 
 **Migrate all SQL databases to Azure SQL Database**: 
 
-This strategy outlines how to migrate individual databases to Azure SQL Database, inlcuding readiness and cost estimates. A minimum of 5-GB storage cost is added in the cost with another storage costs applied in 1-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-database/single/)
+This strategy outlines how to migrate individual databases to Azure SQL Database, including readiness, and cost estimates. A minimum of 5-GB storage cost is added in the cost with another storage costs applied in 1-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-database/single/)
 
 ## Azure readiness for SQL Workloads
 
