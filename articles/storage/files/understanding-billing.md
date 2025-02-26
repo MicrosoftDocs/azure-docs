@@ -135,8 +135,6 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Japan West
 - Korea Central
 - Korea South
-- East US 2
-- Central US
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
