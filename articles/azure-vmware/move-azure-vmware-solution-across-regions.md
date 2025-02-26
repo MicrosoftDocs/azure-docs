@@ -42,7 +42,7 @@ In this article, walk through the steps to:
 
 ## Prerequisites
 
-- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx.html) to avoid migration issues if any.
+- [VMware HCX appliance is upgraded to the latest patch](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx.html) to avoid migration issues if any.
 
 - Source's local content library is a [published content library](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0/using-content-librariesvsphere-vm-admin/publish-the-contents-of-a-library-and-a-single-template-to-a-subscribervsphere-vm-admin.html).
 
