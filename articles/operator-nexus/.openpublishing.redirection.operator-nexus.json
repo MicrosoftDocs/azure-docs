@@ -69,6 +69,11 @@
       "source_path": "howto-create-cluster-with-user-assigned-managed-identity.md",
       "redirect_url": "howto-cluster-managed-identity-user-provided-resources",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "howto-replace-a-terminal-server.md.md",
+      "redirect_url": "/howto-replace-a-terminal-server",
+      "redirect_document_id": false
     }
   ]
 }
