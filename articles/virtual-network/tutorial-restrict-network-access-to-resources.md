@@ -522,9 +522,6 @@ The steps required to restrict network access to resources created through Azure
     
     The key is used to create a file share in a later step. Enter `$storageAcctKey` and note the value. You manually enter it in a later step when you map the file share to a drive in a virtual machine.
 
-    > [!IMPORTANT]
-    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
-
      For more information about connecting to a storage account using a managed identity, see [Use a managed identity to access Azure Storage](/entra/identity/managed-identities-azure-resources/tutorial-linux-managed-identities-vm-access?pivots=identity-linux-mi-vm-access-storage).
 
 ### [CLI](#tab/cli)
@@ -560,6 +557,9 @@ The steps necessary to restrict network access to resources created through Azur
     ```
 
 ---
+
+> [!IMPORTANT]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ### Create a file share in the storage account
 
