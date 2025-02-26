@@ -66,6 +66,7 @@ The required permission is ```Microsoft.Security/mdeOnboardings/read```. This pe
 
 > [!IMPORTANT]
 > The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
+> Executing the the commands to show the principal ID object ID requires the Microsoft Entra role assignment of Directory Reader or equivalent.
 
 Below is an example bash script using the az CLI for granting the nc-platform-extension identity the ability to onboard the MDE agent on your behalf.
 
@@ -104,7 +105,6 @@ PRINCIPAL_ID=$(az k8s-extension show \
   --cluster-type connectedClusters \
   --query "identity.principalId" \
   --output tsv)
-
 echo "Extension Principal ID: $PRINCIPAL_ID"
 
 # 5. Show the full service principal object
@@ -133,6 +133,13 @@ az role assignment create \
 
 echo "Done. Security Reader role assignment created"
 ```
+
+In the event the required permissions are not granted, the MDE onboarding reconcilliation logic will continue to attempt to onboard the MDE agent on your behalf until the permissions are granted. When the permissions are granted, the MDE onboarding reconcilliation logic during the next rotation will complete successfully with no additional action required.
+
+Reconcilliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the MDE onboarding reconcilliation logic will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
+
+> [!IMPORTANT]
+> MDE Agent reconilliation runs independently on each of the baremetal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all baremetal machines in the cluster will vary depending on the number of baremetal machines in the cluster and the initial time of the first onboarding attempt.
 
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  
