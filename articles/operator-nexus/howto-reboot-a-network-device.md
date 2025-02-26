@@ -93,10 +93,10 @@ az networkfabric device reboot --network-device-name <DeviceName> --resource-gro
 - If the reboot fails:  
 
   - The **configuration state** remains in **Failed**.  
-  
+
   - The **administrative state** remains in **UnderMaintenance**.  
 
-## Technical Details: Interaction Between Network Fabric (NNF) and Arista Devices  
+## Technical details: Interaction between Network Fabric (NNF) and Arista devices  
 
 For devices running **Arista EOS**, the reboot process is triggered via the **gNOI System Reboot API** with the following parameters:  
 
@@ -105,7 +105,7 @@ For devices running **Arista EOS**, the reboot process is triggered via the **gN
 | **COLD**     | `1`      | Shuts down and restarts the OS and all hardware. |  
 | **Force**    | `true`   | Forces an immediate reboot. |  
 
-### Key Difference in ungraceful reboot 
+### Key difference in ungraceful reboot 
 
 - In an **ungraceful reboot**, the **device itself is not placed in maintenance mode**, but the **fabric still enters maintenance mode**.  
 
