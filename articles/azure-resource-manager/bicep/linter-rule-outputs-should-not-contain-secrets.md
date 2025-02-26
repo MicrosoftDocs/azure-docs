@@ -3,7 +3,7 @@ title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - outputs should not contain secrets

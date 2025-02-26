@@ -17,4 +17,4 @@ As an administrator, you can customize the content of the portal using the visua
 * Also, save or undo changes you make, or publish the website. 
 
 > [!TIP]
-> For even more flexibility in customizing the portal, you can use an open-source [developer portal plugin for Wordpress](../articles/api-management/developer-portal-wordpress-plugin.md). Take advantage of site capabilities in WordPress to localize content, customize menus, apply custom stylesheets, and more. 
+> For even more flexibility in customizing the portal, you can use an open-source [developer portal plugin for WordPress](../articles/api-management/developer-portal-wordpress-plugin.md). Take advantage of site capabilities in WordPress to localize content, customize menus, apply custom stylesheets, and more. 

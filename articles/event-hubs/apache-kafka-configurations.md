@@ -29,7 +29,7 @@ Producer configs can be found [here](https://kafka.apache.org/documentation/#pro
 |`metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer caches metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.|
 |`linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.|
 |`delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.|
-|`compression.type` | `uncompressed, gzip` | | Only gzip compression is currently supported.|
+|`compression.type` | `none, gzip` | | Only gzip compression is currently supported.|
 
 ### Consumer configurations only
 Consumer configs can be found [here](https://kafka.apache.org/documentation/#consumerconfigs).

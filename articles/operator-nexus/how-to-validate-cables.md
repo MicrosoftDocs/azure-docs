@@ -94,7 +94,7 @@ To generate a SAS URL for the container to provide write access to the Nexus Fab
     > [!NOTE]
     > The operation takes roughly 20~40 minutes to complete based on the number of racks.  
 
-1. Download and read the validated results from the `<CABLING_REPORT_STORAGE_URL>` retuned from the completed command.
+1. Download and read the validated results from the `<CABLING_REPORT_STORAGE_URL>` returned from the completed command.
 
 Example output is shown in the following sections.
 

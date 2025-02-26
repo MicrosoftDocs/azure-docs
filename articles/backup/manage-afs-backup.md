@@ -4,8 +4,8 @@ description: This article describes common tasks for managing and monitoring the
 ms.topic: how-to
 ms.date: 12/20/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 
 ---
 

@@ -85,7 +85,7 @@ Use the following steps to create an emergency access account:
 
 Once you create your emergency accounts, you need to do the following: 
 
-- Make sure you [exclude at least one account from phone-based multifactor authentication](../active-directory/roles/security-emergency-access.md#exclude-at-least-one-account-from-phone-based-multi-factor-authentication)
+- Make sure at least one of your emergency access accounts shouldn't have the same multifactor authentication mechanism as your other non-emergency accounts.
 
 - If you use [Conditional Access](conditional-access-user-flow.md), at least one emergency access account needs to be excluded from all conditional access policies.
 

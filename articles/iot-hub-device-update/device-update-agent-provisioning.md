@@ -167,6 +167,33 @@ Start the Device Update agent and verify that it's running successfully on your 
 
    :::image type="content" source="media/understand-device-update/device-update-module.png" alt-text="Diagram of Device Update module name showing Connected status.":::
 
+## Enable Device Update agent behind a proxy server
+
+Devices running the Device Update agent send HTTPS requests to communicate with IoT Hub. If you connected your device to a network that uses a proxy server, you need to configure the Device Update systemd service to communicate through the server.
+
+Before configuring Device Update, ensure that you have the the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
+
+Navigate to the Device Update configuration by running the following command:
+
+   ```shell
+   sudo systemctl edit deviceupdate-agent.service
+   ```
+
+Add the proxy details to the configuration
+
+   ```shell
+   [Service]
+   Environment="https_proxy=<Proxy URL>"
+   ```
+
+Restart the agent to apply the changes:
+
+   ```shell
+   sudo systemctl daemon-reload
+   sudo systemctl restart deviceupdate-agent
+   sudo systemctl status deviceupdate-agent
+   ```
+
 ## Build and run a Device Update agent
 
 You can also build and modify your own custom Device Update agent. Follow the instructions at [How To Build the Device Update Agent](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md) to build the Device Update Agent from source.

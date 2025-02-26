@@ -5,7 +5,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 01/11/2025
 ms.custom: project-no-code
 ms.author: godonnell
 ms.subservice: b2c

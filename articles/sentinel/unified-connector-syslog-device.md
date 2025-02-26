@@ -239,7 +239,7 @@ Complete the following steps.
 
 ## Pulse Connect Secure
 
-[Follow the instructions](https://help.ivanti.com/ps/help/en_US/PPS/9.1R13/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
+[Follow the instructions](https://help.ivanti.com/ps/help/en_US/IPS/22.x/ag/configuring_an_external_syslog_server.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
 
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.

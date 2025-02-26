@@ -55,7 +55,7 @@ To enable replication for shared disks, follow these steps:
 1. In the **Enable replication** page, do the following:
     1. Under the **Source** tab, 
         1. Select the **Region**, **Subscription**, and the **Resource group** your virtual machines are in.
-        1. Retain values for the **Virtual machine deployment model** and **Disaster recovery between availabiity zone?** fields.
+        1. Retain values for the **Virtual machine deployment model** and **Disaster recovery between availability zone?** fields.
 
         :::image type="content" source="media/tutorial-shared-disk/enable-replication-source.png" alt-text="Screenshot showing Select Region.":::
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you get cost data if you have a MOSP pay-as-you-go subscription.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2024
+ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management

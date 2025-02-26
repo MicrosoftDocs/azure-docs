@@ -312,7 +312,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
     $body = ConvertTo-Json -InputObject $Names
     ```
 
-1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code::
+1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code:
 
     ```json
     [

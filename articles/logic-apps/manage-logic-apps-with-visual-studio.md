@@ -159,7 +159,7 @@ To change your logic app's location type or location, you have to open your logi
 
    The project's location type is set to **Region**.
 
-   ![Screenshot shows Properties window and properites named Choose Location Type and Location.](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+   ![Screenshot shows Properties window and properties named Choose Location Type and Location.](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
    > [!TIP]
    >

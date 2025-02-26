@@ -42,7 +42,7 @@ This configuration requires a managed identity. For more information about manag
 
 ## <a name="enable"></a>Enable VPN Gateway for Key Vault and Managed Identity
 
-In this section, you enable the gateway for Azure Key Vault and the managed identity you created earlier. For more information about Azure Key Vault, see [About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
+In this section, you enable the gateway for Azure Key Vault and the managed identity you created earlier. For more information about Azure Key Vault, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 1. In the portal, go to your virtual network gateway (VPN gateway).
 1. Go to **Settings -> Configuration**. On the Configuration page, specify the following authentication settings:
@@ -215,7 +215,7 @@ Export the public key data for the **root certificate**. Exported files must be 
 
 ## Create a key vault
 
-This configuration requires Azure Key Vault. The following steps create a key vault. You add your certificate and Managed Identity to your key vault later. For more comprehensive steps, see [Quickstart - Create a key vault using the Azure portal](https://learn.microsoft.com/azure/key-vault/general/quick-create-portal).
+This configuration requires Azure Key Vault. The following steps create a key vault. You add your certificate and Managed Identity to your key vault later. For more comprehensive steps, see [Quickstart - Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
 1. In the Azure portal, search for **Key Vaults**. On the **Key vaults** page, select **+Create**.
 1. On the **Create a key vault** page, fill out the required information. The resource group doesn't have to be the same as the resource group that you used for your VPN gateway.

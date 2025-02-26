@@ -82,7 +82,7 @@ In the **Management interface** tab, use the following fields to define network 
 
 |Name  |Description  |
 |---------|---------|
-|**Management interface**     |  Select the interface you want to use as the management interface, to connect to either the Azure portal or an on-premises management console.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
+|**Management interface**     |  Select the interface you want to use as the management interface, to connect to the Azure portal.<br><br>To identify a physical interface on your machine, select an interface and then select **Blink physical interface LED**. The port that matches the selected interface lights up so that you can connect your cable correctly.        |
 |<a name="ip"></a>**IP Address**     |  Enter the IP address you want to use for your sensor. This is the IP address your team uses to connect to the sensor via the browser or CLI. |
 |**Subnet Mask**     | Enter the address you want to use as the sensor's subnet mask.        |
 |**Default Gateway**     | Enter the address you want to use as the sensor's default gateway.        |
@@ -163,14 +163,12 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
     You may need to refresh the page after uploading your files. For more information, see [Troubleshoot certificate upload errors](../how-to-manage-individual-sensors.md#troubleshoot-certificate-upload-errors).
 
+    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+
     > [!TIP]
     > If you're working on a testing environment, you can also use the self-signed certificate that's generated locally during installation. If you select to use a self-signed certificate, make sure to select the **Confirm** option about the recommendations.
     >
     > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
-
-1. In the **Validation of on-premises management console certificate** area, select **Mandatory** to validate an on-premises management console's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements).
-
-    For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
 

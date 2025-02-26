@@ -2,9 +2,9 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 10/10/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 01/17/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -15,6 +15,8 @@ This article explains how to use the Recovery Services vault **Overview** dashbo
 The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
 
 [!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
+
+Learn how to  create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
 
 ## Open a Recovery Services vault
 

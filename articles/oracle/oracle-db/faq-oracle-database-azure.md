@@ -165,7 +165,7 @@ Data is encrypted at rest. All traffic between sites, including to the Oracle Da
 
 ### Can I use Azure Monitor with Oracle Database@Azure?
 
-Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/odexa/odexa-monitoring-exadata-services.html) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/odadb/odadb-monitoring-autonomous-database-services.html).
+Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-monitoring-exadata-services.html) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-autonomous/odadb-monitoring-autonomous-database-services.html).
 
 ### What are the different options for backup on Oracle Database@Azure?
 

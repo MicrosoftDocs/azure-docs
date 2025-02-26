@@ -4,7 +4,7 @@ description: Learn which Azure regions offer availability zone support
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 11/20/2024
+ms.date: 01/16/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: references_regions, subject-reliability
@@ -31,6 +31,9 @@ The following regions currently support availability zones:
 ||Spain Central ||||
 
 \* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For upcoming regions that support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+> [!NOTE]
+> Even when a region provides availability zones, it's possible that some services might not support them in that region. Refer to the [Azure service reliability guides](./overview-reliability-guidance.md) to learn about region support for availability zone-enabled services.
 
 ## Next steps
 

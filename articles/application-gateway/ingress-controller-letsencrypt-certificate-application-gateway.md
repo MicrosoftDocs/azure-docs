@@ -4,7 +4,6 @@ description: This article provides information on how to obtain a certificate fr
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -33,7 +32,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     #!/bin/bash
 
     # Install the CustomResourceDefinition resources separately
-    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.crds.yaml
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.16.1/cert-manager.crds.yaml
 
     # Create the namespace for cert-manager
     kubectl create namespace cert-manager
@@ -52,7 +51,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     helm install \
       cert-manager jetstack/cert-manager \
       --namespace cert-manager \
-      --version v1.10.1 \
+      --version v1.16.1 \
       # --set installCRDs=true
 
     # To automatically install and manage the CRDs as part of your Helm release,
@@ -95,8 +94,12 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         # file is present at the domain
         solvers:
           - http01:
-               ingress:
-                  ingressclassName: azure/application-gateway
+            ingress:
+             #   class: azure/application-gateway
+               ingressTemplate:
+                 metadata:
+                   annotations:
+                     kubernetes.io/ingress.class: azure/application-gateway
     EOF
     ```
 
@@ -111,8 +114,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     apiVersion: networking.k8s.io/v1
     kind: Ingress
     metadata:
-    name: guestbook-letsencrypt-staging
-    annotations:
+      name: guestbook-letsencrypt-staging
+      annotations:
         kubernetes.io/ingress.class: azure/application-gateway
         cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
@@ -136,7 +139,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
 4. After you successfully set up your staging certificate, you can switch to a production ACME server:
 
-    1. Replace the staging annotation on your ingress resource with `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`.
+    1. Replace the staging annotation on your ingress resource with `cert-manager.io/cluster-issuer: letsencrypt-prod`.
     1. Delete the existing staging `ClusterIssuer` resource that you created earlier. Create a new staging resource by replacing the ACME server from the previous `ClusterIssuer` YAML with `https://acme-v02.api.letsencrypt.org/directory`.
 
 Before the Let's Encrypt certificate expires, `cert-manager` automatically updates the certificate in the Kubernetes secret store. At that point, the Application Gateway Ingress Controller applies the updated secret referenced in the ingress resources that it's using to configure Application Gateway.

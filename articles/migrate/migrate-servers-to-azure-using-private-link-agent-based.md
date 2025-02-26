@@ -34,6 +34,9 @@ The tool uses a replication appliance to replicate your servers to Azure. Follow
 
 After you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Learn more about how to [set up the replication appliance](./tutorial-migrate-physical-virtual-machines.md#prepare-a-machine-for-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](./tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service-agent) on the machines you want to migrate.
 
+>[!Note]
+> If Migrate Project has Private Endpoints enabled, you will need to install MySQL on the configuration server manually. Follow the steps [here](../site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) to perform the manual installation. 
+
 ## Replicate servers
 
 Now, select machines for replication and migration.
@@ -41,7 +44,7 @@ Now, select machines for replication and migration.
 >[!Note]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**.
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up. 
 1. In **Process Server**, select the name of the replication appliance. 

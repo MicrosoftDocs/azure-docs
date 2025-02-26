@@ -194,44 +194,86 @@
         href: nat-rules-vpn-gateway-powershell.md
   - name: User VPN (point-to-site)
     items:
-    - name: P2S server configuration
+    - name: Certificate authentication
       items:
-      - name: Certificate or RADIUS authentication
+      - name: P2S server configuration
         items:
-        - name: Configure a P2S VPN
-          items: 
-          - name: Azure portal
-            href: virtual-wan-point-to-site-portal.md
-          - name: PowerShell
-            href: virtual-wan-point-to-site-powershell.md
-        - name: Generate self-signed certificates
-          href: certificates-point-to-site.md
-      - name: Microsoft Entra ID authentication
-        items:
-        - name: Configure a P2S VPN
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: Configure a tenant
-          href: openvpn-azure-ad-tenant.md
-        - name: Configure multifactor authentication (MFA)
-          href: openvpn-azure-ad-mfa.md   
-    - name: P2S client configuration
-      items:
-      - name: Microsoft Entra authentication clients
+        - name: Azure portal
+          href: virtual-wan-point-to-site-portal.md
+        - name: PowerShell
+          href: virtual-wan-point-to-site-powershell.md
+      - name: VPN client configuration
         items:
         - name: Windows clients
-          href: openvpn-azure-ad-client.md
-        - name: macOS clients
-          href: openvpn-azure-ad-client-mac.md
-        - name: Multi-application Microsoft Entra authentication
-          href: openvpn-azure-ad-tenant-multi-app.md
-      - name: Certificate authentication clients
-        items:
-        - name: Windows clients
-          href: vpn-client-certificate-windows.md
+          items:
+          - name: Native VPN client
+            href: point-to-site-vpn-client-certificate-windows-native.md
+          - name: Azure VPN client
+            href: vpn-client-certificate-windows.md
+          - name: OpenVPN client
+            items:
+            - name: Version 2.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-2.md
+            - name: Version 3.x
+              href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
+        - name: Linux clients
+          items:
+          - name: Azure VPN client
+            href: point-to-site-azure-vpn-client-certificate-linux.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-openvpn-linux.md
+          - name: IKEv2 - strongSwan
+            href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
-          href: point-to-site-vpn-client-cert-mac.md    
+          items:
+          - name: Native VPN client
+            href: point-to-site-vpn-client-cert-mac.md
+          - name: OpenVPN client - macOS
+            href: point-to-site-vpn-client-certificate-openvpn-mac.md
+          - name: OpenVPN client - iOS
+            href: point-to-site-vpn-client-certificate-openvpn-ios.md  
+        - name: Generate self-signed certificates
+          items:
+          - name: .cer and .pfx files
+            items:
+            - name: Azure PowerShell
+              href: certificates-point-to-site.md
+            - name: MakeCert
+              href: certificates-point-to-site-makecert.md
+          - name: .pem files
+            items:
+            - name: Linux - OpenSSL
+              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
+            - name: Linux - strongSwan
+              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
         - name: Install client certificates
           href: install-client-certificates.md
+    - name: Microsoft Entra ID authentication
+      items:
+      - name: P2S server configuration
+        items:
+        - name: Configure P2S - Microsoft Entra ID authentication
+          href: point-to-site-entra-gateway.md
+        - name: Configure P2S - manually registered VPN client
+          href: virtual-wan-point-to-site-azure-ad.md
+        - name: Change VPN client app to Microsoft-registered
+          href: point-to-site-entra-gateway-update.md
+        - name: Create or modify custom audience app ID
+          href: point-to-site-entra-register-custom-app.md
+        - name: Configure multifactor authentication (MFA)
+          href: openvpn-azure-ad-mfa.md
+        - name: Configure a tenant
+          href: openvpn-azure-ad-tenant.md
+        - name: Configure a tenant for multiple application registration
+          href: openvpn-azure-ad-tenant-multi-app.md
+      - name: VPN client configuration
+        items:
+        - name: Windows clients
+          href: point-to-site-entra-vpn-client-windows.md
+        - name: macOS clients
+          href: point-to-site-entra-vpn-client-mac.md
+        - name: Linux clients
+          href: point-to-site-entra-vpn-client-linux.md
       - name: VPN client profiles
         items:
         - name: Download global and hub profiles
@@ -240,10 +282,10 @@
           href: about-vpn-profile-download.md
         - name: Intune- Deploy VPN client profile
           href: vpn-profile-intune.md
-      - name: Azure VPN client optional settings
-        href: azure-vpn-client-optional-configurations-windows.md
-      - name: OpenVPN client software configuration
-        href: howto-openvpn-clients.md
+    - name: Azure VPN client - optional settings
+      href: azure-vpn-client-optional-configurations-windows.md
+    - name: Azure VPN Client versions
+      href: azure-vpn-client-versions.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
@@ -343,7 +385,7 @@
   - name: Networking Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Networking update announcements
     href: https://go.microsoft.com/fwlink/?linkid=2299811
   - name: Pricing calculator

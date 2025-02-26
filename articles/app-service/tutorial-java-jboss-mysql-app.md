@@ -20,7 +20,7 @@ This tutorial shows how to build, configure, and deploy a secure JBoss applicati
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL flexible server.
+> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL Flexible Server.
 > * Secure database connectivity using a passwordless connection string.
 > * Verify JBoss data sources in App Service using JBoss CLI.
 > * Deploy a JBoss sample app to App Service from a GitHub repository.
@@ -160,7 +160,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Azure Database for MySQL flexible server**: Accessible only from the virtual network. A database and a user are created for you on the server.
+        - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
         - **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
         - **Private endpoints**: Access endpoints for the database server in the virtual network.
     :::column-end:::
@@ -195,7 +195,7 @@ In this step, you generate a managed identity based service connection, which yo
     :::column span="2":::
         **Step 2: Enable Microsoft Entra authentication in the MySQL server.** 
         1. In the top search bar, type *msdocs-jboss-mysql-server*.
-        1. Select the Azure Database for MySQL flexible server resource called **msdocs-jboss-mysql-server**.
+        1. Select the Azure Database for MySQL Flexible Server resource called **msdocs-jboss-mysql-server**.
         1. From the left menu, select **Security** > **Authentication**.
         1. In **Assign access to**, select **Microsoft Entra authentication only**.
         1. In **User assigned managed identity**, select **Select**.
@@ -205,7 +205,7 @@ In this step, you generate a managed identity based service connection, which yo
         1. Select **Save** and wait for the operation to complete.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png" alt-text="A screenshot showing how to configure Microsoft Entra authentication for Azure Database for MySQL flexible server." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png":::
+        :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png" alt-text="A screenshot showing how to configure Microsoft Entra authentication for Azure Database for MySQL Flexible Server." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -496,7 +496,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *B1* tier is created.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Azure Database for MySQL flexible server**: Accessible only from the virtual network. A database is created for you on the server.
+    - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database is created for you on the server.
     - **Azure Cache for Redis**: Accessible only from within the virtual network.
     - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
     - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
@@ -727,7 +727,7 @@ A few considerations:
 
 #### How do I get a valid access token for the MySQL connection using Microsoft Entra authentication?
 
-For a Microsoft Entra user, a system-assigned managed identity, or a user-asssigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
+For a Microsoft Entra user, a system-assigned managed identity, or a user-assigned managed identity that's authorized to access the MySQL database, Azure CLI can help you generate an access token. In case of a managed identity, the identity must be configured on the App Service app or VM where you run Azure CLI. 
 
 ```azurecli-interactive
 # Sign in as a Microsoft Entra user

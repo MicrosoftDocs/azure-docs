@@ -46,7 +46,7 @@ To view the full installation logs:
 3. Select the highlighted **Spark history server** option which would open the Spark history server details page in a new tab.
    ![Screenshot that highlights the details of the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/system-reserved-library-job-failure-details.png "View details of failed system library job")
 4. In this page, you will see 2 attempts, select **Attempt 1** as shown below.
-    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor detaols in spark history server page")
+    ![Screenshot that highlights the executor details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-executors.png "View executor details in spark history server page")
 5. On the top navigation bar in the Spark history server page, switch to the **Executors** tab.
     ![Screenshot that highlights the job details in the spark history server page for the failed system reserved library job.](./media/apache-spark-azure-portal-add-libraries/spark-history-server-page.png "View the job details in the spark history server page")
 6. Download the **stdout** and **stderr** log files to access the full library management output and error logs.

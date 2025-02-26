@@ -2,8 +2,9 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 08/12/2024
+ms.date: 12/23/2024
 ms.devlang: csharp
+ai-usage: ai-assisted
 ms.custom:
 ---
 # Configure managed identities in Batch pools
@@ -12,6 +13,10 @@ ms.custom:
 complicated identity and credential management by providing an identity for the Azure resource in Microsoft Entra ID
 (Azure AD ID). This identity is used to obtain Microsoft Entra tokens to authenticate with target
 resources in Azure.
+
+When adding a User-Assigned Managed Identity to a Batch Pool, it is crucial to set the *Identity* property in your configuration. This property links the managed identity to the pool, enabling it to access Azure resources securely. Incorrect setting of the *Identity* property can result in common errors, such as access issues or upload errors.
+
+For more information on configuring managed identities in Azure Batch, please refer to the [Azure Batch Managed Identities documentation](/troubleshoot/azure/hpc/batch/use-managed-identities-azure-batch-account-pool).
 
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
@@ -105,6 +110,23 @@ ArmOperation<BatchAccountPoolResource> armOperation = batchAccount.GetBatchAccou
     WaitUntil.Completed, poolName, batchAccountPoolData);
 BatchAccountPoolResource pool = armOperation.Value;
 ```
+
+> [!NOTE]
+> To include the *Identity* property use the following example code:
+```csharp
+   var pool = batchClient.PoolOperations.CreatePool(
+       poolId: "myPool",
+       virtualMachineSize: "STANDARD_D2_V2",
+       cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"),
+       targetDedicatedNodes: 1,
+       identity: new PoolIdentity(
+           type: PoolIdentityType.UserAssigned,
+           userAssignedIdentities: new Dictionary<string, UserAssignedIdentity>
+           {
+               { "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}", new UserAssignedIdentity() }
+           }
+       ));
+   ```
 
 ## Use user-assigned managed identities in Batch nodes
 

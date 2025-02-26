@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/13/2024
+ms.date: 01/29/2025
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -11,7 +11,7 @@ ms.custom: "references_regions, engagement-fy23"
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](../azure-netapp-files/index.yml) documentation. 
 
-[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
+[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) on different Azure NetApp Files datastores for optimal cost and performance.  
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware vSphere environments for the secondary site. 
 
@@ -97,6 +97,26 @@ There are some important best practices to follow for optimal performance of NFS
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../reliability/availability-zones-overview.md) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
+
+
+### Considerations for Azure NetApp Files storage with cool access
+
+When choosing to use [Azure NetApp Files storage with cool access](../azure-netapp-files/cool-access-introduction.md) on datastores for AVS, consider the performance characteristics of your workloads. Cool access is best suited for applications and workloads that primarily involve sequential I/O operations or tolerate varying read latency. Workloads with high random I/O and latency sensitivity should avoid using cool access due to an increase in latency when reading data from the cool tier.
+
+Also consider adjusting cool access settings for the workload to fit the expected access patterns. For more information, see [Performance considerations for Azure NetApp Files storage with cool access](../azure-netapp-files/performance-considerations-cool-access.md).
+
+**Use cases where cool access is a good fit:**
+
+- Virtual machine templates and ISO files
+- VMDKs with home directories (if not using Azure NetApp Files directly for this purpose)
+- VMDKs with content repositories
+- VMDKs with application data
+- VMDKs with archive and application-level backup data
+ 
+**Use cases to not use cool access:**
+
+- VMDKs containing production database files with high random I/O and latency sensitivity
+- VMDKs with operating system boot disks
 
 ## Attach an Azure NetApp Files volume to your private cloud
 

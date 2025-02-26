@@ -22,6 +22,27 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
+## January 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)|
+
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
+
+## December 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Support Multiple Source Devices in DDoS Attack Alerts](#support-multiple-source-devices-in-ddos-attack-alerts) |
+
+### Support Multiple Source Devices in DDoS Attack Alerts
+
+Alert details now display up to 10 source devices involved in DDoS attack.
+
+
 ## October 2024
 
 |Service area  |Updates  |
@@ -38,7 +59,7 @@ We now support the OCPI protocol. See [the updated protocol list](concept-suppor
 
 ### New sensor setting type Public addresses
 
-We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
+We're adding the **Public addresses** type to the sensor settings that allows you to register the public addresses of internal devices and ensure that the sensor doesn't treat them as internet communication. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
 
 ### Improved OT sensor onboarding
 
@@ -579,7 +600,7 @@ For more information, see [Manage SSL/TLS certificates](how-to-manage-individual
 
 Activation files on locally managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
+You only need to update your activation file if you're [updating an OT sensor from a recent version](update-ot-software.md?tabs=portal#update-ot-sensors-with-the-latest-ot-monitoring-software) or switching the sensor management mode, such as moving from locally managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -723,7 +744,7 @@ For cloud-connected sensor versions [22.2.3](release-notes.md#2223) and higher, 
 
 :::image type="content" source="media/update-ot-software/send-package.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/send-package.png":::
 
-For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors).
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software).
 
 ### Azure connectivity status shown on OT sensors
 

@@ -134,6 +134,9 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 
 Currently, the only way to convert your cache from a non-AZ configuration to an AZ configuration is to redeploy the cache. To learn how to redeploy your current cache, see [Migrate an Azure Cache for Redis instance to availability zone support](/azure/reliability/migrate-cache-redis).
 
+> [!NOTE]
+   > Converting an existing resource from non-availability zone support to availability zone support is in Preview for Standard and Premium tier caches.
+
 ## Persistence
 
 Applicable tiers: **Premium**, **Enterprise (preview)**, **Enterprise Flash (preview)**
@@ -164,7 +167,7 @@ Applicable tiers: **Premium**
 
 Recommended for: **Disaster recovery - single region**
 
-[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two or more Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
+[Geo-replication](cache-how-to-geo-replication.md) is a mechanism for linking two Azure Cache for Redis instances, typically spanning two Azure regions. Geo-replication is designed mainly for cross-region disaster recovery. Two Premium tier cache instances are connected through geo-replication in a way that provides reads and writes to your primary cache, and that data is replicated to the secondary cache.
 
 For more information on how to set it up, see [Configure geo-replication for Premium Azure Cache for Redis instances](./cache-how-to-geo-replication.md).
 

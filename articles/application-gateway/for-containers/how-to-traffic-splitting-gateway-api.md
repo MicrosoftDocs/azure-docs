@@ -2,7 +2,7 @@
 title: Traffic Splitting with Application Gateway for Containers - Gateway API
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
-author: greglin
+author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
 ms.date: 11/5/2024

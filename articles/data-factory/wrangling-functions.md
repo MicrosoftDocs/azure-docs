@@ -160,7 +160,7 @@ in
   #"Pivoted column"
 ```
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=02987a4c-9444-4f3b-acf7-89a3e91ff5f7]
 
 ### Formatting date/time columns
 
@@ -178,7 +178,7 @@ To set the date/time format when using Power Query ADF, please follow these sets
 #"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
 ```
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=d4c91bf6-2c21-4ab7-ab4d-695d039327ec]
 
 ## Related content
 

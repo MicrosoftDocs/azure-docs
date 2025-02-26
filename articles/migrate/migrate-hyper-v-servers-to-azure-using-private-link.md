@@ -22,7 +22,8 @@ The following diagram illustrates the agentless migration workflow with private 
 :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png" alt-text="Diagram that shows replication architecture." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png":::
 
 For migrating Hyper-V VMs, the Migration and modernization tool installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes.  
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**. 
+
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**.
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**. 
@@ -37,6 +38,7 @@ For migrating Hyper-V VMs, the Migration and modernization tool installs softwar
 
     - The key is valid for five days after you generate it. 
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
+
 > [!Note]
 >Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication provider. Additional DNS configuration can be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution). 
 
@@ -46,8 +48,8 @@ Next, follow these instructions to [install and register the replication provide
 
 With discovery completed, you can begin replication of Hyper-V VMs to Azure.  
 
-> [!Note] 
-> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
+> [!Note]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**.
@@ -167,6 +169,7 @@ Ensure that the replication provider has network connectivity to the storage acc
 
 
 ## Next steps
+
  - [Migrate VMs](tutorial-migrate-hyper-v.md#migrate-vms)
  - Complete the [migration process](tutorial-migrate-hyper-v.md#complete-the-migration).
  - Review the [post-migration best practices](tutorial-migrate-hyper-v.md#post-migration-best-practices).

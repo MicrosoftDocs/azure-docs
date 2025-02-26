@@ -2,11 +2,11 @@
 title: Use Azure WAF geomatch custom rules to enhance network security
 description: This article shows you how to use Microsoft Azure Web Application Firewall (WAF) geomatch customer rules to enhance network security.
 services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurepowershell
 ms.date: 02/13/2024
-ms.author: victorh
 ms.topic: how-to
 ---
 
@@ -61,7 +61,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: true
+            negationCondition: true
             matchValues: [
               'US'
             ]
@@ -156,7 +156,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: true
+            negationCondition: true
             matchValues: [
               'US'
               'CA'
@@ -170,7 +170,7 @@ properties: {
               }
             ]
             operator: 'Contains'
-            negationConditon: false
+            negationCondition: false
             matchValues: [
               '/foo'
               '/bar'
@@ -276,7 +276,7 @@ properties: {
               }
             ]
             operator: 'GeoMatch'
-            negationConditon: false
+            negationCondition: false
             matchValues: [
               'US'
             ]

@@ -4,7 +4,6 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024
 ms.author: greglin

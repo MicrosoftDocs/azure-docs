@@ -23,8 +23,6 @@ items:
         href: business-one-azure.md
       - name: Connect to SAP LaMa
         href: lama-installation.md
-      - name: Deploy with SAP Cloud Appliance Library
-        href: cal-s4h.md
       - name: SAP IDES on Windows/SQL Server SAP CAL
         href: cal-ides-erp6-erp7-sp3-sql.md
       - name: SAP ILM

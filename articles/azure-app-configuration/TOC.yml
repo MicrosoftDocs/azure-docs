@@ -130,8 +130,6 @@
     items:
     - name: Use feature flags
       items:
-      - name: ASP.NET Core
-        href: use-feature-flags-dotnet-core.md
       - name: Spring Boot
         href: use-feature-flags-spring-boot.md
     - name: Enable conditional features with feature filters
@@ -161,9 +159,11 @@
     - name: Use variant feature flags
       items:
       - name: Overview
-        href: use-variant-feature-flags.md
+        href: howto-variant-feature-flags.md
       - name: ASP.NET Core
-        href: use-variant-feature-flags-aspnet-core.md
+        href: howto-variant-feature-flags-aspnet-core.md
+      - name: Python
+        href: howto-variant-feature-flags-python.md
   - name: Enable Azure monitoring
     items:
     - name: Monitor App Configuration
@@ -302,26 +302,47 @@
           href: ./rest-api-versioning.md
   - name: Client libraries
     items:
-    - name: .NET provider
-      href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-    - name: .NET Framework builder
-      href: https://go.microsoft.com/fwlink/?linkid=2074663
-    - name: Java Spring provider
-      href: https://go.microsoft.com/fwlink/?linkid=2180917
-    - name: Python provider
-      href: https://pypi.org/project/azure-appconfiguration-provider/
-    - name: Azure SDK for .NET
-      href: https://go.microsoft.com/fwlink/?linkid=2092056
-    - name: Azure SDK for Java
-      href: https://go.microsoft.com/fwlink/?linkid=2098196
-    - name: Azure SDK for Python
-      href: https://go.microsoft.com/fwlink/?linkid=2103727
-    - name: Azure SDK for JavaScript
-      href: https://go.microsoft.com/fwlink/?linkid=2103664
-    - name: Azure SDK for Go
-      href: https://go.microsoft.com/fwlink/?linkid=2270866
+    - name: Overview
+      href: ./configuration-provider-overview.md
+    - name: .NET
+      items:
+      - name: API reference
+        href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+      - name: Azure SDK for .NET
+        href: https://go.microsoft.com/fwlink/?linkid=2092056
+      - name: .NET Framework builder
+        href: https://go.microsoft.com/fwlink/?linkid=2074663
+    - name: Java Spring
+      items:
+      - name: Feature reference
+        href: https://go.microsoft.com/fwlink/?linkid=2180917
+      - name: Azure SDK for Java
+        href: https://go.microsoft.com/fwlink/?linkid=2098196
+    - name: Python
+      items:
+      - name: Feature reference
+        href: https://pypi.org/project/azure-appconfiguration-provider/
+      - name: Azure SDK for Python
+        href: https://go.microsoft.com/fwlink/?linkid=2103727
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./reference-javascript-provider.md
+      - name: Azure SDK for JavaScript
+        href: https://go.microsoft.com/fwlink/?linkid=2103664
+    - name: Kubernetes
+      items:
+      - name: Feature reference
+        href: ./reference-kubernetes-provider.md
+    - name: Go
+      items:
+      - name: Azure SDK for Go
+        href: https://go.microsoft.com/fwlink/?linkid=2270866
+
   - name: Feature management
     items:
+    - name: Overview
+      href: ./feature-management-overview.md
     - name: .NET
       items:
       - name: Feature reference
@@ -338,6 +359,10 @@
         href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./feature-management-javascript-reference.md
   - name: Deployment
     items:
     - name: ARM template
@@ -350,8 +375,6 @@
     href: /cli/azure/appconfig
   - name: Azure PowerShell
     href: /powershell/module/az.appconfiguration/
-  - name: Kubernetes provider
-    href: reference-kubernetes-provider.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

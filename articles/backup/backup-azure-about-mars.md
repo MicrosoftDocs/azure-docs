@@ -5,8 +5,8 @@ ms.topic: overview
 ms.date: 08/13/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup

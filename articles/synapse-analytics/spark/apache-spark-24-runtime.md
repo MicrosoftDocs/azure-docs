@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 2.4 (unsupported)
 description: Versions of Spark, Scala, Python, and .NET for Apache Spark 2.4.
-author: ekote
-ms.author: eskot 
+author: ms-arali
+ms.author: arali
 ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark

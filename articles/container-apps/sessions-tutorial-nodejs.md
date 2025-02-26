@@ -21,7 +21,7 @@ In this tutorial you:
 > * Pass in JavaScript code for the container app to run
 
 > [!NOTE]
-> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#preview-limitations).
+> The JavaScript code interpreter feature in Azure Container Apps dynamic sessions is currently in preview. For more information, see [preview limitations](./sessions.md#region-availability).
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ To interact with the session pool's API, you must use an identity with the `Azur
 
 ## Get a bearer token
 
-For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](https://learn.microsoft.com/azure/container-apps/sessions?tabs=azure-cli#authentication) rules.
+For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](./sessions.md?tabs=azure-cli#authentication) rules.
 
 1. Get an access token.
 

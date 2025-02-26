@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 02/07/2025
 
 #CustomerIntent: As a administrator, I want learn about traffic analytics schema so I can easily use the queries and understand their output.
 ---
@@ -272,8 +272,8 @@ The following table details public IP schema:
 | **ThreatType** | Threat posed by malicious IP | **For Malicious IPs only**: One of the threats from the list of currently allowed values (described in the next table). |
 | **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with the malicious IP. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* |
-| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only* |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
+| **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 # [**Virtual network flow logs**](#tab/vnet)
 
@@ -291,14 +291,17 @@ The following table details public IP schema:
 | **DNSDomain** | DNS domain | *For Malicious IPs only*. Domain name associated with this IP. |
 | **ThreatDescription** | Description of the threat | *For Malicious IPs only*. Description of the threat posed by the malicious IP. |
 | **Location** | Location of the IP | **For Azure Public IP**: Azure region of virtual network / network interface / virtual machine to which the IP belongs or Global for IP 168.63.129.16. <br> **For External Public IP and Malicious IP**: two-letter country code (ISO 3166-1 alpha-2) where IP is located. |
-| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only* . |
+| **Url** | URL corresponding to the malicious IP | *For Malicious IPs only*. |
 | **Port** | Port corresponding to the malicious IP | *For Malicious IPs only*. |
 
 > [!NOTE]
-> *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
+> - *NTAIPDetails* in virtual network flow logs replaces *AzureNetworkAnalyticsIPDetails_CL* used in network security group flow logs.
+> 
+> - Traffic analytics can log any malicious FQDN associated to the IP for malicious flows. To filter out, use the port, URL and domain fields as needed. 
 
 ---
 
+<br>
 List of threat types:
 
 | Value | Description |
@@ -307,7 +310,7 @@ List of threat types:
 | C2 | Indicator detailing a Command & Control node of a botnet. |
 | CryptoMining | Traffic involving this network address / URL is an indication of CyrptoMining / Resource abuse. |
 | DarkNet | Indicator of a Darknet node/network. |
-| DDos | Indicators relating to an active or upcoming DDoS campaign. |
+| DDoS | Indicators relating to an active or upcoming DDoS campaign. |
 | MaliciousUrl | URL that is serving malware. |
 | Malware | Indicator describing a malicious file or files. |
 | Phishing | Indicators relating to a phishing campaign. |
@@ -325,10 +328,13 @@ List of threat types:
     - `S2S` (Site-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the virtual network through VPN gateway or ExpressRoute.
     - `P2S` (Point-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the Azure Virtual Network through VPN gateway.
     - `AzurePublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is an Azure Public IP address owned by Microsoft. Customer owned Public IP addresses aren't part of this flow type. For instance, any customer owned VM sending traffic to an Azure service (Storage endpoint) would be categorized under this flow type.
-    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that isn't in Azure and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
-    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that isn't in Azure and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
+    - `ExternalPublic`: One of the IP addresses belongs to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and isn't reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+    - `MaliciousFlow`: One of the IP addresses belong to an Azure virtual network, while the other IP address is a public IP that is neither owned by Microsoft nor part of a customer-owned subscription visible to traffic analytics and is reported as malicious in the ASC feeds that traffic analytics consumes for the processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
     - `UnknownPrivate`: One of the IP addresses belong to an Azure virtual network, while the other IP address belongs to the private IP range defined in RFC 1918 and couldn't be mapped by traffic analytics to a customer owned site or Azure virtual network.
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
+
+    > [!NOTE]
+    > A subscription is visible to traffic analytics in a Log Analytics workspace if it contains a flow log configured to that workspace.
 
 ## Related content
 

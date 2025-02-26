@@ -1,12 +1,12 @@
 ---
 title: About migrating to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
-description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
+description: This article explains how to migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: duau
 ---
@@ -37,7 +37,7 @@ For enhanced reliability, it's recommended to use an Availability-Zone Enabled v
 
 Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell command or delete and recreate the virtual network gateway to migrate between SKUs.
 
-With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
+With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without disruption. However, users may experience brief connectivity issues or interruptions during the migration process.
 
 > [!NOTE]
 > The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.

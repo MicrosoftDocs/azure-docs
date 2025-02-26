@@ -4,7 +4,7 @@ description: Learn about TLS encryption when using Azure Front Door.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/15/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers

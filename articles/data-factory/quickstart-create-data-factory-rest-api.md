@@ -5,7 +5,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---

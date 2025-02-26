@@ -1,7 +1,7 @@
 ---
 title: Arc enable discovered inventory in Azure Migrate
 description: Describes how to enable arc in Azure Migrate
-author: v-sreedevank
+author: SnehaSudhirG
 ms.author: anjalimishra
 ms.service: azure-migrate
 ms.topic: how-to
@@ -31,9 +31,9 @@ The Arc-enable Migrate Inventory helps you view the Arc status of inventory disc
 
 ### Arc status in Azure Migrate
  
-To view the Arc Status in Azure Migrate, follow these steps: 
+To view the Arc Status in Azure Migrate, follow these steps:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered servers**.
+1. In **Servers, databases and web apps**, select **Discovered servers**.
 The **Discovered servers** page lists all the machines discovered. You can see the **Sync Arc Status** option here. 
 
    :::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers-inline.png" alt-text="Screenshot of the discovered servers." lightbox="./media/how-to-arc-enable-inventory/discovered-servers-expanded.png":::
@@ -57,7 +57,7 @@ The Arc status has two states. If a machine is Arc-enabled, the Migrate inventor
 
 To enable Arc for Azure Migrate discovered inventory, follow these steps:  
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discovered items**.
+1. In **Servers, databases and web apps**, select **Discovered items**.
 
 2. Navigate to **Enable Arc** and select **Generate onboarding script**. 
  

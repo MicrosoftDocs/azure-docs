@@ -40,8 +40,8 @@ The following diagram illustrates the agentless replication workflow with privat
 :::image type="content" source="../media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png" alt-text="Diagram that shows agentless replication architecture." lightbox="../media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png":::
 
 Enable replication as follows:
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**.
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance. Select **OK**.
 1. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment, in **Import migration settings from an Azure Migrate assessment?**,
