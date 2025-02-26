@@ -11,7 +11,7 @@ ms.author: msangapu
 author: msangapu-msft
 ---
 
-# How to add and manage TLS/SSL certificates in Azure App Service
+# Add and manage TLS/SSL certificates in Azure App Service
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 

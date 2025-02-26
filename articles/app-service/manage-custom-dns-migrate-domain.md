@@ -1,5 +1,5 @@
 ---
-title: Migrate a domain
+title: Migrate an active domain
 description: Learn how to migrate your active domain to Azure App Service and maintain seamless connectivity for your app users.
 keywords: domain migration, Azure App Service, move domain, custom domain transfer
 tags: top-support-issue

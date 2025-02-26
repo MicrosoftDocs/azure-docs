@@ -10,7 +10,7 @@ ms.author: msangapu
 author: msangapu-msft
 ---
 
-# How to use TLS/SSL certificates in your application code
+# Use TLS/SSL certificates in your application code
 
 In your application code, you can access the [public or private certificates you add to App Service](configure-ssl-certificate.md). Your app code may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks. This how-to guide shows how to use public or private certificates in your application code.
 
