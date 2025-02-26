@@ -96,22 +96,26 @@ For more information, see [Understand threat intelligence ingestion rules](under
 
 Connect threat intelligence objects with the relationship builder. There's a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
 
-1. Start with an object like a threat actor or attack pattern where the single object connects to one or more objects, like indicators.
+1. Select **Add new** > **TI relationship**.
+
+1. Start with an existing TI object like a threat actor or attack pattern where the single object connects to one or more existing objects, like indicators.
 
 1. Add the relationship type according to the best practices outlined in the following table and in the [STIX 2.1 reference relationship summary table](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_6n2czpjuie3v):
 
-| Relationship type | Description |
-|---|---|
-| **Duplicate of**</br>**Derived from**</br>**Related to** | Common relationships defined for any STIX domain object (SDO)<br>For more information, see [STIX 2.1 reference on common relationships](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f3dx2rhc3vl)|
-| **Targets** | `Attack pattern` or `Threat actor` Targets `Identity` |
-| **Uses** | `Threat actor` Uses `Attack pattern` |
-| **Attributed to** | `Threat actor` Attributed to `Identity` |
-| **Indicates** | `Indicator` Indicates `Attack pattern` or `Threat actor` |
-| **Impersonates** | `Threat actor` Impersonates `Identity` |
+   | Relationship type | Description |
+   |---|---|
+   | **Duplicate of**</br>**Derived from**</br>**Related to** | Common relationships defined for any STIX domain object (SDO)<br>For more information, see [STIX 2.1 reference on common relationships](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f3dx2rhc3vl)|
+   | **Targets** | `Attack pattern` or `Threat actor` Targets `Identity` |
+   | **Uses** | `Threat actor` Uses `Attack pattern` |
+   | **Attributed to** | `Threat actor` Attributed to `Identity` |
+   | **Indicates** | `Indicator` Indicates `Attack pattern` or `Threat actor` |
+   | **Impersonates** | `Threat actor` Impersonates `Identity` |
 
-The following image demonstrates connections made between a threat actor and an attack pattern, indicator, and identity using the relationship type table.
+1. Use the following image as an example in how to use the relationship builder. This example demonstrates how to make connections made between a threat actor and an attack pattern, indicator, and identity using the relationship builder in the Defender portal.
 
-:::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
+   :::image type="content" source="media/work-with-threat-indicators/relationship-example-defender-portal.png" alt-text="Screenshot showing the relationship builder." lightbox="media/work-with-threat-indicators/relationship-example-defender-portal.png":::
+
+1. Complete the relationship by configuring **Common** properties.
 
 ### View your threat intelligence in the management interface
 
