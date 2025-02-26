@@ -1852,7 +1852,7 @@ az vm extension set \
 
 ## Test NAT gateway
 
-Connect to the Windows Server 2022 virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
+To verify that the outbound internet traffic is leaving the NAT gateway, connect to the Windows Server 2022 virtual machines you created in the previous steps.
 
 ### Obtain NAT gateway public IP address
 
