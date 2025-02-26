@@ -32,7 +32,7 @@ The following prerequisites are required to continue.
 
 ## Supported host types
 
-To use Elastic SAN with Azure VMware Solution, you can use any of these three host types:
+To use Elastic SAN with Azure VMware Solution, you can use any of these host types:
 
 - AV36 
 

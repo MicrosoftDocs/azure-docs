@@ -2,7 +2,8 @@
 title: Build a Container Image by Using Paketo Buildpacks
 description: Describes how to build a container image by using Paketo Buildpacks.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
