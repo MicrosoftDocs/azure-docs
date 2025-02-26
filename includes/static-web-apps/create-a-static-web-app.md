@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 10/17/2022
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ## Create a static web app
