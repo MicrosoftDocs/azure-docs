@@ -31,19 +31,19 @@ Before proceeding, ensure you have:
 
 Create the UAMI(s) required for accessing the necessary resources.
 
-For more information on creating managed identities, refer to [Manage user-assigned managed](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md)
+For more information on creating managed identities, refer to [Manage user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
 
 ## Configure the storage account
 
 ### Create or identify a storage account
 
-Create a new storage account or use an existing one. Refer to [Create an Azure storage account](/articles/storage/common/storage-account-create).
+Create a new storage account or use an existing one. Refer to [Create an Azure storage account](../storage/common/storage-account-create.md).
 
 ### Assign the required role
 
 Assign the **Storage Blob Data Contributor** role to the users and UAMI needing access to the **runRO** and **cable validation command output**.
 
-For role assignment details, see [Assign an Azure role for access to blob data](/articles/storage/blobs/assign-azure-role-data-access.md).
+For role assignment details, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
 
 ### 2.3 Restrict storage account access
 
@@ -51,7 +51,7 @@ To limit access, configure Storage Firewalls and Virtual Networks:
 
 - Add all required users' IP addresses to the **Virtual Networks** and/or **Firewall** lists.
 
-- Follow instructions from [Configure Azure Storage firewalls and virtual networks](/articles/storage/common/storage-network-security.md).
+- Follow instructions from [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
 
 ### Enable Trusted Services
 
