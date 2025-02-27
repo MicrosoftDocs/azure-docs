@@ -58,7 +58,7 @@ To set up a Defender for Servers plan:
 
 ### Grant MDE Onboarding Permissions
 
-To enable the Microsoft Defender for Endpoint (MDE) agent on baremetal machines within your Nexus Cluster, you must grant the nc-platform-extension identity of the cluster permission to onboard the MDE agent on your behalf.
+To enable the Microsoft Defender for Endpoint (MDE) agent on bare metal machines within your Nexus Cluster, you must grant the nc-platform-extension identity of the cluster permission to onboard the MDE agent on your behalf.
 
 The nc-platform-extension identity does not exist prior to deploying the Operator Nexus cluster. The following example must be performed after the Cluster is deployed.
 
@@ -66,7 +66,7 @@ The required permission is ```Microsoft.Security/mdeOnboardings/read```. Assign 
 
 > [!IMPORTANT]
 > The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
-> Executing the the commands to show the principal ID object ID requires the Microsoft Entra role assignment of Directory Reader or equivalent.
+> Executing the commands to show the principal ID object ID requires the Microsoft Entra role assignment of Directory Reader or equivalent.
 
 Below is an example bash script using the Azure CLI for granting the nc-platform-extension identity permission to onboard the MDE agent on your behalf.
 
@@ -134,12 +134,12 @@ az role assignment create \
 echo "Done. Security Reader role assignment created"
 ```
 
-While the required permissions are not assigned, the MDE onboarding reconcilliation logic will continue to attempt to onboard the MDE agent until the permissions are granted. After permission assignment is complete, the MDE onboarding reconcilliation will complete successfully with no additional action required.
+While the required permissions are not assigned, the MDE onboarding reconciliation logic will continue to attempt to onboard the MDE agent until the permissions are granted. After permission assignment is complete, the MDE onboarding reconciliation will complete successfully with no additional action required.
 
-Reconcilliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the reconcilliation will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
+reconciliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the reconciliation will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
 
 > [!IMPORTANT]
-> MDE Agent reconilliation runs independently on each of the baremetal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all baremetal machines in the cluster will vary depending on the number of baremetal machines in the cluster and the initial time of the first onboarding attempt.
+> MDE Agent reconiliation runs independently on each of the bare metal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all bare metal machines in the cluster will vary depending on the number of bare metal machines in the cluster and the initial time of the first onboarding attempt.
 
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  
