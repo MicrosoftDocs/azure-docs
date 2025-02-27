@@ -160,7 +160,7 @@ configuration:
               matchAny: true
               pattern: articles/reliability/*
           - commentContains:
-              pattern: #sign-off
+              pattern: 
               isRegex: false
           - not:
               or:
