@@ -1,6 +1,6 @@
 ---
-title: Azure Update Manager supported OS, update sources, and types
-description: This article provides information on update sources, and types of updates and best practices for managing updates on your Azure VMs and servers.
+title: Azure Update Manager update sources, and types
+description: This article provides information on update sources, update types, Microsoft updates and Third party updates for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -8,9 +8,9 @@ ms.date: 02/26/2025
 ms.topic: overview
 ---
 
-# Supported updates for Azure Update Manager
+# Supported update sources, types, Microsoft application updates and Third party updates
 
-This article provides detailed information on the supported operating systems, update sources, and types of updates that can be managed using Azure Update Manager. Additionally, it outlines the system requirements for machines or servers managed by Azure Update Manager.
+This article provides detailed information on the supported update sources, update types, Microsoft application and Third party updates that can be managed using Azure Update Manager.
 
 ## Supported update sources
 
@@ -56,15 +56,18 @@ Use one of the following options to perform the settings change at scale:
     $ServiceManager.RemoveService($ServiceId)
    ```
 
-#### Third party application updates
+## Third party application updates
 
 #### [Windows](#tab/third-party-win)
 
-Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. 
+
+This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
 #### [Linux](#tab/third-party-lin)
 
-Third party application updates are supported in Azure Update Manager. If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. The package isn't available for assessment and installation if you remove it.
+Third party application updates are supported in Azure Update Manager. If you include a specific third party software repository in the Linux package manager repository location, it's scanned when it performs software update operations. 
+The package isn't available for assessment and installation if you remove it.
 
 ---
 

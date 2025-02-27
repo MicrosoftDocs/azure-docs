@@ -19,6 +19,9 @@ Automatic VM guest patching, on-demand patch assessment and on-demand patch inst
 
 If [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) is enabled on a VM, then the available Critical and Security patches are downloaded and applied automatically on the VM.
 
+>[!NOTE]
+> Only x64 operating systems are currently supported. Neither ARM64 nor x86 are supported for any operating system.
+
 ## Customized images
 
 For VMs created from customized images even if the Patch orchestration mode is set to `Azure Orchestrated/AutomaticByPlatform`, automatic VM guest patching doesn't work. We recommend that you use scheduled patching to patch the machines by defining your own schedules or install updates on-demand.
