@@ -52,7 +52,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 
 
 
-## Workloads
 
 ## Related resources
 
