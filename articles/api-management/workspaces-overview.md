@@ -86,7 +86,7 @@ Consider reliability, security, and cost when choosing a deployment model for wo
 * **Use dedicated gateways for mission-critical workloads** - To maximize API reliability and security, assign each mission-critical workspace to its own gateway, avoiding shared use with other workspaces.
 * **Balance reliability, security, and cost** - Associate multiple workspaces with a gateway to balance reliability, security, and cost for non-critical workloads. Distributing workspaces across at least two gateways helps prevent issues, such as resource exhaustion or configuration errors, from impacting all APIs within the organization.
 * **Use distinct gateways for different use cases** - Group workspaces on a gateway based on a use case or network requirements. For instance, you can distinguish between internal and external APIS by assigning them to separate gateways, each with its own network configuration.
-**Prepare to quarantine troubled workspaces** - Use a proxy, such as Azure Application Gateway or Azure Front Door, in front of shared workspace gateways to simplify moving a workspace that's causing resource exhaustion to a different gateway, preventing impact on other workspaces sharing the gateway.
+* **Prepare to quarantine troubled workspaces** - Use a proxy, such as Azure Application Gateway or Azure Front Door, in front of shared workspace gateways to simplify moving a workspace that's causing resource exhaustion to a different gateway, preventing impact on other workspaces sharing the gateway.
 
 > [!NOTE]
 > * A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription
