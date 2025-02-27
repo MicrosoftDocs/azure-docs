@@ -53,7 +53,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 
 
 ## Workload and general guidance
-| **Workloads**   | 
 | [Azure Kubernetes Service (AKS) and MySQL Flexible Server](migrate-workload-aks-mysql.md)|
 
 ## Related resources
