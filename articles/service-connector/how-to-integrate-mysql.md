@@ -137,9 +137,6 @@ Reference the connection details and sample code in following tables, according 
 
 #### Sample code
 
-> [!NOTE]
-> Although SQL database in Microsoft Fabric is distinct from Azure SQL Database, you can connect to and query your SQL database in Microsoft Fabric in all the same ways as Azure SQL Database. [Learn more](/fabric/database/sql/connect).
-
 Refer to the steps and code below to connect to Azure Database for MySQL using a system-assigned managed identity.
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
