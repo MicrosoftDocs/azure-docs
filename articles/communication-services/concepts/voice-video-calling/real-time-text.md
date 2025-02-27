@@ -54,7 +54,7 @@ The `RealTimeTextInfo` (or `RealTimeTextDetails` on certain platforms) class is 
 Developers can subscribe to RTT events through a single event subscription, allowing them to manage their own list and ordering of RTT messages. This approach aligns with the Captions API, facilitating easier integration and maintenance. The UI is responsible for binding the data to the screen, managing the display list, and handling text input interactions based on message finalization.
 
 >[!NOTE]
->RTT Teams Interlop is not functional yet
+>RTT Teams Interlop is not functional yet.
 
 ### Privacy Concerns
 Real-Time Text (RTT) is only available during the call or meeting. Azure Communication Services doesn't store these text exchanges anywhere. Many countries/regions and states have laws and regulations that apply to the storing of data. It is your responsibility to use RTT in compliance with the law should you choose to store any of the data generated through RTT. You must obtain consent from the parties involved in a manner that complies with the laws applicable to each participant.
