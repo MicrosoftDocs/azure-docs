@@ -1,6 +1,6 @@
 ---
  title: include file
- description: include file for creating an Azure Digital Twins instance in the quickstarts
+ description: Include file for creating an Azure Digital Twins instance in the quickstarts.
  services: digital-twins
  author: baanders
  ms.service: azure-digital-twins
@@ -25,9 +25,9 @@
 
 4. Select **Review + create** to finish creating your instance.
     
-5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
+5. You see a summary page showing the details you entered. Confirm and create the instance by selecting **Create**.
 
-This will take you to an Overview page tracking the deployment status of the instance.
+This action takes you to an Overview page tracking the deployment status of the instance.
 
 :::image type="content" source="../articles/digital-twins/media/quickstart-azure-digital-twins-explorer/deployment-in-progress.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is in progress.":::
 
