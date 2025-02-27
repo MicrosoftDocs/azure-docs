@@ -479,24 +479,28 @@ items:
         href: view-workflow-status-run-history.md
       - name: View health and performance metrics
         href: view-workflow-metrics.md
-      - name: Enable Health Check (Standard workflows)
-        href: monitor-health-standard-workflows.md
-      - name: Enable and view enhanced telemetry - Standard workflows
-        href: enable-enhanced-telemetry-standard-workflows.md
       - name: Monitor and collect diagnostic data for workflows
         href: monitor-workflows-collect-diagnostic-data.md
       - name: Monitor workflows in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
-      - name: Monitor and track B2B messages - Consumption workflows
-        href: monitor-track-b2b-messages-consumption.md
-      - name: Monitor and track B2B transactions - Standard workflows
-        href: monitor-track-b2b-transactions-standard.md
-      - name: Tracking schemas for B2B messages - Consumption workflows
-        href: tracking-schemas-consumption.md
-      - name: Tracking table schemas for B2B transactions - Standard workflows
-        href: tracking-table-schemas-standard.md
-      - name: Create monitoring and tracking queries
-        href: create-monitoring-tracking-queries.md
+      - name: Consumption workflows
+        items:
+        - name: Monitor and track B2B messages
+          href: monitor-track-b2b-messages-consumption.md
+        - name: Create monitoring and tracking queries
+          href: create-monitoring-tracking-queries.md
+        - name: Tracking schemas for B2B messages
+          href: tracking-schemas-consumption.md
+      - name: Standard workflows
+        items:
+        - name: Enable Health Check
+          href: monitor-health-standard-workflows.md
+        - name: Enable and view enhanced telemetry
+          href: enable-enhanced-telemetry-standard-workflows.md
+        - name: Monitor and track B2B transactions
+          href: monitor-track-b2b-transactions-standard.md
+        - name: Tracking table schemas for B2B transactions
+          href: tracking-table-schemas-standard.md
   - name: Reliability
     items:
     - name: Enable zone redundancy
