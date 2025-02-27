@@ -15,6 +15,7 @@ ms.author: normesta
 # Storage task assignment
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. 
+Why do you create one.
 
 ## Flow of tasks
 
