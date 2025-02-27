@@ -22,7 +22,7 @@ To aid your understanding of Defender for Cloud and its many security features, 
 To successfully complete the actions in this guide:
 - You must have an Azure Operator Nexus subscription.
 - You must have a deployed Azure Arc-connected Operator Nexus instance running in your on-premises environment.
-- You must use an Azure portal user account in your subscription with Owner, Contributor or Reader role.     
+- You must use an Azure portal user account in your subscription with Owner, Contributor, or Reader role.     
 
 ## Enable Defender for Cloud
 
@@ -136,10 +136,10 @@ echo "Done. Security Reader role assignment created"
 
 While the required permissions are not assigned, the MDE onboarding reconciliation logic will continue to attempt to onboard the MDE agent until the permissions are granted. After permission assignment is complete, the MDE onboarding reconciliation will complete successfully with no additional action required.
 
-reconciliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the reconciliation will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
+Reconciliation of the MDE onboarding status is an exponential backoff process. The first retry attempt will be made after 10 minutes, the second after 20 minutes, and the third after 40 minutes. If three failures occur, the reconciliation will wait 10 minutes before attempting to onboard the MDE agent again (which will restart the exponential backoff process).
 
 > [!IMPORTANT]
-> MDE Agent reconiliation runs independently on each of the bare metal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all bare metal machines in the cluster will vary depending on the number of bare metal machines in the cluster and the initial time of the first onboarding attempt.
+> MDE Agent reconciliation runs independently on each of the bare metal machines in the cluster. As such the exact time it takes to onboard the MDE agent on all bare metal machines in the cluster will vary depending on the number of bare metal machines in the cluster and the initial time of the first onboarding attempt.
 
 ### Operator Nexus-specific requirement for enabling Defender for Endpoint
  
