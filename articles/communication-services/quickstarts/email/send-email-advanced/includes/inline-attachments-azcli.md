@@ -92,7 +92,7 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-- Replace `<inlineattachmenttype1>` with the actual attchment type of the file.
+- Replace `<inlineattachmenttype1>` with the actual attachment type of the file.
 - Replace `<filepath>/<contentid>` with the file path to your attachment and the cid name or id for your inline attachment.
 - Replace `<contentid>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
 - Replace `<alternatetext>` with a descriptive text for the image to help with accessibility.
@@ -116,7 +116,7 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-- Replace `<attachmenttype1>` `<inlineattachmenttype1>` with the actual attchment type of the file.
+- Replace `<attachmenttype1>` `<inlineattachmenttype1>` with the actual attachment type of the file.
 - Replace `<filepath>` with the file path to your attachment.
 - Replace `<filepath>/<contentid>` with the file path to your attachment and the cid name or id for your inline attachment.
 - Replace `<contentid>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
@@ -141,7 +141,7 @@ Make these replacements in the code:
 - Replace `<yourConnectionString>` with your connection string.
 - Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
 - Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-- Replace `<attachmenttype1>` `<attachmenttype2>` `<inlineattachmenttype1>` `<inlineattachmenttype2>` `<inlineattachmenttype3>` with the actual attchment types of the file.
+- Replace `<attachmenttype1>` `<attachmenttype2>` `<inlineattachmenttype1>` `<inlineattachmenttype2>` `<inlineattachmenttype3>` with the actual attachment types of the file.
 - Replace `<filepath1>` `<filepath2>` with the file paths to your attachment.
 - Replace `<filepath1>/<contentid1>` `<filepath2>/<contentid2>` `<filepath3>/<contentid3>`  with the file paths to your attachment and the cid name or id for your inline attachment.
 - Replace `<contentid1>` `<contentid2>` `<contentid3>` with the CID for your inline attachment, which is referred to in the img src part of the HTML.
@@ -176,7 +176,7 @@ The following optional parameters are available in Azure CLI.
 
 - `--attachment-types` sets the list of email attachment types, in the same order of attachments.
 
-- `--inline-attachments` parameter embeds an attachment directly within the email body, instead of as a separate downloadable file. It is commonly used for images or media files that should appear inline in the email content.
+- `--inline-attachments` parameter embeds an attachment directly within the email body, instead of as a separate downloadable file. It's commonly used for images or media files that should appear inline in the email content.
 
 >[!NOTE] 
 > There needs to be at least one recipient in `--to` or `--cc` or `--bcc`.
