@@ -140,7 +140,7 @@
           displayName: Migrate a custom domain, custom domain
     - name: TLS/SSL certificates
       items:
-        - name: Oveview of TLS/SSL in App Service
+        - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
           displayName: TLS, SSL
         - name: Secure a custom domain with HTTPS
