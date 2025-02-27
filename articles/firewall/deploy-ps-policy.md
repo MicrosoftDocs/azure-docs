@@ -2,11 +2,11 @@
 title: 'Deploy and configure Azure Firewall policy using Azure PowerShell'
 description: In this article, you learn how to deploy and configure Azure Firewall policy using the Azure PowerShell. 
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.date: 06/08/2023
-ms.author: victorh
+ms.author: duau
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---

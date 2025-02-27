@@ -108,7 +108,7 @@ Now that you've created the VM, connect to it so you can mount your file share.
 1. Select a drive letter and then **Show script**.
 1. Copy the script from the Azure portal and paste it into **Notepad**, as in the following example.
 
-   :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Screenshot that shows the script that you should copy from the Azure portal and paste into Notepad." lightbox="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png":::
+   :::image type="content" source="media/storage-files-quick-create-use-windows/files-portal-mounting-script.png" alt-text="Screenshot that shows the mounting script that you should copy from the Azure portal and paste into Notepad." lightbox="media/storage-files-quick-create-use-windows/files-portal-mounting-script.png":::
 
 1. In the VM, open **PowerShell** and paste in the contents of the **Notepad**, then press enter to run the command. It should map the drive.
 

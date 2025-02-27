@@ -106,7 +106,7 @@ For more information see [Azure Virtual Desktop identities and authentication]
 
 Here's what changed in October 2024:
 
-### Yubikey smart card redirection on iOS and iPadOS is now in preview 
+### YubiKey smart card redirection on iOS and iPadOS is now in preview 
 
 Yubico and Microsoft have partnered to provide smart card redirection for iOS and iPadOS Windows App users, which is available in preview starting in version 11.0.4. The Yubico integration supports the latest [YubiKey 5 portfolio](https://www.yubico.com/products/yubikey-5-overview/).  
 

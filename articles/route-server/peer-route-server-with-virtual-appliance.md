@@ -55,12 +55,12 @@ Create a virtual network to deploy both the Route Server and the NVA in it. Azur
 
 1. Select **IP Addresses** tab or **Next** button twice.
 
-1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.0.0.0/16**, then configure the following subnets:
+1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.0.0.0/16**, then configure the below subnets. The subnet must be a minimum of /26 or larger. 
 
     | Subnet name | Subnet address range |
     | ----------- | -------------------- |
     | mySubnet | 10.0.0.0/24 |
-    | RouteServerSubnet | 10.0.1.0/24 |
+    | RouteServerSubnet | 10.0.1.0/26 |
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 

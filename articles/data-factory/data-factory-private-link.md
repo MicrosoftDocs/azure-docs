@@ -5,7 +5,7 @@ ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Azure Private Link for Azure Data Factory

@@ -16,6 +16,8 @@ ms.custom: devdivchpfy22
 
 This tutorial describes how to inspect (trace) request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -96,7 +98,7 @@ Detailed steps follow.
     ```json
     {
         "credentialsExpireAfter": PT1H,
-        "apiId": ""/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+        "apiId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
         "purposes": ["tracing"]
     }
     ```

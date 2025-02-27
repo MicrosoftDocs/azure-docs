@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/27/2025
+ms.date: 02/11/2025
 ms.author: anfdocs
 ---
 # Understand `maxfiles` limits in Azure NetApp Files
@@ -39,7 +39,7 @@ The following table shows examples of the relationship `maxfiles` values based o
 | 200 TiB (214,748,364,800 KiB)	| 6,375,342,024  |
 | 500 TiB (536,870,912,000 KiB)	| 15,938,355,048 |
 
-To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane.
+To see the `maxfiles` allocation for a specific volume size, check the **Maximum number of files** field in the volume’s overview pane. You can also view the `maxfiles` consumption for a volume as a percentage in [Azure monitor](azure-netapp-files-metrics.md#volumes).
 
 :::image type="content" source="./media/azure-netapp-files-resource-limits/maximum-number-files.png" alt-text="Screenshot of volume overview menu." lightbox="./media/azure-netapp-files-resource-limits/maximum-number-files.png":::
 

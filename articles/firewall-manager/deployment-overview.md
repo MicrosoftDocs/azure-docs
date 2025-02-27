@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall Manager deployment overview
 description: Learn the high-level deployment steps required for Azure Firewall Manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: concept-article
 ms.date: 06/21/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Manager deployment overview

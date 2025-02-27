@@ -12,12 +12,13 @@ ms.custom: template-how-to
 
 # Load test secured endpoints with Azure Load Testing
 
-In this article, you learn how to use Azure Load Testing with application endpoints that require authentication. Depending on your application implementation, you might use an access token, user credentials, or client certificates for authenticating requests.
+In this article, you learn how to use Azure Load Testing with application endpoints that require authentication. Depending on your application implementation, you might use an access token, user credentials, managed identity or client certificates for authenticating requests.
 
 Azure Load Testing supports the following options for authenticated endpoints:
 
 - [Authenticate with a shared secret or user credentials](#authenticate-with-a-shared-secret-or-credentials)
 - [Authenticate with client certificates](#authenticate-with-client-certificates)
+- [Authenticate with a managed identity](#authenticate-with-a-managed-identity)
 
 ## Prerequisites
 
@@ -228,6 +229,92 @@ certificates:
 
 When you run your load test, Azure Load Testing retrieves the client certificate from Azure Key Vault, and automatically injects it in each JMeter web request.
 
+## Authenticate with a managed identity
+
+In this scenario, the application endpoint requires that you [use a managed identity to authenticate](/entra/architecture/service-accounts-managed-identities). You can use both system-assigned and user-assigned managed identities. 
+
+The flow for authenticating using a managed identity is:
+
+1. Assign the managed identity that the target endpoint identifies to the Azure Load Testing resource. 
+1. Select the managed identity in the load test configuration.
+
+You need to set up your load tests script to [fetch access token using managed identity](/entra/identity/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) and to use the token to authenticate the requests to the target endpoint. For example, you can get a token through an HTTP REST call to the Azure Instance Metadata Service (IMDS) endpoint and then pass the token to a request using the  `Authorization` HTTP header.  
+
+### Assign the managed identity  
+
+Assign the managed identity that has the required access to the target endpoint to your Azure Load Testing resource. When you run the test, Azure Load Testing assigns this identity to the engine instances. This ensures that your requests to fetch access tokens using the managed identity are successful.  
+
+You can use either a system-assigned managed identity or a user-assigned managed identity, 
+
+* To use a system-assigned managed identity, first [assign a system-assigned managed identity](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#assign-a-system-assigned-identity-to-a-load-testing-resource) to your Azure Load Testing resource. Once it is enabled, provide the required RBAC permissions for this identity on the target endpoint. 
+
+* To use a user-assigned managed identity, first [assign the user-assigned identity](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#assign-a-user-assigned-identity-to-a-load-testing-resource) to your Azure Load Testing resource. If this identity does not have the required RBAC permissions on the target endpoint, provide the required permissions. If your test script uses multiple user-assigned multiple identities, assign the multiple identities to your resource and ensure that they have the required RBAC permissions. 
+
+### Select the managed identity in the load test configuration
+
+Select the required managed identity when you create or edit a test in Azure Load Testing. 
+
+# [Azure portal](#tab/portal)
+
+To select and configure a managed identity for authentication in the Azure portal:
+
+1. Navigate to your load testing resource in the Azure portal, and then select **Tests** to view the list of load tests.
+
+1. Select your test from the list, and then select **Edit** to edit the load test configuration.
+
+    :::image type="content" source="./media/how-to-test-secured-endpoints/edit-load-test.png" alt-text="Screenshot that shows how to edit a load test in the Azure portal." lightbox="./media/how-to-test-secured-endpoints/edit-load-test.png":::
+
+1. On the **Test plan** tab, configure the **Managed identity for authentication scenarios**. Select 'System-assigned identity' or 'User-assigned identity' as required.
+
+    :::image type="content" source="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png" alt-text="Screenshot that shows how to select managed identity for authentication in a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-managed-identity-selection.png":::
+
+1. If you selected 'User-assigned identity', select the required identities from the **User-assigned identity** dropdown. 
+   
+1. Select **Apply**, to save the load test configuration changes.
+    
+# [GitHub Actions](#tab/github)
+
+To add a managed identity for authentication in your load test in GitHub Actions, update the GitHub Actions workflow YAML file. 
+
+The following code snippet gives an example of how to configure a managed identity for authentication in GitHub Actions.
+
+```yaml
+- name: 'Azure Load Testing'
+    uses: azure/load-testing@v1
+    with:
+    loadtestConfigFile: 'SampleApp.yaml'
+    loadtestResource: 'MyTest'
+    resourceGroup: 'loadtests-rg'
+    referenceIdentities:
+        - kind: "Engine"
+          type: "user-assigned"
+          identity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+```
+
+# [Azure Pipelines](#tab/pipelines)
+    
+To add a managed identity for authentication in your load test in Azure Pipelines, update the Azure Pipelines definition file. 
+
+The following code snippet gives an example of how to configure a managed identity for authentication in Azure Pipelines.
+
+```yaml
+- task: AzureLoadTest@1
+    inputs:
+    azureSubscription: 'MyAzureLoadTestingRG'
+    loadTestConfigFile: 'SampleApp.yaml'
+    loadTestResource: 'MyTest'
+    resourceGroup: 'loadtests-rg'
+    referenceIdentities:
+        - kind: "Engine"
+          type: "user-assigned"
+          identity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+```
+---
+> [!IMPORTANT]
+> [Load distribution across regions](./how-to-generate-load-from-multiple-regions.md) is not enabled when you use managed identities for authentication. 
+   
 ## Related content
 
 * Learn more about [how to parameterize a load test](./how-to-parameterize-load-tests.md).
+
+* Learn more about [using multiple certificates in a load test](./how-to-use-multiple-certificates.md).

@@ -22,6 +22,8 @@ In Azure API Management, use *revisions* to make nonbreaking API changes so you 
 
 For background, see [Versions](api-management-versions.md) and [Revisions](api-management-revisions.md).
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

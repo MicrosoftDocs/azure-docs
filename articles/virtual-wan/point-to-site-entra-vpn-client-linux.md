@@ -60,4 +60,4 @@ If your P2S gateway configuration was previously configured to use the older, ma
 
 ## Next steps
 
-For more information about Microsoft-registerd Azure VPN Client, see [Configure P2S User VPN for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
+For more information about Microsoft-registered Azure VPN Client, see [Configure P2S User VPN for Microsoft Entra ID authentication](point-to-site-entra-gateway.md).
