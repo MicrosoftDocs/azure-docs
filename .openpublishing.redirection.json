@@ -5977,7 +5977,7 @@
     },
     {
       "source_path": "articles/reliability/availability-zones-baseline.md",
-      "redirect_url": "/azure/reliability/availability-zones-migration-overview.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
       "redirect_document_id": false
     }
   ]
