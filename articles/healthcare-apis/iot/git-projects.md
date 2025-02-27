@@ -9,6 +9,10 @@ ms.topic: reference
 ms.date: 04/28/2023
 ms.author: chrupa
 ---
+
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 # Open-source projects
 
 Check out our open-source software (OSS) projects on GitHub, which provide source code and instructions to deploy services for various use cases with the MedTech service.
