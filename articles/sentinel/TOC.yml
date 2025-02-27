@@ -161,7 +161,7 @@
           - name: Extra deployment steps
             items:
             - name: Customize the agentless data connector
-              href: configure-agentless.md
+              href: sap/configure-agentless.md
             - name: Collect SAP HANA audit logs
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the data connector agent
