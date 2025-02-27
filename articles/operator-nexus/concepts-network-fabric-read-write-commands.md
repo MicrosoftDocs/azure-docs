@@ -511,7 +511,7 @@ The RW command feature is open and there are no restrictions on it. However, pro
 
 ## Retreive runRW configuration
 
-To retrieve the last successfully applied runRW configuration for a given device, perform a GET operation on the device resource.
+To obtain the last successfully applied runRW configuration, refer to the rwDeviceConfig property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
 
 ```rest
 az rest -m get -u /subscriptions/<example-subscription-id>/resourceGroups/<example-rg>/providers/Microsoft.ManagedNetworkFabric/NetworkDevices/<example-devicename>?api-version=2024-06-15-preview
