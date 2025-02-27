@@ -43,10 +43,10 @@ Connection URLs for your existing applications don't change. Client DNS requests
 > Azure File Shares must be remounted if connected to the public endpoint.
 
 > [!CAUTION]
-> * Private networks using a Private DNS Zone for any given resource type (Ex. privatelink.blob.core.windows.net/ Storage Acocunt), can only resolve DNS Queries to public resources/ Public IPs  if those public resources don't have any existing Private Endpoint Connections. If this applies, an additional DNS configuration is required on the Private DNS Zone to complete the DNS resolution sequence. Otherwise the Private DNS Zone will respond to the DNS query with a NXDOMAIN as no matching DNS record would be found in the Private DNS Zone.
+> * Private networks using a Private DNS Zone for any given resource type (Ex. privatelink.blob.core.windows.net/ Storage Account), can only resolve DNS Queries to public resources/ Public IPs  if those public resources don't have any existing Private Endpoint Connections. If this applies, an additional DNS configuration is required on the Private DNS Zone to complete the DNS resolution sequence. Otherwise the Private DNS Zone will respond to the DNS query with a NXDOMAIN as no matching DNS record would be found in the Private DNS Zone.
 >
-> > * [Fallback to Internet](../dns/private-dns-fallback.md) for Private DNS Zone Virtual Netowrk Links can be implemented for proper DNS Resolution for the Public IP of the public resource. This allows DNS queries that reach Private DNS Zones to be forwarded to Azure DNS for public resolution.
-> > * Alternatively, a manually entered A-record in the Private DNS Zone that contians the Public IP of the public resource would allow for proper DNS resolution. This procedure isn't recommended as the Public IP of the A record in the Private DNS Zone won't be automatically updated if the corresponding public IP address changes for the public resource.
+> > * [Fallback to Internet](../dns/private-dns-fallback.md) for Private DNS Zone Virtual Network Links can be implemented for proper DNS Resolution for the Public IP of the public resource. This allows DNS queries that reach Private DNS Zones to be forwarded to Azure DNS for public resolution.
+> > * Alternatively, a manually entered A-record in the Private DNS Zone that contains the Public IP of the public resource would allow for proper DNS resolution. This procedure isn't recommended as the Public IP of the A record in the Private DNS Zone won't be automatically updated if the corresponding public IP address changes for the public resource.
 >
 > * Private endpoint private DNS zone configurations will only automatically generate if you use the recommended naming scheme in the following tables.
 
