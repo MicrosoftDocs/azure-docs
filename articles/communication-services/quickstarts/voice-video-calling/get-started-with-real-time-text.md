@@ -19,7 +19,7 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 >[!NOTE]
->RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
+>RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
 
 Learn how to integrate Real Time Text (RTT) into your calling applications to enhance accessibility and ensure that all participants can communicate effectively during meetings.
 
@@ -32,7 +32,7 @@ Real Time Text (RTT) is designed to facilitate communication for users who may h
 On supported platforms, RTT data can be displayed alongside captions derived from Speech to Text, providing a comprehensive view of all communications during a call.
 
 >[!NOTE]
->RTT Teams Interlop is not functional yet
+>RTT Teams Interlop is not functional yet.
 
 ## Naming Conventions
 
