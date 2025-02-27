@@ -46,6 +46,9 @@ The System-assigned managed identity and User-assigned managed identity methods 
 
 Reference the connection details and sample code in following tables, according to your connection's authentication type and client type, to connect compute services to SQL database in Microsoft Fabric. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
+> [!NOTE]
+> Although SQL database in Microsoft Fabric is distinct from Azure SQL Database, you can connect to and query your SQL database in Microsoft Fabric in all the same ways as Azure SQL Database. [Learn more](/fabric/database/sql/connect).
+
 ### System-assigned Managed Identity
 
 #### [.NET](#tab/fabric-sql-me-id-dotnet)
@@ -86,9 +89,6 @@ Reference the connection details and sample code in following tables, according 
 ---
 
 #### Sample code
-
-> [!NOTE]
-> Although SQL database in Microsoft Fabric is distinct from Azure SQL Database, you can connect to and query your SQL database in Microsoft Fabric in all the same ways as Azure SQL Database. [Learn more](/fabric/database/sql/connect).
 
 Here are the steps and code to connect to SQL database in Microsoft Fabric using a system-assigned managed identity.
 [!INCLUDE [code sample for fabricsql system mi](./includes/code-fabricsql-me-id.md)]
