@@ -10,6 +10,8 @@ ms.date: 06/07/2023
 ms.author: chrupa
 ---
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 # How to enable diagnostic settings for the MedTech service
 
 In this article, learn how to enable diagnostic settings for the MedTech service to:
