@@ -52,7 +52,7 @@ In this quickstart, you'll learn about how to send email with inline attachments
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](../handle-email-events.md) to capture delivery details.
 
 > [!IMPORTANT]
-> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](../handle-email-events.md).
+> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you'll need to reference [how to handle email events](../handle-email-events.md).
 
 ### Email Throttling
 
