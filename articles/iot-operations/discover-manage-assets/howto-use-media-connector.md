@@ -233,7 +233,7 @@ To configure an asset that captures snapshots from a camera and publishes them t
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -256,7 +256,7 @@ To configure an asset that captures snapshots from a camera and publishes them t
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -326,7 +326,7 @@ To configure an asset that captures snapshots from a camera and saves them as fi
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -349,7 +349,7 @@ To configure an asset that captures snapshots from a camera and saves them as fi
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -400,7 +400,7 @@ To configure an asset that captures clips from a camera and saves them as files:
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -423,7 +423,7 @@ To configure an asset that captures clips from a camera and saves them as files:
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
     ```
 
@@ -477,7 +477,7 @@ You made a note of the IP address of the media server when you deployed it in a 
     # Find the name of your custom location
     CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
     
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
     ```
 
@@ -501,7 +501,7 @@ You made a note of the IP address of the media server when you deployed it in a 
     # Find the name of your custom location
     $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
 
-    # Use the Bicep file to deploy the asset endpoint
+    # Use the Bicep file to deploy the asset
     az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
     ```
 
