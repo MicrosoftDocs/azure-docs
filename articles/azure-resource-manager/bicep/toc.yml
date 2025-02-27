@@ -584,6 +584,10 @@
       href: deploy-powershell.md
     - name: Deploy - Cloud Shell
       href: deploy-cloud-shell.md
+  - name: Export 
+    items:
+    - name: Portal
+      href: export-bicep-portal.md
   - name: Configure settings
     items:
     - name: Bicep config file
@@ -697,6 +701,8 @@
       href: diagnostics/bcp170.md
     - name: BCP192
       href: diagnostics/bcp192.md
+    - name: BCP201
+      href: diagnostics/bcp201.md
     - name: BCP238
       href: diagnostics/bcp238.md
     - name: BCP266

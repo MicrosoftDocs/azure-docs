@@ -2,11 +2,11 @@
 title: Choose the right Azure Firewall version to meet your needs
 description: Learn about the different Azure Firewall versions and how to choose the right one for your needs.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 04/03/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Choose the right Azure Firewall version to meet your needs
