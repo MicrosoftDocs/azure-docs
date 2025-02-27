@@ -4,7 +4,7 @@ description: Learn how to automatically patch your Azure Virtual Machines and Sc
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/13/2025
+ms.date: 02/27/2025
 ms.topic: overview
 ---
 # Automatic Guest Patching for Azure Virtual Machines
@@ -25,7 +25,10 @@ For VMs created from customized images even if the Patch orchestration mode is s
 
 ## Next steps
 
-- [Supported regions](supported-regions.md)
-- [Deploy updates now (on-demand) for a single machine](deploy-updates.md)
-- [Schedule recurring updates](scheduled-patching.md)
-- [Manage update settings via the portal](manage-update-settings.md)
+- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
+- Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
+- Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 
+- Learn about [Extended Security Updates (ESU) using Azure Update Manager](extended-security-updates.md).
+- Learn about [security vulnerabilities and Ubuntu Pro support](security-awareness-ubuntu-support.md).

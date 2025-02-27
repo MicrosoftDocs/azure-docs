@@ -73,8 +73,11 @@ As Update Manager depends on your machine's OS package manager or update service
 
 ## Next steps
 
-- [View updates for a single machine](view-updates.md)
-- [Deploy updates now (on-demand) for a single machine](deploy-updates.md)
-- [Schedule recurring updates](scheduled-patching.md)
-- [Manage update settings via the portal](manage-update-settings.md)
+- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
+- Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
+- Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
+- Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
+- Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 
+- Learn about [security vulnerabilities and Ubuntu Pro support](security-awareness-ubuntu-support.md).
+- Learn about [Extended Security Updates (ESU) using Azure Update Manager](extended-security-updates.md).
 
