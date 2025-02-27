@@ -17,7 +17,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 
 ## Azure services migration guides
 
-### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
 
 | **Products**  | 
 | --- | 
