@@ -213,6 +213,39 @@ Vnet:
 oc get machineset <machineset_name> -n openshift-machine-api -o jsonpath='{.spec.template.spec.providerSpec.value.vnet}'
 ```
 
+## DNS
+
+Follow the instructions below to enable scheduling of DNS pods on the infrastructure nodes.
+
+> [!NOTE]
+> This section is crucial to support log collection from infrastructure nodes, ensuring supportability of your deployment.
+>
+
+1. Allow the DNS pods to run on the infrastructure nodes.
+
+   ```
+   oc edit dns.operator/default
+   ```
+
+   ```
+   apiVersion: operator.openshift.io/v1
+   kind: DNS
+   metadata:
+   name: default
+   spec:
+   nodePlacement:
+     tolerations:
+     - operator: Exists
+   ```
+    
+1. Verify that DNS pods are scheduled onto all infra nodes.
+
+    ```
+    oc get ds/dns-default -n openshift-dns
+    NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+    dns-default   7         7         7       7            7           kubernetes.io/os=linux   35d
+    ```
+
 ## Moving workloads to the new infrastructure nodes
 
 Use the instructions below to move your infrastructure workloads to the infrastructure nodes previously created.
@@ -359,30 +392,4 @@ Use this procedure for any additional ingress controllers you may have in the cl
     kube-state-metrics-574c5bfdd7-f7fjk            3/3     Running   0          2m49s   10.131.4.8    cz-cluster-hsmtw-infra-aro-machinesets-eastus-1-vr56r   <none>           <none>
     ```
 
-### DNS
-
-1. Allow the DNS pods to run on the infrastructure nodes.
-
-   ```
-   oc edit dns.operator/default
-   ```
-
-   ```
-   apiVersion: operator.openshift.io/v1
-   kind: DNS
-   metadata:
-   name: default
-   spec:
-   nodePlacement:
-     tolerations:
-     - operator: Exists
-   ```
-    
-1. Verify that DNS pods are scheduled onto all infra nodes.
-
-```
-oc get ds/dns-default -n openshift-dns
-NAME          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
-dns-default   7         7         7       7            7           kubernetes.io/os=linux   35d
-```
    
