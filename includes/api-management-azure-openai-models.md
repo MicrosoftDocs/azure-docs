@@ -4,7 +4,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 02/27/2025
+ms.date: 07/09/2024
 ms.author: danlep
 ---
 
