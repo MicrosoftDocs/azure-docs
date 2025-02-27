@@ -149,7 +149,7 @@ styleOverrides: {
 > [!NOTE]
 > For more information on the supported map styles on each `styleOverrides` option, see the [styleOverrides] API documentation.
 
-For a sample showing the different styles and how they affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For this samples source code, see [Map style options source code].
+For a sample showing the different styles and how they affect how the map is rendered, see [Map style options] in the [Azure Maps Samples]. For this sample's source code, see [Map style options source code].
 
 ## Add the style picker control
 
