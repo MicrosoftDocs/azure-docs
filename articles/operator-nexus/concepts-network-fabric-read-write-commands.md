@@ -1,8 +1,8 @@
 ---
 title: Network Fabric read write commands
 description: Learn how to use the Nexus Fabric Read Write commands to modify device configurations without accessing the Network Fabric device.
-author: HollyCl
-ms.author: HollyCl
+author: sushantjrao
+ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ms.topic: concept-article 
