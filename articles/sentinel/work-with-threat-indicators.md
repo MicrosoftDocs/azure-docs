@@ -47,7 +47,7 @@ Use the management interface to create STIX objects and perform other common thr
 - Define relationships as you create new STIX objects.
 - Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
 
-For more information on supported STIX objects, see [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
+For more information on supported STIX objects, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
 
 ### Create a new STIX object
 
@@ -90,7 +90,7 @@ Reduce noise from your TI feeds, extend the validity of high value indicators, a
 
 :::image type="content" source="media/work-with-threat-indicators/new-ingestion-rule.png" alt-text="Screenshot showing new ingestion rule creation for extending valid until date.":::
 
-For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
+For more information, see [Threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
 
 ### Curate threat intelligence with the relationship builder
 
@@ -133,7 +133,7 @@ In the following image, multiple sources were used to search by placing them in 
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
 
-Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#threat-intelligence-life-cycle).
+Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Threat intelligence life cycle](understand-threat-intelligence.md#threat-intelligence-life-cycle).
 
 IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data so you can provide more context for any investigations where indicator is found.
 
@@ -240,7 +240,7 @@ There's also a rich resource for [Azure Monitor workbooks on GitHub](https://git
 
 For more information, see the following articles:
 
-- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
+- [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - See which [TIPs, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
 

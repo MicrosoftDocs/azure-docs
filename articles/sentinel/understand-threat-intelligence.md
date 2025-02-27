@@ -1,10 +1,10 @@
 ---
-title: Understand threat intelligence
+title: Threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand threat intelligence and how it integrates with features in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 02/27/2025
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -14,7 +14,7 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to integrate threat intelligence into Microsoft Sentinel so that I can detect, investigate, and respond to potential security threats effectively.
 ---
 
-# Understand threat intelligence in Microsoft Sentinel
+# Threat intelligence in Microsoft Sentinel
 
 Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to ingest, curate, and manage threat intelligence from numerous sources.
 
