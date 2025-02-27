@@ -11,7 +11,7 @@ ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Set up a custom domain in Azure App Service
+# Set up an existing custom domain in Azure App Service
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 

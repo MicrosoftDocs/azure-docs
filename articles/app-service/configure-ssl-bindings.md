@@ -11,7 +11,7 @@ ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ---
-# Enable HTTPS for a Custom Domain in Azure App Service
+# Enable HTTPS for a custom domain in Azure App Service
 
 This article shows you how to provide security for the [custom domain](app-service-web-tutorial-custom-domain.md) in your [App Service app](./index.yml) or [function app](../azure-functions/index.yml) by creating a certificate binding. When you're finished, you can access your App Service app at the `https://` endpoint for your custom DNS name (for example, `https://www.contoso.com`). 
 

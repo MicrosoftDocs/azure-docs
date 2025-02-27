@@ -1,5 +1,5 @@
 ---
-title: Buy and configure a custom domain name
+title: Buy and configure an App Service domain
 description: Learn how to buy and configure a domain name in Azure App Service to create a personalized web address for your app.
 keywords: buy domain, Azure domain management, custom domain setup, Azure App Service domain
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
@@ -8,7 +8,7 @@ ms.date: 02/14/2025
 ms.author: msangapu
 author: msangapu-msft
 ---
-# Buy and manage a domain in Azure App Service
+# Buy and manage an App Service domain
 
 App Service domains are custom domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This article shows you how to buy an App Service domain and configure an App Service app with it.
 
