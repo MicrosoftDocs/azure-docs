@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/15/2024
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate an Azure Cache for Redis instance to availability zone support
