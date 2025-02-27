@@ -64,4 +64,4 @@ Azure services that once didn't support availability zones are often upgraded to
 - [Azure regions with availability zones](availability-zones-region-support.md)
 - [Availability of service by category](availability-service-by-category.md)
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
-- [Build solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones)
