@@ -57,7 +57,7 @@ Use the connection details below to connect compute services to Azure Cosmos DB.
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity.
 
-The managed identity code sample uses the system-assigned managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via system-assigned managed identity.
+The system-assigned managed identity code sample uses a managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
 
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
@@ -74,7 +74,7 @@ The managed identity code sample uses the system-assigned managed identity to li
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
 
-The user-assigned managed identity code sample uses the system-assigned managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via system-assigned managed identity.
+The user-assigned-assigned managed identity code sample uses a managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
 
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
