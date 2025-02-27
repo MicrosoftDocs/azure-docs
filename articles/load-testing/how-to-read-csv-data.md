@@ -35,9 +35,7 @@ In this section, you configure your test script to reference the external CSV fi
 > [!IMPORTANT]
 > Azure Load Testing uploads the JMX file and all related files in a single folder. When you reference an external file in your JMeter script, verify that you have no file path references in your test script.
 
-# [Apache JMeter](#tab/jmeter)
-
-Modify the JMeter script by using the Apache JMeter GUI:
+For JMeter-based tests, modify the JMeter script by using the Apache JMeter GUI:
 
 1. Select the **CSV Data Set Config** element in your test script.
 
@@ -53,9 +51,7 @@ Modify the JMeter script by using the Apache JMeter GUI:
 
 1. Save the JMeter script and upload the script to your load test.
 
-# [Locust](#tab/locust)
-
-Modify the Locust script by opening it an editor of your choice. 
+For Locust-based tests, update the Locust script by opening it an editor of your choice. 
 
 1. In the section where you open the file, update the **Filename** information and remove any file path reference.
 
@@ -130,7 +126,7 @@ For example, if you have a large customer CSV input file, and the load test runs
 
 > [!IMPORTANT]
 > Azure Load Testing doesn't preserve the header row when splitting your CSV file. 
-> 1. [Configure your test script](#update-your-jmeter-script-to-read-csv-data) to use variable names when reading the CSV file. 
+> 1. [Configure your test script](#update-your-test-script-to-read-csv-data) to use variable names when reading the CSV file. 
 > 1. Remove the header row from the CSV file before you add it to the load test.
 
 To configure your load test to split input CSV files:
@@ -173,7 +169,7 @@ To configure your load test to split input CSV files:
 
 ### Test status is failed and test log has `File {my-filename} must exist and be readable`
 
-When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test).
+When the load test completes with the Failed status, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-or-locust-worker-logs-for-your-load-test).
 
 When you receive an error message `File {my-filename} must exist and be readable` in the test log, the input CSV file couldn't be found when running the test script.
 

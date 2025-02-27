@@ -130,11 +130,9 @@ The following code snippet gives an example of how to configure a load test secr
 ```
 ---
 
-### Retrieve and use the secret value in the test script
+### Retrieve and use the secret value in the JMeter script
 
-You can now retrieve the secret value in the test script and pass it to the application request. For example, use an `Authorization` HTTP header to pass an OAuth token to a request. 
-
-# [Apache JMeter](#tab/jmeter)
+You can now retrieve the secret value in the JMeter script by using the `GetSecret` custom function and pass it to the application request. For example, use an `Authorization` HTTP header to pass an OAuth token to a request. 
 
 1. Create a user-defined variable that retrieves the secret value with the `GetSecret` custom function:
 
@@ -148,7 +146,9 @@ You can now retrieve the secret value in the test script and pass it to the appl
 
     :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter." lightbox="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png":::
 
-# [Locust](#tab/locust)
+### Retrieve and use the secret value in the Locust script
+
+You can now retrieve the secret value in the Locust script and pass it to the application request. For example, use an `Authorization` HTTP header to pass an OAuth token to a request. 
 
 The secrets configured in the load test configuration are accessible as environment variables. 
 

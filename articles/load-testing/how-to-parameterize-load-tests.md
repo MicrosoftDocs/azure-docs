@@ -265,6 +265,7 @@ You first define a user-defined variable that reads the environment variable, an
     ```xml
     <stringProp name="HTTPSampler.domain">${udv_webapp}</stringProp>
     ```
+    
 # [Locust](#tab/locust)
 
 1. Initialize a variable with the environment variable's value using the *Name* specified in the load test configuration. 

@@ -97,7 +97,7 @@ A load test can fail to complete because of multiple reasons. Examples of why a 
 Use the following steps to help diagnose a test not finishing:
 
 1. Verify the error details on the load test dashboard.
-1. [Download and analyze the test logs](#download-apache-jmeter-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
+1. [Download and analyze the test logs](#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) to identify issues in the JMeter test script.
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
 
 ### Load test completed

@@ -149,7 +149,7 @@ To specify the load parameters for a JMeter-based load test:
 
 1. On the **Edit test** page, select the **Load** tab. Use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane for JMeter-based tests." lightbox="media/how-to-high-scale-load/edit-test-load.png":::
 
 1. Select **Apply** to modify the test and use the new configuration when you rerun it.
 
@@ -195,7 +195,7 @@ To specify the load parameters for a Locust-based load test:
 1. On the **Edit test** page, select the **Load** tab. Enter the values for the overall users required and overall spwan rate in the respective input boxes. 
 The engine instance count required to generate this load is automatically populated. If your test script is complex and resource intensive, use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
-    :::image type="content" source="media/how-to-high-scale-load/edit-test-load-locust.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane." lightbox="media/how-to-high-scale-load/edit-test-load-locust.png":::
+    :::image type="content" source="media/how-to-high-scale-load/edit-test-load-locust.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane for Locust-based tests." lightbox="media/how-to-high-scale-load/edit-test-load-locust.png":::
 
 Alternatively, you can configure the number of users and spawn rate in the test script or Locust configuration file and provide the number of engine instances required. 
 
@@ -277,9 +277,7 @@ To achieve a target number of requests per second, configure the total number of
 > [!NOTE]
 > Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that a TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-diagnose-failing-load-test.md).
 
-## Test engine instances and virtual users
-
-# [Apache JMeter](#tab/jmeter)
+## Test engine instances and virtual users for JMeter-based tests
 
 In the Apache JMeter script, you can specify the number of parallel threads. Each thread represents a virtual user that accesses the application endpoint. We recommend that you keep the number of threads in a script below a maximum of 250.
 
@@ -293,7 +291,7 @@ For example, to simulate 1,000 virtual users, set the number of threads in the A
 
 The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
 
-# [Locust](#tab/locust)
+## Test engine instances and virtual users for Locust-based tests
 
 Configure the total number of users required for your load test. This represents the peak number of concurrent Locust users. You can configure this in the load configuration while creating a test in Azure Load Testing. You can also configure this in your test script or the Locust configuration file. We recommend running upto 500 users from a test engine instance.
 

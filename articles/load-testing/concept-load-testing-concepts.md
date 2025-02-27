@@ -113,7 +113,7 @@ A test run represents one execution of a load test. When you run a test, the tes
 
 After the test run completes, you can [view and analyze the load test results in the Azure Load Testing dashboard](./tutorial-identify-bottlenecks-azure-portal.md) in the Azure portal. 
 
-Alternately, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-worker-logs-for-your-load-test) and [export the test results file](./how-to-export-test-results.md).
+Alternately, you can [download the test logs](./how-to-diagnose-failing-load-test.md#download-apache-jmeter-or-locust-worker-logs-for-your-load-test) and [export the test results file](./how-to-export-test-results.md).
 
 > [!IMPORTANT]
 > When you update a test, the existing test runs don't automatically inherit the new settings from the test. The new settings are only used by new test runs when you run the *test*. If you rerun an existing *test run*, the original settings of the test run are used.
