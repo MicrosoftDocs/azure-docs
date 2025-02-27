@@ -532,7 +532,7 @@ Expected output
     "networkDeviceSku": "DefaultSku",
     "networkRackId": "/subscriptions/xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkRacks/example-rack-name",
     "provisioningState": "Succeeded",
-"rwDeviceConfig": "interface Ethernet 1/1\n description RW-test1",
+    "rwDeviceConfig": "interface Ethernet 1/1\n description RW-test1",
     "serialNumber": "Arista;CCS-720DT-XXXX;11.07;WTW2248XXXX",
     "version": "4.0.0"
   },
