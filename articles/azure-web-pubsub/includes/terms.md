@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 01/23/2024
 ---
 
-- **Connection**: A connection, also known as a client or a **client connection**, it's a logical relationship between a client and the Web PubSub service. Over a 'connection', the client and the service engage in a series of stateful interactions. **Connections** using different protocols might behave differently, for example, some **connection** are limited to the duration of a network connection, while others can extend across multiple successive network connections between a client and the service.
+- **Connection**: A connection, also known as a client or a **client connection**, it's a logical relationship between a client and the Web PubSub service. Over a 'connection', the client and the service engage in a series of stateful interactions. **Connections** using different protocols might behave differently, for example, some **connections** are limited to the duration of a network connection, while others can extend across multiple successive network connections between a client and the service.
 
 - **Hub**: A hub is a logical concept for a set of client connections. Usually you use one hub for one scenario, for example, a *chat* hub, or a *notification* hub. When a client connection connects, it connects to a hub, and during its lifetime it belongs to that hub. Once a client connection connects to the hub, the hub exists. Different applications can share one Azure Web PubSub service by using different hub names. While there is no strict limit on the number of hubs, a **hub** consumes more service load comparing to a **group**. It is recommended to have a predetermined set of hubs rather than generating them dynamically.
 

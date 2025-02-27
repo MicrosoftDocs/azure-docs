@@ -2,7 +2,7 @@
 title: Redundancy, replication, and backup
 description: Learn about redundancy, replication, and backup, which are fundamental concepts of reliability.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 02/26/2025
 ms.author: anaharris

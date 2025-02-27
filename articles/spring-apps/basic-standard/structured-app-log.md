@@ -26,7 +26,7 @@ To improve log query experience, an application log is required to be in JSON fo
 
 **JSON schema requirements:**
 
-| Json Key      | Json value Type|  Required | Column in Log Analytics| Description |
+| JSON Key      | JSON value Type|  Required | Column in Log Analytics| Description |
 | --------------| ------------|-----------|-----------------|--------------------------|
 | timestamp     | string      |     Yes   | AppTimestamp    | timestamp in UTC format  |
 | logger        | string      |     No    | Logger          | logger                   |
