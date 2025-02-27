@@ -110,7 +110,7 @@ styleOverrides: {
 ```
 :::image type="content" source="./media/choose-map-style/country-region.gif" alt-text="An animated GIF that shows country/region borders on a map.":::
 
-2. Admin district borders
+- Admin district borders
 
 ```javascript
 styleOverrides: {
