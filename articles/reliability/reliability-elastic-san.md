@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Elastic SAN.
 author: roygara
 ms.author: rogarana
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: azure-elastic-san-storage
 ms.date: 1/15/2025
 ---
