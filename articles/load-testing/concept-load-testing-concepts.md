@@ -30,9 +30,9 @@ The total number of virtual users for your load test depends on the number of vi
 
 For JMeter based load tests, the formula is: Total virtual users = (virtual users in the JMX file) * (number of test engine instances).
 
-You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users), the number of virtual users in the test script, or a combination of both.
+You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-JMeter-based-tests), the number of virtual users in the test script, or a combination of both.
 
-For Locust based load tests, the total number of virtual users is the number of users specified through any of the configuration options. You can then [configure the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users) required to generate the total number of users. 
+For Locust based load tests, the total number of virtual users is the number of users specified through any of the configuration options. You can then [configure the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-Locust-based-tests) required to generate the total number of users. 
 
 ### Ramp-up time
 
