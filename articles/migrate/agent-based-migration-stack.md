@@ -187,7 +187,6 @@ Use the following steps to register the appliance:
 
 ## Next steps
 
-- [Agent-based migration architecture]([Learn how](/azure/migrate/tutorial-migrate-physical-virtual-machines)
+- [Agent-based migration architecture](/azure/migrate/tutorial-migrate-physical-virtual-machines)
 - [Migrate machines as physical servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
 - [Prepare for Migration](/azure/migrate/prepare-for-migration)
-- 
