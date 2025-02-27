@@ -517,10 +517,14 @@ groups:
     title: JavaScript
   - id: programming-language-java
     title: Java
-- id: acs-js-csharp-java-python
+- id: acs-js-csharp-java-python-azcli-ps
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: programming-language-azcli
+    title: Azure CLI
+  - id: programming-language-powershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
