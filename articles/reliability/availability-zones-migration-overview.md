@@ -3,7 +3,7 @@ title: Availability zone migration guidance overview for Microsoft Azure product
 description: Availability zone migration guidance overview for Microsoft Azure products and services
 author: anaharris-ms
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 11/08/2022
 ms.author: anaharris
