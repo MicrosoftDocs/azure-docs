@@ -1,6 +1,6 @@
 ---
  title: include file
- description: Include file for creating an Azure Digital Twins instance in the quickstarts.
+ description: include file for creating an Azure Digital Twins instance in the quickstarts
  services: digital-twins
  author: baanders
  ms.service: azure-digital-twins
