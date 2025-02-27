@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
 
-Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
+Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
 ## Definitions 
 
@@ -189,7 +189,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 ## Performance metrics for volumes
 
 > [!NOTE] 
-> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
+> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and doesn't include network latency.
 
 - *Average Read Latency*   
     The average roundtrip time (RTT) for reads from the volume in milliseconds.
@@ -222,7 +222,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     Lag time is the actual amount of time the replication lags behind the source. It indicates the age of the replicated data in the destination volume relative to the source volume.
 
 > [!NOTE]
-> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume will not catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
+> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
@@ -248,15 +248,18 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 ## Throughput metrics for volumes   
 
 * *Read throughput*   
+
     Read throughput in bytes per second.
     
 * *Total throughput*   
     Sum of all throughput in bytes per second.
 
 * *Write throughput*    
+
     Write throughput in bytes per second.
 
 * *Other throughput*   
+
     Other throughput (that isn't read or write) in bytes per second.
 
 * *Total throughput*
@@ -266,24 +269,31 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 ## Volume backup metrics  
 
 * *Is Volume Backup Enabled*   
+
     Shows whether backup is enabled for the volume. `1` is enabled. `0` is disabled.
 
 * *Is Volume Backup Operation Complete*   
+
     Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
 
 * *Is Volume Backup Suspended*   
+
     Shows whether the backup policy is suspended for the volume. A value of  `1` means it's not suspended. A value of `0` means it's suspended.
 
 * *Volume Backup Bytes*   
+
     The total bytes backed up for this volume.
 
 * *Volume Backup Last Transferred Bytes*   
+
     The total bytes transferred for the last backup or restore operation.  
 
 * *Volume Backup Operation Last Transferred Bytes*   
+
     Total bytes transferred for last backup operation.
 
 * *Volume Backup Restore Operation Last Transferred Bytes*   
+
     Total bytes transferred for last backup restore operation.
 
 ## Cool access metrics
