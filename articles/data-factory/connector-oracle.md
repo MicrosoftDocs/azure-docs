@@ -97,19 +97,11 @@ The Oracle linked service supports the following properties when apply version 2
 |:--- |:--- |:--- |
 | type | The type property must be set to **Oracle**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
-| server | The location of Oracle database you want to connect to. | Yes |
+| server | The location of Oracle database you want to connect to. You can refer to [server property configuration](#server-property-configuration) to specify it. | Yes |
 | authenticationType | Authentication type for connecting to the Oracle database. Only **Basic** auth is supported now. | Yes |
 | username | The Oracle database username. | Yes |
 | password | The Oracle database password. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
-
-For `server` property, you can specify it in one of the following three ways:
-
-| Way | Example |
-|:--- |:--- |
-|[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
-|[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
-|[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
 More connection properties you can set in linked service per your case:
 
@@ -126,6 +118,37 @@ More connection properties you can set in linked service per your case:
 | enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
 | supportV1DataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
 | fetchTswtzAsTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
+
+#### `server` property configuration
+
+For `server` property, you can specify it in one of the following three formats:
+
+| Format | Example |
+|:--- |:--- |
+|[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
+|[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
+|[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
+
+The location of Oracle database you want to connect to. There are three ways to specify it and you can check the details after tables.
+
+| Property |Description | Sample |
+|:--- |:--- |:--- |
+| ***Connect Required*** |  |  |
+| HOST | The host name or IP address used to connect to the Oracle database. | sales-svr |
+| PORT | The server port for the Oracle database. | 1521 |
+| PROTOCOL | The transport protocol to be used while connecting to the Oracle database. | tcp |
+| SERVICE_NAME | Specifies the logical representation of a database. | sales.us.example.com |
+| SID | Specifies the name that identifies a specific instance of an Oracle database. | sales |
+| INSTANCE_NAME | Specifies the database instance to access. | sales1 |
+| SERVER | Specifies type of service handler. | dedicated |
+| ***Match Version 1.0*** |  |  |
+| CONNECT_TIMEOUT | Specifies the amount of time, in milliseconds, seconds, or minutes, in which clients must establish Oracle Net connections to database instances. | 10ms |
+| RETRY_COUNT | Specifies the number of times to connect before terminating the connection attempt. | 3 |
+| RETRY_DELAY | Specifies the delay between connection retries. | 5 |
+| SSL_VERSION | Define valid Transport Layer Security (TLS) versions to be used for connections. | TLSv1.3 |
+| ***Most Secure Behavior*** |  |  |
+| SSL_SERVER_DN_MATCH | Enforce server-side certificate validation through distinguished name (DN) matching. | TRUE |
+| SSL_SERVER_CERT_DN | Specifies the distinguished name (DN) of the database server. | cn=finance,cn=OracleContext,c=us,o=example |
 
 **Example:**
 
@@ -482,15 +505,15 @@ When you copy data from and to Oracle, the following interim data type mappings 
 | CLOB |String |String |
 | DATE |DateTime |DateTime |
 | FLOAT (P < 16)  | Double | Double |
-| FLOAT (P >= 16)  | IBigDecimal | Double |
+| FLOAT (P >= 16)  | Decimal | Double |
 | INTERVAL YEAR TO MONTH |Int64 |String |
 | INTERVAL DAY TO SECOND |TimeSpan |String |
 | LONG |String |String |
 | LONG RAW |Byte[] |Byte[] |
 | NCHAR |String |String |
 | NCLOB |String |String |
-| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, IBigDecimal |Decimal, String (if p > 28) |
-| NUMBER without precision and scale | IBigDecimal |Double |
+| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal |Double |
 | NVARCHAR2 |String |String |
 | RAW |Byte[] |Byte[] |
 | TIMESTAMP |DateTime |DateTime |
@@ -505,29 +528,6 @@ When you copy data from and to Oracle, the following interim data type mappings 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-## Security
-
-To avoid the security risks in the server properties, you can refer to an allow list to configure which properties in the server can be set. The allow list includes the following properties.
-
-| Property |Description | Sample |
-|:--- |:--- |:--- |
-| ***Connect Required*** |  |  |
-| HOST | The host name or IP address used to connect to the Oracle database. | sales-svr |
-| PORT | The server port for the Oracle database. | 1521 |
-| PROTOCOL | The transport protocol to be used while connecting to the Oracle database. | tcp |
-| SERVICE_NAME | Specifies the logical representation of a database. | sales.us.example.com |
-| SID | Specifies the name that identifies a specific instance of an Oracle database. | sales |
-| INSTANCE_NAME | Specifies the database instance to access. | sales1 |
-| SERVER | Specifies type of service handler. | dedicated |
-| ***Match Version 1.0*** |  |  |
-| CONNECT_TIMEOUT | Specifies the amount of time, in milliseconds, seconds, or minutes, in which clients must establish Oracle Net connections to database instances. | 10ms |
-| RETRY_COUNT | Specifies the number of times to connect before terminating the connection attempt. | 3 |
-| RETRY_DELAY | Specifies the delay between connection retries. | 5 |
-| SSL_VERSION | Define valid Transport Layer Security (TLS) versions to be used for connections. | TLSv1.3 |
-| ***Most Secure Behavior*** |  |  |
-| SSL_SERVER_DN_MATCH | Enforce server-side certificate validation through distinguished name (DN) matching. | TRUE |
-| SSL_SERVER_CERT_DN | Specifies the distinguished name (DN) of the database server. | cn=finance,cn=OracleContext,c=us,o=example |
 
 ## Upgrade the Oracle connector
 
