@@ -59,7 +59,8 @@ Follow the steps in this article to:
     
 1. Select **Next**. After validation completes, select **Create**.
 
-It can take from several minutes to up to several hours to create the workspace, a new workspace gateway (if selected), and related resources. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
+    > [!NOTE]
+    > Creation of a new workspace gateway, if selected, can take up to several hours to complete. To track the deployment progress in the Azure portal, go to the gateway's resource group. In the left menu, under **Settings**, select **Deployments**.
 
 After the deployment completes, the new workspace appears in the list on the **Workspaces** page. Select the workspace to manage its settings and resources.
 
