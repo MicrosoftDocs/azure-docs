@@ -42,158 +42,152 @@ Follow the steps to navigate to the Azure Migrate project
 
      :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/azure-migrate-discover.png" alt-text="Shows the azure migrate discover screen":::
 
+1. Select **Simplified experience** from the **Experience type** dropdown.
+
+> [!Note]
+> For more detailed information on deploying the appliance, refer to the appendix section at the end of this document.
+
 **Step 3**: : Deploy the Appliance
 
-Follow the steps with OVA or PowerShell for VMware and PowerShell for the physical scenario. Wait for 30 minutes for the appliance to be deployed and complete registration with the provided key.
+1. Follow the steps with OVA or PowerShell for VMware and PowerShell for the physical scenario. 
+1. After deployment and completing the registration key process, wait for 30 minutes for the appliance to connect.
 
+**Step 4**: Start the Replication
+1. Select **Replicate**.
+1. Select the appropriate scenario (Physical or VMware agent-based) and proceed. 
+1. Select the VMs you want to replicate and configure the target settings.
 
-## Overview
+**Step 5**: Test migrate and Migrate
 
-The replication appliance is deployed when you set up agent-based migration of VMware VMs or physical servers. It's deployed as a single on-premises machine, either as a VMware VM or a physical server. It runs:
+1. Navigate to the migration overview page.
+1. Select **Test Migrate**. For more details, see, [Migrate machines as physical servers to Azure with Azure Migrate and Modernize](/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).
+1. Perform the final migration. [Learn more](/azure/migrate/tutorial-migrate-physical-virtual-machines#migrate-vms)
 
-- **Replication appliance**: The replication appliance coordinates communications, and manages data replication, for on-premises VMware VMs and physical servers replicating to Azure.
-- **Process server**: The process server, which is installed by default on the replication appliance, and does the following:
-    - **Replication gateway**: It acts as a replication gateway. It receives replication data from machines enabled for replication. It optimizes replication data with caching, compression, and encryption, and sends it to Azure.
-    - **Agent installer**: Performs a push installation of the Mobility Service. This service must be installed and running on each on-premises machine that you want to replicate for migration.
+**Step 6**: Verify the VM in Azure VM 
 
-## Appliance deployment
+Verify if the VM boots up on Azure: 
+* By going to the target resource group and searching for your VM. 
+* Or by navigating to the Azure VM section on the Azure Portal and searching for your migrated VM.
 
-**Used for** | **Details**
---- |  ---
-**VMware VM agent-based migration** | You download OVA template from the Azure Migrate hub, and import to vCenter Server to create the appliance VM.
-**Physical machine agent-based migration** | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
+### Set up the replication appliance using the OVA template for VMware agent-based migration
 
-> [!NOTE]
-> If you're deploying in Azure Government, use the installation file to deploy the replication appliance.
+We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications.
 
-## Appliance requirements
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/download-ova-file.png" alt-text="Shows the download option of the ova file":::
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+Follow the steps:
 
-**Component** | **Requirement**
---- | ---
- | **VMware VM appliance**
-PowerCLI | [PowerCLI version 6.0](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-F02D0C2D-B226-4908-9E5C-2E783D41FE2D.html) should be installed if the replication appliance is running on a VMware VM.
-NIC type | VMXNET3 (if the appliance is a VMware VM)
- | **Hardware settings**
-CPU cores | 8
-RAM | 16 GB
-Number of disks | Two: The OS disk and the process server cache disk.
-Free disk space (cache) | 600 GB
-**Software settings** |
-Operating system | Windows Server 2016 or Windows Server 2012 R2
-License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
-Operating system locale | English (en-us)
-TLS | TLS 1.2 should be enabled.
-.NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
-MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install it manually, or Azure Migrate can install it during the appliance deployment.
-Other apps | Don't run other apps on the replication appliance.
-Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10)).
-IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting
-**Network settings** |
-IP address type | Static
-Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
-IP address | Make sure that the configuration server and process server have a static IPv4 address and don't have NAT configured.
-NIC type | VMXNET3
+1. **Download** the OVA template to set up an appliance on your on-premises environment.
+1. Power on the appliance VM to accept the Microsoft Evaluation license. 
+1. Provide a password for the administrator user. 
+1. Select **Finalize** the system reboots, and you can log in with the administrator user account.
 
-## MySQL installation 
+Set up the appliance using PowerShell
 
-MySQL must be installed on the replication appliance machine. It can be installed using one of these methods.
+If there are organizational restrictions, you can manually set up the replication appliance through PowerShell. 
 
-**Method** | **Details**
---- | ---
-Download and install manually | [Download](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) the MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL shows as already installed.
-Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup uses the installer you added.
-Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
+Follow these steps:
+1. Download the installers and place them on the replication appliance.
+1. Unzip and extract the components.
+1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
 
-## URL access
+Register Appliance
 
-The replication appliance needs access to these URLs in the Azure public cloud.
+After the appliance is created, the **Microsoft Azure Appliance Configuration Manager** launches automatically. It validates prerequisites such as internet connectivity, time synchronization, system configurations, and group policies.
 
-**URL** | **Details**
---- | ---
-`*.backup.windowsazure.com` | Used for replicated data transfer and coordination
-`*.store.core.windows.net` | Used for replicated data transfer and coordination
-`*.blob.core.windows.net` | Used to access storage account that stores replicated data
-`*.hypervrecoverymanager.windowsazure.com` | Used for replication management operations and coordination
-`https://management.azure.com` | Used for replication management operations and coordination.
-`*.services.visualstudio.com` | (Optional) Used for logging purposes. 
-`time.windows.com` | Used to check time synchronization between system and global time.
-`https://login.microsoftonline.com` <br> `https://login.live.com` <br> `https://graph.windows.net` <br> `https://login.windows.net` <br> `https://www.live.com` <br> `https://www.microsoft.com` | Appliance setup needs access to these URLs. They're used for access control and identity management by Microsoft Entra ID.
-`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+**CheckRegistryAccessPolicy** - Prevents access to registry editing tools
+    - Key: `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`.
+    - The DisableRegistryTools value should not be equal to 0.
 
-## Azure Government URL access
+**CheckCommandPromptPolicy** - Prevents access to the command prompt
+    - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`.
+    - The DisableCMD value should be equal to 0.
 
-The replication appliance needs access to these URLs in Azure Government.
+**CheckTrustLogicAttachmentsPolicy** - Trust logic for file attachments.
+    - Key: `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments`.
+    - The UseTrustedHandlers value should not be equal to 3.
 
-**URL** | **Details**
---- | ---
-`*.backup.windowsazure.us` | Used for replicated data transfer and coordination
-`*.store.core.windows.net` | Used for replicated data transfer and coordination
-`*.blob.core.windows.net` | Used to access storage account that stores replicated data
-`*.hypervrecoverymanager.windowsazure.us` | Used for replication management operations and coordination
-`https://management.usgovcloudapi.net` | Used for replication management operations and coordination
-`*.services.visualstudio.com` | (Optional) Used for logging purposes.
-`time.nist.gov` | Used to check time synchronization between system and global time.
-`https://login.microsoftonline.com` <br> `https://login.live.com` <br> `https://graph.windows.net` <br> `https://login.windows.net` <br> `https://www.live.com` <br> `https://www.microsoft.com`  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Microsoft Entra ID.
-`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
+**CheckPowershellExecutionPolicy** - Turn on Script Execution.
+    - PowerShell execution policy should not be set to **AllSigned or Restricted**.
+    - Ensure the group policy **Turn on Script Execution Attachment Manager** is not set to Disabled or **Allow only signed scripts**.
 
->[!Note]
->
-> If your Migrate project has private endpoint connectivity, you will need access to the following URLs over and above private link access:   
-> - `*.blob.core.windows.com` - To access the storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
-> - `https://management.azure.com` for replication management operations and coordination. 
->- `https://login.microsoftonline.com` <br>`https://login.windows.net` <br> `https://www.live.com` and <br> `https://www.microsoft.com` for access control and identity management by Microsoft Entra ID
+Use the following steps to register the appliance:
 
-## Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URL access
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the 'Use proxy to connect to internet' option.
+    - All Azure Site Recovery services will use these settings to connect to the internet.
+    
+    > [!Note]
+    > Only HTTP proxy is supported.
+1. Ensure the [required URLs](/azure/site-recovery/replication-appliance-support-matrix#allow-urls) are allowed and reachable from the Azure Site Recovery replication appliance to maintain continuous connectivity.
+1. After the prerequisites are verified, the appliance fetchs all its component information in the next step. Review the status of all components and then select **Continue**.
+1. **Save** the details, and then proceed to choose the appliance connectivity method. You can select either FQDN or a NAT IP to define how communication with the appliance occurs.
 
-The replication appliance needs access to these URLs.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text="Shows how to select replication appliance connectivity":::
+1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
+1. Ensure the [prerequisites](/azure/site-recovery/replication-appliance-support-matrix#pre-requisites) are met, and then proceed with the registration.
 
-**URL** | **Details**
---- | ---
-`*.backup.windowsazure.cn` | Used for replicated data transfer and coordination.
-`*.store.core.chinacloudapi.cn` | Used for replicated data transfer and coordination.
-`*.blob.core.chinacloudapi.cn` | Used to access storage account that stores replicated data.
-`*.hypervrecoverymanager.windowsazure.cn` | Used for replication management operations and coordination.
-`https://management.chinacloudapi.cn` | Used for replication management operations and coordination.
-`*.services.visualstudio.com` | (Optional) Used for logging purposes.
-`time.windows.cn` | Used to check time synchronization between system and global time.
-`https://login.microsoftonline.cn` <br/> `https://secure.aadcdn.microsoftonline-p.cn` <br/> `https://login.live.com` <br/> `https://graph.chinacloudapi.cn` <br/> `https://login.chinacloudapi.cn` <br/> `https://www.live.com` <br/> `https://www.microsoft.com`  | Appliance setup with OVA needs access to these URLs. They're used for access control and identity management by Microsoft Entra ID.
-`https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi` | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Shows registry with recovery service vault":::
 
-## Port access
+1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
+    > [!Note]
+    > The name can't be changed once set.
+1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
+    
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Shows the generated key":::
 
-**Device** | **Connection**
---- | ---
-VMs | The Mobility service running on VMs communicates with the on-premises replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
-Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
-Process server | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
+1. After pasting the key, select **Login**. You're redirected to a new authentication tab. By default, an authentication code is generated on the **Appliance Configuration Manager** page. Use the following code in the authentication tab. 
+1. Enter your Microsoft Azure credentials to complete the registration. 
+1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
+1. 
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows to enter the microsoft code":::
 
+> [!Note]
+> An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
 
-## Replication process
+1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
+1. Select **Continue** to proceed.
 
-1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. 
-2. Traffic replicates to Azure storage public endpoints over the internet. Replicating traffic over a site-to-site virtual private network (VPN) from an on-premises site to Azure isn't supported.
-3. After initial replication finishes, delta replication begins. Tracked changes for a machine are logged.
-4. Communication happens as follows:
-    - VMs communicate with the replication appliance on port HTTPS 443 inbound, for replication management.
-    - The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
-    - VMs send replication data to the process server (running on the replication appliance) on port HTTPS 9443 inbound. This port can be modified.
-    - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to register with recovery services":::
 
-![Diagram shows the architecture of the replication process.](./media/migrate-replication-appliance/architecture.png)
+1. After successful registration, proceed to configure **vCenter** details. 
 
-## Appliance upgrades
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrates the vcenter information":::
 
-The appliance is upgraded manually from the Azure Migrate hub. We recommend that you always run the latest version.
+1. Select **Add vCenter Server** to input the vCenter information. 
+1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally on the machine
 
-1. In Azure Migrate > Servers, databases and web apps> Migration and modernization > Overview > Migration > Infrastructure servers  select **Configuration servers**.
-2. In **Configuration servers** screen, a link appears in **Agent Version** when a new version of the replication appliance is available. 
-3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version currently running on the appliance.
- 
+    > [!Note]
+    > If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
+
+1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter
+
+    > [!Note]
+    > - For Linux OS, ensure to provide root credentials.
+    - For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow. 
+    - Visit the **Appliance Configurator** to edit or add credentials to access your machines.
+    
+1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
+
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details":::
+
+1. Select **Add Credentials** to input the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a **friendly name** for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine. 
+1. Finally, select **Add**.
+
+     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Show how to add physical server credentials":::
+
+1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**. 
+1. Select the **credential account**, and then select **Add**.
+
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Show how to add physical server details":::
+
+1. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This process can take up to 30 minutes. Ensure you don't close the browser while the configuration is in progress.
+
+    > [!Note]
+    > Appliance cloning is not supported in modernized or simplified architecture. Attempting to clone may disrupt the recovery flow.
+
 ## Next steps
 
-- [Learn how](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) to set up the replication appliance for agent-based VMware VM migration.
-- [Learn how](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) to set up the replication appliance for physical servers.
+- [Agent-based migration architecture]([Learn how](/azure/migrate/tutorial-migrate-physical-virtual-machines)
+- [Migrate machines as physical servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
+- [Prepare for Migration](/azure/migrate/prepare-for-migration)
+- 
