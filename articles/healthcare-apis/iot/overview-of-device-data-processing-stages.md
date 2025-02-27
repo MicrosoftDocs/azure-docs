@@ -10,9 +10,10 @@ ms.date: 07/19/2023
 ms.author: chrupa
 ---
 
+# Overview of the MedTech service device data processing stages 
+
 > [!IMPORTANT]
 > As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
-# Overview of the MedTech service device data processing stages 
 
 This article provides an overview of the device data processing stages within the [MedTech service](overview.md). The MedTech service transforms device data into [FHIR&reg; Observations](https://www.hl7.org/fhir/observation.html) for persistence in the [FHIR service](../fhir/overview.md).
 
