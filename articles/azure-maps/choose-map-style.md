@@ -137,7 +137,7 @@ styleOverrides: {
 ```
 :::image type="content" source="./media/choose-map-style/building-footprint.gif" alt-text="An animated GIF that shows building footprints.":::
 
-5. Road details
+- Road details
 
 ```javascript
 styleOverrides: {
