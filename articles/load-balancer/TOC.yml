@@ -8,8 +8,6 @@
     href: whats-new.md
   - name: FAQ
     href: load-balancer-faqs.yml
-  - name: Azure Network blog
-    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
 - name: Get started
   items:
   - name: Choose a load balancer
@@ -362,5 +360,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
-  - name: FAQ
-    href: load-balancer-faqs.yml
+  - name: Azure Network blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
