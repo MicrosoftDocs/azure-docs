@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 02/26/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -17,12 +17,12 @@ ms.custom: template-how-to, build-2024
 This article shows two options to import an [Azure OpenAI Service](/azure/ai-services/openai/overview) API into an Azure API Management instance as a REST API:
 
 - [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service) (recommended)
-- [Download the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) and add it to API Management as an OpenAPI API.
+- [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- An Azure OpenAI resource with a [supported model](#supported-azure-openai-service-models) deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
@@ -35,7 +35,7 @@ You can import an Azure OpenAI API directly from Azure OpenAI Service to API Man
 
 When you import the API, API Management automatically configures:
 
-* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
+* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference)
 * A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
 * A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
 * Authentication to the Azure OpenAI backend using the instance's system-assigned managed identity.
@@ -51,7 +51,7 @@ To import an Azure OpenAI API to API Management:
 
 1. On the **Basics** tab:
     1. Select the Azure OpenAI resource that you want to import.
-    1. Optionally select an **Azure OpenAI API version**. If you don't select one, the latest production-ready REST API version is used by default.
+    1. Optionally select an **Azure OpenAI API version**. If you don't select one, the latest production-ready REST API version is used by default. Make a note of the version you selected. You'll need it to test the API.
     1. Enter a **Display name** and optional **Description** for the API.
     1. In **Base URL**, append a path that your API Management instance uses to access the Azure OpenAI API endpoints. If you enable **Ensure OpenAI SDK compatibility** (recommended), `/openai` is automatically appended to the base URL.
     
@@ -59,7 +59,7 @@ To import an Azure OpenAI API to API Management:
     1. Optionally select one or more products to associate with the API. Select **Next**.
 1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption and response caching. You can also set or edit policies later.
 
-    If selected, enter settings or accept defaults that define the following policies (see linked articles for configuration details):
+    If selected, enter settings or accept defaults that define the following policies (see linked articles for prerequisites and configuration details):
     * [Manage token consumption](azure-openai-token-limit-policy.md)
     * [Track token usage](azure-openai-emit-token-metric-policy.md)
     * [Enable semantic caching](azure-openai-enable-semantic-caching.md)  
@@ -73,13 +73,13 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 
 ### Download the OpenAPI specification
 
-Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-01 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-01/inference.json).
+Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-21 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-21/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
 1. In the `servers` element in the specification, substitute the name of your Azure OpenAI Service endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI Service endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
 
-    * url: `https://contoso.openai.azure.com/openai`
-    * default endpoint: `contoso.openai.azure.com`
+    * **url**: `https://contoso.openai.azure.com/openai`
+    * **default** endpoint: `contoso.openai.azure.com`
   
     ```json
     [...]
@@ -95,7 +95,7 @@ Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2
       ],
     [...]
     ```
-1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2024-10-01`.
+1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2024-10-21`.
 
 ### Add OpenAPI specification to API Management
 
@@ -139,6 +139,8 @@ In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metri
 
 * `azure-openai-semantic-cache-store`
 * `azure-openai-semantic-cache-lookup` 
+
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
 ## Related content
 

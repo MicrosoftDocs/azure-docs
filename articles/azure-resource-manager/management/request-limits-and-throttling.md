@@ -1,8 +1,8 @@
 ---
-title: Request limits and throttling
-description: Describes how to use throttling with Azure Resource Manager requests when subscription limits are reached.
+title: Understand how Azure Resource Manager throttles requests
+description: Learn how Azure Resource Manager throttles requests when subscription limits are reached and how to respond.
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 01/23/2025
 ms.custom: devx-track-arm-template
 ---
 
@@ -58,7 +58,6 @@ The new limits are:
 The subscription limits apply per subscription, per service principal, and per operation type. There are also global subscription limits that are equivalent to 15 times the individual service principal limits for each operation type. The global limits apply across all service principals. Requests are throttled if the global, service principal, or tenant specific limits are exceeded.
 
 The limits might be smaller for free or trial customers.
-
 
 For example, suppose you have a bucket size of 250 tokens for read requests and refill rate of 25 tokens per second. If you send 250 read requests in a second, the bucket is empty and your requests are throttled. Each second, 25 tokens become available until the bucket reaches its maximum capacity of 250 tokens. You can use tokens as they become available.
 
@@ -123,9 +122,7 @@ When you reach the limit, you receive the HTTP status code **429 Too many reques
 
 If you're using an Azure SDK, the SDK might have an auto retry configuration. For more information, see [Retry guidance for Azure services](/azure/architecture/best-practices/retry-service-specific).
 
-
 Some resource providers return 429 to report a temporary problem. The problem could be an overload condition that your request didn't cause. Or, it could be a temporary error about the state of the target resource or dependent resource. For example, the network resource provider returns 429 with the **RetryableErrorDueToAnotherOperation** error code when another operation locks the target resource. To determine if the error comes from throttling or a temporary condition, view the error details in the response.
-
 
 ## Remaining requests
 
@@ -136,12 +133,12 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-subscription-deletes |Subscription scoped deletes remaining. This value is returned on delete operations. |
 | x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on read operations. |
 | x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on write operations. |
-| x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining |
-| x-ms-ratelimit-remaining-tenant-writes |Tenant scoped writes remaining |
+| x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining. |
+| x-ms-ratelimit-remaining-tenant-writes |Tenant scoped writes remaining. |
 | x-ms-ratelimit-remaining-subscription-resource-requests |Remaining subscription scoped resource type requests.<br /><br />This header value is returned only if a service overrides the default limit. Resource Manager adds this value instead of the subscription reads or writes. |
 | x-ms-ratelimit-remaining-subscription-resource-entities-read |Remaining subscription scoped resource type collection requests.<br /><br />This header value is returned only if a service overrides the default limit. This value provides the number of remaining collection requests (list resources). |
-| x-ms-ratelimit-remaining-tenant-resource-requests |Remaining tenant scoped resource type requests.<br /><br />This header is added for requests at tenant level, and only if a service overrides the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
-| x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service overrides the default limit. |
+| x-ms-ratelimit-remaining-tenant-resource-requests |Remaining tenant scoped resource type requests.<br /><br />This header is added for requests at tenant level and only if a service overrides the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
+| x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level and only if a service overrides the default limit. |
 
 The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
@@ -162,7 +159,7 @@ $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/re
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-For a complete PowerShell example, see [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
+For a complete PowerShell example, see [Check ARM Limits for a Given Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 
 To see the remaining requests for debugging, provide the **-Debug** parameter on your **PowerShell** cmdlet.
 
@@ -202,7 +199,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-In **Azure CLI**, you retrieve the header value by using the more verbose option.
+In **Azure CLI**, you use the more verbose option to retrieve the header value:
 
 ```azurecli
 az group list --verbose --debug

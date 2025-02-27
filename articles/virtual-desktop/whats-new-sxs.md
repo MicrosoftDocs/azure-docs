@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: sipastak
 ms.topic: release-notes
-ms.date: 12/16/2024
+ms.date: 02/05/2025
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -31,8 +31,18 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2407.05700  |
+| Production | 1.0.2409.29800  |
 | Validation | 1.0.2409.29600  |
+
+## Version 1.0.2409.29800
+
+*Published: January 2025*
+
+In this release, we've made the following changes:
+
+- Fixed a bug that caused UDP connection failures when network latency exceeded 500ms RTT.
+- Fixed a bug where disabling UDP Shortpath Public also unintentionally disabled Shortpath Private. This update ensures independent control of both settings.
+- Addressed a key detection issue and enhanced diagnostic capabilities for RemoteApp execution.
 
 ## Version 1.0.2409.29600 
 
@@ -40,7 +50,7 @@ Here's information about the SxS Network Stack.
 
 In this release, we've made the following changes:
 
-- Rearchitected RAIL server processes for better shell integration.   
+- Rearchitected RemoteApp server processes for better shell integration.   
 - Added EventLog for ImageQuality and Chroma settings; added graphics profile name in existing Eventlog. 
 - Fixed Battery Status redirection to show status text of battery upon mouse hover. 
 

@@ -539,6 +539,14 @@ PSFunctionApp
 
 When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
 
+> [!NOTE]
+> If your function app is under source control, you should confirm that all the content in the Modules folder that you add is not excluded by .gitignore. For example, if one of your modules has a bin folder that is getting excluded, you would want to modify the .gitignore by replacing ```bin``` with
+> ```
+> **/bin/**
+> !Modules/**
+> ```
+>
+
 ### Troubleshooting Managed Dependencies
 
 #### Enabling Managed Dependencies

@@ -14,7 +14,7 @@ ms.author: cephalin
 This how-to guide shows you how to deploy your app to [Azure App Service](overview.md) from a Git repository on your local computer.
 
 > [!NOTE]
-> This deployment method requires [SCM basic authentication](configure-basic-auth-disable.md), which is less secure than [other deployment methods](deploy-authentication-types.md). When Local Git deployment doesn't work, and you can't configure Local Git deployment in the app's Deployment Center.
+> This deployment method requires [SCM basic authentication](configure-basic-auth-disable.md), which is less secure than [other deployment methods](deploy-authentication-types.md). When Local Git deployment doesn't work, you can't configure Local Git deployment in the app's Deployment Center.
 
 ## Prerequisites
 

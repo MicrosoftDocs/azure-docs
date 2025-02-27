@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 03/20/2024
+ms.date: 02/06/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -12,12 +12,12 @@ A template spec is a resource type for storing an Azure Resource Manager templat
 
 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) is the resource type for template specs. It consists of a main template and any number of linked templates. Azure securely stores template specs in resource groups. Template Specs support [versioning](#versioning).
 
-To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands as you would for the template.
+To deploy the template spec, use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. Use the same commands as you would for the template.
 
 > [!NOTE]
 > To use template spec with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-azure-powershell). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
-When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Given the databases and the containers don't change much, you want to create one template spec to include a Cosmos DB instance and its underlying databases and containers. You can then use conditional statements in your templates along with copy loops to create multiple instances of these resources.
+When designing your deployment, consider the lifecycle of the resources. Group the resources that share a similar lifecycle into a single template spec. For example, your deployments include multiple instances of Azure Cosmos DB, with each instance containing its own databases and containers. Because the databases and the containers don't change much, create one template spec to include a Cosmos DB instance and its underlying databases and containers. To create multiple instances of these resources, use conditional statements in your templates along with copy loops.
 
 ### Training resources
 
@@ -33,22 +33,22 @@ Template specs provide the following benefits:
 * You use standard ARM templates for your template spec.
 * You manage access through Azure RBAC, rather than SAS tokens.
 * Users can deploy the template spec without having write access to the template.
-* You can integrate the template spec into existing deployment process, such as PowerShell script or DevOps pipeline.
+* You can integrate the template spec into existing deployment processes, such as PowerShell script or DevOps pipeline.
 
 Template specs enable you to create canonical templates and share them with teams in your organization. The template specs are secure because they're available to Azure Resource Manager for deployment, but not accessible to users without the correct permission. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
 
-If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. To deploy the template, you need to either make the template publicly accessible or manage access with SAS tokens. To get around this limitation, users might create local copies, which eventually diverge from your original template. Template specs simplify sharing templates.
+If you currently have your templates in a GitHub repo or storage account, you encounter several challenges when trying to share and use the templates. To deploy the template, you need to either make the template publicly accessible or manage access with SAS tokens. To get around this limitation, you might create local copies, which eventually diverge from your original template. Template specs simplify sharing templates.
 
-The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
+To follow your organization's requirements and guidance, administrators should verify the templates you include in a template spec.
 
 ## Required permissions
 
-There are two Azure build-in roles defined for template spec:
+There are two Azure built-in roles defined for template spec:
 
 - [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
 - [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
 
-In addition, you also need the permissions for deploying a Bicep file. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
+In addition, you need the permissions for deploying a Bicep file. For more information, see [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 ## Create template spec
 
@@ -85,7 +85,7 @@ The following example shows a simple template for creating a storage account in 
 }
 ```
 
-When you create the template spec, the PowerShell or CLI commands are passed the main template file. If the main template references linked templates, the commands will find and package them to create the template spec. To learn more, see [Create a template spec with linked templates](#create-a-template-spec-with-linked-templates).
+When you create the template spec, the PowerShell or CLI commands are passed the main template file. If the main template references linked templates, the commands find and package them. To learn more, see [Create a template spec with linked templates](#create-a-template-spec-with-linked-templates).
 
 Create a template spec by using:
 
@@ -182,7 +182,7 @@ You can also create template specs by using ARM templates. The following templat
 }
 ```
 
-The size of a template spec is limited to approximated 2 MB. If a template spec size exceeds the limit, you will get the **TemplateSpecTooLarge** error code. The error message says:
+The size of a template spec is limited to approximately 2 MB. If a template spec size exceeds the limit, you get the **TemplateSpecTooLarge** error code. The error message says:
 
 ```error
 The size of the template spec content exceeds the maximum limit. For large template specs with many artifacts, the recommended course of action is to split it into multiple template specs and reference them modularly via TemplateLinks.
@@ -225,9 +225,9 @@ az ts show \
 
 ## Deploy template spec
 
-After you've created the template spec, users with the [template spec reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
+After you create the template spec, users with the [template spec reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. For more information, see [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
-Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a linked template in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
+You can deploy template specs through the portal, PowerShell, Azure CLI, or as a linked template in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 
 Instead of passing in a path or URI for a template, you deploy a template spec by providing its resource ID. The resource ID has the following format:
 
@@ -259,7 +259,7 @@ az deployment group create \
 
 ---
 
-In practice, you'll typically run `Get-AzTemplateSpec` or `az ts show` to get the ID of the template spec you want to deploy.
+In practice, you typically run `Get-AzTemplateSpec` or `az ts show` to get the ID of the template spec you want to deploy.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -291,7 +291,7 @@ https://portal.azure.com/#create/Microsoft.Template/templateSpecVersionId/%2fsub
 
 ## Parameters
 
-Passing in parameters to template spec is exactly like passing parameters to an ARM template. Add the parameter values either inline or in a parameter file.
+Passing parameters to template spec is like passing parameters to an ARM template. Add the parameter values either inline or in a parameter file.
 
 To pass a parameter inline, use:
 
@@ -353,7 +353,7 @@ az deployment group create \
 
 ## Versioning
 
-When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it.  You can have an unlimit number of versions. 
+When you create a template spec, you provide a version name for it. As you iterate on the template code, you can either update an existing version (for hotfixes) or publish a new version. The version is a text string. You can choose to follow any versioning system, including semantic versioning. Users of the template spec can provide the version name they want to use when deploying it. You can have an unlimited number of versions.
 
 ## Use tags
 
@@ -411,17 +411,17 @@ az ts update \
 
 ---
 
-When creating or modifying a template spec with the version parameter specified, but without the tag/tags parameter:
+When you create or modify a template spec with the version parameter specified, but without the tag parameter:
 
 * If the template spec exists and has tags, but the version doesn't exist, the new version inherits the same tags as the existing template spec.
 
-When creating or modifying a template spec with both the tag/tags parameter and the version parameter specified:
+When you create or modify a template spec with both the tag parameter and the version parameter specified:
 
 * If both the template spec and the version don't exist, the tags are added to both the new template spec and the new version.
 * If the template spec exists, but the version doesn't exist, the tags are only added to the new version.
 * If both the template spec and the version exist, the tags only apply to the version.
 
-When modifying a template with the tag/tags parameter specified but without the version parameter specified, the tags is only added to the template spec.
+When you modify a template by specifying the tag parameter but without specifying the version parameter, you add the tags to only the template spec.
 
 ## Create a template spec with linked templates
 
@@ -461,13 +461,13 @@ The following example consists of a main template with two linked templates. The
 }
 ```
 
-When the PowerShell or CLI command to create the template spec is executed for the preceding example, the command finds three files - the main template, the web app template (`webapp.json`), and the database template (`database.json`) - and packages them into the template spec.
+When you run the PowerShell or CLI command to create the template spec for the preceding example, the command finds three files - the main template, the web app template (`webapp.json`), and the database template (`database.json`) - and packages them into the template spec.
 
 For more information, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
 
 ## Deploy template spec as a linked template
 
-Once you've created a template spec, it's easy to reuse it from an ARM template or another template spec. You link to a template spec by adding its resource ID to your template. The linked template spec is automatically deployed when you deploy the main template. This behavior lets you develop modular template specs, and reuse them as needed.
+After you create a template spec, you can easily reuse it from an ARM template or another template spec. To link to a template spec, add its resource ID to your template. When you deploy the main template, it automatically deploys the linked template spec. This behavior lets you develop modular template specs and reuse them as needed.
 
 For example, you can create a template spec that deploys networking resources, and another template spec that deploys storage resources. In ARM templates, you link to these two template specs anytime you need to configure networking or storage resources.
 

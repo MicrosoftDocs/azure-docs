@@ -121,7 +121,7 @@ sections:
       - question: |
           What is the limit on the number of integration runtimes?
         answer: |
-          There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+          There is no hard limit on the number of integration runtime instances you can have in a data factory. There is, however, a limit on the number of VM cores that the integration runtime can use per subscription for SSIS package execution. For more information, see [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
           
       - question: |
           What are the top-level concepts of Azure Data Factory?

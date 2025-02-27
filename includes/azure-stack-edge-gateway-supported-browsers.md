@@ -13,5 +13,5 @@ Here is a list of the browsers supported for the local web UI for the virtual de
 |Google Chrome   |Latest version         |        |
 |Microsoft Edge    | Latest version        |         |
 |Internet Explorer     | Latest version        | If enhanced security features are enabled, you may not be able to access local web UI pages. Disable enhanced security, and restart your browser.|
-|FireFox    |Latest version         |         |
+|Firefox    |Latest version         |         |
 |Safari on Mac    |Latest version         |         |

@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 01/22/2025
+ms.date: 01/24/2025
 ms.author: kendownie
 ---
 
@@ -20,24 +20,6 @@ This article provides recommendations for working with directories that contain 
 | Standard file shares (GPv2), LRS/ZRS | ![Yes, this article applies to standard SMB Azure file shares LRS/ZRS.](../media/icons/yes-icon.png) | ![NFS shares are only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes, this article applies to standard SMB Azure file shares GRS/GZRS.](../media/icons/yes-icon.png) | ![NFS is only available in premium Azure file shares.](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes, this article applies to premium SMB Azure file shares.](../media/icons/yes-icon.png) | ![Yes, this article applies to premium NFS Azure file shares.](../media/icons/yes-icon.png) |
-
-## Recommended mount options
-
-The following mount options are specific to enumeration and can reduce latency when working with large directories.
-
-### actimeo
-
-Specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. If `actimeo` isn't specified, the client uses the defaults for each of these options.
-
-We recommend setting `actimeo` between 30 and 60 seconds when working with large directories. Setting a value in this range makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running.
-
-The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files in a single directory. In our testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
-
-:::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
-
-### nconnect
-
-`Nconnect` is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
 
 ## Increase the number of hash buckets
 
@@ -89,6 +71,26 @@ To do this, you'll need to modify your boot configuration settings by providing 
    dmesg | grep "Inode-cache hash table"
    Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
    ```
+
+## Recommended mount options
+
+The following mount options are specific to enumeration and can reduce latency when working with large directories.
+
+### actimeo
+
+The `actimeo` mount option specifies the time (in seconds) that the client caches attributes of a file or directory before it requests attribute information from a server. During this period the changes that occur on the server remain undetected until the client checks the server again. For SMB clients, the default attribute cache timeout is set to 1 second.
+
+On NFS clients, specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. If `actimeo` isn't specified, the client uses the defaults for each of these options.
+
+We recommend setting `actimeo` between 30 and 60 seconds when working with large directories. Setting a value in this range makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running.
+
+The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files in a single directory. In our testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
+
+:::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
+
+### nconnect
+
+`Nconnect` is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and the Azure Premium Files service for NFSv4.1. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. `Nconnect` can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nconnect).
 
 ## Commands and operations
 

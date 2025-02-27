@@ -990,6 +990,12 @@ Serverless SQL pools enable you to access Parquet, CSV, and Delta tables that ar
 
 This is a public preview limitation. Drop and re-create the Delta table in Spark (if it's possible) instead of altering tables to resolve this issue.
 
+### Query timeout or performance degradation on a table
+
+When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool is automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
+
+If you encounter this issue, consider setting up a job to recreate statistics on the tables after changes in Spark/Dataverse or on a regular schedule.
+
 ## Performance
 
 Serverless SQL pool assigns the resources to the queries based on the size of the dataset and query complexity. You can't change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you might have to identify the root causes.

@@ -86,6 +86,8 @@ After creating a backend, you can reference the backend identifier (name) in
     [...]
 <policies/>
 ```
+> [!NOTE]
+> Alternatively, you can use `base-url`. Usually, the format is `https://backend.com/api`. Avoid adding a slash at the end to prevent misconfigurations. Typically, the `base-url` and HTTP(S) endpoint value in the backend should match to enable seamless integration between frontend and backend. Note that API Management instances append the backend service name to the `base-url`.
 
 You can use conditional logic with the `set-backend-service` policy to change the effective backend based on location, gateway that was called, or other expressions.
 
@@ -331,3 +333,4 @@ Include a JSON snippet similar to the following in your ARM template for a load-
 
 * Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
+* Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance OpenAI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)

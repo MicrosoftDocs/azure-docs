@@ -144,7 +144,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
     - Sensor fails regular sanity tests
     - No traffic detected by the sensor
     - Sensor software version is no longer supported
-    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors) fails
+    - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-ot-sensors-with-the-latest-ot-monitoring-software) fails
 
     For more information, see our [Sensor health message reference](sensor-health-messages.md).
 

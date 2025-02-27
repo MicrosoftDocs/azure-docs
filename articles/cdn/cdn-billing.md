@@ -61,7 +61,7 @@ If you're using Azure Blob storage as the origin for your content, you also incu
 - Transfers in GB: The amount of data transferred to fill the content delivery network caches.
 
 > [!NOTE]
-> Starting October 2019, if you are using Azure Content Delivery Network from Microsoft, the cost of data transfer from origins hosted in Azure to content delivery network PoPs is free of charge. Azure Content Delivery Network from Edgio is subject to the rates described as followed.
+> Starting October 2019, if you are using Azure Content Delivery Network from Microsoft, the cost of data transfer from origins hosted in Azure to content delivery network PoPs is free of charge.
 
 For more information about Azure Storage billing, see [Plan and manage costs for Azure Storage](../storage/common/storage-plan-manage-costs.md).
 

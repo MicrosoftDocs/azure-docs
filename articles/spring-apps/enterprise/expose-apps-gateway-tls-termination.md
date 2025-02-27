@@ -1,5 +1,5 @@
 ---
-title:  "Expose applications to the internet using Application Gateway with TLS termination"
+title:  "Expose Applications to the Internet Using Application Gateway with TLS Termination"
 titleSuffix: Azure Spring Apps
 description: How to expose applications to internet using Application Gateway with TLS termination
 author: KarlErickson
@@ -43,7 +43,7 @@ To configure Application Gateway in front of Azure Spring Apps in a private VNET
 
 ## Define variables
 
-Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). Replace the *\<...>* placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Apps in a virtual network](../basic-standard/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json). Replace the `<...>` placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
 export SUBSCRIPTION='<subscription-id>'
@@ -68,7 +68,7 @@ az account set --subscription $SUBSCRIPTION
 
 ## Configure the public domain name on Azure Spring Apps
 
-Traffic will enter the application deployed on Azure Spring Apps using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app, replacing the *\<...>* placeholders with real values:
+Traffic will enter the application deployed on Azure Spring Apps using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app, replacing the `<...>` placeholders with real values:
 
 ```azurecli
 export KV_NAME='<name-of-key-vault>'
@@ -104,7 +104,7 @@ az network public-ip create \
 
 ### Create a managed identity for the application gateway
 
-Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview) Create the managed identity by using the following command, replacing the *\<...>* placeholder:
+Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview) Create the managed identity by using the following command, replacing the `<...>` placeholder:
 
 ```azurecli
 export APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'

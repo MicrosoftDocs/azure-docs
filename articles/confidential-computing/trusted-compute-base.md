@@ -24,7 +24,7 @@ The following diagram shows what is "in" and what is "outside' of the trusted co
 
 The root of trust is the hardware that is trusted to attest (validate) that the customer workload is using confidential computing through the generation of cryptographic proofs.
 
-## CC Workload (TCB)
+## Confidential Computing Workload (TCB)
 
 The customer workload, encapsulated inside a Trusted Execution Environment (TEE) includes the parts of the solution that are fully under control and trusted by the customer. The confidential computing workload is opaque to everything outside of the TCB using encryption.
 

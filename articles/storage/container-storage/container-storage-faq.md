@@ -59,6 +59,10 @@ ms.custom: references_regions
   **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
   No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
 
+* <a id="azure-container-storage-arm"></a>
+  **Does Azure Container Storage support ARM nodepools?**  
+  Currently, Azure Container Storage does not support ARM nodepools. Our supported architectures are AMD64/x86-64.
+
 * <a id="azure-container-storage-endpoints"></a>
   **What endpoints need to be allowlisted in the Azure Firewall for Azure Container Storage to work?**
 

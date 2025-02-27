@@ -2,8 +2,8 @@
 title: Azure Web Application Firewall integration in Microsoft Copilot for Security (preview)
 description: Learn about using Microsoft Copilot for Security to investigate traffic flagged by Azure Web Application Firewall.
 keywords: copilot for security, copilot for security, threat intelligence, intrusion detection and prevention system, plugin, integration, azure web application firewall, copilot, open ai, openai co-pilot
-author: sowmyam2019
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
 ms.date: 01/22/2025
 ms.topic: conceptual
 ms.service: azure-web-application-firewall
