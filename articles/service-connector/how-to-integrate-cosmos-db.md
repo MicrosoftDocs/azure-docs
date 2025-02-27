@@ -39,7 +39,7 @@ The table below shows which combinations of client types and authentication meth
 This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Cosmos DB for MongoDB using Service Connector.
 
 > [!NOTE]
-> Managed identities can be used to list connection strings and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
+> Since Cosmos DB doesn't natively support authentication via managed identity, Service Connector uses the managed identity to list the connection string, and the connection is then made using the connection string.
 
 ## Default environment variable names or application properties and sample code
 
@@ -57,7 +57,7 @@ Use the connection details below to connect compute services to Azure Cosmos DB.
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity.
 
-The system-assigned managed identity code sample uses a managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to list the connection string, and then connect using the connection string.
 
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
@@ -74,7 +74,7 @@ The system-assigned managed identity code sample uses a managed identity to list
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
 
-The user-assigned-assigned managed identity code sample uses a managed identity to list the connection string and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to list the connection string, and then connect using the connection string.
 
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
 
