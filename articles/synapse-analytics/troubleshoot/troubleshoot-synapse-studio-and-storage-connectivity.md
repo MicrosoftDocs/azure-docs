@@ -5,7 +5,7 @@ author: Danzhang-msft
 ms.author: danzhang
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
-ms.topic: conceptual
+ms.topic: troubleshooting-problem-resolution
 ms.date: 02/15/2022
 ms.reviewer: whhender
 ---

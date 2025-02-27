@@ -3,7 +3,7 @@ title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
 author: JeneZhang
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.subservice: troubleshooting
 ms.date: 10/01/2023
 ms.author: jingzh
@@ -24,7 +24,7 @@ In some cases, if your browser session has been inactive for an extended period,
 
 ### Root cause and mitigation
 
-Handling token expiration in Synapse Studio requires careful consideration, especially when working in a live workspace without Git integration. Here’s how to manage your session to avoid losing work:
+Handling token expiration in Synapse Studio requires careful consideration, especially when working in a live workspace without Git integration. Here's how to manage your session to avoid losing work:
 - **With Git integration:**
    - Regularly commit your changes. This ensures that even if you need to refresh your browser to renew your session, your work is safely stored.
    - After committing, you can refresh your browser to reset the session and then continue to publish your changes.
@@ -144,7 +144,7 @@ If possible, please try to switch your network environment, such as inside/outsi
 
 + If you can run notebook on the same workstation but in a different network environment, please work with your network administrator to find out whether the WebSocket connection has been blocked. 
 
-+ If you can run notebook on a different workstation but in the same network environment, please ensure you didn’t install any browser plugin that may block the WebSocket request. 
++ If you can run notebook on a different workstation but in the same network environment, please ensure you didn't install any browser plugin that may block the WebSocket request. 
 
 Otherwise, please contact your network administrator and ensure the outbound WebSocket requests with the following URL pattern is allowed and their request header is not redacted: 
 
@@ -155,7 +155,7 @@ wss://{workspace}.dev.azuresynapse.net/{path}
 
 + **{path}** indicates any sub-path (i.e., slash character is included) in URI. 
 
-This URL pattern is looser than the one shown in “Root Cause” section because it allows for us adding new WebSocket-dependent features to Synapse without any potential connectivity issue in the future. 
+This URL pattern is looser than the one shown in "Root Cause" section because it allows for us adding new WebSocket-dependent features to Synapse without any potential connectivity issue in the future. 
 
 ## Message queue full or is completed and cannot accept more items
 

@@ -4,7 +4,7 @@ description: This article contains information that can help you troubleshoot pr
 author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: whhender, wiassaf
-ms.topic: overview
+ms.topic: troubleshooting-known-issue
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.date: 09/26/2024
