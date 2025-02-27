@@ -331,5 +331,3 @@ For more information, see:
 - [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)
 - [Alert management API reference for on-premises management consoles](api/management-alert-apis.md)
 - [Alert management API reference for OT monitoring sensors](api/sensor-alert-apis.md)
-- [Forward alert information](how-to-forward-alert-information-to-partners.md)
-

@@ -159,7 +159,7 @@ items:
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps
       items:
-      - name: Edge apps overview
+      - name: MQTT client app guidance
         href: create-edge-apps/edge-apps-overview.md
       - name: State store
         items:

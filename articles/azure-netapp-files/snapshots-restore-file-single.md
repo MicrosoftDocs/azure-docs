@@ -99,15 +99,15 @@ N:\ dir
 Directory of N:\~snapshot
 09/11/2021  12:10 AM    <DIR>          .
 09/22/2021  07:56 PM    <DIR>          ..
-09/08/2021  01:47 PM                 102,400,000 daily-10-min-past-12am.2021-09-08_0010
-09/09/2021  11:00 PM                 106,400,000 daily-10-min-past-12am.2021-09-09_0010
+09/08/2021  01:47 PM           102,400,000 daily-10-min-past-12am.2021-09-08_0010
+09/09/2021  11:00 PM           106,400,000 daily-10-min-past-12am.2021-09-09_0010
 N:\> cd daily-10-min-past-12am.2021-09-08_0010
 N:\> dir
 Directory of N:\~snapshot\daily-10-min-past-12am.2021-09-08_0010
-09/11/2021  12:10 AM    <DIR>          .
-09/22/2021  07:56 PM    <DIR>          ..
-02/27/2021  01:47 PM                 102,400 contoso
-04/21/2021  11:00 PM                 106,400 department1
+09/11/2021  12:10 AM   <DIR>          .
+09/22/2021  07:56 AM   <DIR>          ..
+02/27/2021  01:47 PM              102,400 contoso
+04/21/2021  11:00 PM              106,400 department1
 N:\> cd contoso
 N:\> dir
 Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\contoso
