@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 09/21/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support
