@@ -13,7 +13,7 @@ ms.subservice: storage-partner-integration
 
 In our [Migration tools comparison](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) page, we highlighted cases where an ISV partner solution is required or well-suited to meet specific source - target combinations. In this page, we share more details on their solutions, how to engage with them, and answer common questions about those who participate in the Storage Migration Program. 
 
-## Supported Azure services
+## What is the Storage Migration Program and are all the partners below included?
 
 > [!TIP]
 >  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
