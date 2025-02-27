@@ -252,9 +252,9 @@
       items:
       - name: P2S server configuration
         items:
-        - name: P2S - Microsoft-registered VPN client app
+        - name: Configure P2S - Microsoft Entra ID authentication
           href: point-to-site-entra-gateway.md
-        - name: P2S - manually registered VPN client app
+        - name: Configure P2S - manually registered VPN client
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Change VPN client app to Microsoft-registered
           href: point-to-site-entra-gateway-update.md

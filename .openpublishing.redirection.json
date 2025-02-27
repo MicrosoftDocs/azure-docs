@@ -5970,5 +5970,15 @@
       "redirect_url": "/azure/nat-gateway/nat-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/sentinel/kusto-resources.md",
+      "redirect_url": "/kusto/query/kql-learning-resources?view=microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/availability-zones-baseline.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": false
+    }
   ]
 }
