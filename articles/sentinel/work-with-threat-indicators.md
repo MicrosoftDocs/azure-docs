@@ -173,7 +173,7 @@ Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndica
 
 1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
 
-:::image type="content" source="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png":::
+:::image type="content" source="./media/work-with-threat-indicators/table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/table-results-advanced-hunting.png":::
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -183,7 +183,7 @@ Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndica
 
 Your results should look similar to the sample threat indicator shown here.
 
-:::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
+:::image type="content" source="media/work-with-threat-indicators/table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/table-results.png":::
 
 ---
 
