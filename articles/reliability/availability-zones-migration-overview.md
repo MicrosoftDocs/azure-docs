@@ -12,7 +12,7 @@ ms.custom: subject-reliability
 
 # Availability zone migration guidance overview
 
-Azure services that once didn't support availability zones are often upgraded to provide that support for their resources. However, most services require that you follow certain procedures in order to move a resource from non-availability zone support to availability support. In the list below, you'll find migration guides for Azure services that have been updated to support availability zones. These guides provide detailed information such as prerequisites for migration, download requirements, important migration considerations, and recommendations.
+To improve the reliability of your solution, it's a good practice to enable availability zone support on your Azure resources. Most services require that you follow certain procedures in order to enable availability zone support on an existing resource. In the list below, you'll find guides to support availability zones on many Azure services. These guides provide detailed information such as prerequisites for migration, expected downtime, important migration considerations, and recommendations.
 
 
 ## Azure services migration guides
