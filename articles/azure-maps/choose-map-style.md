@@ -144,7 +144,7 @@ styleOverrides: {
     roadDetails: { visible: false }
 }
 ```
-:::image type="content" source="./media/choose-map-style/road-details.gif" alt-text="Road details":::
+:::image type="content" source="./media/choose-map-style/road-details.gif" alt-text="An animated GIF that shows road details.":::
 
 > [!NOTE]
 > For more information on the supported map styles on each `styleOverrides` option, see the [styleOverrides] API documentation.
