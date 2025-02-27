@@ -3,7 +3,7 @@ title: Availability zone migration guidance overview for Microsoft Azure product
 description: Availability zone migration guidance overview for Microsoft Azure products and services
 author: anaharris-ms
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 11/08/2022
 ms.author: anaharris
@@ -13,8 +13,6 @@ ms.custom: subject-reliability
 # Availability zone migration guidance overview for Microsoft Azure products and services
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.  For that reason, resources that don't currently have availability zone support, may have an opportunity to gain that support. The Migration Guides section offers a collection of guides for each service that requires certain procedures in order to move a resource from non-availability zone support to availability support. You'll find information on prerequisites for migration, download requirements, important migration considerations and recommendations.
-
-To check the readiness of your application for availability zone support, see [Azure availability zone migration baseline](./availability-zones-baseline.md).
 
 The table below lists each product that offers migration guidance and/or information. 
 
@@ -71,9 +69,6 @@ The table below lists each product that offers migration guidance and/or informa
 | [Azure Kubernetes Service (AKS) and MySQL Flexible Server](migrate-workload-aks-mysql.md)|
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Azure availability zone migration baseline](availability-zones-baseline.md)
 
 > [!div class="nextstepaction"]
 > [Azure services with availability zones](availability-zones-service-support.md)

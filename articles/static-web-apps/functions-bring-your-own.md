@@ -3,11 +3,11 @@ title: Bring your own functions to Azure Static Web Apps
 description: Use an existing Azure Functions app with your Azure Static Web Apps site.
 ms.custom: engagement-fy23
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 10/13/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Bring your own functions to Azure Static Web Apps
