@@ -101,7 +101,7 @@ var map = new atlas.Map('map', {
 
 Here are examples of all five available `styleOverrides` options:
 
-1. Country/region borders
+- Country/region borders
    
 ```javascript
 styleOverrides: {
