@@ -213,7 +213,7 @@ Use queries to view threat intelligence from **Logs** or **Advanced hunting**. E
 >Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 >
 
-For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries).
+For more information, see [Work with threat intelligence in Microsoft Sentinel](work-with-threat-indicators.md#find-and-view-threat-intelligence-with-queries).
 
 ### Threat intelligence life cycle
 
