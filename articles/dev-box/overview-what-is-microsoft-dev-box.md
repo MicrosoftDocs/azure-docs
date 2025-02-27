@@ -6,8 +6,10 @@ ms.service: dev-box
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/08/2023
+ms.date: 02/26/2025
 adobe-target: true
+
+#Customer intent: #Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it can help developer teams, so that I can efficiently set up and use ready-to-code cloud workstations for my teams.
 ---
 
 # What is Microsoft Dev Box?
@@ -47,7 +49,7 @@ Dev Box has the following benefits for IT admins:
 
 - Manage dev boxes like any other device on your network:
 
-  - Dev boxes automatically enroll in Microsoft Intune. Use the [Microsoft Intune admin center](https://go.microsoft.com/fwlink/?linkid=2109431) to manage dev boxes.
+  - Dev boxes automatically enroll in Microsoft Intune. Use the Microsoft Intune to manage dev boxes.
   - Keep all Windows devices up to date by using expedited quality updates in Intune to deploy zero-day patches across your organization.
   - If a dev box is compromised, isolate it while helping users get backup and running on a new dev box.
 
