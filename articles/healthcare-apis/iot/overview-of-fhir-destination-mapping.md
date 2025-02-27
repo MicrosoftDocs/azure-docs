@@ -9,9 +9,10 @@ ms.date: 08/01/2023
 ms.author: chrupa
 ---
 
+# Overview of the MedTech service FHIR destination mapping
+
 > [!IMPORTANT]
 > As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
-# Overview of the MedTech service FHIR destination mapping
 
 This article provides an overview of the MedTech service FHIR&reg; destination mapping.
 
