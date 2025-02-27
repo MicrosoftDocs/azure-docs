@@ -4,7 +4,7 @@ description: Learn about Microsoft Sentinel security orchestration, automation, 
 ms.topic: conceptual
 author: batamig
 ms.author: bagol
-ms.date: 10/16/2024
+ms.date: 02/12/2025
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -61,6 +61,7 @@ After onboarding your Microsoft Sentinel workspace to the Defender portal, note 
 | **Changes to existing incident names** | The Defender portal uses a unique engine to correlate incidents and alerts. When onboarding your workspace to the Defender portal, existing incident names might be changed if the correlation is applied. To ensure that your automation rules always run correctly, we therefore recommend that you avoid using incident titles as condition criteria in your automation rules, and suggest instead to use the name of any analytics rule that created alerts included in the incident, and tags if more specificity is required. |
 | ***Updated by* field** | <li>After onboarding your workspace, the **Updated by** field has a [new set of supported values](../automate-incident-handling-with-automation-rules.md#incident-update-trigger), which no longer include *Microsoft 365 Defender*. In existing automation rules, *Microsoft 365 Defender* is replaced by a value of *Other* after onboarding your workspace. <br><br><li>If multiple changes are made to the same incident in a 5-10 minute period, a single update is sent to Microsoft Sentinel, with only the most recent change. <br><br>For more information, see [Incident update trigger](../automate-incident-handling-with-automation-rules.md#incident-update-trigger). |
 | **Automation rules that add incident tasks** | If an automation rule adds an incident task, the task is shown only in the Azure portal. |
+| **Creating automation rules directly from an incident** | [Creating automation rules directly from an incident](../false-positives.md#add-exceptions-with-automation-rules-azure-portal-only) is supported only in the Azure portal. If you're working in the Defender portal, create your automation rules from scratch from the **Automation** page. |
 | **Microsoft incident creation rules** | Microsoft incident creation rules aren't supported in the Defender portal. <br><br>For more information, see [Microsoft Defender XDR incidents and Microsoft incident creation rules](../microsoft-365-defender-sentinel-integration.md#microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules). |
 | **Running automation rules from the Defender portal** | It might take up to 10 minutes from the time that an alert is triggered and an incident is created or updated in the Defender portal to when an automation rule is run. This time lag is because the incident is created in the Defender portal and then forwarded to Microsoft Sentinel for the automation rule. |
 | **Active playbooks tab** | After onboarding to the Defender portal, by default the **Active playbooks** tab shows a predefined filter with onboarded workspace's subscription. In the Azure portal, add data for other subscriptions using the subscription filter.  <br><br>For more information, see [Create and customize Microsoft Sentinel playbooks from content templates](use-playbook-templates.md). |

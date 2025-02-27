@@ -91,7 +91,7 @@ The password is one of the Microsoft Entra application's client secrets.
 - **Authentication**: Username and password authentication is supported using the Microsoft Entra application details as the credentials. The Azure Communication Services SMTP service will use the Microsoft Entra application details to get an access token on behalf of the user and use that to submit the email. Because the Microsoft Entra token isn't cached, access can be revoked immediately by either changing the Microsoft Entra application client secret or by changing the access controls for the Azure Communication Services Resource.
 - **Azure Communication Service**: An Azure Communication Services Resource with a connected Azure Communication Email Resource and domain is required.
 - **Transport Layer Security (TLS)**: Your device must be able to use TLS version 1.2 and above.
-- **Port**: Port 587 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
+- **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
 - **DNS**: Use the DNS name smtp.azurecomm.net. Don't use an IP address for the Microsoft 365 or Office 365 server, as IP Addresses aren't supported.
 
 ### How to set up SMTP AUTH client submission
@@ -101,6 +101,6 @@ Enter the following settings directly on your device or in the application as th
 | Device or Application setting | Value |
 |--|--|
 |Server / smart host | smtp.azurecomm.net |
-|Port |Port 587|
+|Port |Port 587 (recommended) or port 25|
 |TLS / StartTLS | Enabled|
 |Username and password | Enter the Microsoft Entra application credentials from an application with access to the Azure Communication Services Resource |

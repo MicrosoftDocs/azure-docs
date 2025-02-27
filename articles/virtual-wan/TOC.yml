@@ -222,6 +222,8 @@
             href: point-to-site-azure-vpn-client-certificate-linux.md
           - name: OpenVPN client
             href: point-to-site-vpn-client-certificate-openvpn-linux.md
+          - name: IKEv2 - strongSwan
+            href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
           items:
           - name: Native VPN client
@@ -231,16 +233,28 @@
           - name: OpenVPN client - iOS
             href: point-to-site-vpn-client-certificate-openvpn-ios.md  
         - name: Generate self-signed certificates
-          href: certificates-point-to-site.md
+          items:
+          - name: .cer and .pfx files
+            items:
+            - name: Azure PowerShell
+              href: certificates-point-to-site.md
+            - name: MakeCert
+              href: certificates-point-to-site-makecert.md
+          - name: .pem files
+            items:
+            - name: Linux - OpenSSL
+              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
+            - name: Linux - strongSwan
+              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
         - name: Install client certificates
           href: install-client-certificates.md
     - name: Microsoft Entra ID authentication
       items:
       - name: P2S server configuration
         items:
-        - name: P2S - Microsoft-registered VPN client app
+        - name: Configure P2S - Microsoft Entra ID authentication
           href: point-to-site-entra-gateway.md
-        - name: P2S - manually registered VPN client app
+        - name: Configure P2S - manually registered VPN client
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Change VPN client app to Microsoft-registered
           href: point-to-site-entra-gateway-update.md
@@ -255,9 +269,11 @@
       - name: VPN client configuration
         items:
         - name: Windows clients
-          href: openvpn-azure-ad-client.md
+          href: point-to-site-entra-vpn-client-windows.md
         - name: macOS clients
-          href: openvpn-azure-ad-client-mac.md
+          href: point-to-site-entra-vpn-client-mac.md
+        - name: Linux clients
+          href: point-to-site-entra-vpn-client-linux.md
       - name: VPN client profiles
         items:
         - name: Download global and hub profiles
@@ -266,8 +282,10 @@
           href: about-vpn-profile-download.md
         - name: Intune- Deploy VPN client profile
           href: vpn-profile-intune.md
-    - name: Azure VPN client optional settings
+    - name: Azure VPN client - optional settings
       href: azure-vpn-client-optional-configurations-windows.md
+    - name: Azure VPN Client versions
+      href: azure-vpn-client-versions.md
     - name: Configure Always On tunnels
       items:
       - name: User tunnel
@@ -367,7 +385,7 @@
   - name: Networking Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Networking update announcements
     href: https://go.microsoft.com/fwlink/?linkid=2299811
   - name: Pricing calculator

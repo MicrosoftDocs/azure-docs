@@ -33,7 +33,7 @@ For a list of data stores that are supported as sources/sinks by the copy activi
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
-This connector currently supports MariaDB of version 10.x, 11.x under the recommended new driver version v2 and 10.0 to 10.5 for the legacy driver version.
+This connector currently supports MariaDB of version 10.x, 11.x under the MariaDB connector version 2.0 and 10.0 to 10.5 for version 1.0.
 
 ## Prerequisites
 
@@ -71,12 +71,12 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-If you use the recommended driver version, the following properties are supported for MariaDB linked service:
+If you use version 2.0, the following properties are supported for MariaDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MariaDB** | Yes |
-| driverVersion | The driver version when you select the recommended driver version. The value is v2. | Yes |
+| driverVersion | The driver version when you select version 2.0. The value is v2. | Yes |
 | server | The name of your MariaDB Server. | Yes |
 | port | The port number to connect to the MariaDB server. | No |
 | database | Your MariaDB database name. | Yes |
@@ -146,7 +146,7 @@ If you use the recommended driver version, the following properties are supporte
 }
 ```
 
-If you use the legacy driver version, the following properties are supported:
+If you use version 1.0, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -244,7 +244,7 @@ To copy data from MariaDB, set the source type in the copy activity to **MariaDB
 
 When copying data from MariaDB, the following mappings are used from MariaDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| MariaDB data type | Interim service data type | Interim service data type (for the legacy driver version) |
+| MariaDB data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:--- |:--- |:--- |
 | `bigint` |`Int64` |`Int64` |
 | `bigint unsigned` |`Decimal` |`Decimal` |
@@ -296,17 +296,17 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your MariaDB connector: 
 
-1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
+1. In **Edit linked service** page, select **2.0** under **Version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
-1. The data type mapping for the latest MariaDB linked service is different from that for the legacy version. To learn the latest data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
+1. The data type mapping for version 2.0 is different from that for version 1.0. To learn the version 2.0 data type mapping, see [Data type mapping for MariaDB](connector-mariadb.md#data-type-mapping-for-mariadb).
 
 1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
-## Differences between the recommended and the legacy driver version
+## <a name="differences-between-the-recommended-and-the-legacy-driver-version"></a> Differences between MariaDB version 2.0 and version 1.0
 
-The table below shows the data type mapping differences between MariaDB using the recommended and the legacy driver version.
+The table below shows the data type mapping differences between MariaDB version 2.0 and version 1.0.
 
-|MariaDB data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
+|MariaDB data type |Interim service data type (using version 2.0) |Interim service data type (using version 1.0)|
 |:---|:---|:---|
 |bit(1)| UInt64|Boolean|
 |bit(M), M>1|UInt64|Byte[]|

@@ -5,7 +5,7 @@ description: Learn about authentication and authorization features in Azure API 
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/08/2023
 ms.author: danlep
 ---

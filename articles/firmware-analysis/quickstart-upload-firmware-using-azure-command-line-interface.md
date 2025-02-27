@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 01/29/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 
