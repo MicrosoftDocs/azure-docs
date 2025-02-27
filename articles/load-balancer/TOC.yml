@@ -245,8 +245,8 @@
     - name: Manage Load Balancer health status
       href: load-balancer-manage-health-status.md
     expanded: false
-  - name: Troubleshoot
-    items:
+- name: Troubleshoot
+  items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
     - name: Testing inbound frontend IP address reachability
