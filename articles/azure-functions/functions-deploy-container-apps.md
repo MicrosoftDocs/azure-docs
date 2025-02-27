@@ -84,7 +84,7 @@ Use these commands to create your required Azure resources:
     principalId=$(az identity create --name <USER_IDENTITY_NAME> --resource-group AzureFunctionsContainers-rg --location eastus --query principalId -o tsv) 
     acrId=$(az acr show --name <REGISTRY_NAME> --query id --output tsv)
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role acrpull --scope $acrId
-    storageId=$(az storage account show --resource-group AzureFunctionsContainers-rg --name glengatestaca2 --query 'id' -o tsv)
+    storageId=$(az storage account show --resource-group AzureFunctionsContainers-rg --name <STORAGE_NAME> --query 'id' -o tsv)
     az role assignment create --assignee-object-id $principalId --assignee-principal-type ServicePrincipal --role "Storage Blob Data Owner" --scope $storageId
     ```
 
