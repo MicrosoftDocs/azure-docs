@@ -104,7 +104,7 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 Use standard API Management and Azure Monitor features to [monitor](api-management-howto-use-azure-monitor.md) WebSocket APIs:
 
 * View API metrics in Azure Monitor
-* Optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations
+* Optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations, or WebSocket connection logs
 
 For example, the following screenshot shows recent WebSocket API responses with code `101` from the **ApiManagementGatewayLogs** table. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
 
