@@ -28,7 +28,7 @@ Azure Load Testing enables you to test private application endpoints or applicat
 
 The following diagram shows an architecture overview of Azure Load Testing.
 
-:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture-large.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
+:::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" lightbox="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.png" alt-text="Diagram that shows the Azure Load Testing architecture.":::
 
 > [!NOTE]
 > The overview image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components. Learn more about the [supported Azure resource types](./resource-supported-azure-resource-types.md).
