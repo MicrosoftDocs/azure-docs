@@ -133,8 +133,7 @@ In the following image, multiple sources were used to search by placing them in 
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
 
-
-Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#threat-intelligence-life-cycle).
 
 IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data so you can provide more context for any investigations where indicator is found.
 
@@ -158,15 +157,23 @@ Edit threat intelligence one object at a time, whether created directly in Micro
 
 For more information on how threat intel is updated, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
-### Find and view your indicators with queries
+### Find and view threat intelligence with queries
 
-This procedure describes how to view your threat indicators with queries, regardless of the source feed or method you used to ingest them.
+This procedure describes how to view your threat intelligence with queries, regardless of the source feed or method you used to ingest them.
 
 Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
 >[!IMPORTANT]
 >Tables supporting the new STIX object schema aren't available publicly. In order to view the STIX objects in queries and unlock the hunting model that uses them, request to opt in with [this form](https://forms.office.com/r/903VU5x3hz?origin=lprLink). Ingest your threat intelligence into the new tables, `ThreatIntelIndicator` and `ThreatIntelObjects`, alongside or instead of the current table, `ThreatIntelligenceIndicator`, with this opt-in process.
 >
+
+#### [Defender portal](#tab/defender-portal)
+
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
+
+1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
+
+:::image type="content" source="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png":::
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -177,14 +184,6 @@ Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndica
 Your results should look similar to the sample threat indicator shown here.
 
 :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
-
-#### [Defender portal](#tab/defender-portal)
-
-1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
-
-1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
-
-:::image type="content" source="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/ti-table-results-advanced-hunting.png":::
 
 ---
 
