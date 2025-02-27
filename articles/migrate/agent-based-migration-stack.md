@@ -1,8 +1,8 @@
 ---
-title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
+title: Migrate machines as physical servers describes the instructions for new agent-based migration stack
 description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize. Learn the instructions for new agent-based migration stack
-author: piyushdhore-microsoft 
-ms.author: piyushdhore
+author: habibaum 
+ms.author: v-uhabiba@microsoft.com
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
@@ -23,6 +23,7 @@ This article introduces an upgraded agent-based migration stack for physical and
 * SLES 15 SP5
 
 To try the private preview, go to [Azure Portal](/?bundlingKind=DefaultPartitioner&configHash=aQy6IDek4p1d&env=ms&feature.rcmstack=true&l=en.en-us&pageVersion=15.118.0.1016132058.250212-1352#view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/serverGoal)
+
 
 
 ## Overview
