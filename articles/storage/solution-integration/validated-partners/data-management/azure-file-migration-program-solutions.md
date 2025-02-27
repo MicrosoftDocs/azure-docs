@@ -9,10 +9,9 @@ ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---
 
-# Comparison Matrix for Azure Storage Migration Program participants
+# Engaging with Azure Storage Migration Partners
 
-The following comparison matrix shows basic functionality, and comparison of migration tools that participate in [Azure Storage Migration Program](https://azure.microsoft.com/blog/migrating-your-files-to-azure-has-never-been-easier/).
-&nbsp;
+In our [Migration tools comparison](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) page, we highlighted cases where an ISV partner solution is required or well-suited to meet specific source - target combinations. In this page, we share more details on their solutions, how to engage with them, and answer common questions about those who participate in the Storage Migration Program. 
 
 ## Supported Azure services
 
