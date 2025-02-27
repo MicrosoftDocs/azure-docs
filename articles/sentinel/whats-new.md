@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 02/23/2025
+ms.date: 02/27/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -24,7 +24,7 @@ The listed features were released in the last three months. For information abou
 
 ### Customize settings for the SAP agentless solution
 
-The SAP agentless solution is now customizable using the SAP Cloud Integration Suite key value pairs, allowing you to adjust the solution's behavior to meet your organization's needs. 
+Microsoft Sentinel customers integrating with the SAP agentless solution can now customize the behavior of their data connector using SAP Integration Suite value mapping.
 
 For more information, see [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md) and [Customize your SAP agentless connector for Microsoft Sentinel](sap/configure-agentless.md).
 

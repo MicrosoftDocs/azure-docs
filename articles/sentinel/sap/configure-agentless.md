@@ -1,10 +1,10 @@
 ---
-title: Customize your SAP agentless data connector for Microsoft Sentinel
-description: Learn how to customize settings for your SAP agentless data connector for Microsoft Sentinel.
+title: Customize a Microsoft Sentinel SAP agentless data connector
+description: Learn how to customize settings for your SAP agentless data connector for Microsoft Sentinel using the SAP Integration Suite value mapping.
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 02/23/2025
+ms.date: 02/27/2025
 
 #Customer intent: As a security engineer, I want to customize settings for my SAP agentless connector for Microsoft Sentinel to meet my organization's needs.
 
@@ -12,26 +12,34 @@ ms.date: 02/23/2025
 
 # Customize your SAP agentless data connector for Microsoft Sentinel
 
-If you have an SAP agentless connector for Microsoft Sentinel, you can use the SAP Cloud Integration Suite to customize how the agentless data connector ingests data from your SAP system into Microsoft Sentinel.
+If you have an SAP agentless data connector for Microsoft Sentinel, you can use the SAP Integration Suite to customize how the agentless data connector ingests data from your SAP system into Microsoft Sentinel.
 
-This procedure is only relevant when you want to customize the SAP agentless data connector behavior. If you're satisfied with the default functionality, you can skip the procedures in this article.
+This procedure is only relevant when you want to customize the SAP agentless data connector behavior. Skip the procedures in this article if you're satisfied with the default functionality.
 
 ## Prerequisites
 
 - You must have an SAP agentless data connector for Microsoft Sentinel set up and running. For more information, see [Microsoft Sentinel solution for SAP applications: Deployment overview](deployment-overview.md?tabs=agentless#data-connector).
-- You must have an SAP Cloud Integration Suite account with permissions to edit key value mappings. For more information, see [TBD](xref).
+- You must have access to the [SAP Integration Suite](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/sap-cloud-integration), with permissions to [edit value mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/working-with-mapping).
+- An SAP integration package, either existing or new, to upload the default value mapping file.
 
 ## Download the configuration file and customize settings
 
-A default key-value mapping file is stored at  [TBD link to GitHub](xref). Download the file to a location accessible from your SAP system in order to customize settings.
+1. Download the default **value_mapping.xml** file. This file provides settings that define default behavior and is a good starting point to start customizing. The **value_mapping.xml** file is stored in the [example-parameters.zip](https://raw.githubusercontent.com/Azure/Azure-Sentinel/sap-agentless/Solutions/SAP/Agentless/example-paramaters.zip) file in the Microsoft Sentinel GitHub repository. Save the file to a location accessible to your SAP Integration environment.
 
-1. Load the TBD file into your SAP system. TBD NEED MORE DESCRIPTION HERE, XREF.
-1. Use one of the following methods to customize your SAP agentless data connector settings:
+1. Use the regular SAP procedure to create value mappings to customize your data connector settings.
 
-    - **Customize specific settings across all SAP systems.** If you want to customize settings across all SAP systems, select the **Global** key-value pair, and add local parameters to it. 
-    - **Customize settings for specific SAP systems.** If you want to customize settings for specific SAP systems, first create a new basic key-value pair, and then add local parameters to it.
+    1. Upload the **value_mapping.xml** file to the SAP Integration Suite.
+    1. Use one of the following methods to customize your settings:
 
-    For more information, see [Reference of customizable parameters](#reference-of-customizable-parameters).
+        - **To customize settings across all SAP systems**, add value mappings for the **global** bi-directional mapping agency.
+        - **To customize settings for specific SAP systems**, add new bi-directional mapping agencies for each SAP system, and then add value mappings for each one.
+
+        For more information, see:
+
+        - [SAP documentation on creating value mapping](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/creating-value-mapping)
+        - [Reference of customizable parameters](#reference-of-customizable-parameters)
+
+    Make sure to deploy the artifact when you're done customizing to activate the updated settings.
 
 ## Reference of customizable parameters
 
