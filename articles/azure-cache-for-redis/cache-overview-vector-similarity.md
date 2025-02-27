@@ -1,13 +1,13 @@
 ---
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
-description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
+description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.| description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search. |
 
 
 ms.collection: ce-skilling-ai-copilot
 ms.topic: overview
 ms.custom:
   - ignite-2024
-ms.date: 04/24/2024
+ms.date: 02/27/2025
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis?
@@ -19,24 +19,22 @@ For tutorials and sample applications on how to use Azure Cache for Redis and Az
 - [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis with LangChain](./cache-tutorial-vector-similarity.md)
 - [Sample: Using Redis as vector database in a Chatbot application with .NET Semantic Kernel](https://github.com/CawaMS/chatappredis)
 - [Sample: Using Redis as semantic cache in a Dall-E powered image gallery with Redis OM for .NET](https://github.com/CawaMS/OutputCacheOpenAI)
+<!-- check with Catherine - are all these in the samples repo -->
 
 ## Scope of Availability
 
 Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/), specifically the [RediSearch](https://redis.io/docs/interact/search-and-query/) module. This capability is only available in the [Enterprise tiers of Azure Cache for Redis](./cache-redis-modules.md).
+<!-- and AMR right? -->
 
 This table contains the information for vector search availability in different tiers.
 
-|Tier      | Basic / Standard  | Premium  |Enterprise | Enterprise Flash  | Azure Managed Redis (preview)
-|--------- |:------------------:|:----------:|:---------:|:---------:|:---------:|
-|Available | No          | No       |  Yes  | Yes (preview) |Yes
+| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis (preview) |
+|-----------|:----------------:|:-------:|:----------:|:----------------:|:-----------------------------:|
+| Available | No               | No      | Yes        | Yes (preview)    | Yes                           |
 
 ## What are vector embeddings?
 
-### Concept
-
-Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or images as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. That means converting your text or images into a sequence of numbers that represents the data, and then comparing the different number sequences. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification.
-
-<!-- TODO - Add image example -->
+Vector embeddings are a fundamental concept in machine learning and natural language processing that enable the representation of data, such as words, documents, or images, as numerical vectors in a high-dimension vector space. The primary idea behind vector embeddings is to capture the underlying relationships and semantics of the data by mapping them to points in this vector space. That means converting your text or images into a sequence of numbers that represents the data, and then comparing the different number sequences. This allows complex data to be manipulated and analyzed mathematically, making it easier to perform tasks like similarity comparison, recommendation, and classification.
 
 Each machine learning model classifies data and produces the vector in a different manner. Furthermore, it's typically not possible to determine exactly what semantic meaning each vector dimension represents. But because the model is consistent between each block of input data, similar words, documents, or images have vectors that are also similar. For example, the words `basketball` and `baseball` have embeddings vectors much closer to each other than a word like `rainforest`.
 
@@ -82,6 +80,7 @@ Vector similarity search can be used in multiple applications. Some common use-c
 - **LLM Conversation Memory**. Persist conversation history with an LLM as embeddings in a vector database. Your application can use vector search to pull relevant history or "memories" into the response from the LLM. [LLM Conversation Memory example](https://github.com/continuum-llms/chatgpt-memory)
 
 ## Why choose Azure Cache for Redis for storing and searching vectors?
+<!-- Shouldn't we just call out either Enterprise specifically and/or AMR? -->
 
 Azure Cache for Redis can be used effectively as a vector database to store embeddings vectors and to perform vector similarity searches. Support for vector storage and search has been available in many key machine learning frameworks like:
 
@@ -117,7 +116,4 @@ There are multiple other solutions on Azure for vector storage and search. Other
 
 ## Related content
 
-The best way to get started with embeddings and vector search is to try it yourself!
-
-> [!div class="nextstepaction"]
-> [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](./cache-tutorial-vector-similarity.md)
+- [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis](./cache-tutorial-vector-similarity.md)
