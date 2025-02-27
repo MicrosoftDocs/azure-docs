@@ -163,6 +163,7 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API and 
   - Charge 2: $0.004
   - Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
 - Query API - Charges are shown at eight decimal places and rounding doesn't occur.
+- Cost and usage data files - Rounding doesn't occur.
 
 ### Cost rounding for Azure Commitment discount
 
