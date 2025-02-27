@@ -24,6 +24,27 @@ This article introduces an upgraded agent-based migration stack for physical and
 
 To try the private preview, go to [Azure Portal](/?bundlingKind=DefaultPartitioner&configHash=aQy6IDek4p1d&env=ms&feature.rcmstack=true&l=en.en-us&pageVersion=15.118.0.1016132058.250212-1352#view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/serverGoal)
 
+## Navigate to Azure Migrate project
+
+Follow the steps to navigate to the Azure Migrate project
+
+**Step 1**: Navigate to Azure Migrate project
+
+1. Open [Azure portal](/view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/serverGoal) 
+1. Search for the **Azure Migrate** service.
+1. Create a new project or select an existing one. [Learn more](/azure/migrate/)
+
+**Step 2**: Select the required Agent-Based Migration Scenario
+
+1. Select **Discover** from the Migration tools.
+1. Select the scenario **VMware agent-based replication** or **Physical or other**.
+1. If resources are not already created, select a target region for your migration and create the resources.
+
+     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/azure-migrate-discover.png" alt-text="Shows the azure migrate discover screen":::
+
+**Step 3**: : Deploy the Appliance
+
+Follow the steps with OVA or PowerShell for VMware and PowerShell for the physical scenario. Wait for 30 minutes for the appliance to be deployed and complete registration with the provided key.
 
 
 ## Overview
