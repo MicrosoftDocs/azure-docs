@@ -24,7 +24,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
     "Type": "DataError",
     "DataErrorType": "InputDeserializerError.InvalidData",
     "BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
-    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt Error: Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
+    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt Error: JSON input stream should either be an array of objects or line separated objects. Found token type: Integer",
     "ExampleEvents": "[\"1,2\\\\u000d\\\\u000a3,4\\\\u000d\\\\u000a5,6\"]",
     "FromTimestamp": "2019-03-22T22:34:18.5664937Z",
     "ToTimestamp": "2019-03-22T22:34:18.5965248Z",
