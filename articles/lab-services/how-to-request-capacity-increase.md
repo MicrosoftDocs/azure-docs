@@ -7,7 +7,7 @@ ms.service: azure-lab-services
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/06/2024
+ms.date: 02/27/2025
 #customer intent: As an administrator and subscription owner, I want to learn how to request an increase in cores available for my subscription in order to meet my lab needs.
 ---
 
