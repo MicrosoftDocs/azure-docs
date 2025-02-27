@@ -10,9 +10,10 @@ ms.date: 06/02/2023
 ms.author: chrupa
 ---
 
+# Troubleshoot errors using the MedTech service logs
+
 > [!IMPORTANT]
 > As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
-# Troubleshoot errors using the MedTech service logs
 
 This article provides troubleshooting steps and fixes for errors found in the MedTech service logs. 
 
