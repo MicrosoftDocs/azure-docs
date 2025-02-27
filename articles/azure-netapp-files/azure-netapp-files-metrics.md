@@ -166,10 +166,10 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
 
 - *Throughput limit reached*
     
-    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. The value 1 means that the volume has reached its maximum throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
+    Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. If the metric displays 1, the volume has reached its throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
 
      > [!NOTE] 
-     > The Throughput limit reached metrics is collected every 5 minutes and is displayed as a hit if it has been collected in the last 5 minutes.
+     > The Throughput limit reached metrics is collected every 5 minutes. If the limit has been reached in the five-minute window, it means the limit has been reached in that window. 
     
     If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
 
@@ -199,9 +199,11 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     The number of read operations to the volume per second.
 - *Write IOPS*   
     The number of write operations to the volume per second.
-- ***Other IOPS*** 
+- *Other IOPS* 
+
     The number of [other operations](#about-storage-performance-operation-metrics) to the volume per second. 
-- *Total IOPS* 
+- *Total IOPS*
+
     A sum of the write, read, and other operations to the volume per second. 
 
 ## <a name="replication"></a>Volume replication metrics
@@ -258,6 +260,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     Other throughput (that isn't read or write) in bytes per second.
 
 * *Total throughput*
+
     Sum of all throughput (read, write, and other) in bytes per second.
 
 ## Volume backup metrics  
@@ -269,7 +272,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
 
 * *Is Volume Backup Suspended*   
-    Shows whether the backup policy is suspended for the volume.  `1` isn't suspended. `0` is suspended.
+    Shows whether the backup policy is suspended for the volume. A value of  `1` means it's not suspended. A value of `0` means it's suspended.
 
 * *Volume Backup Bytes*   
     The total bytes backed up for this volume.
