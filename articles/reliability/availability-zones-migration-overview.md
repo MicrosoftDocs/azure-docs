@@ -50,7 +50,6 @@ To improve the reliability of your solution, it's a good practice to enable avai
 | [Azure Storage: Managed Disks](migrate-vm.md)|
 | [Azure Virtual Machines and Azure Virtual Machine Scale Sets](migrate-vm.md)|  
 
-\*VMs that support availability zones: AV2-series, B-series, DSv2-series, DSv3-series, Dv2-series, Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, and M-series.
 
 
 ## Workload and general guidance
