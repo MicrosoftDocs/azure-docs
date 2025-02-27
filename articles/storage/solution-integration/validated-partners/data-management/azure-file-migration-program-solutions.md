@@ -78,12 +78,6 @@ In our [Migration tools comparison](/azure/storage/solution-integration/validate
 
 ## Licensing
 
-|    | [Atempo](https://www.atempo.com/) | [Data Dynamics](https://ddsupport.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
-|--- |---------------------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [Miria](https://www.atempo.com/solutions/miria-migration-for-hybrid-nas-and-file-storages/)|       [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview%E2%80%8B)    |
-| **BYOL**             | Yes | Yes | Yes |
-| **Azure Commitment** | No | Yes | Yes |
-
 ## Other features
 
 ### Atempo Miria
