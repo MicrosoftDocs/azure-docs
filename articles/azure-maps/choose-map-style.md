@@ -84,7 +84,7 @@ map.setStyle({ style: 'satellite' });
 ----------------------------------------------------------------------------------------------->
 
 ## Customize the base map
-For more information on all available options, see [styleOverrides].
+The [styleOverrides] options enable users to streamline the base map by turning off specific map elements like country/region borders, administrative district borders, building footprints, and road detail layers. This allows for a cleaner and simpler map view, making it easier to visualize geometry data.
 
 The following code shows how to disable country/region borders and building footprints on the map.
 
