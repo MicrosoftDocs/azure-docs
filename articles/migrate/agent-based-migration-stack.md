@@ -13,7 +13,7 @@ ms.custom: engagement-fy25
 
 # Agent-based migration stack
 
-This article introduces an upgraded agent-based migration stack for physical and VMware environments. Customers will benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
+This article introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
 
 * Oracle Linux 9.0
 * Oracle Linux 9.1
@@ -38,7 +38,7 @@ Follow the steps to navigate to the Azure Migrate project
 
 1. Select **Discover** from the Migration tools.
 1. Select the scenario **VMware agent-based replication** or **Physical or other**.
-1. If resources are not already created, select a target region for your migration and create the resources.
+1. If resources aren't already created, select a target region for your migration and create the resources.
 
      :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/azure-migrate-discover.png" alt-text="Shows the azure migrate discover screen":::
 
@@ -60,7 +60,7 @@ Follow the steps to navigate to the Azure Migrate project
 **Step 5**: Test migrate and Migrate
 
 1. Navigate to the migration overview page.
-1. Select **Test Migrate**. For more details, see, [Migrate machines as physical servers to Azure with Azure Migrate and Modernize](/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).
+1. Select **Test Migrate**. For more information, see, [Migrate machines as physical servers to Azure with Azure Migrate and Modernize](/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).
 1. Perform the final migration. [Learn more](/azure/migrate/tutorial-migrate-physical-virtual-machines#migrate-vms)
 
 **Step 6**: Verify the VM in Azure VM 
@@ -73,7 +73,7 @@ Verify if the VM boots up on Azure:
 
 We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/download-ova-file.png" alt-text="Shows the download option of the ova file":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/download-ova-file.png" alt-text="Shows the download option of the ova file":::
 
 Follow the steps:
 
@@ -97,7 +97,7 @@ After the appliance is created, the **Microsoft Azure Appliance Configuration Ma
 
 **CheckRegistryAccessPolicy** - Prevents access to registry editing tools
     - Key: `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`.
-    - The DisableRegistryTools value should not be equal to 0.
+    - The DisableRegistryTools value shouldn't be equal to 0.
 
 **CheckCommandPromptPolicy** - Prevents access to the command prompt
     - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\System`.
@@ -105,41 +105,42 @@ After the appliance is created, the **Microsoft Azure Appliance Configuration Ma
 
 **CheckTrustLogicAttachmentsPolicy** - Trust logic for file attachments.
     - Key: `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments`.
-    - The UseTrustedHandlers value should not be equal to 3.
+    - The UseTrustedHandlers value shouldn't be equal to 3.
 
 **CheckPowershellExecutionPolicy** - Turn on Script Execution.
-    - PowerShell execution policy should not be set to **AllSigned or Restricted**.
-    - Ensure the group policy **Turn on Script Execution Attachment Manager** is not set to Disabled or **Allow only signed scripts**.
+    - PowerShell execution policy shouldn't be set to **AllSigned or Restricted**.
+    - Ensure the group policy **Turn on Script Execution Attachment Manager** isn't set to Disabled or **Allow only signed scripts**.
 
 Use the following steps to register the appliance:
 
 1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the 'Use proxy to connect to internet' option.
-    - All Azure Site Recovery services will use these settings to connect to the internet.
+    - All Azure Site Recovery services use these settings to connect to the internet.
     
     > [!Note]
     > Only HTTP proxy is supported.
 1. Ensure the [required URLs](/azure/site-recovery/replication-appliance-support-matrix#allow-urls) are allowed and reachable from the Azure Site Recovery replication appliance to maintain continuous connectivity.
-1. After the prerequisites are verified, the appliance fetchs all its component information in the next step. Review the status of all components and then select **Continue**.
+1. After the prerequisites are verified, the appliance fetch all its component information in the next step. Review the status of all components and then select **Continue**.
 1. **Save** the details, and then proceed to choose the appliance connectivity method. You can select either FQDN or a NAT IP to define how communication with the appliance occurs.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text="Shows how to select replication appliance connectivity":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text="Shows how to select replication appliance connectivity":::
+
 1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
 1. Ensure the [prerequisites](/azure/site-recovery/replication-appliance-support-matrix#pre-requisites) are met, and then proceed with the registration.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Shows registry with recovery service vault":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Shows registry with recovery service vault":::
 
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
     > [!Note]
     > The name can't be changed once set.
 1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
     
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Shows the generated key":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Shows the generated key":::
 
 1. After pasting the key, select **Login**. You're redirected to a new authentication tab. By default, an authentication code is generated on the **Appliance Configuration Manager** page. Use the following code in the authentication tab. 
 1. Enter your Microsoft Azure credentials to complete the registration. 
 1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
 1. 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows to enter the microsoft code":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows to enter the microsoft code":::
 
 > [!Note]
 > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
@@ -147,11 +148,11 @@ Use the following steps to register the appliance:
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
 1. Select **Continue** to proceed.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to register with recovery services":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to register with recovery services":::
 
 1. After successful registration, proceed to configure **vCenter** details. 
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrates the vcenter information":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrates the vcenter information":::
 
 1. Select **Add vCenter Server** to input the vCenter information. 
 1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally on the machine
@@ -168,17 +169,17 @@ Use the following steps to register the appliance:
     
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details":::
 
-1. Select **Add Credentials** to input the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a **friendly name** for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine. 
+1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a **friendly name** for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine. 
 1. Finally, select **Add**.
 
-     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Show how to add physical server credentials":::
+::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Show how to add physical server credentials":::
 
 1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**. 
 1. Select the **credential account**, and then select **Add**.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Show how to add physical server details":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Show how to add physical server details":::
 
 1. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This process can take up to 30 minutes. Ensure you don't close the browser while the configuration is in progress.
 
