@@ -14,7 +14,7 @@ ms.date: 02/27/2025
 # Request a core limit increase
 
 > [!Important]
-> Azure Lab Services will be retired on June 28, 2027. For more information, see the [retirement guide](https://aka.ms/azlabs-retirementguide). Quota requests for lab account will no longer be proceeded.
+> Azure Lab Services will be retired on June 28, 2027. For more information, see the [retirement guide](https://aka.ms/azlabs-retirementguide). Quota requests for lab account will no longer be processed.
 
 This article describes how you can submit a support request to increase the number of cores for Azure Lab Services in your Azure subscription. First, collect the necessary information for the request.
 
