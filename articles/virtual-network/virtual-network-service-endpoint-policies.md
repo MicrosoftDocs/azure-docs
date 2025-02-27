@@ -592,6 +592,9 @@ az storage share create \
 
 ---
 
+> [!IMPORTANT]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ### Deny all network access to storage accounts
 
 By default, storage accounts accept network connections from clients in any network. To restrict network access to the storage accounts, you can configure the storage account to accept connections only from specific networks. In this example, you configure the storage account to accept connections only from the virtual network subnet you created earlier.

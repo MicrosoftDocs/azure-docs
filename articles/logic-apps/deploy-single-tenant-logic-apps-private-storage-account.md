@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23, devx-track-arm-template
-ms.date: 07/04/2024
+ms.date: 02/24/2025
 # Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
 ---
 
@@ -100,10 +100,33 @@ The following errors commonly happen with a private storage account that's behin
 
 | Problem | Error |
 |---------|-------|
-| Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\\home\\site\\wwwroot\\host.json' is denied."` |
+| Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\home\site\wwwroot\host.json' is denied."` |
+| Unable to connect to file share | `"System.Private.CoreLib: The network path was not found: 'C:\home\data\Functions\secrets\Sentinels'."` |
+| Unable to authenticate to file share | `"System.Private.CoreLib: The user name or password is incorrect: 'C:\home\data\Functions\secrets\Sentinels'."` |
+| Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 
-As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
+To help you troubleshoot these problems and find the root cause, follow these steps:
+
+1. In the Azure portal, make sure that the storage account and file share still exist.
+
+1. On the logic app resource menu, under **Settings**, select **Environment variables**.
+
+   1. On the **App settings** tab, find the settings named **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** and **WEBSITE_CONTENTSHARE**.
+
+   1. Check that these settings specify the correct storage account and file share, respectively. Make sure no spelling errors exist.
+
+1. On the logic app resource menu, select **Diagnose and solve problems**. Find and run the following detectors: **Logic App Down or Reporting Errors** and **Network Troubleshooter**
+
+   These detectors provide insights and suggestions for fixing the problem.
+
+The following list includes more troubleshooting actions that you can take to find the cause:
+
+> [!NOTE]
+>
+> Your logic app resource and workflows aren't running when these errors occur, 
+> so you can't use the Kudu console debugging capability in Azure for troubleshooting.
+
 
 - Create an Azure virtual machine (VM) inside a different subnet within the same virtual network that's integrated with your logic app. Try to connect from the VM to the storage account.
 
@@ -137,7 +160,7 @@ As the logic app isn't running when these errors occur, you can't use the Kudu c
 
      `C:\psping {storage-account-host-name}.table.core.windows.net:443`
 
-     `C:\psping {storage-account-host-name}.file.core.windows.net:443`
+     `C:\psping {storage-account-host-name}.file.core.windows.net:445`
 
   1. If the queries resolve from the VM, continue with the following steps:
 
