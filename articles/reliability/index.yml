@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure reliability documentation
-description: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
+summary: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
 
 metadata:
   title: Azure reliability documentation
