@@ -4,7 +4,7 @@ description: Learn about reliability in Azure Logic Apps, including availability
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 services: logic-apps
 ms.service: azure-logic-apps
 ms.date: 01/06/2025

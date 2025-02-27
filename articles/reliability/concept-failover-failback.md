@@ -2,7 +2,7 @@
 title: Failover and failback
 description: Learn about failover and failback, which are fundamental concepts of reliability.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 02/26/2025
 ms.author: anaharris
