@@ -10,9 +10,10 @@ ms.date: 07/21/2023
 ms.author: chrupa
 ---
 
+# Troubleshoot MedTech service deployment errors
+
 > [!IMPORTANT]
 > As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
-# Troubleshoot MedTech service deployment errors
 
 This article provides troubleshooting steps and fixes for MedTech service deployment errors.
 
