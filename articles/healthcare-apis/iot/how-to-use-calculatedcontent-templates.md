@@ -9,6 +9,8 @@ ms.date: 08/01/2023
 ms.author: chrupa
 ---
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 # How to use CalculatedContent templates with the MedTech service device mapping
 
 This article provides an overview of how to use CalculatedContent templates within a MedTech service device mapping.
