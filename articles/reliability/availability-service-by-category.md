@@ -14,8 +14,8 @@ ms.custom: references_regions, subject-reliability
 
 Availability of services across Azure regions depends on a region's type. There are two types of regions in Azure: *recommended* and *alternate*.
 
-- **Recommended**: These regions provide the broadest range of service capabilities and currently support availability zones. Designated in the Azure portal as **Recommended**.
-- **Alternate**: These regions extend Azure's footprint within a data residency boundary where a recommended region currently exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs but don't support availability zones. Azure conducts regular assessments of alternate regions to determine if they should become recommended regions. Designated in the Azure portal as **Other**.
+- **Recommended** regions provide the broadest range of service capabilities and currently support availability zones. In the Azure portal, recommended regions are designated as **Recommended**.
+- **Alternate** regions extend Azure's footprint within a data residency boundary where a recommended region currently exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs but don't support availability zones. Azure conducts regular assessments of alternate regions to determine if they should become recommended regions. In the Azure portal, alternate regions are designated   as **Other**.
 
 ## Service categories across region types
  
@@ -25,7 +25,7 @@ Availability of services across Azure regions depends on a region's type. There 
 
 Azure assigns service categories as foundational, mainstream, and strategic at general availability. Typically, services start as a strategic service and are upgraded to mainstream and foundational as demand and use grow.
 
-Azure services are presented in the following tables by category. Note that some services are non-regional. That means they're available globally regardless of region. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+Azure services are presented in the following lists by category. Note that some services are non-regional, which means that they're available globally regardless of region. For information and a complete list of non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 
 
@@ -109,9 +109,6 @@ Azure services are presented in the following tables by category. Note that some
 
 ### ![An icon that signifies this service is strategic.](media/icon-strategic.svg) Strategic services
 
-Azures ervice categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. 
-
-The following table lists strategic services:
 
 
 - Azure AI services
