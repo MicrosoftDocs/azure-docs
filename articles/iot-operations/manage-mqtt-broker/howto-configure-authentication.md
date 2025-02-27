@@ -914,6 +914,11 @@ spec:
 
 ---
 
+### Use custom authentication for username and password authentication
+
+You can use custom authentication to implement username and password authentication. A sample custom authentication server sample is available for testing. See the [Azure IoT Operations MQTT username and password authentication sample]() on GitHub.
+
+
 ## Disable authentication
 
 For testing, you can disable authentication for a broker listener port. We don't recommend that you disable authentication for production environments.
