@@ -2,7 +2,7 @@
 title: Migrate machines as physical servers describes the instructions for new agent-based migration stack
 description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize. Learn the instructions for new agent-based migration stack
 author: habibaum 
-ms.author: v-uhabiba@microsoft.com
+ms.author: v-uhabiba
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
