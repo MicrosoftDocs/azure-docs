@@ -4,7 +4,7 @@ description: Learn about the support of multiple workspaces for Microsoft Sentin
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: concept-article
-ms.date: 02/25/2025
+ms.date: 02/27/2025
 appliesto: Microsoft Sentinel with Defender XDR in the Defender portal
 
 
@@ -16,7 +16,7 @@ appliesto: Microsoft Sentinel with Defender XDR in the Defender portal
 
 The Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. In the context of this article, a workspace is a Log Analytics workspace with Microsoft Sentinel enabled.
 
-This article primarily applies to the scenario where you  onboard Microsoft Sentinel to the Defender portal with Microsoft Defender XDR to unify your experiences in [Microsoft's unified security operations (SecOps) platform](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces but the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.  
+This article primarily applies to the scenario where you  onboard Microsoft Sentinel to the Defender portal with Microsoft Defender XDR to unify your experiences in [Microsoft's unified security operations (SecOps) platform](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.  
 
 ## Primary and secondary workspaces
 
@@ -44,9 +44,9 @@ If you have the appropriate permissions to view data from primary and secondary 
 |---------|---------|
 |**Search**     |   The results from the global search at the top of the browser page in the Defender portal provide an aggregated view of all relevant workspace data that you have permissions to view.    |
 |Investigation & response > Incidents & alerts > **Incidents**   | View incidents from different workspaces in a unified queue or filter the view by workspace.      |
-|Investigation & response > Incidents & alerts > **Alerts**     |   View alerts from different workspaces in a unified queue or filter the view by workspace.  <br><br> Alert correlation is segmented by workspace.      |
+|Investigation & response > Incidents & alerts > **Alerts**     |   View alerts from different workspaces in a unified queue or filter the view by workspace.<br><br> The Defender portal segments alert correlation by workspace.      |
 |Entities: From an incident or alert > select a device, user, or other entity asset  |  View all relevant entity data from multiple workspaces in a single entity page. Entity pages aggregates alerts, incidents, and timeline events from all workspaces to provide deeper insights into entity behavior.   <br><br>Filter by workspace in **Incidents and alerts**, **Timeline**, and **Insights** tabs. The **Overview** tab displays entity metadata aggregated from all workspaces.    |
-|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the brower. Or, run queries across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). Be aware that the results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
+|Investigation & response > Hunting > **Advanced hunting**     | Select a workspace from the top right-hand side of the browser. Or, query across multiple workspaces by using the workspace operator in the query. See [Query multiple workspaces](extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces). The query results don't show a workspace name or ID.<br><br>Access all log data of the workspace, including queries and functions, as read only.  For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender). <br><br>Some capabilities are limited to the primary workspace:<br>- Creating custom detections<br>- Queries via API  |
 |**Microsoft Sentinel** experiences|View data from one workspace for each page in the Microsoft Sentinel section of the Defender portal. Switch between workspaces by selecting **Select a workspace** from the top-right hand side of the browser for most pages. The **Workbooks** page only shows data associated with the primary workspace.|
 |**SOC optimization**|Data and recommendations are aggregated from multiple workspaces. |
 
@@ -67,11 +67,11 @@ For more information, see [Roles and permissions in Microsoft Sentinel](roles.md
 
 ## Bi-directional sync for workspaces
 
-How incident changes sync between the Azure portal and the Defender portal depends on whether its a primary or secondary workspace.
+How incident changes sync between the Azure portal and the Defender portal depends on whether it's a primary or secondary workspace.
 
 |Workspace |Sync behavior  |
 |---------|---------|
-|Primary     |  For Microsoft Sentinel in the Azure portal, Defender XDR incidents appear in **Threat management** > **Incidents** with the incident provider name **Microsoft Defender XDR**. Any changes you make to the status, closing reason, or assignment of a Defender XDR incident in either the Azure or Defender portal, update accordingly in the other’s incidents queue.  For more information, see [Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync).|
+|Primary     |  For Microsoft Sentinel in the Azure portal, Defender XDR incidents appear in **Threat management** > **Incidents** with the incident provider name **Microsoft Defender XDR**. Any changes you make to the status, closing reason, or assignment of a Defender XDR incident in either the Azure or Defender portal, update in the other's incidents queue.  For more information, see [Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync](microsoft-365-defender-sentinel-integration.md#working-with-microsoft-defender-xdr-incidents-in-microsoft-sentinel-and-bi-directional-sync).|
 |Secondary   | All alerts and incidents that you create for a secondary workspace are synced between that workspace in the Azure and Defender portals.   Data in a workspace is only synced to the workspace in the other portal.      |
 
 ## Related content
