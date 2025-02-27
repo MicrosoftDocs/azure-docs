@@ -36,7 +36,7 @@ A dev center is a collection of [Projects](#project) that require similar settin
 
 ## Catalogs
 
-The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a *[quick start catalog](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
+The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. Microsoft provides a [*quick start catalog*](https://github.com/microsoft/devcenter-catalog) that contains a set of sample tasks. You can attach the quick start catalog to a dev center to make these tasks available to all the projects associated with the dev center. You can modify the sample tasks to suit your needs, and you can create your own catalog of tasks. 
 
 To learn how to create Dev Box customizations, see [Microsoft Dev Box team customizations](concept-what-are-team-customizations.md).
 
