@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.author: yelevin
-appliesto: 
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 
 #Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
