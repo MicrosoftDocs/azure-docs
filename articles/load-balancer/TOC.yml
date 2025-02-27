@@ -12,6 +12,12 @@
     href: cross-subscription-overview.md
   - name: Choose a load balancing solution
     href: /azure/architecture/guide/technology-choices/load-balancing-overview
+  - name: Health probes
+    href: load-balancer-custom-probe-overview.md
+  - name: Administrative state
+    href: admin-state-overview.md
+  - name: SKUs
+    href: skus.md
   - name: Quickstarts
     items:
     - name: Create a public load balancer
@@ -25,7 +31,7 @@
     href: load-balancer-best-practices.md
   - name: What's new?
     href: whats-new.md
-- name: Design and plan
+- name: Deploy
   items:
   - name: Portal settings
     href: manage.md
@@ -35,18 +41,6 @@
     href: concepts.md
   - name: Distribution modes
     href: distribution-mode-concepts.md
-  - name: Health probes
-    href: load-balancer-custom-probe-overview.md
-  - name: Administrative state
-    href: admin-state-overview.md
-  - name: SKUs
-    href: skus.md
-  - name: Standard Load Balancer and Virtual Machine Scale Sets
-    href: load-balancer-standard-virtual-machine-scale-sets.md
-  - name: Retrieve information using the Azure Instance Metadata Service
-    href: instance-metadata-service-load-balancer.md
-- name: Deploy
-  items:
   - name: Public load balancer
     items:
     - name: Create a public load balancer
@@ -129,6 +123,15 @@
     - name: Integrate NAT gateway internal load balancer
       href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=/azure/load-balancer/toc.json
     expanded: false
+  - name: Upgrade from a basic to standard load balancer
+    items:
+    - name: Upgrade options and guidance
+      href: load-balancer-basic-upgrade-guidance.md
+    - name: Upgrade from Basic to Standard with PowerShell
+      href: upgrade-basic-standard-with-powershell.md
+    expanded: false
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
   - name: IP-based backend
     items:
     - name: Create a public load balancer with an IP-based backend - Portal
@@ -209,6 +212,8 @@
     href: howto-load-balancer-imds.md
   - name: Manage admin state
     href: manage-admin-state-how-to.md
+  - name: Retrieve information using the Azure Instance Metadata Service
+    href: instance-metadata-service-load-balancer.md
   - name: Health probes
     items:
     - name: Manage health probes
@@ -285,13 +290,6 @@
       href: load-balancer-multiple-virtual-machine-scale-set.md
     - name: Use Virtual Machine Scale Set instance with an existing Azure Load Balancer
       href: configure-vm-scale-set-portal.md
-    expanded: false
-  - name: Upgrade from a basic to standard load balancer
-    items:
-    - name: Upgrade options and guidance
-      href: load-balancer-basic-upgrade-guidance.md
-    - name: Upgrade from Basic to Standard with PowerShell
-      href: upgrade-basic-standard-with-powershell.md
     expanded: false
   - name: Using multiple IP configurations
     items:
