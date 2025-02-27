@@ -128,7 +128,7 @@ styleOverrides: {
 ```
 :::image type="content" source="./media/choose-map-style/admin-district2.gif" alt-text="An animated GIF that shows second admin district borders.":::
 
-4. Building footprints
+- Building footprints
 
 ```javascript
 styleOverrides: {
