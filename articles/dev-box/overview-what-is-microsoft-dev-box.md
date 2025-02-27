@@ -9,12 +9,12 @@ author: RoseHJM
 ms.date: 02/26/2025
 adobe-target: true
 
-#Customer intent: #Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it can help developer teams, so that I can efficiently set up and use ready-to-code cloud workstations for my teams.
+#Customer intent: #Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it can help developer teams, so that I can efficiently set up and use cloud development environments for my teams.
 ---
 
 # What is Microsoft Dev Box?
 
-Microsoft Dev Box gives developers self-service access to ready-to-code cloud workstations called *dev boxes*. You can configure dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. You can create your own customized image, or use a preconfigured image from Azure Marketplace, complete with Visual Studio already installed. 
+Microsoft Dev Box gives developers self-service access to ready-to-code cloud workstations called *dev boxes*. You can configure dev boxes with tools, source code, and prebuilt binaries that are specific to a project, so developers can immediately start work. You can create cloud development environments for your developer teams by using a customized image, or a preconfigured image from Azure Marketplace, complete with Visual Studio already installed. 
 
 If you're a developer, you can use multiple dev boxes in your day-to-day workflows. You can access your dev boxes through a Remote Desktop client like Windows App, or through a web browser, like any virtual desktop.
 
