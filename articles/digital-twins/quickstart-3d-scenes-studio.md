@@ -230,7 +230,7 @@ Next, you create a *behavior* for the element. These behaviors allow you to cust
     
             :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge.png" alt-text="Screenshot of adding a second rule in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge.png":::
     
-        1. Enter a **Display name** of *PickupFailedAlert*. Change the **Property expression** to **Custom (advanced)**, enter a property of *PrimaryTwin.PickupFailedAlert*, and set the **Type** to *boolean*. This property expression refers to a boolean property on the arm twin that is set to *True* when a package pickup fails. Select **Add condition**.
+        1. Enter a **Display name** of *PickupFailedAlert*. Change the **Property expression** to **Custom (advanced)**, enter a property of *PrimaryTwin.PickupFailedAlert*, and set the **Type** to *boolean*. This property selection references a boolean property on the arm twin that is set to *True* when a package pickup fails. Select **Add condition**.
     
             :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-2.png" alt-text="Screenshot of adding a condition for the second visual rule in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-badge-2.png":::
     
@@ -311,7 +311,7 @@ Switch to the **View** tab to see the behavior working on the new arm element. A
 
 This quickstart shows how to create an immersive dashboard for Azure Digital Twins data, to share with end users and increase access to important insights about your real world environment.
 
-In the quickstart, you created a sample 3D scene to represent a package distribution center with robotic arms that pick up packages. This visualization was connected to a digital twin graph, and you linked an arm in the visualization to its own specific digital twin that supplied backing data. You also created a visual behavior to display key information about that arm when viewing the full scene, including which box pickups on which that arm failed in the last hour.
+In the quickstart, you created a sample 3D scene to represent a package distribution center with robotic arms that pick up packages. This visualization was connected to a digital twin graph, and you linked an arm in the visualization to its own specific digital twin that supplied backing data. You also created a visual behavior to display key information about that arm when viewing the full scene, including information about any boxes the arm failed to pick up within the last hour.
 
 In this quickstart, the sample models and twins for the factory scenario were quickly created for you, using the [Azure Digital Twins Data simulator](#generate-sample-models-and-twins). When using Azure Digital Twins with your own environment, you create your own [models](concepts-models.md) and [twins](concepts-twins-graph.md) to accurately describe the elements of your environment in detail. This quickstart also used the data simulator to simulate "live" data driving digital twin property updates when packages were missed. When you use Azure Digital Twins with your own environment, [ingesting live data](concepts-data-ingress-egress.md) is a process that you set up yourself according to your own environment sensors.
 
