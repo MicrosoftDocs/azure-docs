@@ -6,6 +6,7 @@ ms.topic: overview
 ms.date: 01/28/2025
 ms.author: anaharris
 ms.service: azure
+ms.subservice: azure-reliability
 ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
