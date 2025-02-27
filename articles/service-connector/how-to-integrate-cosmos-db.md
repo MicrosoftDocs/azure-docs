@@ -39,7 +39,7 @@ The table below shows which combinations of client types and authentication meth
 This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Cosmos DB for MongoDB using Service Connector.
 
 > [!NOTE]
-> Managed identities are used to list connection strings and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
+> Managed identities can be used to list connection strings and connect to Cosmos DB. However, Cosmos DB doesn't natively support authentication via managed identity.
 
 ## Default environment variable names or application properties and sample code
 
