@@ -5979,6 +5979,11 @@
       "source_path": "articles/reliability/availability-zones-baseline.md",
       "redirect_url": "/azure/reliability/availability-zones-migration-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-for-azure-services.md",
+      "redirect_url": "/azure/virtual-network/vnet-integration-for-azure-services",
+      "redirect_document_id": false
     }
   ]
 }
