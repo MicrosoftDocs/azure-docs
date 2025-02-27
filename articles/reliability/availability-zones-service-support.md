@@ -2,12 +2,12 @@
 title: Azure services with availability zone support
 description: Learn which Azure services offer availability zone support.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/16/2025
 ms.author: anaharris
 author: anaharris-ms
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Azure services with availability zone support
