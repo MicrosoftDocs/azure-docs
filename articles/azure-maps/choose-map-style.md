@@ -117,7 +117,7 @@ styleOverrides: {
     adminDistrict: { borderVisible: false }
 }
 ```
-:::image type="content" source="./media/choose-map-style/admin-district.gif" alt-text="Admin district borders":::
+:::image type="content" source="./media/choose-map-style/admin-district.gif" alt-text="An animated GIF that shows admin district borders.":::
 
 3. Second admin district borders
 
