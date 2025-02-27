@@ -52,7 +52,7 @@ This section provides a reference of customizable parameters for the SAP agentle
 List of object classes that are ingested from Change Docs logs.
 
 - **Allowed values:** Comma separated list of object classes
-- **Default value:** BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA
+- **Default value:** `BANK,CLEARING,IBAN,IDENTITY,KERBEROS,OA2_CLIENT,PCA_BLOCK,PCA_MASTER,PFCG,SECM,SU_USOBT_C,SECURITY_POLICY,STATUS,SU22_USOBT,SU22_USOBX,SUSR_PROF,SU_USOBX_C,USER_CUA`
 
 ### collect-audit-logs
 
