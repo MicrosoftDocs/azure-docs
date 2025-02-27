@@ -5,7 +5,8 @@ author: yelevin
 ms.topic: how-to
 ms.date: 10/17/2024
 ms.author: yelevin
-appliesto: Microsoft Sentinel in the Azure portal
+appliesto: 
+appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 
 #Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
 
@@ -15,7 +16,10 @@ appliesto: Microsoft Sentinel in the Azure portal
 
 When you onboard Microsoft Sentinel, your first step is to select your Log Analytics workspace. While you can get the full benefit of the Microsoft Sentinel experience with a single workspace, in some cases, you might want to extend your workspace to query and analyze your data across workspaces and tenants. For more information, see [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design) and [Prepare for multiple workspaces and tenants in Microsoft Sentinel](prepare-multiple-workspaces.md).
 
-If you onboard Microsoft Sentinel to the Microsoft Defender portal, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
+If you onboard Microsoft Sentinel to the Microsoft Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)
 
 ## Manage incidents on multiple workspaces
 
