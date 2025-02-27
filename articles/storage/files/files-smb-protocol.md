@@ -59,7 +59,7 @@ SMB Multichannel enables an SMB 3.x client to establish multiple network connect
 # [Portal](#tab/azure-portal)
 To view the status of SMB Multichannel, navigate to the storage account containing your premium file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You should see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
 
-:::image type="content" source="media/files-smb-protocol/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting.":::
+:::image type="content" source="media/files-smb-protocol/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/files-smb-protocol/smb-multichannel-enabled.png":::
 
 To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
 
