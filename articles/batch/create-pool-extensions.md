@@ -224,11 +224,11 @@ If Key Vault extension is configured incorrectly, the compute node might be in a
 - [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
 - [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
 
-## Application Health extension consideration
+## Considerations for Application Health extension
 
-Batch Node Agent running on the node always starts a http server that returns the health status of the agent. This http server listens on local IP address 127.0.0.1 and port 29879. It always return a 200 status but with the response body being either healthy or unhealty, any other response (or lack of) is considered "unknown" status.
-
-You can setup your own health server that listens on a different port. Optionally, your health server can query Batch Node Agent server and combine your health signal to generate a composite health result.
+The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status.
+ 
+You can set up your own health server that listens on a different port. Optionally, your health server can query the Batch Node Agent server and combine with your health signal to generate a composite health result.
 
 ## Next steps
 
