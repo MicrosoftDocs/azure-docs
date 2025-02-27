@@ -145,7 +145,7 @@ If possible, please try to switch your network environment, such as inside/outsi
 
 + If you can run notebook on a different workstation but in the same network environment, ensure you didn't install any browser plugin that might block the WebSocket request. 
 
-Otherwise, contact your network administrator and ensure the outbound WebSocket requests with the following URL pattern is allowed and their request header is not redacted: `wss://{workspace}.dev.azuresynapse.net/{path}`
+Otherwise, contact your network administrator and ensure the outbound WebSocket requests with the following URL pattern are allowed and their request header is not redacted: `wss://{workspace}.dev.azuresynapse.net/{path}`
 
 - `{workspace}` is the Synapse workspace name
 - `{path}` indicates any sub-path (for example, slash character is included) in URI

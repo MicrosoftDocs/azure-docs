@@ -31,10 +31,10 @@ The following section lists some error types that are currently supported. We're
 
 Each error code falls under one of the following four buckets:
 
-1. **User** - Indicating a user error
-1. **System** - Indicating a system error
-1. **Ambiguous** - Could be either user or system error
-1. **Unknown** - No classification yet, most probably because the error type isn't included in the model
+- **User** - Indicating a user error
+- **System** - Indicating a system error
+- **Ambiguous** - Could be either user or system error
+- **Unknown** - No classification yet, most probably because the error type isn't included in the model
 
 ## Error code examples for each classification type
 

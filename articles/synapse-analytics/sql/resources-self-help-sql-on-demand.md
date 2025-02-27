@@ -992,7 +992,7 @@ This is a public preview limitation. Drop and re-create the Delta table in Spark
 
 ### Query timeout or performance degradation on a table
 
-When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool is automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
+When the original table in Spark or Dataverse is modified, the corresponding tables in the serverless pool are automatically recreated. This process results in the loss of existing statistics on the table. Without these statistics, queries on the table may experience delays or even timeouts.
 
 If you encounter this issue, consider setting up a job to recreate statistics on the tables after changes in Spark/Dataverse or on a regular schedule.
 
