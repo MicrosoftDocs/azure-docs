@@ -8,8 +8,8 @@
     href: whats-new.md
   - name: FAQ
     href: load-balancer-faqs.yml
-  - name: Load balancer best practices
-    href: load-balancer-best-practices.md
+  - name: Azure Network blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
 - name: Get started
   items:
   - name: Choose a load balancer
@@ -48,12 +48,6 @@
     href: load-balancer-standard-virtual-machine-scale-sets.md
   - name: Retrieve information using the Azure Instance Metadata Service
     href: instance-metadata-service-load-balancer.md
-  - name: Security
-    items:
-    - name: Implement a secure hybrid networking
-      href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
 - name: Deploy
   items:
   - name: Public load balancer
@@ -326,8 +320,12 @@
   items:
   - name: Deploy public load balancer with DDoS protection
     href: tutorial-protect-load-balancer.md
+  - name: Implement a secure hybrid networking
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-load-balancer-security-baseline?toc=/azure/load-balancer/TOC.json
+  - name: Azure Network security blog 
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   expanded: false
 - name: Reference
   items:
