@@ -22,10 +22,13 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a [supported model](#supported-azure-openai-service-models) deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
+
+    > [!NOTE]
+    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) are supported only for certain API types exposed through specific Azure OpenAI Service models. For more information, see [Supported Azure OpenAI Service models](azure-openai-token-limit-policy.md#supported-azure-openai-service-models).
 
 ## Option 1. Import API from Azure OpenAI Service
 
@@ -115,7 +118,7 @@ If you added the Azure OpenAI API from its OpenAPI specification, you need to co
 
 ## Test the Azure OpenAI API
 
-To ensure that your Azure OpenAI API is working as expected, test it in the API Management test console. You need to supply a model deployment ID (name) configured in the Azure OpenAI resource to test the API.
+To ensure that your Azure OpenAI API is working as expected, test it in the API Management test console. You need to supply a model deployment ID (name) configured in the Azure OpenAI resource and the API version to test the API.
 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
@@ -132,15 +135,6 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API consumption.
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
-
-## Caching policies for Azure OpenAI APIs
-
-In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies that you can configure when importing an Azure OpenAI Service API, API Management provides the following caching policies to help you optimize performance and reduce latency for Azure OpenAI APIs: 
-
-* `azure-openai-semantic-cache-store`
-* `azure-openai-semantic-cache-lookup` 
-
-[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
 ## Related content
 
