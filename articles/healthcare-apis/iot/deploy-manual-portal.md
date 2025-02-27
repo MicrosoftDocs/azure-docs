@@ -11,6 +11,9 @@ ms.author: chrupa
 
 # Quickstart: Deploy the MedTech service using the Azure portal
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 The MedTech service deployment using the Azure portal is divided into the following three sections:
 
 * [Deploy prerequisite resources](#deploy-prerequisite-resources)
