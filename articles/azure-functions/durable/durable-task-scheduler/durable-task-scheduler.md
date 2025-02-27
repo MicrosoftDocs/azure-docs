@@ -2,7 +2,7 @@
 title: Durable Task Scheduler storage provider for Durable Functions (preview)
 description: Learn about the characteristics of the Durable Functions Durable Task Scheduler storage provider.
 ms.topic: conceptual
-ms.date: 02/24/2025
+ms.date: 02/27/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
@@ -104,9 +104,6 @@ Since all task hubs in a DTS resource share the same storage and compute resourc
 
 ## Pricing 
 
-> [!NOTE]
-> A consumption-based SKU is in design and will come shortly.
-
 ### Dedicated SKU
 
 You're billed based on the number of "Capacity Units (CUs)" purchased. In the Durable Task Scheduler context:
@@ -116,20 +113,9 @@ You're billed based on the number of "Capacity Units (CUs)" purchased. In the Du
 
 The following table explains the minimum cost and features provided with each CU.
 
-| Number of CUs | Price per CU | Features |
-| ------------- | ------------ | -------- |
-| One CU        | $500/month   | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​</br>- Dashboard for monitoring and managing orchestrations​</br>- Authentication and role-based access control with Managed Identity |
-
-The following table outlines the supported regions and their current rates for DTS:
-
-| Region | Regional uplift | Current rate per month |
-| ------------------- | --------------- | ---------------------- |
-| West US 2           | 0%              | $500                   |
-| North Central US    | 20%             | $600                   |
-| UK South            | 25%             | $625                   |
-| Sweden Central      | 30%             | $650                   |
-| North Europe        | 20%             | $600                   |
-| Australia East      | 45%             | $725                   |
+| Number of CUs | Features |
+| ------------- | -------- |
+| One CU        | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​</br>- Dashboard for monitoring and managing orchestrations​</br>- Authentication and role-based access control with Managed Identity |
 
 ### Determining the number of Capacity Units needed
 

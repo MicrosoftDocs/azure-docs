@@ -3,7 +3,7 @@ title: Develop with the Durable Task Scheduler (preview)
 description: Learn how to develop with the Durable Task Scheduler and task hub resources
 author: lilyjma
 ms.topic: how-to
-ms.date: 02/24/2025
+ms.date: 02/27/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 zone_pivot_groups: dts-devexp
@@ -293,8 +293,6 @@ Ensure the identity with the required RBAC is assigned to your function app.
 1. Find the *client id* of the managed identity resource and note it:
 
    :::image type="content" source="media/configure-durable-task-scheduler/identity_id.png" alt-text="Screenshot of the finding the identity resource ID in the portal.":::
-
-::: zone-end  
 
 1. Navigate to your app on the portal.
 
