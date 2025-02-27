@@ -511,11 +511,16 @@ The RW command feature is open and there are no restrictions on it. However, pro
 
 ## Retreive runRW configuration
 
-To obtain the last successfully applied runRW configuration, refer to the rwDeviceConfig property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
+To obtain the last successfully applied runRW configuration, refer to the `rwDeviceConfig` property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
 
 ```rest
-az rest -m get -u /subscriptions/<example-subscription-id>/resourceGroups/<example-rg>/providers/Microsoft.ManagedNetworkFabric/NetworkDevices/<example-devicename>?api-version=2024-06-15-preview
+az networkfabric device show --resource-group "example-rg" --resource-name "example-device"
 ```
+
+| Parameter          | Alias | Description |
+|--------------------|-------|-------------|
+| `--resource-group` | `-g`  | Name of resource group. You can configure the default group using `az configure --defaults group=<name>`. |
+| `--resource-name`  |       | Name of the Network Device. |
 
 Expected output
 
