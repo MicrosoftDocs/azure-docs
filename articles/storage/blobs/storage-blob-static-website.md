@@ -40,6 +40,7 @@ You can use any of these tools to upload content to the **$web** container:
 > - [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > - [AzCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure portal](storage-blob-static-website-how-to.md?tabs=azure-portal#upload-files)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 > - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
