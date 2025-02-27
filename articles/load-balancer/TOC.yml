@@ -1,29 +1,32 @@
 - name: Azure Load Balancer
   href: index.yml
-- name: Overview
+- name: Get started
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-  - name: What's new?
-    href: whats-new.md
+  - name: Gateway load balancer overview
+    href: gateway-overview.md
+  - name: Global load balancer overview
+    href: cross-region-overview.md
+  - name: Cross-subscription load balancer overview
+    href: cross-subscription-overview.md
+  - name: Choose a load balancing solution
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview
+  - name: Quickstarts
+    items:
+    - name: Create a public load balancer
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Create an internal load balancer
+      href: quickstart-load-balancer-standard-internal-portal.md
+    expanded: false
   - name: FAQ
     href: load-balancer-faqs.yml
-- name: Get started
-  items:
-  - name: Choose a load balancer
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview
-  - name: Create a public load balancer
-    href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create an internal load balancer
-    href: quickstart-load-balancer-standard-internal-portal.md
   - name: Load balancer best practices
     href: load-balancer-best-practices.md
-- name: Architecture and concepts
-  items:
   - name: What's new?
     href: whats-new.md
-  - name: Load balancer best practices
-    href: load-balancer-best-practices.md
+- name: Design and plan
+  items:
   - name: Portal settings
     href: manage.md
   - name: Components
@@ -38,10 +41,6 @@
     href: admin-state-overview.md
   - name: SKUs
     href: skus.md
-  - name: Global load balancer overview
-    href: cross-region-overview.md
-  - name: Cross-subscription load balancer
-    href: cross-subscription-overview.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
   - name: Retrieve information using the Azure Instance Metadata Service
@@ -92,8 +91,6 @@
       expanded: false
   - name: Gateway load balancer
     items:
-    - name: Gateway load balancer overview
-      href: gateway-overview.md
     - name: Partners
       href: gateway-partners.md
     - name: Create gateway load balancer - Portal
@@ -109,8 +106,6 @@
     expanded: false
   - name: Global load balancer
     items:
-    - name: Global load balancer overview
-      href: cross-region-overview.md
     - name: Create a global load balancer
       href: tutorial-cross-region-portal.md
     - name: Deploy a global load balancer - ARM template
@@ -118,8 +113,6 @@
     expanded: false
   - name: Cross-subscription load balancing
     items:
-      - name: Cross-subscription load balancer
-        href: cross-subscription-overview.md
       - name: Attach a cross-subscription backend to an Azure Load Balancer
         href: cross-subscription-how-to-attach-backend.md
       - name: Attach a cross-subscription frontend to an Azure Load Balancer
@@ -208,7 +201,6 @@
         - name: Add IPv6 to an IPv4 application - Azure CLI
           href: ipv6-add-to-existing-vnet-cli.md
       expanded: false
-
 - name: Manage and monitor
   items:
   - name: Backend Pool management
@@ -248,29 +240,27 @@
     - name: Manage Load Balancer health status
       href: load-balancer-manage-health-status.md
     expanded: false
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot Azure Load Balancer
-    href: load-balancer-troubleshoot.md
-  - name: Testing inbound frontend IP address reachability
-    href: load-balancer-test-frontend-reachability.md
-  - name: Health Probe status
-    href: load-balancer-troubleshoot-health-probe-status.md
-  - name: Backend pool (VM) traffic
-    href: load-balancer-troubleshoot-backend-traffic.md
-  - name: Troubleshoot SNAT exhaustion and connection timeouts
-    href: troubleshoot-outbound-connection.md
-  - name: Resource health and inbound availability issues
-    href: troubleshoot-rhc.md
-  - name: Common error codes for Azure Instance Metadata Service (IMDS)
-    href: troubleshoot-load-balancer-imds.md
-  - name: Common deployment errors
-    href: load-balancer-common-deployment-errors.md
-  - name: Troubleshoot load balancer health event logs
-    href: load-balancer-troubleshoot-health-event-logs.md
-  - name: FAQ
-    href: load-balancer-faqs.yml
-  expanded: false
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot Azure Load Balancer
+      href: load-balancer-troubleshoot.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
+    - name: Health Probe status
+      href: load-balancer-troubleshoot-health-probe-status.md
+    - name: Backend pool (VM) traffic
+      href: load-balancer-troubleshoot-backend-traffic.md
+    - name: Troubleshoot SNAT exhaustion and connection timeouts
+      href: troubleshoot-outbound-connection.md
+    - name: Resource health and inbound availability issues
+      href: troubleshoot-rhc.md
+    - name: Common error codes for Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
+    - name: Common deployment errors
+      href: load-balancer-common-deployment-errors.md
+    - name: Troubleshoot load balancer health event logs
+      href: load-balancer-troubleshoot-health-event-logs.md
+    expanded: false
 - name: Reliability and availability
   items:
   - name: Reliability
