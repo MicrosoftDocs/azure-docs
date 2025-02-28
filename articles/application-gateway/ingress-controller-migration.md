@@ -45,5 +45,6 @@ Alternatively, you can navigate to your [AKS cluster in the Azure portal](https:
 ![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## Next Steps
-- [**Application Gateway Ingress Controller Troubleshooting**](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
-- [**Application Gateway Ingress Controller Annotations**](ingress-controller-annotations.md): List of annotations on AGIC 
+- [Application Gateway Ingress Controller Troubleshooting](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
+- [Application Gateway Ingress Controller Annotations](ingress-controller-annotations.md): List of annotations on AGIC
+- [Application Gateway for Containers](for-containers/overview.md)
