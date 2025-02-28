@@ -115,7 +115,7 @@ Follow these steps to add a PSTN number to a room call using Call Automation SDK
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS, or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
 
-Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms-enabled into their application with only a couple lines of code.
+Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-rooms--docs). The UI Library enables developers to add a call client that is Rooms-enabled into their application with only a couple lines of code.
 
 ### Client initiated PSTN Dial-out using Calling client SDK
 

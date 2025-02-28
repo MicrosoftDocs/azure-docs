@@ -283,7 +283,7 @@ items:
     - name: Logz.io
       tocHref: /azure/partner-solutions/logzio/
       topicHref: /azure/partner-solutions/logzio/overview
-    - name: Neon 
+    - name: Neon
       tocHref: /azure/partner-solutions/neon/
       topicHref: /azure/partner-solutions/neon/overview
     - name: New Relic
@@ -421,9 +421,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: OpenShift
-    tocHref: /azure/openshift/
-    topicHref: /azure/openshift/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
