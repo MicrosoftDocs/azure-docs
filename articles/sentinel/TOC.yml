@@ -109,7 +109,7 @@
     href: migration-convert-dashboards.md
   - name: Update SOC processes      
     href: migration-security-operations-center-processes.md
-- name: Manage out-of-the-box content
+- name: Manage solutions and content
   items:  
   - name: Overview
     href: sentinel-solutions.md
