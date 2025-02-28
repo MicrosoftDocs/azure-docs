@@ -5,15 +5,13 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.date: 02/28/2025
 ms.custom: references_regions
 ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
 
 The **Network Features** functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. You can also modify the network features option on existing volumes. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
-
-This article helps you understand the options and shows you how to configure network features.
 
 ## Options for network features 
 
@@ -22,7 +20,7 @@ Two settings are available for network features:
 * ***Standard***  
     This setting enables VNet features for the volume.  
 
-    If you need higher IP limits or VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, you should set **Network Features** to *Standard*.
+    If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, you should set **Network Features** to *Standard*.
 
 * ***Basic***  
     This setting provides reduced IP limits (<1000) and no additional VNet features for the volumes.

@@ -4091,36 +4091,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
-      "redirect_url": "/azure/openshift/howto-byok",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md",
-      "redirect_url": "/azure/openshift/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/quickstart-portal.md",
-      "redirect_url": "/azure/openshift/create-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-connect-cluster.md",
-      "redirect_url": "/azure/openshift/connect-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-create-cluster.md",
-      "redirect_url": "/azure/openshift/create-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-delete-cluster.md",
-      "redirect_url": "/azure/openshift/delete-cluster",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/operator-service-manager/overview.md",
       "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
       "redirect_document_id": false
