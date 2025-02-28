@@ -331,10 +331,10 @@ sections:
                       echo "Usage: $0 [--pre | --post]"
                       exit 1
                   elif [ "$1" == "--pre" ]; then
-                      echo "Freezing app IO"
-                      exit 0
+                     echo "Freezing app IO"  ##command to freeze the application 
+                     exit 0
                   elif [ "$1" == "--post" ]; then
-                      echo "Thawed app IO"
+                      echo "Thawed app IO"  ##command to unfreeze the application 
                       exit 0
                   fi
               ```
