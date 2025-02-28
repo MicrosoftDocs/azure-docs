@@ -12,7 +12,7 @@ ms.author: cephalin
 
 # Deploy to App Service using GitHub Actions
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub.
+Use [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) to automate your workflow and deploy to [Azure App Service](overview.md) from GitHub.
 
 ## Prerequisites
 
@@ -21,9 +21,9 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions/learn-githu
 
 ## Set up GitHub Actions deployment when creating the app
 
-GitHub Actions deployment is integrated into the default [Create Web App process](https://portal.azure.com/#create/Microsoft.WebSite). Set **Continuous deployment** to **Enable** in the Deployment tab, and configure the organization, repository, and branch that you want.
+GitHub Actions deployment is integrated into the default [Create Web App process](https://portal.azure.com/#create/Microsoft.WebSite). Set **Continuous deployment** to **Enable** in the **Deployment** tab, and configure your chosen organization, repository, and branch.
 
-:::image type="content" source="media/deploy-github-actions/create-wizard-deployment.png" alt-text="Screenshot shows how to enable GitHub Actions deployment in the App Service create Deployment tab.":::
+:::image type="content" source="media/deploy-github-actions/create-wizard-deployment.png" alt-text="Screenshot that shows how to enable GitHub Actions deployment in the App Service create Deployment tab.":::
 
 When you enable continuous deployment, app creation automatically picks the authentication method based on the basic authentication selection and configures your app and your GitHub repository accordingly:
 
@@ -33,7 +33,7 @@ When you enable continuous deployment, app creation automatically picks the auth
 |Enable| [Basic authentication](configure-basic-auth-disable.md) |
 
 > [!NOTE]
-> You might receive an error when you create the app that your Azure account doesn't have certain permissions. Your account might need [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see [Set up GitHub Actions deployment from the Deployment Center](#set-up-github-actions-deployment-from-the-deployment-center).
+> When you create the app, you might receive an error that states that your Azure account doesn't have certain permissions. Your account might need [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see [Set up GitHub Actions deployment from the Deployment Center](#set-up-github-actions-deployment-from-the-deployment-center).
 
 ## Set up GitHub Actions deployment from the Deployment Center
 
@@ -47,7 +47,7 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 ## Set up a GitHub Actions workflow manually
 
-You can deploy a workflow without using the Deployment Center. In that case you need to perform three steps:
+You can deploy a workflow without using the Deployment Center. You need to perform three steps:
 
 1. [Generate deployment credentials](#generate-deployment-credentials)
 1. [Configure the GitHub secret](#configure-the-github-secret)
@@ -55,7 +55,7 @@ You can deploy a workflow without using the Deployment Center. In that case you 
 
 ### Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with OpenID Connect. This approach is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
+We recommend that you use OpenID Connect to authenticate with Azure App Service for GitHub Actions. This is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](/azure/developer/github/connect-from-azure) is more complex but offers hardened security.
 
 Alternatively, you can authenticate with a User-assigned Managed Identity, a service principal, or a publish profile.
 
@@ -69,15 +69,15 @@ The following procedure describes the steps for creating an Microsoft Entra appl
    az ad app create --display-name myApp
    ```
 
-   This command returns a JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
+   This command returns a JSON output with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later.
 
-   You use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+   You use the `objectId` value when you create federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output.
+1. Create a service principal. Replace the `$appID` with the `appId` from your JSON output.
 
-   This command generates JSON output with a different `objectId` to use in the next step. The new  `objectId` is the `assignee-object-id`.
+   This command generates a JSON output with a different `objectId` to use in the next step. The new  `objectId` is the `assignee-object-id`.
 
-   Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
+   Copy the `appOwnerTenantId` to later use as a GitHub secret for `AZURE_TENANT_ID`.
 
    ```azurecli-interactive
    az ad sp create --id $appId
@@ -91,13 +91,13 @@ The following procedure describes the steps for creating an Microsoft Entra appl
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Entra app.
 
-    - Replace `APPLICATION-OBJECT-ID` with the **appId (generated while creating app)** for your Active Directory application.
+    - Replace `APPLICATION-OBJECT-ID` with the `appId` that you generated during app creation for your Active Directory application.
     - Set a value for `CREDENTIAL-NAME` to reference later.
     - Set the `subject`. GitHub defines its value depending on your workflow:
 
-      - For jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+      - For jobs in your GitHub Actions environment, use: `repo:< Organization/Repository >:environment:< Name >`
       - For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`. For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
-      - For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+      - For workflows triggered by a pull request event, use: `repo:< Organization/Repository >:pull_request`.
 
     ```azurecli
     az ad app federated-credential create --id <APPLICATION-OBJECT-ID> --parameters credential.json
@@ -116,7 +116,7 @@ The following procedure describes the steps for creating an Microsoft Entra appl
 # [Publish profile](#tab/applevel)
 
 > [!NOTE]
-> Publish profile requires [basic authentication](configure-basic-auth-disable.md) to be enabled.
+> Publish profile requires that you enable [basic authentication](configure-basic-auth-disable.md).
 
 A publish profile is an app-level credential. Set up your publish profile as a GitHub secret.
 

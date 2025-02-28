@@ -151,7 +151,7 @@ There are two types of backups in App Service. Automatic backups are created for
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -199,7 +199,7 @@ Once the configuration is saved, any manual backup, scheduled backup, or restore
 Partial backups are supported for custom backups (but not for automatic backups). Sometimes you don't want to back up everything on your app. Here are a few examples:
 
 * You [set up weekly backups](#configure-custom-scheduled-backups) of your app that contains static content that never changes, such as old blog posts or images.
-* Your app has over 10 GB of content. (That's the max amount you can back up at a time.)
+* Your app has over 10 GB of content. (That's the maximum amount you can back up at a time.)
 * You don't want to back up the log files.
 
 To exclude folders and files from being stored in your future backups, create a `_backup.filter` file in the [`%HOME%\site\wwwroot` folder](operating-system-functionality.md#network-drives-unc-shares) of your app. Specify the list of files and folders you want to exclude in this file.
@@ -334,7 +334,7 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** may cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
+> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to **Flexible Server** might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (e.g., on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server.md) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server.md).  
 >
 > For back up and restore of Flexible Servers, see the respective database documentation: 
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -382,6 +382,6 @@ You can't stop automatic backups. The automatic backup is stored on the platform
 
 <a name="nextsteps"></a>
 
-## Next step
+## Related content
 
 [Azure Blob Storage documentation](../storage/blobs/index.yml)

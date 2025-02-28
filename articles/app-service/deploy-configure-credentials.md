@@ -24,7 +24,7 @@ and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as you
 
 Run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace \<username> and \<password> with a deployment user username and password. 
 
-- The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
+- The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol.
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
 
 ```azurecli-interactive
@@ -136,6 +136,6 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 See [Disable basic authentication in App Service deployments](configure-basic-auth-disable.md).
 
-## Next steps
+## Related content
 
 Find out how to use these credentials to deploy your app from [local Git](deploy-local-git.md) or using [FTP/S](deploy-ftp.md).

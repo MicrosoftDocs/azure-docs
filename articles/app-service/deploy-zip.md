@@ -40,7 +40,7 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 
 ### With zip deploy UI in Kudu
 
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`. For the app name, see the [note at top](#dnl-note).
+In the browser, go to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`. For the app name, see the [note at top](#dnl-note).
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
 
