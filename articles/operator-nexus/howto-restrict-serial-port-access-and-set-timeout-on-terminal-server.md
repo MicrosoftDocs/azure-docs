@@ -5,7 +5,7 @@ author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 02/26/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -15,18 +15,20 @@ This guide explains how to configure a Terminal Server to restrict serial port a
 
 ## Prerequisites
 
-The Terminal Server must run OS version 24.07.1 or a later version.<br>  
+The Terminal Server must run OS version 24.11.2 or a later version.<br>  
 For upgrade instructions, refer to [How to Upgrade Terminal Server OS](howto-upgrade-os-of-terminal-server.md).
 
+>[!Note]
+> This guide has been validated with Opengear firmware version 24.11.2, which was upgraded from version 22.06.0, and is supported with Nexus Network Fabric runtime version 5.0.0.
 
 ## Step 1: Set time-out for sessions
 
 Configure the session time-outs for CLI, WebUI, and Serial Port access using the following commands:
 
 ```bash
-ogcli update system/cli_session_timeout timeout=15
-ogcli update system/webui_session_timeout timeout=15
-ogcli update system/session_timeout serial_port_timeout=15
+sudo ogcli update system/cli_session_timeout timeout=15
+sudo ogcli update system/webui_session_timeout timeout=15
+sudo ogcli update system/session_timeout serial_port_timeout=15
 ```
 
 ## Step 2: Verify time-out settings
@@ -34,7 +36,7 @@ ogcli update system/session_timeout serial_port_timeout=15
 Confirm the new time-out settings by running:
 
 ```bash
-ogcli get system/session_timeout
+sudo ogcli get system/session_timeout
 ```
 
 ```Expected output:
@@ -43,7 +45,7 @@ serial_port_timeout=15
 webui_timeout=15
 ```
 
-## Step 3: Configure single session for serial ports
+## Step 3: Configure single serial port session
 
 To restrict each serial port to a single session, execute the following command. 
 
@@ -62,13 +64,13 @@ done
 Validate the configuration by listing the ports and checking the `single_session` status:
 
 ```bash
-ogcli get ports | grep -E 'ogcli get port|single_session'
+sudo ogcli get ports | grep -E 'ogcli get port|single_session'
 ```
 
 Alternatively, check individual ports:
 
 ```bash
-ogcli get port "port01"
+sudo ogcli get port "port01"
 ```
 
 ```Expected output for each port:
