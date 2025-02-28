@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 02/26/2025
+ms.date: 02/27/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
@@ -137,7 +137,7 @@ To grant access to Key Vault secrets, [create an access policy](/azure/key-vault
 1. In the *System assigned* tab, set the *Status* to **On**.
 
 > [!NOTE]
-> For more flexibility, you can also use a user-assigned managed identity, which can be reused across multiple resources and persists independently of the app lifecycle. To use it, select the *User assigned* tab and choose an existing identity.
+> You can also use a user-assigned managed identity, which can be reused across multiple resources and persists independently of the app lifecycle. To use it, select the *User assigned* tab and choose an existing identity.
 
 1. Select **Save** to enable system assigned managed identity.
 
