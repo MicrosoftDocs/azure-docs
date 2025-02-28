@@ -191,10 +191,10 @@ For more detailed insights on the upgrade progress, the individual node in each 
 
 ### Identifying Cluster Upgrade Stalled/Stuck
 
-During a runtime upgrade, it's possible that the upgrade fails to move forward but the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade can take a very long time to successfully finish, there's no set timeout length currently specified**.
+During a runtime upgrade, it's possible that the upgrade fails to move forward but the detail status reflects that the upgrade is still ongoing. **Because the runtime upgrade can take a very long time to successfully finish, there's no set time-out length currently specified**.
 Hence, it's advisable to also check periodically on your Cluster's detail status and logs to determine if your upgrade is indefinitely attempting to upgrade.
 
-We can identify an `indefinitely attempting to upgrade` situation by looking at the Cluster's logs, detailed message, and detailed status message. If a timeout occurs, we would observe that the Cluster is continuously reconciling over the same indefinitely and not moving forward. From here, we recommend checking Cluster logs or configured LAW, to see if there's a failure, or a specific upgrade that is causing the lack of progress.
+We can identify an `indefinitely attempting to upgrade` situation by looking at the Cluster's logs, detailed message, and detailed status message. If a time-out occurs, we would observe that the Cluster is continuously reconciling over the same indefinitely and not moving forward. From here, we recommend checking Cluster logs or configured LAW, to see if there's a failure, or a specific upgrade that is causing the lack of progress.
 
 ### Identifying Bare Metal Machine Upgrade Stalled/Stuck
 
@@ -202,7 +202,7 @@ A guide for identifying issues with provisioning worker nodes is provided at [Tr
  
 ### Hardware Failure doesn't require Upgrade re-execution
 
-If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine will provision with the previous runtime version when the hardware is repaired. The machine is upgraded along with the rack when the rack starts its upgrade.
+If a hardware failure during an upgrade occurs, the runtime upgrade continues as long as the set thresholds are met for the compute and management/control nodes. Once the machine is fixed or replaced, it gets provisioned with the current platform runtime's OS, which contains the targeted version of the runtime. If a rack was updated before a failure, then the upgraded runtime version would be used when the nodes are reprovisioned. If the rack's spec wasn't updated to the upgraded runtime version before the hardware failure, the machine provisions with the previous runtime version when the hardware is repaired. The machine is upgraded along with the rack when the rack starts its upgrade.
 ### After a runtime upgrade, the Cluster shows "Failed" Provisioning State
 
 During a runtime upgrade, the Cluster enters a state of `Upgrading`. If the runtime upgrade fails, the Cluster goes into a `Failed` provisioning state. Infrastructure components (e.g the Storage Appliance) may cause failures during the upgrade. In some scenarios, it may be necessary to diagnose the failure with Microsoft support.
