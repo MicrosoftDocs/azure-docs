@@ -16,6 +16,9 @@ ms.date: 12/19/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!IMPORTANT]
+> The Azure Database for PostgreSQL version 2.0 provides improved native Azure Database for PostgreSQL support. If you are using the Azure Database for PostgreSQL version 1.0 in your solution, you are recommended to [upgrade your Azure Database for PostgreSQL connector](#upgrade-the-azure-database-for-postgresql-connector) at your earliest convenience.
+
 This connector is specialized for the [Azure Database for PostgreSQL service](/azure/postgresql/overview). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
 
 ## Supported capabilities
@@ -31,9 +34,6 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
-
-> [!NOTE]
-> When utilizing Azure Database for PostgreSQL Flexible Server or Azure Cosmos DB for PostgreSQL, please ensure to apply [version 2.0](#version-20) in the connector. If you are currently using version 1.0, please [upgrade the connector](#upgrade-the-azure-database-for-postgresql-connector).
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
@@ -70,7 +70,7 @@ The following sections offer details about properties that are used to define Da
 
 ## Linked service properties
 
-The Azure Database for PostgreSQL connector version **2.0** supports TLS 1.3. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from version 1.0. For the property details, see the corresponding sections.
+The Azure Database for PostgreSQL connector version **2.0** supports TLS 1.3 and multiple SSL modes. Refer to this [section](#upgrade-the-azure-database-for-postgresql-connector) to upgrade your Azure SQL Database connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
