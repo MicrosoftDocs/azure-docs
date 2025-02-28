@@ -119,7 +119,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
     } 
     ```
 
-3. Run the installation scripts. You can optionionally setup this preview from a Windows or Linux-based jump box/VM. 
+3. Run the installation scripts. You can optionally setup this preview from a Windows or Linux-based jump box/VM. 
 
     Run the following commands to execute the installation script. 
 

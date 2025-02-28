@@ -265,10 +265,6 @@ In the **Request API permissions** page that follows, switch to the **APIs my or
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1.png" alt-text="Screenshot of the 'Request API Permissions' page search result in the Azure portal showing Azure Digital Twins.":::
 
->[!NOTE]
-> If your subscription still has an existing Azure Digital Twins instance from the previous public preview of the service (before July 2020), you'll need to search for and select **Azure Smart Spaces Service** instead. This is an older name for the same set of APIs (notice that the **Application (client) ID** is the same as in the screenshot above), and your experience won't be changed beyond this step.
-> :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-1-smart-spaces.png" alt-text="Screenshot of the 'Request API Permissions' page search result showing Azure Smart Spaces Service in the Azure portal.":::
-
 Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says **Read.Write** to grant this app registration reader and writer permissions.
 
 :::image type="content" source="media/how-to-create-app-registration/request-api-permissions-2.png" alt-text="Screenshot of the 'Request API Permissions' page and selecting 'Read.Write' permissions for the Azure Digital Twins APIs in the Azure portal.":::
@@ -284,8 +280,8 @@ On the **API permissions** page, verify that there's now an entry for Azure Digi
 You can also verify the connection to Azure Digital Twins within the app registration's *manifest.json*, which was automatically updated with the Azure Digital Twins information when you added the API permissions.
 
 To do so, select **Manifest** from the menu to view the app registration's manifest code. Scroll to the bottom of the code window and look for the following fields and values under `requiredResourceAccess`: 
-* `"resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0"`
-* `"resourceAccess"` > `"id": "4589bd03-58cb-4e6c-b17f-b580e39652f8"`
+* `"resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0"` (This is the resource ID for the Azure Digital Twins service endpoint.)
+* `"resourceAccess"` > `"id": "4589bd03-58cb-4e6c-b17f-b580e39652f8"` (This is the permission ID for the Read.Write delegated permission in Azure Digital Twins.)
 
 These values are shown in the screenshot below:
 

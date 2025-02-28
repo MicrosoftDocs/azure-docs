@@ -28,7 +28,7 @@ Learn more about [event handling in Azure Communication Services](../../event-gr
 ## Deliver push notifications via Azure Notification Hubs
 
 > [!IMPORTANT]
-> Azure Notification Hubs has announced that Firebase Cloud Messaging (FCM) legacy API will be deprecated in July 2024. This will affect all Azure Communiation Services Calling and Chat applications who send Android push notifications. Customers impacted will need to migrate their registrations from FCM legacy to FCM v1, and can start doing so in March 2024. For more information including migration steps, please see [Notifcation Hub documentation](../../notification-hubs/notification-hubs-gcm-to-fcm.md).
+> Azure Notification Hubs has announced that Firebase Cloud Messaging (FCM) legacy API will be deprecated in July 2024. This will affect all Azure Communication Services Calling and Chat applications who send Android push notifications. Customers impacted will need to migrate their registrations from FCM legacy to FCM v1, and can start doing so in March 2024. For more information including migration steps, please see [Notification Hub documentation](../../notification-hubs/notification-hubs-gcm-to-fcm.md).
 
 You can connect an Azure Notification Hub to your Communication Services resource in order to automatically send push notifications to a user's mobile device when they receive an incoming call or to notify them about missed chat activity. You should use these push notifications to wake up your application from the background and display UI that lets the user accept or decline the call or read the newly received chat message. 
 

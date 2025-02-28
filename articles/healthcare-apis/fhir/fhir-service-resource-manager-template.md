@@ -261,7 +261,7 @@ az deployment group create --resource-group $resourcegroupname --template-file '
 
 ## Review the deployed resources
 
-You can verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhir servic>.azurehealthcareapis.com/metadata`. If the capability statement is displayed or downloaded automatically, your deployment is successful. 
+You can verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhir service>.azurehealthcareapis.com/metadata`. If the capability statement is displayed or downloaded automatically, your deployment is successful. 
 
 ## Clean up the resources
 

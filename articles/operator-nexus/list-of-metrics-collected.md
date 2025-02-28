@@ -127,8 +127,8 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|KubeDeploymentStatusReplicasAvailable|Deployment|Deployment Replicas Available|Count|Number of deployment replicas available. In the absence of data, this metric will default to 0|Deployment, Namespace|
-|KubeDeploymentStatusReplicasUnavailable|Deployment|Deployment Replicas Unavailable|Count|Number of deployment replicas unavailable. In the absence of data, this metric will default to 0|Deployment, Namespace|
+|KubeDeploymentStatusReplicasAvailable|Deployment|Deployment Replicas Available|Count|Number of deployment replicas available. In the absence of data, this metric will retain the most recent value emitted|Deployment, Namespace|
+|KubeDeploymentStatusReplicasUnavailable|Deployment|Deployment Replicas Unavailable|Count|Number of deployment replicas unavailable. In the absence of data, this metric will retain the most recent value emitted|Deployment, Namespace|
 |KubeDeploymentStatusReplicasReady|Deployment|Deployment Replicas Ready|Count|Number of deployment replicas ready. In the absence of data, this metric will default to 0|Deployment, Namespace|
 |KubeDeploymentStatusReplicasAvailablePercent|Deployment|Deployment Replicas Available Percent|Percent|Percentage of deployment replicas available. In the absence of data, this metric will default to 0|Deployment, Namespace|
 
@@ -140,8 +140,8 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |EtcdDiskBackendCommitDurationSecondsSum|Etcd|Etcd Disk Backend Commit Duration Sec|Seconds|The cumulative sum of the time taken for etcd to commit transactions to its backend disk storage. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
 |EtcdDiskWalFsyncDurationSecondsSum|Etcd|Etcd Disk WAL Fsync Duration Sec|Seconds|The cumulative sum of the time that etcd has spent performing fsync operations on the write-ahead log (WAL) file. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerHealthFailures|Etcd|Etcd Server Health Failures|Count|Total number of failed health checks performed on an etcd server. In the absence of data, this metric will default to 0|Pod Name|
-|EtcdServerIsLeader|Etcd|Etcd Server Is Leader|Unspecified|Indicates whether an etcd server is the leader of the cluster; 1, 0 otherwise. In the absence of data, this metric will default to 0|Component, Pod Name, Tier|
-|EtcdServerIsLearner|Etcd|Etcd Server Is Learner|Unspecified|Indicates whether an etcd server is a learner within the cluster; 1, 0 otherwise. In the absence of data, this metric will default to 0|Component, Pod Name, Tier|
+|EtcdServerIsLeader|Etcd|Etcd Server Is Leader|Unspecified|Indicates whether an etcd server is the leader of the cluster; 1, 0 otherwise. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
+|EtcdServerIsLearner|Etcd|Etcd Server Is Learner|Unspecified|Indicates whether an etcd server is a learner within the cluster; 1, 0 otherwise. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerLeaderChangesSeenTotal|Etcd|Etcd Server Leader Changes Seen Total|Count|The number of leader changes seen within the etcd cluster. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerProposalsAppliedTotal|Etcd|Etcd Server Proposals Applied Total|Count|The total number of consensus proposals that have been successfully applied. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
 |EtcdServerProposalsCommittedTotal|Etcd|Etcd Server Proposals Committed Total|Count|The total number of consensus proposals that have been committed. In the absence of data, this metric will retain the most recent value emitted|Component, Pod Name, Tier|
@@ -153,7 +153,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |KubeJobStatusActive|Job|Jobs Active|Count|Number of jobs active. In the absence of data, this metric will default to 0|Job, Namespace|
-|KubeJobStatusFailedReasons|Job|Jobs Failed|Count|Number and reason of jobs failed. In the absence of data, this metric will default to 0|Job, Namespace, Reason|
+|KubeJobStatusFailedReasons|Job|Jobs Failed|Count|Number and reason of jobs failed. In the absence of data, this metric will retain the most recent value emitted|Job, Namespace, Reason|
 |KubeJobStatusSucceeded|Job|Jobs Succeeded|Count|Number of jobs succeeded. In the absence of data, this metric will default to 0|Job, Namespace|
 
 ### ***kubelet***
@@ -185,9 +185,9 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |KubePodContainerStatusRestartsTotal|Pod|Container Restarts|Count|The number of container restarts. In the absence of data, this metric will retain the most recent value emitted|Container, Namespace, Pod|
 |KubePodContainerStatusRunning|Pod|Container Status Running|Count|The number of containers with a status of 'running'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
 |KubePodContainerStatusTerminated|Pod|Container Status Terminated|Count|The number of containers with a status of 'terminated'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
-|KubePodContainerStatusTerminatedReasons|Pod|Container Status Terminated Reason|Count|The number and reason of containers with a status of 'terminated'. In the absence of data, this metric will default to 0|Container, Namespace, Pod, Reason|
+|KubePodContainerStatusTerminatedReasons|Pod|Container Status Terminated Reason|Count|The number and reason of containers with a status of 'terminated'. In the absence of data, this metric will retain the most recent value emitted|Container, Namespace, Pod, Reason|
 |KubePodContainerStatusWaiting|Pod|Container Status Waiting|Count|The number of containers with a status of 'waiting'. In the absence of data, this metric will default to 0|Container, Namespace, Pod|
-|KubePodContainerStatusWaitingReason|Pod|Container Status Waiting Reason|Count|The number and reason of containers with a status of 'waiting'. In the absence of data, this metric will default to 0|Container, Namespace, Pod, Reason|
+|KubePodContainerStatusWaitingReason|Pod|Container Status Waiting Reason|Count|The number and reason of containers with a status of 'waiting'. In the absence of data, this metric will retain the most recent value emitted|Container, Namespace, Pod, Reason|
 |KubePodDeletionTimestamp|Pod|Pod Deletion Timestamp (Preview)|Count|The timestamp of the pod's deletion. In the absence of data, this metric will default to 0|Namespace, Pod|
 |KubePodInitContainerStatusReady|Pod|Pod Init Container Ready|Count|The number of ready pod init containers. In the absence of data, this metric will default to 0|Namespace, Container, Pod|
 |KubePodInitContainerStatusRestartsTotal|Pod|Pod Init Container Restarts|Count|The number of pod init containers restarts. In the absence of data, this metric will retain the most recent value emitted|Namespace, Container, Pod|
@@ -204,7 +204,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 
 | Metric      | Category | Display Name  | Unit | Description | Dimensions   |
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
-|KubeStatefulsetReplicas|Statefulset|Statefulset Desired Replicas Number|Count|The desired number of statefulset replicas. In the absence of data, this metric will default to 0|Namespace, Statefulset|
+|KubeStatefulsetReplicas|Statefulset|Statefulset Desired Replicas Number|Count|The desired number of statefulset replicas. In the absence of data, this metric will retain the most recent value emitted|Namespace, Statefulset|
 |KubeStatefulsetStatusReplicas|Statefulset|Statefulset Replicas Number|Count|The number of replicas per statefulset. In the absence of data, this metric will default to 0|Namespace, Statefulset|
 |KubeStatefulsetStatusReplicaDifference|Statefulset|Statefulset Replicas Difference|Count|The difference between desired and current number of replicas per statefulset. In the absence of data, this metric will default to 0|Namespace, Statefulset|
 |KubeletRunningContainers|Kubelet|Kubelet Running Containers|Count|Number of containers currently running. In the absence of data, this metric will retain the most recent value emitted|Container State, Host|
@@ -309,7 +309,7 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |NodeNetworkReceivePackets|Network|Node Network Received Packets|Count|Total number of packets received by the node network interfaces. In the absence of data, this metric will retain the most recent value emitted|Device, Host|
 |NodeNetworkSpeedBytes|Network|Node Network Speed Bytes|Bytes|Current network speed, in bytes per second, for the node network interfaces. In the absence of data, this metric will default to 0|Device, Host|
 |NodeNetworkTransmitPackets|Network|Node Network Transmited Packets|Count|Total number of packets transmitted by the node network interfaces. In the absence of data, this metric will retain the most recent value emitted|Device, Host|
-|NodeNetworkStatus|Network|Node Network Up|Count|Indicates the operational status of the nodes network interfaces. Value is 1 if operational state is 'up', 0 otherwise. In the absence of data, this metric will default to 0|Device, Host|
+|NodeNetworkStatus|Network|Node Network Up|Count|Indicates the operational status of the nodes network interfaces. Value is 1 if operational state is 'up', 0 otherwise. In the absence of data, this metric will retain the most recent value emitted|Device, Host|
 |NodeNtpLeap|System|Node NTP Leap|Count|The raw leap flag value of the local NTP daemon. This indicates the status of leap seconds. Value is 0 if no adjustment is needed, 1 to add a leap second, 2 to delete a leap second, and 3 if the clock is unsynchronized. In the absence of data, this metric will retain the most recent value emitted|Host|
 |NodeNtpRootDelaySeconds|System|Node NTP Root Delay Seconds|Seconds|Indicates the delay to synchronize with the root server. In the absence of data, this metric will retain the most recent value emitted|Host|
 |NodeNtpRtt (Deprecated)|System|Node NTP RTT|Seconds|Deprecated - Round-trip time from node exporter collector to local NTP daemon. In the absence of data, this metric will retain the most recent value emitted|Host|
@@ -317,7 +317,7 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |NodeNtpStratum|System|Node NTP Stratum|Count|The stratum level of the local NTP daemon. This indicates the distance from the reference clock, with lower numbers representing closer proximity and higher accuracy. Values range from 1 (directly connected to reference clock) to 15 (further away), with 16 indicating the clock is unsynchronized. In the absence of data, this metric will retain the most recent value emitted|Host|
 |NodeNvmeInfo|Disk|Node NVMe Info (Preview)|Count|Non-Volatile Memory express (NVMe) information, value is always 1. Provides state for a device. In the absence of data, this metric will default to 0|Device, State|
 |NodeOsInfo|System|Node OS Info|Count|Node OS information, value is always 1. Provides name and version for a device. In the absence of data, this metric will retain the most recent value emitted|Host, Name, Version|
-|NodeProcessState|System|Node Processes State|Count|The number of processes in each state. The possible states are D (UNINTERRUPTABLE_SLEEP), R (RUNNING & RUNNABLE), S (INTERRUPTABLE_SLEEP), T (STOPPED) and Z (ZOMBIE). In the absence of data, this metric will default to 0|Host, State|
+|NodeProcessState|System|Node Processes State|Count|The number of processes in each state. The possible states are D (UNINTERRUPTABLE_SLEEP), R (RUNNING & RUNNABLE), S (INTERRUPTABLE_SLEEP), T (STOPPED) and Z (ZOMBIE). In the absence of data, this metric will retain the most recent value emitted|Host, State|
 |NodeTimexMaxErrorSeconds|System|Node Timex Max Error Seconds|Seconds|Maximum time error between the local system and reference clock. In the absence of data, this metric will retain the most recent value emitted|Host|
 |NodeTimexOffsetSeconds|System|Node Timex Offset Seconds|Seconds|Time offset between the local system and reference clock. In the absence of data, this metric will retain the most recent value emitted|Host|
 |NodeTimexSyncStatus|System|Node Timex Sync Status|Count|Indicates whether the clock is synchronized to a reliable server. Value is 1 if synchronized, 0 if unsynchronized. In the absence of data, this metric will retain the most recent value emitted|Host|

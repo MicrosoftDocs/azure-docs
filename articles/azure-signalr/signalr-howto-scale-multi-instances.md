@@ -16,10 +16,14 @@ zone_pivot_groups: azure-signalr-service-mode
 
 SignalR Service SDK supports multiple endpoints for SignalR Service instances. You can use this feature to scale the concurrent connections, or use it for cross-region messaging.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 :::zone pivot="default-mode"
 ## For ASP.NET Core
 
 ### Add multiple endpoints from config
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 Configure with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
@@ -96,17 +100,10 @@ The following example overrides the default negotiate behavior and selects the e
 private class CustomRouter : EndpointRouterDecorator
 {    public override ServiceEndpoint GetNegotiateEndpoint(HttpContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (endpointName.Count == 0)
-        {
-            context.Response.StatusCode = 400;
-            var response = Encoding.UTF8.GetBytes("Invalid request");
-            context.Response.Body.Write(response, 0, response.Length);
-            return null;
-        }
-
-        return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
+          // Sample code showing how to choose endpoints based on the incoming request endpoint query
+          var endpointName = context.Request.Query["endpoint"].FirstOrDefault() ?? "";
+          // Select from the available endpoints, don't construct a new ServiceEndpoint object here
+          return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
 }
@@ -129,6 +126,22 @@ services.AddSignalR()
             });
 ```
 
+`ServiceOptions.Endpoints` also supports hot-reload. The below sample code shows how to load connection strings from one configuration section and public URL exposed by [reverse proxies](./signalr-howto-reverse-proxy-overview.md) from another, and as long as configuration supports hot-reload, the endpoints could be updated on the fly.
+```cs
+services.Configure<ServiceOptions>(o =>
+{
+        o.Endpoints = [
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:East"], name: "east")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:East"))
+            },
+            new ServiceEndpoint(Configuration["ConnectionStrings:AzureSignalR:West"], name: "west")
+            {
+                ClientEndpoint = new Uri(Configuration.GetValue<string>("PublicClientEndpoints:West"))
+            },
+        ];
+});
+```
 ## For ASP.NET
 
 ### Add multiple endpoints from config
@@ -184,15 +197,9 @@ private class CustomRouter : EndpointRouterDecorator
 {
     public override ServiceEndpoint GetNegotiateEndpoint(IOwinContext context, IEnumerable<ServiceEndpoint> endpoints)
     {
-        // Override the negotiate behavior to get the endpoint from query string
-        var endpointName = context.Request.Query["endpoint"];
-        if (string.IsNullOrEmpty(endpointName))
-        {
-            context.Response.StatusCode = 400;
-            context.Response.Write("Invalid request.");
-            return null;
-        }
-
+        // Sample code showing how to choose endpoints based on the incoming request endpoint query
+        var endpointName = context.Request.Query["endpoint"] ?? "";
+        // Select from the available endpoints, don't construct a new ServiceEndpoint object here
         return endpoints.FirstOrDefault(s => s.Name == endpointName && s.Online) // Get the endpoint with name matching the incoming request
                ?? base.GetNegotiateEndpoint(context, endpoints); // Or fallback to the default behavior to randomly select one from primary endpoints, or fallback to secondary when no primary ones are online
     }
@@ -313,7 +320,7 @@ By default, the functions binding uses the [DefaultEndpointRouter](https://githu
 ##### C# in-process model
 
 Here are the steps:
-1. Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that Http trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
+1. Implement a customized router. You can leverage information provided from [`ServiceEndpoint`](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.Common/Endpoints/ServiceEndpoint.cs) to make routing decision. See guide here: [customize-route-algorithm](https://github.com/Azure/azure-signalr/blob/dev/docs/sharding.md#customize-route-algorithm). **Please note that HTTP trigger is required in the negotiation function when you need `HttpContext` in custom negotiation method.**
 
 1. Register the router to DI container.
 ```cs

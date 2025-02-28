@@ -6,4 +6,4 @@
  ms.author: cherylmc
 ---
 > [!IMPORTANT]
-> Network security groups (NSGs) on the gateway subnet are not supported. Associating a network security group to this subnet might cause your virtual network gateway (VPN and ExpressRoute gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group](/azure/virtual-network/network-security-groups-overview)?
+> NSGs on the gateway subnet aren't supported. Associating a network security group to this subnet might cause your virtual network gateway (VPN and ExpressRoute gateways) to stop functioning as expected. For more information about network security groups, see [What is a network security group?](/azure/virtual-network/network-security-groups-overview).

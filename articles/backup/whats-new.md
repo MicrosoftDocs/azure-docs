@@ -2,12 +2,12 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 10/17/2024
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # What's new in Azure Backup
@@ -17,8 +17,15 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+
+- February 2025
+  - [Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available](#azure-backup-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
 - November 2024
-  - [Vaulted backup and Cross Region Restore support for AKS is generally available.](#vaulted-backup-and-cross-region-restore-support-for-aks-is-generally-available)
+  - [Secure by Default with Vault soft delete (preview)](#secure-by-default-with-vault-soft-delete-preview)
+  - [WORM enabled Immutable Storage for Recovery Services vaults is now generally available](#worm-enabled-immutable-storage-for-recovery-services-vaults-is-now-generally-available)
+  - [Cross Subscription Backup support for Azure File Share (preview)](#cross-subscription-backup-support-for-azure-file-share-preview)
+  - [Back up SAP ASE (Sybase) database (preview)](#back-up-sap-ase-sybase-database-preview)   
+  - [Vaulted backup and Cross Region Restore support for AKS is now generally available](#vaulted-backup-and-cross-region-restore-support-for-aks-is-now-generally-available) 
 - October 2024
     - [GRS and CRR support for Azure VMs using Premium SSD v2 and Ultra Disk is now generally available.](#grs-and-crr-support-for-azure-vms-using-premium-ssd-v2-and-ultra-disk-is-now-generally-available)
     - [Back up Azure VMs with Extended Zones](#back-up-azure-vms-with-extended-zones-preview)
@@ -95,7 +102,56 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Vaulted backup and Cross Region Restore support for AKS is generally available
+## Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available
+
+Azure Backup now provides improved backup and restore processes, reduced downtime, and increased efficiency for Azure Database for PostgreSQL - Flexible Server. This feature is generally available in the following regions: East Asia, Central India, Southeast Asia, UK South, and UK West. However, this feature is currently in preview for other regions. You can manage the protection of the database by using the [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) in the Azure portal.
+
+The robust, scalable backup solution for Azure Database for PostgreSQL – Flexible Server allows you to meet  the needs of enterprises and developers alike, emphasizing comprehensive data protection and management.
+
+This release includes the following key features:
+
+- **Managed Service**: Ensures safety and integrity of PostgreSQL servers.
+- **Automated Backups**: Policy-based management eliminates manual intervention.
+- **Long-term Retention**: Meets regulatory and compliance requirements.
+- **Cyber Resiliency**: Features immutability for enhanced protection.
+- **High Performance**: Built on Azure's scalable infrastructure.
+- **Strong Security**: Encryption at rest and in transit.
+
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md).
+
+## Secure by Default with Vault soft delete (preview)
+ 
+Azure Backup now provides the **Secure By default with Vault soft delete (preview)** feature that applies soft delete by default at all granularities - vaults, recovery points, containers and backup items. Azure Backup now ensures that all the backup data is recoverable against ransomware attacks by default and has no cost for *14 days*. You don't need to opt in to get *fair* security level for your backup data. You can update the soft delete retention period as per your preference up to *180 days*.
+
+Soft delete provides data recoverability from malicious or accidental deletions and is enabled by default for all vaults. To make soft delete irreversible, you can use **always-on** soft delete.
+
+For more information, see [Secure by Default with Azure Backup (Preview)](secure-by-default.md).
+
+## WORM enabled Immutable Storage for Recovery Services vaults is now generally available
+
+Azure Backup now provides immutable WORM storage for your backups when immutability is enabled and locked on a Recovery Services vault. When immutability is enabled, Azure Backup ensures that a Recovery Point, once created, can't be deleted or have  its retention period reduced before its intended expiry. 
+
+When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability. WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
+
+For more information, see [About Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
+
+## Cross Subscription Backup support for Azure File Share (preview)
+
+Azure Backup now supports Cross Subscription Backup (CSB) for Azure File Shares (preview), allowing you to back up data across different subscriptions within the same tenant or Microsoft Entra ID. This capability offers greater flexibility and control, essentially for enterprises managing multiple subscriptions with varying purposes and security policies.
+
+For more information, see [About Azure File share backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-file-share-preview-works).
+
+## Back up SAP ASE (Sybase) database (preview)
+
+Azure Backup now allows you backing up SAP Adaptive Server Enterprise (ASE) (Sybase) databases running on Azure VMs. All backups are streamed directly to the Azure Backup managed recovery services vault that provides security capabilities like Immutability, Soft Delete and Multiuser Authorization. The vaulted backup data is stored in Microsoft-managed Azure subscription, thus isolating the backups from user's environment. These features ensure that the SAP ASE backup data is always secure and can be recovered safely even if the source machines are compromised.
+
+For stream-based backup, Azure Backup can stream log backups in every **15 minutes**. You can enable this feature in addition to the database backup, which provides **Point-In-Time recovery** capability. Azure Backup also offers **Multiple Database Restore** capabilities such as **Alternate Location Restore** (System refresh), **Original Location Restore**, and **Restore as Files**.
+ 
+Azure Backup also offers cost-effective Backup policies (Weekly full + daily differential backups), which result in lower storage cost.
+
+For more information, see [Back up SAP ASE (Sybase) database (preview)](sap-ase-database-about.md).
+
+## Vaulted backup and Cross Region Restore support for AKS is now generally available
  
 Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
 
@@ -161,6 +217,8 @@ If you're currently using snapshot-based backups, we recommend that you try vaul
 For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
 
 ## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
+
+[!INCLUDE [Azure Database for MySQL - Flexible Server backup advisory](../../includes/backup-mysql-flexible-server-advisory.md)]
 
 Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
 
@@ -392,7 +450,7 @@ Azure Backup now offers a new and improved alerting solution via Azure Monitor. 
 - Ability to manage alerts and notifications programmatically.
 - Ability to have a consistent alert management experience for multiple Azure services, including Azure Backup.
 
-If you're currently using the [classic alerts solution](backup-azure-monitoring-built-in-monitor.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
+If you're currently using the [classic alerts solution](move-to-azure-monitor-alerts.md?tabs=recovery-services-vaults#backup-alerts-in-recovery-services-vault), we recommend you to switch to Azure Monitor alerts. Now, Azure Backup provides a guided experience via Backup center that allows you to switch to built-in Azure Monitor alerts and notifications with a few clicks.
 
 For more information, see [Switch to Azure Monitor based alerts for Azure Backup](move-to-azure-monitor-alerts.md).
 

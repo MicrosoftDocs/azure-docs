@@ -240,7 +240,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ]
   },
@@ -260,8 +260,8 @@ dotnet run
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ❌ | |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicy` is not used for queue selection
-| priority | `int` | ✔️ | | `null` when `classificationPolicy` is not used for applying priority on job
+| queueId | `string` | ❌ | |
+| priority | `int` | ❌ | |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
@@ -296,7 +296,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
     "attachedWorkerSelectors": [
@@ -304,7 +304,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ]
   },
@@ -594,20 +594,20 @@ dotnet run
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
-    "requestedWorkerSelectorsExpired": [
+    "expiredRequestedWorkerSelectors": [
       {
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
-    "attachedWorkerSelectorsExpired": [
+    "expiredAttachedWorkerSelectors": [
       {
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ]
   },
@@ -628,8 +628,8 @@ dotnet run
 | channelId | `string` | ❌ |
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
-| requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
-| attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
+| expiredRequestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
+| expiredAttachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
 ### Microsoft.Communication.RouterJobUnassigned
 
@@ -708,7 +708,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
     "attachedWorkerSelectors": [
@@ -716,7 +716,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
     "scheduledOn": "2022-02-17T00:55:25.1736293Z",
@@ -775,7 +775,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
     "attachedWorkerSelectors": [
@@ -783,7 +783,7 @@ dotnet run
         "key": "string",
         "labelOperator": "equal",
         "value": 5,
-        "ttl": "P3Y6M4DT12H30M5S"
+        "ttlSeconds": 60.0
       }
     ],
     "scheduledOn": "2022-02-17T00:55:25.1736293Z",
@@ -890,6 +890,16 @@ dotnet run
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
+    "workerLabels": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "workerTags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
     "channelReference": "test-abc",
     "channelId": "FooVoiceChannelId",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
@@ -912,6 +922,8 @@ dotnet run
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| workerLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| workerTags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
@@ -1235,7 +1247,7 @@ public class WorkerSelector
     public object Value { get; set; }
     public double? TTLSeconds { get; set; }
     public WorkerSelectorState State { get; set; }
-    public DateTimeOffset? ExpireTime { get; set; }
+    public DateTimeOffset? ExpirationTime { get; set; }
 }
 
 public enum WorkerSelectorState

@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 01/29/2025
 ms.author: cherylmc
 ---
 
@@ -20,7 +20,7 @@ Before beginning client configuration steps, verify that you're on the correct V
 [!INCLUDE [All client articles](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 > [!NOTE]
-> The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft does not oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and have not been validated by OpenVPN Inc. They are intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN Gateway in a Point-to-Site VPN setup.
+> The OpenVPN client is independently managed and not under Microsoft's control. This means Microsoft doesn't oversee its code, builds, roadmap, or legal aspects. Should customers encounter any bugs or issues with the OpenVPN client, they should directly contact OpenVPN Inc. support. The guidelines in this article are provided 'as is' and haven't been validated by OpenVPN Inc. They're intended to assist customers who are already familiar with the client and wish to use it to connect to the Azure VPN Gateway in a Point-to-Site VPN setup.
 
 ### Prerequisites
 
@@ -42,7 +42,7 @@ To connect to Azure using the OpenVPN Connect 3.x client using certificate authe
 
 The workflow for this article is:
 
-1. Generate and install client certificates if you haven't already done so.
+1. Generate and install client certificates, if you haven't already done so.
 1. View the VPN client profile configuration files contained in the VPN client profile configuration package that you generated.
 1. Configure the OpenVPN Connect client.
 1. Connect to Azure.
@@ -61,7 +61,8 @@ In many cases, you can install the client certificate directly on the client com
 Each computer needs a client certificate in order to authenticate. If the client certificate isn't already installed on the local computer, you can install it using the following steps:
 
 1. Locate the client certificate. For more information about client certificates, see [Install client certificates](point-to-site-how-to-vpn-client-install-azure-cert.md).
-1. Install the client certificate. Typically, you can do this by double-clicking the certificate file and providing a password (if required).
+1. Install the client certificate. Typically, you can install a certificate by double-clicking the certificate file and providing a password (if required).
+1. You'll also use the client certificate later in this exercise to configure the OpenVPN Connect client profile settings.
 
 ## View configuration files
 
@@ -78,76 +79,7 @@ Locate and unzip the VPN client profile configuration package you generated. For
 
 ### <a name="example"></a>User profile example
 
-The following example shows a user profile configuration file for 3.x OpenVPN Connect clients. This example shows the log file commented out and the "ping-restart 0" option added to prevent periodic reconnects due to no traffic being sent to the client.
-
-```
-client
-remote <vpnGatewayname>.ln.vpn.azure.com 443
-verify-x509-name <IdGateway>.ln.vpn.azure.com name
-remote-cert-tls server
-
-dev tun
-proto tcp
-resolv-retry infinite
-nobind
-
-auth SHA256
-cipher AES-256-GCM
-persist-key
-persist-tun
-
-tls-timeout 30
-tls-version-min 1.2
-key-direction 1
-
-#log openvpn.log
-#inactive 0
-ping-restart 0 
-verb 3
-
-# P2S CA root certificate
-<ca>
------BEGIN CERTIFICATE-----
-……
-……..
-……..
-……..
-
------END CERTIFICATE-----
-</ca>
-
-# Pre Shared Key
-<tls-auth>
------BEGIN OpenVPN Static key V1-----
-……..
-……..
-……..
-
------END OpenVPN Static key V1-----
-</tls-auth>
-
-# P2S client certificate
-# Please fill this field with a PEM formatted client certificate
-# Alternatively, configure 'cert PATH_TO_CLIENT_CERT' to use input from a PEM certificate file.
-<cert>
------BEGIN CERTIFICATE-----
-……..
-……..
-……..
------END CERTIFICATE-----
-</cert>
-
-# P2S client certificate private key
-# Please fill this field with a PEM formatted private key of the client certificate.
-# Alternatively, configure 'key PATH_TO_CLIENT_KEY' to use input from a PEM key file.
-<key>
------BEGIN PRIVATE KEY-----
-……..
-……..
-……..
------END PRIVATE KEY-----
-</key>
-```
+[!INCLUDE [User profile example](../../includes/vpn-gateway-vwan-config-openvpn-user-profile.md)]
 
 ## <a name="intermediate"></a>Intermediate certificates
 
@@ -160,7 +92,7 @@ When you're working with intermediate certificates, the intermediate certificate
 
 ## Reconnects
 
-If you experience periodic reconnects due to no traffic being sent to client, you can add the "ping-restart 0" option to the profile to prevent disconnections from causing reconnects. This is described in the OpenVPN Connect documentation as follows: " --ping-restart n Similar to --ping-exit, but trigger a SIGUSR1 restart after n seconds pass without reception of a ping or other packet from remote."
+If you experience periodic reconnects due to no traffic being sent to client, you can add the "ping-restart 0" option to the profile to prevent disconnections from causing reconnects. This is described in the OpenVPN Connect documentation as follows: ` --ping-restart n Similar to --ping-exit, but trigger a SIGUSR1 restart after n seconds pass without reception of a ping or other packet from remote.`
 
 See the [User profile example](#example) for an example of how to add this option.
 

@@ -19,7 +19,7 @@ Signature (SAS) token.
 
 ## Steps to provide access to the package
 
-The following steps prepare your resources for more secure operations. TThe code snippets for the
+The following steps prepare your resources for more secure operations. The code snippets for the
 steps include values in angle brackets, like `<storage-account-container-name>`, which you must
 replace with a valid value when following the steps. If you just copy and paste the code, the
 commands may raise errors due to invalid values.

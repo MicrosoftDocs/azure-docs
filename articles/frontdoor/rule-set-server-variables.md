@@ -5,7 +5,7 @@ description: This article provides a list of the server variables available in A
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/07/2024
 ms.author: duau
 ---

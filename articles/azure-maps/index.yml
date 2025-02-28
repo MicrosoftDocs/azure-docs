@@ -45,8 +45,6 @@ landingContent:
             url: quick-demo-map-app.md
       - linkListType: concept
         links:
-          - text: Choose the right pricing tier for Maps account
-            url: choose-pricing-tier.md
           - text: Authentication with Azure Maps
             url: azure-maps-authentication.md
       - linkListType: how-to-guide

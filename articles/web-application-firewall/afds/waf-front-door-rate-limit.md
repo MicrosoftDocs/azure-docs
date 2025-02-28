@@ -1,12 +1,11 @@
 ---
 title: Web application firewall rate limiting for Azure Front Door
 description: Learn how to use web application firewall rate limiting to protect your web applications from malicious attacks.
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-services: web-application-firewall
 ms.date: 07/29/2024
-ms.author: victorh
 ---
 
 # What is rate limiting for Azure Front Door?

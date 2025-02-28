@@ -4,9 +4,8 @@ description: Get started learning about the different distribution modes of Azur
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.date: 09/25/2024
-ms.custom: template-concept 
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 ---
 

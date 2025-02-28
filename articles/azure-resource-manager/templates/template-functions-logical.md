@@ -3,7 +3,7 @@ title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 06/23/2023
+ms.date: 02/12/2025
 ---
 
 # Logical functions for ARM templates
@@ -143,6 +143,8 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 ### Remarks
 
 When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the `if` function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
+
+Note that the above rule only applies when the condition can be evaluated at the start of the template deployment process. For instance, you can't use a [`reference()`](./template-functions-resource.md#reference)  in the condition.
 
 ### Examples
 

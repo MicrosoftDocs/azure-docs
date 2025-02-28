@@ -293,14 +293,14 @@ If you are configuring the logger for a workspace, create a `Microsoft.ApiManage
 Use the following steps to enable Application Insights logging for an API. You can also enable Application Insights logging for all APIs.
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
-1. Select **APIs** from the menu on the left.
-1. Click on your API, in this case **Demo Conference API**. If configured, select a version.
+1. Select **APIs** > **APIs** from the menu on the left.
+1. Select an API, such as **Swagger Petstore**. If configured, select a version.
 
    > [!TIP]
    > To enable logging for all APIs, select **All APIs**.
 1. Go to the **Settings** tab from the top bar.
 1. Scroll down to the **Diagnostics Logs** section.  
-    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-api-1.png" alt-text="App Insights logger":::
+    :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-api-1.png" alt-text="Screenshot of Diagnostic Logs configuration in the portal.":::
 1. Check the **Enable** box.
 1. Select your attached logger in the **Destination** dropdown.
 1. Input **100** as **Sampling (%)** and select the **Always log errors** checkbox.
@@ -397,7 +397,7 @@ To improve performance issues, skip:
 
 ## Video
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=85acedcd-4200-4788-b7c0-41a11286fcab]
 >
 >
 

@@ -69,10 +69,7 @@ Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
 
 ### Connecting from AKS cluster to the AKS API server over the internet
 
-To manage an AKS cluster, you interact with its API server. When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. After you attach a NAT Gateway to the subnets of your AKS cluster, NAT Gateway will be used to connect to the public IP of the AKS API server. See the following documentation for additional information and design guidance:
-* [Access an AKS API server](/azure/architecture/guide/security/access-azure-kubernetes-service-cluster-api-server)
-* [Use API Management with AKS](/azure/api-management/api-management-kubernetes)
-* [Define API server authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges)
+To manage an AKS cluster, the cluster interacts with its API server. When you create a non-private cluster that resolves to the API server's fully qualified domain name (FQDN), the API server is assigned a public IP address by default. The API server cluster traffic is routed and processed through the cluster's outbound type. When the outbound cluster type is set to NAT gateway (Managed or User-Assigned), the API server traffic is processed as public traffic through the NAT gateway. To prevent API server traffic from being processed as public traffic, consider using a [private cluster](/azure/aks/private-clusters) or use the [API Server VNet Integration](/azure/aks/api-server-vnet-integration) feature (in preview).
 
 ### Can't update my NAT gateway IPs or idle timeout timer for an AKS cluster 
 

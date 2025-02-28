@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/08/2024
+ms.date: 01/10/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -377,9 +377,9 @@ For more information about encryption in transit, see [requiring secure transfer
 
 ## Azure File Sync region availability
 
-For regional availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
+For regional availability, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) and search for **Storage Accounts**.
 
-The following regions require you to request access to Azure Storage before you can use Azure File Sync with them:
+The following regions require you to request access to Azure Storage before you can use Azure File Sync:
 
 - France South
 - South Africa West

@@ -7,10 +7,8 @@ ms.date: 10/01/2024
 ms.author: daknappe
 ms.custom: docs_inherited
 ---
-# Azure Virtual Desktop terminology
 
-> [!IMPORTANT]
-> This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/environment-setup-2019.md).
+# Azure Virtual Desktop terminology
 
 Azure Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and applications. This article tells you a bit more about the terminology and general structure of Azure Virtual Desktop.
 

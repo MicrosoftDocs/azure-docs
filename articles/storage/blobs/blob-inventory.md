@@ -106,7 +106,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schedule | string | Schedule on which to run this rule. Valid values are `daily` and `weekly`. | Yes |
-| schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
+| schemaFields | JSON array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
 
@@ -397,6 +397,10 @@ For more information about pricing for Azure Storage blob inventory, see [Azure 
 ## Known issues and limitations
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
+
+### Inventory report object count and data size should not be compared to billing
+
+An inventory report does not include metadata, system logs, and properties, so it shouldn't be compared to the billed object count and data size for the storage account.
 
 ### Inventory jobs take a longer time to complete in certain cases
 

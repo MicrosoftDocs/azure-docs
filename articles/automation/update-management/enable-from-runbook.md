@@ -4,7 +4,7 @@ description: This article tells how to enable Update Management from a runbook.
 services: automation
 ms.subservice: update-management
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 11/18/2024
 ms.custom: mvc
 ms.service: azure-automation
 ---
@@ -16,7 +16,8 @@ ms.service: azure-automation
 This article describes how you can use a runbook to enable the [Update Management](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
 
 > [!NOTE]
-> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
+> - Azure Update Management onboarding via the portal is no longer available, as the service was retired on **August 31, 2024**. Existing virtual machines (VMs) utilizing Azure Update Management with the legacy agent will remain operational until **February 1, 2025**. We recommend that you configure [periodic assessment](../../update-manager/tutorial-assessment-deployment-using-policy.md) or [patch schedules](../../update-manager/scheduled-patching.md) using [Azure Update Manager](../../update-manager/overview.md).
+> - When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
 
 This method uses two runbooks:
 
@@ -51,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [AzureRM.OperationalInsights](/powershell/module/azurerm.operationalinsights) module to successfully enable Update Management for your VMs with the runbook.
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights) module to successfully enable Update Management for your VMs with the runbook.
 
 1. In your Automation account, select **Modules** under **Shared Resources**.
 
@@ -65,7 +66,7 @@ It's required to update to the latest Azure modules and import the [AzureRM.Oper
 
 5. Select **Browse gallery** to open the module gallery.
 
-6. Search for `AzureRM.OperationalInsights` and import this module into your Automation account.
+6. Search for `Az.OperationalInsights` and import this module into your Automation account.
 
     ![Import OperationalInsights module](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 

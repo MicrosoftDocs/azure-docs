@@ -84,7 +84,7 @@ When creating a Domain resource, you'll specify the resource group name, Email C
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -117,7 +117,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ...
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 string domainName = "contoso.com";
@@ -144,7 +144,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -171,7 +171,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this EmailServiceResource created on azure
 // for more information of creating EmailServiceResource, please refer to the document of EmailServiceResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 ResourceIdentifier emailServiceResourceId = EmailServiceResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, emailServiceName);
@@ -196,7 +196,7 @@ To configure sender authentication for your domains, refer Configure sender auth
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 string domainName = "contoso.com";
@@ -215,7 +215,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 string domainName = "contoso.com";
@@ -235,7 +235,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 string domainName = "contoso.com";

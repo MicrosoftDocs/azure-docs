@@ -74,16 +74,18 @@ If you're using your own authentication system, the Health check path must allow
 
 ```C#
 using System;
+using System.Security.Cryptography;
 using System.Text;
 
 /// <summary>
 /// Method <c>HeaderMatchesEnvVar</c> returns true if <c>headerValue</c> matches WEBSITE_AUTH_ENCRYPTION_KEY.
 /// </summary>
-public Boolean HeaderMatchesEnvVar(string headerValue) {
-    var sha = System.Security.Cryptography.SHA256.Create();
-    String envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
-    String hash = System.Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
-    return hash == headerValue;
+public bool HeaderMatchesEnvVar(string headerValue)
+{
+    var sha = SHA256.Create();
+    string envVar = Environment.GetEnvironmentVariable("WEBSITE_AUTH_ENCRYPTION_KEY");
+    string hash = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(envVar)));
+    return string.Equals(hash, headerValue, StringComparison.Ordinal);
 }
 ```
 
@@ -157,7 +159,7 @@ Once diagnostic collection is enabled, you can create a storage account or choos
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health status history and create a new alert rule. Health check metrics aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health check configuration. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health check status history and create a new alert rule. Health check status metric aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health Check Load balancing threshold value configured. By default this value is set to 10 minutes, so it takes 10 consecutive pings (1 per minute) for a given instance to be deemed unhealthy and only then will it be reflected on the metric. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
 
 ## Limitations
 
@@ -200,9 +202,12 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 
 If all instances of your application are unhealthy, App Service won't remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application. However, the instance replacement will still occur.
 
+ ### What happens during a slot swap?
+Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and non-production slots if possible to prevent any unexpected behavior after the swap.
+
 ### Does Health check work on App Service Environments?
 
-Yes, health check is available for App Service Environment v3, but not for versions 1 or 2. If you're using the older versions of App Service Environment, you can use the [migration feature](environment/migrate.md) to migrate your App Service Environment to version 3.
+Yes, health check is available for App Service Environment v3.
 
 ## Next steps
 

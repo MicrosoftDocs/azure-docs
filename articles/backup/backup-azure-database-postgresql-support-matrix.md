@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 09/09/2024
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Database for PostgreSQL server support matrix

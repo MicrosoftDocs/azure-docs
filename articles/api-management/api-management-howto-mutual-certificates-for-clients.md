@@ -58,8 +58,8 @@ To receive and verify client certificates over HTTP/2 in the Developer, Basic, S
 
 ![Negotiate client certificate](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
-### Consumption, Basic v2, Standard v2 tier
-To receive and verify client certificates in the Consumption, Basic v2, or Standard v2 tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
+### Consumption, Basic v2, Standard v2, or Premium v2 tier
+To receive and verify client certificates in the Consumption, Basic v2, Standard v2, or Premium v2 tier, you must enable the **Request client certificate** setting on the **Custom domains** blade as shown below.
 
 ![Request client certificate](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

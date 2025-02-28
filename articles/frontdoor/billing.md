@@ -4,7 +4,7 @@ description: Learn how you're billed when you use Azure Front Door.
 services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/28/2023
 ms.author: jodowns
 ---

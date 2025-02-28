@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/18/2024
+ms.date: 11/20/2024
 ms.author: radeltch
 ---
 
@@ -243,7 +243,7 @@ The following items are prefixed with:
 
 7. **[A]** Configure RHEL.
 
-   Based on the RHEL version, perform the configuration mentioned in SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167), SAP Note [2772999](https://launchpad.support.sap.com/#/notes/2772999), or SAP Note [3108316](https://launchpad.support.sap.com/#/notes/2772999).
+   Based on the RHEL version, perform the configuration mentioned in SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167), SAP Note [2772999](https://launchpad.support.sap.com/#/notes/2772999), or SAP Note [3108316](https://launchpad.support.sap.com/#/notes/3108316).
 
 ### Install SAP NetWeaver ASCS/ERS
 
@@ -381,7 +381,7 @@ The following items are prefixed with:
      Start_Program_01 = local $(_EN) pf=$(_PF)
      
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).

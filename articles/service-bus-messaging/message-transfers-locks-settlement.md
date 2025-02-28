@@ -109,7 +109,7 @@ If a receiving client fails to process a message and knows that redelivering the
 > [!NOTE]
 > A dead-letter subqueue exists for a queue or a topic subscription only when you have the [dead-letter feature](service-bus-dead-letter-queues.md) enabled for the queue or subscription. 
 
-A special case of settlement is deferral, which is discussed in a [separate article](message-deferral.md).
+A special case of settlement is deferral. See the [Message deferral](message-deferral.md) for details. 
 
 The `Complete`, `DeadLetter`, or `RenewLock` operations might fail due to network issues, if the held lock has expired, or there are other service-side conditions that prevent settlement. In one of the latter cases, the service sends a negative acknowledgment that surfaces as an exception in the API clients. If the reason is a broken network connection, the lock is dropped since Service Bus doesn't support recovery of existing AMQP links on a different connection.
 
@@ -122,8 +122,9 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 >   * Service Update
 >   * OS update
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
+>   * If the Service Bus Client application loses its connection to the Service Bus for any reason.
 >
-> When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation.
+> When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message will not be incremented.
 
 ## Renew locks
 The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 

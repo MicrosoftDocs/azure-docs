@@ -6,15 +6,15 @@ ms.topic: sample
 ---
 # Azure Policy pattern: field properties
 
-The [field](../concepts/definition-structure.md#fields) operator evaluates the specified property or
-[alias](../concepts/definition-structure.md#aliases) to a provided value for a given
-[condition](../concepts/definition-structure.md#conditions).
+The [field](../concepts/definition-structure-policy-rule.md#fields) operator evaluates the specified property or
+[alias](../concepts/definition-structure-alias.md) to a provided value for a given
+[condition](../concepts/definition-structure-policy-rule.md#conditions).
 
 ## Sample policy definition
 
 This policy definition enables you to define allowed regions that meet your organization's
 geo-location requirements. The allowed resources are defined in parameter **listOfAllowedLocations**
-(_array_). Resources that match the definition are [denied](../concepts/effects.md#deny).
+(_array_). Resources that match the definition are [denied](../concepts/effect-deny.md).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-fields.json":::
 
@@ -23,7 +23,7 @@ geo-location requirements. The allowed resources are defined in parameter **list
 :::code language="json" source="~/policy-templates/patterns/pattern-fields.json" range="18-36" highlight="3,7,11":::
 
 The **field** operator is used three times within the
-[logical operator](../concepts/definition-structure.md#logical-operators) **allOf**.
+[logical operator](../concepts/definition-structure-policy-rule.md#logical-operators) **allOf**.
 
 - The first use evaluates the `location` property with the **notIn** condition to the
   **listOfAllowedLocations** parameter. **notIn** works as it expects an _array_ and the parameter
@@ -42,5 +42,5 @@ creation or update is blocked by Azure Policy.
 ## Next steps
 
 - Review other [patterns and built-in definitions](./index.md).
-- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).

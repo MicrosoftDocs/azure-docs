@@ -219,8 +219,6 @@ To create the same routes manually, follow these steps:
 
 5. After you create the new route table, go to the subnet. Select your route table from the list in the portal. After you save the change, you should then see the NSGs and routes noted with your subnet.
 
-    ![Screenshot that shows NSGs and routes.][7]
-
 ## Service endpoints
 
 Service endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. For more information, see [Virtual Network service endpoints][serviceendpoints].
@@ -235,7 +233,6 @@ When service endpoints are enabled on a subnet with an instance of Azure SQL, al
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
 [2]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow2.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
-[7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
 [8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->

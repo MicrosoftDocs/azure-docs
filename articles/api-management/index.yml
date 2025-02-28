@@ -112,6 +112,8 @@ landingContent:
             url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
+          - text: Premium v2 tier (preview)
+            url: v2-service-tiers-overview.md
           - text: Workspaces
             url: workspaces-overview.md
           - text: GenAI gateway capabilities

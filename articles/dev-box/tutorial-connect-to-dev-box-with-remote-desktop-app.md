@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 08/30/2024
+ms.date: 01/29/2025
 ms.topic: tutorial
 
 #customer intent: As a developer, I want to connect to my dev box by using a remote desktop client so that I can access my development environment from a different device.
@@ -62,46 +62,6 @@ To download and set up the Remote Desktop client for Windows:
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot that shows how to select the platform configuration again to download the Windows Remote Desktop client.":::
 
 1. After the Remote Desktop MSI file downloads to your computer, open the file and follow the prompts to install the Remote Desktop app. 
-
-### Connect to a dev box by using a subscription URL
-
-Each dev box project is represented as a Workspace in Remote Desktop. When you're working with multiple dev boxes, across multiple projects, you can use Remote Desktop to switch between them. To make a switch, you need to add the subscription URL for each Workspace to Remote Desktop. With the Remote Desktop app, you can subscribe to multiple Workspaces, allowing you to view and connect to all your dev boxes.  
-
-To get the subscription URL for your Workspace:
-
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
- 
-1. Open help (**?**), and then select **Configure Remote Desktop**. 
- 
-   :::image type="content" source="media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-box-rdp-get-subscription-url.png" alt-text="Screenshot showing the developer portal help pane with subscription URL highlighted.":::
-
-1. In **Configure Remote Desktop**, next to the subscription feed URL, select **Copy**.
-
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/dev-box-rdp-subscription-windows.png" alt-text="Screenshot of the Configure Remote Desktop dialog with the subscription feed URL highlighted.":::
-
-1. Open the Remote Desktop app. 
- 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app.png" alt-text="Screenshot of the Windows 11 start menu with Remote desktop showing and open highlighted.":::
-
-   1. If you're using the Remote Desktop app for the first time, you see the **Let's get started** page. Select **Subscribe with URL**.
-
-      :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-get-started.png" alt-text="Screenshot of the Remote Desktop Let's get started page."::: 
-
-   1. If you previously used the Remote Desktop app, you see your Workspaces. Select More options (**...**), and then select **Subscribe with URL**.
-
-      :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-more-options.png" alt-text="Screenshot of the Remote Desktop app with the More options menu highlighted.":::
-
-1. In the **Email or Workspace URL** box, paste the Workspace URL you copied in step 3.
-
-   After the system confirms your Workspace URL, you can continue by selecting **Next**.
-
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-add-subscription-with-url.png" alt-text="Screenshot of the Remote Desktop Subscribe with URL dialog.":::
-
-1. Remote Desktop gets the information from your Workspace and adds it to the Workspaces list.
-
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/remote-desktop-app-workspace.png" alt-text="Screenshot of the Remote Desktop Workspace.":::
-
-1. To start the connection with the Remote Desktop app, double-click the dev box that you want to connect to from your Workspace.
 
 ### Connect to your dev box from the developer portal
 

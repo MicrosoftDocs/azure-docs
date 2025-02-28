@@ -31,6 +31,9 @@ This tutorial walks you through hosting a test EST server and configuring an IoT
 * Your IoT Edge device requires Azure IoT Edge runtime 1.2 or later for EST support. Azure IoT Edge runtime 1.3 or later required for EST certificate renewal. 
 * IoT Hub Device Provisioning Service (DPS) linked to IoT Hub. For information on configuring DPS, see [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
+> [!NOTE]
+> To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](./how-to-provision-devices-at-scale-linux-x509.md?tabs=group-enrollment%2cubuntu). Other methods of provisioning, including manual X.509 provisioning with IoT Hub and DPS with individual enrollment do not support automatic device identity certificate renewal.
+
 ## What is Enrollment over Secure Transport?
 
 Enrollment over Secure Transport (EST) is a cryptographic protocol that automates the issuance of x.509 certificates. It's used for public key infrastructure (PKI) clients, like IoT Edge that need client certificates associated to a Certificate Authority (CA). EST replaces the need for manual certificate management, which can be risky and error-prone.
@@ -134,7 +137,7 @@ Each device requires the Certificate Authority (CA) certificate that is associat
 1. On the IoT Edge device, create the `/var/aziot/certs` directory if it doesn't exist then change directory to it.
 
     ```bash
-   # If the certificate directory doen't exist, create, set ownership, and set permissions
+   # If the certificate directory doesn't exist, create, set ownership, and set permissions
    sudo mkdir -p /var/aziot/certs
    sudo chown aziotcs:aziotcs /var/aziot/certs
    sudo chmod 755 /var/aziot/certs
@@ -261,7 +264,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     ```
 
     > [!NOTE]
-    > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
+    > In this example, IoT Edge uses username and password to authenticate to the EST server *every time* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
     > 
     > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
     > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L257) as the provisioning certificate auto-renew configuration above. 

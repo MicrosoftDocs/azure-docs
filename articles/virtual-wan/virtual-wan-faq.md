@@ -32,6 +32,12 @@ Virtual WAN partners provide automation for connectivity, which is the ability t
 
 Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs aren't meshed. In a Standard Virtual WAN, hubs are meshed and automatically connected when the virtual WAN is first set up. The user doesn't need to do anything specific. The user also doesn't have to disable or enable the functionality to obtain meshed hubs. Virtual WAN provides you with many routing options to steer traffic between any spoke (VNet, VPN, or ExpressRoute). It provides the ease of fully meshed hubs, and also the flexibility of routing traffic per your needs.
 
+### Why am I seeing an error about invalid scope and authorization to perform operations on Virtual WAN resources?
+
+If you see an error in the below format, then please make sure you have the following permissions configured: [Virtual WAN Roles and Permissions](roles-permissions.md#required-permissions)
+
+Error message format: "The client with object id {} does not have authorization to perform action {} over scope {} or the scope is invalid. For details on the required permissions, please visit {}. If access was recently granted, please refresh your credentials."
+
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
 Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is automatically deployed across Availability Zones (except Azure Firewall), if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there's resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions.
@@ -81,7 +87,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
    $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
    $updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName -CustomDnsServer $customDnsServers 
 
-   // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+   // Re-generate VPN profile either from PS/Portal for VPN clients to have the specified dns servers
    ```
 
 2. Or, if you're using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
@@ -143,7 +149,7 @@ Also, be sure to plan for downtime in case you decide to scale up or down on the
 
 ### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
 
-Yes, [Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
+Yes, [Microsoft-registered app](/virtual-wan/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -361,6 +367,10 @@ Enabling or disabling the toggle will only affect the following traffic flow: tr
 
 :::image type="content" source="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png" alt-text="Diagram of a standalone virtual network connecting to a virtual hub via ExpressRoute circuit." lightbox="./media/virtual-wan-expressroute-portal/expressroute-bowtie-virtual-network-virtual-wan.png":::
 
+### Why does connectivity not work when I advertise routes with an ASN of 0 in the AS-Path? 
+
+The Virtual WAN hub drops routes with an ASN of 0 in the AS-Path. To ensure these routes are successfully advertised into Azure, the AS-Path should not include 0. 
+
 ### Can hubs be created in different resource groups in Virtual WAN?
 
 Yes. This option is currently available via PowerShell only. The Virtual WAN portal requires that the hubs are in the same resource group as the Virtual WAN resource itself.
@@ -371,7 +381,9 @@ The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns su
 
 ### Is there support for IPv6 in Virtual WAN?
 
-IPv6 isn't supported in the Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+IPv6 isn't supported in the Virtual WAN hub and its gateways. If you connect a spoke VNet with an IPv6 address range to the Virtual WAN hub, then only IPv4 connectivity with this spoke VNet will function. IPv6 connectivity with this spoke VNet is not supported. 
+
+If you advertise IPv6 prefixes from on-premises, this will break IPv4 connectivity for your Azure resources. 
 
 For the point-to-site User VPN scenario with internet breakout via Azure Firewall, you'll likely have to turn off IPv6 connectivity on your client device to force traffic to the Virtual WAN hub. This is because modern devices, by default, use IPv6 addresses.
 
@@ -381,7 +393,7 @@ A minimum version of 05-01-2022 (May 1, 2022) is required.
 
 ### Are there any Virtual WAN limits?
 
-See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) section on the Subscription and service limits page.
+See the [Virtual WAN limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-virtual-wan-limits) section on the Subscription and service limits page.
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
@@ -526,6 +538,9 @@ Yes, you can. For the best practices and configuration for metric-based alert mo
 We recommend aggregating the prefixes before advertising them over ExpressRoute or VPN gateway. Additionally, you can use
 [Route-Maps](../virtual-wan/route-maps-about.md) to summarize routes advertised from/to Virtual WAN.
 
+### Can I use user-defined route tables on spoke Virtual Networks connected to Virtual WAN hub?
+
+Yes. The routes that Virtual WAN hub advertises to resources deployed in connected spoke Virtual Networks are routes of type Border Gateway Protocol (BGP). If a user-defined route table is associated to a subnet connected to Virtual WAN, the "Propagate Gateway Routes" setting **must** be set to "Yes"  for Virtual WAN to advertise  to resources deployed in that subnet. Azure's underlying software-defined networking platform uses the following algorithm to select routes based on the [Azure route selection algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 ## Next steps
 

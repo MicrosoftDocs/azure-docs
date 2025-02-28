@@ -57,7 +57,7 @@ This how-to guide explains the steps to execute a cluster runtime upgrade with P
 :::image type="content" source="media/runtime-upgrade-cluster-paused.png" alt-text="Screenshot showing Paused Runtime Upgrade.":::
 
 > [!NOTE]
-> This message will be available in logs for programtic access, for more details follow [List of logs available for streaming in Azure Operator Nexus](list-logs-available.md)
+> This message will be available in logs for programmatic access, for more details follow [List of logs available for streaming in Azure Operator Nexus](list-logs-available.md)
 
 5. To resume the runtime upgrade, execute the following `az networkcloud` cli command.
 

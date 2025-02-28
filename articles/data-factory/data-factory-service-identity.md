@@ -5,7 +5,7 @@ description: Learn about using managed identities in Azure Data Factory.
 author: nabhishek
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: abnarain 
 ms.custom: subject-rbac-steps
 ai-usage: ai-assisted
@@ -190,13 +190,15 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+To grant permissions for the Data Factory manged identity to your Azure data sources, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-1. Select **Access control (IAM)**.
+1. Select **Access control (IAM)** on the Azure portal page for the data source.
 
 1. Select **Add** > **Add role assignment**.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. Select the required role to grant the required access to the data source. This could vary depending on the data source and permissions required there by data factory. For example, if data factory only needs to read from an Azure SQL Server, select the **Reader** role.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 

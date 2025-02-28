@@ -142,7 +142,7 @@ For frequently asked questions, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 ## <a name="new"></a>Previews and What's new?
 
 * For information about recent releases, previews underway, preview limitations, known issues, and deprecated functionality, see [What's new?](whats-new.md)
-* Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates - Virtual WAN](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
+* Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates - Virtual WAN](https://azure.microsoft.com/updates?filters=%5B%22Virtual+WAN%22%5D) page.
 
 ## Next steps
 

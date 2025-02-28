@@ -17,7 +17,6 @@ This article will give you a brief overview of the agent installation and update
 >[!NOTE]
 >This documentation is not for the FSLogix agent or the Remote Desktop Client agent.
 
-
 ## Initial installation process
 
 The Azure Virtual Desktop agent is initially installed in one of two ways. If you provision virtual machines (VMs) in the Azure portal and Azure Marketplace, the agent and agent bootloader are automatically installed. If you provision VMs using PowerShell, you must manually download the agent and agent bootloader .msi files when [creating an Azure Virtual Desktop host pool with PowerShell](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool). Once the agent is installed, it installs the Azure Virtual Desktop side-by-side stack and Geneva Monitoring agent. The side-by-side stack component is required for users to securely establish reverse server-to-client connections. The Geneva Monitoring agent monitors the health of the agent. All three of these components are essential for end-to-end user connectivity to function properly.
@@ -38,13 +37,13 @@ Other important things you should keep in mind:
 - When the Geneva Monitoring agent updates to the latest version, the old GenevaTask task is located and disabled before creating a new task for the new monitoring agent. The earlier version of the monitoring agent isn't deleted in case that the most recent version of the monitoring agent has a problem that requires reverting to the earlier version to fix. If the latest version has a problem, the old monitoring agent will be re-enabled to continue delivering monitoring data. All versions of the monitor that are earlier than the last one you installed before the update will be deleted from your VM.
 - Your VM keeps three versions of the agent and of the side-by-side stack at a time. This allows for quick recovery if something goes wrong with the update. The earliest version of the agent or stack is removed from the VM whenever the agent or stack updates. If you delete these components prematurely and the agent or stack has a failure, the agent or stack won't be able to roll back to an earlier version, which will put your VM in an unavailable state.
 
-The agent update normally lasts 2-3 minutes on a new VM and shouldn't cause your VM to lose connection or shut down. This update process applies to both Azure Virtual Desktop (classic) and the latest version of Azure Virtual Desktop with Azure Resource Manager.
+The agent update normally lasts 2-3 minutes on a new VM and shouldn't cause your VM to lose connection or shut down.
 
 ## Next steps
 
 Now that you have a better understanding of the Azure Virtual Desktop agent, here are some resources that might help you:
 
-- If you're experiencing agent or connectivity-related issues, check out the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
+- If you're experiencing agent or connectivity-related issues, check out the [Azure Virtual Desktop Agent issues troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).
 - To schedule agent updates, see the [Scheduled Agent Updates document](scheduled-agent-updates.md).
 - To set up diagnostics for this feature, see the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
 - To find information about the latest and previous agent versions, see the [Agent Updates version notes](whats-new-agent.md).

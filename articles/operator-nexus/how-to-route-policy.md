@@ -219,7 +219,7 @@ Expected output:
   "communityMembers": [
     "65500:12701"
   ],
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
   "location": "eastus",
   "name": "ipcommunity-2701",
   "provisioningState": "Succeeded",
@@ -260,7 +260,7 @@ Expected output:
   "communityMembers": [
     "65500:12701"
   ],
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipCommunities/ipcommunity-2701",
   "location": "eastus",
   "name": "ipcommunity-2701",
   "provisioningState": "Succeeded",
@@ -316,7 +316,7 @@ Expected output:
 {
   "action": "Permit",
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
   "location": "eastus",
   "name": "ipextcommunity-2701",
   "provisioningState": "Succeeded",
@@ -351,7 +351,7 @@ Expected output:
 {
   "action": "Permit",
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/ipExtendedCommunities/ipextcommunity-2701",
   "location": "eastus",
   "name": "ipextcommunity-2701",
   "provisioningState": "Succeeded",
@@ -389,7 +389,7 @@ Route policy resource enables an operator to specify conditions and actions base
 | location | AzON Azure Region used during NFC Creation | eastus |True |
 | statements | List of one or more route Policy statements |   |True |
 | sequenceNumber | Sequence in which route policy statements are processed. Statements  are evaluated starting with the lowest sequence number and continue down the list until a match condition is met. Once a match is made, the action is applied and the rest of the list is ignored |  1 |True |
-| condition | Route policy condition properties. That contains a list of IP community ARM IDs or ipExtendedCommmunicty ARM IDs or ipPrefix ARM ID. One of the three(ipCommunityIds, ipCommunityIds, ipPrefixId) is required in a condition.  If more than one is specified,  the condition is matched if any one of the resources has a match. |  1234:5678 |True |
+| condition | Route policy condition properties. That contains a list of IP community ARM IDs or ipExtendedCommunity ARM IDs or ipPrefix ARM ID. One of the three(ipCommunityIds, ipCommunityIds, ipPrefixId) is required in a condition.  If more than one is specified,  the condition is matched if any one of the resources has a match. |  1234:5678 |True |
 | ipCommunityIds | List of IP community resource IDs |  |False|
 | ipExtendedCommunityIds | List of IPExtendedCommunity resource IDs |   |False|
 | ipPrefixId | Arm Resource ID of IpPrefix |   |False|
@@ -426,7 +426,7 @@ Expected output:
 ```output
 {
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "location": "eastus",
   "name": "rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "provisioningState": "Accepted",
@@ -505,7 +505,7 @@ Expected output:
 ```Output
 {
   "annotation": null,
-  "id": "/subscriptions/9531faa8-8c39-4165-b033-48697fe943db/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ResourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "location": "eastus",
   "name": "rcf-Fab3-l3domain-v6-connsubnet-ext-policy",
   "provisioningState": "Succeeded",
@@ -568,5 +568,21 @@ Expected output:
   },
   "tags": null,
   "type": "microsoft.managednetworkfabric/routepolicies"
+}
+```
+### Delete route policy
+
+This command deletes route policies:
+
+
+```Azurecli
+az networkfabric routepolicy delete --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
+```
+Expected output:
+
+```Output
+{
+  "status": "Succeeded",
+  "message": "The route policy 'rcf-Fab3-l3domain-v6-connsubnet-ext-policy' in resource group 'ResourceGroupName' has been successfully deleted."
 }
 ```

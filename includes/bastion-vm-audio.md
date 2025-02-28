@@ -1,12 +1,12 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/15/2022
+ms.date: 01/21/2025
 ms.service: azure-bastion
 ms.topic: include
 
 ---
-You can enable remote audio output for your VM. Some VMs automatically enable this setting, whereas others require you to enable audio settings manually. The settings are changed on the VM itself. Your Bastion deployment doesn't need any special configuration settings to enable remote audio output.
+You can enable remote audio output for your VM. Some VMs automatically enable this setting, whereas others require you to enable audio settings manually. The settings are changed on the VM itself. Your Bastion deployment doesn't need any special configuration settings to enable remote audio output. Audio input is not supported at the moment.
 
 > [!NOTE]
 > Audio output uses bandwidth on your internet connection.

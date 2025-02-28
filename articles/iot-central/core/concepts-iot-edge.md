@@ -202,6 +202,9 @@ The IoT Edge hub module behaves like IoT Central and handles connections from de
 > [!NOTE]
 > IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't currently support nested IoT Edge scenarios.
 
+> [!IMPORTANT]
+> IoT Central does not support X.509 certificate authentication for downstream devices connected to an IoT Edge transparent gateway.
+
 ### IoT Edge as a protocol translation gateway
 
 This pattern enables you to connect devices that can't use any of the protocols that IoT Central supports.

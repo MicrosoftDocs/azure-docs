@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.date: 06/17/2024
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Back up SAP HANA System Replication on Azure VMs using Azure CLI
@@ -40,13 +40,13 @@ Follow these steps:
 1. To register and protect the SAP HANA database running on primary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
     ```
 
 1. To register and protect the SAP HANA database running on secondary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
     ```
 
 To identify `resource-id`, run the following command:
@@ -55,7 +55,7 @@ To identify `resource-id`, run the following command:
 az vm show --name hsr-primary --resource-group hanarghsr2
 ```
 
-For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
+For example, `id` is `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
 
 ## Check the registration of primary and secondary servers to the vault
 

@@ -121,7 +121,7 @@ The next step is to define an input source for the job to read data using the ev
 
     :::image type="content" source="media/event-generator-app/add-input-event-hub-menu.png" lightbox="media/event-generator-app/add-input-event-hub-menu.png" alt-text="Screenshot showing the Input page for a Stream Analytics job."::: 
 3. On the **Event hub** page, follow these steps: 
-    1. For **Input alias**, enter **CallStream**. Input alias is a friendly name to identify your input. Input alias can contain alphanumeric characters, hyphens, and underscores only and must be 3-63 characters long.
+    1. For **Input alias**, enter **CallStream**. Input alias is a friendly name to identify your input. Input alias can only contain alphanumeric characters and hyphens, and must be 3-63 characters long.
     1. For **Subscription**, select the Azure subscription where you created the event hub. The event hub can be in same or a different subscription as the Stream Analytics job.
     1. For **Event Hubs namespace**, select the Event Hubs namespace you created in the previous section. All the namespaces available in your current subscription are listed in the dropdown.
     1. For **Event hub name**, select the event hub you created in the previous section. All the event hubs available in the selected namespace are listed in the dropdown.

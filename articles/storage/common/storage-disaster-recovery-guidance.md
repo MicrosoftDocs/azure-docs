@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -36,7 +36,7 @@ Azure Storage maintains multiple copies of your storage account to ensure that a
 
 Locally redundant storage (LRS), the lowest-cost redundancy option, automatically stores and replicates three copies of your storage account within a single datacenter. Although LRS protects your data against server rack and drive failures, it doesn't account for disasters such as fire or flooding within a datacenter. In the face of such disasters, all replicas of a storage account configured to use LRS might be lost or unrecoverable.
 
-By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../availability-zones/az-overview.md).
+By comparison, zone-redundant storage (ZRS) retains a copy of a storage account and replicates it in each of three separate availability zones within the same region. For more information about availability zones, see [Azure availability zones](../../reliability/availability-zones-overview.md).
 
 <!--Recovery of a single copy of a storage account occurs automatically with both LRS and ZRS.-->
 
@@ -65,13 +65,13 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
-| Customer-managed planned failover (preview) | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#hierarchical-namespace-hns) |
-| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#hierarchical-namespace-hns) |
-| Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#hierarchical-namespace-hns) |
+| Customer-managed planned failover (preview) | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that might affect a region. | [No](#anticipate-data-loss-and-inconsistencies)  | Yes <br> *(In preview)* |
+| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
+| Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | Yes |
 
 The following table compares a storage account's redundancy state after each type of failover:
 
-| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                               |
+| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                   |
 |-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------|
 | ...the secondary region                 | The secondary region becomes the new primary | The secondary region becomes the new primary                            |
 | ...the original primary region          | The original primary region becomes the new secondary |The copy of the data in the original primary region is deleted  |
@@ -200,10 +200,6 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 >
 > During a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
 
-#### Hierarchical namespace (HNS)
-
-[!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
-
 ### Unsupported features and services
 
 The following features and services aren't supported for customer-managed failover:
@@ -217,10 +213,10 @@ The following table can be used to reference feature support.
 
 |                                  | Planned failover    | Unplanned failover  |
 |----------------------------------|---------------------|---------------------|
-| **Azure Data Lake Storage**                    | Supported (preview) | Supported (preview) |
+| **Azure Data Lake Storage**                    | Supported (preview) | Supported |
 | **Change Feed**                  | Unsupported         | Supported           |
 | **Object Replication**           | Unsupported         | Unsupported         |
-| **SFTP**                         | Supported (preview) | Supported (preview) |
+| **SFTP**                         | Supported (preview) | Supported           |
 | **NFSv3**                        | GRS is unsupported  | GRS is unsupported  |
 | **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
 | **Point-in-time restore (PITR)** | Unsupported         | Supported           |

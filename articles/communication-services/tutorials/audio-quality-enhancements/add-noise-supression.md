@@ -28,5 +28,5 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Audio effects for Windos](./includes/windows.md)]
+[!INCLUDE [Audio effects for Windows](./includes/windows.md)]
 ::: zone-end

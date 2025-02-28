@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/22/2022
 ms.author: anaharris
 ms.reviewer: tomvcassidy
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Azure Container Instances to availability zone support
@@ -55,4 +55,7 @@ To delete and redeploy a container group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure services and regions that support availability zones](availability-zones-service-support.md)
+> [Azure services that support availability zones](availability-zones-service-support.md)
+
+> [!div class="nextstepaction"]
+> [Azure regions that support availability zones](availability-zones-region-support.md)
