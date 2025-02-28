@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/05/2022
+ms.date: 02/27/2025
 ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -306,6 +306,48 @@ az storage account or-policy create \
 ```
 
 ---
+
+## Configure replication metrics
+
+### Enable replication metrics
+You can enable replication metrics on both new and existing object replication policies. It might take a few minutes to start observing the metrics.  
+
+# [Azure Portal](#tab/azure-portal)
+You can enable metrics using **Object Replication** blade from the new _Metrics_ column or by editing the _Edit Rules_ section of a policy from "…" on the OR policy row.
+
+# [PowerShell](#tab/powershell)
+Not yet supported.
+
+# [Azure CLI](#tab/azure-cli)
+Not yet supported.
+
+# [REST API](#tab/rest-api)
+Enabling metrics is supported on API version 2021-08-01 and above. You can add the new metrics field to the replication policy. Sample: 
+``` json
+{
+    "sourceAccount": "<source-account-name>",
+    "destinationAccount": "<destination-account-name>",
+    "metrics":
+    {
+     "enabled": true
+    },
+    "rules":
+    [
+        {
+            "ruleId": "<rule-id>",
+            "sourceContainer": "<source-container-name>",
+            "destinationContainer": "<destination-container-name>"
+        }
+    ]
+}
+```
+---
+If you enable metrics on a policy that is configured to copy over existing data, you might observe an increasing amount at the beginning while the policy works on initial phase of listing. Once this is completed, the replication will start.
+### View replication metrics
+
+You can click the **View** link from Metrics column to view monitoring metrics
+
+To further view metrics in Azure Monitor, click on chart of a metric. This will direct you to Azure Monitor Metrics view with more filtering capabilities.
 
 ## Check the replication status of a blob
 
