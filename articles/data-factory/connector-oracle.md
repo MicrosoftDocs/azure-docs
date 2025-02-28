@@ -129,26 +129,14 @@ For `server` property, you can specify it in one of the following three formats:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-The location of Oracle database you want to connect to. There are three ways to specify it and you can check the details after tables.
+For the parameters used in `server`, we provide an allow list to avoid security risks, as shown below. You can refer to it to determine which parameters to be set.
 
-| Property |Description | Sample |
-|:--- |:--- |:--- |
-| ***Connect Required*** |  |  |
-| HOST | The host name or IP address used to connect to the Oracle database. | sales-svr |
-| PORT | The server port for the Oracle database. | 1521 |
-| PROTOCOL | The transport protocol to be used while connecting to the Oracle database. | tcp |
-| SERVICE_NAME | Specifies the logical representation of a database. | sales.us.example.com |
-| SID | Specifies the name that identifies a specific instance of an Oracle database. | sales |
-| INSTANCE_NAME | Specifies the database instance to access. | sales1 |
-| SERVER | Specifies type of service handler. | dedicated |
-| ***Match Version 1.0*** |  |  |
-| CONNECT_TIMEOUT | Specifies the amount of time, in milliseconds, seconds, or minutes, in which clients must establish Oracle Net connections to database instances. | 10ms |
-| RETRY_COUNT | Specifies the number of times to connect before terminating the connection attempt. | 3 |
-| RETRY_DELAY | Specifies the delay between connection retries. | 5 |
-| SSL_VERSION | Define valid Transport Layer Security (TLS) versions to be used for connections. | TLSv1.3 |
-| ***Most Secure Behavior*** |  |  |
-| SSL_SERVER_DN_MATCH | Enforce server-side certificate validation through distinguished name (DN) matching. | TRUE |
-| SSL_SERVER_CERT_DN | Specifies the distinguished name (DN) of the database server. | cn=finance,cn=OracleContext,c=us,o=example |
+- Allow list for using the Azure integration runtime:
+
+    HOST,PORT,PROTOCOL,SERVICE_NAME,SID,INSTANCE_NAME,SERVER,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN
+- Allow list for using the self-hosted integration runtime:
+
+    HOST,PORT,PROTOCOL,ENABLE,EXPIRE_TIME,FAILOVER,LOAD_BALANCE,RECV_BUF_SIZE,SDU,SEND_BUF_SIZE,SOURCE_ROUTE,TYPE_OF_SERVICE,COLOCATION_TAG,CONNECTION_ID_PREFIX,FAILOVER_MODE,GLOBAL_NAME,HS,INSTANCE_NAME,POOL_BOUNDARY,POOL_CONNECTION_CLASS,POOL_NAME,POOL_PURITY,RDB_DATABASE,SHARDING_KEY,SHARDING_KEY_ID,SUPER_SHARDING_KEY,SERVER,SERVICE_NAME,SID,TUNNEL_SERVICE_NAME,SSL_CLIENT_AUTHENTICATION,SSL_CERTIFICATE_ALIAS,SSL_CERTIFICATE_THUMBPRINT,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN,WALLET_LOCATION,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,TRANSPORT_CONNECT_TIMEOUT,RECV_TIMEOUT,COMPRESSION,COMPRESSION_LEVELS
 
 **Example:**
 
