@@ -48,9 +48,11 @@ Creating a capacity pool enables you to create volumes within it.
     * Only single encryption is currently supported for Flexible service level capacity pools. 
     * Volumes in Flexible service level capacity pools can't be moved to capacity pools of a different service level. Similarly, you can't move volumes from capacity pools with different service levels into a Flexible service level capacity pool.
 
-### Supported regions for the Flexible service level
+### <a name="regions"></a> Supported regions for the Flexible service level
 
 >[!NOTE] Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
+
+The Flexible service level is currently available in the following regions:
 
 - Australia Central
 - Brazil South
