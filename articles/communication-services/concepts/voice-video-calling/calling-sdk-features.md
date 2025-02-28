@@ -31,7 +31,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 | Platform | Web (JavaScript) | Windows (.NET) |  iOS | Android | Other |
 | -------------- | ---------- |   ---- | -------------- | -------------- | ------------------------------ |
 | Calling | [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient) |  [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| |
-| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - |  [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 
 **Key features**
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
