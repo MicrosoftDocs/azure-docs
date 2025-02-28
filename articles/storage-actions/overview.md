@@ -39,16 +39,13 @@ Azure Storage Actions supports a variety of use cases to enhance data management
 
 **Tagging and metadata management**: Azure Storage Actions allows for the initialization and management of blob tags and metadata which facilitates better organization and retrieval of data.
 
-## Storage tasks
-
-To use Azure Storage Actions, create a _storage task_. See [Create a storage task](storage-tasks/storage-task-create.md). A storage task contains a set of _conditions_, _operations_. The following table describes each component of a storage task.
-
-| Component | Description |
-|---|---|
-| Conditions | A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)|
-| Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).|
-
 ## Composition
+
+To use Azure Storage Actions, create a _storage task_. A storage task contains a set of _conditions_, _operations_. 
+
+A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)
+
+An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).
 
 You can compose conditions and operations by using a visual designer in the Azure portal. You can validate those conditions and operations by testing them against data in any storage account. The built-in preview capability in the Azure portal simplifies validation and helps you find and fix issues in your task definition before you use the storage task against production data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
