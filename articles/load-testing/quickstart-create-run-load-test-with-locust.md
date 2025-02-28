@@ -75,7 +75,7 @@ To create a load test for a Locust-based test in the Azure portal:
 
 1. To install any dependencies from a 'requirements.txt' file, upload the 'requirements.txt' file along with the other artifacts. 
 
-1. To use supporting Python files along with your Locust, upload the supporting files along with the other artifacts. Specify the main test script from which the execution should begin in File relevance. 
+1. To use supporting Python files along with your Locust script, upload the supporting files along with the other artifacts. Specify the main test script from which the execution should begin in File relevance. 
 
 1. On the **Load** tab, enter the details for the amount of load to generate:
 
