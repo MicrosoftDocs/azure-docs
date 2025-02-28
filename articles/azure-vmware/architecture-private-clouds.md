@@ -140,6 +140,21 @@ Host remediation involves replacing the faulty node with a new healthy node in t
 > 
 > To receive emails related to host replacement, you need to be added to any of the following Azure RBAC roles in the subscription: 'ServiceAdmin', 'CoAdmin', 'Owner', 'Contributor'.
 
+## Maintenance Operations Best Practices
+AVS undertakes periodic maintenance of the private cloud and this includes security patches, minor & major updates to VMware software stack.
+
+The following actions are always recommended for ensuring host maintenance operations are carried out successfully:
+1.	**Distributed Resource Scheduler (DRS) rules:** Rules which associate or pin Virtual Machines (VMs) to a particular host impede that host maintenance operations. You can disable the DRS rules before the upgrade and enable them after the upgrade is complete.
+2.	**vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades may take longer than expected or fail entirely. If your storage utilization exceeds 70%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
+3.	**Failures To Tolerate (FTT) violation:** Change VMs configured with a vSAN storage policy for Failures to Tolerate (FTT) of 0 to a vSAN storage policy with FTT of 1 to maintain SLA and ensure host maintenance operations are carried out without data loss.
+4.	**Remove VM CD-ROM mounts:** VMs mounted with emulate mode CD-ROMs will block host maintenance. Ensure CD-ROMs are mounted in passthrough mode only. 
+5.	**Network adapter with L2 segment:** While renaming the port groups ensure the same across all the ESXi hosts in the network. While changing the vMotion port groups security policy exceptions ensure consistency across the hosts
+6.	**Serial/parallel port or external device:** If you are using an image file (ISO, FLP, etc), ensure that it is accessible from all ESXi hosts in the cluster. Store the files on a datastore that are shared between all ESXi Servers that will participate in the vMotion of the virtual machine. Refer to this Broadcom KB article for more information.
+7.	**Orphaned VMs:** In the case of an orphaned virtual machine, the VM needs to be either re-registered if possible (if it has not been deleted) or removed from inventory. Refer to this Broadcom KB article for more information
+8.	**SCSI shared controller:** Remove shared SCSI controllers on VMs. VMs with shared SCSI controllers will be powered off during maintenance. Refer to this Broadcom KB article for more information.
+9.	**Third-party VMs & applications:** Ensure that third-party solutions deployed on AVS are compliant and do not interfere with maintenance operations. Additionally, verify that these applications are compatible with upcoming versions of the VMware stack. Consult with your solution vendor and update in advance if necessary to maintain compatibility post-upgrade.
+
+
 Azure VMware Solution monitors the following conditions on the host:
 
 - Processor status
