@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 2/28/2025
 ms.author: greglin
 ---
 
@@ -14,7 +14,7 @@ ms.author: greglin
 If you already have AGIC deployed through Helm but want to migrate to AGIC deployed as an AKS add-on, the following steps help to guide you through the migration process. 
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Prerequisites 
 Before you start the migration process, there are a few things to check. 
