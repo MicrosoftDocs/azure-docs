@@ -868,6 +868,7 @@
         "articles/azure-portal/supportability/**/*.md": "azure-supportability",
         "articles/azure-relay/**/*": "azure-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
+        "articles/azure-resource-manager/**/*.yml": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
         "articles/azure-resource-manager/managed-applications/**/*.md": "azure-managed-applications",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
