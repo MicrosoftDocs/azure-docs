@@ -174,7 +174,7 @@ Interact with Copilot in Azure for quality improvement guidance and explanations
 ### Can I use the legacy version of Voice and Video Insights?
 You can find the legacy version of Voice and Video Insights inside your Azure Communication Services resource tab:
 
-:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
+:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab."::: 
 
 ## Next steps
 
