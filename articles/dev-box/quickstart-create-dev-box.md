@@ -26,7 +26,7 @@ To complete this quickstart, you need:
 | Product | Requirements |
 |---------|--------------|
 | Microsoft Dev Box | Your organization must configure Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. <br> - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md). <br>**Permissions** <br> - You must have permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.|
-| Windows App | To connect to a dev box by using the Windows App, you need to install the Windows App on your device. <br> - [Download Windows App](https://aka.ms/devbox-windows-app) <br> - [Install Windows App](https://aka.ms/devbox-windows-app-install)|
+| Windows App | To connect to a dev box by using the Windows App, you need to install the Windows App on your device. <br> - [Download Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn?hl=en-us&gl=US) |
 
 ## Create a dev box
 
@@ -72,16 +72,11 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 ## Connect to a dev box
 
-After you create a dev box, you can connect to it remotely through the developer portal on your desktop, laptop, tablet, or phone. The developer portal provides two connection options:
-
-- Connect by using Windows App
-- Connect through the browser from within the developer portal
+After you create a dev box, you can connect to it remotely through the developer portal on your desktop, laptop, tablet, or phone. The developer portal provides the option to connect by using Windows App.
 
 ### Connect by using Windows App
 
 To connect to a dev box by using the Windows App:
-
-1. Install Windows App. [Download Windows App](https://aka.ms/devbox-windows-app).
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
