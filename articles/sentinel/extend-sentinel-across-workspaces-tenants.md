@@ -2,8 +2,8 @@
 title: Extend Microsoft Sentinel across workspaces and tenants
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
 author: yelevin
-ms.topic: how-to
-ms.date: 10/17/2024
+ms.topic: concept-article
+ms.date: 02/28/2025
 ms.author: yelevin
 appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 
@@ -105,9 +105,14 @@ When using Azure Lighthouse, it's recommended to create a group for each Microso
 
 If you're using the Defender portal, multitenant management for Microsoft Defender XDR and Microsoft Sentinel provides your security operation teams with a single, unified view of all the tenants you manage. For more information, see [Microsoft Defender multitenant management](/defender-xdr/mto-overview).
 
-## Next step
+## Related content
 
-In this article, you learned how Microsoft Sentinel's capabilities can be extended across multiple workspaces and tenants. For practical guidance on implementing Microsoft Sentinel's cross-workspace architecture, see the following articles:
+For Microsoft Sentinel in the Azure portal, see:
 
-- Learn how to [work with multiple tenants](./multiple-tenants-service-providers.md) in Microsoft Sentinel, using Azure Lighthouse.
-- Learn how to [view and manage incidents in multiple workspaces](./multiple-workspace-view.md) seamlessly.
+- [Manage multiple tenants in Microsoft Sentinel as an MSSP](./multiple-tenants-service-providers.md) by using Azure Lighthouse
+- [Work with incidents in many workspaces at once](./multiple-workspace-view.md) in the Azure portal
+
+For Microsoft Sentinel in the Defender portal, see:
+
+- [Multiple Microsoft Sentinel workspaces in the Defender portal](/azure/sentinel/workspaces-defender-portal) 
+- [Microsoft Defender multitenant management](/defender-xdr/mto-overview)
