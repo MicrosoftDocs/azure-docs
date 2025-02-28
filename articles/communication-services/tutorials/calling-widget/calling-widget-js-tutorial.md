@@ -158,8 +158,8 @@ Next you want to open `index.html` in VS Code and add the following snippet.
 </body>
 ```
 
-[!IMPORTANT]
-It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` need to be in the same folder if you wish to not edit any of the importing in this file.
+> [!IMPORTANT]
+> It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` need to be in the same folder if you wish to not edit any of the importing in this file.
 
 #### 3. Setting up Azure Communication Services and your Teams Voice Application
 
@@ -197,8 +197,8 @@ npx http-server@latest -p 3000
 ```
 This script using Node starts an HTTP server and hosts the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button, and when you click it you should see the following screen.
 
-[!IMPORTANT]
-Note, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
+> [!IMPORTANT]
+> Note, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
 
 [![Screenshot of js bundle sample app homescreen.](../media/calling-widget/js-bundle-splash.png)](../media/calling-widget/js-bundle-splash.png#lightbox)
 

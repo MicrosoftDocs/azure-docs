@@ -112,7 +112,7 @@ az networkfabric fabric create --resource-name <fabricname> \
     --mi-user-assigned "/subscriptions/<uamisubscriptionid>/resourceGroups/<uamiresourcegroupname>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<uaminame>"
 ```
 
-### Updating storage account during the creation of Fabric instance
+### Updating storage account to an existing Fabric instance
 
 For existing deployments, update the Fabric with the required parameters:
 
