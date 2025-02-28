@@ -1491,6 +1491,37 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-2"
+    AddressPrefix = "10.2.0.0/16"
+    Location = "westus2"
+}
+New-AzVirtualNetwork @vnetParams
+```
+
+Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create the subnet.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-2"
+}
+$vnet = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+    AddressPrefix = "10.2.0.0/24"
+}
+Add-AzVirtualNetworkSubnetConfig @subnetParams
+
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
