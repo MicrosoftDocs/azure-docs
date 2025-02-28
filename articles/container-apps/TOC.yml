@@ -321,12 +321,12 @@
           href: microservices-dapr-bindings.md
         - name: Microservices communication using Dapr Service Invocation
           href: microservices-dapr-service-invoke.md
-- name: Networking, ingress, and network security
+- name: Networking and ingress
   items:
-    - name: Architecture overview
+    - name: Overview
       href: networking.md
-    - name: Use a custom virtual network
-      href: vnet-custom.md
+    - name: Configuration
+      href: networking-configuration.md
     - name: Ingress
       items:
         - name: Overview
@@ -348,13 +348,21 @@
         - name: CORS
           href: cors.md
           displayName: Cross origin resource sharing
-    - name: Security
+    - name: Virtual network configuration
+      href: custom-virtual-networks.md
+    - name: Managing outbound connections with Azure Firewall
+      href: using-azure-firewall.md
+    - name: DNS
+      href: dns.md
+    - name: Tutorials
       items:
+        - name: Use a custom virtual network
+          href: vnet-custom.md
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Securing a custom VNET with an NSG
+        - name: Securing a custom VNet with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
           href: how-to-use-private-endpoint.md
