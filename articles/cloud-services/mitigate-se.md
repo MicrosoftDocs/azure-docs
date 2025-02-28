@@ -84,24 +84,24 @@ Your target operating system must be up-to-date to enable these extra security f
 
 #### Option 1
 
-**Step 1:** Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
+1. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
 
-> [!NOTE]
-> If you previously downloaded this module, you need to install the newest version.
->
-
-
-To validate enabled protections against these vulnerabilities, see [Understanding Get-SpeculationControlSettings PowerShell script output](https://support.microsoft.com/topic/understanding-get-speculationcontrolsettings-powershell-script-output-fd70a80a-a63f-e539-cda5-5be4c9e67c04).
-
-If protections aren't enabled, please [contact Azure Support](https://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
-
-**Step 2:** To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
+   > [!NOTE]
+   > If you previously downloaded this module, you need to install the newest version.
 
 
-**Step 3:** For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you're using as a Hyper-V host.
 
-1.    Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
-2.    Set the hypervisor scheduler type to `Core` by following the instructions [here](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+   To validate enabled protections against these vulnerabilities, see [Understanding Get-SpeculationControlSettings PowerShell script output](https://support.microsoft.com/topic/understanding-get-speculationcontrolsettings-powershell-script-output-fd70a80a-a63f-e539-cda5-5be4c9e67c04).
+
+   If protections aren't enabled, please [contact Azure Support](https://aka.ms/microcodeenablementrequest-supporttechnical) to enable additional controls on your Azure VM.
+
+1. To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
+
+
+1. For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you're using as a Hyper-V host.
+
+   a.    Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
+   b.    Set the hypervisor scheduler type to `Core` by following the instructions [here](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 #### Option 2
 
@@ -123,36 +123,36 @@ For [CVE-2022-23816](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2
 
 ### Linux
 
-Enabling the set of extra security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider's documentation for further instructions
+Enabling the set of extra security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider's documentation for further instructions.
 
 
-**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](/azure/virtual-machines/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you're running a hyper-threaded VM, run the `lscpu` command in the Linux VM.
+1. Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](/azure/virtual-machines/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you're running a hyper-threaded VM, run the `lscpu` command in the Linux VM.
 
-If `Thread(s) per core = 2`, then hyper-threading has been enabled.
+   If `Thread(s) per core = 2`, then hyper-threading has been enabled.
 
-If `Thread(s) per core = 1`, then hyper-threading has been disabled.
-
-
-Sample output for a VM with hyper-threading enabled:
-
-```console
-CPU Architecture:      x86_64
-CPU op-mode(s):        32-bit, 64-bit
-Byte Order:            Little Endian
-CPU(s):                8
-On-line CPU(s) list:   0-7
-Thread(s) per core:    2
-Core(s) per socket:    4
-Socket(s):             1
-NUMA node(s):          1
-
-```
-
-If you're running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Refer to [Core count](#core-count) to understand why your VM core count decreased.
+   If `Thread(s) per core = 1`, then hyper-threading has been disabled.
 
 
+   Sample output for a VM with hyper-threading enabled:
 
-**Step 2:** To mitigate against any of the below CPU based memory vulnerabilities, refer to your operating system provider's documentation:
+   ```console
+   CPU Architecture:      x86_64
+   CPU op-mode(s):        32-bit, 64-bit
+   Byte Order:            Little Endian
+   CPU(s):                8
+   On-line CPU(s) list:   0-7
+   Thread(s) per core:    2
+   Core(s) per socket:    4
+   Socket(s):             1
+   NUMA node(s):          1
+
+   ```
+
+   If you're running a hyper-threaded VM, [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Refer to [Core count](#core-count) to understand why your VM core count decreased.
+
+
+
+1. To mitigate against any of the below CPU based memory vulnerabilities, refer to your operating system provider's documentation:
 
 - [Redhat](https://access.redhat.com/security/vulnerabilities)
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0)
