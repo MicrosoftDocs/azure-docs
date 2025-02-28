@@ -16,17 +16,17 @@ appliesto: Microsoft Sentinel with Defender XDR in the Defender portal
 
 The Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. In the context of this article, a workspace is a Log Analytics workspace with Microsoft Sentinel enabled.
 
-This article primarily applies to the scenario where you  onboard Microsoft Sentinel to the Defender portal with Microsoft Defender XDR to unify your experiences in [Microsoft's unified security operations (SecOps) platform](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.  
+This article primarily applies to the scenario where you  onboard Microsoft Sentinel with Microsoft Defender XDR to unify your experiences in [Microsoft's unified security operations (SecOps) platform](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Defender XDR, you can manage multiple workspaces. But, the primary workspace doesn't include Defender XDR data and you won't have access to Defender XDR capabilities.  
 
 ## Primary and secondary workspaces
 
-When you onboard Microsoft Sentinel, you select a primary workspace. A primary workspace's alerts are correlated with Microsoft Defender XDR data. So, incidents include alerts from Microsoft Sentinel's primary workspace and Defender XDR in a unified queue. 
+When you onboard Microsoft Sentinel, you select a primary workspace. A primary workspace's alerts are correlated with Defender XDR data. So, incidents include alerts from Microsoft Sentinel's primary workspace and Defender XDR in a unified queue. 
 
 - All Defender XDR alerts and incidents are synced back to the primary workspace.  
-- All other onboard workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data.
+- All other onboarded workspaces are considered secondary workspaces. Incidents are created based on the workspace’s data and won't include Defender XDR data.
 - The Defender portal keeps incident creation and alert correlation separate between the Microsoft Sentinel workspaces.
 - The Defender portal supports one primary workspace and up to 99 secondary workspaces per tenant for Microsoft Sentinel.
-- One primary workspace must always be connected when using Microsoft's unified SecOps platform.
+- One primary workspace must always be connected to the Defender portal when using Microsoft's unified SecOps platform.
 
 Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center.
 
