@@ -41,7 +41,7 @@ If a principal is assigned the same role at different scopes, you'll see multipl
 
 If a role is assigned to a security group, you'll see the roles explicitly assigned to the group but not roles inherited from parent groups.  
 
-You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes. enter your name or email alias in the Name filter to see roles assigned to you. Only a Synapse Administrator can change your roles.
+You can filter the list by principal name or email, and selectively filter the object types, roles, and scopes. Enter your name or email alias in the Name filter to see roles assigned to you. Only a Synapse Administrator can change your roles.
 
 >[!Important] 
 >If you are directly or indirectly a member of a group that is assigned roles, you may have permissions that are not shown.
