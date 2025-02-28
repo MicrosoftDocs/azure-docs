@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: ram-kakani
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/05/2024
+ms.date: 02/28/2025
 ms.author: ramakk
 ms.custom: references_regions
 ---
