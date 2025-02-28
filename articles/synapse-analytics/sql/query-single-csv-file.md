@@ -39,7 +39,7 @@ from openrowset(
     firstrow = 2 ) as rows
 ```
 
-Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to set up [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-level-credential).
 
 > [!IMPORTANT]
 > If your CSV file contains UTF-8 characters, make sure that you're using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
@@ -337,7 +337,7 @@ WITH (
 
 ## Querying appendable files
 
-The CSV files that are used in the query shouldn't be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, SQL pool fails the query if detects that modification time of any file is changed during the query execution.
+The CSV files that are used in the query shouldn't be changed while the query is running. In the long-running query, SQL pool may retry reads, read parts of the files, or even read the file multiple times. Changes of the file content would cause wrong results. Therefore, SQL pool fails the query if it detects that modification time of any file is changed during the query execution.
 
 In some scenarios you might want to read the files that are constantly appended. To avoid the query failures due to constantly appended files, you can allow the `OPENROWSET` function to ignore potentially inconsistent reads using the `ROWSET_OPTIONS` setting.
 
