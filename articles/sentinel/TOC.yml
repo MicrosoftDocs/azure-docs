@@ -131,7 +131,7 @@
     items:
     - name: Overview
       href: ci-cd-custom-content.md
-    - name: Deploy custom content from your repository
+    - name: Deploy content as code from your repository
       href: ci-cd.md   
     - name: Customize repository deployments
       href: ci-cd-custom-deploy.md
