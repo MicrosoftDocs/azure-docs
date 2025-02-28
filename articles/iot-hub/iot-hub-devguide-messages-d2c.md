@@ -89,7 +89,7 @@ The fallback route sends all the messages that don't satisfy query conditions on
 
 You can enable or disable the fallback route in the Azure portal on the **Message routing** page. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for the fallback route.
 
-## Nontelemetry events
+## Non-telemetry events
 
 In addition to device telemetry, message routing also enables sending nontelemetry events, including:
 
