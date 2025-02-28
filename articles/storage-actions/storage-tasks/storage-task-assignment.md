@@ -17,6 +17,15 @@ ms.author: normesta
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. 
 Why do you create one.
 
+An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored.
+
+You can assign a storage task to any storage account in which your identity is assigned the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned managed identity of the task. That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
+
+A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
+
+
+- [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
+
 ## Flow of tasks
 
 <Diagram goes here>
