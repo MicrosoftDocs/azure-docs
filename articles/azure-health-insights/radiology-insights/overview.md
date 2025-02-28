@@ -75,6 +75,18 @@ The insights can be used to guide improvement efforts, minimize errors, and impr
 
 The Radiology Insights model isn't creating dashboards but delivers extracted information. The information can be aggregated by a user for research and administrative purposes. The model is stateless.
 
+**Quality Measures: Compliance with Reimbursement Criteria in Healthcare Programs**: A healthcare organization needs to ensure compliance with evolving reimbursement programs, such as the Merit-based Incentive Payment System (MIPS) established under the MACRA act. The organization must meet specific performance criteria to qualify for reimbursement incentives or avoid penalties.
+
+The organization aggregates the appropriate Quality Measure criteria from its clinical and administrative data. By automating the tracking and reporting of these criteria, the system supports compliance with reimbursement requirements, reducing manual effort and ensuring accurate reporting to Medicare. The RI model is not creating dashboards but delivers extracted information, not deduced, that could be aggregated by a customer. The model is stateless.
+
+**Scoring and Assessment: Population Health Management through Radiology Insights**: A healthcare provider seeks to improve population health management by identifying individuals or patient groups in need of additional screening or preventative services. The organization wants to extract valuable insights from radiology reports to improve patient outcomes.
+
+Scores and values are then aggregated to identify trends, establish baselines, and flag individuals or groups that could benefit from further screening or preventative care. The system helps clinicians proactively manage patient populations, improving preventative care while reducing the likelihood of future complications.
+
+**Clinical Guidance for the Radiologist**: Radiologists frequently need to reference specific clinical guidelines when documenting findings in their reports. However, missing or incomplete information can delay access to these guidelines and its recommendations, potentially impacting the accuracy of their reports.
+
+Radiology Insights automatically highlights documented findings in the radiology report that are relevant to the applicable clinical guidelines and its candidate recommendations. If key information is missing, which could affect the recommendation outcome of a clinical guideline, the system flags these gaps. This proactive approach ensures that radiologists have immediate access to the necessary guidelines information, enhancing the accuracy and completeness of their reports.
+
 ## Language support
 
 The service currently supports the English language.
