@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 In this article, you learn how to read data from a comma-separated value (CSV) file in test script with Azure Load Testing. Use data from an external CSV file to make your JMeter or Locust test script configurable. For example, you might iterate over all customers in a CSV file to pass the customer details into API request.
 
-In JMeter, you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script to read data from a CSV file. In Locust, you can open the CSV file in your test script, read the required data and pass it to the requests.  
+In JMeter, you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script to read data from a CSV file. In Locust, you can open the CSV file in your test script, read the required data, and pass it to the requests.  
 
 To read data from an external file in Azure Load Testing, you have to upload the external file alongside the test script in your load test. If you scale out your test across multiple parallel test engine instances, you can choose to split the input data evenly across these instances.
 

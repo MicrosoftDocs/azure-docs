@@ -243,7 +243,7 @@ certificates:
 
 When you run your load test, Azure Load Testing retrieves the client certificate from Azure Key Vault, and automatically injects it in each JMeter web request. 
 
-For Locust-based tests, you can retrieve the certificate and use it in your tests script. The certificate configured in the load test configuration will be available in the `ALT_CERTIFICATES_DIR`. 
+For Locust-based tests, you can retrieve the certificate and use it in your tests script. The certificate configured in the load test configuration are available in the `ALT_CERTIFICATES_DIR`. 
 
 ```Python
 cert_dir = os.getenv("ALT_CERTIFICATES_DIR")

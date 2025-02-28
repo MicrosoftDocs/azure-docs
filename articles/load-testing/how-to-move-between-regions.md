@@ -51,7 +51,7 @@ To get started, export the ARM template for the Azure load testing resource and 
     
     1. Select the ellipsis (**...**) for a test run, and then select **Download input file**.
     
-        The browser should now start downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the test script, and any configuration or data files.
+        The browser begins downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the test script, and any configuration or data files.
         
         :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
         

@@ -24,21 +24,21 @@ A virtual user runs a particular test case against your server application and r
 
 Apache JMeter also refers to virtual users as *threads*. In the JMeter test script, a *thread group* element lets you specify the pool of virtual users. Learn about [thread groups](https://jmeter.apache.org/usermanual/test_plan.html#thread_group) in the Apache JMeter documentation.
 
-Locust refers to virtual users as *users*. You can specify the users needed for your test in the web interface, as a command line argument, through an environment variable or through a configuration file. Learn about [configuration options](https://docs.locust.io/en/stable/configuration.html) in the Locust documentation. 
+Locust refers to virtual users as *users*. You can specify the users needed for your test in the web interface, as a command line argument, through an environment variable, or through a configuration file. For more information, see [configuration options](https://docs.locust.io/en/stable/configuration.html) in the Locust documentation. 
 
 The total number of virtual users for your load test depends on the number of virtual users in the test script and the number of [test engine instances](#test-engine).
 
 For JMeter based load tests, the formula is: Total virtual users = (virtual users in the JMX file) * (number of test engine instances).
 
-You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-JMeter-based-tests), the number of virtual users in the test script, or a combination of both.
+You can achieve the target number of virtual users by [configuring the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-jMeter-based-tests), the number of virtual users in the test script, or a combination of both.
 
-For Locust based load tests, the total number of virtual users is the number of users specified through any of the configuration options. You can then [configure the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-Locust-based-tests) required to generate the total number of users. 
+For Locust based load tests, the total number of virtual users is the number of users specified through any of the configuration options. You can then [configure the number of test engine instances](./how-to-high-scale-load.md#test-engine-instances-and-virtual-users-for-locust-based-tests) required to generate the total number of users. 
 
 ### Ramp-up time
 
 The ramp-up time is the amount of time to get to the full number of [virtual users](#virtual-users) for the load test. If the number of virtual users is 20, and the ramp-up time is 120 seconds, then it takes 120 seconds to get to all 20 virtual users. Each virtual user will start 6 (120/20) seconds after the previous user was started.
 
-For Locust, you can specify this using *spawn rate*. Spawn rate is the number of users added per second. If the number of users is 20 and the spawn rate is 2, 2 users will get added every second and it takes 10 seconds to get to all the 20 users. 
+For Locust, you can configure ramp-up using *spawn rate*. Spawn rate is the number of users added per second. For example, if the number of users is 20 and the spawn rate is 2, 2 users will get added every second and it takes 10 seconds to get to all the 20 users. 
 
 ### Response time
 
@@ -78,7 +78,7 @@ To run a load test for your application, you add a [test](#test) to your load te
 
 You can use [Azure role-based access control](./how-to-assign-roles.md) to grant access to your load testing resource and related artifacts.
 
-Azure Load Testing lets you [use managed identities](./how-to-use-a-managed-identity.md) to access Azure Key Vault for storing [load test secret parameters or certificates](./how-to-parameterize-load-tests.md), to access Azure monitor metrics for configuring failure criteria or to simulate managed identity based authentication flows. You can use either a user-assigned or system-assigned managed identity.
+Azure Load Testing allows you to [use managed identities](./how-to-use-a-managed-identity.md) for various purposes, such as accessing Azure Key Vault to store [load test secret parameters or certificates](./how-to-parameterize-load-tests.md), accessing Azure Monitor metrics to [configure failure criteria](./how-to-define-test-criteria.md#access-app-component-for-test-criteria-on-server-metrics), or simulating [managed identity-based authentication flows](./how-to-test-secured-endpoints.md#authenticate-with-a-managed-identity).
 
 ### Test
 

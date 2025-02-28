@@ -156,7 +156,7 @@ The following code snippet shows an example of how to use the backend listener f
 
 You can download the full [example of using the Azure Application Insights backend listener](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
 
-For Locust-based tests, you can use [event hooks](https://docs.locust.io/en/stable/extending-locust.html) or [listener plugins](https://github.com/SvenskaSpel/locust-plugins?tab=readme-ov-file#listeners)
+For Locust-based tests, you can use [event hooks](https://docs.locust.io/en/stable/extending-locust.html) or [listener plugins](https://github.com/SvenskaSpel/locust-plugins?tab=readme-ov-file#listeners).
 
 ## Copy test artifacts from a storage account container
 
