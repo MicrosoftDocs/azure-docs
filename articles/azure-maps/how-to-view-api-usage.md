@@ -58,12 +58,8 @@ Learn more about the Azure Maps APIs you want to track usage for:
 > [Azure Maps Web SDK How-To]
 
 > [!div class="nextstepaction"]
-> [Azure Maps Android SDK How-To]
-
-> [!div class="nextstepaction"]
 > [Azure Maps REST API documentation]
 
 [Azure portal]: https://portal.azure.com
 [Azure Maps Web SDK How-To]: how-to-use-map-control.md
-[Azure Maps Android SDK How-To]: how-to-use-android-map-control-library.md
 [Azure Maps REST API documentation]: /rest/api/maps

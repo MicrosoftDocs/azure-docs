@@ -240,12 +240,9 @@ Affected Azure Maps REST services:
 
 ### SDKs
 
-Ensure that you have set up the **View** parameter as required, and you have the latest version of Web SDK and Android SDK. Affected SDKs:
+Make sure the `View` parameter is configured as needed, and that you are using the latest version of the Web SDK.
 
-* Azure Maps Web SDK
-* Azure Maps Android SDK
-
-By default, the View parameter is set to **Unified**, even if you haven't defined it in the request. Determine the location of your users. Then, set the **View** parameter correctly for that location. Alternatively, you can set 'View=Auto', which returns the map data based on the IP address of the request.  The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country/region where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
+The `View` parameter is set to _Unified_ By default, even if it is not explicitly defined in the request. First, determine the location of your users, then set the View parameter to that location. Alternatively, you can use 'View=Auto' to return map data based on the request's IP address. Ensure that the `View` parameter in Azure Maps is used in compliance with applicable laws, including those related to mapping in the country or region where the maps, images, and other data, as well as third-party content accessed via Azure Maps, are made available.
 
 The following table provides supported views.
 

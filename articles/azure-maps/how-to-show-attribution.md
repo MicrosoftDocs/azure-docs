@@ -28,9 +28,7 @@ The [Get Map Attribution API] enables you to request map copyright attribution i
 
 ### When to use the Get Map Attribution API
 
-The map copyright attribution information must be displayed on the map in any applications that use the Render API, including web and mobile applications.
-
-The attribution is automatically displayed and updated on the map When using any of the Azure Maps SDKs, including the [Web], [Android] and [iOS] SDKs.
+The map copyright attribution information must be displayed on the map in any applications that use the Render API.
 
 When using map tiles from the Render service in a third-party map, you must display and update the copyright attribution information on the map.
 
@@ -60,11 +58,9 @@ https://atlas.microsoft.com/map/attribution?subscription-key={Your-Azure-Maps-Su
 
 * For more information, see the [Render service] documentation.
 
-[Android]: how-to-use-android-map-control-library.md
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Get Map Attribution API]: /rest/api/maps/render/get-map-attribution
 [Get Map Attribution]: /rest/api/maps/render/get-map-attribution#tilesetid
-[iOS]: how-to-use-ios-map-control-library.md
 [Render service]: /rest/api/maps/render
 [Tileset Create API]: /rest/api/maps-creator/tileset/create
 [TilesetID]: /rest/api/maps/render/get-map-attribution#tilesetid

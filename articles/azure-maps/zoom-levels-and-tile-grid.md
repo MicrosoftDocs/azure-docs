@@ -26,7 +26,7 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
 
 The following table provides the full list of values for zoom levels where the tile size is **256** pixels square:
 

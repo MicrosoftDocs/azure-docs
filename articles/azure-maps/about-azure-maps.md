@@ -40,18 +40,6 @@ The Azure Maps Web SDK lets you customize interactive maps with your own content
 
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
 
-### Android SDK
-
-> [!NOTE]
->
-> **Azure Maps Android SDK retirement**
->
-> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
-
-Use the Azure Maps Android SDK to create mobile mapping applications.
-
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" lightbox="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device.":::
-
 ## Services in Azure Maps
 
 Azure Maps consists of the following services that can provide geographic context to your Azure applications.

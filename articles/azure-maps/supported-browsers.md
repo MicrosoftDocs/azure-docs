@@ -36,21 +36,6 @@ The Azure Maps Web SDK supports the following desktop browsers:
 
 See also [Target legacy browsers] later in this article.
 
-## Mobile
-
-The Azure Maps Web SDK supports the following mobile browsers:
-
-- Android
-  - Current version of Chrome on Android 6.0 and later
-  - Chrome WebView on Android 6.0 and later
-- iOS
-  - Mobile Safari on the current and previous major version of iOS
-  - UIWebView and WKWebView on the current and previous major version of iOS
-  - Current version of Chrome for iOS
-
-> [!TIP]
-> If you're embedding a map inside a mobile application by using a WebView control, you might prefer to use the [npm package of the Azure Maps Web SDK] instead of referencing the version of the SDK that's hosted on Azure Content Delivery Network. This approach reduces loading time because the SDK is already be on the user's device and doesn't need to be downloaded at run time.
-
 ## Node.js
 
 The following Web SDK modules are also supported in Node.js:
