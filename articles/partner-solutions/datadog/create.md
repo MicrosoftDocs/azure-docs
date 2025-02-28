@@ -79,10 +79,13 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 
 #### Inclusion and exclusion rules for metrics and logs
 
-To filter the set of Azure resources that send logs to Datadog, use inclusion and exclusion rules and set Azure resource tags:
+To filter the set of Azure resources that send logs to Datadog, use inclusion and exclusion rules and set Azure resource tags.
 
 - All Azure resources with tags defined in include rules send logs to Datadog.
 - All Azure resources with tags defined in exclude rules don't send logs to Datadog.
+
+> [!NOTE]
+> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
 Select the **Next** button at the bottom of the page.
 
