@@ -274,6 +274,10 @@ items:
       href: /java/api/overview/azure/communication-email-readme
     - name: Email (Python)
       href: /python/api/overview/azure/communication-email-readme
+    - name: Email (Azure CLI)
+      href: /cli/azure/communication/email
+    - name: Email (PowerShell)
+      href: /powershell/module/az.communication
 - name: SMS
   items:
   - name: Overview
@@ -855,6 +859,8 @@ items:
     href: concepts/pstn-pricing.md
   - name: Phone number types
     href: concepts/numbers/number-types.md
+  - name: Define your caller identity
+    href: concepts/telephony/how-to-manage-your-calling-identity.md
   - name: Country availability
     href: concepts/numbers/sub-eligibility-number-capability.md
   - name: Trial phone numbers
@@ -873,6 +879,8 @@ items:
       href: concepts/numbers/number-lookup-concept.md
     - name: Number Lookup SDK
       href: concepts/numbers/number-lookup-sdk.md
+    - name: Try Number Lookup
+      href: concepts/telephony/try-number-lookup.md
   - name: Direct routing
     items:
     - name: Connect to existing telephony

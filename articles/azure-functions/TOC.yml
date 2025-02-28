@@ -836,6 +836,9 @@
             - name: Output
               href: functions-bindings-azure-mysql-output.md
               displayName: Azure Database for MySQL
+            - name: Trigger
+              href: functions-bindings-azure-mysql-trigger.md
+              displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:
             - name: Overview
