@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: Runtime upgrade with PauseAfterRack strategy"
-description: Learn to execute a cluster runtime upgrade for Operator Nexus with a PauseAfterRack strategy
+description: Learn to execute a Cluster runtime upgrade for Operator Nexus with a PauseAfterRack strategy
 author: bartpinto
 ms.author: bpinto
 ms.service: azure-operator-nexus
@@ -11,7 +11,7 @@ ms.date: 02/25/2025
 
 # Upgrading Cluster runtime with `PauseAfterRack` strategy
 
-Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. The complete list of Cluster upgrade settings are discussed in  [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
+Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. The complete list of Cluster upgrade settings are discussed in  [Upgrading Cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
    - Subscription ID (`SUBSCRIPTION`)
    - Cluster name (`CLUSTER`)
    - Resource group (`CLUSTER_RG`)
-1. Target cluster must be healthy in a running state, with all control plane nodes healthy.
+1. Target Cluster must be healthy in a running state, with all control plane nodes healthy.
 
 ## Procedure
 
@@ -74,4 +74,4 @@ Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
 
 ## Related content
 
-- [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md)
+- [Upgrading Cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md)
