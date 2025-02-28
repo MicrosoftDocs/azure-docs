@@ -9,12 +9,11 @@ ms.custom:
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/30/2025
+ms.date: 02/27/2025
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
 # Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal
-
 
 In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it through a browser or through a Remote Desktop client like Windows App.
 
@@ -24,9 +23,10 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 
 To complete this quickstart, you need:
 
-- Your organization must have configured Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. 
-    - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).  
-- You must have permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
+| Product | Requirements |
+|---------|--------------|
+| Microsoft Dev Box | Your organization must configure Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. <br> - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md). <br>**Permissions** <br> - You must have permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.|
+| Windows App | To connect to a dev box by using the Windows App, you need to install the Windows App on your device. <br> - [Download Windows App](https://aka.ms/devbox-windows-app) <br> - [Install Windows App](https://aka.ms/devbox-windows-app-install)|
 
 ## Create a dev box
 
@@ -35,7 +35,7 @@ Microsoft Dev Box enables you to create cloud-hosted developer workstations in a
 Depending on the project configuration and your permissions, you have access to different projects and associated dev box configurations. If you have a choice of projects and dev box pools, select the project and dev box pool that best fits your needs. For example, you might choose a project that has a dev box pool located near to you for least latency.
 
 > [!IMPORTANT]
-> You organization must have configured Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. If you don't see any projects or dev box pools, contact your administrator.
+> Your organization must configure Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. If you don't see any projects or dev box pools, contact your administrator.
 
 To create a dev box in the Microsoft Dev Box developer portal:
 
@@ -61,7 +61,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
    
 4. Select **Create** to begin creating your dev box.
 
-5. Use the dev box tile in the developer portal to track the progress of creation.
+5. To track the creation process, use the dev box tile in the developer portal.
       
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating." lightbox="./media/quickstart-create-dev-box/dev-box-tile-creating.png":::
    
@@ -72,22 +72,39 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 ## Connect to a dev box
 
-After you create a dev box, you can connect remotely to the developer virtual machine. You can connect from your desktop, laptop, tablet, or phone. Microsoft Dev Box supports connecting to a dev box in the following ways:
+After you create a dev box, you can connect to it remotely through the developer portal on your desktop, laptop, tablet, or phone. The developer portal provides two connection options:
 
+- Connect by using Windows App
 - Connect through the browser from within the developer portal
-- Connect by using a Remote Desktop client application
 
-To connect to a dev box by using the browser:
+### Connect by using Windows App
+
+To connect to a dev box by using the Windows App:
+
+1. Install Windows App. [Download Windows App](https://aka.ms/devbox-windows-app).
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. Select **Open in browser**.
+1. Select **Connect via app**.
 
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser." lightbox="./media/quickstart-create-dev-box/dev-portal-open-in-browser.png":::
+   :::image type="content" source="./media/quickstart-create-dev-box/dev-box-connect-via-app.png" alt-text="Screenshot of dev box tile, showing the Connect via app option." lightbox="./media/quickstart-create-dev-box/dev-box-connect-via-app.png":::
 
-A new tab opens with a new session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
+   > [!Note]
+   > Make sure that you have installed the Windows App on your device. [Download Windows App](https://aka.ms/devbox-windows-app).
 
-[!INCLUDE [note-windows-app](includes/note-windows-app.md)]
+## Use multiple monitors
+
+To use multiple monitors with your dev box, you need to configure your developer portal user settings.
+
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+
+1. Select the user settings icon in the top right corner.
+ 
+   :::image type="content" source="media/quickstart-create-dev-box/dev-box-user-settings-icon.png" alt-text="Screenshot of the developer portal, showing the user settings icon in the top right corner.":::
+
+1. In **User settings**, select **Use multiple monitors**.
+ 
+   :::image type="content" source="media/quickstart-create-dev-box/dev-box-user-settings-multiple-monitors.png" alt-text="Screenshot of the dev box user settings, showing the option for using multiple monitors.":::
 
 ## Clean up resources
 
@@ -99,4 +116,4 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
-- Learn how to [Connect with Windows App](/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box)
+- Learn how to [Manage a dev box by using the Microsoft Dev Box developer portal](how-to-create-dev-boxes-developer-portal.md)
