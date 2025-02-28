@@ -50,7 +50,8 @@ Creating a capacity pool enables you to create volumes within it.
 
 ### <a name="regions"></a> Supported regions for the Flexible service level
 
->[!NOTE] Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
+>[!NOTE]
+>Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
 
 The Flexible service level is currently available in the following regions:
 
