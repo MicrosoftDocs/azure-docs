@@ -1866,6 +1866,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
