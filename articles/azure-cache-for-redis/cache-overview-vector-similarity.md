@@ -17,8 +17,7 @@ Vector similarity search (VSS) has become a popular technology for AI-powered in
 For tutorials and sample applications on how to use Azure Cache for Redis and Azure OpenAI to perform vector similarity search, see the following:
 
 - [Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis with LangChain](./cache-tutorial-vector-similarity.md)
-- [Sample: Using Redis as vector database in a Chatbot application with .NET Semantic Kernel](https://github.com/CawaMS/chatappredis)
-- [Sample: Using Redis as semantic cache in a Dall-E powered image gallery with Redis OM for .NET](https://github.com/CawaMS/OutputCacheOpenAI)
+- [Sample: Using Redis as semantic cache in a Dall-E powered image gallery with Redis OM for .NET]([https://github.com/CawaMS/OutputCacheOpenAI](https://github.com/Azure-Samples/azure-redis-dalle-semantic-caching))
 <!-- check with Catherine - are all these in the samples repo -->
 
 ## Scope of Availability
