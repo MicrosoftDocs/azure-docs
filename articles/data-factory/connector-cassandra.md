@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 02/28/2025
 ms.author: jianleishen
 ---
 # Copy data from Cassandra using Azure Data Factory or Synapse Analytics
@@ -80,6 +80,7 @@ The following properties are supported for Cassandra linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **Cassandra** |Yes |
+| version | The version that you specify. The value is `2.0`. | Yes for version 2.0 |
 | host |One or more IP addresses or host names of Cassandra servers.<br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No (default is 9042) |
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
@@ -90,7 +91,32 @@ The following properties are supported for Cassandra linked service:
 >[!NOTE]
 >Currently connection to Cassandra using TLS is not supported.
 
-**Example:**
+**Example: version 2.0**
+
+```json
+{
+    "name": "CassandraLinkedService",
+    "properties": {
+        "type": "Cassandra",
+        "version": "2.0", 
+        "typeProperties": {
+            "host": "<host>",
+            "authenticationType": "Basic",
+            "username": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: version 1.0**
 
 ```json
 {
@@ -153,12 +179,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Cassandra as source
 
-To copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
+If you use version 2.0 to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **CassandraSource** | Yes |
-| query |Use the custom query to read data. SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
+| query |Use the custom query to read data. CQL query, see [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
 | consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
 
 **Example:**
@@ -193,27 +219,40 @@ To copy data from Cassandra, set the source type in the copy activity to **Cassa
 ]
 ```
 
+If you use version 1.0 to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity source must be set to: **CassandraSource** | Yes |
+| query |Use the custom query to read data. SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
+| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
+
 ## Data type mapping for Cassandra
 
 When copying data from Cassandra, the following mappings are used from Cassandra data types to interim data types used internally within the service. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
-| Cassandra data type | Interim service data type |
-|:--- |:--- |
-| ASCII |String |
-| BIGINT |Int64 |
-| BLOB |Byte[] |
-| BOOLEAN |Boolean |
-| DECIMAL |Decimal |
-| DOUBLE |Double |
-| FLOAT |Single |
-| INET |String |
-| INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
-| TIMEUUID |Guid |
-| UUID |Guid |
-| VARCHAR |String |
-| VARINT |Decimal |
+| Cassandra data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| ASCII |String |String |
+| BIGINT |Int64 |Int64 |
+| BLOB |Byte[] |Byte[] |
+| BOOLEAN |Boolean |Boolean |
+| COUNTER | Int64 | Unsupport |
+| DATE | IDate | Unsupport |
+| DECIMAL |Decimal |Decimal |
+| DOUBLE |Double |Double |
+| DURATION | Int64 | Unsupport |
+| FLOAT |Single |Single |
+| INET |String |String |
+| INT |Int32 |Int32 |
+| SMALLINT | Short | Unsupport |
+| TEXT |String |String |
+| TIMESTAMP |DateTime |DateTime |
+| TIMEUUID |Guid |Guid |
+| TINYINT | SByte | Unsupport |
+| UUID |Guid |Guid |
+| VARCHAR |String |String |
+| VARINT |Decimal |Decimal |
 
 > [!NOTE]
 > For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section.
@@ -287,6 +326,25 @@ The following tables show the virtual tables that renormalize the data from the 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Differences between Cassandra version 2.0 and version 1.0 
+
+The Cassandra connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0. 
+
+| version 2.0 | version 1.0 |
+| --- | --- |
+| Support CQL query. | Support SQL-92 query or CQL query. |
+| Support the following new data type mappings. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte <br> COUNTER -> Int64 <br> DURATION -> Int64 | Unsupport the following new data type mappings. <br><br> DATE <br> SMALLINT <br> TINYINT <br> COUNTER <br> DURATION |
+
+## Upgrade the Cassandra connector
+
+Here are steps that help you upgrade the Cassandra connector:
+
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
+
+2. If you use `query` in the copy activity source for version 2.0，Learn more about [Cassandra as source](#cassandra-as-source).
+
+3. The data type mapping for version 2.0 is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
