@@ -318,19 +318,25 @@ N/A
 ## Configure replication metrics
 
 ### Enable replication metrics
+
 You can enable replication metrics on both new and existing object replication policies. It might take a few minutes to start observing the metrics.  
 
-#### [Azure Portal](#tab/azure-portal)
+#### [Azure portal](#tab/portal)
+
 You can enable metrics using **Object Replication** blade from the new _Metrics_ column or by editing the _Edit Rules_ section of a policy from "…" on the OR policy row.
 
 #### [PowerShell](#tab/powershell)
+
 Not yet supported.
 
 #### [Azure CLI](#tab/azure-cli)
+
 Not yet supported.
 
 #### [REST API](#tab/rest-api)
+
 Enabling metrics is supported on API version 2021-08-01 and above. You can add the new metrics field to the replication policy. Sample: 
+
 ``` json
 {
     "sourceAccount": "<source-account-name>",
@@ -401,8 +407,6 @@ az storage blob show \
     --auth-mode login
 ```
 
----
-
 If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
 
 - Make sure that the object replication policy is configured on the destination account.
@@ -412,6 +416,8 @@ If the replication status for a blob in the source account indicates failure, th
 ### [REST API](#tab/rest-api)
 
 N/A
+
+---
 
 ## Remove a replication policy
 
