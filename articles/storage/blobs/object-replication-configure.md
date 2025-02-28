@@ -215,6 +215,10 @@ az storage account or-policy show \
     --policy "@-"
 ```
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ---
 
 ## Configure object replication using a JSON file
@@ -228,7 +232,7 @@ For information about how to author a JSON file that contains the policy definit
 
 The examples in this section show how to configure the object replication policy on the destination account, and then get the JSON file for that policy that another user can use to configure the policy on the source account.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To configure object replication on the destination account with a JSON file in the Azure portal, follow these steps:
 
@@ -257,7 +261,7 @@ The downloaded JSON file includes the policy ID that Azure Storage created for t
 
 Keep in mind that uploading a JSON file to create a replication policy for the destination account via the Azure portal doesn't automatically create the same policy in the source account. Another user must create the policy on the source account before Azure Storage begins replicating objects.
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To download a JSON file that contains the replication policy definition for the destination account from PowerShell, call the [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) command to return the policy. Then convert the policy to JSON and save it as a local file, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
 
@@ -284,7 +288,7 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -Rule $object.Rules
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To write the replication policy definition for the destination account to a JSON file from Azure CLI, call the [az storage account or-policy show](/cli/azure/storage/account/or-policy#az-storage-account-or-policy-show) command and output to a file.
 
@@ -305,6 +309,10 @@ az storage account or-policy create \
     --policy @policy.json
 ```
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ---
 
 ## Configure replication metrics
@@ -312,16 +320,16 @@ az storage account or-policy create \
 ### Enable replication metrics
 You can enable replication metrics on both new and existing object replication policies. It might take a few minutes to start observing the metrics.  
 
-# [Azure Portal](#tab/azure-portal)
+#### [Azure Portal](#tab/azure-portal)
 You can enable metrics using **Object Replication** blade from the new _Metrics_ column or by editing the _Edit Rules_ section of a policy from "…" on the OR policy row.
 
-# [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 Not yet supported.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 Not yet supported.
 
-# [REST API](#tab/rest-api)
+#### [REST API](#tab/rest-api)
 Enabling metrics is supported on API version 2021-08-01 and above. You can add the new metrics field to the replication policy. Sample: 
 ``` json
 {
@@ -341,8 +349,11 @@ Enabling metrics is supported on API version 2021-08-01 and above. You can add t
     ]
 }
 ```
+
 ---
+
 If you enable metrics on a policy that is configured to copy over existing data, you might observe an increasing amount at the beginning while the policy works on initial phase of listing. Once this is completed, the replication will start.
+
 ### View replication metrics
 
 You can click the **View** link from Metrics column to view monitoring metrics
@@ -353,7 +364,7 @@ To further view metrics in Azure Monitor, click on chart of a metric. This will 
 
 You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties aren't populated until replication has either completed or failed.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To check the replication status for a blob in the source account in the Azure portal, follow these steps:
 
@@ -363,7 +374,7 @@ To check the replication status for a blob in the source account in the Azure po
 
 :::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
 
@@ -376,7 +387,7 @@ $blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
 $blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
 
@@ -398,11 +409,15 @@ If the replication status for a blob in the source account indicates failure, th
 - Verify that the destination container still exists.
 - If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
+### [REST API](#tab/rest-api)
+
+N/A
+
 ## Remove a replication policy
 
 To remove a replication policy and its associated rules, use Azure portal, PowerShell, or CLI.
 
-# [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 To remove a replication policy in the Azure portal, follow these steps:
 
@@ -411,7 +426,7 @@ To remove a replication policy in the Azure portal, follow these steps:
 1. Select the **More** button next to the policy name.
 1. Select **Delete Rules**.
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
@@ -427,7 +442,7 @@ Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgName `
     -PolicyId $destPolicy.PolicyId
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To remove a replication policy, delete the policy from both the source account and the destination account. Deleting the policy also deletes any rules associated with it.
 
@@ -442,6 +457,10 @@ az storage account or-policy delete \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```
+
+### [REST API](#tab/rest-api)
+
+N/A
 
 ---
 
