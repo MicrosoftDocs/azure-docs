@@ -24,17 +24,17 @@ Due to asymmetric routing, connectivity issues can occur when Azure VMware Solut
 For AS-Path Prepend, consider the following prerequisites:
 
 > [!div class="checklist"]
-* The key point is that you must prepend **Public** ASN numbers to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior mentioned previously will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
+* The key point is that you must prepend **Public** Autonomous System Numbers (ASNs) to influence how Azure VMware Solution routes traffic back to on-premises. If you prepend using _Private_ ASN, Azure VMware Solution will ignore the prepend, and the ECMP behavior mentioned previously will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilize a Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
 * Design your traffic path for private ASNs after the public ASN to be honored by Azure VMware Solution. The Azure VMware Solution ExpressRoute circuit doesn't strip any private ASNs that exist in the path after the public ASN is processed.
 * Both or all circuits are connected to Azure VMware Solution through Azure ExpressRoute Global Reach.
 * The same netblocks are being advertised from two or more circuits.
-* You wish to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
+* You want to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
 * Use either 2-byte or 4-byte public ASN numbers.
 
 
 ## Reserved Private ASNs in Azure VMware Solution
 
-Azure VMware Solution utilizes specific private Autonomous System Numbers (ASNs) for its underlay network infrastructure. To prevent conflicts and ensure seamless network integration, customers **must not** use the following ASNs within their network configurations:
+Azure VMware Solution utilizes specific private Autonomous System Numbers (ASNs) for its underlay network infrastructure. To prevent conflicts and ensure seamless network integration, customers **should not** use the following ASNs within their network configurations.
 
 ### Reserved ASNs for Underlay Networking
 
