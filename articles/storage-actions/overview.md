@@ -19,45 +19,43 @@ Azure Storage Actions is a fully managed platform designed to automate data mana
 
 ## Key features
 
-- **Serverless infrastructure** - Azure Storage Actions operates on a serverless infrastructure. Azure Storage Actions can manage data at scale because there's no need to provision or manage resources other than a storage task. 
+Azure Storage Actions offers several key features that streamline data management and enhance efficiency. 
 
-- **No-code experience** - You don't need any programming expertise. You can define conditional logic for processing objects by using a visual designer or by using JSON.
+**Serverless infrastructure**: Azure Storage Actions operates on a serverless infrastructure. Azure Storage Actions can manage data at scale because there's no need to provision or manage resources other than a storage task. 
 
-- **Monitoring and management** - Azure Storage Actions minimizes the effort involved in managing and monitoring by providing summery views, filters, and report drill downs. 
+**No-code experience**: You don't need any programming expertise. You can define conditional logic for processing objects by using a visual designer or by using JSON.
+
+**Monitoring and management**: Azure Storage Actions minimizes the effort involved in managing and monitoring by providing summery views, filters, and report drill downs. 
 
 ## Use cases
 
-- **Cost optimization** - Azure Storage Actions supports cost optimization by managing the tiering, expiry, and retention of blobs based on various attributes such as path-prefix, naming conventions, or file type.
+Azure Storage Actions supports a variety of use cases to enhance data management efficiency and effectiveness. 
 
-- **Data protection** - The platform helps in maintaining data protection by managing the retention and lifecycle of versions and snapshots for sensitive datasets.
+**Cost optimization**: Azure Storage Actions can help optimize costs by managing the tier, expiration date, and retention of blobs based on various attributes such as path-prefix, naming conventions, or file type.
 
-- **Rehydration from archive** - Tasks can be defined to rehydrate large datasets from the archive tier, ensuring data is readily available when needed.
+**Data protection**: Azure Storage actions can help to protect data by managing the retention and lifecycle for versions and snapshots of sensitive datasets.
 
-- **Tagging and metadata management** - Azure Storage Actions allows for the initialization and management of blob tags and metadata, facilitating better organization and retrieval of data.
+**Rehydration from archive**: Azure Storage actions can rehydrate large datasets from the archive tier to ensure that data is available when it is needed.
 
-## How Azure Storage Actions works
+**Tagging and metadata management**: Azure Storage Actions allows for the initialization and management of blob tags and metadata which facilitates better organization and retrieval of data.
 
-To use Azure Storage Actions, create a _storage task_, compose and validate the conditions of the task, and then assign the task to one or more storage accounts. After you task runs are scheduled, you can monitor execution or react to events.
+## Storage tasks
 
-### Storage tasks
-
-A storage task contains a set of _conditions_, _operations_. The following table describes each component of a storage task.
+To use Azure Storage Actions, create a _storage task_. See [Create a storage task](storage-tasks/storage-task-create.md). A storage task contains a set of _conditions_, _operations_. The following table describes each component of a storage task.
 
 | Component | Description |
 |---|---|
 | Conditions | A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)|
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).|
 
-See [Create a storage task](storage-tasks/storage-task-create.md). 
-
-### Composition
+## Composition
 
 You can compose conditions and operations by using a visual designer in the Azure portal. You can validate those conditions and operations by testing them against data in any storage account. The built-in preview capability in the Azure portal simplifies validation and helps you find and fix issues in your task definition before you use the storage task against production data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
 > [!NOTE]
 > You can also create and manage a storage task by using REST APIs, SDKs, PowerShell, Azure CLI, and by using Bicep, Terraform or Azure Resource Manager (ARM) templates.
 
-### Execution
+## Execution
 
 To use a storage task, you must create a storage task assignment. An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. See [Storage task assignment](storage-tasks/storage-task-assignment.md).
 
@@ -65,7 +63,7 @@ Tasks run asynchronously according to the schedule that you specify in the assig
 
 The overview page of the task presents metrics and visualizations that summarize how many objects met the task condition, and the result of the operations attempted by the storage task on each object. The charts enable you to quickly drill into a specific execution instance. See [Monitor Azure Storage Actions](storage-tasks/monitor-storage-tasks.md). 
 
-### Events
+## Events
 
 Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
