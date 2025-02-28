@@ -1,6 +1,6 @@
 ---
 title: How to replace a terminal server within Azure Operator Nexus Network Fabric
-description: Process of replacing a terminal server within Azure Operator Nexus Network Fabric
+description: Process of replacing terminal server within Azure Operator Nexus Network Fabric
 author: sushantjrao 
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -9,7 +9,7 @@ ms.date: 01/24/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Replacing a terminal server
+# Replacing terminal server
 
 This guide provides a step-by-step process for replacing a Terminal Server (TS) within Azure Operator Nexus Network Fabric. The procedure includes cleaning up the existing TS, removing the TS, installing a new TS, and configuring the Terminal Server.
 

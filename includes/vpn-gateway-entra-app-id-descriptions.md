@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 02/14/2025
+ms.date: 02/27/2025
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: include
@@ -25,3 +25,5 @@ VPN Gateway now supports a new Microsoft-registered App ID and corresponding Aud
 **Azure VPN Client Audience values**
 
 The following table shows the versions of the Azure VPN Client that are supported for each App ID and the corresponding available Audience values.
+
+[!INCLUDE [About the Microsoft-registered Azure VPN Client](vpn-gateway-entra-audience-values.md)]

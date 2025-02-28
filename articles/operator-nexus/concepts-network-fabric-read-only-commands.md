@@ -16,7 +16,7 @@ Troubleshooting network devices is a critical aspect of effective network manage
 
 ## Understanding read-only commands 
 
-RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. 
+RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. The RO command also supports using a customer-provided storage account for storing output files.
 
 ## Read-only diagnostic API 
 
@@ -54,6 +54,8 @@ To use Network Fabric read-only commands, complete the following steps:
 
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
+
+Alternatively, you can bring your own storage for storing output files by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide
 
  ## Command restrictions
 
