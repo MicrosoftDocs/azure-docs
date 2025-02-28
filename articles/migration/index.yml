@@ -21,7 +21,7 @@ sections:
     summary: Find the guidance and tools you need to confidently transition to Azure, whether you're migrating fully, running a hybrid cloud, or replicating workloads. Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure. 
     background:
      componentType: image
-     src: images/migrate.svg
+     src: images/ai-hero-banner-2.png
 
 # Top picks
   - componentType: grid
@@ -160,7 +160,7 @@ sections:
       url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153
       icon: 
         componentType: image
-        src: images/github-icon-2.png
+        src: images/azure-hybrid.svg
     - componentType: icon-card
       title: Key architectural differences between AWS and Azure explained  
       summary: Outlining key architectural differences between AWS and Azure, focusing on network architecture, availability zones, security models, managed services, and storage resiliency to help you optimize your cloud strategies. 
