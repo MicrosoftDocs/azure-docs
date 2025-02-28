@@ -37,7 +37,9 @@ Azure Storage Actions is a fully managed platform designed to automate data mana
 
 ## How Azure Storage Actions works
 
-To use Azure Storage Actions, you provision one or more _storage tasks_. See [Create a storage task](storage-tasks/storage-task-create.md). 
+To use Azure Storage Actions, create a _storage task_, compose and validate the conditions of the task, and then assign the task to one or more storage accounts. After you task runs are scheduled, you can monitor execution or react to events.
+
+### Storage tasks
 
 A storage task contains a set of _conditions_, _operations_. The following table describes each component of a storage task.
 
@@ -46,16 +48,24 @@ A storage task contains a set of _conditions_, _operations_. The following table
 | Conditions | A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)|
 | Operations | An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).|
 
+See [Create a storage task](storage-tasks/storage-task-create.md). 
+
+### Composition
+
 You can compose conditions and operations by using a visual designer in the Azure portal. You can validate those conditions and operations by testing them against data in any storage account. The built-in preview capability in the Azure portal simplifies validation and helps you find and fix issues in your task definition before you use the storage task against production data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
 > [!NOTE]
 > You can also create and manage a storage task by using REST APIs, SDKs, PowerShell, Azure CLI, and by using Bicep, Terraform or Azure Resource Manager (ARM) templates.
+
+### Execution
 
 To use a storage task, you must create a storage task assignment. An assignment identifies a storage account and a subset of objects to target in that account. It also specifies when the task runs and where execution reports are stored. See [Storage task assignment](storage-tasks/storage-task-assignment.md).
 
 Tasks run asynchronously according to the schedule that you specify in the assignment. An execution report is created when the run completes. That report itemizes the results of the task run on each object that was targeted by the task. See [Analyze storage task runs](storage-tasks/storage-task-runs.md).
 
 The overview page of the task presents metrics and visualizations that summarize how many objects met the task condition, and the result of the operations attempted by the storage task on each object. The charts enable you to quickly drill into a specific execution instance. See [Monitor Azure Storage Actions](storage-tasks/monitor-storage-tasks.md). 
+
+### Events
 
 Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
