@@ -11,7 +11,7 @@ ms.date: 04/15/2024
 ---
 # Validate Cables for Nexus Network Fabric
 
-This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Units (SKUs), classifying them as compliant or noncompliant. Device types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT), and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step. The calble validation also supports using a customer-provided storage account for storing output files using api version 2024-06-15.
+This article explains the  Fabric cable validation, where the primary function of the diagnostic API is to check all fabric devices for potential cabling issues. The Diagnostic API assesses whether the interconnected devices adhere to the Bill of Materials (BOM) and according to the resource Stock Keeping Units (SKUs), classifying them as compliant or noncompliant. Device types include Customer Edge (CE), Top of Rack (TOR), Management (MGMT), and Network Packet Broker (NPB) devices. The results are presented in a JSON format, encompassing details such as validation status, errors, identifier type, and neighbor device ID. These results are stored in a customer-provided Storage account. It's vital to the overall deployment that errors identified in this report are resolved before moving onto the Cluster deployment step. The calble validation also supports using a customer-provided storage account for storing output files using api version 2024-06-15-preview.
 
 For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus-skus.md)
 
@@ -25,7 +25,7 @@ For BOM details, refer to [Azure Operator Nexus SKUs](./reference-operator-nexus
 - Microsoft Support must patch the Nexus Network Fabric with an active storage SAS URL before running cabling validation.
 
 >[!Note]
-> Starting with the 2024-06-15 API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
 
 ## Creating an Azure Support Request for Patching Nexus Network Fabric:
   - Refer to [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)

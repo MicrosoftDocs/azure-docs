@@ -16,7 +16,7 @@ Troubleshooting network devices is a critical aspect of effective network manage
 
 ## Understanding read-only commands 
 
-RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. The RO command also supports using a customer-provided storage account for storing output files using api version 2024-06-15.
+RO commands serve as essential tools for network administrators. Unlike read-write (RW) commands that modify device configurations, RO commands allow administrators to gather diagnostic information without altering the device's state. These commands provide valuable insights into the device's status, configuration, and operational data. The RO command also supports using a customer-provided storage account for storing output files using api version 2024-06-15-preview.
 
 ## Read-only diagnostic API 
 
@@ -59,7 +59,7 @@ To use Network Fabric read-only commands, complete the following steps:
     Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
 
 >[!Note]
-> Starting with the 2024-06-15 API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
 
  ## Command restrictions
 
