@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/23/2024
-ms.author: caiqing
+ms.author: karler
+ms.reviewer: caiqing
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -284,7 +285,7 @@ To view the newly published accelerator, refresh Dev Tools Portal.
 
 ### Reference a fragment in your own accelerators
 
-Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named Composition that enables the reuse of parts of an accelerator, called *fragments*.
+Writing and maintaining accelerators can become repetitive and verbose as new accelerators are added. Some people create new projects by copying existing ones and making modifications, but this process can be tedious and error prone. To make the creation and maintenance of accelerators easier, Application Accelerator supports a feature named *Composition* that enables the reuse of parts of an accelerator, called *fragments*.
 
 Use the following steps to reference a fragment in your accelerator:
 

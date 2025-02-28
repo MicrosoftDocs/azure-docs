@@ -44,11 +44,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
 1. In the left pane under Settings, select **Caching rules**.
 
-   ![Screenshot of the content delivery network caching rules button.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
-
    The **Caching rules** page appears.
-
-   ![Screenshot of the content delivery network caching page.](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 **To set a web server's Cache-Control headers by using global caching rules:**
 

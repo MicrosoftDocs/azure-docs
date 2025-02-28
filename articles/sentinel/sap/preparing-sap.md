@@ -190,6 +190,8 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
       
    - **RFC_READ_TABLE**, to read data from required tables
       
+   - **SIAG_ROLE_GET_AUTH**, to retrieve security role authorizations
+      
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 
    - **Name:** Enter the name you want to use for the Microsoft Sentinel connection

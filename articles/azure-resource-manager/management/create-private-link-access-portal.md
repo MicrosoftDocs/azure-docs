@@ -2,7 +2,7 @@
 title: Create private link for managing resources - Azure portal
 description: Use Azure portal to create private link for managing resources.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/09/2025
 ---
 
 # Use portal to create private link for managing Azure resources
@@ -13,7 +13,7 @@ This article explains how to use [Azure Private Link](../../private-link/index.y
 
 ## Create resource management private link
 
-When you create a resource management private link, the private link association is automatically created for you.
+When you create a resource management private link, the portal automatically creates the private link association for you.
 
 1. In the [portal](https://portal.azure.com), search for **Resource management private links** and select it from the available options.
 

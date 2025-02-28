@@ -52,11 +52,7 @@ First, verify that the file to cache is available on the origin server and is pu
 
 After you've verified the file is publicly available on the internet, verify your origin settings. In the [Azure portal](https://portal.azure.com), browse to your content delivery network profile and select the endpoint you're troubleshooting. From the resulting **Endpoint** page, select the origin.
 
-![Endpoint page with origin highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint.png)
-
 The **Origin** page appears.
-
-![Origin page](./media/cdn-troubleshoot-endpoint/cdn-origin-settings.png)
 
 #### Origin type and hostname
 
@@ -75,8 +71,6 @@ On the **Endpoint** page, select the **Configure** button.
 ![Endpoint page with configure button highlighted](./media/cdn-troubleshoot-endpoint/cdn-endpoint-configure-button.png)
 
 The content delivery network endpoint **Configure** page appears.
-
-![Configure page](./media/cdn-troubleshoot-endpoint/cdn-configure.png)
 
 #### Protocols
 

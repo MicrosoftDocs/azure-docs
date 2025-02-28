@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
-ms.date: 01/02/2025
+ms.date: 02/21/2025
 ms.author: shaas
 ms.custom: "include file", references_regions
 ---
@@ -14,12 +14,16 @@ ms.custom: "include file", references_regions
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
+> - East Asia
+> - Southeast Asia
+> - Australia East
+> - Australia Southeast
 > - France Central 
 > - France South 
 > - India Central 
 > - India West 
-> - East Asia
-> - Southeast Asia 
+> - Switzerland West
+> - Switzerland North
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature) and specify AllowSoftFailover as the feature name. The provider name for this preview feature is Microsoft.Storage.
 > 

@@ -5,8 +5,9 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/25/2025
+ms.date: 02/28/2025
 ms.author: anfdocs
+ms.custom: references_regions
 ---
 # Create a capacity pool for Azure NetApp Files
 
@@ -46,7 +47,31 @@ Creating a capacity pool enables you to create volumes within it.
     * Cool access isn't currently supported with the Flexible service level. 
     * Only single encryption is currently supported for Flexible service level capacity pools. 
     * Volumes in Flexible service level capacity pools can't be moved to capacity pools of a different service level. Similarly, you can't move volumes from capacity pools with different service levels into a Flexible service level capacity pool.
-    
+
+### Supported regions for the Flexible service level
+
+>[!NOTE] Standard, Premium, and Ultra service levels are supported in all Azure NetApp Files regions. This list only applies to the _Flexible_ service level. 
+
+- Australia Central
+- Brazil South
+- Canada East
+- East Asia
+- East US
+- East US 2
+- France Central
+- Israel Central
+- Japan West
+- Korea Central
+- North Central US
+- Qatar Central
+- South Africa North
+- UAE North
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
+- West US 2
+- West US 3
+  
 ## Steps 
 
 1. In the Azure portal, go to your NetApp account. From the navigation pane, select **Capacity pools**.  

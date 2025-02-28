@@ -3,7 +3,7 @@ title: Azure API Management compute platform
 description: Learn about the compute platform used to host your API Management service instance. Instances in the classic service tiers of API Management are hosted on the stv1 or stv2 compute platform.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/26/2024
 ms.author: danlep
 ms.custom:

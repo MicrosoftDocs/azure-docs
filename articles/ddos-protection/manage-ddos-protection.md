@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 07/17/2024
+ms.date: 02/10/2025
 ms.custom: template-quickstart
 ---
 
@@ -68,8 +68,6 @@ In this QuickStart, you create a DDoS protection plan and link it to a virtual n
 
 1. Select **Review + create** then **Create**.
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-create-virtual-network.gif" alt-text="Gif of creating a virtual network with Azure DDoS Protection.":::
-
 [!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
 ### Enable for an existing virtual network
@@ -78,8 +76,6 @@ In this QuickStart, you create a DDoS protection plan and link it to a virtual n
 1. Enter the name of the virtual network that you want to enable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the Azure portal. When the name of the virtual network appears in the search results, select it.
 1. Select **DDoS protection**, under **Settings**.
 1. Select **Enable**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Microsoft Entra tenant. 
-
-    :::image type="content" source="./media/manage-ddos-protection/ddos-update-virtual-network.gif" alt-text="Gif of enabling DDoS Protection for a virtual network.":::
 
 ### Add Virtual Networks to an existing DDoS protection plan
 
@@ -90,12 +86,9 @@ You can also enable the DDoS protection plan for an existing virtual network fro
 1. Select  **Protected resources** under **Settings**.
 1. Select **+Add** and select the right subscription, resource group and the virtual network name. Select **Add** again. 
 
-    :::image type="content" source="./media/manage-ddos-protection/ddos-add-to-virtual-network.gif" alt-text="Gif of adding a virtual network with Azure DDoS Protection.":::
-## Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)
+## Configure an Azure DDoS Protection Plan using Azure Firewall Manager 
 
 Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. This functionality is currently available in Public Preview. See [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md).
-
-:::image type="content" source="./media/manage-ddos-protection/ddos-protection.png" alt-text="Screenshot showing virtual network with DDoS Protection Plan." lightbox="./media/manage-ddos-protection/ddos-protection.png":::
 
 ## Enable DDoS protection for all virtual networks
 
@@ -114,7 +107,7 @@ The _MyVnet_ virtual network should be listed.
 ## View protected resources
 Under **Protected resources**, you can view your protected virtual networks and public IP addresses, or add more virtual networks to your DDoS protection plan:
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-protected-resources.png" alt-text="Screenshot showing protected resources." lightbox="./media/manage-ddos-protection/ddos-protected-resources.png":::
+
 
 
 ### Disable for a virtual network:
@@ -123,8 +116,6 @@ You can disable the DDoS protection from a virtual network, while it is still en
 
 1. Enter the name of the virtual network you want to disable DDoS Network Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
 1. Under **DDoS Network Protection**, select **Disable**.
-
-    :::image type="content" source="./media/manage-ddos-protection/ddos-disable-in-virtual-network.gif" alt-text="Gif of disabling DDoS Protection within virtual network.":::
 
 > [!NOTE]
 > Disabling a DDoS protection from a virtual network will not delete it. The DDoS protection costs will still be charged if you only disable the DDoS protection from a virtual network, without deleting the DDoS protection plan itself. To avoid unnecessary costs, you need to fully delete the DDoS protection plan resource. Please see [Clean up resources](#clean-up-resources). 
