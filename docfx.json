@@ -894,6 +894,7 @@
         "articles/dev-box/**/*.md": "dev-box",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/devtest-labs/**/*.md": "azure-devtest-labs",
+        "articles/devtest-labs/**/*.yml": "azure-devtest-labs",
         "articles/event-grid/**/*": "azure-event-grid",
         "articles/event-hubs/**/*": "azure-event-hubs",
         "articles/governance/*.md": "azure-policy",
