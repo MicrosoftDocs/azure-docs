@@ -14,7 +14,7 @@ ms.author: t-siddiquim
 
 
 > [!NOTE] 
-> Rooms can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+> Rooms can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/concepts-rooms--docs). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
 
 
 ## Join a room call
