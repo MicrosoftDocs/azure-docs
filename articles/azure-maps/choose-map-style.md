@@ -126,7 +126,7 @@ styleOverrides: {
     adminDistrict2: { borderVisible: false }
 }
 ```
-:::image type="content" source="./media/choose-map-style/admin-district2.gif" alt-text="An animated GIF that shows second admin district borders.":::
+:::image type="content" source="./media/choose-map-style/admin-district-2.gif" alt-text="An animated GIF that shows second admin district borders.":::
 
 - Building footprints
 
