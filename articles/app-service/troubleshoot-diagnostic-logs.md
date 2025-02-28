@@ -1,8 +1,8 @@
 ---
-title: Enable diagnostics logging
-description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+title: Enable Diagnostics Logging for Apps in Azure App Service
+description: Learn how to enable diagnostic logging and add instrumentation to your application, along with how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/21/2024
 ms.author: msangapu
 author: msangapu-msft
@@ -14,19 +14,19 @@ ai-usage: ai-assisted
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
+Azure provides built-in diagnostics to assist with debugging an [App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application. You also learn how to access the information that Azure logs.
+
 This video shows you how to enable diagnostics logging for apps.
 > [!VIDEO 62f2edbe-1063-4ec3-a76f-faa0bd783f2f]
 
-The steps in the video are also described in the following sections.
-
-## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service app](overview.md). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+The sections in this article cover the steps in the video.
 
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, you can also use the Azure Monitor integrated logging capability. You'll find more on this capability in the [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section. 
->
+> In addition to the logging instructions in this article, you can use the Azure Monitor integrated logging capability. The [Send logs to Azure Monitor](#send-logs-to-azure-monitor) section later in this article provides more information about this capability.
+
+The following table describes the types of logging.
 
 |Type|Platform|Log storage location|Description|
 |-|-|-|-|
@@ -42,13 +42,12 @@ When stored in the App Service file system, logs are subject to the available st
 > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
 >
 > In addition, you can use other Azure services to improve the logging and monitoring capabilities of your app, such as [Azure Monitor](/azure/azure-monitor/app/azure-web-apps).
->
 
 ## Enable application logging (Windows)
 
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
-Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
+Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both.
 
 The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
@@ -59,8 +58,6 @@ The **Filesystem** option is for temporary debugging purposes, and turns itself 
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob again. Save your setting.
->
->
 
 Select the **Level**, or the level of details to log. The following table shows the log categories included in each level:
 
@@ -76,7 +73,6 @@ When finished, select **Save**.
 
 > [!NOTE]
 > If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
->
 
 ## Enable application logging (Linux/Container)
 
@@ -92,7 +88,7 @@ When finished, select **Save**.
 
 To enable web server logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
-For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system. 
+For **Web server logging**, select **Storage** to store logs on blob storage, or **File System** to store logs on the App Service file system.
 
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
@@ -101,14 +97,11 @@ In **Retention Period (Days)**, set the number of days the logs should be retain
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 1. Enable logging to the storage account blob again. Save your setting.
->
->
 
 When finished, select **Save**.
 
 > [!NOTE]
 > If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
->
 
 ## Log detailed errors
 
@@ -133,18 +126,16 @@ In your application code, you use the usual logging facilities to send log messa
     By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging).
 - Python applications can use the [OpenCensus package](/previous-versions/azure/azure-monitor/app/opencensus-python) to send logs to the application diagnostics log.
 
-
 ## Stream logs
 
 Before you stream logs in real time, enable the log type that you want. Any information written to the console output or files ending in .txt, .log, or .htm that are stored in the */home/LogFiles* directory (D:\home\LogFiles) is streamed by App Service.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in events appearing in the incorrect order in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
->
 
 ### In Azure portal
 
-To stream logs in the [Azure portal](https://portal.azure.com), navigate to your app and select **Log stream**. 
+To stream logs in the [Azure portal](https://portal.azure.com), navigate to your app and select **Log stream**.
 
 ### In Cloud Shell
 
@@ -203,8 +194,9 @@ For a list of supported log types and their descriptions, see [Supported resourc
 
 For Diagnostic Settings restrictions, refer to the [official Diagnostic Settings documentation regarding destination limits](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations).
 
-## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
-* [How to Monitor Azure App Service](web-sites-monitor.md)
-* [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+## <a name="nextsteps"></a> Related content
+
+- [Query logs with Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+- [How to Monitor Azure App Service](web-sites-monitor.md)
+- [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
+- [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
