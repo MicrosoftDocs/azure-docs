@@ -550,6 +550,34 @@ spec:
       interval: 10m
 ```
 
+### On-demand Refresh
+
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating arbitrary key-value pairs of type `string` in the `metadata.annotations` section. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+
+The following example modifies the `annotations` of `AzureAppConfigurationProvider` with a new key-value pair. After updating the annotations, apply the changes using `kubectl apply` to trigger on-demand refresh.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+  annotations:
+    key1: value1
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+```
+
 ### ConfigMap Consumption
 
 Applications running in Kubernetes typically consume the ConfigMap either as environment variables or as configuration files. If the `configMapData.type` property is absent or is set to default, the ConfigMap is populated with the itemized list of data retrieved from Azure App Configuration, which can be easily consumed as environment variables. If the `configMapData.type` property is set to json, yaml or properties, data retrieved from Azure App Configuration is grouped into one item with key name specified by the `configMapData.key` property in the generated ConfigMap, which can be consumed as a mounted file.
