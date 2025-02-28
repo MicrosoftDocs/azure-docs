@@ -109,7 +109,7 @@
     href: migration-convert-dashboards.md
   - name: Update SOC processes      
     href: migration-security-operations-center-processes.md
-- name: Enable solutions and content
+- name: Manage solutions and content
   items:  
   - name: Overview
     href: sentinel-solutions.md
@@ -127,7 +127,7 @@
       href: domain-based-essential-solutions.md
     - name: Monitor Zero Trust 
       href: sentinel-solution.md   
-  - name: Manage custom content from repositories
+  - name: Manage content as code using repositories
     items:
     - name: Overview
       href: ci-cd-custom-content.md

@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 ---
 
-# Manage custom content with Microsoft Sentinel repositories (public preview)
+# Manage content as code with Microsoft Sentinel repositories (public preview)
 
 The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allow connections to an external source control for continuous integration / continuous delivery (CI/CD). This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
