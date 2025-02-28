@@ -141,6 +141,10 @@ Here are the steps and code to connect to SQL database in Microsoft Fabric using
 
 As part of onboarding a service connection to SQL database in Microsoft Fabric, the following manual steps are required.
 
+1. Acknowledge that you have read these manual steps, and create your service connection by running the command via the Cloud Shell, or by running the given commands in a local environment.
+
+    :::image type="content" source="./media/how-to-integrate-fabric-sql/azure-portal-create-on-cloud-shell.png" alt-text="Screenshot of the Azure portal, clicking the checkbox understanding the manual steps, and creating the connection.":::
+
 1. Navigate to the portal, and locate your SQL database in Microsoft Fabric service connection. Click "SQL Database" to navigate to the Fabric portal.
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
