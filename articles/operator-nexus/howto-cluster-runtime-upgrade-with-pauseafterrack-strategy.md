@@ -11,7 +11,7 @@ ms.date: 02/25/2025
 
 # Upgrading Cluster runtime with `PauseAfterRack` strategy
 
-Executing cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. The complete list of cluster upgrade settings are discussed in  [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
+Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to wait for user confirmation before upgrading the next rack of worker nodes. The complete list of Cluster upgrade settings are discussed in  [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
 
 ## Prerequisites
 
