@@ -554,7 +554,7 @@ Expected output
 ```
 
 > [!Note]
-> RW configurations do not persist across upgrades. After an upgrade of Network Fabric, the rwDeviceConfig property will be empty unless the user manually reapplies the RW configuration.
+> RW configuration persists during a reboot without ZTP but does not persist upgrades, device RMA, or a reboot with ZTP. After these events, the rwDeviceConfig property is empty unless the user reapplies the RW configuration manually.
 
 ## Limitations 
 

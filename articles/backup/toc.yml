@@ -46,7 +46,7 @@
       href: quick-kubernetes-backup-bicep.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
-  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+  - name: Create a backup policy for Azure Database for PostgreSQL - Flexible Server 
     items:
     - name: With Azure portal
       href: quick-backup-postgresql-flexible-server-portal.md
@@ -54,6 +54,8 @@
       href: quick-backup-postgresql-flexible-server-cli.md
     - name: With PowerShell
       href: quick-backup-postgresql-flexible-server-powershell.md    
+  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+    items:    
     - name: With Terraform
       href: quick-backup-postgresql-flexible-server-terraform.md
     - name: With Azure Resource Manager template
@@ -120,6 +122,8 @@
       href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
+  - name: Back up Azure Database for PostgreSQL - Flexible Server
+    href: tutorial-create-first-backup-azure-database-postgresql-flex.md         
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
   - name: Configure vaulted backup for Azure Blob
@@ -466,7 +470,7 @@
     items:
     - name: From the Azure portal
       items:
-      - name: Backup
+      - name: Configure backup
         href: backup-azure-database-postgresql-flex.md
       - name: Restore
         href: restore-azure-database-postgresql-flex.md
