@@ -173,7 +173,7 @@ For optimal performance and redundancy, it is recommended to utilize two Express
 
 **What types of NFC SKUs are available?**
 
-NFC supports various SKUs including Basic, Standard, and High Performance options.
+NFC supports the Standard SKU and uses virtual machines from the DSv3 family.
 
 **Is it possible to update the NFC with a new Express Route Circuit?**
 
