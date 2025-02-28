@@ -3,7 +3,7 @@ title: What's new in Azure Reliability documentation
 description: Learn about what's new in Azure reliability documentation
 ms.service: azure
 ms.subservice: azure-availability-zones
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 01/30/2025
 ms.author: anaharris
 author: anaharris-ms
