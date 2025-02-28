@@ -265,7 +265,7 @@
       href: load-balancer-common-deployment-errors.md
     - name: Troubleshoot load balancer health event logs
       href: load-balancer-troubleshoot-health-event-logs.md
-    expanded: false
+  expanded: false
 - name: Reliability and availability
   items:
   - name: Reliability
