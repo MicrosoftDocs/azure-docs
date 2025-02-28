@@ -4,7 +4,7 @@ description: Tips for implementing stored procedures using Synapse SQL in Azure 
 author: mstehrani
 ms.author: emtehran
 ms.reviewer: wiassaf
-ms.date: 02/29/2025
+ms.date: 02/28/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: concept-article
