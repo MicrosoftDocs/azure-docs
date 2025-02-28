@@ -1,6 +1,81 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/change-tracking/enable-from-portal.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/enable-from-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-from-vm.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/enable-from-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-from-automation-account.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/enable-from-automation-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/configure-alerts.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/configure-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/enable-from-runbook.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/enable-from-runbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/manage-change-tracking.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/manage-change-tracking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/manage-inventory-vms.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/manage-inventory-vms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/manage-scope-configurations.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/manage-scope-configurations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/overview.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/remove-feature.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/remove-feature",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/remove-vms-from-change-tracking.md",
+      "redirect_url": "/previous-versions/azure/automation/change-tracking/remove-vms-from-change-tracking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/how-to/region-mappings.md",
+      "redirect_url": "/previous-versions/azure/automation/how-to/region-mappings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-tutorial-installed-software.md",
+      "redirect_url": "/previous-versions/azure/automation/automation-tutorial-installed-software",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/change-tracking.md",
+      "redirect_url": "/previous-versions/azure/automation/troubleshoot/change-tracking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/onboarding.md",
+      "redirect_url": "/previous-versions/azure/automation/troubleshoot/onboarding",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/tutorial-modernize-asp-net-aks.md",
       "redirect_url": "/azure/migrate/migrate-services-overview",
       "redirect_document_id": false
