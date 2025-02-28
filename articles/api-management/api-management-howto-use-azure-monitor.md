@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 02/24/2025
+ms.date: 02/28/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -132,7 +132,7 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 > [!NOTE]
 > The Consumption tier doesn't support the collection of resource logs.
 
-[!INCLUDE [api-management-diagnostic-settigs](../../includes/api-management-diagnostic-settings.md)]
+[!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
  
 ## View logs and metrics in Azure Log Analytics
 

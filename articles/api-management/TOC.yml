@@ -637,8 +637,6 @@
     href: self-hosted-gateway-settings-reference.md
   - name: Self-hosted gateway Azure Arc configuration
     href: self-hosted-gateway-arc-reference.md
-  - name: Diagnostic logs settings
-    href: diagnostic-logs-reference.md
 - name: Resources
   items:
   - name: FAQ
