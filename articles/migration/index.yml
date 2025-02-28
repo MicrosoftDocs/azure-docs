@@ -170,7 +170,7 @@ sections:
         src: images/azure-migrate.svg
     - componentType: icon-card
       title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
-      summary: A three-step process for secure migration to Azure: establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience. 
+      summary: "A three-step process for secure migration to Azure: establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
       url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215 
       icon: 
         componentType: image
