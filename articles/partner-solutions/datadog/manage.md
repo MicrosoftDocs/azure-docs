@@ -22,50 +22,47 @@ To see details of your Datadog resource, select **Overview** in the left pane.
 The details include:
 
 - Resource group name
-- Location/Region
+- Location
 - Subscription
+- Subscription ID
 - Tags
-- Single sign-on link to Datadog organization
-- Datadog offer/plan
-- Billing term
+- Datadog organization
+- Status
+- Pricing Plan
+- Billing Plan
 
-It also provides links to Datadog dashboards, logs, and host maps.
+To manage your resource, select the links next to corresponding details.
 
-The overview screen provides a summary of the resources sending logs and metrics to Datadog.
+Below the essentials, you can navigate to other details about your resource by selecting the links.
 
-|Term  |Description  |
-|---------|---------|
-|Resource type    |Azure resource type.         |
-|Total resources    |Count of all resources for the resource type.         |
-|Resources sending logs     |Count of resources sending logs in Datadog through the integration.         |
+- **View Dashboards** provides insights on health and performance.
+- **View Logs** allows you to search and analyze logs using adhoc queries.
+- **View host maps** provides a complete view of all hosts (VMs, VMSS, App service plans)
+
+A summary of resources is also displayed in the working pane. 
+
+|Term                         |Description                                                                    |
+|-----------------------------|-------------------------------------------------------------------------------|
+|Resource type                |Azure resource type.                                                           |
+|Total resources              |Count of all resources for the resource type.                                  |
+|Resources sending logs       |Count of resources sending logs in Datadog through the integration.            |
 |Resources sending metrics    |Count of resources sending metrics to Datadog through the integration.         |
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for metrics and logs, select **Metrics and Logs** in the left pane.
-
-To send subscription level logs to Datadog, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Datadog.
-
-To send Azure resource logs to Datadog, select **Send Azure resource logs for all defined resources**. 
+To change the configuration rules for metrics and logs, select **Datadog organization configurations > Metrics and Logs** in the Resource menu.
 
 ## View monitored resources
 
-To see the list of resources emitting logs to Datadog, select **Monitored Resources** in the Resource menu.
+To see the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the Resource menu.
 
-You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. Only the resource types supported by Azure Monitor are monitored. Check out the list of [resource types supported by Azure Monitor](/azure/azure-monitor/essentials/resource-logs-categories).
+You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. 
 
-The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
-
-- Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
-- Error. The resource is configured to send logs to Datadog, an error is blocking it.
-- Logs not configured. Only Azure resources that have the appropriate resource tags are configured to send logs to Datadog.
-- Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
-- Datadog agent not configured. Virtual machines without the Datadog agent installed don't emit logs to Datadog.
+The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. 
 
 ## Monitor multiple subscriptions
 
-While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single Datadog resource tied to a Datadog organization, which provides a single pane of glass view for all resources across multiple subscriptions.
+You can monitor multiple subscriptions by linking them to a single Datadog resource tied to a Datadog organization, which provides a single pane of glass view for all resources across multiple subscriptions.
 
 To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Datadog organization configurations** section of the Resource menu.
 
@@ -77,7 +74,7 @@ Select the subscriptions you want to monitor through the Datadog resource and se
 
 If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
-The set of tag rules for metrics and logs defined for the Datadog resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Datadog resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
+The set of tag rules for metrics and logs defined for the Datadog resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Datadog resource. 
 
 ### Remove/unlink subscriptions from a Datadog resource
 
