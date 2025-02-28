@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 02/18/2025
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -104,7 +104,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available
 
-Azure Backup now provides improved backup and restore processes, reduced downtime, and increased efficiency for Azure Database for PostgreSQL - Flexible Server. This feature is now available in all Azure regions. You can manage the protection of the database by using the [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) in the Azure portal.
+Azure Backup now provides improved backup and restore processes, reduced downtime, and increased efficiency for Azure Database for PostgreSQL - Flexible Server. This feature is generally available in the following regions: East Asia, Central India, Southeast Asia, UK South, and UK West. However, this feature is currently in preview for other regions. You can manage the protection of the database by using the [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) in the Azure portal.
 
 The robust, scalable backup solution for Azure Database for PostgreSQL – Flexible Server allows you to meet  the needs of enterprises and developers alike, emphasizing comprehensive data protection and management.
 
