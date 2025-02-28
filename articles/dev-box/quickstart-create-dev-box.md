@@ -72,7 +72,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 ## Connect to a dev box
 
-After you create a dev box, you can connect to it remotely through the developer portal on your desktop, laptop, tablet, or phone. The developer portal provides the option to connect by using Windows App.
+After you create a dev box, you can connect to it remotely through the developer portal on your desktop, laptop, tablet, or phone. Microsoft Edge gives you the best experience. The developer portal provides the option to connect by using Windows App. 
 
 ### Connect by using Windows App
 
