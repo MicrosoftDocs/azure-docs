@@ -50,7 +50,7 @@ The Azure App Service local cache feature provides a web role view of your conte
 * **D:\home** now points to the local cache, which is created on the VM instance when the app starts. **D:\local** continues to point to the temporary, VM-specific storage.
 * The local cache contains a one-time copy of the **/site** and **/siteextensions** folders from the shared content store, located at **D:\home\site** and **D:\home\siteextensions**, respectively. These files are copied to the local cache at app startup. The size of these two folders is limited to 1 GB by default but can be increased to 2 GB. As the cache size increases, it takes longer to load the cache. If you increase the local cache limit to 2 GB and the copied files exceed this maximum size, App Service silently ignores the local cache and reads from the remote file share.
 > [!IMPORTANT]
-> When the copied files exceed the defined local cache size limit—or when no limit is defined—deployment and swap operations may fail with an error. See the [FAQ](#frequently-asked-questions-faq) for more details.
+> When the copied files exceed the defined local cache size limit—or when no limit is defined—deployment and swap operations may fail with an error. See the [FAQ](#frequently-asked-questions) for more details.
 > 
 * The local cache is read-write; however, any modifications are discarded when the app moves between VMs or restarts. Do not use the local cache for storing mission-critical data.
 * **D:\home\LogFiles** and **D:\home\Data** contain log files and app data. These folders are stored locally on the VM instance and are periodically copied to the shared content store. While apps can persist log files and data by writing to these folders, the copy process is best-effort. Consequently, log files and data may be lost if a VM instance crashes suddenly.
@@ -80,8 +80,6 @@ Enable local cache on a per-web-app basis by adding this app setting:
 <a name="Configure-Local-Cache-ARM"></a>
 
 ```jsonc
-...
-
 {
     "apiVersion": "2015-08-01",
     "type": "config",
@@ -96,7 +94,7 @@ Enable local cache on a per-web-app basis by adding this app setting:
     }
 }
 
-...
+```
 
 
 ## Change the size setting in local cache
@@ -113,7 +111,7 @@ We recommend using local cache in conjunction with the [Staging Environments](..
 * When ready, perform a [swap operation](../app-service/deploy-staging-slots.md#Swap) between the Staging and Production slots.
 * Sticky settings are tied to the slot. Thus, when the Staging slot is swapped into Production, it inherits the local cache app settings. The newly swapped Production slot will run against the local cache after a few minutes and will be warmed up during slot warmup. Once the swap is complete, your Production slot will be running against the local cache.
 
-## Frequently Asked Questions (FAQ)
+## Frequently Asked Questions
 
 ### What if the local cache size limit is exceeded?
 If the copied files exceed the local cache size limit, the app will revert to reading from the remote share. However, deployment and swap operations may then fail with an error. See the table below for details.
