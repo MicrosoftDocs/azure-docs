@@ -29,7 +29,7 @@ Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
 
 ## Procedure
 
-1. Enable `PauseAfterRack` upgrade strategy on a Nexus cluster
+1. Enable `PauseAfterRack` upgrade strategy on a Nexus Cluster
 
    ```azurecli
    az networkcloud cluster update --name "<CLUSTER>" \
@@ -38,7 +38,7 @@ Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
    --subscription "<SUBSCRIPTION>"
    ```
 
-2. Confirm that the cluster resource JSON in the JSON View reflects the `PauseAfterRack` upgrade strategy.
+2. Confirm that the Cluster resource JSON in the JSON View reflects the `PauseAfterRack` upgrade strategy.
 
    ```azurecli
    az networkcloud cluster show --cluster-name "<CLUSTER>" \
@@ -53,7 +53,7 @@ Executing Cluster runtime upgrade with `PauseAfterRack` strategy will pause to w
       "waitTimeMinutes": 15,
    ```
 
-3. Trigger runtime bundle upgrade as usual from Azure portal or CLI. See [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
+3. Trigger runtime bundle upgrade as usual from Azure portal or CLI. See [Upgrading Cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md).
 
 4. Once the control plane and management plane upgrades complete, the runtime upgrade is paused, awaiting user action to start the upgrade for Rack 1.
 
