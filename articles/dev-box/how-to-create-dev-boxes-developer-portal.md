@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/30/2025
+ms.date: 02/28/2025
 ms.topic: how-to
 
 # customer intent: As a developer, I want to learn what tasks I can perform through the developer portal so that I can manage my dev boxes.
@@ -16,15 +16,7 @@ ms.topic: how-to
 
 In this article, you learn how to manage a dev box by using the Microsoft Dev Box developer portal. Developers can access their dev boxes directly in the developer portal, instead of having to use the Azure portal.
 
-As a developer, you can view information about your dev boxes. You can also connect to, start, stop, restart, and delete them.
-
-## Permissions
-
-As a dev box developer, you can:
-
-- Create, view, and delete dev boxes that you create.
-- View pools within a project.
-- Connect to dev boxes.
+The developer portal is your central location to manage all of your dev boxes. In the developer portal, you can view information about your dev boxes. You can perform many actions on a dev box in the Microsoft Dev Box developer portal by using the actions menu on the dev box tile. The available options depend on the state of the dev box and the configuration of the dev box pool it belongs to. For example, you can shut down or restart a running dev box, or start a stopped dev box. You can also 
 
 ## Create a dev box
 
@@ -45,11 +37,17 @@ The new Windows App remote desktop client is the recommended client for Microsof
 
 You can use the **browser** for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
-## Explore dev box actions
+## Configure user settings
 
-You can perform many actions on a dev box in the Microsoft Dev Box developer portal by using the actions menu on the dev box tile. The available options depend on the state of the dev box and the configuration of the dev box pool it belongs to. For example, you can shut down or restart a running dev box, or start a stopped dev box.
+You can configure user settings for your dev box in the developer portal. For example, you can enable multiple montors.
 
-### Shut down, restart, or start a dev box
+To configure user settings for your dev box:
+
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+
+1. 
+
+## Shut down, restart, or start a dev box
 
 To shut down or restart a dev box:
 
@@ -71,7 +69,7 @@ To start a dev box:
 
 1. For a stopped dev box, you can select **Start**.
 
-### Get information about a dev box
+## Get information about a dev box
 
 You can use the Microsoft Dev Box developer portal to view information about a dev box, such as the creation date, and the dev center and dev box pool it belongs to. You can also check the source image in use.
 
