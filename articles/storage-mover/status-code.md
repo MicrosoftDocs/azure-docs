@@ -77,21 +77,15 @@ Each of these scopes further divides statuses into categories and subcategories.
 
 # Troubleshooting Storage Mover for RBAC issues
 
-Needs intro para.
-The automatic RBAC assignment is best effort attempt during job run and the customer experience during failure scenario is not ideal. The screenshot below outlines how the error scenario looks in portal.  
+During a job run, automatic RBAC assignments happen. In case of failures in assignments, manually add the required role assignment.
 
-Add screenshot here and image in media, troubleshooting folder.
+1.	Navigate to the appropriate resource. 
+2.	Navigate to Access Control (IAM).
+3.	Add a new role assignment - Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Learn
+4.	In the Add role assignment wizard
 
-**Open issue**: This warning doesn’t block the job run but without proper role assignment, the job will fail. The UI continues to show the warning icon even if it is manually fixed. 
-
-**Remediation **
-Manually add the required role assignment in this case.  
-* Go to Key Vault resource.
-* Navigate to Access Control (IAM)
-* Add a new role assignment
-* In the Add role assignment wizard
-   * Select “Key Vault Secrets User” role from the list
-   * Assign access should be “Managed Identity”
-   * On the right pane, select Managed Identity type as Machine – Azure Arc
-   * Select the machine arc from the list. It will be of the same name as the agent.
-   * Complete the assignment 
+•	Search for the appropriate role for the resource type selected in step 1. 
+•	Assign access should be for “Managed Identity”
+•	On the right pane, select Managed Identity type as Machine – Azure Arc
+•	Select the machine arc from the list. It will be of the same name as the agent.
+•	Complete the assignment.
