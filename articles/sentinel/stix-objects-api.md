@@ -88,7 +88,7 @@ Method: `POST`<br>
 #### Request body
 The JSON object for the body contains the following fields:
 
-|Field name	|Data Type	|Description|
+|Field name    |Data Type    |Description|
 |---|---|---|
 | `sourcesystem` (required) | string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
 | `stixobjects` (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
@@ -99,11 +99,11 @@ Create the array of STIX objects using the STIX format specification. Some of th
 
 All the objects you import with the upload API share these common properties.
 
-|Property Name	|Type |	Description |
+|Property Name    |Type |    Description |
 |----|----|----|
 |`id` (required)| string | An ID used to identify the STIX object. See section [2.9](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_64yvzeku5a5c) for specifications on how to create an `id`. The format looks something like `indicator--<UUID>`|
 |`spec_version` (optional) | string | STIX object version. This value is required in the STIX specification, but since this API only supports STIX 2.0 and 2.1, when this field isn't set, the API defaults to `2.1`|
-|`type` (required)|	string | The value of this property *must* be a supported STIX object.|
+|`type` (required)|    string | The value of this property *must* be a supported STIX object.|
 |`created` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
 |`created_by_ref` (optional) | string | The created_by_ref property specifies the ID property of the entity that created this object.<br><br>If this attribute is omitted, the source of this information is undefined. For object creators who wish to remain anonymous, keep this value undefined.|
 |`modified` (required) | timestamp | See section [3.2](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_xzbicbtscatx) for specifications of this common property.|
@@ -119,9 +119,9 @@ For more information, see [STIX common properties](https://docs.oasis-open.org/c
 
 #### Indicator
 
-|Property Name	|Type |	Description |
+|Property Name    |Type |    Description |
 |----|----|----|
-|`name` (optional)|	string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
+|`name` (optional)|    string | A name used to identify the indicator.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does.|
 |`description` (optional) | string | A description that provides more details and context about the indicator, potentially including its purpose and its key characteristics.<br><br>Producers *should* provide this property to help products and analysts understand what this indicator actually does. |
 |`indicator_types` (optional) | list of strings | A set of categorizations for this indicator.<br><br>The values for this property *should* come from the [indicator-type-ov](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_cvhfwe3t9vuo) |
 |`pattern` (required) | string | The detection pattern for this indicator *might* be expressed as a [STIX Patterning](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_e8slinrhxcc9) or another appropriate language such as SNORT, YARA, etc. |
@@ -135,17 +135,25 @@ For more information, see [STIX indicator](https://docs.oasis-open.org/cti/stix/
 
 #### Attack pattern
 
+Follow the STIX specifications for creating an attack pattern STIX object. Use [this example](#sample-attack-pattern) as an extra reference.
+
 For more information, see [STIX attack pattern](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_axjijf603msy).
 
 #### Identity
+
+Follow the STIX specifications for creating an identity STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
 
 For more information, see [STIX identity](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_wh296fiwpklp).
 
 #### Threat actor
 
+Follow the STIX specifications for creating a threat actor STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
+
 For more information, see [STIX threat actor](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_k017w16zutw).
 
 #### Relationship
+
+Follow the STIX specifications for creating a relationship STIX object. Use [this example](#sample-relationship-with-threat-actor-and-identity) as an extra reference.
 
 For more information, see [STIX relationship](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_e2e1szrqfoan).
 
@@ -166,7 +174,7 @@ The response body is an array of error messages in JSON format:
 
 |Field name | Data Type | Description |
 |----|----|----|
-|errors	| Array of error objects | List of validation errors |
+|errors    | Array of error objects | List of validation errors |
 
 **Error object**
 
@@ -291,6 +299,9 @@ The objects are sent as an array, so the `recordIndex` begins at `0`.
 
 In this example, the indicator is marked with the green TLP by using `marking-definition--089a6ecb-cc15-43cc-9494-767639779123` in the `object_marking_refs` common property. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
 
+> [!NOTE]
+> This indicator has the `revoked` property set to `$true` and its `valid_until` date is in the past. This indicator as is doesn't work in analytics rules and doesn't return in queries unless an appropriate time range is specified.
+
 ```json
 {
     "sourcesystem": "TestStixObjects",
@@ -363,6 +374,8 @@ In this example, the indicator is marked with the green TLP by using `marking-de
 ```
 
 #### Sample attack pattern
+
+This attack pattern is only viewable in the management interface if you opt in to the new STIX tables. For more information about the tables required to view objects like this in KQL, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
 ```json
 {
@@ -601,4 +614,4 @@ To learn more about how to work with threat intelligence in Microsoft Sentinel, 
 - [Understand threat intelligence](understand-threat-intelligence.md)
 - [Work with threat indicators](work-with-threat-indicators.md)
 - [Use matching analytics to detect threats](use-matching-analytics-to-detect-threats.md)
-- Utilize the intelligence feed from Microsoft and [enable MDTI data connector](connect-mdti-data-connector.md)
+- Utilize the intelligence feed from Microsoft and [enable the MDTI data connector](connect-mdti-data-connector.md)
