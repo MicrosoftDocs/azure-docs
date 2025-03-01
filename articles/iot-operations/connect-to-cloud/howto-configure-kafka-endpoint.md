@@ -42,7 +42,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 Then, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
 
-1. On the **Role** tab select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver`. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
+1. On the **Role** tab, select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver`. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
 1. On the **Members** tab:
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
     1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
@@ -63,7 +63,8 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the data flow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<NAMESPACE>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
+    | Host                 | The hostname of the Event Hubs host. You can search for an existing Event Hubs host or enter the host name manually using the format `<NAMESPACE>.servicebus.windows.net`. |
+    | Port                 | The port of the Event Hubs host. For Event Hubs, the port is `9093`. |
     | Authentication method| The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
 
 1. Select **Apply** to provision the endpoint.
@@ -316,7 +317,7 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
 1. Go to the cloud resource you need to grant permissions. For example, go to the Event Hubs namespace > **Access control (IAM)** > **Add role assignment**.
-1. On the **Role** tab select an appropriate role.
+1. On the **Role** tab, select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
@@ -386,7 +387,7 @@ To use user-assigned managed identity for authentication, you must first deploy 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the Kafka broker:
 
 1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Event Grid namespace > **Access control (IAM)** > **Add role assignment**.
-1. On the **Role** tab select an appropriate role.
+1. On the **Role** tab, select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
@@ -405,7 +406,7 @@ kafkaSettings: {
       clientId: '<CLIENT_ID>'
       tenantId: '<TENANT_ID>'
       // Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      // Matching the Event Hub namespace you configured as host
+      // Matching the Event Hubs namespace you configured as host
       // scope: 'https://<SCOPE_URL>'
     }
   }
@@ -423,7 +424,7 @@ kafkaSettings:
       clientId: <CLIENT_ID>
       tenantId: <TENANT_ID>
       # Optional, defaults to https://<NAMESPACE>.servicebus.windows.net/.default
-      # Matching the Event Hub namespace you configured as host
+      # Matching the Event Hubs namespace you configured as host
       # scope: https://<SCOPE_URL>
 ```
 
@@ -908,7 +909,7 @@ Examples:
 #### Kafka endpoint is a data flow source
 
 > [!NOTE]
-> There's a known issue when using Event Hubs endpoint as a data flow source where Kafka header gets corrupted as its translated to MQTT. This only happens if using Event Hub though the Event Hub client which uses AMQP under the covers. For for instance "foo"="bar", the "foo" is translated, but the value becomes"\xa1\x03bar".
+> There's a known issue when using Event Hubs endpoint as a data flow source where Kafka header gets corrupted as its translated to MQTT. This only happens if using Event Hubs through the Event Hubs client which uses AMQP under the covers. For for instance "foo"="bar", the "foo" is translated, but the value becomes"\xa1\x03bar".
 
 When a Kafka endpoint is a data flow source, Kafka user headers are translated to MQTT v5 properties. The following table describes how Kafka user headers are translated to MQTT v5 properties.
 
