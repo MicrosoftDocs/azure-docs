@@ -59,7 +59,7 @@ The version of the token (v1.0 or v2.0) received is determined by the `accessTok
 
 Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Use the access token to create the authorization header which contains the bearer token.
 
-For example, a request to the upload API uses the following elements to retrieve an access token and create the authorization header:
+For example, a request to the upload API uses the following elements to retrieve an access token and create the authorization header, which is used in each request:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
 
 Headers for using Microsoft Entra App:
