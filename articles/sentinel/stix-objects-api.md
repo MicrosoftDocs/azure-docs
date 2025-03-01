@@ -57,13 +57,69 @@ Acquire a Microsoft Entra access token with [OAuth 2.0 authentication](../active
 
 The version of the token (v1.0 or v2.0) received is determined by the `accessTokenAcceptedVersion` property in the [app manifest](/entra/identity-platform/reference-app-manifest#manifest-reference) of the API that your application is calling. If `accessTokenAcceptedVersion` is set to 1, then your application receives a v1.0 token.
 
-Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Or, send requests to the REST API in the following format:
+Use Microsoft Authentication Library [(MSAL)](/entra/identity-platform/msal-overview) to acquire either a v1.0 or v2.0 access token. Use the access token to create the authorization header which contains the bearer token.
+
+For example, a request to the upload API uses the following elements to retrieve an access token and create the authorization header:
 - POST `https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token`
-- Headers for using Microsoft Entra App:
+
+Headers for using Microsoft Entra App:
 - grant_type: "client_credentials"
 - client_id: {Client ID of Microsoft Entra App}
-- client_secret: {secret of Microsoft Entra App}
+- client_secret or client_certificate: {secrets of the Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
+
+Here's a sample powershell function that uses a self-signed certificate uploaded to the Entra app registration to generate the access token and authorization header:
+
+```PowerShell
+function Test-UploadApi {
+<#
+.SYNOPSIS
+    requires Powershell module MSAL.PS version 4.37 or higher
+    https://www.powershellgallery.com/packages/MSAL.PS/
+.EXAMPLE
+    Test-Api -API UploadApi -WorkspaceName "workspacename" -ResourceGroupName "rgname" -AppId "00001111-aaaa-2222-bbbb-3333cccc4444" -TenantName "contoso.onmicrosoft.com" -FilePath "C:\Users\user\Documents\stixobjects.json"
+#>
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory = $true)]
+    [string]$TenantName,
+    [Parameter(Mandatory = $true)]
+    [string]$CertThumbprint,
+    [Parameter(Mandatory = $true)]
+    [string]$AppId,
+    [Parameter(Mandatory = $true)]
+    [string]$WorkspaceId,
+    [Parameter(Mandatory = $true)]
+    [string]$FilePath
+)
+$Scope = "https://management.azure.com/.default"
+# Connection details for getting initial token with self-signed certificate from local store
+#  To create a secure self-signed certificate, see New-SelfSignedApiCert.ps1 https://github.com/austinmccollum/PS-solutions/blob/main/New-SelfSignedApiCert.ps1
+$connectionDetails = @{
+    'TenantId'          = $TenantName
+    'ClientId'          = $AppId
+    'ClientCertificate' = Get-Item -Path "Cert:\CurrentUser\My\$CertThumbprint"
+    scope               = $Scope
+}
+# Request the token
+#  Using Powershell module MSAL.PS https://www.powershellgallery.com/packages/MSAL.PS/
+#  Get-MsalToken is automatically using OAuth 2.0 token endpoint https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token
+#  and sets auth flow to grant_type = 'client_credentials'
+$token = Get-MsalToken @connectionDetails
+
+# Create header
+#  Again relying on MSAL.PS which has method CreateAuthorizationHeader() getting us the bearer token
+$Header = @{
+    'Authorization' = $token.CreateAuthorizationHeader()
+}
+$Uri = "https://api.ti.sentinel.azure.com/workspaces/$workspaceId/threat-intelligence-stix-objects:upload?api-version=$apiVersion"
+$stixobjects = get-content -path $FilePath
+if(-not $stixobjects) { Write-Host "No file found at $FilePath"; break }
+$results = Invoke-RestMethod -Uri $Uri -Headers $Header -Body $stixobjects -Method POST -ContentType "application/json"
+
+$results | ConvertTo-Json -Depth 4
+}
+```
 
 If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application receives a v1.0 access token even though it's calling the v2 token endpoint.
 
