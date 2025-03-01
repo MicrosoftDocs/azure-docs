@@ -11,6 +11,14 @@ ms.author: ankitadutta
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
 
+## Version 3.2
+
+**Release Date: December 11, 2024**
+
+**Fixes:**
+
+- ...
+
 ## Version 3.0
 
 **Release Date: June 4, 2024**
