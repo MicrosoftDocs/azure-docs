@@ -129,7 +129,6 @@ param (
 )
 $Scope = "https://management.azure.com/.default"
 # Connection details for getting initial token with self-signed certificate from local store
-#  To create a secure self-signed certificate, see New-SelfSignedApiCert.ps1 https://github.com/austinmccollum/PS-solutions/blob/main/New-SelfSignedApiCert.ps1
 $connectionDetails = @{
     'TenantId'          = $TenantName
     'ClientId'          = $AppId
@@ -361,7 +360,7 @@ The objects are sent as an array, so the `recordIndex` begins at `0`.
 In this example, the indicator is marked with the green TLP by using `marking-definition--089a6ecb-cc15-43cc-9494-767639779123` in the `object_marking_refs` common property. More extension attributes of `toxicity` and `rank` are also included. Although these properties aren't in the Microsoft Sentinel schema for indicators, ingesting an object with these properties doesn't trigger an error. The properties simply aren't referenced or indexed in the workspace.
 
 > [!NOTE]
-> This indicator has the `revoked` property set to `$true` and its `valid_until` date is in the past. This indicator as is doesn't work in analytics rules and doesn't return in queries unless an appropriate time range is specified.
+> This indicator has the `revoked` property set to `$true` and its `valid_until` date is in the past. This indicator as-is doesn't work in analytics rules and isn't returned in queries unless an appropriate time range is specified.
 
 ```json
 {
@@ -436,7 +435,7 @@ In this example, the indicator is marked with the green TLP by using `marking-de
 
 #### Sample attack pattern
 
-This attack pattern is only viewable in the management interface if you opt in to the new STIX tables. For more information about the tables required to view objects like this in KQL, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+This attack pattern and any other non-indicator STIX objects are only viewable in the management interface unless you opt in to the new STIX tables. For more information about the tables required to view objects like this in KQL, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
 ```json
 {
