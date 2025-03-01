@@ -135,7 +135,8 @@ sections:
 
           Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests use the available hourly quota for a Standard tier store. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly quota limit.
           
-          *Feature flags don't use the sentinel key for monitoring changes. It takes one request to monitor every 100 feature flags per refresh interval.
+          *Feature flags don't use the sentinel key for monitoring changes and are monitored separately from configuration. It takes one request to monitor every 100 feature flags per refresh interval.
+          
           †Free tier stores don't have frequent, repeated requests excluded from their daily limit.
 
       - question: My application receives HTTP status code 429 responses. Why?
