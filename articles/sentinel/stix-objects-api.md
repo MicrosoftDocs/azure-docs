@@ -68,7 +68,42 @@ Headers for using Microsoft Entra App:
 - client_secret or client_certificate: {secrets of the Microsoft Entra App}
 - scope: `"https://management.azure.com/.default"`
 
-Here's a sample powershell function that uses a self-signed certificate uploaded to the Entra app registration to generate the access token and authorization header:
+If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application receives a v1.0 access token even though it's calling the v2 token endpoint.
+
+The resource/scope value is the audience of the token. This API only accepts the following audiences:
+- `https://management.core.windows.net/`
+- `https://management.core.windows.net`
+- `https://management.azure.com/`
+- `https://management.azure.com`
+
+
+### Assemble the request message
+
+#### Request URI 
+API versioning: `api-version=2024-02-01-preview`<br>
+Endpoint: `https://api.ti.sentinel.azure.com/workspaces/{workspaceId}/threat-intelligence-stix-objects:upload?api-version={apiVersion}`<br>
+Method: `POST`<br>
+
+#### Request header
+`Authorization`: Contains the OAuth2 bearer token<br>
+`Content-Type`: `application/json`
+
+#### Request body
+The JSON object for the body contains the following fields:
+
+|Field name    |Data Type    |Description|
+|---|---|---|
+| `sourcesystem` (required) | string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
+| `stixobjects` (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
+
+Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
+
+>[!WARNING]
+>If you're using a Microsoft Sentinel Logic App to connect to the upload API, note there are three threat intelligence actions available. Only use the [**Threat Intelligence - Upload STIX Objects (Preview)**](/connectors/azuresentinel/#threat-intelligence---upload-stix-objects-(preview)). The other two will fail with this endpoint and JSON body fields.
+
+#### Sample request message
+
+Here's a sample PowerShell function that uses a self-signed certificate uploaded to an Entra app registration to generate the access token and authorization header:
 
 ```PowerShell
 function Test-UploadApi {
@@ -120,36 +155,6 @@ $results = Invoke-RestMethod -Uri $Uri -Headers $Header -Body $stixobjects -Meth
 $results | ConvertTo-Json -Depth 4
 }
 ```
-
-If `accessTokenAcceptedVersion` in the app manifest is set to 1, your application receives a v1.0 access token even though it's calling the v2 token endpoint.
-
-The resource/scope value is the audience of the token. This API only accepts the following audiences:
-- `https://management.core.windows.net/`
-- `https://management.core.windows.net`
-- `https://management.azure.com/`
-- `https://management.azure.com`
-
-
-### Assemble the request message
-
-#### Request URI 
-API versioning: `api-version=2024-02-01-preview`<br>
-Endpoint: `https://api.ti.sentinel.azure.com/workspaces/{workspaceId}/threat-intelligence-stix-objects:upload?api-version={apiVersion}`<br>
-Method: `POST`<br>
-
-#### Request header
-`Authorization`: Contains the OAuth2 bearer token<br>
-`Content-Type`: `application/json`
-
-#### Request body
-The JSON object for the body contains the following fields:
-
-|Field name    |Data Type    |Description|
-|---|---|---|
-| `sourcesystem` (required) | string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
-| `stixobjects` (required) | array | An array of STIX objects in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
-
-Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
 
 #### Common properties
 
