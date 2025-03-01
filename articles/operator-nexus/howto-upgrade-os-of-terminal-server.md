@@ -209,7 +209,7 @@ scp -r -o MACs=umac-128-etm@openssh.com ./operations_manager-24.11.2-production-
 Run the following command on the Terminal Server.
 
 ```bash
-puginstall --reboot-after /tmp/operations_manager-24.11.2-production-signed.raucb
+sudo puginstall --reboot-after /tmp/operations_manager-24.11.2-production-signed.raucb
 ```
 > [!Note]
 The upgrade process takes 5–10 minutes, during which the Terminal Server will reboot automatically.
@@ -252,5 +252,5 @@ If the firmware upgrade fails we advise you to factory reset the Terminal Server
     Run the following command on the Terminal Server.
 
    ```bash
-   ogcli restore <file_path>
+   sudo ogcli restore <file_path>
    ```
