@@ -74,3 +74,24 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM2071"></a>**AZSM2071** |Source file has been modified during transfer | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
+
+# Troubleshooting Storage Mover for RBAC issues
+
+Needs intro para.
+The automatic RBAC assignment is best effort attempt during job run and the customer experience during failure scenario is not ideal. The screenshot below outlines how the error scenario looks in portal.  
+
+Add screenshot here and image in media, troubleshooting folder.
+
+**Open issue**: This warning doesn’t block the job run but without proper role assignment, the job will fail. The UI continues to show the warning icon even if it is manually fixed. 
+
+**Remediation **
+Manually add the required role assignment in this case.  
+* Go to Key Vault resource.
+* Navigate to Access Control (IAM)
+* Add a new role assignment
+* In the Add role assignment wizard
+   * Select “Key Vault Secrets User” role from the list
+   * Assign access should be “Managed Identity”
+   * On the right pane, select Managed Identity type as Machine – Azure Arc
+   * Select the machine arc from the list. It will be of the same name as the agent.
+   * Complete the assignment 
