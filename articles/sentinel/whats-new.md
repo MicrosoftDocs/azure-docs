@@ -22,7 +22,7 @@ The listed features were released in the last three months. For information abou
 
 - [Customize settings for the SAP agentless solution](#customize-settings-for-the-sap-agentless-solution)
 
-### Customize settings for the SAP agentless solution
+### Customize settings for the SAP agentless solution (limited preview)
 
 Microsoft Sentinel customers integrating with the SAP agentless solution can now customize the behavior of their data connector using SAP Integration Suite value mapping.
 
