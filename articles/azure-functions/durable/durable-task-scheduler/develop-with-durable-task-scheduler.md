@@ -133,7 +133,7 @@ The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend p
 
 You can create a scheduler and task hub on Azure portal via two ways: 
 - **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment needed for your app to access DTS.
-- **Top-level creation:** Requires you to [manually assign RBAC]() to configure DTS access for your app.
+- **Top-level creation:** Requires you to [manually assign RBAC](#configure-identity-based-authentication-for-app-to-access-dts) to configure DTS access for your app.
 
 > [!NOTE]
 > DTS currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
@@ -256,14 +256,14 @@ The following sections demonstrate how to configure identity resources for your 
 
 1. Create a user-assigned managed identity
 
-    ```bash
-    az identity create -g MyResourceGroup -n MyIdentity
+    ```azurecli
+    az identity create -g RESOURCE_GROUP_NAME -n IDENTITY_NAME
     ```
 
 1. Set the assignee to identity resource created
 
-    ```bash 
-    assignee=$(az identity show --name MyIdentity --resource-group MyResourceGroup --query 'principalId' --output tsv) 
+    ```azurecli
+    assignee=$(az identity show --name IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv) 
     ``` 
 
 1. Set the scope. Granting access on the scheduler scope gives access to *all* task hubs in that scheduler.
@@ -271,17 +271,17 @@ The following sections demonstrate how to configure identity resources for your 
     **Task Hub**
 
     ```bash
-    scope="/subscriptions/${subscription}/resourceGroups/${rg}/providers/Microsoft.DurableTask/schedulers/${scheduler}/taskHubs/${taskhub}"
+    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/taskHubs/TASKHUB_NAME"
     ```
    
     **Scheduler**
     ```bash
-    scope="/subscriptions/${subscription}/resourceGroups/${rg}/providers/Microsoft.DurableTask/schedulers/${scheduler}"
+    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME"
     ```
 
 1. Grant access. Run the following command to create the role assignment and grant access.
 
-    ```bash
+    ```azurecli
     az role assignment create \
       --assignee "$assignee" \
       --role "Durable Task Data Contributor" \
@@ -325,7 +325,24 @@ The following sections demonstrate how to configure identity resources for your 
 
 ### Assign managed identity to your app
 
-1. Ensure the identity with the required RBAC is assigned to your function app.
+Now that the identity has the required RBAC to access DTS, you need to assign it to your function app.
+
+::: zone pivot="az-cli" 
+
+1. Get resource ID of manage identity.
+```azurecli
+resource_id=$(az resource show --resource-group RESOURCE_GROUP --name MANAGED_IDENTITY_NAME --resource-type Microsoft.ManagedIdentity/userAssignedIdentities --query id --output tsv)
+```
+
+1. Assign the identity to app.
+
+```azurecli
+az functionapp identity assign --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --identities "$resource_id"
+```
+
+::: zone-end 
+
+::: zone pivot="az-portal"
   
 1. From your app in the portal, select **Settings** > **Identity**. 
 
@@ -335,25 +352,57 @@ The following sections demonstrate how to configure identity resources for your 
 
     :::image type="content" source="media/configure-durable-task-scheduler/assign-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your app in the portal.":::
 
+::: zone-end 
+
 ### Add environment variables to app
+Add these two environment variables to app setting:
+  - `TASKHUB_NAME`: name of task hub
+  - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the DTS endpoint and *client id* is the managed identity client ID. 
 
-1. Find the *client id* of the managed identity resource and note it:
+::: zone pivot="az-cli"
 
-    :::image type="content" source="media/configure-durable-task-scheduler/identity_id.png" alt-text="Screenshot of the finding the identity resource ID in the portal.":::
+1. Get required information for DTS connection string. 
 
-1. Navigate to your app on the portal.
+To get DTS endpoint.
+```azurecli
+az durabletask scheduler show --resource-group RESOURCE_GROUP_NAME --name DTS_NAME --query 'properties.endpoint' --output tsv
+```
+
+To get client id of managed identity.
+```azurecli
+az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
+```
+
+1. Use the following command to add DTS connection string to app. 
+```azurecli
+az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
+```
+
+1. Repeat previous step to add task hub name. 
+
+::: zone-end 
+
+::: zone pivot="az-portal"
+
+1. Get required information for DTS connection string. 
+
+To get your DTS endpoint, navigate to the **Overview** tab of your scheduler resource and find "Endpoint" in the top *Essentials* section. 
+
+To get your managed identity client ID, navigate to the **Overview** tab of your resource and find "Client ID" in the top *Essentials* section. 
+
+1. Navigate to your app on the portal. 
 
 1. In the left menu, click **Settings** > **Environment variables**. 
 
-1. Add the following environment variables: 
+1. Add environment variable for DTS connection string. 
 
-    - `TASKHUB_NAME`: name of task hub
-    - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `Endpoint={DTS URL};Authentication=ManagedIdentity;ClientID={client id}`, where *endpoint* is the DTS URL and *client id* is the ID of the identity ID noted previously
+1. Add environment variable for task hub name.   
 
 1. Click **Apply** then **Confirm** to add the variables. 
+::: zone-end 
 
 > [!NOTE]
-> If you use system-assigned identity, your connection string would not need the client ID of the identity resource: `Endpoint={DTS URL};Authentication=ManagedIdentity`.
+> If you use system-assigned identity, your connection string would *not* need the client ID of the identity resource: `"Endpoint={DTS URL};Authentication=ManagedIdentity"`.
 
 ## Accessing DTS dashboard
 
@@ -363,7 +412,7 @@ Gain access to the DTS dashboard by granting access to your *developer identity*
 
 1. Set the assignee to your developer identity.
 
-    ```bash
+    ```azurecli
     assignee=$(az ad user show --id "someone@microsoft.com" --query "id" --output tsv)
     ```
 
@@ -372,17 +421,17 @@ Gain access to the DTS dashboard by granting access to your *developer identity*
     **Task Hub**
 
     ```bash
-    scope="/subscriptions/${subscription}/resourceGroups/${rg}/providers/Microsoft.DurableTask/schedulers/${scheduler}/taskHubs/${taskhub}"
+    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/taskHubs/TASK_HUB_NAME"
     ```
    
     **Scheduler**
     ```bash
-    scope="/subscriptions/${subscription}/resourceGroups/${rg}/providers/Microsoft.DurableTask/schedulers/${scheduler}"
+    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME"
     ```
 
 1. Grant access. Run the following command to create the role assignment and grant access.
 
-    ```bash
+    ```azurecli
     az role assignment create \
       --assignee "$assignee" \
       --role "Durable Task Data Contributor" \
