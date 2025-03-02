@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 02/10/2025
+ms.date: 03/03/2025
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)
@@ -122,7 +122,7 @@ In this section, you create a Windows Server VM in the virtual network you creat
     | Select inbound ports | Select **RDP (3389)**. |
 
     > [!CAUTION]
-    > Leaving the RDP port open to the internet is not recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
+    > Leaving the RDP port open to the internet isn't recommended. Restrict access to the RDP port to a specific IP address or range of IP addresses. For production environments, it's recommended to block internet access to the RDP port and use [Azure Bastion](../bastion/bastion-overview.md?toc=/azure/route-server/toc.json) to securely connect to your virtual machine from the Azure portal.
 
 1. Select **Review + create** and then **Create** after validation passes.
 
@@ -161,6 +161,9 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
     Add-BgpCustomRoute -network 172.16.2.0/24
     ```
 
+> [!IMPORTANT]
+> The Routing and Remote Access Service (RRAS) isn't supported in Azure. However, in this tutorial, it's used to simulate an NVA and demonstrate how to peer a route server with it. For more information, see [Remote access overview](/windows-server/remote/remote-access/remote-access).
+ 
 ## Configure Route Server peering
 
 1. Go to the Route Server you created in the previous steps.
@@ -184,7 +187,7 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
     :::image type="content" source="./media/peer-list.png" alt-text="Screenshot that shows the peers of a Route Server." lightbox="./media/peer-list.png":::
 
  > [!NOTE]
- > - Azure Route Server supports BGP peering with NVAs that are deployed in the same VNet or a directly peered VNet. Configuring BGP peering between an on-premises NVA and Azure Route Server is not supported. 
+> Azure Route Server supports BGP peering with NVAs that are deployed in the same virtual network or a directly peered virtual network. Configuring BGP peering between an on-premises NVA and Azure Route Server isn't supported.
     
 ## Check learned routes
 
