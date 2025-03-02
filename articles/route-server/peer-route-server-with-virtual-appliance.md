@@ -130,6 +130,9 @@ In this section, you create a Windows Server VM in the virtual network you creat
 
 In this section, you configure BGP settings on the VM so it acts as an NVA and can exchange routes with the Route Server.
 
+> [!IMPORTANT]
+> The Routing and Remote Access Service (RRAS) isn't supported in Azure. However, in this tutorial, it's used to simulate an NVA and demonstrate how to peer a route server with it. For more information, see [Remote access overview](/windows-server/remote/remote-access/remote-access).
+ 
 1. Go to **myNVA** virtual machine and select **Connect**.
 
 1. On the **Connect** page, select **Download RDP file** under **Native RDP**.
@@ -161,9 +164,6 @@ In this section, you configure BGP settings on the VM so it acts as an NVA and c
     Add-BgpCustomRoute -network 172.16.2.0/24
     ```
 
-> [!IMPORTANT]
-> The Routing and Remote Access Service (RRAS) isn't supported in Azure. However, in this tutorial, it's used to simulate an NVA and demonstrate how to peer a route server with it. For more information, see [Remote access overview](/windows-server/remote/remote-access/remote-access).
- 
 ## Configure Route Server peering
 
 1. Go to the Route Server you created in the previous steps.
