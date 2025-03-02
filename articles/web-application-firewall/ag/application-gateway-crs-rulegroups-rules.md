@@ -115,23 +115,23 @@ DRS 2.1 includes 17 rule groups, as shown in the following table. Each group con
 
 |Rule group|ruleGroupName|Description|
 |---|---|---|
-|**[General](#general-21)**|General|General group|
-|**[METHOD-ENFORCEMENT](#drs911-21)**|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
-|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
-|**[PROTOCOL-ATTACK](#drs921-21)**|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
-|**[APPLICATION-ATTACK-LFI](#drs930-21)**|LFI|Protect against file and path attacks|
-|**[APPLICATION-ATTACK-RFI](#drs931-21)**|RFI|Protect against remote file inclusion (RFI) attacks|
-|**[APPLICATION-ATTACK-RCE](#drs932-21)**|RCE|Protect again remote code execution attacks|
-|**[APPLICATION-ATTACK-PHP](#drs933-21)**|PHP|Protect against PHP-injection attacks|
-|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|NODEJS|Protect against Node JS attacks|
-|**[APPLICATION-ATTACK-XSS](#drs941-21)**|XSS|Protect against cross-site scripting attacks|
-|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|SQLI|Protect against SQL-injection attacks|
-|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|FIX|Protect against session-fixation attacks|
-|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|JAVA|Protect against JAVA attacks|
-|**[MS-ThreatIntel-WebShells](#drs9905-21)**|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
-|**[MS-ThreatIntel-AppSec](#drs9903-21)**|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
-|**[MS-ThreatIntel-SQLI](#drs99031-21)**|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
-|**[MS-ThreatIntel-CVEs](#drs99001-21)**|MS-ThreatIntel-CVEs|Protect against CVE attacks|
+|**[General](?tabs=drs21#general-21)**|General|General group|
+|**[METHOD-ENFORCEMENT](?tabs=drs21#drs911-21)**|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|**[PROTOCOL-ENFORCEMENT](?tabs=drs21#drs920-21)**|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|**[PROTOCOL-ATTACK](?tabs=drs21#drs921-21)**|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](?tabs=drs21#drs930-21)**|LFI|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](?tabs=drs21#drs931-21)**|RFI|Protect against remote file inclusion (RFI) attacks|
+|**[APPLICATION-ATTACK-RCE](?tabs=drs21#drs932-21)**|RCE|Protect again remote code execution attacks|
+|**[APPLICATION-ATTACK-PHP](?tabs=drs21#drs933-21)**|PHP|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-NodeJS](?tabs=drs21#drs934-21)**|NODEJS|Protect against Node JS attacks|
+|**[APPLICATION-ATTACK-XSS](?tabs=drs21#drs941-21)**|XSS|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](?tabs=drs21#drs942-21)**|SQLI|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](?tabs=drs21#drs943-21)**|FIX|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](?tabs=drs21#drs944-21)**|JAVA|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](?tabs=drs21#drs9905-21)**|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|**[MS-ThreatIntel-AppSec](?tabs=drs21#drs9903-21)**|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|**[MS-ThreatIntel-SQLI](?tabs=drs21#drs99031-21)**|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|**[MS-ThreatIntel-CVEs](?tabs=drs21#drs99001-21)**|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 
 ### OWASP CRS 3.2
