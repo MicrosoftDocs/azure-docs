@@ -24,13 +24,13 @@ This procedure is only relevant when you want to customize the SAP agentless dat
 
 ## Download the configuration file and customize settings
 
-1. Download the default [**value_mapping.xml**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/sap-agentless/Solutions/SAP/Agentless/example-paramaters.zip)) file. This file provides settings that define default behavior and is a good starting point to start customizing. 
+1. Download the default [**example-parameters.zip**](https://raw.githubusercontent.com/Azure/Azure-Sentinel/sap-agentless/Solutions/SAP/Agentless/example-parameters.zip)) file, which provides settings that define default behavior and is a good starting point to start customizing.
 
-    The **value_mapping.xml** file is stored in the [example-parameters.zip](https://raw.githubusercontent.com/Azure/Azure-Sentinel/sap-agentless/Solutions/SAP/Agentless/example-paramaters.zip) file in the Microsoft Sentinel GitHub repository. Save the file to a location accessible to your SAP Integration environment.
+    Save the **example-parameters.zip** file to a location accessible to your SAP Integration Suite environment.
 
-1. Use the [standard SAP procedure](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/creating-value-mapping) to create value mappings to customize your data connector settings.
+1. Use the standard SAP procedures for uploading a Value Mapping file and making changes to customize your data connector settings:
 
-    1. Upload the **value_mapping.xml** file to the SAP Integration Suite.
+    1. Upload the **example-parameters.zip** file to the SAP Integration Suite as a value mapping artifact. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/creating-value-mapping).
     1. Use one of the following methods to customize your settings:
 
         - **To customize settings across all SAP systems**, add value mappings for the **global** bi-directional mapping agency.
@@ -38,7 +38,7 @@ This procedure is only relevant when you want to customize the SAP agentless dat
 
         For more information, see:
 
-        - [SAP documentation on creating value mapping](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/creating-value-mapping)
+        - [SAP documentation on configuring Value Mappings](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/configuring-value-mappings)
         - [Reference of customizable parameters](#reference-of-customizable-parameters)
 
     Make sure to deploy the artifact when you're done customizing to activate the updated settings.
