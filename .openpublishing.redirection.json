@@ -1866,6 +1866,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-cross-premises-options.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
@@ -4086,36 +4091,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
-      "redirect_url": "/azure/openshift/howto-byok",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md",
-      "redirect_url": "/azure/openshift/index",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/quickstart-portal.md",
-      "redirect_url": "/azure/openshift/create-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-connect-cluster.md",
-      "redirect_url": "/azure/openshift/connect-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-create-cluster.md",
-      "redirect_url": "/azure/openshift/create-cluster",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/openshift/tutorial-delete-cluster.md",
-      "redirect_url": "/azure/openshift/delete-cluster",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/operator-service-manager/overview.md",
       "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
       "redirect_document_id": false
@@ -5973,6 +5948,16 @@
     {
       "source_path": "articles/sentinel/kusto-resources.md",
       "redirect_url": "/kusto/query/kql-learning-resources?view=microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/availability-zones-baseline.md",
+      "redirect_url": "/azure/reliability/availability-zones-migration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-for-azure-services.md",
+      "redirect_url": "/azure/virtual-network/vnet-integration-for-azure-services",
       "redirect_document_id": false
     }
   ]
