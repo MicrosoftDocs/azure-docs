@@ -143,20 +143,20 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 
 |Rule group name|Description|
 |---|---|
-|**[General](#general-32)**|General group|
-|**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
-|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
-|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-32)**|Protect against header injection, request smuggling, and response splitting|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-32)**|Protect against file and path attacks|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-32)**|Protect against remote file inclusion (RFI) attacks|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-32)**|Protect again remote code execution attacks|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-32)**|Protect against PHP-injection attacks|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-32)**|Protect against cross-site scripting attacks|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-32)**|Protect against SQL-injection attacks|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-32)**|Protect against session-fixation attacks|
-|**[REQUEST-944-APPLICATION-ATTACK-JAVA](#crs944-32)**|Protect against JAVA attacks|
+|**[General](?tabs=owasp32#general-32)**|General group|
+|**[KNOWN-CVES](?tabs=owasp32#crs800-32)**|Help detect new and known CVEs|
+|**[REQUEST-911-METHOD-ENFORCEMENT](?tabs=owasp32#crs911-32)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](?tabs=owasp32#crs913-32)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](?tabs=owasp32#crs920-32)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](?tabs=owasp32#crs921-32)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](?tabs=owasp32#crs930-32)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](?tabs=owasp32#crs931-32)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](?tabs=owasp32#crs932-32)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](?tabs=owasp32#crs933-32)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](?tabs=owasp32#crs941-32)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](?tabs=owasp32#crs942-32)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](?tabs=owasp32#crs943-32)**|Protect against session-fixation attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-JAVA](?tabs=owasp32#crs944-32)**|Protect against JAVA attacks|
 
 
 ### OWASP CRS 3.1
@@ -168,20 +168,20 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 |Rule group name|Description|
 |---|---|
-|**[General](#general-31)**|General group|
-|**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
-|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-31)**|Protect against protocol and encoding issues|
-|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-31)**|Protect against header injection, request smuggling, and response splitting|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-31)**|Protect against file and path attacks|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-31)**|Protect against remote file inclusion (RFI) attacks|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-31)**|Protect again remote code execution attacks|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-31)**|Protect against PHP-injection attacks|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-31)**|Protect against cross-site scripting attacks|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-31)**|Protect against SQL-injection attacks|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|Protect against session-fixation attacks|
-|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-31)**|Protect against JAVA attacks|
+|**[General](?tabs=owasp31#general-31)**|General group|
+|**[KNOWN-CVES](?tabs=owasp31#crs800-31)**|Help detect new and known CVEs|
+|**[REQUEST-911-METHOD-ENFORCEMENT](?tabs=owasp31#crs911-31)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](?tabs=owasp31#crs913-31)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](?tabs=owasp31#crs920-31)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](?tabs=owasp31#crs921-31)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](?tabs=owasp31#crs930-31)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](?tabs=owasp31#crs931-31)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](?tabs=owasp31#crs932-31)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](?tabs=owasp31#crs933-31)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](?tabs=owasp31#crs941-31)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](?tabs=owasp31#crs942-31)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](?tabs=owasp31#crs943-31)**|Protect against session-fixation attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](?tabs=owasp31#crs944-31)**|Protect against JAVA attacks|
 
 ### OWASP CRS 3.0
 
@@ -192,19 +192,19 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 
 |Rule group name|Description|
 |---|---|
-|**[General](#general-30)**|General group|
-|**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
-|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-30)**|Protect against protocol and encoding issues|
-|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-30)**|Protect against header injection, request smuggling, and response splitting|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-30)**|Protect against file and path attacks|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-30)**|Protect against remote file inclusion (RFI) attacks|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-30)**|Protect again remote code execution attacks|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-30)**|Protect against PHP-injection attacks|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-30)**|Protect against cross-site scripting attacks|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-30)**|Protect against SQL-injection attacks|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-30)**|Protect against session-fixation attacks|
+|**[General](?tabs=owasp30#general-30)**|General group|
+|**[KNOWN-CVES](?tabs=owasp30#crs800-30)**|Help detect new and known CVEs|
+|**[REQUEST-911-METHOD-ENFORCEMENT](?tabs=owasp30#crs911-30)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](?tabs=owasp30#crs913-30)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](?tabs=owasp30#crs920-30)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](?tabs=owasp30#crs921-30)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](?tabs=owasp30#crs930-30)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](?tabs=owasp30#crs931-30)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](?tabs=owasp30#crs932-30)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](?tabs=owasp30#crs933-30)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](?tabs=owasp30#crs941-30)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](?tabs=owasp30#crs942-30)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](?tabs=owasp30#crs943-30)**|Protect against session-fixation attacks|
 
 ### OWASP CRS 2.2.9
 
@@ -215,16 +215,16 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 |Rule group name|Description|
 |---|---|
-|**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
-|**[crs_21_protocol_anomalies](#crs21)**|Protect against incorrect header information|
-|**[crs_23_request_limits](#crs23)**|Protect against arguments or files that exceed limitations|
-|**[crs_30_http_policy](#crs30)**|Protect against restricted methods, headers, and file types|
-|**[crs_35_bad_robots](#crs35)**|Protect against web crawlers and scanners|
-|**[crs_40_generic_attacks](#crs40)**|Protect against generic attacks (such as session fixation, remote file inclusion, and PHP injection)|
-|**[crs_41_sql_injection_attacks](#crs41sql)**|Protect against SQL-injection attacks|
-|**[crs_41_xss_attacks](#crs41xss)**|Protect against cross-site scripting  attacks|
-|**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
-|**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
+|**[crs_20_protocol_violations](?tabs=owasp2#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
+|**[crs_21_protocol_anomalies](?tabs=owasp2#crs21)**|Protect against incorrect header information|
+|**[crs_23_request_limits](?tabs=owasp2#crs23)**|Protect against arguments or files that exceed limitations|
+|**[crs_30_http_policy](?tabs=owasp2#crs30)**|Protect against restricted methods, headers, and file types|
+|**[crs_35_bad_robots](?tabs=owasp2#crs35)**|Protect against web crawlers and scanners|
+|**[crs_40_generic_attacks](?tabs=owasp2#crs40)**|Protect against generic attacks (such as session fixation, remote file inclusion, and PHP injection)|
+|**[crs_41_sql_injection_attacks](?tabs=owasp2#crs41sql)**|Protect against SQL-injection attacks|
+|**[crs_41_xss_attacks](?tabs=owasp2#crs41xss)**|Protect against cross-site scripting  attacks|
+|**[crs_42_tight_security](?tabs=owasp2#crs42)**|Protect against path-traversal attacks|
+|**[crs_45_trojans](?tabs=owasp2#crs45)**|Protect against backdoor trojans|
 
 ### Bot Manager 1.0
 
@@ -232,9 +232,9 @@ The Bot Manager 1.0 rule set provides protection against malicious bots and dete
 
 |Rule group|Description|
 |---|---|
-|[BadBots](#bot100)|Protect against bad bots|
-|[GoodBots](#bot200)|Identify good bots|
-|[UnknownBots](#bot300)|Identify unknown bots|
+|**[BadBots](?tabs=bot#bot100)**|Protect against bad bots|
+|**[GoodBots](?tabs=bot#bot200)**|Identify good bots|
+|**[UnknownBots](?tabs=bot#bot300)**|Identify unknown bots|
 
 ### Bot Manager 1.1
 
@@ -242,9 +242,9 @@ The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It p
 
 |Rule group|Description|
 |---|---|
-|[BadBots](#bot11-100)|Protect against bad bots|
-|[GoodBots](#bot11-200)|Identify good bots|
-|[UnknownBots](#bot11-300)|Identify unknown bots|
+|**[BadBots](?tabs=bot11#bot11-100)**|Protect against bad bots|
+|**[GoodBots](?tabs=bot11#bot11-200)**|Identify good bots|
+|**[UnknownBots](?tabs=bot11#bot11-300)**|Identify unknown bots|
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
