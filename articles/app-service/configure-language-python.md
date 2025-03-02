@@ -134,7 +134,6 @@ For deployment-time generation, create a script file and set your `PRE_BUILD_COM
 #### Using Poetry
 
 ```sh
-#!/bin/bash
 # Set the exact Python version to match your App Service configuration
 PYTHON_VERSION="3.12.2"  # Replace with your version
 
@@ -148,7 +147,6 @@ poetry export --format requirements.txt --without-hashes --output requirements.t
 #### Using uv
 
 ```sh
-#!/bin/bash
 # Set the exact Python version to match your App Service configuration
 PYTHON_VERSION="3.12.2"  # Replace with your version
 
