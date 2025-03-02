@@ -368,6 +368,10 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
 
+## Customize data connector behavior (optional)
+
+If the agentless data connector's default functionality doesn't fit your organization's needs, customize it using SAP Integration Suite value mapping. For more information, see [Customize your SAP agentless data connector for Microsoft Sentinel](configure-agentless.md).
+
 ## Next step
 
 Once the connector is deployed, proceed to configure the Microsoft Sentinel solution for SAP applications content. Specifically, configuring details in the watchlists is an essential step in enabling detections and threat protection.
