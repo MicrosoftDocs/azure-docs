@@ -253,19 +253,19 @@ The following rule groups and rules are available when using Web Application Fir
 ## <a name="drs21"></a> 2.1 rule sets 
 
 ### <a name="general-21"></a> General
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |200002|Critical - 5|Failed to parse request body|
 |200003|Critical - 5|Multipart request body failed strict validation|
 
 
 ### <a name="drs911-21"></a> METHOD ENFORCEMENT
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |911100|Critical - 5|Method isn't allowed by policy|
 
 ### <a name="drs920-21"></a> PROTOCOL-ENFORCEMENT
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |920100|Notice - 2|Invalid HTTP Request Line|
 |920120|Critical - 5|Attempted multipart/form-data bypass|
@@ -305,7 +305,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 ### <a name="drs921-21"></a> PROTOCOL-ATTACK
 
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |921110|Critical - 5|HTTP Request Smuggling Attack|
 |921120|Critical - 5|HTTP Response Splitting Attack|
@@ -319,7 +319,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 
 ### <a name="drs930-21"></a> LFI - Local File Inclusion
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |930100|Critical - 5|Path Traversal Attack (/../)|
 |930110|Critical - 5|Path Traversal Attack (/../)|
@@ -327,7 +327,7 @@ The following rule groups and rules are available when using Web Application Fir
 |930130|Critical - 5|Restricted File Access Attempt|
 
 ### <a name="drs931-21"></a> RFI - Remote File Inclusion
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |931100|Critical - 5|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Critical - 5|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
@@ -335,7 +335,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931130|Critical - 5|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-21"></a> RCE - Remote Command Execution
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |932100|Critical - 5|Remote Command Execution: Unix Command Injection|
 |932105|Critical - 5|Remote Command Execution: Unix Command Injection|
@@ -351,7 +351,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932180|Critical - 5|Restricted File Upload Attempt|
 
 ### <a name="drs933-21"></a> PHP Attacks
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |933100|Critical - 5|PHP Injection Attack: Opening/Closing Tag Found|
 |933110|Critical - 5|PHP Injection Attack: PHP Script File Upload Found|
@@ -367,12 +367,12 @@ The following rule groups and rules are available when using Web Application Fir
 |933210|Critical - 5|PHP Injection Attack: Variable Function Call Found|
 
 ### <a name="drs934-21"></a> Node JS Attacks
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |934100|Critical - 5|Node.js Injection Attack|
 
 ### <a name="drs941-21"></a> XSS - Cross-site Scripting
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |941100|Critical - 5|XSS Attack Detected via libinjection|
 |941101|Critical - 5|XSS Attack Detected via libinjection.<br />This rule detects requests with a *Referer* header|
@@ -406,7 +406,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941380|Critical - 5|AngularJS client side template injection detected|
 
 ### <a name="drs942-21"></a> SQLI - SQL Injection
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |942100|Critical - 5|SQL Injection Attack Detected via libinjection|
 |942110|Warning - 3|SQL Injection Attack: Common Injection Testing Detected|
@@ -451,14 +451,14 @@ The following rule groups and rules are available when using Web Application Fir
 |942510|Critical - 5|SQLi bypass attempt by ticks or backticks detected|
 
 ### <a name="drs943-21"></a> SESSION-FIXATION
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |943100|Critical - 5|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |943110|Critical - 5|Possible Session Fixation Attack: SessionID Parameter Name with Off-Domain Referrer|
 |943120|Critical - 5|Possible Session Fixation Attack: SessionID Parameter Name with No Referrer|
 
 ### <a name="drs944-21"></a> JAVA Attacks
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |944100|Critical - 5|Remote Command Execution: Apache Struts, Oracle WebLogic|
 |944110|Critical - 5|Detects potential payload execution|
@@ -470,7 +470,7 @@ The following rule groups and rules are available when using Web Application Fir
 |944250|Critical - 5|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-21"></a> MS-ThreatIntel-WebShells
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |99005002|Critical - 5|Web Shell Interaction Attempt (POST)|
 |99005003|Critical - 5|Web Shell Upload Attempt (POST) - CHOPPER PHP|
@@ -479,13 +479,13 @@ The following rule groups and rules are available when using Web Application Fir
 |99005006|Critical - 5|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-21"></a> MS-ThreatIntel-AppSec
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |99030001|Critical - 5|Path Traversal Evasion in Headers (/.././../)|
 |99030002|Critical - 5|Path Traversal Evasion in Request Body (/.././../)|
 
 ### <a name="drs99031-21"></a> MS-ThreatIntel-SQLI
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |99031001|Warning - 3|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|Critical - 5|SQL Comment Sequence Detected|
@@ -493,7 +493,7 @@ The following rule groups and rules are available when using Web Application Fir
 |99031004|Critical - 5|Detects basic SQL authentication bypass attempts 2/3|
 
 ### <a name="drs99001-21"></a> MS-ThreatIntel-CVEs
-|Rule ID|Anomaly Score Severity|Description|
+|Rule ID|Anomaly score severity|Description|
 |---|---|--|
 |99001001|Critical - 5|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
 |99001002|Critical - 5|Attempted Citrix NSC_USER directory traversal [CVE-2019-19781](https://www.cve.org/CVERecord?id=CVE-2019-19781)|
