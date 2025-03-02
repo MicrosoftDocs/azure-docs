@@ -114,7 +114,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
       -->
       <!-- Fran, need new screenshot here -->
       <!--
-      ::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
+      :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
    -->
 
 1. Go to your cache in the Azure portal, and locate **Access keys** on the Resource menu. Write down or copy the contents of the **Primary** box. You'll use this for creating your connection string.
