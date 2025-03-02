@@ -15,7 +15,6 @@ This tutorial shows you how to deploy an Azure Route Server and a Windows Server
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a virtual network
 > - Deploy an Azure Route Server
 > - Deploy a virtual machine
 > - Configure BGP on the virtual machine
@@ -32,66 +31,39 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a virtual network
+## Create a route server
 
-Create a virtual network to deploy both the Route Server and the NVA in it. Azure Route Server must be deployed in a dedicated subnet called *RouteServerSubnet*.
+In this section, you create a route server.
 
-1. In the search box at the top of the portal, enter ***virtual networks***, and select **Virtual networks** from the search results. 
+1. Sign in to [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/virtual-networks-portal-search.png" alt-text="Screenshot of searching for virtual networks in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/virtual-networks-portal-search.png":::
+1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
-1. On the **Virtual networks** page, select **+ Create**. 
+    :::image type="content" source="./media/route-server-portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/route-server-portal-search.png":::
 
-1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
+1. On the **Route Servers** page, select **+ Create**. 
+
+1. On the **Basics** tab of **Create a Route Server**, enter, or select the following information:
 
     | Settings | Value |
-    | -------- | ----- |
+    |----------|-------|
     | **Project details** |  |
-    | Subscription | Select your Azure subscription. |
-    | Resource group | Select **Create new**. </br>In **Name** enter ***myResourceGroup***. </br>Select **OK**. | 
+    | Subscription | Select the Azure subscription that you want to use to deploy the route server. |
+    | Resource group | Select **Create new**. <br>In **Name**, enter ***myResourceGroup***. <br>Select **OK**. |
     | **Instance details** |  |
-    | Name | Enter ***myVirtualNetwork***. |
-    | Region | Select an Azure region. This tutorial uses **East US**. |
+    | Name | Enter ***myRouteServer***. |
+    | Region | Select **East US** or any region you prefer to create the route server in. |
+    | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **Create new**. <br>In **Name**, enter ***myVirtualNetwork***. <br>In **Address range**, enter ***10.0.0.0/16***. <br>In **Subnet name** and **Address range**, enter ***RouteServerSubnet*** and ***10.0.1.0/26*** respectively. <br>Select **OK**. |
+    | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** will populate. <br>- The subnet must be named *RouteServerSubnet*.<br>- The subnet must be a minimum of /26 or larger. |
+    | **Public IP address** |  |
+    | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
+    | Public IP address name | Enter ***myVirtualNetwork-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
 
-1. Select **IP Addresses** tab or **Next** button twice.
-
-1. On the **IP Addresses** tab, configure **IPv4 address space** to **10.0.0.0/16**, then configure the below subnets. The subnet must be a minimum of /26 or larger. 
-
-    | Subnet name | Subnet address range |
-    | ----------- | -------------------- |
-    | mySubnet | 10.0.0.0/24 |
-    | RouteServerSubnet | 10.0.1.0/26 |
+    :::image type="content" source="./media/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/create-route-server.png":::     
 
 1. Select **Review + create** and then select **Create** after the validation passes.
-
-## Create an Azure Route Server
-
-In this section, you create an Azure Route Server.
-
-1. In the search box at the top of the portal, enter ***route server***, and select **Route Servers** from the search results. 
-
-1. On the **Route Servers** page, select **+ Create**.
-
-1. On the **Basics** tab of **Create a Route Server** page, enter, or select the following information:
-
-    | Settings | Value |
-    | -------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your Azure subscription that you used for the virtual network. | 
-    | Resource group | Select **myResourceGroup**. |
-    | **Instance details** |  |
-    | Name | Enter *myRouteServer*. |
-    | Region | Select **East US** region. |
-    | Routing Preference | Select the default **ExpressRoute** option. Other available options are:  **VPN** and **ASPath**. <br>You can change your selection later from the Route Server **Configuration**. |
-    | **Configure virtual networks** |  |
-    | Virtual Network | Select **myVirtualNetwork**. |
-    | Subnet | Select **RouteServerSubnet (10.0.1.0/24)**. This subnet is a dedicated Route Server subnet. |
-    | **Public IP address** |  |
-    | Public IP address | Select **Create new** and accept the default name **myVirtualNetwork-ip** or enter a different one. This Standard IP address ensures connectivity to the backend service that manages the Route Server configuration. |
-
-    :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-route-server.png" alt-text="Screenshot of creating a Route Server in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-route-server.png":::
-
-1. Select **Review + create** and then select **Create** after validation passes.
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
