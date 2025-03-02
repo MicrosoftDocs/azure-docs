@@ -160,8 +160,8 @@ configuration:
               matchAny: true
               pattern: articles/reliability/*
           - commentContains:
-              pattern: \#sign-off
-              isRegex: false
+              pattern: '\#sign-off'
+              isRegex: true
           - not:
               or:
                 - isActivitySender:

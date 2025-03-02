@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/15/2025
+ms.date: 02/27/2025
 ---
 
 # Compare Remote Desktop app features across platforms and devices
@@ -521,36 +521,37 @@ The following table shows which credential types are available for each platform
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ✅ |
+| Passkeys (FIDO2) | ✅ | ✅ | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ |
 | Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Smart card with Active Directory Federation Services | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
 | Smart card with Microsoft Entra certificate-based authentication | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Windows Hello for Business certificate trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business cloud trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business key trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business certificate trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business cloud trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business key trust | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
 
 ::: zone-end
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
-| Passkeys (FIDO2) | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | ❌ | ✅ |
+| Passkeys (FIDO2) | ✅ | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup1; | <sup>&#8197;&#8197;</sup>✅&sup2; | ✅ |
 | Microsoft Authenticator | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Smart card with Active Directory Federation Services | ✅ | ✅ | ❌ | ❌ | ✅ |
 | Smart card with Microsoft Entra certificate-based authentication | ✅ | ✅ | ✅ | ❌ | ✅ |
-| Windows Hello for Business certificate trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business cloud trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
-| Windows Hello for Business key trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup2; |
+| Windows Hello for Business certificate trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business cloud trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
+| Windows Hello for Business key trust | ✅ | ❌ | ❌ | ❌ | <sup>&#8197;&#8197;</sup>✅&sup3; |
 
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop,windows-365,dev-box"
 1. Requires macOS client version 10.9.8 or later. Requires iOS client version 10.5.9 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support).
+1. Currently available in preview. Requires Android client version 1.0.20.1333 or later. For more information, see [Support for FIDO2 authentication with Microsoft Entra ID](/entra/identity/authentication/concept-fido2-compatibility#native-application-support).
 1. Available when using a web browser on a local Windows device only.
 
 ### Remote session authentication
@@ -561,7 +562,7 @@ When connecting to a remote session, there are multiple ways to authenticate. If
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -575,7 +576,7 @@ When connecting to a remote session, there are multiple ways to authenticate. If
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Microsoft Authenticator | ❌ | ❌ | ❌ | ❌ | ❌ |
@@ -600,7 +601,7 @@ The following table shows which types of credential are available when authentic
 
 ::: zone pivot="azure-virtual-desktop"
 
-| Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -613,7 +614,7 @@ The following table shows which types of credential are available when authentic
 
 ::: zone pivot="windows-365,dev-box"
 
-| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+| Credential type | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Passkeys (FIDO2) | <sup>&#8197;&#8197;</sup>✅&sup2; | ❌ | ❌ | ❌ | ❌ |
 | Password | ✅ | ✅ | ✅ | ✅ | ✅ |

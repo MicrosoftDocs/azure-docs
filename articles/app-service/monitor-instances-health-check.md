@@ -203,7 +203,7 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 If all instances of your application are unhealthy, App Service won't remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application. However, the instance replacement will still occur.
 
  ### What happens during a slot swap?
-Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. 
+Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and non-production slots if possible to prevent any unexpected behavior after the swap.
 
 ### Does Health check work on App Service Environments?
 

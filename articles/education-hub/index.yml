@@ -61,7 +61,3 @@ landingContent:
         links:
           - text: What is Azure Classroom?
             url: about-education-hub.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage your academic sponsorship
-            url: hub-overview-page.md
