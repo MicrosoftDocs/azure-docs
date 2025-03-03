@@ -20,7 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## February 2025
 
-- [Customize settings for the SAP agentless solution](#customize-settings-for-the-sap-agentless-solution)
+- [SAP agentless solution enhancements (limited preview)](#sap-agentless-solution-enhancements-limited-preview)
 
 ### SAP agentless solution enhancements (limited preview)
 

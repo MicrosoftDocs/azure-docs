@@ -349,8 +349,6 @@ If you have unexpected issues not listed in this article, try the following step
 
 :::zone-end
 
-:::zone pivot="connection-agentless"
-
 ## Related content
 
 Learn more about the Microsoft Sentinel solution for SAP applications:
@@ -375,4 +373,3 @@ Reference files:
 :::zone-end
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
-
