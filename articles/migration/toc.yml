@@ -25,7 +25,7 @@
         href: ./placeholder.md
     - name: Compute
       items:
-        name: Compute migration considerations
+      - name: Compute migration considerations
         href: ./placeholder.md
       - name: Replatform from AWS Lambda to Azure Functions
         href: ./placeholder.md
