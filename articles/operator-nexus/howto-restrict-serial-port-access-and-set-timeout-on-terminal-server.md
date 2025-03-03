@@ -9,9 +9,9 @@ ms.date: 02/26/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# How to restrict serial port access to a single session and set a 15-Minute time-out on a Terminal Server
+# How to restrict serial port access to a single session and set time-out on a Terminal Server
 
-This guide explains how to configure a Terminal Server to restrict serial port access to a single session and set the default time-out to 15 minutes.
+This guide explains how to configure a Terminal Server to restrict serial port access to a single session and set the default time-out.
 
 ## Prerequisites
 
@@ -30,6 +30,9 @@ sudo ogcli update system/cli_session_timeout timeout=15
 sudo ogcli update system/webui_session_timeout timeout=15
 sudo ogcli update system/session_timeout serial_port_timeout=15
 ```
+
+>[Note]
+> In the above example the timeout value is set to 15 minutes.
 
 ## Step 2: Verify time-out settings
 
