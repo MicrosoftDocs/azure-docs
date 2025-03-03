@@ -164,7 +164,7 @@ You've now specified a secret in the CI/CD secret store and passed a reference t
 
 Next, you update the test script to use the secret that you specified earlier.
 
-## [Apache JMeter](#tab/jmeter)
+# [Apache JMeter](#tab/jmeter)
 
 You first create a user-defined variable that retrieves the secret value. Then, you can use this variable in your test (for example, to pass an API token in an HTTP request header).
 
@@ -206,7 +206,7 @@ You first create a user-defined variable that retrieves the secret value. Then, 
       </HeaderManager>
     ```
 
-## [Locust](#tab/locust)
+# [Locust](#tab/locust)
 
 The secrets configured in the load test configuration are accessible as environment variables. 
 
@@ -218,6 +218,7 @@ my_secret = os.getenv("appToken")
 
 1. Reference the variable in your test script to use the secret value stored in Azure KeyVault. 
 
+---
 
 ## <a name="envvars"></a> Configure load tests with environment variables
 
@@ -276,6 +277,7 @@ my_secret = os.getenv("webapp")
 
 1. Reference the variable in your test script to use the environment variable's value provided in the test configuration.
 
+--- 
 
 ### Configure environment variables in Azure Load Testing
 
