@@ -33,7 +33,7 @@ Service Connector for AKS differs from how it operates with other [compute servi
 
 The AKS-specific creation options are listed below. Refer to the [Azure portal](/azure/service-connector/quickstart-portal-aks-connection) or [Azure CLI](/azure/service-connector/quickstart-cli-aks-connection) quickstarts to learn how to create a new connection in AKS.
 
-- Service Connector for AKS requires the `Kubernetes namespace` parameter to specify where to [create the Kubernetes resources].(#creating-the-kubernetes-resources). By default, it uses the `default` namespace.
+- Service Connector for AKS requires the `Kubernetes namespace` parameter to specify where to [create the Kubernetes resources](#creating-the-kubernetes-resources). By default, it uses the `default` namespace.
 - Service Connector for AKS supports `Workload Identity` as the secure credential authentication option, while other compute services offer `System Managed Identity` and `User Managed Identity` options.
 - When using Azure Key Vault as the target service with the Secret Store CSI Driver enabled, Service Connector uses the user-assigned managed identity from the AKS `azure-keyvault-secrets-provider` add-on for authentication, without requiring users to specify the authentication type.
 - Service Connector for AKS only supports the `Firewall Rules` networking option, whereas other compute services may also support `Private Link` and `Virtual Network` options.
@@ -56,7 +56,7 @@ Service Connector for AKS doesn't validate configuration value changes made with
 
 The output of the Azure CLI command [az aks connection validate](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-validate) is always `success`. The same applies to the Azure portal, as shown below.
 
-:::image type="content" source="./media/aks-tutorial/aks-validate.png" alt-text="Screenshot of the AKS connection validation":::
+:::image type="content" source="./media/aks-tutorial/aks-validate.png" alt-text="Screenshot of the AKS connection validation.":::
 
 ## Operations performed by Service Connector on the AKS cluster
 
