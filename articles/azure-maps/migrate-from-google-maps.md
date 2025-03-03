@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account] before you begi
 
 ## Azure Maps platform overview
 
-Azure Maps provides developers across various industries with robust geospatial capabilities. These features include frequently updated map data, offering essential geographic context for web applications. Azure Maps suite of REST APIs provide services such as Map Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather.
+Azure Maps provides developers across various industries with robust geospatial capabilities. These features include frequently updated map data, offering essential geographic context for web applications. Azure Maps suite of REST APIs provide services such as Map Rendering, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Weather. The Web SDK supports these operations, ensuring development is straightforward, adaptable, and portable across multiple platforms.
 
 ## High-level platform comparison
 
