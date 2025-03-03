@@ -74,3 +74,31 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2070"></a>**AZSM2070** |Cannot write blob because it has an active lease | This error may be caused by another agent writing to the location. Ensure no other job is running against the target. Retry or create support ticket. |
 | <a name="AZSM2071"></a>**AZSM2071** |Source file has been modified during transfer | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
+
+# Troubleshooting Storage Mover for RBAC issues
+
+During a job run, automatic RBAC assignments happen. In case of failures in assignments, manually add the required role assignment.
+
+1.	Navigate to the appropriate resource - Key Vault, File Share or Blob Container. 
+2.	Navigate to Access Control (IAM).
+3.	Add a new role assignment - [Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Learn](/azure/role-based-access-control/role-assignments-portal) article.
+4.	In the Add role assignment wizard
+- Search for the appropriate role for the resource type selected in step 1. In the below example the resource would be Key Vault
+
+:::image type="content" source="media/troubleshooting/RBAC.png" alt-text="Image showing the Key Vault resource successfully assigned roles." lightbox="media/troubleshooting/RBAC.png":::
+
+|Resource Type                          |Roles required|
+|---------------------------------------|--------------|
+| <a name="Key Vault"></a>**Key Vault** |Key Vault Secrets User| 
+| <a name="File Share"></a>**File Share** |Storage File Data Privileged Contributor| 
+| <a name="Blob Container"></a>**Blob Container** |Storage Blob Data Privileged Contributor | 
+
+- Assign access should be for “Managed Identity”
+- On the right pane, select Managed Identity type as Machine – Azure Arc
+- Select the machine arc from the list. It will be of the same name as the agent.
+- Complete the assignment.
+
+
+
+
+
