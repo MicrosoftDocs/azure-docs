@@ -97,8 +97,10 @@ Split tunneling is configured by default for the VPN client.
 You can configure forced tunneling in order to direct all traffic to the VPN tunnel. Forced tunneling can be configured using two different methods; either by advertising custom routes, or by modifying the profile XML file.
 
 For Azure VPN Client for Windows:
-- Version 2.1900:39.0 or higher. You can include the route 0/0. Modify the downloaded profile xml file and add the <includeroutes><route><destination><mask> </destination></mask></route></includeroutes> tags. Make sure to update the version number to 2.
+
+- Version 2.1900:39.0 or higher. You can include the route 0/0. Modify the downloaded profile xml file and add the ```<includeroutes><route><destination><mask> </destination></mask></route></includeroutes>``` tags. Make sure to update the version number to 2.
 - Version lower than 2.1900:39.0: You need to add two custom routes: 0.0.0.0/1 and 128.0.0.0/1.
+
 
 For Azure VPN Client on macOS:
 - macOS version 14 or higher. Only the custom route 0/0 is supported. The routes 0.0.0.0/1 and 128.0.0.0/1 are not supported.
