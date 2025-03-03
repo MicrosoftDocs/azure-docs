@@ -360,6 +360,8 @@
         href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
       - name: DDoS protection
         href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/TOC.json
+    - name: Network security blog
+      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Operational excellence
   items:
   - name: Front Door
@@ -529,4 +531,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-cdn
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+  - name: Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   
