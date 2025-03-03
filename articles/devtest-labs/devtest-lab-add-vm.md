@@ -46,7 +46,6 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
                  - if no 4 core non-premium CPU size is available, then the first available 4 core CPU size is selected by default
                  - if no 4 core CPU size is available, then the first available CPU size is selected by default
    - **Allow hibernation**: Select this option to enable hibernation for the virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
-   - **Hibernation**: Select **Enabled** to enable hibernation for this virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 
