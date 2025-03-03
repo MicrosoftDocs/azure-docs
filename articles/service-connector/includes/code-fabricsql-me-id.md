@@ -13,7 +13,7 @@ ms.author: chentony
     dotnet add package Microsoft.Data.SqlClient
     ```
     
-1. Get the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector.
+1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector.
 
     ```csharp
     using Microsoft.Data.SqlClient;
@@ -24,7 +24,7 @@ ms.author: chentony
     using var connection = new SqlConnection(connectionString);
     connection.Open();
     ```
-    For more information, see [Using Active Directory Managed Identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=fabric&preserve-view=true#using-managed-identity-authentication).
+    For more information, see [Using Active Directory managed identity authentication](/sql/connect/ado-net/sql/azure-active-directory-authentication?view=fabric&preserve-view=true#using-managed-identity-authentication).
 
 ### [Java](#tab/fabricsql-me-id-java)
 
@@ -43,7 +43,7 @@ ms.author: chentony
     </dependency>
     ```
 
-1. Get the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector.
+1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector.
 
     ```java
     import java.sql.Connection;
@@ -74,9 +74,9 @@ ms.author: chentony
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the environment variable `FABRIC_SQL_CONNECTIONSTRING` with value format `jdbc:sqlserver://<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;databaseName=<SQL-DB-name>-<Fabric-DB-Identifier>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
-For User-Managed Identities, `msiClientId=<msiClientId>;` is added.
+For user-assigned managed dentities, `msiClientId=<msiClientId>;` is added.
 
-Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies.
+Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was previously set and add the correct dependencies.
 
 ```yaml
 spring:
@@ -91,7 +91,7 @@ spring:
     python -m pip install pyodbc
     ```
 
-1. Get the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector. If you are using Azure Container Apps as compute service or the connection string in the code snippet doesn't work, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python#update-the-local-connection-configuration) to connect to SQL database in Microsoft Fabric using passwordless credentials. Note that the `UID=<msiClientId>;Authentication=ActiveDirectoryMSI;` snippet (`Authentication=ActiveDirectoryMSI;` if connecting using a system-managed identity) from the connection string means we do not need to separately acquire token credentials.
+1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector. If you are using Azure Container Apps as compute service or the connection string in the code snippet doesn't work, refer to [Migrate a Python application to use passwordless connections with Azure SQL Database](/azure/azure-sql/database/azure-sql-passwordless-migration-python#update-the-local-connection-configuration) to connect to SQL database in Microsoft Fabric using passwordless credentials. `Authentication=ActiveDirectoryMSI;` is required in the connection string when connecting using managed identities. `UID=<msiClientId>` is also required in the connection string when connecting using a user-assigned managed identity.
 
     ```python
     import os
@@ -100,10 +100,10 @@ spring:
 
     connStr = os.getenv('FABRIC_SQL_CONNECTIONSTRING')
     
-    # System-managed identity connection string format
+    # System-assigned managed identity connection string format
     # `Driver={ODBC Driver 17 for SQL Server};Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;Authentication=ActiveDirectoryMSI;`
     
-    # User-managed identity connection string format
+    # User-assigned managed identity connection string format
     # `Driver={ODBC Driver 17 for SQL Server};Server=tcp:<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;Database=<SQL-DB-name>-<Fabric-DB-Identifier>;UID=<msiClientId>;Authentication=ActiveDirectoryMSI;`
     
     conn = pyodbc.connect(connString)
@@ -116,7 +116,7 @@ spring:
     go mod init <YourProjectName>
     go mod tidy
     ```
-1. Get the SQL database in Microsoft Fabric configurations from the environment variable added by Service Connector.
+1. Retrieve the SQL database in Microsoft Fabric connection string from the environment variable added by Service Connector.
     ```golang
     package main
 
