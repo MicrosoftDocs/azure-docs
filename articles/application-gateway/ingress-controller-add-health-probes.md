@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 9/17/2024
+ms.date: 2/28/2025
 ms.author: greglin
 ---
 
@@ -72,3 +72,4 @@ Any property that the readiness or liveness probe can't infer uses the following
 ## Related content
 
 - [Application Gateway for Containers](for-containers/overview.md)
+- [Application Gateway for Containers - Custom Health Probe](for-containers/custom-health-probe.md)
