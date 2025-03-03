@@ -15,11 +15,11 @@ ms.author: normesta
 
 # What is Azure Storage Actions?
 
-Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. This service addresses the challenges of managing large data estates by providing efficient and scalable solutions. You can use Azure Storage Actions to perform common data operations on millions of objects across multiple storage accounts without provisioning additional compute capacity and without requiring you to write code. 
+Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. This service provides an efficient and scalable solution to address the challenges of managing large data estates. You can use Azure Storage Actions to perform common data operations on millions of objects across multiple storage accounts without provisioning additional compute capacity and without having to write code. 
 
 ## Key features
 
-Azure Storage Actions offers several key features that streamline data management and enhance efficiency. 
+Azure Storage Actions offers several key features that streamline data management. 
 
 **Serverless infrastructure**: Azure Storage Actions operates on a serverless infrastructure. Azure Storage Actions can manage data at scale because there's no need to provision or manage resources other than a storage task. 
 
@@ -29,7 +29,7 @@ Azure Storage Actions offers several key features that streamline data managemen
 
 ## Use cases
 
-Azure Storage Actions supports a variety of use cases to enhance data management efficiency and effectiveness. 
+Azure Storage Actions supports a variety of data management use cases.
 
 **Cost optimization**: Azure Storage Actions can help optimize costs by managing the tier, expiration date, and retention of blobs based on various attributes such as path-prefix, naming conventions, or file type.
 
@@ -37,17 +37,16 @@ Azure Storage Actions supports a variety of use cases to enhance data management
 
 **Rehydration from archive**: Azure Storage actions can rehydrate large datasets from the archive tier to ensure that data is available when it is needed.
 
-**Tagging and metadata management**: Azure Storage Actions allows for the initialization and management of blob tags and metadata which facilitates better organization and retrieval of data.
+**Tagging and metadata management**: Azure Storage Actions allows for the initialization and management of blob tags and metadata which facilitates better organization and data retrieval.
 
 ## Composition
 
-To use Azure Storage Actions, create a _storage task_. A storage task contains a set of _conditions_, _operations_. 
+To use Azure Storage Actions, create a _storage task_ and define a set of _conditions_. A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)
 
-A _condition_ a collection of one or more _clauses_. Each clause contains a property, a value, and an operator. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. For example, a clause might evaluate whether a `creation-time` property of a blob is greater than five days ago. To learn more, see [Storage task conditions](storage-tasks/storage-task-conditions.md)
+As part of the task definition, you'll also specify one or more _operations_. An _operation_ is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).
 
-An operation is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).
-
-You can compose conditions and operations by using a visual designer in the Azure portal. You can validate those conditions and operations by testing them against data in any storage account. The built-in preview capability in the Azure portal simplifies validation and helps you find and fix issues in your task definition before you use the storage task against production data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
+While you can compose conditions by using REST APIs, SDKs, PowerShell, Azure CLI, Bicep, Terraform or ARM templates, it's easiest to compose them by using a visual designer in the Azure portal. Then, you can
+use a an intuitive user interface to validate those conditions and operations. By using the built-in preview capability in the Azure portal, you can see the impact of your conditions against test data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
 > [!NOTE]
 > You can also create and manage a storage task by using REST APIs, SDKs, PowerShell, Azure CLI, and by using Bicep, Terraform or Azure Resource Manager (ARM) templates.
