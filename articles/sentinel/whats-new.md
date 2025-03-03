@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 03/03/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -27,12 +27,16 @@ The listed features were released in the last three months. For information abou
 Microsoft Sentinel customers using the SAP agentless solution to ingest data from their SAP systems now have the following enhancements:
 
 - **Customize settings**: Use SAP Integration Suite value mapping to customize the behavior of your agentless data connector.
-- **New function for SAP**: If you're using an older SAP system with XAL, use the new functions to <x>?
-- **New troubleshooting documentation**: TBD description
+- **New functions for SAP**: If you're using an older SAP system with XAL, use new functions to help you authenticate, retrieve monitoring elements, fetch historical data, configure audit levels, and list active servers.
 
-If you haven't yet installed the agentless solution to ingest data from your SAP system, try the new iflow to verify your systems prerequisites and compatibility. For more information, see TBD.
+Also, if you haven't yet installed the agentless solution to ingest data from your SAP system, try the new iflow to verify your systems prerequisites and compatibility. And if you're having issues with your agentless data connector, try the new troubleshooting content recently added to our documentation. 
 
-For more information, see [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md) and [Customize your SAP agentless connector for Microsoft Sentinel](sap/configure-agentless.md).
+For more information, see:
+
+- [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md)
+- [Customize your SAP agentless connector for Microsoft Sentinel](sap/configure-agentless.md)
+- [Microsoft Sentinel solution for SAP applications - functions reference](sap/sap-solution-function-reference.md)
+- [Troubleshooting your Microsoft Sentinel solution for SAP applications deployment](sap/sap-deploy-troubleshoot.md)
 
 ## January 2025
 

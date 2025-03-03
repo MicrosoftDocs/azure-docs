@@ -9,6 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
 
 #Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector agent so that I can ensure accurate and timely data ingestion and monitoring.
 
@@ -16,13 +17,36 @@ ms.collection: usx-security
 
 # Troubleshooting your Microsoft Sentinel solution for SAP applications deployment
 
-This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel and the data connector agent.
+This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
+
+:::zone pivot="connection-agentless"
+
+When working with the agentless solution, most troubleshooting is done directly in the SAP Integration Suite, where the message log displays errors indicating the nature of the issue encountered.
+
+Starting my examining the message processing logs. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/monitor-message-processing-monitor). The error messages there can help you diagnose issues with missing permissions, connectivity errors, and other misconfigurations. 
+
+If you don't see a related error to your issue, turn on trace logging for more in-depth troubleshooting. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/setting-log-levels).
+
+## Missing required functionality for the RFC_READ_TABLE function
+
+Some older system may be missing required functionality for RFC_READ_TABLE function module.  Make sure your SAP admin has reviewed notes 3390051 and 382318 and patched the system accordingly. For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
+
+## Missing "Last address routed"
+
+If you see an error that you're missing the last address routed (an IP address), in the security audit log, follow the guidance in the SAP note 3566290.
+
+## Incomplete SAP user master data
+
+If you see an error that you have incomplete SAP user master data or no data in the **ABAPAuthorizationDetails** Microsoft Sentinel table, do the following:
+
+1. Confirm that the **SIAG_ROLE_GET_AUTH** SAP function module exists in the SAP source system.
+1. Follow the guidance in SAP note 3088309 for the relevant solution.  
+
+:::zone-end
+
+:::zone pivot="connection-agent"
 
 Selected troubleshooting procedures are only relevant when your data connector agent is [deployed via the command line](deploy-command-line.md). If you used the recommended procedure to [deploy the agent from the portal](deploy-data-connector-agent-container.md), use the portal to make any configuration changes.
-
-> [!NOTE]
-> This article is relevant only for the data connector agent, and isn't relevant for the [SAP agentless solution](deployment-overview.md#data-connector) (limited preview).
->
 
 ## Useful Docker commands
 
@@ -323,6 +347,10 @@ If you have unexpected issues not listed in this article, try the following step
 > [!TIP]
 > Resetting your connector and ensuring that you have the latest upgrades are also recommended after any major configuration changes.
 
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
 ## Related content
 
 Learn more about the Microsoft Sentinel solution for SAP applications:
@@ -331,16 +359,20 @@ Learn more about the Microsoft Sentinel solution for SAP applications:
 - [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md)
 - [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+:::zone pivot="connection-agent"
 - [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md)
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
+:::zone-end
 
 Reference files:
 
 - [Microsoft Sentinel solution for SAP applications solution data reference](sap-solution-log-reference.md)
 - [Microsoft Sentinel solution for SAP applications solution: security content reference](sap-solution-security-content.md)
+:::zone pivot="connection-agent"
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference](reference-systemconfig-json.md)
+:::zone-end
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
 
