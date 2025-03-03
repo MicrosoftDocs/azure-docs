@@ -19,7 +19,7 @@ items:
     items:
     - name: Native fleet design considerations
       href: architecture-native-fleet-design-considerations.md
-    - name: Networking
+  - name: Networking
     items:
     - name: Virtual network
       href: native-fleet-network.md    
@@ -45,54 +45,54 @@ items:
       href: configure-vmware-hcx.md
     - name: 6 - Uninstall VMware HCX in Azure VMware Solution
       href: uninstall-vmware-hcx.md
-    - name: Architecture
-      items:
-      - name: Private clouds and clusters
-        href: architecture-private-clouds.md
-      - name: Multi-AZ with stretched clusters
-        href: architecture-stretched-clusters.md
-      - name: Access and identity
-        href: architecture-identity.md
-      - name: API Management
-        href: architecture-api-management.md
-      - name: Hub and spoke
-        href: architecture-hub-and-spoke.md
-      - name: Internet connectivity design considerations
-        href: architecture-design-public-internet-access.md
-      - name: Network design considerations
-        href: architecture-network-design-considerations.md
-      - name: Networking and interconnectivity
-        href: architecture-networking.md
-      - name: Storage
-        href: architecture-storage.md
-      - name: Migrate
-        href: architecture-migrate.md
-      - name: Well Architected Framework
-        href: /azure/well-architected/azure-vmware/
-      - name: Networking
-        items:
-        - name: Connect to on-premises environment
-          href: tutorial-expressroute-global-reach-private-cloud.md
-        - name: Connect multiple private clouds in same region
-          href: connect-multiple-private-clouds-same-region.md
-        - name: Configure DHCP server or relay
-          href: configure-dhcp-azure-vmware-solution.md
-        - name: Configure DHCP on L2 stretched networks
-          href: configure-l2-stretched-vmware-hcx-networks.md
-        - name: Configure DNS forwarder
-          href: configure-dns-azure-vmware-solution.md
-        - name: Configure VMware HCX network extension
-          href: configure-hcx-network-extension.md
-        - name: VMware HCX Mobility Optimized Networking (MON) guidance
-          href: vmware-hcx-mon-guidance.md
-        - name: NSX Scale and Performance Recommendations for VMware HCX
-          href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
-        - name: Configure NSX network components
-          href: configure-nsx-network-components-azure-portal.md
-        - name: Configure port mirroring
-          href: configure-port-mirroring-azure-vmware-solution.md
-        - name: Configure a site-to-site VPN in vWAN
-          href: configure-site-to-site-vpn-gateway.md
+  - name: Architecture
+    items:
+    - name: Private clouds and clusters
+      href: architecture-private-clouds.md
+    - name: Multi-AZ with stretched clusters
+      href: architecture-stretched-clusters.md
+    - name: Access and identity
+      href: architecture-identity.md
+    - name: API Management
+      href: architecture-api-management.md
+    - name: Hub and spoke
+      href: architecture-hub-and-spoke.md
+    - name: Internet connectivity design considerations
+      href: architecture-design-public-internet-access.md
+    - name: Network design considerations
+      href: architecture-network-design-considerations.md
+    - name: Networking and interconnectivity
+      href: architecture-networking.md
+    - name: Storage
+      href: architecture-storage.md
+    - name: Migrate
+      href: architecture-migrate.md
+    - name: Well Architected Framework
+      href: /azure/well-architected/azure-vmware/
+  - name: Networking
+    items:
+    - name: Connect to on-premises environment
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: Connect multiple private clouds in same region
+      href: connect-multiple-private-clouds-same-region.md
+    - name: Configure DHCP server or relay
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: Configure DHCP on L2 stretched networks
+      href: configure-l2-stretched-vmware-hcx-networks.md
+    - name: Configure DNS forwarder
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure VMware HCX network extension
+      href: configure-hcx-network-extension.md
+    - name: VMware HCX Mobility Optimized Networking (MON) guidance
+      href: vmware-hcx-mon-guidance.md
+    - name: NSX Scale and Performance Recommendations for VMware HCX
+      href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
+    - name: Configure NSX network components
+      href: configure-nsx-network-components-azure-portal.md
+    - name: Configure port mirroring
+      href: configure-port-mirroring-azure-vmware-solution.md
+    - name: Configure a site-to-site VPN in vWAN
+      href: configure-site-to-site-vpn-gateway.md
     - name: Tutorials
       items:
       - name: 1 - Network planning checklist
