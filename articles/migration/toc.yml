@@ -5,19 +5,19 @@
     href: ./placeholder.md
   - name: Workload migration strategy
     href: ./placeholder.md
-  - name: Migrate a workload from AWS to Azure
+  - name: Migrate a workload from AWS
     items:
     - name: Overview
       href: ./placeholder.md
     - name: 1. Assess your current workload
       href: ./placeholder.md
-    - name: 2. Use a similar design in Azure
+    - name: 2. Design a similar solution
       href: ./placeholder.md
-    - name: 3. Prepare the workload for migration
+    - name: 3. Prepare the workload and Azure
       href: ./placeholder.md
-    - name: 4. Perform the workload migration to Azure
+    - name: 4. Perform the migration
       href: ./placeholder.md
-    - name: 5. Evaluate the workload in Azure
+    - name: 5. Evaluate success
       href: ./placeholder.md
     - name: Optimize with Azure
       href: ./placeholder.md
@@ -43,7 +43,7 @@
         href: ./placeholder.md
       - name: ...0 to 4 more...
         href: ./placeholder.md
-    - name: Service-specific replatforming guides
+    - name: Replatforming guides
       items:
       - name: Overview
         href: ./placeholder.md
@@ -59,19 +59,19 @@
         href: ./placeholder.md
       - name: Replatform from ...
         href: ./placeholder.md
-  - name: Migrate a workload from Google Cloud to Azure
+  - name: Migrate a workload from Google Cloud
     items:
     - name: Overview
       href: ./placeholder.md
     - name: 1. Assess your current workload
       href: ./placeholder.md
-    - name: 2. Use a similar design in Azure
+    - name: 2. Design a similar solution
       href: ./placeholder.md
-    - name: 3. Prepare the workload for migration
+    - name: 3. Prepare the workload and Azure
       href: ./placeholder.md
-    - name: 4. Perform the workload migration to Azure
+    - name: 4. Perform the migration
       href: ./placeholder.md
-    - name: 5. Evaluate the workload in Azure
+    - name: 5. Evaluate success
       href: ./placeholder.md
     - name: Optimize with Azure
       href: ./placeholder.md
@@ -89,7 +89,7 @@
         href: ./placeholder.md
       - name: Observability
         href: ./placeholder.md
-    - name: Service replatforming guides
+    - name: Replatforming guides
       items:
       - name: Overview
         href: ./placeholder.md
@@ -105,5 +105,3 @@
         href: ./placeholder.md
       - name: Replatform from ...
         href: ./placeholder.md
-  - name: Optimize on Azure
-    href: ./placeholder.md
