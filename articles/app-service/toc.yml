@@ -413,6 +413,8 @@
       href: tutorial-sidecar-local-small-language-model.md
     - name: Deploy a .NET app with Azure OpenAI and Azure SQL
       href: deploy-intelligent-apps-dotnet-to-azure-sql.md
+    - name: Invoke OpenAPI app from Azure AI Agent
+      href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WordPress
   items:
     - name: WordPress overview

@@ -133,10 +133,10 @@ name: '${storageNamePrefix}${uniqueString(resourceGroup().id)}'
 ## Cause 2
 
 The storage account was recently deleted.
-   - If a request to create the storage account comes from a different subscription and tenant than where it was previously located, it will be denied for security purposes as described here, [Prevent dangling DNS entries and avoid subdomain takeover](https://docs.microsoft.com/azure/security/fundamentals/subdomain-takeover). 
+   - If a request to create the storage account comes from a different subscription and tenant than where it was previously located, it will be denied for security purposes as described here, [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). 
   
 ## Solution 2
 
-[Create a Support Request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request****) and choose **Create new storage account** for the problem type, and **Failure(s) during new account creation** for the Problem subtype. Please make sure to include the name of the storage account and the approximate time when account creation failed.
+[Create a Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request****) and choose **Create new storage account** for the problem type, and **Failure(s) during new account creation** for the Problem subtype. Please make sure to include the name of the storage account and the approximate time when account creation failed.
 
 ---

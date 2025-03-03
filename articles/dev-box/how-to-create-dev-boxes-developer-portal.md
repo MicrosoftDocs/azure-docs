@@ -116,5 +116,4 @@ Dependent on how your dev box is configured, you can perform more actions on a d
 
 ## Related content
 
-- [Use a remote desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md)
 - [Use a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box)

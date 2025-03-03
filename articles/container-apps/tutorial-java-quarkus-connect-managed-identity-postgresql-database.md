@@ -83,7 +83,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity-extensions</artifactId>
-      <version>1.1.20</version>
+      <version>1.2.0</version>
    </dependency>
    ```
 
