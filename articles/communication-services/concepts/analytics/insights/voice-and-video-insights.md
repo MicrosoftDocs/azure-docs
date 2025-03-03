@@ -88,7 +88,7 @@ The **Reliability** tab summarizes the performance of key calling SDK APIs to he
 
 ## User Facing Diagnostics (UFD)
 
-The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. 
+The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. You can use [Copilot in Azure](/azure/copilot/overview) to learn how to leverage UFDs in your calling application and mitigate their impact to your users.
 
 We recommend prioritizing improvements on a UFD that has a low recovery rate and a high volume, which can indicate the best opportunity to improve your user's call experiences. For example, the calling SDK might recover from some in call events and the user might not perceive an issue. By focusing on the poorest performing areas you can help identify root causes. 
 
