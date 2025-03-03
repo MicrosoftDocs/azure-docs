@@ -70,7 +70,7 @@ The following error indicates that the private endpoint being connected to an Ap
 > The private endpoint's subscription '00000000-0000-0000-0000-000000000000' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/azconfig/PrivateEndpointTroubleshooting for instructions on how to register a subscription to a resource provider. 
 
 This error is typically seen when the private endpoint's subscription is different to the App Configuration store's subscription. To resolve:
-1. Register the private endpoint's subscription to the `Microsoft.AppConfiguration` resource provider.
+1. Register the `Microsoft.AppConfiguration` resource provider in the private endpoint's subscription.
 2. Reconnect the private endpoint to the App Configuration store.
 
 For more details on registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
