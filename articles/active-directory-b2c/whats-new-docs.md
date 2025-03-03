@@ -22,8 +22,8 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### Updated articles
 
 - [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md) - Added SMS pricing
-- [Page layout versions](page-layout.md) - Updated the latest self-asserted and MFA page versions
-- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Added bill name change for SMS phone
+- [Page layout versions](page-layout.md) - Updated the latest versions of the self-asserted and MFA pages
+- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Added billing name change for SMS phone
 - [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md) - Added CAPTCHA feature flag
 
 ## January 2025
