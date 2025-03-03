@@ -9,9 +9,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Bastion automatically
+  - name: Deploy Bastion - default settings - Standard SKU
     href: quickstart-host-portal.md
-  - name: Deploy Bastion automatically - Developer SKU
+  - name: Deploy Bastion - default settings - Developer SKU
     href: quickstart-developer-sku.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
@@ -19,7 +19,7 @@
     href: quickstart-deploy-terraform.md
 - name: Tutorials
   items:
-  - name: Deploy Bastion using manually specified settings
+  - name: Deploy Bastion using manually specified settings and SKUs
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:

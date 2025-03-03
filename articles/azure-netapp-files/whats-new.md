@@ -22,7 +22,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
-    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
 
 ## January 2025 
 

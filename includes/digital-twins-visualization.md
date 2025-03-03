@@ -3,7 +3,7 @@ author: baanders
 description: Include file for Azure Digital Twins - visualizing with Azure Digital Twins Explorer
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 2/13/2025
+ms.date: 02/27/2025
 ms.author: baanders
 ---
 
