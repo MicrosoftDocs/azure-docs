@@ -5,103 +5,97 @@
     href: ./placeholder.md
   - name: Workload migration strategy
     href: ./placeholder.md
-  - name: Migrate a workload from AWS
+  - name: Migrate from AWS
     items:
-    - name: Overview
+    - name: Getting started
       href: ./placeholder.md
-    - name: 1. Assess your current workload
-      href: ./placeholder.md
-    - name: 2. Design a similar solution
-      href: ./placeholder.md
-    - name: 3. Prepare the workload and Azure
-      href: ./placeholder.md
-    - name: 4. Perform the migration
-      href: ./placeholder.md
-    - name: 5. Evaluate success
-      href: ./placeholder.md
-    - name: Optimize with Azure
-      href: ./placeholder.md
-    - name: Design area guides
+    - name: Recommended workload migration process
       items:
-      - name: Identity and access management
+      - name: 1. Assess your current workload
         href: ./placeholder.md
-      - name: Compute
+      - name: 2. Design a similar solution
         href: ./placeholder.md
-      - name: Databases
+      - name: 3. Prepare the workload and Azure
         href: ./placeholder.md
-      - name: Messaging
+      - name: 4. Perform the migration
         href: ./placeholder.md
-      - name: Storage
+      - name: 5. Evaluate success
         href: ./placeholder.md
-      - name: Observability
+      - name: 6. Optimize with Azure
         href: ./placeholder.md
-    - name: Case studies
+    - name: Compute
       items:
-      - name: Migrate a public website from EKS to AKS
+        name: Compute migration considerations
         href: ./placeholder.md
-      - name: Migrate an event-driven workload from AWS Lambda to Azure Functions
-        href: ./placeholder.md
-      - name: ...0 to 4 more...
-        href: ./placeholder.md
-    - name: Replatforming guides
-      items:
-      - name: Overview
-        href: ./placeholder.md
-      - name: Replatform from AWS Lambda
+      - name: Replatform from AWS Lambda to Azure Functions
         href: ./placeholder.md
       - name: Replatform from Elastic Kubernetes Service (EKS)
+        items:
+        - name: Migrate EKS to Azure Kubernetes Service (AKS)
+          href: ./placeholder.md
+        - name: Migrate a public website from EKS to AKS
+          href: ./placeholder.md
+        - name: Migrate an event driven EKS workload to AKS
+          href: ./placeholder.md
+      - name: Replatform from EC2 to Azure Web Apps
         href: ./placeholder.md
-      - name: Replatform from AWS S3
-        href: ./placeholder.md
-      - name: Replatform from AWS SQS
-        href: ./placeholder.md
-      - name: Replatform from Amazon RDS for PostgreSQL
-        href: ./placeholder.md
-      - name: Replatform from ...
-        href: ./placeholder.md
-  - name: Migrate a workload from Google Cloud
-    items:
-    - name: Overview
+    - name: Identity and access management (IAM) migration guide
       href: ./placeholder.md
-    - name: 1. Assess your current workload
+    - name: Networking migration guide
       href: ./placeholder.md
-    - name: 2. Design a similar solution
-      href: ./placeholder.md
-    - name: 3. Prepare the workload and Azure
-      href: ./placeholder.md
-    - name: 4. Perform the migration
-      href: ./placeholder.md
-    - name: 5. Evaluate success
-      href: ./placeholder.md
-    - name: Optimize with Azure
-      href: ./placeholder.md
-    - name: Design area guides
+    - name: Databases
       items:
-      - name: Identity and access management
+      - name: Replatform from Amazon RDS for PostgreSQL to Azure Database for PostgreSQL
         href: ./placeholder.md
-      - name: Compute
+      - name: Replatform from Aurora MySQL to Azure Database for MySQL
         href: ./placeholder.md
-      - name: Databases
+      - name: Replatform from Amazon RDS for MariaDB to Azure Database for MariaDB
         href: ./placeholder.md
-      - name: Messaging
+    - name: Messaging
+      items:
+      - name: Replatform from AWS SQS to Azure Service Bus
         href: ./placeholder.md
-      - name: Storage
+      - name: Replatform from AWS SNS to Azure Storage Queues
         href: ./placeholder.md
-      - name: Observability
+    - name: Storage
+      items:
+      - name: Replatform from AWS S3 to Azure Storage
         href: ./placeholder.md
-    - name: Replatforming guides
+    - name: Observability
+      href: ./placeholder.md
+  - name: Migrate from Google Cloud
+    items:
+    - name: Recommended workload migration process
+      items:
+      - name: 1. Assess your current workload
+        href: ./placeholder.md
+      - name: 2. Design a similar solution
+        href: ./placeholder.md
+      - name: 3. Prepare the workload and Azure
+        href: ./placeholder.md
+      - name: 4. Perform the migration
+        href: ./placeholder.md
+      - name: 5. Evaluate success
+        href: ./placeholder.md
+      - name: 6. Optimize with Azure
+        href: ./placeholder.md
+    - name: Compute
+      items:
+      - name: Replatform from GCP Cloud Run to Azure Functions
+        href: ./placeholder.md
+      - name: Replatform from Google Kubernetes Engine (GKE) to Azure Kubernetes Service (AKS)
+        href: ./placeholder.md
+    - name: Networking migration guide
+      href: ./placeholder.md
+    - name: Databases
       items:
       - name: Overview
         href: ./placeholder.md
-      - name: Replatform from GCP Cloud Run
+      - name: Replatform from Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL
         href: ./placeholder.md
-      - name: Replatform from Google Kubernetes Engine (GKE)
+    - name: Messaging
+      items:
+      - name: Replatform from Google Pub/Sub to Azure Service Bus
         href: ./placeholder.md
-      - name: Replatform from Google Cloud Storage
-        href: ./placeholder.md
-      - name: Replatform from Google Pub/Sub
-        href: ./placeholder.md
-      - name: Replatform from Google Cloud SQL for PostgreSQL
-        href: ./placeholder.md
-      - name: Replatform from ...
-        href: ./placeholder.md
+    - name: Storage
+      href: ./placeholder.md
