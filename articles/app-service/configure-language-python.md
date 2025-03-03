@@ -119,7 +119,7 @@ poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 #### Using uv
 
-Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
+Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile) export command:
 
 ```sh
 
@@ -129,30 +129,19 @@ uv export --format requirements-txt --no-hashes --output-file requirements.txt
 
 ### Generate during deployment
 
-For deployment-time generation, create a script file and set your `PRE_BUILD_COMMAND` setting to use it:
-
-#### Using Poetry
+For deployment-time generation, create a script file and set your `PRE_BUILD_COMMAND` setting to use it, here is an example using uv:
 
 ```sh
-# Set the exact Python version to match your App Service configuration
-PYTHON_VERSION="3.12.2"  # Replace with your version
+# Set Python version to match App Service configuration
 
-# Setup environment and generate requirements.txt
+PYTHON_VERSION="3.12.8"  # Replace with your version
+
+# Activate Oryx build environment with specified Python version
 source /opt/oryx/benv python=$PYTHON_VERSION dynamic_install_root_dir="/tmp/oryx/platforms"
-python3 -m pip install poetry poetry-plugin-export
-poetry install --no-root
-poetry export --format requirements.txt --without-hashes --output requirements.txt
-```
 
-#### Using uv
-
-```sh
-# Set the exact Python version to match your App Service configuration
-PYTHON_VERSION="3.12.2"  # Replace with your version
-
-# Setup environment and generate requirements.txt
-source /opt/oryx/benv python=$PYTHON_VERSION dynamic_install_root_dir="/tmp/oryx/platforms"
+# Install the uv package manager
 python3 -m pip install uv
+# Generate requirements.txt file
 uv export --format requirements-txt --no-hashes --output-file requirements.txt
 ```
 
