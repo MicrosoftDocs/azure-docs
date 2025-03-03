@@ -19,7 +19,7 @@ This article provides a summary of the latest documentation updates for Azure Re
 
 - [What are failover and failback?](./concept-failover-failback.md): This article provides a general overview of how both failover and failback operate in a cloud environment. 
 
-- [What are redundancy, replication, and backup](./concept-redundancy-replication-backup.md):This article provides a general introduction to redundancy, replication, and backup, which are methods that are used to create workloads that are resilient to physical risks causing service disruption, outage, or data loss.
+- [What are redundancy, replication, and backup](./concept-redundancy-replication-backup.md): This article provides a general introduction to redundancy, replication, and backup, which are methods that are used to create workloads that are resilient to physical risks causing service disruption, outage, or data loss.
 
 
 ### Updated articles
