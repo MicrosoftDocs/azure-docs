@@ -201,11 +201,11 @@ You can see the list of scheduler resources created in all subscriptions you hav
 
 ::: zone pivot="az-cli" 
 
-Retrieve a list of task hubs in a specific scheduler by running: 
+  Retrieve a list of task hubs in a specific scheduler by running: 
 
-```azurecli
-az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
-```
+  ```azurecli
+  az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
+  ```
 
 ::: zone-end 
 
@@ -333,15 +333,14 @@ Now that the identity has the required RBAC to access DTS, you need to assign it
 ::: zone pivot="az-cli" 
 
 1. Get resource ID of manage identity.
-```azurecli
-resource_id=$(az resource show --resource-group RESOURCE_GROUP --name MANAGED_IDENTITY_NAME --resource-type Microsoft.ManagedIdentity/userAssignedIdentities --query id --output tsv)
-```
+    ```azurecli
+    resource_id=$(az resource show --resource-group RESOURCE_GROUP --name MANAGED_IDENTITY_NAME --resource-type Microsoft.ManagedIdentity/userAssignedIdentities --query id --output tsv)
+    ```
 
 1. Assign the identity to app.
-
-```azurecli
-az functionapp identity assign --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --identities "$resource_id"
-```
+    ```azurecli
+    az functionapp identity assign --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --identities "$resource_id"
+    ```
 
 ::: zone-end 
 
@@ -410,7 +409,7 @@ Add these two environment variables to app setting:
 
 ## Accessing DTS dashboard
 
-Gain access to the DTS dashboard by granting access to your *developer identity*. 
+Gain access to the DTS dashboard by granting access to your *developer identity*. After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
 ::: zone pivot="az-cli" 
 
@@ -476,8 +475,6 @@ Gain access to the DTS dashboard by granting access to your *developer identity*
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
 
 ::: zone-end 
-
-After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
 ## Scaling in Functions Premium plan 
 For DTS apps on the Functions Premium plan, enable the Runtime Scale Monitoring setting to get auto scaling of the app. 
