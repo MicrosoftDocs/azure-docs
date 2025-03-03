@@ -98,8 +98,6 @@ Review the [Technical requirements for Peering Service prefixes](../internet-pee
 
 1. Enter ***yes*** in **Confirm delete**, and then select **Delete**.
 
-    :::image type="content" source="./media/azure-portal/peering-service-delete.png" alt-text="Screenshot of deleting a Peering Service in Azure portal.":::
-
 ## Modify the primary or backup peering location
 
 If you would like to change the primary or backup peering location in your Peering Service, reach out to peeringservice@microsoft.com. Provide the resource ID of the peering service to modify, and the new primary and backup locations you'd like to be configured.
