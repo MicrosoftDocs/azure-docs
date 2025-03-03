@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 01/29/2025
+ms.date: 02/28/2025
 ---
 
 ## Supported client versions
@@ -11,22 +11,34 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5910 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.6013 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.6014 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.6072 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.6013 (Insider) 
+## Updates for version 1.2.6072 (Insider)
 
-*Date published: January 28, 2025* 
+*Date published: February 25, 2025* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
-- Bug fixes and general improvements.  
+- Fixed an issue with RemoteApps where a maximized window unexpectedly changes size.
+- Improved accessibility for the **More Options** menu.
+
+## Updates for version 1.2.6014  
+
+*Date published: February 3, 2025* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+- Bug fixes and general improvements.
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.6013. Changes noted above reflect all changes for these versions. 
 
 ## Updates for version 1.2.5910  
 
 *Date published: January 21, 2025* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+Download: [Windows 64-bit](https://res.cdn.office.net/remote-desktop-windows-client/b6a8d075-5e2f-4166-a9c9-78180790dfa1/RemoteDesktop_1.2.5910.0_x64.msi), [Windows 32-bit](https://res.cdn.office.net/remote-desktop-windows-client/dbd2c29e-6b06-4c7c-ba49-56cc1a3ca8a0/RemoteDesktop_1.2.5910.0_x86.msi), [Windows Arm64](https://res.cdn.office.net/remote-desktop-windows-client/ebc331c2-c93e-48e9-8740-600218caf43c/RemoteDesktop_1.2.5910.0_ARM64.msi) 
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
 - Added support to optimize screen and app sharing.
@@ -39,8 +51,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 ## Updates for version 1.2.5807 
  
 *Date published: January 7, 2025*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 - Fixed an issue for [CVE-2024-49105](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49105).
 - Added list of graphics codecs to the Connection Information dialog. 

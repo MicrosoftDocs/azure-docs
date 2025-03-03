@@ -12,57 +12,7 @@ metadata:
   ms.custom: compute-evergreen
 title: 'Configuration and management issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
-  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
-  
   This article includes frequently asked questions about configuration and management issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services Virtual Machine (VM) Size page](cloud-services-sizes-specs.md) for size information.
-  
-  [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
-  
-  **Certificates**
-  
-  - [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tls-ssl-certificate-incomplete-)
-  - [What is the purpose of the "Microsoft Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the--microsoft-azure-tools-encryption-certificate-for-extensions--)
-  - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request--csr--without--rdp-ing--in-to-the-instance-)
-  - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring--how-to-renew-it-)
-  - [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tls-ssl-certificate--pfx--and-intermediate-certificate--p7b--)
-  - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the--microsoft-azure-service-management-for-machinekey--certificate-)
-  
-  **Monitoring and logging**
-  
-  - [What are the upcoming Cloud Service capabilities in the Azure portal that can help manage and monitor applications?](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-that-can-help-manage-and-monitor-applications-)
-  - [Why does Internet Information Service (IIS) stop writing to the log directory?](#why-does-iis-stop-writing-to-the-log-directory-)
-  - [How do I enable WAD logging for Cloud Services?](#how-do-i-enable-wad-logging-for-cloud-services-)
-  
-  **Network configuration**
-  
-  - [How do I set the idle timeout for Azure load balancer?](#how-do-i-set-the-idle-timeout-for-azure-load-balancer-)
-  - [How do I associate a static IP address to my Cloud Service?](#how-do-i-associate-a-static-ip-address-to-my-cloud-service-)
-  - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provide?](#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provide-)
-  - [How to enable HTTP/2 on Cloud Services VM?](#how-to-enable-http-2-on-cloud-services-vm-)
-  
-  **Permissions**
-  
-  - [Are Microsoft internal engineers able to remote desktop to Cloud Service instances without permission?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission-)
-  - [I can't remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)](#i-can-t-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file--i-get-following-error--an-authentication-error-has-occurred--code--0x80004005-)
-  
-  **Scaling**
-  
-  - [I can't scale beyond X instances](#i-can-t-scale-beyond-x-instances)
-  - [How can I configure Auto-Scale based on Memory metrics?](#how-can-i-configure-auto-scale-based-on-memory-metrics-)
-  
-  **Generic**
-  
-  - [How do I add `nosniff` to my website?](#how-do-i-add--nosniff--to-my-website-)
-  - [How do I customize IIS for a web role?](#how-do-i-customize-iis-for-a-web-role-)
-  - [What is the quota limit for my Cloud Service?](#what-is-the-quota-limit-for-my-cloud-service-)
-  - [Why does the drive on my Cloud Service VM show little free disk space?](#why-does-the-drive-on-my-cloud-service-vm-show-little-free-disk-space-)
-  - [How can I add an Antimalware extension for my Cloud Services in an automated way?](#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
-  - [How to enable Server Name Indication (SNI) for Cloud Services?](#how-to-enable-server-name-indication--sni--for-cloud-services-)
-  - [How can I add tags to my Azure Cloud Service?](#how-can-i-add-tags-to-my-azure-cloud-service--)
-  - [The Azure portal doesn't display the SDK version of my Cloud Service. How can I get that?](#the-azure-portal-doesn-t-display-the-sdk-version-of-my-cloud-service--how-can-i-get-that-)
-  - [I want to shut down the Cloud Service for several months. How to reduce the billing cost of Cloud Service without losing the IP address?](#i-want-to-shut-down-the-cloud-service-for-several-months--how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address-)
-  
-  
 
 sections:
   - name: Certificates
