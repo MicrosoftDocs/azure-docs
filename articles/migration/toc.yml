@@ -9,7 +9,7 @@
     items:
     - name: Getting started
       href: ./placeholder.md
-    - name: Recommended workload migration process
+    - name: Workload migration process
       items:
       - name: 1. Assess your current workload
         href: ./placeholder.md
@@ -39,10 +39,6 @@
           href: ./placeholder.md
       - name: Replatform from EC2 to Azure Web Apps
         href: ./placeholder.md
-    - name: Identity and access management (IAM) migration guide
-      href: ./placeholder.md
-    - name: Networking migration guide
-      href: ./placeholder.md
     - name: Databases
       items:
       - name: Replatform from Amazon RDS for PostgreSQL to Azure Database for PostgreSQL
@@ -51,11 +47,13 @@
         href: ./placeholder.md
       - name: Replatform from Amazon RDS for MariaDB to Azure Database for MariaDB
         href: ./placeholder.md
-    - name: Messaging
+    - name: Identity and access management (IAM)
       items:
-      - name: Replatform from AWS SQS to Azure Service Bus
+      - name: IAM migration guide
         href: ./placeholder.md
-      - name: Replatform from AWS SNS to Azure Storage Queues
+    - name: Networking
+      items:
+      - name: Networking migration guide
         href: ./placeholder.md
     - name: Storage
       items:
@@ -63,13 +61,21 @@
         href: ./placeholder.md
       - name: Replatform from AWS S3 to Azure Storage
         href: ./placeholder.md
-    - name: Observability migration guide
-      href: ./placeholder.md
+    - name: Messaging
+      items:
+      - name: Replatform from AWS SQS to Azure Service Bus
+        href: ./placeholder.md
+      - name: Replatform from AWS SNS to Azure Storage Queues
+        href: ./placeholder.md
+    - name: Observability
+      items:
+      - name: Observability migration guide
+        href: ./placeholder.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
       href: ./placeholder.md
-    - name: Recommended workload migration process
+    - name: Workload migration process
       items:
       - name: 1. Assess your current workload
         href: ./placeholder.md
@@ -89,17 +95,21 @@
         href: ./placeholder.md
       - name: Replatform from Google Kubernetes Engine (GKE) to Azure Kubernetes Service (AKS)
         href: ./placeholder.md
-    - name: Networking migration guide
-      href: ./placeholder.md
     - name: Databases
       items:
       - name: Database migration guide
         href: ./placeholder.md
       - name: Replatform from Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL
         href: ./placeholder.md
+    - name: Networking
+      items:
+      - name: Networking migration guide
+        href: ./placeholder.md
     - name: Messaging
       items:
       - name: Replatform from Google Pub/Sub to Azure Service Bus
         href: ./placeholder.md
-    - name: Storage migration guide
-      href: ./placeholder.md
+    - name: Storage
+      items:
+      - name: Storage migration guide
+        href: ./placeholder.md
