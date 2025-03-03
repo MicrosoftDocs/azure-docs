@@ -23,7 +23,7 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
-      - name: Upgrade versions
+      - name: Upgrade
         href: deploy-iot-ops/howto-upgrade.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
@@ -39,6 +39,8 @@ items:
         href: secure-iot-ops/howto-manage-secrets.md
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
+      - name: Secure your solution
+        href: ../iot/iot-overview-security.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json&tabs=edge
     - name: Discover and manage assets
       items:
       - name: Asset management overview

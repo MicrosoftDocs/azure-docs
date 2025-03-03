@@ -6,7 +6,7 @@ ms.service: azure
 ms.topic: reliability-article
 ms.date: 10/24/2023
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
 ---
 
