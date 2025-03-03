@@ -299,7 +299,7 @@ Site Recovery has an RTO SLA of [one hours](https://azure.microsoft.com/support/
 
 Extensions aren't replicated to the failover VM in the target region, so we need to install them manually after failover.
 
-**For SQL VM zonal replication:** In the case of a SQL VM, it'll not be shown if we don't have the corresponding IaaS SQL Extension installed. After installing the `SqlIaasExtension`, the `SQL virtual machine` is created automatically. [Learn more](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?view=azuresql&tabs=azure-powershell#register-with-extension).
+**For SQL VM zonal replication:** In the case of a SQL VM, it'll not be shown if we don't have the corresponding IaaS SQL Extension installed. After installing the `SqlIaasExtension`, the `SQL virtual machine` is created automatically. [Learn more](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?view=azuresql&tabs=azure-powershell#register-with-extension).
 
 ## Recovery plans
 
@@ -362,7 +362,7 @@ Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.
 
 When you enable capacity reservation for VMs in Azure Site Recovery on the target region, the VM maps to the reservation group during replication. Since the target VM is not created until a test failover or actual failover is performed, you can see the mapping under *Recovery Services Vault* > **Compute** > **Capacity Reservation** settings.
 
-The VM associated option under the capacity reservation group populates only when the target VMs are created during a test failover or actual failover. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#capacity-reservation-lifecycle).
+The VM associated option under the capacity reservation group populates only when the target VMs are created during a test failover or actual failover. [Learn more](/azure/virtual-machines/capacity-reservation-overview#capacity-reservation-lifecycle).
 
 ## Security
 
