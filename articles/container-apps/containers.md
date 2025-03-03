@@ -130,7 +130,7 @@ Most container apps have a single container. In advanced scenarios, an app may a
 
 | Setting | Description | Remarks |
 |---|---|---|
-| `image` | The container image name for your container app. | This value takes the form of `repository/<IMAGE_NAME>:<TAG>`. |
+| `image` | The container image name for your container app. | This value takes the form of `repository/<IMAGE_NAME>:<TAG>`. <br><br>Avoid using using static tags like `latest` for container images. Using static tags can lead to caching problems and can make your app difficult to troubleshoot. Instead, use unique tags for each deployment, such as a Git hash or date and time to ensure that updates are properly tracked and deployed. |
 | `name` | Friendly name of the container. | Used for reporting and identification. |
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
