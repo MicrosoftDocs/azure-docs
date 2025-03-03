@@ -1,61 +1,109 @@
-- name: Microsoft Azure Migration Guide
+- name: Microsoft Azure migration guide
   href: ./index.yml
   items:
-  - name: Migration mindset
+  - name: Adopt Azure
     href: ./placeholder.md
-  - name: Evaluation - Source workload
-    items:
-    - name: Resource orgranization
-      href: ./placeholder.md
-    - name: Identity and access management
-      href: ./placeholder.md
-    - name: Deployment
-      href: ./placeholder.md
-    - name: Monitoring
-      href: ./placeholder.md
-    - name: Dependencies
-      items:
-      - name: Example - Organizational
-        href: ./placeholder.md  
-      - name: Example - External
-        href: ./placeholder.md
-    - name: Governance
-      href: ./placeholder.md             
-    - name: Measurement - business requirements
-      items:
-      - name: Cost of ownership
-        href: ./placeholder.md
-      - name: Reliability objectives
-        href: ./placeholder.md
-      - name: Performance targets 
-        href: ./placeholder.md
-  - name: Migration operations
-    items:
-    - name: Design
-      href: ./placeholder.md    
-    - name: Process
-      href: ./placeholder.md
-    - name: Tools 
-      href: ./placeholder.md    
-  - name: Evaluation - End-state on Azure
+  - name: Workload migration strategy
     href: ./placeholder.md
-  - name: Case studies
+  - name: Migrate a workload from AWS to Azure
     items:
-    - name: Migrate an eCommerce workload from AWS to Azure
-      href: ./placeholder.md    
-    - name: Migrate an analytics workload from GCP to Azure
+    - name: Overview
       href: ./placeholder.md
-    - name: Migrate a hybrid workload from Oracle Cloud to Azure
-      href: ./placeholder.md       
-    - name: Migrate a mission-critical workload from AWS to Azure
+    - name: 1. Assess your current workload
       href: ./placeholder.md
-    - name: Migrate a regulatory workload from sovereign cloud to Azure
-      href: ./placeholder.md                           
-  - name: Service catalog
+    - name: 2. Use a similar design in Azure
+      href: ./placeholder.md
+    - name: 3. Prepare the workload for migration
+      href: ./placeholder.md
+    - name: 4. Perform the workload migration to Azure
+      href: ./placeholder.md
+    - name: 5. Evaluate the workload in Azure
+      href: ./placeholder.md
+    - name: Optimize with Azure
+      href: ./placeholder.md
+    - name: Design area guides
+      items:
+      - name: Identity and access management
+        href: ./placeholder.md
+      - name: Compute
+        href: ./placeholder.md
+      - name: Databases
+        href: ./placeholder.md
+      - name: Messaging
+        href: ./placeholder.md
+      - name: Storage
+        href: ./placeholder.md
+      - name: Observability
+        href: ./placeholder.md
+    - name: Case studies
+      items:
+      - name: Migrate a public website from EKS to AKS
+        href: ./placeholder.md
+      - name: Migrate an event-driven workload from AWS Lambda to Azure Functions
+        href: ./placeholder.md
+      - name: ...0 to 4 more...
+        href: ./placeholder.md
+    - name: Service-specific replatforming guides
+      items:
+      - name: Overview
+        href: ./placeholder.md
+      - name: Replatform from AWS Lambda
+        href: ./placeholder.md
+      - name: Replatform from Elastic Kubernetes Service (EKS)
+        href: ./placeholder.md
+      - name: Replatform from AWS S3
+        href: ./placeholder.md
+      - name: Replatform from AWS SQS
+        href: ./placeholder.md
+      - name: Replatform from Amazon RDS for PostgreSQL
+        href: ./placeholder.md
+      - name: Replatform from ...
+        href: ./placeholder.md
+  - name: Migrate a workload from Google Cloud to Azure
     items:
-    - name: Service portability reference
-      href: ./placeholder.md  
-    - name: Azure Functions migration guide
-      href: ../azure-functions/migration/toc.yml
-    - name: Virtual Machines migration guide 
-      href: /azure/virtual-machines                   
+    - name: Overview
+      href: ./placeholder.md
+    - name: 1. Assess your current workload
+      href: ./placeholder.md
+    - name: 2. Use a similar design in Azure
+      href: ./placeholder.md
+    - name: 3. Prepare the workload for migration
+      href: ./placeholder.md
+    - name: 4. Perform the workload migration to Azure
+      href: ./placeholder.md
+    - name: 5. Evaluate the workload in Azure
+      href: ./placeholder.md
+    - name: Optimize with Azure
+      href: ./placeholder.md
+    - name: Design area guides
+      items:
+      - name: Identity and access management
+        href: ./placeholder.md
+      - name: Compute
+        href: ./placeholder.md
+      - name: Databases
+        href: ./placeholder.md
+      - name: Messaging
+        href: ./placeholder.md
+      - name: Storage
+        href: ./placeholder.md
+      - name: Observability
+        href: ./placeholder.md
+    - name: Service replatforming guides
+      items:
+      - name: Overview
+        href: ./placeholder.md
+      - name: Replatform from GCP Cloud Run
+        href: ./placeholder.md
+      - name: Replatform from Google Kubernetes Engine (GKE)
+        href: ./placeholder.md
+      - name: Replatform from Google Cloud Storage
+        href: ./placeholder.md
+      - name: Replatform from Google Pub/Sub
+        href: ./placeholder.md
+      - name: Replatform from Google Cloud SQL for PostgreSQL
+        href: ./placeholder.md
+      - name: Replatform from ...
+        href: ./placeholder.md
+  - name: Optimize on Azure
+    href: ./placeholder.md
