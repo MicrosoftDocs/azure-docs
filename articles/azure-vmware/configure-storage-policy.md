@@ -140,6 +140,8 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage poli
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+> [!NOTE]
+> Changing the default cluster policy will only affect new VM's.  Existing VM's will retain the policy they are currently configured/deployed with.
 
 ## Create custom AVS storage policy
 
@@ -148,6 +150,8 @@ This function creates a new or overwrites an existing vSphere Storage Policy. No
 > [!NOTE]
 > You cannot modify existing AVS default storage policies.
 > Certain options enabled in storage policies will produce warnings to associated risks.
+> Modifying existing storage policies will make existing associated vsan objects (vms/vmdks/iso/etc) appear as 'out of compliance'.
+> This simply means existing objects are running against premodified policy settings.  Reapply storage policy to objects to update to match modified policy settings.
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
 
