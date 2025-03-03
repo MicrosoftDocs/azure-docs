@@ -54,6 +54,15 @@ There are three ways to create an incident manually:
 
 After onboarding Microsoft Sentinel to the Microsoft Defender portal, manually created incidents aren't synchronized with the Defender portal, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
 
+### Permissions
+
+The following roles and permissions are required to manually create an incident.
+
+| Method | Required role |
+| ------ | ------------- |
+| Azure portal and API | One of the following:<li>[Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-responder)<li>[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) |
+| Azure Logic Apps | One of the above, plus:<li>[Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-playbook-operator) to use an existing playbook<li>[Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) to create a new playbook |
+
 ### Create an incident using the Azure portal
 
 1. Select **Microsoft Sentinel** and choose your workspace.
@@ -103,7 +112,7 @@ After onboarding Microsoft Sentinel to the Microsoft Defender portal, manually c
 
 Select the incident in the queue to see its full details, add bookmarks, change its owner and status, and more.
 
-If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself.
+If for some reason you change your mind after the fact about creating the incident, you can [delete it](delete-incident.md) from the queue grid, or from within the incident itself. You must have the [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) role in order to delete an incident.
 
 ### Create an incident using Azure Logic Apps
 
