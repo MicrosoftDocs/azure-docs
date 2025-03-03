@@ -80,7 +80,7 @@ The following properties are supported for Cassandra linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **Cassandra** |Yes |
-| version | The version that you specify. The value is `2.0`. | Yes for version 2.0 |
+| version | The version that you specify. The value is `2.0`. | Yes for version 2.0, not supported for version 1.0. |
 | host |One or more IP addresses or host names of Cassandra servers.<br/>Specify a comma-separated list of IP addresses or host names to connect to all servers concurrently. |Yes |
 | port |The TCP port that the Cassandra server uses to listen for client connections. |No (default is 9042) |
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
@@ -91,7 +91,7 @@ The following properties are supported for Cassandra linked service:
 >[!NOTE]
 >Currently connection to Cassandra using TLS is not supported.
 
-**Example: version 2.0**
+**Example: version 2.0 (Preview)**
 
 ```json
 {
@@ -179,7 +179,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Cassandra as source
 
-If you use version 2.0 to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
+If you use version 2.0 (Preview) to copy data from Cassandra, set the source type in the copy activity to **CassandraSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -237,19 +237,19 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 | BIGINT |Int64 |Int64 |
 | BLOB |Byte[] |Byte[] |
 | BOOLEAN |Boolean |Boolean |
-| COUNTER | Int64 | Unsupport |
-| DATE | IDate | Unsupport |
+| COUNTER | Int64 | Not supported. |
+| DATE | IDate | Not supported. |
 | DECIMAL |Decimal |Decimal |
 | DOUBLE |Double |Double |
-| DURATION | Int64 | Unsupport |
+| DURATION | Int64 | Not supported. |
 | FLOAT |Single |Single |
 | INET |String |String |
 | INT |Int32 |Int32 |
-| SMALLINT | Short | Unsupport |
+| SMALLINT | Short | Not supported. |
 | TEXT |String |String |
 | TIMESTAMP |DateTime |DateTime |
 | TIMEUUID |Guid |Guid |
-| TINYINT | SByte | Unsupport |
+| TINYINT | SByte | Not supported. |
 | UUID |Guid |Guid |
 | VARCHAR |String |String |
 | VARINT |Decimal |Decimal |
@@ -334,15 +334,15 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | version 2.0 | version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
-| Support the following new data type mappings. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte <br> COUNTER -> Int64 <br> DURATION -> Int64 | Unsupport the following new data type mappings. <br><br> DATE <br> SMALLINT <br> TINYINT <br> COUNTER <br> DURATION |
+| Support the following new data type mappings. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte <br> COUNTER -> Int64 <br> DURATION -> Int64 | The following new data type mappings are not supported. <br><br> DATE <br> SMALLINT <br> TINYINT <br> COUNTER <br> DURATION |
 
 ## Upgrade the Cassandra connector
 
 Here are steps that help you upgrade the Cassandra connector:
 
-1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties).
 
-2. If you use `query` in the copy activity source for version 2.0，Learn more about [Cassandra as source](#cassandra-as-source).
+2. If you use `query` in the copy activity source for version 2.0, see [Cassandra as source](#cassandra-as-source).
 
 3. The data type mapping for version 2.0 is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra).
 
