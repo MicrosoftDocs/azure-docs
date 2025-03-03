@@ -17,6 +17,8 @@ Per Broad security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ec
 
 To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in this VMware security advisory, ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version.
 
+For more information [this blog post.](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation)
+
 ## February 2025
 
 Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/azure-vmware/configure-azure-elastic-san)
