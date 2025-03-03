@@ -397,8 +397,8 @@ items:
     href: common-questions-business-case.md
   - name: Migration and modernization tool
     href: common-questions-server-migration.md
-    - name: Troubleshoot Windows OS upgrade issues
-      href: troubleshoot-upgrade.md  
+  - name: Troubleshoot Windows OS upgrade issues
+    href: troubleshoot-upgrade.md  
 - name: Reference
   items:
   - name: Azure CLI
