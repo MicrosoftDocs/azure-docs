@@ -109,7 +109,16 @@ sections:
                   ThreadPool.SetMinThreads(minThreads, minThreads);
               }
               ```
-          
+            If you ae using dotnet Core, you would set it in `Program.cs`, just before the call to WebApplication.CreateBuilder():
+              
+              ```csharp
+              private readonly int minThreads = 200
+                            
+              ThreadPool.SetMinThreads(minThreads, minThreads);
+              
+              var builder = WebApplication.CreateBuilder(args);
+              // rest of application setup
+              ```
               > [!NOTE]
               > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a machine with four cores and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, use **ThreadPool.SetMinThreads(200, 200)**.
           
