@@ -33,7 +33,7 @@ In this section, you create a route server.
 
 1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
-    :::image type="content" source="./media/quickstart-create-route-server-portal/route-server-portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/quickstart-create-route-server-portal/route-server-portal-search.png":::
+    :::image type="content" source="./media/route-server-portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/route-server-portal-search.png":::
 
 1. On the **Route Servers** page, select **+ Create**. 
 
@@ -55,7 +55,7 @@ In this section, you create a route server.
     | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
     | Public IP address name | Enter ***myVirtualNetwork-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
 
-    :::image type="content" source="./media/quickstart-create-route-server-portal/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/quickstart-create-route-server-portal/create-route-server.png":::     
+    :::image type="content" source="./media/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/create-route-server.png":::     
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 

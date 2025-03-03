@@ -17,13 +17,13 @@ You can automate a load test in Azure Load Testing by creating a CI/CD pipeline.
 To add an existing load test to a CI/CD pipeline:
 
 - Configure service authentication to allow the CI tool to connect to your Azure load testing resource.
-- Add load test input files to your repository, such as the JMeter test script and the load test YAML configuration.
+- Add load test input files to your repository, such as the test script and the load test YAML configuration.
 - Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Load Testing test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md) or [use an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) to create a load test.
+- An Azure Load Testing test. Create a [URL-based load test](./quickstart-create-and-run-load-test.md), use [an existing JMeter script](./how-to-create-and-run-load-test-with-jmeter-script.md) or [an existing Locust script](./quickstart-create-run-load-test-with-locust.md) to create a load test.
 
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
@@ -224,7 +224,7 @@ To run a load test with Azure Load Testing in a CI/CD workflow, you need to add 
 If you don't have an existing load test, add the following files to your source code repository:
 
 - Load test configuration YAML file. Learn how you can create a [load test configuration YAML file](./reference-test-config-yaml.md).
-- Test plan file. For JMeter-based tests, add a JMeter test script (`JMX` file). For URL-based tests, add a [requests JSON file](./reference-test-config-yaml.md#requests-json-file).
+- Test plan file. For JMeter-based tests, add a JMeter test script (`JMX` file). For Locust-based tests, add a Locust test script (`.py` file). For URL-based tests, add a [requests JSON file](./reference-test-config-yaml.md#requests-json-file).
 - Any [JMeter user properties files](./how-to-configure-user-properties.md).
 - Any input data files that your test plan uses. For example, CSV data files.
 
@@ -247,7 +247,7 @@ If you have an existing load test, you can download the configuration settings a
     The folder contains the following files:
 
     - `config.yaml`: the load test YAML configuration file. You reference this file in the CI/CD workflow definition.
-    - `.jmx`: the JMeter test script
+    - `.jmx` or `.py`: The JMeter or Locust test script
     - Any additional input files, such as CSV files or user properties files that are needed to run the load test.
 
 1. Commit all extracted input files to your source control repository.
