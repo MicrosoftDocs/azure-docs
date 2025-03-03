@@ -94,7 +94,14 @@ Split tunneling is configured by default for the VPN client.
 
 ### Forced tunneling
 
-You can configure forced tunneling in order to direct all traffic to the VPN tunnel. Forced tunneling can be configured using two different methods; either by advertising custom routes, or by modifying the profile XML file. You can include 0/0 if you're using the Azure VPN Client version 2.1900:39.0 or higher.
+You can configure forced tunneling in order to direct all traffic to the VPN tunnel. Forced tunneling can be configured using two different methods; either by advertising custom routes, or by modifying the profile XML file.
+
+For Azure VPN Client for Windows:
+- Version 2.1900:39.0 or higher. You can include the route 0/0. Modify the downloaded profile xml file and add the <includeroutes><route><destination><mask> </destination></mask></route></includeroutes> tags. Make sure to update the version number to 2.
+- Version lower than 2.1900:39.0: You need to add two custom routes: 0.0.0.0/1 and 128.0.0.0/1.
+
+For Azure VPN Client on macOS:
+- macOS version 14 or higher. Only the custom route 0/0 is supported. The routes 0.0.0.0/1 and 128.0.0.0/1 are not supported.
 
 > [!NOTE]
 > Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
@@ -104,6 +111,22 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
 
 * **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
+You can advertise the custom route `0.0.0.0/0` by the following xml file:
+   ```xml
+  <azvpnprofile>
+  <clientconfig>
+
+    <includeroutes>
+        <route>
+            <destination>0.0.0.0</destination><mask>0</mask>
+        </route>
+    </includeroutes>
+
+  </clientconfig>
+  </azvpnprofile>
+  ```
+
+You can advertise custom routes `0.0.0.0/1` and `128.0.0.0/1` by the following xml file:
    ```xml
   <azvpnprofile>
   <clientconfig>
