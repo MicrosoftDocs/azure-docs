@@ -4,7 +4,7 @@ description: Set up monitoring and tracking for B2B transactions or messages in 
 services: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
-ms.date: 02/28/2025
+ms.date: 03/07/2025
 # As a B2B integration solutions developer, I want to learn how to monitor and track B2B transactions in my Standard workflows created with Azure Logic Apps.
 ---
 
@@ -99,7 +99,7 @@ For more information, see the following documentation:
 - [Add agreements between partners in integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-agreements)
 - [Add trading partners to integration accounts](/azure/logic-apps/logic-apps-enterprise-integration-partners)
 
-### Troubleshoot tracking problems
+### Troubleshoot tracking setup problems
 
 For tracking to work correctly, make sure that all the following conditions are met:
 
@@ -134,11 +134,11 @@ For tracking to work correctly, make sure that all the following conditions are 
 
    :::image type="content" source="media/monitor-track-b2b-transactions/example-x12-message-details.png" alt-text="Screenshot shows Premium integration account with B2B tracking selected, and a table with details about collected X12 messages.":::
 
-### Message properties
+## Message properties
 
 The following tables list the properties available for each message type that B2B currently supports:
 
-#### AS2 message properties
+### AS2 message properties
 
 | Column name | Expanded name |
 |-------------|---------------|
@@ -146,7 +146,7 @@ The following tables list the properties available for each message type that B2
 | **SenderParternerName** | Sender partner |
 | **ReceiverPartnerName** | Receiver partner |
 | **MessageStatus** | Message status |
-| **MessageDirection** | Message direction (send or receive) |
+| **MessageDirection** | Message direction (**`send`** or **`receive`**) |
 | **MessageTime** | Message time |
 | **MessageClientTrackingId** | Message client tracking ID |
 | **MessageId** | Message ID from the message header |
@@ -154,7 +154,9 @@ The following tables list the properties available for each message type that B2
 | **AckStatus** | Acknowledgment status |
 | **CorrelationMessageId** | An ID that correlates the message with an MDN |
 
-#### X12 message properties
+For more information about the JSON schema for these properties, see [Table schemas for tracking B2B transactions](tracking-table-schemas-standard.md).
+
+### X12 message properties
 
 | Column name | Expanded name |
 |-------------|---------------|
@@ -174,14 +176,14 @@ The following tables list the properties available for each message type that B2
 | **TransactionSetAckStatus** | Transaction set acknowledgment status |
 | **FunctionalAckStatus** | Functional acknowledgment status |
 
-## Tracking table schema
+For more information about the JSON schema for these message properties, see [Table schemas for tracking B2B transactions](tracking-table-schemas-standard.md#).
 
-In your Azure Data Explorer cluster, the database stores transaction data in a structured format.
+## Database tables
+
+In your Azure Data Explorer cluster, the database stores transaction data in a table-structured format. This table structure provides the capability for you to efficiently query and retrieve B2B tracking data, provide structured insights into message flow, processing status, and troubleshoot problems.
 
 - The table named **AS2TrackRecords** stores AS2 transactions.
 - The table named **EdiTrackRecords** stores X12 and EDIFACT transactions.
-
-This table structure provides the capability for you to efficiently query and retrieve B2B tracking data, provide structured insights into message flow, processing status, and troubleshoot problems.
 
 > [!NOTE]
 >
@@ -190,7 +192,7 @@ This table structure provides the capability for you to efficiently query and re
 > Azure Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
 > Your database must also grant **Ingester** permissions to your integration account resource.
 
-For more information, see [Tracking table schemas for B2B transactions - Standard workflows](tracking-table-schemas-standard.md).
+For more information, see [Table schemas for tracking B2B transactions - Standard workflows](tracking-table-schemas-standard.md).
 
 <a name="manage-with-rest-api"></a>
 
@@ -206,8 +208,8 @@ Create a tracking store or update an existing one.
 >
 > In this release, your integration account currently supports only one tracking store.
 > Before you create a tracking store using the Azure Logic Apps REST API, you must first 
-> manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your Azure 
-> Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
+> manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your 
+> Azure  Data Explorer database using specific [table schemas for tracking B2B transactions](tracking-table-schemas-standard.md). 
 > Your database must also grant **Ingester** permissions to your integration account resource.
 
 `PUT https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores/{tracking-store-name}?api-version=2016-06-01`
@@ -294,4 +296,4 @@ Return a success response for a successfully deleted tracking store.
 
 ## Related content
 
-- [Tracking table schemas for B2B transactions - Standard workflows](tracking-table-schemas-standard.md)
+- [Table schemas for tracking B2B transactions - Standard workflows](tracking-table-schemas-standard.md)
