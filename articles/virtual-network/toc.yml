@@ -84,8 +84,6 @@
       href: quick-create-terraform.md
   - name: Create and associate service endpoint policies
     href: virtual-network-service-endpoint-policies.md
-  - name: Deploy dedicated Azure services
-    href: virtual-network-for-azure-services.md
   - name: Filter network traffic
     href: tutorial-filter-network-traffic.md
   - name: Restrict network access to PaaS resources

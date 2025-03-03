@@ -1,10 +1,11 @@
 ---
-title: Add and manage TLS/SSL certificates
-description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
+title: Install a TLS/SSL certificate for Your App
+description: Step-by-step guide to adding and managing TLS/SSL certificates in Azure App Service to secure your custom domain.
+keywords: TLS/SSL certificate installation, Azure security, HTTPS setup, custom domain security
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 09/19/2024
+ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
