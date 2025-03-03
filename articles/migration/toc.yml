@@ -67,6 +67,8 @@
       href: ./placeholder.md
   - name: Migrate from Google Cloud
     items:
+    - name: Getting started
+      href: ./placeholder.md
     - name: Recommended workload migration process
       items:
       - name: 1. Assess your current workload
