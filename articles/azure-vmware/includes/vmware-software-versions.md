@@ -3,7 +3,7 @@ title: VMware solution software versions
 description: Supported VMware solution software versions for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 2/17/2025
+ms.date: 3/3/2025
 author: suzizuber
 ms.author: v-suzuber
 ms.custom: engagement-fy23
@@ -16,7 +16,7 @@ The VMware solution software versions used in new deployments of Azure VMware So
 | Software                         |    Version   |    Build number   |
 | :---                             |     :---:    |     :---:         |
 | VMware vCenter Server            |    [8.0 U2d](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u2d-release-notes.html)   | 23929136 |
-| VMware ESXi                      |    [8.0 U2b](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2b-release-notes.html)  | 23305546 |
+| VMware ESXi                      |    [8.0 U2d](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2b-release-notes.html)  | 24585300 |
 | VMware vSAN                      |    [8.0 U2](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-802-release-notes.html)   | 23305546 |
 | VMware vSAN Witness              |    [8.0 U2](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-802-release-notes.html)   | 23305546 |
 | VMware vSAN on-disk format       |    [19](https://knowledge.broadcom.com/external/article?legacyId=2148493)   | N/A |
