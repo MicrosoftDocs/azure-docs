@@ -75,7 +75,7 @@ Each of these scopes further divides statuses into categories and subcategories.
 | <a name="AZSM2071"></a>**AZSM2071** |Source file has been modified during transfer | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 | <a name="AZSM2080"></a>**AZSM2080** |Copy failed due to an unknown error  | It's likely that this error is temporary. Retry the migration job again. If the issue persists, please create a support ticket for further assistance. |
 
-# Troubleshooting Storage Mover for RBAC issues
+## Troubleshooting Storage Mover RBAC issues
 
 During a job run, automatic RBAC assignments happen. In case of failures in assignments, manually add the required role assignment.
 
