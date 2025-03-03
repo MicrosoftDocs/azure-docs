@@ -977,9 +977,9 @@ items:
     items:
     - name: Call recording overview
       href: concepts/voice-video-calling/call-recording.md
-    - name: Provide the option to record a call in progress
+    - name: Record a call
       href: quickstarts/voice-video-calling/get-started-call-recording.md
-    - name: Automatically record a call from the start
+    - name: Record a call automatically
       href: how-tos/call-automation/record-every-call.md
   - name: Transcripts
     items:
@@ -1003,7 +1003,7 @@ items:
       href: concepts/analytics/logs/call-automation-logs.md
     - name: Call Automation metrics
       href: concepts/analytics/logs/call-automation-metrics.md
-    - name: Recording logs
+    - name: Call recording logs
       href: concepts/analytics/logs/recording-logs.md
     - name: Call recording insights
       href: concepts/analytics/insights/call-recording-insights.md
