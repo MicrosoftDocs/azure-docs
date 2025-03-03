@@ -37,11 +37,11 @@ The flow for authenticating with a shared secret or user credentials is:
 
 1. Securely store the secret or credentials, for example in Azure Key Vault, or the CI/CD secrets store.
 1. Reference the secret in the load test configuration.
-1. In the JMeter script, retrieve the secret value with the `GetSecret` function and pass the secret value to the application request.
+1. For JMeter-based tests, retrieve the secret value with the `GetSecret` function. For Locust-based tests, retrieve the secret with `getenv` function. Pass the secret value to the application request.
 
 ### Securely store the secret 
 
-To avoid storing, and disclosing, security information in the JMeter script, you can securely store secrets in Azure Key Vault or in the CI/CD secrets store.
+To avoid storing, and disclosing, security information in the test script, you can securely store secrets in Azure Key Vault or in the CI/CD secrets store.
 
 You can add the security information in a secrets store in either of two ways:
 
@@ -68,7 +68,7 @@ In the Azure portal, you can reference secrets that are stored in Azure Key Vaul
 
     | Field | Value |
     | ----- | ----- |
-    | **Name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the JMeter script. |
+    | **Name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the test script. |
     | **Value** | Matches the Azure Key Vault **Secret identifier**. |
 
     :::image type="content" source="media/how-to-test-secured-endpoints/load-test-secrets.png" alt-text="Screenshot that shows how to add secrets to a load test in the Azure portal." lightbox="media/how-to-test-secured-endpoints/load-test-secrets.png":::
@@ -81,7 +81,7 @@ To add a secret to your load test in GitHub Actions, update the GitHub Actions w
 
 | Field | Value |
 | ----- | ----- |
-| **name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the JMeter script. |
+| **name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the test script. |
 | **value** | References the GitHub Actions secret name. |
 
 The following code snippet gives an example of how to configure a load test secret in GitHub Actions.
@@ -108,7 +108,7 @@ To add a secret to your load test in Azure Pipelines, update the Azure Pipelines
 
 | Field | Value |
 | ----- | ----- |
-| **name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the JMeter script. |
+| **name** | Name of the secret. You provide this name to the `GetSecret` function to retrieve the secret value in the test script. |
 | **value** | References the Azure Pipelines secret variable name. |
 
 The following code snippet gives an example of how to configure a load test secret in Azure Pipelines.
@@ -146,9 +146,23 @@ You can now retrieve the secret value in the JMeter script by using the `GetSecr
 
     :::image type="content" source="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png" alt-text="Screenshot that shows how to add an authorization header to a request in JMeter." lightbox="./media/how-to-test-secured-endpoints/jmeter-add-http-header.png":::
 
+### Retrieve and use the secret value in the Locust script
+
+You can now retrieve the secret value in the Locust script and pass it to the application request. For example, use an `Authorization` HTTP header to pass an OAuth token to a request. 
+
+The secrets configured in the load test configuration are accessible as environment variables. 
+
+1. Initialize a variable with the secret value using the secret *Name* specified in the load test configuration. 
+
+```Python
+my_secret = os.getenv("appToken")
+```
+
+1. Reference the variable in your test script to use the secret value stored in Azure KeyVault. 
+
 ## Authenticate with client certificates
 
-In this scenario, the application endpoint requires that you use a client certificate to authenticate. Azure Load Testing supports Public Key Certificate Standard #12 (PKCS12) type of certificates. You can use only one client certificate in a load test.
+In this scenario, the application endpoint requires that you use a client certificate to authenticate. Azure Load Testing supports Public Key Certificate Standard #12 (PKCS12) type of certificates. You can also [use multiple client certificates](./how-to-use-multiple-certificates.md) in a load test.
 
 The following diagram shows how to use a client certificate to authenticate with an application endpoint in your load test.
 
@@ -158,7 +172,7 @@ The flow for authenticating with client certificates is:
 
 1. Securely store the client certificate in Azure Key Vault.
 1. Reference the certificate in the load test configuration.
-1. Azure Load Testing transparently passes the certificate to all application requests in JMeter.
+1. For JMeter-based tests, Azure Load Testing transparently passes the certificate to all application. For Locust-based tests, you can retrieve the certificate in your test script and pass it to the requests. 
 
 ### Store the client certificate in Azure Key Vault
 
@@ -227,7 +241,14 @@ certificates:
 ```
 ---
 
-When you run your load test, Azure Load Testing retrieves the client certificate from Azure Key Vault, and automatically injects it in each JMeter web request.
+When you run your load test, Azure Load Testing retrieves the client certificate from Azure Key Vault, and automatically injects it in each JMeter web request. 
+
+For Locust-based tests, you can retrieve the certificate and use it in your tests script. The certificate configured in the load test configuration are available in the `ALT_CERTIFICATES_DIR`. 
+
+```Python
+cert_dir = os.getenv("ALT_CERTIFICATES_DIR")
+cert_file = open(os.path.join(cert_dir), "cert_name_in_keyvault.pfx")
+```
 
 ## Authenticate with a managed identity
 
