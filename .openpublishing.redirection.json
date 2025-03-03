@@ -1832,12 +1832,12 @@
     },
     {
       "source_path": "articles/devtest-labs/devtest-lab-configure-lab-level-secrets.md",
-      "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-overview",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/devtest-labs/devtest-lab-trusted-launch.md",
-      "redirect_url": "/previous-versions/azure/devtest-labs/devtest-lab-overview",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
       "redirect_document_id": false
     },
     {
