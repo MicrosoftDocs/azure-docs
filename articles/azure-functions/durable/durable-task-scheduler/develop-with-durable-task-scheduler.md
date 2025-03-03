@@ -376,12 +376,12 @@ Add these two environment variables to app setting:
     az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
     ```
 
-1. Use the following command to add DTS connection string to app. 
+1. Use the following command to add environment variable for DTS connection string to app. 
     ```azurecli
     az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
     ```
 
-1. Repeat previous step to add task hub name. 
+1. Repeat previous step to add environment variable for task hub name. 
 
 ::: zone-end 
 
@@ -402,6 +402,7 @@ Add these two environment variables to app setting:
 1. Add environment variable for task hub name.   
 
 1. Click **Apply** then **Confirm** to add the variables. 
+
 ::: zone-end 
 
 > [!NOTE]
