@@ -74,7 +74,7 @@ To create and run a MySQL assessment, follow these steps:
 
 1. Select **OK**.
 
-   :::image type="content" source="./media/create-mysql-assessment/save-mysql-assessment-settings.png" alt-text="Screenshot on how to edit mysql assessment settings.":::
+   :::image type="content" source="./media/create-mysql-assessment/save-mysql-assessment-settings.png" alt-text="Screenshot on how to save mysql assessment settings.":::
    
 1. In **Assess Servers**, select **Next**.
 1. In **Select servers to assess**, specify a name for the assessment in the **Assessment name**.

@@ -54,7 +54,7 @@ The Azure Database for MySQL assessment properties includes:
 | **Setting** | **Details**
 | --- | ---
 | **Target location**  | The Azure region to which you want to migrate. Azure Database for MySQL configuration and cost recommendations are based on the location that you specify.
-|**Target and pricing settings** | **Environment type** | The environment for the MySQL deployments to apply Azure Database for MySQL configuration and cost recommendations applicable to Production or Development/Testing.
+|**Target and pricing settings**  **Environment type** | The environment for the MySQL deployments to apply Azure Database for MySQL configuration and cost recommendations applicable to Production or Development/Testing.
 | **Licensing program**  | The Azure offer if you're enrolled. Currently, the field is Pay-as-you-go by default, which gives you retail Azure prices.
 | **Currency** | The billing currency for your account.
 | **Savings options**  | Specify the reserved capacity savings option that you want the assessment to consider to optimize your Azure compute cost. <br/><br> Azure reservations (one year or three years reserved) are a good option for the most consistently running resources. <br/><br> When you select None, the Azure compute cost is based on the Pay-as-you-go rate or based on actual usage. <br/><br> You need to select pay-as-you-go in the offer/licensing program to be able to use Reserved Instances. When you select any savings option other than None, the Discount (%) setting isn’t applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
