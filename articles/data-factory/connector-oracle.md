@@ -131,7 +131,7 @@ For `server` property, you can specify it in one of the following three formats:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-For the parameters used in `server`, we provide an allow list to avoid security risks, as shown below. You can refer to it to determine which parameters to be set.
+For the parameters used in `server`, we provide an allow list to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If the disallowed parameter is set, the connection will fail.
 
 - Allow list for using the Azure integration runtime:
 
@@ -346,7 +346,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will be applied when supportV1DataTypes is true. | No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
