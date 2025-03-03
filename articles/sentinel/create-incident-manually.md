@@ -63,6 +63,8 @@ The following roles and permissions are required to manually create an incident.
 | Azure portal and API | One of the following:<li>[Microsoft Sentinel Responder](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-responder)<li>[Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-contributor) |
 | Azure Logic Apps | One of the above, plus:<li>[Microsoft Sentinel Playbook Operator](/azure/role-based-access-control/built-in-roles/security#microsoft-sentinel-playbook-operator) to use an existing playbook<li>[Logic App Contributor](/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor) to create a new playbook |
 
+Learn more about [roles in Microsoft Sentinel](roles.md).
+
 ### Create an incident using the Azure portal
 
 1. Select **Microsoft Sentinel** and choose your workspace.
