@@ -154,7 +154,7 @@ The mobility service agent must be installed on the servers to get them discover
 
 ## Agent-based migration stack
 
-This article introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
+This section introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
 
 * Oracle Linux 9.0
 * Oracle Linux 9.1
@@ -223,7 +223,7 @@ Follow the steps:
 1. Provide a password for the administrator user. 
 1. Select **Finalize** the system reboots, and you can log in with the administrator user account.
 
-Set up the appliance using PowerShell
+**Set up the appliance using PowerShel**
 
 If there are organizational restrictions, you can manually set up the replication appliance through PowerShell. 
 
@@ -232,7 +232,7 @@ Follow these steps:
 1. Unzip and extract the components.
 1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
 
-Register Appliance
+### Register Appliance
 
 After the appliance is created, the **Microsoft Azure Appliance Configuration Manager** launches automatically. It validates prerequisites such as internet connectivity, time synchronization, system configurations, and group policies.
 
@@ -280,16 +280,17 @@ Use the following steps to register the appliance:
 1. After pasting the key, select **Login**. You're redirected to a new authentication tab. By default, an authentication code is generated on the **Appliance Configuration Manager** page. Use the following code in the authentication tab. 
 1. Enter your Microsoft Azure credentials to complete the registration. 
 1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
-1. 
+
 :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows to enter the microsoft code":::
 
 > [!Note]
 > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
 
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
-1. Select **Continue** to proceed.
 
 :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to register with recovery services":::
+
+1. Select **Continue** to proceed.
 
 1. After successful registration, proceed to configure **vCenter** details. 
 
@@ -307,13 +308,13 @@ Use the following steps to register the appliance:
     > - For Linux OS, ensure to provide root credentials.
     - For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow. 
     - Visit the **Appliance Configurator** to edit or add credentials to access your machines.
-    
+
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details"::: 
 
 1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a **friendly name** for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine. 
-1. Finally, select **Add**.
+1. Select **Add**.
 
 ::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Show how to add physical server credentials":::
 
