@@ -25,10 +25,6 @@ reliability, and quality for that calling resource.
 This dashboard 
 is integrated with [Copilot in Azure](/azure/copilot/overview), allowing you to chat with Copilot to quickly understand the data you’re looking at and learn actions to improve your users' calling experiences.
 
-<!-- Insert example prompts and images:
-1
-2
-3 --> 
 
 There are two main tools you can use to monitor your calls and improve call quality. 
 1. Voice and Video Insights dashboards
@@ -58,19 +54,21 @@ You need to start storing call logs and enable [Copilot in Azure](/azure/copilot
 
 Inside your Azure Communication Services resource, scroll down on the left navigation bar to the **Monitor** category and select the **Insights** tab:
 
-:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot of the Insights navigation icon.":::
+:::image type="content" source="..\media\workbooks\voice-and-video-navigate.png" alt-text="Screenshot of the Insights navigation icon.":::
 
 
 ## Volume
 
-<!-- :::image type="content" source="..\media\workbooks\voice-and-video-nav.png" alt-text="Screenshot of voice and video navigation."::: -->
-
-The **Volume** tab plots key usage metrics, such as call and participant volume, you can use the filters to focus your reviews and time frames. You can use Copilot to get detailed explanations of key concepts at the bottom of this section.
+The **Volume** tab plots key usage metrics, such as call and participant volume, you can use the filters to focus your reviews and time frames. 
 
 This tab focuses on the composition and volume of your calls over time. You can see average call duration in a period or focus on top users by average call duration. We provide more information with breakdowns by SDK version, Teams interoperability, participant types, call type, endpoint type, and OS version. 
 
 
-<!-- :::image type="content" source="..\media\workbooks\voice-and-video-summary.png" alt-text="Screenshot of voice and video summary."::: -->
+:::image type="content" source="..\media\workbooks\voice-and-video-volume2.png" alt-text="Screenshot of voice and video Volume tab.":::
+
+You can use [Copilot in Azure](/azure/copilot/overview) to get detailed explanations of key concepts at the bottom of this section.
+
+:::image type="content" source="..\media\workbooks\voice-and-video-volume-copilot.png" alt-text="Screenshot of Copilot responses in the voice and video Volume tab.":::
 
 <!-- The **Volume** tab under the **Voice and video** modality displays the number of calls and the number of participants in a specific period of time (**Time range** parameter), subdivided into time bins (**Time granularity** parameter):
 
@@ -84,6 +82,9 @@ The **Volume** tab contains a **Grouping** parameter, which helps visualize the 
 The **Reliability** tab summarizes the performance of key calling SDK APIs to help you focus on the lowest performing areas. The default view shows a trend of all the APIs to give you an overview of your reliability. You can get more details by selecting a single API scenario to focus on. When you choose a single API scenario the dashboard visuals update to show a detailed breakdown of that API.
 
 <!-- The **Reliability** tab summarizes the performance of key calling SDK APIs to help you focus on the lowest performing areas. The default view shows a trend of all the APIs to give you an overview of your reliability. You can get more details by selecting a single API scenario to focus on. When you choose a single API scenario the dashboard visuals update to show a detailed breakdown of that API and highlight where you can chat with Copilot to learn about individual error codes and possible solutions to improve performance.  -->
+
+
+
 
 ## User Facing Diagnostics (UFD)
 
