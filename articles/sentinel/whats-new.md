@@ -22,9 +22,15 @@ The listed features were released in the last three months. For information abou
 
 - [Customize settings for the SAP agentless solution](#customize-settings-for-the-sap-agentless-solution)
 
-### Customize settings for the SAP agentless solution (limited preview)
+### SAP agentless solution enhancements (limited preview)
 
-Microsoft Sentinel customers integrating with the SAP agentless solution can now customize the behavior of their data connector using SAP Integration Suite value mapping.
+Microsoft Sentinel customers using the SAP agentless solution to ingest data from their SAP systems now have the following enhancements:
+
+- **Customize settings**: Use SAP Integration Suite value mapping to customize the behavior of your agentless data connector.
+- **New function for SAP**: If you're using an older SAP system with XAL, use the new functions to <x>?
+- **New troubleshooting documentation**: TBD description
+
+If you haven't yet installed the agentless solution to ingest data from your SAP system, try the new iflow to verify your systems prerequisites and compatibility. For more information, see TBD.
 
 For more information, see [Microsoft Sentinel solution for SAP applications: Deployment overview](sap/deployment-overview.md) and [Customize your SAP agentless connector for Microsoft Sentinel](sap/configure-agentless.md).
 

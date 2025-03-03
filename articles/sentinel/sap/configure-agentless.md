@@ -37,7 +37,7 @@ This procedure is only relevant when you want to customize the SAP agentless dat
     1. Use one of the following methods to customize your settings:
 
         - **To customize settings across all SAP systems**, add value mappings for the **global** bi-directional mapping agency.
-        - **To customize settings for specific SAP systems**, add new bi-directional mapping agencies for each SAP system, and then add value mappings for each one.
+        - **To customize settings for specific SAP systems**, add new bi-directional mapping agencies for each SAP system, and then add value mappings for each one. Name your agencies to exactly match the name of the RFC destination that you want to customize, such as myRfc, key, myRfc, value.
 
         For more information, see:
 
