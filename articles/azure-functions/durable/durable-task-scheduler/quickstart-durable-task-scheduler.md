@@ -192,7 +192,7 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 
 > [!NOTE] 
-> If your app is running on the Functions Premium plan, ensure to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) to get autoscaling of the app. 
+> If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) after deployment. This will ensure your app autoscales based on load. 
 
 ### Test your function app in Azure
 
