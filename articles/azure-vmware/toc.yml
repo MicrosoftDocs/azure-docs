@@ -182,13 +182,13 @@ items:
   - name: Configure Trusted Launch
     href: configure-virtual-trusted-platform-module.md
 - name: Configure internet connectivity
-    items:
-    - name: Enable Managed SNAT for Azure VMware Solution workloads
-      href: enable-managed-snat-for-workloads.md
-    - name: Enable public IP on the NSX Edge for Azure VMware Solution
-      href: enable-public-ip-nsx-edge.md
-    - name: Disable internet access or enable a default route
-      href: disable-internet-access.md
+  items:
+  - name: Enable Managed SNAT for Azure VMware Solution workloads
+    href: enable-managed-snat-for-workloads.md
+  - name: Enable public IP on the NSX Edge for Azure VMware Solution
+    href: enable-public-ip-nsx-edge.md
+  - name: Disable internet access or enable a default route
+    href: disable-internet-access.md
   - name: Deploy Traffic Manager to balance workloads
     href: deploy-traffic-manager-balance-workloads.md
 - name: Migrate workloads
