@@ -1596,6 +1596,42 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 # [**Powershell**](#tab/powershell)
 
+Use [New-AzVirtualNetworkPeering](/powershell/module/az.network/new-azvirtualnetworkpeering) to create the peering from the hub to spoke two.
+
+```powershell
+# Create peering from hub to spoke two
+$hubVnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-hub"
+}
+$hubVnet = Get-AzVirtualNetwork @hubVnetParams
+
+$spokeVnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-2"
+}
+$spokeVnet = Get-AzVirtualNetwork @spokeVnetParams
+
+$hubToSpokeParams = @{
+    Name = "vnet-hub-to-vnet-spoke-2"
+    VirtualNetwork = $hubVnet
+    RemoteVirtualNetworkId = $spokeVnet.Id
+    AllowForwardedTraffic = $true
+    AllowVirtualNetworkAccess = $true
+}
+Add-AzVirtualNetworkPeering @hubToSpokeParams
+
+# Create peering from spoke two to hub
+$spokeToHubParams = @{
+    Name = "vnet-spoke-2-to-vnet-hub"
+    VirtualNetwork = $spokeVnet
+    RemoteVirtualNetworkId = $hubVnet.Id
+    AllowForwardedTraffic = $true
+    AllowVirtualNetworkAccess = $true
+}
+Add-AzVirtualNetworkPeering @spokeToHubParams
+```
+
 # [**CLI**](#tab/cli)
 
 Use [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create) to create the peering from the hub to spoke two.
@@ -1682,6 +1718,58 @@ Create a route table to force all outbound internet and inter-spoke traffic thro
 1. Select **OK**.
 
 # [**Powershell**](#tab/powershell)
+
+Use [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) to create the route table.
+
+```powershell
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-spoke-2"
+    Location = "westus2"
+}
+New-AzRouteTable @routeTableParams
+```
+
+Use [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) to create the route in the route table.
+
+```powershell
+$routeParams = @{
+    Name = "default-via-nat-spoke-2"
+    AddressPrefix = "0.0.0.0/0"
+    NextHopType = "VirtualAppliance"
+    NextHopIpAddress = "10.0.0.10"
+}
+
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-spoke-2"
+}
+$routeTable = Get-AzRouteTable @routeTableParams
+
+Add-AzRouteConfig -RouteTable $routeTable -Route $routeParams
+
+Set-AzRouteTable -RouteTable $routeTable
+```
+
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the subnet.
+
+```powershell
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-spoke-2"
+}
+$vnet = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @subnetParams
+
+$subnet.RouteTable = $routeTable
+
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+```
 
 # [**CLI**](#tab/cli)
 
@@ -1771,8 +1859,62 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 
 # [**Powershell**](#tab/powershell)
 
-# [**CLI**](#tab/cli)
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the network security group.
 
+```powershell
+$nsgParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nsg-spoke-2"
+    Location = "eastus2"
+}
+New-AzNetworkSecurityGroup @nsgParams
+```
+
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create an inbound NSG rule for HTTP.
+
+```powershell
+$ruleParams = @{
+    Name = "allow-http"
+    Priority = 1000
+    Direction = "Inbound"
+    Access = "Allow"
+    Protocol = "Tcp"
+    DestinationPortRange = "80"
+}
+$nsg = Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-2"
+
+$nsg | Add-AzNetworkSecurityRuleConfig @ruleParams
+
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
+```
+
+Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) to create the network interface.
+
+```powershell
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-2"
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-spoke-2").Subnets[0].Id
+    NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-2").Id
+}
+New-AzNetworkInterface @nicParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the Windows Server 2022 virtual machine.
+
+```powershell
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-spoke-2"
+    Image = "Win2022Datacenter"
+    Size = "Standard_DS2_v2"
+    AdminUsername = "azureuser"
+    NetworkInterfaceIds = (Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-2").Id
+}
+New-AzVM @vmParams
+```
+
+# [**CLI**](#tab/cli)
 
 Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the network security group.
 
@@ -1864,6 +2006,23 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
     ```
 
 # [**Powershell**](#tab/powershell)
+
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install IIS on the virtual machine.
+
+```powershell
+$vmExtensionParams = @{
+    ResourceGroupName = "test-rg"
+    VMName = "vm-spoke-2"
+    Name = "CustomScriptExtension"
+    Publisher = "Microsoft.Compute"
+    Type = "CustomScriptExtension"
+    TypeHandlerVersion = "1.10"
+    Settings = @{
+        "commandToExecute" = "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path 'C:\inetpub\wwwroot\default.htm' -Value $($env:computername)"
+    }
+}
+Set-AzVMExtension @vmExtensionParams
+```
 
 # [**CLI**](#tab/cli)
 
@@ -1986,6 +2145,16 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 # [**Powershell**](#tab/powershell)
+
+Use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to delete the resource group.
+
+```powershell
+$rgParams = @{
+    Name = "test-rg"
+    Force = $true
+}
+Remove-AzResourceGroup @rgParams
+```
 
 # [**CLI**](#tab/cli)
 
