@@ -33,7 +33,7 @@
       href: scenario-upload-storage-blobs.md
 - name: Configure
   items:
-  - name: Front Door profile
+    - name: Front Door profile
       items:
       - name: Create a Front Door - Portal
         href: create-front-door-portal.md
@@ -224,7 +224,7 @@
     - name: Configure IP restriction
       href: ../web-application-firewall/afds/waf-front-door-configure-ip-restriction.md?toc=/azure/frontdoor/toc.json
   - name: Network security blog
-      href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Operational excellence
   items:
   - name: WebSocket
@@ -284,54 +284,51 @@
     - name: Quickstarts
       items:
       - name: Front Door (classic)
-          items:
-          - name: Create a Front Door - Portal
-            href: quickstart-create-front-door.md
-          - name: Create a Front Door - PowerShell
-            href: quickstart-create-front-door-powershell.md
-          - name: Create a Front Door - CLI
-            href: quickstart-create-front-door-cli.md
-          - name: Create a Front Door - Bicep
-            displayName: ARM, Resource Manager, Template
-            href: quickstart-create-front-door-bicep.md
-          - name: Create a Front Door - ARM Template
-            displayName: Resource Manager
-            href: quickstart-create-front-door-template.md
-          - name: Create a Front Door - Terraform
-            displayName: Terraform
-            href: quickstart-create-front-door-terraform.md
+        items:
+        - name: Create a Front Door - Portal
+          href: quickstart-create-front-door.md
+        - name: Create a Front Door - PowerShell
+          href: quickstart-create-front-door-powershell.md
+        - name: Create a Front Door - CLI
+          href: quickstart-create-front-door-cli.md
+        - name: Create a Front Door - Bicep
+          href: quickstart-create-front-door-bicep.md
+        - name: Create a Front Door - ARM Template
+          href: quickstart-create-front-door-template.md
+        - name: Create a Front Door - Terraform
+          href: quickstart-create-front-door-terraform.md
       - name: CDN from Microsoft (classic)
-            items:
-            - name: Integrate a storage account
-              href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
-            - name: Create a profile and endpoint - Portal
-              href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
-            - name: Create a profile and endpoint - Azure CLI
-              href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
-            - name: Create profile and endpoint - Bicep
-              displayName: ARM, Resource Manager, Template
-              href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
-            - name: Create profile and endpoint - ARM Template
-              displayName: Resource Manager
-              href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
-            - name: Create profile and endpoint - Terraform
-              href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: Integrate a storage account
+          href: ../cdn/cdn-create-a-storage-account-with-cdn.md?toc=/azure/frontdoor/TOC.json
+        - name: Create a profile and endpoint - Portal
+          href: ../cdn/cdn-create-new-endpoint.md?toc=/azure/frontdoor/TOC.json
+        - name: Create a profile and endpoint - Azure CLI
+          href: ../cdn/scripts/cli/cdn-azure-cli-create-endpoint.md?toc=/azure/frontdoor/TOC.json
+        - name: Create profile and endpoint - Bicep
+          displayName: ARM, Resource Manager, Template
+          href: ../cdn/create-profile-endpoint-bicep.md?toc=/azure/frontdoor/TOC.json
+        - name: Create profile and endpoint - ARM Template
+          displayName: Resource Manager
+          href: ../cdn/create-profile-endpoint-template.md?toc=/azure/frontdoor/TOC.json
+        - name: Create profile and endpoint - Terraform
+          href: ../cdn/create-profile-endpoint-terraform.md?toc=/azure/frontdoor/TOC.json
     - name: Configure
       items:
       - name: Front Door (classic)
+        items:
+        - name: Add a custom domain
           items:
-          - name: Add a custom domain
-            items:
-            - name: Azure portal
-              href: front-door-custom-domain.md
-            - name: Azure CLI
-              href: scripts/custom-domain.md
-          - name: Configure HTTPS on a custom domain
-            href: front-door-custom-domain-https.md
-          - name: Add a root or apex domain
-            href: standard-premium/how-to-add-security-headers.md
-          - name: Set up a Rules Engine (classic)
-            href: front-door-tutorial-rules-engine.md
+          - name: Azure portal
+            href: front-door-custom-domain.md
+          - name: Azure CLI
+            href: scripts/custom-domain.md
+        - name: Configure HTTPS on a custom domain
+          href: front-door-custom-domain-https.md
+        - name: Add a root or apex domain
+          href: standard-premium/how-to-add-security-headers.md
+        - name: Set up a Rules Engine (classic)
+          href: front-door-tutorial-rules-engine.md
       - name: CDN (classic) from Microsoft
         items:
         - name: Optimized content
@@ -413,13 +410,13 @@
     - name: Operation excellence
       items:
       - name: CDN (classic) from Microsoft
-       items:
-       - name: HTTP/2 support
-        href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
-      - name: Retrieve POP IP's
-        href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
-      - name: China content delivery
-        href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
+        items:
+        - name: HTTP/2 support
+          href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
+        - name: Retrieve POP IP's
+          href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
+        - name: China content delivery
+          href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
     - name: Troubleshoot
       items:
       - name: CDN
