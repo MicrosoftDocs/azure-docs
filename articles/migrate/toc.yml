@@ -25,7 +25,6 @@ items:
     href: /security/benchmark/azure/baselines/azure-migrate-security-baseline
   - name: Support Matrix
     href: migrate-support-matrix.md
-- name: Explore inventory
   - name: Discover
     items:
     - name: VMware environment
