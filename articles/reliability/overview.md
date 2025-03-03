@@ -66,8 +66,6 @@ When considering business continuity, it's important to understand the following
 - *Disaster recovery* is about planning how to deal with uncommon risks and the catastrophic outages that can result.
 
 For information on business continuity and business continuity planning through high availability and disaster recovery design, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md).
-
-
 ### Redundancy, replication, and backup
 
 We often think about the cloud as a globally distributed, ubiquitous system. However, in reality the cloud is made up of hardware running in datacenters. Resiliency requires that you account for some of the risks associated with the physical locations in which your cloud-hosted components run.
