@@ -4,7 +4,7 @@ description: Find out about reliability in Azure Load Balancer
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ms.service: azure-load-balancer
 ms.date: 10/31/2024
 ---
