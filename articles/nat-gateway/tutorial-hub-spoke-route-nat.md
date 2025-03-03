@@ -251,9 +251,27 @@ New-AzVirtualNetwork @vnetParams
 Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) to create the subnets.
 
 ```powershell
-Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-private" -AddressPrefix "10.0.0.0/24"
-Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "AzureBastionSubnet" -AddressPrefix "10.0.1.0/26"
-Add-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-public" -AddressPrefix "10.0.253.0/28" -NatGateway $natGateway
+$subnetPrivateParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+    AddressPrefix = "10.0.0.0/24"
+}
+Add-AzVirtualNetworkSubnetConfig @subnetPrivateParams
+
+$subnetBastionParams = @{
+    VirtualNetwork = $vnet
+    Name = "AzureBastionSubnet"
+    AddressPrefix = "10.0.1.0/26"
+}
+Add-AzVirtualNetworkSubnetConfig @subnetBastionParams
+
+$subnetPublicParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-public"
+    AddressPrefix = "10.0.253.0/28"
+    NatGateway = $natGateway
+}
+Add-AzVirtualNetworkSubnetConfig @subnetPublicParams
 ```
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create a public IP address for the Azure Bastion host.
@@ -533,7 +551,11 @@ The IP configuration of the primary network interface of the virtual machine is 
 Use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to enable IP forwarding on the primary network interface.
 
 ```powershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-public"
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-public"
+}
+$nic = Get-AzNetworkInterface @nicParams
 $nic.EnableIPForwarding = $true
 Set-AzNetworkInterface -NetworkInterface $nic
 ```
@@ -541,7 +563,11 @@ Set-AzNetworkInterface -NetworkInterface $nic
 Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to statically set the private IP address of the virtual machine.
 
 ```powershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-public"
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-public"
+}
+$nic = Get-AzNetworkInterface @nicParams
 $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "10.0.253.10"
 Set-AzNetworkInterface -NetworkInterface $nic
@@ -568,10 +594,25 @@ Stop-AzVM -ResourceGroupName "test-rg" -Name "vm-nva" -Force
 Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the secondary network interface to the virtual machine.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "test-rg" -Name "vm-nva"
-$nic = Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-private"
-Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
-Update-AzVM -ResourceGroupName "test-rg" -VM $vm
+$vmParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-nva"
+}
+$vm = Get-AzVM @vmParams
+
+$nicParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "nic-private"
+}
+$nic = Get-AzNetworkInterface @nicParams
+
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
+
+$updateParams = @{
+    ResourceGroupName = "test-rg"
+    VM = $vm
+}
+Update-AzVM @updateParams
 ```
 
 Use [Start-AzVM](/powershell/module/az.compute/start-azvm) to start the virtual machine.
@@ -795,17 +836,35 @@ $routeParams = @{
     NextHopType = "VirtualAppliance"
     NextHopIpAddress = "10.0.0.10"
 }
-$routeTable = Get-AzRouteTable -ResourceGroupName "test-rg" -Name "route-table-nat-hub"
+
+$routeTableParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "route-table-nat-hub"
+}
+$routeTable = Get-AzRouteTable @routeTableParams
+
 Add-AzRouteConfig -RouteTable $routeTable -Route $routeParams
+
 Set-AzRouteTable -RouteTable $routeTable
 ```
 
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the subnet.
 
 ```powershell
-$vnet = Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-hub"
-$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "subnet-private"
+$vnetParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vnet-hub"
+}
+$vnet = Get-AzVirtualNetwork @vnetParams
+
+$subnetParams = @{
+    VirtualNetwork = $vnet
+    Name = "subnet-private"
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @subnetParams
+
 $subnet.RouteTable = $routeTable
+
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
