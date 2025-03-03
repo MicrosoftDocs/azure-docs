@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 02/28/2025
+ms.date: 03/03/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -23,7 +23,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup for blobs is available in all public regions.
+Vaulted backup for blobs is available in all public cloud regions.
 
 
 ---
