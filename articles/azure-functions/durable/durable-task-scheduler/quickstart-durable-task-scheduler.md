@@ -196,7 +196,7 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 ### Test your function app in Azure
 
-If you created your app by following one of the Durable Functions quickstarts, test by sending an HTTP `POST` request to the client function to start an orchestration instance.
+If you created your app by following one of the Durable Functions quickstarts, test by sending an HTTP request to the client function to start an orchestration instance.
 
 Run the following command to get your function's URL: 
   
@@ -204,7 +204,7 @@ Run the following command to get your function's URL:
 az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output table
 ```
 
-Grant your developer identity [access to the DTS dashboard](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) to check orchestration details. 
+Check the status of the orchestration instance and activity details on the [DTS dashboard](./durable-task-scheduler-dashboard.md). You'll need to [grant your developer identity access](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) before logging into the dashboard. 
 
 ## Clean up resources
 

@@ -409,7 +409,7 @@ Add these two environment variables to app setting:
 
 ## Accessing DTS dashboard
 
-Gain access to the DTS dashboard by granting access to your *developer identity*. After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+Gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by assigning the required role to your *developer identity*. After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
 ::: zone pivot="az-cli" 
 
