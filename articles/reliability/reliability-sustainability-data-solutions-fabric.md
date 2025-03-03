@@ -4,7 +4,7 @@ description: Find out about reliability in Sustainability data solutions in Fabr
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: microsoft-cloud-sustainability
 ms.date: 12/03/2024
 ---

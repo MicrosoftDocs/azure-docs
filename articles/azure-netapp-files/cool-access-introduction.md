@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 03/03/2025
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -22,12 +22,12 @@ The following diagram illustrates an application with a volume enabled for cool 
 
 :::image type="content" source="./media/cool-access-introduction/cool-access-explainer.png" alt-text="Diagram that shows cool access tiering showing cool volumes being moved to the cool tier." lightbox="./media/cool-access-introduction/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. Because the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until inactivity reaches the number of days specified in the coolness period. The coolness period lasts between 2 and 183 days. The default value is 31 days.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. Because the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until inactivity reaches the number of days specified in the coolness period. The coolness period can be set between 2 and 183 days. The default value is 31 days.
 
 After data blocks are marked "cold," the tiering scan collects the blocks and packages them into 4-MB objects. Their move to Azure storage is transparent. To the application and users, the cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
 
 > [!NOTE]
-> When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that was cool for at least 30 days moves to the cool tier _when_ you enable cool access. 
+> When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that was cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
 
 By default (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. After the data blocks are marked as "warm," they're again subjected to the temperature scan. Large sequential reads (like index and antivirus scans) on inactive data in the cool tier don't "warm" the data. They also don't trigger inactive data so that it moves back to the hot tier.
 
