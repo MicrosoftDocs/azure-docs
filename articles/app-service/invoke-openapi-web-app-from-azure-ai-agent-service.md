@@ -22,6 +22,8 @@ In the following tutorial, you're using an Azure AI Agent to invoke an API hoste
 To complete this tutorial, you need an Azure AI Agent project and a RESTful API hosted on Azure App Service. The API should have an OpenAPI specification that defines the API. The OpenAPI specification for the sample app in this tutorial is provided.
 
 1. Ensure you complete the prerequisites and setup steps in the [quickstart](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure). This quickstart walks you through creating your Azure AI Hub and Agent project. You should complete the agent configuration and agent sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
+1. Ensure you have [Git installed](https://git-scm.com/downloads).
+1. Ensure you have the latest [.NET 9.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/9.0).
 1. Follow the guidance in the next section to create the sample app and deploy it to Azure App Service. The sample app is a simple to-do list app that allows you to create, read, update, and delete items from the list.
 
 ## Create and deploy the sample app
@@ -32,8 +34,6 @@ To complete this tutorial, you need an Azure AI Agent project and a RESTful API 
     az login
     ```
 
-1. Ensure you have [Git installed](https://git-scm.com/downloads).
-1. Ensure you have the latest [.NET 9.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/9.0).
 1. In the terminal window, use `cd` to go to a working directory.
 1. Clone the sample repository, and then go to the repository root. This repository contains an app based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
 
@@ -49,16 +49,16 @@ To complete this tutorial, you need an Azure AI Agent project and a RESTful API 
     dotnet run
     ```
 
-1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
-1. Navigate to `http://localhost:5000/api/todo` to see the to-do list.
-1. To stop the app, press `Ctrl+C` in the terminal window.
+1. Browse to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
+1. Browse to `http://localhost:5000/api/todo` to see the to-do list.
+1. Press `Ctrl+C` in the terminal window to stop the app.
 1. To deploy the app to Azure App Service, run the following command.
 
     ```bash
     az webapp up
     ```
 
-1. After the app is deployed, navigate to the URL provided in the terminal window to see the app running in Azure App Service. It can take a few minutes for the app to be fully deployed and running. Note this URL for later use.
+1. After the app is deployed, browse to the URL provided in the terminal window to see the app running in Azure App Service. It can take a few minutes for the app to be fully deployed and running. Note this URL for later use.
  
 ## Connect your AI Agent to your App Service API
 
@@ -402,7 +402,7 @@ Now that you have the required infrastructure, you can put it all together and s
 
 ## Run the OpenAPI Spec tool
 
-1. Open a terminal and navigate to the directory where you created the `tool.py` and `swagger.json` files. To run the script, run the following command.
+1. Open a terminal and browse to the directory where you created the `tool.py` and `swagger.json` files. To run the script, run the following command.
 
     ```bash
     python tool.py
