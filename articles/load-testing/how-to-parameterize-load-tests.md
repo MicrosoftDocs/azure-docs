@@ -164,7 +164,7 @@ You've now specified a secret in the CI/CD secret store and passed a reference t
 
 Next, you update the test script to use the secret that you specified earlier.
 
-# [Apache JMeter](#tab/jmeter)
+## [Apache JMeter](#tab/jmeter)
 
 You first create a user-defined variable that retrieves the secret value. Then, you can use this variable in your test (for example, to pass an API token in an HTTP request header).
 
@@ -206,7 +206,7 @@ You first create a user-defined variable that retrieves the secret value. Then, 
       </HeaderManager>
     ```
 
-# [Locust](#tab/locust)
+## [Locust](#tab/locust)
 
 The secrets configured in the load test configuration are accessible as environment variables. 
 
@@ -233,7 +233,7 @@ In this section, you update the Apache JMeter script to use environment variable
 
 You first define a user-defined variable that reads the environment variable, and then you can use this variable in the test execution (for example, to update the HTTP domain).
 
-# [Apache JMeter](#tab/jmeter)
+## [Apache JMeter](#tab/jmeter)
 
 1. Create a user-defined variable in your JMX file, and assign the environment variable's value to it by using the `System.getenv` function.
 
@@ -266,7 +266,7 @@ You first define a user-defined variable that reads the environment variable, an
     <stringProp name="HTTPSampler.domain">${udv_webapp}</stringProp>
     ```
     
-# [Locust](#tab/locust)
+## [Locust](#tab/locust)
 
 1. Initialize a variable with the environment variable's value using the *Name* specified in the load test configuration. 
 
