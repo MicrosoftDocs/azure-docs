@@ -92,6 +92,8 @@ The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events 
 
 We recommend prioritizing improvements on a UFD that has a low recovery rate and a high volume, which can indicate the best opportunity to improve your user's call experiences. For example, the calling SDK might recover from some in call events and the user might not perceive an issue. By focusing on the poorest performing areas you can help identify root causes. 
 
+:::image type="content" source="..\media\workbooks\voice-and-video-ufd-tab.png" alt-text="Screenshot of Copilot responses in the voice and video UFD tab.":::
+
 ### How do you interpret UFDs?
 
 During calls, the calling SDK might trigger events called User Facing Diagnostics (UFDs), these UFD events indicate a user may have perceived a poor call experience for various reasons. For example, their video freezes and their network quality drops in the middle of a call. Since UFDs are symptomatic by nature and are triggered based on broad quantitative criteria, there can be various root causes that trigger a UFD event. Additionally, a UFD can be triggered but the user might not perceive an issue during a call because the calling SDK was able to mitigate any potential issue. In contrast, the reliability tab attempts to provide more concrete error code and subcode information for your analysis. 
