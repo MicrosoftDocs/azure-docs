@@ -137,6 +137,6 @@ NAT gateway provides outbound network connectivity for the cluster. NSG controls
 
 * [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
 
-* Restrict public connectivity in Azure HDInsight(/azure/hdinsight/hdinsight-restrict-public-connectivity).
+* [Restrict public connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
-* Enable Private Link on an Azure HDInsight cluster(/azure/hdinsight/hdinsight-private-link).
+* [Enable Private Link on an Azure HDInsight cluster](./hdinsight-private-link.md).
