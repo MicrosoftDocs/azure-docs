@@ -84,6 +84,14 @@ Azure NetApp Files storage with cool access is supported for the following regio
 * West US 2
 * West US 3
 
+
+Assume a case where 10% of all the data that a customer has is coming from snapshots. In that case 90% of the total pool capacity will be priced based on the standard/premium/ultra (whichever is the pool type, you can use any of these), and remaining 10% is priced based on the cool access rate. Data transfer cost will be for the initial transfer of snapshots. Then network cost will only happen when snapshots are restored. Assume 50% snapshot data restore happening once in 6 month or a year. The total saving can be estimated for 6 months and a year.
+
+* Assume a Premium standard service level pool where 10% of the data is from [snapshots](snapshots-introduction.md). In this scenario, 90% of the total capacity pool pricing is based on the Premium service level, and the remaining 10% is based on the cool access rate. 
+
+Data transfers costs exist for the initial transfer of snapshots, then network costs incur _only_ when snapshots are restored. 
+
+
 ## Metrics 
 
 Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-access-metrics) to understand usage patterns on a per-volume basis:
