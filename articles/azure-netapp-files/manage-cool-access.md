@@ -26,7 +26,7 @@ There are several considerations to be aware of when using cool access.
 * No guarantee is provided for any maximum latency for client workload for any of the service tiers.
 * Although cool access is available for the Standard, Premium, and Ultra service levels, how you're billed for using the feature differs from the hot tier service-level charges. For details and examples, see the [Billing section](cool-access-introduction.md#billing).
 * You can convert an existing capacity pool into a cool-access capacity pool to create cool access volumes. After the capacity pool is enabled for cool access, you can't convert it back to a non-cool-access capacity pool.  
-    * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to cool tier. 
+    * When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. 
 * A cool-access capacity pool can contain both volumes with cool access enabled and volumes with cool access disabled.
 * To prevent data retrieval from the cool tier to the hot tier during sequential read operations (for example, antivirus or other file scanning operations), set the cool access retrieval policy to **Default** or **Never**. For more information, see [Enable cool access on a new volume](#enable-cool-access-on-a-new-volume).
 * After the capacity pool is configured with the option to support cool access volumes, the setting can't be disabled at the _capacity pool_ level. You can turn on or turn off the cool access setting at the _volume_ level anytime. Turning off the cool access setting at the volume level stops further tiering of data.  
@@ -128,7 +128,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 1. On the **Create a volume** page, on the **Basics** tab, set the following options to enable the volume for cool access:
 
     * **Enable Cool Access**: This option specifies whether the volume supports cool access.
-    * **Coolness Period**: The coolness period defines the minimum number of days before data is transitioned to the cold tier. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to cool tier. The default value is 31 days. The supported values are between 2 and 183 days.
+    * **Coolness Period**: The coolness period defines the minimum number of days before data is transitioned to the cold tier. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier. The default value is 31 days. The supported values are between 2 and 183 days.
 
     * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
 
@@ -162,7 +162,7 @@ In a capacity pool enabled for cool access, you can enable an existing volume to
 1. On the **Edit** window that appears, set the following options for the volume:
     * **Enable Cool Access**: The coolness period defines the minimum number of days before data is transitioned to the cold tier. The default value is 31 days. The supported values are between 2 and 183 days.
     >[!NOTE]
-    > The coolness period is calculated from the time of volume creation. If any existing volumes are enabled with cool access, the coolness period is applied retroactively on those volumes. This means if certain data blocks on the volumes have been infrequently accessed for the number of days specified in the coolness period, those blocks move to the cool tier once the feature is enabled. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to cool tier.
+    > The coolness period is calculated from the time of volume creation. If any existing volumes are enabled with cool access, the coolness period is applied retroactively on those volumes. This means if certain data blocks on the volumes have been infrequently accessed for the number of days specified in the coolness period, those blocks move to the cool tier once the feature is enabled. Once the coolness period is reached, background jobs can take up to 48 hours to initiate the data transfer to the cool tier.
     * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
 
         The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
