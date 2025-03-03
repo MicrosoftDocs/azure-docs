@@ -1,5 +1,5 @@
 ---
-title: Build a trusted user access service by using Azure Functions in Azure Communication Services
+title: Tutorial - Build a Trusted User Access Service by Using Azure Functions in Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a trusted user access service for Azure Communication Services with Azure Functions.
 author: tophpalmer
@@ -13,12 +13,16 @@ ms.subservice: identity
 ms.custom: devx-track-js
 ---
 
-# Build a trusted user access service by using Azure Functions
+# Tutorial: Build a trusted user access service by using Azure Functions
 
 This article describes how to use Azure Functions to build a trusted user access service.
 
 > [!IMPORTANT]
 > The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Functions security](../../azure-functions/security-concepts.md) article. You need to add security to the endpoint to ensure that bad actors can't provision tokens.
+
+In this tutorial you learn how to:
+> [!div class="checklist"]
+> * Create an Azure function that serves as a trusted token provisioning service.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
@@ -30,16 +34,10 @@ As part of setting up a trusted service to provide access tokens for users, you 
 
 If you want to clean up and remove an Azure Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Communication Service resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Learn about Azure Functions security](../../azure-functions/security-concepts.md)
-
-> [!div class="nextstepaction"]
-> [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
-
-You might also want to:
-
+- [Learn about Azure Functions security](../../azure-functions/security-concepts.md)
+- [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)

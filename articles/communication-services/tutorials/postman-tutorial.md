@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
+
 # Tutorial: Sign and make requests with Postman
 
 In this tutorial, you set up and use Postman to make a request against Azure Communication Services by using HTTP. By the end of this tutorial, you successfully send a short message service (SMS) message by using Communication Services and Postman. You can then use Postman to explore other APIs in Communication Services.
 
-In this tutorial, you:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Download Postman.
 > * Set up Postman to sign HTTP requests.
@@ -232,19 +233,11 @@ If everything went well, you see the response from Communication Services, which
 
 The mobile phone that owns the number you provided in the `to` value also received an SMS message. You now have a functional Postman configuration that can talk to Communication Services and send SMS messages.
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Explore Azure Communication Services APIs](/rest/api/communication/)
-
-> [!div class="nextstepaction"]
-> [Read more about authentication](/rest/api/communication/authentication)
-
-> [!div class="nextstepaction"]
-> [Learn more about Postman](https://learning.postman.com/)
-
-You might also want to:
-
+- [Explore Azure Communication Services APIs](/rest/api/communication/)
+- [Read more about authentication](/rest/api/communication/authentication)
+- [Learn more about Postman](https://learning.postman.com/)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
