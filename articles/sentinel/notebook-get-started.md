@@ -33,13 +33,8 @@ Before you begin, make sure you have the required permissions and resources.
 |---------|---------|
 |**Permissions**     | To use notebooks in Microsoft Sentinel, make sure that you have the required permissions. <br><br>For more information, see [Manage access to Microsoft Sentinel notebooks](notebooks.md#manage-access-to-microsoft-sentinel-notebooks).         |
 |**Python**     |   To perform the steps in this article, you need Python 3.6 or later. <br><br>In Azure Machine Learning, you can use either a Python 3.8 kernel (recommended) or a Python 3.6 kernel. If you use the notebook described in this article in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.<br><br>  To use MSTICPy notebooks outside of Microsoft Sentinel and Azure Machine Learning (ML), you also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.      |
-|[**MaxMind GeoLite2**](https://www.maxmind.com)     |   This notebook uses the MaxMind GeoLite2 geolocation lookup service for IP addresses. To use the MaxMind GeoLite2 service, you need an account key. You can sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).      |
-|[**VirusTotal**](https://www.virustotal.com)     |  This notebook uses VirusTotal (VT) as a threat intelligence source. To use VirusTotal threat intelligence lookup, you need a VirusTotal account and API key.  <br><br>     |
-
-> [!WARNING]
-> If you're using a VT enterprise key, store it in Azure Key Vault instead of the **msticpyconfig.yaml** file. For more information, see [Specify secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets) in the MSTICPY documentation.
->
-> If you don’t want to set up an Azure Key Vault right now, sign up for and use a free account until you can set up Key Vault storage.
+|[**MaxMind GeoLite2**](https://www.maxmind.com)     |   This notebook uses the MaxMind GeoLite2 geolocation lookup service for IP addresses. To use the MaxMind GeoLite2 service, you need a license key. You can sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).      |
+|[**VirusTotal**](https://www.virustotal.com)     |  This notebook uses VirusTotal (VT) as a threat intelligence source. To use VirusTotal threat intelligence lookup, you need a VirusTotal account and API key. <br><br>If you're using a VT enterprise key, store it an Azure Key Vault instead of the **msticpyconfig.yaml** file. For more information, see [Specify secrets as Key Vault secrets](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html#specifying-secrets-as-key-vault-secrets) in the MSTICPY documentation. <br><br>If you don’t want to set up an Azure Key Vault right now, sign up for and use a free account until you can set up Key Vault storage.   |
 
 ## Install and run the Getting Started Guide notebook
 
@@ -66,7 +61,7 @@ This procedure describes how to launch your notebook with Microsoft Sentinel.
     Depending on the function being performed, the code in the cell might run quickly, or it might take a few seconds to complete. When the cell is running, the play button changes to a loading spinner, and the status is displayed at the bottom of the cell, together with the elapsed time.
 
     Run the code cells in the **Introduction** section to learn the basics of running code in notebooks, and then run the code in the **Initializing the notebook and MSTICPy** section to set up your initial environment.
-    
+
     When initializing the notebook, configuration warnings about missing settings are expected because you didn't configure anything yet.
 
 ## Create your configuration file
@@ -128,7 +123,7 @@ For more information about other supported threat intelligence providers, see [T
 
 ### Add GeoIP provider settings
 
-This procedure describes how to store a [MaxMind GeoLite2 account key](#prerequisites) in the **msticpyconfig.yaml** file, which allows your notebook to use geolocation lookup services for IP addresses.
+This procedure describes how to store a [MaxMind GeoLite2 license key](#prerequisites) in the **msticpyconfig.yaml** file, which allows your notebook to use geolocation lookup services for IP addresses.
 
 To add GeoIP provider settings in the MSTICPy settings editor, complete the following steps.
 
@@ -141,7 +136,7 @@ To add GeoIP provider settings in the MSTICPy settings editor, complete the foll
 
 1. In the **GeoIP Providers** tab, from the **Add prov** dropdown, select **GeoIPLite** > **Add**.
 
-1. In the **Value** field, enter your MaxMind account key.
+1. In the **Value** field, enter your MaxMind license key.
 
 1. If needed, update the default **~/.msticpy** folder for storing the downloaded GeoIP database.
 
