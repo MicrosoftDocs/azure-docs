@@ -69,7 +69,7 @@ In this section, you create a route server.
 
 1. Once the deployment is complete, select **Go to resource** to go to the **Overview** page of **myRouteServer**.  
 
-1. Take a note of the **ASN** and **Peer IPs** in the **Overview** page. You need this information to configure the NVA in the next section.
+1. Take a note of the **ASN** and **Route Server IP addresses** in the **Overview** page. You need this information to configure the NVA in the next section.
 
     :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Route Server ASN and Peer IPs in the Overview page." lightbox="./media/route-server-overview.png":::
 
