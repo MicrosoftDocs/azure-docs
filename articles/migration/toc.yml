@@ -25,7 +25,7 @@
         href: ./placeholder.md
     - name: Compute
       items:
-      - name: Compute migration considerations
+      - name: Compute migration guide
         href: ./placeholder.md
       - name: Replatform from AWS Lambda to Azure Functions
         href: ./placeholder.md
@@ -59,9 +59,11 @@
         href: ./placeholder.md
     - name: Storage
       items:
+      - name: Storage migration guide
+        href: ./placeholder.md
       - name: Replatform from AWS S3 to Azure Storage
         href: ./placeholder.md
-    - name: Observability
+    - name: Observability migration guide
       href: ./placeholder.md
   - name: Migrate from Google Cloud
     items:
@@ -89,7 +91,7 @@
       href: ./placeholder.md
     - name: Databases
       items:
-      - name: Overview
+      - name: Database migration guide
         href: ./placeholder.md
       - name: Replatform from Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL
         href: ./placeholder.md
@@ -97,5 +99,5 @@
       items:
       - name: Replatform from Google Pub/Sub to Azure Service Bus
         href: ./placeholder.md
-    - name: Storage
+    - name: Storage migration guide
       href: ./placeholder.md
