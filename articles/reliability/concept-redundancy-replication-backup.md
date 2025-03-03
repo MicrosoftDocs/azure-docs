@@ -10,7 +10,7 @@ author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# What is redundancy, replication, and backup?
+# What are redundancy, replication, and backup?
 
 We often think about the cloud as a globally distributed, ubiquitous system. However, in reality the cloud is made up of hardware running in datacenters. Resiliency requires that you account for some of the risks associated with the physical locations in which your cloud-hosted components run.
 
