@@ -2,12 +2,12 @@
 title: Azure services with availability zone support
 description: Learn which Azure services offer availability zone support.
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/16/2025
 ms.author: anaharris
 author: anaharris-ms
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Azure services with availability zone support
@@ -46,6 +46,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | --- | --- |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
+
 
 ### Analytics
 

@@ -22,6 +22,9 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
   * Ensure that you have Azure private peering configured for your circuit. See the [configure routing](expressroute-howto-routing-arm.md) article for routing instructions. 
   * Ensure that Azure private peering gets configured and establishes BGP peering between your network and Microsoft for end-to-end connectivity.
+
+> [!NOTE]
+> Use of Virtual Network BGP communities and ExpressRoute is not currently compatible with Azure Virtual WAN.
   
 ### Working with Azure PowerShell
 

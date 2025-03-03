@@ -278,8 +278,6 @@ In this section, you associate the network security group with the subnet of the
 
 1. In the **Subnets** page, select **+ Associate**:
 
-   :::image type="content" source="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png" alt-text="Screenshot of Associate a network security group to a subnet." border="true" lightbox="./media/tutorial-filter-network-traffic/associate-nsg-subnet.png":::
-
 1. Under **Associate subnet**, select **vnet-1 (test-rg)** for **Virtual network**.
 
 1. Select **subnet-1** for **Subnet**, and then select **OK**.
