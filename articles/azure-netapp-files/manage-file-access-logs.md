@@ -38,7 +38,7 @@ platform logging captured in the [Azure Activity Log](/azure/azure-monitor/essen
 * When clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
 * File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). The log generation rate should not exceed 64 MiB/minute.
 
-    If the rate of file access event generation exceeds 64 MiB/minute, you'll see an error message, and logging events can be delayed or dropped. If you are approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate.
+    If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you are approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate.
  
 * During migration or robocopy operations, disable file access logs to reduce log generation. 
 * Volumes with file access logs enabled should be grouped separately from volumes without file access logs. Contact your account specialists for assistance. 
