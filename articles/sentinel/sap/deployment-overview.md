@@ -48,7 +48,7 @@ Microsoft Sentinel supports a few options for storing your agent configuration i
 
 You can also authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
 
-### [Agentless data connector (limited preview)](#tab/agentless)
+### [Agentless data connector (Preview)](#tab/agentless)
 
 The Microsoft Sentinel agentless data connector for SAP uses the SAP Cloud Connector and SAP Integration Suite to connect to your SAP system and pull logs from it, as shown in the following image:
 
@@ -58,11 +58,7 @@ By using the SAP Cloud Connector, the **Agentless solution** profits from alread
 
 The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
-The agentless solution in limited preview starts by supporting the SAP audit log, which typically covers the majority of SAP threat scenarios.
-
-> [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
-
+The agentless data connector ingests critical security logs such as the security audit log, change docs logs and user master data including user roles and authorizations.
 ---
 
 ### Security content
@@ -114,7 +110,7 @@ If you're using the data connector agent and need to stop Microsoft Sentinel fro
 
 For more information, see [Stop SAP data collection](stop-collection.md).
 
-### [Agentless data connector (limited preview)](#tab/agentless)
+### [Agentless data connector (Preview)](#tab/agentless)
 
 Deploying the Microsoft Sentinel solutions for SAP applications involves several steps and requires collaboration across your **security** and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solutions for SAP applications, with relevant teams indicated:
 

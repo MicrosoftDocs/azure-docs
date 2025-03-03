@@ -36,7 +36,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 Content in this article is relevant for your **security** and **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
+> Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::zone-end
 
@@ -90,7 +90,6 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
-| **Access to the limited preview** | The **Agentless solution** requires you to register, and is only available to approved customers and partners during the limited preview period. For more information, see [Limited Preview Sign Up: Microsoft Sentinel Solution for SAP - Agent-less Data Connector](https://aka.ms/SentinelSAPAgentlessSignUp). |Required |
 | **Permissions to create Azure resources** | You must have: <br><br>- The necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites) and [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference#application-administrator). <br>Owner on the Microsoft Sentinel resource group , required for:<br><br>- Creation of data collection rule and data collection endpoint.<br><br>- Monitoring Metrics Publisher role assignment on data collection rule. |Required |
 | **Permissions in** **Microsoft Entra**|You must have permissions in Microsoft Entra ID required to create app registrations. This permission can be obtained through membership of built-in Microsoft Entra ID role:<br><br>- Application Developer.|Required |
 

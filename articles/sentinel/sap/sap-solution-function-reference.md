@@ -29,37 +29,37 @@ We *strongly recommend* that you use the functions listed in this article as the
 
 These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. Using functions allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
-## BAPI_XMI_LOGON (limited preview)
+## BAPI_XMI_LOGON (Preview)
 
 The **BAPI_XMI_LOGON** function is relevant when your SAP system is an older system using XAL, and authenticates to collect SAP XAL audit logs.
 
 The **BAPI_XMI_LOGON** function is available only with the SAP agentless solution. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
-## BAPI_SYSTEM_MTE_GETTIDBYNAME (limited preview)
+## BAPI_SYSTEM_MTE_GETTIDBYNAME (Preview)
 
 The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is relevant when your SAP system is an older system using XAL, and retrieves the ID of a system monitoring element by name.
 
 The **BAPI_SYSTEM_MTE_GETTIDBYNAME** function is available only with the SAP agentless solution. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
-## BAPI_SYSTEM_MTE_GETTREE (limited preview)
+## BAPI_SYSTEM_MTE_GETTREE (Preview)
 
 The **BAPI_SYSTEM_MTE_GETTREE** function is relevant when your SAP system is an older system using XAL, and retrieves the structure of system monitoring elements.
 
 The **BAPI_SYSTEM_MTE_GETTREE** function is available only with the SAP agentless solution. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
-## BAPI_SYSTEM_MTE_GETMLHIS (limited preview)
+## BAPI_SYSTEM_MTE_GETMLHIS (Preview)
 
 The **BAPI_SYSTEM_MTE_GETMLHIS** function is relevant when your SAP system is an older system using XAL, and fetches historical performance and status data.
 
 The **BAPI_SYSTEM_MTE_GETMLHIS** function is available only with the SAP agentless solution. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
-## BAPI_XMI_SET_AUDITLEVEL (limited preview)
+## BAPI_XMI_SET_AUDITLEVEL (Preview)
 
 The **BAPI_XMI_SET_AUDITLEVEL** function is relevant when your SAP system is an older system using XAL, and configures the XAL audit logging level.
 
 The **BAPI_XMI_SET_AUDITLEVEL** function is available only with the SAP agentless solution. For more information, see [Install a Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md?pivots=connection-agentless).
 
-## BAPI_XMI_GET_LOGHISTORY (limited preview)
+## BAPI_XMI_GET_LOGHISTORY (Preview)
 
 The **BAPI_XMI_GET_LOGHISTORY** function is relevant when your SAP system is an older system using XAL, and retrieves past XAL audit log entries.
 
@@ -428,7 +428,7 @@ The **SAPUsersHeader** function returns the following output:
 |  | SystemRole | The SAP system's role | Production, UAT |
 |  | SystemUsage | The main usage of the SAP system | ERP, CRM |
 
-## TH_SERVER_LIST (limited preview)
+## TH_SERVER_LIST (Preview)
 
 The **TH_SERVER_LIST** function function is relevant when your SAP system is an older system using XAL, and lists active SAP application servers.
 

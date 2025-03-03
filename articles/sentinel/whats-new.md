@@ -20,16 +20,15 @@ The listed features were released in the last three months. For information abou
 
 ## February 2025
 
-- [SAP agentless solution enhancements (limited preview)](#sap-agentless-solution-enhancements-limited-preview)
+- [SAP agentless solution in public preview](#sap-agentless-solution-in-public-preview)
 
-### SAP agentless solution enhancements (limited preview)
+### SAP agentless solution in public preview
 
-Microsoft Sentinel customers using the SAP agentless solution to ingest data from their SAP systems now have the following enhancements:
+The Microsoft Sentinel SAP agentless solution is now in public preview and includes the following enhancements:
 
-- **Customize settings**: Use SAP Integration Suite value mapping to customize the behavior of your agentless data connector.
-- **New functions for SAP**: If you're using an older SAP system with XAL, use new functions to help you authenticate, retrieve monitoring elements, fetch historical data, configure audit levels, and list active servers.
-
-Also, if you haven't yet installed the agentless solution to ingest data from your SAP system, try the new iflow to verify your systems prerequisites and compatibility. And if you're having issues with your agentless data connector, try the new troubleshooting content recently added to our documentation. 
+- More data ingested, such as Change Docs logs and User Master data.
+- Optional parameters to customize data collection
+- A new tool to verify system prerequisites and compatibility
 
 For more information, see:
 

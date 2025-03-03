@@ -36,7 +36,7 @@ For example, the following image shows a sample environment where the Microsoft 
 
 Microsoft Sentinel also offers solutions for the following SAP environment configurations:
 
-- (Limited preview) The [Microsoft Sentinel SAP Agentless solution](deployment-overview.md#data-connector) offers threat monitoring and detection for the SAP Audit Log only, with an agentless data connector for simpler deployment.
+- (Preview) The [Microsoft Sentinel SAP Agentless solution](deployment-overview.md#data-connector) offers threat monitoring and detection for the SAP Audit Log only, Change Docs logs and User Master data, including user roles and authorizations.
 - The [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md) offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
 ## Threat detection coverage
