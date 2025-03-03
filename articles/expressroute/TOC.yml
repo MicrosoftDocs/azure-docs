@@ -301,7 +301,7 @@
     href: expressroute-troubleshooting-arp-resource-manager.md
   - name: Getting ARP tables (Classic)
     href: expressroute-troubleshooting-arp-classic.md
-  - name: Questions & answer
+  - name: Questions & answers
     href: /answers/tags/225/azure-expressroute
 - name: Reference
   items:
