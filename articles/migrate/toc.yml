@@ -127,6 +127,8 @@ items:
       href: tutorial-app-containerization-azure-pipeline.md  
 - name: Concepts
   items:
+  - name: General
+    items:
     - name: Azure Migrate project
       href: create-manage-projects.md
     - name: Private endpoint # Explain about private end points and support requirements 
@@ -361,12 +363,6 @@ items:
       href: troubleshoot-dependencies.md
   - name: Assessments
     items:
-<<<<<<< HEAD
-    - name: Common Issues
-      href: troubleshoot-assessment.md
-    - name: Supported Scenarios
-      href: troubleshoot-assessment-supported-scenarios.md
-=======
     - name: Troubleshoot assessment
       items:
         - name: Common Issues
@@ -375,7 +371,6 @@ items:
           href: troubleshoot-assessment-supported-scenarios.md
         - name: FAQ
           href: troubleshoot-assessment-faq.md
->>>>>>> 25fe4f82927f5fcc9b1842fb244882db43ebcc3b
   - name: Migrate
     items:
     - name: Replication in agentless VMware migration
