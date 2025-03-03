@@ -74,7 +74,7 @@ ms.author: chentony
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the environment variable `FABRIC_SQL_CONNECTIONSTRING` with value format `jdbc:sqlserver://<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;databaseName=<SQL-DB-name>-<Fabric-DB-Identifier>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
-For user-assigned managed dentities, `msiClientId=<msiClientId>;` is added.
+For user-assigned managed identities, `msiClientId=<msiClientId>;` is added.
 
 Update your application following the tutorial [Migrate a Java application to use passwordless connections with Azure SQL Database](/azure/developer/java/spring-framework/migrate-sql-database-to-passwordless-connection?tabs=spring%2Capp-service%2Cassign-role-service-connector#2-migrate-the-app-code-to-use-passwordless-connections). Remember to remove the `spring.datasource.password` configuration property if it was previously set and add the correct dependencies.
 

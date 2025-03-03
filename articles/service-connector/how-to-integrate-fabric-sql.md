@@ -35,7 +35,7 @@ The following table shows which combinations of authentication methods and clien
 | Python             |                Yes               |               Yes              |            No            |         No        |
 | None               |                Yes               |               Yes              |            No            |         No        |
 
-This table indicates that as per Fabric behavior, only authentication via system-assigned and user-assigned managed identity is allowed.
+This table indicates that as per Fabric behavior, only authentication via managed identities is allowed.
 
 The system-assigned managed identity and user-assigned managed identity methods are supported for .NET, Java, Java - Spring Boot, Python, Go, and None client types. These methods are not supported for any other types.
 
@@ -143,7 +143,7 @@ The following manual steps are required to onboard a service connection to SQL d
 
 1. Review the instructions below before you continue creating the service connection.
 
-1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service-Connector menu and locate your SQL database in the Microsoft Fabric service connection. Select **SQL Database** to navigate to the Microsoft Fabric portal.
+1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu and locate your SQL database in Microsoft Fabric service connection. Select **SQL Database** to navigate to the Microsoft Fabric portal.
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
 
