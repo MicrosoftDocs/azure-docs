@@ -33,10 +33,10 @@ Service Connector for AKS differs from how it operates with other [compute servi
 
 The AKS-specific creation options are listed below. Refer to the [Azure portal](/azure/service-connector/quickstart-portal-aks-connection) or [Azure CLI](/azure/service-connector/quickstart-cli-aks-connection) quickstarts to learn how to create a new connection in AKS.
 
-1. Service Connector for AKS requires the `Kubernetes namespace` parameter to specify where to [create the Kubernetes resources].(#creating-the-kubernetes-resources). By default, it uses the `default` namespace.
-2. Service Connector for AKS supports `Workload Identity` as the secure credential authentication option, while other compute services offer `System Managed Identity` and `User Managed Identity` options.
-3. When using Azure Key Vault as the target service with the Secret Store CSI Driver enabled, Service Connector uses the user-assigned managed identity from the AKS `azure-keyvault-secrets-provider` add-on for authentication, without requiring users to specify the authentication type.
-4. Service Connector for AKS only supports the `Firewall Rules` networking option, whereas other compute services may also support `Private Link` and `Virtual Network` options.
+- Service Connector for AKS requires the `Kubernetes namespace` parameter to specify where to [create the Kubernetes resources].(#creating-the-kubernetes-resources). By default, it uses the `default` namespace.
+- Service Connector for AKS supports `Workload Identity` as the secure credential authentication option, while other compute services offer `System Managed Identity` and `User Managed Identity` options.
+- When using Azure Key Vault as the target service with the Secret Store CSI Driver enabled, Service Connector uses the user-assigned managed identity from the AKS `azure-keyvault-secrets-provider` add-on for authentication, without requiring users to specify the authentication type.
+- Service Connector for AKS only supports the `Firewall Rules` networking option, whereas other compute services may also support `Private Link` and `Virtual Network` options.
 
 ### List configurations
 
@@ -44,7 +44,7 @@ Service Connector for AKS displays only non-credential configurations in the lis
 
 Using the Azure CLI command [az aks connection list-configuration](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-list-configuration), the value of a credential configuration is an empty string. In the Azure portal, the value of a credential configuration is hidden, as shown below.
 
-:::image type="content" source="./media/aks-tutorial/aks-listconfig.png" alt-text="Screenshot of the AKS connection listing configuration":::
+:::image type="content" source="./media/aks-tutorial/aks-listconfig.png" alt-text="Screenshot of the AKS connection listing configuration.":::
 
 ### Validation
 
