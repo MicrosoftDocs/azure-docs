@@ -28,7 +28,7 @@ is integrated with [Copilot in Azure](/azure/copilot/overview), allowing you to 
 <!-- Insert example prompts and images:
 1
 2
-3 -->
+3 --> 
 
 There are two main tools you can use to monitor your calls and improve call quality. 
 1. Voice and Video Insights dashboards
