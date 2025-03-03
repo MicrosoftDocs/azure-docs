@@ -26,7 +26,7 @@ This article provides a summary of the latest documentation updates for Azure Re
 
 - [What are availability zones?](./availability-zones-overview.md): We refreshed the overview of Azure reliability documentation to provide:
    - More details on the distances and latency between availability zones.
-   - Definition for the the term *zone-resilient*.
+   - Definition for the term *zone-resilient*.
    - Explanations of physical and logical availability zones. 
 
 - [Available services by region types and categories](./availability-service-by-category.md): We updated this article to include additional services.
