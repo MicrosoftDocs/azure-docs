@@ -131,12 +131,12 @@ For `server` property, you can specify it in one of the following three formats:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-For the parameters used in `server`, we provide an allow list to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If the disallowed parameter is set, the connection will fail.
+For the parameters used in `server`, we provide an allowlist to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If the disallowed parameter is set, the connection will fail.
 
-- Allow list for using the Azure integration runtime:
+- Allowlist for using the Azure integration runtime:
 
     HOST,PORT,PROTOCOL,SERVICE_NAME,SID,INSTANCE_NAME,SERVER,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN
-- Allow list for using the self-hosted integration runtime:
+- Allowlist for using the self-hosted integration runtime:
 
     HOST,PORT,PROTOCOL,ENABLE,EXPIRE_TIME,FAILOVER,LOAD_BALANCE,RECV_BUF_SIZE,SDU,SEND_BUF_SIZE,SOURCE_ROUTE,TYPE_OF_SERVICE,COLOCATION_TAG,CONNECTION_ID_PREFIX,FAILOVER_MODE,GLOBAL_NAME,HS,INSTANCE_NAME,POOL_BOUNDARY,POOL_CONNECTION_CLASS,POOL_NAME,POOL_PURITY,RDB_DATABASE,SHARDING_KEY,SHARDING_KEY_ID,SUPER_SHARDING_KEY,SERVER,SERVICE_NAME,SID,TUNNEL_SERVICE_NAME,SSL_CLIENT_AUTHENTICATION,SSL_CERTIFICATE_ALIAS,SSL_CERTIFICATE_THUMBPRINT,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN,WALLET_LOCATION,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,TRANSPORT_CONNECT_TIMEOUT,RECV_TIMEOUT,COMPRESSION,COMPRESSION_LEVELS
 
