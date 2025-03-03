@@ -6,13 +6,15 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 11/16/2024
+ms.date: 02/05/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy24
 ---
 
 # Migrate VMware VMs to Azure (agentless)
 
 This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -35,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
+1. [Complete the first tutorial](tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](../create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
@@ -91,7 +93,7 @@ Enable replication as follows:
 
     :::image type="content" source="../media/tutorial-migrate-vmware/select-assessment.png" alt-text="Screenshot on selecting assessment."::: 
 
-5. In **Virtual machines**, select VMs you want to migrate. Then click **Next: Target settings**.
+5. In **Virtual machines**, select VMs you want to migrate. Then select **Next: Target settings**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="../media/tutorial-migrate-vmware/select-vms-expanded.png":::
 
@@ -115,7 +117,7 @@ Enable replication as follows:
 
     :::image type="content" source="../media/tutorial-migrate-vmware/target-settings.png" alt-text="Screenshot on target settings.":::
 
-11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS Type**: Select the type of OS used (Windows or Linux).
@@ -127,18 +129,19 @@ Enable replication as follows:
     > [!NOTE]
     > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
-
-
-12. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (standard SSD/HDD or Premium-managed disks) in Azure. Then select **Next**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/disks-inline.png" alt-text="Screenshot shows the Disks tab of the Replicate dialog box." lightbox="../media/tutorial-migrate-vmware/disks-expanded.png":::
+
+    > [!NOTE]
+    > To optimize costs and enhance performance, you can now migrate to Premium managed disks for OS disks and Premium V2 SSD (preview) for data disks exclusively on VMware environment.
 
 13. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/tags-inline.png" alt-text="Screenshot shows the tags tab of the Replicate dialog box." lightbox="../media/tutorial-migrate-vmware/tags-expanded.png":::
 
  
-14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+14. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers.
 
    > [!NOTE]
    > If there is a connectivity issue with Azure or if the appliance services are down for more than 90 minutes, the active replication cycles for replicating servers are reset to 0% and the respective cycle runs from the beginning.  
@@ -149,7 +152,7 @@ Enable replication as follows:
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by clicking on the numerical value next to **Azure VM** in **Migration and modernization**.
+2. Monitor replication status by selecting on the numerical value next to **Azure VM** in **Migration and modernization**.
 
      ![Monitor replication](../media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -169,12 +172,11 @@ When delta replication begins, you can run a test migration for the VMs, before 
 
 Do a test migration as follows:
 
-
-1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
+1. In **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
-2. Right-click the VM to test, and click **Test migrate**.
+2. Right-click the VM to test, and select **Test migrate**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/test-migrate-inline.png" alt-text="Screenshot of Test migration." lightbox="../media/tutorial-migrate-vmware/test-migrate-expanded.png":::
 
@@ -185,7 +187,7 @@ Do a test migration as follows:
 1. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](../how-to-upgrade-windows.md).
 5. The **Test migration** job starts. Monitor the job in the portal notifications.
 6. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
-7. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
+7. After the test is done, right-click the Azure VM in **Replicating machines**, and select **Clean up test migration**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/clean-up-inline.png" alt-text="Screenshot of Clean up migration." lightbox="../media/tutorial-migrate-vmware/clean-up-expanded.png":::
 

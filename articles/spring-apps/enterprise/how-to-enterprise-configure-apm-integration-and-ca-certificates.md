@@ -1,9 +1,10 @@
 ---
-title: How to configure APM integration and CA certificates
+title: How to Configure APM Integration and CA Certificates
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: fenzho
+ms.author: karler
+ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/29/2024
@@ -45,7 +46,7 @@ Azure Spring Apps supports CA certificates for all language family buildpacks, b
 | .NET              |                     | ✔        |             | ✔         |            |
 | Go                |                     |           |             | ✔        |            |
 | Python            |                     |           |             |           |            |
-| NodeJS            |                     | ✔        | ✔           | ✔        | ✔          |
+| Node.js            |                     | ✔        | ✔           | ✔        | ✔          |
 | Web servers       |                     |           |             | ✔        |            |
 | Java Native Image |                     |           |             |           |            |
 | PHP               |                     | ✔         | ✔          | ✔         |            |
@@ -526,7 +527,7 @@ az spring build-service builder buildpack-binding list \
 
 ### Create a binding
 
-Use this command to change the binding from *Unbound* to *Bound* status:
+Use this command to change the binding from `Unbound` to `Bound` status:
 
 ```azurecli
 az spring build-service builder buildpack-binding create \
@@ -572,7 +573,7 @@ For more information on the `properties` and `secrets` parameters for your build
 
 ### Delete a binding
 
-Use the following command to change the binding status from *Bound* to *Unbound*.
+Use the following command to change the binding status from `Bound` to `Unbound`.
 
 ```azurecli
 az spring build-service builder buildpack-binding delete \

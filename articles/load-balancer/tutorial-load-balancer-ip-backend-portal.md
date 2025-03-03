@@ -252,7 +252,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | Select **Zone 1** |
     | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2** |
     | Azure Spot instance | Leave the default |
-    | Size | Select **Standar_DS1_v2** or another image size. |
+    | Size | Select **Standard_DS1_v2** or another image size. |
     | **Administrator account** |  |
     | Username | Enter a username |
     | Password | Enter a password |

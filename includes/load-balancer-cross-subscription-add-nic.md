@@ -34,7 +34,7 @@ $IP1 = @{
 $IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
 $nic = @{
     Name = 'MyNic'
-    ResourceGroupName = '<Resoure Group Subscription A>'
+    ResourceGroupName = '<Resource Group Subscription A>'
     Location = 'eastus'
     IpConfiguration = $IP1Config
 }

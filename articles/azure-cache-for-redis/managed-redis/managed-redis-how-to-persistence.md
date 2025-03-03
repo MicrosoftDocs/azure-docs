@@ -15,7 +15,7 @@ ms.date: 11/15/2024
 
 > [!IMPORTANT]
 >
-> Data persistence is meant to provide resilience for unexpected Redis node failures, but it is not a data backup or point in time recovery (PITR) feature. If corrupted data is writen to the Redis instance this data will also be persisted. To make backups of your Redis instance, use the [export feature](managed-redis-how-to-import-export-data.md).  
+> Data persistence is meant to provide resilience for unexpected Redis node failures, but it is not a data backup or point in time recovery (PITR) feature. If corrupted data is written to the Redis instance this data will also be persisted. To make backups of your Redis instance, use the [export feature](managed-redis-how-to-import-export-data.md).  
 >
 
 ## Scope of availability

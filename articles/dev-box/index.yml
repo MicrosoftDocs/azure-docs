@@ -70,8 +70,10 @@ landingContent:
             url: tutorial-configure-multiple-monitors.md 
       - linkListType: how-to-guide
         links:
+          - text: Use the Troubleshoot and Repair tool
+            url: how-to-troubleshoot-repair-dev-box.md
           - text: Troubleshoot dev box connectivity issues
-            url: how-to-troubleshoot-repair-dev-box.md      
+            url: how-to-troubleshoot-remote-desktop-connectivity.md                   
 
   # Card
   - title: Provide secure access

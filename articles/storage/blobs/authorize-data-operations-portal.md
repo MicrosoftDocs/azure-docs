@@ -6,8 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 12/10/2021
-
+ms.date: 02/06/2025
 ms.reviewer: nachakra
 ---
 
@@ -15,25 +14,25 @@ ms.reviewer: nachakra
 
 When you access blob data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Microsoft Entra account or the storage account access key. The portal indicates which method you're using, and enables you to switch between the two if you have the appropriate permissions.
 
-You can also specify how to authorize an individual blob upload operation in the Azure portal. By default the portal uses whichever method you're already using to authorize a blob upload operation, but you have the option to change this setting when you upload a blob.
-
 ## Permissions needed to access blob data
 
 Depending on how you want to authorize access to blob data in the Azure portal, you need specific permissions. In most cases, these permissions are provided via Azure role-based access control (Azure RBAC). For more information about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ### Use the account access key
 
-To access blob data with the account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role can be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include the following, in order from least to greatest permissions:
+To access blob data with the account access key, you must have an Azure role assigned to you that includes the Azure RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This Azure role can be a built-in or a custom role.
 
-- The [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access) role
-- The [Storage Account Contributor role](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
-- The Azure Resource Manager [Contributor role](../../role-based-access-control/built-in-roles.md#contributor)
-- The Azure Resource Manager [Owner role](../../role-based-access-control/built-in-roles.md#owner)
+The following built-in roles, listed from least to greatest permissions, support **Microsoft.Storage/storageAccounts/listkeys/action**:
+
+- [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access)
+- [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- Azure Resource Manager [Contributor](../../role-based-access-control/built-in-roles.md#contributor)
+- Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner)
 
 When you attempt to access blob data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob data. If you haven't been assigned a role with this action, then the portal attempts to access data using your Microsoft Entra account.
 
 > [!IMPORTANT]
-> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Microsoft Entra credentials to access blob data in the portal. For information about accessing blob data in the portal with Microsoft Entra ID, see [Use your Microsoft Entra account](#use-your-azure-ad-account).
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation isn't permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must use Microsoft Entra credentials to access blob data in the portal. For information about accessing blob data in the portal with Microsoft Entra ID, see [Use your Microsoft Entra account](#use-your-azure-ad-account).
 
 > [!NOTE]
 > The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob data with the account key. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
@@ -44,8 +43,8 @@ When you attempt to access blob data in the Azure portal, the portal first check
 
 To access blob data from the Azure portal using your Microsoft Entra account, both of the following statements must be true for you:
 
-- You are assigned either a built-in or custom role that provides access to blob data.
-- You are assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
+- You're assigned either a built-in or custom role that provides access to blob data.
+- You're assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It doesn't provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
@@ -69,11 +68,9 @@ If you're authenticating using the account access key, you see **Access Key** sp
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-access-key.png" alt-text="Screenshot showing user currently accessing containers with the account key":::
 
-To switch to using Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. However, if you lack the right permissions, you see an error message like the following one:
+If you want to switch to use the Microsoft Entra account, select the link highlighted in the image. If you have the appropriate permissions via the Azure roles that are assigned to you, you're able to proceed. If you don't have the right permissions, you see an error message and no blobs appear in the list.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-azure-ad.png" alt-text="Error shown if Microsoft Entra account does not support access":::
-
-Notice that no blobs appear in the list if your Microsoft Entra account lacks permissions to view them. Select the **Switch to access key** link to use the access key for authentication again.
+Select the **Switch to access key** link to use the access key for authentication again.
 
 <a name='authenticate-with-your-azure-ad-account'></a>
 
@@ -83,24 +80,9 @@ If you're authenticating using your Microsoft Entra account, you see **Microsoft
 
 :::image type="content" source="media/authorize-data-operations-portal/auth-method-azure-ad.png" alt-text="Screenshot showing user currently accessing containers with Microsoft Entra account":::
 
-To switch to using the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. However, if you lack access to the account key, you see an error message like the following one:
+If you want to switch to use the account access key, select the link highlighted in the image. If you have access to the account key, then you're able to proceed. If you don't have access to the account key, you see an error message and no blobs appear in the list.
 
-:::image type="content" source="media/authorize-data-operations-portal/auth-error-access-key.png" alt-text="Error shown if you do not have access to account key":::
-
-Notice that no blobs appear in the list if you don't have access to the account keys. Select the **Switch to Microsoft Entra user Account** link to use your Microsoft Entra account for authentication again.
-
-## Specify how to authorize a blob upload operation
-
-When you upload a blob from the Azure portal, you can specify whether to authenticate and authorize that operation with the account access key or with your Microsoft Entra credentials. By default, the portal uses the current authentication method, as shown in [Determine the current authentication method](#determine-the-current-authentication-method).
-
-To specify how to authorize a blob upload operation, follow these steps:
-
-1. In the Azure portal, navigate to the container where you wish to upload a blob.
-1. Select the **Upload** button.
-1. Expand the **Advanced** section to display the advanced properties for the blob.
-1. In the **Authentication Type** field, indicate whether you want to authorize the upload operation by using your Microsoft Entra account or with the account access key, as shown in the following image:
-
-    :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
+Select the **Switch to Microsoft Entra user account** link to use your Microsoft Entra account for authentication again.
 
 <a name='default-to-azure-ad-authorization-in-the-azure-portal'></a>
 

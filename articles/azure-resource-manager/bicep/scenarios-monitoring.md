@@ -55,7 +55,7 @@ resource diagnosticLogs 'Microsoft.Insights/diagnosticSettings@2021-05-01-previe
   scope: appServicePlan
   properties: {
     workspaceId: logAnalytics.id
-    logs: [
+    metrics: [
       {
         category: 'AllMetrics'
         enabled: true

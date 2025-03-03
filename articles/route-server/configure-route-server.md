@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 09/18/2024
-
+ms.date: 02/10/2025
 ---
 
 # Configure and manage Azure Route Server 
@@ -21,7 +20,6 @@ In this article, you learn how to configure and manage Azure Route Server using 
 
 - A route server.
 
-
 # [**PowerShell**](#tab/powershell)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -33,7 +31,6 @@ In this article, you learn how to configure and manage Azure Route Server using 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-
 
 # [**Azure CLI**](#tab/cli)
 
@@ -71,15 +68,15 @@ In this section, you learn how to add a BGP peering to your route server to peer
 
 1. Select **Add** to save the configuration.
 
-    :::image type="content" source="./media/configure-route-server/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the route server as a peer." lightbox="./media/configure-route-server/add-peer.png":::
+    :::image type="content" source="./media/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the route server as a peer." lightbox="./media/add-peer.png":::
 
     Once the peer NVA is successfully added, you can see it in the list of peers with a **Succeeded** provisioning state.
 
-    :::image type="content" source="./media/configure-route-server/peer-list.png" alt-text="Screenshot that shows the route server's peers." lightbox="./media/configure-route-server/peer-list.png":::
+    :::image type="content" source="./media/peer-list.png" alt-text="Screenshot that shows the route server's peers." lightbox="./media/peer-list.png":::
 
-    To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the route server's Peer IPs and ASN in the **Overview** page:
+    To complete the peering setup, you must configure the NVA to establish a BGP session with the route server using its IP addresses and ASN. You can find the route server's IP addresses and ASN in the **Overview** page:
 
-    :::image type="content" source="./media/configure-route-server/route-server-overview.png" alt-text="Screenshot that shows the Overview page of a route server. " lightbox="./media/configure-route-server/route-server-overview.png":::
+    :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Overview page of a route server. " lightbox="./media/route-server-overview.png":::
 
     [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
@@ -262,7 +259,7 @@ In this section, you learn how to view the details of a peer.
 
 1. In the list of peers, you can see the name, ASN, IP address, and provisioning state of any of the configured peers.
 
-    :::image type="content" source="./media/configure-route-server/peer-list.png" alt-text="Screenshot that shows the configuration of a route server's peer." lightbox="./media/configure-route-server/peer-list.png":::
+    :::image type="content" source="./media/peer-list.png" alt-text="Screenshot that shows the configuration of a route server's peer." lightbox="./media/peer-list.png":::
 
 
 # [**PowerShell**](#tab/powershell)

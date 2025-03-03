@@ -45,7 +45,7 @@ Before provisioning an Azure Managed Domain, review the following table to decid
 
 ### Service limits
 
-Both Azure managed domains and Custom domains are subject to service limits. Service limits include failure, rate, and size limits. For more informations, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
+Both Azure managed domains and Custom domains are subject to service limits. Service limits include failure, rate, and size limits. For more information, see [Service limits for Azure Communication Services > Email](../../concepts/service-limits.md#email).
 
 ## Sender authentication for Azure Managed Domain
 

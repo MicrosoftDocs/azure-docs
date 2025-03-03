@@ -6,12 +6,10 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
-ms.date: 02/27/2024
+ms.date: 12/24/2024
 ms.author: alkohli
 ---
 # Troubleshoot IoT Edge issues on your Azure Stack Edge FPGA device 
-
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 [!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 

@@ -5,7 +5,7 @@ author: karthikananth
 ms.author: kaanan
 ms.service: azure-private-5g-core
 ms.topic: overview 
-ms.date: 02/20/2022
+ms.date: 01/13/2025
 ms.custom: template-overview
 ---
 
@@ -41,7 +41,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   Packet core instances run on a Kubernetes cluster, which is connected to Azure Arc and deployed on an Azure Stack Edge Pro with GPU device. These platforms provide security and manageability for the entire core network stack from Azure. Additionally, Azure Arc allows Microsoft to provide support at the edge.
 
-  For more information, see [Azure Arc overview](/azure/azure-arc/overview) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
+  For more information, see [Azure Arc overview](/azure/azure-arc/overview) and [Azure Kubernetes Service on Azure Local](/azure-stack/aks-hci/).
 
 - **RANs and SIMs** 
 

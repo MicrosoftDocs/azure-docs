@@ -2,11 +2,11 @@
 title: Azure Firewall best practices for performance
 description: Learn how to configure Azure Firewall to maximize performance
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
-ms.date: 11/17/2023
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 01/13/2025
+ms.author: duau
 ---
 
 # Best practices for Azure Firewall performance
@@ -38,7 +38,7 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
    - Organize rules using firewall policy into Rule Collection Groups and Rule Collections, prioritizing them based on their use frequency.
    - Use [IP Groups](ip-groups.md) or IP prefixes to reduce the number of IP table rules.
    - Prioritize rules with the highest number of hits.
-   - Ensure that you are within the following [rule limitations](../nat-gateway/tutorial-hub-spoke-nat-firewall.md).
+   - Ensure that you are within the following [rule limitations](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 - **Use or migrate to Azure Firewall Premium**
    - Azure Firewall Premium uses advanced hardware and offers a higher-performing underlying engine.
    - Best for heavier workloads and higher traffic volumes. 

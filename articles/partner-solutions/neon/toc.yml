@@ -22,3 +22,13 @@ items:
   items:
   - name: Azure CLI
     href: /cli/azure/neon
+  - name: Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/neonpostgres/armneonpostgres@v0.1.0
+  - name: Java
+    href: https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-neonpostgres/1.0.0-beta.1
+  - name: JavaScript
+    href: https://www.npmjs.com/package/@azure/arm-neonpostgres/v/1.0.0-beta.1
+  - name: .NET
+    href: https://www.nuget.org/packages/Azure.ResourceManager.NeonPostgres/1.0.0-beta.1 
+  - name: Python  
+    href: https://pypi.org/project/azure-mgmt-neonpostgres/

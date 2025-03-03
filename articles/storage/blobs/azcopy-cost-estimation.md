@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 12/02/2024
+ms.date: 01/06/2025
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -109,8 +109,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price of a single read operation (price / 10,000)        | $0.00000044    | $0.000001      | $0.00001       |
 | **Cost of read operations (1000 * operation price)**     | **$0.00044**   | **$0.001**     | **$0.01**      |
 | Price of data retrieval (per GiB)                        | $0.00          | $0.01          | $0.03          |
-| **Cost of data retrieval (5 * operation price)**         | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$0.051**     | **$0.161**     |
+| **Cost of data retrieval 1000 * (5 * operation price)**  | **$0.00**      | **$50.00**     | **$150.00**    |
+| **Total cost (list + properties + read + retrieval)**    | **$0.001**     | **$50.001**    | **$150.011**   |
 
 
 ### Cost of downloading from the Data Lake Storage endpoint
@@ -143,8 +143,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price of a single read operation (price / 10,000)         | $0.00000060    | $0.00000130    | $0.00001300    |
 | **Cost of read operations (1,281,000 * operation price)** | **$0.73017**   | **$1.6653**    | **$16.653**    |
 | Price of data retrieval (per GiB)                         | $0.00000000    | $0.01000000    | $0.03000000    |
-| **Cost of data retrieval (5 * operation price)**          | **$0.00**      | **$0.05**      | **$0.15**      |
-| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$1.716**     | **$16.804**    |
+| **Cost of data retrieval 1000 * (5 * operation price)**   | **$0.00**      | **$50.00**     | **$150.00**    |
+| **Total cost (list + properties + read + retrieval)**     | **$0.731**     | **$51.666**    | **$166.653**   |
 
 
 ## The cost to copy between containers
@@ -222,8 +222,8 @@ The following table contains all of the estimates presented in this article. All
 |---------------------------------------------|-----------|-----------|-----------|---------|
 | Upload blobs (Blob Service endpoint)        | $3.53     | $6.41     | $11.54    | $3.53   |
 | Upload blobs (Data Lake Storage endpoint)   | $9.22     | $16.65    | $29.98    | $18.32  |
-| Download blobs (Blob Service endpoint)      | $0.001    | $0.051    | $0.161    | N/A     |
-| Download blobs (Data Lake Storage endpoint) | $0.731    | $1.716    | $16.804   | N/A     |
+| Download blobs (Blob Service endpoint)      | $0.001    | $50.001   | $150.011  | N/A     |
+| Download blobs (Data Lake Storage endpoint) | $0.731    | $51.666   | $166.653  | N/A     |
 | Copy blobs                                  | $0.064    | $0.0109   | $0.0190   | N/A     |
 | Copy blobs to another account               | $0.0068   | $50.0119  | $150.0290 | N/A     |
 | Copy blobs to an account in another region  | $100.0068 | $150.0119 | $250.0290 | N/A     |

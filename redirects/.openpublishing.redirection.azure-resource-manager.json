@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md",
+      "redirect_url": "/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/app-service-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations",
       "redirect_document_id": false
@@ -1151,6 +1156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/bicep-extensibility-kubernetes-provider.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-kubernetes-extension",
+      "redirect_document_id": false
+    },       
+    {
       "source_path_from_root": "/articles/azure-resource-manager/templates/complete-mode-deletion.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deployment-complete-mode-deletion",
       "redirect_document_id": false
@@ -1998,11 +2008,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/bicep/bicep-error-bcp333.md",
       "redirect_url": "diagnostics/bcp333",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-resource-manager/bicep/bicep-extensibility-kubernetes-provider.md",
-      "redirect_url": "/azure/azure-resource-manager/bicep/bicep-kubernetes-extension",
       "redirect_document_id": false
     },
     {

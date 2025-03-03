@@ -20,11 +20,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is NGINXaaS – An Azure Native ISV Service?
-            url: nginx-overview.md
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Manage your NGINXaaS resource
-            url: nginx-manage.md
+            url: manage.md
 
   # Card
   - title: Create an NGINXaaS deployment
@@ -32,10 +32,10 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with NGINXaaS – An Azure Native ISV Service
-            url: nginx-create.md
+            url: create.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting NGINXaaS – An Azure Native ISV Service 
-            url: nginx-troubleshoot.md
+            url: troubleshoot.md
 
   

@@ -39,7 +39,7 @@ Read more about [data type support for different clouds in Microsoft Sentinel](d
 | ----------------- | ---------- | --- | ------------------------- |
 | **Microsoft Defender for Endpoint: *SecurityAlert (MDATP)*** | Generally available | Generally available | Generally available |
 | **Microsoft Defender for Office 365: *SecurityAlert (OATP)*** | Public preview | Public preview | Public preview |
-| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Unsupported | Unsupported |
+| **Microsoft Defender for Identity: *SecurityAlert (AATP)*** | Generally available | Generally available | Unsupported |
 | **Microsoft Defender for Cloud Apps: *SecurityAlert (MCAS)*** | Generally available | Generally available | Unsupported |
 | **Microsoft Defender for Cloud Apps: *McasShadowItReporting*** | Generally available | Generally available | Unsupported |
 

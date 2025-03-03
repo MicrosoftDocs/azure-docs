@@ -4,7 +4,7 @@ description: This article introduces the Azure Application Standard_v2 and WAF_v
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/02/2023
 ms.author: greglin
 ms.custom: fasttrack-edit, references_regions
@@ -30,7 +30,7 @@ Azure Application Gateways are always deployed in a highly available fashion. Th
 
 Even if you configure autoscaling with zero minimum instances the service is still highly available, which is always included with the fixed price.
 
-However, it’s important to note that provisioning a new instance may take approximately six to seven minutes. Understanding the scaling behavior of Application Gateway instances is key to maintaining performance under varying loads. These instances scale out in groups, and the group size is increased proactively when the current instance count is higher. This strategy allows the system to manage workload surges efficiently, preventing potential service disruptions or slowdowns. Each Azure Application Gateway instance can handle up to 10 Capacity Units. To optimize your autoscaling settings, consider your typical traffic patterns and set the minimum instances accordingly to ensure smooth operation.
+However, it’s important to note that provisioning a new instance may take approximately three to five minutes. Understanding the scaling behavior of Application Gateway instances is key to maintaining performance under varying loads. These instances scale out in groups, and the group size is increased proactively when the current instance count is higher. This strategy allows the system to manage workload surges efficiently, preventing potential service disruptions or slowdowns. Each Azure Application Gateway instance can handle up to 10 Capacity Units. To optimize your autoscaling settings, consider your typical traffic patterns and set the minimum instances accordingly to ensure smooth operation.
 
 For scale-in events, Application Gateway drains existing connections for 5 minutes on the instance that is subject for removal. After 5 minutes, existing connections are closed and the instance removed. Any new connections during or after the 5 minute scale-in time is established to other existing instances on the same gateway.
 

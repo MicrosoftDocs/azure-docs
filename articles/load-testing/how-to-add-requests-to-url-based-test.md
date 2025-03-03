@@ -278,7 +278,7 @@ The following screenshot shows how to refer to a `token` variable in an HTTP hea
 
 ### Use response variables for dependent requests
 
-To create HTTP requests that depent on a previous request, you can use response variables. For example, in the first request you might retrieve a list of items from an API, extract the ID from the first result, and then make a subsequent and pass this ID as a query string parameter.
+To create HTTP requests that depend on a previous request, you can use response variables. For example, in the first request you might retrieve a list of items from an API, extract the ID from the first result, and then make a subsequent and pass this ID as a query string parameter.
 
 Azure Load Testing supports the following options to extract values from an HTTP request and store them in a variable:
 

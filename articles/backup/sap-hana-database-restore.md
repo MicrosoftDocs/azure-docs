@@ -4,8 +4,8 @@ description: In this article, you'll learn how to restore SAP HANA databases tha
 ms.topic: how-to
 ms.date: 03/26/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore SAP HANA databases on Azure VMs

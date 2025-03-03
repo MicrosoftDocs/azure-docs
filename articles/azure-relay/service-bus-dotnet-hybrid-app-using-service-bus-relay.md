@@ -1,12 +1,13 @@
 ---
-title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
+title: WCF Relay hybrid on-premises/cloud application (.NET)
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
-ms.topic: conceptual
+ms.topic: tutorial
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 08/10/2023
+ms.date: 12/11/2024
+# Customer intent: I want to know how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay.
 ---
 
-# Expose an on-premises WCF service to a web application in the cloud by using Azure Relay
+# Tutorial: Expose an on-premises WCF service to a web application in the cloud by using Azure Relay
 
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. You create an application that uses multiple Azure resources in the cloud. This tutorial helps you learn:
 
@@ -48,7 +49,7 @@ In this tutorial, you create an ASP.NET website that enables you to see a list o
 
 ![Scenario][0]
 
-The tutorial assumes that you have product information in an existing on-premises system, and uses Azure Relay to reach into that system. A web service that runs in a simple console application simulates this situation. It contains an in-memory set of products. You can run this console application on your own computer and deploy the web role into Azure. By doing so, you'll see how the web role running in the Azure datacenter calls into your computer. This call happens even though your computer will almost certainly be behind at least one firewall and a network address translation (NAT) layer.
+The tutorial assumes that you have product information in an existing on-premises system, and uses Azure Relay to reach into that system. A web service that runs in a simple console application simulates this situation. It contains an in-memory set of products. You can run this console application on your own computer and deploy the web role into Azure. By doing so, you see how the web role running in the Azure datacenter calls into your computer. This call happens even though your computer will almost certainly be behind at least one firewall and a network address translation (NAT) layer.
 
 ## Set up the development environment
 
@@ -69,7 +70,7 @@ The first step is to create a namespace, and to obtain a [Shared Access Signatur
 
 ## Create an on-premises server
 
-First, you build a simulated on-premises product catalog system.  This project is a Visual Studio console application, and uses the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) to include the Service Bus libraries and configuration settings. <a name="create-the-project"></a>
+First, you build a simulated on-premises product catalog system. This project is a Visual Studio console application, and uses the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) to include the Service Bus libraries and configuration settings. <a name="create-the-project"></a>
 
 1. Start Microsoft Visual Studio as an administrator. To do so, right-click the Visual Studio program icon, and select **Run as administrator**.
 1. In Visual Studio, select **Create a new project**.
@@ -233,7 +234,7 @@ In this section, you build a simple ASP.NET application that displays data retri
 1. In Visual Studio, select **Create a new project**.
 1. In **Create a new project**, select **ASP.NET Web Application (.NET Framework)** for C# and select **Next**.
 1. Name the project *ProductsPortal* and select **Create**.
-1. In **Create a new ASP.NET Web Application**, choose **MVC** and select **Change** under **Authentication**.
+1. In **Create a new ASP.NET Web Application**, choose **MVC, and select **Change** under **Authentication**.
 
    ![Select ASP .NET Web Application][16]
 
@@ -242,7 +243,7 @@ In this section, you build a simple ASP.NET application that displays data retri
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnetcore.md?tabs=netframework48#2-publish-your-web-app). Then, return to this tutorial and continue to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnetcore.md?tabs=netframework48#publish-your-web-app). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 
@@ -431,7 +432,7 @@ The next step is to republish the Azure Web app **ProductsPortal** front end:
    > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
    >
 
-1. Copy the URL of the deployed web app. You'll need the URL later. You can also get this URL from the **Azure App Service Activity** window in Visual Studio:
+1. Copy the URL of the deployed web app. You need the URL later. You can also get this URL from the **Azure App Service Activity** window in Visual Studio:
 
    ![URL of the deployed app][9]
 
@@ -463,7 +464,7 @@ In the browser, refresh the **ProductsPortal** page. Each time you refresh the p
 
 ![Updated output][38]
 
-## Next steps
+## Next step
 
 Advance to the following tutorial:
 

@@ -11,7 +11,7 @@ ms.date: 11/15/2024
 
 # Azure Managed Redis (preview) Architecture
 
-Azure Managed Redis (preview) runs on the [Redis Enterprise](https://redis.io/redis-enterprise/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
+Azure Managed Redis (preview) runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
 
 > [!IMPORTANT]
 > Azure Managed Redis is currently in PREVIEW.
@@ -71,14 +71,14 @@ Each SKU of Azure Managed Redis is configured to run a specific number of Redis 
 > The number of shards and vCPUs used on each SKU can change over time as performance is optimized by the Azure Managed Redis team.
 >
 
-|  Tiers      | Flash Optimized |   Memory Optimized   |    General Purpose   |   Compute Optimized  |
+|  Tiers      | Flash Optimized |   Memory Optimized   |    Balanced   |   Compute Optimized  |
 |:-----------:|:-------------------:|:--------------------:|:--------------------:|:--------------------:|
 | Size (GB)   | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards |
-|    0.5      |       -      |    -          |          2/1         |           -          |
-|     1       |       -      |           -          |          2/1         |           -          |
-|     3       |        -      |         -          |         2/1          |       4/2            |
-|     6       |       -      |          -          |          2/1         |           4/2        |
-|     12      |       -      |         2/1         |          4/2         |           8/6        |
+|    0.5      |       -      |    -          |          2/2         |           -          |
+|     1       |       -      |           -          |          2/2         |           -          |
+|     3       |        -      |         -          |         2/2          |       4/2            |
+|     6       |       -      |          -          |          2/2         |           4/2        |
+|     12      |       -      |         2/2         |          4/2         |           8/6        |
 |     24      |       -      |          4/2          |          8/6         |           16/12          |
 |     60      |       -      |          8/6          |          16/12         |           32/24         |
 |     120      |       -      |          16/12       |       32/24         |           64/48          |

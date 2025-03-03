@@ -27,8 +27,6 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Azure Deployment Environments roadmap 
-            url: ade-roadmap.md
             
   # Card
   - title: Get started
@@ -60,8 +58,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure container image to execute deployments
-            url: how-to-configure-extensibility-model-custom-image.md
+          - text: What is the ADE Extensibility Model?
+            url: concept-extensibility-model.md
+          - text: Create an ARM or Bicep custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=arm-bicep
+          - text: Create a Terraform custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=custom-script%2Cprivate-registry&pivots=terraform
+          - text: Create a Pulumi custom image
+            url: /azure/deployment-environments/how-to-configure-extensibility-model-custom-image?tabs=sample%2Cprivate-registry&pivots=pulumi
           - text: Troubleshoot custom image errors and warnings
             url: troubleshoot-custom-image-logs-errors.md  
 

@@ -606,6 +606,27 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.10.0
+Security improvements.
+
+CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
+- Released February 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.18.2
+##### Gatekeeper 3.18.2-1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
+
+#### 1.9.1
+Security improvements.
+
+Patch CVE-2024-45337 and CVE-2024-45338.
+- Released January 2025
+- Kubernetes 1.27+
+- Gatekeeper 3.17.1
+##### Gatekeeper 3.17.1-5
+Patch CVE-2024-45337 and CVE-2024-45338.
+
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
 

@@ -298,7 +298,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Confirm that the triggers are being activated in the terminal.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." lightbox="media/cache-tutorial-functions-getting-started/cache-triggers-working.png":::
+   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." :::
 
 ## Add Redis bindings
 

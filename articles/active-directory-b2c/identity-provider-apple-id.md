@@ -72,7 +72,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 
 ## Configure Apple as an identity provider
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that has at least [External Identity Provider Administrator](/entra/identity/role-based-access-control/permissions-reference#external-identity-provider-administrator) privileges.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Apple**.

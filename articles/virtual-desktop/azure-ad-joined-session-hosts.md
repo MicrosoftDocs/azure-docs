@@ -79,7 +79,7 @@ If you're using Microsoft Entra multifactor authentication and you don't want to
 
 ## User profiles
 
-You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files or Azure NetApp Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
+You can use FSLogix profile containers with Microsoft Entra joined VMs when you store them on Azure Files while using hybrid user accounts. For more information, see [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml).
 
 ## Accessing on-premises resources
 
@@ -93,5 +93,4 @@ Now that you've deployed some Microsoft Entra joined VMs, we recommend enabling 
 - [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
-- [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md)
-- [Create a profile container with Azure NetApp Files](create-fslogix-profile-container.md)
+- [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections)

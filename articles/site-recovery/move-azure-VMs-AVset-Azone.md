@@ -98,7 +98,7 @@ The following steps will guide you when using Azure Site Recovery to enable repl
 5. Choose the appropriate values for the target subscription, target virtual machine resource group, and virtual network.
 6. In the **Availability** section, choose the Availability Zone into which you want to move the virtual machine. 
    > [!NOTE]
-   > If you don’t see the option for availability set or Availabilty Zone, ensure that the [prerequisites](#prepare-the-source-virtual-machines) are met and the [preparation](#prepare-the-source-virtual-machines) of source virtual machines is complete.
+   > If you don’t see the option for availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-virtual-machines) are met and the [preparation](#prepare-the-source-virtual-machines) of source virtual machines is complete.
   
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the virtual machine.

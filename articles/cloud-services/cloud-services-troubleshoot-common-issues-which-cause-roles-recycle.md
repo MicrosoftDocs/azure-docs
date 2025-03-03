@@ -16,15 +16,13 @@ ms.custom: compute-evergreen
 
 This article discusses some of the common causes of deployment problems and provides troubleshooting tips to help you resolve these problems. An indication that a problem exists with an application is when the role instance fails to start, or it cycles between the initializing, busy, and stopping states.
 
-[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
-
 ## Missing runtime dependencies
 
 If a role in your application relies on any assembly that isn't part of the .NET Framework or the Azure managed library, you must explicitly include that assembly in the application package. Keep in mind that other Microsoft frameworks aren't available on Azure by default. If your role relies on such a framework, you must add those assemblies to the application package.
 
 Before you build and package your application, verify the following statements are true:
 
-* If using Visual studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that isn't part of the Azure SDK or the .NET Framework.
+* If using Visual Studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that isn't part of the Azure SDK or the .NET Framework.
 * Make sure the web.config file doesn't reference any unused assemblies in the compilation element.
 * The **Build Action** of every .cshtml file is set to **Content**. This setting ensures that the files appear correctly in the package and enables other referenced files to appear in the package.
 

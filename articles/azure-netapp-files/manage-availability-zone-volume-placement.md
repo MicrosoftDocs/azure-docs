@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: devx-track-terraform
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 02/05/2025
 ms.author: anfdocs
 ---
 # Manage availability zone volume placement for Azure NetApp Files
@@ -30,29 +30,8 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 * VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature doesn't create zonal VMs upon volume creation, or vice versa.
 
-* <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). This feature is currently in preview. 
-
-    >[!IMPORTANT]
-    >Once a volume is created with the same file path as another volume in a different availability zone, the volume has the same level of support as other volumes deployed in the subscription without this feature enabled. For example, if there's an issue with other generally available features on the volume such as snapshots, it's supported because the problem is unrelated to the ability to create volumes with the same file path in different availability zones.
-
-    You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required.
-    
-    1. Register the feature: 
-    
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFilePathUniquenessInAz
-        ```
-    
-    2. Check the status of the feature registration: 
-    
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFilePathUniquenessInAz
-        ```
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
+* <a name="file-path-uniqueness"></a> For volumes in different availability zones, Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol). 
+ 
 >[!IMPORTANT]
 >It's not recommended that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
 
@@ -144,18 +123,20 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     	"properties": {
     	    "roleName": ""
     	    "description": ""
-    	    "assignableScopes": ["/subscription/<subscriptionID>"
-            ],
+    	    "assignableScopes": ["/subscription/<subscriptionID>"],
     	},
     	"permissions": [
-            {
-        	    "actions": [
-                	"Microsoft.NetApp/locations/*",
-                	"Microsoft.NetApp/netAppAccounts/read",
-                	"Microsoft.NetApp/netAppAccounts/renewCredentials/action",
-                    "Microsoft.NetApp/netAppAccounts/capacityPools/read",
-                ]
-            }]
+        {
+            "actions": [
+                "Microsoft.NetApp/locations/*",
+                "Microsoft.NetApp/netAppAccounts/read",
+                "Microsoft.NetApp/netAppAccounts/renewCredentials/action",
+                "Microsoft.NetApp/netAppAccounts/capacityPools/read",
+                ],
+            "notActions": [],
+            "dataActions": [],
+            "notDataActions": []
+        }]
     }
     ```
 

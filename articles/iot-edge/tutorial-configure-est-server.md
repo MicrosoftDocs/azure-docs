@@ -137,7 +137,7 @@ Each device requires the Certificate Authority (CA) certificate that is associat
 1. On the IoT Edge device, create the `/var/aziot/certs` directory if it doesn't exist then change directory to it.
 
     ```bash
-   # If the certificate directory doen't exist, create, set ownership, and set permissions
+   # If the certificate directory doesn't exist, create, set ownership, and set permissions
    sudo mkdir -p /var/aziot/certs
    sudo chown aziotcs:aziotcs /var/aziot/certs
    sudo chmod 755 /var/aziot/certs
@@ -264,7 +264,7 @@ On the IoT Edge device, update the IoT Edge configuration file to use device cer
     ```
 
     > [!NOTE]
-    > In this example, IoT Edge uses username and password to authenticate to the EST server *everytime* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
+    > In this example, IoT Edge uses username and password to authenticate to the EST server *every time* it needs to obtain a certificate. This method isn't recommended in production because 1) it requires storing a secret in plaintext and 2) IoT Edge should use an identity certificate to authenticate to the EST server too. To modify for production: 
     > 
     > 1. Consider using long-lived *bootstrap certificates* that can be stored onto the device during manufacturing [similar to the recommended approach for DPS](../iot-hub/iot-hub-x509ca-concept.md). To see how to configure bootstrap certificate for EST server, see [Authenticate a Device Using Certificates Issued Dynamically via EST](https://github.com/Azure/iotedge/blob/main/edgelet/doc/est.md). 
     > 1. Configure `[cert_issuance.est.identity_auto_renew]` using the [same syntax](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L257) as the provisioning certificate auto-renew configuration above. 

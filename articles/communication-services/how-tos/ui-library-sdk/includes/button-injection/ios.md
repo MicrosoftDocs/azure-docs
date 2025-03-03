@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 
 ## Remove or disable buttons
 
-`CallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the `visible` or `enabled` to `false` for the `ButtonViewData` to hide or disable button.
+`CallScreenControlBarOptions`, allow the flexibility to customize buttons by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the `visible` or `enabled` to `false` for the `ButtonViewData` to hide or disable button.
 
 :::image type="content" source="../../media/remove-button-experience.png" alt-text="Screenshot that shows the experience removing buttons in the UI Library.":::
 
@@ -42,8 +42,18 @@ cameraButton.visible = true
 :::image type="content" source="../../media/add-button-experience.png" alt-text="Screenshot that shows the experienc when you add a new button the UI Library.":::
 
 ```swift
+// Custom header button
+let headerCustomButton = CustomButtonViewData(image: UIImage(named: "...")!,
+                                              title: "My header button") {_ in
+    // Process my button onClick
+}
+let callScreenHeaderViewData = CallScreenHeaderViewData(
+    customButtons: [headerCustomButton]
+)
+
+// Custom control bar button
 let customButton = CustomButtonViewData(image: UIImage(named: "...")!,
-                                       title: "My button") {_ in
+                                        title: "My button") {_ in
     // Process my button onClick
 }
 
@@ -51,7 +61,9 @@ let callScreenControlBarOptions = CallScreenControlBarOptions(
     customButtons: [customButton]
 )
 
-let callScreenOptions = CallScreenOptions(controlBarOptions: callScreenControlBarOptions)
+let callScreenOptions = CallScreenOptions(
+    controlBarOptions: callScreenControlBarOptions, headerViewData: callScreenHeaderViewData)
+
 let localOptions = LocalOptions(callScreenOptions: callScreenOptions)
 
 let callComposite = CallComposite(credential: credential)
