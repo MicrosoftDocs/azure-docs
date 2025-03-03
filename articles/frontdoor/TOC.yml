@@ -415,7 +415,7 @@
     - name: Subscription offers and bandwidth throttling
       href: standard-premium/subscription-offers.md
     - name: Questions & answers
-      href: https://learn.microsoft.com/en-us/answers/tags/96/azure-front-door
+      href: /answers/tags/96/azure-front-door
   - name: CDN
     items:
       - name: 404 status
@@ -427,7 +427,7 @@
       - name: Subscription offers and bandwidth throttling
         href: ../cdn/subscription-offerings.md?toc=/azure/frontdoor/TOC.json
       - name: Questions & answer
-        href: https://learn.microsoft.com/en-us/answers/tags/155/azure-cdn
+        href: /answers/tags/155/azure-cdn
 - name: Reference
   items:
   - name: Front Door
