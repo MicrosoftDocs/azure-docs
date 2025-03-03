@@ -13,13 +13,9 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## March 2025
 
-Per VMware security advisory [VMSA-2025-0004](https://www.vmware.com/security/advisories/VMSA-2025-0004.html), VMCI Heap-overflow vulnerability in VMware ESXi has been reported to VMware.
+Per Broad security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/security-advisory), VMCI Heap-overflow vulnerability in VMware ESXi has been reported to VMware.
 
-To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in this VMware security advisory, ESXi hosts are being patched in all Azure VMware Solution private clouds to ESXi 8.0 U2d, Patch Release 24585300. All new Azure VMware Solution private clouds are deployed with the same version.
-
-For more information on this ESXi version, see [VMware ESXi , Patch Release ESXi670-202111001](https://esxi80-u2d-patch-release).
-
-No further action is required.
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in this VMware security advisory, ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version.
 
 ## February 2025
 
