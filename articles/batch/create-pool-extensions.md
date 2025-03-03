@@ -226,9 +226,9 @@ If Key Vault extension is configured incorrectly, the compute node might be in a
 
 ## Considerations for Application Health extension
 
-The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running a http server which provides a "Rich Health State" per the official "Application Health extension" documents.
+The Batch Node Agent running on the node always starts an HTTP server that returns the health status of the agent. This HTTP server listens on local IP address 127.0.0.1 and port 29879. It always returns a 200 status but with the response body being either healthy or unhealthy. Any other response (or lack thereof) is considered an "unknown" status. This setup is in line with the guidelines running a HTTP server which provides a "Rich Health State" per the official "Application Health extension" documentation.
  
-If you set up your own health server, please make sure that the HTTP server listens on a different port. And it is suggested that your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a Batch Node agent running.
+If you set up your own health server, please ensure that the HTTP server listens on an unique port. It is suggested that your health server should query the Batch Node Agent server and combine with your health signal to generate a composite health result. Otherwise you might end up with a "healthy" node that doesn't have a properly functioning Batch Agent.
 
 ## Next steps
 
