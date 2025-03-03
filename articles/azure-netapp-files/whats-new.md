@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 02/11/2025
+ms.date: 02/28/2025
 ms.author: anfdocs
 ---
 
@@ -19,6 +19,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     The Azure NetApp Files file access logs feature provides you with access logs for files accessed (data plane logging) on volumes. With this feature, administrators can enable logging to view and report on file access operations sent to a variety of logging destinations. Standard file system operations are captured in the logs. File access logs is supported with SMB, NFSv4.1, and dual-protocol (SMB and NFSv4.1) volumes.
   
 ## February 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
