@@ -84,7 +84,7 @@ The **Reliability** tab summarizes the performance of key calling SDK APIs to he
 <!-- The **Reliability** tab summarizes the performance of key calling SDK APIs to help you focus on the lowest performing areas. The default view shows a trend of all the APIs to give you an overview of your reliability. You can get more details by selecting a single API scenario to focus on. When you choose a single API scenario the dashboard visuals update to show a detailed breakdown of that API and highlight where you can chat with Copilot to learn about individual error codes and possible solutions to improve performance.  -->
 
 
-
+:::image type="content" source="..\media\workbooks\voice-and-video-old-reliability.png" alt-text="Screenshot of Copilot responses in the voice and video reliability tab.":::
 
 ## User Facing Diagnostics (UFD)
 
