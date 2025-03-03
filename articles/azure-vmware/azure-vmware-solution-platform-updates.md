@@ -4,12 +4,22 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 02/18/2025
+ms.date: 03/3/2025
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## March 2025
+
+Per VMware security advisory [VMSA-2025-0004](https://www.vmware.com/security/advisories/VMSA-2025-0004.html), VMCI Heap-overflow vulnerability in VMware ESXi has been reported to VMware.
+
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in this VMware security advisory, ESXi hosts are being patched in all Azure VMware Solution private clouds to ESXi 8.0 U2d, Patch Release 24585300. All new Azure VMware Solution private clouds are deployed with the same version.
+
+For more information on this ESXi version, see [VMware ESXi , Patch Release ESXi670-202111001](https://esxi80-u2d-patch-release).
+
+No further action is required.
 
 ## February 2025
 
