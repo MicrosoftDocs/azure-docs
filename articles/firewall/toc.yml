@@ -79,7 +79,7 @@ items:
   - name: To a hybrid Network
     items:
     - name: Portal
-      href: tutorial-firewall-deploy-portal-policy.md
+      href: tutorial-hybrid-portal-policy.md
     - name: PowerShell
       href: tutorial-hybrid-ps.md
   - name: Firewall with inbound DNAT rules
