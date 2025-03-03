@@ -79,12 +79,23 @@ Each of these scopes further divides statuses into categories and subcategories.
 
 During a job run, automatic RBAC assignments happen. In case of failures in assignments, manually add the required role assignment.
 
-1.	Navigate to the appropriate resource. 
+1.	Navigate to the appropriate resource - Key Vault, File Share or Blob Container. 
 2.	Navigate to Access Control (IAM).
 3.	Add a new role assignment - Assign Azure roles using the Azure portal - Azure RBAC | Microsoft Learn
 4.	In the Add role assignment wizard
 - Search for the appropriate role for the resource type selected in step 1. 
+|Resource Type                       |Roles required |
+|---------------------------------|--------------|------------------------------------------|
+| <a name="Key Vault"></a>**Key Vault** |Key Vault Secrets User | 
+| <a name="File Share"></a>**File Share** |Storage File Data Privileged Contributor | 
+| <a name="Blob Container"></a>**Blob Container** |Storage Blob Data Privileged Contributor | 
+
 - Assign access should be for “Managed Identity”
 - On the right pane, select Managed Identity type as Machine – Azure Arc
 - Select the machine arc from the list. It will be of the same name as the agent.
 - Complete the assignment.
+
+
+
+
+
