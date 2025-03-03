@@ -44,7 +44,7 @@ Service Connector for AKS displays only non-credential configurations in the lis
 
 Using the Azure CLI command [az aks connection list-configuration](/cli/azure/aks/connection?view=azure-cli-latest&preserve-view=true#az-aks-connection-list-configuration), the value of a credential configuration is an empty string. In the Azure portal, the value of a credential configuration is hidden, as shown below.
 
-:::image type="content" source="./media/aks-tutorial/aks-listconfig.png" alt-text="Screenshot of the AKS connection listing configuration.":::
+:::image type="content" source="./media/aks-tutorial/aks-list-config.png" alt-text="Screenshot of the AKS connection listing configuration.":::
 
 ### Validation
 
