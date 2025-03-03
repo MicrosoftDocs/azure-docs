@@ -73,7 +73,7 @@ This error is typically seen when the private endpoint's subscription is differe
 1. Register the private endpoint's subscription to the `Microsoft.AppConfiguration` resource provider.
 2. Reconnect the private endpoint to the App Configuration store.
 
-For more details on registering a subscription to a resource provider, see [Register resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
+For more details on registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ## Next steps
 
