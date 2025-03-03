@@ -35,7 +35,7 @@ After these resources are configured, use the following steps so that the Azure 
     * For Key Vault's with [Azure RBAC](/azure/key-vault/general/rbac-guide) enabled, assign the identity the `Key Vault Crypto Service Encryption User` role on the target Key Vault.
     * For Key Vault's using access policy authorization, grant the identity `GET`, `WRAP`, and `UNWRAP` permissions in the target Key Vault's access policy.
 
-## Enable customer-managed key encryption for your App Configuration store
+## Enable customer-managed key encryption
 
 1. [Create an App Configuration store](./quickstart-azure-app-configuration-create.md) in the Standard or Premium tier if you don't have one.
 
@@ -107,9 +107,11 @@ After these resources are configured, use the following steps so that the Azure 
 
 Your Azure App Configuration instance is now configured to use a customer-managed key stored in Azure Key Vault.
 
-## Disable customer-managed key encryption for your App Configuration store
+## Disable customer-managed key encryption
 
-1. Use the Azure CLI to update your App Configuration instance and remove the customer-managed key configuration. Replace `contoso-resource-group` and `contoso-app-config` with the appropriate values for your setup.
+1. Ensure the current customer-managed key is valid and operational. App Configuration needs to decrypt existing data with the current key before reverting to Microsoft-managed keys. If the current key has expired or its access has been revoked, you must first restore access to that key.
+
+2. Use the Azure CLI to update your App Configuration instance and remove the customer-managed key configuration. Replace `contoso-resource-group` and `contoso-app-config` with the appropriate values for your setup.
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name ""
@@ -117,7 +119,7 @@ Your Azure App Configuration instance is now configured to use a customer-manage
 
     This command removes the customer-managed key configuration from your App Configuration instance.
 
-1. Verify that the customer-managed key configuration has been removed by checking the properties of your App Configuration instance.
+3. Verify that the customer-managed key configuration has been removed by checking the properties of your App Configuration instance.
 
     ```azurecli
     az appconfig show -g contoso-resource-group -n contoso-app-config --query "encryption"
@@ -139,7 +141,7 @@ When users enable the customer-managed key capability on their Azure App Configu
 
 ## Key Rotation
 
-When customer-managed key is configured on an App Configuration instance it is necessary to periodically rotate the managed key to ensure that it never expires. [Key vault key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation) can be configured to avoid the need to manually rotate encryption keys, and thus ensure that the latest version of a key remains valid. When relying on key vault key auto-rotation, you should ensure your App Configuration instance's managed key configuration does not reference a specific key version. Omitting the version allows App Configuration to always move to the latest version of the key vault key when an auto-rotation is performed. Failure to rotate the managed key can be considered a security concern, but additionally a lack of rotation can result in loss of access to the App Configuration instance. This is due to the fact that if the managed key version in use expires, then App Configuration will not be able to decrypt data.
+When customer-managed key is configured on an App Configuration instance it is necessary to periodically rotate the managed key to ensure that it never expires. It's important to note that for a successful key rotation, the current key must be valid and operational. If the current key has already expired or App Configuration's access to it has been revoked, the App Configuration instance will not be able to decrypt data, making rotation impossible. [Key vault key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation) can be configured to avoid the need to manually rotate encryption keys, and thus ensure that the latest version of a key remains valid. When relying on key vault key auto-rotation, you should ensure your App Configuration instance's managed key configuration does not reference a specific key version. Omitting the version allows App Configuration to always move to the latest version of the key vault key when an auto-rotation is performed. Failure to rotate the managed key can be considered a security concern, but additionally a lack of rotation can result in loss of access to the App Configuration instance. This is due to the fact that if the managed key version in use expires, then App Configuration will not be able to decrypt data.
 
 To recap, the following best practices are encouraged:
 
