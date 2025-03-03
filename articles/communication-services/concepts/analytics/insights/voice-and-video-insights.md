@@ -52,7 +52,7 @@ You need to start storing call logs and enable [Copilot in Azure](/azure/copilot
 
 ## Accessing Voice and Video Insights
 
-Inside your Azure Communication Services resource, scroll down on the left navigation bar to the **Monitor** category and select the **Insights** tab:
+Inside your Azure Communication Services resource, scroll down on the left navigation bar to the **Monitor** category. Select the **Insights** tab, then select **Voice and Video**:
 
 :::image type="content" source="..\media\workbooks\voice-and-video-navigate.png" alt-text="Screenshot of the Insights navigation icon.":::
 
