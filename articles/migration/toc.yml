@@ -67,9 +67,9 @@
         href: ./placeholder.md
       - name: Replatform from AWS SNS to Azure Storage Queues
         href: ./placeholder.md
-    - name: Observability
+    - name: Monitoring
       items:
-      - name: Observability migration guide
+      - name: Monitoring migration guide
         href: ./placeholder.md
   - name: Migrate from Google Cloud
     items:
