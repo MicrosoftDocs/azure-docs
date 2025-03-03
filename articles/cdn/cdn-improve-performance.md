@@ -33,8 +33,6 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 1. From the CDN profile page, select the CDN endpoint you want to manage.
 
-    ![CDN profile endpoints](./media/cdn-file-compression/cdn-endpoints.png)
-
     The CDN endpoint page opens.
 2. Select **Compression**.
 

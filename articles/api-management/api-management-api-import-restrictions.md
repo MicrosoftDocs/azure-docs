@@ -8,7 +8,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/24/2024
 ms.author: danlep
 ---

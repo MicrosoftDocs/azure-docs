@@ -46,7 +46,7 @@
       href: quick-kubernetes-backup-bicep.md
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
-  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+  - name: Create a backup policy for Azure Database for PostgreSQL - Flexible Server 
     items:
     - name: With Azure portal
       href: quick-backup-postgresql-flexible-server-portal.md
@@ -54,6 +54,8 @@
       href: quick-backup-postgresql-flexible-server-cli.md
     - name: With PowerShell
       href: quick-backup-postgresql-flexible-server-powershell.md    
+  - name: Configure backup for Azure Database for PostgreSQL  - Flexible Server 
+    items:    
     - name: With Terraform
       href: quick-backup-postgresql-flexible-server-terraform.md
     - name: With Azure Resource Manager template
@@ -106,6 +108,8 @@
       href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
+  - name: Back up Azure Database for PostgreSQL - Flexible Server
+    href: tutorial-create-first-backup-azure-database-postgresql-flex.md         
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
   - name: Configure vaulted backup for Azure Blob
@@ -298,6 +302,18 @@
     items:
     - name: View protectable resources
       href: ../business-continuity-center/tutorial-view-protectable-resources.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+    - name: Create and manage vaults
+      items:
+      - name: Create
+        href: ../business-continuity-center/backup-vaults.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Manage    
+        href: ../business-continuity-center/manage-vault.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+    - name: Create and manage protection policy
+      items:
+      - name: Create  
+        href: ../business-continuity-center/backup-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json  
+      - name: Manage
+        href: ../business-continuity-center/manage-protection-policy.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json    
     - name: Configure protection for datasources
       href: ../business-continuity-center/tutorial-configure-protection-datasource.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Recover item
@@ -312,6 +328,8 @@
       href: ../business-continuity-center/tutorial-monitor-alerts-metrics.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
     - name: Monitoring protection summary
       href: ../business-continuity-center/tutorial-monitor-protection-summary.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+    - name: Govern and view compliance
+      href: ../business-continuity-center/tutorial-govern-monitor-compliance.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json  
     - name: Support Matrices
       href: ../business-continuity-center/business-continuity-center-support-matrix.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json      
   - name: Backup center
@@ -450,7 +468,7 @@
     items:
     - name: From the Azure portal
       items:
-      - name: Backup
+      - name: Configure backup
         href: backup-azure-database-postgresql-flex.md
       - name: Restore
         href: restore-azure-database-postgresql-flex.md

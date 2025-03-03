@@ -115,7 +115,7 @@ You can utilize the table below as a reference to determine the optimal number o
 
 | Activity Type | Capacity |
 | --------------------------- | --------------------------------------------- |
-| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 10 per node |
+| Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 4 per node |
 | External activity | Approximately 800 per node |
 
 
