@@ -45,7 +45,7 @@ The Durable Task Scheduler (DTS) is designed from the ground up to be the fastes
 
 Unlike [other BYO backend options](../durable-functions-storage-providers.md), DTS is fully managed by Azure. This reduces management burdens, such as cleaning up completed orchestration history data, handling failover in the case of disaster recovery, etc. Managing the state store is now a task of Azure, so you can focus on business logic. 
 
-Since Azure has direct access to the orchestration data and storage resource, it's much easier to diagnose and resolve problems related to DTS so customers can also expect a better support experience. 
+Since Azure has direct access to your app's backend, it also becomes easier to diagnose and resolve problems related to DTS so users can expect a better support experience. 
 
 ### Durable Task Scheduler dashboard
 
