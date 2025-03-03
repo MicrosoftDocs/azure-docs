@@ -4,7 +4,7 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.date: 02/24/2025
+ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 ---
 
@@ -214,11 +214,11 @@ After you successfully set up the appliance using the installer script, configur
 1. Select **MySQL authentication** credential type, provide a friendly name, input the MySQL username, and password and select **Save**.
 
    > [!NOTE]
-   >- The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
-   >- After the credentials are successfully synced, they would be used for discovery of the specific workload in the next discovery cycle.
-   >- Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
-       >- Select permission on information_schema tables.
-       >- Select permission on mysql.users table.
+   > - The credentials added on the portal are processed via the Azure Key Vault chosen in the initial steps of onboarding the Kubernetes-based appliance. The credentials are then synced (saved in an encrypted format) to the Kubernetes cluster on the appliance and removed from the Azure Key Vault.
+   > - After the credentials are successfully synced, they would be used for discovery of the specific workload in the next discovery cycle.
+   > - Ensure that the user corresponding to the added MySQL credentials have the following privileges: 
+   >    - Select permission on information_schema tables.
+   >    - Select permission on mysql.users table.
 
 1. For a more detailed and accurate assessment of your MySQL database instances hosted on Linux servers, you’ll also need to add the server credentials. Select **Add credentials** once again and add the Linux server credentials under the credential type **Linux guest**. 
 
