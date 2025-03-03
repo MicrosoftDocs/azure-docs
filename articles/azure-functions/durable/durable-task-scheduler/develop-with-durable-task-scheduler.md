@@ -51,7 +51,10 @@ The Durable Task Scheduler (DTS) is a highly performant, fully-managed backend p
 
 ## Create a scheduler and task hub
 
-::: zone pivot="az-cli" 
+::: zone pivot="az-cli"
+
+> [!NOTE]
+> DTS currently supports apps hosted in the **App Service** and **Functions Premium** plans only.  
 
 1. Create a resource group.
 
@@ -363,20 +366,20 @@ Add these two environment variables to app setting:
 
 1. Get required information for DTS connection string. 
 
-To get DTS endpoint.
-```azurecli
-az durabletask scheduler show --resource-group RESOURCE_GROUP_NAME --name DTS_NAME --query 'properties.endpoint' --output tsv
-```
+    To get DTS endpoint.
+    ```azurecli
+    az durabletask scheduler show --resource-group RESOURCE_GROUP_NAME --name DTS_NAME --query 'properties.endpoint' --output tsv
+    ```
 
-To get client id of managed identity.
-```azurecli
-az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
-```
+    To get client id of managed identity.
+    ```azurecli
+    az identity show --name MANAGED_IDENTITY_NAME --resource-group RESOURCE_GROUP_NAME --query 'clientId' --output tsv
+    ```
 
 1. Use the following command to add DTS connection string to app. 
-```azurecli
-az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
-```
+    ```azurecli
+    az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
+    ```
 
 1. Repeat previous step to add task hub name. 
 
@@ -386,9 +389,9 @@ az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --nam
 
 1. Get required information for DTS connection string. 
 
-To get your DTS endpoint, navigate to the **Overview** tab of your scheduler resource and find "Endpoint" in the top *Essentials* section. 
+    To get your DTS endpoint, navigate to the **Overview** tab of your scheduler resource and find "Endpoint" in the top *Essentials* section. 
 
-To get your managed identity client ID, navigate to the **Overview** tab of your resource and find "Client ID" in the top *Essentials* section. 
+    To get your managed identity client ID, navigate to the **Overview** tab of your resource and find "Client ID" in the top *Essentials* section. 
 
 1. Navigate to your app on the portal. 
 
@@ -474,6 +477,9 @@ Gain access to the DTS dashboard by granting access to your *developer identity*
 ::: zone-end 
 
 After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
+
+## Scaling 
+For DTS apps on the Functions Premium plan, enable the `
 
 ## Next steps
 
