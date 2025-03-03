@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 03/03/2025
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: azure-backup
 author: jyothisuri
@@ -36,4 +36,5 @@ Learn how to monitor Backup jobs in [Azure Business Continuity Center](../busine
 
 ## Next steps
 
-[Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+- [Monitor Azure Backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+- [Monitor and govern protection estate, using Azure Business Continuity Center](../business-continuity-center/tutorial-monitor-protection-summary.md).
