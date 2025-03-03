@@ -192,7 +192,7 @@ To specify the load parameters for a Locust-based load test:
 
     Alternately, you can also edit the test configuration from the test details page. To do so, select **Configure**, and then select **Test**.
 
-1. On the **Edit test** page, select the **Load** tab. Enter the values for the overall users required and overall spwan rate in the respective input boxes. 
+1. On the **Edit test** page, select the **Load** tab. Enter the values for the overall users required and overall spawn rate in the respective input boxes. 
 The engine instance count required to generate this load automatically populates. If your test script is complex and resource intensive, use the **Engine instances** slider control to update the number of test engine instances, or enter the value directly in the input box.
 
     :::image type="content" source="media/how-to-high-scale-load/edit-test-load-locust.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane for Locust-based tests." lightbox="media/how-to-high-scale-load/edit-test-load-locust.png":::
@@ -203,11 +203,11 @@ Alternatively, you can configure the number of users and spawn rate in the test 
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-For CI/CD workflows, you configure the number of engine instances in the [YAML test configuration file](./reference-test-config-yaml.md). You can configure the overall users and spawn rate as enviornment variables in the YAML file. Alternatively, you can configure those in the test script or Locust configuration file. You store the load test configuration file alongside the Locust test script file in the source control repository.
+For CI/CD workflows, you configure the number of engine instances in the [YAML test configuration file](./reference-test-config-yaml.md). You can configure the overall users and spawn rate as environment variables in the YAML file. Alternatively, you can configure those in the test script or Locust configuration file. You store the load test configuration file alongside the Locust test script file in the source control repository.
 
 1. Open the YAML test configuration file for your load test in your editor of choice.
 
-1. Configure the number of test engine instances in the `engineInstances` setting. Configure the overall users and spawn rate as enviornment variables. 
+1. Configure the number of test engine instances in the `engineInstances` setting. Configure the overall users and spawn rate as environment variables. 
 
     The following example configures a load test that runs across 10 parallel test engine instances.
 
