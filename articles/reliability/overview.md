@@ -23,7 +23,7 @@ The documentation is organized into the following sections:
     - Redundancy, replication (Data redundancy), and backup
     - Failover and failback.
     - Shared responsibility between Microsoft and you.
-- **Azure regions** contains information on Azure regions, paired and nonpaired regions, and the list of services that are deployed to Azure regions.
+- **Azure regions** contains information on Azure regions, paired and nonpaired regions, and different region configurations.
 - **Azure availability zones** contains information on how availability zones, including how they support high availability and disaster recovery. The section also includes Which Azure services and regions support availability zones.
 
 ## What is reliability?
