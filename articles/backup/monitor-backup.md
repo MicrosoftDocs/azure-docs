@@ -31,13 +31,15 @@ This table describes how you can collect data to monitor your service, and what 
 
 [!INCLUDE [azmon-horz-kusto](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-kusto.md)]
 
-### Recommended Kusto queries for Azure Backup
+For more information about Azure Backup Kusto queries, see [Sample Kusto queries](backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries).
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
-### Recommended Azure Monitor alert rules for Azure Backup
+For more information about alerts for Azure Monitor, see [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md) and [Sample alert scenarios](metrics-overview.md#sample-alert-scenarios).
 
 ## Related content
 
 - [Azure Backup monitoring data reference](monitor-backup-reference.md)
+- [Monitoring Azure Backup workloads](/backup-azure-monitoring-built-in-monitor.md)
+- [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
