@@ -6,6 +6,7 @@ ms.topic: overview
 ms.date: 01/28/2025
 ms.author: anaharris
 ms.service: azure
+ms.subservice: azure-reliability
 ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
@@ -83,7 +84,7 @@ Many Azure regions provide availability zones, which are separated groups of dat
 - For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
 - To view which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-region-support.md).
 - To learn about how each Azure service supports availability zones, see [Azure services with availability zone support](./availability-zones-service-support.md)
-- To learn how to approach a migration to availability zone support, see [Azure availability zone migration baseline](availability-zones-baseline.md).
+- To learn how to approach a migration to availability zone support, see [Azure availability zone migration overview](availability-zones-migration-overview.md).
 
 ## Related content
 

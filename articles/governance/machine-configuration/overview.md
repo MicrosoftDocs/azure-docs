@@ -24,7 +24,7 @@ such as:
 
 Configurations are distinct from policy definitions. Machine configuration uses Azure Policy to
 dynamically assign configurations to machines. You can also assign configurations to machines
-[manually][03], or by using other Azure services such as [Automanage][04].
+[manually][03].
 
 Examples of each scenario are provided in the following table.
 
