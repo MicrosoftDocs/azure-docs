@@ -5,12 +5,12 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/28/2025
+ms.date: 03/03/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
 
-# Upgrade versions
+# Upgrade to a new version
 
 Upgrade an Azure IoT Operations deployment to a newer version. Azure IoT Operations supports upgrade from version 1.0.x onwards. There's no support for upgrading from any preview version of Azure IoT Operations to any generally available (GA) version.
 
@@ -109,5 +109,3 @@ To ensure zero data loss and high availability during deployment upgrades, the M
 If a failure occurs during the upgrade process, the health manager pod automatically restarts the upgrade process while ensuring no loss of data or connectivity.
 
 Rolling updates can only occur if the MQTT broker is deployed with two or more backend replicas. MQTT broker upgrades aren't supported for single-replica deployments. When you deploy Azure IoT Operations, you specify the number of backend replicas to create in the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command with the `--broker-backend-rf` parameter.
-
-Azure IoT Operations doesn't support downgrading between versions. To move to an older version, uninstall Azure IoT Operations and reinstall the desired version.
