@@ -302,7 +302,7 @@
   - name: Getting ARP tables (Classic)
     href: expressroute-troubleshooting-arp-classic.md
   - name: Questions & answer
-    href: https://learn.microsoft.com/en-us/answers/tags/225/azure-expressroute
+    href: /answers/tags/225/azure-expressroute
 - name: Reference
   items:
   - name: Monitoring data reference
