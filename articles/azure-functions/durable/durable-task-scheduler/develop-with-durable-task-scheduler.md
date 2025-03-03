@@ -479,8 +479,14 @@ Gain access to the DTS dashboard by granting access to your *developer identity*
 
 After granting access, go to `https://dashboard.durabletask.dev/` and fill out the required information about your scheduler and task hub to see the dashboard. 
 
-## Scaling 
-For DTS apps on the Functions Premium plan, enable the `
+## Scaling in Functions Premium plan 
+For DTS apps on the Functions Premium plan, enable the Runtime Scale Monitoring setting to get auto scaling of the app. 
+
+1. In your function app, navigate to **Settings** > **Configuration**.
+
+1. Under the *Function runtime settings* tab, turn on Runtime Scale Monitoring. 
+
+  :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
 
 ## Next steps
 
