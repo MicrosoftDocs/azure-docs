@@ -22,31 +22,31 @@ Features released earlier than nine months ago are described in the [What's new 
 
 The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
-## February 2025
+## March 2025
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection)|
+| **OT networks** | - [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection)<br>- ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)|
 
 ### Improved RDP Brute Force Detection
 
 The “Excessive Number of Sessions” alert now includes support by default to an RDP port, enhancing visibility into potential brute-force attacks and unauthorized access attempts.
-
-## January 2025
-
-|Service area  |Updates  |
-|---------|---------|
-| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters)<br>- ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information) |
-
-### Aggregating multiple alerts violations with the same parameters
-
-To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
 The "Unauthorized Internet Connectivity Detected" alert details now includes the URL from which the suspicious connection initiated, helping SOC analysts assess and respond to incidents more effectively.
 
 :::image type="content" source="media/whats-new/url-parameters.png" alt-text="Screenshot of URL information in alert details." lightbox="media/whats-new/url-parameters.png":::
+
+## January 2025
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Aggregating multiple alerts violations with the same parameters](#aggregating-multiple-alerts-violations-with-the-same-parameters) |
+
+### Aggregating multiple alerts violations with the same parameters
+
+To reduce alert fatigue, multiple versions of the same alert violation and with the same parameters are grouped together and listed in the alerts table as one item. The alert details pane lists each of the identical alert violations in the **Violations** tab and the appropriate remediation actions are listed in the **Take action** tab. For more information, see [aggregating alerts with the same parameters](alerts.md#aggregating-alert-violations).
 
 ## December 2024
 
