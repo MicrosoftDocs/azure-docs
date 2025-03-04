@@ -14,7 +14,7 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to SQL database in Microsoft Fabric:
+Service Connector can be used to connect the following compute services to SQL database in Fabric:
 
 - Azure App Service
 - Azure Container Apps
@@ -24,7 +24,7 @@ Service Connector can be used to connect the following compute services to SQL d
 
 ## Supported authentication types and client types
 
-The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to SQL database in Microsoft Fabric using Service Connector. A "Yes" indicates that the combination is supported, while a "No" indicates that it is not supported.
+The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to SQL database in Fabric using Service Connector. A "Yes" indicates that the combination is supported, while a "No" indicates that it is not supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -44,10 +44,10 @@ The system-assigned managed identity and user-assigned managed identity methods 
 
 ## Default environment variable names or application properties and sample code
 
-Refer to the connection details and sample code presented in the following tabs to connect compute services to SQL database in Microsoft Fabric. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Refer to the connection details and sample code presented in the following tabs to connect compute services to SQL database in Fabric. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 > [!NOTE]
-> Although SQL database in Microsoft Fabric is distinct from Azure SQL Database, you can connect to and query your SQL database in Microsoft Fabric in all the same ways as Azure SQL Database. [Learn more](/fabric/database/sql/connect).
+> Although SQL database in Fabric is distinct from Azure SQL Database, you can connect to and query your SQL database in Fabric in all the same ways as Azure SQL Database. [Learn more](/fabric/database/sql/connect).
 
 ### System-assigned managed identity
 
@@ -90,7 +90,7 @@ Refer to the connection details and sample code presented in the following tabs 
 
 #### Sample code
 
-Outlined below are the steps and code snippets to connect to SQL database in Microsoft Fabric using a system-assigned managed identity.
+Outlined below are the steps and code snippets to connect to SQL database in Fabric using a system-assigned managed identity.
 [!INCLUDE [code sample for fabricsql system mi](./includes/code-fabricsql-me-id.md)]
 
 ### User-assigned Managed Identity
@@ -134,16 +134,16 @@ Outlined below are the steps and code snippets to connect to SQL database in Mic
 
 #### Sample code
 
-Outlined below are the steps and code snippets to connect to SQL database in Microsoft Fabric using a user-assigned managed identity.
+Outlined below are the steps and code snippets to connect to SQL database in Fabric using a user-assigned managed identity.
 [!INCLUDE [code sample for fabricsql user mi](./includes/code-fabricsql-me-id.md)]
 
 ## <a name="manual-steps"></a> Manual steps
 
-The following manual steps are required to onboard a service connection to SQL database in Microsoft Fabric.
+The following manual steps are required to onboard a service connection to SQL database in Fabric.
 
 1. Review the instructions below before you continue creating the service connection.
 
-1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu and locate your SQL database in Microsoft Fabric service connection. Select **SQL Database** to navigate to the Microsoft Fabric portal.
+1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL Database** to navigate to the Fabric portal.
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/navigate-to-fabric-sql-database.png" alt-text="Screenshot of the Azure portal, selecting SQL Database link to navigate to the Fabric portal.":::
 
@@ -155,19 +155,15 @@ The following manual steps are required to onboard a service connection to SQL d
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-manage-access-sql-role.png" alt-text="Screenshot of the Fabric portal, selecting the db_ddladmin role, and then clicking Manage access":::
 
-1. You should see the name of your system-assigned managed identity, and/or any user-assigned managed identities with a service connection to this SQL database in Microsoft Fabric. Select **Share database**. If you do not see the **Share database** option, you do not need to continue with the remaining steps.
+1. You should see the name of your system-assigned managed identity, and/or any user-assigned managed identities with a service connection to this SQL database in Fabric. Select **Share database**. If you do not see the **Share database** option, you do not need to continue with the remaining steps.
 
     :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-share-database.png" alt-text="Screenshot of the Fabric portal, viewing a list of groups added to the role, and clicking Share database":::
 
-1. Enter and select the name of your newly created system-assigned managed identity, and/or any user-assigned managed identities as they appear on the **Manage access** pane.
+1. Enter and select the name of your newly created system-assigned managed identity, and/or any user-assigned managed identities as they appear on the **Manage access** pane. Add any other identities as needed. Select the **Read all data using SQL database** checkbox, then select **Grant**.
 
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-grant-access-type-name.png" alt-text="Screenshot of the Fabric portal, typing in the names of any assigned managed identities":::
+    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-grant-access-type-name.png" alt-text="Screenshot of the Fabric portal, typing in the names of any assigned managed identities, selecting Read all data using SQL database, and then clicking Grant":::
 
-1. Add any other identities as needed. Select the **Read all data using SQL database** checkbox, then **Grant**.
-
-    :::image type="content" source="./media/how-to-integrate-fabric-sql/fabric-portal-grant-access-finalize.png" alt-text="Screenshot of the Fabric portal, selecting Read all data using SQL database, and then clicking Grant":::
-
-1. You're now ready to use your new service connection to SQL database in Microsoft Fabric.
+1. You're now ready to use your new service connection to SQL database in Fabric.
 
 ## Next step
 
