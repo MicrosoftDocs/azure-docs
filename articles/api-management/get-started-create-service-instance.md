@@ -5,7 +5,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mvc, mode-portal, devdivchpfy22
-ms.date: 12/11/2023
+ms.date: 03/03/2025
 ms.author: danlep
 ---
 
@@ -46,12 +46,16 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | **Resource name**                | A unique name for your API Management instance. The name can't be changed later. The service name refers to both the service and the corresponding Azure resource. <br/><br/> The service name is used to generate a default domain name: *\<name\>.azure-api.net.* If you would like to configure a custom domain name later, see [Configure a custom domain](configure-custom-domain.md). |
    | **Organization name**   | The name of your organization. This name is used in many places, including the title of the developer portal and sender of notification emails. |                                                         
    | **Administrator email** | The email address to which all system notifications from **API Management** will be sent.   |  
-   | **Pricing tier**        | Select **Developer** tier to evaluate the service. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md). |
+   | **Pricing tier**        | Select a [tier](api-management-features.md) with the features you need. The **Basic v2** tier is a good choice to evaluate the service. Depending on the tier, it can take some time to deploy API Management.  |
+   | **Units**  | The number of units of capacity for the selected pricing tier. For evaluating API Management, you can accept the default value of 1 unit. |
 
-1. Select **Review + create**.
+1. On the **Monitor + secure** tab, optionally select one or more recommended add-in services to use with API Management. These services incur additional costs. For example, you can select **Log Analytics** to define a workspace as a destination for API Management logs. 
 
-    > [!TIP]
-    > It can take 30 to 40 minutes to create and activate an API Management service in this tier. To quickly find a newly created service, select **Pin to dashboard**.
+1. On the **Managed identity** tab, we recommend selecting the checkbox to enable a system-assigned identity for your API Management instance. This identity can be used to authenticate to other Azure services, such as Azure Key Vault, without needing to manage credentials.
+
+1. Optionally, on the **Tags** tab, add tags to your API Management instance. Tags are key-value pairs that help you organize and manage your Azure resources.
+
+1. On the **Review + install** tab, review the settings you selected. If you need to make changes, go back to the previous tabs. If everything looks good, select **Create**.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
