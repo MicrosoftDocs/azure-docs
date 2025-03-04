@@ -23,7 +23,7 @@ Hibernate is an effective cost management feature for:
 Azure DevTest Labs currently only supports enabling Hibernation on VM creation. To enable hibernation during VM creation, you can use the Azure portal and API. Hibernation can only be triggered from the API and the Azure portal and not directly from the VM.
 
 > [!NOTE]
-> Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation. To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/hibernate-resume)
+> Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation. To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](/azure/virtual-machines/hibernate-resume)
 
 This article explains how to Hibernate VMs in DevTest Labs.
 
