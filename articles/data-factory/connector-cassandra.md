@@ -185,7 +185,7 @@ If you use version 2.0 (Preview) to copy data from Cassandra, set the source typ
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **CassandraSource** | Yes |
-| query |Use the custom query to read data. CQL query, see [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
+| query |Use the custom query to read data. CQL query, see [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). |No (if "tableName" and "keyspace" in dataset are specified). |
 | consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
 
 **Example:**
@@ -210,7 +210,8 @@ If you use version 2.0 (Preview) to copy data from Cassandra, set the source typ
         "typeProperties": {
             "source": {
                 "type": "CassandraSource",
-                "query": "select id, firstname, lastname from mykeyspace.mytable"
+                "query": "select id, firstname, lastname from mykeyspace.mytable",
+                "consistencyLevel": "one"
             },
             "sink": {
                 "type": "<sink type>"
