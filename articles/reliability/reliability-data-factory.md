@@ -70,7 +70,7 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 **Integration runtimes:** Zone redundancy support depends on the type of integration runtime you use:
 
 - *Azure integration runtime* supports zone redundancy, and this capability is managed by Microsoft.
-- *Azure-SSIS IR* requires that you deploy at least two nodes, which are allocated into different availability zones. <!-- TODO if you deploy three instances are they spread across three zones? -->
+- *Azure-SSIS integration runtime* requires that you deploy at least two nodes, which are allocated into different availability zones. <!-- TODO if you deploy three instances are they spread across three zones? -->
 - *Self-hosted integration runtime* gives you the responsibility for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
 
 ### Cost
@@ -79,9 +79,9 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 **Integration runtimes:** Cost for zone redundancy differs depending on the type of integration runtime you use:
 
-- When you use the Azure integration runtime, zone redundancy is included at no additional cost.
-- When you use the Azure-SSIS integration runtime, you must deploy at least two nodes to achieve zone redundancy.
-- When you use a self-hosted integration runtime, you need to deploy and manage the compute infrastructure across multiple zones. Depending on how many nodes you deploy and how you configure them, you might incur additional costs from the underlying compute services and other supporting services. There's no additional charge to run the self-hosted integration runtime on multiple nodes.
+- *Azure integration runtime* includes zone redundancy at no additional cost.
+- *Azure-SSIS integration runtime* requires that you deploy at least two nodes to achieve zone redundancy.
+- *Self-hosted integration runtime* requires that you deploy and manage the compute infrastructure. To achieve zone resiliency you need to spread your compute resources across multiple zones. Depending on how many nodes you deploy and how you configure them, you might incur additional costs from the underlying compute services and other supporting services. There's no additional charge to run the self-hosted integration runtime on multiple nodes.
 
 ### Configure availability zone support
 
@@ -89,18 +89,18 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 **Integration runtimes:**
 
-- The Azure integration runtime automatically enables zone redundancy, so no configuration is required.
-- The Azure-SSIS integration runtime automatically enables zone redundancy when it's deployed with two or more nodes.
-- Self-hosted integration runtimes require you to configure your own resiliency, including spreading your nodes across multiple availability zones.
+- *Azure integration runtime* automatically enables zone redundancy, so no configuration is required.
+- *Azure-SSIS integration runtime* automatically enables zone redundancy when it's deployed with two or more nodes.
+- *Self-hosted integration runtime* require you to configure your own resiliency, including spreading your nodes across multiple availability zones.
 
 ### Capacity planning and management
 
 **Core service:** The Azure Data Factory core service automatically scales based on demand, and you don't need to plan or manage capacity.
 
 **Integration runtimes:** 
-- The Azure integration runtime automatically scales based on demand, and you don't need to plan or manage capacity.
-- The Azure-SSIS integration runtime requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
-- Self-hosted integration runtimes require you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
+- *Azure integration runtime* automatically scales based on demand, and you don't need to plan or manage capacity.
+- *Azure-SSIS integration runtime* requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
+- *Self-hosted integration runtime* requires you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
 
 ### Traffic routing between zones
 
@@ -115,6 +115,8 @@ During normal operations, Azure Data Factory automatically distributes pipeline 
 ### Failback
 
 When the availability zone recovers, Azure Data Factory automatically fails back to the original zone. You don't need to do anything to initiate a zone failback in your pipelines or other components.
+
+However, if you use the self-hosted integration runtime, you might need to restart your compute resources if they have been stopped.
 
 ### Testing for zone failures
 
