@@ -35,7 +35,7 @@ For more information about Azure Backup Kusto queries, see [Sample Kusto queries
 
 [!INCLUDE [azmon-horz-alerts-part-one](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-one.md)]
 
-For more information about alerts for Azure Monitor, see [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md) and [Sample alert scenarios](metrics-overview.md#sample-alert-scenarios).
+For more information about alerts for Azure Backup, see [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md) and [Sample alert scenarios](metrics-overview.md#sample-alert-scenarios).
 
 ## Related content
 

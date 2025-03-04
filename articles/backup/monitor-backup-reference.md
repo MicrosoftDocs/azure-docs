@@ -29,7 +29,7 @@ The following table lists the metrics available for the Microsoft.DataProtection
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
 
-For more information about dimensions for Azure Backup metrics, see [Supported metrics](metrics-overview.md#supported-metrics).
+- [Supported metrics](metrics-overview.md#supported-metrics)
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
