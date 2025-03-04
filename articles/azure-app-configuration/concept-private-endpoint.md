@@ -61,6 +61,20 @@ If you are using a custom DNS server on your network, you need to configure it t
 
 Enabling private endpoints requires a [Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
+## Troubleshooting private endpoint errors
+
+### Troubleshoot resource provider registration errors
+
+The following error indicates that the private endpoint being connected to an App Configuration store is in a subscription that has not registered the Azure App Configuration resource provider:
+
+> The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'.
+
+This error is typically seen when the private endpoint's subscription is different to the App Configuration store's subscription. To resolve:
+1. Register the `Microsoft.AppConfiguration` resource provider in the private endpoint's subscription.
+2. Reconnect the private endpoint to the App Configuration store.
+
+For more details on registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
 ## Next steps
 
 Learn more about creating a private endpoint for your App Configuration store, refer to the following articles:
