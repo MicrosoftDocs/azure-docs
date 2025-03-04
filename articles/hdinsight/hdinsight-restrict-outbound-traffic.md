@@ -124,14 +124,14 @@ For example, to configure the route table for a cluster created in the US region
 
 | Route name | Address prefix | Next hop type | Next hop address |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
-| 52.164.210.96| 52.164.210.96/32 | Internet | NA |
-| 13.74.153.132 |3.74.153.132/32  | Internet | NA |
-| HDInsight.EastUS |HDInsight.EastUS  | Internet | NA |
-|HDInsight.WestUS | HDInsight.WestUS | Internet | NA |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | N/A |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | N/A |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | N/A |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | N/A |
+| 52.164.210.96| 52.164.210.96/32 | Internet | N/A |
+| 13.74.153.132 |3.74.153.132/32  | Internet | N/A |
+| HDInsight.EastUS |HDInsight.EastUS  | Internet | N/A |
+|HDInsight.WestUS | HDInsight.WestUS | Internet | N/A |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.0.2.4 |
 
 Complete the route table configuration:
