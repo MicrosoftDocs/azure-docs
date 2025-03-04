@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 11/04/2024
+ms.date: 02/03/2025
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -123,7 +123,8 @@ The following table summarizes port requirements for assessment.
 Device | Connection
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
-Physical servers | **Windows**: Inbound connection on WinRM port 5985 (HTTP) to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux**: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
+Physical servers | **Windows**: Inbound connections on the WinRM port 5986 (HTTPS) are used to pull configuration and performance metadata from Windows servers. <br/><br/> If the HTTPS prerequisites aren't configured on the target Hyper-V servers, the appliance communication will fall back to WinRM port 5985 (HTTP).<br/><br/> To enforce HTTPS communication without fallback, toggle the Appliance Config Manager. <br/><br/> After enabling, ensure that the prerequisites are configured on the target servers. <br/><br/> - If certificates aren't configured on the target servers, discovery will fail on both the currently discovered servers and the newly added servers. <br/><br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a common name (CN) matching the hostname. The certificate must not be expired, revoked, or self-signed. Refer to the [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WinRM for HTTPS. <br/><br/> 
+**Linux**: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
 
 ## Software inventory requirements
 
@@ -372,7 +373,7 @@ Support | Details
 Supported servers | You can enable agentless dependency analysis on up to 1,000 servers discovered per appliance.
 Operating systems | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers: touch, chmod, cat, ps, grep, echo, sha256sum, awk, netstat, ls, sudo, dpkg, rpm, sed, getcap, which, date.
-Windows server access | Guest user account
+Windows server access | A user account (local or domain) with administrator permissions on servers.
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br/> <br/> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files set by using the following commands: <br/><br/> <code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/ls</code><br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep usr/bin/netstat</code>
 Port access | Windows servers need access on port 5985 (HTTP). Linux servers need access on port 22 (TCP).
 Discovery method |  Agentless dependency analysis is performed by directly connecting to the servers by using the server credentials added on the appliance. <br/><br/> The appliance gathers the dependency information from Windows servers by using PowerShell remoting and from Linux servers by using the SSH connection. <br/><br/> No agent is installed on the servers to pull dependency data.

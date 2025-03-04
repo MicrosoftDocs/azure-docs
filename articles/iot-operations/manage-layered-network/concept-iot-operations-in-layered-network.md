@@ -53,10 +53,10 @@ The following diagram is an example of Azure IoT Operations being deployed to mu
 In the pictured example, Azure IoT Operations is deployed to level 2 through 4. At level 3 and level 4, the **Layered Network Management services** are configured to receive and forward the network traffic from the layer that is one level below. With this forwarding mechanism, all the clusters illustrated in this deployment are able to connect to Azure and become Arc-enabled. The connection to Arc enables users to manage any Arc-enabled endpoint such as the servers, the cluster and the Arc-enabled service workloads from the cloud. 
 
 With extra configurations, the Layered Network Management service can also direct east-west traffic. This route enables Azure IoT Operations components to send data to other components at upper level and form data pipelines from the bottom layer to the cloud. 
-In a multi-layer network, the Azure IoT Operations components can be deployed across layers based on your architecture and dataflow needs. This example provides some general ideas of where individual components will be placed.
+In a multi-layer network, the Azure IoT Operations components can be deployed across layers based on your architecture and data flow needs. This example provides some general ideas of where individual components will be placed.
 - The **connector for OPC UA** may locate at the lower layer that is closer to your assets and OPC UA servers.
 - The data shall be transferred towards the cloud side through the **MQ** components in each layer.
-- The **Dataflows** component is generally placed at the top layer as the most likely layer to have significant compute capacity and as a final stop for the data to get prepared before being sent to the cloud.
+- The **Data flows** component is generally placed at the top layer as the most likely layer to have significant compute capacity and as a final stop for the data to get prepared before being sent to the cloud.
 
 ## Next steps
 

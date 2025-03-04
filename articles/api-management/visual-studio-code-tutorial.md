@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 11/19/2024
+ms.date: 02/20/2025
 ms.custom: devdivchpfy22
 ---
 
@@ -14,6 +14,8 @@ ms.custom: devdivchpfy22
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 In this tutorial, you learn how to use the API Management extension for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 You learn how to:
 
@@ -111,7 +113,7 @@ You need a subscription key for your API Management instance to test the importe
 1. In the Explorer pane, expand the **Operations** node under the *petstore* API that you imported.
 1. Select an operation such as *[GET] Find pet by ID*, and then right-click the operation and select **Test Operation**.
 1. In the editor window, substitute `5` for the `petId` parameter in the request URL.
-1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
+1. In the editor window, next to **Ocp-Apim-Subscription-Key**, paste the subscription key that you copied.
 1. Select **Send request**.
 
 :::image type="content" source="media/visual-studio-code-tutorial/test-api.png" alt-text="Screenshot of sending API request from Visual Studio Code.":::

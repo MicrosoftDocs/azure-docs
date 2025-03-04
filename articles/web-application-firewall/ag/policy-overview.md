@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) policy overview
 description: This article is an overview of Web Application Firewall (WAF) global, per-site, and per-URI policies.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/14/2025
-ms.author: victorh
 ---
 
 # Azure Web Application Firewall (WAF) policy overview

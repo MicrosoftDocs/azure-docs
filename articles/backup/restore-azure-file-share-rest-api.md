@@ -2,7 +2,7 @@
 title: Restore Azure file shares with REST API
 description: Learn how to use REST API to restore Azure file shares or specific files from a restore point created by Azure Backup 
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/09/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -347,7 +347,7 @@ For alternate location recovery, the response body will be like this:
 }
 ```
 
-Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#track-the-job).
 
 ## Item level recovery using REST API
 

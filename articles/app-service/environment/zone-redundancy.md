@@ -89,7 +89,7 @@ To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two
 
 ILB ASEs deployed in an availability zone will only store customer data within the region where the zonal ILB ASE has been deployed. Both website file content and customer supplied settings and secrets stored in App Service remain within the region where the zonal ILB ASE is deployed.
 
-Customers ensure single region data residency by following the steps outlined earlier in the section "How to Deploy an App Service Environment in an Availability Zone". By configuring an App Service Environment according to these steps, an App Service Environment deployed in an availability zone satisfies in region data residency requirements including those specified in the [Azure Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Customers ensure single region data residency by following the steps outlined earlier in the section "How to Deploy an App Service Environment in an Availability Zone". By configuring an App Service Environment according to these steps, an App Service Environment deployed in an availability zone satisfies in region data residency requirements including those specified in the [Microsoft Datacenters Explorer](https://datacenters.microsoft.com/globe/explore).
 
 Customers can validate that an App Service Environment is properly configured to store data in a single region by following these steps:
 

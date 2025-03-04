@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics
@@ -32,7 +32,7 @@ This SFTP connector is supported for the following capabilities:
 
 Specifically, the SFTP connector supports:
 
-- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multi-factor** authentication.
+- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multifactor** authentication.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites

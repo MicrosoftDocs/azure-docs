@@ -2,12 +2,11 @@
 title: WAF engine on Azure Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of the Azure WAF engine.
-services: web-application-firewall
 author: johndowns
-ms.service: azure-web-application-firewall
-ms.date: 03/05/2024
 ms.author: jodowns
-ms.topic: conceptual
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
+ms.date: 03/05/2024
 ---
 
 # WAF engine on Azure Application Gateway
