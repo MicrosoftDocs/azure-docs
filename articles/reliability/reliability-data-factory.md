@@ -118,7 +118,7 @@ When the availability zone recovers, Azure Data Factory automatically fails back
 
 ### Testing for zone failures
 
-For the core services, as well as Azure and Azure-SSIS integration runtimes, Azure Data Factory manages traffic routing, failover, and failback for zone-redundant resources. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
+For the core service, as well as Azure and Azure-SSIS integration runtimes, Azure Data Factory manages traffic routing, failover, and failback for zone-redundant resources. Because this feature is fully managed, you don't need to initiate or validate availability zone failure processes.
 
 For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/chaos-studio/chaos-studio-overview) to simulate an availability zone failure on an Azure virtual machine.
 
