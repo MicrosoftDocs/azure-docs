@@ -1,7 +1,7 @@
 ---
-title: Managed identities
-description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
-ms.topic: article
+title: Use managed identities for App Service and Azure Functions
+description: Learn how managed identities work in Azure App Service and Azure Functions, along with how to configure a managed identity and generate a token for a back-end resource.
+ms.topic: how-to
 ms.date: 09/30/2024
 ms.reviewer: yevbronsh,mahender
 author: cephalin
@@ -10,13 +10,13 @@ ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, A
 ai-usage: ai-assisted
 ---
 
-# How to use managed identities for App Service and Azure Functions
+# Use managed identities for App Service and Azure Functions
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
+This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Because [managed identities don't support cross-directory scenarios](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they won't behave as expected if your app is migrated across subscriptions or tenants. To recreate the managed identities after such a move, see [Will managed identities be recreated automatically if I move a subscription to another directory?](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory). Downstream resources also need to have access policies updated to use the new identity.
 
 > [!NOTE]
@@ -51,7 +51,6 @@ To enable a system-assigned managed identity on your app or slot, you need write
 # [Azure portal](#tab/portal)
 
 1. Access your app's settings in the [Azure portal](https://portal.azure.com) under the **Settings** group in the left navigation pane.
-
 
 1. Select **Identity**.
 
@@ -167,7 +166,7 @@ First, you'll need to create a user-assigned identity resource.
 1. Search for the identity you created earlier, select it, and select **Add**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
-    
+
     Once you select **Add**, the app restarts.
 
 # [Azure CLI](#tab/cli)
@@ -278,11 +277,11 @@ You need to configure the target resource to allow access from your app. For mos
 For example, if you [request a token](#connect-to-azure-services-in-app-code) to access a secret in Key Vault, you must also create a role assignment that allows the managed identity to work with secrets in the target vault. Otherwise, your calls to Key Vault will be rejected, even if you use a valid token. The same is true for Azure SQL Database and other services.
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity’s group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. This means that it can take several hours for changes to a managed identity's group or role membership to take effect. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. If you change a managed identity's group or role membership to add or remove permissions, you may therefore need to wait several hours for the Azure resource using the identity to have the correct access. For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
 
 ## Connect to Azure services in app code
 
-With its managed identity, an app can obtain tokens for Azure resources that are protected by Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application. 
+With its managed identity, an app can obtain tokens for Azure resources that are protected by Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
 
 App Service and Azure Functions provide an internally accessible [REST endpoint](#rest-endpoint-reference) for token retrieval. The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint and simplifies the development experience. Connecting to other Azure services is as simple as adding a credential object to the service-specific client.
 
@@ -469,7 +468,7 @@ The **IDENTITY_ENDPOINT** is a local URL from which your app can request tokens.
 > [!IMPORTANT]
 > If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
 
-## Next steps
+## Related content
 
 - [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
