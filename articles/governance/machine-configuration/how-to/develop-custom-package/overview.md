@@ -6,6 +6,8 @@ ms.topic: how-to
 ---
 # How to develop a custom machine configuration package
 
+Can we add a note in here about creating a custom policy based on a policy that already exists? This is a very common scenario and we get tons of CRIs from customers who have tried to do this and done it incorrectly. They often think they can directly copy an existing assignment and paste it into a new one, but the data that appears in the portal for an existing assignment is not the same as what needs to be included in a new assignment. I think putting a note about this in this doc as well as a link to instructions on how to succesfully duplicate an assignment correctly (and test it) would really help.
+
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
 Machine configuration uses [Desired State Configuration][02] (DSC) when auditing and configuring
