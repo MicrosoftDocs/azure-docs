@@ -90,7 +90,7 @@ In this step, you configure custom authentication settings on your Event Grid na
 1. On the **Event Grid Namespace** page, select **Configuration** on the left menu. 
 1. In the **Custom JWT authentication** section, specify values for the following properties:  
     1. Select **Enable custom JWT authentication**. 
-    1. **Token Issuer**: Enter the value of the issuer claims of the JWT tokens, presented by the MQTT clients. 
+    1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
     1. Select **Add issuer certificate**
     
         :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png" alt-text="Screenshot that shows the Custom JWT authentication section of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png":::
