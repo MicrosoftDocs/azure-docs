@@ -134,6 +134,10 @@ items:
       href: migrate-from-google-maps-web-app.md
     - name: Migrate a web service
       href: migrate-from-google-maps-web-services.md
+  - name: Android SDK migration guide
+    href: android-sdk-migration-guide.md	  
+  - name: iOS SDK migration guide
+    href: ios-sdk-migration-guide.md      
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
