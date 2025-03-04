@@ -13,6 +13,7 @@ This article discusses how to modernize your VMware workloads by bringing your p
 
 ## What's changing?
 
+You can now bring your VCF subscription to Azure VMware Solution and provision a Private Cloud. Simply register your VCF subscription with Microsoft start using the Azure VMware Solution offering. 
 Private Cloud on the portable VCF offering, must have prepurchase Firewall add-on from Broadcom along with the VCF subscription to use the vDefend Firewall on Azure VMware Solution. Prior to using the vDefend Firewall software on Azure VMware Solution ensure you register your Firewall add-on with Microsoft. For detailed instructions on how to register your portable VCF, see "Register your portable VCF with Azure VMware Solution" later in this article.
 
 >[!IMPORTANT]
@@ -22,12 +23,13 @@ Private Cloud on the portable VCF offering, must have prepurchase Firewall add-o
 
 ## Purchasing VCF subscription portability offering on Azure VMware Solution
 
-We offer three flexible commitments and pricing options for using your portable VCF on Azure VMware Solution. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. **NOTE:** 3-year RI option is discontinued for AV36 node type.
+We offer three flexible commitments and pricing options for using your portable VCF on Azure VMware Solution. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
 
 To take advantage of the Reserved Instance (RI) pricing for the portable VCF offering on Azure VMware Solution, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the portable VCF offering, you only need to register your VCF subscription. 
 
 >[!IMPORTANT]
-> If you are converting your existing Azure VMware Solution private cloud to leverage the portable VCF pricing, you must ensure to exchange the existing Reserve Instance (RI) on your subscription to VCF BYOL RI. Unless you have RI under \<node-type\>-VCF BYOL, you will be charged the VCF BYOL pay-as-you-go pricing.
+> If you are converting your existing Azure VMware Solution private cloud to leverage the portable VCF pricing, you must ensure to exchange the existing Reserve Instance (RI) on your subscription to VCF BYOL RI. **Unless you have RI under \<node-type\>-VCF BYOL, you will be charged the VCF BYOL pay-as-you-go pricing.**
+> Register your VCF subscription with Microsoft before performing any Reservation exchanges.
 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/reserved-instance-purchase.png" alt-text="Screenshot of what product type to select while purchasing reserved instance for VCF subscription portability offering." border="true":::
 
@@ -126,14 +128,31 @@ If you're an existing Azure VMware Solution customer and wish to transition to t
 >
 >You need to purchase the portable VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a private cloud with 100 AV36P nodes, you must purchase portable VCF for at least 3600 cores from Broadcom to convert to VCF BYOL offering.
 
+## Frequently Asked Questions
+
+**1. What if my VCF subscription expires before my AVS Reservation (RI) ends?** 
+If your VCF subscription expires before your AVS Reservation (RI) ends, you have two options:
+
+  Option 1: **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
+  Option 2: **Renew your VCF subscription with Broadcom:** Simply register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
+
+**2. Can I change back and forth between AVS to AVS VCF BYOL anytime?**
+Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime. 
+
+**3. Will the AVS 30-day Pilot Program support AVS VCF BYOL?**
+The 30-day Pilot Program **does not** require you to bring your own VCF subscription, as you can leverage AVS-owned VCF during the Pilot period. However, if you wish to bring your own VCF subscription instead of continuing with the AVS-owned VCF after the Pilot, you must **register your VCF subscription before the Pilot program ends**. If you do not register before the end of the Pilot program, you will automatically be converted to AVS pay-as-you-go pricing.
+
+**4. Is VCF portability available for Gov Cloud as well?**
+VCF portability is **not available in Gov Cloud.** Ensure to check the availability of this feature in your region before proceeding.
+
 ## "Onboarding to portable VCF on Azure VMware Solution" Checklist
 
 **Scenario 1:**
 "I am converting existing AVS private cloud to VCF BYOL." 
 
 1. Get your portable VCF subscription from Broadcom.
-2. If you have an RI purchased, exchange the RI to the corresponding VCF BYOL RI.
-3. Register your portable VCF with Azure VMware Solution.
+2. Register your portable VCF with Azure VMware Solution. 
+3. If you have an RI purchased, exchange the RI to the corresponding VCF BYOL RI.
 
 **Scenario 2:**
 "I am creating a new AVS private cloud with VCF BYOL." 
