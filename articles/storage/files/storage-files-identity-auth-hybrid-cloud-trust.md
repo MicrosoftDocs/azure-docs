@@ -39,7 +39,7 @@ The following are examples of scenarios in which you might want to configure a c
 
 To complete the steps outlined in this article, you'll need:
 
-- An on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest. 
+- An on-premises Active Directory administrator username and password. This account must be a member of the Domain Admins group for the domain And a member of the Enterprise Admins group for the domain's forest. 
 - A Microsoft Entra Global Administrator account username and password.
 
 ## Prerequisites
@@ -223,7 +223,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 1. Set the common parameters. Customize the script below prior to running it.
 
     - Set the `$domain` parameter to your on-premises Active Directory domain name.
-    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password. This account must either be a member of the Domain Admins group for the domain or a member of the Enterprise Admins group for the domain's forest.
+    - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password. This account must be a member of the Domain Admins group for the domain and a member of the Enterprise Admins group for the domain's forest.
     - Set the `$cloudUserName` parameter to the username of a Global Administrator privileged account for Microsoft Entra cloud access.
 
     > [!NOTE]  
