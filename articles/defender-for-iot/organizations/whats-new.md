@@ -26,7 +26,7 @@ The legacy on-premises management console won't be available for download after 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now include URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)<br>- [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection) |
+| **OT networks** | - ["Unauthorized Internet Connectivity Detected" alert now includes URL information](#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)<br>- [Improved RDP Brute Force Detection](#improved-rdp-brute-force-detection) |
 
 ### "Unauthorized Internet Connectivity Detected" alert now includes URL information
 
