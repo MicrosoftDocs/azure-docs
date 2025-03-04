@@ -26,7 +26,7 @@ Azure Data Factory consists of multiple infrastructure components, which have di
 
 - Integration runtimes, which execute certain activities within a pipeline. There are different types of integration runtimes:
 
-    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes.
+    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes. In some situations, you configure settings that affect the resiliency of your integration runtimes.
     
     - Self-hosted integration runtimes. Microsoft provides software that you can run on your own compute infrastructure to execute some parts of your Azure Data Factory pipelines. You're responsible for deploying and managing compute resources, and for the resiliency of those compute resources.
 
