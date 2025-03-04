@@ -32,7 +32,7 @@ This service is responsible for authenticating users to Communication Services. 
 
 For more information, see the [client-server architecture](../../concepts/identity-model.md#client-server-architecture) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
 
-## Setup
+## Set up a function
 
 This section describes the procedures to set up a function.
 

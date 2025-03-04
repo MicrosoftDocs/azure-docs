@@ -22,9 +22,13 @@ In this tutorial, you learn how to sign an HTTP request with a hash-based messag
 > [!NOTE]
 > We strongly encourage you to use [Azure SDKs](https://github.com/Azure/azure-sdk). The approach described here is a fallback option for cases when Azure SDKs can't be used for any reason.
 
-In this tutorial you learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Sign an HTTP request with an HMAC signature.
+> * Create a request message.
+> * Create a content hash.
+> * Compute a signature.
+> * Create an authorization header string.
+> * Add headers.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Sign an HTTP request with C#](./includes/hmac-header-csharp.md)]
@@ -36,7 +40,7 @@ In this tutorial you learn how to:
 
 ## Clean up resources
 
-To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
+To clean up and remove a Communication Services subscription, delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You can find out more about how to [clean up Azure Communication Services resources](../quickstarts/create-communication-resource.md#clean-up-resources) and [clean up Azure Functions resources](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources).
 
 ## Related content
 

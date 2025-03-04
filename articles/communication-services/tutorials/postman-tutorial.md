@@ -30,7 +30,9 @@ In this tutorial, you learn how to:
 
 ## Download and install Postman
 
-Postman is a desktop application that's capable of making API requests against any HTTP API. Postman is commonly used for testing and exploring APIs. In this tutorial, you download the latest [desktop version from the Postman website](https://www.postman.com/downloads/). Postman has versions for Windows, Mac, and Linux, so download the version that's appropriate for your operating system. After the download is finished, open the application. The start screen asks you to sign in or create a Postman account. Creating an account is optional, and you can skip it by selecting **Skip and go to app**. Creating an account saves your API request settings to Postman. You can then pick up your requests on other computers.
+Postman is a desktop application that's capable of making API requests against any HTTP API. Postman is commonly used for testing and exploring APIs. In this tutorial, you download the latest [desktop version from the Postman website](https://www.postman.com/downloads/). Postman has versions for Windows, Mac, and Linux, so download the version that's appropriate for your operating system.
+
+After the download is finished, open the application. The start screen asks you to sign in or create a Postman account. Creating an account is optional, and you can skip it by selecting **Skip and go to app**. Creating an account saves your API request settings to Postman. You can then pick up your requests on other computers.
 
 :::image type="content" source="media/postman/create-account-or-skip.png" alt-text="Screenshot that shows the Postman start screen where you can create an account or go directly to the app.":::
 
@@ -181,9 +183,9 @@ After you enter it, select Ctrl+S or select **Save** to save the script to the c
 
 ## Create a request in Postman
 
-Now that everything is set up, you're ready to create a Communication Services request in Postman. To get started, select the Plus sign (+) next to the Communication Services collection.
+Now that everything is set up, you're ready to create a Communication Services request in Postman. To get started, select the plus sign (+) next to the Communication Services collection.
 
-:::image type="content" source="media/postman/create-request.png" alt-text="Screenshot that shows the Postman Plus sign (+).":::
+:::image type="content" source="media/postman/create-request.png" alt-text="Screenshot that shows the Postman plus sign (+).":::
 
 You created a new tab for your request in Postman, and now you need to configure it. You make a request against the SMS Send API, so be sure to refer to the [documentation for this API for assistance](/rest/api/communication/sms/send). Let's configure the Postman request.
 

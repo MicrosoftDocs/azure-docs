@@ -20,9 +20,12 @@ This article describes how to use Azure Functions to build a trusted user access
 > [!IMPORTANT]
 > The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Functions security](../../azure-functions/security-concepts.md) article. You need to add security to the endpoint to ensure that bad actors can't provision tokens.
 
-In this tutorial you learn how to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create an Azure function that serves as a trusted token provisioning service.
+> * Set up a function.
+> * Generate access tokens.
+> * Test the function.
+> * Deploy and run the function.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 

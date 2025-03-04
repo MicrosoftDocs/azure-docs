@@ -35,7 +35,7 @@ The `hmac-sha256-signature` consists of:
 - Host
 - x-ms-content-sha256
 
-## Setup
+## Set up the authorization header
 
 The following steps describe how to construct the authorization header.
 
