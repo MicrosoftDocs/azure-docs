@@ -28,11 +28,10 @@ Asymmetric routing is where a packet takes one path to the destination and takes
 ### Fix the routing issue
 
 #### Scenario 1: Azure Firewall without NAT Gateway
+When deploying an Azure Firewall into a subnet, you need to create a default route for the subnet. This route directs packets through the firewall's private IP address located on the AzureFirewallSubnet. For detailed steps, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
+When integrating the firewall into your load balancer scenario, ensure that your Internet traffic enters through the firewall's public IP address. The firewall applies its rules and NAT the packets to the load balancer's public IP address. The issue arises when packets arrive at the firewall's public IP address but return via the private IP address (using the default route).
 
-When you deploy an Azure Firewall into a subnet, one step is to create a default route for the subnet directing packets through the firewall's private IP address located on the AzureFirewallSubnet. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
-
-When you introduce the firewall into your load balancer scenario, you want your Internet traffic to come in through your firewall's public IP address. From there, the firewall applies its firewall rules and NATs the packets to your load balancer's public IP address. This is where the problem occurs. Packets arrive on the firewall's public IP address, but return to the firewall via the private IP address (using the default route).
-To avoid this problem, create another host route for the firewall's public IP address. Packets going to the firewall's public IP address are routed via the Internet. This avoids taking the default route to the firewall's private IP address.
+To prevent asymmetric routing, add a specific route for the firewall's public IP address. Packets intended for the firewall's public IP address are directed through the Internet, bypassing the default route to the firewall's private IP address.
 
 :::image type="content" source="media/integrate-lb/Firewall-LB-asymmetric.png" alt-text="Diagram of asymmetric routing and the workaround solution." lightbox="media/integrate-lb/Firewall-LB-asymmetric.png":::
 
@@ -44,7 +43,7 @@ For example, the following route table shows routes for a firewall with a public
 
 #### Scenario 2: Azure Firewall with NAT Gateway
 
-In some scenarios, you may configure a NAT Gateway on the Azure Firewall subnet to overcome SNAT port limitations for outbound connectivity. In these cases, the route configuration in Scenario 1 won't work because the NAT Gateway's public IP address will take precedence over the Azure Firewall's public IP address.
+In some scenarios, you might configure a NAT Gateway on the Azure Firewall subnet to overcome SNAT (Source Network Address Translation) port limitations for outbound connectivity. In these cases, the route configuration in Scenario 1 doesn't work because the NAT Gateway's public IP address takes precedence over the Azure Firewall's public IP address.
 
 For more information, see [Integration of NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md).
 
@@ -67,19 +66,19 @@ For example, the following route table shows routes for a NAT Gateway with a pub
 
 ### NAT rule example
 
-In both scenarios, a NAT rule translates RDP traffic from the firewall's public IP address (203.0.113.136) to the load balancer's public IP address (203.0.113.220):
+In both scenarios, a NAT rule translates RDP (Remote Desktop Protocol) traffic from the firewall's public IP address (203.0.113.136) to the load balancer's public IP address (203.0.113.220):
 
 :::image type="content" source="media/integrate-lb/nat-rule-02.png" lightbox="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule.":::
 
 ### Health probes
 
-Remember to have a web service running on the hosts in the load balancer pool if you use TCP health probes on port 80, or HTTP/HTTPS probes.
+Remember to have a web service running on the hosts in the load balancer pool if you use TCP (Transport Control Protocol) health probes on port 80, or HTTP/HTTPS probes.
 
 ## Internal load balancer
 
 An internal load balancer is deployed with a private frontend IP address.
 
-This scenario does not have asymmetric routing issues. Incoming packets arrive at the firewall's public IP address, are translated to the load balancer's private IP address, and return to the firewall's private IP address using the same path.
+This scenario doesn't have asymmetric routing issues. Incoming packets arrive at the firewall's public IP address, are translated to the load balancer's private IP address, and return to the firewall's private IP address using the same path.
 
 Deploy this scenario similarly to the public load balancer scenario, but without needing the firewall public IP address host route.
 
