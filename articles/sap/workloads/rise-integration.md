@@ -35,7 +35,7 @@ Review the specifics within this document and then jump to individual documents 
 - [Setup network peering](./rise-integration-network.md#virtual-network-peering-with-sap-riseecs)
 - [Enable Power App to consume SAP interfaces](./rise-integration-services.md#on-premises-data-gateway)
 - [Enable Power BI](./rise-integration-services.md#on-premises-data-gateway), Fabric and Synapse to consume SAP data.
-- [Enable Microsoft Entra ID as SSO provider](./rise-integration-security.md#single-sign-on-for-sap)
+- [Enable Microsoft Entra ID as SSO provider](./rise-integration-security.md#single-sign-on-for-sap-rise)
 - [Defend SAP at machine speed with Sentinel](./rise-integration-security.md#microsoft-sentinel-with-sap-rise) to block compromised users during attacks.
 
 ## Azure support

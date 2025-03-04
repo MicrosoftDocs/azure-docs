@@ -266,7 +266,7 @@ az eventhubs namespace application-group policy add --namespace-name mynamespace
 ```
 
 ### [Azure PowerShell](#tab/powershell)
-Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottingPolicyConfig` set to appropriate values. 
+Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottlingPolicyConfig` set to appropriate values. 
 
 **Example:**
 ```azurepowershell-interactive

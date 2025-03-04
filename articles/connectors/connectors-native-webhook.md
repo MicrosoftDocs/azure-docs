@@ -82,7 +82,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
    > [!NOTE]
    >
-   > For the **Unsubsubscribe - Method** and **Unsubscribe - URI** properties, add them 
+   > For the **Unsubscribe - Method** and **Unsubscribe - URI** properties, add them 
    > to your action by opening the **Advanced parameters** list.
 
    For example, the following trigger includes the methods, URIs, and message bodies to use when performing the subscribe and unsubscribe operations.
@@ -159,7 +159,7 @@ This example uses the **HTTP Webhook** trigger as the first step.
 
    > [!NOTE]
    >
-   > For the **Unsubsubscribe - Method** and **Unsubscribe - URI** properties, add them 
+   > For the **Unsubscribe - Method** and **Unsubscribe - URI** properties, add them 
    > to your action by opening the **Advanced parameters** list.
 
    For example, the following action includes the methods, URIs, and message bodies to use when performing the subscribe and unsubscribe operations.

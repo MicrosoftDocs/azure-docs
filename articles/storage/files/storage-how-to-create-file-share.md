@@ -5,7 +5,7 @@ description: How to create and delete SMB and NFS Azure file share by using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/14/2024
+ms.date: 01/10/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
@@ -14,10 +14,10 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 Before you create an Azure file share, you need to answer two questions about how you want to use it:
 
 - **What are the performance requirements for your Azure file share?**  
-    Azure Files offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within sing-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
+    Azure Files offers two different media tiers of storage, SSD (premium) and HDD (standard), which enable you to tailor your file shares to the performance and price requirements of your scenario. SSD file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations. HDD file shares provide cost-effective storage for general purpose use.
 
 - **What are your redundancy requirements for your Azure file share?**  
-    Azure Files offers Local (LRS), Zone (ZRS), Geo (GRS), and GeoZone (GZRS) redundancy options for file shares. SSD file shares are only available for the Local and Zone redundancy types. See [Azure Files redundacy](./files-redundancy.md) for more information.
+    Azure Files offers Local (LRS), Zone (ZRS), Geo (GRS), and GeoZone (GZRS) redundancy options for file shares. SSD file shares are only available for the Local and Zone redundancy types. See [Azure Files redundancy](./files-redundancy.md) for more information.
 
 For more information on these choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
@@ -36,7 +36,7 @@ For more information on these choices, see [Planning for an Azure Files deployme
 | Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- This article assumes that you have an Azure subscription. If you have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- This article assumes that you have an Azure subscription. If you don't have an Azure subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
@@ -74,7 +74,7 @@ The first tab to complete to create a storage account is labeled **Basics**, whi
 | Primary service | Drop-down list | <ul><li>Azure Blob Storage or Azure Data Lake Storage Gen 2</li><li>**Azure Files**</li><li>Other (tables and queues)</li></ul> | Only unpopulated and **Azure Files** | The service for which you're creating the storage account, in this case **Azure Files**. This field is optional, however, you can't select the provisioned v2 billing model unless you select **Azure Files** from the list. |
 | Performance | Radio button group | <ul><li>Standard</li><li>Premium</li></ul> | Yes | The media tier of the storage account. Select **Standard** for an HDD storage account and **Premium** for an SSD storage account. |
 | File share billing | Radio button group | <ul><li>Standard<ul><li>Pay-as-you-go</li><li>Provisioned v2</li></ul></li><li>Premium<ul><li>Provisioned v1</li></ul></li></ul> | Yes | The billing model desired for your scenario. For HDD file shares, we recommend provisioned v2 for new deployments, although the pay-as-you-go billing model is still supported. For SSD file shares, the provisioned v1 is the only available billing option. Note: HDD provisioned v2 file shares are only available in a subset of regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information. |
-| Redundancy | Drop-down list | <ul><li>Locally-redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li><li>Zone-redundant storage (ZRS)</li><li>Geo-zone-redundant storage (GZRS)</li></ul> | Yes | The redundancy choice for the storage account. See [Azure Files redundacy](./files-redundancy.md) for more information. |
+| Redundancy | Drop-down list | <ul><li>Locally-redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li><li>Zone-redundant storage (ZRS)</li><li>Geo-zone-redundant storage (GZRS)</li></ul> | Yes | The redundancy choice for the storage account. See [Azure Files redundancy](./files-redundancy.md) for more information. |
 | Make read access to data available in the event of region unavailability | Checkbox | Checked/unchecked | No | This setting only appears if you select the pay-as-you-go billing model with the Geo or GeoZone redundancy types. Azure Files doesn't support read access to data in the secondary region without a failover regardless of the status of this setting. |
 
 ### Advanced
@@ -95,7 +95,7 @@ The **Hierarchical Namespace** section applies only to Azure Blob storage use, e
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Enable hierachical namespace | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model, even if Azure Files is selected as the primary service. |
+| Enable hierarchical namespace | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model, even if Azure Files is selected as the primary service. |
 
 The **Access protocols** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure Files.
 
@@ -128,7 +128,7 @@ The **Data protection** tab contains ability to enable or disable soft-delete. T
 | Enable soft delete for containers | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage account does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
 | Days to retain deleted containers | Textbox | *Days (number)* | No | When *Enable soft delete for containers* is selected, this textbox is available. The value chose doesn't apply to Azure Files. |
 | Enable soft delete for file shares | Checkbox | Checked/unchecked | Yes | Enable the [soft delete](./storage-files-enable-soft-delete.md) feature to protect against the accidental deletion of file shares. Soft delete is enabled by default, but you may choose to disable this setting if shares are frequently created and deleted as part of a business workflow. Soft deleted file shares are billed for their used capacity, even in provisioned models. |
-| Days to retain deleted file shares | Textbox | *Days (number)* | No | When *Enable soft delete for file shares* is selected, this textbox is available. By default, file shares are retained for 7 days before being purged, however you may choose to increase or decrease this number depending on your requirements. Soft deleted file shares are billed for their used capacity, even in provisioned file shares, so retaining for a longer period of time can result in greater expenses due to soft-delete. |
+| Days to retain deleted file shares | Textbox | *Days (number)* | Yes | When *Enable soft delete for file shares* is selected, this textbox is available. By default, file shares are retained for 7 days before being purged, however you may choose to increase or decrease this number depending on your requirements. Soft deleted file shares are billed for their used capacity, even in provisioned file shares, so retaining for a longer period of time can result in greater expenses due to soft-delete. |
 
 The **Tracking** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure Files.
 

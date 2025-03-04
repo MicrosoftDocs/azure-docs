@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 02/13/2025
 ms.author: jianleishen
 ---
 
@@ -32,7 +32,9 @@ For a list of data stores that are supported as sources or sinks by the copy act
 
 Specifically, this Oracle connector supports:
 
-- The following versions of an Oracle database:
+- The following versions of an Oracle database for version 2.0:
+    - Oracle Database 19c or later
+- The following versions of an Oracle database for version 1.0:
     - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
     - Oracle 12c R1 (12.1) and higher
@@ -84,7 +86,114 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Oracle linked service supports the following properties:
+The Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-oracle-connector) to upgrade your Oracle connector version from version 1.0. For the property details, see the corresponding sections.
+
+- [Version 2.0](#version-20)
+- [Version 1.0](#version-10)
+
+### Version 2.0
+
+The Oracle linked service supports the following properties when apply version 2.0:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property must be set to **Oracle**. | Yes |
+| version | The version that you specify. The value is `2.0`. | Yes |
+| server | The location of Oracle database you want to connect to. You can refer to [server property configuration](#server-property-configuration) to specify it. | Yes |
+| authenticationType | Authentication type for connecting to the Oracle database. Only **Basic** auth is supported now. | Yes |
+| username | The Oracle database username. | Yes |
+| password | The Oracle database password. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
+
+More connection properties you can set in linked service per your case:
+
+| Property | Description | Required | Default value |
+|:--- |:--- |:--- |:--- |
+| encryptionClient | Specifies the encryption client behavior. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| encryptionTypesClient | Specifies the encryption algorithms that client can use. Supported values are `AES128`, `AES192`, `AES256`, `3DES112`, `3DES168`. Type: string | No | `(AES256)` |
+| cryptoChecksumClient | Specifies the desired data integrity behavior when this client connects to a server. Supported values are `accepted`, `rejected`, `requested`, or `required`. Type: string | No | `required` |
+| cryptoChecksumTypesClient | Specifies the crypto-checksum algorithms that client can use. Supported values are `SHA1`, `SHA256`, `SHA384`, `SHA512`. Type: string | No | `(SHA512)` |
+| initialLobFetchSize | Specifies the amount that the source initially fetches for LOB columns. Type: int | No | 0 |
+| fetchSize | Specifies the number of bytes that the driver allocates to fetch the data in one database round-trip. Type: int | No | 10 MB |
+| statementCacheSize | Specifies the number of cursors or statements to be cached for each database connection. Type: int | No | 0 |
+| initializationString | Specifies a command that is issued immediately after connecting to the database to manage session settings. Type: string | No | null |
+| enableBulkLoad | Specifies whether to use bulk copy or batch insert when loading data into the database. Type: boolean | No | true |
+| supportV1DataTypes | Specifies whether to use the version 1.0 data type mappings. Do not set this to true unless you want to keep backward compatibility with version 1.0's data type mappings. Type: boolean | No, this property is for backward compatibility use only | false |
+| fetchTswtzAsTimestamp | Specifies whether the driver returns column value with the TIMESTAMP WITH TIME ZONE data type as DateTime or string. This setting is ignored if supportV1DataTypes is not true. Type: boolean | No, this property is for backward compatibility use only | true |
+
+#### `server` property configuration
+
+For `server` property, you can specify it in one of the following three formats:
+
+| Format | Example |
+|:--- |:--- |
+|[Connect Descriptor](https://docs.oracle.com/en/database/oracle/oracle-database/23/netag/identifying-and-accessing-database.html#GUID-8D28E91B-CB72-4DC8-AEFC-F5D583626CF6)|	(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=sales-server)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=sales.us.acme.com)))|
+|[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
+|[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
+
+For the parameters used in `server`, we provide an allowlist to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If the disallowed parameter is set, the connection will fail.
+
+- Allowlist for using the Azure integration runtime:
+
+    HOST,PORT,PROTOCOL,SERVICE_NAME,SID,INSTANCE_NAME,SERVER,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN
+- Allowlist for using the self-hosted integration runtime:
+
+    HOST,PORT,PROTOCOL,ENABLE,EXPIRE_TIME,FAILOVER,LOAD_BALANCE,RECV_BUF_SIZE,SDU,SEND_BUF_SIZE,SOURCE_ROUTE,TYPE_OF_SERVICE,COLOCATION_TAG,CONNECTION_ID_PREFIX,FAILOVER_MODE,GLOBAL_NAME,HS,INSTANCE_NAME,POOL_BOUNDARY,POOL_CONNECTION_CLASS,POOL_NAME,POOL_PURITY,RDB_DATABASE,SHARDING_KEY,SHARDING_KEY_ID,SUPER_SHARDING_KEY,SERVER,SERVICE_NAME,SID,TUNNEL_SERVICE_NAME,SSL_CLIENT_AUTHENTICATION,SSL_CERTIFICATE_ALIAS,SSL_CERTIFICATE_THUMBPRINT,SSL_VERSION,SSL_SERVER_DN_MATCH,SSL_SERVER_CERT_DN,WALLET_LOCATION,CONNECT_TIMEOUT,RETRY_COUNT,RETRY_DELAY,TRANSPORT_CONNECT_TIMEOUT,RECV_TIMEOUT,COMPRESSION,COMPRESSION_LEVELS
+
+**Example:**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "password": "<password>", 
+            "authenticationType": "<authentication type>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "OracleLinkedService",
+    "properties": {
+        "type": "Oracle",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>", 
+            "username": "<user name>", 
+            "authenticationType": "<authentication type>",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Version 1.0
+
+The Oracle linked service supports the following properties when apply version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -237,7 +346,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default).| No |
+| convertDecimalToInteger | Oracle NUMBER type with zero or unspecified scale will be converted to corresponding integer. Allowed values are **true** and **false** (default). <br>If you are using Oracle version 2.0, this property will only be allowed to be set when supportV1DataTypes is true. | No |
 | partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -329,7 +438,7 @@ The Oracle connector provides built-in data partitioning to copy data from Oracl
 
 When you enable partitioned copy, the service runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
 
-You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -376,37 +485,46 @@ You are suggested to enable parallel copy with data partitioning especially when
 
 When you copy data from and to Oracle, the following interim data type mappings are used within the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Oracle data type | Interim data type |
-|:--- |:--- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(only supported on Oracle 10g and higher) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
-| FLOAT |Decimal, String (if precision > 28) |
-| INTEGER |Decimal, String (if precision > 28) |
-| LONG |String |
-| LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
-| NUMBER (p,s) |Decimal, String (if p > 28) |
-| NUMBER without precision and scale |Double |
-| NVARCHAR2 |String |
-| RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| Oracle data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
+|:--- |:--- |:--- |
+| BFILE |Byte[] | Byte[] |
+| BINARY_FLOAT | Single | Single |
+| BINARY_DOUBLE | Double | Double |
+| BLOB |Byte[] | Byte[] |
+| CHAR |String |String |
+| CLOB |String |String |
+| DATE |DateTime |DateTime |
+| FLOAT (P < 16)  | Double | Double |
+| FLOAT (P >= 16)  | Decimal | Double |
+| INTERVAL YEAR TO MONTH |Int64 |String |
+| INTERVAL DAY TO SECOND |TimeSpan |String |
+| LONG |String |String |
+| LONG RAW |Byte[] |Byte[] |
+| NCHAR |String |String |
+| NCLOB |String |String |
+| NUMBER (p,s) |Int16, Int32, Int64, Double, Single, Decimal |Decimal, String (if p > 28) |
+| NUMBER without precision and scale | Decimal |Double |
+| NVARCHAR2 |String |String |
+| RAW |Byte[] |Byte[] |
+| TIMESTAMP |DateTime |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTimeOffset |DateTime |
+| VARCHAR2 |String |String |
+| XMLTYPE |String |String |
 
 > [!NOTE]
-> The data types INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND aren't supported.
+> NUMBER(p,s) is mapped to the appropriate interim service data type depending on the precision (p) and scale (s).
 
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## Upgrade the Oracle connector
+
+Here are steps that help you upgrade the Oracle connector:
+
+1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
+1. The data type mapping for the Oracle linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Oracle](#data-type-mapping-for-oracle).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -2,14 +2,15 @@
 title: 'Tutorial: Get started connecting an AKS application to a cache'
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
 ms.topic: tutorial
+ms.custom:
+  - ignite-2024
 ms.date: 10/01/2024
 #CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
-
 ---
 
-# Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
+# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis (preview) from your application hosted on Azure Kubernetes Service
 
-In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis instance.
+In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis or Azure Managed Redis(preview) instance.
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 
 ## Set up an Azure Cache for Redis instance
 
-1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started.
+1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started. Alternately, you can create an Azure Managed Redis instance too.
 
     For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
@@ -36,6 +37,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 1. Take note of the user name for your Redis user from the portal. You use this user name with the AKS workload.
 
 ## Run sample locally
+
 
 To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample uses your user principal through [DefaultAzureCredential](/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance.
 
@@ -54,7 +56,7 @@ Then, complete the following steps:
 
 Next, set up the AKS workload to connect to Azure Cache for Redis after you configure the AKS cluster.
 
-1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
+1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks/ConnectFromAKS).
 
 1. Build and push docker image to your Azure Container Registry using [az acr build](/cli/azure/acr#az-acr-build) command.
 
@@ -107,7 +109,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
 ## Run your workload
 
-1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. When using access key authentication, replace the value of AUTHENTICATION_TYPE, REDIS_HOSTNAME and REDIS_ACCESSKEY environment variables.
+1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. When using access key authentication, replace the value of AUTHENTICATION_TYPE, REDIS_HOSTNAME, REDIS_ACCESSKEY and REDIS_PORT environment variables. For Azure Managed Redis instance, set the value of REDIS_PORT to 10000.
 
    ```yml
     apiVersion: v1
@@ -138,7 +140,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
              - name: REDIS_ACCESSKEY
                value: "your access key" 
              - name: REDIS_PORT
-               value: "6380"
+               value: "6380" # change to 10000 for Azure Managed Redis
       restartPolicy: Never
     
    ```

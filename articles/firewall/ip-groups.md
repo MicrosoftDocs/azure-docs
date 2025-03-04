@@ -2,12 +2,12 @@
 title: IP Groups in Azure Firewall 
 description: IP groups allow you to group and manage IP addresses for Azure Firewall rules.
 services: firewall
-author: vhorne
+author: duau
 ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
-ms.date: 10/10/2023
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 02/10/2025
+ms.author: duau
 ---
 
 # IP Groups in Azure Firewall
@@ -37,18 +37,17 @@ An IP Group can be created using the Azure portal, Azure CLI, or REST API. For m
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
-2. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
+1. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
 
-   ![IP Groups overview](media/ip-groups/overview.png)
 
 ## Manage an IP Group
 
 You can see all the IP addresses in the IP Group and the rules or resources that are associated with it. To delete an IP Group, you must first dissociate the IP Group from the resource that is using it.
 
 1. To view or edit the IP addresses, select **IP Addresses** under **Settings** on the left pane.
-2. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
-3.    Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
-4. Finally, can export the file in the CSV file format.
+1. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
+1.    Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
+1. Finally, can export the file in the CSV file format.
 
 > [!NOTE]
 > If you delete all the IP addresses in an IP Group while it is still in use in a rule, that rule is skipped.
@@ -58,15 +57,13 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
 
-![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
-
 ## Parallel IP Group updates (preview)
 
 You can now update multiple IP Groups in parallel at the same time. This is particularly useful for administrators who want to make configuration changes more quickly and at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
 
 With this support, you can now:
 
-- Update 20 IP Groups at a time
+- Update 50 IP Groups at a time
 - Update the firewall and firewall policy during IP Group updates
 - Use the same IP Group in parent and child policy
 - Update multiple IP Groups referenced by firewall policy or classic firewall simultaneously
@@ -92,10 +89,8 @@ It can take several minutes for this to take effect. Once the feature is complet
 ### Azure portal
 
 1. Navigate to **Preview features** in the Azure portal.
-2. Search and register **AzureFirewallParallelIPGroupUpdate**.
-3. Ensure the feature is enabled.
-
-:::image type="content" source="media/ip-groups/preview-features-parallel.png" alt-text="Screenshot showing the parallel IP groups feature.":::
+1. Search and register **AzureFirewallParallelIPGroupUpdate**.
+1. Ensure the feature is enabled.
 
 ## Region availability
 

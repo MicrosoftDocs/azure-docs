@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 02/26/2025
 ---
 
 # Savings plan scopes
@@ -25,8 +25,7 @@ You have the following options to scope a savings plan, depending on your needs:
 - **Shared scope** - Applies benefits to eligible resources within subscriptions that are in the EA enrollment or MCA billing profile.
   - If a subscription is moved to different enrollment/billing profile, benefits will no longer be applied to the subscription.
   - For EA customers, shared scope can include multiple Microsoft Entra tenants in the enrollment.
-
-
+  - For Microsoft Customer Agreement customers, the billing scope is the billing profile. The shared scope can include multiple Microsoft Entra tenants in a billing profile.
 
 ## Scope processing order
 While applying savings plan benefits to your usage, Azure processes savings plans in the following order:

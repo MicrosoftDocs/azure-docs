@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 07/05/2023
+ms.date: 01/31/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to be able to hibernate my dev boxes so that I can resume work where I left off.
 ---
@@ -30,9 +30,13 @@ To hibernate your dev box through the Microsoft Dev Box developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
  
-1. On the dev box you want to hibernate, on the more options menu, select **Hibernate**. 
+1. On the dev box you want to hibernate, on the actions menu, select **Hibernate**. Dev boxes that don't support hibernation show only the **Shutdown** option.
  
-Dev boxes that support hibernation show the **Hibernate** option. Dev boxes that only support shutdown show the **Shutdown** option.
+   :::image type="content" source="media/how-to-hibernate-your-dev-box/dev-box-actions-hibernate.png" alt-text="Screenshot of the developer portal, showing a dev box with the actions menu open and the hibernate option highlighted.":::
+
+1. Confirm that you want to hibernate your dev box. 
+
+    :::image type="content" source="media/how-to-hibernate-your-dev-box/dev-box-hibernate-confirm.png" alt-text="Screenshot of the developer portal, showing a confirmation dialog for hibernating a dev box.":::
 
 ## Resume your dev box using the developer portal 
 
@@ -40,7 +44,9 @@ To resume your dev box through the Microsoft Dev Box developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
  
-1. On the dev box you want to resume, on the more options menu, select **Resume**. 
+1. On the dev box you want to resume, on the actions menu, select **Resume**. 
+
+    :::image type="content" source="media/how-to-hibernate-your-dev-box/dev-box-actions-resume.png" alt-text="Screenshot of the developer portal, showing a dev box with the actions menu open and the resume option highlighted.":::
 
 In addition, you can also double select on your dev box  in the list of VMs you see in the Windows App. Your dev box automatically starts up and resumes from a hibernating state. 
 
@@ -58,11 +64,11 @@ To learn more about managing your dev box from the CLI, see: [devcenter referenc
 
 **My dev box doesn't resume from hibernated state. Attempts to connect to it fail and I receive an error from the RDP app.** 
 
-If your machine is unresponsive, it might have stalled either while going into hibernation or resuming from hibernation, you can manually reboot your dev box. 
+If your machine is unresponsive, it might have stalled either while going into hibernation or resuming from hibernation. To resolve this issue, you can manually reboot your dev box. 
 
 To shut down your dev box, either 
 
-- Developer portal - Go to the [developer portal](https://aka.ms/devbox-portal), select your DevBox, and on the more options menu, select **Shut down**. 
+- Developer portal - Go to the [developer portal](https://aka.ms/devbox-portal), select your DevBox, and on the actions menu, select **Shut down**. 
 - CLI - `az devcenter dev dev-box stop --name <YourDevBoxName> --dev-center-name <YourDevCenterName> --project-name <YourProjectName> --user-id "me" --hibernate false`
 
 **When my dev box resumes from a hibernated state, all my open windows were gone.** 

@@ -70,7 +70,7 @@ The following screenshot shows a completed Stream Analytics job. It highlights a
 
 :::image type="content" source="./media/no-code-stream-processing/created-stream-analytics-job.png" alt-text="Screenshot that shows the authoring interface sections." lightbox="./media/no-code-stream-processing/created-stream-analytics-job.png" :::
 
-1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming Etract, Transform, and Load operations), outputs, a button to save your progress, and a button to start the job.
+1. **Ribbon**: On the ribbon, sections follow the order of a classic analytics process: an event hub as input (also known as a data source), transformations (streaming Extract, Transform, and Load operations), outputs, a button to save your progress, and a button to start the job.
 2. **Diagram view**: This is a graphical representation of your Stream Analytics job, from input to operations to outputs.
 3. **Side pane**: Depending on which component you selected in the diagram view, you see settings to modify input, transformation, or output.
 4. **Tabs for data preview, authoring errors, runtime logs, and metrics**: For each tile, the data preview shows you results for that step (live for inputs; on demand for transformations and outputs). This section also summarizes any authoring errors or warnings that you might have in your job when it's being developed. Selecting each error or warning selects that transform. It also provides the job metrics for you to monitor the running job's health.
@@ -417,7 +417,7 @@ You can select more metrics from the list. To understand all the metrics in deta
 You can save the job anytime while creating it. After you configure the streaming inputs, transformations, and streaming outputs for the job, you can start the job.
 
 > [!NOTE]
-> Although the no-code editor on Azure Stream Analtyics portal is in preview, the Azure Stream Analytics service is generally available.
+> Although the no-code editor on Azure Stream Analytics portal is in preview, the Azure Stream Analytics service is generally available.
 
 :::image type="content" source="./media/no-code-stream-processing/no-code-save-start.png" alt-text="Screenshot that shows the Save and Start buttons." lightbox="./media/no-code-stream-processing/no-code-save-start.png" :::
 

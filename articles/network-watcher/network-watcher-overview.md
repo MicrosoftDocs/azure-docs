@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: overview
-ms.date: 06/12/2024
+ms.date: 02/07/2025
 
 #CustomerIntent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ---
@@ -58,7 +58,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### NSG diagnostics
 
-**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](network-watcher-network-configuration-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
+**NSG diagnostics** allows you to detect traffic filtering issues at a virtual machine, virtual machine scale set, or application gateway level. It checks if a packet is allowed or denied to or from an IP address, IP prefix, or a service tag. It tells you which security rule allowed or denied the traffic. It also allows you to add a new security rule with a higher priority to allow or deny the traffic. For more information, see [NSG diagnostics overview](nsg-diagnostics-overview.md) and [Diagnose network security rules](diagnose-network-security-rules.md).
 
 ### Next hop
 
@@ -74,7 +74,7 @@ Network Watcher offers seven network diagnostic tools that help troubleshoot and
 
 ### Packet capture
 
-**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [packet capture](packet-capture-overview.md) and [Manage packet captures for virtual machines](packet-capture-vm-portal.md).
+**Packet capture** allows you to remotely create packet capture sessions to track traffic to and from a virtual machine (VM) or a virtual machine scale set. For more information, see [Packet capture overview](packet-capture-overview.md) and [Manage packet captures](packet-capture-manage.md).
 
 ### VPN troubleshoot
 
@@ -119,15 +119,15 @@ For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/p
 
 ## Service Level Agreement (SLA)
 
-For service level agreement details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+For SLA details, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## Frequently asked questions (FAQ)
 
-To get answers to most frequently asked questions about Network Watcher, see [Azure Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml).
+For answers to frequently asked questions about Network Watcher, see [Network Watcher (FAQ)](frequently-asked-questions.yml).
 
 ## What's new? 
 
-To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?query=network%20watcher).
+To view the latest Network Watcher feature updates, see [Service updates](https://azure.microsoft.com/updates/?filters=%5B"Network+Watcher"%5D).
 
 ## Related content
 

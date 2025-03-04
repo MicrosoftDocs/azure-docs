@@ -89,7 +89,7 @@ An application programming interface (API) key is a uniquely generated code that
     | **Administrator Profile** | From the dropdown list, select the profile name that you've defined in the previous step. |
     | **PKI Group** | Toggle the switch to **Disable**. |
     | **CORS Allow Origin** | Toggle the switch to **Enable**. |
-    | **Restrict login to trusted hosts** | Add the IP addresses of the sensors and on-premises management consoles that will connect to FortiGate. |
+    | **Restrict login to trusted hosts** | Add the IP addresses of the sensors that will connect to FortiGate. |
 
 Save the API key when it's generated, as it will not be provided again. The bearer of the generated API key will be granted all access privileges assigned to the account.
 
@@ -125,7 +125,7 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 **To block the source of suspicious alerts**:
 
-1. Sign in to the on-premises management console, then select **Alerts**.
+1. Sign in to the OT sensor, then select **Alerts**.
 
 1. Select the alert related to Fortinet integration.
 
@@ -201,9 +201,9 @@ You can set policies to automatically block malicious sources in the FortiGate f
 
 1. In FortiGate, [create an API key](#create-an-api-key-in-fortinet).
 
-1. Sign in to the Defender for IoT sensor, or the on-premises management console, and select **Forwarding**, [set a forwarding rule that blocks malware-related alerts](#set-a-forwarding-rule-to-block-malware-related-alerts).
+1. Sign in to the Defender for IoT sensor, and select **Forwarding**, [set a forwarding rule that blocks malware-related alerts](#set-a-forwarding-rule-to-block-malware-related-alerts).
 
-1. In the Defender for IoT sensor, or the on-premises management console, select **Alerts**, and [block a malicious source](#block-a-malicious-source-using-the-fortigate-firewall).
+1. In the Defender for IoT sensor, select **Alerts**, and [block a malicious source](#block-a-malicious-source-using-the-fortigate-firewall).
 
 1. Navigate to the FortiGage **Administrator** window, and locate the malicious source address you blocked.
 

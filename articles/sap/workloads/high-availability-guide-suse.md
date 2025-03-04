@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 07/25/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -81,7 +81,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 > We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 > The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
 >
-> * [High availability SAP NW on Azure VMswith simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
+> * [High availability SAP NW on Azure VMs with simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
 > * [High availability for SAP NW on Azure VMs with NFS on Azure Files on SLES for SAP Applications](./high-availability-guide-suse-nfs-azure-files.md)
 > * [High availability for SAP NW on Azure VMs with NFS on Azure NetApp Files on SLES for SAP Applications](./high-availability-guide-suse-netapp-files.md)
 
@@ -437,11 +437,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      Start_Program_01 = local $(_EN) pf=$(_PF)
      
      # Add the following lines
-     service/halib = $(DIR_CT_RUN)/saphascriptco.so
+     service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
      
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
@@ -456,7 +456,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
      
      # Add the following lines
-     service/halib = $(DIR_CT_RUN)/saphascriptco.so
+     service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
      service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
      
      # remove Autostart from ERS profile

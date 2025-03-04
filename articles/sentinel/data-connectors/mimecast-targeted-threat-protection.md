@@ -2,7 +2,7 @@
 title: "Mimecast Targeted Threat Protection (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Mimecast Targeted Threat Protection (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -120,7 +120,7 @@ Deploy the Mimecast Targeted Threat Protection Data Connector:
  - appName: Unique string that will be used as id for the app in Azure platform
  - objectId: Azure portal ---> Azure Active Directory ---> more info ---> Profile -----> Object ID
  - appInsightsLocation(default): westeurope
- - mimecastEmail: Email address of dedicated user for this integraion
+ - mimecastEmail: Email address of dedicated user for this integration
  - mimecastPassword: Password for dedicated user
  - mimecastAppId: Application Id from the Microsoft Sentinel app registered with Mimecast
  - mimecastAppKey: Application Key from the Microsoft Sentinel app registered with Mimecast

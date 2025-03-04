@@ -10,7 +10,7 @@ ms.subservice: deidentification-service
 # customer intent: As an IT admin, I want to restrict network access to a de-identification service to a private endpoint in a virtual network. 
 ---
 
-# Configure Private Endpoint network access to Azure Health Data Services de-identification service (preview)
+# Configure Private Endpoint network access to Azure Health Data Services de-identification service
 Azure Private Link enables you to access Azure services over a **private endpoint** in your virtual network.
 
 A private endpoint is a network interface that connects you privately and securely to an Azure service which supports Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service is routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses the Microsoft backbone network, eliminating exposure from the public Internet. You can restrict connections to specific instances of an Azure service, giving you the highest level of granularity in access control.
@@ -28,7 +28,7 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 Follow the steps at [Quickstart: Create a private endpoint by using the Azure portal](/azure/private-link/create-private-endpoint-portal). 
 
-- Instead of a webapp, create a private endpoint to a de-identification service (preview).
+- Instead of a webapp, create a private endpoint to a de-identification service.
 - When you reach [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint), step 5, enter resource type **Microsoft.HealthDataAIServices/deidServices**.
 - Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it automatically filters virtual networks that are in that region. Your de-identification service can be in a different region.
 - When you reach [Test connectivity to the private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#test-connectivity-to-the-private-endpoint) steps 8 and 10, use the service URL of your de-identification service plus the `/health` path.
@@ -38,7 +38,7 @@ Follow the steps at [Quickstart: Create a private endpoint by using the Azure po
 > [!IMPORTANT]
 > Creating a private endpoint does **not** restrict public network access automatically.
 
-When creating a de-identification service (preview), you can either allow public only (from all networks) or private only (only via private endpoints) access to the de-identification service.
+When creating a de-identification service, you can either allow public only (from all networks) or private only (only via private endpoints) access to the de-identification service.
 
 If you already have a de-identification service, you can configure network access by going to the service's Azure portal **Networking** page, and under **Public network access**, selecting **Disabled**. 
 

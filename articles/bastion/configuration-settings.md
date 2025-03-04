@@ -4,9 +4,9 @@ description: Learn about the available configuration settings for Azure Bastion.
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-bastion
-ms.topic: conceptual
-ms.date: 09/17/2024
-ms.custom: references_regions
+ms.topic: concept-article
+ms.date: 03/03/2025
+ms.custom: references_regions, ignite-2024
 ---
 
 # About Bastion configuration settings
@@ -28,7 +28,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 > [!NOTE]
 > VNet peering isn't currently supported for the Developer SKU.
 
-### <a name="premium"></a>Premium SKU (Preview)
+### <a name="premium"></a>Premium SKU
 
 The Premium SKU is a new SKU that supports Bastion features such as [Session Recording](session-recording.md) and [Private-Only Bastion](private-only-deployment.md). When you deploy Bastion, we recommend that you select the Premium SKU only if you need the features that it supports.
 
@@ -37,7 +37,7 @@ The Premium SKU is a new SKU that supports Bastion features such as [Session Rec
 | Method | SKU Value | Links |
 | --- | --- | --- |
 | Azure portal | Tier - Developer | [Quickstart](quickstart-developer-sku.md)|
-| Azure portal | Tier - Basic| [Quickstart](quickstart-host-portal.md) |
+| Azure portal | Tier - Standard| [Quickstart](quickstart-host-portal.md) |
 | Azure portal | Tier - Basic or higher | [Tutorial](tutorial-create-host-portal.md) |
 | Azure PowerShell | Tier - Basic or higher |[How-to](bastion-create-host-powershell.md) |
 | Azure CLI | Tier - Basic or higher | [How-to](create-host-cli.md) |

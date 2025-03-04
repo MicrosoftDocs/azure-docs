@@ -1,5 +1,4 @@
 ---
-
 title: Send push notifications to iOS using Azure Notification Hubs and the iOS SDK
 description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices.
 author: sethmanheim
@@ -52,15 +51,15 @@ Generate the Certificate Signing Request (CSR) file, which Apple uses to generat
    > [!NOTE]
    > By default, Keychain Access selects the first item in the list. This can be a problem if you're in the **Certificates** category and **Apple Worldwide Developer Relations Certification Authority** is not the first item in the list. Make sure you have a non-key item, or the **Apple Worldwide Developer Relations Certification Authority** key is selected, before generating the CSR (Certificate Signing Request).
 
-3. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
+1. Select your **User Email Address**, enter your **Common Name** value, make sure that you specify **Saved to disk**, and then select **Continue**. Leave **CA Email Address** blank as it isn't required.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Required certificate information":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="Screen shot of user interface displayed when selecting Request a Certificate from a Certificate Authority under Certificate Assistant.":::
+   
+1. Enter a name for the CSR file in **Save As**, select the location in **Where**, and then select **Save**.
 
-4. Enter a name for the CSR file in **Save As**, select the location in **Where**, and then select **Save**.
-
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Choose file name":::
-
-   This action saves the CSR file in the selected location. The default location is **Desktop**. Remember the location chosen for the file.
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="Screen shot of dialog displayed when Saved to disk option is selected.":::
+   
+      This action saves the CSR file in the selected location. The default location is **Desktop**. Remember the location chosen for the file.
 
 Next, register your app with Apple, enable push notifications, and upload the exported CSR to create a push certificate.
 

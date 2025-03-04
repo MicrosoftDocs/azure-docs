@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure Front Door Rule sets
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-arm-template
 ms.date: 08/12/2024
 ms.author: duau

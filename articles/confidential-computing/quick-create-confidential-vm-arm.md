@@ -287,7 +287,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Assign key access to the DES.
 
           ```azurecli-interactive
-          desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
+          $desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
           az keyvault set-policy -n $hsm `
               -g $resourceGroup `
               --object-id $desIdentity `

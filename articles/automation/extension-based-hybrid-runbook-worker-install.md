@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 06/29/2024
+ms.date: 02/27/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
@@ -37,7 +37,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709, and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro <br> &#9679; Windows 11 Enterprise (including multi-session) and Pro | &#9679; Debian GNU/Linux 8, 9, 10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, 15.3, 15.4, 15.5, and 15.6 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br>  &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7, 8, and 9 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*.|
  
 
 ### Other Requirements
@@ -62,7 +62,9 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
 > [!NOTE]
-> Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> - Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
+> 
+> - We strongly recommend that you never configure Hybrid Worker extension on a Virtual machine hosting domain controller. Security best practices don't advise such a setup due to the high-risk nature of exposing domain controllers to potential attack vectors via Azure Automation jobs. Domain controllers should be highly secured and isolated from non-essential services to prevent unauthorized access and maintain the integrity of the Active Directory Domain Services (ADDS) environment.
 
 
 ### Permissions for Hybrid worker credentials
@@ -75,7 +77,8 @@ If extension-based Hybrid Worker is using custom Hybrid Worker credentials, then
 | Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute).
 
 > [!NOTE]
-> When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
+> - When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-runbooks-go-into-a-suspended-state-on-a-hybrid-runbook-worker-when-using-a-custom-account-on-a-server-with-user-account-control-uac-enabled).
+> - Due to a current limitation, these folder permissions are removed from the C:\ProgramData\AzureConnectedMachineAgent\Tokens folder on Azure Arc-enabled machines when the Azure Connected Machine agent is updated. The current resolution is to reapply these permissions to the folder. [Learn more](troubleshoot/extension-based-hybrid-runbook-worker.md#scenario-hybrid-runbook-worker-job-execution-on-azure-arc-enabled-windows-server-that-uses-a-custom-credential-is-unexpectedly-suspended).
 
 
 

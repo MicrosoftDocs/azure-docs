@@ -198,8 +198,6 @@ At this point, the private endpoint between Azure Web PubSub and Azure Functions
 
 When the private endpoint is set up, you can verify that incoming calls are from a private IP address by checking the `X-Forwarded-For` header for upstream calls.
 
-:::image type="content" alt-text="Screenshot of the Azure portal, showing that incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
-
 ## Related content
 
 - [What is a private endpoint?](../private-link/private-endpoint-overview.md)

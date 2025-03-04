@@ -4,8 +4,8 @@ description: Learn how to redirect URLs in Ingress API for Application Gateway f
 services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
-ms.date: 9/16/2024
+ms.topic: how-to
+ms.date: 11/5/2024
 ms.author: greglin
 ---
 
@@ -47,7 +47,7 @@ The following figure illustrates an example of a request destined for _contoso.c
     Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
   
     ```bash
-    kubectl apply -f kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
     ```
 
     This command creates the following on your cluster:

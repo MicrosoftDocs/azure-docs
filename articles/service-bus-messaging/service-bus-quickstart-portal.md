@@ -3,7 +3,7 @@ title: Use the Azure portal to create a Service Bus queue
 description: In this quickstart, you learn how to create a Service Bus namespace and a queue in the namespace by using the Azure portal.
 author: spelluru
 ms.author: spelluru
-ms.date: 11/28/2023
+ms.date: 12/11/2024
 ms.topic: quickstart
 ms.custom: mode-ui
 ---

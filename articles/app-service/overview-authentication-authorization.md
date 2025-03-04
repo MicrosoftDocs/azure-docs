@@ -172,9 +172,7 @@ When a request fulfills all these conditions, App Service authentication automat
 
 When using Azure App Service with authentication behind Azure Front Door or other reverse proxies, a few additional things have to be taken into consideration.
 
-- Disable caching for the authentication workflow.
-
-    See [Disable cache for auth workflow](../static-web-apps/front-door-manual.md#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
+- Disable [Front Door caching](../frontdoor/front-door-caching.md) for the authentication workflow.
 
 - Use the Front Door endpoint for redirects.
 

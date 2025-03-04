@@ -96,7 +96,7 @@ when making changes in one don't forget the other two.
 
 1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**.
 
-    :::image type="content" source="media/webjobs-create/configure-new-continuous-webjob.png" alt-text="Screenshot that shows how to configure a mult-instance continuous WebJob for an App Service app.":::
+    :::image type="content" source="media/webjobs-create/configure-new-continuous-webjob.png" alt-text="Screenshot that shows how to configure a multi-instance continuous WebJob for an App Service app.":::
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |

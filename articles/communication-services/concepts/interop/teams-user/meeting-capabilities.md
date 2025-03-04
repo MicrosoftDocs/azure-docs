@@ -94,8 +94,10 @@ The following list of capabilities is allowed when Microsoft 365 users participa
 |                   | Custom background image                                                                                             | ✔️ | ❌ | ❌ | ❌ |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      | ✔️ | ✔️ | ✔️ |
+|                   | Give explicit consent to Teams cloud recording                                                                     |   ✔️      | ❌ | ❌ | ❌ |   
 |                   | Manage Teams transcription                                                                                          | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      | ✔️ | ✔️ | ✔️ |
+|                   | Give explicit consent to Teams transcribed                                                                    |   ✔️      | ❌ | ❌ | ❌ |   
 |                   | Support for compliance recording                                                                                    |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | [Azure Communication Services recording](../../voice-video-calling/call-recording.md)                               |   ❌      | ❌ | ❌ | ❌ |
 | Engagement        | Raise and lower hand                                                                                                | ✔️ | ✔️ | ✔️ | ✔️ |

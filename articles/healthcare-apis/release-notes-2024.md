@@ -7,13 +7,26 @@ ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 07/29/2024
-ms.author: jasteppe
+ms.author: kesheth
 ms.custom: references_regions
 ---
 
 # Release notes 2024: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## November 2024
+
+### Azure Health Data Services
+
+#### Improvements in the import operation
+
+- Error Logging Enhancements: During the import operation, the error log now reports the specific files that failed during ingestion into the FHIR service. This improvement provides more detailed feedback on failed imports.
+- Import Job Cancellation: A bug was identified where canceling an import job didn't trigger cancellation for associated child jobs. This issue is resolved, and now canceling an import job also cancels all related child jobs within the current orchestrator.
+- Export Validation Improvement: An issue was found where exports proceeded despite invalid search parameters. A change is implemented to prevent exports under these conditions. This is the default behavior, but customers can override it using the lenient flag. The change was communicated to customers last month.
+- Bundle Performance Enhancement: The profile refresh process during bundle execution has been simplified. If a bundle contains changes to `ValueSet`, `StructureDefinition`, and/or `CodeSystem`, no profile refreshes will occur until the bundle is fully completed. The change improves the performance of bundles by reducing delays caused by multiple refreshes when handling changes to these resource types.
+- Content Type Header Parsing: An issue related to parsing the `application/x-www-form-urlencoded` content type header has been addressed and resolved.
+- Reindexing Enhancements: The reindex operation is improved by removing an artificial limitation which previously restricted handling of large historical datasets, or cases where customers requested a limited query size. Additionally, reindex process would incorrectly report as "completed" when handling many sequential historical or deleted resources with the default query size. This issue has been addressed to ensure that the reindexing process completes correctly and reports the appropriate status.
 
 ## October 2024
 
@@ -30,6 +43,7 @@ This article describes features, enhancements, and bug fixes released in 2024 fo
 - Search Parameter Cleanup: A fix has been implemented to ensure complete cleanup of search parameters in the database when triggered with delete API calls, addressing issues related to incomplete deletions.
 - Descending Sort Issue: Resolved an issue where descending sort operations returned no resources if the sorted field had no data in the database, even when relevant resources existed.
 - Authentication Failure Handling: Added a new catch block to manage authentication failures when import requests are executed with managed identity turned off.
+
 
 ## September 2024
 

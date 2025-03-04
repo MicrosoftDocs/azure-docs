@@ -120,7 +120,7 @@ Execute the following command to publish the Network Function Definition (NFD) a
 >
 >If you get an error saying "**A private publisher resource with the name 'nginx-publisher' already exists in the provided region**", edit the `publisher_name` field in the config file so that it is unique (e.g. add a random string suffix), re-run the `build` command (above), and then re-run this `publish` command.
 >
->If you go on to create a network service design, you will need to use this new pubilsher name in the `resource_element_templates` array.
+>If you go on to create a network service design, you will need to use this new publisher name in the `resource_element_templates` array.
 
 ```azurecli
 az aosm nfd publish -b cnf-cli-output --definition-type cnf

@@ -2,7 +2,7 @@
 author: clemensv
 ms.service: azure-relay
 ms.topic: include
-ms.date: 08/10/2023
+ms.date: 12/10/2024
 ms.author: samurp
 ---
 ### Create a console application

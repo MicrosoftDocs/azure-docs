@@ -4,7 +4,7 @@ description: Learn how to instrument an Azure Batch .NET application using the A
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 06/13/2024
+ms.date: 11/06/2024
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
@@ -15,16 +15,13 @@ This article shows how to add and configure the Application Insights library int
 
 A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes.
 
-> [!TIP]
-> As an alternative, configure your Batch solution to display Application Insights data such as VM performance counters in Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. Download an [installation package](https://azure.github.io/BatchExplorer/) for Mac, Linux, or Windows. See the [batch-insights repo](https://github.com/Azure/batch-insights) for quick steps to enable Application Insights data in Batch Explorer.
-
 ## Prerequisites
 
 - [Visual Studio 2017 or later](https://www.visualstudio.com/vs)
 - [Batch account and linked storage account](batch-account-create-portal.md)
 - [Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource). Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
 - Copy the [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) from the Azure portal. You'll need this value later.
-  
+
   > [!NOTE]
   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for data stored in Application Insights. This includes the diagnostic and monitoring data discussed in this article.
 
@@ -186,7 +183,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
     "Microsoft.AI.PerfCounterCollector.dll",
     "Microsoft.AI.ServerTelemetryChannel.dll",
     "Microsoft.AI.WindowsServer.dll",
-    
+
     // custom telemetry initializer assemblies
     "Microsoft.Azure.Batch.Samples.TelemetryInitializer.dll",
  };
@@ -230,7 +227,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
         accountSettings.StorageAccountName,
         accountSettings.StorageAccountKey));
 
-    //This is the list of files to stage to a container -- for each job, one container is created and 
+    //This is the list of files to stage to a container -- for each job, one container is created and
     //files all resolve to Azure Blobs by their name (so two tasks with the same named file will create just 1 blob in
     //the container).
     task.FilesToStage = new List<IFileStagingProvider>
@@ -242,7 +239,7 @@ for (int i = 1; i <= topNWordsConfiguration.NumberOfTasks; i++)
     foreach (FileToStage stagedFile in aiStagedFiles)
    {
         task.FilesToStage.Add(stagedFile);
-   }    
+   }
     task.RunElevated = false;
     tasksToRun.Add(task);
 }
@@ -260,7 +257,7 @@ To view trace logs in your Applications Insights resource, click **Live Stream**
 
 ### View trace logs
 
-To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions. 
+To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions.
 
 The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 
@@ -292,7 +289,7 @@ To create a sample chart:
 ## Monitor compute nodes continuously
 
 You may have noticed that all metrics, including performance counters, are only logged when the tasks are running. This behavior is useful because it limits the amount of
-data that Application Insights logs. However, there are cases when you would always like to monitor the compute nodes. For example, they might be running background work which is not scheduled via the Batch service. In this case, set up a monitoring process to run for the life of the compute node. 
+data that Application Insights logs. However, there are cases when you would always like to monitor the compute nodes. For example, they might be running background work which is not scheduled via the Batch service. In this case, set up a monitoring process to run for the life of the compute node.
 
 One way to achieve this behavior is to spawn a process that loads the Application Insights library and runs in the background. In the example, the start task loads the binaries on the machine and keeps a process running indefinitely. Configure the Application Insights configuration file for this process to emit additional data you're interested in, such as performance counters.
 

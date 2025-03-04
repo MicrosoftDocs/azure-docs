@@ -1,0 +1,39 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-create-advanced-serverless.md",
+            "redirect_url": "/azure/partner-solutions/informatica/create-advanced-serverless",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-create.md",
+            "redirect_url": "/azure/partner-solutions/informatica/create",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-manage-serverless.md",
+            "redirect_url": "/azure/partner-solutions/informatica/manage-serverless",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-manage.md",
+            "redirect_url": "/azure/partner-solutions/informatica/manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-overview.md",
+            "redirect_url": "/azure/partner-solutions/informatica/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-get-support.md",
+            "redirect_url": "/azure/partner-solutions/informatica/support",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/informatica/informatica-troubleshoot.md",
+            "redirect_url": "/azure/partner-solutions/informatica/troubleshoot",
+            "redirect_document_id": true
+        }
+    ]
+}

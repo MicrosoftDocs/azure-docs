@@ -2,8 +2,8 @@
 title: Configure Azure Private 5G Core network for accessing UE IP addresses
 titleSuffix: Azure Private 5G Core
 description: Learn how to configure your Azure Private 5G Core to access UE IP addresses.
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 10/02/2023

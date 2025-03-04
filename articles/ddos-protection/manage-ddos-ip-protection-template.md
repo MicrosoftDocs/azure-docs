@@ -7,7 +7,7 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 07/17/2024
+ms.date: 12/02/2024
 ---
 
 # QuickStart: Create and configure Azure DDoS IP Protection using ARM template
@@ -20,7 +20,7 @@ In this QuickStart, you'll learn how to use an Azure Resource Manager template (
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
 
 
 ## Prerequisites
@@ -99,9 +99,9 @@ The output shows the new resource and *protectionModeDDoS* shows IP Protection i
 Name                     : myStandardPublicIP
 ResourceGroupName        : MyResourceGroup
 Location                 : eastus
-Id                       : /subscriptions/abcdefgh-1111-2222-bbbb-987654321098/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP
-Etag                     : W/"abcdefgh-1111-2222-bbbb-987654321098"
-ResourceGuid             : abcdefgh-1111-2222-bbbb-987654321098
+Id                       : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP
+Etag                     : W/"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+ResourceGuid             : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState        : Succeeded
 Tags                     : 
 PublicIpAllocationMethod : Static
@@ -124,10 +124,10 @@ ExtendedLocation         : null
   "ddosSettings": {
     "protectionMode": "Enabled"
   },
-  "etag": "W/\"abcdefgh-1111-2222-bbbb-987654321098\"",
-  "id": "/subscriptions/b1111111-2222-3333-aaaa-012345678912/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP",
+  "etag": "W/\"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e\"",
+  "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/myStandardPublicIP",
   "idleTimeoutInMinutes": 4,
-  "ipAddress": "20.25.14.83",
+  "ipAddress": "10.25.14.83",
   "ipTags": [],
   "location": "eastus",
   "name": "myStandardPublicIP",
@@ -135,7 +135,7 @@ ExtendedLocation         : null
   "publicIPAddressVersion": "IPv4",
   "publicIPAllocationMethod": "Static",
   "resourceGroup": "MyResourceGroup",
-  "resourceGuid": "b1111111-2222-3333-aaaa-012345678912",
+  "resourceGuid": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
   "sku": {
     "name": "Standard",
     "tier": "Regional"
