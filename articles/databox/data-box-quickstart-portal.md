@@ -34,7 +34,6 @@ This guide describes how to deploy the Azure Data Box for import using the Azure
 Before you begin:
 
 :::zone pivot="dbx-ng"
-
 - Make sure that the subscription you use for Data Box service is one of the following types:
     - Microsoft Customer Agreement (MCA) for new subscriptions or Microsoft Enterprise Agreement (EA) for existing subscriptions. Read more about [MCA for new subscriptions](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) and [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](/azure/cloud-solution-provider/overview/azure-csp-overview).
@@ -52,12 +51,7 @@ Before you begin:
     - 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)  
 :::zone-end
 
-
-
 :::zone pivot="dbx"
-
-:::zone-end
-
 - Make sure that the subscription you use for Data Box service is one of the following types:
     - Microsoft Customer Agreement (MCA) for new subscriptions or Microsoft Enterprise Agreement (EA) for existing subscriptions. Read more about [MCA for new subscriptions](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) and [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](/azure/cloud-solution-provider/overview/azure-csp-overview).
@@ -73,7 +67,6 @@ Before you begin:
     - Two 10-GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
-
 ::: zone-end 
 
 ::: zone target="chromeless"
