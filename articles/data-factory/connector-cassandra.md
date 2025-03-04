@@ -30,7 +30,8 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 Specifically, this Cassandra connector supports:
 
-- Cassandra **versions 2.x and 3.x**.
+- Cassandra **versions 3.x.x and 4.x.x** for version 2.0. 
+- Cassandra **versions 2.x and 3.x** for version 1.0. 
 - Copying data using **Basic** or **Anonymous** authentication.
 
 >[!NOTE]
@@ -255,7 +256,7 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 | VARINT |Decimal |Decimal |
 
 > [!NOTE]
-> For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section.
+> For collection types (map, set, list, etc.) under version 1.0, refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section.
 >
 > User-defined types are not supported.
 >
@@ -334,6 +335,7 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | version 2.0 | version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
+| Support selecting `keyspace` from the drop-down list in Cassandra dataset. | Not supported for selecting `keyspace` in Cassandra dataset. |
 | Support the following new data type mappings. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte <br> COUNTER -> Int64 <br> DURATION -> Int64 | The following new data type mappings are not supported. <br><br> DATE <br> SMALLINT <br> TINYINT <br> COUNTER <br> DURATION |
 
 ## Upgrade the Cassandra connector
