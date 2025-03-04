@@ -27,7 +27,7 @@ This guide describes how to deploy the Azure Data Box for import using the Azure
 
 ::: zone-end
 
-::: zone target="docs"
+<!--::: zone target="docs"-->
  
 ## Prerequisites
 
@@ -69,37 +69,9 @@ Before you begin:
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 ::: zone-end 
 
-::: zone target="chromeless"
 
-## Prerequisites
 
-Before you begin, make sure that you've:
-
-:::zone pivot="dbx-ng"
-1. You complete the [Order Azure Data Box](data-box-deploy-ordered.md) tutorial.
-1. Your Data Box device is unpacked and the order status in the portal is **Delivered**. 
-1. You reviewed the [Data Box safety guidelines](data-box-safety.md).
-1. You received one grounded power cord to use with your 120 TB or 525-TB storage device.
-1. You have access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
-    - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to high-speed network. We recommend that you have at least one 100-GbE connection. If a 100-GbE or 10-GbE connection isn't available, a 1-GbE data link is sufficient, though copy speeds are impacted. 
-1. You have access to a flat surface to place the Data Box. To place the device flat or upright in a standard rack shelf, you need a 7U slot in your rack.
-:::zone-end
-
-:::zone pivot="dbx"
-1. Completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
-2. Received your Data Box and the order status in the portal is **Delivered**. 
-3. Reviewed the [Data Box safety guidelines](data-box-safety.md).
-4. Received one grounded power cord to use with your 100-TB storage device.
-5. Access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
-    - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
-6. Access to a flat surface to place the Data Box. To place the device flat or upright in a standard rack shelf, you need a 7U slot in your rack.
-:::zone-end
-
-::: zone-end
-
-::: zone target="docs"
+<!-->::: zone target="docs"-->
 
 ## Sign in to Azure
 
@@ -186,6 +158,7 @@ This step takes about 5-7 minutes to complete.
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the 10 Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address. 
 :::zone-end
+
 ## Copy data
 
 The time to complete this operation depends upon your data size and network speed.
@@ -253,4 +226,4 @@ In this quickstart, you deployed an Azure Data Box to help import your data into
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
 
-::: zone-end
+<!--::: zone-end
