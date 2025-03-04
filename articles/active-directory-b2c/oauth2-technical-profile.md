@@ -210,7 +210,7 @@ Authorization: Basic YWJjZDoxMjM0
 redirect_uri=https%3a%2f%2fcontoso.b2clogin.com%2fontoso.onmicrosoft.com%2foauth2%2fauthresp&code=12345&grant_type=authorization_code
 ```
 
-For identity providers that support private key JWT authentication, configure the `token_endpoint_auth_method` metadata to `private_key_jwt`. With this type of authentication method, the certificate provided to Azure AD B2C is used to generate a signed assertion, which is passed to the identity provider through the `client_assertion` parameter. The `client_assertion_type` set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. The `token_signing_algorithm` metadata specifies the signing algorithm of the JWT token. 
+For identity providers that support private key JWT authentication, configure the `token_endpoint_auth_method` metadata to `private_key_jwt`. With this type of authentication method, the certificate provided to Azure AD B2C is used to generate a signed assertion, which is passed to the identity provider through the `client_assertion` parameter. The `client_assertion_type` set to `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. The `token_signing_algorithm` metadata specifies the signing algorithm of the JWT. 
 
 ```xml
 <Item Key="AccessTokenEndpoint">https://contoso.com/oauth2/token</Item>
