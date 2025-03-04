@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 03/04/2025
 ms.reviewer: nachakra
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli

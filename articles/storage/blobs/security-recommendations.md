@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/12/2023
+ms.date: 03/04/2025
 ms.author: normesta
 ms.custom: security-recommendations
 ---
