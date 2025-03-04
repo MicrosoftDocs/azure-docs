@@ -239,19 +239,14 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 | BIGINT |Int64 |Int64 |
 | BLOB |Byte[] |Byte[] |
 | BOOLEAN |Boolean |Boolean |
-| COUNTER | Int64 | Not supported. |
-| DATE | IDate | Not supported. |
 | DECIMAL |Decimal |Decimal |
 | DOUBLE |Double |Double |
-| DURATION | Int64 | Not supported. |
 | FLOAT |Single |Single |
 | INET |String |String |
 | INT |Int32 |Int32 |
-| SMALLINT | Short | Not supported. |
 | TEXT |String |String |
 | TIMESTAMP |DateTime |DateTime |
 | TIMEUUID |Guid |Guid |
-| TINYINT | SByte | Not supported. |
 | UUID |Guid |Guid |
 | VARCHAR |String |String |
 | VARINT |Decimal |Decimal |
@@ -264,7 +259,7 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 > The length of Binary Column and String Column lengths cannot be greater than 4000.
 >
 
-## Work with collections using virtual table
+## Work with collections using virtual table when using version 1.0
 
 The service uses a built-in ODBC driver to connect to and copy data from your Cassandra database. For collection types including map, set and list, the driver renormalizes the data into corresponding virtual tables. Specifically, if a table contains any collection columns, the driver generates the following virtual tables:
 
@@ -336,8 +331,8 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | version 2.0 | version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
-| Support selecting `keyspace` from the drop-down list in Cassandra dataset. | Not supported for selecting `keyspace` in Cassandra dataset. |
-| Support the following new data type mappings. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte <br> COUNTER -> Int64 <br> DURATION -> Int64 | The following new data type mappings are not supported. <br><br> DATE <br> SMALLINT <br> TINYINT <br> COUNTER <br> DURATION |
+| Support selecting `keyspace` from the drop-down list in Cassandra dataset. | Support editing `keyspace` when you select enter manually table name in Cassandra dataset. |
+| There is no virtual tables for collection types. | For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
 
 ## Upgrade the Cassandra connector
 
