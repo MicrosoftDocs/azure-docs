@@ -84,7 +84,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 

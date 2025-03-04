@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Invoke an OpenAPI App Service web app from Azure AI Agent Service
 
-[Azure AI Agent Service](https://learn.microsoft.com/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
+[Azure AI Agent Service](/azure/ai-services/agents/overview) allows you to create AI agents tailored to your needs through custom instructions and augmented by advanced tools like code interpreter, and custom functions. You can now connect your Azure AI Agent to an external API using an [OpenAPI 3.0](https://www.openapis.org/what-is-openapi) specified tool, allowing for scalable interoperability with various applications. 
 
 Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent.
 
@@ -21,7 +21,7 @@ In the following tutorial, you're using an Azure AI Agent to invoke an API hoste
 
 To complete this tutorial, you need an Azure AI Agent project and a RESTful API hosted on Azure App Service. The API should have an OpenAPI specification that defines the API. The OpenAPI specification for the sample app in this tutorial is provided.
 
-1. Ensure you complete the prerequisites and setup steps in the [quickstart](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure). This quickstart walks you through creating your Azure AI Hub and Agent project. You should complete the agent configuration and agent sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
+1. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure). This quickstart walks you through creating your Azure AI Hub and Agent project. You should complete the agent configuration and agent sample the quickstart provides to get a full understanding of the tool and ensure your setup works.
 1. Ensure you have [Git installed](https://git-scm.com/downloads).
 1. Ensure you have the latest [.NET 9.0 SDK installed](https://dotnet.microsoft.com/download/dotnet/9.0).
 1. Follow the guidance in the next section to create the sample app and deploy it to Azure App Service. The sample app is a simple to-do list app that allows you to create, read, update, and delete items from the list.
@@ -64,7 +64,7 @@ To complete this tutorial, you need an Azure AI Agent project and a RESTful API 
 
 ### Create and review the OpenAPI specification
 
-Now that you have the required infrastructure, you can put it all together and start interacting with your API using your AI Agent. For a general overview on how to do get started, see [How to use Azure AI Agent Service with OpenAPI Specified Tools](https://learn.microsoft.com/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview). That overview includes prerequisites and other requirements including how to include authentication if your API requires it. The provided sample API is publicly accessible so authentication isn't required.
+Now that you have the required infrastructure, you can put it all together and start interacting with your API using your AI Agent. For a general overview on how to do get started, see [How to use Azure AI Agent Service with OpenAPI Specified Tools](/azure/ai-services/agents/how-to/tools/openapi-spec?tabs=python&pivots=overview). That overview includes prerequisites and other requirements including how to include authentication if your API requires it. The provided sample API is publicly accessible so authentication isn't required.
 
 1. This specification is the OpenAPI specification for the sample app that is provided. On your local machine, create a file called `swagger.json` and copy the following contents.
 
@@ -324,7 +324,7 @@ Now that you have the required infrastructure, you can put it all together and s
 
 ### Create the OpenAPI Spec tool definition
 
-1. Create a file in the same directory as your `swagger.json` file called `tool.py`. Copy the following contents into the file. Ensure you complete the prerequisites and setup steps in the [quickstart](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure) to get the required packages installed as well as get you logged into your Azure account.
+1. Create a file in the same directory as your `swagger.json` file called `tool.py`. Copy the following contents into the file. Ensure you complete the prerequisites and setup steps in the [quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure) to get the required packages installed as well as get you logged into your Azure account.
     
     ```python
     import os
@@ -397,7 +397,7 @@ Now that you have the required infrastructure, you can put it all together and s
         print("Deleted agent")
     ```
 
-1. Replace the placeholder for your project's connection string. If you need help with finding the connection string, see the [Configure and run agent section of the quickstart](https://learn.microsoft.com/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure#configure-and-run-an-agent).
+1. Replace the placeholder for your project's connection string. If you need help with finding the connection string, see the [Configure and run agent section of the quickstart](/azure/ai-services/agents/quickstart?pivots=programming-language-python-azure#configure-and-run-an-agent).
 1. Review the file to understand how the OpenAPI tool is created and how the AI Agent is invoked. The OpenAPI specification is passed into the file. Each time the tool is invoked, the AI Agent uses the OpenAPI specification to determine how to interact with the API. The `message_content` variable is where you enter the natural language command that you want the AI Agent to perform. You're prompted to enter the message once you run the script. The AI Agent invokes the API and returns the results. It creates and deletes the AI Agent each time you run the script.
 
 ## Run the OpenAPI Spec tool

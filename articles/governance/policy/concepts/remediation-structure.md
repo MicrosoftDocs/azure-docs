@@ -1,7 +1,7 @@
 ---
 title: Details of the policy remediation task structure
 description: Describes the policy remediation task definition used by Azure Policy to bring resources into compliance.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.author: kenieva
 author: kenieva
