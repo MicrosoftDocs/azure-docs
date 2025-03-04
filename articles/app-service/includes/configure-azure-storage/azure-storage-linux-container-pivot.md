@@ -159,7 +159,7 @@ Using Azure CLI to mount storage requires you to provide the storage access key.
 
 # [Azure CLI](#tab/cli/access-key)
 
-Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command. For example:
+Use the [az webapp config storage-account add](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command. For example:
 
 ```azurecli-interactive
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
@@ -230,7 +230,7 @@ To validate that the Azure Storage is mounted successfully for the app:
 - Ensure the following ports are open when using virtual network integration: Azure Files: 80 and 445. Azure Blobs: 80 and 443.
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 
-## Next steps
+## Next step
 
 - [Configure a custom container](../../configure-custom-container.md?pivots=platform-linux).
 - [Video: How to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y).

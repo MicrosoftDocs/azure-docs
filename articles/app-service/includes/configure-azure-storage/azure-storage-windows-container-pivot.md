@@ -23,7 +23,7 @@ The following features are supported for Windows containers:
 - Secured access to storage accounts with key vault, [private endpoints](../../../storage/common/storage-private-endpoints.md), and [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) when you use [virtual network integration](../../overview-vnet-integration.md).
 - Azure Files (read/write).
 - Up to five mount points per app.
-- Drive letter assignments (`C:` to `Z:`).
+- Drive letter assignments (*C:* to *Z:*).
 
 Here are the three options to mount Azure storage to your app:
 
@@ -61,7 +61,7 @@ Here are the three options to mount Azure storage to your app:
 - Azure blobs aren't supported.
 - [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [private endpoints](../../../storage/common/storage-private-endpoints.md) and [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) when you use [virtual network integration](../../overview-vnet-integration.md).
 - FTP/FTPS access to mounted storage not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
-- Mapping *[C-Z]:\*, *[C-Z]:\home*, */*, and */home* to custom-mounted storage isn't supported.
+- Mapping *[C-Z]:\\*, *[C-Z]:\home*, */*, and */home* to custom-mounted storage isn't supported.
 - Storage mounts aren't backed up when you [back up your app](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
 - With virtual network integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your virtual network.
 
@@ -197,6 +197,6 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 
-## Next steps
+## Next step
 
 - [Migrate custom software to Azure App Service using a custom container](../../tutorial-custom-container.md?pivots=container-windows).
