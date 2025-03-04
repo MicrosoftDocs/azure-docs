@@ -16,12 +16,7 @@ This article describes reliability support in [Azure Data Factory](../data-facto
 
 Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
 
-<!-- TODO maybe we can delete these lines and fold the points into the rest of the document? -->
-When including Azure Data Factory resources in your [business continuity planning](./concept-business-continuity-high-availability-disaster-recovery.md), it's important that you consider not only the reliability of the data factory, but also the following Azure resources:
-
-* [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems. 
-
-* [On-premises data gateways](/data-integration/gateway/service-gateway-onprem), which are Azure resources that you create and use in your data factory to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/data-integration/gateway/service-gateway-install) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](/data-integration/gateway/plan-scale-maintain).
+Azure Data Factory helps you to create flexible and powerful data pipelines by using a fully managed, serverless data integration service. When you plan for resiliency, consider not only the reliability of the data factory, but also related resources that you depend on. Evaluate any [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems, and ensure those resources meet your reliabillity requirements.
 
 ## Reliability architecture overview
 
@@ -92,7 +87,7 @@ If you use a self-hosted integration runtime, you're responsible for deploying t
 
 **Integration runtimes:** 
 - The Microsoft-managed integration runtime automatically scales based on demand, and you don't need to plan or manage capacity.
-- The SSIS integration runtime requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [TODO]().
+- The SSIS integration runtime requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 - Self-hosted integration runtimes require you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
 
 ### Traffic routing between zones
@@ -105,7 +100,7 @@ Azure Data Factory automatically distributes pipeline activities, triggers, and 
 
 **Active requests.** Any pipelines and triggers in progress will continue to execute, and you won't notice a zone failure.
 
-    Activities in progress might fail and get restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see TODO.
+    Activities in progress might fail and get restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see [Transient faults](#transient-faults).
 
 ### Failback
 
