@@ -29,23 +29,47 @@ You can create a dev box by using the Microsoft Dev Box developer portal. For mo
 
 You can also create a dev box through the Azure CLI dev center extension. For more information, see [Configure Microsoft Dev Box from the command-line with the Azure CLI](how-to-install-dev-box-cli.md).
 
-## Connect to a dev box
+## Connect through an app
 
-After you create your dev box, you can connect to it through a Remote Desktop application or via the browser.
+After you create your dev box, you can connect to it through a Remote Desktop application like Windows App or through the browser.
 
-The new Windows App remote desktop client is the recommended client for Microsoft Dev Box; it provides an enhanced user experience, including support for multiple monitors. It's also available on multiple platforms, including Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers. For more information, see [Get started with Windows App](https://aka.ms/dev-box/windows-app).
+Windows App is the recommended client for Microsoft Dev Box; it provides an enhanced user experience, including support for multiple monitors. 
+
+If necessary, you can also connect to your dev box by using the legacy Remote Desktop client.
+
+### Connect through the Windows App
+
+Windows App is the default app for connecting to your dev box. You can use the Windows App to connect to your dev box from any device, including your phone or laptop. The Windows App is available on multiple platforms, including Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers.
+
+[!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]  
+
+### Connect through the legacy Remote Desktop client
+
+If you prefer to use the legacy Remote Desktop client, you can do so. You set the app you want to use to connect through the user settings in the developer portal:
+
+1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+ 
+1. Select the user settings icon in the top right corner.
+ 
+   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-user-settings-icon.png" alt-text="Screenshot of the developer portal, showing the user settings icon in the top right corner.":::
+
+1. In **User settings**, select **Connect via Remote Desktop (legacy)**.
+ 
+   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-user-settings-remote-desktop.png" alt-text="Screenshot of the dev box user settings, showing the option for using the legacy remote desktop app.":::
+
+### Connect through the browser
 
 You can use the **browser** for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
-## Configure user settings
-
-You can configure user settings for your dev box in the developer portal. For example, you can enable multiple montors.
-
-To configure user settings for your dev box:
-
+To connect to a dev box by using the browser:
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+1. Select **Open in browser**.
+   :::image type="content" source="./media/how-to-create-dev-boxes-developer-portal/dev-portal-open-in-browser.png" alt-text="Screenshot of dev box card that shows the option for opening in a browser." lightbox="./media/how-to-create-dev-boxes-developer-portal/dev-portal-open-in-browser.png":::
+A new tab opens with a new session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
 
-1. 
+## Configure multiple monitors
+
+[!INCLUDE [configure-multiple-monitors](includes/configure-multiple-monitors.md)]
 
 ## Shut down, restart, or start a dev box
 
@@ -94,7 +118,7 @@ There are many reasons why you might not need a dev box anymore. Maybe you compl
 You can delete dev boxes after you finish your tasks. Suppose you finish fixing your bug and merge your pull request. Now, you can delete your dev box and create new dev boxes to work on new items.
 
 > [!IMPORTANT]
-> You can't retrieve a dev box after it's deleted. Before you delete a dev box, confirm that you and your team members don't need the dev box for future tasks. 
+> You can't retrieve a dev box after deletion. Before you delete a dev box, confirm that you and your team members don't need the dev box for future tasks. 
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 

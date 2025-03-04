@@ -9,7 +9,7 @@ ms.custom:
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 02/27/2025
+ms.date: 03/03/2025
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -76,30 +76,11 @@ After you create a dev box, you can connect to it remotely through the developer
 
 ### Connect by using Windows App
 
-To connect to a dev box by using the Windows App:
-
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
-
-1. Select **Connect via app**.
-
-   :::image type="content" source="./media/quickstart-create-dev-box/dev-box-connect-via-app.png" alt-text="Screenshot of dev box tile, showing the Connect via app option." lightbox="./media/quickstart-create-dev-box/dev-box-connect-via-app.png":::
-
-   > [!Note]
-   > Make sure that you have installed the Windows App on your device. [Download Windows App](https://aka.ms/devbox-windows-app).
+[!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]
 
 ## Use multiple monitors
 
-To use multiple monitors with your dev box, you need to configure your developer portal user settings.
-
-1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
-
-1. Select the user settings icon in the top right corner.
- 
-   :::image type="content" source="media/quickstart-create-dev-box/dev-box-user-settings-icon.png" alt-text="Screenshot of the developer portal, showing the user settings icon in the top right corner.":::
-
-1. In **User settings**, select **Use multiple monitors**.
- 
-   :::image type="content" source="media/quickstart-create-dev-box/dev-box-user-settings-multiple-monitors.png" alt-text="Screenshot of the dev box user settings, showing the option for using multiple monitors.":::
+[!INCLUDE [configure-multiple-monitors](includes/configure-multiple-monitors.md)]
 
 ## Clean up resources
 
