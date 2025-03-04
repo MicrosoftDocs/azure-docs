@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 02/21/2025
+ms.date: 03/04/2025
 ms.author: msangapu
 ---
 
@@ -181,7 +181,7 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - To avoid latency issues, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, these IP restrictions aren't honored.
 
-- In the Azure Storage account, avoid [regenerating the access key](../../../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- In the Azure Storage account, avoid [regenerating the access key](../../../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two keys. Azure App Services stores an Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
 
     1. Regenerate **key2**.
     1. In the storage mount configuration, update the access the key to use the regenerated **key2**.

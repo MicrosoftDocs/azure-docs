@@ -3,7 +3,7 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.custom: linux-related-content
 ms.topic: include
-ms.date: 02/21/2025
+ms.date: 03/04/2025
 ms.author: msangapu
 ---
 
@@ -13,10 +13,10 @@ ms.author: msangapu
 
 This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for data objects in the cloud. Azure Storage isn't the default storage for App Service. It's billed separately. You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
 
-
 ### Benefits
 
 The benefits of custom-mounted storage include:
+
 - Configure persistent storage for your App Service app and manage the storage separately.
 - Make static content like video and images readily available for your App Service app. 
 - Write application log files or archive older application log to Azure File shares.  
@@ -28,6 +28,7 @@ The benefits of custom-mounted storage include:
 ### Limitations
 
 The limitations of custom-mounted storage include:
+
 - [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [virtual network integration](../../overview-vnet-integration.md) is used).
 - FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Storage account shared access keys are the only means of authentication that are supported; [Entra ID and RBAC Roles](../../../storage/common/authorize-data-access.md) aren't supported.
@@ -98,7 +99,6 @@ Before you can mount storage using Key Vault access, you need to get the Key Vau
 Now you're ready to use Key Vault to access your storage account.
 
 ---
-
 
 ## Mount storage to Linux container
 

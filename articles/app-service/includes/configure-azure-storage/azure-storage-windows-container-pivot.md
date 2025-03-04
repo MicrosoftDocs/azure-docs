@@ -2,7 +2,7 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 02/21/2025
+ms.date: 03/04/2025
 ms.author: msangapu
 ---
 
@@ -134,13 +134,13 @@ Now you're ready to use Key Vault to access your storage account.
    | Setting | Description |
    |:--------|:------------|
    | **Name** | Name of the mount configuration. Spaces aren't allowed. |
-   | **Configuration options** | Select **Basic**. if the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview). Otherwise, select **Advanced**. |
+   | **Configuration options** | If the storage account doesn't use [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), [private endpoints](../../../storage/common/storage-private-endpoints.md), or [Azure Key Vault](/azure/key-vault/general/overview), select **Basic**. Otherwise, select **Advanced**. |
    | **Storage accounts** | Azure Storage account. |
    | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |
    | **Storage container** or **Share name** | Files share or Blobs container to mount. |
    | **Storage access** | Select **Key vault reference**. |
    | **Application settings**| Select the existing app setting that's configured with the Azure Key Vault secret. |
-   | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Don't use `/` or `/home`. |
+   | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Don't use */* or */home*. |
    | **Deployment slot setting** | When selected, the storage mount settings also apply to deployment slots. |
 
 1. [Grant your app access to the Key Vault](../../app-service-key-vault-references.md?#grant-your-app-access-to-a-key-vault) to access the storage mount.
@@ -173,13 +173,13 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 ---
 
 > [!NOTE]
-> Adding, editing, or deleting a storage mount causes the app to be restarted.
+> Adding, editing, or deleting a storage mount causes the app to restart.
 
 ## Best practices
 
 - To avoid latency issues, place the app and the Azure Storage account in the same region. If you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../../../storage/common/storage-network-security.md) when the app and Azure Storage account are in the same region, these IP restrictions aren't honored.
 
-- In the Azure Storage account, avoid [regenerating the access key](../../../storage/common/storage-account-keys-manage.md) that's used to mount the storage in the app. The storage account contains two different keys. Azure App Services stores Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
+- In the Azure Storage account, avoid [regenerating the access key](../../../storage/common/storage-account-keys-manage.md) that you use to mount the storage in the app. The storage account contains two keys. Azure App Services stores an Azure storage account key. Use a stepwise approach to ensure that the storage mount remains available to the app during key regeneration. For example, assuming that you used **key1** to configure storage mount in your app:
 
   1. Regenerate **key2**.
   1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
@@ -191,7 +191,7 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - If your app [scales to multiple instances](/azure/azure-monitor/autoscale/autoscale-get-started), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
 
-- It isn't recommended to use storage mounts for local databases (such as SQLite) or for any other applications and components that rely on file handles and locks. 
+- Microsoft doesn't recommend that you use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
 
 - Ensure ports 80 and 445 are open when using Azure Files with virtual network integration.
 
