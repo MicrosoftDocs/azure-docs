@@ -27,7 +27,7 @@ You also need to meet the following Fabric requirements:
 
 ## What problem will we solve?
 
-When your OPC UA data arrives in the cloud, you have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
+When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
 
 ## Ingest data into Real-Time Intelligence
 
@@ -86,7 +86,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     :::image type="content" source="media/quickstart-get-insights/query-with-code.png" alt-text="Screenshot showing the Query with code button.":::
 
-1. Clear the sample query, and run the following KQL query to create a data mapping for your table. The data mapping is called *opcua_mapping*.
+1. Clear the sample query, and run the following KQL query that creates a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
@@ -128,7 +128,7 @@ Then, follow the steps to upload the dashboard template and connect it to your d
 1. In your Real-Time Dashboard, switch to the **Manage** tab and select **Replace with file**.
     :::image type="content" source="media/quickstart-get-insights/dashboard-upload-replace.png" alt-text="Screenshot of the buttons to upload a file template.":::
 1. Select the template file that you downloaded to your machine.
-1. The template file populates the dashboard with multiple tiles, although the tiles can't get data since you haven't yet connected your data source.
+1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
 1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
     :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
@@ -143,7 +143,7 @@ On the **Home** tab, select **Save** to save your dashboard.
 ### Explore dashboard
 
 You now have a dashboard that displays different types of visuals for the asset data in these quickstarts. The visuals included with the template are:
-* Parameters for your dashboard that allow all visuals to be filtered by timestamp (included by default) and asset ID.
+* Parameters for your dashboard that enable filtering of all visuals by timestamp (included by default) and asset ID.
 * A line chart tile showing temperature and its spikes over time.
 * A stat tile showing a real-time spike indicator for temperature. The tile displays the most recent temperature value, and if that value is a spike, conditional formatting displays it as a warning.
 * A stat tile showing max temperature.

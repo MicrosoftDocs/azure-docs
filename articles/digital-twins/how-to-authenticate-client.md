@@ -102,7 +102,7 @@ Here's an example of the code to create an authenticated SDK client using `Inter
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="InteractiveBrowserCredential":::
 
 >[!NOTE]
-> While you can place the client ID, tenant ID, and instance URL directly into the code as shown in the previous example, it's a good idea to have your code get these values from a configuration file or environment variable instead.
+> Although the example above places the client ID, tenant ID, and instance URL directly into the code, it's a good idea to get these values from a configuration file or environment variable instead.
 
 ## Authenticate Azure Functions
 
