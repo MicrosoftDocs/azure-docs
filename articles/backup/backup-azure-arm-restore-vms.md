@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 03/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -39,7 +39,7 @@ Some details about storage accounts:
 - **Restore disk**: The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account. VHD files are also copied to the storage account, when you restore managed disks of size less than 4 TB, from a Vault-Standard recovery point, or when you restore unmanaged disks. The files are then copied to Managed storage. To avoid unnecessary charge, delete the VHD files from the Staging Storage Account. 
 - **Replace disk**: When you replace a managed disk from a Vault-Standard recovery point and the disk size is less than 4 TB, a VHD file with the data from the chosen recovery point is created in the specified storage account. After the disk replacement  operation is complete, the disks of the source Azure VM are left in the specified Resource group for your operation and the VHDs are stored in the specified storage account. You can choose to delete or retain these VHDs and disks.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
-- **Storage type**: Blob storage isn't supported.
+- **Storage type**: Blob storage isn't supported. The reason of cost optimization, Premium Storage accounts aren't supported.
 - **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name.
 - **Premium storage**:
   - When you restore non-premium VMs, premium storage accounts aren't supported.
