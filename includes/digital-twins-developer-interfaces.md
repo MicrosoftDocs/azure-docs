@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins - developer interfaces for managing instance
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 4/30/2021
+ms.date: 02/27/2025
 ms.author: baanders
 ---
 
