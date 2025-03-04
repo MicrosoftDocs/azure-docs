@@ -143,7 +143,7 @@ Now you're ready to use Key Vault to access your storage account.
    | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Don't use */* or */home*. |
    | **Deployment slot setting** | When selected, the storage mount settings also apply to deployment slots. |
 
-1. [Grant your app access to the Key Vault](../../app-service-key-vault-references.md?#grant-your-app-access-to-a-key-vault) to access the storage mount.
+1. To access the storage mount, [grant your app access to the Key Vault](../../app-service-key-vault-references.md?#grant-your-app-access-to-a-key-vault).
 
 # [Azure CLI](#tab/cli/basic)
 
@@ -191,7 +191,7 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - If your app [scales to multiple instances](/azure/azure-monitor/autoscale/autoscale-get-started), all the instances connect to the same mounted Azure Storage account. To avoid performance bottlenecks and throughput issues, choose the appropriate performance tier for the storage account.  
 
-- Microsoft doesn't recommend that you use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
+- We don't recommend that you use storage mounts for local databases, such as SQLite, or for any other applications and components that rely on file handles and locks.
 
 - Ensure ports 80 and 445 are open when using Azure Files with virtual network integration.
 
