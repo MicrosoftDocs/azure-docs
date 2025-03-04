@@ -106,7 +106,7 @@ If you integrate App Service with another Azure service, you might need to consi
 
 ## Scaling for capabilities or features
 
-You can sale your App Service plan up or down at any time. It's as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first, and then scale up later when you need more App Service features.
+You can scale your App Service plan up or down at any time. It's as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first, and then scale up later when you need more App Service features.
 
 For example, you can start testing your web app in a Free-tier App Service plan and pay nothing. When you add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to the Shared tier. Later, when you want to [create a TLS binding](configure-ssl-bindings.md), scale your plan up to the Basic tier. When you want to have [staging environments](deploy-staging-slots.md), scale up to the Standard tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
 

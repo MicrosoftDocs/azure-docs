@@ -58,7 +58,7 @@ If your vault is configured with [network restrictions](/azure/key-vault/general
 
 ### Access vaults with a user-assigned identity
 
-Some apps need to reference secrets at creation time, when a system-assigned identity isn't available yet. In these cases, a you can create a user-assigned identity and give it access to the vault in advance.
+Some apps need to reference secrets at creation time, when a system-assigned identity isn't available yet. In these cases, you can create a user-assigned identity and give it access to the vault in advance.
 
 After you grant permissions to the user-assigned identity, follow these steps:
 
@@ -124,7 +124,7 @@ Alternatively:
 
 Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting to mount [Azure Files](../storage/files/storage-files-introduction.md) as the file system. This setting has validation checks to ensure that the app can be properly started.
 
-The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests that modify these settings, the platform validates if this content share exists. If the content share doesn't exist, the plaform tries to create it. If the platform can't locate or create the content share, it blocks the request.
+The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests that modify these settings, the platform validates if this content share exists. If the content share doesn't exist, the platform tries to create it. If the platform can't locate or create the content share, it blocks the request.
 
 When you use Key Vault references in this setting, the validation check fails by default, because the secret itself can't be resolved while during processing of the incoming request. To avoid this problem, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to `1`. This setting tells App Service to bypass all checks, and it doesn't create the content share for you. You should ensure that it's created in advance.
 

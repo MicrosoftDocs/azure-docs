@@ -60,7 +60,7 @@ App settings are always encrypted when they're stored (encrypted at rest).
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
     > [!NOTE]
-    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name needs to be configured differently for the key name. Replace any colon (`:`) with a double underscore (`__`), and replace any period (`.`) with with a single underscore (`_`). For example, `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name.
+    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name needs to be configured differently for the key name. Replace any colon (`:`) with a double underscore (`__`), and replace any period (`.`) with a single underscore (`_`). For example, `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name.
 
 1. When you finish, select **Apply**. Don't forget to also select **Apply** on the **Environment variables** page.
 
@@ -227,7 +227,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 - Redis cache: `REDISCACHECONNSTR_`
 
 > [!NOTE]
-> .NET apps that target PostgreSQL, Notification Hubs, Service Bus, Event Hubs, Azure Cosmos DB, and Redis cache should set the connection string to **Custom** as workaround for a [known issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123).
+> .NET apps that target PostgreSQL, Notification Hubs, Service Bus, Event Hubs, Azure Cosmos DB, and Redis cache should set the connection string to **Custom** as a workaround for a [known issue in .NET EnvironmentVariablesConfigurationProvider](https://github.com/dotnet/runtime/issues/36123).
 
 For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For steps that are specific to each language stack, see:
 
@@ -450,7 +450,7 @@ Here, you can configure some common settings for the app. Some settings require 
   - **FTP state**: Allow only FTPS, or disable FTP altogether.
   - **HTTP version**: Set to **2.0** to enable support for the [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
-    > Most modern browsers support the HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Provide security for a custom DNS name with a TLS/SSL binding in App Service](configure-ssl-bindings.md).
+    > Most modern browsers support the HTTP/2 protocol over TLS only, while unencrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Provide security for a custom DNS name with a TLS/SSL binding in App Service](configure-ssl-bindings.md).
   - **Web sockets**: Configure for [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
   - **Always On**: Turn on if you want to keep the app loaded even when there's no traffic.
   
@@ -489,7 +489,7 @@ To show the existing settings, use the [Get-AzWebApp](/powershell/module/az.webs
 -----
 ## Configure default documents
 
-The default document is the webpage that's displayed at the root URL of an App Service app. The first matching file in the list is used. If the app uses modules that route based on URL instead of serving static content, there's no need for default documents.
+The default document is the webpage that appears at the root URL of an App Service app. The first matching file in the list is used. If the app uses modules that route based on URL instead of serving static content, there's no need for default documents.
 
 The setting to configure default documents is only for Windows apps.
 
