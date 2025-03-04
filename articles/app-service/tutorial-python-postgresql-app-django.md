@@ -518,7 +518,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 
