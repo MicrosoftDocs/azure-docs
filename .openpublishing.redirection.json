@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/automation/update-management/configure-alerts.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/configure-alerts",
+      "redirect_url": "/azure/update-manager/manage-alerts",
       "redirect_document_id": false
     },
     {
