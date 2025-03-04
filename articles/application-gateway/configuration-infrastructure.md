@@ -67,6 +67,20 @@ When an instance of your Application Gateway issues a DNS query, it uses the val
 
 > [!NOTE]
 > If you use custom DNS servers in the Application Gateway virtual network, the DNS server must be able to resolve public internet names. Application Gateway requires this capability.
+> To ensure the Application Gateway has access to key required services, some domains are configured to be resolved by Azure default DNS, irrespective of any custom DNS setup. The domains are listed below. If you are using PaaS services that fall under the domains listed below with a private endpoint, such as Key Vault and Storage Account, and want the Application Gateway to resolve them to private IPs, please ensure you link the private DNS zone with the Application Gateway's Virtual Network.
+.windows.net
+.chinacloudapi.cn
+.azure.net
+.azure.cn
+.usgovcloudapi.net
+.azure.us
+.eaglex.ic.gov
+.microsoft.scloud
+.nsatc.net
+.msftcloudes.com
+.microsoft.com
+.time.ubuntu.com
+.time.windows.com
 
 ### Virtual network permission
 
