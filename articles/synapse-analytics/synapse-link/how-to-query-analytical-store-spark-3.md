@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 02/15/2022
+ms.date: 03/04/2025
 ms.author: rosouz
 ms.custom: cosmos-db, mode-other
 ---
