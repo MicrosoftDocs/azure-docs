@@ -3,7 +3,7 @@ title: Azure region pairs and nonpaired regions
 description: Learn about Azure region pairs and regions without a pair.
 author: anaharris-ms
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/13/2025
 ms.author: anaharris
@@ -12,7 +12,7 @@ ms.custom: references_regions, subject-reliability
 
 # Azure region pairs and nonpaired regions
 
-Azure regions are independent of each other. However, Microsoft associates some Azure regions with another region, where both are usually in the same geography. Together the regions form a *region pair*. Many other regions aren't paired, and instead use availability zones as their primary means of redundancy. This article describes both how nonpaired regions and region pairs are used in Azure.
+Azure regions are independent of each other. However, Microsoft associates some Azure regions with another region, where both are usually in the same geography. Together the regions form a *region pair*. Many other regions aren't paired, and instead use availability zones as their primary means of redundancy. This article describes both how region pairs and nonpaired regions are used in Azure.
 
 Region pairs are used by some Azure services to support geo-replication and geo-redundancy, and to support some aspects of disaster recovery in the unlikely event that a region experiences a catastrophic and unrecoverable failure.
 
@@ -95,6 +95,7 @@ The table below lists Azure regions without a region pair:
 | Geography | Region |
 |-----|----|
 | Austria | Austria East (coming soon) |
+|Indonesia|Indonesia Central (coming soon)|
 | Israel | Israel Central|
 | Italy | Italy North|
 | Mexico | Mexico Central |

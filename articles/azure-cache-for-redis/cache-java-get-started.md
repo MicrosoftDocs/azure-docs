@@ -2,11 +2,13 @@
 title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you create a new Java app that uses Azure Cache for Redis
 author: KarlErickson
-ms.author: zhihaoguo
+ms.author: karler
+ms.reviewer: zhihaoguo
 ms.date: 01/04/2022
 ms.topic: quickstart
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
+zone_pivot_groups: redis-type
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Jedis Redis client
@@ -22,9 +24,23 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## Create an Azure Cache for Redis
+::: zone pivot="azure-managed-redis"
+
+## Create an Azure Managed Redis (preview) instance
+
+[!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
+
+::: zone-end
+
+::: zone pivot="azure-cache-redis"
+
+## Create an Azure Cache for Redis instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
+
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+
+::: zone-end
 
 ## Set up the working environment
 
@@ -54,13 +70,13 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity</artifactId>
-        <version>1.11.2</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
+        <version>1.15.0</version> <!-- {x-version-update;com.azure:azure-identity;dependency} -->
     </dependency>
 
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
 
@@ -72,7 +88,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>5.1.0</version>  <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
+        <version>5.2.0</version> <!-- {x-version-update;redis.clients:jedis;external_dependency} -->
     </dependency>
     ```
 
@@ -112,9 +128,10 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
             String username = System.getenv("USER_NAME");
+            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
 
             // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
                     .password(token) // Microsoft Entra access token as password is required.
                     .user(username) // Username is Required
                     .ssl(useSsl) // SSL Connection is Required
@@ -165,9 +182,10 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
             boolean useSsl = true;
             String cacheHostname = System.getenv("REDIS_CACHE_HOSTNAME");
             String cachekey = System.getenv("REDIS_CACHE_KEY");
+            int port = Integer.parseInt(System.getenv().getOrDefault("REDIS_CACHE_PORT", "6380"));
 
             // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
-            Jedis jedis = new Jedis(cacheHostname, 6380, DefaultJedisClientConfig.builder()
+            Jedis jedis = new Jedis(cacheHostname, port, DefaultJedisClientConfig.builder()
                 .password(cachekey)
                 .ssl(useSsl)
                 .build());

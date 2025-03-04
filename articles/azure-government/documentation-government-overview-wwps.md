@@ -6,7 +6,7 @@ ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/29/2022
+ms.date: 01/21/2025
 ---
 
 # Azure for secure worldwide public sector cloud adoption
@@ -309,7 +309,7 @@ Microsoft has implemented extensive protections for the Azure cloud platform and
 
 ## Private and hybrid cloud with Azure Stack
 
-[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hyperconverged Infrastructure (HCI), Azure Stack Hub (formerly Azure Stack), and Azure Stack Edge (formerly Azure Data Box Edge). The last two components (Azure Stack Hub and Azure Stack Edge) are discussed in this section. For more information, see [Differences between global Azure, Azure Stack Hub, and Azure Stack HCI](/azure-stack/operator/compare-azure-azure-stack).
+[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) portfolio is an extension of Azure that enables you to build and run hybrid applications across on-premises, edge locations, and cloud. As shown in Figure 4, Azure Stack includes Azure Stack Hub (formerly Azure Stack) and Azure Stack Edge (formerly Azure Data Box Edge). For more information, see [Differences between global Azure and Azure Stack Hub](/azure-stack/operator/compare-azure-azure-stack).
 
 :::image type="content" source="./media/wwps-azure-stack-portfolio.jpg" alt-text="Azure Stack portfolio" border="false":::
 **Figure 4.**  Azure Stack portfolio

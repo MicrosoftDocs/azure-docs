@@ -24,6 +24,8 @@ items:
       href: ./whats-new/docs.md
     - name: Migrating from Azure Automation DSC
       href: ./whats-new/migrating-from-azure-automation.md
+    - name: Migrating from Azure DSC Extension
+      href: ./whats-new/migrating-from-dsc-extension.md
     - name: Behavioral changes for PowerShell DSC
       href: ./whats-new/psdsc-in-machine-configuration.md
 

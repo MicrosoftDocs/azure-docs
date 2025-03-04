@@ -3,13 +3,13 @@ title: 'Tutorial: Conduct vector similarity search on Azure OpenAI embeddings us
 description: In this tutorial, you learn how to use Azure Cache for Redis to store and search for vector embeddings.
 
 
-
+ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
 ms.date: 09/15/2023
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a vector similarity with an AI-based large language model.
 ---
 
 # Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis
@@ -40,9 +40,8 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-* Access granted to Azure OpenAI in the desired Azure subscription
-    Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
-* <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
+* Access granted to Azure OpenAI in the desired Azure subscription. Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
+* <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 * [Jupyter Notebooks](https://jupyter.org/) (optional)
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the model.
 
@@ -134,7 +133,7 @@ Next, you'll read the csv file into a pandas DataFrame.
    ```
 
 1. Execute code cell 3. You should see the following output:
-   
+
    :::image type="content" source="media/cache-tutorial-vector-similarity/code-cell-3.png" alt-text="Screenshot of results from executing code cell 3, displaying eight columns and a sampling of 10 rows of data." lightbox="media/cache-tutorial-vector-similarity/code-cell-3.png":::
 
 1. Next, process the data by adding an `id` index, removing spaces from the column titles, and filters the movies to take only movies made after 1970 and from English speaking countries or regions. This filtering step reduces the number of movies in the dataset, which lowers the cost and time required to generate embeddings. You're free to change or remove the filter parameters based on your preferences.

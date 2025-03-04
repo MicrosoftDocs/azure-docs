@@ -124,7 +124,7 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 >   * Changing properties on the entity (Queue, Topic, Subscription) while holding the lock.
 >   * If the Service Bus Client application loses its connection to the Service Bus for any reason.
 >
-> When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation.
+> When the lock is lost, Azure Service Bus will generate a MessageLockLostException or SessionLockLostException, which will surface in the client application. In this case, the client's default retry logic should automatically kick in and retry the operation. Moreover, the delivery count of the message will not be incremented.
 
 ## Renew locks
 The default value for the lock duration is **1 minute**. You can specify a different value for the lock duration at the queue or subscription level. The client owning the lock can renew the message lock by using methods on the receiver object. Instead, you can use the automatic lock-renewal feature where you can specify the time duration for which you want to keep getting the lock renewed. 

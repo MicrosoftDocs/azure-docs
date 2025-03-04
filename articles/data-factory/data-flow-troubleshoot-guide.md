@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)
@@ -1115,7 +1115,7 @@ Note: Please check that the given database is of type 'Dedicated SQL pool (forme
 ### Error code: 4502
 
 - **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
-- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
+- **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 - **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
 
 ### Error code: 4503

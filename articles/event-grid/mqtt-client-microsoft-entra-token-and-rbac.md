@@ -2,11 +2,10 @@
 title: Microsoft Entra `JWT` authentication and RBAC authorization for clients with Microsoft Entra identity
 description: Describes JWT authentication and RBAC roles to authorize clients with Microsoft Entra identity to publish or subscribe MQTT messages
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
-author: george-guirguis
-ms.author: geguirgu
+ms.custom: build-2024
+ms.date: 01/27/2025
+author: Connected-Seth
+ms.author: seshanmugam
 ms.subservice: mqtt
 ---
 
@@ -16,7 +15,6 @@ You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event G
 
 > [!IMPORTANT]
 > - This feature is supported only when using MQTT v5 protocol version
-> - JWT authentication is supported for Managed Identities and Service principals only
 
 ## Prerequisites
 - You need an Event Grid namespace with MQTT enabled. Learn about [creating Event Grid namespace](/azure/event-grid/create-view-manage-namespaces#create-a-namespace)

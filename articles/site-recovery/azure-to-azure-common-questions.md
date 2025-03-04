@@ -299,7 +299,7 @@ Site Recovery has an RTO SLA of [one hours](https://azure.microsoft.com/support/
 
 Extensions aren't replicated to the failover VM in the target region, so we need to install them manually after failover.
 
-**For SQL VM zonal replication:** In the case of a SQL VM, it'll not be shown if we don't have the corresponding IaaS SQL Extension installed. After installing the `SqlIaasExtension`, the `SQL virtual machine` is created automatically. [Learn more](https://learn.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?view=azuresql&tabs=azure-powershell#register-with-extension).
+**For SQL VM zonal replication:** In the case of a SQL VM, it'll not be shown if we don't have the corresponding IaaS SQL Extension installed. After installing the `SqlIaasExtension`, the `SQL virtual machine` is created automatically. [Learn more](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm?view=azuresql&tabs=azure-powershell#register-with-extension&preserve-view=true).
 
 ## Recovery plans
 
@@ -358,11 +358,11 @@ While Site Recovery makes a best effort to ensure that capacity is available in 
 
 Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
 
-### Where do we see the VM mapping to the reservation group when we enable capacity reservation for our VMs in ASR on the target region?
+### Where is the VM displayed, which is mapped to the reservation group after enabling capacity reservation for VMs in Azure Site Recovery in the target region?
 
-When we enable capacity reservation for our VMs in Azure Site Recovery on the target region, the VM maps to the reservation group during replication. Since the target VM is not created until a test failover or actual failover is performed, we see the mapping under *Recovery Services Vault* > **Compute** > **Capacity Reservation** settings.
+When you enable capacity reservation for VMs in Azure Site Recovery on the target region, the VM maps to the reservation group during replication. Since the target VM is not created until a test failover or actual failover is performed, you can see the mapping under *Recovery Services Vault* > **Compute** > **Capacity Reservation** settings.
 
-The VM associated option under the capacity reservation group populates only when the target VMs are created during a test failover or actual failover. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#capacity-reservation-lifecycle).
+The VM associated option under the capacity reservation group populates only when the target VMs are created during a test failover or actual failover. [Learn more](/azure/virtual-machines/capacity-reservation-overview#capacity-reservation-lifecycle).
 
 ## Security
 

@@ -55,6 +55,8 @@ items:
       href: update-files.md
     - name: Support for proxy URLs
       href: dicom-proxy-url-support.md
+    - name: External metadata
+      href: external-metadata.md
 - name: API reference
   expanded: true
   items: 

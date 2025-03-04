@@ -12,6 +12,9 @@ ms.custom: UpdateFrequency2
 
 As an Azure DevTest Labs lab owner and user, you can Hibernate the virtual machines (VMs) in your lab. Hibernation allows applications and processes that were previously running in your VM resume from the state prior to hibernation. When you hibernate a machine, Azure stores the memory contents of the VM in the OS disk and then deallocates the VM. When the VM is started again from its hibernation state, the memory contents are transferred from the OS disk back into memory. Once a VM is placed in a hibernated state, you aren't charged for the compute cost of the VM, just like how you aren't charged for it in a stopped (deallocated) state. You're only charged for the storage (OS disk, data disks) and networking resources (IPs, etc.) attached to the VM.
 
+> [!IMPORTANT]
+> The **Hibernation of VMs** feature is currently in preview in Azure DevTest Labs. For more information about the preview status, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The document defines legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
+
 Hibernate is an effective cost management feature for:
 - Scenarios where the VMs don't need to run 24/7.
 - Scenarios where you don’t want to lose the state of the applications and processes on your VM when it is deallocated.
@@ -20,7 +23,7 @@ Hibernate is an effective cost management feature for:
 Azure DevTest Labs currently only supports enabling Hibernation on VM creation. To enable hibernation during VM creation, you can use the Azure portal and API. Hibernation can only be triggered from the API and the Azure portal and not directly from the VM.
 
 > [!NOTE]
-> Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation. To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](https://learn.microsoft.com/azure/virtual-machines/hibernate-resume)
+> Please note that Hibernation support is limited to certain VM sizes and OS versions. Make sure you have a supported configuration before using hibernation. To learn more about Hibernation in general, its supported configurations in Azure, and other limitations, please visit [Hibernation for Azure Virtual Machines](/azure/virtual-machines/hibernate-resume)
 
 This article explains how to Hibernate VMs in DevTest Labs.
 
@@ -52,7 +55,7 @@ You need at least [user](devtest-lab-add-devtest-user.md#devtest-labs-user) acce
    - **Password**: If you don't choose to use a secret, enter a VM password between 8 and 123 characters long.
    - **Save as default password**: Select this checkbox to save the password in the Key Vault associated with the lab.
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select different sizes.
-   - **Hibernation**: Select **Enabled** to enable hibernation for this virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
+   - **Allow hibernation**: Select this option to enable hibernation for the virtual machine. If you enable Hibernation, you also must select **Public IP** in the Advanced settings as Private and Shared IP are currently not supported if Hibernation is enabled.
    - **OS disk type**: Keep the default value for the base, or select a different option from the dropdown list.
    - **Artifacts**: This field shows the number of artifacts already configured for this VM base. Optionally, select **Add or Remove Artifacts** to select and configure artifacts to add to the VM.
 

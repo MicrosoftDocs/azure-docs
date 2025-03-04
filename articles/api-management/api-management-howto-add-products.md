@@ -16,6 +16,8 @@ zone_pivot_groups: api-management-howto-add-products
 
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
 
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+
 :::zone pivot="interactive"
 
 In this tutorial, you learn how to:
@@ -53,7 +55,7 @@ In this tutorial, you learn how to:
     | State                    | Select **Published** if you want to publish the product to the developer portal. Before the APIs in a product can be discovered by developers, the product must be published. By default, new products are unpublished.                                                                                      |
     | Requires subscription    | Select if a user is required to subscribe to use the product (the product is *protected*) and a subscription key must be used to access the product's APIs. If a subscription isn't required (the product is *open*), a subscription key isn't required to access the product's APIs. See [Access to product APIs](#access-to-product-apis) later in this article.                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
-    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
+    | Subscription count limit | Optionally limit the count of multiple simultaneous subscriptions. Minimum value: 1                                                                                                                                                                                                                                |
     | Legal terms              | You can include the terms of use for the product which subscribers must accept in order to use the product.                                                                                                                                                                                                             |
     | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. <br/><br/>If the product is open (doesn't require a subscription), you can only add an API that isn't associated with another open product.                |
 

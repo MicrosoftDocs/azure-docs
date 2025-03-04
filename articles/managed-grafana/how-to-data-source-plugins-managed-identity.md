@@ -55,7 +55,7 @@ Within the Standard service tier, users who have subscribed to the Grafana Enter
 * [AppDynamics](https://grafana.com/grafana/plugins/dlopes7-appdynamics-datasource)
 * [Azure DevOps](https://grafana.com/grafana/plugins/grafana-azuredevops-datasource)
 * [Databricks](https://grafana.com/grafana/plugins/grafana-databricks-datasource)
-* [DataDog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
+* [Datadog](https://grafana.com/grafana/plugins/grafana-datadog-datasource)
 * [Dynatrace](https://grafana.com/grafana/plugins/grafana-dynatrace-datasource)
 * [GitLab](https://grafana.com/grafana/plugins/grafana-gitlab-datasource)
 * [Honeycomb](https://grafana.com/grafana/plugins/grafana-honeycomb-datasource)
@@ -87,7 +87,7 @@ To add a data source to Azure Managed Grafana, follow the steps below.
 ### [Portal](#tab/azure-portal)
 
 1. [Core Grafana plugins](https://grafana.com/docs/grafana/latest/datasources/#built-in-core-data-sources) are installed in your workspace by default. If you want to use another type of data source, you first need to install its plugin by following the instructions available at [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
-1. Add the data source to your instance.
+1. Add the data source to your workspace.
 
    1. Open your Azure Managed Grafana workspace in the Azure portal and go to **Overview** > **Endpoint** to open the Grafana UI.
    1. In the Grafana UI, deploy the menu on the left and select **Connections** > **Data sources** > **Add new data source**.
@@ -103,7 +103,7 @@ For example, to add an Azure SQL data source, run:
 
 ```azurecli
 
-az grafana data-source create --name <instance-name> --definition '{
+az grafana data-source create --name <workspace-name> --definition '{
   "access": "proxy",
   "database": "testdb",
   "jsonData": {
@@ -123,7 +123,7 @@ az grafana data-source create --name <instance-name> --definition '{
 ---
 
 > [!TIP]
-> If you can't connect to a data source, you may need to [modify access permissions](how-to-permissions.md) to allow access from your Azure Managed Grafana instance.
+> If you can't connect to a data source, you may need to [modify access permissions](how-to-permissions.md) to allow access from your Azure Managed Grafana workspace.
 
 ## Configure a data source
 
@@ -131,7 +131,7 @@ The content below shows how to configure some of the most popular data sources i
 
 ### Azure Monitor
 
-The Azure Monitor data source is automatically added to all new Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana instance or in the Azure CLI.
+The Azure Monitor data source is automatically added to all new Azure Managed Grafana resources. To review or modify its configuration, follow the steps below in the Grafana portal of your Azure Managed Grafana workspace or in the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -139,8 +139,8 @@ The Azure Monitor data source is automatically added to all new Managed Grafana 
 
    :::image type="content" source="media/data-sources/configuration.png" alt-text="Screenshot of the Add data sources page.":::
 
-1. Azure Monitor is listed as a built-in data source for your Azure Managed Grafana instance. Select **Azure Monitor**.
-1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list, or alternatively enter your **App Registration** details. When you select **Managed identity**, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you [configured in your Azure Managed Grafana workspace](how-to-authentication-permissions.md). Using a managed identity lets you assign permissions for your Azure Managed Grafana instance to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
+1. Azure Monitor is listed as a built-in data source for your Azure Managed Grafana workspace. Select **Azure Monitor**.
+1. In the **Settings** tab, authenticate through **Managed Identity** and select your subscription from the dropdown list, or alternatively enter your **App Registration** details. When you select **Managed identity**, the authentication and authorization are made through the system-assigned or the user-assigned managed identity you [configured in your Azure Managed Grafana workspace](how-to-authentication-permissions.md). Using a managed identity lets you assign permissions for your Azure Managed Grafana workspace to access Azure Monitor data without having to manually manage service principals in Microsoft Entra ID.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -150,7 +150,7 @@ For example:
 
 ```azurecli-interactive
 
-az grafana data-source update --data-source 'Azure Monitor' --name <instance-name> --definition '{ 
+az grafana data-source update --data-source 'Azure Monitor' --name <workspace-name> --definition '{ 
   "datasource": {
     "access": "proxy",
     "basicAuth": false,
@@ -197,17 +197,17 @@ This section describes the steps for removing a data source.
 
 Remove a data source in the Azure portal:
 
-1. Open your Azure Managed Grafana instance in the Azure portal.
+1. Open your Azure Managed Grafana workspace in the Azure portal.
 1. Select **Overview** from the left menu, then open the **Endpoint** URL.
 1. In the Grafana portal, go to **Connections** > **Your connections**
 1. Select the data source you want to remove and select **Delete**.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az grafana data-source delete](/cli/azure/grafana/data-source#az-grafana-data-source-delete) command to remove an Azure Managed Grafana data source using the Azure CLI. In the sample below, replace the placeholders `<instance-name>` and `<id>` with the name of the Azure Managed Grafana workspace and the name, ID or UID of the data source.
+Run the [az grafana data-source delete](/cli/azure/grafana/data-source#az-grafana-data-source-delete) command to remove an Azure Managed Grafana data source using the Azure CLI. In the sample below, replace the placeholders `<workspace-name>` and `<id>` with the name of the Azure Managed Grafana workspace and the name, ID or UID of the data source.
 
 ```azurecli
-az grafana data-source delete --name <instance-name> --data-source <id>
+az grafana data-source delete --name <workspace-name> --data-source <id>
 ```
 
 ---

@@ -262,7 +262,7 @@ The deployment template includes:
 
 ### Set the IoT Edge runtime version
 
-Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
+Currently, the latest stable runtime version is 1.5. Update the IoT Edge runtime version to the latest stable release or the version that you want to target for your devices:
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -272,17 +272,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 
 1. Use the dropdown menu to choose the runtime version that your IoT Edge devices are running. Then select **OK** to save your changes. If you didn't make any changes, select **Cancel**.
 
-    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open the `deployment.debug.template.json` deployment manifest file. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
        "edgeAgent": {
         //...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.4"
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.5"
         //...
        "edgeHub": {
        //...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
        //...
     ```
 
@@ -293,17 +293,17 @@ Currently, the latest stable runtime version is 1.4. Update the IoT Edge runtime
 ::: zone pivot="iotedge-dev-cli"
 
 1. Open the `deployment.debug.template.json` deployment manifest file.
-1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
         //...
         "edgeHub": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
         //...
     ```
 

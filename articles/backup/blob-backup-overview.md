@@ -47,6 +47,10 @@ For information about the limitations of the current solution, see the [support 
 
 ## Protection
 
+>[!Important]
+>The new backup policy only supports Operational backup along with Vaulted backup. You can't create policy for Operational backup only. Vaulted backup is selected by default in the new policy and can't be turned off. Existing backups and backup policies remain unchanged.
+ 
+
 **Choose a backup tier for protection**:
 
 # [Operational backup](#tab/operational-backup)
@@ -66,8 +70,7 @@ When you configure backup for a storage account and assign a backup policy with 
 To allow Backup to enable these properties on the storage accounts to be protected, the Backup vault must be granted the **Storage Account Backup Contributor** role on the respective storage accounts.
 
 >[!NOTE]
->- The Operational backup can only be enabled along with vaulted backup. 
->- Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
+>Operational backup supports operations on block blobs only and operations on containers can’t be restored. If you delete a container from the storage account by calling the **Delete Container** operation, that container can’t be restored with a restore operation. It’s suggested you enable soft delete to enhance data protection and recovery.
 
 # [Vaulted backup](#tab/vaulted-backup)
 
@@ -81,7 +84,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single blade of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Azure Business Continuity Center to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Azure Business Continuity Center is your single pane of glass for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
 
 ---
 

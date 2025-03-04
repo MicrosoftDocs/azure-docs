@@ -3,19 +3,16 @@
 - name: Overview
   items:
   - name: About Peering Service
-    href: about.md  
+    href: about.md
+  expanded: true
 - name: Concepts
   items:
-  - name: Peering Service FAQ
+  - name: FAQ
     href: faq.yml
   - name: Locations and partners
     href: location-partners.md
   - name: Peering Service connection
     href: connection.md
-  - name: Security
-    items:
-      - name: Security baseline
-        href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
   - name: Peering service prefix requirements
     href: peering-service-prefix-requirements.md
 - name: How-to-guides
@@ -32,6 +29,10 @@
     href: connection-telemetry.md
   - name: Azure Peering Service customer walkthrough
     href: customer-walkthrough.md
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
 - name: References
   items:
   - name: Azure PowerShell
@@ -40,10 +41,8 @@
     href: /cli/azure/peering
 - name: Resources
   items:
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback

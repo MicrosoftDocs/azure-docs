@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 01/10/2025
+ms.date: 03/03/2025
 ms.custom: references_regions, linux-related-content
 ms.reviewer: nikhilsarode
 ms.service: azure-backup
@@ -60,7 +60,7 @@ The following table summarizes the supported operating systems when you're backi
 
 **Scenario** | **OS support**
 --- | ---
-Back up with the Azure VM agent extension for application-consistent backup | - Windows 11 client (64 bit only) <br/><br/> - Windows 10 client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter, Datacenter Core, and Standard)   <br/><br/>- Windows Server 2019 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2016 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter and Standard) <br/><br/> - Windows Server 2012 (Datacenter and Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only) <br><br> Note that *32 bit Operating Systems* aren't supported.
+Back up with the Azure VM agent extension for application-consistent backup | - Windows 11 client (64 bit only) <br/><br/> - Windows 10 client (64 bit only) <br/><br/>- Windows Server 2025 (Datacenter, Datacenter Core, and Standard)  <br/><br/>- Windows Server 2022 (Datacenter, Datacenter Core, and Standard)   <br/><br/>- Windows Server 2019 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2016 (Datacenter, Datacenter Core, and Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter and Standard) <br/><br/> - Windows Server 2012 (Datacenter and Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only) <br><br> Note that *32 bit Operating Systems* aren't supported.
 [Back up Azure VM directly using agentless crash-consistent backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md) | Agentless crash-consistent backups are operating system agnostic. 
 Back up with the MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems
 Back up with DPM or MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix)

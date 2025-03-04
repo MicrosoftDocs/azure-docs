@@ -456,7 +456,7 @@ mosquitto_sub -q 1 -t "telemetry/temperature" -d -V mqttv5 \
 --cafile contoso_root_ca.crt
 ```
 
-Now `heater` starts to receive messages because it's authorized with its [username](./howto-configure-authorization.md#using-username-for-authorization).
+Now `heater` starts to receive messages because it's authorized with its [username](./howto-configure-authorization.md#use-a-username-for-authorization).
 
 In *another* separate terminal session, publish messages to `health/heartbeat` with `lightbulb`:
 

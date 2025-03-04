@@ -1,9 +1,10 @@
 ---
-title: "Quickstart - Set request rate limits"
+title: "Quickstart - Set Request Rate Limits"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to set request rate limits by using Spring Cloud Gateway on the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/28/2024
@@ -37,7 +38,7 @@ Spring Cloud Gateway includes route filters from the Open Source version and sev
 When defining a route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
 
 - The number of requests accepted during the window.
-- The duration of the window. This value is in milliseconds by default, but you can specify a suffix of *s*, *m*, or *h* to indicate that the value is in seconds, minutes, or hours.
+- The duration of the window. This value is in milliseconds by default, but you can specify a suffix of `s`, `m`, or `h` to indicate that the value is in seconds, minutes, or hours.
 - (Optional) A user partition key. You can also apply rate limiting per user. That is, different users can have their own throughput allowed based on an identifier found in the request. Indicate whether the key is in a JWT claim or HTTP header with `claim` or `header` syntax.
 - (Optional) You can rate limit by IP addresses, but not in combination with rate limiting per user.
 
