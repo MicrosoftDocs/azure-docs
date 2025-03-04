@@ -31,7 +31,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
     
     :::image type="content" source="media/includes/instance-details.png" alt-text="Screenshot of the Overview page for an Azure Digital Twins instance in the Azure portal. The name and resource group are highlighted." lightbox="media/includes/instance-details.png":::
 
-Next, follow the instructions in the following section if you intend to use the Azure CLI while following this guide.
+If you intend to use the Azure CLI while following this guide, follow the instructions in the next section.
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
@@ -116,7 +116,7 @@ The rest of this section walks through three steps for setting up an endpoint wi
 
 ### 1. Enable managed identity for the instance
 
-Use the tabs for instructions that match your preferred experience.
+Use the following tabs for instructions that match your preferred experience.
 
 # [Portal](#tab/portal) 
 
@@ -147,7 +147,7 @@ Here are the minimum roles that your Azure Digital Twins identity needs to acces
 | Azure Service Bus | Azure Service Bus Data Sender |
 | Azure storage container | Storage Blob Data Contributor |
 
-Use the tabs to assign the role using your preferred experience.
+Use the following tabs to assign the role using your preferred experience.
 
 # [Portal](#tab/portal) 
 
@@ -245,7 +245,7 @@ To learn more about dead-lettering, see [Endpoints and event routes](concepts-ro
 
 Before setting the dead-letter location, you must have a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a [container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure account. 
 
-Provide the URI for this container when creating the endpoint. The dead-letter location is provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed dead letter SAS URI is in the format of: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`.
+When creating the endpoint, you provide the URI of this container. The dead-letter location is provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed dead letter SAS URI is in the format of: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`.
 
 To set up these storage resources in your Azure account, follow the steps in the following section. After setting up the storage resources, you can set up the endpoint connection.
 
@@ -288,9 +288,9 @@ Next, create a SAS token for your storage account that the endpoint can use to a
     The output of this command is the SAS token. Copy the SAS token value to use later.
 
     > [!NOTE]
-> This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
-> 
-> For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az-storage-account-generate-sas).
+    > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
+    > 
+    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account#az-storage-account-generate-sas).
 
 ---
 

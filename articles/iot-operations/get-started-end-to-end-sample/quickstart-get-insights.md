@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get insights from your processed data"
-description: "Quickstart: Use a Real-Time Dashboard to capture insights from the OPC UA data you sent to Event Hubs."
+description: "Quickstart: Use a real-time dashboard to capture insights from the OPC UA data you sent to Event Hubs."
 author: baanders
 ms.author: baanders
 ms.topic: quickstart
@@ -13,7 +13,7 @@ ms.date: 01/28/2025
 
 # Quickstart: Get insights from your processed data
 
-In this quickstart, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
+In this quickstart, you populate a [real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for real-time dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
 
 These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
 
@@ -21,13 +21,13 @@ These operations are the last steps in the sample end-to-end quickstart experien
 
 Before you begin this quickstart, complete the previous Azure IoT Operations quickstarts.
 
-You also need to meet the following Fabric requirements:
+You also need to have the following Fabric resources:
 * A Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-* A Fabric tenant that allows the creation of Real-Time Dashboards. Your tenant administrator can enable this setting. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+* A Fabric tenant that allows the creation of real-time dashboards. Your tenant administrator can enable this setting. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
 
 ## What problem will we solve?
 
-When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a Real-Time Dashboard.
+When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a real-time dashboard.
 
 ## Ingest data into Real-Time Intelligence
 
@@ -44,7 +44,7 @@ Add your event hub as a data source for a new eventstream. For detailed instruct
 * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
 * For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
 * For **Connection**, create a new connection with Shared Access Key authentication. The connection credential details fill automatically.
-    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the Overview page of the Azure portal.
+    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
 
@@ -79,7 +79,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Spike | bool |
     | Temperature | decimal |
     | FillWeight | decimal |
-| EnergyUse | decimal |
+    | EnergyUse | decimal |
     | Timestamp | datetime |
 
 1. After you create the *OPCUA* table, select it and use the **Query with code** button to open any sample query in a new query window for the table.
@@ -124,8 +124,8 @@ Navigate to your workspace and create a new real-time dashboard from the Real-Ti
 
 Download the sample dashboard template from this location in GitHub: [dashboard-AIOquickstart.json](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/dashboard-AIOquickstart.json).
 
-Then, follow the steps to upload the dashboard template and connect it to your data.
-1. In your Real-Time Dashboard, switch to the **Manage** tab and select **Replace with file**.
+Then, follow these steps to upload the dashboard template and connect it to your data.
+1. In your real-time dashboard, switch to the **Manage** tab and select **Replace with file**.
     :::image type="content" source="media/quickstart-get-insights/dashboard-upload-replace.png" alt-text="Screenshot of the buttons to upload a file template.":::
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
@@ -164,4 +164,4 @@ Now that you're finished with the quickstart experience, this section contains i
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.
 
-You can also delete your Microsoft Fabric workspace and all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and Real-Time Dashboard. Additionally, you might want to delete the dashboard template file that you downloaded to your computer.
+You can also delete your Microsoft Fabric workspace and all the resources within it associated with this quickstart, including the eventstream, Eventhouse, and real-time dashboard. Additionally, you might want to delete the dashboard template file that you downloaded to your computer.
