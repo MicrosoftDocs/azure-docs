@@ -39,7 +39,6 @@ For information on client library-specific guidance best practices, see the foll
 - [Node.js](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
 - [PHP](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-<!-- - [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md) -->
 
 ## Redisson (Java)
 
