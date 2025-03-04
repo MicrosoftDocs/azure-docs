@@ -37,7 +37,7 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Microsoft Antimalware extension for Windows](/azure/virtual-machines/extensions/iaas-antimalware-windows)
 - [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
-- [Application Health extension](azure/virtual-machines/extensions/health-extension)
+- [Application Health extension](/azure/virtual-machines/extensions/health-extension)
 
 You can request support for other publishers and/or extension types by opening a support request.
 
