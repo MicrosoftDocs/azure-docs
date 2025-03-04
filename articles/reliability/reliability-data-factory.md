@@ -126,7 +126,19 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
 
-If you use a [paired region](./regions-paired.md), Microsoft might automatically fail over Azure Data Factory resources to the region pair. However, this is likely to happen after a significant delay and is done on a best-effort basis, so if you require resiliency to region failures, you should follow the approach described in the next section.
+If you use a [paired region](./regions-paired.md), Microsoft might initiate a failover of Azure Data Factory resources in the affected region to the region pair. However, this is likely to happen after a significant delay and is done on a best-effort basis. To learn more, see [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md). If you require resiliency to region failures, you should follow the approach described in the next section.
+
+<!-- TODO
+
+More clarity needed on the following points:
+
+1. Under what circumstances would we trigger failover between paired regions? Do we have an estimated time? Is it dependent on Azure Storage or other services to fail over too?
+
+2. We have this statement in another doc: "IR fails over automatically to the paired region when you select Auto Resolve as the IR region" (see https://learn.microsoft.com/en-nz/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
+
+    Is this separate to the paired region failover of other Data Factory resources or part of the same thing? What's the expected RTO? Does this apply to Azure and Azure-SSIS?
+
+-->
 
 ### Alternative multi-region approaches
 
