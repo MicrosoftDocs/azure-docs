@@ -24,7 +24,7 @@ The Azure Migrate: Discovery and assessment tool supports the following types of
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](vmware/how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure Databases** | Assessments to migrate your on-premises [SQL servers to Azure SQL Database or Azure SQL Managed Instance](concepts-azure-sql-assessment-calculation.md), or on-premises MySQL database instances to Azure Database for MySQL.
 **Web apps on Azure** | Assessments to migrate your on-premises [Spring Boot apps to Azure Spring Apps](concepts-azure-spring-apps-assessment-calculation.md) or [ASP.NET/Java web apps to Azure App Service](concepts-azure-webapps-assessment-calculation.md).
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](vmware/how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](https://learn.microsoft.com/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](vmware/how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 
 ## MySQL assessments - Overview and sizing criteria
@@ -54,7 +54,7 @@ The Azure Database for MySQL assessment properties includes:
 | **Setting** | **Details**
 | --- | ---
 | **Target location**  | The Azure region to which you want to migrate. Azure Database for MySQL configuration and cost recommendations are based on the location that you specify.
-|**Target and pricing settings** | **Environment type** | The environment for the MySQL deployments to apply Azure Database for MySQL configuration and cost recommendations applicable to Production or Development/Testing.
+|**Target and pricing settings**  **Environment type** | The environment for the MySQL deployments to apply Azure Database for MySQL configuration and cost recommendations applicable to Production or Development/Testing.
 | **Licensing program**  | The Azure offer if you're enrolled. Currently, the field is Pay-as-you-go by default, which gives you retail Azure prices.
 | **Currency** | The billing currency for your account.
 | **Savings options**  | Specify the reserved capacity savings option that you want the assessment to consider to optimize your Azure compute cost. <br/><br> Azure reservations (one year or three years reserved) are a good option for the most consistently running resources. <br/><br> When you select None, the Azure compute cost is based on the Pay-as-you-go rate or based on actual usage. <br/><br> You need to select pay-as-you-go in the offer/licensing program to be able to use Reserved Instances. When you select any savings option other than None, the Discount (%) setting isn’t applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.
@@ -122,13 +122,13 @@ During the discovery process, Azure Migrate collects the MySQL instance configur
 - Total number of connections made to the MySQL instance.
 - **Read-write ratio**: Used to determine whether the workload is memory-intensive or CPU-intensive, which in turn helps decide the appropriate service tier.
 
-The assessment aggregates all the configuration and performance data and tries to find the best match across the [various Azure Database for MySQL service tiers and configurations](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-service-tiers-storage), selecting a configuration that can match or exceed the MySQL instance performance requirements, and  optimizing the cost.
+The assessment aggregates all the configuration and performance data and tries to find the best match across the [various Azure Database for MySQL service tiers and configurations](/azure/mysql/flexible-server/concepts-service-tiers-storage), selecting a configuration that can match or exceed the MySQL instance performance requirements, and  optimizing the cost.
 
 ### Storage sizing
 Azure Migrate calculates the total disk space used by the MySQL instance (including database files, temporary files, transaction logs, and the MySQL server logs) and suggests the recommended storage to provision in Azure Database for MySQL. For Burstable and General Purpose service tiers, the storage range spans from a minimum of 20 GiB to a maximum of 16 TiB, while for the Business Critical service tier, the storage support extends up to 32 TiB. In all service tiers, storage is scaled in 1 GiB increments and can be scaled up (but not down) after the server is created.
 
 ### IOPS sizing
-Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
+Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
 
 ## Confidence ratings
 
@@ -190,5 +190,5 @@ To calculate the compute, storage and IO costs for an Azure Database for MySQL c
 ## Next steps
 
  - [Learn how to run a MySQL assessment](create-mysql-assessment.md).
- - [Get started on your MySQL migration journey to Azure Database for MySQL](https://learn.microsoft.com/training/modules/choose-tool-to-migrate-data-to-azure-database-for-mysql/).
+ - [Get started on your MySQL migration journey to Azure Database for MySQL](/training/modules/choose-tool-to-migrate-data-to-azure-database-for-mysql/).
 
