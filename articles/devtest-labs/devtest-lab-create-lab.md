@@ -6,6 +6,8 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/03/2025
 ms.custom: mode-ui, UpdateFrequency2
+
+#customer intent: As a lab administrator, I want to know how to quickly set up Azure DevTest Labs by using the Azure portal.
 ---
 
 # Quickstart: Create a lab in the Azure portal
@@ -25,10 +27,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
    - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.
    - **Lab name**: Enter a name for the lab.
    - **Location**: Change the location if you want to use a different Azure region for the lab.
-   - **Artifacts storage account access**: If you have a user-assigned managed identity, you can select whether the lab uses a managed identity or a shared key to access the lab storage account.
-
-     To use a user-assigned managed identity, select it from the dropdown list. Otherwise, keep the option set to **Storage account Shared Key**.
-
+   - **Artifacts storage account access**: You can select whether the lab uses a user-assigned managed identity or a shared key to access the lab storage account. To use a user-assigned managed identity, select it from the dropdown list. Otherwise, keep the option set to **Storage account Shared Key**.
    - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments), or set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).
 
    :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the DevTest Labs creation form.":::
