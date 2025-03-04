@@ -34,9 +34,15 @@ Azure Data Factory consists of multiple infrastructure components, which have di
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-<!-- TODO idempotent actions -->
+When you use Azure Data Factory, it's important to prepare for transient faults, especially when you design pipelines and activities.
 
-In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
+### Idempotence
+
+Pipeline activities should be *idempotent*, which means that they should be able to be rerun without adverse side effects. If there's a transient fault like a network failure, or even an availability zone outage, Azure Data Factory might rerun pipeline activities.
+
+### Retry policies
+
+Retry policies enable you to configure parts of your pipeline to retry if there's a problem, like if another system has a transient fault. In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 - [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
