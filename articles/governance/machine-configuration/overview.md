@@ -164,6 +164,37 @@ Link to communicate with the machine configuration service.
 Azure Arc-enabled machines connect using the on-premises network infrastructure to reach Azure
 services and report compliance status.
 
+The following table shows the supported endpoints for Azure and Azure Arc-enabled machines:
+
+|**Geography**| **Region**| **URL** | **Storage endpoint**|
+|---| ---| ---| ---|
+|**Asia Pacific**| EastAsia </br> SoutheastAsia |
+|**Australia**| AustraliaEast </br> AustraliaSoutheast </br> AustraliaCentral </br> AustraliaCentral2 |
+|**Brazil**| BrazilSouth  </br> BrazilSouthEast |
+|**Canada**| CanadaCentral </br> CanadaEast |
+|**China**| ChinaEast2  </br> ChinaNorth2  </br> ChinaNorth3  </br>  |
+|**Europe**| NorthEurope </br> WestEurope |
+|**France**| FranceCentral </br> FranceSouth |
+|**Germany** | GermanyWestCentral </br> GermanyNorth |
+|**India**| CentralIndia </br> SouthIndia </br> WestIndia </br> JioIndiaCentral </br> JioIndiaWest </br> IndiaSouthCentral |
+|**Israel**| IsraelCentral |
+|**Italy**| ItalyNorth |
+|**Japan**| JapanEast </br> JapanWest |
+|**Korea**| KoreaCentral </br> KoreaSouth |
+|**Mexico**| MexicoCentral |
+|**Norway**| NorwayEast </br> NorwayWest |
+|**Poland**| PolandCentral |
+|**Qatar**| QatarCentral |
+|**South Africa** | SouthAfricaNorth </br> SouthAfricaWest |
+|**Spain**| SpainCentral |
+|**Sweden** | SwedenCentral </br> SwedenSouth |
+|**Switzerland**| SwitzerlandNorth </br> SwitzerlandWest |
+|**Taiwan**| TaiwanNorth |
+|**United Arab Emirates**| UAENorth|
+|**United Kingdom**| UKSouth </br> UKWest|
+|**US Gov** | USGovVirginia </br> USGovArizona </br> USGovTexas |
+|**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS </br> WestUS3 </br> |
+
 Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled virtual
 machines to communicate with the machine configuration resource provider in Azure:
 
