@@ -134,25 +134,7 @@ For tracking to work correctly, make sure that all the following conditions are 
 
    :::image type="content" source="media/monitor-track-b2b-transactions/example-x12-message-details.png" alt-text="Screenshot shows Premium integration account with B2B tracking selected, and a table with details about collected X12 messages.":::
 
-## Message properties
 
-The following tables list the properties available for each message type that B2B currently supports:
-
-### AS2 message properties
-
-| Column name | Expanded name |
-|-------------|---------------|
-| **AgreementName**| Agreement name |
-| **SenderParternerName** | Sender partner |
-| **ReceiverPartnerName** | Receiver partner |
-| **MessageStatus** | Message status |
-| **MessageDirection** | Message direction (**`send`** or **`receive`**) |
-| **MessageTime** | Message time |
-| **MessageClientTrackingId** | Message client tracking ID |
-| **MessageId** | Message ID from the message header |
-| **IsMdnExpected** | Is a Message Disposition Notification (MDN) expected (**`true`** or **`false`**) |
-| **AckStatus** | Acknowledgment status |
-| **CorrelationMessageId** | An ID that correlates the message with an MDN |
 
 For more information about the JSON schema for these properties, see [Table schemas for tracking B2B transactions](tracking-table-schemas-standard.md).
 

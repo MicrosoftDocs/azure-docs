@@ -321,13 +321,13 @@ The following table describes the attributes in a tracking schema for an X12 int
 | **`isaSegment`** | No | String | The ISA segment for the X12 message |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`isTechnicalAcknowledgmentExpected`** | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
-| *`isa09`** | No | String | X12 document interchange date |
-| *`isa10`** | No | String | X12 document interchange time |
-| *`isa11`** | No | String | X12 interchange control standards identifier |
-| *`isa12`** | No | String | X12 interchange control version number |
-| *`isa14`** | No | String | X12 acknowledgment is requested |
-| *`isa15`** | No | String | Indicator for test or production |
-| *`isa16`** | No | String | Element separator |
+| **`isa09`** | No | String | X12 document interchange date |
+| **`isa10`** | No | String | X12 document interchange time |
+| **`isa11`** | No | String | X12 interchange control standards identifier |
+| **`isa12`** | No | String | X12 interchange control version number |
+| **`isa14`** | No | String | X12 acknowledgment is requested |
+| **`isa15`** | No | String | Indicator for test or production |
+| **`isa16`** | No | String | Element separator |
 
 <a name="x12-interchange-acknowledgment"></a>
 
@@ -437,7 +437,7 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | **`isFunctionalAcknowledgmentExpected`** | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`isTechnicalAcknowledgmentExpected`** | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
-| **`gs01`** | No | String | Functional identifier code |
+| **`gs01`** | No | String | Functional group identifier code |
 | **`gs02`** | No | String | Application sender code |
 | **`gs03`** | No | String | Application receiver code |
 | **`gs04`** | No | String | Functional group date |
@@ -494,7 +494,7 @@ The following table describes the attributes in a tracking schema for an X12 fun
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
 | **`functionalGroupControlNumber`** | No | String | Functional group control number for the technical acknowledgment. This value populates for the sender when a technical acknowledgment is received from partners. |
 | **`gsSegment`** | No | String | Same as **`functionalGrouControlNumber`**, but populates only in specific cases |
-| **`interchangeControlNumber`** | No | String | Interchange control number, which populates for the sender when a technical acknowledgment is received from partners |
+| **`interchangeControlNumber`** | No | String | Interchange control number. This value populates for the sender when a technical acknowledgment is received from partners. |
 | **`isaSegment`** | No | String | Same as **interchangeControlNumber**, but populates only in specific cases |
 | **`isFunctionalAcknowledgmentExpected`** | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |

@@ -14,9 +14,6 @@ ms.date: 03/07/2025
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your Standard workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, this guide helps you better understand the tables that store B2B tracking data for your transactions.
 
-> [!NOTE]
-> ### WorkflowRunOperationInfo type Uses a specific JSON schema
-
 <a name="as2-table"></a>
 
 ## AS2 tracking table - AS2TrackRecords
@@ -29,14 +26,14 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
    IntegrationAccountResourceGroup: string, // Resource group for the integration account.
    IntegrationAccountName: string, // Name for the integration account.
    IntegrationAccountId: string, // ID for the integration account.
-   WorkflowRunOperationInfo: dynamic, // Operation information for the workflow run.
+   WorkflowRunOperationInfo: dynamic, // Operation information for the workflow run. This dynamic type uses a specific JSON schema.
    ClientRequestId: string, // Client request ID.
    EventTime: datetime, // Time of the event.
    Error: dynamic, // Error, if any.
    RecordType: string, // Type of tracking record.
    Direction: string, // Message flow direction, which is either 'send' or 'receive'.
    IsMessageFailed: bool, // Whether the AS2 message failed.
-   MessageProperties: dynamic, // Message properties.
+   MessageProperties: dynamic, // Message properties. This dynamic type uses different schema based on the tracking record type.
    AdditionalProperties: dynamic, // Additional properties.
    TrackingId: string, // Custom tracking ID, if any.
    AgreementName: string, // Name for the AS2 agreement that resolves the messages.
@@ -51,9 +48,22 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
 )
 ```
 
-### AS2 tracking record - MessageProperties type
+> [!NOTE]
+>
+> The **WorkflowRunOperationInfo** table column has a **dynamic** type structure, 
+> which uses a specific JSON schema. The **MessageProperties** table column also 
+> has a **dynamic** type structure, but uses different JSON schema, based on the 
+> tracking record type. For more information, see the following sections:
+>
+> - [WorkflowRunOperationInfo schema](#workflow-run-operation-schema)
+> - [AS2 tracking record - MessageProperties schemas](#as2-message-properties)
+> - [X12 tracking record - MessageProperties schemas](#x12-message-properties)
 
-The **MessageProperties** column has a **dynamic** type structure, which uses a different JSON schema based on the tracking record type.
+<a name="as2-message-properties"></a>
+
+### AS2 tracking record - MessageProperties schemas
+
+The **MessageProperties** table column has a **dynamic** type structure that uses different JSON schema, based on the tracking record type.
 
 #### AS2 message - MessageProperties schema
 
@@ -167,9 +177,11 @@ The Azure Database Explorer table named **EdiTrackRecords** stores all X12 track
 )
 ```
 
-### X12 tracking record - MessageProperties type
+<a name="x12-message-properties"></a>
 
-The **MessageProperties** column has a **dynamic** type structure, which uses the following corresponding JSON schema, based on the tracking record type.
+### X12 tracking record - MessageProperties schemas
+
+The **MessageProperties** table column has a **dynamic** type structure that uses different JSON schema, based on the tracking record type.
 
 #### X12 transaction set - MessageProperties schema
 
@@ -229,8 +241,8 @@ The **MessageProperties** column has a **dynamic** type structure, which uses th
 | **respondingFunctionalGroupId** | String | Control number for the responding functional group |
 | **respondingTransactionSetId** | String | ID for the responding functional group that maps to AK101 in the acknowledgment |
 | **statusCode** | Boolean | Acknowledgment status code for the transaction set |
-| **processingStatus** | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
-| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
+| **processingStatus** | Enum | Acknowledgment processing status with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
+| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**InterchangeORFunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
 | **isMessageFailed** | String | Whether the X12 message failed |
 
 #### X12 interchange - MessageProperties schema
@@ -254,15 +266,204 @@ The **MessageProperties** column has a **dynamic** type structure, which uses th
 | Property | Type | Description |
 |----------|------|-------------|
 | **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
-| **interchangeControlNumber** | String | Interchange control number |
-| **transactionSetControlNumber** | String | Control number for the transaction set |
-| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
-| **messageType** | String | Transaction set or document type |
+| **interchangeControlNumber** | String | Control number for the interchange |
+| **isTechnicalAcknowledgmentExpected** | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
 | **isMessageFailed** | Boolean | Whether the X12 message failed |
+| **isa09** | String | X12 document interchange date |
+| **isa10** | String | X12 document interchange time |
+| **isa11** | String | X12 interchange control standards identifier |
+| **isa12** | String | X12 interchange control version number |
+| **isa14** | String | X12 acknowledgment is requested |
+| **isa15** | String | Indicator for test or production |
+| **isa16** | String | Element separator |
+
+#### X12 interchange acknowledgment - MessageProperties schema
+
+```json
+{
+   "direction": "",
+   "interchangeControlNumber": "",
+   "respondingInterchangeControlNumber": "",
+   "isMessageFailed": "",
+   "statusCode": "",
+   "processingStatus": "",
+   "ta102": "",
+   "ta103": "",
+   "ta105": ""
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
+| **interchangeControlNumber** | String | Interchange control number for the technical acknowledgment that is received from partners |
+| **isMessageFailed** | Boolean | Whether the X12 message failed |
+| **statusCode** | Boolean | Interchange acknowledgment status code with these permitted values: **`Accepted`**, **`Rejected`**, and **`AcceptedWithErrors`** |
+| **processingStatus** | Enum | Acknowledgment processing status with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
+| **ta102** | String | Interchange date |
+| **ta103** | String | Interchange time |
+| **ta103** | String | Interchange note code |
+
+#### X12 functional group - MessageProperties schema
+
+```json
+{
+   "direction": "",
+   "interchangeControlNumber": "",
+   "functionalGroupControlNumber": "",
+   "isTechnicalAcknowledgmentExpected": "",
+   "isFunctionalAcknowledgmentExpected": "",
+   "isMessageFailed": "",
+   "gs01": "",
+   "gs02": "",
+   "gs03": "",
+   "gs04": "",
+   "gs05": "",
+   "gs07": "",
+   "gs08": ""
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
+| **interchangeControlNumber** | String | Control number for the interchange |
+| **functionalGroupControlNumber** | String | Control number for the functional group |
 | **isTechnicalAcknowledgmentExpected** | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
 | **isFunctionalAcknowledgmentExpected** | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
-| **needAk2LoopForValidMessages** | Boolean | Whether the AK2 loop is required for a valid message |
-| **segmentsCount** | Integer | Number of segments in the X12 transaction set |
+| **isMessageFailed** | Boolean | Whether the X12 message failed |
+| **gs01** | String | Functional group identifier code |
+| **gs02** | String | Application sender code |
+| **gs03** | String | Application receiver code |
+| **gs04** | String | Functional group date |
+| **gs05** | String | Functional group time |
+| **gs07** | String | Responsible agency code |
+| **gs08** | String | Identifier code for the version, release, or industry |
+
+#### X12 functional group acknowledgment - MessageProperties schema
+
+```json
+{
+   "direction": "",
+   "interchangeControlNumber": "",
+   "functionalGroupControlNumber": "",
+   "respondingFunctionalGroupControlNumber": "",
+   "respondingFunctionalGroupId": "",
+   "isMessageFailed": "",
+   "statusCode": "",
+   "processingStatus": "",
+   "ak903": "",
+   "ak904": "",
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
+| **interchangeControlNumber** | String | Control number for the interchange. This value populates for the sender when a technical acknowledgment is received from partners. |
+| **functionalGroupControlNumber** | String | Control number for the functional group |
+| **respondingFunctionalGroupControlNumber** | String | Control number for the original functional group |
+| **respondingFunctionalGroupId** | String | Maps to AK101 in the acknowledgment functional group ID |
+| **statusCode** | Enum | Acknowledgment status code with these permitted values: **`Accepted`**, **`Rejected`**, and **`AcceptedWithErrors`** |
+| **processingStatus** | String | Acknowledgment processing status with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
+| **ak903** | String | Number of received transaction sets |
+| **ak903** | String | Number of accepted transaction sets in the identified functional group |
+
+## WorkflowRunOperationInfo schema
+
+The **WorkflowRunOperationInfo** table column in the **AS2TrackRecords** table and **EdiTrackRecords** table captures information about the Standard logic app workflow run. This column has a **dynamic** type structure that uses the following JSON schema:
+
+```json
+{
+   "title": "WorkflowRunOperationInfo",
+   "type": "object",
+   "properties": {
+      "Workflow": {
+         "type": "object",
+         "properties": {
+            "SystemId": {
+               "type": "string",
+               "description": "The workflow system ID."
+            },
+            "SubscriptionId": {
+               "type": "string",
+               "description": "The subscription ID of the workflow."
+            },
+            "ResourceGroup": {
+               "type": "string",
+               "description": "The resource group name of the workflow."
+            },
+            "LogicAppName": {
+               "type": "string",
+               "description": "The logic app name of the workflow."
+            },
+            "Name": {
+               "type": "string",
+               "description": "The name of the workflow."
+            },
+            "Version": {
+               "type": "string",
+               "description": "The version of the workflow."
+            }
+         }
+      },
+      "RunInstance": {
+         "type": "object",
+         "properties": {
+            "RunId": {
+               "type": "string",
+               "description": "The logic app run id."
+            },
+            "TrackingId": {
+               "type": "string",
+               "description": "The tracking id of the run."
+            },
+            "ClientTrackingId": {
+               "type": "string",
+               "description": "The client tracking id of the run."
+            }
+         }
+      },
+      "Operation": {
+         "type": "object",
+         "properties": {
+            "OperationName": {
+               "type": "string",
+               "description": "The logic app operation name."
+            },
+            "RepeatItemScopeName": {
+               "type": "string",
+               "description": "The repeat item scope name."
+            },
+            "RepeatItemIndex": {
+            "type": "integer",
+            "description": "The repeat item index."
+            },
+            "RepeatItemBatchIndex": {
+               "type": "integer",
+               "description": "The index of the repeat item batch."
+            },
+            "TrackingId": {
+               "type": "string",
+               "description": "The tracking id of the logic app operation."
+            },
+            "CorrelationId": {
+               "type": "string",
+               "description": "The correlation id of the logic app operation."
+            },
+            "ClientRequestId": {
+               "type": "string",
+               "description": "The client request id of the logic app operation."
+            },
+            "OperationTrackingId": {
+               "type": "string",
+               "description": "The operation tracking id of the logic app operation."
+            }
+         }
+      }
+   }
+}
+```
 
 ## Related content
 
