@@ -127,7 +127,10 @@ sections:
           
           How to configure this setting:
           
-          * We recommend changing this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method in `global.asax.cs`. For example:
+          * We recommend changing this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method. 
+          
+          For example, in NET Framework, you set it in `Global.asax.cs` in the `Application_Start` method:
+              
           
               ```csharp
               private readonly int minThreads = 200;
@@ -140,7 +143,7 @@ sections:
                   ThreadPool.SetMinThreads(minThreads, minThreads);
               }
               ```
-              If you ae using dotnet Core, you would set it in `Program.cs`, just before the call to WebApplication.CreateBuilder():
+            If you ae using .NET Core, you would set it in `Program.cs`, just before the call to `WebApplication.CreateBuilder()`:
               
               ```csharp
               private readonly int minThreads = 200
