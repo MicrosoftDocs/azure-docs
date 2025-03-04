@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for Azure Digital Twins - developer interfaces for managing instance
+description: Include file for Azure Digital Twins - developer interfaces for managing instance
 ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 02/27/2025
@@ -15,4 +15,3 @@ Other developer interfaces that can be used to complete these operations include
 * [Azure Digital Twins Explorer](../articles/digital-twins/concepts-azure-digital-twins-explorer.md)
 * [REST API](/rest/api/azure-digitaltwins/) calls
 * [Azure CLI](/cli/azure/dt) commands
-
