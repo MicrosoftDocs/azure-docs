@@ -191,7 +191,7 @@ The **MessageProperties** column has a **dynamic** type structure, which uses a 
 
 | Property | Type | Description |
 |----------|------|-------------|
-| **direction** | String | Message flow direction (**`send`** or **`receive`**) |
+| **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **interchangeControlNumber** | String | Interchange control number for the functional acknowledgment |
 | **functionalGroupControlNumber** | String | Functional group control number for the functional acknowledgment |
 | **transactionSetControlNumber** | String | Control number for the transaction set |
@@ -210,16 +210,28 @@ The **MessageProperties** column has a **dynamic** type structure, which uses a 
    "direction": "",
    "interchangeControlNumber": "",
    "functionalGroupControlNumber": "",
-   "transactionSetControlNumber": "",
+   "respondingFunctionalGroupControlNumber": "",
+   "respondingFunctionalGroupId": "",
+   "respondingTransactionSetId": "",
+   "statusCode": "",
+   "processingStatus": "",
    "correlationMessageId": "",
-   "messageType": "",
-   "isMessageFailed": "",
-   "isTechnicalAcknowledgmentExpected": "",
-   "isFunctionalAcknowledgmentExpected": "",
-   "needAk2LoopForValidMessages": "",
-   "segmentsCount": ""
+   "isMessageFailed": ""
 }
 ```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| **direction** | String | Message flow direction (**`send`** or **`receive`**) |
+| **interchangeControlNumber** | String | Interchange control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
+| **functionalGroupControlNumber** | String | Functional group control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
+| **respondingFunctionalGroupControlNumber** | String | Control number for the responding functional group |
+| **respondingFunctionalGroupId** | String | Control number for the responding functional group |
+| **respondingTransactionSetId** | String | ID for the responding functional group that maps to AK101 in the acknowledgment |
+| **statusCode** | Boolean | Acknowledgment status code for the transaction set |
+| **processingStatus** | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
+| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
+| **isMessageFailed** | String | Whether the X12 message failed |
 
 
 
