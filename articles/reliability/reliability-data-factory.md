@@ -14,21 +14,23 @@ ms.date: 03/04/2025
 
 This article describes reliability support in [Azure Data Factory](../data-factory/introduction.md), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
+Reliability is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a reliable solution that meets your needs.
 
 Azure Data Factory helps you to create flexible and powerful data pipelines by using a fully managed, serverless data integration service. When you plan for resiliency, consider not only the reliability of the data factory, but also related resources that you depend on. Evaluate any [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems, and ensure those resources meet your reliabillity requirements.
 
 ## Reliability architecture overview
 
-Azure Data Factory consists of multiple infrastructure components, which have different types of support for infrastructure resiliency:
+Azure Data Factory consists of multiple infrastructure components. Each component supports infrastructure reliability in a different way. 
 
-- The core Azure Data Factory service, which manages pipeline triggers, coordinates pipeline execution, and manages metadata about each component in the data factory. The core service is managed by Microsoft.
+The components of Azure Data Factory are:
 
-- [Integration runtimes](../data-factory/concepts-integration-runtime.md#integration-runtime-types), which execute certain activities within a pipeline. There are different types of integration runtimes:
+- **Core Azure Data Factory service**, which manages pipeline triggers and coordinates pipeline execution. The core service also manages metadata about each component in the data factory. The core service is managed by Microsoft.
 
-    - Microsoft-managed integration runtimes, including the Azure integration runtime and the Azure-SSIS integration runtime. Microsoft manages the components that make up these runtimes. In some situations, you configure settings that affect the resiliency of your integration runtimes.
+- **[Integration runtimes](../data-factory/concepts-integration-runtime.md#integration-runtime-types)**, which execute certain activities within a pipeline. There are different types of integration runtimes:
+
+    - *Microsoft-managed integration runtimes*, including the Azure integration runtime and the Azure-SSIS integration runtime. Microsoft manages the components that make up these runtimes. In some situations, you configure settings that affect the resiliency of your integration runtimes.
     
-    - Self-hosted integration runtimes. Microsoft provides software that you can run on your own compute infrastructure to execute some parts of your Azure Data Factory pipelines. You're responsible for deploying and managing compute resources, and for the resiliency of those compute resources.
+    - *Self-hosted integration runtimes*. Microsoft provides software that you can run on your own compute infrastructure to execute some parts of your Azure Data Factory pipelines. You're responsible for deploying and managing compute resources, and for the resiliency of those compute resources.
 
 ## Transient faults
 
@@ -44,7 +46,7 @@ Pipeline activities should be *idempotent*, which means that they should be able
 
 ### Retry policies
 
-Retry policies enable you to configure parts of your pipeline to retry if there's a problem, like if a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
+With, retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 - [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
@@ -67,9 +69,9 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 **Integration runtimes:** Zone redundancy support depends on the type of integration runtime you use:
 
-- The Azure integration runtime also supports zone redundancy, and this capability is managed by Microsoft.
-- When you use the Azure-SSIS IR, you need to deploy at least two nodes, which will then be allocated into different availability zones. <!-- TODO if you deploy three instances are they spread across three zones? -->
-- When you use a self-hosted integration runtime, you're responsible for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
+- *Azure integration runtime* supports zone redundancy, and this capability is managed by Microsoft.
+- *Azure-SSIS IR* requires that you deploy at least two nodes, which are allocated into different availability zones. <!-- TODO if you deploy three instances are they spread across three zones? -->
+- *Self-hosted integration runtime* gives you the responsibility for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
 
 ### Cost
 
