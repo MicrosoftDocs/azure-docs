@@ -499,8 +499,8 @@ items:
           href: enable-enhanced-telemetry-standard-workflows.md
         - name: Monitor and track B2B transactions
           href: monitor-track-b2b-transactions-standard.md
-        - name: Table schemas for tracking B2B transactions
-          href: tracking-table-schemas-standard.md
+        - name: Tracking schemas for B2B transactions
+          href: tracking-schemas-standard.md
   - name: Reliability
     items:
     - name: Enable zone redundancy

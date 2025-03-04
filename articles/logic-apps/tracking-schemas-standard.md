@@ -51,11 +51,11 @@ The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 track
 )
 ```
 
-### AS2 MessageProperties type
+### AS2 tracking record - MessageProperties type
 
 The **MessageProperties** column has a **dynamic** type structure, which uses a different JSON schema based on the tracking record type.
 
-#### AS2 message tracking record - MessageProperties schema
+#### AS2 message - MessageProperties schema
 
 ```json
 {
@@ -93,7 +93,7 @@ The **MessageProperties** column has a **dynamic** type structure, which uses a 
 | **isMdnExpected** | Boolean | Is the Message Disposition Notification (MDN) expected |
 | **mdnType** | Enum | Allowed values: **`NotConfigured`**, **`Sync`**, and **`Async`** |
 
-#### AS2 MDN tracking record - MessageProperties schema
+#### AS2 MDN - MessageProperties schema
 
 ```json
 {
@@ -157,8 +157,8 @@ The Azure Database Explorer table named **EdiTrackRecords** stores all X12 track
    ReceiverQualifier: string, // Qualifier for the partner X12 message receiver.
    ReceiverIdentifier: string, // Identiifer for the partner X12 message receiver.
    TransactionSetControlNumber: string, // Control number for the transaction set.
-   FunctionalGroupControlNumber: string, // Functional group control number.
-   InterchangeControlNumber: string, // Interchange control number.
+   FunctionalGroupControlNumber: string, // Control number for the functional group.
+   InterchangeControlNumber: string, // Control number for the interchange.
    MessageType: string, // Transaction set or document type.
    RespondingTransactionSetControlNumber: string, // Control number for the responding transaction set, in case of acknowledgment.
    RespondingFunctionalGroupControlNumber: string, // Control number for the responding functional group, in case of acknowledgment.
@@ -167,11 +167,11 @@ The Azure Database Explorer table named **EdiTrackRecords** stores all X12 track
 )
 ```
 
-### X12 MessageProperties type
+### X12 tracking record - MessageProperties type
 
-The **MessageProperties** column has a **dynamic** type structure, which uses a different JSON schema based on the tracking record type.
+The **MessageProperties** column has a **dynamic** type structure, which uses the following corresponding JSON schema, based on the tracking record type.
 
-#### X12 transaction set tracking record - MessageProperties schema
+#### X12 transaction set - MessageProperties schema
 
 ```json
 {
@@ -192,10 +192,10 @@ The **MessageProperties** column has a **dynamic** type structure, which uses a 
 | Property | Type | Description |
 |----------|------|-------------|
 | **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
-| **interchangeControlNumber** | String | Interchange control number for the functional acknowledgment |
-| **functionalGroupControlNumber** | String | Functional group control number for the functional acknowledgment |
+| **interchangeControlNumber** | String | Control number for the interchange |
+| **functionalGroupControlNumber** | String | Control number for the functional group |
 | **transactionSetControlNumber** | String | Control number for the transaction set |
-| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
+| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**InterchangeORFunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
 | **messageType** | String | Transaction set or document type |
 | **isMessageFailed** | Boolean | Whether the X12 message failed |
 | **isTechnicalAcknowledgmentExpected** | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
@@ -233,7 +233,36 @@ The **MessageProperties** column has a **dynamic** type structure, which uses a 
 | **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
 | **isMessageFailed** | String | Whether the X12 message failed |
 
+#### X12 interchange - MessageProperties schema
 
+```json
+{
+   "direction": "",
+   "interchangeControlNumber": "",
+   "isTechnicalAcknowledgmentExpected": "",
+   "isMessageFailed": "",
+   "isa09": "",
+   "isa10": "",
+   "isa11": "",
+   "isa12": "",
+   "isa14": "",
+   "isa15": "",
+   "isa16": ""
+}
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| **direction** | Enum | Message flow direction (**`send`** or **`receive`**) |
+| **interchangeControlNumber** | String | Interchange control number |
+| **transactionSetControlNumber** | String | Control number for the transaction set |
+| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**FunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
+| **messageType** | String | Transaction set or document type |
+| **isMessageFailed** | Boolean | Whether the X12 message failed |
+| **isTechnicalAcknowledgmentExpected** | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
+| **isFunctionalAcknowledgmentExpected** | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
+| **needAk2LoopForValidMessages** | Boolean | Whether the AK2 loop is required for a valid message |
+| **segmentsCount** | Integer | Number of segments in the X12 transaction set |
 
 ## Related content
 
