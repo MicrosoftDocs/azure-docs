@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: article
-ms.date: 02/06/2025
+ms.date: 03/04/2025
 ms.author: danlep
 ---
 
@@ -16,16 +16,13 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. When enabled and Azure AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
+The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM API. When the policy is enabled and Azure AI Content Safety detects malicious content, API Management blocks the request and returns a `403` error code. 
 
 Use the policy in scenarios such as the following:
 
 * Block requests that contain predefined categories of harmful content or hate speech
 * Apply custom blocklists to prevent specific content from being sent
 * Shield against prompts that match attack patterns
-
-> [!NOTE]
-> Currently, this policy is in preview.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
