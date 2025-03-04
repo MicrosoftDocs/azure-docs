@@ -51,8 +51,8 @@ Azure Logic Apps includes built-in tracking that you can enable for parts of you
 
 - For a reference guide to the syntax and attributes for the tracking schemas, see the following documentation:
 
-  - [Tracking schemas for B2B messages in Consumption workflows](tracking-schemas-as2-x12-custom.md)
-  - [Tracking table schemas for B2B transactions in Standard workflows](tracking-table-schemas-standard.md)
+  - [Tracking schemas for B2B messages in Consumption workflows](tracking-schemas-consumption.md)
+  - [Tracking schemas for B2B transactions in Standard workflows](tracking-schemas-standard.md)
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 

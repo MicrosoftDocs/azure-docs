@@ -1,14 +1,14 @@
 ---
-title: Table schemas for tracking B2B transactions - Standard workflows
-description: Learn about table schemas to use for tracking B2B transactions data for Standard workflows in Azure Logic Apps.
+title: Schemas for tracking B2B transactions - Standard workflows
+description: Learn about schemas to use for tracking B2B transactions data for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
 ms.date: 03/07/2025
-# As a B2B integration solutions developer, I want to better understand the table structures used fo storing B2B transaction data for Standard workflows in Azure Logic Apps.
+# As a B2B integration solutions developer, I want to better understand the data structures used fo storing B2B transaction data for Standard workflows in Azure Logic Apps.
 ---
 
-# Table schemas for tracking B2B transactions for Standard workflows in Azure Logic Apps
+# Tracking schemas for B2B transactions in Standard workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -16,7 +16,7 @@ Azure Logic Apps includes built-in tracking that you can enable for parts of you
 
 <a name="as2-table"></a>
 
-## AS2 tracking table - AS2TrackRecords
+## AS2TrackRecords tracking table for AS2
 
 The Azure Database Explorer table named **AS2TrackRecords** stores all AS2 tracking data. The following sample describes the query that creates this table and the required order for specifying the table columns:
 
@@ -139,7 +139,7 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 
 <a name="x12-table"></a>
 
-## X12 tracking table – EdiTrackRecords
+## EdiTrackRecords tracking table for X12
 
 The Azure Database Explorer table named **EdiTrackRecords** stores all X12 tracking data. The following sample describes the query that creates this table and the required order for specifying the table columns:
 

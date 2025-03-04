@@ -134,8 +134,6 @@ For tracking to work correctly, make sure that all the following conditions are 
 
    :::image type="content" source="media/monitor-track-b2b-transactions/example-x12-message-details.png" alt-text="Screenshot shows Premium integration account with B2B tracking selected, and a table with details about collected X12 messages.":::
 
-For more information about these table columns, see [Tracking schemas for B2B transactions - Standard workflows](tracking-schemas-standard.md).
-
 ## Database tables
 
 In your Azure Data Explorer cluster, the database stores transaction data in a table-structured format. This table structure provides the capability for you to efficiently query and retrieve B2B tracking data, provide structured insights into message flow, processing status, and troubleshoot problems.
@@ -252,4 +250,4 @@ Return a success response for a successfully deleted tracking store.
 
 ## Related content
 
-- [Table schemas for tracking B2B transactions - Standard workflows](tracking-schemas-standard.md)
+- [Schemas for tracking B2B transactions - Standard workflows](tracking-schemas-standard.md)
