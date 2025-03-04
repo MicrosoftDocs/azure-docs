@@ -109,7 +109,11 @@
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
   - name: Back up Azure Database for PostgreSQL - Flexible Server
-    href: tutorial-create-first-backup-azure-database-postgresql-flex.md         
+    items:
+    - name: Backup
+      href: tutorial-create-first-backup-azure-database-postgresql-flex.md         
+    - name: Restore
+      href: tutorial-restore-postgresql-flex.md  
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
   - name: Configure vaulted backup for Azure Blob
