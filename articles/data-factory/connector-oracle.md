@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/13/2025
+ms.date: 03/04/2025
 ms.author: jianleishen
 ---
 
@@ -182,13 +182,13 @@ For `server` property, you can specify it in one of the following three formats:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-For the parameters used in `server`, we provide an allow list to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If you use parameters that are not in the allow list, your connection will fail.
+For the parameters used in `server`, we provide an allowlist to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If you use parameters that are not in the allowlist, your connection fails.
 
-- The allow list for using the Azure integration runtime:
+- The allowlist for using the Azure integration runtime:
 
     HOST<br>PORT<br>PROTOCOL<br>SERVICE_NAME<br>SID<br>INSTANCE_NAME<br>SERVER<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN
     
-- The allow list for using the self-hosted integration runtime:
+- The allowlist for using the self-hosted integration runtime:
 
     HOST<br>PORT<br>PROTOCOL<br>ENABLE<br>EXPIRE_TIME<br>FAILOVER<br>LOAD_BALANCE<br>RECV_BUF_SIZE<br>SDU<br>SEND_BUF_SIZE<br>SOURCE_ROUTE<br>TYPE_OF_SERVICE<br>COLOCATION_TAG<br>CONNECTION_ID_PREFIX<br>FAILOVER_MODE<br>GLOBAL_NAME<br>HS<br>INSTANCE_NAME<br>POOL_BOUNDARY<br>POOL_CONNECTION_CLASS<br>POOL_NAME<br>POOL_PURITY<br>RDB_DATABASE<br>SHARDING_KEY<br>SHARDING_KEY_ID<br>SUPER_SHARDING_KEY<br>SERVER<br>SERVICE_NAME<br>SID<br>TUNNEL_SERVICE_NAME<br>SSL_CLIENT_AUTHENTICATION<br>SSL_CERTIFICATE_ALIAS<br>SSL_CERTIFICATE_THUMBPRINT<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN<br>WALLET_LOCATION<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>TRANSPORT_CONNECT_TIMEOUT<br>RECV_TIMEOUT<br>COMPRESSION<br>COMPRESSION_LEVELS
 
@@ -527,7 +527,7 @@ Here are steps that help you upgrade the Oracle connector:
 
 1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
 
-    For the authentication related properties including username and password, simply specify the original values in the corresponding fields in version 2.0. For other connection properties in version 1.0 including host, port and Oracle Service Name/Oracle SID, they all become parts of the [server property in version 2.0](#server-property-configuration).  
+    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0. For other connection properties in version 1.0 including host, port and Oracle Service Name/Oracle SID, they all become parts of the [server property in version 2.0](#server-property-configuration).  
 
     For example, if you configure the version 1.0 linked service as shown below:
     
@@ -625,7 +625,7 @@ Here are steps that help you upgrade the Oracle connector:
         | cryptoprotocolversion | SSL_VERSION (server parameter) | 
         | truststore | WALLET_LOCATION (server parameter) | 
     
-        For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the sever property in version 2.0:
+        For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the server property in version 2.0:
     
         Version 1.0 linked service using `alternateservers`:
     
@@ -665,7 +665,7 @@ Here are steps that help you upgrade the Oracle connector:
 
 ## Differences between Oracle version 2.0 and version 1.0 
 
-The Oracle connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0. 
+The Oracle connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The following table shows the feature differences between version 2.0 and version 1.0. 
 
 | Version 2.0 | Version 1.0  | 
 |:--- |:--- |
