@@ -7,32 +7,32 @@
     },
     {
       "source_path": "articles/automation/update-management/configure-groups.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/configure-groups",
+      "redirect_url": "/azure/update-manager/dynamic-scope-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/configure-wuagent.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/configure-wuagent",
+      "redirect_url": "/azure/update-manager/configure-wu-agent",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/deploy-updates.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/deploy-updates",
+      "redirect_url": "/azure/update-manager/deploy-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/enable-from-automation-account.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/enable-from-automation-account",
+      "redirect_url": "/azure/update-manager/migration-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/enable-from-portal.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/enable-from-portal",
+      "redirect_url": "/azure/update-manager/migration-using-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/enable-from-runbook.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/enable-from-runbook",
+      "redirect_url": "/azure/update-manager/migration-using-runbook-scripts",
       "redirect_document_id": false
     },
     {
