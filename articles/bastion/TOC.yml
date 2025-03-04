@@ -45,10 +45,12 @@
     items:
     - name: Availability zones and disaster recovery 
       href: ../reliability/reliability-bastion.md?toc=/azure/bastion/TOC.json
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
+- name: Security
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: How-to guides
   items:
   - name: Deploy Bastion
@@ -135,15 +137,17 @@
     href: monitor-bastion-reference.md
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking/
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Microsoft Q&A question page - Azure Bastion
+    href: /answers/tags/119/azure-bastion
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-bastion/
-  - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
-  - name: Preview SLA
-    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
+  - name: Subscription and service limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/bastion/toc.json
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
