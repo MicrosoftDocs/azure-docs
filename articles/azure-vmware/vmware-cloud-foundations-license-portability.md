@@ -132,8 +132,9 @@ If you’re an existing Azure VMware Solution customer and wish to transition to
 **1. What if my VCF subscription expires before my AVS Reservation (RI) ends?** 
 If your VCF subscription expires before your AVS Reservation (RI) ends, you have two options:
 
-  Option 1: **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
-  Option 2: **Renew your VCF subscription with Broadcom:** Register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
+  1. **Switch to AVS-managed licenses:** Inform Microsoft of your intent to transition to AVS-managed licenses. If you have reservations on the VCF BYOL SKU, you can exchange them for the corresponding AVS SKU without any cancellation or exchange fees, as long as your exchanges comply with the [Azure Reservation Exchange Policies](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations#cancel-exchange-and-refund-policies).
+  
+  2. **Renew your VCF subscription with Broadcom:** Register your new VCF subscription with Microsoft to continue using your Private Cloud without any disruption.
 
 **2. Can I change back and forth between AVS to AVS VCF BYOL anytime?**
 Yes, you can switch between AVS and AVS VCF BYOL SKUs anytime. 
