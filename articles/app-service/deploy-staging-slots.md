@@ -30,10 +30,9 @@ There's no extra charge for using deployment slots. Each App Service plan tier s
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots that your app already uses. For example, if your app has more than five slots, you can't scale it down to the Standard tier. The Standard tier supports only five deployment slots.
 
-This video shows you how to set up staging environments in Azure App Service.
-> [!VIDEO 99aaff5e-fd3a-4568-b03a-a65745807d0f]
+The following video complements the steps in this article by illustrating how to set up staging environments in Azure App Service.
 
-The sections of this article describe the steps in the video.
+> [!VIDEO 99aaff5e-fd3a-4568-b03a-a65745807d0f]
 
 ## Prerequisites
 
