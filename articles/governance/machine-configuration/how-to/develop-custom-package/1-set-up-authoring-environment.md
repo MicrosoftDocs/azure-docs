@@ -64,6 +64,6 @@ Get-Command -Module 'GuestConfiguration'
 > [Create a custom machine configuration package](./2-create-package.md)
 
 <!-- Reference link definitions -->
-[01]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
-[02]: https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu
+[01]: https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows
+[02]: https://learn.microsoft.com/powershell/scripting/install/install-ubuntu
 [03]: /powershell/azure/install-az-ps
