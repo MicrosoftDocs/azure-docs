@@ -62,57 +62,57 @@
     },
     {
       "source_path": "articles/automation/update-management/overview.md",
-      "redirect_url": "azure/update-manager/workflow-update-manager",
+      "redirect_url": "/azure/update-manager/workflow-update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/plan-deployment.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/plan-deployment",
+      "redirect_url": "/azure/update-manager/workflow-update-manager",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/pre-post-scripts.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/pre-post-scripts",
+      "redirect_url": "/azure/update-manager/pre-post-events-schedule-maintenance-configuration",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/query-logs.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/query-logs",
+      "redirect_url": "/azure/update-manager/sample-query-logs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/remove-feature.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/remove-feature",
+      "redirect_url": "/azure/update-manager/view-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/remove-vms.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/remove-vms",
+      "redirect_url": "/azure/update-manager/deploy-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/scope-configuration.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/scope-configuration",
+      "redirect_url": "/azure/update-manager/updates-maintenance-schedules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/view-update-assessments.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/view-update-assessments",
+      "redirect_url": "/azure/update-manager/view-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/troubleshoot/update-management.md",
-      "redirect_url": "/previous-versions/azure/automation/troubleshoot/update-management",
+      "redirect_url": "/azure/update-manager/troubleshoot",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/troubleshoot/update-agent-issues.md",
-      "redirect_url": "/previous-versions/azure/automation/troubleshoot/update-agent-issues",
+      "redirect_url": "/azure/update-manager/troubleshoot",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/troubleshoot/update-agent-issues-linux.md",
-      "redirect_url": "/previous-versions/azure/automation/troubleshoot/update-agent-issues-linux",
+      "redirect_url": "/azure/update-manager/troubleshoot",
       "redirect_document_id": false
     },
     {
