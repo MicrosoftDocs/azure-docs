@@ -59,7 +59,7 @@ rack1compute03    On            Succeeded            True          Uncordoned   
 rack1compute08    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
 rack2compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
 rack2compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute01    On            Succeeded            False         Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: port down
+rack1compute01    On            Succeeded            False         Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: LACP status is down
 rack2compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
 rack2compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
 rack1compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
