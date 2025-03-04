@@ -96,7 +96,7 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **isMessageSigned** | Boolean | Whether the AS2 message was signed |
 | **isMessageEncrypted** | Boolean | Whether the AS2 message was encrypted |
 | **isMessageCompressed** | Boolean | Whether the AS2 message was compressed |
-| **correlationMessageId** | String | Message ID for correlatating AS2 messages with Message Disposition Notifications (MDNs) |
+| **correlationMessageId** | String | Message ID for correlating AS2 messages with Message Disposition Notifications (MDNs) |
 | **incomingHeaders** | JToken dictionary | Header details for the incoming AS2 message |
 | **outgoingHeaders** | JToken dictionary | Header details for the outgoing AS2 message |
 | **isNrrEnabled** | Boolean | Whether Non-Repudiation of Receipt (NRR) is enabled |
@@ -215,7 +215,7 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **needAk2LoopForValidMessages** | Boolean | Whether the AK2 loop is required for a valid message |
 | **segmentsCount** | Integer | Number of segments in the X12 transaction set |
 
-#### X12 transaction set acknowledgement - MessageProperties schema
+#### X12 transaction set acknowledgment - MessageProperties schema
 
 ```json
 {
@@ -368,6 +368,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **processingStatus** | String | Acknowledgment processing status with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
 | **ak903** | String | Number of received transaction sets |
 | **ak903** | String | Number of accepted transaction sets in the identified functional group |
+
+<a name="workflow-run-operation-schema"></a>
 
 ## WorkflowRunOperationInfo schema
 

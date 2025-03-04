@@ -258,7 +258,7 @@ The following table describes the attributes in a tracking schema for an X12 tra
 | **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
 | **`functionalGroupControlNumber`** | No | String | Functional group control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
 | **`interchangeControlNumber`** | No | String | Interchange control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
-| **`isaSegment`** | No | String | The ISA segment for the X12 message. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
+| **`isaSegment`** | No | String | The Interchange Control Header (ISA) segment for the X12 message. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
 | **`gsSegment`** | No | String | GS segment in the X12 message. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`processingStatus`** | Yes | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |

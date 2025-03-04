@@ -134,31 +134,7 @@ For tracking to work correctly, make sure that all the following conditions are 
 
    :::image type="content" source="media/monitor-track-b2b-transactions/example-x12-message-details.png" alt-text="Screenshot shows Premium integration account with B2B tracking selected, and a table with details about collected X12 messages.":::
 
-
-
-For more information about the JSON schema for these properties, see [Table schemas for tracking B2B transactions](tracking-table-schemas-standard.md).
-
-### X12 message properties
-
-| Column name | Expanded name |
-|-------------|---------------|
-| **AgreementName**| Agreement name |
-| **SenderParternerName** | Sender partner |
-| **ReceiverPartnerName** | Receiver partner |
-| **MessageStatus** | Message status |
-| **MessageDirection** | Message direction (**`send`** or **`receive`**) |
-| **MessageTime** | Message time |
-| **MessageClientTrackingId** | Message client tracking ID |
-| **InterchangeControlNumber** | Interchange control number |
-| **FunctionalGroupControlNumber** | Functional group control number |
-| **TransactionSetStatus** | Transaction set status |
-| **TransactionSetControlNumber** | Transaction set control number |
-| **IsFunctionalAckExpected** | Is a functional acknowledgment expected (**`true`** or **`false`**) |
-| **AckStatus** | Acknowledgment status |
-| **TransactionSetAckStatus** | Transaction set acknowledgment status |
-| **FunctionalAckStatus** | Functional acknowledgment status |
-
-For more information about the JSON schema for these message properties, see [Table schemas for tracking B2B transactions](tracking-table-schemas-standard.md#).
+For more information about these table columns, see [Tracking schemas for B2B transactions - Standard workflows](tracking-schemas-standard.md).
 
 ## Database tables
 
@@ -169,12 +145,10 @@ In your Azure Data Explorer cluster, the database stores transaction data in a t
 
 > [!NOTE]
 >
-> If you want to [create a tracking store](#manage-with-rest-api) using the Azure Logic Apps REST API, 
-> you must first manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your 
-> Azure Data Explorer database using specific [B2B tracking table schemas](tracking-table-schemas-standard.md). 
+> To [create a tracking store](#manage-with-rest-api) using the Azure Logic Apps REST API, 
+> you must first manually create two tables named **AS2TrackRecords** and **EdiTrackRecords** 
+> in your Azure Data Explorer database using specific [JSON schemas for tracking B2B transactions](tracking-schemas-standard.md). 
 > Your database must also grant **Ingester** permissions to your integration account resource.
-
-For more information, see [Table schemas for tracking B2B transactions - Standard workflows](tracking-table-schemas-standard.md).
 
 <a name="manage-with-rest-api"></a>
 
@@ -191,7 +165,7 @@ Create a tracking store or update an existing one.
 > In this release, your integration account currently supports only one tracking store.
 > Before you create a tracking store using the Azure Logic Apps REST API, you must first 
 > manually create the two tables named **AS2TrackRecords** and **EdiTrackRecords** in your 
-> Azure  Data Explorer database using specific [table schemas for tracking B2B transactions](tracking-table-schemas-standard.md). 
+> Azure Data Explorer database using specific [JSON schemas for tracking B2B transactions](tracking-schemas-standard.md). 
 > Your database must also grant **Ingester** permissions to your integration account resource.
 
 `PUT https://management.azure.com/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Logic/integrationAccounts/{integration-account-name}/groups/default/trackingstores/{tracking-store-name}?api-version=2016-06-01`
@@ -278,4 +252,4 @@ Return a success response for a successfully deleted tracking store.
 
 ## Related content
 
-- [Table schemas for tracking B2B transactions - Standard workflows](tracking-table-schemas-standard.md)
+- [Table schemas for tracking B2B transactions - Standard workflows](tracking-schemas-standard.md)
