@@ -1,6 +1,7 @@
 - name: VPN Gateway documentation
   href: index.yml
 - name: Get started
+  expanded: true
   items:
   - name: What is VPN Gateway?
     href: vpn-gateway-about-vpngateways.md
@@ -8,7 +9,7 @@
     href: whats-new.md
   - name: VPN Gateway FAQ
     href: vpn-gateway-vpn-faq.md
-  - name: Quickstarts & tutorials
+  - name: Quickstarts
     items:
     - name: Create and manage a VPN gateway
       href: tutorial-create-gateway-portal.md

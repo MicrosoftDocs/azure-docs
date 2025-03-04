@@ -45,6 +45,16 @@
     - name: Create a Private Link service - ARM template
       displayName: Azure Resource Manager
       href: create-private-link-service-template.md
+  - name: Create a network security perimeter
+    items:
+    - name: Create a network security perimeter - Azure portal
+      href: create-network-security-perimeter-portal.md
+    - name: Create a network security perimeter - PowerShell
+      href: create-network-security-perimeter-powershell.md
+    - name: Create a network security perimeter - Azure CLI
+      href: create-network-security-perimeter-cli.md
+    - name: Transition to a network security perimeter
+      href: network-security-perimeter-transition.md
   - name: DNS
     items:  
     - name: Private DNS zone values
@@ -55,14 +65,6 @@
     href: private-endpoint-export-dns.md
   - name: Private Link and DNS in Azure Virtual WAN
     href: /azure/architecture/guide/networking/private-link-virtual-wan-dns-guide?toc=/azure/private-link/toc.json
-  - name: Network security perimeter
-    items:
-    - name: Create a network security perimeter - Azure portal
-      href: create-network-security-perimeter-portal.md
-    - name: Create a network security perimeter - PowerShell
-      href: create-network-security-perimeter-powershell.md
-    - name: Create a network security perimeter - Azure CLI
-      href: create-network-security-perimeter-cli.md
 - name: Deploy
   items:
   - name: SQL
@@ -81,10 +83,6 @@
     href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: Approve private link connections across subscriptions
     href: how-to-approve-private-link-cross-subscription.md
-  - name: Network security perimeter
-    items:
-      - name: Transition to a network security perimeter
-        href: network-security-perimeter-transition.md
 - name: Resiliency
   items:
   - name: Availability

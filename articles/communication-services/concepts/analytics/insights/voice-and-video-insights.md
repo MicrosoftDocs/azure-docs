@@ -172,9 +172,9 @@ Your organization manages access to [Copilot in Azure](/azure/copilot/overview).
 Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information helps it identify fixes. If you want, you can use the visuals without Copilot in a limited capacity. 
 
 ### Can I use the legacy version of Voice and Video Insights?
-You can find the legacy version of Voice and Video Insights inside your Azure Communication Services resource tab:
+Yes, the legacy Voice and Video Insights version from January 2025 is available. To open it select Workbooks on the left sidebar of your Azure Communication Services resource, then select Insights (legacy) in the workbook gallery view.
 
-:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
+:::image type="content" source="..\media\workbooks\insights-legacy.png" alt-text="Screenshot showing how to find the legacy Insights workbook."::: 
 
 ## Next steps
 
