@@ -103,9 +103,11 @@ For more information on how App Service runs and builds Python apps in Linux, se
 
 ## Generate requirements.txt from pyproject.toml
 
-App Service does not directly support `pyproject.toml` at the moment.  If you're using tools like Poetry or uv, the recommended approach is to generate a compatible `requirements.txt` before deployment in your project's root:
+App Service does not directly support `pyproject.toml` at the moment.  If you're using tools like Poetry or uv, the recommended approach is to generate a compatible `requirements.txt`.
 
-### Using Poetry
+### Generate locally before deployment
+
+#### Using Poetry
 
 Using [Poetry](https://python-poetry.org/) with the [export plugin](https://github.com/python-poetry/poetry-plugin-export):
 
@@ -115,15 +117,35 @@ poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 ```
 
-### Using uv
+#### Using uv
 
-Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile):
+Using [uv](https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile) export command:
 
 ```sh
 
 uv export --format requirements-txt --no-hashes --output-file requirements.txt
 
 ```
+
+### Generate during deployment
+
+For deployment-time generation, create a script file and set your `PRE_BUILD_COMMAND` setting to use it, here is an example using uv:
+
+```sh
+# Set Python version to match App Service configuration
+
+PYTHON_VERSION="3.12.8"  # Replace with your version
+
+# Activate Oryx build environment with specified Python version
+source /opt/oryx/benv python=$PYTHON_VERSION dynamic_install_root_dir="/tmp/oryx/platforms"
+
+# Install the uv package manager
+python3 -m pip install uv
+# Generate requirements.txt file
+uv export --format requirements-txt --no-hashes --output-file requirements.txt
+```
+
+After creating your script, set your `PRE_BUILD_COMMAND` App Service setting to the path of your script. See [Customize build automation](#customize-build-automation) for information on setting this value.
 
 ## Migrate existing applications to Azure
 
