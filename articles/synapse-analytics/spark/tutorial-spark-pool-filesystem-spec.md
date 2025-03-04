@@ -135,7 +135,7 @@ Run the following code.
 
    > [!NOTE]
    > Update the file URL in this script before running it.
-   > Please ensure you import pandas when using the below code snippet. This is critical for proper handling of access tokens  
+   > Please ensure you import pandas when using the below code snippet. This is critical for proper handling of access tokens.  
 
    ```PYSPARK
    # Import libraries
