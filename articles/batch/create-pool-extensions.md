@@ -3,7 +3,7 @@ title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 12/05/2023
+ms.date: 03/04/2025
 ---
 
 # Use extensions with Batch pools
