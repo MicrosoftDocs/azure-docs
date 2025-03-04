@@ -108,45 +108,316 @@ sections:
 #          url: //aka.ms/AISkillsAtMicrosoft_AIhub
 #          text: Get the e-book
 
-# Start with strong foundations
-  - componentType: cards
-    isShadowless: false
-    backgroundColor: alternating-grey
-    title: Start with strong foundations
-    summary: Enhance your cloud expertise by exploring the migration process to Azure. Gain a comprehensive understanding of Azure's offerings, including its diverse range of services and technologies. Familiarize yourself with best practices for ensuring a seamless transition, and discover how you and your organization can strategically leverage Azure's capabilities to drive innovation and efficiency.  
-    blocks:
-    - componentType: card
-      title: Prepare for migration
-      summary: ''
-      imageUrl: images/ai-fundamentals-card.png
-      links: 
-        - componentType: link
-          text: Get started
-          url: /azure/cloud-adoption-framework/migrate/prepare/
-    - componentType: card
-      title: Assess your workloads
-      summary: ''
-      imageUrl: images/responsible-ai-card.png
-      links: 
-        - componentType: link
-          text: Get started
-          url: /azure/cloud-adoption-framework/migrate/assess/
-    - componentType: card
-      title: Migration deployment
-      summary: ''
-      imageUrl: images/generative-ai-card.png
-      links: 
-        - componentType: link
-          text: Get started
-          url: /azure/cloud-adoption-framework/migrate/deploy/
-    - componentType: card
-      title: Release your deployed workload
-      summary: ''
-      imageUrl: images/daily-productivity-card.png
-      links: 
-        - componentType: link
-          text: Get started
-          url: /azure/cloud-adoption-framework/migrate/release/
+# By role
+  - componentType: markdown
+    content: |
+      ## Planning your migration
+
+      Explore the three critical phases of migrating to Microsoft Azure: Readiness and Foundation, Design and Govern, and Manage and Optimize. Each phase is designed to guide you through the necessary steps, best practices, and technical resources to ensure a successful migration journey. Select a phase to access detailed insights and actionable guidance tailored to your migration needs.
+      
+      #### [Readiness and Foundation](#tab/readiness-and-foundation)
+      
+      ### Readiness and Foundation
+
+      :::row:::
+         :::column:::
+         **[Prepare](/azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone)**
+
+         Set up your Azure environment for migration effectively.
+         :::column-end:::
+         :::column:::
+         **[Assess](/azure/cloud-adoption-framework/migrate/assess/classify)**
+
+         Evaluate workload readiness and classification for Azure migration.
+         :::column-end:::
+         :::column:::
+         **[Deploy](/azure/cloud-adoption-framework/migrate/deploy/)**
+
+         Guidance on deploying necessary Azure services for migration.
+         :::column-end:::
+         :::column:::
+         **[Release](/azure/cloud-adoption-framework/migrate/release/)**
+
+         Guide for releasing deployed workloads to production, including final migration steps and communication with stakeholders.
+         :::column-end:::
+         :::column:::
+         **[Skills Development](/credentials/browse/?credential_types=certification&products=azure&roles=administrator%2Csolution-architect&expanded=certification%2Cazure)**
+
+         Access training resources to enhance your Azure skills.
+         :::column-end:::
+      :::row-end:::
+      
+      #### [Design and Govern](#tab/design-and-govern)
+
+      ### Design and Govern
+
+      :::row:::
+         :::column:::
+         **[Design Well-Architected Solutions](/azure/well-architected/pillars)**
+
+         Guidelines to design and maintain well-architected Azure solutions.
+         :::column-end:::
+         :::column:::
+         **[Workload Assessment](/azure/cloud-adoption-framework/migrate/assess/)**
+         
+         Evaluate workload readiness and classification for Azure migration.
+         :::column-end:::
+         :::column:::
+         **[Governance Frameworks](/azure/governance/management-groups/azure-management)**
+         
+         Implement governance and compliance frameworks for Azure.
+         :::column-end:::
+         :::column:::
+
+         
+	       :::column-end:::
+      :::row-end:::
+
+      #### [Manage and Optimize](#tab/manage-and-optimize)
+
+      ### Manage and Optimize
+
+      :::row:::
+         :::column:::
+         **[Reliability Cloud Design Patterns](/azure/well-architected/reliability/design-patterns)**
+
+         Cloud design patterns for consideration when developing reliable workloads.
+         :::column-end:::
+         :::column:::
+         **[Microsoft Cloud Security Benchmark](/security/benchmark/azure/)**
+
+         Best practice guidance on securing your cloud solutions.
+         :::column-end:::
+         :::column:::
+
+
+
+         :::column-end:::
+         :::column:::
+
+         
+          
+         :::column-end:::
+      :::row-end:::
+
+      ---
+      
+      <br />
+      <br />
+
+# By role
+  - componentType: markdown
+    content: |
+      ## Service Level
+
+      Explore the three critical phases of migrating to Microsoft Azure: Readiness and Foundation, Design and Govern, and Manage and Optimize. Each phase is designed to guide you through the necessary steps, best practices, and technical resources to ensure a successful migration journey. Select a phase to access detailed insights and actionable guidance tailored to your migration needs.
+      
+      #### [Compute Migration](#tab/compute-migration)
+      
+      ### Compute Migration
+
+      :::row:::
+         :::column:::
+         **[Migrate Virtual Machines to Azure from AWS](/azure/migrate/tutorial-migrate-aws-virtual-machines)**
+
+         Detailed guide on migrating your AWS virtual machines to Azure.
+         :::column-end:::
+         :::column:::
+         **[Migrate Virtual Machines to Azure from GCP](/azure/migrate/tutorial-migrate-gcp-virtual-machines)**
+
+         Detailed guide on migrating your GCP virtual machines to Azure.
+         :::column-end:::
+         :::column:::
+         **[AKS for EKS Professionals](/azure/architecture/aws-professional/eks-to-aks/)**
+
+         Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
+         :::column-end:::
+         :::column:::
+         **[Migrate physical Machines](/azure/migrate/tutorial-migrate-physical-virtual-machines)**
+
+         Migrate machines as physical servers to Azure by using the Migration and modernization tool.
+         :::column-end:::
+         :::column:::
+         **[Migrate servers in a Hyper-V environment](/azure/migrate/tutorial-assess-hyper-v)**
+
+         Use Azure Migrate to assess your Hyper-V environment for migration readiness.
+         :::column-end:::
+         :::column:::
+         **[Azure VMWare Solution](/azure/migrate/vmware/server-migrate-overview?context=%2Fazure%2Fmigrate%2Fcontext%2Fmigrate-context)**
+
+         Options for migrating VMWare VMs to Azure.
+         :::column-end:::
+      :::row-end:::
+      
+      #### [Data Migration](#tab/data-migration)
+
+      ### Data Migration
+
+      :::row:::
+         :::column:::
+         **[Migrate PostGreSQL to Azure Database with DMS](/azure/dms/tutorial-postgresql-azure-postgresql-online-portal)**
+
+         How to migrate a PostgreSQL database to Azure Database for PostgreSQL using the Azure Database Migration Service (DMS), covering setup and migration steps.
+         :::column-end:::
+         :::column:::
+         **[Migrate with Azure Data Factory](/azure/data-factory/data-migration-guidance-overview)**
+         
+         Use Azure Data Factory to seamlessly migrate your data lakes and warehouses to Azure with high performance, scalability, and a cost-effective pay-as-you-go model.
+         :::column-end:::
+         :::column:::
+         **[Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure)**
+         
+         Use Azure Data Factory templates to efficiently migrate data from Amazon S3 to Azure Data Lake Storage Gen2, handling both historical transfers and updates seamlessly.
+         :::column-end:::
+         :::column:::
+         **[Azure Database Migration Guide](/azure/dms/dms-overview)**
+         
+         Comprehensive guide to migrate SQL Server databases to Azure SQL Database.
+         :::column-end:::
+         :::column:::
+         **[Data Migration from SQL Server](/data-migration/sql-server/overview)**
+         
+         Options for migrating from SQL Server to Azure SQL.
+         :::column-end:::
+         :::column:::
+         **[Migrate from DynamoDB to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db)**
+         
+         Options for data migration from DynamoDB to Cosmos DB for NoSQL
+         :::column-end:::
+         :::column:::
+         **[Azure Data Box](/azure/databox/data-box-overview)**
+         
+         Use Azure Data Box for offline data transfer to Azure.
+         :::column-end:::
+      :::row-end:::
+
+      #### [Storage Migration](#tab/storage-migration)
+
+      ### Storage Migration
+
+      :::row:::
+         :::column:::
+         **[Migrate Blob Storage to Azure](/azure/storage/common/storage-migration-overview)**
+
+         Migrating your blob storage to Azure.
+         :::column-end:::
+         :::column:::
+         **[File Sync Migration](/azure/storage/files/storage-files-migration-overview?toc=%2Fazure%2Fstorage%2Ffile-sync%2Ftoc.json)**
+
+         Guide to set up and migrate files using Azure File Sync.
+         :::column-end:::
+         :::column:::
+         **[Data Transfer Solutions](/azure/storage/common/storage-choose-data-transfer-solution)**
+
+         Explore various options for data transfer to Azure Storage.
+         :::column-end:::
+         :::column:::
+
+         
+          
+         :::column-end:::
+      :::row-end:::
+
+      #### [Network Migration](#tab/network-migration)
+
+      ### Network Migration
+
+      :::row:::
+         :::column:::
+         **[Azure Virtual Network Overview](/azure/virtual-network/virtual-networks-overview)**
+
+         Learn how to set up a virtual network in Azure for your workloads.
+         :::column-end:::
+         :::column:::
+         **[ExpressRoute for Network Migration](/azure/expressroute/expressroute-introduction)**
+
+         Use Azure ExpressRoute to create private connections between Azure and your on-premises infrastructure. 
+         :::column-end:::
+         :::column:::
+         **[Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)**
+
+         Set up a VPN gateway to securely connect your on-premises networks to Azure.
+         :::column-end:::
+         :::column:::
+         **[Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview)**
+
+         Implement NSGs to control inbound and outbound traffic to Azure resources.
+         :::column-end:::
+      :::row-end:::
+
+      #### [Identity Migration](#tab/identity-migration)
+
+      ### Identity Migration
+
+      :::row:::
+         :::column:::
+         **[Migrate to Microsoft Entra Cloud Sync for an existing synced AD forest](/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)**
+
+         Migrate to cloud sync for a test Active Directory forest that is already synced using Microsoft Entra Connect Sync.
+         :::column-end:::
+         :::column:::
+
+         
+
+         :::column-end:::
+         :::column:::
+         
+
+
+         :::column-end:::
+         :::column:::
+         
+
+
+         :::column-end:::
+      :::row-end:::
+
+      #### [Application Migration](#tab/application-migration)
+
+      ### Application Migration
+
+      :::row:::
+         :::column:::
+         **[Migrate .NET to Azure App Service](/azure/app-service/app-service-asp-net-migration)**
+
+         Use Azure App Server to assess, discover, and migrate .NET apps to Azure. 
+         :::column-end:::
+         :::column:::
+         **[Migrate containerized .NET](/azure/migrate/tutorial-app-containerization-aspnet-app-service?bc=%2Fazure%2Fbread%2Ftoc.json&toc=%2Fazure%2Fapp-service%2Ftoc.json)**
+         
+         Containerize ASP.NET applications and migrate them to Azure App Service using the Azure Migrate App Containerization tool.
+         :::column-end:::
+         :::column:::
+         **[Migrate Java](/azure/app-service/app-service-java-migration)**
+         
+         Discover, assess, and migrate Java web apps to Azure App Service.   
+         :::column-end:::
+         :::column:::
+         **[Migrate Tomcat](/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
+         
+         Migrate an existing Tomcat application to run on Azure App Service using Tomcat 9.0.
+         :::column-end:::
+         :::column:::
+         **[Migrate JBoss EAP](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
+
+         Migrate a JBoss EAP application to Azure App Service.
+         :::column-end:::
+         :::column:::
+         **[Migrate WebLogic](/azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
+
+         Migrate a WebLogic Server application to run on Azure App Service using JBoss EAP.
+         :::column-end:::
+         :::column:::
+         **[Migrate WebSphere](/azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
+
+         Migrate a WebSphere application to run on Azure App Service using JBoss EAP.
+         :::column-end:::
+      :::row-end:::
+
+      ---
+      
+      <br />
+      <br />
 
 # DevRel Studios - community section
   - componentType: grid
@@ -183,233 +454,6 @@ sections:
         componentType: image
         src: images/blog-icon.png
 
-# By role
-  - componentType: markdown
-    content: |
-      ## Expand your AI skills based on your role
-
-      Get ready to use Copilot and build AI apps. Discover the transformational experiences you can implement by using Microsoft's AI apps and services. Select a role to explore focused skilling resources.
-      
-      #### [Developer](#tab/developer)
-      
-      ### Developer
-
-      :::row:::
-         :::column:::
-         **[Accelerate app development by using GitHub Copilot](https://aka.ms/AAI_DevAppGitHubCop_Plan)**
-
-         Find out how to use GitHub Copilot to interpret and document code, author new code features more efficiently, and refactor, debug, and test code. 
-         :::column-end:::
-         :::column:::
-         **[Build AI apps with Azure Services and best practices](https://aka.ms/ADAI_DevStartPlan)**
-
-         Get the details on designing and building a cloud-native AI app, developing a back-end database, and integrating Azure AI services into applications. 
-         :::column-end:::
-         :::column:::
-         **[Build and extend copilots with Microsoft Copilot Studio](https://aka.ms/BA_BldandExdCop)**
-
-         Use Microsoft Copilot Studio to create conversational AI solutions, and learn how to build actions that extend Microsoft 365 Copilot. 
-         :::column-end:::
-         :::column:::
-         **[Extend Microsoft 365 Copilot (for developers)](https://aka.ms/MW_M365CoPDev)**
-
-         Use Copilot Studio actions, and learn about building plugins and connectors for Microsoft 365 Copilot. Discover how to choose the right option for your use case.
-         :::column-end:::
-      :::row-end:::
-      
-      #### [Business or technical leader](#tab/business-technical-leader)
-
-      ### Business or technical leader
-
-      :::row:::
-         :::column:::
-         **[Transform your business with Microsoft AI](/training/paths/transform-your-business-with-microsoft-ai/)**
-
-         In this learning path, business leaders will find the knowledge and resources to adopt AI in their organizations. Explore planning, strategizing, and scaling AI projects in a responsible way.
-         :::column-end:::
-         :::column:::
-         **[Implement data integration and model grounding with Azure AI Foundry and Microsoft Fabric](https://aka.ms/ADAI_DevGenAIExp_Plan)**
-         
-         Discover how to create advanced AI solutions, ground models in their data, connect and integrate data from various sources, and use OneLake in Microsoft Fabric.
-         :::column-end:::
-         :::column:::
-         **[Accelerate gen AI model selection, evaluation, and multimodal integration with Azure AI Foundry](https://aka.ms/ADAI_OptlGenAIMod_Plan)**
-         
-         Find out how to benchmark models, apply multimodal models to help enhance customer satisfaction, and complete evaluations to help ensure performance and safety.
-         :::column-end:::
-         :::column:::
-         **[Unlocking business potential with AI solutions](https://aka.ms/StartTransformingBizAI)**
-         
-         Learn how to initiate your organization's AI strategy, assess infrastructure readiness, and understand the business impact of AI. 	
-      :::row-end:::
-
-      #### [Business user](#tab/business-user)
-
-      ### Business user
-
-      :::row:::
-         :::column:::
-         **[Design a dream destination using Microsoft Copilot](/training/modules/explore-generative-ai-copilot-bing/)**
-
-         Bring your personal creativity and passion to dream up a novel destination and create the content to help tell its story. Interact with Microsoft Copilot to learn about the capabilities of generative AI.
-         :::column-end:::
-         :::column:::
-         **[Build your Microsoft 365 Copilot skills (for end users)](https://aka.ms/MW_M365CoPEndUser)**
-
-         Find out how to create effective prompts in Microsoft 365 Copilot to help boost your productivity. Explore real-world prompts for specific use case scenarios.
-         :::column-end:::
-         :::column:::
-          **[Work smarter with AI](/training/paths/work-smarter-with-ai/)**
-
-          Get more done and unleash your creativity with Microsoft Copilot. In this learning path, you'll explore how to use Microsoft Copilot to help you research, find information, and generate effective content.
-         :::column-end:::
-         :::column:::
-
-         
-          
-         :::column-end:::
-      :::row-end:::
-
-      #### [IT professional](#tab/it-professional)
-
-      ### IT professional
-
-      :::row:::
-         :::column:::
-         **[Get AI-Ready with Microsoft 365 Admin](https://aka.ms/MW_GetAIReady)**
-
-         This content helps admins ensure that Microsoft 365 tenants are set up and configured for AI so that future AI features can be integrated as seamlessly as possible. 
-         :::column-end:::
-         :::column:::
-         **[Discover Microsoft 365 Copilot (for administrators)](https://aka.ms/MW_M365CoPAdmin)**
-
-         Focus on security and compliance features to configure in your Microsoft 365 tenant to help protect your organizational data before you implement Microsoft 365 Copilot. 
-         :::column-end:::
-         :::column:::
-
-         
-          
-         :::column-end:::
-         :::column:::
-
-         
-          
-         :::column-end:::
-      :::row-end:::
-
-      #### [Data scientist](#tab/data-scientist)
-
-      ### Data scientist
-
-      :::row:::
-         :::column:::
-         **[Make your data AI ready with Microsoft Fabric](	https://aka.ms/DataAIreadyFabric)**
-
-         Discover how to implement large-scale data engineering, lakehouse, and warehouse solutions using Microsoft Fabric. Build the skills to use Fabric to effectively manage and analyze data. 
-         :::column-end:::
-         :::column:::
-         **[Run data analytics solutions with Azure Databricks](https://aka.ms/RunDataAnlytics)**
-         
-         Work with Apache Spark and Azure Databricks to run large data engineering workloads in the cloud, and use Azure Databricks for comprehensive data analytics solutions.
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Data professional](#tab/data-professional)
-
-      ### Data professional
-
-      :::row:::
-         :::column:::
-         **[Make your data AI ready with Microsoft Fabric](	https://aka.ms/DataAIreadyFabric)**
-
-         Discover how to implement large-scale data engineering, lakehouse, and warehouse solutions using Microsoft Fabric. Build the skills to use Fabric to effectively manage and analyze data. 
-         :::column-end:::
-         :::column:::
-         **[Run data analytics solutions with Azure Databricks](https://aka.ms/RunDataAnlytics)**
-         
-         Work with Apache Spark and Azure Databricks to run large data engineering workloads in the cloud, and use Azure Databricks for comprehensive data analytics solutions.
-         :::column-end:::
-         :::column:::
-         
-         
-
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Low-code developer](#tab/low-code-developer)
-
-      ### Low-code developer
-
-      :::row:::
-         :::column:::
-         **[Create Power Platform solutions with AI and Copilot](https://aka.ms/BA_PPSols_AICoP)**
-
-         Learn to use Copilot to set up Dataverse, create Power Apps, and build Automated Processes. Explore what Microsoft Copilot Studio can do to help you build and extend custom copilots. 
-         :::column-end:::
-         :::column:::
-         **[Accelerate AI development with Low Code](https://aka.ms/BA_AccAIdevLC)**
-
-         Learn how to develop on Dataverse, Power Apps, and Power Automate. This curated content will also cover creation of custom copilots with Microsoft Copilot Studio.
-         :::column-end:::
-         :::column:::
-         **[Extend Microsoft 365 Copilot (for developers)](https://aka.ms/MW_M365CoPDev)**
-
-         Use Copilot Studio actions, and learn about building plugins and connectors for Microsoft 365 Copilot. Discover how to choose the right option for your use case.
-         :::column-end:::
-         :::column:::
-         **[Build and extend copilots with Microsoft Copilot Studio](https://aka.ms/BA_BldandExdCop)**
-
-         Use Microsoft Copilot Studio to create conversational AI solutions, and learn how to build actions that extend Microsoft 365 Copilot.
-         :::column-end:::
-      :::row-end:::
-
-      #### [Security professional](#tab/security-professional)
-
-      ### Security professional
-
-      :::row:::
-         :::column:::
-         **[Help secure your data in the age of AI](https://aka.ms/Sec_DataAI_Plan)**
-
-         Work with Microsoft Purview, Microsoft Sentinel, and Microsoft Copilot for Security, and learn how to effectively manage, protect, and govern sensitive information in AI-driven environments.
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-         :::column:::
-         
-
-
-         :::column-end:::
-      :::row-end:::
-
-      ---
-      
-      <br />
-      <br />
-
 #  Microsoft Certifications
   - componentType: hero
     title: Prove your AI skills with Microsoft Certifications
@@ -431,104 +475,6 @@ sections:
 #      # Explore documentation and other resources
 #      Continue your AI learning journey and meet goals, needs, and preferences with documentation, training events, tailored experiences with Training Services Partners, thought leadership articles, and blog posts.
 
-# Review AI documentation
-  - componentType: grid
-    title: Review Azure migration documentation
-    summary: Discover in-depth articles on migrating to Microsoft Azure.
-    blocks:
-      - componentType: summary-card
-        title: Migrate with Azure Data Factory
-        summary: Use Azure Data Factory to seamlessly migrate your data lakes and warehouses to Azure with high performance, scalability, and a cost-effective pay-as-you-go model.
-        url: /azure/data-factory/data-migration-guidance-overview
-      - componentType: summary-card
-        title: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
-        summary: Use Azure Data Factory templates to efficiently migrate data from Amazon S3 to Azure Data Lake Storage Gen2, handling both historical transfers and updates seamlessly. 
-        url: /azure/data-factory/solution-template-migration-s3-azure
-      - componentType: summary-card
-        title: Azure Migrate Overview
-        summary: Leverage Azure Migrate to efficiently plan, assess, and execute your migration to Azure, minimizing downtime and risks while supporting various workloads like servers, databases, and web applications. 
-        url: /azure/migrate/migrate-services-overview
-      - componentType: summary-card
-        title: Migrate AWS VMs using Azure Migrate 
-        summary: Learn how to migrate your AWS virtual machines to Azure using Azure Migrate by discovering, assessing, and setting up a replication appliance, followed by executing test and full migrations.
-        url: /azure/migrate/tutorial-migrate-aws-virtual-machines
-      - componentType: summary-card
-        title: Migrate GCP VMs using Azure Migrate 
-        summary: Learn how to migrate your GCP virtual machines to Azure using Azure Migrate by discovering, assessing, and setting up a replication appliance, followed by executing test and full migrations. 
-        url: /azure/migrate/tutorial-migrate-gcp-virtual-machines
-      - componentType: summary-card
-        title: Build a migration business case with Azure Migrate 
-        summary: Use the Business Case feature in Azure Migrate to analyze migration costs and benefits by comparing on-premises TCO with Azure and creating business cases from data collected via the appliance or imported CSV files. 
-        url: /azure/migrate/concepts-business-case-calculation
-
-# Discover more
-  - componentType: grid
-    title: Discover more
-    summary: ''
-    blocks:
-    - componentType: icon-card
-      title: Copilot learning hub
-      summary: ''
-      url: /copilot/
-      icon:
-        componentType: image
-        src: images/copilot-hub-icon-2.png
-    - componentType: icon-card
-      title: Security hub
-      summary: ''
-      url: /security/
-      icon:
-        componentType: image
-        src: images/security-hub-icon-2.png
-    - componentType: icon-card
-      title: AI for startups
-      summary: ''
-      url: /startups/
-      icon:
-        componentType: image
-        src: images/startup-copilot-hub-icon.png
-    - componentType: icon-card
-      title: '"Get AI ready" blog series'
-      summary: ''
-      url: //aka.ms/LearnAIBlogSeries
-      icon:
-        componentType: image
-        src: images/blog-icon.png
-    - componentType: icon-card
-      title: Microsoft AI Tour
-      summary: ''
-      url: //aka.ms/LearnAtAITour
-      icon:
-        componentType: image
-        src: images/ai-tour-icon.png
-    - componentType: icon-card
-      title: Microsoft Learn for Organizations
-      summary: ''
-      url: //aka.ms/AIforLFO
-      icon:
-        componentType: image
-        src: images/ai-hub-team-skills-icon.png
-    - componentType: icon-card
-      title: Training Services Partners
-      summary: ''
-      url: /credentials/support/partners
-      icon:
-        componentType: image
-        src: images/training-support-icon.png
-    - componentType: icon-card
-      title: Microsoft Virtual Training Days
-      summary: ''
-      url: //aka.ms/AITrainingDays
-      icon:
-        componentType: image
-        src: images/training-days-icon.png
-    - componentType: icon-card
-      title: AI Skills Navigator
-      summary: ''
-      url: https://aiskillsnavigator.microsoft.com?wt.mc_id=aihub_aisn_webpage_cnl
-      icon:
-        componentType: image
-        src: images/explore-team-training-icon.png
 #    - componentType: icon-card
 #      title: Skill up with Microsoft 365 Copilot training for business users
 #      summary: ''
