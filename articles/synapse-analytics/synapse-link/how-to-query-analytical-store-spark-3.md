@@ -21,7 +21,7 @@ The following capabilities are supported while interacting with Azure Cosmos DB:
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
 * Synapse Apache Spark also supports Spark structured streaming with Azure Cosmos DB as a source and a sink. 
 
-The following sections walk you through the syntax of above capabilities. You can also checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
+The following sections walk you through the syntax. You can also checkout the Learn module on how to [Query Azure Cosmos DB with Apache Spark for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-apache-spark-for-azure-synapse-analytics/). Gestures in Azure Synapse Analytics workspace are designed to provide an easy out-of-the-box experience to get started. Gestures are visible when you right-click on an Azure Cosmos DB container in the **Data** tab of the Synapse workspace. With gestures, you can quickly generate code and tailor it to your needs. Gestures are also perfect for discovering data with a single click.
 
 > [!IMPORTANT]
 > You should be aware of some constraints in the analytical schema that could lead to the unexpected behavior in data loading operations.
@@ -31,7 +31,7 @@ The following sections walk you through the syntax of above capabilities. You ca
 
 Customers can load analytical store data to Spark DataFrames or create Spark tables.
 
-The difference in experience is around whether underlying data changes in the Azure Cosmos DB container should be automatically reflected in the analysis performed in Spark. When Spark DataFrames are registered, or a Spark table is created, metadata around the current snapshot of the analytical store is fetched to Spark for efficient pushdown. It is important to note that since Spark follows a lazy evaluation policy. Unless an action is invoked on the Spark DataFrame, or a SparkSQL query is executed, actual data is not fetched from analytical store.
+The difference in experience is around whether underlying data changes in the Azure Cosmos DB container should be automatically reflected in the analysis performed in Spark. When Spark DataFrames are registered, or a Spark table is created, Spark fetches analytical store metadata for efficient pushdown. It is important to note that since Spark follows a lazy evaluation policy. You need to take action to fecth the last snapshot of the data in Spark DataFrames or SparkSQL queries. 
 
 In the case of **loading to Spark DataFrame**, the fetched metadata is cached through the lifetime of the Spark session and hence subsequent actions invoked on the DataFrame are evaluated against the snapshot of the analytical store at the time of DataFrame creation.
 
@@ -112,11 +112,11 @@ The Identity Access Management (IAM) role assignments from azure portal are on c
  - Log into Azure CLI: `az login`
  - Set the default subscription which has your Cosmos DB account: `az account set --subscription <name or id>`
  - Create the role definition in the desired Cosmos DB account: `az cosmosdb sql role definition create --account-name <cosmos-account-name> --resource-group <resource-group-name> --body @role_definition.json`
- - Copy over the role definition id returned from the above command: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/< cosmos-account-name >/sqlRoleDefinitions/<a-random-generated-guid>`
+ - Copy over the role `definition id` returned: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/< cosmos-account-name >/sqlRoleDefinitions/<a-random-generated-guid>`
  - Get the principal id of the identity that you want to assign the role to. The identity could be an azure app registration, a virtual machine, or any other supported azure resource. Assign the role to the principal using: `az cosmosdb sql role assignment create --account-name "<cosmos-account-name>" --resource-group "<resource-group>" --scope "/" --principal-id "<principal-id-of-identity>" --role-definition-id "<role-definition-id-from-previous-step>"`
 
 > [!Note]
-> When using an azure app registration, Use the Object Id as the service principal id in the step above. Also, the principal id and the Cosmos DB account must be in the same tenant.
+> When using an azure app registration, Use the `Object Id` as the service principal id. Also, the principal id and the Cosmos DB account must be in the same tenant.
 
 
 #### Generating the access token - Synapse Notebooks
@@ -137,7 +137,7 @@ val token = mssparkutils.credentials.getSPTokenWithCertLS(
 Now you can use the access token generated in this step to read data from analytical store when auth type is set to access token.
 
 > [!Note]
-> When using an Azure App registration, use the application (Client Id) in the step above.
+> When using an Azure App registration, use the application (Client Id).
 
 > [!Note]
 > Currently, Synapse doesn’t support generating access tokens using the azure-identity package in notebooks. Furthermore, synapse VHDs don’t include azure-identity package and its dependencies. Click [here](https://learn.microsoft.com/azure/synapse-analytics/synapse-service-identity) for more information.
@@ -169,7 +169,7 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ### Create Spark table
 
-In this example, you create a Spark table that points the Azure Cosmos DB analytical store. You can then perform additional analysis by invoking SparkSQL queries against the table. This operation neither impacts the transactional store nor does it incur any data movement. If you decide to delete this Spark table, the underlying Azure Cosmos DB container and the corresponding analytical store will not be affected. 
+In this example, you create a Spark table that points the Azure Cosmos DB analytical store. You can then perform additional analysis by invoking SparkSQL queries against the table. This operation doesn't impact transactional store or incur data movement. If you decide to delete this Spark table, the underlying Azure Cosmos DB container and the corresponding analytical store will not be affected. 
 
 This scenario is convenient to reuse Spark tables through third-party tools and provide accessibility to the underlying data for the run-time.
 
@@ -190,7 +190,7 @@ create table call_center using cosmos.olap options (
 
 ## Write Spark DataFrame to Azure Cosmos DB container
 
-In this example, you write a Spark DataFrame into an Azure Cosmos DB container. This operation will impact the performance of transactional workloads and consume request units provisioned on the Azure Cosmos DB container or the shared database.
+In this example, you write a Spark DataFrame into an Azure Cosmos DB container. This operation impacts the performance of transactional workloads and consume request units provisioned on the Azure Cosmos DB container or the shared database.
 
 The syntax in **Python** would be the following:
 ```python
@@ -218,12 +218,12 @@ df.write.format("cosmos.oltp").
 ```
 
 ## Load streaming DataFrame from container
-In this gesture, you use Spark Streaming capability to load data from a container into a dataframe. The data will be stored in the primary data lake account (and file system) you connected to the workspace. 
+In this gesture, you use Spark Streaming capability to load data from a container into a dataframe. The data is stored in the primary data lake account (and file system) you connected to the workspace. 
 > [!NOTE]
-> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can leverage the MongoDB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
+> If you are looking to reference external libraries in Synapse Apache Spark, learn more [here](../spark/apache-spark-azure-portal-add-libraries.md). For instance, if you are looking to ingest a Spark DataFrame to a container of Azure Cosmos DB for MongoDB, you can use the MongoDB connector for Spark [here](https://docs.mongodb.com/spark-connector/master/).
 
 ## Load streaming DataFrame from Azure Cosmos DB container
-In this example, you use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.
+In this example, you use Spark's structured streaming to load data from an Azure Cosmos DB container into a Spark streaming DataFrame, using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.
 
 The syntax in **Python** would be the following:
 ```python
