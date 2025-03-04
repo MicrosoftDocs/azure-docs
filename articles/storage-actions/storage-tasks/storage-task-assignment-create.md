@@ -66,7 +66,10 @@ The following table describes each field in the **Select Scope** section:
 
 ### Add a role assignment
 
-In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the system-assigned managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md)
+In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
+
+> [!NOTE]
+> You choose the managed identity type (system-assigned or user-assigned) as part of creating the storage task.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
@@ -166,7 +169,10 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
 
 2. Give the storage task permission to perform operations on the target storage account. 
 
-   The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
+   > [!NOTE]
+   > You choose the managed identity type (system-assigned or user-assigned) as part of creating the storage task.
+
+   The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task. 
 
    ```powershell
    New-AzRoleAssignment `
@@ -177,18 +183,20 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -RoleDefinitionName "Storage Blob Data Owner"
    ```
 
-  The following commands assign the role `Storage Blob Data Owner` to a user-assigned managed identity.
+   The following commands assign the role `Storage Blob Data Owner` to a user-assigned managed identity.
 
-   ```powershell
-   $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource -group> -Name <user-assigned-managed-identity-name>
+    ```powershell
+    $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource-group> -Name <user-assigned-managed-identity-name>
 
-   New-AzRoleAssignment `
-   -ResourceGroupName "<resource-group>" `
-   -ResourceName "<storage-account-name>" `
-   -ResourceType "Microsoft.Storage/storageAccounts" `
-   -ObjectId $managedIdentity.Id  `
-   -RoleDefinitionName "Storage Blob Data Owner"
+    New-AzRoleAssignment `
+    -ResourceGroupName "<resource-group>" `
+    -ResourceName "<storage-account-name>" `
+    -ResourceType "Microsoft.Storage/storageAccounts" `
+    -ObjectId $managedIdentity.Id  `
+    -RoleDefinitionName "Storage Blob Data Owner"
    ```
+
+
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -222,7 +230,10 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
       --report "{prefix:storage-tasks-report}"
    ```
 
-2. Give the storage task permission to perform operations on the target storage account. 
+2. Give the storage task permission to perform operations on the target storage account.
+
+   > [!NOTE]
+   > You choose the managed identity type (system-assigned or user-assigned) as part of creating the storage task. 
 
    The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
 
@@ -345,8 +356,6 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```
 
 ---
-
-
 
 ## See also
 
