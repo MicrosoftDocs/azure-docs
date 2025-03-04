@@ -60,6 +60,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Next steps 
 
+* [Understand cross-zone-region replication](cross-zone-region-replication.md)
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
