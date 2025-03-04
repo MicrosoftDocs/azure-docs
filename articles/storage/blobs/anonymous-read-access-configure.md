@@ -20,10 +20,7 @@ Azure Storage supports optional anonymous read access for containers and blobs. 
 > [!WARNING]
 > When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you remediate anonymous access for the storage account.
 
-This article describes how to configure anonymous read access for a container and its blobs. For information about how to remediate anonymous access for optimal security, see one of these articles:
-
-- [Remediate anonymous read access to blob data (Azure Resource Manager deployments)](anonymous-read-access-prevent.md)
-- [Remediate anonymous read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
+This article describes how to configure anonymous read access for a container and its blobs. For information about how to remediate anonymous access for optimal security, see [Remediate anonymous read access to blob data](anonymous-read-access-prevent.md).
 
 ## About anonymous read access
 
