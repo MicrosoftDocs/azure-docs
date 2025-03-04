@@ -19,7 +19,7 @@ ms.date: 03/07/2024
 >
 > - [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)
 > - [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
-> - [](tracking-schemas-standard.md)
+> - [Tracking schemas for B2B transactions in Standard workflows](tracking-schemas-standard.md)
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account. This reference guide describes the syntax and attributes for these tracking schemas.
 
