@@ -18,10 +18,10 @@ ms.author: ankitadutta
 
 Find the support matrix for Azure trusted launch virtual machines with Azure Site Recovery:
 
-- **Operating system**: Support for Windows OS is generally available. Linux OS is currently in *Public preview*. [Learn more](#support-matrix).
+- **Operating system**: Support for Windows OS is generally available. Linux OS is currently in *Public preview*. [Learn more](#supported-linux-distributions-and-kernels) on supported Linux distributions and kernels.
 - **Region**: Available in all [Azure Site Recovery supported regions](./azure-to-azure-support-matrix.md#region-support).
     > [!IMPORTANT] 
-    > Linux OS isn't supported yet for recovery services in UAE North region.
+    > Linux OS isn't supported yet for recovery services vault in UAE North region.
 
     > [!NOTE]
     > For [Azure government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
@@ -32,7 +32,7 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
 - **Shared disks**: Trusted virtual machines with attached shared disks are currently supported only for Windows OS.
 - **Scenario**: Available only for Azure-to-Azure scenario. 
 - **Create a new VM flow**: Enabling **Management** > **Site Recovery** option in *Create a new Virtual machine* flow is currently  supported for Windows OS only. Linux OS is not yet supported.
-- **VM creation time**: Only Linux Trusted VMs created after `1-Apr-2024` are supported. VMs created prior to this date are not supported.
+- **VM creation time**: Only Linux Trusted VMs created after `1-Apr-2024` are supported. Linux Trusted VMs created prior to this date are not supported.
 
 ## Supported Linux distributions and kernels
 
@@ -41,14 +41,14 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
 
 The following Linux distributions and kernels are supported for trusted launch virtual machines:
 
-*Public preview* distributions:
+Following are the distros supported in *Public preview*:
 - **Ubuntu**: 18.04, 20.04, 22.04, 24.04
 - **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4 
 - **SUSE 15**: SP3, SP4, SP5, SP6
 - **Alma Linux**: 8.10, 9.4
 - **Debian**: 12
 
-Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Trusted VMs support only the following kernels, provided they are also supported for Azure Standard VMs by Azure Site Recovery:
+Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Site Recovery support only the following kernels for Azure Trusted launch VMs, provided these kernels are also supported for Azure Standard VMs by Azure Site Recovery:
 - **SUSE 15 SP3**: 5.3.18-150300.59.179.1 and later 
 - **SUSE 15 SP4**: 5.14.21-150400.24.141.1 and later 
 - **SUSE 15 SP5**: 5.14.21-150500.55.83.1 and later 
