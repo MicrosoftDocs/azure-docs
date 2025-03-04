@@ -37,32 +37,32 @@
     },
     {
       "source_path": "articles/automation/update-management/enable-from-template.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/enable-from-template",
+      "redirect_url": "/azure/update-manager/migration-manual",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/enable-from-vm.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/enable-from-vm",
+      "redirect_url": "/azure/update-manager/migration-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/manage-updates-for-vm.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/manage-updates-for-vm",
+      "redirect_url": "/azure/update-manager/view-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/mecmintegration.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/mecmintegration",
+      "redirect_url": "/azure/update-manager/overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/operating-system-requirements.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/operating-system-requirements",
+      "redirect_url": "/azure/update-manager/support-matrix-updates",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/update-management/overview.md",
-      "redirect_url": "/previous-versions/azure/automation/update-management/overview",
+      "redirect_url": "azure/update-manager/workflow-update-manager",
       "redirect_document_id": false
     },
     {
