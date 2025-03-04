@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2025
+ms.date: 01/31/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -57,6 +57,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
 | CostInBillingCurrency | EA, MCA | Cost of the charge in the billing currency before credits or taxes. |
 | CostInPricingCurrency | MCA | Cost of the charge in the pricing currency before credits or taxes. |
+| costInUsd | MCA | Cost of the charge in USD currency before credits or taxes. |
 | Currency | EA, pay-as-you-go | See `BillingCurrency`. |
 | CustomerName | MPA | Name of the Microsoft Entra tenant for the customer's subscription. |
 | CustomerTenantId | MPA | Identifier of the Microsoft Entra tenant of the customer's subscription. |
@@ -65,6 +66,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ExchangeRateDate | MCA | Date the exchange rate was established. |
 | ExchangeRatePricingToBilling | MCA | Exchange rate used to convert the cost in the pricing currency to the billing currency. |
 | Frequency | All | Indicates whether a charge is expected to repeat. Charges can either happen once (**OneTime**), repeat on a monthly or yearly basis (**Recurring**), or be based on usage (**UsageBased**). |
+| InstanceId | EA, pay-as-you-go | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
 | InvoiceId | pay-as-you-go, MCA | The unique document ID listed on the invoice PDF. |
 | InvoiceSection | MCA | See `InvoiceSectionName`. |
 | InvoiceSectionId¹ | EA, MCA | Unique identifier for the EA department or MCA invoice section. |
@@ -83,11 +85,14 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PartnerName | MPA | Name of the partner Microsoft Entra tenant. |
 | PartnerTenantId | MPA | Identifier for the partner's Microsoft Entra tenant. |
 | PartNumber¹ | EA, pay-as-you-go | Identifier used to get specific meter pricing. |
+| paygCostInBillingCurrency | MCA | The amount of Pay-As-You-Go (PayG) cost before tax in billing currency. You can compute `paygCostInBillingCurrency` by multiplying `PayGPrice`, `quantity` and `exchangeRatePricingToBilling`.  |
+| paygCostInUsd | MCA | The amount of Pay-As-You-Go (PayG) cost before tax in USD currency. |
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
+| PreTaxCost| EA, pay-as-you-go | Cost of the charge before credits or taxes. You can compute `PreTaxCost` by multiplying `ResourceRate` with `UsageQuantity`. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
 | PricingCurrency | MCA | Currency used when rating based on negotiated prices. |
 | PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, and `SavingsPlan`) |
-| Product | All | Name of the product. |
+| ProductName | All | Name of the product. |
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
 | ProductOrderName | All | Unique name for the product order. |
@@ -103,21 +108,25 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, **Others**, or **Not applicable**. |
 | ResourceId¹ | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. |
 | ResourceLocation¹  | All | The Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. For an example using Virtual Machines, see [What's the difference between MeterRegion and ResourceLocation](/azure/virtual-machines/vm-usage#what-is-the-difference-between-meter-region-and-resource-location). |
-| ResourceLocationNormalized  | All | Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). |
+| ResourceLocationNormalized  | EA | Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs). |
 | ResourceName | EA, pay-as-you-go | Name of the resource. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
+| ResourceRate | pay-as-you-go | The price for a given product or service that represents the actual rate that you end up paying per unit. |
 | ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null/empty, **Others** , or **Not applicable**. |
-| RoundingAdjustment | EA, MCA | Rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice. For more information, see [Rounding adjustment details](#rounding-adjustment-details).  |
 | ServiceFamily | MCA | Service family that the service belongs to. |
 | ServiceInfo1 | All | Service-specific metadata. |
 | ServiceInfo2 | All | Legacy field with optional service-specific metadata. |
+| ServiceName | pay-as-you-go | The service family that the service belongs to. |
 | ServicePeriodEndDate | MCA | The end date of the rating period that defined and locked pricing for the consumed or purchased service. |
 | ServicePeriodStartDate | MCA | The start date of the rating period that defined and locked pricing for the consumed or purchased service. |
+| ServiceTier | pay-as-you-go | Name of the service subclassification category. |
 | SubscriptionId¹ | All | Unique identifier for the Azure subscription. |
 | SubscriptionName | All | Name of the Azure subscription. |
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
 | UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (`PayG` price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
+| UsageDateTime | EA, pay-as-you-go | The usage date of the charge in yyyy-mm-dd format. |
+| UsageQuantity | pay-as-you-go | The number of units used by the given product or service for a given day. |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
@@ -190,6 +199,8 @@ Meter characteristics - Meters associated with IQ exhibit specific traits in the
 - However, the **PayG (pay-as-you-go) price** still shows the retail price, which is nonzero.
 
 ## Rounding adjustment details
+
+A rounding adjustment represents the quantization that occurs during cost calculation. When the calculated costs are converted to the invoiced total, small rounding errors can occur. The rounding errors are represented as `rounding adjustment` to ensure that the costs shown in Cost Management align to the invoice.
 
 ### Why do we have rounding adjustment?
 

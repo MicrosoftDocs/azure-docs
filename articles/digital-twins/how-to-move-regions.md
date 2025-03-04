@@ -142,7 +142,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#control-plane-overview).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

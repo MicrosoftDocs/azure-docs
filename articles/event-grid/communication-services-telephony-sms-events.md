@@ -2,7 +2,7 @@
 title: Azure Communication Services - SMS events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for SMS Events.
 ms.topic: conceptual
-ms.date: 12/02/2022
+ms.date: 01/29/2025
 author: VikramDhumal
 ms.author: vikramdh
 ---
@@ -34,17 +34,17 @@ This section contains an example of what that data would look like for each even
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
-    "MessageId": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
-    "From": "15555555555",
-    "To": "+15555555555",
-    "DeliveryStatus": "Delivered",
-    "DeliveryStatusDetails": "No error.",
-    "ReceivedTimestamp": "2020-09-18T00:22:20.2855749Z",
-    "DeliveryAttempts": [
+    "messageId": "Outgoing_202009180022138813a09b-0cbf-4304-9b03-1546683bb910",
+    "from": "15555555555",
+    "to": "+15555555555",
+    "deliveryStatus": "Delivered",
+    "deliveryStatusDetails": "No error.",
+    "receivedTimestamp": "2020-09-18T00:22:20.2855749Z",
+    "deliveryAttempts": [
       {
-        "Timestamp": "2020-09-18T00:22:14.9315918Z",
-        "SegmentsSucceeded": 1,
-        "SegmentsFailed": 0
+        "timestamp": "2020-09-18T00:22:14.9315918Z",
+        "segmentsSucceeded": 1,
+        "segmentsFailed": 0
       }
     ],
     "Tag": "Optional customer-tag set in the original message"
@@ -67,12 +67,12 @@ This section contains an example of what that data would look like for each even
   "topic": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/acse2e/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
   "subject": "/phonenumber/15555555555",
   "data": {
-    "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
-    "From": "15555555555",
-    "To": "15555555555",
-    "Message": "Great to connect with Azure Communication Services events",
-    "ReceivedTimestamp": "2020-09-18T00:27:45.32Z",
-    "SegmentCount": 1
+    "messageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
+    "from": "15555555555",
+    "to": "15555555555",
+    "message": "Great to connect with Azure Communication Services events",
+    "receivedTimestamp": "2020-09-18T00:27:45.32Z",
+    "segmentCount": 1
   },
   "eventType": "Microsoft.Communication.SMSReceived",
   "dataVersion": "1.0",

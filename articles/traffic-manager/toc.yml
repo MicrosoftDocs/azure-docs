@@ -136,8 +136,6 @@
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Microsoft Q&A question page

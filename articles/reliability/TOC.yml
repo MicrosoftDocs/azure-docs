@@ -1,15 +1,19 @@
 - name: Azure reliability documentation
   href: index.yml
-- name: What is reliability?
+- name: Overview
   href: overview.md
+- name: What's new
+  href: whats-new.md
 - name: Reliability fundamentals
   items:
   - name: Business continuity, high availability, and disaster recovery
     href: concept-business-continuity-high-availability-disaster-recovery.md
-  - name: Shared responsibility for resiliency
+  - name: Redundancy, replication, and backup
+    href: concept-redundancy-replication-backup.md
+  - name: Failover and failback
+    href: concept-failover-failback.md
+  - name: Shared responsibility for reliability
     href: concept-shared-responsibility.md
-  - name: Azure service incident response
-    href: incident-response.md
 - name: Azure regions
   items:
   - name: What are Azure regions?
@@ -17,8 +21,8 @@
   - name: Paired and nonpaired regions
     href: regions-paired.md
   - name: Multi-region solutions in nonpaired regions
-    href: cross-region-replication-azure-no-pair.md
-- name: Availability zones
+    href: regions-multi-region-nonpaired.md
+- name: Azure availability zones
   items:
   - name: What are Azure availability zones?
     href: availability-zones-overview.md
@@ -30,8 +34,6 @@
     items:
     - name: Overview
       href: availability-zones-migration-overview.md
-    - name: Azure availability zone migration baseline
-      href: availability-zones-baseline.md
     - name: Migration guides by service
       items:
       - name: Azure API Management
@@ -108,8 +110,6 @@
     items:
     - name: Azure HDInsight
       href: reliability-hdinsight.md
-    - name: Azure HDInsight on AKS
-      href: reliability-hdinsight-on-aks.md
     - name: Azure Machine Learning
       href: /azure/machine-learning/how-to-high-availability-machine-learning?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Stream Analytics
@@ -428,18 +428,14 @@
       href: ../azure-signalr/signalr-concept-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
 - name: Resources
   items:
+  - name: Azure service incident response
+    href: incident-response.md
   - name: Service availability
     items:
     - name: Service availability by region
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Service availability by category
       href: availability-service-by-category.md
-    - name: Service availability by sovereign cloud
-      items:
-      - name: US Government
-        href: ../azure-government/compare-azure-government-global-azure.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability
-      - name: Microsoft Azure operated by 21Vianet
-        href: sovereign-cloud-china.md
   - name: Azure Reliability feature page
     href: https://azure.microsoft.com/explore/reliability/#overview
   - name: Reliability testing - Chaos engineering

@@ -64,6 +64,9 @@ You can use the following ARM template examples to help correctly configure thes
 + [Premium plan with VNET integration](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/)
 + [Consumption plan with a deployment slot](https://azure.microsoft.com/resources/templates/function-app-create-dynamic-slot/)
 
+> [!IMPORTANT]
+> The Azure Files service doesn't currently support identity-based connections. For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files). 
+
 ### Storage account configuration
 
 When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. Functions relies on Azure Storage for operations such as managing triggers and logging function executions. The storage account connection string for your function app is found in the `AzureWebJobsStorage` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application settings.

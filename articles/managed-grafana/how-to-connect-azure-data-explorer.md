@@ -18,7 +18,7 @@ Azure Data Explorer is a logs & telemetry data exploration service. In this guid
 
 ## Prerequisites
 
-* [An Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) in the Standard plan.
+* [An Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md) in the Standard plan.
 * [An Azure Data Explorer database](/azure/data-explorer/create-cluster-database)
 
 ::: zone pivot="aro-azureportal"
@@ -27,7 +27,7 @@ Azure Data Explorer is a logs & telemetry data exploration service. In this guid
 
 Add an Azure Data Explorer data source to Grafana by following the steps below.
 
-1. Open an Azure Managed Grafana instance in the Azure portal.
+1. Open an Azure Managed Grafana workspace in the Azure portal.
 1. In the **Overview** section, open the **Endpoint** URL.
 1. In the Grafana portal, go to **Connections** > **Data sources** > **Add new data source**, then search and select **Azure Data Explorer Datasource**.
 
