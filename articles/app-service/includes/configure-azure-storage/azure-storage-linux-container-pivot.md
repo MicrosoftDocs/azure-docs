@@ -218,6 +218,10 @@ To validate that the Azure Storage is mounted successfully for the app:
    1. In the storage mount configuration, update the access the key to use the regenerated **key2**.
    1. Regenerate **key1**.
 
+### Configuration
+
+- If you need to use a real time file system, where you expect changes to alter, add, or remove files quickly, use Azure Files as the storage type when you mount storage. When files are static and you don't expect them to change, use Azure Blob.
+
 ### Troubleshooting
 
 - The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted, if you specify a directory under */home*, for example. If you migrate files for an existing app, make a backup of the app and its content before you begin.

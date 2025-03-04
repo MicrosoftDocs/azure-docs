@@ -423,8 +423,8 @@
       href: api-management-howto-configure-notifications.md
   - name: Export APIs
     items:
-    - name: Inventory APIs in API Center
-      href: ../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Synchronize APIs to API Center
+      href: ../api-center/synchronize-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Export APIs to Postman for API development
       displayName: collection
       href: export-api-postman.md
