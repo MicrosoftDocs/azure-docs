@@ -141,7 +141,7 @@ az webapp auth set --resource-group <group-name> --name <app-name> --body "$auth
 The commands effectively add a `loginParameters` property with extra custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
-- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT token that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
+- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-access-tokens-expire)).
 
 > [!TIP]
