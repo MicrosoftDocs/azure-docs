@@ -10,4 +10,4 @@ ms.service: azure-communication-services
 
 For detailed documentation and quickstarts about the Web UI Library, see the [Web UI Library Storybook](https://azure.github.io/communication-ui-library).
 
-To learn more, see [Custom User Data Model](https://azure.github.io/communication-ui-library/?path=/docs/customuserdatamodel--page) in the Web UI Library.
+To learn more, see [Custom User Data Model](https://azure.github.io/communication-ui-library/?path=/docs/concepts-custom-user-data-model--docs) in the Web UI Library.

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 07/28/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
 
 # Migrate Application Gateway and WAF deployments to availability zone support

@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 02/11/2025
+ms.date: 02/28/2025
 ms.author: anfdocs
 ---
 
@@ -16,13 +16,17 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
 
-    Cross-zone-region replication is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. This feature is in preview.
+    Cross-zone-region replication is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
 ## February 2025
 
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
-    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
 
 ## January 2025 
 

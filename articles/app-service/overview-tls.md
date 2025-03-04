@@ -1,7 +1,7 @@
 ---
-title: Transport Layer Security (TLS) overview
-description: Learn about Transport Layer Security (TLS) on App Service.
-keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
+title: Overview of TLS/SSL
+description: Get an overview of TLS/SSL certificates in Azure App Service and understand how they secure your custom domains.
+keywords: TLS/SSL certificates, Azure App Service security, HTTPS overview, domain encryption
 ms.topic: article
 ms.date: 02/18/2025
 ms.author: msangapu
@@ -9,7 +9,7 @@ author: msangapu-msft
 ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---
-# Azure App Service TLS overview
+# TLS/SSL certificates for Azure App Service
 
 > [!NOTE]
 > The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
@@ -54,9 +54,6 @@ Key benefits include:
 - **Faster Handshake**: Reduces round trips, improving connection latency, especially for repeated sessions (0-RTT support).
 - **Better Performance**: Uses streamlined encryption algorithms that lower computational overhead and improve efficiency.
 - **Enhanced Privacy**: Encrypts handshake messages, reducing metadata exposure and mitigating downgrade attacks.
-
-#### Default Configuration 
-The default incoming TLS version is TLS 1.2 for Azure App Service. Incoming TLS 1.3 is fully supported in Azure App Service and can be enabled by setting the **Minimum Inbound TLS Version** to **1.3** in the Azure portal, CLI, or ARM templates.
 
 #### Cipher Suites  
 A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:

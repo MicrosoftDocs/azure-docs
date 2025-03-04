@@ -7,17 +7,19 @@ ms.custom: linux-related-content
 ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 
-ms.date: 05/23/2024
+ms.date: 02/26/2025
 ---
 # Configure a VPN client for point-to-site: RADIUS - password authentication
 
 To connect to a virtual network over point-to-site (P2S), you need to configure the client device that you'll connect from. You can create P2S VPN connections from Windows, macOS, and Linux client devices. This article helps you create and install the VPN client configuration for username/password RADIUS authentication.
 
+> [!NOTE]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 When you're using RADIUS authentication, there are multiple authentication instructions: [certificate authentication](point-to-site-vpn-client-configuration-radius-certificate.md), [password authentication](point-to-site-vpn-client-configuration-radius-password.md), and [other authentication methods and protocols](point-to-site-vpn-client-configuration-radius-other.md). The VPN client configuration is different for each type of authentication. To configure a VPN client, you use client configuration files that contain the required settings.
 
 > [!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
 
 ## Workflow
 
