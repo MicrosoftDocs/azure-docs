@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
-## Secure Azure Functions
+## Secure the endpoint
 
 As part of setting up a trusted service to provide access tokens for users, you need to take into account the security of that endpoint to make sure that no bad actor can randomly create tokens for your service. Azure Functions provides built-in security features that you can use to secure the endpoint by using different types of authentication policies. For more information, see [Azure Functions security](../../azure-functions/security-concepts.md).
 
