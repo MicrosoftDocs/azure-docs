@@ -67,7 +67,10 @@ An example deployment template:
           "contentHash": "SHA256HASH",
           "version": "1.0.0",
           "assignmentType": "ApplyAndMonitor",
-          "configurationParameter": {}
+          "configurationParameter": [
+            "name": "configuraitonName",
+            "value": "configurationValue"
+         ]
         }
       }
     }
