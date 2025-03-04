@@ -598,7 +598,7 @@ Here are steps that help you upgrade the Oracle connector:
     ```
 
     > [!TIP]
-    > Azure Key Vault is supported for the `server` property. You can edit the linked service JSON to add the Azure Key Vault reference, as shown below:
+    > Azure Key Vault is supported for the `server` property. You can edit the linked service JSON to add the Azure Key Vault reference, as shown below:<br>
     > :::image type="content" source="media/connector-oracle/azure-key-vault-server.png" alt-text="Screenshot of using Azure Key Vault in server."::: 
 
     Note that: 
@@ -650,7 +650,7 @@ Here are steps that help you upgrade the Oracle connector:
                 "type": "Oracle",
                 "version": "2.0",
                 "typeProperties": {
-                    " server": "(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=oraclesample.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=db1)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=oraclesample2.com)(PORT=1521))(CONNECT_DATA=(SID=db2)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=255.201.11.24)(PORT=1522))(CONNECT_DATA=(SERVICE_NAME=db3))))",
+                    "server": "(DESCRIPTION_LIST=(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=oraclesample.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=db1)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=oraclesample2.com)(PORT=1521))(CONNECT_DATA=(SID=db2)))(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=255.201.11.24)(PORT=1522))(CONNECT_DATA=(SERVICE_NAME=db3))))",
                     "username": "<user name>",  
                     "password": "<password>",  
                     "authenticationType": "<authentication type>" 
