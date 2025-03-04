@@ -6,7 +6,7 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 02/06/2025
+ms.date: 03/04/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
@@ -23,7 +23,7 @@ When including Azure Data Factory resources in your [business continuity plannin
 
 * [On-premises data gateways](/data-integration/gateway/service-gateway-onprem), which are Azure resources that you create and use in your data factory to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](/data-integration/gateway/service-gateway-install) on a local computer. You can configure an on-premises data gateway for high availability by using multiple computers. For more information, see [High availability support](/data-integration/gateway/plan-scale-maintain).
 
-## Redundancy
+## Reliability architecture overview
 
 Azure Data Factory consists of multiple infrastructure components, which have different types of support for infrastructure resiliency:
 
@@ -31,7 +31,7 @@ Azure Data Factory consists of multiple infrastructure components, which have di
 
 - Integration runtimes, which execute certain activities within a pipeline. There are different types of integration runtimes:
 
-    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes. <!-- TODO confirm that this applies to all of them - including the SSIR one. -->
+    - Microsoft-managed integration runtimes. Microsoft manages the components that make up these runtimes.
     
     - Self-hosted integration runtimes. Microsoft provides software that you can run on your own compute infrastructure to execute some parts of your Azure Data Factory pipelines. You're responsible for deploying and managing compute resources, and for the resiliency of those compute resources.
 
@@ -50,35 +50,64 @@ To learn how to change or disable retry policies for your data factory triggers 
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-The core Azure Data Factory service automatically supports *zone redundancy*, which provides resiliency to failures in [availability zones](availability-zones-overview.md). Microsoft manages the components in the core service and spreads them across availability zones.
+Azure Data Factory supports *zone redundancy*, which provides resiliency to failures in [availability zones](availability-zones-overview.md). This section considers how each part of the Azure Data Factory service support zone redundancy.
 
-Microsoft-managed integration runtimes also support zone redundancy, and this capability is managed by Microsoft. <!-- TODO need to confirm about SSIS -->
-
-If you use a self-hosted integration runtime, you're responsible for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
-
-### Region support
+### Regions suported
 
 Zone-redundant Azure Data Factory resources can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
 
+### Considerations
+
+**Core service:** Microsoft manages the components in the core Azure Data Factory service and spreads them across availability zones.
+
+**Integration runtimes:** Microsoft-managed integration runtimes also support zone redundancy, and this capability is managed by Microsoft. However, when you use the SSIS IR, you need to deploy at least two nodes, which will then be allocated into different availability zones.
+
+If you use a self-hosted integration runtime, you're responsible for deploying the compute infrastructure to host the runtime. You can deploy multiple nodes, such as individual VMs, and configure them for high availability. You can then distribute those nodes across multiple availability zones. To learn more, see [High availability and scalability](../data-factory/create-self-hosted-integration-runtime.md#high-availability-and-scalability).
+
+### Cost
+
+**Core service:** No additional cost applies for zone redundancy.
+
+**Integration runtimes:** Cost for zone redundancy differs depending on the type of integration runtime you use:
+
+- When you use the Microsoft-managed integration runtime, zone redundancy is included at no additional cost.
+- When you use the SSIS integration runtime, you must deploy at least two nodes to achieve zone redundancy.
+- When you use a self-hosted integration runtime, you need to deploy and manage the compute infrastructure across multiple zones. Depending on how many nodes you deploy and how you configure them, you might incur additional costs from the underlying compute services and other supporting services. There's no additional charge to run the self-hosted integration runtime on multiple nodes.
+
+### Configure availability zone support
+
+**Core service:** The Azure Data Factory core service automatically support zone redundancy, so no configuration is required.
+
+**Integration runtimes:**
+
+- The Microsoft-managed integration runtime automatically enables zone redundancy, so no configuration is required.
+- The SSIS integration runtime automatically supports zone redundancy when it's deployed with two or more nodes.
+- Self-hosted integration runtimes require you to configure your own resiliency, including spreading those nodes across multiple availability zones.
+
+### Capacity planning and management
+
+**Core service:** The Azure Data Factory core service automatically scales based on demand, and you don't need to plan or manage capacity.
+
+**Integration runtimes:** 
+- The Microsoft-managed integration runtime automatically scales based on demand, and you don't need to plan or manage capacity.
+- The SSIS integration runtime requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [TODO]().
+- Self-hosted integration runtimes require you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
+
 ### Traffic routing between zones
 
-<!-- TODO I assume Microsoft manages distributing requests among resources spanning AZs -->
+Azure Data Factory automatically distributes pipeline activities, triggers, and other work among instances in each availability zone.
 
 ### Zone-down experience
 
-**Detection and response.**
-- For the core Azure Data Factory service, and for Microsoft-managed integration runtimes, the Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other core platform components.
-- For self-hosted integration runtimes, <!-- TODO confirm behaviour - I think the software handles this itself? -->
+**Detection and response.** The Azure Data Factory platform is responsible for detecting a failure in an availability zone and responding. You don't need to do anything to initiate a zone failover in your pipelines or other components.
 
-**Active requests.** <!-- What happens here to the pipeline? Would you expect any interruptions, delays, retries, etc? -->
+**Active requests.** Any pipelines and triggers in progress will continue to execute, and you won't notice a zone failure.
 
-**Traffic rerouting.** When a zone is unavailable, Azure Data Factory automatically reruns active requests on compute resources in an available zone.
+    Activities in progress might fail and get restarted. It's important to design activities to be idempotent, which helps them to recover from zone failures as well as other faults. For more information, see TODO.
 
 ### Failback
 
-<!-- What happens here to the pipeline? -->
-
-When the availability zone recovers, Azure Data Factory automatically fails back to the original zone.
+When the availability zone recovers, Azure Data Factory automatically fails back to the original zone. You don't need to do anything to initiate a zone failback in your pipelines or other components.
 
 ### Testing for zone failures
 
