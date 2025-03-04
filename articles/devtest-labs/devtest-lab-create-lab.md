@@ -4,7 +4,7 @@ description: Learn how to quickly create a lab in Azure DevTest Labs by using th
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 03/03/2025
 ms.custom: mode-ui, UpdateFrequency2
 ---
 
@@ -14,7 +14,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Prerequisite
 
-- At least [Contributor](../role-based-access-control/built-in-roles.md#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create a lab
 
@@ -23,24 +23,25 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 1. On the **Basic Settings** tab, provide the following information:
    - **Subscription**: Change the subscription if you want to use a different subscription for the lab.
    - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.
-   - **Lab Name**: Enter a name for the lab.
-   - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
-   - **Artifacts storage account access**: You can configure whether the lab uses a User-assigned Managed Identity or a Shared Key to access the lab storage account. To use a User-assigned Managed Identity, select the appropriate managed identity from the list, otherwise select the Storage Account Shared Key option from the list.
-   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).
+   - **Lab name**: Enter a name for the lab.
+   - **Location**: Change the location if you want to use a different Azure region for the lab.
+   - **Artifacts storage account access**: If you have a user-assigned managed identity, you can select whether the lab uses a managed identity or a shared key to access the lab storage account. To use a user-assigned managed identity, select it from the dropdown list. Otherwise, keep the option set to **Storage account Shared Key**.
+   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments), or set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).
 
    :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
 
-1. Optionally, select each tab at the top of the page, and customize those settings
-   - [**Auto-shutdown**](#auto-shutdown-tab)
-   - [**Networking**](#networking-tab)
-   - [**Tags**](#tags-tab) 
+1. Optionally, select **Next** or select the other tabs at the top of the page to customize the following settings:
+
+   - [Auto-shutdown](#auto-shutdown-tab)
+   - [Networking](#networking-tab)
+   - [Tags](#tags-tab) 
 
    You can also apply or change most of these settings after lab creation.
-1. After you complete all settings, select **Review + create** at the bottom of the page.
-1. If the settings are valid, **Succeeded** appears at the top of the **Review + create** page. Review the settings, and then select **Create**.
+1. After you complete all settings, select **Review + create** at the top or bottom of the page.
+1. Once **Succeeded** appears at the top of the **Review + create** page, review the settings and then select **Create**.
 
 > [!TIP]
-> Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs.
+> Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs. For more information, see [Create VMs by using ARM templates](devtest-lab-use-resource-manager-template.md).
 
 ### Auto-shutdown tab
 
@@ -57,7 +58,7 @@ Auto-shutdown helps save lab costs by shutting down all lab VMs at a certain tim
 
 ### Networking tab
 
-Azure DevTest Labs creates a new default virtual network for each lab. If you have another virtual network, you can choose to use it for the new lab instead of the default. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
+Azure DevTest Labs creates a new default virtual network for each lab. You can choose to use another virtual network for the new lab instead of the default. For more information, see [Add a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 To configure networking:
 
@@ -108,7 +109,7 @@ If you created a resource group for the lab, you can now delete the resource gro
 1. At the top of the page, select **Delete resource group**.
 1. On the **Are you sure you want to delete "\<resource group name>"** page, enter the resource group name, and then select **Delete**.
 
-## Next steps
+## Related content
 
 To learn how to add VMs to your lab, go on to the next article:
 
