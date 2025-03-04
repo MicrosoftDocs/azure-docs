@@ -534,6 +534,136 @@
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-quickstart.md",
             "redirect_url": "/azure/virtual-desktop/quickstart",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/compare-remote-desktop-clients.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/compare-remote-desktop-clients",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/install-windows-client-per-user.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/install-windows-client-per-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/thin-clients.md",
+            "redirect_url": "/azure/virtual-desktop/thin-clients",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-microsoft-store.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-web.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-web",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-azure-virtual-desktop-app.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-basic-shared.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows-basic-shared",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-web.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-web-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/client-features-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/client-features-windows-msrdc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-legacy-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/connect-windows-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-remote-desktop-client.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/connect-windows-cloud-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/index.yml",
+            "redirect_url": "/azure/virtual-desktop/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/remote-desktop-clients-overview.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/toc.yml",
+            "redirect_url": "/azure/virtual-desktop/toc.yml",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-android-chrome-os",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-ios-ipados",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-macos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-windows",
+            "redirect_document_id": false
         }
     ]
 }
