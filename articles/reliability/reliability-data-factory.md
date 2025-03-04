@@ -16,7 +16,7 @@ This article describes reliability support in [Azure Data Factory](../data-facto
 
 Reliability is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a reliable solution that meets your needs.
 
-Azure Data Factory helps you to create flexible and powerful data pipelines by using a fully managed, serverless data integration service. When you plan for resiliency, consider not only the reliability of the data factory, but also related resources that you depend on. Evaluate any [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems, and ensure those resources meet your reliabillity requirements.
+With Azure Data Factory you can create flexible and powerful data pipelines by using a fully managed, serverless data integration service. When you plan for reliability, consider not only the reliability of the data factory, but also related resources that you depend on. Evaluate any [Connections](../data-factory/connector-overview.md) that you create from data factory to other apps, services, and systems, and ensure those resources meet your reliability requirements.
 
 ## Reliability architecture overview
 
