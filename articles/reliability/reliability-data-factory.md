@@ -39,6 +39,8 @@ Azure Data Factory consists of multiple infrastructure components, which have di
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
+<!-- TODO idempotent actions -->
+
 In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
