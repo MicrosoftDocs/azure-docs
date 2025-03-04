@@ -40,6 +40,6 @@ For more information about alerts for Azure Backup, see [Manage Azure Monitor ba
 ## Related content
 
 - [Azure Backup monitoring data reference](monitor-backup-reference.md)
-- [Monitoring Azure Backup workloads](/backup-azure-monitoring-built-in-monitor.md)
+- [Monitoring Azure Backup workloads](backup-azure-monitoring-built-in-monitor.md)
 - [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md)
 - [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
