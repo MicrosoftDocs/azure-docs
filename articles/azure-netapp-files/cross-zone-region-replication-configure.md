@@ -16,9 +16,9 @@ Azure NetApp Files supports volume cross-zone and cross-region replication on th
 
 - Cross-zone-region replication supports creating two replication relationships for a source volume: cross-zone replication, cross-region replication, or a combination.  
 - Cross-zone-region replication volumes must abide by the same requirements and considerations as individual [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md) volumes.  
-- Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant.
+- Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. You must [register this feature](cross-zone-region-replication-configure.md#register-for-cross-subscription-replication) before using it for the first time. 
 
-## Register the feature
+## Register for cross-zone-region replication 
 
 Cross-zone-region replication for Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
 
@@ -35,6 +35,26 @@ Cross-zone-region replication for Azure NetApp Files is currently in preview. Yo
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOneToTwoReplication
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+## Register for cross-subscription replication 
+
+Cross-zone-region replication for Azure NetApp Files is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
+
+1. Register the feature
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossSubscriptionReplication
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossSubscriptionReplication
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
