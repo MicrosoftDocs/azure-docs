@@ -67,7 +67,7 @@ Enabling private endpoints requires a [Standard or Premium tier](https://azure.m
 
 The following error indicates that the private endpoint being connected to an App Configuration store is in a subscription that has not registered the Azure App Configuration resource provider:
 
-> The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/appconfig/PrivateEndpointTroubleshooting for instructions on how to register a subscription to a resource provider.
+> The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'.
 
 This error is typically seen when the private endpoint's subscription is different to the App Configuration store's subscription. To resolve:
 1. Register the `Microsoft.AppConfiguration` resource provider in the private endpoint's subscription.
