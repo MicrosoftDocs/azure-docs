@@ -162,24 +162,38 @@ The final step to create the storage account is to select the **Create** button 
 
 # [PowerShell](#tab/azure-powershell)
 ### Create a provisioned v2 storage account (PowerShell)
+Currently, provisioned v2 file shares are only available in a limited number of regions. To check the supported regions in PowerShell, write down the subscription ID when logging into the Azure account, and proceed with the following command.
+
+```powershell
+# Login to Azure Account
+Connect-AzAccount
+
+# Subscription ID in GUID Format
+$subscriptionID = "your-subscriptionID-number"
+
+# Get Token
+$token = Get-AzAccessToken
+
+# Invoke SRP List SKU API and Get the Returned SKU List
+$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
+
+# Return with the Regions Currently Supporting Provisioned v2 Service
+$result | Select-Object -ExpandProperty Value | Where-Object { $_.kind -eq "FileStorage" -and $_.name -like "*StandardV2*" } | Select-Object -Property @{ Name = "sku"; Expression = { $_.name } }, @{ Name = "location"; Expression = { $_.locations } }
+```
+
 To create a provisioned v2 storage account using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
 
-To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `$resourceGroup`, `$accountName`, `$region`, and `$storageAccountSku` with the desired values for your storage account deployment.
+To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$region`, and `$storageAccountSku` with the desired values for your storage account deployment.
 
 ```PowerShell
-$resourceGroup = "<my-resource-group>"
-$accountName = "<my-storage-account-name>"
+$resourceGroupName = "<my-resource-group>"
+$storageAccountName = "<my-storage-account-name>"
 $region = "<my-region>"
 $storageAccountKind = "FileStorage"
-# Valid SKUs for provision v2 HDD file share are 'StandardV2_LRS' (HDD Local Pv2),
-# 'StandardV2_GRS' (HDD Geo Pv2), 'StandardV2_ZRS' (HDD Zone Pv2), 'StandardV2_GZRS (HDD GeoZone Pv2)'
+# Valid SKUs for provisioned v2 HDD file share are 'StandardV2_LRS' (HDD Local Pv2), 'StandardV2_GRS' (HDD Geo Pv2), 'StandardV2_ZRS' (HDD Zone Pv2), 'StandardV2_GZRS' (HDD GeoZone Pv2).
 $storageAccountSku = "StandardV2_LRS"
 
-New-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -AccountName $accountName `
-        -SkuName $storageAccountSku `
-        -Kind $storageAccountKind `
-        -Location $region
+New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
 ```
 
 ### Create a provisioned v1 or pay-as-you-go storage account (PowerShell)
@@ -316,7 +330,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 5. Select **Review + create** and then **Create** to create the Azure file share.
 
 # [PowerShell](#tab/azure-powershell)
-You can create a provisioned v2 Azure file share with the `New-AzRmStorageShare` cmdlet. The following PowerShell commands assume you set the variables `$resourceGroup` and `$accountName` as defined in the "Create Storage Account" section.
+You can create a provisioned v2 Azure file share with the `New-AzRmStorageShare` cmdlet. The following PowerShell commands assume you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the "Create Storage Account" section.
 
 To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `$shareName` and `$provisionedStorageGib` with the desired selections for your file share deployment.
 
@@ -326,18 +340,13 @@ $shareName = "<name-of-the-file-share>"
 # The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
 $provisionedStorageGib = 1024
 
-# If you do not specify on the ProvisionedBandwidthMibps and ProvisionedIops,
-# the deployment will use the recommended provisioning.
+# If you do not specify on the ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
 $provisionedIops = 3000
 $provisionedThroughputMibPerSec = 130
 
-New-AzRmStorageShare -ResourceGroupName $resourceGroup `
-        -AccountName $accountName `
-        -ShareName $shareName `
-        -QuotaGiB $provisionedStorageGib;
-
+New-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName -QuotaGiB $provisionedStorageGib;
 # -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec -ProvisionedIops $provisionedIops
-$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroup -AccountName $accountName -ShareName $shareName;
+$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName;
 $f | fl
 ```
 
@@ -568,27 +577,23 @@ Follow these instructions to update the provisioning for your file share.
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
 # [PowerShell](#tab/azure-powershell)
-You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroup`, `$accountName`, `$shareName`, `$provisionedMibps`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
+You can modify a provisioned v2 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedMibps`, `$provisionedIops`, and `$provisionedStorageGib` with the desired values for your file share.
 
 ```powershell
 # The path to the file share resource to be modified.
-$resourceGroup = "<my-resource-group>"
-$accountName = "<my-storage-account-name>"
+$resourceGroupName = "<my-resource-group>"
+$storageAccountName = "<my-storage-account-name>"
 $shareName = "<name-of-the-file-share>"
 
-# The provisioning desired on the file share. Delete the parameters if no change is desired.
+# The provisioning desired on the file share. Delete the parameters if no
+# change is desired.
 $provisionedStorageGib = 10240
 $provisionedIops = 10000
 $provisionedThroughputMibPerSec = 2048
 
 # Update the file share provisioning.
-Update-AzRmStorageShare -ResourceGroupName $resourceGroup `
-        -AccountName $accountName `
-        -ShareName $shareName `
-        -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec `
-        -ProvisionedIops $provisionedIops `
-        -QuotaGiB $provisionedStorageGib;
-$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroup -AccountName $accountName -ShareName $shareName;
+Update-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec -ProvisionedIops $provisionedIops -QuotaGiB $provisionedStorageGib;
+$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName;
 $f | fl
 ```
 
