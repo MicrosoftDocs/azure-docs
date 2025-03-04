@@ -2,7 +2,7 @@
 title: Use Azure Firewall to route a multi hub and spoke topology 
 description: Learn how you can deploy Azure Firewall to route a multi hub and spoke topology.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 05/30/2023
@@ -29,6 +29,9 @@ Since this is a static routing architecture, the shortest path to another hub ca
 ## Routing on the firewall subnet
 
 Each local firewall needs to know how to reach the other remote spokes, so you must create UDRs in the firewall subnets. To do this, you first need to create a default route of any type, which then allows you to create more specific routes to the other spokes. For example, the following screenshots show the route table for the two hub VNets:
+
+> [!NOTE]
+> The address prefix in the hub virtual route table should encompass the two spoke virtual network address spaces.
 
 **Hub-01 route table**
 :::image type="content" source="media/firewall-multi-hub-spoke/hub-01-route-table.png" alt-text="Screenshot showing the route table for Hub-01.":::

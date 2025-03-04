@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 01/28/2025
+ms.date: 02/10/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -27,9 +27,24 @@ This article lists the known issues for Azure IoT Operations.
 
 - If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error.` issue. Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-- Downgrading the Azure Container Storage extension from 2.2.3 to 2.2.2 causes a logging loop that leads to high CPU usage warnings. To resolve, upgrade the extension back to 2.2.3. For more information, see [Upgrade or downgrade between versions](../deploy-iot-ops/howto-upgrade.md).
-
 ## MQTT broker
+
+- Sometimes, the MQTT broker's memory usage can become unexpectedly high due to internal certificate rotation retries. This results in errors like 'failed to connect trace upload task to diagnostics service endpoint' in the logs. The issue is expected to be addressed in the next patch update. In the meantime, as a workaround, restart each broker pod one by one (including the diagnostic service, probe, and authentication service), making sure each backend recovers before moving on. Alternatively, [re-deploy Azure IoT Operations with higher internal certificate duration](../manage-mqtt-broker/howto-encrypt-internal-traffic.md#internal-certificates), `1500h` or more. 
+
+  ```json
+  {
+    "advanced": {
+      "internalCerts": {
+        "duration": "1500h",
+        "renewBefore": "1h",
+        "privateKey": {
+          "algorithm": "Ec256",
+          "rotationPolicy": "Always"
+        }
+      }
+    }
+  }
+  ```
 
 - MQTT broker resources created in your cluster using Kubernetes aren't visible Azure portal. This is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
 

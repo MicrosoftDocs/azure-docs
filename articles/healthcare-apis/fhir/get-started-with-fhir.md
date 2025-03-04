@@ -49,7 +49,7 @@ You can grant access permissions or assign roles in the [Azure portal](../config
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
-You can perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as Postman, REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
+You can perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
 
 #### Get an access token
 
@@ -57,9 +57,9 @@ You can obtain a Microsoft Entra access token by using PowerShell, Azure CLI, RE
 
 #### Access using existing tools
 
-- [Postman](../fhir/use-postman.md)
 - [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
+- There are tools available online offering intuitive interfaces for API testing and development. To use tools for accessing the FHIR service, refer to the open-source sample. [Starter collection of FHIR sample queries](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) 
 
 #### Load data
 

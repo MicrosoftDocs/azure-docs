@@ -18,8 +18,6 @@ ms.custom: compute-evergreen
 
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information can also be useful when you plan the deployment of your services.
 
-[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
-
 ### Background – How allocation works
 
 The servers in Azure datacenters are partitioned into clusters. A new cloud service allocation request is attempted in multiple clusters. When the first instance is deployed to a cloud service(in either staging or production), that cloud service gets pinned to a cluster. Any further deployments for the cloud service happen in the same cluster. In this article, we refer to this state as "pinned to a cluster." The following diagram illustrates the case of a normal allocation, which is attempted in multiple clusters. The second diagram illustrates the case of an allocation pinned to Cluster 2 because that's where the existing Cloud Service CS_1 is hosted.

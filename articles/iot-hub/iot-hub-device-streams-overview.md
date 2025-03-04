@@ -145,7 +145,7 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 
 * The C and C# SDK's support device streams on the device side.
 
-* The NodeJS and C# SDK support device streams on the service side.
+* The Node.js and C# SDK support device streams on the service side.
 
 ## Next steps
 

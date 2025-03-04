@@ -4,7 +4,7 @@ description: Learn about how to use Azure Role-Based Access Control for firmware
 author: karengu0
 ms.author: karenguo
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 

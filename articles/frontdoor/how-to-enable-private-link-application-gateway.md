@@ -52,7 +52,7 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
     | Target sub resource | Name of the Azure Application Gateway frontend IP configuration. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
-:::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin dettings for configuring Application Gateway as a private origin.":::    
+   :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin dettings for configuring Application Gateway as a private origin.":::    
 
 1. Select **Add** to save your origin settings
 1. Select **Add** to save the origin group settings.

@@ -6,18 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 01/14/2025
+ms.date: 02/13/2025
 ms.author: cherylmc 
 
 #Audience ID values are not sensitive data.
 
 ---
-# Configure P2S User VPN for Microsoft Entra ID authentication – Microsoft-registered app
+# Configure a point-to-site User VPN connection - Microsoft Entra ID authentication
 
-This article helps you configure point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication and the new Microsoft-registered Azure VPN Client App ID.
-
-> [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S User VPN using manually registered VPN client](virtual-wan-point-to-site-azure-ad.md).
+This article helps you configure point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication and the new **Microsoft-registered Azure VPN Client App ID**.
 
 [!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
 
@@ -73,7 +70,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
     :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Microsoft Entra ID page." lightbox="./media/virtual-wan-point-to-site-azure-ad/values.png"::: Configure the following values:
 
    * **Azure Active Directory** - Select **Yes**.
-   * **Audience** - Enter the corresponding value for the Microsoft-registered Azure VPN Client App ID, Azure Public: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
+   * **Audience** - Enter the corresponding value for the Microsoft-registered Azure VPN Client App ID: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
    * **Issuer** - Enter `https://sts.windows.net/<your Directory ID>/`.
    * **AAD Tenant** - Enter the TenantID for the Microsoft Entra tenant. Make sure there isn't an `/` at the end of the Microsoft Entra tenant URL.
 

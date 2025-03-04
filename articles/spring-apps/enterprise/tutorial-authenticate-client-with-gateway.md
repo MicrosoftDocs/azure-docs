@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial
 ms.date: 08/28/2024
-ms.author: v-shilichen
+ms.author: karler
+ms.reviewer: v-shilichen
 ms.custom: devx-track-java, devx-track-extended-java, mode-other, engagement-fy23
 ---
 

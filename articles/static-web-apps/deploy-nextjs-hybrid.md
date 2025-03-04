@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js hybrid sites with Azure Static Web Apps."
 services: static-web-apps
-author: aaronpowell
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 04/25/2024
-ms.author: aapowell
+ms.author: wujia
 ms.custom: devx-track-js
 ---
 

@@ -34,7 +34,7 @@ To specify the load distribution for a load test in the Azure portal:
 
     :::image type="content" source="media/how-to-export-test-results/test-list.png" alt-text="Screenshot that shows the list of tests for an Azure Load Testing resource." lightbox="media/how-to-export-test-results/test-list.png":::  
 
-    Alternately, create a new load test by selecting **Create** > **Create a URL-based test** or **Create** > **Upload a JMeter script**.
+    Alternately, create a new load test by selecting **Create** > **Create a URL-based test** or **Create** > **Upload a script**.
 
 1. Go to the **Load** tab, and then select **Add/Edit regions** to modify the list of Azure regions to generate load from.
 
