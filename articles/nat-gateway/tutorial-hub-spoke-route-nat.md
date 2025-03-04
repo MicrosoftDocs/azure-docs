@@ -1827,7 +1827,6 @@ $hubToSpokeParams = @{
     VirtualNetwork = $hubVnet
     RemoteVirtualNetworkId = $spokeVnet.Id
     AllowForwardedTraffic = $true
-    AllowVirtualNetworkAccess = $true
 }
 Add-AzVirtualNetworkPeering @hubToSpokeParams
 
@@ -1837,7 +1836,6 @@ $spokeToHubParams = @{
     VirtualNetwork = $spokeVnet
     RemoteVirtualNetworkId = $hubVnet.Id
     AllowForwardedTraffic = $true
-    AllowVirtualNetworkAccess = $true
 }
 Add-AzVirtualNetworkPeering @spokeToHubParams
 ```
@@ -1956,9 +1954,7 @@ $routeTableParams = @{
 }
 $routeTable = Get-AzRouteTable @routeTableParams
 
-Add-AzRouteConfig -RouteTable $routeTable -Route $routeParams
-
-Set-AzRouteTable -RouteTable $routeTable
+$routeTable | Add-AzRouteConfig @routeParams | Set-AzRouteTable
 ```
 
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate the route table with the subnet.
@@ -2075,7 +2071,7 @@ Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecu
 $nsgParams = @{
     ResourceGroupName = "test-rg"
     Name = "nsg-spoke-2"
-    Location = "eastus2"
+    Location = "westus2"
 }
 New-AzNetworkSecurityGroup @nsgParams
 ```
@@ -2089,6 +2085,9 @@ $ruleParams = @{
     Direction = "Inbound"
     Access = "Allow"
     Protocol = "Tcp"
+    SourceAddressPrefix = "*"
+    SourcePortRange = "*"
+    DestinationAddressPrefix = "*"
     DestinationPortRange = "80"
 }
 $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-2"
@@ -2106,21 +2105,72 @@ $nicParams = @{
     Name = "nic-2"
     SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-spoke-2").Subnets[0].Id
     NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-spoke-2").Id
+    Location = "westus2"
 }
 New-AzNetworkInterface @nicParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the Windows Server 2022 virtual machine.
+Use [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) to set a user name and password for the VM and store them in the `$cred` variable.
 
-```powershell
-$vmParams = @{
+```azurepowershell
+$cred = Get-Credential
+```
+
+Use [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) to define a VM.
+
+```azurepowershell
+$vmConfigParams = @{
+    VMName = "vm-spoke-2"
+    VMSize = "Standard_DS4_v2"
+    }
+$vmConfig = New-AzVMConfig @vmConfigParams
+```
+
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
+
+```azurepowershell
+$osParams = @{
+    VM = $vmConfig
+    ComputerName = "vm-spoke-2"
+    Credential = $cred
+    }
+$vmConfig = Set-AzVMOperatingSystem @osParams -Windows
+
+$imageParams = @{
+    VM = $vmConfig
+    PublisherName = "MicrosoftWindowsServer"
+    Offer = "WindowsServer"
+    Skus = "2022-Datacenter"
+    Version = "latest"
+    }
+$vmConfig = Set-AzVMSourceImage @imageParams
+```
+
+Use [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to attach the NIC that you previously created to the VM.
+
+```azurepowershell
+# Get the network interface object
+$nicParams = @{
     ResourceGroupName = "test-rg"
-    Name = "vm-spoke-2"
-    Image = "Win2022Datacenter"
-    Size = "Standard_DS2_v2"
-    AdminUsername = "azureuser"
-    NetworkInterfaceIds = (Get-AzNetworkInterface -ResourceGroupName "test-rg" -Name "nic-2").Id
-}
+    Name = "nic-2"
+    }
+$nic = Get-AzNetworkInterface @nicParams
+
+$vmConfigParams = @{
+    VM = $vmConfig
+    Id = $nic.Id
+    }
+$vmConfig = Add-AzVMNetworkInterface @vmConfigParams
+```
+
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+
+```azurepowershell
+$vmParams = @{
+    VM = $vmConfig
+    ResourceGroupName = "test-rg"
+    Location = "westus2"
+    }
 New-AzVM @vmParams
 ```
 
@@ -2228,7 +2278,7 @@ $vmExtensionParams = @{
     Type = "CustomScriptExtension"
     TypeHandlerVersion = "1.10"
     Settings = @{
-        "commandToExecute" = "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path 'C:\inetpub\wwwroot\default.htm' -Value $($env:computername)"
+        "commandToExecute" = "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path 'C:\inetpub\wwwroot\default.htm' -Value vm-spoke-2"
     }
 }
 Set-AzVMExtension @vmExtensionParams
