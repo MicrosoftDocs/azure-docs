@@ -201,6 +201,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/partner-solutions/logzio/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/logzio/create.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/logzio/create",
       "redirect_document_id": false
