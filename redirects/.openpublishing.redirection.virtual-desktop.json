@@ -297,7 +297,7 @@
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-web.md",
-            "redirect_url": "/azure/virtual-desktop/users/remote-desktop-clients-overview",
+            "redirect_url": "/previous-versions/remote-desktop-client/overview",
             "redirect_document_id": false
         },
         {
@@ -631,24 +631,32 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/whats-new-android-chrome-os.md",
-            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-android-chrome-os",
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-android-chrome-os.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-android-chrome-os",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/whats-new-ios-ipados.md",
-            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-ios-ipados",
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-ios-ipados.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-ios-ipados",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/whats-new-macos.md",
-            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-macos",
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-macos.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-macos",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/whats-new-windows.md",
-            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-client-windows",
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-client-windows.md",
+            "redirect_url": "/previous-versions/remote-desktop-client/whats-new-windows",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/users/linux-overview.md",
+            "redirect_url": "/azure/virtual-desktop/thin-clients",
             "redirect_document_id": false
         }
     ]
 }
+
+
+articles/virtual-desktop/whats-new-client-android-chrome-os.md
