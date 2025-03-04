@@ -45,11 +45,10 @@ To use Azure Storage Actions, create a _storage task_ and define a set of _condi
 
 As part of the task definition, you'll also specify one or more _operations_. An _operation_ is the action a storage task performs on each object that meets the defined set of conditions. Deleting a blob is an example of an operation. To learn more, see [Storage task operations](storage-tasks/storage-task-operations.md).
 
-While you can compose conditions by using REST APIs, SDKs, PowerShell, Azure CLI, Bicep, Terraform or ARM templates, it's easiest to compose them by using a visual designer in the Azure portal. Then, you can
-use a an intuitive user interface to validate those conditions and operations. By using the built-in preview capability in the Azure portal, you can see the impact of your conditions against test data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
+The easiest way to compose conditions is by using a visual designer in the Azure portal. You can use a built-in preview capability in that designer to see the impact of your conditions against test data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
 > [!NOTE]
-> You can also create and manage a storage task by using REST APIs, SDKs, PowerShell, Azure CLI, and by using Bicep, Terraform or Azure Resource Manager (ARM) templates.
+> You can also create storage task definitions by using REST, SDKs, PowerShell, Azure CLI, Bicep, Terraform or ARM templates.
 
 ## Execution
 

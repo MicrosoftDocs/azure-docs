@@ -164,7 +164,9 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -TargetExcludePrefix ""
    ```
 
-5. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task by using the `New-AzRoleAssignment` command.
+2. Give the storage task permission to perform operations on the target storage account. 
+
+   The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
 
    ```powershell
    New-AzRoleAssignment `
@@ -173,8 +175,20 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -ResourceType "Microsoft.Storage/storageAccounts" `
    -ObjectId $task.IdentityPrincipalId  `
    -RoleDefinitionName "Storage Blob Data Owner"
+   ```
 
-*** Need to add PowerShell commands for applying a user assigned managed identity
+  The following commands assign the role `Storage Blob Data Owner` to a user-assigned managed identity.
+
+   ```powershell
+   $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource -group> -Name <user-assigned-managed-identity-name>
+
+   New-AzRoleAssignment `
+   -ResourceGroupName "<resource-group>" `
+   -ResourceName "<storage-account-name>" `
+   -ResourceType "Microsoft.Storage/storageAccounts" `
+   -ObjectId $managedIdentity.Id  `
+   -RoleDefinitionName "Storage Blob Data Owner"
+   ```
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -208,12 +222,14 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
       --report "{prefix:storage-tasks-report}"
    ```
 
-2. Give the storage task permission to perform operations on the target storage account. Assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
+2. Give the storage task permission to perform operations on the target storage account. 
+
+   The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
 
    ```azurecli
-   $roleDefinitionId="b7e6dc6d-f1e8-4753-8033-0f276bb0955b" \
-   $principalID=az storage-actions task show -g '<resource-group>' -n '<storage-task-name>' --query "identity.principalId"
    $storageAccountID=az storage account show --name <storage-account-name> --resource-group <resource-group> --query "id"
+   $roleDefinitionId="b7e6dc6d-f1e8-4753-8033-0f276bb0955b" \
+
 
    az role assignment create \
       --assignee-object-id $principalID \
@@ -222,18 +238,20 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
       --description "My role assignment" 
    ```
 
-**** Steps from spec for using a user assigned managed identity
+   The following commands assign the role `Storage Blob Data Owner` to a user-assigned managed identity.
 
-# Customer creates user-assigned managed identity named "storagetask-identity" in resource group "my-rg"
-az identity create --name storagetask-identity --resource-group my-rg
-# Customer gets the identity ID of the user-assigned managed identity
-identityId=$(az identity show --name storagetask-identity --resource-group my-rg --query id -o tsv)
-# Customer assigns the identity to an already created Storage Task named "my-st" in the resource group
-az st identity assign --name my-st --resource-group my-rg --identities $identityId
-# Customer gets the scope of the resource that they want to assign the role to, such as a storage account named "my-storage" in the resource group "my-rg"
-scope=$(az resource show --name my-storage --resource-group my-rg --resource-type Microsoft.Storage/storageAccounts --query id -o tsv)
-# Customer adds a role assignment to the user-assigned identity, such as the "Storage Blob Data Contributor" role
-az role assignment create --assignee $identityId --role "Storage Blob Data Contributor" --scope $scope
+   ```azurecli
+   $storageAccountID=az storage account show --name <storage-account-name> --resource-group <resource-group> --query "id"
+   $roleDefinitionId="b7e6dc6d-f1e8-4753-8033-0f276bb0955b"
+   $identityId=az identity show --name <user-assigned-managed-identity-name> \
+   --resource-group <resource-group> --query "id"
+
+    az role assignment create \
+    --assignee-object-id $identityId 
+      --role $roleDefinitionId \
+      --description "My role assignment" 
+   ```
+
 
 ## [Bicep](#tab/bicep)
 
