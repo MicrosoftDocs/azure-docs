@@ -26,7 +26,7 @@ Labs are the starting point in DevTest Labs. After you create a lab, you can:
 - Add lab users.
 - Create preconfigured VMs that any lab users can claim.
 - Define images, formulas, and templates for lab users to quickly create their own VMs and environments.
-- Use [configuration and policies](devtest-lab-set-lab-policy.md) to manage the lab and control costs.
+- [Use configuration and policies](devtest-lab-set-lab-policy.md) to manage the lab and control costs.
 - [Integrate with Azure DevOps](devtest-lab-dev-ops.md) to support DevOps scenarios.
 - Link to public and private Git repositories for access to artifacts and Azure Resource Manager (ARM) templates.
 
@@ -36,7 +36,7 @@ The following diagram shows how lab owners can configure policies and provide re
 
 To create a lab in Azure DevTest Labs, you can use any of the following methods:
 
-[Azure portal](devtest-lab-create-lab.md) | [Bicep template](create-lab-windows-vm-bicep.md) | [ARM template](create-lab-windows-vm-template.md) | [Terraform](create-lab-windows-vm-terraform.md) | [PowerShell with Azure REST API](create-lab-rest.md)
+[Azure portal](devtest-lab-create-lab.md) | [Bicep template](create-lab-windows-vm-bicep.md) | [ARM template](create-lab-windows-vm-template.md) | [Terraform](quickstarts/create-lab-windows-vm-terraform.md) | [PowerShell with Azure REST API](quickstarts/create-lab-rest.md)
 
 You can also automate lab creation, including custom settings, with a reusable ARM template. For more information, see [ARM templates in Azure DevTest Labs](devtest-lab-use-arm-and-powershell-for-lab-resources.md).
 
@@ -55,9 +55,9 @@ Lab users can view all lab resources, such as VMs, policies, and virtual network
 To monitor and control costs, lab administrators and owners can:
 
 - [Limit the number of VMs each user can create or claim](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
-- [Allow only certain VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
-- [Configure auto-shutdown](devtest-lab-set-lab-policy.md#set-auto-shutdown) and auto-start policies to stop and restart all VMs at particular times of day. VM auto-shutdown doesn't apply to platform-as-a-service (PaaS) resources in environments.
-- [Use Azure Cost Management](devtest-lab-configure-cost-management.md) to track environment costs.
+- [Allow only certain virtual machine (VM) sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
+- [Configure autoshutdown](devtest-lab-set-lab-policy.md#set-autoshutdown) and autostart policies to stop and restart all VMs at particular times of day. VM autoshutdown doesn't apply to platform-as-a-service (PaaS) resources in environments.
+- [Use Microsoft Cost Management](devtest-lab-configure-cost-management.md) to track environment costs.
 
 ## Development and test VMs
 
@@ -90,7 +90,7 @@ Lab users can add *artifacts* to configure their lab VMs. Artifacts can be:
 - Actions to run on the VM, like cloning a repo.
 - Applications to test.
 
-Many artifacts are available out of the box. You can also create *custom artifacts* if you need more customization. You store custom artifacts in a private Git repository you connect to your lab, so all lab users can add the artifacts to their VMs. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md).
+Many artifacts are available out of the box. You can also create *custom artifacts* if you need more customizations. You store custom artifacts in a private Git repository you connect to your lab, so all lab users can add the artifacts to their VMs. For more information, see [Create custom artifacts for DevTest Labs](devtest-lab-artifact-author.md) and [Add an artifact repository to a lab](add-artifact-repository.md).
 
 You can add an Active Directory domain-join artifact to join VMs to an Active Directory domain at creation. This artifact applies only to domains.
 
@@ -146,12 +146,11 @@ For a successful proof of concept:
 
 Lab owners can manage costs by deleting labs and VMs when they're no longer needed.
 
-- Set [expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
+- [Set expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
 - [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
 - [Delete all lab VMs by running a single PowerShell script](devtest-lab-delete-lab-vm.md#automate-the-process-of-deleting-all-the-vms-in-a-lab).
 
 ## Related content
-
 
 - [DevTest Labs overview](devtest-lab-overview.md)
 - [DevTest Labs concepts](devtest-lab-concepts.md)
