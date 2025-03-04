@@ -93,7 +93,7 @@ Use the policy in scenarios such as the following:
 
 ## Example
 
-The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain speech in the `hate` or `violence` category with a severity level of 4 or higher. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
+The following example enforces content safety checks on LLM requests using the Azure AI Content Safety service. The policy blocks requests that contain speech in the `Hate` or `Violence` category with a severity level of 4 or higher. The `shield-prompt` attribute is set to `true` to check for adversarial attacks.
 
 ```xml
 <policies>
