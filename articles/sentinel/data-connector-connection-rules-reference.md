@@ -215,7 +215,7 @@ OAuth2 `client_credentials` grant type
 }
 ```
 
-#### Jwt
+#### JWT
 
 Example:
 JSON web token (JWT)
