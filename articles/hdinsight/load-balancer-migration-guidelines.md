@@ -35,7 +35,7 @@ Due to the deprecation of the default outbound access, a new outbound connectivi
 NAT gateway provides outbound network connectivity for the cluster. NSG controls both the inbound and outbound traffic, which is required by the standard load balancer. 
 
 > [!NOTE]
->  If you prefer Azure Firewall, see [Configure outbound network traffic restriction](./hdinsight-restrict-outbound-traffic.md) 
+>  If you prefer Azure Firewall instead of NAT gateway, follow [Configure outbound network traffic restriction](./hdinsight-restrict-outbound-traffic.md) and then create the cluster.
 
 * **Scenario 1:** HDInsight clusters without custom virtual network (Creating cluster without any virtual network).
 
