@@ -252,7 +252,7 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 | VARINT |Decimal |Decimal |
 
 > [!NOTE]
-> For collection types (map, set, list, etc.) under version 1.0, refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section.
+> For collection types (map, set, list, etc.) under version 1.0, refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section.
 >
 > User-defined types are not supported.
 >
