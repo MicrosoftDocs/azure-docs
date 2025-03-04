@@ -62,14 +62,14 @@ This procedure describes how to launch your notebook with Microsoft Sentinel.
 
     :::image type="content" source="media/notebook-get-started/compute-ready.png" alt-text="Screenshot of a machine learning environment ready to run code cells.":::
 
-    The **Getting Started Guide For Microsoft Sentinel ML Notebooks** notebook includes sections for the following activities:
+The **Getting Started Guide For Microsoft Sentinel ML Notebooks** notebook includes sections for the following activities:
 
-    |Name  |Description|
-    |---------|---------|
-    |**Introduction**     | Describe notebook basics and provides sample code you can run to see how notebooks work.      |
-    |**Initializing the notebook and MSTICPy**     | Helps you get your environment ready to run the rest of the notebook.   When initializing the notebook, configuration warnings about missing settings are expected because you didn't configure anything yet.     |
-    |**Querying Data from Microsoft Sentinel**     | Helps you verify, configure, and test Microsoft Sentinel settings. Use the code in this section to authenticate to Microsoft Sentinel and run a sample query to test the connection.        |
-    |**Configure and test external data providers (VirusTotal and Maxmind GeoLite2)**     | Helps you configure settings for VirusTotal, as a sample threat intelligence service, and MaxMind GeoLite2, as a sample geo-location lookup service. Use the code in this section to run sample queries against these data providers to test them.|
+|Name  |Description|
+|---------|---------|
+|**Introduction**     | Describe notebook basics and provides sample code you can run to see how notebooks work.      |
+|**Initializing the notebook and MSTICPy**     | Helps you get your environment ready to run the rest of the notebook.   When initializing the notebook, configuration warnings about missing settings are expected because you didn't configure anything yet.     |
+|**Querying Data from Microsoft Sentinel**     | Helps you verify, configure, and test Microsoft Sentinel settings. Use the code in this section to authenticate to Microsoft Sentinel and run a sample query to test the connection.        |
+|**Configure and test external data providers (VirusTotal and Maxmind GeoLite2)**     | Helps you configure settings for VirusTotal, as a sample threat intelligence service, and MaxMind GeoLite2, as a sample geo-location lookup service. Use the code in this section to run sample queries against these data providers to test them.|
 
 The code in the **Getting Started Guide For Microsoft Sentinel ML Notebooks** launches the **MpConfigEdit** tool, which has series of tabs for configuring your notebook environment. As you make changes in **MpConfigEdit** tool, make sure to save your changes before continuing. Settings for the notebook are stored in the **msticpyconfig.yaml** file, which is automatically populated with initial details for your workspace. 
 
