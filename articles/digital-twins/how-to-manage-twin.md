@@ -86,7 +86,7 @@ You can use the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-imp
 >[!TIP]
 >The Import Jobs API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk with the Import Jobs API](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk-with-the-import-jobs-api).
 
-To import twins in bulk, you need to structure your twins (and any other resources included in the bulk import job) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance. The twins defined in the file can optionally include initialization of the twin's properties.
+To import twins in bulk, you need to structure your twins (and any other resources included in the bulk import job) as an *NDJSON* file. The `Twins` section comes after the `Models` section (and before the `Relationships` section). Twins defined in the file can reference models that are either defined in this file or already present in the instance. The twins defined in the file can optionally include initialization of twin properties.
 
 You can view an example import file and a sample project for creating these files in the [Import Jobs API introduction](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
 
@@ -112,7 +112,7 @@ The `BasicDigitalTwin` helper class also gives you access to properties defined 
 Only properties that are set at least once are returned when you retrieve a twin with the `GetDigitalTwin()` method.
 
 >[!TIP]
->The `displayName` for a twin is part of its model metadata, so it shows when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
+>The `displayName` for a twin is part of its model metadata, so it doesn't show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
 To retrieve multiple twins using a single API call, see the Query API examples in [Query the twin graph](how-to-query-graph.md).
 
@@ -171,7 +171,7 @@ A single patch call can update as many properties on a single twin as you want (
 > [!TIP]
 > After you create or update a twin, there might be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) doesn't experience this delay, so use the API call instead of querying to see your newly updated twins if you need an instant response. 
 
-Here's an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the applicable digital twin. This example shows the JSON Patch `replace` operation, which replaces the value of an existing property.
+Here's an example of JSON Patch code. This document replaces the *mass* and *radius* property values of a digital twin. This example shows the JSON Patch `replace` operation, which replaces the value of an existing property.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
