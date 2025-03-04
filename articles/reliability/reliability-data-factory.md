@@ -120,105 +120,14 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 ## Multi-region support
 
-Azure Data Factory is by default a single-region service. If a region-wide outage occurs, the Azure Data Factory instance will not available. 
+Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
 
-<!-- TODO I need to understand this more. If you have this configured, and there's a regional failover of the Azure IR, does *everything* continue to run as before? What about new pipeline executions? -->
-<!-- TODO I understand metadata-driven pipelines are another alternative approach too? -->
+If you use a [paired region](./regions-paired.md), Microsoft might automatically fail over Azure Data Factory resources to the region pair. However, this is likely to happen after a significant delay and is done on a best-effort basis, so if you require resiliency to region failures, you should follow the approach described in the next section.
 
-However, to maintain high availability, you'll want to maintain data redundancy across two regions by considering the following multi-region deployment options:
-    
-- **Automated recovery** with Azure integration runtime (IR) and automatic failover to the secondary paired region.
-- **User-managed recovery** with GitHub and continuous integration and continuous delivery (CI/CD) for managed failover and quick deployment to a secondary region for immediate recovery.
+### Alternative multi-region approaches
 
-### Region support
-
-Azure Data Factory supports multi-region deployments in all regions where Azure Data Factory is available. However, the following regions have specific data residency requirements that prohibit multi-region support:
-
-- *Brazil South*, where all data is stored in the Brazil [local region only](/azure/storage/common/storage-redundancy.md#locally-redundant-storage).
-
-- *Southeast Asia*, where all data is stored in the Singapore [local region only](/azure/storage/common/storage-redundancy.md#locally-redundant-storage).
-
->[!IMPORTANT]
->If the local region is lost due to a rare but significant disaster, Microsoft cannot recover the Azure Data Factory data.
-
-### Considerations
-
-- Automated recovery for multi-region requires deployment on Azure [paired regions](./regions-paired.md).
-
-### Cost
-
-User-managed recovery integrates Azure Data Factory with Git by using CI/CD, and optionally uses a secondary region that has all the necessary infrastructure configurations as a backup. This scenario might incur added costs. To estimate costs, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
-
-For examples of Azure Data Factory pricing, see [Understanding Azure Data Factory pricing through examples](/azure/data-factory/pricing-concepts)
-
-### Configure multi-region support
-
-
-- **Automated recovery.** To learn how to set up automated recovery for a region pair, see [Set up automated recovery](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery). 
-
-- **User-managed recovery.** To learn how to setup user-managed recovery, see [Set up user-managed recovery through CI/CD](#set-up-user-managed-recovery-through-cicd).
-
-
-### Traffic routing between regions
-
-When you configure multi-region support in an active/passive deployment architecture, all pipelines run in the primary region. The secondary region is used only in the event of a failover.
-
-
-### Data replication between regions
-
-
-Azure Data Factory supports both automated and user-managed data replication for the following data:
-
-- **Metadata**
-    - Pipeline
-    - Datasets
-    - Linked services
-    - Integration runtime
-    - Triggers
-    - Monitoring data
-
-- **Pipeline**
-    - Triggers
-    - Activity runs
-
-For information on how user-managed data replication with CI/CD works, see [Continuous integration and delivery in Azure Data Factory](/azure/data-factory/continuous-integration-delivery).
-
-
-### Region-down experience
-
-#### Automated failover
-
-*Paired regions only*. If you have selected **Auto Resolve** during multi-region setup, then the Integration runtime (IR) automatically fails over to the paired region. In a failover, Azure Data Factory recovers the production pipelines. If you need to validate your recovered pipelines, you can back up the Azure Resource Manager templates for your production pipelines in secret storage, and compare the recovered pipelines to the backups.
-
-Although the failover process is automated, you still need to manually manage the following tasks:
-
-- For managed virtual networks, users needs to manually switch to the secondary region.
-
-- Azure managed automatic failover doesn't apply to self-hosted integration runtime (SHIR), because the infrastructure is customer-managed. For guidance on setting up multiple nodes for higher availability with SHIR, see [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability).
-
-- To configure BCDR for Azure-SSIS IR, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](/azure/data-factory/configure-bcdr-azure-ssis-integration-runtime).
-
-Linked services aren't fully enabled after failover, because of pending private endpoints in the newer network of the region. You need to configure private endpoints in the recovered region. You can automate private endpoint creation by using the [approval API](/powershell/module/az.network/approve-azprivateendpointconnection).
-
-
-#### User-managed failover
-- Use Git and CI/CD to recover pipelines manually in case of Data Factory pipeline deletion or outage.
-- Failover to a pre-configured secondary region by deploying the data factory in the secondary region and then provisioning it as primary. This option requires that you have deployed an active/passive implementation.
-
-
-## Testing for region failures
-<!-- Do we place this here? -->
-The Azure Global team conducts regular BCDR drills, and Azure Data Factory participate in these drills. The BCDR drill simulates a region failure and fails over Azure services to a paired region without any customer involvement. 
-
-
-> [!NOTE]
-> If there's a disaster (loss of region), a new data factory can be provisioned manually or in an automated fashion. Once you create the new data factory, you can restore your pipelines, datasets, and linked services JSON from an existing Git repository if you have setup [source control in Azure Data Factory](../data-factory/source-control.md).
-
+If you need your pipelines to be resilient to regional outages, consider managing your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
 
 ## Backup and restore
-Azure Data Factory supports continuous Integration and Delivery (CI/CD) through source control integration, which allows you to backup metadata associated with a data factory instance and deploy it into a new environment easily. Learn more about using CI/CD to manage your resources in the [Azure Data Factory CI/CD documentation](../data-factory/continuous-integration-delivery.md).
 
-
-## Related content
-
-[BCDR for Azure Data Factory](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery)
+Azure Data Factory supports CI/CD through source control integration, which allows you to back up metadata associated with a data factory instance and deploy it into a new environment. To learn more, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
