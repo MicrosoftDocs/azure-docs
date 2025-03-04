@@ -3,7 +3,7 @@ author: baanders
 description: include file for Azure Digital Twins limits
 ms.service: azure-digital-twins
 ms.topic: include
-ms.date: 01/27/2025
+ms.date: 03/3/2025
 ms.author: baanders
 ---
 
@@ -13,7 +13,7 @@ The following table lists the functional limits of Azure Digital Twins.
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
-| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
+| Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes, up to 50 |
 | Digital twins | Number of twins in an Azure Digital Twins instance | 2,000,000 | Yes |
 | Digital twins | Number of digital twins that can be imported in a single [Import Jobs API](/rest/api/digital-twins/dataplane/jobs) job | 2,000,000 | No |
 | Digital twins | Number of incoming relationships to a single twin | 50,000 | No |
