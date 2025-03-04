@@ -102,7 +102,7 @@ The Oracle linked service supports the following properties when apply version 2
 | server | The location of Oracle database you want to connect to. You can refer to [server property configuration](#server-property-configuration) to specify it. | Yes |
 | authenticationType | Authentication type for connecting to the Oracle database. Only **Basic** auth is supported now. | Yes |
 | username | The Oracle database username. | Yes |
-| password | The Oracle database password. | Yes |
+| password | The Oracle database password. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 More connection properties you can set in linked service per your case:
