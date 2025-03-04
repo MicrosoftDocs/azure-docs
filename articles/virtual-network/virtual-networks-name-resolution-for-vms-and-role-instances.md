@@ -301,7 +301,7 @@ If you provide your own DNS solution, it needs to:
 
 For best performance, when you use Azure VMs as DNS servers, IPv6 should be disabled.
 
-Network security groups (NSGs) act as firewalls for your DNS resolver endpoints. Modify or override your NSG security rules to allow access for UDP Port 53 (and optionally, TCP Port 53) to your DNS listener endpoints. After custom DNS servers are set on a network, the traffic through port 53 bypasses the NSGs of the subnet.
+Network security groups (NSGs) act as firewalls for your DNS resolver endpoints. Modify or override your NSG security rules to allow access for UDP Port 53 (and optionally, TCP Port 53) to your DNS listener endpoints. After custom DNS servers are set on a network, the traffic through port 53 bypasses the NSGs of the subnet and the NIC.
 
 > [!IMPORTANT]
 > If you use Windows DNS servers as custom DNS servers forwarding DNS requests to Azure DNS servers, make sure you increase the Forwarding Timeout value more than four seconds to allow Azure recursive DNS servers to perform proper recursion operations.
