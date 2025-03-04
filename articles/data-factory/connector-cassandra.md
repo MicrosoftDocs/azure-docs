@@ -331,7 +331,7 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | version 2.0 | version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
-| Support selecting `keyspace` from the drop-down list in Cassandra dataset. | Support editing `keyspace` when you select enter manually table name in Cassandra dataset. |
+| Support specifying `keyspace` and `tableName` separately in Cassandra dataset. | Support editing `keyspace` when you select enter manually table name in Cassandra dataset. |
 | There is no virtual tables for collection types. | For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
 
 ## Upgrade the Cassandra connector
