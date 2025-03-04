@@ -86,7 +86,7 @@ The CCP supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
 - [OAuth2](#oauth2)
-- [Jwt](#jwt)
+- [JWT](#JWT)
 
 > [!NOTE]
 > CCP OAuth2 implementation does not support client certificate credentials.
