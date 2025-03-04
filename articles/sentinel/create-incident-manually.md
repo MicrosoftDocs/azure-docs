@@ -187,5 +187,5 @@ Here's an example of what a request body might look like:
 For more information, see:
 - [Relate alerts to incidents in Microsoft Sentinel](relate-alerts-to-incidents.md)
 - [Delete incidents in Microsoft Sentinel](delete-incident.md)
-- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
+- [Navigate, triage, and manage Microsoft Sentinel incidents](incident-navigate-triage.md)
+- [Investigate Microsoft Sentinel incidents in depth](investigate-incidents.md)
