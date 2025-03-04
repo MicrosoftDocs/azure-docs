@@ -71,11 +71,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
-            "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/virtual-desktop/azure-monitor.md",
             "redirect_url": "/azure/virtual-desktop/insights",
             "redirect_document_id": true
@@ -398,7 +393,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-windows-azure-virtual-desktop-app.md",
             "redirect_url": "/azure/virtual-desktop/whats-new-client-windows",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/whats-new-client-microsoft-store.md",
@@ -546,7 +541,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/thin-clients.md",
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-thin-clients.md",
             "redirect_url": "/azure/virtual-desktop/thin-clients",
             "redirect_document_id": true
         },
@@ -573,11 +568,6 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-web.md",
             "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-web",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client-windows-azure-virtual-desktop-app.md",
-            "redirect_url": "/previous-versions/remote-desktop-client/troubleshoot-client-windows",
             "redirect_document_id": false
         },
         {
@@ -638,11 +628,6 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/users/remote-desktop-clients-overview.md",
             "redirect_url": "/previous-versions/remote-desktop-client/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-desktop/users/toc.yml",
-            "redirect_url": "/azure/virtual-desktop/toc.yml",
             "redirect_document_id": false
         },
         {
