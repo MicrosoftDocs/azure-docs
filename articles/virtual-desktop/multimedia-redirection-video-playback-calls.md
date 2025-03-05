@@ -79,7 +79,7 @@ Before you can use multimedia redirection, you need:
    - Windows App on Windows, version 2.0.297.0 or later.
    - Remote Desktop app on Windows, version 1.2.5709 or later.
 
-- Your local Windows device must meet the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Your local Windows device must meet the same [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Azure US Government, or Windows 365 for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
@@ -467,12 +467,11 @@ The following websites are known to work with video playback redirection, and wh
       - `LinkedIn Learning`
       - `Microsoft Learn`
       - `Microsoft Stream`
-      - `Microsoft Teams live events`
       - `Pluralsight`
       - `Skillshare`
+      - `The Guardian`
    :::column-end:::
    :::column span="":::
-      - `The Guardian`
       - `Twitch`
       - `Udemy`\*
       - `UMU`
@@ -500,14 +499,6 @@ After you enable multimedia redirection, you can test it by visiting a web page 
 1. On the web page, play a video. Check the status of the extension icon that multimedia redirection is active in your browser, which should look like the following image:
 
    :::image type="content" source="./media/multimedia-redirection/browser-extension-icon-video-playback.png" alt-text="Testing video playback redirection, the multimedia redirection extension is currently redirecting video playback.":::
-
-#### Microsoft Teams live events
-
-Microsoft Teams live events aren't media-optimized when using the native Teams app in a remote session. However, if you use Teams live events with a browser that supports Teams live events and multimedia redirection, multimedia redirection is a workaround that provides smoother Teams live events playback in a remote session. Multimedia redirection supports Enterprise Content Delivery Network (ECDN) for Teams live events.
-
-To use multimedia redirection with Teams live events, you must use the web version of Teams. Multimedia redirection isn't supported with the native Teams app. When you launch the live event in your browser, make sure you select **Watch on the web instead**. The Teams live event should automatically start playing in your browser with multimedia redirection enabled.
-
-:::image type="content" source="./media/multimedia-redirection/microsoft-teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' web page. The 'watch on the web instead' option and the multimedia extension icon are highlighted in red.":::
 
 ### Advanced settings for video playback redirection
 
