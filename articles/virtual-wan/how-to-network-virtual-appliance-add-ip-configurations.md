@@ -39,16 +39,16 @@ The following table describes the types of Network Interfaces that are attached 
 
 |NIC Type| Mandatory/Optional Interface|IP address set allocated per IP configuration| Supports multiple IP configurations on NIC|
 |--|--|--|--|
-| External/Public |Mandatory| one \<private IP, public IP\> pair|Yes|
-|Internal/Private| Mandatory | one private IP| Yes|
-|Additional/Auxillary| Optional| one private IP or one \<private, public IP\> pair| No|
+| External/Public |Mandatory| One \<private IP, public IP\> pair|Yes|
+|Internal/Private| Mandatory | One private IP| Yes|
+|Additional/Auxillary| Optional| One private IP or one \<private, public IP\> pair| No|
 
 The following example describes an NVA in Virtual WAN hub where multiple IP configurations are assigned:
 
 |NIC|IP Configuration count| IP Configurations| IPs assigned |
 |--|--|--|--|
-| External/Public|3|publicnicipconfig, publicnicipconfig-2, publicnicipconfig-3|  three \<private IP, public IP \> address pairs per NVA instance|
-| Internal/Private|2|privatenicipconfig, privatenicipconfig-2| two private IP address per NVA instance|
+| External/Public|3|publicnicipconfig, publicnicipconfig-2, publicnicipconfig-3|  Three \<private IP, public IP \> address pairs per NVA instance|
+| Internal/Private|2|privatenicipconfig, privatenicipconfig-2| Two private IP address per NVA instance|
 
 :::image type="content" source="./media/network-virtual-appliance-address/sample-address-allocation.png"alt-text="Screenshot showing sample IP address allocation scheme."lightbox="./media/network-virtual-appliance-address/sample-address-allocation.png":::
 
@@ -86,9 +86,9 @@ The following section describes the steps needed to add additional IP configurat
 :::image type="content" source="./media/network-virtual-appliance-address/select-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA from Virtual WAN Hub."lightbox="./media/network-virtual-appliance-address/select-network-virtual-appliance.png":::
 2. Select your NVA and select **Manage configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/manage-configurations.png"alt-text="Screenshot showing how to find Manage NVA configurations button."lightbox="./media/network-virtual-appliance-address/manage-configurations.png"::: 
-3. Under Settings, select **Interface IP configurations**.
+1. Under Settings, select **Interface IP configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/interface-ip-configurations.png"alt-text="Screenshot showing how to find IP configurations."lightbox="./media/network-virtual-appliance-address/interface-ip-configurations.png"::: 
-4. Select the NIC you want to add IP configurations to.
+1. Select the NIC you want to add IP configurations to.
 :::image type="content" source="./media/network-virtual-appliance-address/select-interface.png"alt-text="Screenshot showing how to select NICs."lightbox="./media/network-virtual-appliance-address/select-interface.png"::: 
 1. Select **Add configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/add-configuration-button.png"alt-text="Screenshot showing how to find button used to manage NVA IP configurations."lightbox="./media/network-virtual-appliance-address/add-configuration-button.png"::: 
@@ -106,5 +106,5 @@ The following section describes the steps needed to add additional IP configurat
 
 The following section describes the steps needed to remove IP configurations from  your Network Virtual Appliance.
 
-1. Select the IP configuration you want to delete and select **Remove Configurations**.
+Select the IP configuration you want to delete and select **Remove Configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/delete-button.png"alt-text="Screenshot showing how to delete  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/delete-button.png"::: 
