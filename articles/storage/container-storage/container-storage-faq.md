@@ -86,6 +86,11 @@ ms.custom: references_regions
 
   For additional details, refer to the [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress) documentation and [Azure Arc-enabled Kubernetes network requirements.](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)
 
+* <a id="azure-container-storage-sla"></a>
+  **What's Service-level-agreement (SLA) for Azure Container Storage?**
+
+  Azure Container Storage is an orchestration of underlying storage options including Ephemeral Disks, Elastic SAN and Azure Disks. It doesn't provide SLA and SLA is offerred on each storage option. See [Microsft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)
