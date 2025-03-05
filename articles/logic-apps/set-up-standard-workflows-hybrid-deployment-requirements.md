@@ -643,8 +643,8 @@ az containerapp connected-env prepare setup-core-dns
 | Arguments | Description |
 |-----------|-------------|
 | **`--distro`** | The supported distribution to use for updating the CoreDNS configuration. Allowed values: `AksAzureLocal` |
-| **`--kube-config`** | The path to the Kubernetes configuration file, also known as a ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), that contains the configuration parameters for accessing Kubernetes clusters. |
-| **`--kube-context`** | The Kubernetes context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
+| **`--kube-config`** | The path to the ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), which contains the configuration parameters for accessing Kubernetes clusters. |
+| **`--kube-context`** | The kubeconfig context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
 | **`--yes -y`** | Don't prompt for confirmation. |
 
 For more information, see [**az containerapp connected-env**](/cli/azure/containerapp/connected-env).
@@ -660,7 +660,7 @@ For more information, see [**az containerapp connected-env**](/cli/azure/contain
 - Set up CoreDNS configuration for Azure Local using a Kubernetes configuration file and the Kubernetes context:
 
    ```azurecli
-   az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kube-context-name>
+   az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kubeconfig-context-name>
    ```
 
 <a name="create-storage-provider"></a>
