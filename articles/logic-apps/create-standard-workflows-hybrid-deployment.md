@@ -48,7 +48,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 - The following on-premises resources, which must all exist within the same network for the required connectivity:
 
-  - An Azure Kubernetes Service cluster that's connected to Azure Arc
+  - An Azure Kubernetes Service cluster that is connected to Azure Arc
   - A SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
@@ -411,7 +411,7 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
    For more information, see the following documentation:
 
-   - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
+   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
    - [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/)
 
 ### Cluster doesn't have enough nodes

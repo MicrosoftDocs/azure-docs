@@ -213,7 +213,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Install Azure CLI extensions](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
-   - [az extension add](/cli/azure/extension#az-extension-add)
+   - [**az extension add**](/cli/azure/extension#az-extension-add)
 
 1. Register the following required namespaces:
 
@@ -227,7 +227,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Register the required namespaces](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
-   - [az provider register](/cli/azure/provider#az-provider-register)
+   - [**az provider register**](/cli/azure/provider#az-provider-register)
 
 1. Install the Kubernetes command line interface (CLI) named **kubectl**:
 
@@ -276,7 +276,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
       kubectl get csidriver
       ```
 
-      For more information, see [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
+      For more information, see [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
 
 ## Connect your Kubernetes cluster to Azure Arc
 
@@ -295,8 +295,8 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
-   - [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
+   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
+   - [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
 
 1. Based on your Kubernetes cluster deployment, set the following environment variable to provide a name to use for the Azure resource group that contains your Azure Arc-enabled cluster and resources:
 
@@ -319,7 +319,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az group create](/cli/azure/group#az-group-create)
+   - [**az group create**](/cli/azure/group#az-group-create)
 
 1. Set the following environment variable to provide a name for your Azure Arc-enabled Kubernetes cluster:
 
@@ -342,7 +342,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az connectedk8s connect](/cli/azure/connectedk8s?#az-connectedk8s-connect)
+   - [**az connectedk8s connect**](/cli/azure/connectedk8s?#az-connectedk8s-connect)
 
 1. Validate the connection between Azure Arc and your Kubernetes cluster:
 
@@ -357,7 +357,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    For more information, see the following resources:
 
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [az connectedk8s show](/cli/azure/connectedk8s?#az-connectedk8s-show)
+   - [**az connectedk8s show**](/cli/azure/connectedk8s?#az-connectedk8s-show)
 
 ## Create an Azure Log Analytics workspace
 
@@ -384,7 +384,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    For more information, see the following resources:
 
    - [Create a Log Analytics workspace](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-log-analytics-workspace)
-   - [az monitor log-analytics](/cli/azure/monitor/log-analytics)
+   - [**az monitor log-analytics**](/cli/azure/monitor/log-analytics)
 
 1. Get the base64-encoded ID and shared key for your Log Analytics workspace. You need these values for a later step.
 
@@ -416,7 +416,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    For more information, see the following resources:
 
    - [Create a Log Analytics workspace](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-log-analytics-workspace)
-   - [az monitor log-analytics](/cli/azure/monitor/log-analytics)
+   - [**az monitor log-analytics**](/cli/azure/monitor/log-analytics)
 
 ## Create and install the Azure Container Apps extension
 
@@ -490,7 +490,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az k8s-extension create](/cli/azure/k8s-extension?#az-k8s-extension-create)
+   - [**az k8s-extension create**](/cli/azure/k8s-extension?#az-k8s-extension-create)
 
 1. Save the **ID** value for the Azure Container Apps extension to use later:
 
@@ -511,7 +511,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az k8s-extension show](/cli/azure/k8s-extension?#az-k8s-extension-show)
+   - [**az k8s-extension show**](/cli/azure/k8s-extension?#az-k8s-extension-show)
 
 1. Before you continue, wait for the extension to fully install. To have your terminal session wait until the installation completes, run the following command:
 
@@ -525,7 +525,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [az resource wait](/cli/azure/resource?#az-resource-wait)
+   - [**az resource wait**](/cli/azure/resource?#az-resource-wait)
 
 ## Create your custom location
 
@@ -549,7 +549,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az k8s-extension show](/cli/azure/k8s-extension?#az-k8s-extension-show)
+   - [**az k8s-extension show**](/cli/azure/k8s-extension?#az-k8s-extension-show)
 
 1. Create the custom location:
 
@@ -573,7 +573,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az customlocation create](/cli/azure/customlocation#az-customlocation-create)
+   - [**az customlocation create**](/cli/azure/customlocation#az-customlocation-create)
 
 1. Validate that the custom location is successfully created:
 
@@ -602,7 +602,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    For more information, see the following resources:
 
    - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-a-custom-location)
-   - [az customlocation show](/cli/azure/customlocation#az-customlocation-show)
+   - [**az customlocation show**](/cli/azure/customlocation#az-customlocation-show)
 
 ## Create the Azure Container Apps connected environment
 
@@ -619,13 +619,13 @@ az containerapp connected-env create \
 For more information, see the following resources:
 
 - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-the-azure-container-apps-connected-environment)
-- [az containerapp connected-env create](/cli/azure/containerapp#az-containerapp-create)
+- [**az containerapp connected-env create**](/cli/azure/containerapp#az-containerapp-create)
 
 <a name="update-coredns-azure-local"></a>
 
 ## Update CoreDNS for a Kubernetes cluster in Azure Local
 
-If your Azure Kubernetes cluster is hosted in Azure Local, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to the your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when your Kubernetes cluster is hosted in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
+If your Azure Kubernetes cluster is hosted in Azure Local, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when your Kubernetes cluster is hosted in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
 
 For more information, see the following documentation:
 
@@ -642,12 +642,12 @@ az containerapp connected-env prepare setup-core-dns
 
 | Arguments | Description |
 |-----------|-------------|
-| **`--distro`** | The supported distribution to use for setting up the core DNS file. Allowed values: `AksAzureLocal` |
+| **`--distro`** | The supported distribution to use for updating the CoreDNS configuration. Allowed values: `AksAzureLocal` |
 | **`--kube-config`** | The path to the Kubernetes configuration file, also known as a ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), that contains the configuration parameters for accessing Kubernetes clusters. |
 | **`--kube-context`** | The Kubernetes context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
 | **`--yes -y`** | Don't prompt for confirmation. |
 
-For more information, see [az containerapp connected-env](/cli/azure/containerapp/connected-env).
+For more information, see [**az containerapp connected-env**](/cli/azure/containerapp/connected-env).
 
 ### Examples
 
