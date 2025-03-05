@@ -14,7 +14,7 @@ ms.subservice: sms
 
 # Tutorial: Sign and make requests with Postman
 
-In this tutorial, you set up and use Postman to make a request against Azure Communication Services by using HTTP. By the end of this tutorial, you successfully send a short message service (SMS) message by using Communication Services and Postman. You can then use Postman to explore other APIs in Communication Services.
+In this tutorial, you set up and use Postman to make a request against Azure Communication Services by using HTTP. By the end of this tutorial, you successfully send a Short Message Service (SMS) message by using Communication Services and Postman. You can then use Postman to explore other APIs in Communication Services.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
