@@ -1,6 +1,6 @@
 ---
 title: Reliability and availability in Azure Deployment Environments
-description: Learn how Azure Deployment Environments supports disaster recovery. Understand reliability and availability within a single region and across regions.
+description: Learn how Azure Deployment Environments supports reliability. Understand availability zone support within a single region and cross-region disaster recovery.
 ms.service: azure-deployment-environments
 ms.topic: reliability-article
 ms.author: rosemalcolm
@@ -20,8 +20,6 @@ This article describes reliability support in Azure Deployment Environments. I
 Availability zone support for all resources in Azure Deployment Environments is enabled automatically. There's no action for you to take. 
 
 For a list of regions that support Azure Deployment Environments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
-
-For more detailed information on availability zones in Azure, see [Regions and availability zones](../reliability/availability-zones-overview.md). 
 
 ## Cross-region disaster recovery and business continuity
 
