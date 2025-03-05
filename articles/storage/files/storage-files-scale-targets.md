@@ -178,76 +178,26 @@ The following table indicates which targets are soft, representing the Microsoft
 
 ## Azure File Sync performance metrics
 
-Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
+Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
 
-For Azure File Sync, performance is critical in two stages:
+The following table indicates the Azure File Sync performance targets:
 
-1. **Initial one-time provisioning**: To optimize performance on initial provisioning, refer to [Onboarding with Azure File Sync](../file-sync/file-sync-deployment-guide.md#onboarding-with-azure-file-sync) for the optimal deployment details.
-2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
-
-> [!NOTE]
-> When many server endpoints in the same sync group are syncing at the same time, they're contending for cloud service resources. As a result, upload performance is impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced.
-
-## Internal test results
-
-To help you plan your deployment for each of the stages (initial one-time provisioning and ongoing sync), here are the results we observed during internal testing on a system with the following configuration:
-
-| System configuration | Details |
+| Scenario  | Performance |
 |-|-|
-| CPU | 64 Virtual Cores with 64 MiB L3 cache |
-| Memory | 128 GiB |
-| Disk | SAS disks with RAID 10 with battery backed cache |
-| Network | 1 Gbps Network |
-| Workload | General Purpose File Server|
+| Initial cloud change enumeration | 150 objects per second per sync group  |
+| Upload Throughput | 200 objects per second per sync group |
+| Namespace Download Throughput | 400 objects per second per server endpoint |
+| Full Download Throughput | 60 objects per second per server endpoint |
 
-### Initial one-time provisioning
+> [!Note]  
+> The actual performance will depend on multiple factors as outlined in the beginning of this section.
 
-| Initial one-time provisioning  | Details |
-|-|-|
-| Number of objects | 25 million objects |
-| Dataset Size | ~4.7 TiB |
-| Average File Size | ~200 KiB (Largest File: 100 GiB) |
-| Initial cloud change enumeration | 80 objects per second  |
-| Upload Throughput | 20 objects per second per sync group |
-| Namespace Download Throughput | 400 objects per second |
-
-**Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that executes. In this process, the system will enumerate all the items in the Azure file share. During this process, there will be no sync activity. No items will be downloaded from cloud endpoint to server endpoint, and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
-
-The rate of performance is 80 objects per second. You can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days.
-
-**Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(80 \* 60 \* 60 \* 24)**
-
-**Initial sync of data from Windows Server to Azure File share:** Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast, and the majority of time is spent syncing changes from the Windows Server into the Azure file share(s).
-
-While sync uploads data to the Azure file share, there's no downtime on the local file server, and administrators can [setup network limits](../file-sync/file-sync-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
-
-Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:
-
-**Time (in days) for uploading files to a sync group = (Number of objects in server endpoint)/(20 \* 60 \* 60 \* 24)**
-
-Splitting your data into multiple server endpoints and sync groups can speed up this initial data upload, because the upload can be done in parallel for multiple sync groups at a rate of 20 items per second each. So, two sync groups would be running at a combined rate of 40 items per second. The total time to complete would be the time estimate for the sync group with the most files to sync.
-
-**Namespace download throughput:** When a new server endpoint is added to an existing sync group, the Azure File Sync agent doesn't download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
-
-### Ongoing sync
-
-| Ongoing sync  | Details  |
-|-|--|
-| Number of objects synced | 125,000 objects (~1% churn) |
-| Dataset Size | 50 GiB |
-| Average File Size | ~500 KiB |
-| Upload Throughput | 20 objects per second per sync group |
-| Full Download Throughput\* | 60 objects per second |
-
-\*If cloud tiering is enabled, you're likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they're changed on any of the endpoints. For any tiered or newly created files, the agent doesn't download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they're accessed by the user.
-
-> [!NOTE]
-> These numbers aren't an indication of the performance that you'll experience. The actual performance depends on multiple factors as outlined in the beginning of this section.
-
-As a general guide for your deployment, keep a few things in mind:
+As a general guide for your deployment, you should keep a few things in mind:
 
 - The object throughput approximately scales in proportion to the number of sync groups on the server. Splitting data into multiple sync groups on a server yields better throughput, which is also limited by the server and network.
-- The object throughput is inversely proportional to the MiB per second throughput. For smaller files, you'll experience higher throughput in terms of the number of objects processed per second, but lower MiB per second throughput. Conversely, for larger files, you'll get fewer objects processed per second, but higher MiB per second throughput. The MiB per second throughput is limited by the Azure Files scale targets.
+- The object throughput is inversely proportional to the MiB per second throughput. For smaller files, you will experience higher throughput in terms of the number of objects processed per second, but lower MiB per second throughput. Conversely, for larger files, you will get fewer objects processed per second, but higher MiB per second throughput. The MiB per second throughput is limited by the Azure Files scale targets.
+- When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced.
+- If cloud tiering is enabled, you are likely to observe better download performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user.
 
 ## See also
 
