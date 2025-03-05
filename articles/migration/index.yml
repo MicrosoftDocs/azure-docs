@@ -490,21 +490,6 @@ sections:
         componentType: image
         src: images/blog-icon.png
 
-#  Microsoft Certifications
-  - componentType: hero
-    title: Prove your AI skills with Microsoft Certifications
-    layout: indented
-    size: small
-    summary: Enhance your professional credentials and expand your skill set by earning Microsoft Azure certifications—showcase your expertise in cloud solutions. Microsoft Certifications can help you and your organization take on new opportunities. 
-    textColor: light
-    background:
-      componentType: image
-      src: images/credentials-banner-wide.png
-    links:
-      - componentType: link
-        url: /credentials/browse/?credential_types=certification&products=azure&roles=administrator%2Csolution-architect&expanded=certification%2Cazure
-        text: Earn Microsoft Azure Certifications
-
 # Explore documentation and other resources
 #  - componentType: markdown
 #    content: |
