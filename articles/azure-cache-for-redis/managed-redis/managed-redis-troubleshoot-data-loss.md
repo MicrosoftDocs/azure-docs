@@ -24,7 +24,7 @@ This article discusses how to diagnose actual or perceived data losses that migh
   - [Redis instance failure](#redis-instance-failure)
 
 > [!NOTE]
-> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
+> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Related content](#related-content).
 >
 
 ## Partial loss of keys

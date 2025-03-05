@@ -23,7 +23,7 @@ This article discusses how to diagnose actual or perceived data losses that migh
   - [Redis instance failure](#redis-instance-failure)
 
 > [!NOTE]
-> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
+> Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Related Content](#related-content).
 >
 
 ## Partial loss of keys
@@ -120,7 +120,7 @@ Caches in the Standard and Premium tiers offer much higher resiliency against da
 
 Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](./cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
-## Related Content
+## Related content
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
