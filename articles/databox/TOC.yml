@@ -17,11 +17,11 @@
         - name: For import
           href: data-box-quickstart-portal.md?pivots=dbx
         - name: For import - Next Gen
-          href: data-box-next-gen-quickstart-portal.md?pivots=dbx-ng
+          href: data-box-quickstart-portal.md?pivots=dbx-ng
         - name: For export
           href: data-box-quickstart-export.md?pivots=dbx
         - name: For export - Next Gen
-          href: data-box-next-gen-quickstart-export.md?pivots=dbx-ng
+          href: data-box-quickstart-export.md?pivots=dbx-ng
     - name: Tutorials
       items:
       - name: Import data to Azure

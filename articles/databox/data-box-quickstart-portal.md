@@ -71,9 +71,7 @@ Before you begin:
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 ::: zone-end 
 
-
-
-<!-->::: zone target="docs"-->
+<!--::: zone target="docs"-->
 
 ## Sign in to Azure
 
