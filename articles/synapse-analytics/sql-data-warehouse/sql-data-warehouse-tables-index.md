@@ -194,6 +194,9 @@ If you have identified tables with poor segment quality, you want to identify th
 
 These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group. They can also cause rows to go to the delta row group instead of a compressed row group.
 
+> [!NOTE]
+> Columnstore tables typically do not push data into a compressed columnstore segment until there are more than 1 million rows per table. If a CCI table has many open rowgroups with a total number of rows that do not meet the threshold for compression (1 million rows), these rowgroups will remain open and be stored as row data. Consequently, this will increase the distribution database size as they are not compressed. Moreover, these open rowgroups will not benefit from the CCI and will require more resources to maintain. It may be advisable to use the `ALTER INDEX REORGANIZE` command to force compression (ALTER INDEX (Transact-SQL) - SQL Server | Microsoft Learn).
+
 ### Memory pressure when index was built
 
 The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group. When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer. Therefore, the best practice is to give the session that is writing to your columnstore index tables access to as much memory as possible. Since there's a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the data warehouse units allocated to your system, and the number of concurrency slots you can give to the session that is writing data to your table.
