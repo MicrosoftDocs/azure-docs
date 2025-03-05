@@ -4,7 +4,7 @@ description: This article helps you understand Front Door behavior when enabling
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/08/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers

@@ -1,5 +1,5 @@
 ---
-title: Map an existing custom domain to Azure Spring Apps
+title: Map an Existing Custom Domain to Azure Spring Apps
 description: Learn how to map an existing custom Distributed Name Service (DNS) name to Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -72,7 +72,7 @@ If your certificate authority gives you multiple certificates in the certificate
 
 To do this task, open each certificate you received in a text editor.
 
-Create a file for the merged certificate, called *mergedcertificate.crt*. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
+Create a file for the merged certificate, called **mergedcertificate.crt**. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
 
 ```crt
 -----BEGIN CERTIFICATE-----
@@ -96,7 +96,7 @@ Create a file for the merged certificate, called *mergedcertificate.crt*. In a t
 
 Export your merged TLS/SSL certificate with the private key that your certificate request was generated with.
 
-If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders *&lt;private-key-file>* and *&lt;merged-certificate-file>* with the paths to your private key and your merged certificate file.
+If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders `<private-key-file>` and `<merged-certificate-file>` with the paths to your private key and your merged certificate file.
 
 ```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -104,7 +104,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 When prompted, define an export password. Use this password when uploading your TLS/SSL certificate to Azure Key Vault later.
 
-If you used IIS or *Certreq.exe* to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+If you used IIS or **Certreq.exe** to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 ### Save certificate in Key Vault
 

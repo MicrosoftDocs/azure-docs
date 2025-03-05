@@ -4,7 +4,7 @@ description: This article provides a list of the various match conditions availa
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers

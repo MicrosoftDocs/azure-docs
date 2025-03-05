@@ -344,6 +344,6 @@
             "source_path_from_root": "/articles/application-gateway/scripts/waf-custom-rules-powershell.md",
             "redirect_url": "/previous-versions/azure/application-gateway/scripts/waf-custom-rules-powershell",
             "redirect_document_id": false
-        },
+        }
     ]
 }

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 12/10/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd
 ---
@@ -84,7 +84,7 @@ ENVIRONMENT="env-jobs-sample"
 JOB_NAME="github-actions-runner-job"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 $RESOURCE_GROUP="jobs-sample"
 $LOCATION="northcentralus"
@@ -107,7 +107,7 @@ JOB_NAME="azure-pipelines-agent-job"
 PLACEHOLDER_JOB_NAME="placeholder-agent-job"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 $RESOURCE_GROUP="jobs-sample"
 $LOCATION="northcentralus"
@@ -125,7 +125,7 @@ $PLACEHOLDER_JOB_NAME="placeholder-agent-job"
 The Azure Container Apps environment acts as a secure boundary around container apps and jobs so they can share the same network and communicate with each other.
 
 > [!NOTE]
-> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an internal Azure Container Apps environment](vnet-custom-internal.md?tabs=bash).
+> To create a Container Apps environment that's integrated with an existing virtual network, see [Provide a virtual network to an Azure Container Apps environment](vnet-custom.md).
 
 1. Create a resource group using the following command.
 
@@ -136,9 +136,9 @@ The Azure Container Apps environment acts as a secure boundary around container 
         --location "$LOCATION"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
-    az group create `
+    New-AzResourceGroup `
         --name "$RESOURCE_GROUP" `
         --location "$LOCATION"
     ```
@@ -155,12 +155,13 @@ The Azure Container Apps environment acts as a secure boundary around container 
         --location "$LOCATION"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
+   
     ```powershell
-    az containerapp env create `
-        --name "$ENVIRONMENT" `
-        --resource-group "$RESOURCE_GROUP" `
-        --location "$LOCATION"
+    New-AzContainerAppManagedEnvironment `
+      -Name $ENVIRONMENT `
+      -ResourceGroupName $RESOURCE_GROUP `
+      -Location $LOCATION
     ```
 
     ---
@@ -238,7 +239,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     REPO_NAME="<REPO_NAME>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $GITHUB_PAT="<GITHUB_PAT>"
     $REPO_OWNER="<REPO_OWNER>"
@@ -270,7 +271,7 @@ To create a self-hosted runner, you need to build a container image that execute
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $CONTAINER_IMAGE_NAME="github-actions-runner:1.0"
     $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
@@ -291,7 +292,7 @@ To create a self-hosted runner, you need to build a container image that execute
         --sku Basic
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr create `
         --name "$CONTAINER_REGISTRY_NAME" `
@@ -311,7 +312,7 @@ To create a self-hosted runner, you need to build a container image that execute
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
     ```
@@ -333,7 +334,7 @@ To create a self-hosted runner, you need to build a container image that execute
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
@@ -351,7 +352,7 @@ To create a self-hosted runner, you need to build a container image that execute
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr build `
         --registry "$CONTAINER_REGISTRY_NAME" `
@@ -382,7 +383,7 @@ To avoid using administrative credentials, pull images from private repositories
         --resource-group $RESOURCE_GROUP
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     $IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -405,7 +406,7 @@ To avoid using administrative credentials, pull images from private repositories
         --output tsv)
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
 
     ```powershell
     IDENTITY_ID=$(az identity show `
@@ -451,7 +452,7 @@ You can now create a job that uses to use the container image. In this section, 
         --registry-identity "$IDENTITY_ID"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job create `
         --name "$JOB_NAME" `
@@ -543,7 +544,7 @@ To verify the job was configured correctly, you modify the workflow to use a sel
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$JOB_NAME" `
@@ -608,7 +609,7 @@ Create a new agent pool to run the self-hosted runner.
 
 To run a self-hosted runner, you need to create a personal access token (PAT) in Azure DevOps. The PAT is used to authenticate the runner with Azure DevOps. It's also used by the scale rule to determine the number of pending pipeline runs and trigger new job executions.
 
-[!NOTE]
+> [!NOTE]
 > Personal Access Tokens (PATs) have an expiration date. Regularly rotate your tokens to ensure they remain valid (not expired) to maintain uninterrupted service.
 
 1. In Azure DevOps, select *User settings* next to your profile picture in the upper-right corner.
@@ -643,7 +644,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
     REGISTRATION_TOKEN_API_URL="<YOUR_REGISTRATION_TOKEN_API_URL>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $AZP_TOKEN="<AZP_TOKEN>"
     $ORGANIZATION_URL="<ORGANIZATION_URL>"
@@ -676,7 +677,7 @@ To create a self-hosted agent, you need to build a container image that runs the
     CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     $CONTAINER_IMAGE_NAME="azure-pipelines-agent:1.0"
     $CONTAINER_REGISTRY_NAME="<CONTAINER_REGISTRY_NAME>"
@@ -700,7 +701,7 @@ To create a self-hosted agent, you need to build a container image that runs the
         --admin-enabled true
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr create `
         --name "$CONTAINER_REGISTRY_NAME" `
@@ -723,7 +724,7 @@ To create a self-hosted agent, you need to build a container image that runs the
         "https://github.com/Azure-Samples/container-apps-ci-cd-runner-tutorial.git"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az acr build `
         --registry "$CONTAINER_REGISTRY_NAME" `
@@ -760,7 +761,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
         az containerapp job create -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
         --trigger-type Manual `
@@ -799,7 +800,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job start -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
@@ -817,7 +818,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$PLACEHOLDER_JOB_NAME" `
@@ -841,7 +842,7 @@ You can run a manual job to register an offline placeholder agent. The job runs 
     az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job delete -n "$PLACEHOLDER_JOB_NAME" -g "$RESOURCE_GROUP"
     ```
@@ -875,7 +876,7 @@ az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$E
     --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" `
     --trigger-type Event `
@@ -952,7 +953,7 @@ Once a self-hosted agent job is configured, you can run a pipeline and verify it
         --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
     ```
 
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     ```powershell
     az containerapp job execution list `
         --name "$JOB_NAME" `
@@ -981,7 +982,7 @@ az group delete \
     --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 ```powershell
 az group delete `
     --resource-group $RESOURCE_GROUP

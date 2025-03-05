@@ -1,34 +1,34 @@
 ---
-title: Using file metadata in queries
-description: OPENROWSET function provides file and path information about every file used in the query to filter or analyze data based on file name and/or folder path.
+title: Use file metadata in queries
+description: Learn how to provide file and path information about every file used in the query to filter or analyze data based on file name and/or folder path.
 author: azaricstefan
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 01/17/2025
 ms.author: stefanazaric
 ms.reviewer: whhender 
 ---
 
 # Use file metadata in serverless SQL pool queries
 
-Serverless SQL pool can address multiple files and folders as described in the [Query folders and multiple files](query-folders-multiple-csv-files.md) article. In this article, you learn how to use metadata information about file and folder names in the queries.
+In this article, you learn how to query specific files or folders by using metadata. Serverless SQL pool can address multiple files and folders. For more information, see [Query folders and multiple files](query-folders-multiple-csv-files.md).
 
-Sometimes, you may need to know which file or folder source correlates to a specific row in the result set.
+Sometimes, you might need to know which file or folder source correlates to a specific row in a result set. You can use the functions `filepath` and `filename` to return file names and/or the path in the result set, or you can use them to filter data based on the file name or folder path. These functions are described in [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function).
 
-You can use function `filepath` and `filename` to return file names and/or the path in the result set. Or you can use them to filter data based on the file name and/or folder path. These functions are described in the syntax section [filename function](query-data-storage.md#filename-function) and [filepath function](query-data-storage.md#filepath-function). In the following sections, you'll find short descriptions along samples.
+The following sections provide short descriptions and code samples.
 
 ## Prerequisites
 
-Your first step is to **create a database** with a datasource that references storage account. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
+Your first step is to *create a database* with a data source that references a storage account. Then, initialize the objects by executing a [setup script](https://github.com/Azure-Samples/Synapse/blob/main/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script creates the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 ## Functions
 
 ### Filename
 
-This function returns the file name that row originates from.
+The `filename` function returns the file name where the row originates from.
 
-The following sample reads the NYC Yellow Taxi data files for September 2017 and returns the number of rides per file. The OPENROWSET part of the query specifies which files will be read.
+The following sample reads the NYC Yellow Taxi data files for *September 2017* and returns the number of rides per file. The `OPENROWSET` part of the query specifies which files are read.
 
 ```sql
 SELECT
@@ -43,7 +43,7 @@ FROM
 GROUP BY nyc.filename();
 ```
 
-The following example shows how *filename()* can be used in the WHERE clause to filter the files to be read. It accesses the entire folder in the OPENROWSET part of the query and filters files in the WHERE clause.
+The following example shows how `filename()` can be used in the `WHERE` clause to filter the files to be read. It accesses the entire folder in the `OPENROWSET` part of the query and filters files in the `WHERE` clause.
 
 Your results will be the same as the prior example.
 
@@ -68,12 +68,12 @@ ORDER BY
 
 ### Filepath
 
-The filepath function returns a full or partial path:
+The `filepath` function returns a full or partial path:
 
-- When called without a parameter, it returns the full file path that the row originates from. When DATA_SOURCE is used in OPENROWSET, it returns path relative to DATA_SOURCE. 
-- When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value 1 would return part of the path that matches the first wildcard.
+- When called without a parameter, it returns the full file path where the row originates from. When `DATA_SOURCE` is used in `OPENROWSET`, it returns the path relative to `DATA_SOURCE`.
+- When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value *1* returns part of the path that matches the first wildcard.
 
-The following sample reads NYC Yellow Taxi data files for the last three months of 2017. It returns the number of rides per file path. The OPENROWSET part of the query specifies which files will be read.
+The following sample reads *NYC Yellow Taxi* data files for the last three months of 2017. It returns the number of rides per file path. The `OPENROWSET` part of the query specifies which files are read.
 
 ```sql
 SELECT
@@ -95,9 +95,9 @@ ORDER BY
     filepath;
 ```
 
-The following example shows how *filepath()* can be used in the WHERE clause to filter the files to be read.
+The following example shows how `filepath()` can be used in the `WHERE` clause to filter the files to be read.
 
-You can use the wildcards in the OPENROWSET part of the query and filter the files in the WHERE clause. Your results will be the same as the prior example.
+You can use the wildcards in the `OPENROWSET` part of the query and filter the files in the `WHERE` clause. Your results will be the same as the prior example.
 
 ```sql
 SELECT
@@ -126,6 +126,7 @@ ORDER BY
     filepath;
 ```
 
-## Next steps
+## Next step
 
-In the next article, you'll learn how to [query Parquet files](query-parquet-files.md).
+> [!div class="nextstepaction"]
+> [Query Parquet files using serverless SQL pool](query-parquet-files.md)

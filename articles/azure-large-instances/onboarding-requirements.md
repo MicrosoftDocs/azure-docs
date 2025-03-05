@@ -154,7 +154,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -Resou
 #### Declare a variable for the Express route circuit ID
 
 ```azurecli
-$id = "/subscriptions/”express route subscrioption ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
+$id = "/subscriptions/”express route subscription ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
 ```
 
 #### Enable MSEEv2 using the **ExpressRouteGatewayBypass** flag

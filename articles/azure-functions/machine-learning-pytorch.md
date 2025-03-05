@@ -27,7 +27,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 ### Prerequisite check
 
 1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
-1. Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
+1. Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
 
 ## Clone the tutorial repository
 

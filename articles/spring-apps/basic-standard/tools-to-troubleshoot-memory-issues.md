@@ -1,9 +1,10 @@
 ---
-title: Tools to troubleshoot memory issues
+title: Tools to Troubleshoot Memory Issues
 titleSuffix: Azure Spring Apps
 description: Provides a list of tools for troubleshooting Java memory issues.
 author: KarlErickson
-ms.author: kaiqianyang
+ms.author: karler
+ms.reviewer: kaiqianyang
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
@@ -108,7 +109,7 @@ In the Azure portal, navigate to your app, then select **Configuration** from th
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following command to update the JVM options for your app. Be sure to replace the placeholders with your actual values. For example, you can replace the *`<jvm-options>`* placeholder with a value such as `-Xms1024m -Xmx1536m`.
+Use the following command to update the JVM options for your app. Be sure to replace the placeholders with your actual values. For example, you can replace the `<jvm-options>` placeholder with a value such as **-Xms1024m -Xmx1536m**.
 
 ```azurecli
 az spring app update \

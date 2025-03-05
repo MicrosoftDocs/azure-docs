@@ -7,8 +7,8 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
-ms.topic: article
-ms.date: 08/08/2024
+ms.topic: reference
+ms.date: 12/13/2024
 ms.author: danlep
 ---
 

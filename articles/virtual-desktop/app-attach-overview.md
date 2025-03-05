@@ -5,10 +5,13 @@ ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/08/2023
+ms.date: 01/17/2025
 ---
 
 # App attach and MSIX app attach in Azure Virtual Desktop
+
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
 
 There are two features in Azure Virtual Desktop that enable you to dynamically attach applications from an application package to a user session in Azure Virtual Desktop - *app attach* and *MSIX app attach*. With both *app attach* and *MSIX app attach*, applications aren't installed locally on session hosts or images, making it easier to create custom images for your session hosts, and reducing operational overhead and costs for your organization. Applications run within containers, which separate user data, the operating system, and other applications, increasing security and making them easier to troubleshoot. 
 
@@ -16,12 +19,12 @@ The following table compares MSIX app attach with app attach:
 
 | MSIX app attach | App attach |
 |--|--|
-| Applications are delivered using RemoteApp or as part of a desktop session. Permissions are controlled by assignment to application groups, however all desktop users see all MSIX app attach applications in the desktop application group. | Applications are delivered using RemoteApp or as part of a desktop session. Permissions are applied per application per user, giving you greater control over which applications your users can access in a remote session. Desktop users only see the app attach applications assigned to them. |
+| Applications are delivered using RemoteApp or as part of a desktop session. Assignment to application groups controls access, however all desktop users see all MSIX app attach applications in the desktop application group. | Applications are delivered using RemoteApp or as part of a desktop session. Permissions are applied per application per user, giving you greater control over which applications your users can access in a remote session. Desktop users only see the app attach applications assigned to them. |
 | Applications might only run on one host pool. If you want it to run on another host pool, you must create another package. | The same application package can be used across multiple host pools. |
 | Applications can only run on the host pool in which they're added. | Applications can run on any session host running a Windows client operating system in the same Azure region as the application package. |
 | To update the application, you must delete and recreate the application with another version of the package. You should update the application in a maintenance window. | Applications can be upgraded to a new application version with a new disk image without the need for a maintenance window. |
 | Users can't run two versions of the same application on the same session host. | Users can run two versions of the same application concurrently on the same session host. |
-| Telemetry for usage and health is not available through Azure Log Analytics. | Telemetry for usage and health is available through Azure Log Analytics. |
+| Telemetry for usage and health isn't available through Azure Log Analytics. | Telemetry for usage and health is available through Azure Log Analytics. |
 
 You can use the following application package types and file formats:
 
@@ -38,14 +41,14 @@ MSIX and Appx are Windows application package formats that provide a modern pack
 > [!TIP]
 > Select a button at the top of this article to choose between *app attach* and *MSIX app attach* to see the relevant documentation.
 
-You can get MSIX packages from software vendors, or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview)
+You can get MSIX packages from software vendors or you can [create an MSIX package from an existing installer](/windows/msix/packaging-tool/create-an-msix-overview). To learn more about MSIX, see [What is MSIX?](/windows/msix/overview)
 
 ::: zone pivot="app-attach"
 ## How a user gets an application 
 
 You can assign different applications to different users in the same host pool or on the same session host. During sign-in, all three of the following requirements must be met for the user to get the right application at the right time: 
 
-- The application must be assigned to the host pool. Assigning the application to the host pool enables you to be selective about which host pools the application is available on to ensure that the right hardware resources are available for use by the application. For example, if an application is graphics-intensive, you can ensure it only runs on a host pool with GPU-optimized session hosts. 
+- The application must be assigned to the host pool. Assigning the application to the host pool enables you to be selective about which host pools the application is available on to ensure that the right hardware resources are available for use by the application. For example if an application is graphics-intensive, you can ensure it only runs on a host pool with GPU-optimized session hosts. 
 
 - The user must be able to sign-in to session hosts in the host pool, so they must be in a Desktop or RemoteApp application group. For a RemoteApp application group, the app attach application must be added to the application group, but you don't need to add the application to a desktop application group.
 
@@ -78,7 +81,7 @@ Before you can use MSIX application packages with Azure Virtual Desktop, you nee
 
 ### Disk image types
 
-For MSIX and Appx disk images, you can use *Composite Image File System (CimFS)*, *VHDX* or *VHD*, but we don't recommend using VHD. Mounting and unmounting CimFS images is faster than VHD and VHDX files and also consumes less CPU and memory. We only recommend using CimFS for your application images if your session hosts are running Windows 11.
+For MSIX and Appx disk images, you can use *Composite Image File System (CimFS)*, *VHDX*, or *VHD*, but we don't recommend using VHD. Mounting and unmounting CimFS images is faster than VHD and VHDX files and also consumes less CPU and memory. We only recommend using CimFS for your application images if your session hosts are running Windows 11.
 
 A CimFS image is a combination of several files: one file has the `.cim` file extension and contains metadata, together with at least two other files, one starting with `objectid_` and the other starting with `region_` that contain the actual application data. The files accompanying the `.cim` file don't have a file extension. The following table is a list of example files you'd find for a CimFS image:
 
@@ -134,11 +137,11 @@ MSIX app attach doesn't limit the number of applications users can use. You shou
 ## Application state
 
 ::: zone pivot="app-attach"
-Application packages are set as **active** or **inactive**. Packages set to active makes the application available to users. Packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs-in.
+Application packages are set as **active** or **inactive**. Packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
-An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. MSIX packages set to inactive are ignored by Azure Virtual Desktop and not added when a user signs in.
+An MSIX package is set as **active** or **inactive**. MSIX packages set to active makes the application available to users. Azure Virtual Desktop ignores packages set to **inactive** and aren't added when a user signs in.
 ::: zone-end
 
 ::: zone pivot="app-attach"
@@ -224,7 +227,7 @@ Each session host mounts application images from the file share. You need to con
 
 - For Azure NetApp Files, you can [create an SMB volume](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md) and configure NTFS permissions to give read access to each session host's computer object. Your session hosts need to be joined to Active Directory Domain Services or Microsoft Entra Domain Services.
 
-You can verify the permissions are correct by using [PsExec](/sysinternals/downloads/psexec). For more information, see [Check file share access](troubleshoot-app-attach.md#check-file-share-access).
+You can verify the permissions are correct by using [PsExec](/sysinternals/downloads/psexec). For more information, see [Check file share access](/troubleshoot/azure/virtual-desktop/troubleshoot-app-attach#check-file-share-access).
 
 ### Performance
 
@@ -262,9 +265,9 @@ All MSIX and Appx packages require a valid code signing certificate. To use thes
 
 - A tool such as the PowerShell cmdlet [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) that generates a self-signed certificate. You should only use self-signed certificates in a test environment. For more information on creating a self-signed certificate for MSIX and Appx packages, see [Create a certificate for package signing](/windows/msix/package/create-certificate-package-signing).
 
-Once you've obtained a certificate, you need to digitally sign your MSIX or Appx packages with the certificate. You can use the [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) to sign your packages when you create an MSIX package. For more information, see [Create an MSIX package from any desktop installer](/windows/msix/packaging-tool/create-app-package).
+Once you obtain a certificate, you need to digitally sign your MSIX or Appx packages with the certificate. You can use the [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) to sign your packages when you create an MSIX package. For more information, see [Create an MSIX package from any desktop installer](/windows/msix/packaging-tool/create-app-package).
 
-To ensure the certificate is trusted on your session hosts, you need your session hosts to trust the whole certificate chain. How you do this depends on where you got the certificate from and how you manage your session hosts and the identity provider you use. The following table provides some guidance on how to ensure the certificate is trusted on your session hosts:
+To ensure the certificate is trusted on your session hosts, you need your session hosts to trust the whole certificate chain. How your session hosts trust the certificate chain depends on where you got the certificate from and how you manage your session hosts and the identity provider you use. The following table provides some guidance on how to ensure the certificate is trusted on your session hosts:
 
 - **Public CA**: certificates from a public CA are trusted by default in Windows and Windows Server.
 
@@ -279,7 +282,7 @@ To ensure the certificate is trusted on your session hosts, you need your sessio
 - **Self-signed**: install the trusted root to the **Trusted Root Certification Authorities** store on each session host. We don't recommend distributing this certificate using Group Policy or Intune as it should only be used for testing.
 
 > [!IMPORTANT]
-> You should timestamp your package so that its validity can outlast your certificate's expiration date. Otherwise, once the certificate has expired, you need to update the package with a new valid certificate and once again ensure it's trusted on your session hosts.
+> You should timestamp your package so that its validity can outlast your certificate's expiration date. Otherwise, once the certificate expires, you need to update the package with a new valid certificate and once again ensure session hosts trust the certificate chain.
 
 ## Next steps
 

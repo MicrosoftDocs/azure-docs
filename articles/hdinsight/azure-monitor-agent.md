@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 01/07/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -513,6 +513,8 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
     * Microsoft will not patch the Azure Monitor integration (preview) clusters except for critical security issues. 
 
+* `HDInsightGatewayAuditLogs_CL` table will no longer be functional from September 14, 2026, as The [Azure Monitor HTTP Data Collector API](/previous-versions/azure/azure-monitor/logs/data-collector-api?tabs=powershell) is being deprecated.
+  
 ## Appendix: Table mapping
 
 For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](./monitor-hdinsight-reference.md#log-table-mapping). 

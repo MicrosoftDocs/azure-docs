@@ -4,7 +4,7 @@ description: This article describes how to configure Azure Application Gateway H
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/03/2024
 ms.author: greglin
 ---

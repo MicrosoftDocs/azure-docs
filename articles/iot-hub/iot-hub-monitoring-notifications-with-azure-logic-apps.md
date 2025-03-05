@@ -2,9 +2,9 @@
 title: Tutorial - Monitor devices, notify with Azure Logic Apps
 titleSuffix: Azure IoT Hub
 description: Tutorial - Use Azure Logic Apps to monitor IoT temperature data in IoT hub and send email notifications to your mailbox for any anomalies detected.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 02/07/2024

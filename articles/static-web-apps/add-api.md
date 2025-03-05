@@ -2,11 +2,11 @@
 title: Add an API to Azure Static Web Apps with Azure Functions
 description: Get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 11/25/2024
-ms.author: cshoe
+ms.author: wujia
 ms.custom:
 ---
 
@@ -243,6 +243,8 @@ To run your frontend app and API together locally, Azure Static Web Apps provide
 ### Install command line tools
 
 Ensure you have the necessary command line tools installed.
+
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
 
 ```bash
 npm install -g @azure/static-web-apps-cli

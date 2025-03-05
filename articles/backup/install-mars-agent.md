@@ -2,10 +2,10 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
-ms.date: 10/25/2024
+ms.date: 02/28/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 
 ---
 
@@ -106,6 +106,13 @@ If you've already installed the agent on any machines, ensure you're running the
 To install and register  the MARRS agent, follow these steps:
 
 1. Run the *MARSagentinstaller.exe* file on the machines that you want to back up.
+
+   >[!Note]
+   >If you haven't selected the option **Give me updates for other Microsoft products when I update Windows** in **OS settings**, the following setting screen might appear. However, the automatic updates of MARS on Microsoft updates aren't currently implemented.
+   >
+   >  :::image type="content" source="./media/backup-configure-vault/setting-page.png" alt-text="Screenshot shows the settings page for MARS.":::
+
+
 1. In the MARS Agent Setup Wizard, select **Installation Settings**. There, choose where to install the agent, and choose a location for the cache. Then select **Next**.
    * Azure Backup uses the cache to store data snapshots before sending them to Azure.
    * The cache location should have free space equal to at least 5 percent of the size of the data you'll back up.

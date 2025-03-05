@@ -4,7 +4,7 @@ description: Learn about Message Disposition Notification (MDN) acknowledgments 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/15/2023
 ---
 

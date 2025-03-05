@@ -4,7 +4,7 @@ description: Learn about architectural recommendations for disaster recovery whi
 services: virtual-wan
 author: rambk
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/10/2024
 ms.author: rambala
 ---
@@ -56,7 +56,7 @@ If network connectivity over different transport type isn't possible, then choos
 
 ## Remote user connectivity considerations
 
-Remote user connectivity is established using point-to-site VPN between an end-device to a network. Following a network failure, the end-device would drop and attempt to re-estabilish the VPN tunnel. Therefore, for point-to-site VPN, your disaster recovery design should aim to minimize the recovery time following a failure. The following network redundancy would help minimize the recovery time. Depending on how critical the connections are you can choose some or all of these options.
+Remote user connectivity is established using point-to-site VPN between an end-device to a network. Following a network failure, the end-device would drop and attempt to re-establish the VPN tunnel. Therefore, for point-to-site VPN, your disaster recovery design should aim to minimize the recovery time following a failure. The following network redundancy would help minimize the recovery time. Depending on how critical the connections are you can choose some or all of these options.
 
 - Access network redundancy (discussed above).
 - Managing redundant virtual hub for point-to-site VPN termination. When you have multiple virtual hubs with point-to-site gateways, VWAN provides global profile listing all the point-to-site endpoints. With the global profile, your end-devices could connect to the closest available virtual hub that offers the best network performance. If all your Azure deployments are in a single region and the end devices that connect are in close proximity to the region, you can have redundant virtual hubs within the region. If your deployment and end-devices are spread across multiple regions, you can deploy virtual hub with point-to-site gateway in each of your selected region.  Virtual WAN has a built-in traffic manager that selects the best hub for remote user connectivity automatically.
@@ -111,7 +111,7 @@ If your on-premises branch locations are spread around two or more Azure regions
 
 Disaster recovery considerations for ExpressRoute private peering are discussed in [Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md#small-to-medium-on-premises-network-considerations). As noted in the article, the concepts described in that article equally apply to ExpressRoute gateways created within a virtual hub. Using a redundant virtual hub within the region, as shown in the following diagram, is the only topology enhancement recommended for [Small to medium on-premises network considerations](../expressroute/index.yml).
 
-:::image type="content" source="./media/disaster-recovery-design/expressroute-multi-hub.png" alt-text="Diagram of multi-hub Expresss Route connectivity.":::
+:::image type="content" source="./media/disaster-recovery-design/expressroute-multi-hub.png" alt-text="Diagram of multi-hub Express Route connectivity.":::
 
 In the above diagram, the ExpressRoute 2 is terminated on a separate ExpressRoute gateway within a second virtual hub within the region.
 

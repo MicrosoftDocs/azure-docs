@@ -323,7 +323,7 @@ With the environment variables included, your module definition should look like
 }
 ```
 
-If you included the **UpstreamProtocol** environment variable in the confige.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
+If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
 ```json
 "env": {

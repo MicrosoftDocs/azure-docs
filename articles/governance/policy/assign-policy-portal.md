@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure portal"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure portal.
-ms.date: 07/03/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ---
 

@@ -18,7 +18,7 @@ In Azure IoT Operations, the connector for ONVIF (preview) enables you to contro
 
 A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
-An ONVIF compliant camera connected to your Azure IoT Operations cluster. If you don't have a camera, you can use a simulator such as the [ONVIF RTSP simulator](https://arcjumpstart.com/simulate_an_onvif_camera_with_rtsp).
+An ONVIF compliant camera connected to your Azure IoT Operations cluster.
 
 > [!NOTE]
 > Microsoft has validated this preview release with the TP-Link Tapo C210 camera.

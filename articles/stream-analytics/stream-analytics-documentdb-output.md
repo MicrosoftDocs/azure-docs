@@ -12,7 +12,7 @@ Azure Stream Analytics can output data in JSON format to [Azure Cosmos DB](https
 
 > [!Note]
 > - At this time, Stream Analytics supports connection to Azure Cosmos DB only through the *SQL API*.Other Azure Cosmos DB APIs are not yet supported. If you point Stream Analytics to Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
-> - We recommend that you set your job to compatability level 1.2 when using Azure Cosmos DB as output.
+> - We recommend that you set your job to compatibility level 1.2 when using Azure Cosmos DB as output.
 
 ## Basics of Azure Cosmos DB as an output target
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Azure Cosmos DB containers. Stream Analytics doesn't create containers in your database. Instead, it requires you to create them beforehand. You can then control the billing costs of Azure Cosmos DB containers. You can also tune the performance, consistency, and capacity of your containers directly by using the [Azure Cosmos DB APIs](/rest/api/cosmos-db/). The following sections detail some of the container options for Azure Cosmos DB.

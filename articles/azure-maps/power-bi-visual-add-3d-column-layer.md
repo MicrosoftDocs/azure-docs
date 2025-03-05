@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article demonstrates how to use the 3D column layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 09/15/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -46,7 +46,7 @@ The following are all settings in the **Format** pane that are available in the 
 | Layer position       | Specifies the position of the layer relative to other map layers. |
 
 > [!NOTE]
-> If the columns have a small width value and the **Scale width on zoom** option is disabled, they may disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, additional calculations are performed when the zoom level changes which can impact performance of large data sets.
+> If the columns have a small width value and the **Scale width on zoom** option is disabled, they can disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, more calculations are performed when the zoom level changes which can affect performance of large data sets.
 
 ## Next steps
 

@@ -46,7 +46,7 @@ Before you run the commands, you need to set several variables to define the con
 | ACR_PASSWORD               | The password for the Azure Container Registry.                                                        |
 | VMDEVICEMODEL            | The VMDeviceModel defaults to T2, available options T2(Modern) and T1(Transitional).     |
 | USERDATA                 | The base64 encoded string of cloud-init userdata.                                                       |
-| BOOTMETHOD                 | The Method used to boot the virutalmachine UEFI or BIOS.    |
+| BOOTMETHOD                 | The Method used to boot the virtualmachine UEFI or BIOS.    |
 | OS_DISK_CREATE_OPTION       | The OS disk create specifies ephemeral disk option.    |
 | OS_DISK_DELETE_OPTION       | The OS disk delete specifies delete disk option.   |
 | IP_AllOCATION_METHOD        | The IpAllocationMethod valid for L3Networks specify Dynamic or Static or Disabled.    |
@@ -151,7 +151,7 @@ After a few minutes, the command completes and returns information about the vir
 
 ## Review deployed resources
 
-[!INCLUDE [quickstart-review-deployment-poweshell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
+[!INCLUDE [quickstart-review-deployment-powershell](./includes/virtual-machine/quickstart-review-deployment-ps.md)]
 
 ## Clean up resources
 

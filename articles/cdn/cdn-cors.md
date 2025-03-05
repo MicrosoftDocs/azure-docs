@@ -70,14 +70,6 @@ On Azure CDN Standard from Microsoft, you can create a rule in the [Standard rul
 > You can add additional actions to your rule to modify additional response headers, such as **Access-Control-Allow-Methods**.
 >
 
-<a name='azure-cdn-premium-from-verizon'></a>
-
-### Azure CDN Premium from Edgio
-
-Using the Edgio Premium rules engine, you need to [create a rule](./cdn-verizon-premium-rules-engine.md) to check the **Origin** header on the request. If it's a valid origin, your rule sets the **Access-Control-Allow-Origin** header with the origin provided in the request. If the origin specified in the **Origin** header isn't allowed, your rule should omit the **Access-Control-Allow-Origin** header, which causes the browser to reject the request.
-
-There are two ways to resolve this problem with the Premium rules engine. In both cases, the **Access-Control-Allow-Origin** header from the file's origin server is ignored and the CDN's rules engine completely manages the allowed CORS origins.
-
 #### One regular expression with all valid origins
 
 In this case, you create a regular expression that includes all of the origins you want to allow:
@@ -85,11 +77,6 @@ In this case, you create a regular expression that includes all of the origins y
 ```http
 https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 ```
-
-> [!TIP]
-> **Azure CDN Premium from Edgio** uses [Perl Compatible Regular Expressions](https://pcre.org/) as its engine for regular expressions. You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression. Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
->
->
 
 If the regular expression matches, your rule replaces the **Access-Control-Allow-Origin** header (if any) from the origin with the origin that sent the request. You can also add extra CORS headers, such as **Access-Control-Allow-Methods**.
 
@@ -103,5 +90,4 @@ Rather than regular expressions, you can instead create a separate rule for each
 
 > [!TIP]
 > In the example, the use of the wildcard character * tells the rules engine to match both HTTP and HTTPS.
->
 >
