@@ -40,12 +40,12 @@ After you create the API Center portal app registration, you need to configure a
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
 1. On the **API visibility** tab, optionally configure filters for the APIs you want to make visible in the portal. Select **Save + publish**.
 
-You can now access the API Center portal. On the **Portal settings** page, select **Open portal** to open the portal in a new tab.
+You can now access the API Center portal. On the **Portal settings** page, select **View API Center portal** to open the portal in a new tab.
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
-## Troubleshooting
-
 
 ## Related content
+
+* [Self-host the API Center portal](self-host-api-center-portal.md)
 
