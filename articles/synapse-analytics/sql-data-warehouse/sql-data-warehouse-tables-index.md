@@ -3,7 +3,7 @@ title: Indexing tables
 description: Recommendations and examples for indexing tables in dedicated SQL pool.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.date: 01/21/2025
+ms.date: 03/05/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: concept-article
