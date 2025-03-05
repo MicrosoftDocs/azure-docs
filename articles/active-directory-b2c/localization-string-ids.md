@@ -496,18 +496,18 @@ The following IDs are used for a [time-based one-time password (TOTP) display co
       </LocalizedResources>
 ```
 
-## Restful service error messages
+## RESTful service error messages
 
-The following IDs are used for [Restful service technical profile](restful-technical-profile.md) error messages:
+The following IDs are used for [RESTful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
-| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. Restful service URL: {0} |
-| `UserMessageIfCircuitOpen` | {0} Restful Service URL: {1} |
-| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
-| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
+| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. RESTful service URL: {0} |
+| `UserMessageIfCircuitOpen` | {0} RESTful Service URL: {1} |
+| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. RESTful service URL: {0} |
+| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. RESTful service URL: {1} |
 
-### Restful service example
+### RESTful service example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

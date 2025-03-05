@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate SQL Managed Instance to availability zone support
