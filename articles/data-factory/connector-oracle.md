@@ -615,12 +615,12 @@ Here are steps that help you upgrade the Oracle connector:
         | tnsnamesfile | TNS_ADMIN (environment variable supported on the self-hosted integration runtime)  | 
         | servername | server (property) | 
         | enablebulkload<br>Value: 1, 0 | enableBulkLoad (additional property)<br>Value: true, false | 
-        | fetchtswtzastimestamp<br>Value: 1, 0 | FetchTswtzAsTimestamp (additional property)<br>Value: true, false | 
+        | fetchtswtzastimestamp<br>Value: 1, 0 | fetchTswtzAsTimestamp (additional property)<br>Value: true, false | 
         | alternateservers | DESCRIPTION_LIST  (server parameter) | 
         | arraysize | fetchSize (additional property) | 
-        | cachedcursorlimit | StatementCacheSize (additional property) | 
+        | cachedcursorlimit | statementCacheSize (additional property) | 
         | connectionretrycount | RETRY_COUNT (server parameter) | 
-        | initializationstring | InitializationString (additional property) | 
+        | initializationstring | initializationString (additional property) | 
         | logintimeout | CONNECT_TIMEOUT (server parameter) | 
         | cryptoprotocolversion | SSL_VERSION (server parameter) | 
         | truststore | WALLET_LOCATION (server parameter) | 
@@ -669,6 +669,6 @@ The Oracle connector version 2.0 offers new functionalities and is compatible wi
 
 | Version 2.0 | Version 1.0  | 
 |:--- |:--- |
-|The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) ->  Single, Double or Decimal based on its precision and scale <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+|The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
 | convertDecimalToInteger in copy source is not supported.  | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
