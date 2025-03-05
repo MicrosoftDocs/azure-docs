@@ -3241,6 +3241,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-overview.md",
+      "redirect_url": "/azure/databox/data-box-overview?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-portal.md",
+      "redirect_url": "/azure/databox/data-box-quickstart-portal?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-export.md",
+      "redirect_url": "/azure/databox/data-box-quickstart-export?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/ddos-protection/ddos-disaster-recovery-guidance.md",
       "redirect_url": "../reliability/reliability-ddos.md",
       "redirect_document_id": false
