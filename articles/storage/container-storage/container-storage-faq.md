@@ -84,7 +84,7 @@ ms.custom: references_regions
   `eastus2.dp.kubernetesconfiguration.azure.com`,
   `mcr.microsoft.com`.
 
-  For more details, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress) and [Azure Arc-enabled Kubernetes network requirements](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud).
+  For more information, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress) and [Azure Arc-enabled Kubernetes network requirements](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud).
 
 * <a id="azure-container-storage-sla"></a>
   **What's Service-level-agreement (SLA) for Azure Container Storage?**
