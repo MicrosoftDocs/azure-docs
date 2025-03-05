@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 02/28/2025
+ms.date: 03/04/2025
 ---
 
 ## Supported client versions
@@ -12,16 +12,20 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.6014 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.6072 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.6073 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows Arm64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.6072 (Insider)
+## Updates for version 1.2.6073 (Insider)
 
-*Date published: February 25, 2025* 
+*Date published: March 4, 2025* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
 
 - Fixed an issue with RemoteApps where a maximized window unexpectedly changes size.
 - Improved accessibility for the **More Options** menu.
+- General improvements and bug fixes.
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.6072. Changes noted above reflect all changes for these versions. 
 
 ## Updates for version 1.2.6014  
 
