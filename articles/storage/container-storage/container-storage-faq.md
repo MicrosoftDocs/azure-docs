@@ -89,7 +89,7 @@ ms.custom: references_regions
 * <a id="azure-container-storage-sla"></a>
   **Is there a service-level agreement (SLA) for Azure Container Storage?**
 
-  Azure Container Storage is an orchestration solution of underlying storage options including Ephemeral Disks, Azure Elastic SAN, and Azure Disks. Azure Container Storage doesn't provide an SLA, however an SLA is offered for each storage option. See [Microsoft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+  Azure Container Storage is an orchestration solution of underlying storage options including Ephemeral Disks, Azure Elastic SAN, and Azure Disks. Azure Container Storage doesn't provide an SLA. However an SLA is offered for each storage option. See [Microsoft Service Level Agreements for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 ## See also
 
