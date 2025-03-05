@@ -4,7 +4,7 @@ description: Learn about geographic and global Azure services.
 ms.service: azure
 ms.subservice: azure-availability-zones
 ms.topic: conceptual
-ms.date: 02/17/2025
+ms.date: 03/05/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
@@ -39,12 +39,17 @@ For more information about data residency in Azure, see [Data residency in Azure
 | Azure Advisor | &#x2705; | | |
 | Azure AI Bot Service | &#x2705; | | |
 | Azure Blueprints | &#x2705; | | |
+| Azure Cloud Shell | &#x2705; | | |
+| Azure Communication Services | &#x2705; | | [Some data is stored in a geography.](../communication-services/concepts/privacy.md) |
+| Azure Content Delivery Network | &#x2705; | | |
 | Azure DevOps | | &#x2705; | |
 | Azure DNS | &#x2705; | | |
 | Azure Front Door | &#x2705; | | |
 | Azure Information Protection | &#x2705; | | |
 | Azure Lighthouse | &#x2705; | | |
+| Azure management groups | &#x2705; | | |
 | Azure Maps | &#x2705; | | |
+| Azure Migrate | &#x2705; | | |
 | Azure Peering Service | &#x2705; | | |
 | Azure Performance Diagnostics | &#x2705; | | |
 | Azure Policy | &#x2705; | | |
@@ -52,18 +57,14 @@ For more information about data residency in Azure, see [Data residency in Azure
 | Azure Resource Graph | &#x2705; | | |
 | Azure Stack Edge | |  &#x2705; | |
 | Azure Static Web Apps | &#x2705; | | |
-| Azure Virtual Desktop | &#x2705; | | [Some data is stored in a geography.](/azure/virtual-desktop/data-locations) Host pools are located in a specific region. |
-| Cloud Shell | &#x2705; | | |
-| Content Delivery Network | &#x2705; | | |
-| Customer Lockbox for Microsoft Azure | &#x2705; | | |
-| Management groups | &#x2705; | | |
+| Azure subscriptions | &#x2705; | | |
+| Azure Traffic Manager | &#x2705; | | |
+| Azure Virtual Desktop | &#x2705; | | <ul><li>[Some data is stored in a geography.](/azure/virtual-desktop/data-locations)</li><li>Host pools are located in a specific region.</li></ul> |
 | Microsoft Cost Management | &#x2705; | | |
 | Microsoft Defender for Cloud | &#x2705; | | |
 | Microsoft Defender for Identity | &#x2705; | | |
 | Microsoft Defender for IoT | &#x2705; | | |
-| Microsoft Entra ID |  &#x2705; |  &#x2705; | Select location during tenant creation, which can be geographic or worldwide. See [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency). |
+| Microsoft Entra ID |  &#x2705; |  &#x2705; | Select location during Microsoft Entra tenant creation, which can be geographic or worldwide. See [Microsoft Entra ID and data residency](/entra/fundamentals/data-residency). |
 | Microsoft Graph | &#x2705; | | |
 | Microsoft Intune | &#x2705; | | |
 | Microsoft Sentinel | |  &#x2705; | |
-| Subscriptions | &#x2705; | | |
-| Traffic Manager | &#x2705; | | |
