@@ -1,5 +1,5 @@
 ---
-title:  Use telemetry in python with feature flags (preview)
+title:  Enable telemetry for feature flags in a Python application (preview)
 titleSuffix: Azure App Configuration
 description: Learn how to use telemetry in python for feature flags in Azure App Configuration.
 ms.service: azure-app-configuration
@@ -9,14 +9,9 @@ ms.topic: how-to
 ms.date: 11/06/2024
 ---
 
-# Tutorial: Use telemetry in python with feature flags (preview)
+# Tutorial: Enable telemetry for feature flags in a Python application (preview)
 
-Feature flag can use telemetry (preview) to provide insights into how your feature flags are used. Telemetry allows you to make informed decisions about your feature management strategy.
-
-In this tutorial, you:
-
-> [!div class="checklist"]
-> - Add telemetry to your python application (preview)
+In this tutorial, you use telemetry (preview) in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature lag named *Greeting* in your Configuration store with telemetry enabled.
 
 ## Prerequisites
 
@@ -39,7 +34,7 @@ In this tutorial, you:
     pip install azure-monitor-opentelemetry
     ```
 
-1. Configure your code to connect to Application Insights to publish telemetry.
+1. Configure your code to connect to Application Insights to publish telemetry. Add the following code to `app.py`.
 
     ```python
     import os
@@ -49,40 +44,24 @@ In this tutorial, you:
     configure_azure_monitor(connection_string=os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"))
     ```
     
-1. Load your feature flags from App Configuration and load them into feature management.
+1. Load your feature flags from App Configuration and load them into feature management. Update your `app.py` with the following code, `FeatureManager` uses the `publish_telemetry` callback function to publish telemetry to Azure Monitor.
 
     ```python
-    from azure.appconfiguration.provider import load
-    from azure.identity import DefaultAzureCredential
-    from featuremanagement import FeatureManager
     from featuremanagement.azuremonitor import publish_telemetry
-
-    config = load(endpoint=os.getenv("APPCONFIGURATION_ENDPOINT")), credential=DefaultAzureCredential(),feature_flag_refresh_enabled=True)
 
     feature_manager = FeatureManager(config, on_feature_evaluated=publish_telemetry)
     ```
 
-1. Use the feature variant in your application. When `get_variant` is called, telemetry (preview) is published to Azure Monitor using the callback function `publish_telemetry`.
-
-    ```python
-    from featuremanagement import TargetingContext
-
-    if feature_manager.get_variant("Greeting", TargetingContext(user=user, groups=groups)).configuration:
-        print("True Variant!")
-    else:
-        print("False Variant!")
-    ```
-
-1. Track your own events in your application. When `track_event` is called, a custom event is published to Azure Monitor with the provided user.
+1. Track your own events in your application. When `track_event` is called, a custom event is published to Azure Monitor with the provided user. Updated `routes.py` to track an event whenever a POST request is made.
 
     ```python
     from featuremanagement import track_event
 
     # Something has happened in your application
-    track_event("checkout", user)
+    track_event("Liked", user)
     ```
 
-## Setup Environment Variables
+## Build and run the app
 
 1. Application insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to the connection string for your Application Insights resource.
 
@@ -118,7 +97,7 @@ In this tutorial, you:
     export APPLICATIONINSIGHTS_CONNECTION_STRING='<applicationinsights-connection-string>'
     ```
 
-1. App Configuration requires an endpoint to connect to your App Configuration store. Set the `APPCONFIGURATION_ENDPOINT` environment variable to the endpoint of your App Configuration store.
+1. If your environment variable for your App Configuration store endpoint is not setup. Set the `APPCONFIGURATION_ENDPOINT` environment variable to the endpoint of your App Configuration store.
 
     #### [Windows command prompt](#tab/windowscommandprompt)
 
