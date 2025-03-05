@@ -31,6 +31,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-m
 ### CycleCloud Capabilities
 
 ::: moniker range="=cyclecloud-7"
+
 |  |  |
 | --- | --- |
 | [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images/version-7/overview-schedulers-tn.png)  |
@@ -44,6 +45,7 @@ CycleCloud integrates with Azure services such as [Azure Monitor](/azure/azure-m
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
+
 |  |  |
 | --- | --- |
 | [**Scheduler Agnostic**](./concepts/scheduling.md)<br>Use standard HPC schedulers such as Slurm, PBS Pro, LSF, Grid Engine, and HTCondor, or extend CycleCloud autoscaling plugins to work with your own scheduler  | ![Schedulers sample](./images/version-8/overview-schedulers-tn.png)  |
