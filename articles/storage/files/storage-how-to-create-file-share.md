@@ -216,13 +216,13 @@ To create a provisioned v2 storage account using Azure CLI, use the `az storage 
 To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, `storageAccountKind`, and `storageAccountSku` with the desired values for your storage account deployment.
 
 ```bash
-$resourceGroupName="<my-resource-group>"
-$storageAccountName="<my-storage-account-name>"
-$region="<my-region>"
-$storageAccountKind="FileStorage"
+resourceGroupName="<my-resource-group>"
+storageAccountName="<my-storage-account-name>"
+region="<my-region>"
+storageAccountKind="FileStorage"
 
 # Valid SKUs for provisioned v2 HDD file share are 'StandardV2_LRS' (HDD Local Pv2), 'StandardV2_GRS' (HDD Geo Pv2), 'StandardV2_ZRS' (HDD Zone Pv2), 'StandardV2_GZRS' (HDD GeoZone Pv2).
-$storageAccountSku="StandardV2_LRS"
+storageAccountSku="StandardV2_LRS"
 
 az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
 ```
@@ -324,15 +324,15 @@ You can create an Provisioned v2 Azure file share with [`az storage share-rm cre
 To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `shareName`, `provisionedStorageGib` with the desired selections for your file share deployment.
 
 ```bash
-$shareName="<file-share>"
+shareName="<file-share>"
 
 # The provisioned storage size of the share in GiB. Valid range is 32 to
 # 262,144.
-$provisionedStorageGib = 1024
+provisionedStorageGib=1024
 
 # If you do not specify on the ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
-$provisionedIops = 3000
-$provisionedThroughputMibPerSec = 130
+provisionedIops=3000
+provisionedThroughputMibPerSec=130
 
 az storage share-rm create --resource-group $resourceGroupName --name $shareName --storage-account $storageAccountName --quota $provisionedStorageGib
 # --provisioned-iops $provisionedIops --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
@@ -547,9 +547,9 @@ fileShareName="<file-share>"
 
 # The provisioning desired on the file share. Delete the parameters if no
 # change is desired.
-$provisionedStorageGib = 10240
-$provisionedIops = 10000
-$provisionedThroughputMibPerSec = 2048
+provisionedStorageGib=10240
+provisionedIops=10000
+provisionedThroughputMibPerSec=2048
 
 # Update the file share provisioning.
 az storage share-rm update --resource-group $resourceGroupName --name $shareName --storage-account $storageAccountName --quota $provisionedStorageGib --provisioned-iops $provisionedIops --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
