@@ -13,7 +13,7 @@ To connect to a dev box by using the Windows App:
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
 1. Select **Connect via app**.
-
-   :::image type="content" source="../media/connect-with-windows-app/dev-box-connect-via-app.png" alt-text="Screenshot of dev box tile, showing the Connect via app option." lightbox="./media/quickstart-create-dev-box/dev-box-connect-via-app.png":::
+ 
+   :::image type="content" source="../media/connect-with-windows-app/dev-box-connect-via-app.png" alt-text="Screenshot of dev box tile, showing the Connect via app option.":::
 
 1. Close **User settings**.
