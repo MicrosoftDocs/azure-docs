@@ -3,7 +3,7 @@ title: Basic Load balancer deprecation - Guidelines for Azure HDInsight
 description: Guidelines to transition to standard load balancer for Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 03/03/2025
 ---
 
 # Basic Load balancer deprecation: Guidelines for Azure HDInsight
@@ -31,8 +31,11 @@ As part of the migration from the basic load balancer to the standard load balan
 
 ### New cluster creation
 
-Due to the deprecation of the default outbound access, a new outbound connectivity method is required by the HDInsight cluster. There are several ways provided in the document [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) that could provide outbound connectivity for a cluster. The only compatible way with HDInsight is to associate a NAT gateway to the subnet, which supports auto-scaling features of HDInsight clusters. 
+Due to the deprecation of the default outbound access, a new outbound connectivity method is required by the HDInsight cluster. There are several ways provided in the document [Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) that could provide outbound connectivity for a cluster. The most recommended way with HDInsight is to associate a NAT gateway to the subnet, which supports auto-scaling features of HDInsight clusters. 
 NAT gateway provides outbound network connectivity for the cluster. NSG controls both the inbound and outbound traffic, which is required by the standard load balancer. 
+
+> [!NOTE]
+>  If you prefer Azure Firewall instead of NAT gateway, follow [Configure outbound network traffic restriction](./hdinsight-restrict-outbound-traffic.md) and then create the cluster.
 
 * **Scenario 1:** HDInsight clusters without custom virtual network (Creating cluster without any virtual network).
 
@@ -132,4 +135,8 @@ NAT gateway provides outbound network connectivity for the cluster. NSG controls
 
 ## Next steps
 
-[Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
+* [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
+
+* [Restrict public connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
+
+* [Enable Private Link on an Azure HDInsight cluster](./hdinsight-private-link.md).
