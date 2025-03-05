@@ -11,30 +11,15 @@ ms.custom: subject-reliability, references_regions
 
 # Reliability in Azure Deployment Environments 
 
-This article describes reliability support in Azure Deployment Environments, and covers intra-regional resiliency with availability zones and inter region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/overview).
+This article describes reliability support in Azure Deployment Environments. It covers intra-regional resiliency with availability zones and inter-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/resiliency/overview).
 
 ## Availability zone support 
 
 [!INCLUDE [Availability zone description](../reliability/includes/reliability-availability-zone-description-include.md)]
 
-
 Availability zone support for all resources in Azure Deployment Environments is enabled automatically. There's no action for you to take. 
 
-Regions supported: 
-- West US 2
-- South Central US
-- UK South
-- West Europe
-- East US
-- Australia East
-- East US 2
-- North Europe
-- West US 3
-- Japan East
-- East Asia
-- Central India
-- Korea Central
-- Canada Central
+For a list of regions that support Azure Deployment Environments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 For more detailed information on availability zones in Azure, see [Regions and availability zones](../reliability/availability-zones-overview.md). 
 
@@ -44,17 +29,15 @@ For more detailed information on availability zones in Azure, see [Regions and
 
 You can replicate the following Deployment Environments resources in an alternate region to prevent data loss if a cross-region failover occurs:
  
-- Dev center
-- Project
-- Catalog
+- Dev centers
+- Projects
+- Catalogs
 - Catalog items
-- Dev center environment type
-- Project environment type
+- Dev center environment types
+- Project environment types
 - Environments
 
-
-
-For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). 
+For more information, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). 
 
 ## Next steps 
 
