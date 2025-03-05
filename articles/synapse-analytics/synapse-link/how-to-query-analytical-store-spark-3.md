@@ -86,9 +86,9 @@ df.show(10)
 
 #### Access token authentication requires role assignment
 
-To use the access token approach, you need to generate access tokens. Since access tokens are associated with azure identities, correct role-based access control (RBAC) must be assigned to the identity. The role assignment is on data plane level, and you must have minimum control plane permissions to perform the role assignment.
+To use the access token approach, you need to generate access tokens. Since access tokens are associated with Azure identities, correct role-based access control (RBAC) must be assigned to the identity. The role assignment is on data plane level, and you must have minimum control plane permissions to perform the role assignment.
 
-The Identity Access Management (IAM) role assignments from azure portal are on control plane level and don't affect the role assignments on data plane. Data plane role assignments are only available via Azure CLI. The `readAnalytics` action is required to read data from analytical store in Cosmos DB and is not part of any predefined roles. As such we must create a custom role definition. In addition to the `readAnalytics` action, also add the actions required for Data Reader. Create a JSON file with the following content and name it role_definition.json
+The Identity Access Management (IAM) role assignments from Azure portal are on control plane level and don't affect the role assignments on data plane. Data plane role assignments are only available via Azure CLI. The `readAnalytics` action is required to read data from analytical store in Cosmos DB and is not part of any predefined roles. As such we must create a custom role definition. In addition to the `readAnalytics` action, also add the actions required for Data Reader. Create a JSON file with the following content and name it role_definition.json
 
 ```JSON
 {
@@ -113,10 +113,10 @@ The Identity Access Management (IAM) role assignments from azure portal are on c
  - Set the default subscription which has your Cosmos DB account: `az account set --subscription <name or id>`
  - Create the role definition in the desired Cosmos DB account: `az cosmosdb sql role definition create --account-name <cosmos-account-name> --resource-group <resource-group-name> --body @role_definition.json`
  - Copy over the role `definition id` returned: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/< cosmos-account-name >/sqlRoleDefinitions/<a-random-generated-guid>`
- - Get the principal id of the identity that you want to assign the role to. The identity could be an azure app registration, a virtual machine, or any other supported azure resource. Assign the role to the principal using: `az cosmosdb sql role assignment create --account-name "<cosmos-account-name>" --resource-group "<resource-group>" --scope "/" --principal-id "<principal-id-of-identity>" --role-definition-id "<role-definition-id-from-previous-step>"`
+ - Get the principal ID of the identity that you want to assign the role to. The identity could be an Azure app registration, a virtual machine, or any other supported Azure resource. Assign the role to the principal using: `az cosmosdb sql role assignment create --account-name "<cosmos-account-name>" --resource-group "<resource-group>" --scope "/" --principal-id "<principal-id-of-identity>" --role-definition-id "<role-definition-id-from-previous-step>"`
 
 > [!Note]
-> When using an azure app registration, Use the `Object Id` as the service principal id. Also, the principal id and the Cosmos DB account must be in the same tenant.
+> When using an Azure app registration, Use the `Object Id` as the service principal ID. Also, the principal ID and the Cosmos DB account must be in the same tenant.
 
 
 #### Generating the access token - Synapse Notebooks
@@ -137,7 +137,7 @@ val token = mssparkutils.credentials.getSPTokenWithCertLS(
 Now you can use the access token generated in this step to read data from analytical store when auth type is set to access token.
 
 > [!Note]
-> When using an Azure App registration, use the application (Client Id).
+> When using an Azure app registration, use the application (Client Id).
 
 > [!Note]
 > Currently, Synapse doesn’t support generating access tokens using the azure-identity package in notebooks. Furthermore, synapse VHDs don’t include azure-identity package and its dependencies. Click [here](../synapse-service-identity.md) for more information.
