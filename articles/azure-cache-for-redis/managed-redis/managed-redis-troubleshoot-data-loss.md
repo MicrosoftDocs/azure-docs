@@ -59,7 +59,7 @@ expired_keys:46583
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
 
-You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in expired keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using `keyspace` notifications or `MONITOR`  to debug these types of issues.
+
 
 ### Key eviction
 

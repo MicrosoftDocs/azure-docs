@@ -58,7 +58,7 @@ expired_keys:46583
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
 
-You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in expired keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using `keyspace` notifications or `MONITOR`  to debug these types of issues.
+This resource provides details on using `keyspace` notifications or `MONITOR` to debug these types of issues. For information about using diagnostic metrics to see if there's a correlation between when the key went missing and a spike in expired keys, see the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix).
 
 ### Key eviction
 
@@ -72,11 +72,9 @@ You can monitor the number of evicted keys by using the [INFO](https://redis.io/
 evicted_keys:13224
 ```
 
-You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in evicted keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using keyspace notifications or **MONITOR** to debug these types of issues.
-
 ### Key deletion
 
-Redis clients can issue the [DEL](https://redis.io/commands/del) or [HDEL](https://redis.io/commands/hdel) command to explicitly remove keys from Azure Cache for Redis. You can track the number of delete operations by using the [INFO](https://redis.io/commands/info) command. If **DEL** or **HDEL** commands have been called, they'll be listed in the `Commandstats` section.
+Redis clients can issue the [DEL](https://redis.io/commands/del) or [HDEL](https://redis.io/commands/hdel) command to explicitly remove keys from Azure Cache for Redis. You can track the number of delete operations by using the [INFO](https://redis.io/commands/info) command. If **DEL** or **HDEL** commands have been called, they are listed in the `Commandstats` section.
 
 ```azurecli-interactive
 # Commandstats
