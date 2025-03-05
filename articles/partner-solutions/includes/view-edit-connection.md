@@ -5,7 +5,7 @@ ms.date: 02/25/2025
 ms.author: malev
 ---
 
-To review ,edit or delete your existing connections:
+To review, edit or delete your existing connections:
 
 1. Navigate to your application in the Azure portal and open Service Connector from the left menu.
 
