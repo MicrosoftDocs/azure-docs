@@ -651,7 +651,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/users/linux-overview.md",
+            "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
             "redirect_url": "/azure/virtual-desktop/thin-clients",
             "redirect_document_id": false
         }
