@@ -17,7 +17,7 @@ This article provides an overview of security features in Azure Data Manager for
 ## Encrypt data at rest
 
 Azure Data Manager for Energy uses several storage resources for storing metadata, user data, in-memory data etc. The platform uses service-side encryption to automatically encrypt all the data when it is persisted to the cloud. Data encryption at rest protects your data to help you to meet your organizational security and compliance commitments. All data in Azure Data Manager for Energy is encrypted with Microsoft-managed keys by default.
-In addition to Microsoft-managed key, you can use your own encryption key to protect the data in Azure Data Manager for Energy. When you specify a customer-managed key, that key is used to protect and control access to the Microsoft-managed key that encrypts your data.
+In addition to Microsoft-managed key, you can use your own encryption key stored in [Azure Key Vault](/azure/key-vault/general/overview) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) to protect the data in Azure Data Manager for Energy. When you specify a customer-managed key, that key is used to protect and control access to the Microsoft-managed key that encrypts your data.
 
 ## Encrypt data in transit
 
@@ -76,7 +76,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
  
     [![Screenshot of get, list, wrap, and upwrap key access policy](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png#lightbox)
 
-11.	You can also select Encryption Key as “**Enter key from Uri**.” It is mandatory for the Key to have soft delete and purge protection to be enabled. You will have to confirm that by checking the box shown below.
+11.	You can also select Encryption Key as “**Enter key from Uri**” and enter the "**Key URI**" in the format `https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>` or `https://<your-hsm-key-vault-name>.managedhsm.azure.net/keys/<your-managed-hsm-key-name>`. It is mandatory for the Key to have soft delete and purge protection to be enabled. You will have to confirm that by checking the box shown below.
 
     [![Screenshot of key vault uri for encryption](media/how-to-manage-data-security-and-encryption/customer-managed-key-5-key-vault-url.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-5-key-vault-url.png#lightbox)
 
