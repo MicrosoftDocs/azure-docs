@@ -33,7 +33,7 @@ Developers can experiment with the capabilities on multiple levels to evaluate, 
 
 You can create an identity and access token for Teams external users on Azure portal without a single line of code. [Here are steps how to do it](../../../quickstarts/identity/quick-create-identity.md).
 
-With a valid identity, access token, and Teams meeting URL, you can use [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/story/composites-call-with-chat-jointeamsmeeting--join-teams-meeting) to join Teams meeting without any code.
+With a valid identity, access token, and Teams meeting URL, you can use [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/story/composites-callwithchatcomposite-join-teams-meeting--join-teams-meeting) to join Teams meeting without any code.
 
 >[!VIDEO https://www.youtube.com/embed/FF1LS516Bjw]
 
@@ -49,7 +49,7 @@ The data flow for joining Teams meetings is available at the [client and server 
 
 High-level coding articles:
 - [Authenticate as Teams external user](../../../quickstarts/identity/access-tokens.md) 
-- [Call with Chat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example)
+- [Call with Chat Composite](https://azure.github.io/communication-ui-library/?path=/story/composites-call-with-chat-basicexample-basic-example--basic-example)
 
 Low-level coding articles:
 - [Join Teams meeting audio and video as Teams external user](../../../quickstarts/voice-video-calling/get-started-teams-interop.md)

@@ -43,9 +43,9 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 * The virtual network must be in the same region and Azure subscription as the API Management instance.
 
-### Subnet requirements
+### Dedicated subnet
 
-* The subnet for the API Management instance can't be shared with another Azure resource.
+* The subnet used for virtual network injection can only be used by a single API Management instance. It can't be shared with another Azure resource.
 
 ### Subnet size 
 
@@ -88,7 +88,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 1. In the **Create API Management service** wizard, select the **Networking** tab.
 1. In **Connectivity type**, select **Virtual network**.
-1. In **Type**, select **Injection**. 
+1. In **Type**, select **Virtual Network injection**. 
 1. In **Configure virtual networks**, select the virtual network and the delegated subnet that you want to inject. 
 1. Complete the wizard to create the API Management instance.
 

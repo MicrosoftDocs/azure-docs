@@ -62,7 +62,6 @@ Resource Graph tables support the `join` flavors:
 | ManagedServicesResources | Yes | Includes resources _related_ to `Microsoft.ManagedServices`. |
 | MigrateResources | Yes | Includes resources _related_ to `Microsoft.OffAzure`. |
 | NetworkResources | Yes | Includes resources _related_ to `Microsoft.Network`. |
-| OrbitalResources | Yes | Includes resources _related_ to `Microsoft.Orbital`. |
 | PatchAssessmentResources| Yes | Includes resources _related_ to Azure Virtual Machines patch assessment `Microsoft.Compute` and `Microsoft.HybridCompute`. |
 | PatchInstallationResources| Yes | Includes resources _related_ to Azure Virtual Machines patch installation `Microsoft.Compute` and `Microsoft.HybridCompute`. |
 | PolicyResources | Yes | Includes resources _related_ to `Microsoft.PolicyInsights`. |

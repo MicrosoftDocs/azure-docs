@@ -2,11 +2,9 @@
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 ms.topic: article
-ms.date: 10/12/2022
+ms.date: 12/19/2024
 ms.devlang: csharp
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+# Customer intent: I want to learn how to create partitioned queues and topics in Azure Service Bus. 
 ---
 
 # Partitioned queues and topics
@@ -18,7 +16,7 @@ Azure Service Bus employs multiple message brokers to process messages and multi
 > - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. A namespace can have both partitioned and non-partitioned entities.
 > - Partitioning is available at namespace creation for the Premium messaging SKU, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in Premium namespaces will continue to work as expected.
 > - When partitioning is enabled in the Basic or Standard SKUs, we will always create 16 partitions.
-> - When partitioning is enabled in the Premium SKU, the amount of partitions is specified during namespace creation.
+> - When partitioning is enabled in the Premium SKU, the number of partitions is specified during namespace creation.
  
 It isn't possible to change the partitioning option on any existing namespace, queue, or topic; you can only set the option when you create the entity.
 

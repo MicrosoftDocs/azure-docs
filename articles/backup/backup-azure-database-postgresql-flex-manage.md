@@ -1,17 +1,34 @@
 ---
-title: Manage Azure Backup for Azure PostgreSQL - Flexible servers
+title: Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn about managing backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 ms.topic: how-to
-ms.date: 03/21/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/28/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24, ignite-2024
 ---
 
-# Manage Azure Backup for Azure PostgreSQL - Flexible servers (preview)
+# Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 
-This article explains how to manage backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
+This article describes how to manage backup of Azure Database for PostgreSQL - Flexible Server using Azure portal.
+
+## Change policy
+
+You can change the associated policy with a backup instance.
+
+1. Select the **Backup Instance** -> **Change Policy**.
+
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   
+1. Select the new policy that you wish to apply to the database.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
+
+> [!NOTE]
+>
+> Changing a backup policy assigned to a backup instance does not affect existing recovery points and their retention duration. The updated retention settings will apply only to new recovery points created after the policy change.
 
 ## Monitor a backup operation
 
@@ -58,7 +75,6 @@ After you trigger the restore operation, the backup service creates a job for tr
 This section describes several Azure Backup supported management operations that make it easy to manage Azure PostgreSQL - Flexible servers.
 
 ### Stop Protection
-
 
 There are three ways by which you can stop protecting an Azure Disk:
 
@@ -126,7 +142,7 @@ There are three ways by which you can stop protecting an Azure Disk:
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your servers.
 
 >[!Note]
->When you start protecting a servers, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
+>When you resume protecting a backup instance, the existing backup policy will start applying to new recovery points only. Recovery points that have already expired based on their original retention duration, as defined by the backup policy in effect at the time of their creation, will be cleaned up.
 
 Use the following steps:
 
@@ -162,6 +178,7 @@ To delete a PostgreSQL server backup instance, follow these steps:
 
 1. Select **Delete** to confirm and proceed with deleting backup instance.
 
-## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+## Next step
+
+[Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).

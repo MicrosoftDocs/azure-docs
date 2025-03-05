@@ -27,9 +27,9 @@ In this tutorial, you take the following steps:
 To complete this walk through, you require:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- Linux/MacOS
+- Linux/macOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-kafka-overview.md) introduction article
+- Read through the [Event Hubs for Apache Kafka](./azure-event-hubs-apache-kafka-overview.md) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
@@ -55,7 +55,7 @@ Follow the latest instructions in the [Debezium documentation](https://debezium.
 Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs. The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
 
 > [!IMPORTANT]
-> - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
+> - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-apache-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
 > - There are different **limits** on number of event hubs in an Event Hubs namespace depending on the tier (Basic, Standard, Premium, or Dedicated). For these limits, See [Quotas](compare-tiers.md#quotas).
 
 ```properties

@@ -13,6 +13,8 @@ ms.custom: devx-track-js, mode-api
 
  In this article, you use Azure SignalR Service, Azure Functions, and JavaScript to build a serverless application to broadcast messages to clients.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.
@@ -135,7 +137,9 @@ You're almost done now. The last step is to set the SignalR Service connection s
 
     :::image type="content" source="media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png" alt-text="Screenshot of Azure SignalR service Keys page.":::
 
-1. Copy the primary connection string, and execute the command:
+1. Copy the primary connection string, and execute the command.
+
+    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
     ```bash
     func settings add AzureSignalRConnectionString "<signalr-connection-string>"

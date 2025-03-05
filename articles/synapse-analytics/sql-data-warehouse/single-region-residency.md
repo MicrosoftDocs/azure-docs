@@ -91,7 +91,7 @@ To create a new dedicated SQL pool through PowerShell, use the [New-AzSqlDatabas
 4. Select the subscription that contains the database to be restored.
 5. List the restore points for the dedicated SQL pool (formerly SQL DW).
 1. Pick the desired restore point using the RestorePointCreationDate.
-1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using Restore-AzSqlDatabase PowerShell cmdlet specifying BackupStorageRedundnacy as 'Local'. 
+1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using Restore-AzSqlDatabase PowerShell cmdlet specifying BackupStorageRedundancy as 'Local'. 
 
 ```powershell
 

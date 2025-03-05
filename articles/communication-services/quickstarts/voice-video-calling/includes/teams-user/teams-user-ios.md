@@ -64,7 +64,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create the Call Agent
 
-Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
+Replace the implementation of the ContentView `struct` with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
 
 ```Swift
 struct ContentView: View {

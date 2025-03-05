@@ -24,7 +24,7 @@ such as:
 
 Configurations are distinct from policy definitions. Machine configuration uses Azure Policy to
 dynamically assign configurations to machines. You can also assign configurations to machines
-[manually][03], or by using other Azure services such as [Automanage][04].
+[manually][03].
 
 Examples of each scenario are provided in the following table.
 
@@ -139,11 +139,11 @@ symbolic to represent new minor versions of Linux distributions.
 | --------- | -------------------------- | ---------------- |
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 16.04 - 22.x     |
+| Canonical | Ubuntu Server              | 16.04 - 24.x     |
 | Credativ  | Debian                     | 10.x - 12.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
 | Microsoft | Windows Client             | Windows 10, 11   |
-| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | Windows Server             | 2012 - 2025      |
 | Oracle    | Oracle-Linux               | 7.x - 8.x        |
 | OpenLogic | CentOS                     | 7.3 - 8.x        |
 | Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |

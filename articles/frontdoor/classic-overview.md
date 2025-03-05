@@ -50,7 +50,7 @@ For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricin
 
 ## What's new?
 
-Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) page.
+Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Front+Door%22%5D) page.
 
 ## Next steps
 

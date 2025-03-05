@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 03/04/2025
 ms.author: anfdocs
 ---
 
@@ -14,7 +14,37 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## March 2025
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. This feature is available in all Azure NetApp Files regions. 
+
+## February 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
+
+* [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
+
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
+
+## January 2025 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) and [application volume group for SAP HANA extension one](application-volume-group-introduction.md) now support customer-managed keys. (Preview)
+
+    Azure NetApp Files application volume groups for SAP HANA (with extension 1) and Oracle now support customer-managed keys, providing increased security and compliance. This feature is now in preview.
+
 ## December 2024
+
+* [Volume enhancement: Azure NetApp Files 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) is now generally available (GA)
+
+    This enhancement allows you to create an Azure NetApp Files volume as small as 50 GiB—a reduction from the initial minimum size of 100 GiB. This reduced size can save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. All volume workflows which were supported with a 100 GiB minimum volume size are now supported with this new minimum size of 50 GiB.
+
+* [Volume enhancement: creating volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) is now generally available (GA)
+
+    Azure NetApp Files allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This feature is now generally available. 
 
 * [Cloud Backup for Virtual Machines on Azure NetApp Files datastores for Azure VMware Solution:](../azure-vmware/install-cloud-backup-virtual-machines.md) enhanced backup capabilities (Preview)
 
@@ -35,8 +65,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) (Preview)
 
     Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. 
-
-    This feature is currently in preview in the Australia East, Central India, East Asia, North Central US, and Switzerland North regions. 
   
 ## September 2024 
 
@@ -74,9 +102,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
 
-* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md#50-gib) (preview)
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-create-volumes.md) (preview)
 
-    You can now create an Azure NetApp Files volume as small as [50 GiB](azure-netapp-files-resource-limits.md)--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md#50-gib), [SMB](azure-netapp-files-create-volumes-smb.md#50-gib), and [dual-protocol](create-volumes-dual-protocol.md#50-gib). You must register for the feature before creating a volume smaller than 100 GiB. 
+    You can now create an Azure NetApp Files volume as small as [50 GiB](azure-netapp-files-resource-limits.md)--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for workloads that require volumes smaller than 100 GiB, allowing you to appropriately size storage volumes. 50 GiB volumes are supported for all protocols with Azure NetApp Files: [NFS](azure-netapp-files-create-volumes.md), [SMB](azure-netapp-files-create-volumes-smb.md), and [dual-protocol](create-volumes-dual-protocol.md). You must register for the feature before creating a volume smaller than 100 GiB. 
 
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) is now generally available (GA). 
 
@@ -409,7 +437,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Restore (`-c restore`) improvements
     * Test (`-c test`) improvements
     * Validation improvements
-    * Timeout improvements
+    * Time-out improvements
     * Azure Backup integration improvements
     * Features moved to GA (generally available):
         None

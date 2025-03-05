@@ -33,13 +33,15 @@ items:
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX network segment
+  - name: 5 - Create an NSX Tier-1 Gateway
+    href: tutorial-nsx-tier-1-gateway.md
+  - name: 6 - Create an NSX network segment
     href: tutorial-nsx-t-network-segment.md
-  - name: 6 - Peer on-premises to private cloud
+  - name: 7 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 7 - Scale a private cloud
+  - name: 8 - Scale a private cloud
     href: tutorial-scale-private-cloud.md
-  - name: 8 - Delete a private cloud
+  - name: 9 - Delete a private cloud
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
@@ -51,8 +53,6 @@ items:
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
-    href: sql-server-hybrid-benefit.md
   - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
     href: vmware-cloud-foundations-license-portability.md
 - name: Architecture
@@ -133,7 +133,7 @@ items:
       href: protect-azure-vmware-solution-with-application-gateway.md
   - name: Configure customer-managed key encryption at rest
     href: configure-customer-managed-keys.md
-  - name: Configure vTPM on a Virtual Machine
+  - name: Configure Trusted Launch
     href: configure-virtual-trusted-platform-module.md
 - name: Networking
   items:
@@ -151,6 +151,8 @@ items:
     href: configure-hcx-network-extension.md
   - name: VMware HCX Mobility Optimized Networking (MON) guidance
     href: vmware-hcx-mon-guidance.md
+  - name: NSX Scale and Performance Recommendations for VMware HCX
+    href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Configure NSX network components
     href: configure-nsx-network-components-azure-portal.md
   - name: Configure port mirroring
@@ -181,6 +183,8 @@ items:
     href: vmware-hcx-mon-guidance.md	
   - name: Configure VMware HCX network extension high availability
     href: configure-hcx-network-extension-high-availability.md
+  - name: NSX Scale and Performance Recommendations for VMware HCX
+    href: azure-vmware-solution-nsx-scale-and-performance-recommendations-for-vmware-hcx.md
   - name: Enable VMware HCX access over the internet
     href: enable-hcx-access-over-internet.md
   - name: Upgrade VMware HCX on Azure VMware Solution
@@ -219,15 +223,18 @@ items:
     href: azure-vmware-solution-citrix.md
 - name: Storage
   items:
-  - name: Configure storage policies
-    href: configure-storage-policy.md
   - name: Configure vSAN
     href: configure-vsan.md
-  - name: Configure customer-managed key encryption at rest
-    href: configure-customer-managed-keys.md
+    items:
+     - name: Configure storage policies
+       href: configure-storage-policy.md
+     - name: Configure customer-managed key encryption at rest
+       href: configure-customer-managed-keys.md
+  - name: External storage solutions
+    href: ecosystem-external-storage-solutions.md
   - name: Configure Azure Elastic SAN
     href: configure-azure-elastic-san.md
-  - name: Manage and protect VMs on Azure NetApp Files
+  - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
       href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
@@ -243,12 +250,8 @@ items:
       href: restore-azure-netapp-files-vms.md
     - name: Restore guest files and folders
       href: restore-guest-files-folders.md  
-  - name: External storage solutions
-    items:
-    - name: Storage solution overview
-      href: ecosystem-external-storage-solutions.md
-    - name: Pure Cloud Block Store
-      href: configure-pure-cloud-block-store.md
+  - name: Configure Pure Cloud Block Store
+    href: configure-pure-cloud-block-store.md
 - name: Backup and recovery
   items:
   - name: Backup solutions for VMs
@@ -389,7 +392,7 @@ items:
     href: https://aka.ms/avssla
   - name: Azure VMware Solution roadmap
     href: https://aka.ms/avsroadmap
-  - name: Troubleshooting
+  - name: Troubleshoot
     items:
     - name: Open a support request for deployment failures
       href: fix-deployment-failures.md

@@ -135,7 +135,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **SrcDvcModelName** | String | Samsung Galaxy Note | The model name of the source device | Source,<br>Device |
 | **SrcDvcModelNumber** | String | 10.0 | The model number of the source device | Source,<br>Device |
 | **SrcDvcType** | String | Mobile | The type of the source device | Source,<br> Device |
-| **SrcIntefaceName** | String | eth01 | The network interface used for the connection or session by the source device. | Source |
+| **SrcInterfaceName** | String | eth01 | The network interface used for the connection or session by the source device. | Source |
 | **SrcInterfaceGuid** | String | 46ad544b-eaf0-47ef-827c-266030f545a6 | GUID of the network interface used | Source |
 | **SrcIpAddr** | IP address | 77.138.103.108 | The IP address from which the connection or session originated. | Source,<br>IP |
 | **SrcDvcIpAddr** | IP address | 77.138.103.108 | The source IP address of a device not directly associated with the network packet (collected by a provider or explicitly calculated). | Source,<br>Device,<br>IP |
@@ -307,8 +307,8 @@ The following fields were renamed in [version 0.2.x](normalization-schema-networ
 
     |Field in version 0.1  |Renamed in version 0.2  |
     |---------|---------|
-    |  DstResourceId  |   SrcDvcAzureRerouceId      |
-    | SrcResourceId   |     SrcDvcAzureRerouceId    |
+    |  DstResourceId  |   SrcDvcAzureResourceId      |
+    | SrcResourceId   |     SrcDvcAzureResourceId    |
 
 
 - **Renamed to remove the `Dvc` string from field names, as handling in version 0.1 was inconsistent**:

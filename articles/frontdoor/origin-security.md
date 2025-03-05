@@ -5,7 +5,7 @@ description: This article explains how to ensure that your origins receive traff
 services: front-door
 author: johndowns
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/02/2023
 ms.author: jodowns
 zone_pivot_groups: front-door-tiers

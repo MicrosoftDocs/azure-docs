@@ -4,7 +4,7 @@ description: Learn about available Azure Elastic SAN networking options, includi
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 01/28/2025
 ms.author: rogarana
 ---
 
@@ -55,9 +55,6 @@ Azure [Private Link](../../private-link/private-link-overview.md) enables you to
 
 Private endpoints have several advantages over service endpoints. For a complete comparison of private endpoints to service endpoints, see [Compare Private Endpoints and Service Endpoints](../../virtual-network/vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints).
 
-### Restrictions
-
-Private endpoints aren't currently supported for elastic SANs using [zone-redundant storage (ZRS)](elastic-san-planning.md#redundancy).
 
 ### How it works
 

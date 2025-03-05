@@ -104,7 +104,7 @@ For example:
 
     ```kusto
     SigninLogs
-    | where AppDisplayName == "GithHub.Com"
+    | where AppDisplayName == "GitHub.Com"
     | join kind=inner  (
         IdentityInfo
         | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
@@ -112,6 +112,22 @@ For example:
     ```
 
 The **IdentityInfo** table synchronizes with your Microsoft Entra workspace to create a snapshot of your user profile data, such as user metadata, group information, and Microsoft Entra roles assigned to each user. For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table) in the UEBA enrichments reference.
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***render*** operator](/kusto/query/render-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***iff()*** function](/kusto/query/iff-function?view=microsoft-sentinel&preserve-view=true)
+- [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+- [***now()*** function](/kusto/query/now-function?view=microsoft-sentinel&preserve-view=true)
+- [***bin()*** function](/kusto/query/bin-function?view=microsoft-sentinel&preserve-view=true)
+- [***startofday()*** function](/kusto/query/startofday-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***sum()*** aggregation function](/kusto/query/sum-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Identify password spray and spear phishing attempts
 

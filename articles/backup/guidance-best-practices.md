@@ -2,11 +2,11 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 12/30/2024
 ms.reviewer: dapatil
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -67,7 +67,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 * **Scalable, durable, and secure storage**: Azure Backup uses reliable Blob storage with in-built security and high availability features. You can choose LRS, GRS, or RA-GRS storages for your backup data.  
 
-* **Native workload integration**: Azure Backup provides native integration with Azure Workloads (VMs, SAP HANA, SQL in Azure VMs and even Azure Files) without requiring you to manage automation or infrastructure to deploy agents, write new scripts or provision storage. 
+* **Native workload integration**: Azure Backup provides native integration with Azure Workloads (VMs, SAP HANA, SQL in Azure VMs and even Azure Files) without requiring you to manage automation or infrastructure to deploy agents, write new scripts or assign storage. 
 
  [Learn more](./backup-overview.md#what-can-i-back-up) about supported workloads.
 
@@ -77,7 +77,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 - **Malicious delete protection**: Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.
 
-- **Secure encrypted backups**: Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform, such as Azure role-based access control (Azure RBAC) and Encryption.
+- **Secure encrypted backups**: Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform, such as Azure role-based access control  and Encryption.
 
 - **Backup data lifecycle management**: Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
 
@@ -85,7 +85,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ### Management plane
 
-* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure role-based access control (Azure RBAC) boundary, providing you with the option to restrict access to backups only to authorized Backup Admins.
+* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure role-based access control boundary, providing you with the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management**: Azure Backup Policies within each vault define when the backups should be triggered and the duration they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -103,9 +103,9 @@ To use a single vault or multiple vaults to organize and manage your backup, see
 
 - **Protect resources across multiple regions globally**: If your organization has global operations across North America, Europe, and Asia, and your resources are deployed in East-US, UK West, and East Asia. One of the requirements of Azure Backup is that the vaults are required to be present in the same region as the resource to be backed-up. Therefore, you should create three separate vaults for each region to protect your resources.
 
-- **Protect resources across various Business Units and Departments**: Consider that your business operations are divided into three separate Business Units (BU), and each business unit has its own set of departments (five departments - Finance, Sales, HR, R & D, and Marketing). Your business needs may require each department to manage and access their own backups and restores; also, enable them to track their individual usage and cost expense. For such scenarios, we recommend you to create one vault for each department in a BU. This way, you’ll have 15 Vaults across your organization.
+- **Protect resources across various Business Units and Departments**: Consider that your business operations are divided into three separate Business Units (BU), and each business unit has its own set of departments (five departments - Finance, Sales, HR, R & D, and Marketing). Your business needs might require each department to manage and access their own backups and restores; also, enable them to track their individual usage and cost expense. For such scenarios, we recommend you to create one vault for each department in a BU. This way, you’ll have 15 Vaults across your organization.
 
-- **Protect different workloads**: If you plan to protect different types of workloads (such as 150 VMs, 40 SQL databases, and 70 PostgreSQL databases), then we recommend you create separate vaults for each type of workload (for this example, you need to create three vaults for each workload - VMs, SQL databases, and PostgreSQL databases). This helps you to separate access boundaries for the users by allowing you to grant access (using Azure role-based access control – Azure RBAC) to the relevant stakeholders.
+- **Protect different workloads**: If you plan to protect different types of workloads (such as 150 VMs, 40 SQL databases, and 70 PostgreSQL databases), then we recommend you create separate vaults for each type of workload (for this example, you need to create three vaults for each workload - VMs, SQL databases, and PostgreSQL databases). This helps you to separate access boundaries for the users by allowing you to grant access (using Azure role-based access control) to the relevant stakeholders.
 
 - **Protect resources running in multiple environments**: If your operations require you to work on multiple environments, such as production, non-production, and developer, then we recommend you create separate vaults for each.
 
@@ -126,7 +126,7 @@ To use a single vault or multiple vaults to organize and manage your backup, see
 
 Review the default settings for Storage Replication type and Security settings to meet your requirements before configuring backups in the vault.
 
-* *Storage Replication type* by default is set to Geo-redundant (GRS). Once you configure the backup, the option to modify is disabled. Follow [these](backup-create-rs-vault.md#set-storage-redundancy) steps to review and modify the settings.
+* *Storage Replication type* by default is set to Geo-redundant (GRS). Once you configure the backup, the option to modify disables. Follow [these](backup-create-rs-vault.md#set-storage-redundancy) steps to review and modify the settings.
 
   * Non-critical workloads like non-prod and dev are suitable for LRS storage replication.
 
@@ -166,7 +166,7 @@ While scheduling your backup policy, consider the following points:
 
 * Long-term retention:
 
-  * Planned (compliance requirements) - if you know in advance that data is required years from the current time, then use Long-term retention. Azure Backup supports back up of Long-Term Retention points in the archive tier, along with Snapshots and the Standard tier. [Learn more](./archive-tier-support.md) about supported workloads for Archive tier and retention configuration.
+  * Planned (compliance requirements) - if you know in advance that data is required years from the current time, then use Long-term retention. Azure Backup supports backup of Long-Term Retention points in the archive tier, along with Snapshots and the Standard tier. [Learn more](./archive-tier-support.md) about supported workloads for Archive tier and retention configuration.
   * Unplanned (on-demand requirement) - if you don't know in advance, then use you can use on-demand with specific custom retention settings (these custom retention settings aren't impacted by policy settings).
 
 * On-demand backup with custom retention - if you need to take a backup not scheduled via backup policy, then you can use an on-demand backup. This can be useful for taking backups that don’t fit your scheduled backup or for taking granular backup (for example, multiple IaaS VM backups per day since scheduled backup permits only one backup per day). It's important to note that the retention policy defined in scheduled policy doesn't apply to on-demand backups.
@@ -194,15 +194,15 @@ While scheduling your backup policy, consider the following points:
 
 To help you protect your backup data and meet the security needs of your business, Azure Backup provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Consider the following security guidelines for your Azure Backup solution:
 
-### Authentication and authorization using Azure role-based access control (Azure RBAC)
+### Authentication and authorization using Azure role-based access control
 
-- Azure role-based access control (Azure RBAC) enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
+- Azure role-based access control enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
 
-- If you’ve multiple workloads to back up (such as Azure VMs, SQL databases, and PostgreSQL databases) and you've multiple stakeholders to manage those backups, it is important to segregate their responsibilities so that user has access to only those resources they’re responsible for. Azure role-based access control (Azure RBAC) enables granular access management, segregation of duties within your team, and granting only the types of access to users necessary to perform their jobs. [Learn more](./backup-rbac-rs-vault.md)
+- If you’ve multiple workloads to back up (such as Azure VMs, SQL databases, and PostgreSQL databases) and you've multiple stakeholders to manage those backups, it is important to segregate their responsibilities so that user has access to only those resources they’re responsible for. Azure role-based access control enables granular access management, segregation of duties within your team, and granting only the types of access to users necessary to perform their jobs. [Learn more](./backup-rbac-rs-vault.md)
 
 - You can also segregate the duties by providing minimum required access to perform a particular task. For example, a person responsible for monitoring the workloads shouldn't have access to modify the backup policy or delete the backup items. Azure Backup provides three built-in roles to control backup management operations: Backup contributors, operators, and readers. Learn more here. For information about the minimum Azure role required for each backup operation for Azure VMs, SQL/SAP HANA databases, and Azure File Share, see [this guide](./backup-rbac-rs-vault.md).
 
-- [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) also provides the flexibility to build [Custom Roles](../role-based-access-control/custom-roles.md) based on your individual requirements. If you’re unsure about the types of roles recommended for specific operation, you can utilize the built-in roles provided by Azure role-based access control (Azure RBAC) and get started. 
+- [Azure role-based access control](../role-based-access-control/overview.md) also provides the flexibility to build [Custom Roles](../role-based-access-control/custom-roles.md) based on your individual requirements. If you’re unsure about the types of roles recommended for specific operation, you can utilize the built-in roles provided by Azure role-based access control and get started. 
 
   The following diagram explains about how different Azure built-in roles work:
 
@@ -230,7 +230,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 ### Protection of backup data from unintentional deletes  with soft-delete
 
-You may encounter scenarios where you’ve mission-critical backup data in a vault, and it gets deleted accidentally or erroneously. Also,  a malicious actor may delete your production backup items. It’s often costly and time-intensive to rebuild those resources and can even cause crucial data loss. Azure Backup provides safeguard against accidental and malicious deletion with the [Soft-Delete](./backup-azure-security-feature-cloud.md) feature by allowing you to recover those resources after they are deleted.
+You might encounter scenarios where you’ve mission-critical backup data in a vault, and it gets deleted accidentally or erroneously. Also,  a malicious actor might delete your production backup items. It’s often costly and time-intensive to rebuild those resources and can even cause crucial data loss. Azure Backup provides safeguard against accidental and malicious deletion with the [Soft Delete](./backup-azure-security-feature-cloud.md) feature by allowing you to recover those resources after they are deleted.
 
 With soft-delete, if a user deletes the backup (of a VM, SQL Server database, Azure file share, SAP HANA database), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the soft delete state doesn't incur any cost. [Learn more](./backup-azure-security-feature-cloud.md)
 
@@ -238,13 +238,13 @@ With soft-delete, if a user deletes the backup (of a VM, SQL Server database, Az
 
 **How would you protect your data if your administrator goes rogue and compromises your system?**
 
-Any administrator that has the privileged access to your backup data has the potential to cause irreparable damage to the system. A rogue admin can delete all your business-critical data or even turn off all the security measures that may leave your system vulnerable to cyber-attacks.
+Any administrator that has the privileged access to your backup data has the potential to cause irreparable damage to the system. A rogue admin can delete all your business-critical data or even turn off all the security measures that might leave your system vulnerable to cyber-attacks.
 
 Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user-authorization.md) feature to protect you from such rogue administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator. 
 
 ### Ransomware Protection
 
-- Direct access to Azure Backup data to encrypt by malicious actor is ruled out, as all operations on backup data can only be performed through Recovery-Services vault or Backup Vault, which can be secured by Azure role-based access control (Azure RBAC) and MUA.
+- Direct access to Azure Backup data to encrypt by malicious actor is ruled out, as all operations on backup data can only be performed through Recovery-Services vault or Backup Vault, which can be secured by Azure role-based access control and MUA.
 
 - By enabling soft-delete on backup data (which is enabled by default) will hold deleted data for 14 days (at free of cost). Disabling soft-delete can be protected using MUA. 
 
@@ -252,9 +252,9 @@ Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user
 
 ### Monitoring and alerts of suspicious activity
 
-You may encounter scenarios where someone tries to breach into your system and maliciously turn off the security mechanisms, such as disabling Soft Delete or attempts to perform destructive operations, such as deleting the backup resources. 
+You might encounter scenarios where someone tries to breach into your system and maliciously turn off the security mechanisms, such as disabling Soft Delete or attempts to perform destructive operations, such as deleting the backup resources. 
 
-Azure Backup provides security against such incidents by sending you critical alerts over your preferred notification channel (email, ITSM, Webhook, runbook, and sp pn) by creating an [Action Rule](/azure/azure-monitor/alerts/alerts-action-rules) on top of the alert. [Learn more](./security-overview.md#monitoring-and-alerts-of-suspicious-activity)
+Azure Backup provides security against such incidents by sending you critical alerts over your preferred notification channel (email, ITSM, Webhook, runbook, and so on) by creating an [Action Rule](/azure/azure-monitor/alerts/alerts-action-rules) on top of the alert. [Learn more](./security-overview.md#monitoring-and-alerts-of-suspicious-activity)
 
 ### Security features to help protect hybrid backups
 
@@ -266,15 +266,15 @@ Azure Backup requires movement of data from your workload to the Recovery Servic
 
 ### Internet connectivity
 
-* **Azure VM backup**: All the required communication and data transfer between storage and Azure Backup service happens within the Azure network without needing to access your virtual network. So backup of Azure VMs placed inside secured networks don't require you to allow access to any IPs or FQDNs.
+* **Azure VM backup**: All the required communication and data transfer between storage and Azure Backup service happens within the Azure network without needing to access your virtual network. So back up of Azure VMs placed inside secured networks don't require you to allow access to any IPs or FQDNs.
 
-* **SAP HANA databases on Azure VM, SQL Server databases on Azure VM**: Requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
+* **SAP HANA databases on Azure VM, SQL Server databases on Azure VM**: Requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data. For complete network guidance while using NSG tags, Azure firewall, and HTTP Proxy, refer to these [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) and [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) articles.
 
 * **Hybrid**: The MARS (Microsoft Azure Recovery Services) agent requires network access for all critical operations - install, configure, backup, and restore. The MARS agent can connect to the Azure Backup service over [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support) by using Microsoft peering, using [private endpoints](install-mars-agent.md#private-endpoint-support) or via [proxy/firewall with appropriate access controls](install-mars-agent.md#verify-internet-access).
 
 ### Private Endpoints for secure access
 
-While protecting your critical data with Azure Backup, you wouldn’t want your resources to be accessible from the public internet. Especially, if you’re a bank or a financial institution, you would have stringent compliance and security requirements to protect your High Business Impact (HBI) data. Even in the healthcare industry, there are strict compliance rules.  
+While protecting your critical data with Azure Backup, you wouldn’t want your resources to be accessible from the public internet. Especially, if you’re a bank or a financial institution, you would have stringent compliance and security requirements to protect your high business influence data. Even in the healthcare industry, there are strict compliance rules.  
 
 To fulfill all these needs, use [Azure Private Endpoint](../private-link/private-endpoint-overview.md), which is a network interface that connects you privately and securely to a service powered by Azure Private Link. We recommend you to use private endpoints for secure backup and restore without the need to add to an allowlist of any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks.
 
@@ -286,7 +286,7 @@ To fulfill all these needs, use [Azure Private Endpoint](../private-link/private
 
 ## Governance considerations
 
-Governance in Azure is primarily implemented with [Azure Policy](../governance/policy/overview.md) and [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers. Also, the following tools such as [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) and [Azure Advisor](/azure/advisor/advisor-overview)  play an important role in the cost management process.
+Governance in Azure is primarily implemented with [Azure Policy](../governance/policy/overview.md) and [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers. Also, the following tools such as [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) and [Azure Advisor](/azure/advisor/advisor-overview)  play an important role in the cost management process.
 
 ### Auto-configure newly provisioned backup infrastructure with Azure Policy at Scale
 
@@ -329,7 +329,7 @@ As a backup user or administrator, you should be able to monitor all backup solu
 
 ### Monitor
 
-* Azure Backup provides **built-in job monitoring** for operations such as configuring backup, back up, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
+* Azure Backup provides **built-in job monitoring** for operations such as configuring backup, back up, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs).
 
 * If you need to monitor operational activities at scale, then **Backup Explorer** provides an aggregated view of your entire backup estate, enabling detailed drill-down analysis and troubleshooting. It's a built-in Azure Monitor workbook that gives a single, central location to help you monitor operational activities across the entire backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
   * Use it to identify resources that aren't configured for backup, and ensure that you don't ever miss protecting critical data in your growing estate.
@@ -343,7 +343,7 @@ As a backup user or administrator, you should be able to monitor all backup solu
 
 * In addition,
   * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](/azure/azure-monitor/essentials/activity-log#send-to-log-analytics-workspace).
-  * You can send data to an Azure event hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](/azure/azure-monitor/essentials/activity-log#send-to-azure-event-hubs).
+  * You can send data to an Azure event hub to send entries outside of Azure, for example to an external SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](/azure/azure-monitor/essentials/activity-log#send-to-azure-event-hubs).
   * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or back up. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](/azure/azure-monitor/essentials/activity-log#send-to-azure-storage).
 
 ### Alerts
@@ -357,9 +357,9 @@ You can configure such critical alerts and route them to any preferred notificat
 -	Azure Monitor Alerts: For certain default scenarios, such as backup failure, restore failure, backup data deletion, and so on, Azure Backup sends alerts by default that are surfaced using Azure Monitor, without the need for a user to set up a Log Analytics workspace. 
 
 - Azure Backup provides an **in-built alert** notification mechanism via e-mail for failures, warnings, and critical operations. You can specify individual email addresses or distribution lists to be notified when an alert is generated. You can also choose whether to get notified for each individual alert or to group them in an hourly digest and then get notified.
-  - These alerts are defined by the service and provide support for limited scenarios - backup/restore failures, Stop protection with retain data/Stop protection with delete data, and so on. [Learn more here](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
+  - These alerts are defined by the service and provide support for limited scenarios - backup/restore failures, Stop protection with retain data/Stop protection with delete data, and so on. [Learn more here](move-to-azure-monitor-alerts.md#alert-scenarios).
   - If a destructive operation such as stop protection with delete data is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are **not** configured for the Recovery Services vault.
-  - Certain workloads can generate high frequency of failures (for example, SQL Server every 15 minutes). To prevent getting overwhelmed with alerts raised for each failure occurrence, the alerts are consolidated. [Learn more here](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
+  - Certain workloads can generate high frequency of failures (for example, SQL Server every 15 minutes). To prevent getting overwhelmed with alerts raised for each failure occurrence, the alerts are consolidated. [Learn more here](move-to-azure-monitor-alerts.md#consolidated-alerts).
   - The in-built alerts can't be customized and are restricted to emails defined in the Azure portal.
 
 - If you need to **create custom alerts** (for example, alerts of successful jobs) then use Log Analytics. In Azure Monitor, you can create your own alerts in a Log Analytics workspace. Hybrid workloads (DPM/MABS) can also send data to LA and use LA to provide common alerts across workloads supported by Azure Backup.
@@ -368,7 +368,7 @@ You can configure such critical alerts and route them to any preferred notificat
 
 #### Automatic Retry of Failed Backup Jobs
 
-Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need to invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
+Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control permissions or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need to invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
 You can achieve this by retrieving relevant backup data via Azure Resource Graph (ARG) and combine it with corrective [PowerShell/CLI procedure](/azure/architecture/framework/resiliency/auto-retry). 
 
 Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell.
@@ -377,7 +377,7 @@ Watch the following video to learn how to re-trigger backup for all failed jobs 
 
 #### Route Alerts to your preferred notification channel
 
-While transient errors can be corrected, some persistent errors might require in-depth analysis, and retriggering the jobs may not be the viable solution. You may have your own monitoring/ticketing mechanisms to ensure such failures are properly tracked and fixed. To handle such scenarios, you can choose to route the alerts to your preferred notification channel (email, ITSM, Webhook, runbook, and so on) by creating an Action Rule on the alert. 
+While transient errors can be corrected, some persistent errors might require in-depth analysis, and retriggering the jobs might not be the viable solution. You might have your own monitoring/ticketing mechanisms to ensure such failures are properly tracked and fixed. To handle such scenarios, you can choose to route the alerts to your preferred notification channel (email, ITSM, Webhook, runbook, and so on) by creating an Action Rule on the alert. 
 
 Watch the following video to learn how to leverage Azure Monitor to configure various notification mechanisms for critical alerts.
 

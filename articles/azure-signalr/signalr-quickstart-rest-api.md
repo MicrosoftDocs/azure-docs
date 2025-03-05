@@ -14,6 +14,8 @@ Azure SignalR Service provides [REST API](https://github.com/Azure/azure-signalr
 
 In this quickstart, you learn how to send messages from a command-line app to connected client apps in C#.
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.
@@ -68,6 +70,8 @@ dotnet publish -c Release -r osx.10.13-x64
 ```
 
 ### Start a client
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 ```bash
 cd bin/Release/netcoreapp2.1/osx.10.13-x64/

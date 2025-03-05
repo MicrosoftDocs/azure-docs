@@ -2,14 +2,16 @@
 title: Get started with Azure IoT Hub device twins (.NET)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for .NET to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 07/12/2024
+ms.date: 12/31/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
+
+  * Requires Visual Studio
 
 ## Overview
 
@@ -25,13 +27,26 @@ This section describes how to use device application code to:
 * Update reported device twin properties
 * Create a desired property update callback handler
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
-### Add device NuGet Package
+### Required device NuGet package
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
-### Connect to a device
+Add this `using` statement to use the device library.
+
+```csharp
+using Microsoft.Azure.Devices.Client;
+```
+
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to interact with device twins from the device.
 
@@ -60,6 +75,10 @@ static _deviceClient = null;
 _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
 
 ### Retrieve a device twin and examine properties
 

@@ -17,7 +17,7 @@ This article provides details on how to us the [Kafka Streams](https://kafka.apa
 
 Apache Kafka Streams is a Java only client library that provides a framework for processing of streaming data and building real-time applications against the data stored in Kafka topics. All the processing is scoped to the client, while Kafka topics act as the data store for intermediate data, before the output is written to the destination topic.
 
-Event Hubs provides a Kafka endpoint to be used with your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
+Event Hubs provides a Kafka endpoint to be used with your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md).
 
 ## Using Kafka Streams with Azure Event Hubs
 

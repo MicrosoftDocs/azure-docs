@@ -126,7 +126,7 @@ The next step is to create Azure files in the storage account. Azure files use a
 
 1. Go to the storage account **azusbobi** > **File shares**.
 1. Select **New file share**.
-1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsouput**.
+1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsoutput**.
 1. Insert the required file share size in **Provisioned capacity**. For example, enter **256 GB**.
 1. Choose **SMB** as **Protocol**.
 1. Select **Create**.
@@ -247,7 +247,7 @@ Follow the latest guide by SAP to prepare servers for the installation of the BI
 
 To install the BI platform on a Windows host, sign in with a user that has local administrative privileges.
 
-Go to the media of the SAP BusinsessObjects BI platform, and run `setup.exe`.
+Go to the media of the SAP BusinessObjects BI platform, and run `setup.exe`.
 
 Follow the instructions in the [SAP Business Intelligence Platform Installation Guide for Windows](https://help.sap.com/viewer/df8899896b364f6c880112f52e4d06c8/4.3.1/en-US/46ae62456e041014910aba7db0e91070.html) that are specific to your version. Here are a few points to note while you install the SAP BOBI platform on Windows:
 

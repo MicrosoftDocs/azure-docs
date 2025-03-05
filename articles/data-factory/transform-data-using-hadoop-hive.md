@@ -49,7 +49,7 @@ To use an HDInsight Hive activity for Azure Data Lake Analytics in a pipeline, c
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "scriptPath": "MyAzureStorage\\HiveScripts\\MyHiveSript.hql",
+        "scriptPath": "MyAzureStorage\\HiveScripts\\MyHiveScript.hql",
         "getDebugInfo": "Failure",
         "arguments": [
             "SampleHadoopJobArgument1"

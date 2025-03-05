@@ -28,7 +28,7 @@ In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) a
   * See, [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md)
 * An Azure DevOps Server instance
 * A SendGrid account
-  * Go to sengrid.com to [Start for Free](https://sendgrid.com/)
+  * Go to sendgrid.com to [Start for Free](https://sendgrid.com/)
 * A WhoIAM trial account 
   * Go to whoaim.ai [Contact us](https://www.whoiam.ai/contact-us/) to get started
 

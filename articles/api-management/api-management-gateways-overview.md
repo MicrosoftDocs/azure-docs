@@ -77,7 +77,7 @@ The following tables compare features available in the following API Management 
 | [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
-| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | ❌ | ❌ | ❌ | ❌ |
+| [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | Standard v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
 | [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
@@ -107,7 +107,7 @@ The following tables compare features available in the following API Management 
 | [Service Fabric](/azure/service-fabric/service-fabric-api-management-overview) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
 | [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -126,7 +126,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
-| [Azure OpenAI and LLM semantic caching](api-management-policies.md#caching) |  ❌ | ✔️ |❌ | ❌ | ❌ |
+| [Azure OpenAI and LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>

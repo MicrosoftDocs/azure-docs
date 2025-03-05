@@ -14,6 +14,8 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
 You might occasionally see replication cycles failing for a VM. These failures can happen due to reasons ranging from issues in on-premises network configuration to issues at the Azure Migrate Cloud Service backend. In this article, we will:
@@ -33,7 +35,7 @@ Use the following steps to monitor the replication status for your virtual machi
 
     :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
 
-1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot. 
+1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot.
 
     :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
 
@@ -57,7 +59,7 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/key-vault.png" alt-text="Screenshot of Key Vault.":::
 
-This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies. 
+This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies.
 
 When the portal creates the key vault, it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons:
 
@@ -95,36 +97,36 @@ The component trying to replicate data to Azure is either down or not responding
 
    2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
-3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account: 
+3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account:
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
     ```
     _azcopy bench https://[account].blob.core.windows.net/[container]?SAS_
     ```
     **Steps to run the performance benchmark test:**
-    
+
       1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
-        
+
       2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
-        
+
       3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Ensure you provide *write* permission to the container. Retain Public Access Level to the default selected value.
-        
-      4. Go to **Settings** > **Shared Access Signature** and select **Container** in **Allowed Resource Type**. 
-      
-      5. Select Generate SAS and connection string and copy the SAS token. If you're using PowerShell, ensure you enclose the URL with single quotation marks (**' '**). 
-        
+
+      4. Go to **Settings** > **Shared Access Signature** and select **Container** in **Allowed Resource Type**.
+
+      5. Select Generate SAS and connection string and copy the SAS token. If you're using PowerShell, ensure you enclose the URL with single quotation marks (**' '**).
+
       5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps b, c, and e respectively.
-        
+
       Alternatively, [download](https://go.microsoft.com/fwlink/?linkid=2138967) the Azure Storage Explore on to the appliance and try to upload 10 blobs of ~64 MB into the storage accounts. If there's no issue, the upload should be successful.
-        
+
     **Resolution:** If this test fails, there's a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
-    
+
 4.  Check for connectivity issues between Azure Migrate appliance and Service Bus:
 
     > [!Note]
     > This is applicable only for the projects that are set up with public endpoint.<br/> A Service bus refers to the ServiceBusNamespace type resource in the resource group for a Migrate project. The name of the Service Bus is of the format *migratelsa(keyvaultsuffix)*. The Migrate key vault suffix is available in the gateway.json file on the appliance. <br/>
     > For example, if the gateway.json contains:  <br/>
-    > *"AzureKeyVaultArmId": "/subscriptions/\<SubscriptionId\>/resourceGroups/\<ResourceGroupName\>/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*. 
+    > *"AzureKeyVaultArmId": "/subscriptions/\<SubscriptionId\>/resourceGroups/\<ResourceGroupName\>/providers/Microsoft.KeyVault/vaults/migratekv1329610309"*,<br/> the service bus namespace resource will be *migratelsa1329610309*.
 
     This test checks if the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
@@ -137,27 +139,27 @@ The component trying to replicate data to Azure is either down or not responding
     5. This will open Service Bus Name Space.
     6. Select Snapshot Manager. Right-click on Snapshot Manager, select **Receive Messages** > **peek**, and select **OK**.
     7. If the connection is successful, you'll see "[x] messages received" on the console output. If the connection isn't successful, you'll see a message stating that the connection failed.
-    
+
     **Resolution:** If this test fails, there's a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
 
 5. Connectivity issues between Azure Migrate appliance and Azure Key Vault:
 
     This test checks for connectivity issues between the Azure Migrate appliance and the Azure Key Vault. The Key Vault is used to manage Storage Account access used for replication.
-    
+
     **Steps to check connectivity:**
-    
+
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
-    
+
     1. Open PowerShell in the Azure Migrate appliance and run the following command:
     ```
     _test-netconnection Key Vault URI -P 443_
     ```
     This command will attempt a TCP connection and will return an output.
-    
+
      - In the output, check the field "_TcpTestSucceeded_". If the value is "_True_", there's no connectivity issue between the Azure Migrate Appliance and the Azure Key Vault. If the value is "False", there's a connectivity issue.
-    
+
     **Resolution:** If this test fails, there's a connectivity issue between the Azure Migrate appliance and the Azure Key Vault. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
-    
+
 ## DiskUploadTimedOut
 
 **Error ID:** 1011
@@ -182,69 +184,70 @@ The possible causes include:
    2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the  "Microsoft Azure Gateway Service"  is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 
-3. **Check for connectivity issues between Azure Migrate appliance and cache Storage Account:** 
+3. **Check for connectivity issues between Azure Migrate appliance and cache Storage Account:**
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
     ```
     _azcopy bench https://[account].blob.core.windows.net/[container]?SAS_
-    ``` 
+    ```
 
     **Steps to run the performance benchmark test:**
-    
+
       1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
-        
+
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
-        
+
       3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Select **+Container** and create a Container. Leave Public Access Level to default selected value.
-        
+
       4. Go to **Settings** > **Shared Access Signature**. Select Container in **Allowed Resource Type**. Select Generate SAS and connection string. Copy the SAS value.
-        
+
       5. Execute the above command in Command Prompt by replacing account, container, SAS with the values obtained in steps 2, 3, and 4 respectively.
-        
+
       Alternatively, [download](https://go.microsoft.com/fwlink/?linkid=2138967) the Azure Storage Explore on to the appliance and try to upload 10 blobs of ~64 MB into the storage accounts. If there's no issue, the upload should be successful.
-        
+
     **Resolution:** If this test fails, there&#39;s a networking issue. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
-                
+
 4.  **Connectivity issues between Azure Migrate appliance and Azure Service Bus:**
 
     This test will check whether the Azure Migrate appliance can communicate to the Azure Migrate Cloud Service backend. The appliance communicates to the service backend through Service Bus and Event Hubs message queues. To validate connectivity from the appliance to the Service Bus, [download](https://go.microsoft.com/fwlink/?linkid=2139104) the Service Bus Explorer, try to connect to the appliance Service Bus and perform the send message/receive message operations. If there's no issue, this should be successful.
 
     **Steps to run the test:**
-    
+
     1. Copy the connection string from the Service Bus that got created in the Resource Group corresponding to Azure Migrate Project.
-    
+
     1. Open Service Bus Explorer.
-    
+
     1. Go to **File** > **Connect**.
-    
+
     1. Paste the connection string you copied in step 1, and select **Connect**.
-    
+
     1. This will open Service Bus namespace.
-    
+
     1. Select Snapshot Manager in namespace. Right-click on Snapshot Manager, select **Receive Messages** > **peek**, and select OK.
-    
+
     If the connection is successful, you'll see "[x] messages received" on the console output. If the connection isn't successful, you'll see a message stating that the connection failed.
-    
+
     **Resolution:** If this test fails, there's a connectivity issue between the Azure Migrate appliance and Service Bus. Engage your local networking team to check these connectivity issues. Typically, there can be some firewall settings that are causing the failures.
-    
- 5. **Connectivity issues between Azure Migrate appliance and Azure Key Vault:**
+
+5. **Connectivity issues between Azure Migrate appliance and Azure Key Vault:**
 
     This test checks for connectivity issues between the Azure Migrate appliance and the Azure Key Vault. The Key Vault is used to manage Storage Account access used for replication.
-    
+
     **Steps to check connectivity:**
-    
+
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
-    
+
     1. Open PowerShell in the Azure Migrate appliance and run the following command:
+
     ```
     _test-netconnection Key Vault URI -P 443_
     ```
     This command will attempt a TCP connection and will return an output.
-    
+
     1. In the output, check the field "_TcpTestSucceeded_". If the value is "_True_", there's no connectivity issue between the Azure Migrate Appliance and the Azure Key Vault. If the value is "False", there's a connectivity issue.
-    
+
     **Resolution:** If this test fails, there's a connectivity issue between the Azure Migrate appliance and the Azure Key Vault. Engage your local networking team to check connectivity issues. Typically, there can be some firewall settings that are causing the failures.
-    
+
 ## Encountered an error while trying to fetch changed blocks
 
 Error Message: 'Encountered an error while trying to fetch change blocks'
@@ -333,7 +336,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 **Possible Causes:**
 
 - Change tracking cannot be enabled for the VM as snapshots are already present for the VM.
-      
+
 **Recommendation:**
 
 - Delete the snapshots or enable change block tracking on the VM and retry.
@@ -347,7 +350,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 **Possible Causes:**
 
 - One or more included disks is no longer attached to the VM.
-      
+
 **Recommendation:**
 
 - Restore the included disks to the original path using storage vMotion and try replication again.
@@ -358,7 +361,7 @@ This error occurs when the size of the snapshot file created is larger than the 
 
 **Error Message:** The Azure Migrate appliance is unable to connect to the vSphere host '%HostName;'
 
-**Possible Causes:** 
+**Possible Causes:**
 
 This might happen if:
 1. The Azure Migrate appliance is unable to resolve the hostname of the vSphere host.
@@ -366,17 +369,17 @@ This might happen if:
 
 **Recommendations:**
 
-**Ensure that the hostname of the vSphere host is resolvable from the Azure Migrate appliance.** 
+**Ensure that the hostname of the vSphere host is resolvable from the Azure Migrate appliance.**
 - Sign in to the Azure Migrate appliance and open PowerShell.
-- Perform an `nslookup` on the hostname and verify if the address is being resolved: `nslookup '%HostName;' `. 
+- Perform an `nslookup` on the hostname and verify if the address is being resolved: `nslookup '%HostName;' `.
 - If the host name isn't getting resolved, ensure that the DNS resolution of the vSphere hostnames can be performed from the Azure Migrate appliance. Alternatively, add a static host entry for each vSphere host to the hosts file(C:\Windows\System32\drivers\etc\hosts) on the appliance.
 
 **Ensure the vSphere host is accepting connections on port 902 and that the endpoint is reachable from the appliance.**
-- Sign in to the Azure Migrate appliance and open PowerShell. 
-- Use the `Test-NetConnection` cmdlet to validate connectivity: `Test-NetConnection '%HostName;' -Port 902`. 
+- Sign in to the Azure Migrate appliance and open PowerShell.
+- Use the `Test-NetConnection` cmdlet to validate connectivity: `Test-NetConnection '%HostName;' -Port 902`.
 - If the tcp test doesn't succeed, the connection is being blocked by a firewall or isn't being accepted by the vSphere host. Resolve the network issues to allow replication to proceed.
 
 
 ## Next Steps
 
-Continue VM replication, and perform [test migration](./tutorial-migrate-vmware.md#run-a-test-migration).
+Continue VM replication, and perform [test migration](../tutorial-migrate-vmware.md#run-a-test-migration).

@@ -3,14 +3,14 @@ title: Get started with the Remote Desktop client for Azure Virtual Desktop
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client.
 author: sipastak
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 02/26/2025
 ms.custom: "se-defect-target"
 ms.author: sipastak
 ---
 
 # Get started with the Remote Desktop client
 
-> [!IMPORTANT]
+> [!TIP]
 > To ensure a seamless experience, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
 The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client.
@@ -132,9 +132,13 @@ Before you can access your resources, you'll need to meet the prerequisites:
    | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 or later |
 
 > [!NOTE]
-> The Remote Desktop Web client doesn't support mobile web browsers.
->
-> As of September 30, 2021, the Remote Desktop Web client no longer supports Internet Explorer. We recommend that you use Microsoft Edge with the Remote Desktop Web client instead. For more information, see our [blog post](https://aka.ms/WVDSupportIE11).
+>- The Remote Desktop Web client doesn't support mobile web browsers or Internet Explorer. Instead of Internet Explorer, we recommend that you use Microsoft Edge with the Remote Desktop Web client instead.
+
+> [!IMPORTANT]
+> Starting June 15, 2025, the Remote Desktop Web client will have updated browser requirements. Ensure your browser is updated and meets the following requirements by this date:
+>- Remote Desktop will only support browser versions that are 12 months old on a rolling basis.
+>- Your browser must support the AVC codec.
+>- Ensure your browser has WebGL enabled. WebGL is enabled by default on most recent browser versions.
 
 
 ---

@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/15/2024
+ms.date: 01/07/2025
 ms.author: banders
 ---
 

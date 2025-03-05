@@ -157,4 +157,5 @@ You can also [assess your on-premises machines](./tutorial-discover-import.md#pr
 
 ## Next steps
 
-- [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md).
+- [Migrate servers to Azure using Private Link](migrate-hyper-v-servers-to-azure-using-private-link.md)
+- [Migrate servers to Azure using Private Link for agent-based replications](migrate-servers-to-azure-using-private-link-agent-based.md).

@@ -3,9 +3,8 @@ title: Configure replication for Azure VMs in Azure Site Recovery
 description: Learn how to configure replication to another region for Azure VMs, using Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-manager: rochakm
 ms.topic: how-to
-ms.date: 03/27/2024
+ms.date: 12/23/2024
 ms.service: azure-site-recovery
 ---
 
@@ -28,10 +27,13 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 1. In the **Enable replication** page, under **Source**, do the following:
-   - **Region**: Select the Azure region from where you want to protect your VMs. 
+   - **Region**: Select the source Azure region where VMs are currently running.  If the source resource group is in a different region from the VM, enable replication from the VM > *Disaster Recovery* blade.
    For example, the source location is *East Asia*.
      >[!NOTE]
+     > Only resource groups in the same region as the selected source region will be visible from the Recovery Services Blade to enable replication.
+     >
      >For cross-regional disaster recovery, the source location should be different from the Recovery Services Vault and its Resource Group's location. However, it can be the same as any of them for zonal disaster recovery.
+
    - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Microsoft Entra tenant where your recovery services vault exists.
    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
    - **Virtual machine deployment model**: Select Azure deployment model of the source machines.

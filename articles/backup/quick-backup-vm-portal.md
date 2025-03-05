@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 09/02/2024
+ms.date: 01/30/2025
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Quickstart: Back up a virtual machine in Azure
@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 >[!Important]
->If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backup](backup-azure-files.md?tabs=backup-center#best-practices).
+>If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backup](tutorial-backup-azure-files-vault-tier-portal.md#best-practices).
 
 ## Apply a backup policy
 
@@ -183,4 +183,5 @@ If you're going to continue on to a Backup tutorial that explains how to restore
 In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

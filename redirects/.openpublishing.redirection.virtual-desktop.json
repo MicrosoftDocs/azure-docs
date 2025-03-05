@@ -413,7 +413,7 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/getting-started-feature.md",
             "redirect_url": "/azure/virtual-desktop/quickstart",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-desktop/troubleshoot-getting-started.md",
@@ -523,6 +523,16 @@
         {
             "source_path_from_root": "/articles/virtual-desktop/virtual-desktop-fall-2019/index.yml",
             "redirect_url": "/previous-versions/azure/virtual-desktop-classic/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/tutorial-try-deploy-windows-11-desktop.md",
+            "redirect_url": "/azure/virtual-desktop/quickstart",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-quickstart.md",
+            "redirect_url": "/azure/virtual-desktop/quickstart",
             "redirect_document_id": false
         }
     ]

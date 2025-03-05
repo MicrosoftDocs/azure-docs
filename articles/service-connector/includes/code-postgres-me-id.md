@@ -60,12 +60,12 @@ using (var connection = new NpgsqlConnection(connectionString))
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.3.6</version>
+        <version>42.7.5</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 
@@ -75,7 +75,7 @@ using (var connection = new NpgsqlConnection(connectionString))
     import java.sql.*;
     
     String url = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
-    String pluginName = "com.Azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
+    String pluginName = "com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin";  
     Connection connection = DriverManager.getConnection(url + "&authenticationPluginClassName=" + pluginName);
     ```
 
@@ -269,6 +269,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     // const tenantId = process.env.AZURE_POSTGRESQL_TENANTID;
     // const clientId = process.env.AZURE_POSTGRESQL_CLIENTID;
     // const clientSecret = process.env.AZURE_POSTGRESQL_CLIENTSECRET;
+    // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
     // Acquire the access token.
     var accessToken = await credential.getToken('https://ossrdbms-aad.database.windows.net/.default');
@@ -331,7 +332,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
 
     # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client_id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
     # For service principal
@@ -364,4 +365,4 @@ For other languages, use the connection properties that Service Connector sets t
 
 ---
 
-[!INCLUDE [Postgresql grant permission](./postgres-grant-permission.md)]
+[!INCLUDE [PostgreSQL grant permission](./postgres-grant-permission.md)]

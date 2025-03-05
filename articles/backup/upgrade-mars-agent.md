@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 08/27/2023
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent

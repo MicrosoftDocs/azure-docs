@@ -1,21 +1,21 @@
 ---
-title: Filter and view DNS traffic - Azure DNS (Preview)
+title: Secure and view DNS traffic - Azure DNS (Preview)
 description: Learn how to filter and view Azure DNS traffic
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 02/24/2025
 ms.author: greglin
 ---
 
-# Filter and view DNS traffic (Preview)
+# Secure and view DNS traffic (Preview)
 
-This article shows you how to view and filter DNS traffic at the virtual network by with [DNS security policy](dns-security-policy.md).
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md).
 
 > [!NOTE]
 > DNS security policy is in PREVIEW.<br> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br><br>
-> This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview. However, to access the Azure portal user interface for this policy prior to the next portal update, you must use the [Azure portal preview-enabled link](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_DnsSecurityPolicy=staging&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_DnsSecurityPolicyHidden#browse/Microsoft.Network%2FdnsResolverDomainLists).
+> This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview.
 
 ## Prerequisites
 
@@ -115,6 +115,9 @@ Multiple domain lists can be dynamically added or removed from a single DNS traf
 ## Configure DNS traffic rules
 
 Now that you have a DNS domain list, configure the diagnostic settings in your security policy to use this workspace.
+
+> [!NOTE]
+> CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
 
 To configure diagnostic settings:
 
@@ -239,7 +242,8 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     $domainListName = "domainlist-$($nameSuffix)"
     $securityRuleName = "securityrule-$($nameSuffix)"
     $resolverPolicyLinkName = "dnsresolverpolicylink"
-    $storageAccountName = "stor-$($name)" # Customize this, taking care that the name is not too long
+    $storageAccountName = "stor$($name.ToLower())"  # Customize this, taking care that the name is not too long
+    $storageAccountName = $storageAccountName.Substring(0, [Math]::Min(24, $storageAccountName.Length)) # Storage account names must be 3-24 characters long
     $diagnosticSettingName = "diagnosticsetting-$($nameSuffix)"
     $vnetId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Network/virtualNetworks/$virtualNetworkName"
 

@@ -30,9 +30,9 @@ The detailed information added to the **Tasks** field consists of key-value pair
 | --- | ----- |
 | **createdBy** | The identity that created the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
 | **createdTimeUtc** | Time the task was created, in UTC. |
-| **lastCompletedTimeUtc** | Time the task was marked complete, in UTC.
+| **lastCompletedTimeUtc** | Time the task was marked complete, in UTC. |
 | **lastModifiedBy** | The identity that last modified the task:<br>**- email**: email address of identity<br>**- name**: name of the identity<br>**- objectId**: GUID of the identity<br>**- userPrincipalName**: UPN of the identity |
-| **lastModifiedTimeUtc** | Time the task was last modified, in UTC.
+| **lastModifiedTimeUtc** | Time the task was last modified, in UTC. |
 | **status** | Current status of the task: New, Completed, Deleted. |
 | **taskId** | Resource ID of the task. |
 | **title** | Friendly name given to the task by its creator. |
@@ -50,7 +50,7 @@ Apart from the **Incident tasks workbook**, you can audit task activity by query
 
     You can add any number of statements to the query to filter and narrow down the results. To demonstrate how to view and understand the results, we're going to add statements to filter the results so that we only see the tasks for a single incident, and we'll also add a `project` statement so that we see only those fields that will be useful for our purposes, without a lot of clutter.
 
-    [Learn more about using Kusto Query Language](kusto-overview.md).
+    For more information, see [Kusto Query Language overview](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json).
 
     ```kusto
     SecurityIncident
@@ -118,9 +118,17 @@ SecurityIncident
 | summarize arg_max(lastModifiedTimeUtc, *) by taskId
 | where status !in ('Completed', 'Deleted')
 | project TaskTitle = ['title'], TaskStatus = ['status'], createdTimeUtc, lastModifiedTimeUtc = column_ifexists("lastModifiedTimeUtc", datetime(null)), TaskCreator = ['createdBy'].name, lastModifiedBy, IncidentNumber, IncidentOwner = Owner.userPrincipalName
-| order by lastModifiedTimeUtc desc
+| sort by lastModifiedTimeUtc desc
 ```
 
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***sort*** operator](/kusto/query/sort-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***arg_max()*** aggregation function](/kusto/query/arg-max-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next steps
 

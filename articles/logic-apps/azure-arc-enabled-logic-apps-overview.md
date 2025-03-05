@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, rohithah, archidda, azla
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 02/19/2025
 #Customer intent: As a developer, I want to learn about automated Azure Arc-enabled logic app workflows that can run anywhere that Kubernetes can run.
 ---
 
@@ -94,7 +94,7 @@ This table provides a high-level comparison between the capabilities in the curr
       Local development
    :::column-end:::
    :::column:::
-      Visual Studio Code, Visual Studio
+      Visual Studio Code
    :::column-end:::
    :::column:::
       Visual Studio Code, including run history and overview with breakpoint debugging

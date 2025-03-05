@@ -5,7 +5,7 @@ description: This article helps you understand the global view aspect of Front D
 services: front-door
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers

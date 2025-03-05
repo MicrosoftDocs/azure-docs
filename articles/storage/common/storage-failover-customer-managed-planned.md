@@ -63,11 +63,11 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GRS/RA-GRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The original primary region becomes read only.
-1. Replication of all data from the primary region to the secondary region completes.
-1. DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
+- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- Replication of all data from the primary region to the secondary region completes.
+- DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
 The failover typically takes about an hour.
 
@@ -83,9 +83,9 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-1. The original primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 
@@ -103,11 +103,11 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The planned failover process (GZRS/RA-GZRS)
 
-Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the primary region to the secondary region.
-1. Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
+- The current primary region becomes read only.
+- All data finishes replicating from the primary region to the secondary region.
+- Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 
 The failover typically takes about an hour.
 
@@ -123,9 +123,9 @@ While in the failover state, perform your disaster recovery testing.
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
-1. The current primary region becomes read only.
-1. All data finishes replicating from the current primary region to the current secondary region.
-1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
+- The current primary region becomes read only.
+- All data finishes replicating from the current primary region to the current secondary region.
+- The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
 The failback typically takes about an hour.
 

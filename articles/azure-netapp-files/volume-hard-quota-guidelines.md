@@ -5,12 +5,12 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/26/2024
+ms.date: 02/20/2025
 ms.author: anfdocs
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 
-From the beginning of the service, Azure NetApp Files has been using a capacity-pool provisioning and automatic growth mechanism. Azure NetApp Files volumes are thinly provisioned on an underlying, customer-provisioned capacity pool of a selected tier and size. Volume sizes (quotas) are used to provide performance and capacity, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when the capacity fills up.   
+From the beginning of the service, Azure NetApp Files has been using a capacity-pool provisioning and automatic growth mechanism. Azure NetApp Files volumes are thinly provisioned on an underlying, customer-provisioned capacity pool of a selected tier and size. Volume sizes (quotas) are used to provide performance and capacity, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlying capacity pools automatically grow when the capacity fills up.   
 
 > [!IMPORTANT] 
 > The Azure NetApp Files behavior of volume and capacity pool provisioning is a *manual* and *controllable* mechanism. **From April 30, 2021, volume sizes (quota) manage bandwidth performance, as well as provisioned capacity. Underlying capacity pools don't grow automatically.** 
@@ -62,7 +62,7 @@ The volume hard quota change resulted in changes in provisioned and available ca
     Resize every provisioned volume to have appropriate buffer based on change rate and alerting or resize turnaround time (for example, 20% based on typical workload considerations), with a maximum of 100 TiB (which is the regular [volume size limit](azure-netapp-files-resource-limits.md#resource-limits). This new volume size, including buffer capacity, should be based on the following factors:
     * **Provisioned** volume capacity, in case the used capacity is less than the provisioned volume quota.
     * **Used** volume capacity, in case the used capacity is more than the provisioned volume quota.  
-    There's no additional charge for volume-level capacity increase if the underlaying capacity pool doesn't need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
+    There's no additional charge for volume-level capacity increase if the underlying capacity pool doesn't need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
 
 * **Provisioned capacity pool sizes**:   
     After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool has to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 500 TiB. For information about limits, see [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity is subject to ACR charge as normal.
@@ -238,9 +238,9 @@ Yes, the consumed snapshot capacity counts towards the provisioned space in the 
 
 ### Does this change mean the volume auto-grow behavior disappears from Azure NetApp Files?
 
-A common misconception is that Azure NetApp Files *volumes* would automatically grow upon filling up. Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlaying *capacity pool* would automatically grow with 1-TiB increments. This change addresses the (visible and usable) *volume* size to the set quota, and *capacity pools* thus no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids "runaway" capacity consumption.
+A common misconception is that Azure NetApp Files *volumes* would automatically grow upon filling up. Volumes were thinly provisioned with a size of 100 TiB, regardless of the actual set quota, while the underlying *capacity pool* would automatically grow with 1-TiB increments. This change addresses the (visible and usable) *volume* size to the set quota, and *capacity pools* thus no longer automatically grow. This change results in commonly desired accurate client-side space and capacity reporting. It avoids "runaway" capacity consumption.
 
-### Does this change have any effect on volumes replicated with cross-region-replication (preview)? 
+### Does this change have any effect on volumes replicated with cross-region-replication? 
 
 The hard volume quota isn't enforced on replication destination volumes.
 
