@@ -166,34 +166,58 @@ services and report compliance status.
 
 The following table shows the supported endpoints for Azure and Azure Arc-enabled machines:
 
-|**Geography**| **Region**| **URL** | **Storage endpoint**|
+| **Region** | **Geography** | **URL** | **Storage endpoint**|
 |---| ---| ---| ---|
-|**Asia Pacific**| EastAsia </br> SoutheastAsia |
-|**Australia**| AustraliaEast </br> AustraliaSoutheast </br> AustraliaCentral </br> AustraliaCentral2 |
-|**Brazil**| BrazilSouth  </br> BrazilSouthEast |
-|**Canada**| CanadaCentral </br> CanadaEast |
-|**China**| ChinaEast2  </br> ChinaNorth2  </br> ChinaNorth3  </br>  |
-|**Europe**| NorthEurope </br> WestEurope |
-|**France**| FranceCentral </br> FranceSouth |
-|**Germany** | GermanyWestCentral </br> GermanyNorth |
-|**India**| CentralIndia </br> SouthIndia </br> WestIndia </br> JioIndiaCentral </br> JioIndiaWest </br> IndiaSouthCentral |
-|**Israel**| IsraelCentral |
-|**Italy**| ItalyNorth |
-|**Japan**| JapanEast </br> JapanWest |
-|**Korea**| KoreaCentral </br> KoreaSouth |
-|**Mexico**| MexicoCentral |
-|**Norway**| NorwayEast </br> NorwayWest |
-|**Poland**| PolandCentral |
-|**Qatar**| QatarCentral |
-|**South Africa** | SouthAfricaNorth </br> SouthAfricaWest |
-|**Spain**| SpainCentral |
-|**Sweden** | SwedenCentral </br> SwedenSouth |
-|**Switzerland**| SwitzerlandNorth </br> SwitzerlandWest |
-|**Taiwan**| TaiwanNorth |
-|**United Arab Emirates**| UAENorth|
-|**United Kingdom**| UKSouth </br> UKWest|
-|**US Gov** | USGovVirginia </br> USGovArizona </br> USGovTexas |
-|**US**| EastUS</br> EastUS2</br> WestUS </br> WestUS2 </br> NorthCentralUS </br> CentralUS </br> SouthCentralUS </br> WestCentralUS </br> WestUS3 </br> |
+| **EastAsia**  | Asia Pacific | eastasia-gas.guestconfiguration.azure.com</br> ea-gas.guestconfiguration.azure.com | oaasguestconfigeas1.blob.core.windows.net</br> oaasguestconfigseas1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **SoutheastAsia** | Asia Pacific | southeastasia-gas.guestconfiguration.azure.com</br> sea-gas.guestconfiguration.azure.com | oaasguestconfigeas1.blob.core.windows.net</br> oaasguestconfigseas1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **AustraliaEast** | Australia | australiaeast-gas.guestconfiguration.azure.com</br> ae-gas.guestconfiguration.azure.com | oaasguestconfigases1.blob.core.windows.net</br> oaasguestconfigaes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+| **AustraliaSoutheast** | Australia | australiaeast-gas.guestconfiguration.azure.com</br> ae-gas.guestconfiguration.azure.com | oaasguestconfigases1.blob.core.windows.net</br> oaasguestconfigaes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**BrazilSouth**| Brazil | brazilsouth-gas.guestconfiguration.azure.com</br> brs-gas.guestconfiguration.azure.com | oaasguestconfigbrss1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CanadaCentral**| Canada | canadacentral-gas.guestconfiguration.azure.com</br> cc-gas.guestconfiguration.azure.com | oaasguestconfigccs1.blob.core.windows.net</br> oaasguestconfigces1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CanadaEast**| Canada | canadaeast-gas.guestconfiguration.azure.com</br> ce-gas.guestconfiguration.azure.com | oaasguestconfigccs1.blob.core.windows.net</br> oaasguestconfigces1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**ChinaEast2**| China | chinaeast2-gas.guestconfiguration.azure.cn</br> chne2-gas.guestconfiguration.azure.cn | oaasguestconfigchne2s2.blob.core.chinacloudapi.cn |
+|**ChinaNorth**| China | chinanorth-gas.guestconfiguration.azure.cn</br> chnn-gas.guestconfiguration.azure.cn | oaasguestconfigchnns2.blob.core.chinacloudapi.cn |
+|**ChinaNorth2**| China | chinanorth2-gas.guestconfiguration.azure.cn</br> chnn2-gas.guestconfiguration.azure.cn | oaasguestconfigchnn2s2.blob.core.chinacloudapi.cn |
+|**ChinaNorth3**| China | chinanorth3-gas.guestconfiguration.azure.cn</br> chnn3-gas.guestconfiguration.azure.cn | oaasguestconfigchnn3s1.blob.core.chinacloudapi.cn |
+|**NorthEurope**| Europe | northeurope-gas.guestconfiguration.azure.com</br> ne-gas.guestconfiguration.azure.com | oaasguestconfignes1.blob.core.windows.net</br> oaasguestconfigwes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestEurope**| Europe | westeurope-gas.guestconfiguration.azure.com</br> we-gas.guestconfiguration.azure.com | oaasguestconfignes1.blob.core.windows.net</br> oaasguestconfigwes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**FranceCentral**| France | francecentral-gas.guestconfiguration.azure.com</br> fc-gas.guestconfiguration.azure.com | oaasguestconfigfcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**GermanyNorth** | Germany | germanynorth-gas.guestconfiguration.azure.com</br> gen-gas.guestconfiguration.azure.com | oaasguestconfiggens1.blob.core.windows.net</br> oaasguestconfiggewcs1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**GermanyWestCentral** | Germany | germanywestcentral-gas.guestconfiguration.azure.com</br> gewc-gas.guestconfiguration.azure.com | oaasguestconfiggens1.blob.core.windows.net</br> oaasguestconfiggewcs1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CentralIndia**| India | centralindia-gas.guestconfiguration.azure.com</br> cid-gas.guestconfiguration.azure.com | oaasguestconfigids1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthIndia**| India | southindia-gas.guestconfiguration.azure.com</br> sid-gas.guestconfiguration.azure.com | oaasguestconfigids1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**IsraelCentral**| Israel | israelcentral-gas.guestconfiguration.azure.com</br> ilc-gas.guestconfiguration.azure.com | oaasguestconfigilcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**ItalyNorth**| Italy | italynorth-gas.guestconfiguration.azure.com</br> itn-gas.guestconfiguration.azure.com | oaasguestconfigitns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**JapanEast**| Japan | japaneast-gas.guestconfiguration.azure.com</br> jpe-gas.guestconfiguration.azure.com | oaasguestconfigjpws1.blob.core.windows.net</br> oaasguestconfigjpes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**JapanWest**| Japan | japanwest-gas.guestconfiguration.azure.com</br> jpw-gas.guestconfiguration.azure.com | oaasguestconfigjpws1.blob.core.windows.net</br> oaasguestconfigjpes1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**KoreaCentral**| Korea | koreacentral-gas.guestconfiguration.azure.com</br> kc-gas.guestconfiguration.azure.com | oaasguestconfigkcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**MexicoCentral**| Mexico | mexicocentral-gas.guestconfiguration.azure.com</br> mxc-gas.guestconfiguration.azure.com | oaasguestconfigmxcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**NorwayEast**| Norway | norwayeast-gas.guestconfiguration.azure.com</br> noe-gas.guestconfiguration.azure.com | oaasguestconfignoes1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**PolandCentral**| Poland | polandcentral-gas.guestconfiguration.azure.com</br> plc-gas.guestconfiguration.azure.com | oaasguestconfigplcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**QatarCentral**| Qatar | qatarcentral-gas.guestconfiguration.azure.com</br> qac-gas.guestconfiguration.azure.com | oaasguestconfigqacs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthAfricaNorth** | SouthAfrica | southafricanorth-gas.guestconfiguration.azure.com</br> san-gas.guestconfiguration.azure.com | oaasguestconfigsans1.blob.core.windows.net</br> oaasguestconfigsaws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthAfricaWest** | SouthAfrica | southafricawest-gas.guestconfiguration.azure.com</br> saw-gas.guestconfiguration.azure.com | oaasguestconfigsans1.blob.core.windows.net</br> oaasguestconfigsaws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SpainCentral**| Spain | spaincentral-gas.guestconfiguration.azure.com</br> spc-gas.guestconfiguration.azure.com | oaasguestconfigspcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwedenCentral**| Sweden | swedencentral-gas.guestconfiguration.azure.com</br> swc-gas.guestconfiguration.azure.com | oaasguestconfigswcs1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwitzerlandNorth**| Switzerland | switzerlandnorth-gas.guestconfiguration.azure.com</br> stzn-gas.guestconfiguration.azure.com | oaasguestconfigstzns1.blob.core.windows.net</br> oaasguestconfigstzws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SwitzerlandWest**| Switzerland | switzerlandwest-gas.guestconfiguration.azure.com</br> stzw-gas.guestconfiguration.azure.com | oaasguestconfigstzns1.blob.core.windows.net</br> oaasguestconfigstzws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**TaiwanNorth**| Taiwan | taiwannorth-gas.guestconfiguration.azure.com</br> twn-gas.guestconfiguration.azure.com | oaasguestconfigtwns1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UAENorth**| United Arab Emirates| uaenorth-gas.guestconfiguration.azure.com</br> uaen-gas.guestconfiguration.azure.com | oaasguestconfiguaens1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UKSouth**| United Kingdom | uksouth-gas.guestconfiguration.azure.com</br> uks-gas.guestconfiguration.azure.com | oaasguestconfigsukss1.blob.core.windows.net</br> oaasguestconfigukws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**UKWest**| United Kingdom | ukwest-gas.guestconfiguration.azure.com</br> ukw-gas.guestconfiguration.azure.com | oaasguestconfigsukss1.blob.core.windows.net</br> oaasguestconfigukws1.blob.core.windows.net </br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**EastUS**| US | eastus-gas.guestconfiguration.azure.com</br> eus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**EastUS2**| US | eastus2-gas.guestconfiguration.azure.com</br> eus2-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS**| US | westus-gas.guestconfiguration.azure.com</br> wus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS2**| US | westus2-gas.guestconfiguration.azure.com</br> wus2-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestUS3**| US | westus3-gas.guestconfiguration.azure.com</br> wus3-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**CentralUS**| US | centralus-gas.guestconfiguration.azure.com</br> cus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**NorthCentralUS**| US | northcentralus-gas.guestconfiguration.azure.com</br> ncus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**SouthCentralUS**| US | southcentralus-gas.guestconfiguration.azure.com</br> scus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**WestCentralUS**| US | westcentralus-gas.guestconfiguration.azure.com</br> wcus-gas.guestconfiguration.azure.com | oaasguestconfigeuss1.blob.core.windows.net</br> oaasguestconfigeus2s1.blob.core.windows.net</br> oaasguestconfigwuss1.blob.core.windows.net</br> oaasguestconfigwus2s1.blob.core.windows.net</br> oaasguestconfigncuss1.blob.core.windows.net</br> oaasguestconfigcuss1.blob.core.windows.net</br> oaasguestconfigscuss1.blob.core.windows.net</br> oaasguestconfigwus3s1.blob.core.windows.net</br> oaasguestconfigwcuss1.blob.core.windows.net |
+|**USGovArizona** | US Gov | usgovarizona-gas.guestconfiguration.azure.us</br> usga-gas.guestconfiguration.azure.us | oaasguestconfigusgas1.blob.core.usgovcloudapi.net |
+|**USGovTexas** | US Gov | usgovtexas-gas.guestconfiguration.azure.us</br> usgt-gas.guestconfiguration.azure.us | oaasguestconfigusgts1.blob.core.usgovcloudapi.net |
+|**USGovVirginia** | US Gov | usgovvirginia-gas.guestconfiguration.azure.us</br> usgv-gas.guestconfiguration.azure.us | oaasguestconfigusgvs1.blob.core.usgovcloudapi.net |
+
 
 Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled virtual
 machines to communicate with the machine configuration resource provider in Azure:
