@@ -69,7 +69,7 @@
 - name: API discovery and consumption
   items:
       - name: Enable API Center portal
-        href: Set up-api-center-portal.md
+        href: set-up-api-center-portal.md
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
       - name: Discover and consume APIs - VS Code extension

@@ -1,6 +1,6 @@
 ---
 title: Set up the API Center portal
-description: How to self-host the API Center portal, a customer-managed website that enables discovery of the API inventory in your Azure API center.
+description: How to set up the API Center portal, a managed website that enables discovery of the API inventory in your Azure API center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
@@ -17,7 +17,7 @@ This article shows you how to set up the *API Center portal*, an Azure-managed w
 :::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 > [!TIP]
-> If you want more flexibility and customization options, you can self-host the API Center portal. For more information, see [Self-host the API Center portal](self-host-api-center-portal.md).
+> If you want capabilities to customize the portal, you can self-host the API Center portal. For more information, see [Self-host the API Center portal](self-host-api-center-portal.md).
 
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
 

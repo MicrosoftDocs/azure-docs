@@ -140,6 +140,7 @@ Provide feedback, request features, and get support for the API Center portal re
 
 ## Related content
 
+* [Set up the API Center portal](set-up-api-center-portal.md)
 * [What is Azure role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * [Best practices for Azure RBAC](../role-based-access-control/best-practices.md)
 * [Register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
