@@ -105,7 +105,7 @@ A side effect is that if an outbound flow from a VM in the backend pool attempts
 
 When the flow maps back to itself, the outbound flow appears to originate from the VM to the front end, and the corresponding inbound flow appears to originate from the VM to itself. From the guest operating system's point of view, the inbound and outbound parts of the same flow don't match inside the virtual machine. The TCP stack won't recognize these halves of the same flow as being part of the same flow. The source and destination don't match. When the flow maps to any other VM in the backend pool, the halves of the flow do match and the VM can respond to the flow.
 
-The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. Common workarounds include insertion of a proxy layer behind the internal load balancer and using Direct Server Return (DSR) style rules. For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).
+The symptom for this scenario is intermittent connection timeouts when the flow returns to the same backend that originated the flow. While you could use a public load balancer to mitigate this issue, the resulting scenario is prone to [SNAT exhaustion](load-balancer-outbound-connections.md). Avoid this second approach unless carefully managed.
 
 ## Virtual machines removed from a load balancer are receiving traffic
 
