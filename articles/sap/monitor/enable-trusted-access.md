@@ -33,7 +33,7 @@ To use the trusted access using MSI feature, you need to meet the following prer
 * Click on Save to create the monitor instance.
 * Create all the providers that are needed.
 
-# Steps to follow for existing AMS
+## Steps to follow for existing AMS
 * Log in to the Azure portal and navigate to your Azure Monitor for SAP solutions resource.
 
 * Migrate to Dedicated app service plan: [Follow steps here](https://go.microsoft.com/fwlink/?linkid=2306196)
