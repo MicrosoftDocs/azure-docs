@@ -16,14 +16,14 @@ One of the challenges for customers is that the key vault and storage account th
 With this feature, you can use the system-assigned identity of the Azure Monitor for SAP solutions resource and our service will use trusted access mode to interact with the key vault and storage account. Using this feature, you can then block public access and only allow traffic from AMS subnet on your key vault and storage account in AMS managed resource group.
 This feature provides more security and control over your AMS resources, as you can limit the access to the key vault and storage account to the AMS service and subnet only and prevent any unauthorized or malicious access from outside.
 
-# Prerequisites and steps to enable trusted access using System Assigned Managed Identity
+## Prerequisites and steps to enable trusted access using System Assigned Managed Identity
 To use the trusted access using MSI feature, you need to meet the following prerequisites and follow the steps below:
 * Migrate to Dedicated app service plan: [Follow steps here](https://go.microsoft.com/fwlink/?linkid=2306196)
     > This is a mandatory step to avoid having function app scaling issues after storage account's public access is disabled.
 
 `Important Note: Trusted access feature is supported only if the "ROUTE ALL" is enabled during the monitor creation.`
 
-# Steps to follow while creating new AMS
+## Steps to follow while creating new AMS
 * Log in to the Azure portal and create a new Azure Monitor for SAP solutions resource.
 * Fill in the required fields, such as the name, description, etc.
 * (Mandatory) Under the Networking section, have the 'Route all' option enabled.
@@ -43,7 +43,7 @@ To use the trusted access using MSI feature, you need to meet the following prer
 ![screenshot of enabling trusted access under indentity tab.](../monitor/media/enable-trusted-access/enable-mi-existing-customer.png)
 
 
-# Disable Identity on existing AMS
+## Disable Identity on existing AMS
 * Go to Identity tab for AMS and disable the identity and save.
 
 ## Important: 
