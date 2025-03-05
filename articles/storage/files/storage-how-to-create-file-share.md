@@ -5,7 +5,7 @@ description: How to create and delete SMB and NFS Azure file share by using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/05/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
@@ -162,24 +162,6 @@ The final step to create the storage account is to select the **Create** button 
 
 # [PowerShell](#tab/azure-powershell)
 ### Create a provisioned v2 storage account (PowerShell)
-Currently, provisioned v2 file shares are only available in a limited number of regions. To check the supported regions in PowerShell, write down the subscription ID when logging into the Azure account, and proceed with the following command.
-
-```powershell
-# Login to Azure Account
-Connect-AzAccount
-
-# Subscription ID in GUID Format
-$subscriptionID = "your-subscriptionID-number"
-
-# Get Token
-$token = Get-AzAccessToken
-
-# Invoke SRP List SKU API and Get the Returned SKU List
-$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
-
-# Return with the Regions Currently Supporting Provisioned v2 Service
-$result | Select-Object -ExpandProperty Value | Where-Object { $_.kind -eq "FileStorage" -and $_.name -like "*StandardV2*" } | Select-Object -Property @{ Name = "sku"; Expression = { $_.name } }, @{ Name = "location"; Expression = { $_.locations } }
-```
 
 To create a provisioned v2 storage account using PowerShell, use the `New-AzStorageAccount` cmdlet in the Az.Storage PowerShell module. This cmdlet has many options; only the required options are shown. To learn more about advanced options, see the [`New-AzStorageAccount` cmdlet documentation](/powershell/module/az.storage/new-azstorageaccount).
 
