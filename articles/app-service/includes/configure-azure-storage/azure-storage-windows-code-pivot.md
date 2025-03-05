@@ -197,9 +197,9 @@ The Azure CLI doesn't currently support mounting storage with Key Vault access. 
 
 - If you [initiate a storage failover](../../../storage/common/storage-initiate-account-failover.md) when the storage account is mounted to the app, the mount doesn't connect until the app is restarted or the storage mount is removed and added again.
 
-- When virtual network integration is used, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1` and the following ports are open: Azure Files: 80 and 445
+- When virtual network integration is used, ensure app setting, `WEBSITE_CONTENTOVERVNET` is set to `1` and the following ports are open: Azure Files: 80 and 445.
 
-- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See [the scalability and performance targets for Files](../../../storage/files/storage-files-scale-targets.md)
+- The mounted Azure Storage account can be either Standard or Premium performance tier. Based on the app capacity and throughput requirements, choose the appropriate performance tier for the storage account. See [the scalability and performance targets for Files](../../../storage/files/storage-files-scale-targets.md).
 
 ## Next step
 
