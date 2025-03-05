@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 01/29/2025
 ms.author: anfdocs
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
@@ -16,9 +16,10 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 ## Before you begin
 
-You should understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
+- Understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
-Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** and have at least one HANA virtual machine (VM) in the availability set started. Alternately, you can use [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features). 
+- Application volume group for SAP HANA extension 1 enables you to select Standard network features and availability zone volume placement without using volume pinning. You must register for [extension 1](#register-for-extension-1) to use the function. 
+    Alternately, adhere to the **[pinning recommendations](https://aka.ms/HANAPINNING)**. Have at least one HANA virtual machine (VM) in the availability set started. Alternately, you can use [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features). 
 
 ### Register for extension 1 
 
@@ -80,7 +81,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specifies that the data, log, and shared volumes are to be created close to the VMs.
     * **Capacity pool**:  
         All volumes are placed in a single manual QoS capacity pool. 
-        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
+        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group and create them separately. 
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
@@ -195,6 +196,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 4. In the **Volume group** tab, provide information for creating the volume group:  
 
     * **Availability option**:
+
         Select either **Availability zone** or **Proximity placement group**. 
         When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
         * **Proximity placement group (PPG)**:  
@@ -202,6 +204,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         * **Availability Zone**: 
             This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
     * **Network features**: 
+
         Standard network features is the default, however you can still use Basic network features. 
         See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
     * **Capacity pool**:  
@@ -211,6 +214,9 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
+    * **Encryption key source**:
+
+        Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
     
     Select **Next: Tags**. 
     
@@ -228,11 +234,13 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     [ ![Screenshot that shows the protocols tags.](./media/application-volume-group-deploy-first-host/application-protocols-tag.png) ](./media/application-volume-group-deploy-first-host/application-protocols-tag.png#lightbox)
 
-7. The **Volumes** tab summarizes the volumes that are being created with proposed volume name, quota, and throughput. 
+7. The **Volumes** tab summarizes the volumes being created, showing protocol, volume name, quota, and throughput. 
 
     The Volumes tab also shows that only the data, log, and shared volumes are created close to the HANA VMs. The other volumes (data-backup and log-backup) are created at a different location within the region.
 
     The creation for the data-backup and log-backup volumes is optional.
+
+    [ ![Screenshot that summarizes the volume creation](./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png)(./media/application-volume-group-deploy-first-host/volume-validation-extension-one.png#lightbox)]
 
 8. In the **Volumes** tab, you can select each volume to view or change the volume details. For example, select "data-*volume-name*". 
 
@@ -246,6 +254,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         The size of the volume.
     * **Throughput**:  
         You can reduce the throughput requirements for development or test systems accordingly to the value required for your use cases.
+    * **Encryption key source**:
+        Select [Customer Managed Key](configure-customer-managed-keys.md) or Microsoft Managed Key. If you choose Customer Managed Key, provide the key vault private endpoint.
 
     Select **Next: Protocols** to review the protocol settings. 
 
@@ -272,17 +282,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     Select **Volumes** to return to the Volume overview page. Select **Next: Review + create**.
 
-11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation.
+11.	The **Review + Create** tab lists all the volumes and their creation method. Select **Create Volume Group** to start the volume group creation. This process can take a few minutes to complete.
 
-12. The **Volume Groups** deployment workflow starts. You can monitor the progress. This process can take a few minutes to complete.
+    A notification confirms when the operation completes successfully. When you see this message, you can select **Go to resource** to view the newly created volume group. 
 
-    :::image type="content" source="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png" alt-text="Screenshot of the confirmed operation." lightbox="./media/application-volume-group-deploy-first-host/volume-group-confirm-extension-one.png":::
-
-    You can display the list of volume groups to see the new volume group. You can select the new volume group to see the details and status of each of the volumes being created.
-
-    Creating a volume group is an "all-or-none" operation. If one volume cannot be created, all remaining volumes are removed.
-
-    [ ![Screenshot that shows the new volume group.](./media/application-volume-group-deploy-first-host/application-new-volume-group.png) ](./media/application-volume-group-deploy-first-host/application-new-volume-group.png#lightbox)
+    :::image type="content" source="./media/application-volume-group-deploy-first-host/go-to-resource.png" alt-text="Screenshot of a successfully created resource." lightbox="./media/application-volume-group-deploy-first-host/go-to-resource.png":::
 
 ---
 

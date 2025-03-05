@@ -5,7 +5,7 @@ description: This article helps you understand how Azure Front Door supports map
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers

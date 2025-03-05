@@ -49,6 +49,8 @@ items:
       href: tutorial-discover-spring-boot.md
     - name: Discover SAP systems (preview)
       href: tutorial-discover-sap-systems.md
+    - name: Discover MySQL databases (preview)
+      href: tutorial-discover-mysql-database-instances.md
   - name: Decide
     items:
     - name: Build a business case
@@ -60,9 +62,9 @@ items:
       - name: Assess servers for migration to Azure VMs
         href: ./vmware/tutorial-assess-vmware-azure-vm.md?context=/azure/migrate/context/migrate-context
       - name: Assess SQL instances for migration to Azure SQL
-        href: tutorial-assess-sql.md
+        href: tutorial-assess-sql-vmware.md
       - name: Assess servers for migration to AVS
-        href: ./vmware/tutorial-assess-vmware-azure-vmware-solution.md
+        href: ./vmware/tutorial-assess-vmware-azure-vmware-solution.md?context=/azure/migrate/context/migrate-context
     - name: Assess servers in Hyper-V environment 
       items:
       - name: Assess servers for migration to Azure VMs
@@ -89,6 +91,8 @@ items:
       href: tutorial-discover-import.md
     - name: Assess SAP systems for migration (preview)
       href: tutorial-assess-sap-systems.md
+    - name: Assess MySQL databases for migration to Azure Database for MySQL (preview)
+      href: create-mysql-assessment.md 
   - name: Migrate
     items:
     - name: Migrate servers in VMware environment
@@ -169,6 +173,8 @@ items:
       href: best-practices-assessment.md
     - name: Assessment overview (discover and assess SAP Systems) (preview)
       href: concepts-azure-sap-systems-assessment.md
+    - name: Assessment overview (migrate to Azure Database for MySQL) (preview)
+      href: assessments-overview-migrate-to-azure-db-mysql.md
   - name: Migrate
     items:
     - name: Build a migration plan
@@ -202,8 +208,10 @@ items:
         href: how-to-use-azure-migrate-with-private-endpoints.md
       - name: Discover and assess using Azure Private Link
         href: discover-and-assess-using-private-endpoints.md
-      - name: Migrate servers to Azure using Private Link
-        href: migrate-servers-to-azure-using-private-link.md
+      - name: Migrate Hyper-V servers to Azure using Private Link
+        href: migrate-hyper-v-servers-to-azure-using-private-link.md
+      - name: Migrate servers to Azure using Private Link for agent-based migration
+        href: migrate-servers-to-azure-using-private-link-agent-based.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
   - name: Discover
@@ -276,8 +284,6 @@ items:
     items:
     - name: Add migration tools
       href: how-to-migrate.md
-    - name: Replicate using ExpressRoute
-      href: replicate-using-expressroute.md
     - name: Prepare machines for migration
       href: prepare-for-migration.md
     - name: Prepare Windows 2003 servers for migration

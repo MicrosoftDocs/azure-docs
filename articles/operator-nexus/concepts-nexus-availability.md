@@ -119,7 +119,7 @@ Operator Nexus upgrade is initiated by the customer, but it's then managed by th
 
 -   The process is only active on one rack in the selected site at a time. Although upgrade is done in-place, there's still some impact to the worker nodes in the rack during the upgrade.
 
-For more information about the upgrade process, see [this article](./howto-cluster-runtime-upgrade.md#upgrading-cluster-runtime-using-cli). For more information about ensuring control-plane resiliency, see [this one](./concepts-rack-resiliency.md).
+For more information about the upgrade process, see [this article](./howto-cluster-runtime-upgrade.md#upgrade-cluster-runtime-using-cli). For more information about ensuring control-plane resiliency, see [this one](./concepts-rack-resiliency.md).
 
 ## Designing and Operating High Availability Workloads for Operator Nexus
 

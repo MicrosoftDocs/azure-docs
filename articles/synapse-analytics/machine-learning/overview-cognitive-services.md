@@ -459,7 +459,7 @@ df = spark.createDataFrame(
 ).withColumn("group", lit("series1"))
 
 # Run the Anomaly Detector service to look for irregular data
-anamoly_detector = (
+anomaly_detector = (
     SimpleDetectAnomalies()
     .setSubscriptionKey(anomaly_key)
     .setLocation(anomaly_loc)
@@ -472,7 +472,7 @@ anamoly_detector = (
 
 # Show the full results of the analysis with the anomalies marked as "True"
 display(
-    anamoly_detector.transform(df).select("timestamp", "value", "anomalies.isAnomaly")
+    anomaly_detector.transform(df).select("timestamp", "value", "anomalies.isAnomaly")
 )
 
 ```

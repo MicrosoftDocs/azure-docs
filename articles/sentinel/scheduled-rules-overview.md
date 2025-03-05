@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Scheduled analytics rules in Microsoft Sentinel
 
-By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](kusto-overview.md) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
+By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
 
 This article helps you understand how scheduled analytics rules are built, and introduces you to all the configuration options and their meanings. The information in this article is useful in two scenarios:
 
@@ -92,15 +92,18 @@ Everything you type into the rule query window is instantly validated, so you fi
 
 - We recommend you use an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) as your query source, instead of using a native table. This will ensure that the query supports any current or future relevant data source or family of data sources, rather than relying on a single data source.
 
-- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) to overcome the query length limitation, as a single function can replace dozens of lines of code.
+- The query length should be between 1 and 10,000 characters and cannot contain "`search *`" or "`union *`". You can use [user-defined functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true) to overcome the query length limitation, as a single function can replace dozens of lines of code.
 
 - Using ADX functions to create Azure Data Explorer queries inside the Log Analytics query window **is not supported**.
 
-- When using the **`bag_unpack`** function in a query, if you [project the columns](/azure/data-explorer/kusto/query/projectoperator) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/azure/data-explorer/kusto/query/projectoperator) as follows:
+- When using the **`bag_unpack`** function in a query, if you [project the columns](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as fields using "`project field1`" and the column doesn't exist, the query will fail. To guard against this happening, you must [project the column](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true) as follows:
 
    `project field1 = column_ifexists("field1","")`
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](kusto-overview.md) and [Best practices for Kusto Query Language queries](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more information, see:
+- [Kusto Query Language in Microsoft Sentinel](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
+- [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 
 ### Alert enhancement
 
@@ -257,7 +260,7 @@ To learn all about the different kinds of responses that can be crafted and auto
 
 Under the **Automation rules** heading, the wizard displays a list of the automation rules already defined on the whole workspace, whose conditions apply to this analytics rule. You can edit any of these existing rules, or you can [create a new automation rule](create-manage-use-automation-rules.md) that applies only to this analytics rule.
 
-Use automation rules to perform [basic triage](investigate-incidents.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
+Use automation rules to perform [basic triage](incident-navigate-triage.md#navigate-and-triage-incidents), assignment, [workflow](incident-tasks.md), and closing of incidents. 
 
 Automate more complex tasks and invoke responses from remote systems to remediate threats by calling playbooks from these automation rules. You can invoke playbooks for incidents as well as for individual alerts.
 

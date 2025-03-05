@@ -6,8 +6,8 @@ ms.date: 11/30/2024
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups

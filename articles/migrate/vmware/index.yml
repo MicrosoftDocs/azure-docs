@@ -1,0 +1,85 @@
+### YamlMime:Landing
+
+title: Scenario - Migrate VMware virtual machines to Azure
+summary: Find articles to help you discover, assess, and migrate your VMware VMs to Azure.
+metadata:
+  title: End-to-end scenario - Migration of VMware virtual machines to Azure
+  description: Learn how to discover, assess, and migrate your VMware VMs to Azure.
+  ms.service: azure-migrate
+  ms.topic: landing-page
+
+  author: SnehaSudhirG
+  ms.author: sudhirsneha 
+  ms.date: 03/15/2024
+  ms.custom: seo-azure-migrate
+  keywords: vmware, vmware migration, azure migrate, azure migration, azure migrate assessment tool
+
+landingContent:
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Getting started with VMware migration
+            url: start-here-vmware.md
+          - text: Support Matrix for VMware discovery
+            url: migrate-support-matrix-vmware.md
+          - text: Support Matrix for VMware migration
+            url: migrate-support-matrix-vmware-migration.md
+          - text: Migrate VMware VMs with Migration and modernization
+            url: server-migrate-overview.md
+
+  - title: Discover
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Discover VMware servers
+            url: tutorial-discover-vmware.md
+          - text: Set discovery scope
+            url: set-discovery-scope.md
+
+  - title: Assess
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Assess VMware VMs for migration to Azure
+            url: tutorial-assess-vmware-azure-vm.md
+          - text: Assess VMware VMs for migration to Azure VMware Solution
+            url: tutorial-assess-vmware-azure-vmware-solution.md
+  
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Scale VMware assessment
+            url: ../scale-vmware-assessment.md
+  
+  - title: Migrate
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Migrate VMware vSphere VMs with agent-based migration
+            url: tutorial-migrate-vmware-agent.md
+          - text: Migrate VMware vSphere VMs with agentless migration
+            url: tutorial-migrate-vmware.md
+          - text: Migrate VMware vSphere VMs with PowerShell
+            url: tutorial-migrate-vmware-powershell.md
+  
+  - title: Learn more
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Learn about VMware/physical agent-based migration
+            url: agent-based-migration-architecture.md
+          - text: Learn about agentless migration architecture
+            url: concepts-vmware-agentless-migration.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request a service feature
+            url: https://feedback.azure.com/d365community/forum/cd45915f-0f25-ec11-b6e6-000d3a4f09d0
+          - text: Ask a forum question
+            url: /answers/topics/azure-migrate.html
+          - text: Azure Tech Community
+            url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

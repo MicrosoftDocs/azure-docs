@@ -65,7 +65,7 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
 | Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse/peek</li></ul> |
 
  > [!IMPORTANT] 
-> If you have auto forwarding setup on the queue or subscription, that is equivalent to having a receiver peform receives on the queue or subscription and they will not be idle.
+> If you have auto forwarding setup on the queue or subscription, that is equivalent to having a receiver perform receives on the queue or subscription and they will not be idle.
  
 ## SDKs
 You can set the time-to-live property using Software Development Kits (SDKs). 

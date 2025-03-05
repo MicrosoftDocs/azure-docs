@@ -87,7 +87,7 @@ To learn how to assign the *Desktop Virtualization Power On Off Contributor* rol
 ::: zone pivot="power-management"
 ### [Azure portal](#tab/portal)
 
-Now that you've assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan using the portal:
+Now that you assigned the *Desktop Virtualization Power On Off Contributor* role to the service principal on your subscriptions, you can create a scaling plan. To create a scaling plan using the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -101,7 +101,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
    |--|--|
    | Subscription | Select the subscription you want to create the host pool in from the drop-down list. |
    | Resource group | Select an existing resource group or select **Create new** and enter a name. |
-   | Scaling plan name  | Enter a name for the scaling plan. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan. |
+   | Scaling plan name  | Enter a name for the scaling plan. Optionally, you can also add a "friendly" name that is displayed to your users and a description for your plan. |
    | Location  | Select the Azure region where you want to create your scaling plan.  |
    | Time zone  | Select the time zone you'll use with your plan.  |
    | Host pool type  | Select the type of host pool that you want your scaling plan to apply to.  |
@@ -133,7 +133,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
        | Parameter | Value/Description |
        |--|--|
        | Start time | Select a time from the drop-down menu to start preparing VMs for peak business hours. |
-       | Load balancing algorithm | We recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast. The load balancing preference you select here will override the one you selected for your original host pool settings. |
+       | Load balancing algorithm | We recommend selecting **breadth-first algorithm**. Breadth-first load balancing distributes users across existing VMs to keep access times fast. The load balancing preference you select here overrides the one you selected for your original host pool settings. |
        | Minimum percentage of hosts | Enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%**, one VM will always stay on during ramp-up hours, and it won't be turned off by autoscale. |
        |Capacity threshold | Enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if two session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, autoscale will turn on a third session host. This will then change the available host pool capacity from 40 to 60. |
     
@@ -169,6 +169,9 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
         - Start time, which is also the end of the ramp-down period.
         - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
         - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
+
+        > [!IMPORTANT]
+        > If you have any days unselected in your schedule, the last off-peak parameters on the selected days will be carried over for the unselected days until the next ramp-up phase. For example, if you only have one schedule for Monday to Friday, then your configuration for the Friday off-peak phase will be carried over until the Monday ramp-up phase.
     
     #### Personal host pools
     
@@ -201,13 +204,16 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
        | Start VM on Connect | Select whether you want Start VM on Connect to be enabled during that phase. |
        |Disconnect settings | For **When disconnected for (min)**, specify the number of minutes a user session has to be disconnected before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been disconnected for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |
        | Sign out settings | For **When logged off for (min)**, specify the number of minutes a user session has to be logged off before performing a specific action. This number can be anywhere between 0 and 360. <br /><br />For **Perform**, specify what action the service should take after a user session has been logged off for the specified time. The options are to either deallocate (shut down) the VMs, hibernate the personal desktop, or do nothing. |  
+
+       > [!IMPORTANT]
+       > If you have any days unselected in your schedule, the last off-peak parameters on the selected days will be carried over for the unselected days until the next ramp-up phase. For example, if you only have one schedule for Monday to Friday, then your configuration for the Friday off-peak phase will be carried over until the Monday ramp-up phase.
  
     ---
 
 1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the scaling plan to host pools that match the host pool type specified in the plan.
 
     > [!NOTE]
-    > - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
+    > - When you create or update a scaling plan that's already assigned to host pools, its changes are applied immediately.
 
 1. After that, you'll need to enter **tags**. Tags are name and value pairs that categorize resources for consolidated billing. You can apply the same tag to multiple resources and resource groups. To learn more about tagging resources, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
@@ -337,7 +343,7 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
    ```
 
     
- You have now created a new scaling plan, one or more schedules, assigned it to your pooled or personal host pool(s), and enabled autoscale. 
+ You have now created a new scaling plan, one or more schedules, assigned it to your pooled or personal host pools, and enabled autoscale. 
 
 ---
 ::: zone-end
@@ -393,7 +399,7 @@ During the preview, you can only create a scaling plan for dynamic autoscaling u
       | Parameter | Value/Description |
       |--|--|
       | Start time | Select a time from the drop-down menu to start preparing VMs for peak business hours. |
-      | Load balancing algorithm | We recommend selecting **breadth-first algorithm**. Breadth-first load balancing will distribute users across existing VMs to keep access times fast. The load balancing preference you select here will override the one you selected for your original host pool settings. |
+      | Load balancing algorithm | We recommend selecting **breadth-first algorithm**. Breadth-first load balancing distributes users across existing VMs to keep access times fast. The load balancing preference you select here overrides the one you selected for your original host pool settings. |
       | Capacity threshold  | Enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions. |
     
       You can modify the virtual machine limit parameters that you filled out in the **General** tab. We recommend having higher **Minimum percentage of active hosts (%)** and **Minimum host pool size** in the ramp-up phase, which will be carried over to the peak phase. 
@@ -408,9 +414,9 @@ During the preview, you can only create a scaling plan for dynamic autoscaling u
       | Load balancing algorithm | Select breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. <br /><br />For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md). |
     
       > [!NOTE]
-      > You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
+      > You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** carries over to this setting.
     
-   1. In the **Ramp-down** tab, you'll enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This will include the following fields:
+   1. In the **Ramp-down** tab, enter values into similar fields to **Ramp-up**, but this time it will be for when your host pool usage drops off. This includes the following fields:
     
       - Start time
       - Load-balancing algorithm
@@ -431,12 +437,15 @@ During the preview, you can only create a scaling plan for dynamic autoscaling u
     
       - Start time, which is also the end of the ramp-down period.
       - Load-balancing algorithm. We recommend choosing **depth-first** to gradually reduce the number of session hosts based on sessions on each VM.
-      - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** will carry over.
+      - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
+
+      > [!IMPORTANT]
+      > If you have any days unselected in your schedule, the last off-peak parameters on the selected days will be carried over for the unselected days until the next ramp-up phase. For example, if you only have one schedule for Monday to Friday, then your configuration for the Friday off-peak phase will be carried over until the Monday ramp-up phase.
     
 1. Select **Next** to take you to the **Host pool assignments** tab. Select the check box next to each host pool you want to include. If you don't want to enable autoscale, unselect all check boxes. You can always return to this setting later and change it. You can only assign the dynamic scaling plan to pooled host pools with session host configuration.
 
     > [!NOTE]
-    > - When you create or update a scaling plan that's already assigned to host pools, its changes will be applied immediately.
+    > - When you create or update a scaling plan that's already assigned to host pools, its changes are applied immediately.
 
 1. After that, you'll need to enter **tags**. Tags are name and value pairs that categorize resources for consolidated billing. You can apply the same tag to multiple resources and resource groups. To learn more about tagging resources, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
@@ -445,15 +454,12 @@ During the preview, you can only create a scaling plan for dynamic autoscaling u
 
 1. Once you're done, go to the **Review + create** tab and select **Create** to create and assign your scaling plan to the host pools you selected.
 
-> [!IMPORTANT] 
-> Currently when you deploy session hosts in the Azure portal using session host configuration, by default it doesn't automatically delete the NIC and/or disk when deleting the VM. To change the default setting, see [Delete a VM and attached resources](/azure/virtual-machines/delete#force-delete-for-vms). Scaling honors the setting therefore NIC and disks for the VMs created manually in the portal won't be automatically deleted. This default setting will be changed so that NIC and disk for the VMs created by the scaling service will be automatically deleted together with the VMs. 
-
 ::: zone-end
 
 ::: zone pivot="power-management"
 ## Configure a time limit policy
 
-You can configure a time limit policy that will sign out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity) using Microsoft Intune or Group Policy. Select the relevant tab for your scenario.
+You can configure a time limit policy that signs out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity) using Microsoft Intune or Group Policy. Select the relevant tab for your scenario.
 
 # [Microsoft Intune](#tab/intune)
 
@@ -635,7 +641,7 @@ To edit an existing scaling plan using the Azure portal:
 
 ## Next steps
 
-Now that you've created your scaling plan, here are some things you can do:
+Now that you created your scaling plan, here are some things you can do:
 
 - [Monitor Autoscale operations with Insights](autoscale-diagnostics.md)
 

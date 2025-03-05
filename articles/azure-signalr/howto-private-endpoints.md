@@ -37,7 +37,7 @@ When you create a private endpoint for an Azure SignalR Service in your VNet, a 
 Azure SignalR Service owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Azure SignalR Service in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md#managing-network-access-control) to deny or control access through the public endpoint.
+> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md) to deny or control access through the public endpoint.
 
 ### Connecting to private endpoints
 

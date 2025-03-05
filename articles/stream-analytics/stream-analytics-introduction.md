@@ -4,7 +4,7 @@ description: Learn about Azure Stream Analytics, a managed service that helps yo
 ms.service: azure-stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/25/2024
+ms.date: 12/17/2024
 #Customer intent: What is Azure Stream Analytics and why should I care? As an IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?
 ---
 
@@ -17,7 +17,7 @@ Here are a few example scenarios where you can use Azure Stream Analytics:
 * Anomaly detection in sensor data to detect spikes, dips, and slow positive and negative changes
 * Geo-spatial analytics for fleet management and driverless vehicles
 * Remote monitoring and predictive maintenance of high value assets
-* Clickstream analytics to determine customer behavior
+* Click stream analytics to determine customer behavior
 * Analyze real-time telemetry streams and logs from applications and IoT devices
 
 :::image type="content" source="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png" alt-text="Diagram that shows the stages Ingest, Analyze, and Deliver stages of a streaming pipeline." lightbox="./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png":::
@@ -75,7 +75,7 @@ Azure Stream Analytics guarantees exactly once event processing and at-least-onc
 
 Azure Stream Analytics has built-in recovery capabilities in case the delivery of an event fails. Stream Analytics also provides built-in checkpoints to maintain the state of your job and provides repeatable results.
 
-Azure Stream Analytics supports Availability Zones for all jobs. Any new dedicated cluster or new job will automatically benefit from Availability Zones, and, in case of disaster in a zone, will continue to run seamlessly by failing over to the other zones without the need of any user action. Availability Zones provide customers with the ability to withstand datacenter failures through redundancy and logical isolation of services. This will significantly reduce the risk of outage for your streaming pipelines. Note that Azure Stream Analytics jobs integrated with VNET don't currently support Availability Zones.
+Azure Stream Analytics supports Availability Zones for all jobs. Any new dedicated cluster or new job will automatically benefit from Availability Zones, and, in case of disaster in a zone, will continue to run seamlessly by failing over to the other zones without the need of any user action. Availability Zones provide customers with the ability to withstand datacenter failures through redundancy and logical isolation of services. This will significantly reduce the risk of outage for your streaming pipelines. Note that Azure Stream Analytics jobs integrated with virtual network don't currently support Availability Zones.
 
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability at a minute level of granularity. 
 

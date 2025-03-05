@@ -20,7 +20,7 @@ Currently, Virtual Machine Scale Sets allows you to specify only one subnet. The
 
 The following limitations apply during the public preview:
 
-- The feature only supports virtual machines and virtual machine scale sets and doesn't support Bare Metal or SWIFT resources. Any delegated subnet can't use this feature.
+- The feature only supports virtual machines and virtual machine scale sets and doesn't support Bare Metal or VNet injection for Containers, especially PodSubnet IPAM mode in AKS clusters. Any delegated subnet can't use this feature.
 
 - This feature doesn't support multiple customer address (CA) configurations. When using multiple prefixes on a subnet, you're only able to use a single customer address (CA) configuration. A single IPv4 (Internet Protocol version 4) and single IPv6 (Internet Protocol Version 6) address per NIC (network interface card) is supported.
 

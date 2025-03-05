@@ -17,7 +17,7 @@ This article provides guidance on how to set up and use dev box with virtual swi
 Dev box supports nested virtualization. You can create virtual machines inside a dev box and connect them to the default virtual switch *Default Switch*. If you want to create another virtual switch with internet access, set up a NAT network with an internal virtual switch. Use an IP address range that suits your required configuration.
 
 > [!WARNING]
-> Incorrect configuration of virtual switch will cause you to lose the connection to dev box immediately and this is NOT reversable. Please setup with extreme care.
+> Incorrect configuration of virtual switch will cause you to lose the connection to dev box immediately and this is NOT reversible. Please setup with extreme care.
 
 ## Prerequisites
 - A dev box with Hyper-V and Virtual Machine Platform installed.

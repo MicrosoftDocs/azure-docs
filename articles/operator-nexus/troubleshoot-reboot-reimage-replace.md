@@ -57,24 +57,24 @@ The restart typically is the starting point for mitigating a problem.
 ```
 az networkcloud baremetalmachine power-off \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `start` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine start \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ***The following Azure CLI command will `restart` the specified bareMetalMachineName.***
 ```
 az networkcloud baremetalmachine restart \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 
@@ -87,31 +87,45 @@ The reimage action can be useful for troubleshooting problems by restoring the O
 A reimage action is the best practice for lowest operational risk to ensure the integrity of the BMM.
 
 As a best practice, make sure the BMM's workloads are drained using the cordon command, with evacuate "True", before executing the reimage command.
-<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.) -->
 
-***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
+**To identify if any workloads are currently running on a BMM, run the following command:**
+
+**For Virtual Machines:**
+```azurecli
+az networkcloud baremetalmachine show -n <nodeName> /
+--resource-group <resourceGroup> /
+--subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
+```
+
+**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
+
+```
+kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
+```
+
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will `reimage` the specified bareMetalMachineName.***
+**The following Azure CLI command will `reimage` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine reimage \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will `uncordon` the specified bareMetalMachineName.***
+**The following Azure CLI command will `uncordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ## Troubleshoot with a replace action
@@ -121,17 +135,17 @@ Servers contain many physical components that can fail over time. It is importan
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the tenant data isn't modified during replacement.
 
 > [!IMPORTANT]
-> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additonal physical disk and/or RAID controllers alerts.
+> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additional physical disk and/or RAID controllers alerts.
 
 As a best practice, first issue a `cordon` command to remove the bare metal machine from workload scheduling and then shut down the BMM in advance of physical repairs.
 
-***The following Azure CLI command will `cordon` the specified bareMetalMachineName.***
+**The following Azure CLI command will `cordon` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 When you're performing a physical hot swappable power supply repair, a replace action is not required because the BMM host will continue to function normally after the repair.
@@ -156,25 +170,25 @@ When you're performing the following physical repairs, a replace action ***is re
 
 After physical repairs are completed, perform a replace action.
   
-***The following Azure CLI command will `replace` the specified bareMetalMachineName.***
+**The following Azure CLI command will `replace` the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine replace \
   --name <bareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
+  --resource-group "<resourceGroup>" \
   --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
   --bmc-mac-address <IDRAC_MAC> \
   --boot-mac-address <PXE_MAC> \
   --machine-name <OS_HOSTNAME> \
   --serial-number <SERIAL_NUM> \
-  --subscription <SUBSCRIPTION_ID>
+  --subscription <subscriptionID>
 ```
 
-***The following Azure CLI command will uncordon the specified bareMetalMachineName.***
+**The following Azure CLI command will uncordon the specified bareMetalMachineName.**
 ```
 az networkcloud baremetalmachine uncordon \
   --name <bareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group "<resourceGroup>" \
+  --subscription <subscriptionID>
 ```
 
 ## Summary

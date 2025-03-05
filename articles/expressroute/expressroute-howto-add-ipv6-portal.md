@@ -24,11 +24,7 @@ From a web browser, sign in to the [Azure portal](https://portal.azure.com).
 
 1. [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) or navigate to the existing circuit you want to change.
 
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-circuit.png" alt-text="Screenshot of ExpressRoute circuit list.":::
-
 1. Select the **Azure private** peering configuration.
-
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-peering.png" alt-text="Screenshot of ExpressRoute overview page.":::
 
 1. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration by selecting "Both" for **Subnets**, or only enable IPv6 Private Peering on your new circuit by selecting "IPv6". Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you assign the first usable IP address to your router as Microsoft uses the second usable IP for its router. **Save** your peering configuration once you defined all parameters.
 
@@ -43,8 +39,6 @@ From a web browser, sign in to the [Azure portal](https://portal.azure.com).
 Follow these steps if you have an existing environment of Azure resources that you would like to use your IPv6 Private Peering with.
 
 1. Navigate to the virtual network that your ExpressRoute circuit is connected to.
-
-    :::image type="content" source="./media/expressroute-howto-add-ipv6-portal/navigate-to-vnet.png" alt-text="Screenshot of virtual network list.":::
 
 1. Navigate to the **Address space** tab and add an IPv6 address space to your virtual network. **Save** your address space.
 

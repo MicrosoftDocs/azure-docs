@@ -280,7 +280,7 @@ As the first step towards cleaning up a deployed environment, start by deleting 
 - Site
 - CGV
 
-Only once these operator resources are succesfully deleted, should a user proceed to delete other environment resources, such as the NAKS cluster.
+Only once these operator resources are successfully deleted, should a user proceed to delete other environment resources, such as the NAKS cluster.
 
 > [!IMPORTANT]
 > Deleting resources out of order can result in orphaned resources left behind.
@@ -305,7 +305,7 @@ As the first step towards cleaning up an onboarded environment, start by deletin
 ## NfApp Sequential Ordering Behavior
 
 ### Overview
-By default, containerized network function applications (NfApps) are installed or updated based on the sequential order in which they appear in the network function design version (NFDV). For delete, the NfApps are deleted in the reverse order sepcified. Where a publisher needs to define specific ordering of NfApps, different from the default, a dependsOnProfile is used to define a unique sequence for install, update and delete operations.
+By default, containerized network function applications (NfApps) are installed or updated based on the sequential order in which they appear in the network function design version (NFDV). For delete, the NfApps are deleted in the reverse order specified. Where a publisher needs to define specific ordering of NfApps, different from the default, a dependsOnProfile is used to define a unique sequence for install, update and delete operations.
 
 ### How to use dependsOnProfile
 A publisher can use the dependsOnProfile in the NFDV to control the sequence of helm executions for NfApps. Given the following example, on install operation the NfApps will be deployed in the following order: dummyApplication1, dummyApplication2, then dummyApplication. On update operation, the NfApps will be updated in the following order: dummyApplication2, dummyApplication1, then dummyApplication. On delete operation, the NfApps will be deleted in the following order: dummyApplication2, dummyApplication1, then dummyApplication.
@@ -374,10 +374,10 @@ As of today, if dependsOnProfile provided in the NFDV is invalid, the NF operati
 }
 ```
 ## injectArtifactStoreDetails considerations
-In some cases, third-party helm charts maynot be fully compliant with AOSM requirements for registryURL. In this case, the injectArtifactStoreDetails feature can be used to avoid making changes to helm packages.
+In some cases, third-party helm charts may not be fully compliant with AOSM requirements for registryURL. In this case, the injectArtifactStoreDetails feature can be used to avoid making changes to helm packages.
 
 ### How to enable
-To use injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOrverrides section to true, then use whatever registryURL value is needed to keep the registry URL valid. See following example of injectArtifactStoreDetails parameter enabled.
+To use injectArtifactStoreDetails, set the installOptions parameter in the NF resource roleOverrides section to true, then use whatever registryURL value is needed to keep the registry URL valid. See following example of injectArtifactStoreDetails parameter enabled.
 
 ```bash
 resource networkFunction 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = {

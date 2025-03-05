@@ -35,9 +35,9 @@ Open your web browser and go to the [Azure portal](https://portal.azure.com/). E
 
 1. Select **Queues** on the navigation menu and then select **Queue**.
 
-1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+1. On the **Create Queue** page, enter **lower-case** for **Name** and then select **Create**.
 
-1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+1. Create another queue by repeating the previous step using **upper-case** for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -54,8 +54,8 @@ Use the following steps to create an Azure Spring Apps instance:
    | Setting            | Suggested value                  | Description                                                                                                                                                                                                                                                                                        |
    |--------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**   | Your subscription name           | The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                       |
-   | **Resource group** | *myresourcegroup*                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group** | **myresourcegroup**                | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**           | **myasa**                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Standard**                     | The plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                           |
    | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Zone Redundant** | Unselected                       | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
@@ -72,13 +72,13 @@ Use the following steps to create an Azure Spring Apps instance:
 
 1. Select **Apps** in the navigation menu, then select **Create App**.
 
-1. On the **Create App** page, enter *simple-event-driven-app* for **App name** and select *Java 17* for **Runtime platform**.
+1. On the **Create App** page, enter **simple-event-driven-app** for **App name** and select **Java 17** for **Runtime platform**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png" alt-text="Screenshot of the Azure portal showing the Create App pane with App name and Runtime platform options selected." lightbox="../../media/quickstart-deploy-event-driven-app/basic-app-creation.png":::
 
 1. After the app creation, select the app name you created in the previous step.
 
-1. On the **Configuration** page, select the **Environment variables** tab, enter *SERVICE_BUS_CONNECTION_STRING* for **Key**, paste the Service Bus connection string for **Value**, then select **Save**.
+1. On the **Configuration** page, select the **Environment variables** tab, enter **SERVICE_BUS_CONNECTION_STRING** for **Key**, paste the Service Bus connection string for **Value**, then select **Save**.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png" alt-text="Screenshot of the Azure portal showing the Environment variables tab of the App Configuration page." lightbox="../../media/quickstart-deploy-event-driven-app/app-configuration-environment-variables.png":::
 

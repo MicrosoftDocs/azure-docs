@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 11/21/2024
 ms.custom: references_regions
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Support matrix for Azure Database for MySQL - Flexible Server protection by using Azure Backup (preview)

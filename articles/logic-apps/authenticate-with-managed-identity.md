@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 01/27/2025
 ms.custom: subject-rbac-steps, devx-track-arm-template
 
 ##customerIntent: As a logic app developer, I want to authenticate connections for my logic app workflow using a managed identity so I don't have to use credentials or secrets.
@@ -93,7 +93,7 @@ For a Standard logic app workflow, the following table lists example connectors 
 | Connector type | Supported connectors |
 |----------------|----------------------|
 | Built-in | - Azure Automation <br>- Azure Blob Storage <br>- Azure Event Hubs <br>- Azure Service Bus <br>- Azure Queues <br>- Azure Tables <br>- HTTP <br>- HTTP + Webhook <br>- SQL Server <br><br>**Note**: Except for the SQL Server and HTTP connectors, most [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting user-assigned identities for authentication. Instead, you must use the system-assigned identity. HTTP operations can authenticate connections to Azure Storage accounts behind Azure firewalls with the system-assigned identity. |
-| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>-Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
+| Managed | - Azure App Service <br>- Azure Automation <br>- Azure Blob Storage <br>- Azure Container Instance <br>- Azure Cosmos DB <br>- Azure Data Explorer <br>- Azure Data Factory <br>- Azure Data Lake <br>- Azure Digital Twins <br>- Azure Event Grid <br>- Azure Event Hubs <br>- Azure IoT Central V2 <br>- Azure Key Vault <br>- Azure Monitor Logs <br>- Azure Queues <br>- Azure Resource Manager <br>- Azure Service Bus <br>- Azure Sentinel <br>- Azure Table Storage <br>- Azure VM <br>- SQL Server |
 
 ---
 
@@ -360,7 +360,7 @@ If your template also includes the managed identity's resource definition, you c
       }
    },
    "variables": {
-      "logicAppName": "[parameters(`Template_LogicAppName')]",
+      "logicAppName": "[parameters('Template_LogicAppName')]",
       "userAssignedIdentityName": "[parameters('Template_UserAssignedIdentityName')]"
    },
    "resources": [
@@ -448,7 +448,7 @@ If your template also includes the managed identity's resource definition, you c
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "[resourceId(Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
+               "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('userAssignedIdentityName'))]": {}
             }
          },
          "properties": {
@@ -1492,7 +1492,7 @@ The following steps remove access to the target resource from the managed identi
 
 1. On the logic app resource menu, under **Settings**, select **Identity**, and then follow the steps for your identity:
 
-   - Select **System assigned** > **On** > **Save**. When Azure prompts you to confirm, select **Yes**.
+   - Select **System assigned** > **Off** > **Save**. When Azure prompts you to confirm, select **Yes**.
 
    - Select **User assigned** and the managed identity, and then select **Remove**. When Azure prompts you to confirm, select **Yes**.
 

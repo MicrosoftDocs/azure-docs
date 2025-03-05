@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create a service connection in Azure Spring Apps with the Azure CLI
-description: Quickstart showing how to create a service connection in Azure Spring Apps with the Azure CLI
+description: In this step-by-step guide, learn how to create a service connection in Azure Spring Apps using the Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/31/2022
+ms.date: 12/18/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, build-2024
 ---
@@ -28,7 +28,7 @@ Service Connector lets you quickly connect compute services to cloud services, w
 
 - The Azure Spring Apps extension must be installed in the Azure CLI or the Cloud Shell. To install it, run `az extension add --name spring`.
 
-## Initial set up
+## Initial setup
 
 1. If you're using Service Connector for the first time, start by running the command [az provider register](/cli/azure/provider#az-provider-register) to register the Service Connector resource provider.
 
@@ -55,9 +55,9 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 ### [Managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, your connection creation will fail. Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
+> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
 
-1. Run the `az spring connection create` command to create a service connection to a Blob Storage with a system-assigned managed identity
+1. Run the `az spring connection create` command to connect application deployed to Azure Spring Apps to a Blob Storage resource, using a system-assigned managed identity.
 
 1. Provide the following information at the CLI or Cloud Shell's request:
 

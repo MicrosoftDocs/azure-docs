@@ -1,13 +1,14 @@
 ---
-title: Configure private endpoints for Azure Event Grid topics or domains
+title: Configure private endpoints for topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid custom topics or domain. 
 ms.topic: how-to
-ms.date: 03/24/2023 
+ms.date: 01/21/2025 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: I want to know how to enable private only access for my Azure Event Grid topics or domains. 
 ---
 
 # Configure private endpoints for Azure Event Grid custom topics or domains
-You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your custom topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the VNet address space for your custom topic or domain. For more conceptual information, see [Network security](network-security.md).
+You can use [private endpoints](../private-link/private-endpoint-overview.md) to allow ingress of events directly from your virtual network to your custom topics and domains securely over a [private link](../private-link/private-link-overview.md) without going through the public internet. The private endpoint uses an IP address from the virtual network address space for your custom topic or domain. For more conceptual information, see [Network security](network-security.md).
 
 This article describes how to configure private endpoints for custom topics or domains.
 
@@ -30,7 +31,19 @@ This section shows you how to enable private network access for an Event Grid to
 1. To allow access to the Event Grid topic via a private endpoint, select the **Private access** option. 
 
     :::image type="content" source="./media/configure-firewall/networking-page-private-access.png" alt-text="Image showing the selection of Private access option on the Networking page of the Create topic wizard. ":::    
-1. See the next section for steps to add a private endpoint. 
+1. In the **Private endpoint connections** section, select **+ Private endpoint** button. 
+
+    :::image type="content" source="./media/configure-private-endpoints/create-topic-add-private-endpoint-button.png" alt-text="Screenshot showing the Private endpoint button on the Create topic page.":::
+1. On the **Create private endpoint** page, follow these steps: 
+    1. For **Name**, enter a name for the private endpoint. 
+    1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list.
+    1. Select a **subnet** in the virtual network you selected. 
+    1. Select whether you want the private endpoint to be integrated with a **private DNS zone**. 
+    1. Select **OK**. 
+
+    :::image type="content" source="./media/configure-private-endpoints/create-topic-create-private-endpoint-page.png" alt-text="Screenshot showing Create private endpoint page.":::        
+1. Now, on the **Create topic** page, select **Review + create** at the bottom of the page. 
+1. On the **Review + create** page, select **Create**. 
 
 ### For an existing topic
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
@@ -440,6 +453,6 @@ Get-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
 
 You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 
 
-## Next steps
+## Related content
 * To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
 * To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)

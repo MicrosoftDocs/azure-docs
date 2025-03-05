@@ -48,8 +48,8 @@ This command will `power-off` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine power-off \
   --name <BareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 ## Start a BMM
@@ -59,8 +59,8 @@ This command will `start` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine start \
   --name <BareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 ## Restart a BMM
@@ -70,12 +70,26 @@ This command will `restart` the specified `bareMetalMachineName`.
 ```azurecli
 az networkcloud baremetalmachine restart \
   --name <BareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 ## Make a BMM unschedulable (cordon)
-<!--(PLACEHOLDER: We need to explain how a customer can identify if workloads are currently running on a BMM and the az cli command used to get this information. Ask NAKS team to provide.)-->
+
+**To identify if any workloads are currently running on a BMM, run the following command:**
+
+**For Virtual Machines:**
+```azurecli
+az networkcloud baremetalmachine show -n <nodeName> /
+--resource-group <resourceGroup> /
+--subscription <subscriptionID> | jq '.virtualMachinesAssociatedIds'
+```
+
+**For Nexus Kubernetes cluster nodes: (requires logging into the Nexus Kubernetes cluster)**
+
+```
+kubectl get nodes <resourceName> -ojson |jq '.metadata.labels."topology.kubernetes.io/baremetalmachine"'
+```
 
 You can make a BMM unschedulable by executing the [`cordon`](#make-a-bmm-unschedulable-cordon) command.
 On the execution of the `cordon` command,
@@ -89,8 +103,8 @@ parameter, the workloads that are running on the BMM are `stopped` and the BMM i
 az networkcloud baremetalmachine cordon \
   --evacuate "True" \
   --name <BareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 The `evacuate "True"` removes workloads from that node while `evacuate "False"` only prevents the scheduling of new workloads.
@@ -103,8 +117,8 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 ```azurecli
 az networkcloud baremetalmachine uncordon \
   --name <BareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 ## Reimage a BMM
@@ -121,8 +135,8 @@ command, with `evacuate "True"`, before executing the `reimage` command.
 ```azurecli
 az networkcloud baremetalmachine reimage \
   --name <BareMetalMachineName>  \
-  --resource-group <CLUSTER_MRG> \
-  --subscription <SUBSCRIPTION_ID>
+  --resource-group <resourceGroup> \
+  --subscription <subscriptionID>
 ```
 
 ## Replace a BMM
@@ -137,11 +151,11 @@ Use the `replace` command when a server encounters hardware issues requiring a c
 ```azurecli
 az networkcloud baremetalmachine replace \
   --name <BareMetalMachineName> \
-  --resource-group <CLUSTER_MRG> \
+  --resource-group <resourceGroup> \
   --bmc-credentials password=<IDRAC_PASSWORD> username=<IDRAC_USER> \
   --bmc-mac-address <IDRAC_MAC> \
   --boot-mac-address <PXE_MAC> \
   --machine-name <OS_HOSTNAME> \
   --serial-number <SERIAL_NUMBER> \
-  --subscription <SUBSCRIPTION_ID>
+  --subscription <subscriptionID>
 ```

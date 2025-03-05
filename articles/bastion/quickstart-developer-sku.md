@@ -4,14 +4,14 @@ description: Learn how to deploy Bastion using the Developer SKU.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: quickstart
-ms.date: 12/09/2024
+ms.date: 01/21/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
 
 # Quickstart: Deploy Azure Bastion - Developer SKU
 
-In this quickstart, you learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+In this quickstart, you learn how to deploy Azure Bastion using the Developer SKU. After Bastion is deployed, you can connect to virtual machines (VM) in the virtual network via Bastion using the private IP address of the VM. The VMs you connect to don't need a public IP address, client software, agent, or a special configuration. For more information about Azure Bastion, see [What is Azure Bastion](bastion-overview.md)?
 
 The following diagram shows the architecture for Azure Bastion and the Developer SKU.
 
@@ -20,7 +20,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 [!INCLUDE [regions](../../includes/bastion-developer-sku-regions.md)]
 
 > [!NOTE]
-> VNet peering isn't currently supported for the Developer SKU.
+> Virtual network peering isn't currently supported for the Developer SKU.
 
 ## About the Developer SKU
 
@@ -30,7 +30,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-* **A VM in a VNet**.
+* **A VM in a virtual network**.
 
   When you deploy Bastion using default values, the values are pulled from the virtual network in which your VM resides. Make sure the VM resides in a resource group that's in a region where the Developer SKU is supported.
 
@@ -73,18 +73,13 @@ These steps help you deploy Bastion using the developer SKU and automatically co
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the portal, go to the VM to which you want to connect. The values from the virtual network in which this VM resides are used to create the Bastion deployment. The VM must be located in a region that supports the Developer SKU.
-1. On the page for your VM, in the **Operations** section on the left menu, select **Bastion**.
-1. On the **Bastion** page, select the **Authentication Type** you want to use, input the required credential values, and click **Connect**.
-
-   :::image type="content" source="./media/quickstart-developer-sku/deploy-bastion-developer.png" alt-text="Screenshot of the Bastion page showing Deploy Bastion." lightbox="./media/quickstart-developer-sku/deploy-bastion-developer.png":::
-
-1. Bastion deploys using the Developer SKU.
+1. On the page for your VM, expand the settings on the left menu if necessary, and select **Bastion**.
+1. On the **Bastion** page, you'll see a number of options. The SKU that you deploy depends on the settings you choose. To automatically deploy using the **Developer SKU**, select **Authentication Type** and input the required credential values. Then, click **Connect**. When you click **Connect**, Bastion automatically deploys using the Developer SKU. You could also deploy the Developer SKU using the "Configure manually" button, but it's more efficient to use the **Connect** button.
 1. The connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. Select **Allow** when asked for permissions to the clipboard. This lets you use the remote clipboard arrows on the left of the screen.
 
    * When you connect, the desktop of the VM might look different than the example screenshot.
    * Using keyboard shortcut keys while connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
-     :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="Screenshot showing a Bastion RDP connection selected." lightbox="./media/quickstart-host-portal/connected.png":::
 1. When you disconnect from the VM, Bastion remains deployed to the virtual network. You can reconnect to the VM from the virtual machine page in the Azure portal by selecting **Bastion -> Connect**.
 
 ### <a name="audio"></a>To enable audio output

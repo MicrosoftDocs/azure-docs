@@ -19,9 +19,9 @@ To allow import of APIs, assign your API center's managed identity the **API Man
 1. In the left menu, select **Access control (IAM)**.
 1. Select **+ Add role assignment**.
 1. On the **Add role assignment** page, set the values as follows: 
-    1. On the **Role** tab - Select **API Management Service Reader**.
+    1. On the **Role** tab, select **API Management Service Reader**.
     1. On the **Members** tab, in **Assign access to** - Select **Managed identity** > **+ Select members**.
-    1. On the **Select managed identities** page - Select the system-assigned managed identity of your API center that you added in the previous section. Click **Select**.
+    1. On the **Select managed identities** page, select the system-assigned managed identity of your API center that you added in the previous section. Click **Select**.
     1. Select **Review + assign**.
 
 #### [Azure CLI](#tab/cli)

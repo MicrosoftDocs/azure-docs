@@ -41,7 +41,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 You can delete an Identity Validation that is not in "In Progress" state from the Identity Validation page.
 
 >[!Note]
->Deleting an Identity Validation before stops the renewal of linked certificate profiles across all the accounts within a subscription where Identtiy Validation was done. This impacts signing. 
+>Deleting an Identity Validation before stops the renewal of linked certificate profiles across all the accounts within a subscription where Identity Validation was done. This impacts signing. 
 >Deleted identity validation requests cannot be recovered.
 
 1. Navigate to your Trusted Signing account in the [Azure portal](https://portal.azure.com/).

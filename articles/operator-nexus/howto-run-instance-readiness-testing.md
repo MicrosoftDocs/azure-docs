@@ -232,7 +232,7 @@ SP_OBJECT_ID: "<generated-sp-object-id>"
 SP_TENANT_ID: "<generated-sp-tenant-id>"
 ADMIN_GROUP_OBJECT_ID: "<generated-aad-group-id>"
 KV_NAME: "<provided-key-vault-name>" # If SP already exists please fill it in to retrieve the SP Password.
-KV_ID: "<provided-key-valut-secret>" # If SP already exists please fill it in to retrieve the SP Password.
+KV_ID: "<provided-key-vault-secret>" # If SP already exists please fill it in to retrieve the SP Password.
 ```
 
 #### Creating a custom role for execution

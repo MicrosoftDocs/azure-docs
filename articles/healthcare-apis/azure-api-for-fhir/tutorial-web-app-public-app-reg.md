@@ -19,7 +19,7 @@ In the previous tutorial, you deployed and set up your Azure API for FHIR&reg;. 
 1. Navigate to Microsoft Entra ID
 1. Select **App Registration** --> **New Registration**
 1. Name your application
-1. Select **Public client/native (mobile & desktop)** and set the redirect URI to `https://www.getpostman.com/oauth2/callback`.
+1. Select **Public client/native (mobile & desktop)** and set the redirect URI.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot of the Register an application pane, and an example application name and redirect URL.":::
 
@@ -55,9 +55,11 @@ Now that you have set up the correct authentication, set the API permissions.
 
 ## Next Steps
 
-You now have a public client application. In the next tutorial, we’ll walk through testing and gaining access to this application through Postman.
+You now have a public client application.
+There are tools available that can allow intuitive querying.
+Once you have successfully connect to your client application, you’re ready to write your web application.
 
 >[!div class="nextstepaction"]
->[Test client application in Postman](tutorial-web-app-test-postman.md)
+>[Write a web application](tutorial-web-app-write-web-app.md)
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

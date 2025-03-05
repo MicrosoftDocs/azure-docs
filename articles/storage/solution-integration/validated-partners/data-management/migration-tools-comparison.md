@@ -31,7 +31,7 @@ The following comparison matrix shows basic functionality of different tools tha
 | **Lustre** | No | No | No | No | Yes | No |
 
 > [!TIP]
->  As Cirrus Data specializes in SAN / Block data migrations, we have ommitted them from the remainder of this document.  For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
+>  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
 
 ## Supported Azure services
 

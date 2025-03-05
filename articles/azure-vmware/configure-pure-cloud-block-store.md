@@ -1,5 +1,5 @@
 --- 
-title: Pure Cloud Block Store
+title: Configure Pure Cloud Block Store
 description: Learn about Pure Cloud Block Store for Azure VMware Solution.
 ms.topic: how-to
 author: suzizuber
@@ -8,11 +8,11 @@ ms.service: azure-vmware
 ms.date: 3/06/2024
 --- 
 
-# Pure Cloud Block Store
+# Configure Pure Cloud Block Store
 
 ## Pure Cloud Block Store for Azure VMware Solution
 
-Pure Cloud Block Store, offered by Pure Storage, is one of the external block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to provision external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure. 
+Pure Cloud Block Store, offered by Pure Storage, is one of the partner block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to provision external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure. 
 
 ## Onboarding and support
 

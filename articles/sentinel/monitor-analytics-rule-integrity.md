@@ -144,7 +144,14 @@ Here are some sample queries to help you get started:
     | summarize Count = count() by Caller, Activity=Description
     ```
 
- 
+ See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***summarize*** operator](/kusto/query/summarize-operator?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+- [***count()*** aggregation function](/kusto/query/count-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+- [***dcount()*** aggregation function](/kusto/query/dcount-aggregation-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ### Statuses, errors and suggested steps
 
@@ -164,7 +171,7 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
     | A function called by the query is named with a reserved word.   | Remove or rename the function.   |
     | A syntax error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | The workspace does not exist.   |   |
-    | This query was found to use too many system resources and was prevented from running.   | Review and tune the analytics rule. Consult our Kusto Query Language [overview](kusto-overview.md) and [best practices](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) documentation. |
+    | This query was found to use too many system resources and was prevented from running. | Review and tune the analytics rule. Consult our Kusto Query Language [overview](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and [best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) documentation. |
     | A function called by the query was not found.   | Verify the existence in your workspace of all functions called by the query.   |
     | The workspace used in the query was not found.   | Verify that all workspaces in the query exist.   |
     | You don't have permissions to run this query.   | Try resetting the analytics rule by editing and saving it (without changing any settings).   |

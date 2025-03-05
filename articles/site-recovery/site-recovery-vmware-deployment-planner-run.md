@@ -38,7 +38,7 @@ First, you need a list of the virtual machines to be profiled. You can get all t
     Set-ExecutionPolicy –ExecutionPolicy AllSigned
     ```
 
-4. You may optionally need to run the following command if Connect-VIServer isn'trecognized as the name of cmdlet.
+4. You may optionally need to run the following command if Connect-VIServer isn't recognized as the name of cmdlet.
 
     ```powershell
     Add-PSSnapin VMware.VimAutomation.Core
@@ -75,7 +75,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfHoursToProfile|The number of hours for which profiling is to be run.|
 | -NoOfDaysToProfile | The number of days for which profiling is to be run. We recommend that you run profiling for more than 7 days to ensure that the workload pattern in your environment over the specified period is observed and used to provide an accurate recommendation. |
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name isn'tgiven, the directory named ‘ProfiledData’ under the current path is used as the default directory. |
+| -Directory | (Optional) The universal naming convention (UNC) or local directory path to store profiling data generated during profiling. If a directory name isn't given, the directory named ‘ProfiledData’ under the current path is used as the default directory. |
 | -Password | (Optional) The password to use to connect to the vCenter server/vSphere ESXi host. If you don't specify one now, you're prompted for it when the command is executed.|
 |-Port|(Optional) Port number to connect to vCenter/ESXi host. Default port is 443.|
 |-Protocol| (Optional) Specified the protocol either ‘http’ or ‘https’ to connect to vCenter. Default protocol is https.|
@@ -101,7 +101,7 @@ We have seen that based on the hardware configuration especially RAM size of the
 
 If you have multiple vCenter servers, you need to run one instance of ASRDeploymentPlanner for each vCenter server for profiling.
 
-Virtual machine configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in virtual machine configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling isn'tcaptured. If a profiled virtual machine configuration has changed during the profiling, in the public preview, here is the workaround to get latest virtual machine details when generating the report:
+Virtual machine configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in virtual machine configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling isn't captured. If a profiled virtual machine configuration has changed during the profiling, in the public preview, here is the workaround to get latest virtual machine details when generating the report:
 
 * Back up VMdetailList.xml, and delete the file from its current location.
 * Pass -User and -Password arguments at the time of report generation.
@@ -132,7 +132,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >[!NOTE]
 >
 >* If the server that the tool is running on is rebooted or has crashed, or if you close the tool by using Ctrl + C, the profiled data is preserved. However, there is a chance of missing the last 15 minutes of profiled data. In such an instance, rerun the tool in profiling mode after the server restarts.
->* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput isn'tcalculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report won't contain the throughput information.
+>* When the storage-account name and key are passed, the tool measures the throughput at the last step of profiling. If the tool is closed before profiling is completed, the throughput isn't calculated. To find the throughput before generating the report, you can run the GetThroughput operation from the command-line console. Otherwise, the generated report won't contain the throughput information.
 
 
 ## Generate report
@@ -261,7 +261,7 @@ Open a command-line console, and go to the Site Recovery deployment planning too
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Specify the virtualization type (VMware or Hyper-V).|
-| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a directory name isn'tspecified, ‘ProfiledData’ directory is used. |
+| -Directory | (Optional) The UNC or local directory path where the profiled data (files generated during profiling) is stored. This data is required for generating the report. If a directory name isn't specified, ‘ProfiledData’ directory is used. |
 | -StorageAccountName | The storage-account name that's used to find the bandwidth consumed for replication of data from on-premises to Azure. The tool uploads test data to this storage account to find the bandwidth consumed. The storage account must be either  General-purpose v1 (GPv1) type.|
 | -StorageAccountKey | The storage-account key that's used to access the storage account. Go to the Azure portal > Storage accounts > <*Storage account name*> > Settings > Access Keys > Key1 (or a primary access key for a classic storage account). |
 | -VMListFile | The file that contains the list of virtual machines to be profiled for calculating the bandwidth consumed. The file path can be absolute or relative. The file should contain one virtual machine name/IP address per line. The virtual machine names specified in the file should be the same as the virtual machine names on the vCenter server/vSphere ESXi host.<br>For example, the file VMList.txt contains the following VMs:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
