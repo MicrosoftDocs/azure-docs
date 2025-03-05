@@ -1,19 +1,19 @@
 ---
 title: Connect to Azure Virtual Desktop
-description: Learn the various ways to connect to a remote session from Azure Virtual Desktop using Windows App or the Remote Desktop client.
+description: Learn the various ways to connect to a remote session running in Azure Virtual Desktop using Windows App or the Remote Desktop client.
 ms.topic: concept-article
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/22/2025
+ms.date: 03/05/2025
 ---
 
 # Connect to Azure Virtual Desktop
 
-Users can connect to their remote desktops and apps from Azure Virtual Desktop using Windows App or the Remote Desktop client. Windows App and the Remote Desktop client are available on many different types of devices on different platforms and form factors, such as desktops and laptops, tablets, smartphones, through a web browser, and virtual reality headsets. This choice providing flexibility and convenience for users to access their resources from anywhere.
+Users can connect to their remote desktops and apps running in Azure Virtual Desktop using Windows App or the Remote Desktop client. Windows App and the Remote Desktop client are available on many different types of devices on different platforms and form factors, such as desktops and laptops, tablets, smartphones, through a web browser, and virtual reality headsets. This choice providing flexibility and convenience for users to access their resources from anywhere.
 
-To connect to Azure Virtual Desktop, first users need to download and install Windows App or the Remote Desktop client on their device, then sign in with their user account. An administrator must set up the resources and made them available.
+To connect to Azure Virtual Desktop, first users need to download and install Windows App or the Remote Desktop client on their device, then sign in with their user account for Azure Virtual Desktop. An administrator must have set up the resources and made them available to users.
 
-Here's an introductory video for Windows App showing remote desktops and apps. It combines resources from Azure Virtual Desktop, Windows 365, and Microsoft Dev Box:<br /><br />
+Here's an introductory video for Windows App showing remote desktops and apps. It combines resources from Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/j0XU59VbKOc]
 
@@ -38,11 +38,11 @@ To learn how to connect to Azure Virtual Desktop, see the following articles, de
 
 > [!div class="nextstepaction"]
 >
-> [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps)
+> [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop)
 
 > [!div class="nextstepaction"]
 >
 > [Get started with the Remote Desktop client](/previous-versions/remote-desktop-client/connect-windows-cloud-services)
 
 > [!TIP]
-> Windows App is the preferred method for connecting to Azure Virtual Desktop and replaces the Remote Desktop client.
+> You should use Windows App to connect to Azure Virtual Desktop as it replaces the Remote Desktop client.
