@@ -87,13 +87,13 @@ After you grant permissions to the user-assigned identity, follow these steps:
 
 This setting applies to all Key Vault references for the app.
 
-## Understand rotation
+## <a name = "rotation"></a> Understand rotation
 
 If the secret version isn't specified in the reference, the app uses the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app is automatically updated and begins using the latest version within 24 hours.
 
 The delay is because App Service caches the values of the Key Vault references and refetches them every 24 hours. Any configuration change to the app causes an app restart and an immediate refetch of all referenced secrets.
 
-## Understand source app settings from key vault
+## <a name = "source-app-settings-from-key-vault"></a> Understand source app settings from key vault
 
 To use a Key Vault reference, set the reference as the value of the setting. Your app can reference the secret through its key as normal. No code changes are required.
 

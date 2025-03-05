@@ -133,7 +133,7 @@ At any point in the swap operation, all work of initializing the swapped apps ha
 > [!NOTE]
 > Your former production instances are swapped into staging after this swap operation. Those instances are recycled in the last step of the swap process. If you have any long-running operations in your application, they're abandoned when the workers recycle. This fact also applies to function apps. Make sure that your application code is written in a fault-tolerant way.
 
-### Steps for making a slot unswappable
+<a name = "which-settings-are-swapped"></a> ### Steps for making a slot unswappable
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
@@ -149,7 +149,7 @@ To configure an app setting or connection string to stick to a specific slot tha
 
 <a name="Swap"></a>
 
-## Swap deployment slots
+## <a name = "swap-two-slots"></a> Swap deployment slots
 
 You can swap deployment slots on your app's **Deployment slots** page and the **Overview** page.
 

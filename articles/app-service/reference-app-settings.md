@@ -380,7 +380,7 @@ The following environment variables are related to cross-origin resource sharing
 | `WEBSITE_CORS_ALLOWED_ORIGINS` | Read-only. Shows the allowed origins for CORS. |
 | `WEBSITE_CORS_SUPPORT_CREDENTIALS` | Read-only. Shows whether setting the `Access-Control-Allow-Credentials` header to `true` is enabled (`True`) or not (`False`). |
 
-## Authentication and authorization
+<a name = "authentication--authorization"></a> ## Authentication and authorization
 
 The following environment variables are related to [App Service authentication](overview-authentication-authorization.md).
 

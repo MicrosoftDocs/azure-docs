@@ -76,7 +76,7 @@ If you [regenerate your storage account's access keys](../storage/common/storage
 
 1. Enable logging to the storage account's blob again. Save your setting.
 
-## Enable application logging (Linux or container)
+## <a name = "enable-application-logging-linuxcontainer"></a> Enable application logging (Linux or container)
 
 To enable application logging for Linux apps or custom containers in the [Azure portal](https://portal.azure.com):
 
@@ -148,7 +148,7 @@ Before you stream logs in real time, enable the log type that you want. App Serv
 
 To stream logs in the [Azure portal](https://portal.azure.com), go to your app and select **Log stream**.
 
-### Cloud Shell
+### <a name = "in-cloud-shell"></a> Cloud Shell
 
 To stream logs live in [Azure Cloud Shell](../cloud-shell/overview.md), use the following command.
 
@@ -200,7 +200,7 @@ With [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [crea
 
 For a list of supported log types and their descriptions, see [Supported resource logs for Microsoft.Web](monitor-app-service-reference.md#supported-resource-logs-for-microsoftweb).
 
-## Network considerations
+## <a name = "networking-considerations"></a> Network considerations
 
 For information about restrictions for diagnostic settings, see [Destination limits](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations).
 

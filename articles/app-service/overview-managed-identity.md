@@ -260,7 +260,7 @@ The `principalId` property is a unique identifier for the identity that's used f
 
 -----
 
-## Configure the target resource
+## <a name = "configure-target-resource"></a> Configure the target resource
 
 You need to configure the target resource to allow access from your app. For most Azure services, you configure the target resource by [creating a role assignment][role-assignment].
 
