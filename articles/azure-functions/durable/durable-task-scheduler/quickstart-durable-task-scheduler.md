@@ -122,8 +122,11 @@ The next step shows how to get port number for the DTS emulator.
 1. Run the emulator.
 
    ```bash
-   docker run -itP <tag>
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.4
    ```
+
+   The following indicates the emulator started successfully.
+     :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
 
    You'll notice three ports exposed on Docker desktop: `8080`, `8081`, and `8082`. These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:
    - `8080`: gRPC endpoint that allows an app to connect to DTS
