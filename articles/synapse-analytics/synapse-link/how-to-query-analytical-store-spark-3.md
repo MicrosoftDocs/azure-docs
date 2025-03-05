@@ -86,7 +86,7 @@ df.show(10)
 
 #### Access token authentication requires role assignment
 
-To use the access token approach, you need to generate access tokens. Since access tokens are associated with azure identities, correct role-based access control (RBAC) must be assigned to the identity. The role assignment is on data plane level, and you must have minimum control plane permissions to perform the role assignment. Click [here](https://learn.microsoft.com/azure/cosmos-db/nosql/security/how-to-grant-data-plane-role-based-access) for more information. 
+To use the access token approach, you need to generate access tokens. Since access tokens are associated with azure identities, correct role-based access control (RBAC) must be assigned to the identity. The role assignment is on data plane level, and you must have minimum control plane permissions to perform the role assignment. Click [here](./articles/cosmos-db/nosql/security/how-to-grant-data-plane-role-based-access.md) for more information. 
 
 The Identity Access Management (IAM) role assignments from azure portal are on control plane level and don't affect the role assignments on data plane. Data plane role assignments are only available via Azure CLI. The `readAnalytics` action is required to read data from analytical store in Cosmos DB and is not part of any predefined roles. As such we must create a custom role definition. In addition to the `readAnalytics` action, also add the actions required for Data Reader. Create a JSON file with the following content and name it role_definition.json
 
@@ -121,7 +121,7 @@ The Identity Access Management (IAM) role assignments from azure portal are on c
 
 #### Generating the access token - Synapse Notebooks
 
-The recommended method for Synapse Notebooks is to use service principal with a certificate to generate access tokens. Click [here](https://learn.microsoft.com/azure/synapse-analytics/spark/apache-spark-secure-credentials-with-tokenlibrary) for more information.
+The recommended method for Synapse Notebooks is to use service principal with a certificate to generate access tokens. Click [here](../spark/apache-spark-secure-credentials-with-tokenlibrary.md) for more information.
 
 ```scala
 The following code snippet has been validated to work in a Synapse notebook
@@ -140,7 +140,7 @@ Now you can use the access token generated in this step to read data from analyt
 > When using an Azure App registration, use the application (Client Id).
 
 > [!Note]
-> Currently, Synapse doesn’t support generating access tokens using the azure-identity package in notebooks. Furthermore, synapse VHDs don’t include azure-identity package and its dependencies. Click [here](https://learn.microsoft.com/azure/synapse-analytics/synapse-service-identity) for more information.
+> Currently, Synapse doesn’t support generating access tokens using the azure-identity package in notebooks. Furthermore, synapse VHDs don’t include azure-identity package and its dependencies. Click [here](../spark/synapse-service-identity.md) for more information.
 
 
 ### Load to Spark DataFrame
