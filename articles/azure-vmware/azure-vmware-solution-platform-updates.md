@@ -13,7 +13,9 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## March 2025
 
-To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074)
+To address the vulnerabilities (CVE-2025-22224, CVE-2025-22225, CVE-2025-22226) reported in Broadcom security advisory [VMSA-2025-0004](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/25390), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0 U2d, Patch Release 24585300](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u2d-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0004-remediation/4388074) 
+
+vSAN in-transit encryption is now available in Azure VMware Solution through a Run Command. This new feature enhances data security by encrypting data as it moves between hosts in your vSAN cluster in the Azure VMware Solution. [Learn more](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/using-encryption-in-a-vsan-cluster-1/vsan-data-in-transit-encryption.html)
 
 ## February 2025
 
