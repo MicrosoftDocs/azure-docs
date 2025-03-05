@@ -126,14 +126,14 @@ A popular use case for Azure Files is storing user profile containers and disk i
 
 #### FSLogix
 
-If you're using [FSLogix with Azure Virtual Desktop](../../virtual-desktop/fslogix-containers-azure-files.md), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user will open a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
+If you're using [FSLogix with Azure Virtual Desktop](../../virtual-desktop/fslogix-containers-azure-files.md), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user opens a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
 
 If you're hitting the limit of 10,000 concurrent handles for the root directory or users are seeing poor performance, try using an additional Azure file share and distributing the containers between the shares.
 
 > [!WARNING]
 > While Azure Files can support up to 10,000 concurrent users from a single file share, it's critical to properly test your workloads against the size and type of file share you've created. Your requirements might vary based on users, profile size, and workload.
 
-For example, if you have 2,400 concurrent users, you'd need 2,400 handles on the root directory (one for each user), which is below the limit of 10,000 open handles. For FSLogix users, reaching the limit of 2,000 open file and directory handles is extremely unlikely. If you have a single FSLogix profile container per user, you'd only consume two file/directory handles: one for the profile directory and one for the profile container file. If users have two containers each (profile and ODFC), you'd need one additional handle for the ODFC file.
+For example, if you have 2,400 concurrent users, you'd need 2,400 handles on the root directory (one for each user), which is below the limit of 10,000 open handles. For FSLogix users, reaching the limit of 2,000 open file and directory handles is unlikely. If you have a single FSLogix profile container per user, you'd only consume two file/directory handles: one for the profile directory and one for the profile container file. If users have two containers each (profile and ODFC), you'd need one additional handle for the ODFC file.
 
 #### App attach with CimFS
 
@@ -171,14 +171,14 @@ The following table indicates which targets are soft, representing the Microsoft
 | Maximum number of file system objects (directories and files) in a directory **(not recursive)** | 5 million objects | Yes |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
-| Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size will be 8 KiB. | Yes |
+| Minimum file size for a file to be tiered | Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4 KiB, the minimum file size is 8 KiB. | Yes |
 
 > [!NOTE]
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync won't be able to operate.
 
 ## Azure File Sync performance metrics
 
-Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
+Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon many factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution should be measured by the number of objects (files and directories) processed per second.
 
 The following table indicates the Azure File Sync performance targets:
 
@@ -196,7 +196,7 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - The object throughput approximately scales in proportion to the number of sync groups on the server. Splitting data into multiple sync groups on a server yields better throughput, which is also limited by the server and network.
 - The object throughput is inversely proportional to the MiB per second throughput. For smaller files, you will experience higher throughput in terms of the number of objects processed per second, but lower MiB per second throughput. Conversely, for larger files, you will get fewer objects processed per second, but higher MiB per second throughput. The MiB per second throughput is limited by the Azure Files scale targets.
-- When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance will be impacted. In extreme cases, some sync sessions will fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced.
+- When many server endpoints in the same sync group are syncing at the same time, they are contending for cloud service resources. As a result, upload performance is impacted. In extreme cases, some sync sessions fail to access the resources, and will fail. However, those sync sessions will resume shortly and eventually succeed once the congestion is reduced.
 - If cloud tiering is enabled, you are likely to observe better download performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user.
 
 ## See also
