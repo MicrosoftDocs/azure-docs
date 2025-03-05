@@ -74,6 +74,9 @@ If you're using the media connector to stream live video, you need to install yo
 kubectl create namespace media-server --dry-run=client -o yaml | kubectl apply -f - & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml --validate=false
 ```
 
+> [!IMPORTANT]
+> This media server is only suitable for testing and development purposes. In a production environment you need to provide your own media server.
+
 To discover the cluster IP address of this media server, run the following command:
 
 ```console
