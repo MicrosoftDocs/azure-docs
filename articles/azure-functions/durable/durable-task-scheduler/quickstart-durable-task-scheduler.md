@@ -45,8 +45,9 @@ If you don't meet these prerequisites, we recommend that you begin with one of t
 You'll also need to have [Docker](https://docs.docker.com/engine/install/) installed to run the DTS emulator. 
 
 ## Add the Durable Task Scheduler extension (.NET only)
+> [!NOTE] The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
-First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
+Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
 
 1. Add a reference to the extension in your _.csproj_ file and then build the project. 
 
@@ -191,8 +192,9 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 
-> [!NOTE] 
-> If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) after deployment. This will ensure your app autoscales based on load. 
+#### Apps on Functions Premium plan
+
+If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) after deployment. This will ensure your app autoscales based on load. 
 
 ### Test your function app in Azure
 
