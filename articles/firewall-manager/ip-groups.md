@@ -2,12 +2,12 @@
 title: IP Groups in Azure Firewall Policy
 description: IP groups allow you to group and manage IP addresses for Azure Firewall policy rules.
 services: firewall-manager
-author: vhorne
+author: duau
 ms.service: azure-firewall-manager
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
 ms.date: 12/03/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # IP Groups in Azure Firewall policy
@@ -39,8 +39,6 @@ An IP Group can be created using the Azure portal, Azure CLI, or REST API. For m
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
 2. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
 
-   ![IP Groups overview](media/ip-groups/overview.png)
-
 ## Manage an IP Group
 
 You can see all the IP addresses in the IP Group and the rules or resources that are associated with it. To delete an IP Group, you must first dissociate the IP Group from the resource that is using it.
@@ -57,8 +55,6 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 ## Use an IP Group
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create a policy with DNAT, application, or network rules.
-
-:::image type="content" source="media/ip-groups/firewall-ip-group.png" alt-text="IP Groups in Firewall":::
 
 ## IP address limits
 

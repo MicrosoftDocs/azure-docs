@@ -27,7 +27,9 @@ Before you begin, review [Implications of removing Microsoft Sentinel from your 
 
 Complete the following steps to remove Microsoft Sentinel from your Log Analytics workspace.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Settings**.<br>On the **Settings** page, select the **Settings** tab.<br><br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **System** > **Settings** > **Microsoft Sentinel**.
+1. Before removing Sentinel, note that you will no longer have visibility to manage Sentinel tables, such as setting extended data retention, in the Log Analytics Tables UI. Please consider per-table retention to 90 days or less to avoid data retention charges for the Sentinel data that Log Analytics will store, but which you can no longer access after Sentinel is removed. 
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Settings**.<br>On the **Settings** page, select the **Settings** tab. <br><br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **System** > **Settings** > **Microsoft Sentinel**.
 
 1. Select **Remove Microsoft Sentinel**.
 

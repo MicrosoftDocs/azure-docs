@@ -59,7 +59,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Outbound | Yes | Yes |
-| **AzureDatabricks** | Azure Databricks. | Both | No | Yes |
+| **[AzureDatabricks](/azure/databricks/resources/ip-domain-region)** | Azure Databricks. | Both | No | Yes |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | Yes |
 | **[AzureDeviceUpdate](/azure/iot-hub-device-update/network-security)** | Device Update for IoT Hub. | Both | No | Yes |
 | **[AzureDevOps](/azure/devops/organizations/security/allow-list-ip-url)** | Azure DevOps. | Inbound | Yes | Yes |

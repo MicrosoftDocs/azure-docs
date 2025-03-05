@@ -51,8 +51,16 @@
         href: understand-guidelines-active-directory-domain-service-site.md
       - name: Understand DNS 
         href: domain-name-system-concept.md
-      - name: Understand the use of LDAP
-        href: lightweight-directory-access-protocol.md
+      - name: Understand LDAP
+        items:
+        - name: Understand LDAP basics
+          href: lightweight-directory-access-protocol.md
+        - name: Understand name mapping using LDAP
+          href: lightweight-directory-access-protocol-name-mapping.md
+        - name: Understand the allow local NFS users with LDAP option
+          href: lightweight-directory-access-protocol-local-users.md
+        - name: Understand LDAP schemas
+          href: lightweight-directory-access-protocol-schemas.md
       - name: Understand NFS group memberships and supplemental groups
         href: network-file-system-group-memberships.md
       - name: Understand file locking

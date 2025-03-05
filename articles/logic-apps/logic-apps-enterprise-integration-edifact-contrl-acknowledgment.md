@@ -6,7 +6,7 @@ ms.suite: integration
 author: praveensri
 ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/15/2023
 ---
 

@@ -35,7 +35,6 @@ When you exchange a reservation, you can change your term from one-year to three
 Not all reservations are eligible for exchange. For example, you can't exchange the following reservations:
 
 - Azure Databricks Pre-purchase plan
-- Azure OpenAI provisioned throughput
 - Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
@@ -50,7 +49,6 @@ The following reservations aren't eligible for refunds:
 
 - Azure Databricks Pre-purchase plan
 - Synapse Analytics Pre-purchase plan
-- Azure VMware solution by CloudSimple
 - Red Hat plans
 - SUSE Linux plans
 - Microsoft Defender for Cloud Pre-Purchase Plan

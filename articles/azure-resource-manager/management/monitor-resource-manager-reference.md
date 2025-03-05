@@ -4,9 +4,6 @@ description: This article contains important reference material you need when yo
 ms.date: 07/25/2024
 ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: reference
-author: mumian
-ms.author: jgao
-ms.service: azure-resource-manager
 ---
 
 # Azure Resource Manager monitoring data reference

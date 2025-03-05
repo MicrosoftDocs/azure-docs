@@ -3,18 +3,18 @@ title: Personal data
 description: Learn how to manage personal data associated with Azure Resource Manager operations.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 02/12/2025
 ---
 
 # Manage personal data associated with Azure Resource Manager
 
-To avoid exposing sensitive information, delete any personal information you may have provided in deployments, resource groups, or tags. Azure Resource Manager provides operations that let you manage personal data you may have provided in deployments, resource groups, or tags.
+To avoid exposing sensitive information, delete any personal information you provided in deployments, resource groups, or tags. Azure Resource Manager provides operations that let you manage personal data you provided in deployments, resource groups, or tags.
 
 [!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Delete personal data in deployment history
 
-For deployments, Resource Manager retains parameter values and status messages in the deployment history. These values persist until you delete the deployment from the history. To see if you have provided personal data in these values, list the deployments. If you find personal data, delete the deployments from the history.
+For deployments, Resource Manager retains parameter values and status messages in the deployment history. These values persist until you delete the deployment from the history. To see if you provided personal data in these values, list the deployments. If you find personal data, delete the deployments from the history.
 
 To list **deployments** in the history, use:
 
@@ -30,7 +30,7 @@ To delete **deployments** from the history, use:
 
 ## Delete personal data in resource group names
 
-The name of the resource group persists until you delete the resource group. To see if you have provided personal data in the names, list the resource groups. If you find personal data, [move the resources](move-resource-group-and-subscription.md) to a new resource group, and delete the resource group with personal data in the name.
+The name of the resource group persists until you delete the resource group. To see if you provided personal data in the names, list the resource groups. If you find personal data, [move the resources](move-resource-group-and-subscription.md) to a new resource group, and delete the resource group with personal data in the name.
 
 To list **resource groups**, use:
 
@@ -46,7 +46,7 @@ To delete **resource groups**, use:
 
 ## Delete personal data in tags
 
-Tags names and values persist until you delete or modify the tag. To see if you have provided personal data in the tags, list the tags. If you find personal data, delete the tags.
+Tag names and values persist until you delete or modify the tag. To see if you provided personal data in the tags, list the tags. If you find personal data, delete the tags.
 
 To list **tags**, use:
 
