@@ -41,4 +41,4 @@ For more information, see [Azure to Azure disaster recovery architecture](../s
 
 - To learn more about how Azure supports reliability, see [Azure reliability](/azure/reliability). 
 - To learn more about Deployment Environments resources, see [Azure Deployment Environments key concepts](../deployment-environments/concept-environments-key-concepts.md).
-- To get started with Deployment Environments, see [Quickstart: Create and configure the Azure Deployment Environments dev center](../deployment-environments/quickstart-create-and-configure-devcenter.md).
+- To get started with Deployment Environments, see [Quickstart: Configure Azure Deployment Environments](../deployment-environments/quickstart-create-and-configure-devcenter.md).
