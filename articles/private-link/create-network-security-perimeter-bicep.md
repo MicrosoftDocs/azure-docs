@@ -12,15 +12,19 @@ ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 
 # Quickstart - Create a network security perimeter - Bicep
 
-In this quickstart, you'll use a Bicep template to create a network security perimeter for an Azure resource. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Bicep. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 You can also create a network security perimeter by using the [Azure portal](create-network-security-perimeter-portal.md), [Azure PowerShell](create-network-security-perimeter-powershell.md), or the [Azure CLI](create-network-security-perimeter-cli.md).
 
+[!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
+
 ## Prerequisites
 
-You need an Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 ## Review the Bicep file
 
@@ -28,10 +32,11 @@ This Bicep file creates a network security perimeter for an instance of Azure Ke
 
 The Bicep file that this quickstart uses is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/network-security-perimeter-create/).
 
-:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.sql/network-secuirty-perimeter-create/main.bicep":::
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/network-secuirty-perimeter-create/main.bicep":::
 
 
 The Bicep file defines multiple Azure resources:
+
 - [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): The instance of Key Vault with the sample database.
 - [**Microsoft.Network/networkSecurityPerimeters**](/azure/templates/microsoft.network/networksecurityperimeters): The network security perimeter that you use to access the instance of Key Vault.
 - [**Microsoft.Network/networkSecurityPerimeters/profiles**](/azure/templates/microsoft.network/networksecurityperimeters/profiles): The network security perimeter profile that you use to access the instance of Key Vault.
@@ -54,19 +59,24 @@ The Bicep file defines multiple Azure resources:
 
     ```powershell
     New-AzResourceGroup -Name resource-group -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName resource-group -TemplateFile main.bicep -keyVaultName <key-vault-name> -networkSecurityPerimeterName <network-security-perimeter-name>
+    New-AzResourceGroupDeployment -ResourceGroupName resource-group -TemplateFile main.bicep
     ```
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Validate the deployment
 
+1. Sign into the Azure portal.
+1. Enter **Network security perimeter** in the search box at the top of the portal. Select **Network security perimeters** in the search results.
+1. Select the **networkPerimeter** resource from the list of network security perimeters.
+1. Verify that the **networkPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles, associated resources, and Policy assignments.
+
 > [!NOTE]
 > The Bicep file generates a unique name for the virtual machine myVm<b>{uniqueid}</b> resource, and for the SQL Database sqlserver<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the private link service, delete the resource group. This removes the private link service and all the related resources.
+When you no longer need the resources that you created with the network security perimeter service, delete the resource group. This removes the network security perimeter service and all the related resources.
 
 # [CLI](#tab/CLI)
 
@@ -80,3 +90,10 @@ az group delete --name resource-group
 Remove-AzResourceGroup -Name resource-group
 ```
 ---
+
+[!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Diagnostic logging for Azure Network Security Perimeter](./network-security-perimeter-diagnostic-logs.md)
