@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 03/07/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -33,7 +33,7 @@ For example, if you have an on-premises scenario, the following architectural ov
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
-For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged* infrastructure (HCI)](/azure-stack/hci/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
 
 For more information, see the following documentation:
 
@@ -100,7 +100,7 @@ For example, the following table shows some example billing charge calculations:
 - Hybrid deployment is currently available and supported only for the following Azure Arc-enabled Kubernetes clusters:
 
   - Azure Arc-enabled Kubernetes clusters
-  - Azure Arc-enabled Kubernetes clusters on Azure Stack HCI
+  - Azure Arc-enabled Kubernetes clusters on Azure Local (formerly Azure Stack HCI)
   - Azure Arc-enabled Kubernetes clusters on Windows Server
 
 ## Prerequisites
@@ -121,15 +121,15 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 
 > [!NOTE]
 >
-> You can also create a [Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview) 
+> You can also create a [Kubernetes cluster on Azure Local](/azure/azure-local/overview) 
 > or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this guide 
 > to connect your cluster to Azure Arc and set up your connected environment. For more information about 
-> Azure Stack HCI and AKS on Windows Server, see the following resources:
+> Azure Local and AKS on Windows Server, see the following resources:
 >
-> - [About Azure Stack HCI](/azure-stack/hci/deploy/deployment-introduction)
-> - [Deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
-> - [Create Kubernetes clusters on Azure Stack HCI using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
-> - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
+> - [About Azure Local deployment](/azure/azure-local/deploy/deployment-introduction)
+> - [Deployment prerequisites for Azure Local](/azure/azure-local/deploy/deployment-prerequisites)
+> - [Create Kubernetes clusters using Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli)
+> - [Set up an Azure Kubernetes Service host on Azure Local and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/aksarc/kubernetes-walkthrough-powershell)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
@@ -424,8 +424,10 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 
 > [!IMPORTANT]
 >
-> If you want to deploy to AKS on Azure Stack HCI, before you create and install the Azure Container Apps extension, 
-> make sure that you [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer).
+> If you want to deploy to AKS on Azure Local, before you create and 
+> install the Azure Container Apps extension, make sure that you 
+> [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer). 
+> Also, make sure that you 
 
 1. Set the following environment variables to the following values:
    
@@ -618,6 +620,48 @@ For more information, see the following resources:
 
 - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-the-azure-container-apps-connected-environment)
 - [az containerapp connected-env create](/cli/azure/containerapp#az-containerapp-create)
+
+<a name="update-coredns-azure-local"></a>
+
+## Update CoreDNS for a Kubernetes cluster in Azure Local
+
+If your Azure Kubernetes cluster is hosted in Azure Local, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to the your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when your Kubernetes cluster is hosted in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
+
+For more information, see the following documentation:
+
+- [CoreDNS for Kubernetes](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns)
+- [Customize CoreDNS for Azure Kubernetes Service](/azure/aks/coredns-custom)
+- [ConfigMaps in Kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/)
+- [Namespaces - core concepts for Azure Kubernetes Service](/azure/aks/core-aks-concepts#namespaces)
+
+To update the CoreDNS configuration, run the following Azure CLI command using the options for your scenario:
+
+```azurecli
+az containerapp connected-env prepare setup-core-dns
+```
+
+| Arguments | Description |
+|-----------|-------------|
+| **`--distro`** | The supported distribution to use for setting up the core DNS file. Allowed values: `AksAzureLocal` |
+| **`--kube-config`** | The path to the Kubernetes configuration file, also known as a ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), that contains the configuration parameters for accessing Kubernetes clusters. |
+| **`--kube-context`** | The Kubernetes context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
+| **`--yes -y`** | Don't prompt for confirmation. |
+
+For more information, see [az containerapp connected-env](/cli/azure/containerapp/connected-env).
+
+### Examples
+
+- Set up CoreDNS configuration for Azure Local:
+
+  ```azurecli
+  az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal
+  ```
+
+- Set up CoreDNS configuration for Azure Local using a Kubernetes configuration file and the Kubernetes context:
+
+   ```azurecli
+   az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kube-context-name>
+   ```
 
 <a name="create-storage-provider"></a>
 

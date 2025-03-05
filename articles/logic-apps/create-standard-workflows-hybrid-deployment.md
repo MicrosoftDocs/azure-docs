@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 03/07/2025
 # Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -103,16 +103,11 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
 1. After Azure completes deployment, select **Go to resource**.
 
+   The Azure portal opens your logic app resource, for example:
+
    :::image type="content" source="media/create-standard-workflows-hybrid-deployment/logic-app-hybrid-portal.png" alt-text="Screenshot shows Azure portal with Standard logic app for hybrid deployment created as a container app.":::
 
-   > [!NOTE]
-   >
-   > Several known issues exist in the portal around Standard logic apps that use the hybrid hosting option. 
-   > These logic apps appear with the **Container App** label, which differs from Standard logic apps that 
-   > use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
-   > see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
-
-1. In the Azure portal, on the resource menu, under **Workflows**, select **Workflows**.
+1. On the logic app resource menu, under **Workflows**, select **Workflows**.
 
 1. On the **Workflows** page toolbar, select **Add** to add an empty stateful or stateless workflow.
 
@@ -216,11 +211,6 @@ After you finish building your workflow, you can deploy your logic app to your A
    After deployment completes, you can go to the Azure portal to view your deployed Standard logic app and workflow.
 
 > [!NOTE]
->
-> Several known issues exist in the portal around Standard logic apps that use the hybrid hosting option. 
-> These logic apps appear with the **Container App** label, which differs from Standard logic apps that 
-> use either the Workflow Service Plan or App Service Environment V3 hosting option. For more information, 
-> see [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 >
 > A Standard logic app with the hybrid hosting option automatically creates a new *revision*, 
 > which is a [versioning concept from Azure Container Apps](../container-apps/revisions.md), 
@@ -392,18 +382,6 @@ You can store the client ID and client secret values in your logic app resource 
 
 ## Known issues and troubleshooting
 
-<a name="known-issues-portal"></a>
-
-### Azure portal
-
-- Your Standard logic app is deployed and appears as a [Azure Container Apps resource](/azure/container-apps/overview), but the type appears as **Logic App (Hybrid)**.
-
-- Azure includes your Standard logic app in the **Container Apps** resource list, not the **Logic apps** resource list.
-
-- Your Azure Container Apps connected environment lists your Standard logic app as having an **App Type** named **Hybrid Logic App**.
-
-- To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
-
 ### Arc-enabled Kubernetes clusters
 
 In rare scenarios, you might notice a high memory footprint in your cluster. To prevent this issue, either scale out or add autoscale for node pools.
@@ -412,7 +390,7 @@ In rare scenarios, you might notice a high memory footprint in your cluster. To 
 
 After you deploy your Standard logic app, confirm that your app is running correctly.
 
-1. In the Azure portal, go to the container app resource for your logic app.
+1. In the Azure portal, open your logic app resource.
 
 1. On the resource menu, select **Overview**.
 
