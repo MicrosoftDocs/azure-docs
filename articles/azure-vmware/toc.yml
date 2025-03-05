@@ -3,26 +3,26 @@ items:
   href: index.yml
 - name: Overview - Azure VMware Solution
   href: introduction.md 
-- name: Azure VMware Solution - Native fleet 
+- name: Azure VMware Solution on Native
   items:
-  - name: What's Azure VMware Native fleet
-    href: introduction-native-fleet.md
-  - name: what's new
-    href: azure-vmware-solution-native-fleet-updates.md
+  - name: What's Azure VMware on Native
+    href: introduction-native.md
+  - name: What's new
+    href: azure-vmware-solution-native-updates.md
   - name: Known issues
-    href: azure-vmware-solution-native-fleet-known-issues.md
+    href: azure-vmware-solution-native-known-issues.md
   - name: Quickstarts
     items:
     - name: Plan the deployment
-      href: plan-native-fleet-deployment.md
+      href: plan-native-deployment.md
   - name: Architecture
     items:
-    - name: Native fleet design considerations
-      href: architecture-native-fleet-design-considerations.md
+    - name: Azure VMware Solution on Native design considerations
+      href: architecture-native-design-considerations.md
   - name: Networking
     items:
     - name: Virtual network
-      href: native-fleet-network.md    
+      href: native-network.md    
 - name: Azure VMware Solution
   items:
   - name: What's Azure VMware Solution
