@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 003/06/2025
+ms.date: 03/06/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ---
@@ -328,6 +328,8 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WE
 ```
 
 The value is defined in MB and must be less and equal to the total physical memory of the host. For example, in an App Service plan with 8 GB of RAM, the cumulative total of `WEBSITE_MEMORY_LIMIT_MB` for all the apps must not exceed 8 GB. For more information on how much memory is available, see the **Premium v3 service plan** section of [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/windows/).
+
+## Customize the number of compute cores
 
 By default, a Windows container runs with all available cores for your chosen pricing tier. You might want to reduce the number of cores that your staging slot uses. To reduce the number of cores used by a container, set the `WEBSITE_CPU_CORES_LIMIT` app setting to the preferred number of cores. You can set it by using the [Cloud Shell](https://shell.azure.com). In Bash:
 
