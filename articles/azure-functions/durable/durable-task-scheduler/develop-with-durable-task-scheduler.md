@@ -143,15 +143,11 @@ You can create a scheduler and task hub on Azure portal via two ways:
 
 # [Function app integrated creation](#tab/function-app-integrated-creation)  
 
-### Function app integrated creation 
-
 You can create a scheduler and a task hub as part of the Function app creation on Azure portal. 
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
 # [Top-level creation](#tab/top-level-creation) 
-
-### Top-level creation
 
 1. In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
 
@@ -476,7 +472,7 @@ Gain access to the [DTS dashboard](./durable-task-scheduler-dashboard.md) by ass
 
 ::: zone-end 
 
-## Scaling in Functions Premium plan 
+## Auto scaling in Functions Premium plan 
 For DTS apps on the Functions Premium plan, enable the Runtime Scale Monitoring setting to get auto scaling of the app. 
 
 1. In your function app, navigate to **Settings** > **Configuration**.
