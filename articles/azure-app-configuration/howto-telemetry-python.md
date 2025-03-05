@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/05/2025
 ---
 
 # Tutorial: Enable telemetry for feature flags in a Python application (preview)
@@ -15,10 +15,8 @@ In this tutorial, you use telemetry (preview) in your Python application to trac
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- An App Configuration store. If you don't have an App Configuration store, see [Create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- A variant feature flag with telemetry enabled. If you don't have a feature flag, see [Enable telemetry for feature flags](./howto-telemetry.md).
-- An Application Insights resource. If you don't have an Application Insights resource, see [Create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
+- A variant feature flag named *Greeting*. If you don't have one, follow the [instructions to create it](./manage-feature-flags.md).
+- A variant feature flag named *Greeting* with telemetry enabled. If you don't have one, follow the [update it](./howto-telemetry.md). 
 
 ## Add telemetry to your python application
 

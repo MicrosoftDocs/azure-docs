@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 03/05/2025
 ---
 
 # Tutorial: Enable telemetry for feature flags (preview)
@@ -23,7 +23,6 @@ These types of questions can be answered through the emission and analysis of fe
 
 - An Azure subscription. If you don't have one, [If you don't have one](https://azure.microsoft.com/free/) before you begin.
 - An App Configuration store. If you don't have one, [create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- A variant feature flag. If you don't have a feature flag, see [Create a feature flag](./manage-feature-flags.md).
 - An Application Insights resource. If you don't have one, [create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
 
 ## Connect to Application Insights (preview)
@@ -34,7 +33,7 @@ These types of questions can be answered through the emission and analysis of fe
 1. Select the **Connect** button.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, connecting application insights.](./media/how-to-telemetry/connect-to-app-insights.png)
+    > ![Screenshot of the Azure portal, connecting application insights.](./media/howto-telemetry/connect-to-app-insights.png)
 
 ## Enable telemetry for a feature flag (preview)
 
@@ -42,13 +41,13 @@ These types of questions can be answered through the emission and analysis of fe
 1. Select the feature flag named Greeting. If you don't have it, follow the [instructions to create it](./manage-feature-flags.md). Then, right-click on the feature flag and select **Edit**.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, editing a feature flag.](./media/how-to-telemetry/edit-feature-flag.png)
+    > ![Screenshot of the Azure portal, editing a feature flag.](./media/howto-telemetry/edit-feature-flag.png)
 
 1. In the new view, select the **Telemetry** tab.
 1. Check the **Enable Telemetry** box and then select the **Review + update** button at the bottom of the page.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of the Azure portal, enabling telemetry.](./media/how-to-telemetry/enable-telemetry.png)
+    > ![Screenshot of the Azure portal, enabling telemetry.](./media/howto-telemetry/enable-telemetry.png)
 
 1. Continue to the following instructions to use telemetry in your application for the language or platform you're using.
 
