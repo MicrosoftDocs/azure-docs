@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 ms.subservice: data
 ---
 
-# Voice and video Insights
+# Voice and Video Insights
 
 This document introduces the Voice and Video section of your Insights dashboard and how to use Copilot in Azure to monitor and improve your call quality.
 
@@ -25,10 +25,6 @@ reliability, and quality for that calling resource.
 This dashboard 
 is integrated with [Copilot in Azure](/azure/copilot/overview), allowing you to chat with Copilot to quickly understand the data you’re looking at and learn actions to improve your users' calling experiences.
 
-<!-- Insert example prompts and images:
-1
-2
-3 -->
 
 There are two main tools you can use to monitor your calls and improve call quality. 
 1. Voice and Video Insights dashboards
@@ -56,21 +52,23 @@ You need to start storing call logs and enable [Copilot in Azure](/azure/copilot
 
 ## Accessing Voice and Video Insights
 
-Inside your Azure Communication Services resource, scroll down on the left navigation bar to the **Monitor** category and select the **Insights** tab:
+Inside your Azure Communication Services resource, scroll down on the left navigation bar to the **Monitor** category. Select the **Insights** tab, then select **Voice and Video**:
 
-:::image type="content" source="..\media\workbooks\acs-insights-nav.png" alt-text="Screenshot of the Insights navigation icon.":::
+:::image type="content" source="..\media\workbooks\voice-and-video-navigate.png" alt-text="Screenshot of the Insights navigation icon."  lightbox="..\media\workbooks\voice-and-video-navigate.png":::
 
 
 ## Volume
 
-<!-- :::image type="content" source="..\media\workbooks\voice-and-video-nav.png" alt-text="Screenshot of voice and video navigation."::: -->
-
-The **Volume** tab plots key usage metrics, such as call and participant volume, you can use the filters to focus your reviews and time frames. You can use Copilot to get detailed explanations of key concepts at the bottom of this section.
+The **Volume** tab plots key usage metrics, such as call and participant volume, you can use the filters to focus your reviews and time frames. 
 
 This tab focuses on the composition and volume of your calls over time. You can see average call duration in a period or focus on top users by average call duration. We provide more information with breakdowns by SDK version, Teams interoperability, participant types, call type, endpoint type, and OS version. 
 
 
-<!-- :::image type="content" source="..\media\workbooks\voice-and-video-summary.png" alt-text="Screenshot of voice and video summary."::: -->
+:::image type="content" source="..\media\workbooks\voice-and-video-volume-2.png" alt-text="Screenshot of voice and video Volume tab."  lightbox="..\media\workbooks\voice-and-video-volume-2.png":::
+
+You can use [Copilot in Azure](/azure/copilot/overview) to get detailed explanations of key concepts at the bottom of this section.
+
+:::image type="content" source="..\media\workbooks\voice-and-video-volume-copilot.png" alt-text="Screenshot of Copilot responses in the voice and video Volume tab."  lightbox="..\media\workbooks\voice-and-video-volume-copilot.png":::
 
 <!-- The **Volume** tab under the **Voice and video** modality displays the number of calls and the number of participants in a specific period of time (**Time range** parameter), subdivided into time bins (**Time granularity** parameter):
 
@@ -85,11 +83,16 @@ The **Reliability** tab summarizes the performance of key calling SDK APIs to he
 
 <!-- The **Reliability** tab summarizes the performance of key calling SDK APIs to help you focus on the lowest performing areas. The default view shows a trend of all the APIs to give you an overview of your reliability. You can get more details by selecting a single API scenario to focus on. When you choose a single API scenario the dashboard visuals update to show a detailed breakdown of that API and highlight where you can chat with Copilot to learn about individual error codes and possible solutions to improve performance.  -->
 
+
+:::image type="content" source="..\media\workbooks\voice-and-video-old-reliability.png" alt-text="Screenshot of Copilot responses in the voice and video reliability tab."  lightbox="..\media\workbooks\voice-and-video-old-reliability.png":::
+
 ## User Facing Diagnostics (UFD)
 
-The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. 
+The User Facing Diagnostic (UFD) tab opens with a summary of the top UFD events and highlights the recovery rate of each UFD for you to focus on. Like the Reliability tab, you see an overview of all the UFDs first, once you select an individual UFD you see further drill-down insights. You can use [Copilot in Azure](/azure/copilot/overview) to learn how to leverage UFDs in your calling application and mitigate their impact to your users.
 
 We recommend prioritizing improvements on a UFD that has a low recovery rate and a high volume, which can indicate the best opportunity to improve your user's call experiences. For example, the calling SDK might recover from some in call events and the user might not perceive an issue. By focusing on the poorest performing areas you can help identify root causes. 
+
+:::image type="content" source="..\media\workbooks\voice-and-video-ufd-tab.png" alt-text="Screenshot of Copilot responses in the voice and video UFD tab."  lightbox="..\media\workbooks\voice-and-video-ufd-tab.png":::
 
 ### How do you interpret UFDs?
 
@@ -122,7 +125,7 @@ The **Quality** tab under **Voice and video** allows users to inspect the qualit
 
 - **Participant end reasons**, which keep track of the reason why a participant left a call. End reasons are documented in our [Call Codes](https://en.wikipedia.org/wiki/List_of_SIP_response_codes) documentation, which are numeric codes that describe the specific status of an operation. Call Codes can be grouped into six categories: *Success*, *Client Failure*, *Server Failure*, *Global Failure*, *Redirection*, and *Provisional*. The distribution of Call Codes is shown in the pie chart on the left hand side, while a list of the specific codes for participant end reasons is provided on the right hand side.
 
-<!-- :::image type="content" source="..\media\workbooks\voice-and-video-quality.png" alt-text="Screenshot of voice and video quality."::: -->
+:::image type="content" source="..\media\workbooks\voice-and-video-quality-2.png" alt-text="Screenshot of voice and video quality."  lightbox="..\media\workbooks\voice-and-video-quality-2.png":::
 
 Quality can also be filtered by the types of media streams (**Media Type** parameter) used in the call, for example, to only get the impacted calls in terms of video stream quality:
 
@@ -140,11 +143,11 @@ For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks]
 
 The **Insights** dashboards we provide can be customized to better suit your needs by clicking on the **Edit** button on the top navigation bar:
 
-:::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Screenshot of dashboard editing process.":::
+:::image type="content" source="..\media\workbooks\dashboard-editing.png" alt-text="Screenshot of dashboard editing process."  lightbox="..\media\workbooks\dashboard-editing.png":::
 
 Editing these dashboards creates a separate workbook that can be accessed from your resource’s Workbooks tab:
 
-:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab.":::
+:::image type="content" source="..\media\workbooks\workbooks-tab.png" alt-text="Screenshot of the workbooks tab."  lightbox="..\media\workbooks\workbooks-tab.png":::
 
 For an in-depth description of workbooks, refer to the [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) documentation.
 
@@ -172,9 +175,9 @@ Your organization manages access to [Copilot in Azure](/azure/copilot/overview).
 Interact with Copilot in Azure for quality improvement guidance and explanations of common terms. Giving Copilot in Azure detailed information helps it identify fixes. If you want, you can use the visuals without Copilot in a limited capacity. 
 
 ### Can I use the legacy version of Voice and Video Insights?
-Yes, the legacy Voice and Video Insights version from January 2025 is available. To open it select Workbooks on the left sidebar of your Azure Communication Services resource, then select Insights (legacy) in the workbook gallery view.
+Yes, the legacy Voice and Video Insights version from January 2025 is available. To open it select Workbooks on the left sidebar of your Azure Communication Services resource, then select **Insights (legacy)** in the workbook gallery view.
 
-:::image type="content" source="..\media\workbooks\insights-legacy.png" alt-text="Screenshot showing how to find the legacy Insights workbook."::: 
+:::image type="content" source="..\media\workbooks\insights-legacy.png" alt-text="Screenshot showing how to find the legacy Insights workbook."  lightbox="..\media\workbooks\insights-legacy.png"::: 
 
 ## Next steps
 

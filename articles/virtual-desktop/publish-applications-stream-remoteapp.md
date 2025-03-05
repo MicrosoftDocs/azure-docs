@@ -10,6 +10,9 @@ ms.author: daknappe
 
 # Publish applications with RemoteApp in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with RemoteApp. You publish applications by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
 
 You publish applications in the following scenarios:

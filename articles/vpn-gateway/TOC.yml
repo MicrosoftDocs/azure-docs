@@ -329,6 +329,8 @@
     href: vpn-gateway-about-compliance-crypto.md
   - name: Roles and permissions
     href: roles-permissions.md
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Routing
   items:
   - name: Forced tunneling
@@ -409,10 +411,12 @@
     href: /cli/azure/network/vnet-gateway
 - name: Resources
   items:
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/category/networking/
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-virtual-network.html
+    href: /answers/tags/102/azure-vpn-gateway
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
   - name: Subscription and service limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/vpn-gateway/toc.json
   - name: Pricing
@@ -421,5 +425,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
