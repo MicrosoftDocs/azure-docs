@@ -37,7 +37,8 @@ Before you begin:
 * You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 * You've procured the following cables to connect your Data Box to the host computer. These are recommended, however, the next generation devices will work with 10G cables too.
   * 2 x 10G-BaseT RJ-45 cables (CAT-5e or CAT6)
-  * 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)  
+  * 2 x 100-GbE QSFP28 passive direct attached cable (use with DATA 1, DATA 2 network interfaces)
+  [!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]  
 
 :::zone-end
 :::zone pivot="dbx"

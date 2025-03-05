@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 03/03/2025
+ms.date: 03/04/2025
 ms.author: shaas
 ms.custom: references_regions
 zone_pivot_groups: data-box-sku
@@ -107,6 +107,8 @@ The Data Box device has the following features in this release.
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Intrusion detection system in device <br> Secure boot <br>Hardware Root of Trust <br> TPM 2.0  |
 | Data transfer rate                                      | Approx. 7 GB/s using SMB Direct on RDMA (100-GbE) for large files. Both data ports can be used, though not required. Performance might differ depending on the source and size of your files.      |
 | Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management |
+
+[!INCLUDE [data-box-cable-adapter](../../includes/data-box-cable-adapter.md)]
 
 ## Next generation Data Box performance improvements
 The new version offers enhanced performance for data ingestion and upload, making it easier and faster for enterprise customers to migrate large-scale data to Azure without needing extensive on-premises network infrastructure. Key advancements include-
