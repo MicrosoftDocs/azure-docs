@@ -21,7 +21,7 @@ sections:
     summary: Find the guidance and tools you need to confidently transition to Azure, whether you're migrating fully, running a hybrid cloud, or replicating workloads. Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure. 
     background:
      componentType: image
-     src: images/ai-hero-banner-2.png
+     src: images/banner-image.png
 
 # Top picks
   - componentType: grid
@@ -234,10 +234,10 @@ sections:
 
 #  Microsoft Certifications
   - componentType: hero
-    title: Transitioning Skills from AWS to the Azure Ecosystem
+    title: Transitioning Your Cloud Skills from AWS to Azure
     layout: indented
     size: small
-    summary: Enhance your professional credentials and expand your skill set by earning Microsoft Azure certifications—showcase your expertise in cloud solutions. Microsoft Certifications can help you and your organization take on new opportunities. 
+    summary: When moving from AWS to Azure, it's crucial to understand how services align and where key differences exist. This module will help you map AWS services to their Azure equivalents, navigate Azure’s approach to identity, governance, infrastructure, databases, and containers, and find key resources for further learning.
     textColor: light
     background:
       componentType: image
@@ -245,7 +245,7 @@ sections:
     links:
       - componentType: link
         url: /training/modules/introduction-to-migrating-aws-to-azure/ 
-        text: Earn Microsoft Azure Certifications
+        text: Start Learning
 
 # By role
   - componentType: markdown
@@ -410,7 +410,7 @@ sections:
 
       #### [Application](#tab/application)
 
-      ### Migrating Application
+      ### Migrating Applications
 
       :::row:::
          :::column:::
