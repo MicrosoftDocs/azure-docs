@@ -295,7 +295,7 @@ Requests that fail these built-in checks get an HTTP `403 Forbidden` response.
 
 [Payload claims]: ../active-directory/develop/access-token-claims-reference.md#payload-claims
 
-## Configure client apps to access App Service
+## <a name = "configure-client-apps-to-access-your-app-service"></a> Configure client apps to access App Service
 
 In prior sections, you registered your App Service or Azure Functions app to authenticate users. The following sections explain how to register native clients or daemon apps in Microsoft Entra. These clients or apps can request access to APIs exposed by App Service on behalf of users or themselves, such as in an N-tier architecture. If you only want to authenticate users, the steps in the following sections aren't required.
 

@@ -104,7 +104,7 @@ If you integrate App Service with another Azure service, you might need to consi
 > [!TIP]
 > [!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
-## Scaling for capabilities or features
+## <a name = "what-if-my-app-needs-more-capabilities-or-features"></a> Scaling for capabilities or features
 
 You can scale your App Service plan up or down at any time. It's as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first, and then scale up later when you need more App Service features.
 

@@ -167,7 +167,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --provider ht
 
 ### Local terminal
 
-To stream logs in the local console, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to your account](/cli/azure/authenticate-azure-cli). After you're signed in, follow the [instructions for Cloud Shell](#cloud-shell).
+To stream logs in the local console, [install the Azure CLI](/cli/azure/install-azure-cli) and [sign in to your account](/cli/azure/authenticate-azure-cli). After you're signed in, follow the [instructions for Cloud Shell](#in-cloud-shell).
 
 ## Access log files
 
