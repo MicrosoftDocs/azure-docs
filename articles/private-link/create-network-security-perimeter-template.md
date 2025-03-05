@@ -59,65 +59,8 @@ Deploy the ARM template to Azure by doing the following:
 
 ## Validate the deployment
 
-> [!NOTE]
-> The ARM template generates a unique name for the virtual machine myVm<b>{uniqueid}</b> resource, and for the SQL Database sqlserver<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
 
-### Connect to a VM from the internet
 
-Connect to the VM _myVm{uniqueid}_ from the internet by doing the following:
-
-1. In the portal's search bar, enter _myVm{uniqueid}_.
-
-1. Select **Connect**. **Connect to virtual machine** opens.
-
-1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (RDP) file and downloads it to your computer.
-
-1. Open the downloaded RDP file.
-
-   a. If you're prompted, select **Connect**.  
-   b. Enter the username and password that you specified when you created the VM.
-
-      > [!NOTE]
-      > You might need to select **More choices** > **Use a different account** to specify the credentials you entered when you created the VM.
-
-1. Select **OK**.
-
-   You might receive a certificate warning during the sign-in process. If you do, select **Yes** or **Continue**.
-
-1. After the VM desktop appears, minimize it to go back to your local desktop.
-
-### Access the SQL Database server privately from the VM
-
-To connect to the SQL Database server from the VM by using the private endpoint, do the following:
-
-1.  On the Remote Desktop of _myVM{uniqueid}_, open PowerShell.
-1.  Run the following command: 
-
-    `nslookup sqlserver{uniqueid}.database.windows.net` 
-
-    You'll receive a message that's similar to this one:
-
-    ```
-      Server:  UnKnown
-      Address:  168.63.129.16
-      Non-authoritative answer:
-      Name:    sqlserver.privatelink.database.windows.net
-      Address:  10.0.0.5
-      Aliases:  sqlserver.database.windows.net
-    ```
-
-1.  Install SQL Server Management Studio.
-
-1.  On the **Connect to server** pane, do the following:
-    - For **Server type**, select **Database Engine**.
-    - For **Server name**, select **sqlserver{uniqueid}.database.windows.net**.
-    - For **Username**, enter the username that was provided earlier.
-    - For **Password**, enter the password that was provided earlier.
-    - For **Remember password**, select **Yes**.
-
-1. Select **Connect**.
-1. On the left pane, select **Databases**. Optionally, you can create or query information from _sample-db_.
-1. Close the Remote Desktop connection to _myVm{uniqueid}_.
 
 ## Clean up resources
 
