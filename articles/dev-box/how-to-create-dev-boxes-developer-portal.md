@@ -51,7 +51,7 @@ If you prefer to use the legacy Remote Desktop client, you can do so. You set th
  
 1. Select the user settings icon in the top right corner.
  
-   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-user-settings-icon.png" alt-text="Screenshot of the developer portal, showing the user settings icon in the top right corner.":::
+   :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-user-settings-icon.png" alt-text="Screenshot of the developer portal, with the user settings icon in the top right corner highlighted.":::
 
 1. In **User settings**, select **Connect via Remote Desktop (legacy)**.
  
