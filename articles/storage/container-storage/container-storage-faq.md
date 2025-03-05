@@ -61,7 +61,7 @@ ms.custom: references_regions
 
 * <a id="azure-container-storage-arm"></a>
   **Does Azure Container Storage support ARM node pools?**  
-  Currently, Azure Container Storage does not support ARM node pools. Our supported architectures are AMD64/x86-64.
+  Currently, Azure Container Storage doesn't support ARM node pools. Our supported architectures are AMD64/x86-64.
 
 * <a id="azure-container-storage-endpoints"></a>
   **What endpoints need to be allowlisted in the Azure Firewall for Azure Container Storage to work?**
