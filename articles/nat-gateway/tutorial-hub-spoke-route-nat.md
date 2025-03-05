@@ -503,7 +503,7 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM with Accelerated Networking enabled. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
 
 ```azurepowershell
 $vmParams = @{
@@ -1475,7 +1475,7 @@ $vmConfigParams = @{
 $vmConfig = New-AzVMConfig @vmConfigParams
 ```
 
-Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Windows Server virtual machine:
 
 ```azurepowershell
 $osParams = @{
@@ -1512,7 +1512,7 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM.
 
 ```azurepowershell
 $vmParams = @{
@@ -2126,7 +2126,7 @@ $vmConfigParams = @{
 $vmConfig = New-AzVMConfig @vmConfigParams
 ```
 
-Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Ubuntu Server virtual machine:
+Use [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) to create the rest of the VM configuration. The following example creates an Windows Server virtual machine:
 
 ```azurepowershell
 $osParams = @{
@@ -2163,7 +2163,7 @@ $vmConfigParams = @{
 $vmConfig = Add-AzVMNetworkInterface @vmConfigParams
 ```
 
-Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM. The command will generate SSH keys for the virtual machine for login. Make note of the location of the private key. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion.
+Use [New-AzVM](/powershell/module/az.compute/new-azvm) to create the VM.
 
 ```azurepowershell
 $vmParams = @{
