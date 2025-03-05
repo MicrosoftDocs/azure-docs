@@ -28,7 +28,7 @@ You can order the Data Box device via the Azure portal to import or export data 
 
 Data Box is ideally suited to transfer data sizes larger than 40 TBs in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. 
 
-Data Box is ideally suited for importing data to Azure in several scanrios, including the following:
+Data Box is ideally suited for importing data to Azure in several scenarios, including the following:
 
  - **Onetime migration** - when a large amount of on-premises data is moved to Azure.
 
@@ -41,7 +41,7 @@ Data Box is ideally suited for importing data to Azure in several scanrios, incl
 
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms. 
 
-Data Box can be used to export data from Azure in serveral scenarios, including the following:.
+Data Box can be used to export data from Azure in several scenarios, including the following:
 
 - **Disaster recovery** - when a copy of the data from Azure is restored to an on-premises network. In a typical disaster recovery scenario, a large amount of Azure data is exported to a Data Box. Microsoft then ships this Data Box, and the data is restored on your premises in a short time.
 
@@ -70,7 +70,7 @@ You can use your Data Box data with many non-Azure service providers. For instan
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
 :::zone pivot="dbx-ng"
-- **Speed** - Data Box Next Gen uses up to 100Gbps network interfaces to move data into and out of Azure.
+- **Speed** - Data Box Next-gen uses up to 100Gbps network interfaces to move data into and out of Azure.
 :::zone-end
 
 :::zone pivot="dbx"
@@ -113,9 +113,9 @@ The Data Box device has the following features in this release.
 ## Next generation Data Box performance improvements
 The new version offers enhanced performance for data ingestion and upload, making it easier and faster for enterprise customers to migrate large-scale data to Azure without needing extensive on-premises network infrastructure. Key advancements include-
  - NVMe devices offer faster data transfer rates, with copy speeds up to 7GBps via SMB Direct on RDMA (100-GbE) for medium to large files, a 10x improvement in device transfers as compared to previous generation devices.
- - When using the data copy service, there is significant performance improvement ranging from 2x for small sized files (64K-512K), to up to 7x for large files (8 MB to 128 MB). The data copy service runs locally on the Data Box, connects to the user’s network-attached storage (NAS) device via the Server Message Block (SMB) protocol, and copies data to Data Box. This eliminates the need for an intermediate host to ingest data.
+ - There is significant performance improvement within the data copy service, ranging from 2x for small sized files (64K-512K), to up to 7x for large files (8 MB to 128 MB). The data copy service runs locally on the Data Box, connects to the user’s network-attached storage (NAS) device via the Server Message Block (SMB) protocol, and copies data to Data Box. This eliminates the need for an intermediate host to ingest data.
  -	High-speed transfers to Azure with data upload up to 5x faster for medium to large files, minimizing the lead time for your data to become accessible in the Azure cloud. 
- -	These improvements are achieved through optimized hardware and software stacks, including the use of RDMA for SMB, which collectively reduce CPU usage and enhance overall efficiency.
+ -	These improvements are achieved through optimized hardware and software stacks, including the use of RDMA for SMB, which collectively reduces CPU usage and enhance overall efficiency.
 
 :::zone-end
 
@@ -146,14 +146,14 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data stored on the device. The Data Box device has a usable storage capacity of 120 TB/ 525 TB, depending upon the SKU selected.
 
-    :::image type="content" source="media/data-box-next-gen-overview/data-box-ng-merged-front-back.png" alt-text="Photograph showing an Azure Data Box Next Gen device."::: :::image type="content" source="media/data-box-next-gen-overview/data-box-ng-merged-back.png" alt-text="Photograph showing the rear views of an Azure Data Box Next Gen device."::: 
+    :::image type="content" source="media/data-box-next-gen-overview/data-box-ng-merged-front-back.png" alt-text="Photograph showing an Azure Data Box Next-gen device."::: :::image type="content" source="media/data-box-next-gen-overview/data-box-ng-merged-back.png" alt-text="Photograph showing the rear views of an Azure Data Box Next-gen device."::: 
 :::zone-end
 
 :::zone pivot="dbx"
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    :::image type="content" source="media/data-box-overview/data-box-combined.png" alt-text="The front and back plane of Data Box":::
+    :::image type="content" source="media/data-box-overview/data-box-combined.png" alt-text="Photograph of the front and back plane of the Data Box device.":::
 
 :::zone-end
 
