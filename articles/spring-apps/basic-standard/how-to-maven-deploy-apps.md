@@ -2,7 +2,8 @@
 title:  "Tutorial: Deploy Spring Boot Applications Using Maven"
 titleSuffix: Azure Spring Apps
 description: Use Maven to deploy applications to Azure Spring Apps.
-ms.author: jialuogan
+ms.author: karler
+ms.reviewer: jialuogan
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: tutorial

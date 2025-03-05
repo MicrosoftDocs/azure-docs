@@ -457,6 +457,11 @@
         - name: Set dynamic logger level
           href: java-dynamic-log-level.md
           displayName: java
+    - name: JavaScript
+      items: 
+      - name: Overview
+        href: javascript-overview.md
+        displayName: javascript, typescript, node.js
 - name: Billing & quotas
   items:
     - name: Billing

@@ -63,14 +63,13 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 For information on client library-specific guidance best practices, see the following links:
 
-- [StackExchange.Redis (.NET)](../cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
+- [StackExchange.Redis (.NET)](managed-redis-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
-- [Redisson (Java)](../cache-best-practices-client-libraries.md#redisson-java)
-- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+- [Jedis (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Java-Jedis.md)
+- [Redisson (Java)](managed-redis-best-practices-client-libraries.md#redisson-java)
+- [Node.js](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
+- [PHP](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-- [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 ## Redisson (Java)
 

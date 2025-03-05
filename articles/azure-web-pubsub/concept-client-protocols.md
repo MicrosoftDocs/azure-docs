@@ -27,10 +27,10 @@ Here's a general authorization workflow:
 
 1. The client negotiates with your application server. The application server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The application server returns the JWT and the service URL to the client.
-1. The client tries to connect to the Web PubSub service by using the URL and the JWT token returned from the application server.
+1. The client tries to connect to the Web PubSub service by using the URL and the JWT returned from the application server.
 
 ### Supported claims
-You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT token:
+You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT:
 
 | Description | Claim type | Claim value | Notes |
 | --- | --- | --- | --- |
@@ -196,9 +196,9 @@ The permission of a client can be granted in several ways:
 
 #### 1. Assign the role to the client when generating the access token
 
-Client can connect to the service using a JWT token. The token payload can carry information such as the `role` of the client. When signing the JWT token to the client, you can grant permissions to the client by giving the client specific roles.
+Client can connect to the service using a JWT. The token payload can carry information such as the `role` of the client. When signing the JWT to the client, you can grant permissions to the client by giving the client specific roles.
 
-For example, let's sign a JWT token that has the permission to send messages to `group1` and `group2`: 
+For example, let's sign a JWT that has the permission to send messages to `group1` and `group2`: 
 
 ```js
 let token = await serviceClient.getClientAccessToken({

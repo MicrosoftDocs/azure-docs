@@ -44,9 +44,11 @@ Before you do anything else, you should design and build a query in Kusto Query 
 
 1. Build and test your queries in the **Logs** screen. When you’re satisfied, save the query for use in your rule.
 
-For some helpful tips for building Kusto queries, see [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
+For more information, see:
 
-For more help building Kusto queries, see [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview) and [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true) (from the Kusto documentation).
+- [Best practices for analytics rule queries](scheduled-rules-overview.md#best-practices-for-analytics-rule-queries).
+- [Kusto Query Language in Microsoft Sentinel](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 
 ## Create your analytics rule
 

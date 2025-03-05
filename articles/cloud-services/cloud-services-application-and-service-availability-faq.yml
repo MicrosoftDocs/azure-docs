@@ -11,12 +11,7 @@ metadata:
   ms.custom: compute-evergreen
 title: 'Application and service availability issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
-  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
-  
-  This article includes frequently asked questions about application and service availability issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services Virtual Machine (VM) Size page](cloud-services-sizes-specs.md) for size information.
-  
-  [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
-  
+  This article includes frequently asked questions about application and service availability issues for [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). You can also consult the [Cloud Services Virtual Machine (VM) Size page](cloud-services-sizes-specs.md) for size information. 
 
 sections:
   - name: Ignored

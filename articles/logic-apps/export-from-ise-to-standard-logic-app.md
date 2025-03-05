@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 02/20/2025
 ms.custom: engagement-fy23
 #Customer intent: As a developer, I want to export one or more ISE workflows to a Standard workflow.
 ---

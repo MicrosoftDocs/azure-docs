@@ -7,7 +7,7 @@ ms.reviewer: v-minasyanv
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 02/21/2025
 ms.author: banders
 #customer intent: As a billing administrator, I want to understand the difference between a billing meter region and a resource location.
 ---
@@ -28,7 +28,7 @@ Consider a situation where you deploy an Azure service in the US West region. Th
 
 The Azure region where you deploy a resource determines its physical location. The billing meter's location doesn't affect the actual resource location. So, the meter region location can differ from the resource location, causing the variation.
 
-To avoid any confusion, keep the distinction between a billing meter region and an Azure region location in mind.
+To avoid any confusion, keep the distinction between a billing meter region and an Azure resource region in mind.
 
 ## Related content
 
