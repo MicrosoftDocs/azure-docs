@@ -1,6 +1,6 @@
 ---
 title: B2B message tracking schemas - Consumption workflows
-description: Create tracking schemas to monitor B2B messages such as AS2, X12, or custom in Consumption workflows for Azure Logic Apps.
+description: Learn about schemas for tracking B2B messages in Consumption workflows for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -14,8 +14,9 @@ ms.date: 03/07/2024
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 > [!NOTE]
-> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, see 
-> the following documentation:
+>
+> This article applies only to Consumption logic app workflows. For information 
+> about monitoring Standard logic apps, see the following documentation:
 >
 > - [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights)
 > - [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md)
@@ -30,115 +31,125 @@ Azure Logic Apps includes built-in tracking that you can enable for parts of you
 
 <a name="as2-message"></a>
 
-### AS2 message tracking schema
+### AS2 message - tracking schema
 
-The following syntax describes the tracking schema for an AS2 message:
+The following syntax describes the schema for tracking an AS2 message:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "as2From": "",
-      "as2To": "",
+      "senderPartnerName": "",
       "receiverPartnerName": "",
-      "senderPartnerName": ""
+      "as2To": "",
+      "as2From": "",
+      "agreementName": ""
    },
    "messageProperties": {
-      "correlationMessageId": "",
       "direction": "",
+      "messageId": "",
       "dispositionType": "",
       "fileName": "",
-      "incomingHeaders": {},
-      "isMdnExpected": "",
-      "isMessageCompressed": "",
-      "isMessageEncrypted": "",
       "isMessageFailed": "",
       "isMessageSigned": "",
+      "isMessageEncrypted": "",
+      "isMessageCompressed": "",
+      "incomingHeaders": {},
+      "outgoingHeaders": {},
+      "correlationMessageId": "",
       "isNrrEnabled": "",
-      "mdnType": "",
-      "messageId": "",
-      "outgoingHeaders": {}
+      "isMdnExpected": "",
+      "mdnType": ""
     }
 }
 ```
 
-The following table describes the properties in a tracking schema for an AS2 message:
+#### AS2 message - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the AS2 agreement that resolves the messages |
-| **`as2From`** | Yes | String | Name for the AS2 message sender in the AS2 message headers |
-| **`as2To`** | Yes | String | Name for the AS2 message receiver in the AS2 headers |
-| **`receiverPartnerName`** | No | String | Partner name for the AS2 message receiver |
 | **`senderPartnerName`** | No | String | Partner name for the AS2 message sender |
-| **`correlationMessageId`** | No | String | Message ID for correlating AS2 messages with Message Disposition Notifications (MDNs) |
-| **`direction`** | Yes | String | Message flow direction, which is either **`send`** or **`receive`** |
+| **`receiverPartnerName`** | No | String | Partner name for the AS2 message receiver |
+| **`as2To`** | Yes | String | Name for the AS2 message receiver in the AS2 headers |
+| **`as2From`** | Yes | String | Name for the AS2 message sender in the AS2 message headers |
+| **`agreementName`** | No | String | Name for the AS2 agreement that resolves the messages |
+
+#### AS2 message - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | String | Message flow direction (**`send`** or **`receive`**) |
+| **`messageId`** | No | String | AS2 message ID in the AS2 message headers |
 | **`dispositionType`** | No | String | Disposition type for the Message Disposition Notification (MDN) |
 | **`fileName`** | No | String | File name from the AS2 message header |
-| **`incomingHeaders`** | No | JToken dictionary | Details for the incoming AS2 message header |
-| **`isMdnExpected`** | Yes | Boolean | Whether to use the default value, if unknown |
-| **`isMessageCompressed`** | Yes | Boolean | Whether the AS2 message is compressed |
-| **`isMessageEncrypted`** | Yes | Boolean | Whether the AS2 message is encrypted |
 | **`isMessageFailed`** | Yes | Boolean | Whether the AS2 message failed |
 | **`isMessageSigned`** | Yes | Boolean | Whether the AS2 message is signed |
-| **`isNrrEnabled`** | Yes | Boolean | Whether to use the default value, if unknown. |
-| **`mdnType`** | Yes | Enum | Allowed values: **`NotConfigured`**, **`Sync`**, and **`Async`** |
-| **`messageId`** | No | String | AS2 message ID in the AS2 message headers |
+| **`isMessageEncrypted`** | Yes | Boolean | Whether the AS2 message is encrypted |
+| **`isMessageCompressed`** | Yes | Boolean | Whether the AS2 message is compressed |
+| **`incomingHeaders`** | No | JToken dictionary | Details for the incoming AS2 message header |
 | **`outgoingHeaders`** | No | JToken dictionary | Details for the outgoing AS2 message header |
+| **`correlationMessageId`** | No | String | Message ID for correlating AS2 messages with Message Disposition Notifications (MDNs) |
+| **`isNrrEnabled`** | Yes | Boolean | Whether Non-Repudiation of Receipt (NRR) is enabled |
+| **`isMdnExpected`** | Yes | Boolean | Whether to use the default value, if unknown |
+| **`mdnType`** | Yes | Enum | Allowed values: **`NotConfigured`**, **`Sync`**, and **`Async`** |
 
 <a name="as2-mdn"></a>
 
-### AS2 MDN tracking schema
+### AS2 MDN - tracking schema
 
-The following syntax describes the tracking schema for an AS2 MDN message:
+The following syntax describes the schema for tracking an AS2 MDN:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "as2From": "",
-      "as2To": "",
+      "senderPartnerName": "",
       "receiverPartnerName": "",
-      "senderPartnerName": ""
+      "as2To": "",
+      "as2From": "",
+      "agreementName": ""
    },
    "messageProperties": {
-      "correlationMessageId": "",
       "direction": "",
-      "dispositionType": "",
-      "incomingHeaders": {},
       "messageId": "",
+      "originalMessageId": "",
+      "dispositionType": "",
       "isMessageFailed": "",
       "isMessageSigned": "",
       "isNrrEnabled": "",
+      "statusCode": "",
       "micVerificationStatus": "",
-      "originalMessageId": "",
-      "outgoingHeaders": {},
-      "statusCode": ""
+      "correlationMessageId": "",
+      "incomingHeaders": {},
+      "outgoingHeaders": {}
    }
 }
 ```
 
-The following table describes the properties in a tracking schema for an AS2 MDN message:
+#### AS2 MDN - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the AS2 agreement that resolves the messages |
-| **`as2From`** | Yes | String | Name for the AS2 message sender in the AS2 message headers |
-| **`as2To`** | Yes | String | Name for the AS2 message receiver in the AS2 headers |
-| **`receiverPartnerName`** | No | String | Partner name for the AS2 message receiver |
 | **`senderPartnerName`** | No | String | Partner name for the AS2 message sender |
-| **`correlationMessageId`** | No | String | Correlation ID, which is the ID for the original message that has the MDN configured |
-| **`direction`** | Yes | String | Message flow direction, which is either **`send`** or **`receive`** |
+| **`receiverPartnerName`** | No | String | Partner name for the AS2 message receiver |
+| **`as2To`** | Yes | String | Name for the AS2 message receiver in the AS2 headers |
+| **`as2From`** | Yes | String | Name for the AS2 message sender in the AS2 message headers |
+| **`agreementName`** | No | String | Name for the AS2 agreement that resolves the messages |
+
+#### AS2 MDN - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | String | Message flow direction (**`send`** or **`receive`**) |
+| **`messageId`** | No | String | AS2 message ID in the AS2 message headers |
+| **`originalMessageId`** | No | String | Original AS2 message ID |
 | **`dispositionType`** | No | String | Disposition type for the Message Disposition Notification (MDN) |
-| **`incomingHeaders`** | No | JToken dictionary | Details for the incoming AS2 message header |
 | **`isMessageFailed`** | Yes | Boolean | Whether the AS2 message failed |
 | **`isMessageSigned`** | Yes | Boolean | Whether the AS2 message is signed |
-| **`isNrrEnabled`** | Yes | Boolean | Whether to use the default value, if unknown. |
-| **`messageId`** | No | String | AS2 message ID in the AS2 message headers |
-| **`micVerificationStatus`** | Yes | Enum | Allowed values: **`NotApplicable`**, **`Succeeded`**, and **`Failed`** |
-| **`originalMessageId`** | No | String | Original AS2 message ID |
-| **`outgoingHeaders`** | No | JToken dictionary | Details for the outgoing AS2 message header |
+| **`isNrrEnabled`** | Yes | Boolean | Whether Non-Repudiation of Receipt (NRR) is enabled |
 | **`statusCode`** | Yes | Enum | Allowed values: **`Accepted`**, **`Rejected`**, and **`AcceptedWithErrors`** |
+| **`micVerificationStatus`** | Yes | Enum | Allowed values: **`NotApplicable`**, **`Succeeded`**, and **`Failed`** |
+| **`correlationMessageId`** | No | String | Correlation ID, which is the ID for the original message that has the MDN configured |
+| **`incomingHeaders`** | No | JToken dictionary | Details for the incoming AS2 message header |
+| **`outgoingHeaders`** | No | JToken dictionary | Details for the outgoing AS2 message header |
 
 ## X12
 
@@ -151,92 +162,96 @@ The following table describes the properties in a tracking schema for an AS2 MDN
 
 <a name="x12-transaction-set"></a>
 
-### X12 transaction set tracking schema
+### X12 transaction set - tracking schema
 
-The following syntax describes the tracking schema for an X12 transaction set:
+The following syntax describes the schema for tracking an X12 transaction set:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverPartnerName": "",
-      "receiverIdentifier": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
-      "correlationMessageId": "",
       "direction": "",
-      "functionalGroupControlNumber": "",
       "interchangeControlNumber": "",
-      "isFunctionalAcknowledgmentExpected": "",
+      "functionalGroupControlNumber": "",
+      "transactionSetControlNumber": "",
+      "correlationMessageId": "",
+      "messageType": "",
       "isMessageFailed": "",
       "isTechnicalAcknowledgmentExpected": "",
-      "messageType": "",
+      "isFunctionalAcknowledgmentExpected": "",
       "needAk2LoopForValidMessages": "",
-      "segmentsCount": "",
-      "transactionSetControlNumber": ""
+      "segmentsCount": ""
    }
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 transaction set:
+#### X12 transaction set - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreement-name}{group-control-number}{transaction-set-control-number}** |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
-| **`functionalGroupControlNumber`** | No | String | Functional group control number for the functional acknowledgment |
-| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 transaction set - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **`interchangeControlNumber`** | No | String | Interchange control number for the functional acknowledgment |
+| **`functionalGroupControlNumber`** | No | String | Functional group control number for the functional acknowledgment |
+| **`transactionSetControlNumber`** | No | String | Control number for the transaction set |
+| **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreementName}{interchange-or-functionalGroup-ControlNumber}{transactionSetControlNumber}** |
+| **`messageType`** | No | String | Transaction set or document type |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`isTechnicalAcknowledgmentExpected`** | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
 | **`isFunctionalAcknowledgmentExpected`** | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
-| **`messageType`** | No | String | Transaction set or document type |
 | **`needAk2LoopForValidMessages`** | Yes | Boolean | Whether the AK2 loop is required for a valid message |
 | **`segmentsCount`** | No | Integer | Number of segments in the X12 transaction set |
-| **`transactionSetControlNumber`** | No | String | Control number for the transaction set |
 
 <a name="x12-transaction-set-acknowledgment"></a>
 
-### X12 transaction set acknowledgment tracking schema
+### X12 transaction set acknowledgment - tracking schema
 
-The following syntax describes the tracking schema for an X12 transaction set acknowledgment:
+The following syntax describes the schema for tracking an X12 transaction set acknowledgment:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverIdentifier": "",
-      "receiverPartnerName": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
-      "correlationMessageId": "",
       "direction": "",
-      "functionalGroupControlNumber": "",
       "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
       "isaSegment": "",
       "gsSegment": "",
-      "isMessageFailed": "",
-      "processingStatus": "",
       "respondingFunctionalGroupControlNumber": "",
       "respondingFunctionalGroupId": "",
       "respondingTransactionSetControlNumber": "",
       "respondingTransactionSetId": "",
       "statusCode": "",
+      "processingStatus": "",
+      "correlationMessageId": "",
+      "isMessageFailed": "",
       "ak2Segment": "",
       "ak3Segment": "",
       "ak5Segment": ""
@@ -244,57 +259,62 @@ The following syntax describes the tracking schema for an X12 transaction set ac
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 transaction set acknowledgment:
+#### X12 transaction set acknowledgment - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreement-name}{group-control-number}{transaction-set-control-number}** |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
-| **`functionalGroupControlNumber`** | No | String | Functional group control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 transaction set acknowledgment - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **`interchangeControlNumber`** | No | String | Interchange control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
+| **`functionalGroupControlNumber`** | No | String | Functional group control number for the functional acknowledgment. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
 | **`isaSegment`** | No | String | The Interchange Control Header (ISA) segment for the X12 message. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
 | **`gsSegment`** | No | String | GS segment in the X12 message. This value populates only for the sender when a functional acknowledgment is received for the messages sent to the partner. |
-| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
-| **`processingStatus`** | Yes | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
 | **`respondingFunctionalGroupControlNumber`** | No | String | Control number for the responding functional group |
 | **`respondingFunctionalGroupId`** | No | String | ID for the responding functional group that maps to AK101 in the acknowledgment |
 | **`respondingTransactionSetControlNumber`** | No | String | Control number for the responding transaction set |
 | **`respondingTransactionSetId`** | No | String | ID for the responding transaction set that maps to AK201 in the acknowledgment |
 | **`statusCode`** | Yes | Boolean | Acknowledgment status code for the transaction set |
+| **`processingStatus`** | Yes | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
+| **`correlationMessageId`** | No | String | Message correlation ID, which combines these values: **{agreementName}{interchange-or-functionalGroup-ControlNumber}{transactionSetControlNumber}** |
+| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`ak2Segment`** | No | String | Acknowledgment for a transaction set in the received functional group |
 | **`ak3Segment`** | No | String | Reports errors in a data segment |
 | **`ak5Segment`** | No | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why |
 
 <a name="x12-interchange"></a>
 
-### X12 interchange tracking schema
+### X12 interchange - tracking schema
 
-The following syntax describes the tracking schema for an X12 interchange:
+The following syntax describes the schema for tracking an X12 interchange:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverIdentifier": "",
-      "receiverPartnerName": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
       "direction": "",
       "interchangeControlNumber": "",
       "isaSegment": "",
-      "isMessageFailed": "",
       "isTechnicalAcknowledgmentExpected": "",
+      "isMessageFailed": "",
       "isa09": "",
       "isa10": "",
       "isa11": "",
@@ -306,18 +326,23 @@ The following syntax describes the tracking schema for an X12 interchange:
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 interchange:
+#### X12 interchange - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 interchange - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **`interchangeControlNumber`** | No | String | Interchange control number |
 | **`isaSegment`** | No | String | The ISA segment for the X12 message |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
@@ -332,29 +357,29 @@ The following table describes the attributes in a tracking schema for an X12 int
 
 <a name="x12-interchange-acknowledgment"></a>
 
-### X12 interchange acknowledgment tracking schema
+### X12 interchange acknowledgment - tracking schema
 
-The following syntax describes the tracking schema for an X12 interchange acknowledgment:
+The following syntax describes the schema for tracking an X12 interchange acknowledgment:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverIdentifier": "",
-      "receiverPartnerName": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
       "direction": "",
       "interchangeControlNumber": "",
       "isaSegment": "",
-      "isMessageFailed": "",
       "respondingInterchangeControlNumber": "",
-      "processingStatus": "",
+      "isMessageFailed": "",
       "statusCode": "",
+      "processingStatus": "",
       "ta102": "",
       "ta103": "",
       "ta105": ""
@@ -362,22 +387,27 @@ The following syntax describes the tracking schema for an X12 interchange acknow
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 interchange acknowledgment:
+#### X12 interchange acknowledgment - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 interchange acknowledgment - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **`interchangeControlNumber`** | No | String | Interchange control number for the technical acknowledgment that is received from partners |
 | **`isaSegment`** | No | String | The ISA segment for the technical acknowledgment that is received from partners |
-| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`respondingInterchangeControlNumber`** | No | String | Interchange control number for the technical acknowledgment that is received from partners |
+| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`statusCode`** | Yes | Enum | Interchange acknowledgment status code with these permitted values: **`Accepted`**, **`Rejected`**, and **`AcceptedWithErrors`** |
 | **`processingStatus`** | Yes | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
 | **`ta102`** | No | String | Interchange date |
@@ -386,29 +416,29 @@ The following table describes the attributes in a tracking schema for an X12 int
 
 <a name="x12-functional-group"></a>
 
-### X12 functional group tracking schema
+### X12 functional group - tracking schema
 
-The following syntax describes the tracking schema for an X12 functional group:
+The following syntax describes the schema for tracking an X12 functional group:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverIdentifier": "",
-      "receiverPartnerName": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
       "direction": "",
+      "interchangeControlNumber": "",
       "functionalGroupControlNumber": "",
       "gsSegment": "",
-      "interchangeControlNumber": "",
+      "isTechnicalAcknowledgmentExpected": "",
       "isFunctionalAcknowledgmentExpected": "",
       "isMessageFailed": "",
-      "isTechnicalAcknowledgmentExpected": "",
       "gs01": "",
       "gs02": "",
       "gs03": "",
@@ -420,24 +450,29 @@ The following syntax describes the tracking schema for an X12 functional group:
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 functional group:
+#### X12 functional group - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 functional group - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
+| **`interchangeControlNumber`** | No | String | Interchange control number |
 | **`functionalGroupControlNumber`** | No | String | Functional group control number |
 | **`gsSegment`** | No | String | GS segment in the X12 message |
-| **`interchangeControlNumber`** | No | String | Interchange control number |
+| **`isTechnicalAcknowledgmentExpected`** | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
 | **`isFunctionalAcknowledgmentExpected`** | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
 | **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
-| **`isTechnicalAcknowledgmentExpected`** | Yes | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
 | **`gs01`** | No | String | Functional group identifier code |
 | **`gs02`** | No | String | Application sender code |
 | **`gs03`** | No | String | Application receiver code |
@@ -448,28 +483,28 @@ The following table describes the attributes in a tracking schema for an X12 fun
 
 <a name="x12-functional-group-acknowledgment"></a>
 
-### X12 functional group acknowledgment tracking schema
+### X12 functional group acknowledgment - tracking schema
 
-The following syntax describes the tracking schema for an X12 functional group acknowledgment:
+The following syntax describes the schema for tracking an X12 functional group acknowledgment:
 
 ```json
 {
    "agreementProperties": {
-      "agreementName": "",
-      "receiverIdentifier": "",
-      "receiverPartnerName": "",
-      "receiverQualifier": "",
-      "senderIdentifier": "",
       "senderPartnerName": "",
-      "senderQualifier": ""
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
    },
    "messageProperties": {
       "direction": "",
-      "functionalGroupControlNumber": "",
       "interchangeControlNumber": "",
-      "gsSegment": "",
+      "functionalGroupControlNumber": "",
       "isaSegment": "",
-      "respondingfunctionalGroupControlNumber": "",
+      "gsSegment": "",
+      "respondingFunctionalGroupControlNumber": "",
       "respondingFunctionalGroupId": "",
       "isMessageFailed": "",
       "statusCode": "",
@@ -481,26 +516,30 @@ The following syntax describes the tracking schema for an X12 functional group a
 }
 ```
 
-The following table describes the attributes in a tracking schema for an X12 functional group acknowledgment:
+#### X12 functional group acknowledgment - agreementProperties
 
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
-| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
-| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
-| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
-| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
-| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
 | **`senderPartnerName`** | No | String | Name for the partner X12 message sender |
+| **`receiverPartnerName`** | No | String | Name for the partner X12 message receiver |
 | **`senderQualifier`** | Yes | String | Qualifier for the partner X12 message sender |
-| **`direction`** | Yes | Enum | Message flow direction, which is either **`send`** or **`receive`** |
+| **`senderIdentifier`** | Yes | String | Identifier for the partner X12 message sender |
+| **`receiverQualifier`** | Yes | String | Qualifier for the partner X12 message receiver |
+| **`receiverIdentifier`** | Yes | String | Identifier for the partner X12 message receiver |
+| **`agreementName`** | No | String | Name for the X12 agreement that resolves the messages |
+
+#### X12 functional group acknowledgment - messageProperties
+
+| Property | Required | Type | Description |
+|----------|----------|------|-------------|
+| **`direction`** | Yes | Enum | Message flow direction (**`send`** or **`receive`**) |
 | **`functionalGroupControlNumber`** | No | String | Functional group control number for the technical acknowledgment. This value populates for the sender when a technical acknowledgment is received from partners. |
-| **`gsSegment`** | No | String | Same as **`functionalGrouControlNumber`**, but populates only in specific cases |
 | **`interchangeControlNumber`** | No | String | Interchange control number. This value populates for the sender when a technical acknowledgment is received from partners. |
 | **`isaSegment`** | No | String | Same as **interchangeControlNumber**, but populates only in specific cases |
-| **`isFunctionalAcknowledgmentExpected`** | Yes | Boolean | Whether the functional acknowledgment is configured in the X12 agreement |
-| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
+| **`gsSegment`** | No | String | Same as **`functionalGrouControlNumber`**, but populates only in specific cases |
 | **`respondingFunctionalGroupControlNumber`** | No | String | Control number for the original functional group |
 | **`respondingFunctionalGroupId`** | No | String | Maps to AK101 in the acknowledgment functional group ID |
+| **`isMessageFailed`** | Yes | Boolean | Whether the X12 message failed |
 | **`statusCode`** | Yes | Enum | Acknowledgment status code with these permitted values: **`Accepted`**, **`Rejected`**, and **`AcceptedWithErrors`** |
 | **`processingStatus`** | Yes | Enum | Processing status for the acknowledgment with these permitted values: **`Received`**, **`Generated`**, and **`Sent`** |
 | **`ak903`** | No | String | Number of received transaction sets |
@@ -512,6 +551,8 @@ The following table describes the attributes in a tracking schema for an X12 fun
 ## Custom
 
 You can set up custom tracking that logs events from the start to the end of your logic app workflow. For example, you can log events from layers that include your workflow, SQL Server, BizTalk Server, or any other layer. The following section provides custom tracking schema code that you can use in the layers outside your workflow.
+
+The following syntax describes the schema for custom tracking:
 
 ```json
 {
@@ -525,30 +566,28 @@ You can set up custom tracking that logs events from the start to the end of you
       },
       "operation": {
          "operationName": "",
-         "clientRequestId": "",
-         "correlationId": "",
          "repeatItemScopeName": "",
          "repeatItemIndex": ,
-         "trackingId": ""
+         "trackingId": "",
+         "correlationId": "",
+         "clientRequestId": ""
       }
    },
    "events": [
       {
          "eventLevel": "",
          "eventTime": "",
-         "record": {},
-         "recordType": ""
+         "recordType": "",
+         "record": {}
       }
    ]
 }
 ```
 
-The following table describes the attributes in a custom tracking schema:
-
 | Property | Required | Type | Description |
 |----------|----------|------|-------------|
 | **`sourceType`** | Yes | String | Type for the run source with these permitted values: **`Microsoft.Logic/workflows`**, `custom`** |
-| **`source`** | Yes | String or JToken | If the source type is **`Microsoft.Logic/workflows`**, the source information must follow this schema. If the source type is **`custom`**, the schema has JToken type. |
+| **`source`** | Yes | String or JToken | If the source type is **`Microsoft.Logic/workflows`**, the source information must follow the described schema. If the source type is **`custom`**, the schema has JToken type. |
 | **`systemId`** | Yes | String | The system ID for the logic app |
 | **`runId`** | Yes | String | The run ID for the logic app |
 | **`operationName`** | Yes | String | Name for the operation, for example, action or trigger |
@@ -559,8 +598,8 @@ The following table describes the attributes in a custom tracking schema:
 | **`clientRequestId`** | No | String | Client can populate this property to correlate messages |
 | **`eventLevel`** | Yes | String | Event level |
 | **`eventTime`** | Yes | DateTime | Event time in UTC format: YYYY-MM-DDTHH:MM:SS.00000Z |
-| **`record`** | Yes | JToken | Custom record type in JToken format only |
 | **`recordType`** | Yes | String | Track record type with this permitted value only: **`custom`** |
+| **`record`** | Yes | JToken | Custom record type in JToken format only |
 
 ## Related content
 

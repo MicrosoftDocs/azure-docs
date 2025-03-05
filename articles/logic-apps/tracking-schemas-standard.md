@@ -1,7 +1,8 @@
 ---
 title: Schemas for tracking B2B transactions - Standard workflows
-description: Learn about schemas to use for tracking B2B transactions data for Standard workflows in Azure Logic Apps.
+description: Learn about schemas for tracking B2B transactions in Standard workflows for Azure Logic Apps.
 services: logic-apps
+ms.suite: integration
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
 ms.date: 03/07/2025
@@ -13,6 +14,14 @@ ms.date: 03/07/2025
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your Standard workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, this guide helps you better understand the tables that store B2B tracking data for your transactions.
+
+> [!NOTE]
+>
+> This article applies only to Standard logic app workflows. For information 
+> about monitoring Consumption logic app workflows, see the following documentation:
+>
+> - [Monitor and track B2B transactions in Consumption workflows](monitor-track-b2b-messages-consumption.md)
+> - [Tracking schemas for B2B transactions in Consumtion workflows](tracking-schemas-consumption.md)
 
 <a name="as2-table"></a>
 
@@ -67,6 +76,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 
 #### AS2 message - MessageProperties schema
 
+The following syntax describes the **MessageProperties** schema when the tracking record type is an AS2 message:
+
 ```json
 {
    "direction": "",
@@ -104,6 +115,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **mdnType** | Enum | Allowed values: **`NotConfigured`**, **`Sync`**, and **`Async`** |
 
 #### AS2 MDN - MessageProperties schema
+
+The following syntax describes the **MessageProperties** schema when the tracking record type is an AS2 MDN:
 
 ```json
 {
@@ -185,6 +198,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 
 #### X12 transaction set - MessageProperties schema
 
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 transaction set:
+
 ```json
 {
    "direction": "",
@@ -207,7 +222,7 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **interchangeControlNumber** | String | Control number for the interchange |
 | **functionalGroupControlNumber** | String | Control number for the functional group |
 | **transactionSetControlNumber** | String | Control number for the transaction set |
-| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**InterchangeORFunctionalGroupControlNumber**}{**TransactionSetControlNumber**} |
+| **correlationMessageId** | String | Message correlation ID, which combines these values: {**AgreementName**}{**Interchange-or-FunctionalGroup-ControlNumber**}{**TransactionSetControlNumber**} |
 | **messageType** | String | Transaction set or document type |
 | **isMessageFailed** | Boolean | Whether the X12 message failed |
 | **isTechnicalAcknowledgmentExpected** | Boolean | Whether the technical acknowledgment is configured in the X12 agreement |
@@ -216,6 +231,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **segmentsCount** | Integer | Number of segments in the X12 transaction set |
 
 #### X12 transaction set acknowledgment - MessageProperties schema
+
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 transaction set acknowledgment:
 
 ```json
 {
@@ -246,6 +263,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **isMessageFailed** | String | Whether the X12 message failed |
 
 #### X12 interchange - MessageProperties schema
+
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 interchange:
 
 ```json
 {
@@ -279,6 +298,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 
 #### X12 interchange acknowledgment - MessageProperties schema
 
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 interchange acknowledgment:
+
 ```json
 {
    "direction": "",
@@ -305,6 +326,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **ta103** | String | Interchange note code |
 
 #### X12 functional group - MessageProperties schema
+
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 functional group:
 
 ```json
 {
@@ -341,6 +364,8 @@ The **MessageProperties** table column has a **dynamic** type structure that use
 | **gs08** | String | Identifier code for the version, release, or industry |
 
 #### X12 functional group acknowledgment - MessageProperties schema
+
+The following syntax describes the **MessageProperties** schema when the tracking record type is an X12 functional group acknowledgment:
 
 ```json
 {

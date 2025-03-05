@@ -2,6 +2,7 @@
 title: Monitor and track B2B transactions - Standard workflows
 description: Set up monitoring and tracking for B2B transactions or messages in Standard workflows for Azure Logic Apps.
 services: logic-apps
+ms.suite: integration
 ms.topic: how-to
 ms.reviewer: estfan, divswa, pravagar, azla
 ms.date: 03/07/2025
