@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 02/11/2025
+ms.date: 03/04/2025
 ms.author: anfdocs
 ---
 
@@ -18,11 +18,21 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files provides ways to quickly [restore data from snapshots](snapshots-introduction.md) (mainly at the volume level). You have the options to restore entire volume from a snapshot or backup and to perform single-file restores from snapshots. You can now also restore individual files from Azure NetApp Files backups, without the need to issue a full restore to a volume first. This will drastically reduce your RTO (Recovery Time Objective) and lower costs, especially on large sized volumes, by avoiding full volumes restore operations. Administrators can simply issue a restore of individual files directly from the snapshot in the backup.
 
+## March 2025
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. This feature is available in all Azure NetApp Files regions. 
+
 ## February 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
-    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
 
 ## January 2025 
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/277/2025
+ms.date: 01/27/2025
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups

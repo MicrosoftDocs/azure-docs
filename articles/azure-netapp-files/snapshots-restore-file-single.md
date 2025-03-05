@@ -20,16 +20,6 @@ The single-file snapshot restore feature enables you to restore a single file or
 * If you use this feature to restore files to be new files, ensure that the volume has enough logical free space to accommodate the files.
 * You can restore up to 10 files at a time, specified in a total length of 1024 characters.    
 * All the directories in the destination path that you specify must be present in the active file system. 
-<<<<<<< HEAD
-The restore operation doesn't create directories in the process. If the specified destination path is invalid (meaning it doesn't exist in the active file system), the restore operation fails.
-* If you don’t specify a destination path, the files will be restored to the original file location. If the files already exist in the original location, the files restored from the snapshot will overwrite the existing files. 
-* A volume can have only one active file-restore operation. If you want to restore additional files, you must wait until the current restore operation is complete before triggering another restore operation.   
-* *During the file restore operation*, the following restrictions apply: 
-    * You can't create new snapshots on the volume.  
-    * You can't delete the snapshot from which the files are being restored. 
-    * The snapshot restore will override any snapshots scheduled by a policy. The policy snapshot won't be created during the restore. 
-* If a snapshot policy is scheduled to take place at the same time, the snapshot schedule will be skipped, and a snapshot isn't created.
-=======
 The restore operation doesn't create directories in the process. If the specified destination path is invalid (doesn't exist in Active file system), the restore operation fails.
 * If you don’t specify a destination path, the files restore to the original file location. If the files already exist in the original location, they are overwritten by the files restored from the snapshot. 
 * A volume can have only one active file-restore operation. If you want to restore additional files, you must wait until the current restore operation completes before initiating another restore operation.   
@@ -37,7 +27,6 @@ The restore operation doesn't create directories in the process. If the specifie
     * You can't create new snapshots on the volume.  
     * You can't delete the snapshot from which the files are being restored. 
     * Policy-scheduled snapshots can't complete during a single-file snapshot restoration operation. The scheduled snapshot is skipped.
->>>>>>> 6b0a9b8018e42a0d029e442ae91045b7c48db827
 
 
 ## Register the feature  
@@ -69,53 +58,24 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 2. Select **Snapshots** to display the list of volume snapshots.
 
-<<<<<<< HEAD
-3. Right-click the snapshot that you want to use for restoring files then select **Restore Files** from the menu.
-=======
 3. Identify the snapshot you want to use, select the three dots `...` then select **Restore Files** from the menu.
->>>>>>> 6b0a9b8018e42a0d029e442ae91045b7c48db827
 
     [ ![Snapshot that shows how to access the Restore Files menu item.](./media/snapshots-restore-file-single/snapshot-restore-files-menu.png) ](./media/snapshots-restore-file-single/snapshot-restore-files-menu.png#lightbox)
 
 5. In the Restore Files window that appears, provide the following information:  
-<<<<<<< HEAD
-    1. In the **File Paths** field, specify the file or files to restore by using their full paths.   
-        * You can specify up to 10 files each time. If you're specifying multiple files, separate the file names with commas or by using new lines to enter each file name. 
-        * The maximum length of the File Paths field must not exceed 1024 characters and 10 files.
-        * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).  
-=======
     1. In the **File paths** field, specify the file or files to restore using their relative paths.   
         * You can specify up to 10 files each time. If you're providing multiple files, the file paths be separated by commas or entered on new lines.
         * The maximum length of the File paths field must not exceed 1,024 characters and 10 files.
         * Regardless of the volume's protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`), not backslashes (`\`).  
->>>>>>> 6b0a9b8018e42a0d029e442ae91045b7c48db827
 
-<<<<<<< HEAD
     2. In the **Destination Path** field, provide the location in the volume to where the specified files are to be restored.
-        * If you don’t specify a destination path, the files will be restored to their original location. If files with the same names already exist in the original location, the files restored from the snapshot will overwrite the existing files
-=======
-    2. In the **Destination Path** field, provide the location in the volume where the specified files are to be restored to.
-<<<<<<< HEAD
         * If you don’t specify a destination path, the files are restored to their original location. If files with the same names already exist in the original location, they're overwritten by the files restored from the snapshot.  
->>>>>>> 618155a2774e41b63fb4697aaa78dab6bc68557d
         * If you specify a destination path: 
             * Ensure that all directories in the path are present in the active file system. Otherwise, the restore operation will fail.   
                 For example, if you specify `/CurrentCopy/contoso` as the destination path, the `/CurrentCopy/contoso` path must already exist.  
             * By specifying a destination path, all files specified in the **File Paths** field will be restored to the destination path (folder).
             * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).   
-=======
-        * If you don't specify a destination path, the files are restored to their original location. If files with the same names already exist in the original location, they're overwritten by the files restored from the snapshot.  
-        * If you specify a destination path: 
-            * Ensure all directories in the path are present in the active file system. If directories in the path are absent, the restore operation fails.   
-                For example, if you specify `/CurrentCopy/contoso` as the destination path, the `/CurrentCopy/contoso` path must already exist.  
-            * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`), not backslashes (`\`).   
->>>>>>> 6b0a9b8018e42a0d029e442ae91045b7c48db827
-
-<<<<<<< HEAD
-    3. Select **Restore** to begin the restore operation.
-=======
     3. Select **Restore** to initiate the restore operation.
->>>>>>> 618155a2774e41b63fb4697aaa78dab6bc68557d
 
     ![Snapshot the Restore Files window.](./media/snapshots-restore-file-single/snapshot-restore-files-window.png)
 

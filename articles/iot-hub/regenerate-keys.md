@@ -2,9 +2,9 @@
 title: Regenerate access keys
 titleSuffix: Azure IoT Hub
 description: Use the Azure portal, Azure CLI, or REST API to renew shared access policy keys for your IoT hub instance and devices.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: azurecli
 ms.topic: how-to
