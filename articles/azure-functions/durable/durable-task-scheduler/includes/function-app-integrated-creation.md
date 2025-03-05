@@ -15,17 +15,40 @@ author: lilyjma
 
    :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
 
-1. After filling out other necessary tabs, select the **Durable Functions** tab. Choose **Durable Task Scheduler** as the backend provider for your Durable Functions. Note that in addition to a scheduler resource, a task hub will be created.
+   | Field | Description | 
+   | ----- | ----------- | 
+   | Subscription | Select your Azure subscription. | 
+   | Resource Group | Select an existing resource group or click **Create new** to create a new one. | 
+   | Function App name | Create a unique name for your function app. | 
+   | Do you want to deploy code or container image? | Keep the **Code** option selected. | 
+   | Runtime stack | Select the runtime you're using for this quickstart. | 
+   | Version | Select your runtimei stack version. | 
+   | Region | Select [one of the supported regions](../durable-task-scheduler.md#supported-regions). | 
+   | Operating System | Select your operating system. | 
+
+1. Select the **Durable Functions** tab. 
+
+1. Choose **Durable Task Scheduler** as the backend provider for your Durable Functions. 
+
+    > [!NOTE]
+    > Creating a scheduler resource automatically creates a task hub.
 
    :::image type="content" source="../media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
 
-   > [!NOTE]
-   > It is recommended that the region chosen for your Durable Task Scheduler matches the region chosen for your Function App. 
+   | Field | Description | 
+   | ----- | ----------- | 
+   | Storage backend | Select **Durable Task Scheduler**. | 
+   | Region | Select the same region you selected in the Basics tab for your function app. | 
+   | Durable task scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
+   | Plan | Select the **Dedicated** plan. | 
+   | Capacity units | Currently, you can only choose one Capacity Unit as an option. | 
 
-1. Click **Review + create** to review the resource creation. Since [DTS supports only identity-based authentication](), a user-assigned managed identity with the required RBAC role will be created automatically so that the Function app can access DTS. You can find in the summary view information related to the managed identity resource, such as:
+1. Click **Review + create** to review the resource creation. 
+
+   A user-assigned managed identity with the required RBAC role has been created automatically so that the Function app can access DTS. You can find in the summary view information related to the managed identity resource, such as:
    - The RBAC assigned to it (*Durable Task Data Contributor*) 
-   - The assignment scope (on the task hub level):
+   - The assignment scope (the scheduler or task hub name)
 
-   :::image type="content" source="../media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
+       :::image type="content" source="../media/create-durable-task-scheduler/func-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 
 1. Click **Create** once validation passes. 
