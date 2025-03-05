@@ -140,7 +140,7 @@ The following image shows the **Review** tab data prior to the creation of a new
 
    ```
 
-4. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. 
+4. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. The following command creates a storage task and enables the system-managed identity of the task. Storage task assignments will use permissions applied to that system-managed identity to authorize access.
 
    ```powershell
    $task = New-AzStorageActionTask `
@@ -152,6 +152,22 @@ The following image shows the **Review** tab data prior to the creation of a new
    -IfCondition $condition `
    -IfOperation $operation `
    -EnableSystemAssignedIdentity:$true
+   ```
+   
+  If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
+
+   ```powershell
+   $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource-group> -Name <user-assigned-managed-identity-name>
+
+   $task = New-AzStorageActionTask `
+   -Name "<storage-task-name>" `
+   -ResourceGroupName "<resource-group>" `
+   -Location "<location>" `
+   -Enabled `
+   -Description "<description>" `
+   -IfCondition $condition `
+   -IfOperation $operation `
+   -UserAssignedIdentity $managedIdentity.Id
    ```
    
    To learn how to create an assignment by using PowerShell, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-powershell).
@@ -166,13 +182,25 @@ The following image shows the **Review** tab data prior to the creation of a new
    > [!TIP]
    > Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
-2. Create a storage task by using the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command, and pass in a JSON-formatted expression of the conditions and operations. This example finds blobs in the cool tier and moves them to the hot tier. All other blobs are deleted.
+2. Create a storage task by using the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command, and pass in a JSON-formatted expression of the conditions and operations. This example finds blobs in the cool tier and moves them to the hot tier. All other blobs are deleted. The following command creates a storage task and specifies a system assigned managed identity. Storage task assignments will use permissions applied to the system-assigned managed identity to authorize access.
 
    ```azurecli
    az storage-actions task create -g myresourcegroup -n mystoragetask \ 
    --identity "{type:SystemAssigned}" \
    --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
    ```
+
+   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
+
+   ```azurecli
+   $identityId=az identity show --name <user-assigned-managed-identity-name> \
+   --resource-group <resource-group> --query "id"
+
+   az storage-actions task create -g myresourcegroup -n mystoragetask \ 
+   --identity $identityId \
+   --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
+   ```
+
    To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
    To learn how to create an assignment by using Azure CLI, see [Create and manage a storage task assignment](storage-task-assignment-create.md?tabs=azure-cli).

@@ -30,6 +30,7 @@ A storage task can be assigned to a storage account only by an owner of that acc
 
 <Diagram goes here>
 
+- some note here that if the task was created to be used with a user assigned identity, the identity name must be added to the AIM of the task.
 - Admin makes sure that they have the roles required to create the assignment
 - Admin makes sure that they have the proper perms in the user assigned identity of the task. Not an issue if system identity is used.
 - Admin makes sure that they have owner of the target storage accounts

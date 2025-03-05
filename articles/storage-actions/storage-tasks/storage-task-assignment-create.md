@@ -167,10 +167,7 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
    -TargetExcludePrefix ""
    ```
 
-2. Give the storage task permission to perform operations on the target storage account. 
-
-   > [!NOTE]
-   > You choose the managed identity type (system-assigned or user-assigned) as part of creating the storage task.
+2. Give the storage task permission to perform operations on the target storage account by assigning a role to the managed identity. You can choose the managed identity type (system-assigned or user-assigned) when you create the storage task.  
 
    The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task. 
 
@@ -195,8 +192,6 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
     -ObjectId $managedIdentity.Id  `
     -RoleDefinitionName "Storage Blob Data Owner"
    ```
-
-
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -230,10 +225,7 @@ An assignment becomes a sub resource of the targeted storage account. Therefore,
       --report "{prefix:storage-tasks-report}"
    ```
 
-2. Give the storage task permission to perform operations on the target storage account.
-
-   > [!NOTE]
-   > You choose the managed identity type (system-assigned or user-assigned) as part of creating the storage task. 
+2. Give the storage task permission to perform operations on the target storage account by assigning a role to the managed identity. You can choose the managed identity type (system-assigned or user-assigned) when you create the storage task. 
 
    The following commands assign the role of `Storage Blob Data Owner` to the system-assigned managed identity of the storage task.
 
