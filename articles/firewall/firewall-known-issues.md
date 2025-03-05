@@ -2,11 +2,11 @@
 title: Azure Firewall known issues and limitations
 description: Learn about Azure Firewall known issues and limitations.
 services: firewall
-author: duongau
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 02/21/2025
-ms.author: duau
+ms.date: 03/03/2025
+ms.author: varunkalyana
 ---
 
 # Azure Firewall known issues and limitations
@@ -22,7 +22,7 @@ For Azure Firewall limitations, see [Azure subscription and service limits, quot
 > 
 > | Zones | Restrictions | Recommendation |
 > | -- | -- | -- |
-> |**Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia. </br></br>- If you stop an existing Azure Firewall that is deployed in this zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
+> |- **Physical zone 2** in **_North Europe_** </br>- **Physical zone 3** in **_South East Asia_**  | - You can't deploy a new Azure Firewall to zone 3 in South East Asia or zone 2 in North Europe. </br></br>- If you stop an existing Azure Firewall that is deployed in these zone, it can't be restarted. </br></br>For more information, see [Physical and logical availability zones](../reliability/availability-zones-overview.md#physical-and-logical-availability-zones). | We recommend you deploy a new Azure Firewall to the remaining availability zones or use a different region. To configure an existing firewall, see [How can I configure availability zones after deployment?](firewall-faq.yml#how-can-i-configure-availability-zones-after-deployment) |
 
 ## Azure Firewall Standard
 
@@ -57,6 +57,7 @@ Azure Firewall Standard has the following known issues:
 | Error encountered when creating more than 2,000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 |Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
+|Associating a Public IP address with Azure Firewall is not supported in a cross-tenant scenario.|If you create a Public IP address in tenant A, you cannot associate it with a firewall deployed in tenant B.|None.|
 
 ## Azure Firewall Premium
 

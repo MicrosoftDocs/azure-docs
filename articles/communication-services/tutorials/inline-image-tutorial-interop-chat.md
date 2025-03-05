@@ -36,7 +36,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md).
 - UI Library version [1.15.0](https://www.npmjs.com/package/@azure/communication-react/v/1.15.0) or the latest version for receiving inline images. Use the UI Library version [1.19.0-beta.1](https://www.npmjs.com/package/@azure/communication-react/v/1.19.0-beta.1) or the latest beta version for sending inline images.
 - A Teams meeting created and the meeting link ready.
-- A familiarity with how [ChatWithChat composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
+- A familiarity with how [ChatWithChat composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) works.
 
 ## Background
 
@@ -48,7 +48,7 @@ After the Azure Communication Services user is admitted to the call, they can st
 
 Because you need to join a Teams meeting first, we need to use the `ChatWithChat` composite from UI Library.
 
-Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a `ChatWithChat` composite.
+Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) to create a `ChatWithChat` composite.
 
 From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 

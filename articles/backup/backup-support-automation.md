@@ -1,7 +1,7 @@
 ---
 title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
-ms.date: 02/09/2025
+ms.date: 03/05/2025
 ms.topic: reference
 ms.service: azure-backup
 author: jyothisuri
@@ -72,7 +72,7 @@ You  can automate most backup related tasks using programmatic methods in Azure 
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** | **Bicep** | **Terraform** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](./backup-azure-afs-automation.md#configure-a-backup-policy). | Supported    <br><br> [See the examples](./backup-afs-cli.md#enable-backup-for-azure-file-shares). | Supported    <br><br> [See the examples](./backup-azure-file-share-rest-api.md#configure-backup-for-an-unprotected-azure-file-share-using-rest-api). | Currently not supported | Supported    <br><br> [See the examples](./backup-rm-template-samples.md). | Supported | Supported <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_protected_file_share). |
+| Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](./backup-azure-afs-automation.md#configure-a-backup-policy). | Supported    <br><br> [See the examples](./backup-afs-cli.md#enable-backup-for-azure-files). | Supported    <br><br> [See the examples](./backup-azure-file-share-rest-api.md#configure-backup-for-an-unprotected-azure-files-using-rest-api). | Currently not supported | Supported    <br><br> [See the examples](./backup-rm-template-samples.md). | Supported | Supported <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/backup_protected_file_share). |
 | Backup | Run on-demand backup | Supported    <br><br> [See the examples](./backup-azure-afs-automation.md#trigger-an-on-demand-backup). | Supported    <br><br> [See the examples](./backup-afs-cli.md#trigger-an-on-demand-backup-for-file-share). | Supported    <br><br> [See the examples](./backup-azure-file-share-rest-api.md#trigger-an-on-demand-backup-for-file-share). | N/A | N/A | N/A | N/A |
 | Restore | Restore to original or alternate location | Supported    <br><br> [See the examples](./restore-afs-powershell.md). | Supported    <br><br> [See the examples](./restore-afs-cli.md). | Supported    <br><br> [See the examples](./restore-azure-file-share-rest-api.md). | N/A | N/A |N/A | N/A |
 | Manage | Monitor jobs | Supported    <br><br> [See the examples](./manage-afs-powershell.md#track-backup-and-restore-jobs). | Supported    <br><br> [See the examples](./manage-afs-backup-cli.md#monitor-jobs). | Supported    <br><br> [See the examples](./manage-azure-file-share-rest-api.md#monitor-jobs). | N/A | N/A |N/A | N/A |

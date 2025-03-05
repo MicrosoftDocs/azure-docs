@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview using Azure Monit
 description: This article describes the Change Tracking and Inventory feature using Azure monitoring agent, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/09/2024
+ms.date: 02/26/2025
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -39,10 +39,9 @@ Azure Change Tracking & Inventory service enhances the auditing and governance f
 
 |**Component**| **Applies to**|
 |---| ---|
-| Operating systems| Windows </br> Linux | 
-| Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
-| Data types     | Windows registry </br> Windows services </br> Linux Daemons |
-| Files | Windows </br> Linux |
+|Operating systems| Windows </br> Linux | 
+|Resource types | Azure VMs </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
+|Data types | Windows registry </br> Windows services </br> Linux Daemons </br> Files </br> Software
 
 ## Key benefits
 
