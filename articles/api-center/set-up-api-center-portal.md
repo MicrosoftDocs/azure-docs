@@ -44,6 +44,8 @@ You can now access the API Center portal. On the **Portal settings** page, selec
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
+[!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
+
 
 ## Related content
 
