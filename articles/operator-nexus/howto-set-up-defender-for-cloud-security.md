@@ -66,7 +66,6 @@ The required permission is ```Microsoft.Security/mdeOnboardings/read```. Assign 
 
 > [!IMPORTANT]
 > The user or identity creating the role assignment must have the ```Microsoft.Authorization/roleAssignments/write``` permission at the subscription level.
-> Executing the commands to show the principal ID object ID requires the Microsoft Entra role assignment of Directory Reader or equivalent.
 
 Below is an example bash script using the Azure CLI for granting the nc-platform-extension identity permission to onboard the MDE agent on your behalf.
 
@@ -107,27 +106,12 @@ PRINCIPAL_ID=$(az k8s-extension show \
   --output tsv)
 echo "Extension Principal ID: $PRINCIPAL_ID"
 
-# 5. Show the full service principal object
-echo "Showing service principal details"
-az ad sp show --id "$PRINCIPAL_ID"
-
-# 6. Show just the object ID
-OBJECT_ID=$(az ad sp show --id "$PRINCIPAL_ID" --query "id" --output tsv)
-echo "Service Principal Object ID: $OBJECT_ID"
-
-# 7. Show additional properties (ObjectID, AppID, DisplayName) in a table
-echo "Service principal summary:"
-az ad sp show \
-  --id "$PRINCIPAL_ID" \
-  --query "{ObjectID:id, AppID:appId, DisplayName:displayName}" \
-  --output table
-
-# 8. Create a Security Reader role assignment at subscription level
+# 5. Create a Security Reader role assignment at subscription level
 echo "Creating Security Reader role assignment at subscription level"
 az role assignment create \
   --role "Security Reader" \
   --subscription "$SUBSCRIPTION_ID" \
-  --assignee-object-id "$OBJECT_ID" \
+  --assignee-object-id "$PRINCIPAL_ID" \
   --assignee-principal-type ServicePrincipal \
   --scope "/subscriptions/$SUBSCRIPTION_ID"
 
