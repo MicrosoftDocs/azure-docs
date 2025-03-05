@@ -205,7 +205,7 @@ This rule allows you to connect a remote desktop to the Srv-Workload virtual mac
 1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
 1. Under **Rules**, for **Name**, type **rdp-nat**.
 1. For **Source type**, select **IP address**.
-1. For **Source**, type **\***.
+1. For **Source**, specify the IP address or range that you want to allow. For example, 192.168.1.0/24.
 1. For **Protocol**, select **TCP**.
 1. For **Destination Ports**, type **3389**.
 1. For **Destination Type**, select **IP Address**.
