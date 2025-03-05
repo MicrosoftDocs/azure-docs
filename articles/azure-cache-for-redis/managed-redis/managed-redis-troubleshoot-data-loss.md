@@ -7,7 +7,7 @@ ms.service: azure-managed-redis
 ms.custom:
   - ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.date: 03/05/2025
 ---
 
 # Troubleshoot data loss in Azure Managed Redis (preview)
@@ -59,7 +59,7 @@ expired_keys:46583
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
 
-
+You can examine the diagnostic metrics for your cache to see if there's a correlation between when the key went missing and a spike in evicted keys.
 
 ### Key eviction
 
@@ -72,8 +72,6 @@ You can monitor the number of evicted keys by using the [INFO](https://redis.io/
 
 evicted_keys:13224
 ```
-
-You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in evicted keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using keyspace notifications or **MONITOR** to debug these types of issues.
 
 ### Key deletion
 
@@ -118,11 +116,10 @@ Redis is an in-memory data store. Data is kept on the physical or virtual machin
 
 Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](../cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
-## Additional information
-
-These articles provide more information on avoiding data loss:
+## Related content
 
 - [Troubleshoot Azure Managed Redis server-side issues](managed-redis-troubleshoot-server.md)
 - [Choosing the right tier](managed-redis-overview.md#choosing-the-right-tier)
 - [Monitor Azure Managed Redis](../monitor-cache.md)
 - [How can I run Redis commands?](managed-redis-development-faq.yml#how-can-i-run-redis-commands-)
+- [Sample code for examining keyspace notifications](https://gist.github.com/JonCole/0d6205b4771e5c803bc1e085517484a2#file-rediskeyspacenotificationsexample-cs)

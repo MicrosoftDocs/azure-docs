@@ -5,7 +5,7 @@ description: Learn how to resolve data-loss problems with Azure Cache for Redis,
 
 
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 03/05/2025
 ---
 
 # Troubleshoot data loss in Azure Cache for Redis
@@ -57,8 +57,6 @@ expired_keys:46583
 
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
-
-This resource provides details on using `keyspace` notifications or `MONITOR` to debug these types of issues. For information about using diagnostic metrics to see if there's a correlation between when the key went missing and a spike in expired keys, see the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix).
 
 ### Key eviction
 
@@ -122,11 +120,10 @@ Caches in the Standard and Premium tiers offer much higher resiliency against da
 
 Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](./cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
-## Additional information
-
-These articles provide more information on avoiding data loss:
+## Related Content
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [Monitor Azure Cache for Redis](monitor-cache.md)
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
+- [Sample code for examining keyspace notifications](https://gist.github.com/JonCole/0d6205b4771e5c803bc1e085517484a2#file-rediskeyspacenotificationsexample-cs)
