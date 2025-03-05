@@ -1,8 +1,8 @@
 ---
 title: Metrics for the connector for OPC UA
 description: Available observability metrics for the connector for OPC UA to monitor the health and performance of your solution.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: reference
 ms.custom:
   - ignite-2023
