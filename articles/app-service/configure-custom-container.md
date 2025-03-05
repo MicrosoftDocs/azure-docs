@@ -37,7 +37,7 @@ For your custom Windows image, choose the right [parent image (base image)](http
 - To deploy .NET Framework apps, use a parent image based on the Windows Server 2019 Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release.
 - To deploy .NET Core apps, use a parent image based on the Windows Server 2019 Nano [Annual Channel (AC)](/windows-server/get-started/servicing-channels-comparison#annual-channel-ac) release.
 
-It takes some time to download a parent image during app start-up. You can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
+It takes some time to download a parent image during app startup. You can reduce startup time by using one of the following parent images that are already cached in Azure App Service:
 
 - [mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/product/windows/servercore/about)
 - [mcr.microsoft.com/windows/servercore:ltsc2019](https://mcr.microsoft.com/product/windows/servercore/about)
@@ -78,7 +78,7 @@ Use the following steps to configure your web app to pull from Azure Container R
    az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
    ```
 
-   Replace *\<app-name> with the name you used in the previous step. The output of the command, filtered by the `--query` and `--output` arguments, is the service principal ID of the assigned identity.
+   Replace *\<app-name>* with the name you used in the previous step. The output of the command, filtered by the `--query` and `--output` arguments, is the service principal ID of the assigned identity.
 
 1. Get the resource ID of your Azure Container Registry:
 
@@ -277,14 +277,14 @@ App Service logs actions by the Docker host and activities from within the conta
 
 There are several ways to access Docker logs:
 
-- [Azure portal](#in-azure-portal)
+- [The Azure portal](#in-azure-portal)
 - [Kudu](#from-kudu)
 - [Kudu API](#with-the-kudu-api)
 - [Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
-### In Azure portal
+### In the Azure portal
 
-Docker logs are displayed in the portal, in the **Container Settings** page of your app. The logs are truncated. To download all the logs, select **Download**.
+Docker logs are displayed in the Azure portal, in the **Container Settings** page of your app. The logs are truncated. To download all the logs, select **Download**.
 
 ### From Kudu
 
@@ -343,7 +343,7 @@ In PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITE_CPU_CORES_LIMIT"=1}
 ```
 
-> [!NOTE]
+> [!TIP]
 > Updating the app setting triggers automatic restart, which causes minimal downtime. For a production app, consider swapping it into a staging slot, change the app setting in the staging slot, and then swap it back into production.
 
 To verify your adjusted number, open an SSH session from the Azure portal or use the Kudu portal (`https://<app-name>.scm.azurewebsites.net/webssh/host`). Enter the following commands using PowerShell. Each command returns a number.
@@ -478,7 +478,7 @@ Secure Shell (SSH) is commonly used to run administrative commands remotely from
    > [!NOTE]
    > The root password must be exactly `Docker!` because it's used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and isn't accessible to an attacker on the internet.
 
-1. Rebuild and push the Docker image to the registry, and then test the Web App SSH feature on Azure portal.
+1. Rebuild and push the Docker image to the registry, and then test the Web App SSH feature in the Azure portal.
 
 For more troubleshooting information, see the Azure App Service blog: [Enabling SSH on Linux Web App for Containers](https://azureossd.github.io/2022/04/27/2022-Enabling-SSH-on-Linux-Web-App-for-Containers/index.html#troubleshooting)
 
