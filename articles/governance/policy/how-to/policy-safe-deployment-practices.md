@@ -1,7 +1,7 @@
 ---
 title: Safe deployment of Azure Policy assignments
 description: Learn how to apply the safe deployment practices (SDP) framework to your Azure Policy assignments.
-ms.date: 04/21/2023
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

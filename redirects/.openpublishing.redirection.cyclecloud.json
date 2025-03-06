@@ -1,0 +1,556 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes-archive.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes-archive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes-previous.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes-previous",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-0.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-1.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-2.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-3.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-4.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-5-5.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-5-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-6-0.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-6-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-6-1.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-6-1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-0.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-1.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-2.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-3.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-4.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-7-5.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-7-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-8-0.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-8-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-0.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-1.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-10.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-10",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-11.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-11",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-2.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-3.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-3",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-4.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-5.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-6.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-6",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-7.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-7",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-8.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-8",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/release-notes/7-9-9.md",
+      "redirect_url": "/previous-versions/azure/cyclecloud/release-notes/7-9-9",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/quickstart-install-cyclecloud.md",
+      "redirect_url": "/azure/cyclecloud/qs-install-marketplace",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/quickstart-create-and-run-cluster.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/create-cluster",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/quickstart-submit-jobs.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/submit-jobs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/quickstart-clean-up-resources.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/clean-up",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/clusters.md",
+      "redirect_url": "/azure/cyclecloud/concepts/clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/monitoring.md",
+      "redirect_url": "/azure/cyclecloud/concepts/monitoring",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/autoscale.md",
+      "redirect_url": "/azure/cyclecloud/how-to/configure-autoscaling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/environments.md",
+      "redirect_url": "/azure/cyclecloud/how-to/environments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/projects.md",
+      "redirect_url": "/azure/cyclecloud/how-to/projects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/event-logs.md",
+      "redirect_url": "/azure/cyclecloud/how-to/monitor-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/reports.md",
+      "redirect_url": "/azure/cyclecloud/concepts/usage-tracking",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/usage.md",
+      "redirect_url": "/azure/cyclecloud/concepts/usage-tracking"
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/user-management.md",
+      "redirect_url": "/azure/cyclecloud/concepts/user-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/storage-mount-volumes.md",
+      "redirect_url": "/azure/cyclecloud/how-to/add-disk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/backup-and-restore.md",
+      "redirect_url": "/azure/cyclecloud/how-to/backup-and-restore",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-templates.md",
+      "redirect_url": "/azure/cyclecloud/how-to/cluster-templates",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/configuration.md",
+      "redirect_url": "/azure/cyclecloud/how-to/configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/connect-to-node.md",
+      "redirect_url": "/azure/cyclecloud/how-to/connect-to-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/custom-images.md",
+      "redirect_url": "/azure/cyclecloud/how-to/create-custom-image",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/end-cluster.md",
+      "redirect_url": "/azure/cyclecloud/how-to/terminate-cluster",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/hb-hc-best-practices.md",
+      "redirect_url": "/azure/cyclecloud/how-to/hb-hc-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/healthcheck.md",
+      "redirect_url": "/azure/cyclecloud/how-to/healthcheck",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/installation.md",
+      "redirect_url": "/azure/cyclecloud/how-to/install-manual",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/install-cyclecloud-cli.md",
+      "redirect_url": "/azure/cyclecloud/how-to/install-cyclecloud-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/install-jetpack.md",
+      "redirect_url": "/azure/cyclecloud/how-to/install-jetpack",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/managed-identities.md",
+      "redirect_url": "/azure/cyclecloud/how-to/managed-identities",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/alerts.md",
+      "redirect_url": "/azure/cyclecloud/how-to/monitor-clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/attach-storage.md",
+      "redirect_url": "/azure/cyclecloud/how-to/mount-fileserver",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/network-security.md",
+      "redirect_url": "/azure/cyclecloud/how-to/network-security",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/return-proxy.md",
+      "redirect_url": "/azure/cyclecloud/how-to/return-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/running-behind-proxy.md",
+      "redirect_url": "/azure/cyclecloud/how-to/running-behind-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/running-in-locked-down-network.md",
+      "redirect_url": "/azure/cyclecloud/how-to/running-in-locked-down-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/ssl-configuration.md",
+      "redirect_url": "/azure/cyclecloud/how-to/ssl-configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/start-cluster.md",
+      "redirect_url": "/azure/cyclecloud/how-to/start-cluster",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tag-nodes.md",
+      "redirect_url": "/azure/cyclecloud/how-to/tag-nodes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/theming.md",
+      "redirect_url": "/azure/cyclecloud/how-to/theming",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/upgrade-and-migrate.md",
+      "redirect_url": "/azure/cyclecloud/how-to/upgrade-and-migrate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/user-cluster-access.md",
+      "redirect_url": "/azure/cyclecloud/how-to/user-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/user-authentication.md",
+      "redirect_url": "/azure/cyclecloud/how-to/user-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/storage-nfs-mounts.md",
+      "redirect_url": "/azure/cyclecloud/how-to/mount-fileserver"
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/storage-blobs.md",
+      "redirect_url": "/azure/cyclecloud/how-to/storage-blobs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/container-distribution.md",
+      "redirect_url": "/azure/cyclecloud/how-to/run-in-container",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/container.md",
+      "redirect_url": "/azure/cyclecloud/how-to/run-in-container"
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/build-cluster-template.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/cluster-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/nodes-in-cluster-templates.md ",
+      "redirect_url": "/azure/cyclecloud/cluster-references/node-nodearray-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/cluster-configuration.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/configuration-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/environment.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/environment-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/input-endpoint.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/input-endpoint-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/network-interface.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/network-interface-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/noderef.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/noderef-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cluster-references/node-configuration-reference.md",
+      "redirect_url": "/azure/cyclecloud/cluster-references/configuration-reference"
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cyclecloud-references/theming.md",
+      "redirect_url": "/azure/cyclecloud/how-to/theming",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cyclecloud-references/running-behind-proxy.md",
+      "redirect_url": "/azure/cyclecloud/how-to/running-behind-proxy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cyclecloud-references/running-in-locked-down-network.md",
+      "redirect_url": "/azure/cyclecloud/how-to/running-in-locked-down-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cyclecloud-references/backup-and-restore.md",
+      "redirect_url": "/azure/cyclecloud/how-to/backup-and-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/cyclecloud-references/upgrade-and-migrate.md",
+      "redirect_url": "/azure/cyclecloud/how-to/upgrade-and-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/pbspro.md",
+      "redirect_url": "/azure/cyclecloud/openpbs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tutorials/clean-up.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tutorials/create-cluster.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tutorials/modify-cluster-template.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tutorials/deploy-custom-application.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/tutorials/submit-jobs.md",
+      "redirect_url": "/azure/cyclecloud/tutorials/tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/error_messages.md",
+      "redirect_url": "/azure/cyclecloud/error-messages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/log_locations.md",
+      "redirect_url": "/azure/cyclecloud/log-locations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/azure_credentials.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/azure-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/chef_exception.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/chef-exception",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/cluster_credentials.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/cluster-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/configuration_status.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/configuration-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/creating_network_resources.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/creating-network-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/execute_command.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/execute-command",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/fetching_resources.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/fetching-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/marketplace_images.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/marketplace-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/node_cyclecloud_connectivity.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/node-cyclecloud-connectivity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/node_timeout_await_bootup.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/node-timeout-await-bootup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/registering_providers.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/registering-providers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/resolving_cookbooks.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/resolving-cookbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/resource_group_privileges.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/resource-group-privileges",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/scaleset_attributes.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/scaleset-attributes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/slurmd_errors.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/slurmd-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/staging_resources.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/staging-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/unavailable_sku.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/unavailable-sku",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cyclecloud/common-issues/updating_scalesets.md",
+      "redirect_url": "/azure/cyclecloud/common-issues/updating-scalesets",
+      "redirect_document_id": false
+    },
+
+  ]
+}

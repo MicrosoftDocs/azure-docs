@@ -2,9 +2,9 @@
 title: How to migrate an IoT hub
 titleSuffix: Azure IoT Hub
 description: Use the Azure CLI iot hub state command group to migrate an IoT hub to a new region, a new tier, or a new configuration
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
