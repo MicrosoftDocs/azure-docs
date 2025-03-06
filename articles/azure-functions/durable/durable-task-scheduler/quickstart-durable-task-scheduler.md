@@ -27,28 +27,30 @@ In this quickstart, you configure a Durable Functions app to use the [Durable Ta
 
 ## Prerequisites
 
-- An existing Durable Functions app, specifically that you already have:
-   - Created an Azure Functions project on your local computer.
-   - Added Durable Functions to your project with an [orchestrator function](../durable-functions-bindings.md#orchestration-trigger) and a [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
-   - Configured the project for local debugging.
+This quickstart assumes you alredy have an Azure Functions project on your local computer with:
+- Durable Functions added to your project using:
+  - An [orchestrator function](../durable-functions-bindings.md#orchestration-trigger). 
+  - A [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
+- The project configured for local debugging.
 
-   If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
+If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
 
 ::: zone pivot="csharp"  
 
-   - [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end 
 
 ::: zone pivot="other"  
 
-   - [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
-   - [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
-   - [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
-   - [Create a Durable Functions app - Java](../quickstart-java.md)
+- [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
+- [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
+- [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - Java](../quickstart-java.md)
 
 ::: zone-end 
 
+You'll also need:
 - [Docker](https://docs.docker.com/engine/install/) installed to run the DTS emulator. 
 - [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
 - An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
@@ -226,7 +228,7 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) after deployment. This ensures your app autoscales based on load. 
 
-### Test your function app in Azure
+## Test your function app 
 
 Run the following command to get your function's URL: 
   

@@ -30,8 +30,7 @@ author: lilyjma
 
 1. Choose **Durable Task Scheduler** as the backend provider for your Durable Functions. 
 
-    > [!NOTE]
-    > Creating a scheduler resource automatically creates a task hub.
+1. Create a scheduler resource. This action automatically creates a task hub.
 
    :::image type="content" source="../media/create-durable-task-scheduler/durable-func-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
 

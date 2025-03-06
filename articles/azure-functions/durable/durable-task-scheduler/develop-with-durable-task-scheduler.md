@@ -479,7 +479,7 @@ For DTS apps on the Functions Premium plan, enable the *Runtime Scale Monitoring
 
 1. Under the **Function runtime settings** tab, turn on **Runtime Scale Monitoring**. 
 
-  :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
+    :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
 
 ::: zone-end 
 
