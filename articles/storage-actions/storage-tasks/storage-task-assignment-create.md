@@ -14,7 +14,7 @@ ms.date: 01/17/2024
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. 
 
-This article helps you create an assignment, and then enable that assignment to run.
+This article helps you create an assignment, and then enable that assignment to run. To learn more about storage task assignments, see [Storage task assignments](storage-task-assignment.md).
 
 ## Create and manage an assignment
 
@@ -55,6 +55,8 @@ In the **Select scope** section, select a subscription and name the assignment. 
 
 If you opened the **Add assignment** pane in the context of the storage account, you'll select a storage task instead of the storage account.
 
+For a description of each property, see [Assignment settings](storage-task-assignment.md#assignment-settings).
+
 ### Add a role assignment
 
 In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
@@ -65,6 +67,8 @@ In the **Role assignment** section, in the **Role** drop-down list, select the r
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
+For a description of each property, see [Assignment settings](storage-task-assignment.md#assignment-settings).
+
 ### Add a filter
 
 In the **Filter objects** section, choose whether you want to target a subset of blobs based on a filter. Filters help you narrow the scope of execution. If you want the task to evaluate all of the containers and blobs in an account, then you can select the **Do not filter** option. The following example uses a filter to target only blobs that exist in a container that is named `mycontainer`.
@@ -72,12 +76,16 @@ In the **Filter objects** section, choose whether you want to target a subset of
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-pane-filter-prefix.png)
 
+For a description of each property, see [Assignment settings](storage-task-assignment.md#assignment-settings).
+
 ### Define the trigger
 
 In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Triggers section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-trigger.png)
+
+For a description of each property, see [Assignment settings](storage-task-assignment.md#assignment-settings).
 
 ### Save the assignment
 
@@ -325,5 +333,6 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 ## See also
 
+- [Storage task assignments](storage-task-assignments.md)
 - [Azure Storage Actions overview](../overview.md)
 - [Analyze storage task runs](storage-task-runs.md)

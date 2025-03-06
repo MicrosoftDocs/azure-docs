@@ -1,7 +1,7 @@
 ---
 title: Storage task assignment
 titleSuffix: Azure Storage Actions
-description: Conceptual article about storage task assignment
+description: Learn storage task assignments. An assignment applies a storage task to the data in a storage account.
 services: storage
 author: normesta
 
@@ -14,7 +14,7 @@ ms.author: normesta
 
 # Storage task assignment
 
-To use a storage task, you must _assign_ it to a storage account by creating a _storage task assignment_. The assignment is saved as part of the storage account resource instance, and defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. 
+To use a storage task, you must create a _storage task assignment_. The assignment is saved as part of the storage account resource instance, and defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. 
 
 ## Creating an assignment
 
@@ -27,7 +27,7 @@ The following table describes the configuration settings of a storage task assig
 > [!NOTE]
 > The names that appear in the following table appear in the **Add Assignment** page of the Azure portal. If plan to create an assignment by using REST, an SDK, PowerShell, or Azure CLI, see the appropriate reference content set to obtain the names of specific properties used to configure each setting.
 
-### Scope settings
+The following settings define the 
 
 | Setting | Required or optional | Description |
 |--|--|--|
@@ -35,35 +35,22 @@ The following table describes the configuration settings of a storage task assig
 | Storage account name | Required | The storage account that you want to add to this assignment. You must be an owner of the storage account. This field appears only if you create the assignment in the context of a storage task.|
 | Storage task name | Required | The storage task to which you would like to assign your storage account. This field appears only if you create the assignment in the context of a storage account.|  
 | Storage task assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
-
-### Filter settings
-
-| Setting | Required or optional | Description |
-|--|--|--|
 | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
 | Include blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
-| Exclude blob prefixes | Optional | Description |
-
-### Trigger settings
-
-| Setting | Required or optional | Description |
-|--|--|--|
+| Exclude blob prefixes | Optional | A string prefix that is used to exclude blobs that are evaluated by the task.  |
 | Run frequency | Required | Option to either run the task one time or multiple times. | 
-| Start from | Required | The date and time to begin running the task. |
-| End by | Required | The date and time stop running the task. |
-| Repeat very (in days) | Required | The interval in days between each run. |
+| Start from | Required | The date and time to begin running the task. Applicable only when scheduling a task to run multiple times. |
+| End by | Required | The date and time stop running the task. Applicable only when scheduling a task to run multiple times. |
+| Repeat very (in days) | Required | The interval in days between each run. Applicable only when scheduling a task to run multiple times. |
 | Report export container | Required | The container where task execution reports are stored. |
 
-## Granting permission to a storage task
+## Authorizing a storage task
 
-As part of the assignment process, you will assign a role to the managed identity of the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. However, the user that creates the storage task can optionally associate a user-assigned managed identity with the storage task. The type of managed identity that is associated with the storage task cannot be changed after the storage task is provisioned.
+As part of the assignment process, you will assign a role to the managed identity associated with the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. However, the user that creates the storage task can optionally associate a user-assigned managed identity with the storage task. The type of managed identity that is associated with the storage task cannot be changed after the storage task is provisioned.
 
-When assigning a role to the managed identity of the storage task, you must choose a Azure built-in or custom role that has the permission necessary to perform the operations defined in a storage task upon the target storage account. See [Permission for a task to perform operations](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
+When assigning a role, you must choose a Azure built-in or custom role that has the permission necessary to perform the operations defined in a storage task upon the target storage account. See [Permission for a task to perform operations](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
 
-After you save the assignment, the managed identity is validated to ensure that has the correct permissions to perform the tasks defined in the storage task. 
-
-> [!NOTE]
-> If you use the Azure portal to create the assignment, this validation step also occurs after you assign the role to the managed identity.
+After you save the assignment, the managed identity is validated to ensure that has the correct permissions to perform the tasks defined in the storage task. If you use the Azure portal to create the assignment, this validation step also occurs after you assign the role to the managed identity.
 
 ## See also
 
