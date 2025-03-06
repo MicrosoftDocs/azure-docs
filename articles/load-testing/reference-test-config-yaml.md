@@ -38,7 +38,7 @@ A load test configuration uses the following keys:
 | `secrets` | object | N |  | List of secrets that the Apache JMeter or Locust script references. See [secrets](#secrets-configuration) for more details. |
 | `env` | object | N |  | List of environment variables that the Apache JMeter script or Locust references. See [environment variables](#env-configuration) for more details. |
 | `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter or Locust script. See [certificates](#certificates-configuration) for more details.|
-| `appComponents` | object | N |  | List of server -side resources to monitor during the load test. See [appComponents](#appComponents-configuration) for more details. |
+| `appComponents` | object | N |  | List of server -side resources to monitor during the load test. See [appComponents](#appcomponents-configuration) for more details. |
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `publicIPDisabled` | boolean | N |  | Disable the deployment of a public IP address, load balancer, and network security group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `regionalLoadTestConfig` | object | N |  | Distribute load across regions to simulate user traffic from multiple regions. For more information, See [regional load test configuration](#regional-load-test-configuration) for more details. |
