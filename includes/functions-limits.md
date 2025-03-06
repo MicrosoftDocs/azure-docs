@@ -42,7 +42,7 @@ Notes on service limits:
 12. Including the production slot.  
 13. There's currently a limit of 5,000 function apps in a given subscription. 
 14. Flex Consumption plan instance sizes are currently defined as either 2,048 MB or 4,096 MB. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory).  
-15. Flex Consumption plan has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Instance memory](/azure/azure-functions/flex-consumption-plan#instance-memory). Container Apps has Environments and cores quotas per subscription. See [Quotas for Azure Container Apps](https://learn.microsoft.com/azure/container-apps/quotas).
+15. Flex Consumption plan has a regional subscription quota that limits the total memory usage of all instances across a given region. For more information, see [Regional subscription memory quotas](/azure/azure-functions/flex-consumption-plan#regional-subscription-memory-quotas). Container Apps has Environments and cores quotas per subscription. See [Quotas for Azure Container Apps](/azure/container-apps/quotas).
 16. When the [minimum number of replicas](/azure/container-apps/scale-app#scale-definition) is set to zero, the default time-out depends on the specific triggers used in the app.
 17. When the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition) is set to one or more.
 18. On Container Apps, you can set the [maximum number of replicas](/azure/container-apps/scale-app#scale-definition), which is honored as long as there's enough cores quota available.
