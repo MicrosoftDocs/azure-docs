@@ -2,8 +2,8 @@
 title: Plan your CycleCloud Workspace for Slurm Deployment
 description: A checklist to help plan for your CycleCloud Workspace for Slurm deployment
 author: xpillons
-ms.date: 08/22/2024
-ms.author: xpillons
+ms.date: 03/05/2025
+ms.author: padmalathas
 ---
 
 # Plan your CycleCloud Workspace for Slurm Deployment
@@ -13,13 +13,16 @@ When doing a deployment, the Azure user account used need to be granted the foll
 - `Contributor` on the Subscription
 - `User Access Administrator` on the Subscription
 
+> Note : It is recommended to pre-deploy a [Hub VNet](/azure/architecture/networking/architecture/hub-spoke) to connect to your enterprise network if one is not already established. This hub can accommodate a [VPN Gateway](/azure/vpn-gateway/tutorial-create-gateway-portal) and an Azure Bastion. The CycleCloud Workspace for Slurm environment will be a spoke and peered during deployment.
+
 ## Greenfield Deployment
 
 In a greenfield deployment, the following resources and role assignments will be created:
 - Resource Group
 - The Virtual Network, its subnets `ccw-cyclecloud-subnet`, and `ccw-compute-subnet`
 - The Virtual Machine `ccw-cyclecloud-vm`, NIC, OS, Data Disks, and a System Managed Identity
-- A uniquely named storage account for CycleCloud projects
+- A User-Assigned Managed Identity used to access the CycleCloud storage account
+- A uniquely named storage account for CycleCloud projects and a Private Enpoint in the `ccw-cyclecloud-subnet`
 - Network Security Group named `nsg-ccw-common`
 - `Contributor`, `Storage Account Contributor`, and `Storage Blob Data Contributor` roles at the subscription level for the CycleCloud VM System Managed Identity
 - Optionally a Bastion, subnet `AzureBastionSubnet`, and public IP `bastion-pip`
@@ -36,12 +39,18 @@ You will be able to provide existing resources for:
 - an Azure Database for MySQL flexible server instance for Slurm Job Accounting
 
 If you bring your own VNET you have to follow these pre-requisistes:
-- a /29 **cyclecloud** subnet for the CycleCloud VM, with `Microsoft.Storage` Service Endpoint assigned,
-- a **compute** subnet for the nodes, with `Microsoft.Storage` Service Endpoint assigned. This is where the scheduler, login, and compute nodes will be created
+- a /29 **cyclecloud** subnet for the CycleCloud VM
+- a **compute** subnet for the nodes. This is where the scheduler, login, and compute nodes will be created
 - when using Azure NetApp Files, a dedicated **netapp** subnet with the `Microsoft.NetApp/volumes` delegation as documented here [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
 - when using Azure Managed Lustre Filesystem, a dedicated **lustre** subnet with a CIDR based on the storage capacity to provision as documented here [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
 - if deploying a Bastion, a dedicated **BastionSubnet** as documented [here](/azure/bastion/configuration-settings#subnet)
 - Your NSGs should allow communications between subnets as defined in the [bicep/network-new.bicep](https://github.com/Azure/cyclecloud-slurm-workspace/blob/main/bicep/network-new.bicep) file.
 
 ## Quotas
+
 Before deploying, ensure that your subscription has the required quota for the Virtual Machine types desired for CycleCloud nodes.
+
+## Resources
+
+* [Tutorial: Create and manage a VPN gateway using the Azure portal](/azure/vpn-gateway/tutorial-create-gateway-portal)
+* [Configure P2S VPN Gateway for Microsoft Entra ID authentication – Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway)
