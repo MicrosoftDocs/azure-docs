@@ -38,11 +38,11 @@ After you create the API Center portal app registration, you need to configure a
     1. Confirm that the **Redirect URI** is the value you configured in the app registration. 
     1. Select **Save + publish**.
 1. On the **Site profile** tab, enter a website name that you want to appear in the top bar of the API Center portal. Select **Save + publish**.
-1. On the **API visibility** tab, optionally add filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility).
+1. On the **API visibility** tab, optionally add filters for APIs that you want to make discoverable in the portal. Select **Save + publish**. [Learn more about API visibility](#api-visibility)
 
 You can now access the API Center portal:
 * On the **Portal settings** page, select **View API Center portal** to open the portal in a new tab. 
-* Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/><br/>
+* Or, enter the following URL in your browser, replacing `<service-name>` and `<location>` with the name of your API center and the location where it's deployed:<br/>
     `https://<service-name>.portal.<location>.azure-api-center.ms`
 
 ### API visibility

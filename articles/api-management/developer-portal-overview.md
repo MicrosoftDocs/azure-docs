@@ -19,6 +19,9 @@ The API Management *developer portal* is an automatically generated, fully custo
 
 This article introduces features of the developer portal, the types of content the portal presents, and options to manage and extend the developer portal for your specific users and scenarios.
 
+> [!TIP]
+> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](../api-center/set-up-api-center-portal.md#api-management-and-api-center-portals)
+
 [!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 :::image type="content" source="media/developer-portal-overview/cover.png" alt-text="Screenshot of the API Management developer portal.":::
