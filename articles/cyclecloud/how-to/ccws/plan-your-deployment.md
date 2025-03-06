@@ -10,7 +10,7 @@ ms.author: padmalathas
 
 You have two deployment options for Azure CycleCloud Workspace for Slurm:
 - Greenfield environment: In this option, all the resources needed are provisioned for you.
-- Brownfield deployment: In this option, you'll provide the existing resources.
+- Brownfield deployment: In this option, you provide the existing resources.
 
 When doing a deployment, the Azure user account used need to be granted the following roles:
 - `Contributor` on the Subscription
@@ -37,17 +37,17 @@ In a greenfield deployment, the following resources and role assignments are cre
 
 ## Brownfield Deployment
 
-You will be able to provide existing resources for:
-- The VNET and subnets in which the environment are deployed
-- Filesystem Storage for the user's home directories and/or additional filers, as external NFS mount points or Azure Managed Lustre Filesystem
-- An Azure Database for MySQL flexible server instance for Slurm Job Accounting
+In a brownfield deployment, you can provide existing resources for:
+- The VNET and subnets in which the environment are deployed.
+- Filesystem Storage for the user's home directories and/or other filers, as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
+- An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
 
 If you are bringing your own VNET, follow these pre-requisistes:
-- A /29 **cyclecloud** subnet for the CycleCloud VM
-- A **compute** subnet for the nodes, where the scheduler, login, and compute nodes are created
+- A /29 **cyclecloud** subnet for the CycleCloud VM.
+- A **compute** subnet for the nodes, where the scheduler, login, and compute nodes are created.
 - When using Azure NetApp Files, a dedicated **netapp** subnet with the `Microsoft.NetApp/volumes` delegation as documented here [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
-- When using Azure Managed Lustre Filesystem, a dedicated **lustre** subnet with a CIDR based on the storage capacity to provision as documented here [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview)
-- If deploying a Bastion, a dedicated **BastionSubnet** as documented [here](/azure/bastion/configuration-settings#subnet)
+- When using Azure Managed Lustre Filesystem, a dedicated **lustre** subnet with a CIDR based on the storage capacity to provision as documented here [Azure Managed Lustre](/azure/azure-managed-lustre/amlfs-overview).
+- If deploying a Bastion, a dedicated **BastionSubnet** as documented [here](/azure/bastion/configuration-settings#subnet).
 - Your NSGs should allow communications between subnets as defined in the [bicep/network-new.bicep](https://github.com/Azure/cyclecloud-slurm-workspace/blob/main/bicep/network-new.bicep) file.
 
 ## Quotas
