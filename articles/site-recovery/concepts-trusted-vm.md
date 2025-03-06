@@ -24,7 +24,7 @@ Find the support matrix for Azure trusted launch virtual machines with Azure Sit
     > Linux OS isn't supported yet for recovery services vault in UAE North region.
 
     > [!NOTE]
-    > For [Azure government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
+    > For [Azure Government regions](../azure-government/documentation-government-overview-dod.md), both source and target location should either be in `US Gov` regions or both should be in `US DoD` regions. Setting source location of US Gov regions and target location of US DoD regions or vice versa isn't supported.
 - **Private endpoints**: Azure trusted virtual machines can be protected using private endpoint configured recovery services vault
 - **Migration**: Migration of Azure Site Recovery protected existing Generation 1 Azure VMs to trusted VMs and [Generation 2 Azure virtual machines to trusted VMs](/azure/virtual-machines/trusted-launch-existing-vm) isn't supported. [Learn more](#migrate-azure-site-recovery-protected-azure-generation-2-vm-to-trusted-vm) about migration of Generation 2 Azure VMs.
 - **Disk Network Access**: Azure Site Recovery creates disks (replica and target disks) with public access enabled by default. To disable public access for these disks follow [these steps](./azure-to-azure-common-questions.md#disk-network-access).
