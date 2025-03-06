@@ -20,6 +20,7 @@ This article explains how to set autoshutdown schedules and policies for labs an
 - To set autoshutdown schedules for an individual lab VM if allowed by policy, at least **Contributor**-level permissions on the VM.
 - To create the Logic Apps app to send shutdown notifications, an Outlook 365 email client, and at least **Contributor**-level permissions in the Azure subscription that contains the DevTest Lab instance.
 
+<a name="configure-lab-auto-shutdown-schedule"></a>
 ## Configure lab autoshutdown schedule
 
 By default, this schedule applies to all VMs in the lab. To remove this setting from a specific VM if allowed by policy, open the VM's management pane and change its **Auto-shutdown** setting.
@@ -40,6 +41,7 @@ To set your lab's autoshutdown schedule:
 > [!NOTE]
 > If you update the autoshutdown schedule for your lab or a VM within 30 minutes before the previously scheduled shutdown time, the new shutdown schedule takes effect the next day.
 
+<a name="configure-lab-auto-shutdown-policy"></a>
 ## Configure lab autoshutdown policy
 
 As a lab owner, you can control cost and minimize waste in your labs by managing autoshutdown policy settings for your lab. For more information about lab policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
@@ -54,7 +56,9 @@ To set autoshutdown policy for your lab:
 1. On the **Auto shutdown policy** page, select one of the following options:
 
    - **User sets a schedule and can opt out**: Lab users can override or opt out of the lab schedule. This option grants VM owners full control to set their own VMs' autoshutdown schedules.
+
    - **User sets a schedule and cannot opt out**: Lab users can change the shutdown schedule for their own VMs, but they can't opt out of the autoshutdown policy. VM owners can update the shutdown time and set up shutdown notifications. This option ensures that every lab VM is under an autoshutdown schedule.
+
    - **User has no control over the schedule set by lab administrator**: Lab users can't alter or opt out of the lab autoshutdown schedule. VM owners can still set up shutdown notifications for their VMs. This option gives the lab administrator complete control of the schedule for all lab VMs.
 
 1. Select **Save**.
@@ -87,28 +91,31 @@ After you update autoshutdown settings, you can see that activity logged in the 
 
 ## Configure autoshutdown notifications
 
-When you enable autoshutdown notifications, lab users receive a notification 30 minutes before autoshutdown affects any of their VMs. The notification gives users a chance to save their work before the shutdown. If the autoshutdown settings specify an email address, the notification sends to that email address. If the settings specify a webhook, the notification sends to the webhook URL.
+When you enable autoshutdown notifications, lab users receive a notification 30 minutes before autoshutdown affects their VMs. The notification gives users a chance to save their work before the shutdown. If the autoshutdown settings specify an email address, the notification sends to that email address. If the settings specify a webhook, the notification sends to the webhook URL.
 
 The notification can also provide links that allow the following actions for each VM:
 
 - Skip the autoshutdown this time.
-- Snooze the autoshutdown for an hour.
-- Snooze the autoshutdown for 2 hours.
+- Delay the autoshutdown for an hour.
+- Delay the autoshutdown for 2 hours.
 
 You can use webhooks to implement your notifications. You set up integrations that subscribe to certain events. When one of those events occurs, an HTTP POST payload sends to the webhook's URL.
 
-Apps like [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) have extensive support for webhooks. For more information about responding to webhooks, see [Azure Functions HTTP triggers and bindings overview](/azure/azure-functions/functions-bindings-http-webhook) and [Add an HTTP trigger for Azure Logic Apps](/azure/connectors/connectors-native-http#add-an-http-trigger).
+Apps like [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) have extensive support for webhooks. The following section describes how to use Logic Apps to configure an autoshutdown email notification to VM owners.
 
-The following section shows you how to use Logic Apps to configure an autoshutdown email notification to VM owners.
+For more information about responding to webhooks, see:
+
+- [Azure Functions HTTP triggers and bindings overview](/azure/azure-functions/functions-bindings-http-webhook)
+- [Add an HTTP trigger for Azure Logic Apps](/azure/connectors/connectors-native-http#add-an-http-trigger)
 
 ## Create a logic app that sends email notifications
 
 Logic Apps provides many connectors that make it easy to integrate a service with other clients like Office 365. The following high-level steps set up a logic app for email notification.
 
-1. Create a logic app.
+1. Create the logic app.
 1. Configure the built-in template.
 1. Integrate with your email client.
-1. Get the webhook URL to use in autoshutdown notification settings.
+1. Get the webhook URL to use in lab autoshutdown notification settings.
 
 ### Create the logic app
 
@@ -116,7 +123,7 @@ Follow these steps to create a logic app in Azure.
 
 1. In the Azure portal, search for and select *logic apps*.
 1. At the top of the **Logic apps** page, select **Add**.
-1. For this example, select **Workflow Service Plan** and then select **Select**.
+1. Select **Workflow Service Plan** and then select **Select**.
 1. On the **Create Logic App (Workflow Service Plan)** page, provide the following information:
 
    - **Subscription**: Make sure to use the same Azure subscription as your lab.
@@ -135,7 +142,6 @@ Follow these steps to create a logic app in Azure.
 ### Configure the built-in template
 
 1. On the Azure portal home page for your logic app, select **Create a workflow in Designer** on the **Get started** tab.
-1. On the Logic App page, select **Logic app designer** under **Deployment Tools** in the left navigation.
 1. On the **Workflows** page, select **Add** > **Add from Template**.
 1. On the **Templates** page, search for *request* and then select **Request-Response: Receive and respond to messages over HTTP or HTTPS**.
 
@@ -145,19 +151,18 @@ Follow these steps to create a logic app in Azure.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/select-use-this-template.png" alt-text="Screenshot showing selecting Use this template."::: 
 
-1. On the **Create a new workflow from template** page, provide a name for the workflow, select **Stateless** under **State type**, and then select **Next**.
+1. On the **Create a new workflow from template** page, provide a name for the workflow.
+1. Select **Stateless** under **State type**, and then select **Next**.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/create-from-template.png" alt-text="Screenshot showing the Create from template screen."::: 
 
 1. Review the settings and then select **Create**. The **Designer** page for your workflow opens.
 
-1. On the **Designer** page, select **When an HTTP request is received**.
+1. On the **Designer** page, select the **When an HTTP request is received** step.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/designer.png" alt-text="Screenshot showing the workflow Designer page."::: 
 
 1. On the **When an HTTP request is received** screen, paste the following JSON code into the **Request Body JSON Schema** section, and then select **Save**.
-
-   :::image type="content" source="media/devtest-lab-auto-shutdown/request-json.png" alt-text="Screenshot showing the Request Body JSON Schema in the designer."::: 
 
     ```json
     {
@@ -222,6 +227,8 @@ Follow these steps to create a logic app in Azure.
     }
     ```
 
+   :::image type="content" source="media/devtest-lab-auto-shutdown/request-json.png" alt-text="Screenshot showing the Request Body JSON Schema in the designer."::: 
+
 ### Integrate with your email client.
 
 1. On the **Designer** page, select the **+** below the **Response** step and select **Add an action**.
@@ -240,7 +247,7 @@ Follow these steps to create a logic app in Azure.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/email-options.png" alt-text="Screenshot showing shows an example notification email."::: 
 
-1. Select **Save** on the top toolbar.
+1. On the **Designer** page, select **Save** on the top toolbar.
 
 ### Get the webhook URL
 
@@ -250,11 +257,9 @@ Follow these steps to create a logic app in Azure.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/webhook-url.png" alt-text="Screenshot showing copying the webhook URL."::: 
 
-1. On the **Auto-shutdown** configuration page for your lab, paste this webhook URL into the **Webhook URL** field for notification settings.
+1. On the **Auto-shutdown** configuration page for your lab, paste this webhook URL into the **Webhook URL** field in the notification settings, and select **Save**.
  
    :::image type="content" source="media/devtest-lab-auto-shutdown/auto-shutdown-settings-webhook.png" alt-text="Screenshot showing pasting the webhook URL into the auto-shutdown settings."::: 
-
-1. Select **Save**.
 
 ## Related content
 
