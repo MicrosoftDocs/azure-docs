@@ -28,7 +28,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Limitations
 
-- Azure Backup won't address failures occurring during backup or restore operations for Kubernetes clusters running unsupported Kubernetes versions. While backup operations continue to run, please upgrade your clusters to a supported version, validate the backup operations, and reach out if the issue persists. [Here's the list of the supported Kubernetes versions](/azure/aks/supported-kubernetes-versions.md)
+- Azure Backup won't address failures occurring during backup or restore operations for Kubernetes clusters running unsupported Kubernetes versions. While backup operations continue to run, please upgrade your clusters to a supported version, validate the backup operations, and reach out if the issue persists. [Here's the list of the supported Kubernetes versions](/azure/aks/supported-kubernetes-versions?tabs=azure-cli)
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
