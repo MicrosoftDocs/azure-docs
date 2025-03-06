@@ -259,6 +259,7 @@ Use the following steps to register the appliance:
     
     > [!Note]
     > Only HTTP proxy is supported.
+
 1. Ensure the [required URLs](/azure/site-recovery/replication-appliance-support-matrix#allow-urls) are allowed and reachable from the Azure Site Recovery replication appliance to maintain continuous connectivity.
 1. After the prerequisites are verified, the appliance fetch all its component information in the next step. Review the status of all components and then select **Continue**.
 1. **Save** the details, and then proceed to choose the appliance connectivity method. You can select either FQDN or a NAT IP to define how communication with the appliance occurs.
@@ -287,46 +288,35 @@ Use the following steps to register the appliance:
 > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
 
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
-
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to register with recovery services":::
-
 1. Select **Continue** to proceed.
 
-1. After successful registration, proceed to configure **vCenter** details. 
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to enter the microsoft code":::
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrates the vcenter information":::
+1. After successful registration, proceed to configure **vCenter** details.
 
-1. Select **Add vCenter Server** to input the vCenter information. 
-1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally on the machine
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Shows to enter the microsoft code":::
 
-    > [!Note]
-    > If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
+1. Select **Add vCenter Server** to input the vCenter information.
+1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](vmware-azure-tutorial-prepare-on-premises?branch=pr-en-us-295329#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally on the machine.
 
-1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter
+> [!Note]
+> If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
 
-    > [!Note]
-    > - For Linux OS, ensure to provide root credentials.
-    - For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow. 
-    - Visit the **Appliance Configurator** to edit or add credentials to access your machines.
+1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter.
+
+ > [!Note]
+ > * For Linux OS, ensure to provide root credentials.
+   * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
+  * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
 
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Illustrates the physical server details"::: 
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Provide physical server details":::
 
-1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a **friendly name** for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine. 
-1. Select **Add**.
+1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
+1. Finally, select **Add**.
 
-::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Show how to add physical server credentials":::
 
-1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**. 
-1. Select the **credential account**, and then select **Add**.
-
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Show how to add physical server details":::
-
-1. After successfully adding the details, select **Continue** to install all Azure Site Recovery replication appliance components and register with Azure services. This process can take up to 30 minutes. Ensure you don't close the browser while the configuration is in progress.
-
-    > [!Note]
-    > Appliance cloning is not supported in modernized or simplified architecture. Attempting to clone may disrupt the recovery flow.
 
 ## Install the Mobility service agent
 
@@ -508,7 +498,4 @@ After you verify that the test migration works as expected, you can migrate the 
 
 ## Next steps
 
-- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Cloud Adoption Framework for Azure.
-- [Agent-based migration architecture](/azure/migrate/tutorial-migrate-physical-virtual-machines)
-- [Migrate machines as physical servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
-- [Prepare for Migration](/azure/migrate/prepare-for-migration)
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Cloud Adoption Framework for Azure.
