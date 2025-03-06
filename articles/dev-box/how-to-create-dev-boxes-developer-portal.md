@@ -57,11 +57,11 @@ If you prefer to use the legacy Remote Desktop client, you can do so. You set th
  
    :::image type="content" source="media/how-to-create-dev-boxes-developer-portal/dev-box-user-settings-remote-desktop.png" alt-text="Screenshot of the dev box user settings, showing the option for using the legacy remote desktop app.":::
 
-1. Close **User settings**
+1. Close **User settings**.
 
 ### Connect through the browser
 
-You can use a broweser like Microsoft Edge for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
+You can use a browser like Microsoft Edge for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
 To connect to a dev box by using the browser:
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
