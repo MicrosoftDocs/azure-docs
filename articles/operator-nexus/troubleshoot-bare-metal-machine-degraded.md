@@ -43,39 +43,16 @@ az networkcloud baremetalmachine list  -g <ResourceGroup_Name> --output table --
 
 **Example Azure CLI output**
 
+This example shows a deployment with two currently degraded BMMs (`compute01` and `compute04`), and two cordoned BMMs (`compute02` and `compute04`). Not all degraded BMMs are cordoned (yet), and not all of the healthy BMMs are uncordoned (yet) - due to the fixed delay before automatic cordoning and uncordoning takes effect.
+
 ```
 Name            PowerState    ProvisioningState    ReadyState    CordonStatus    DetailedStatus    DetailedStatusMessage
 --------------  ------------  -------------------  ------------  --------------  ----------------  -----------------------------------------------------------------------------------------------------------------
-rack2management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1management1  Off           Succeeded            False         Uncordoned      Available         Available to participate in the cluster.
-rack3management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1management2  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1management1  On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine. Degraded: LACP status is down
+rack1compute02    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine.
 rack1compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute08    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute01    On            Succeeded            False         Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: LACP status is down
-rack2compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute01    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute05    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute08    Off           Succeeded            False         Uncordoned      Error             This machine has failed hardware validation
-rack2compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute03    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute07    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack3compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute08    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: port flapping Degraded: port down
-rack2compute02    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack1compute06    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
-rack2compute04    On            Succeeded            True          Uncordoned      Provisioned       The OS is provisioned to the machine.
+rack1compute04    On            Succeeded            True          Cordoned        Provisioned       The OS is provisioned to the machine. Degraded: port flapping Degraded: port down
 ```
 
 Additional information about recent degraded conditions and automatic cordoning is available in the following fields on the `bmm` kubernetes resource.
