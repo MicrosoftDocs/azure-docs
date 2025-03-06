@@ -20,7 +20,7 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 > The API Center portal is currently in preview.
 
 > [!TIP]
-> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals][#api-management-and-api-center-portals]
+> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals)
 
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
 
@@ -32,7 +32,7 @@ After you create the API Center portal app registration, you need to configure a
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, under **API Center portal**, select **Portal settings**.
-    :::image type="content" source="media/set-up-api-center-portal/configure-portal-settings.png" alt-text="Screenshot of API Center portal settings in the Azure portal.":::
+    :::image type="content" source="media/set-up-api-center-portal/configure-portal-settings.png" alt-text="Screenshot of API Center portal settings in the Azure portal." lightbox="media/set-up-api-center-portal/configure-portal-settings.png":::
 1. On the **Identity provider** tab, select **Start set up**. On the screen that appears, do the following:
     1. In **Client ID**, enter the **Application (client) ID** from the app registration you created in the previous section.
     1. Confirm that the **Redirect URI** is the value you configured in the app registration. 
@@ -51,7 +51,7 @@ API visibility settings control which APIs are discoverable (visible) to API Cen
 
 To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
 
-:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screeshot of adding API visibility conditions in the portal.":::
+:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
 
@@ -60,4 +60,4 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 ## Related content
 
-* [Enable and view Azure API Center platform API catalog](design-api-github-copilot-azure.md)
+* [Enable and view Azure API Center platform API catalog](enable-platform-api-catalog-vscode-extension.md)
