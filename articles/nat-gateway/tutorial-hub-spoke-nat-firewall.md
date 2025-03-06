@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 09/07/2023
+ms.date: 03/05/2025
 ms.custom: template-tutorial
 ---
 
@@ -38,9 +38,22 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
+### [Portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+### [PowerShell](#tab/powershell)
+
+
+### [CLI](#tab/cli)
+
+---
+
 ## Create the hub virtual network
 
 The hub virtual network contains the firewall subnet that is associated with the Azure Firewall and NAT gateway. Use the following example to create the hub virtual network.
+
+### [Portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -96,9 +109,75 @@ The hub virtual network contains the firewall subnet that is associated with the
 
 It takes a few minutes for the bastion host and firewall to deploy. When the virtual network is created as part of the deployment, you can proceed to the next steps.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create resource group
+New-AzResourceGroup -Name test-rg -Location "South Central US"
+
+# Create hub virtual network
+$hubVnet = New-AzVirtualNetwork -ResourceGroupName test-rg -Location "South Central US" -Name vnet-hub -AddressPrefix 10.0.0.0/16
+
+# Create AzureFirewallSubnet
+Add-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/24 -VirtualNetwork $hubVnet
+
+# Create the virtual network
+$hubVnet | Set-AzVirtualNetwork
+
+# Create public IP for Azure Bastion
+$publicIpBastion = New-AzPublicIpAddress -ResourceGroupName test-rg -Location "South Central US" -Name public-ip-bastion -AllocationMethod Static -Sku Standard
+
+# Create Azure Bastion
+New-AzBastion -ResourceGroupName test-rg -Name bastion -PublicIpAddress $publicIpBastion -VirtualNetworkName vnet-hub
+
+# Create public IP for Azure Firewall
+$publicIpFirewall = New-AzPublicIpAddress -ResourceGroupName test-rg -Location "South Central US" -Name public-ip-firewall -AllocationMethod Static -Sku Standard
+
+# Create Azure Firewall
+$firewall = New-AzFirewall -ResourceGroupName test-rg -Location "South Central US" -Name firewall -VirtualNetworkName vnet-hub -PublicIpAddress $publicIpFirewall
+
+# Create firewall policy
+$firewallPolicy = New-AzFirewallPolicy -ResourceGroupName test-rg -Location "South Central US" -Name firewall-policy
+
+# Associate firewall policy with firewall
+Set-AzFirewall -ResourceGroupName test-rg -Name firewall -FirewallPolicy $firewallPolicy
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create resource group
+az group create --name test-rg --location "South Central US"
+
+# Create hub virtual network
+az network vnet create --resource-group test-rg --name vnet-hub --address-prefix 10.0.0.0/16 --subnet-name AzureFirewallSubnet --subnet-prefix 10.0.1.0/24
+
+# Create public IP for Azure Bastion
+az network public-ip create --resource-group test-rg --name public-ip-bastion --allocation-method Static --sku Standard
+
+# Create Azure Bastion
+az network bastion create --resource-group test-rg --name bastion --public-ip-address public-ip-bastion --vnet-name vnet-hub
+
+# Create public IP for Azure Firewall
+az network public-ip create --resource-group test-rg --name public-ip-firewall --allocation-method Static --sku Standard
+
+# Create Azure Firewall
+az network firewall create --resource-group test-rg --name firewall --vnet-name vnet-hub --public-ip-address public-ip-firewall
+
+# Create firewall policy
+az network firewall policy create --resource-group test-rg --name firewall-policy
+
+# Associate firewall policy with firewall
+az network firewall update --resource-group test-rg --name firewall --firewall-policy firewall-policy
+```
+
+---
+
 ## Create the NAT gateway
 
 All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network and associate it with the **AzureFirewallSubnet**.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -137,9 +216,42 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
 
 13. Select **Create**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create public IP for NAT gateway
+$publicIpNat = New-AzPublicIpAddress -ResourceGroupName test-rg -Location "South Central US" -Name public-ip-nat -AllocationMethod Static -Sku Standard
+
+# Create NAT gateway
+$natGateway = New-AzNatGateway -ResourceGroupName test-rg -Location "South Central US" -Name nat-gateway -PublicIpAddress $publicIpNat -IdleTimeoutInMinutes 4
+
+# Associate NAT gateway with AzureFirewallSubnet
+Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $hubVnet -Name AzureFirewallSubnet -NatGateway $natGateway
+
+# Update the virtual network
+$hubVnet | Set-AzVirtualNetwork
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create public IP for NAT gateway
+az network public-ip create --resource-group test-rg --name public-ip-nat --allocation-method Static --sku Standard
+
+# Create NAT gateway
+az network nat gateway create --resource-group test-rg --name nat-gateway --public-ip-address public-ip-nat --idle-timeout 4
+
+# Associate NAT gateway with AzureFirewallSubnet
+az network vnet subnet update --resource-group test-rg --vnet-name vnet-hub --name AzureFirewallSubnet --nat-gateway nat-gateway
+```
+
+---
+
 ## Create spoke virtual network
 
 The spoke virtual network contains the test virtual machine used to test the routing of the internet traffic to the NAT gateway. Use the following example to create the spoke network.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -185,9 +297,33 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 1. Select **Create**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create spoke virtual network
+$spokeVnet = New-AzVirtualNetwork -ResourceGroupName test-rg -Location "South Central US" -Name vnet-spoke -AddressPrefix 10.1.0.0/16
+
+# Create subnet in spoke virtual network
+Add-AzVirtualNetworkSubnetConfig -Name subnet-private -AddressPrefix 10.1.0.0/24 -VirtualNetwork $spokeVnet
+
+# Create the virtual network
+$spokeVnet | Set-AzVirtualNetwork
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create spoke virtual network
+az network vnet create --resource-group test-rg --name vnet-spoke --address-prefix 10.1.0.0/16 --subnet-name subnet-private --subnet-prefix 10.1.0.0/24
+```
+
+---
+
 ## Create peering between the hub and spoke
 
 A virtual network peering is used to connect the hub to the spoke and the spoke to the hub. Use the following example to create a two-way network peering between the hub and spoke.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
@@ -223,6 +359,28 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create peering from hub to spoke
+Add-AzVirtualNetworkPeering -Name vnet-hub-to-vnet-spoke -VirtualNetwork $hubVnet -RemoteVirtualNetworkId $spokeVnet.Id -AllowForwardedTraffic
+
+# Create peering from spoke to hub
+Add-AzVirtualNetworkPeering -Name vnet-spoke-to-vnet-hub -VirtualNetwork $spokeVnet -RemoteVirtualNetworkId $hubVnet.Id -AllowForwardedTraffic
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create peering from hub to spoke
+az network vnet peering create --resource-group test-rg --vnet-name vnet-hub --name vnet-hub-to-vnet-spoke --remote-vnet vnet-spoke --allow-forwarded-traffic
+
+# Create peering from spoke to hub
+az network vnet peering create --resource-group test-rg --vnet-name vnet-spoke --name vnet-spoke-to-vnet-hub --remote-vnet vnet-hub --allow-forwarded-traffic
+```
+
+---
+
 ## Create spoke network route table
 
 A route table forces all traffic leaving the spoke virtual network to the hub virtual network. The route table is configured with the private IP address of the Azure Firewall as the virtual appliance.
@@ -231,15 +389,36 @@ A route table forces all traffic leaving the spoke virtual network to the hub vi
 
 The private IP address of the firewall is needed for the route table created later in this article. Use the following example to obtain the firewall private IP address.
 
+### [Portal](#tab/portal)
+
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 2. Select **firewall**.
 
 3. In the **Overview** of **firewall**, note the IP address in the field **Firewall private IP**. The IP address in this example is **10.0.1.68**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Get the private IP address of the firewall
+$firewall = Get-AzFirewall -ResourceGroupName test-rg -Name firewall
+$firewall.PrivateIpAddress
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Get the private IP address of the firewall
+az network firewall show --resource-group test-rg --name firewall --query "ipConfigurations[0].privateIpAddress" --output tsv
+```
+
+---
+
 ### Create route table
 
 Create a route table to force all inter-spoke and internet egress traffic through the firewall in the hub virtual network.
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Route table**. Select **Route tables** in the search results.
 
@@ -294,11 +473,47 @@ Create a route table to force all inter-spoke and internet egress traffic throug
 
 15. Select **OK**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create route table
+$routeTable = New-AzRouteTable -ResourceGroupName test-rg -Location "South Central US" -Name route-table-spoke
+
+# Create route
+Add-AzRouteConfig -Name route-to-hub -AddressPrefix 0.0.0.0/0 -NextHopType VirtualAppliance -NextHopIpAddress 10.0.1.68 -RouteTable $routeTable
+
+# Update the route table
+$routeTable | Set-AzRouteTable
+
+# Associate route table with subnet
+Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $spokeVnet -Name subnet-private -RouteTable $routeTable
+
+# Update the virtual network
+$spokeVnet | Set-AzVirtualNetwork
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create route table
+az network route-table create --resource-group test-rg --name route-table-spoke --location "South Central US"
+
+# Create route
+az network route-table route create --resource-group test-rg --route-table-name route-table-spoke --name route-to-hub --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.1.68
+
+# Associate route table with subnet
+az network vnet subnet update --resource-group test-rg --vnet-name vnet-spoke --name subnet-private --route-table route-table-spoke
+```
+
+---
+
 ## Configure firewall
 
 Traffic from the spoke through the hub must be allowed through and firewall policy and a network rule. Use the following example to create the firewall policy and network rule.
 
 ### Configure network rule
+
+### [Portal](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewall Policies** in the search results.
 
@@ -328,11 +543,36 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 6. Select **Add**.
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create network rule collection
+$networkRuleCollection = New-AzFirewallPolicyNetworkRuleCollection -Name spoke-to-internet -Priority 100 -RuleCollectionType NetworkRuleCollection -ActionType Allow -RuleCollectionGroup DefaultNetworkRuleCollectionGroup
+
+# Create network rule
+$networkRule = New-AzFirewallPolicyNetworkRule -Name allow-web -SourceAddress 10.1.0.0/24 -DestinationAddress * -DestinationPort 80,443 -Protocol TCP
+
+# Add network rule to collection
+$networkRuleCollection.Rules.Add($networkRule)
+
+# Update firewall policy
+Set-AzFirewallPolicy -ResourceGroupName test-rg -Name firewall-policy -NetworkRuleCollection $networkRuleCollection
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create network rule collection
+az network firewall policy rule-collection-group collection rule add --policy-name firewall-policy --resource-group test-rg --rule-collection-group-name DefaultNetworkRuleCollectionGroup --name spoke-to-internet --rule-name allow-web --rule-type NetworkRule --priority 100 --action Allow --source-addresses 10.1.0.0/24 --destination-addresses '*' --destination-ports 80 443 --protocols TCP
+```
+
+---
+
 ## Create test virtual machine
 
 An Ubuntu virtual machine is used to test the outbound internet traffic through the NAT gateway. Use the following example to create an Ubuntu virtual machine.
 
-The following procedure creates a test virtual machine (VM) named **vm-spoke** in the virtual network.
+### [Portal](#tab/portal)
 
 1. In the portal, search for and select **Virtual machines**.
 
@@ -383,6 +623,37 @@ Wait for the virtual machine to finishing deploying before proceeding to the nex
 >[!NOTE]
 >Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Create network security group
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName test-rg -Location "South Central US" -Name nsg-1
+
+# Create network interface
+$nic = New-AzNetworkInterface -ResourceGroupName test-rg -Location "South Central US" -Name vm-spoke-nic -SubnetId $spokeVnet.Subnets[0].Id -NetworkSecurityGroupId $nsg.Id
+
+# Create virtual machine
+$vmConfig = New-AzVMConfig -VMName vm-spoke -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Linux -ComputerName vm-spoke -Credential (Get-Credential) | Set-AzVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 24_04-lts-gen2 -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
+
+New-AzVM -ResourceGroupName test-rg -Location "South Central US" -VM $vmConfig
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Create network security group
+az network nsg create --resource-group test-rg --name nsg-1 --location "South Central US"
+
+# Create network interface
+az network nic create --resource-group test-rg --name vm-spoke-nic --vnet-name vnet-spoke --subnet subnet-private --network-security-group nsg-1
+
+# Create virtual machine
+az vm create --resource-group test-rg --name vm-spoke --location "South Central US" --nics vm-spoke-nic --image UbuntuLTS --admin-username azureuser --admin-password <password>
+```
+
+---
+
+
 ## Test NAT gateway
 
 You connect to the Ubuntu virtual machines you created in the previous steps to verify that the outbound internet traffic is leaving the NAT gateway.
@@ -391,11 +662,30 @@ You connect to the Ubuntu virtual machines you created in the previous steps to 
 
 Obtain the NAT gateway public IP address for verification of the steps later in the article.
 
+### [Portal](#tab/portal)
+
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
 1. Select **public-ip-nat**.
 
 1. Make note of value in **IP address**. The example used in this article is **203.0.113.0.25**.
+
+### [PowerShell](#tab/powershell)
+
+```powershell
+# Get the public IP address of the NAT gateway
+$publicIpNat = Get-AzPublicIpAddress -ResourceGroupName test-rg -Name public-ip-nat
+$publicIpNat.IpAddress
+```
+
+### [CLI](#tab/cli)
+
+```bash
+# Get the public IP address of the NAT gateway
+az network public-ip show --resource-group test-rg --name public-ip-nat --query "ipAddress" --output tsv
+```
+
+---
 
 ### Test NAT gateway from spoke
 
@@ -422,7 +712,15 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Close the Bastion connection to **vm-spoke**.
 
+### [Portal](#tab/portal)
+
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
+
+### [PowerShell](#tab/powershell)
+
+### [CLI](#tab/cli)
+
+---
 
 ## Next steps
 
