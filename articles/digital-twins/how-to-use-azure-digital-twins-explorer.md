@@ -17,7 +17,7 @@ ms.service: azure-digital-twins
 
 # Use Azure Digital Twins Explorer (preview)
 
-[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using selections or [keyboard shortcuts](#accessibility-and-advanced-settings).
+[Azure Digital Twins Explorer (preview)](concepts-azure-digital-twins-explorer.md) is a tool for visualizing and working with Azure Digital Twins. This article describes the features of Azure Digital Twins Explorer, and how to use them to manage the data in your Azure Digital Twins instance. You can interact with the Azure Digital Twins Explorer using screen selections or [keyboard shortcuts](#accessibility-and-advanced-settings).
 
 ## How to access
 
