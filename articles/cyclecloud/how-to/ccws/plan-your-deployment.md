@@ -23,7 +23,7 @@ When doing a deployment, the Azure user account used need to be granted the foll
 In a greenfield deployment, the following resources and role assignments are created:
 - A Resource Group.
 - The Virtual Network, its subnets `ccw-cyclecloud-subnet`, and `ccw-compute-subnet`.
-- The Virtual Machine `ccw-cyclecloud-vm`, NIC, OS, Data Disks, and a System Managed Identity.
+- The Virtual Machine (VM) `ccw-cyclecloud-vm`, NIC, OS, Data Disks, and a System Managed Identity.
 - A User-Assigned Managed Identity used to access the CycleCloud storage account.
 - A uniquely named storage account for CycleCloud projects and a Private Endpoint in the `ccw-cyclecloud-subnet`.
 - Network Security Group (NSG) named `nsg-ccw-common`.
@@ -38,11 +38,11 @@ In a greenfield deployment, the following resources and role assignments are cre
 ## Brownfield Deployment
 
 In a brownfield deployment, you can provide existing resources for:
-- The VNET and subnets in which the environment are deployed.
+- The VNET and subnets in which the environment is deployed.
 - Filesystem Storage for the user's home directories and/or other filers, as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
 - An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
 
-If you are bringing your own VNET, follow these pre-requisistes:
+If you're bringing your own VNET, follow these prerequisistes:
 - A /29 **cyclecloud** subnet for the CycleCloud VM.
 - A **compute** subnet for the nodes, where the scheduler, login, and compute nodes are created.
 - When using Azure NetApp Files, a dedicated **netapp** subnet with the `Microsoft.NetApp/volumes` delegation as documented here [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
@@ -52,7 +52,7 @@ If you are bringing your own VNET, follow these pre-requisistes:
 
 ## Quotas
 
-Before deploying, ensure that your subscription has the required quota for the Virtual Machine types desired for CycleCloud nodes.
+Before deploying, ensure that your subscription has the required quota for the VM types desired for the CycleCloud nodes.
 
 ## Resources
 
