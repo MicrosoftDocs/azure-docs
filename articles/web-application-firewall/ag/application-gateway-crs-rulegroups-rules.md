@@ -21,7 +21,8 @@ You can disable rules individually, or set specific actions for each rule. This 
 > When you change a ruleset version in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule set 2.1
-DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
+
+Default rule set (DRS) 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
 DRS 2.1 offers a new engine and new rule sets defending against Java injections, an initial set of file upload checks, and fewer false positives compared with CRS versions. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md). Learn more about the new [Azure WAF engine](waf-engine.md).
 
@@ -53,17 +54,16 @@ Use the following guidance to tune WAF while you get started with DRS 2.1 on App
 
 |Rule ID |Rule Group|Description  |Recommendation|
 |---------|---------|---------|---------|
-|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Disable rule #942110, replaced by MSTIC rule 99031001 |
-|942150      |SQLI|SQL Injection Attack|Disable rule #942150, replaced by MSTIC rule 99031003 |
-|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Disable rule #942260, replaced by MSTIC rule 99031004 |
-|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Disable rule #942430, it triggers too many false positives|
-|942440      |SQLI|SQL Comment Sequence Detected|Disable rule #942440, replaced by MSTIC rule 99031002 |
+|942110      |SQLI|SQL Injection Attack: Common Injection Testing Detected |Disable rule 942110, replaced by MSTIC rule 99031001 |
+|942150      |SQLI|SQL Injection Attack|Disable rule 942150, replaced by MSTIC rule 99031003 |
+|942260      |SQLI|Detects basic SQL authentication bypass attempts 2/3 |Disable rule 942260, replaced by MSTIC rule 99031004 |
+|942430      |SQLI|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|Disable rule 942430, it triggers too many false positives|
+|942440      |SQLI|SQL Comment Sequence Detected|Disable rule 942440, replaced by MSTIC rule 99031002 |
 |99005006|MS-ThreatIntel-WebShells|Spring4Shell Interaction Attempt|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001014|MS-ThreatIntel-CVEs|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001015|MS-ThreatIntel-WebShells|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001016|MS-ThreatIntel-WebShells|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|Keep the rule enabled to prevent against SpringShell vulnerability|
 |99001017|MS-ThreatIntel-CVEs|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule|
-
 
 ## Core rule set 3.2
 
@@ -879,7 +879,6 @@ The following rule groups and rules are available when using Web Application Fir
 |941340|IE XSS Filters - Attack Detected|
 |941350|UTF-7 Encoding IE XSS - Attack Detected|
 
-
 ### <a name="crs942-31"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |RuleId|Description|
@@ -1039,13 +1038,11 @@ The following rule groups and rules are no longer supported on Web Application F
 |800112|Attempted Spring Framework unsafe class object exploitation - [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |800113|Attempted Spring Cloud Gateway Actuator injection - [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
-
 ### <a name="crs911-30"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |RuleId|Description|
 |---|---|
 |911100|Method isn't allowed by policy|
-
 
 ### <a name="crs913-30"></a> REQUEST-913-SCANNER-DETECTION
 
