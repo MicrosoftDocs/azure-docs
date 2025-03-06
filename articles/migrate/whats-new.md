@@ -14,6 +14,18 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (March 2025)
+
+The V2A RCM stack, an upgraded version of the CS Stack, is part of the Azure Migrate tool. This stack offers a simplified experience for customers, set to replace the classic experience over the next three years.
+
+The key differences between the simplified experience and the classic experience in the V2A RCM stack include:
+- The simplified experience is designed for a more user-friendly migration process.
+- The ASR appliance is used for physical stack migrations.
+- VMware and Hyper-V migrations utilize different appliances.
+- The ASR appliance setup is a component of the simplified experience.
+The new design ensures a more efficient and intuitive user interaction, simplifying the migration journey for customers.
+
+
 ## Update (November 2024)
 
 - AVS assessments now support cost assessments with AV64 SKU and Azure NetApp Files (ANF) as an external storage option. [Learn more](how-to-create-azure-vmware-solution-assessment.md).
