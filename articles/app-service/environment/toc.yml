@@ -6,8 +6,6 @@
     href: overview.md
   - name: Compare with App Service
     href: ase-multi-tenant-comparison.md
-  - name: Version comparison
-    href: version-comparison.md
 - name: Quickstarts
   expanded: true
   items:

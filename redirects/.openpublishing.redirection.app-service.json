@@ -2839,6 +2839,11 @@
       "source_path_from_root": "/articles/app-service/environment/auto-migration.md",
       "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/version-comparison.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
     }
   ]
 }
