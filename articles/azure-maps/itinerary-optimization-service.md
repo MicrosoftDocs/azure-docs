@@ -78,7 +78,7 @@ Matrix size = 5 origins x 5 destinations = 25
 The Route Matrix POST request:
 
 ```html
-https://atlas.microsoft.com/route/matrix/json?api-version=1.0&routeType=shortest
+https://atlas.microsoft.com/route/matrix/json?api-version=2025-01-01&routeType=shortest
 ```
 
 ```json

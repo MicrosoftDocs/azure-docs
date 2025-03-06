@@ -69,7 +69,7 @@ Azure Maps supports truck routing in the countries/regions indicated in the foll
 
 ### Route direction services
 
-Route Directions API (preview) returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
+Route Directions API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
 
 For more information about the Route Directions API, see [Azure Maps Route Service] in the REST API documentation.
 
@@ -353,7 +353,7 @@ The following tables provide coverage information for version 1 of the Azure Map
 <!-----------------------------ROUTING V2 ------------------------------------------------------------------------------>
 ::: zone pivot="route-v2"
 
-The Azure Maps Routing service (preview) contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
+The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
 
 - Road Data / Routing (Driving and Walking)
 - Real-time traffic (Driving and Walking)
