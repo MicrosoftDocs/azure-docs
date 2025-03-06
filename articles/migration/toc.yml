@@ -25,20 +25,20 @@
           href: ./placeholder.md
       - name: Compute
         items:
-          - name: Compute migration guide
+        - name: Compute migration guide
+          href: ./placeholder.md
+        - name: Replatform from AWS Lambda to Azure Functions
+          href: ./placeholder.md
+        - name: Replatform from Elastic Kubernetes Service (EKS)
+          items:
+          - name: Migrate EKS to Azure Kubernetes Service (AKS)
             href: ./placeholder.md
-          - name: Replatform from AWS Lambda to Azure Functions
+          - name: Migrate a public website from EKS to AKS
             href: ./placeholder.md
-          - name: Replatform from Elastic Kubernetes Service (EKS)
-            items:
-            - name: Migrate EKS to Azure Kubernetes Service (AKS)
-              href: ./placeholder.md
-            - name: Migrate a public website from EKS to AKS
-              href: ./placeholder.md
-            - name: Migrate an event driven EKS workload to AKS
-              href: ./placeholder.md
+          - name: Migrate an event driven EKS workload to AKS
+            href: ./placeholder.md
         - name: Replatform from EC2 to Azure Web Apps
-            href: ./placeholder.md
+          href: ./placeholder.md
       - name: Databases
         items:
         - name: Azure Database for PostgreSQL
@@ -61,28 +61,28 @@
             href: ./placeholder.md
       - name: Identity and access management (IAM)
         items:
-          - name: IAM migration guide
-            href: ./placeholder.md
+        - name: IAM migration guide
+          href: ./placeholder.md
       - name: Networking
         items:
-          - name: Networking migration guide
-            href: ./placeholder.md
+        - name: Networking migration guide
+          href: ./placeholder.md
       - name: Storage
         items:
-          - name: Storage migration guide
-            href: ./placeholder.md
-          - name: Replatform from AWS S3 to Azure Storage
-            href: ./placeholder.md
+        - name: Storage migration guide
+          href: ./placeholder.md
+        - name: Replatform from AWS S3 to Azure Storage
+          href: ./placeholder.md
       - name: Messaging
         items:
-          - name: Replatform from AWS SQS to Azure Service Bus
-            href: ./placeholder.md
-          - name: Replatform from AWS SNS to Azure Storage Queues
-            href: ./placeholder.md
+        - name: Replatform from AWS SQS to Azure Service Bus
+          href: ./placeholder.md
+        - name: Replatform from AWS SNS to Azure Storage Queues
+          href: ./placeholder.md
       - name: Monitoring
         items:
-          - name: Monitoring migration guide
-            href: ./placeholder.md
+        - name: Monitoring migration guide
+          href: ./placeholder.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
