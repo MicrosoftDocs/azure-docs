@@ -1,8 +1,8 @@
 ---
 title: Device Update for Eclipse ThreadX | Microsoft Docs
 description: Get started with Device Update for Eclipse ThreadX.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 3/18/2021
 ms.topic: how-to
 ms.service: azure-iot-hub
