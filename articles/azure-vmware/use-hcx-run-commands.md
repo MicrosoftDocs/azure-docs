@@ -88,7 +88,7 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
 1. The snapshot details will be displayed under the **Output** tab. <br>
 
 
-## Update the description of the existing snapshot for VMware HCX Cloud Manager.
+## Update the description of the existing snapshot for VMware HCX Cloud Manager
 
 1. Navigate to the Run Command panel on in an Azure VMware Solution private cloud on the Azure portal. 
 
@@ -116,4 +116,4 @@ Use the Scale VMware HCX Cloud Manager Run Command to increase the resource allo
 
 
  ## Next step
-To learn more about Run Commands, see [Run Commands](using-run-command.md)
+To learn more about Run Commands, see [Run Commands](using-run-command.md).
