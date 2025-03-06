@@ -154,7 +154,7 @@ The following image shows the **Review** tab data prior to the creation of a new
    -EnableSystemAssignedIdentity:$true
    ```
    
-  If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
+   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
 
    ```powershell
    $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource-group> -Name <user-assigned-managed-identity-name>
