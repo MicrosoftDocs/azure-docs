@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 03/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -65,7 +65,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-- The storage account temporarily loses both read and write access.
+- The storage account in both primary and secondary region experiences a temporary loss of both read and write access.
 - Replication of all data from the primary region to the secondary region completes.
 - DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
@@ -83,7 +83,7 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-- The storage account temporarily loses both read and write access.
+- The storage account in both primary and secondary region experiences a temporary loss of both read and write access.
 - All data finishes replicating from the current primary region to the current secondary region.
 - The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
@@ -105,7 +105,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-- The storage account temporarily loses both read and write access.
+- The storage account in both primary and secondary region experiences a temporary loss of both read and write access.
 - All data finishes replicating from the primary region to the secondary region.
 - Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 
@@ -123,7 +123,7 @@ While in the failover state, perform your disaster recovery testing.
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
-- The storage account temporarily loses both read and write access.
+- The storage account in both primary and secondary region experiences a temporary loss of both read and write access.
 - All data finishes replicating from the current primary region to the current secondary region.
 - The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
