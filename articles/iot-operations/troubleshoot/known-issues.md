@@ -132,8 +132,8 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 - When using control characters in Kafka headers, you might encounter disconnections. Control characters in Kafka headers such as `0x01`, `0x02`, `0x03`, `0x04` are UTF-8 compliant but the IoT Operations MQTT broker rejects them. This issue happens during the data flow process when Kafka headers are converted to MQTT properties using a UTF-8 parser. Packets with control characters might be treated as invalid and rejected by the broker and lead to data flow failures.
 
-- When creating a new data flow, it might not finish deployment. The cause is cert-manager isn't ready or running. The current resolution is to manually delete the data flow operator pod to clear the crash status. Use the following steps to resolve the issue:
-  1. Run `kubectl get pods -n azure-iot-operations` to verify aio-dataflo-operator-0 is only data flow operator pod running
+- When creating a new data flow, it might not finish deployment. The cause is cert-manager wasn't ready or running. The current resolution is to manually delete the data flow operator pod to clear the crash status. Use the following steps to resolve the issue:
+  1. Run `kubectl get pods -n azure-iot-operations` to verify aio-dataflow-operator-0 is only data flow operator pod running.
   1. Run `kubectl logs --namespace azure-iot-operations aio-dataflow-operator-0` to check the logs for the data flow operator pod. If the final log entry is `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`, the cert-manager wasn't ready or running.
   1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod.
   1. Wait for the operator pod to restart and deploy the data flow.
