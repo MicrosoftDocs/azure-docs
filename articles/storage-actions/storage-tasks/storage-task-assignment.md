@@ -14,85 +14,56 @@ ms.author: normesta
 
 # Storage task assignment
 
-To use a storage task, you must _assign_ it to each storage account that you want target. To assign a storage task, you create a _storage task assignment_. The assignment is saved as part of the storage account resource instance. It defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. For step-by-step guidance, see [Create and manage a storage task assignment](storage-task-assignment-create.md).
+To use a storage task, you must _assign_ it to a storage account by creating a _storage task assignment_. The assignment is saved as part of the storage account resource instance, and defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. 
 
-## Authorizing data management tasks
+## Creating an assignment
 
-Maybe need new role info here.
+To create an assignment, your identity must be assigned the appropriate Azure built-in role or a custom role with the appropriate RBAC actions. See [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md). To learn how to create a storage task assignment, see [Create and manage a storage task assignment](storage-task-assignment-create.md). 
 
-You can assign a storage task to any storage account in which your identity is assigned the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned or user-assigned managed identity of the task. 
+## Assignment settings
 
-That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
+The following table describes the configuration settings of a storage task assignment. 
 
-You can assign a storage task to any storage account in which your identity is assigned the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role. As you create an assignment, you'll select a storage account, and assign a role to the system-assigned managed identity of the task or the user assigned managed identity that was chosen at task creation time. 
+> [!NOTE]
+> The names that appear in the following table appear in the **Add Assignment** page of the Azure portal. If plan to create an assignment by using REST, an SDK, PowerShell, or Azure CLI, see the appropriate reference content set to obtain the names of specific properties used to configure each setting.
 
-System-assigned
+### Scope settings
 
-That identity is created for you automatically when the task is provisioned. The role that you assign that identity must enable it to perform the operations that are defined in the task.
+| Setting | Required or optional | Description |
+|--|--|--|
+| Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
+| Storage account name | Required | The storage account that you want to add to this assignment. You must be an owner of the storage account. This field appears only if you create the assignment in the context of a storage task.|
+| Storage task name | Required | The storage task to which you would like to assign your storage account. This field appears only if you create the assignment in the context of a storage account.|  
+| Storage task assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
 
-User assigned
+### Filter settings
 
-You can assign only one user-assigned managed identity to the task in the current release. 
+| Setting | Required or optional | Description |
+|--|--|--|
+| Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
+| Include blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
+| Exclude blob prefixes | Optional | Description |
 
-Given the new MI is created on the fly, the owner of the MI is the user who is authoring the Storage Task. What this means is that the assigner of the Storage Task must have access to the MI to use it against a target Storage Account they own. 
+### Trigger settings
 
-All managed identities
+| Setting | Required or optional | Description |
+|--|--|--|
+| Run frequency | Required | Option to either run the task one time or multiple times. | 
+| Start from | Required | The date and time to begin running the task. |
+| End by | Required | The date and time stop running the task. |
+| Repeat very (in days) | Required | The interval in days between each run. |
+| Report export container | Required | The container where task execution reports are stored. |
 
-Put this somewhere - after the assignment is created, the managed identity is validated to ensure that it has the correct permissions to perform the tasks defined in the condition.1.	Validations are based on what operations are defined in the Task definition. This is validated both when you assign the role and when the assignment is committed. 
+## Granting permission to a storage task
 
-A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
+As part of the assignment process, you will assign a role to the managed identity of the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. However, the user that creates the storage task can optionally associate a user-assigned managed identity with the storage task. The type of managed identity that is associated with the storage task cannot be changed after the storage task is provisioned.
 
-See these articles to learn how to assign a storage task:
+When assigning a role to the managed identity of the storage task, you must choose a Azure built-in or custom role that has the permission necessary to perform the operations defined in a storage task upon the target storage account. See [Permission for a task to perform operations](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
 
-- [Create and manage a storage task assignment](storage-tasks/storage-task-assignment-create.md)
-- [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
-- 
+After you save the assignment, the managed identity is validated to ensure that has the correct permissions to perform the tasks defined in the storage task. 
 
-A storage task can be assigned to a storage account only by an owner of that account. Therefore, if the task that you define is useful to an owner of another storage account, you must grant that user access to the storage task. Then, that user can assign your task to their storage account. You can grant a user access to your storage task by assigning an Azure role to their user identity.
-
-## Configuration properties
-
-Get the REST API names for each of these fields include table with restrictions / notes and descriptions.
-
-- Subscription
-- Storage account
-- Assignment name (name requirements)
-- Role
-- Filter by
-- Include blob prefixes
-- Exclude blob prefixes
-- Run frequency
-- Start from
-- End by
-- Repeat every
-- Report export container
-
-- [Azure roles for storage task assignments](storage-tasks/storage-task-authorization-roles.md)
-
-### Use recurring schedules for assignments
-
-To continuously manage your data estate effectively, you can schedule recurring executions for task assignments on a daily or weekly cadence. Regular data management using operations such as moving blobs to cooler tiers or deleting obsolete data prevents storage accounts from becoming bloated and maintain costs. For use cases related to data protection, daily or weekly ensure that blobs are applied with necessary immutability or legal holds, preventing accidental tampering and ensuring compliance with immutability requirements.
-
-### Single run usage 
-
-For Storage Actions that need to be executed only once, such as initializing blob index tags or a large-scale blob reorganization, it is important to carefully plan and monitor the execution. Such ‘single run  ’ task assignments are particularly useful if you want to adopt new policies for data management and want to apply this to your existing data estate. For example, when organizing blobs by applying initial blob index tags or blob metadata, a single run task   ensures that all existing data is appropriately tagged. These task assignments can be combined this with other Storage Actions that are designed to maintain the data estate in conformance with the policy. Single run task assignments can also be useful for resetting state, e.g., to undelete soft-deleted objects.
-You should always ensure that the task conditions are authored correctly and validated using the preview feature to avoid unintended consequences. Monitoring the task's progress and reviewing reports post-execution can help identify and rectify any issues that arise during the operation.
-
-## Cancelling Task Assignment Executions 
-
-If necessary, you can cancel a task assignment execution that is queued or in progress. In scenarios where a task assignment execution needs to be cancelled, it is essential to understand the implications. Cancelling a task run may leave some operations incomplete, which could lead to data inconsistencies. There are several reasons why a task run may need to be cancelled:
-•	Misconfiguration: If a task is configured incorrectly, continuing the task may cause unintended changes or errors. Cancelling the task allows for reconfiguration and correction before restarting.
-•	Concurrency Limits: Currently, only one task execution is supported on a storage account at a time. If another task with higher priority needs to be executed, the current task may need to be cancelled to make way for the new task.
-•	Changed Requirements: The customer may decide that the task run is no longer necessary due to changed requirements or timing. In such cases, cancelling the task prevents the execution of unnecessary operations.
-After cancellation, it is advisable to monitor the task progress and only cancel if absolutely necessary. Review the task report to identify any incomplete operations and take corrective actions if needed.
-
-## Assignment scale limits:
-
--	A maximum of 50 enabled Task assignments per storage account
--	A maximum of 10,000 total Task assignments (including disabled) per subscription
--	A maximum of 5,000 task definitions per subscription
--	A maximum of 5,000 assignments per task definition
--	The capability to process 90 billion FNS blobs and 7 billion HNS blobs within 14 days
+> [!NOTE]
+> If you use the Azure portal to create the assignment, this validation step also occurs after you assign the role to the managed identity.
 
 ## See also
 

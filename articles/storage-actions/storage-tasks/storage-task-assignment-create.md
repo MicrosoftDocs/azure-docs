@@ -55,15 +55,6 @@ In the **Select scope** section, select a subscription and name the assignment. 
 
 If you opened the **Add assignment** pane in the context of the storage account, you'll select a storage task instead of the storage account.
 
-The following table describes each field in the **Select Scope** section:
-
-| Section | Field | Required or optional | Description |
-|--|--|--|--|
-| Select scope | Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
-| Select scope | Select a storage account | Required | The storage account that you want to add to this assignment. You must be an owner of the storage account. This field appears only if you create the assignment in the context of a storage task.|
-| Select scope | Select a storage task | Required | The storage task to which you would like to assign your storage account. This field appears only if you create the assignment in the context of a storage account.|  
-| Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
-
 ### Add a role assignment
 
 In the **Role assignment** section, in the **Role** drop-down list, select the role that you want to assign to the managed identity of the storage task. To ensure a successful task assignment, use roles that have the Blob Data Owner permissions. To learn more, see [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
@@ -81,29 +72,12 @@ In the **Filter objects** section, choose whether you want to target a subset of
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-pane-filter-prefix.png)
 
-The following table describes each field:
-
-| Section | Field | Required or optional | Description |
-|--|--|--|--|
-| Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
-| Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
-
 ### Define the trigger
 
 In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Triggers section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-trigger.png)
-
-The following table describes each field:
-
-| Section | Field | Required or optional | Description |
-|--|--|--|--|
-| Trigger details | Run frequency | Required | Option to either run the task one time or multiple times. | 
-| Trigger details | Start from | Required | The date and time to begin running the task. |
-| Trigger details | End by | Required | The date and time stop running the task. |
-| Trigger details | Repeat very (in days) | Required | The interval in days between each run. |
-| Trigger details | Report export container | Required | The container where task execution reports are stored. |
 
 ### Save the assignment
 

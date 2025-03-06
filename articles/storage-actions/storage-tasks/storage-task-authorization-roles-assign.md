@@ -14,9 +14,7 @@ ms.author: normesta
 
 # Azure roles required to assign tasks
 
-This article describes the least privileged built-in Azure roles or RBAC actions required to create a storage task assignment and for the storage task to operate on the target storage account. 
-
-A storage task assignment is saved as part of the storage account resource instance. It defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. For step-by-step guidance, see [Create and manage a storage task assignment](storage-task-assignment-create.md)
+This article describes the least privileged built-in Azure roles or RBAC actions required to manage a storage task assignment.
 
 ## Permission to manage storage task assignments
 
@@ -36,9 +34,9 @@ To learn how to create a custom role, see [Azure custom roles](../../role-based-
 
 ## Permission for a task to perform operations
 
-As you create an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. That role is assigned to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
+As you create an assignment, you must choose an Azure built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. That role is assigned to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
 
-While the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role provides all of the permissions necessary for a storage task to perform all data operations, the least privileged built-in role is the `Storage Actions Blob Data Operator` role.  
+While the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role provides all of the permissions necessary for a storage task to perform all data operations, the least privileged built-in role is the **Storage Actions Blob Data Operator** role.  
 
 If you prefer to use a custom role, you must make sure that your role contains the RBAC actions necessary to perform the operations. The following table shows the RBAC actions required by each operation.
 

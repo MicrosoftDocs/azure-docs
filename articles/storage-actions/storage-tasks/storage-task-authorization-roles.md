@@ -15,7 +15,7 @@ ms.author: normesta
 
 # Azure roles for storage tasks
 
-This article describes the least privileged built-in Azure roles or RBAC actions required to read, update, delete a storage task or to view task assignments.
+This article describes the least privileged built-in Azure roles or RBAC actions required to read, update, or delete a storage task and to view task assignments.
 
 ## Permission to manage a storage task
 
@@ -23,7 +23,7 @@ You must assign a role to any security principal in your organization that needs
 
 While the **Contributor** role provides all of the permissions necessary to manage a storage task, the least privileged built-in role is the **Storage Actions Contributor** role.
 
- If you prefer to use a custom role, make sure that your role contains the RBAC actions necessary to read or edit the task. Use the following table as a guide.
+ If you prefer to use a custom role, make sure that your role contains all of the necessary RBAC actions. Use the following table as a guide.
 
 | Permission level | RBAC actions for custom roles |
 |--|--|--|
