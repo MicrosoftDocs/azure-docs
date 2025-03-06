@@ -59,8 +59,6 @@
       href: auto-migration.md
 - name: Reference
   items:
-  - name: Management addresses
-    href: management-addresses.md
   - name: ASEv1 documentation
     items:
     - name: About App Service Environment v1
