@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 03/10/2025
 ---
 
 # Create and access an environment by using the Azure CLI
