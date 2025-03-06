@@ -22,10 +22,7 @@ When screen capture protection is enabled, users can't share their remote window
 
 The steps to configure screen capture protection depend on where you configure it, which platforms your users are connecting from and what scenario you want to achieve.
 
-> [!IMPORTANT]
-> You need to choose which local devices to use with screen capture protection based on your requirements. There isn't a scenario where you can enable screen capture protection on all platforms from the same session hosts at the same time.
-
-- **Windows and macOS devices**: you prevent screen capture protection on session hosts using an Intune device configuration policy or Group Policy. Windows App or the Remote Desktop client enforces screen capture protection settings from a session host without further configuration.
+- **Windows and macOS devices**: you prevent screen capture by configuring session hosts using an Intune device configuration policy or Group Policy. Windows App or the Remote Desktop client enforces screen capture protection settings from a session host without further configuration.
 
    When you configure screen capture protection on session hosts, there are two further settings you can configure to help meet your requirements:
 
@@ -43,7 +40,7 @@ The steps to configure screen capture protection depend on where you configure i
    | **Android** | ❌ | N/A |
    | **Web** | ❌ | N/A |
 
-- **iOS/iPadOS and Android devices**: you prevent screen capture on the local device by [configuring an Intune app protection policy](client-device-redirection-intune.md), part of [mobile application management](/mem/intune/fundamentals/deployment-plan-protect-apps) (MAM). It doesn't prevent tools and services within the session host capturing the screen.
+- **iOS/iPadOS and Android devices**: you prevent screen capture by configuring local devices using an [Intune app protection policy](client-device-redirection-intune.md), part of [mobile application management](/mem/intune/fundamentals/deployment-plan-protect-apps) (MAM). It doesn't prevent tools and services within the session host capturing the screen.
 
    In this scenario, here's the outcome when connecting from each platform type:
 
@@ -54,6 +51,9 @@ The steps to configure screen capture protection depend on where you configure i
    | **iOS/iPadOS** | ✅ | ✅ |
    | **Android** | ✅ | ✅ |
    | **Web** | ✅ | ❌ |
+
+> [!IMPORTANT]
+> You need to choose which local devices to use with screen capture protection based on your requirements. There isn't a scenario where you can enable screen capture protection on all platforms from the same session hosts at the same time. If both are configured, screen capture protection on session hosts takes precedence over using an Intune MAM policy on local devices.
 
 ## Prerequisites
 

@@ -31,8 +31,6 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 
 1. From the CDN profile page, select the purge button.
 
-    :::image type="content" source="./media/cdn-purge-endpoint/cdn-profile-blade.png" alt-text="Screenshot of the overview page for an Azure CDN profile.":::
-
 1. On the Purge page, select the service address you wish to purge from the URL dropdown list.
 
     :::image type="content" source="./media/cdn-purge-endpoint/cdn-purge-form.png" alt-text="Screenshot of the purge page.":::
@@ -48,7 +46,7 @@ This guide walks you through purging assets from all edge nodes of an endpoint.
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
    > [!TIP]
-   > 1. Paths must be specified for purge and must be a relative URL that fit the following [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+   > 1. Paths must be specified for purge and must be a relative URL that fits the following [RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
    >
    > 1. In Azure CDN from Microsoft, query strings in the purge URL path are not considered. If the path to purge is provided as `/TestCDN?myname=max`, only `/TestCDN` is considered. The query string `myname=max` is omitted. Both `TestCDN?myname=max` and `TestCDN?myname=clark` will be purged.
 

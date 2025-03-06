@@ -171,7 +171,7 @@ const config = load(endpoint, credential, {
 ```
 
 > [!NOTE]
-> The automatic replica discovery support is available if you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
+> The automatic replica discovery support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 > The feature is not available for browser-based applications due to the restriction of browser security sandbox.
 
 ---
@@ -337,7 +337,7 @@ const config = load(endpoint, credential, {
 ```
 
 > [!NOTE]
-> Load balancing support is available if you use version **2.0.0-preview.2** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
+> Load balancing support is available if you use version **2.0.0** or later of [@azure/app-configuration-provider](https://www.npmjs.com/package/@azure/app-configuration-provider).
 
 ---
 

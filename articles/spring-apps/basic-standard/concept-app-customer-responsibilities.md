@@ -3,7 +3,8 @@ title: Version Support for Java, Spring Boot, and More
 titleSuffix: Azure Spring Apps
 description: This article describes the version support for Java, Spring Boot, and Spring Cloud, and the customer responsibilities when developing Azure Spring Apps.
 author: KarlErickson
-ms.author: zhiyongli
+ms.author: karler
+ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
@@ -57,7 +58,7 @@ When you deploy your polyglot applications to the Enterprise plan, assign specif
 | .NET   | [.NET and .NET core support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) |
 | Python | [Status of Python versions](https://devguide.python.org/versions/)                                    |
 | Go     | [Go release history](https://go.dev/doc/devel/release)                                                |
-| NodeJS | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
+| Node.js | [Nodejs releases](https://nodejs.org/en/about/previous-releases/)                                     |
 | PHP    | [PHP supported versions](https://www.php.net/supported-versions.php)                                  |
 
 ### Stack image support

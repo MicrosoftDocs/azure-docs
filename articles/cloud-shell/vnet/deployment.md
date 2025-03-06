@@ -1,7 +1,7 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 02/05/2025
+ms.date: 02/06/2025
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
@@ -47,7 +47,7 @@ To see all resource providers and the registration status for your subscription:
 1. Repeat the previous steps for the **Microsoft.ContainerInstance** and **Microsoft.Relay**
    resource providers.
 
-[![Screenshot of selecting resource providers in the Azure portal.][98a]][98b]
+[![Screenshot of selecting resource providers in the Azure portal.][97a]][97b]
 
 ## 2. Collect the required information
 
@@ -229,27 +229,24 @@ If you used the default Cloud Shell instance before you deployed the private ins
 reset your user settings:
 
 1. Open Cloud Shell.
-1. Select **Cloud Shell settings** from the menu bar (gear icon).
-1. Select **Reset user settings**, and then select **Reset**.
-
-Resetting the user settings triggers the first-time user experience the next time you start Cloud
-Shell.
-
-[![Screenshot of the Cloud Shell storage dialog.][97a]][97b]
-
+1. Select **Cloud Shell settings** from the menu bar.
+1. Select **Reset user settings**, and then select **Reset**. Resetting the user settings triggers
+   the first-time user experience.
 1. Choose your preferred shell experience (Bash or PowerShell).
-1. Select **Show advanced settings**.
-1. Select the **Show VNET isolation settings** checkbox.
-1. Choose the subscription that contains your private Cloud Shell instance.
-1. Choose the region that contains your private Cloud Shell instance.
-1. For **Resource group**, select the resource group that contains your private Cloud Shell
-   instance.
+1. In the **Getting started** dialog box:
+   1. Select **Mount storage account**.
+   1. Select your subscription from the **Storage account subscription** drop-down list.
+   1. Select the **Use an existing private virtual network** checkbox.
 
-   If you select the correct resource group, **Virtual network**, **Network profile**, and **Relay
-   namespace** are automatically populated with the correct values.
-1. For **File share**, enter the name of the file share that you created by using the storage
-   template.
-1. Select **Create storage**.
+   [![Screenshot of the Getting started dialog.][93a]][93b]
+
+1. Select **Apply** to continue.
+1. In the **Select virtual network configuration** dialog box, select the resources that you created
+   for this deployment.
+
+   [![Screenshot of the GSelect virtual network configuration dialog.][94a]][94b]
+
+1. Click **Select** to continue.
 
 ## Alternate way to get the Azure Container Instance ID
 
@@ -303,11 +300,13 @@ information, see [Connect to a storage account using an Azure private endpoint][
 [13]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
 [14]: https://portal.azure.com
 
+[93a]: media/deployment/getting-started.png
+[93b]: media/deployment/getting-started.png#lightbox
+[94a]: media/deployment/vnet-configuration.png
+[94b]: media/deployment/vnet-configuration.png#lightbox
 [95a]: media/deployment/container-service-search.png
 [95b]: media/deployment/container-service-search.png#lightbox
 [96a]: media/deployment/container-service-details.png
 [96b]: media/deployment/container-service-details.png#lightbox
-[97a]: media/deployment/setup-cloud-shell-storage.png
-[97b]: media/deployment/setup-cloud-shell-storage.png#lightbox
-[98a]: media/deployment/resource-provider.png
-[98b]: media/deployment/resource-provider.png#lightbox
+[97a]: media/deployment/resource-provider.png
+[97b]: media/deployment/resource-provider.png#lightbox

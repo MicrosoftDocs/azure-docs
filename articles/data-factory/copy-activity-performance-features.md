@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/24/2024
+ms.date: 02/13/2025
 
 ---
 

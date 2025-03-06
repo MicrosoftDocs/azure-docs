@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: reference
-ms.date: 01/27/2025
+ms.date: 03/03/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -23,7 +23,7 @@ Operational backup for blobs is available in all public cloud regions, except Fr
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup for blobs is available in all public regions.
+Vaulted backup for blobs is available in all public cloud regions.
 
 
 ---
@@ -62,7 +62,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
   - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
-- Cool and archived blobs are currently not supported.
+- Archive tier blob backup isn't supported. Cool and cold tier blobs are restored in hot tier. 
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
 - When you delete and recreate a storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
 - Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.

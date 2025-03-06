@@ -1,23 +1,23 @@
 ---
-title: "Quickstart: Upload firmware images to Firmware analysis using Azure CLI"
+title: "Quickstart: Upload firmware images to firmware analysis using Azure CLI"
 description: "Learn how to upload firmware images for analysis using the Azure command line interface."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 01/29/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 
-# Quickstart: Upload firmware images to Firmware Analysis using Azure CLI
+# Quickstart: Upload firmware images to firmware analysis using Azure CLI
 
-This article explains how to use the Azure CLI to upload firmware images to Firmware analysis.
-
+This article explains how to use the Azure CLI to upload firmware images to firmware analysis.
+ 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images. 
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment for the Azure CLI
 
@@ -26,14 +26,14 @@ This quickstart assumes a basic understanding of Firmware analysis. For more inf
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index?#az-login) command. Follow the steps displayed in your terminal to finish the authentication process. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-    * Install the Firmware analysis extension by running the following command:
+    * Install the firmware analysis extension by running the following command:
         ```azurecli
         az extension add --name firmwareanalysis
         ```
 
 * To find the version and dependent libraries that are installed, run the command [az version](/cli/azure/reference-index?#az-version). To upgrade to the latest version, run the command [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-* [Onboard](./tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to Firmware analysis.
+* [Onboard](./tutorial-analyze-firmware.md#onboard-your-subscription-to-use-firmware-analysis) your subscription to firmware analysis.
 
 * Select the appropriate subscription ID where you'd like to upload your firmware images by running the command [az account set](/cli/azure/account?#az-account-set).
 
@@ -110,7 +110,7 @@ for /f "tokens=*" %i in ('az resource wait --ids %ID% --custom "properties.statu
 
 for /f "tokens=*" %i in ('az resource show --ids %ID% --query "properties.status"') do set STATUS=%i
 
-echo Firmware analysis completed with status: %STATUS%
+echo firmware analysis completed with status: %STATUS%
 ```
 
 Once you've confirmed that your analysis status is "Ready", you can run commands to pull the results.

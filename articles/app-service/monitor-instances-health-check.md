@@ -143,11 +143,11 @@ function envVarMatchesHeader(headerValue) {
 
 ## Instances
 
-Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually restart the instance from this tab.
+Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually do an advanced application restart from this tab by using the "Restart" button.
 
-If the status of your application instance is "unhealthy," you can restart the instance manually by using the restart button in the table. Keep in mind that any other applications hosted on the same App Service plan as the instance will also be affected by the restart. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
+If the status of your application instance is "unhealthy," you can restart the worker process of the respective app manually by using the restart button in the table. This will not be affecting any of the other applications hosted on the same App Service plan. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
 
-If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will also affect any applications using the same App Service plan.
+If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will affect any applications using the same App Service plan.
 
 For Windows applications, you can also view processes via the Process Explorer. This gives you further insight on the instance's processes, including thread count, private memory, and total CPU time.
 
@@ -203,11 +203,11 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 If all instances of your application are unhealthy, App Service won't remove instances from the load balancer. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application. However, the instance replacement will still occur.
 
  ### What happens during a slot swap?
-Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. 
+Health check configuration is not slot-specific, so after a swap, the Health check configuration of the swapped slot will be applied to the destination slot and vice-versa. For example, if you have Health Check enabled for your staging slot the endpoint configured will be applied to the production slot after a swap. We recommend using consistent configuration for both production and non-production slots if possible to prevent any unexpected behavior after the swap.
 
 ### Does Health check work on App Service Environments?
 
-Yes, health check is available for App Service Environment v3, but not for versions 1 or 2. If you're using the older versions of App Service Environment, you can use the [migration feature](environment/migrate.md) to migrate your App Service Environment to version 3.
+Yes, health check is available for App Service Environment v3.
 
 ## Next steps
 

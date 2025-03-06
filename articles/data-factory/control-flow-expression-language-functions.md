@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/17/2024
+ms.date: 02/13/2025
 ---
 
 # Expressions and functions in Azure Data Factory and Azure Synapse Analytics
@@ -174,7 +174,7 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 
 ### Replacing special characters
 
-Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can of edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
+Dynamic content editor automatically escapes characters like double quote, backslash in your content when you finish editing. This causes trouble if you want to replace line feed or tab by using **\n**, **\t** in replace() function. You can edit your dynamic content in code view to remove the extra \ in the expression, or you can follow below steps to replace special characters using expression language:
 
 1. URL encoding against the original string value
 1. Replace URL encoded string, for example, line feed (%0A), carriage return(%0D), horizontal tab(%09).

@@ -1,8 +1,8 @@
 ---
-title: 'Overview of MQTT broker in Azure Event Grid'
-description: MQTT broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services, to support IoT solutions.
+title: MQTT (PubSub) broker'
+description: Message Queuing Telemetry Transport (MQTT) PubSub broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
 ms.topic: concept-article
-ms.date: 01/15/2024
+ms.date: 03/05/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -30,7 +30,7 @@ The following are a list of key concepts involved in Azure Event Grid’s MQTT b
 
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It's the goto communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
 - MQTT v5 features:
- 	- **Last Will and Testament (LWT)** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
+ 	- **Last Will and Testament** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
 	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation ID in the request for the client to respond without prior configuration. 
 	- **Message expiry interval** allows you to declare to MQTT broker when to disregard a message that is no longer relevant or valid. For example, disregard stale commands or alerts. 
@@ -43,7 +43,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT broker is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Will message, Retain flag, Message ordering, and QoS 2 aren't supported.
 
 - MQTT v3.1.1 features:
-  	- **Last Will and Testament (LWT)** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
+  	- **Last Will and Testament** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
 -  MQTT broker is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v3.1.1 specification: Retain flag, Message ordering, and QoS 2 aren't supported.
