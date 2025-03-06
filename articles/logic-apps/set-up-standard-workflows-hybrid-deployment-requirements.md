@@ -70,14 +70,14 @@ The hybrid option uses a billing model where you pay only for what you need and 
 
 ### vCPU usage calculation
 
-The vCPU usage for your Standard logic app affects your billing charges. The following formula calculates the vCPU usage for your logic app:
+The vCPU usage for your Standard logic app affects your billing charges. A *vCPU* refers to the number of CPU cores, but this ratio isn't necessarily 1:1. The following formula calculates the vCPU usage for your logic app:
 
-**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
+**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**) // 
 
 | Value | Description |
 |-------|-------------|
-| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: The extra vCPUs that you allocate come from replica vCPUs. For more information, see the next row. |
-| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet scaling needs. <br><br>**Note**: Each replica can have two vCPUs. The extra vCPUs that you allocate to your logic app come from replica vCPUs. |
+| **# of allocated vCPUs** | By default, your logic app is allocated a default number of vCPUs. You can [change this vCPU allocation](create-standard-workflows-hybrid-deployment.md#change-vcpu-and-memory-allocation-in-the-azure-portal) anytime after you create your logic app resource. <br><br>**Note**: Any vCPUs that you allocate to your logic app come from *replica* vCPUs, so your allocation range is from 0.25 to 2 cores. For more information, see the next row. |
+| **# of replicas** | A [*replica*](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) is a new instance of a logic app resource revision or version that deploys when a workflow trigger event occurs. This number of replicas can vary due to your app's scaling needs at any given time. You can [change the minimum and maximum number of replicas](create-standard-workflows-hybrid-deployment.md#change-replica-scaling-in-azure-portal) that each version or revision can have to meet your scaling needs. <br><br>**Note**: Each replica is limited to two vCPUs. Any vCPUs that you allocate to your logic app come from replica vCPUs, so your allocation range is 0.25 to 2 cores. |
 
 <a name="billing-charge-calculation"></a>
 
