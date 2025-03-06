@@ -344,8 +344,8 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
-   | **XML message to encode** | Yes | The XML message to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
-   | Other parameters | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br><br>For more information, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
+   | **EDIFACT flat file message to decode** | Yes | The XML flat file message to decode. |
+   | Other parameters | No | This operation includes the following other parameters: <br><br>- **Component separator** <br>- **Data element separator** <br>- **Release indicator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br>- **Payload character set** <br>- **Segment terminator suffix** <br>- **Preserve Interchange** <br>- **Suspend Interchange On Error** <br><br>For more information, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
 
    For example, the payload to decode can be the **Body** content output from the **Request** trigger:
 
