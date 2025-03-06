@@ -22,7 +22,7 @@ The **EDIFACT** connector has different versions, based on [logic app type and h
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | **EDIFACT** managed connector (Standard class). The **EDIFACT** connector provides only actions, but you can use any trigger that works for your scenario. For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Consumption** | Multitenant Azure Logic Apps | **EDIFACT** managed connector (Standard class). The **EDIFACT** connector has only one trigger, but you can use any trigger that works for your scenario. For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | **EDIFACT** built-in connector and **EDIFACT** managed connector. The built-in version differs in the following ways: <br><br>- The built-in version provides only actions, but you can use any trigger that works for your scenario. <br><br>- Accepts a flat file as input versus XML for the managed version. <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway.<br><br>For more information, see the following documentation: <br><br>- [EDIFACT managed connector reference](/connectors/edifact/) <br>- [EDIFACT built-in connector operations](#edifact-built-in-operations) <br>- [EDIFACT message limits](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
 <a name="edifact-built-in-operations"></a>
@@ -68,7 +68,7 @@ The **EDIFACT** built-in connector has the following actions, which are similar 
 
     > [!IMPORTANT]
     >
-    > The EDIFACT connector supports only UTF-8 characters. If your output contains 
+    > The **EDIFACT** connector supports only UTF-8 characters. If your output contains 
     > unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
 
 * Based on whether you're working on a Consumption or Standard logic app workflow, your logic app resource might require a link to your integration account:
@@ -141,12 +141,12 @@ The **EDIFACT** managed connector action named **Encode to EDIFACT message** act
 
 1. When you're done, select **Create**.
 
-1. In the EDIFACT action, provide the following property values:
+1. In the **EDIFACT** action, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
-   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | **XML message to encode** | Yes | The XML message to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
    | Other parameters | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br><br>For more information, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
 
    For example, the payload to encode can be the **Body** content output from the **Request** trigger:
@@ -167,7 +167,7 @@ The **EDIFACT** managed connector action named **Encode to EDIFACT message** act
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Message To Encode** | Yes | The flat file content that you want to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
+   | **Message To Encode** | Yes | The flat file content to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
    | **Advanced parameters** | No | From the list, add any other properties that you want to use. This operation includes the following other parameters: <br><br>- **Sender Identity Receiver Qualifier** <br>- **Sender Identity Receiver Identifier** <br>- **Receiver Identity Receiver Qualifier** <br>- **Receiver Identity Receiver Identifier** <br>- **Name of EDIFACT agreement** |
 
    For example, the flat file payload to encode can be the **Body** content output from the **Request** trigger:
@@ -210,7 +210,7 @@ The **EDIFACT** managed connector action named **Encode to EDIFACT message** act
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
-   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | **XML message to encode** | Yes | The XML message to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
    | Other parameters | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br><br>For more information, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
 
    For example, the payload to encode can be the **Body** content output from the **Request** trigger:
@@ -288,7 +288,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
 
 1. When you're done, select **Create**.
 
-1. In the EDIFACT action, provide the following property values:
+1. In the **EDIFACT** action, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -307,7 +307,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
 
 1. In the designer, [follow these general steps to add the **EDIFACT** action named **EDIFACT Decode** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. In the EDIFACT action, provide the following property values:
+1. In the **EDIFACT** action, provide the following property values:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -344,7 +344,7 @@ The **EDIFACT** managed connector action named **Decode EDIFACT message** action
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
-   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | **XML message to encode** | Yes | The XML message to encode. Specifically, the business identifier for the message sender as specified by your EDIFACT agreement. |
    | Other parameters | No | This operation includes the following other parameters: <br><br>- **Data element separator** <br>- **Release indicator** <br>- **Component separator** <br>- **Repetition separator** <br>- **Segment terminator** <br>- **Segment terminator suffix** <br>- **Decimal indicator** <br><br>For more information, see [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md). |
 
    For example, the payload to decode can be the **Body** content output from the **Request** trigger:
