@@ -4,7 +4,7 @@ description: This article describes primary Azure DevTest Labs scenarios, and ho
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2025
+ms.date: 03/06/2025
 ms.reviewer: christianreddington,anthdela,juselph
 ms.custom: UpdateFrequency2
 
@@ -128,6 +128,14 @@ DevTest Labs is well-suited for transient activities like workshops, hands-on la
   - Setting VM expiration dates.
   - Deleting VMs and labs when the activity is over.
 
+### Delete labs and VMs
+
+Lab owners can manage costs by deleting labs and VMs when they're no longer needed.
+
+- [Set expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
+- [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
+- [Delete all lab VMs by running a single PowerShell script](devtest-lab-delete-lab-vm.md#automate-the-process-of-deleting-all-the-vms-in-a-lab).
+
 ## Proof of concept and scaled deployments
 
 To start exploring DevTest Labs, organizations can use [proof of concept](deliver-proof-concept.md) and [scaled deployments](devtest-lab-guidance-scale.md).
@@ -143,14 +151,6 @@ For a successful proof of concept:
 1. Identify the teams' scenarios, such as developer VMs or test environments.
 1. Document current use cases.
 1. Deploy DevTest Labs to fulfill the teams' scenarios and use cases.
-
-## Lab and VM deletion
-
-Lab owners can manage costs by deleting labs and VMs when they're no longer needed.
-
-- [Set expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date) on VMs.
-- [Delete labs](devtest-lab-delete-lab-vm.md#delete-a-lab) and all related resources.
-- [Delete all lab VMs by running a single PowerShell script](devtest-lab-delete-lab-vm.md#automate-the-process-of-deleting-all-the-vms-in-a-lab).
 
 ## Related content
 
