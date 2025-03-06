@@ -61,7 +61,7 @@ This cost is applicable only during the initial replication. The duration for re
 
 ### Capacity Reservation cost
 
-Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
+Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
 
 
 ## Conclusion

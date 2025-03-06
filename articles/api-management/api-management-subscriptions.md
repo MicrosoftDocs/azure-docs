@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
  
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2024
 ms.author: danlep
 ms.custom: engagement-fy23
