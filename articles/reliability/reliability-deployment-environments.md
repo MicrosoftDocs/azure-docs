@@ -19,7 +19,21 @@ This article describes reliability support in Azure Deployment Environments. I
 
 Availability zone support for all resources in Azure Deployment Environments is enabled automatically. There's no action for you to take. 
 
-For a list of regions that support Azure Deployment Environments, see [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
+The following regions support both Deployment Environments and availability zones:
+- West US 2
+- South Central US
+- UK South
+- West Europe
+- East US
+- Australia East
+- East US 2
+- North Europe
+- West US 3
+- Japan East
+- East Asia
+- Central India
+- Korea Central
+- Canada Central
 
 ## Cross-region disaster recovery and business continuity
 
