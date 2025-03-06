@@ -30,6 +30,8 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
+
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
