@@ -1,6 +1,121 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/update-management/configure-alerts.md",
+      "redirect_url": "/azure/update-manager/manage-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/configure-groups.md",
+      "redirect_url": "/azure/update-manager/dynamic-scope-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/configure-wuagent.md",
+      "redirect_url": "/azure/update-manager/configure-wu-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/deploy-updates.md",
+      "redirect_url": "/azure/update-manager/deploy-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/enable-from-automation-account.md",
+      "redirect_url": "/azure/update-manager/migration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/enable-from-portal.md",
+      "redirect_url": "/azure/update-manager/migration-using-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/enable-from-runbook.md",
+      "redirect_url": "/azure/update-manager/migration-using-runbook-scripts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/enable-from-template.md",
+      "redirect_url": "/azure/update-manager/migration-manual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/enable-from-vm.md",
+      "redirect_url": "/azure/update-manager/migration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/manage-updates-for-vm.md",
+      "redirect_url": "/azure/update-manager/view-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/mecmintegration.md",
+      "redirect_url": "/azure/update-manager/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/operating-system-requirements.md",
+      "redirect_url": "/azure/update-manager/support-matrix-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/overview.md",
+      "redirect_url": "/azure/update-manager/workflow-update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/plan-deployment.md",
+      "redirect_url": "/azure/update-manager/workflow-update-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/pre-post-scripts.md",
+      "redirect_url": "/azure/update-manager/pre-post-events-schedule-maintenance-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/query-logs.md",
+      "redirect_url": "/azure/update-manager/sample-query-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/remove-feature.md",
+      "redirect_url": "/azure/update-manager/view-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/remove-vms.md",
+      "redirect_url": "/azure/update-manager/deploy-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/scope-configuration.md",
+      "redirect_url": "/azure/update-manager/updates-maintenance-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/update-management/view-update-assessments.md",
+      "redirect_url": "/azure/update-manager/view-updates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/update-management.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/update-agent-issues.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/update-agent-issues-linux.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/change-tracking/enable-from-portal.md",
       "redirect_url": "/azure/automation/change-tracking/enable-vms-monitoring-agent",
       "redirect_document_id": false
@@ -83,6 +198,11 @@
     {
       "source_path": "articles/databox-online/azure-stack-edge-gpu-deploy-sample-module-marketplace.md",
       "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/logzio/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/logzio/index",
       "redirect_document_id": false
     },
     {
@@ -3118,6 +3238,21 @@
     {
       "source_path_from_root": "/articles/databox-family/index.md",
       "redirect_url": "/azure/databox/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-overview.md",
+      "redirect_url": "/azure/databox/data-box-overview?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-portal.md",
+      "redirect_url": "/azure/databox/data-box-quickstart-portal?pivots=dbx-ng",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox/data-box-next-gen-quickstart-export.md",
+      "redirect_url": "/azure/databox/data-box-quickstart-export?pivots=dbx-ng",
       "redirect_document_id": false
     },
     {
