@@ -11,7 +11,7 @@ ms.author: danlep
 ms.custom: Include file
 ---
 
-## Which portal to use: API Management's or API Center's?
+## API Management and API Center portals
 
 The [Azure API Management](../../api-management/api-management-key-concepts.md) and [Azure API Center](../overview.md) services both provide portals for developers to discover and consume APIs:
 
@@ -24,13 +24,13 @@ While the two portals share some features, they also have distinct differences. 
 | --- | --- | --- |
 | Audience| External and internal developers | Internal developers |
 | API inventory | API Management instance only | All APIs |
-| Search and filter APIs | No | Yes |
-| View API details and definitions | Yes | Yes |
-| View API documentation | Yes | Yes |
-| Customize with branding | Yes | Name only |
-| Add custom widgets | Yes | No |
-| Customize with WordPress | Yes | No |
-| Integrate with Microsoft Entra | Yes | Yes |
-| Test APIs in test console | Yes | No |
-| Subscribe to APIs | Yes | No |
-| View API usage analytics | Yes | No |
+| Search and filter APIs | ❌ | ✔️ |
+| View API details and definitions | ✔️ | ✔️ |
+| View API documentation | ✔️ | ✔️ |
+| Customize with branding | ✔️ | Name only |
+| Integrate with Microsoft Entra | ✔️ | ✔️ |
+| Add custom widgets | ✔️ | ❌ |
+| Customize with WordPress | ✔️ | ❌ |
+| Test APIs in test console | ✔️ | ❌ |
+| Subscribe to APIs | ✔️ | ❌ |
+| View API usage analytics | ✔️ | ❌ |

@@ -19,6 +19,9 @@ This article shows you how to set up the *API Center portal* (preview), an Azure
 > [!NOTE]
 > The API Center portal is currently in preview.
 
+> [!TIP]
+> Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals][#api-management-and-api-center-portals]
+
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
