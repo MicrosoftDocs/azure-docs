@@ -84,6 +84,8 @@ After you create a dev box, you can connect to it remotely through the developer
 
 ## Clean up resources
 
+In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
+
 When you no longer need your dev box, you can delete it:
 
 [!INCLUDE [dev box runs on creation note](./includes/clean-up-resources.md)] 
