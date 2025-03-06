@@ -17,7 +17,7 @@ This article shows how to self-host the *API Center portal*, a website that deve
 :::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 > [!TIP]
-> You can also set up an Azure-managed version of the API Center portal. For more information, see [Set up the API Center portal](set-up-api-center-portal.md).
+> New! You can now set up an Azure-managed version of the API Center portal. For more information, see [Set up the API Center portal](set-up-api-center-portal.md).
 
 ## About self-hosting the portal
 
@@ -30,7 +30,7 @@ The API Center portal reference implementation provides:
 * Flexibility to host on different infrastructures, including deployment to services such as Azure Static Web Apps.  
 
 > [!NOTE]
-> When you self-host the API Center portal, you become its maintainer and you're responsible for its upgrades.
+> When you self-host the API Center portal, you become its maintainer and you're responsible for its upgrades. Azure support is limited.
 
 [!INCLUDE [api-center-portal-prerequisites](includes/api-center-portal-prerequisites.md)]
 
@@ -40,6 +40,9 @@ The API Center portal reference implementation provides:
     * [Vite package](https://www.npmjs.com/package/vite)
 
 [!INCLUDE [api-center-portal-app-registration](includes/api-center-portal-app-registration.md)]
+
+> [!NOTE]
+> When you're self-hosting the portal and want to test it locally before deploying to Azure, set the redirect URI in the app registration to `https://localhost:5173`. 
 
 ## Configure local environment
 
