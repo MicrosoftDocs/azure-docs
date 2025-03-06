@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/28/2019
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: include file
 ---
 
