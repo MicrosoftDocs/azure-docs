@@ -48,7 +48,6 @@ Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be str
 > [!NOTE]
 > WebJobs.Extensions.DurableTask v3 uses the latest version of the Azure Storage SDK, which has a different text encoding (Base64) when compared to the one used in v2 (UTF-8). If you need to downgrade from v3.x to v2.x, to ensure backward compatibility, use at least **[v2.13.5](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.13.5)**. For .NET out-of-process users with Microsoft.Azure.Functions.Worker.Extensions.DurableTask, downgrade to **[v1.1.5](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v1.1.5Worker.Extensions.DurableTask)** or higher if reverting from v1.2.x or higher.
 
-
 ### Support and Maintenance of v2.x
 
 WebJobs.Extensions.DurableTask v2.x continues to receive security updates and bug fixes, ensuring that your existing applications remain secure and stable. However, all new features and enhancements are added exclusively to v3.x. Because of this, you should upgrade to WebJobs.Extensions.DurableTask v3 as soon as you can to take advantage of the latest capabilities and ongoing improvements.
