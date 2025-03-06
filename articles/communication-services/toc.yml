@@ -973,6 +973,8 @@ items:
       href: quickstarts/call-automation/quickstart-make-an-outbound-call.md
     - name: Control and steer calls
       href: how-tos/call-automation/actions-for-call-control.md
+    - name: Mute participants during a call
+      href: how-tos/call-automation/mute-participants.md
     - name: Pass contextual data between calls
       href: how-tos/call-automation/custom-context.md
     - name: Ring Teams users
