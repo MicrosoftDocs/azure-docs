@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/11/2023
+ms.date: 02/21/2025
 ms.author: wchi
 ---
 
@@ -14,7 +14,7 @@ ms.author: wchi
     using System;
     using Npgsql;
    
-    string connectionString = Environment.GetEnvironmentVariable("AZURE_POSTGRESQL_CONNECTIONSTRING");
+    string connectionString = Environment.GetEnvironmentVariable("NEON_POSTGRESQL_CONNECTIONSTRING");
     using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
     {
         connection.Open();
@@ -30,7 +30,7 @@ ms.author: wchi
     import java.sql.DriverManager;
     import java.sql.SQLException;
 
-    String connectionString = System.getenv("AZURE_POSTGRESQL_CONNECTIONSTRING");
+    String connectionString = System.getenv("NEON_POSTGRESQL_CONNECTIONSTRING");
     Connection connection = null;
     try {
         connection = DriverManager.getConnection(connectionString);
@@ -49,7 +49,7 @@ ms.author: wchi
             <dependency>
                 <groupId>com.azure.spring</groupId>
                 <artifactId>spring-cloud-azure-dependencies</artifactId>
-                <version>5.20.0</version>
+                <version>4.11.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -70,7 +70,7 @@ ms.author: wchi
    import os
    import psycopg2
    
-   connection_string = os.getenv('AZURE_POSTGRESQL_CONNECTIONSTRING')
+   connection_string = os.getenv('NEON_POSTGRESQL_CONNECTIONSTRING')
    connection = psycopg2.connect(connection_string)
    print("Connection established")
    
@@ -87,10 +87,10 @@ ms.author: wchi
 1. In the setting file, get the PostgreSQL database information from environment variables added by Service Connector.
    ```python
    # in your setting file, eg. settings.py
-   host = os.getenv('AZURE_POSTGRESQL_HOST')
-   user = os.getenv('AZURE_POSTGRESQL_USER')
-   password = os.getenv('AZURE_POSTGRESQL_PASSWORD')
-   database = os.getenv('AZURE_POSTGRESQL_NAME')
+   host = os.getenv('NEON_POSTGRESQL_HOST')
+   user = os.getenv('NEON_POSTGRESQL_USER')
+   password = os.getenv('NEON_POSTGRESQL_PASSWORD')
+   database = os.getenv('NEON_POSTGRESQL_NAME')
    
    DATABASES = {
        'default': {
@@ -121,7 +121,7 @@ ms.author: wchi
 	_ "github.com/lib/pq"
     )
 
-    connectionString := os.Getenv("AZURE_POSTGRESQL_CONNECTIONSTRING")
+    connectionString := os.Getenv("NEON_POSTGRESQL_CONNECTIONSTRING")
     conn, err := sql.Open("postgres", connectionString)
 	if err != nil {
 		panic(err)
@@ -142,12 +142,12 @@ ms.author: wchi
    
    (async () => {
     const client = new Client({
-        host: process.env.AZURE_POSTGRESQL_HOST,
-        user: process.env.AZURE_POSTGRESQL_USER,
-        password: process.env.AZURE_POSTGRESQL_PASSWORD,
-        database: process.env.AZURE_POSTGRESQL_DATABASE,
-        port: Number(process.env.AZURE_POSTGRESQL_PORT) ,
-        ssl: process.env.AZURE_POSTGRESQL_SSL
+        host: process.env.NEON_POSTGRESQL_HOST,
+        user: process.env.NEON_POSTGRESQL_USER,
+        password: process.env.NEON_POSTGRESQL_PASSWORD,
+        database: process.env.NEON_POSTGRESQL_DATABASE,
+        port: Number(process.env.NEON_POSTGRESQL_PORT) ,
+        ssl: process.env.NEON_POSTGRESQL_SSL
     });
     await client.connect();
 
@@ -160,7 +160,7 @@ ms.author: wchi
 1. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
     ```php
     <?php
-    $conn_string = getenv('AZURE_POSTGRESQL_CONNECTIONSTRING');
+    $conn_string = getenv('NEON_POSTGRESQL_CONNECTIONSTRING');
     $dbconn = pg_connect($conn_string);
     ?>
     ```
@@ -171,14 +171,14 @@ ms.author: wchi
    ```bash
    gem install pg
    ```
-1. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
+2. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
     ```ruby
     require 'pg'
     require 'dotenv/load'
 
     begin
         conn = PG::Connection.new(
-            connection_string: ENV['AZURE_POSTGRESQL_CONNECTIONSTRING'],
+            connection_string: ENV['NEON_POSTGRESQL_CONNECTIONSTRING'],
         )
     rescue PG::Error => e
         puts e.message
@@ -189,4 +189,4 @@ ms.author: wchi
     ```
 
 ### [Other](#tab/none)
-For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for PostgreSQL with Service Connector](../how-to-integrate-postgres.md).
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Neon Serverless Postgres with Service Connector](../how-to-integrate-neon-postgres.md).
