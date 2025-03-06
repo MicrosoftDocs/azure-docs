@@ -1,5 +1,5 @@
 ---
-title: Overview of Durable Task Scheduler Dedicated SKU (preview)
+title: Use the Dedicated SKU for Durable Task Scheduler (preview)
 description: Learn about how the Dedicated SKU in DTS.
 ms.topic: conceptual
 ms.date: 03/03/2025
@@ -7,9 +7,13 @@ ms.author: azfuncdf
 author: lilyjma
 ms.subservice: durable
 ---
-# Overview of Durable Task Scheduler Dedicated SKU (preview)
 
-Durable Task Scheduler (DTS) currently supports only the Dedidated SKU. This article describes what the Dedicated SKU provides, how you're billed, and relevant concepts such as *capacity unit* and *work item*. 
+# Use the Dedicated SKU for Durable Task Scheduler (preview)
+
+Durable Task Scheduler (DTS) currently supports only the Dedicated SKU. In this article, you'll learn:
+- What the Dedicated SKU provides
+- How you're billed
+- Relevant concepts such as *capacity unit* and *work item*
 
 ## Dedicated SKU concepts 
 
@@ -24,15 +28,16 @@ The following table explains the minimum cost and features provided with each CU
 | ------------- | -------- |
 | One CU        | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​</br>- Dashboard for monitoring and managing orchestrations​</br>- Authentication and role-based access control with Managed Identity |
 
+## Pricing
+
+Find the price of a capacity unit on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
+
+## Determining the number of Capacity Units needed
+
 > [!NOTE]
-> Find the price of a capacity unit on [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
+> DTS supports purchasing only **one capacity unit** at the moment.  
 
-### Determining the number of Capacity Units needed
-
-> [!NOTE]
-> DTS supports purchasing only **one capacity unit** at the moment. You can use the following information to understand whether one unit is sufficient for your workload.  
-
-To determine how many Capacity Units (CUs) you require, follow these steps:
+To determine whether one unit is sufficient for your workload, follow these steps:
 
 1. **Understand how to identify the number of work items per orchestration**
    - Starting an orchestration consumes a single work item.
@@ -52,3 +57,7 @@ To determine how many Capacity Units (CUs) you require, follow these steps:
     If one CU allows for up to 2,000 work items per second, divide the required work items per second by the capacity of one CU to determine the number of CUs needed.
 
 For example, if you run 100 million orchestrations per month and each orchestration consumes seven work items, you need 700 million work items per month. Dividing this by 2,628,000 results in approximately 266 work items per second. If one CU supports 2,000 work items per second, you need one CU to handle this workload.
+
+## Next steps
+
+Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).

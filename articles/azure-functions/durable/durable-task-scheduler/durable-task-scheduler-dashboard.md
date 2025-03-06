@@ -7,9 +7,11 @@ ms.date: 01/24/2025
 
 # Debug and manage orchestrations using the Durable Task Scheduler dashboard (preview)
 
-The Durable Task Scheduler dashboard is a tool that offers a variety of features designed to help observe, manage, and debug orchestrations effectively. This article highlights some key features of the dashboard. 
+Observe, manage, and debug your task hub or scheduler's orchestations effectively using the Durable Task Scheduler dashboard. Once you [assign the *Durable Task Data Contributor* role to your developer identity](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard), you can access the dashboard via either:
+- The task hub's dashboard endpoint URL in the Azure portal
+- Navigate to `https://dashboard.durabletask.dev/` 
 
-## Monitoring Orchestration Progress and Execution History
+## Monitor orchestration progress and execution history
 
 The dashboard allows you to monitor orchestration progress and review execution history. You can also filter by orchestration metadata, such as state and timestamps.
 
@@ -19,7 +21,7 @@ View orchestration inputs and outputs:
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-input-outputs.png" alt-text="Screenshot of the dashboard listing orchestration history and status inputs and outputs.":::
 
-## Detailed View of Orchestration Execution
+## Detailed view of orchestration execution
 
 You can drill into orchestration instances to view execution details and activity progress, which can help in diagnosing problems or gaining visibility into the status of an orchestration.
 
@@ -41,7 +43,7 @@ The *Sequence* view gives another way of visualizing event sequence:
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/orchestration-sequence.png" alt-text="Screenshot of the dashboard showing orchestration sequence view.":::
 
-## Orchestration Management 
+## Orchestration management 
 
 The dashboard includes features for managing orchestrations on demand, such as starting, pausing, resuming, and terminating.
 
@@ -51,6 +53,6 @@ The dashboard includes features for managing orchestrations on demand, such as s
 
 Dashboard access is secured through [integration with Azure Role-Based Access Control (RBAC)](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard).
 
-## Related links
+## Next steps
 
 [Try out the quickstart to see the Durable Task Scheduler dashboard in action](./quickstart-durable-task-scheduler.md)

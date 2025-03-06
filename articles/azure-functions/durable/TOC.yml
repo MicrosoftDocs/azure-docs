@@ -107,15 +107,14 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Quickstart
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
-  - name: Develop and configure
+  - name: Develop
     href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Monitor
     href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
-  - name: Troubleshooting
-    href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
   - name: Billing
     href: ./durable-task-scheduler/dts-dedicated-sku.md  
-
+  - name: Troubleshooting
+    href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
 - name: Reference
   items:
   - name: Host.json settings
