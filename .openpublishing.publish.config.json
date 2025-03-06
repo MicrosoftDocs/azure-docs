@@ -243,12 +243,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-proactive-resiliency-library",
-            "url": "https://github.com/Azure/Azure-Proactive-Resiliency-Library",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-sdk-for-go-samples",
             "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
             "branch": "main",

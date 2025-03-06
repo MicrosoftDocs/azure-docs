@@ -150,7 +150,7 @@ The first step of migration is to set up the replication appliance. To set up th
 The mobility service agent must be installed on the servers to get them discovered by using the replication appliance. Discovered machines appear in **Migration and modernization**. As VMs are discovered, the **Discovered servers** count rises.
 
 > [!NOTE]
-> We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For detailed steps, see [Discover physical servers](tutorial-discover-physical.md).
+> We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For more information, see [Discover physical servers](tutorial-discover-physical.md).
 
 ## Agent-based migration stack
 

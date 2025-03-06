@@ -155,13 +155,16 @@ configuration:
         if:
           # If a 'sign-off' comment is added to a PR in the articles/reliability folder , and the PR author isn't Anastasia or John...
           - payloadType: Issue_Comment
-          - isPullRequest
           - filesMatchPattern:
               matchAny: true
               pattern: articles/reliability/*
-          - commentContains:
-              pattern: \#sign-off
-              isRegex: false
+          - or:
+              - commentContains:
+                  pattern: ^(#sign-off)$
+                  isRegex: True
+              - commentContains:
+                  pattern: ^(\#sign-off)$
+                  isRegex: True
           - not:
               or:
                 - isActivitySender:
