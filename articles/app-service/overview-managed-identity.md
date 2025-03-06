@@ -31,11 +31,11 @@ The following video complements the steps in this article by illustrating how to
 
 ## Prerequisites
 
-To perform the steps in this article, you must have a minimum set of permissions over your Azure resources. The specific permissions that you need vary, based on your scenario. The following table summarizes the most common scenarios:
+To perform the steps in this article, you must have a minimum set of permissions over your Azure resources. The specific permissions that you need vary based on your scenario. The following table summarizes the most common scenarios:
 
 | Scenario | Required permission | Example built-in roles |
 |-|-|-|
-| [Create a system-assigned identity for your app](#add-a-system-assigned-identity) | `Microsoft.Web/sites/write` over the app, or `Microsoft.Web/sites/slots/write` over the slot | [Website Contributor] |
+| [Create a system-assigned identity](#add-a-system-assigned-identity) | `Microsoft.Web/sites/write` over the app, or `Microsoft.Web/sites/slots/write` over the slot | [Website Contributor] |
 | [Create a user-assigned identity][create-user-assigned] | `Microsoft.ManagedIdentity/userAssignedIdentities/write` over the resource group in which the identity will be created | [Managed Identity Contributor] |
 | [Assign a user-assigned identity to your app](#add-a-user-assigned-identity) | `Microsoft.Web/sites/write` over the app, `Microsoft.Web/sites/slots/write` over the slot, or <br/>`Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action` over the identity | [Website Contributor] and [Managed Identity Operator] |
 | [Create Azure role assignments][role-assignment] | `Microsoft.Authorization/roleAssignments/write` over the target resource scope | [Role Based Access Control Administrator] or [User Access Administrator] |
@@ -48,11 +48,11 @@ To enable a system-assigned managed identity, use the following instructions.
 
 1. In the [Azure portal](https://portal.azure.com), go to your app's page.
 
-1. On the left pane, under **Settings**, select **Identity**.
+1. On the left menu, under **Settings**, select **Identity**.
 
 1. On the **System assigned** tab, switch **Status** to **On**. Then select **Save**.
 
-    ![Screenshot that shows selections for turning on a system-assigned managed identity in the portal.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+![Screenshot that shows selections for turning on a system-assigned managed identity in the portal.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 # [Azure CLI](#tab/cli)
 
@@ -149,15 +149,15 @@ Creating an app with a user-assigned identity requires that you create the ident
 
 1. Create a user-assigned managed identity resource according to [these instructions][create-user-assigned].
 
-1. On the left pane for your app's page, under **Settings**, select **Identity**.
+1. On the left menu for your app's page, under **Settings**, select **Identity**.
 
 1. Select **User assigned** > **Add**.
 
 1. Search for the identity that you created earlier, select it, and then select **Add**.
 
-    :::image type="content" source="media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png" alt-text="Screenshot that shows selections for adding a user-assigned managed identity in the portal.":::
+:::image type="content" source="media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png" alt-text="Screenshot that shows selections for adding a user-assigned managed identity in the portal.":::
 
-    After you select **Add**, the app restarts.
+After you finish these steps, the app restarts.
 
 # [Azure CLI](#tab/cli)
 
@@ -331,7 +331,7 @@ For more information, see the respective documentation headings of the client li
 
 - [Add an Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
 - [Access an Azure service by using a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticate-with-defaultazurecredential)
-- [Access Azure service by using a user-assigned identity](/javascript/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
+- [Access an Azure service by using a user-assigned identity](/javascript/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for the majority of the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
@@ -376,7 +376,7 @@ $accessToken = $tokenResponse.access_token
 
 -----
 
-For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference).
+For more information on the REST endpoint, see [REST endpoint reference](#rest-endpoint-reference) later in this article.
 
 ## <a name="remove"></a>Remove an identity
 
@@ -384,7 +384,7 @@ When you remove a system-assigned identity, it's deleted from Microsoft Entra ID
 
 # [Azure portal](#tab/portal)
 
-1. On the left pane of your app's page, under **Settings**, select **Identity**.
+1. On the left menu for your app's page, under **Settings**, select **Identity**.
 
 1. Follow the steps based on the identity type:
 
@@ -405,7 +405,7 @@ To remove one or more user-assigned identities, use this command:
 az webapp identity remove --name <app-name> --resource-group <group-name> --identities <identity-id1> <identity-id2> ...
 ```
 
-You can also remove the system assigned identity by specifying `[system]` in `--identities`.
+You can also remove the system-assigned identity by specifying `[system]` in `--identities`.
 
 # [Azure PowerShell](#tab/ps)
 
@@ -456,7 +456,7 @@ The `IDENTITY_ENDPOINT` variable is a local URL from which your app can request 
 > | `api-version`       | Query  | The version of the token API to be used. Use `2019-08-01`.                                                                                                                                                                                                                                                                 |
 > | `X-IDENTITY-HEADER` | Header | The value of the `IDENTITY_HEADER` environment variable. This header is used to help mitigate SSRF attacks.                                                                                                                                                                                                    |
 > | `client_id`         | Query  | (Optional) The client ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                             |
-> | `principal_id`      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that can be used instead. It can't be used on a request that includes `client_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
+> | `principal_id`      | Query  | (Optional) The principal ID of the user-assigned identity to be used. The `object_id` parameter is an alias that can be used instead. It can't be used on a request that includes `client_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
 > | `mi_res_id`         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                      |
 
 > [!IMPORTANT]

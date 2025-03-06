@@ -48,7 +48,7 @@ For you to enable multiple deployment slots, the app must be running in the Stan
 
 1. In the [Azure portal](https://portal.azure.com), go to your app's management page.
 
-1. On the left pane, select **Deployment** > **Deployment slots** > **Add**.
+1. On the left menu, select **Deployment** > **Deployment slots**. Then select **Add**.
 
    > [!NOTE]
    > If the app isn't already in the Standard, Premium, or Isolated tier, select **Upgrade**. Go to the **Scale** tab of your app before continuing.
@@ -68,7 +68,7 @@ For you to enable multiple deployment slots, the app must be running in the Stan
 
     :::image type="content" source="media/web-sites-staged-publishing/open-deployment-slot.png" alt-text="Screenshot that shows how to open a deployment slot's management page in the portal." lightbox="media/web-sites-staged-publishing/open-deployment-slot.png":::
 
-    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name appears as **\<app-name>/\<slot-name>**. The app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
+    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name appears as *\<app-name>/\<slot-name>*. The app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
 1. On the slot's resource page, select the app URL. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Set up Azure App Service access restrictions](app-service-ip-restrictions.md).
 
@@ -94,7 +94,7 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 -----
 
-The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. The article [Get a publish profile from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide the required information to deploy to the slot. Visual Studio can import the profile to deploy contents to the slot.
+The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. The article [Get a publish profile from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide the required information for deploying to the slot. Visual Studio can import the profile to deploy contents to the slot.
 
 The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name is truncated at 40 characters. The combined site name and slot name must be fewer than 59 characters.
 
@@ -108,9 +108,9 @@ When you swap two slots, App Service does the following to ensure that the targe
 
 1. Apply the following settings from the target slot (for example, the production slot) to all instances of the source slot:
 
-   - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
-   - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
-   - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
+   - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable
+   - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled
+   - [App Service authentication](overview-authentication-authorization.md) settings, if enabled
 
    When any of the settings is applied to the source slot, the change triggers all instances in the source slot to restart. During a [swap with preview](#Multi-Phase), this action marks the end of the first phase. The swap operation is paused. You can validate that the source slot works correctly with the target slot's settings.
 
@@ -126,14 +126,14 @@ When you swap two slots, App Service does the following to ensure that the targe
 
 1. If all instances on the source slot are warmed up successfully, swap the two slots by switching their routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
 
-1. Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances.
+1. Now that the source slot has the pre-swap app that was previously in the target slot, perform the same operation by applying all settings and restarting the instances.
 
 At any point in the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of whether the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
 > [!NOTE]
 > Your former production instances are swapped into staging after this swap operation. Those instances are recycled in the last step of the swap process. If you have any long-running operations in your application, they're abandoned when the workers recycle. This fact also applies to function apps. Make sure that your application code is written in a fault-tolerant way.
 
-<a name = "which-settings-are-swapped"></a> ### Steps for making a slot unswappable
+### <a name = "which-settings-are-swapped"></a> Steps for making a slot unswappable
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
@@ -234,13 +234,13 @@ To swap a slot into production with preview, run the following command in a term
 az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action preview
 ```
 
-To complete the swap:
+To complete the swap, run this command:
 
 ```azurecli-interactive
 az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action swap
 ```
 
-To cancel the swap:
+To cancel the swap, run this command:
 
 ```azurecli-interactive
 az webapp deployment slot swap --resource-group <group-name> --name <app-name> --slot <source-slot-name> --target-slot production --action reset
@@ -256,13 +256,13 @@ To swap a slot into production with preview, run the following cmdlet in an Azur
 Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction ApplySlotConfig
 ```
 
-To complete the swap:
+To complete the swap, run the following cmdlet:
 
 ```azurepowershell-interactive
 Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction CompleteSlotSwap
 ```
 
-To cancel the swap:
+To cancel the swap, run the following cmdlet:
 
 ```azurepowershell-interactive
 Switch-AzWebAppSlot -SourceSlotName "<source-slot-name>" -DestinationSlotName "production" -ResourceGroupName "<group-name>" -Name "<app-name>" -SwapWithPreviewAction ResetSlotSwap
@@ -293,9 +293,9 @@ Auto swap streamlines Azure DevOps scenarios where you want to deploy your app c
 
 # [Azure portal](#tab/portal)
 
-1. Go to your app's resource page. Select **Deployment** >**Deployment slots**, and then select the desired source slot.
+1. Go to your app's resource page. Select **Deployment** > **Deployment slots**, and then select the desired source slot.
 
-1. On the left pane, select **Settings** > **Configuration** > **General settings**.
+1. On the left menu, select **Settings** > **Configuration** > **General settings**.
 
 1. For **Auto swap enabled**, select **On**. For **Auto swap deployment slot**, select the target slot. Then select **Save** on the command bar.
 
@@ -311,7 +311,7 @@ To configure auto swap into the production slot, run the following command in a 
 az webapp deployment slot auto-swap --name <app-name> --resource-group <group-name> --slot <source-slot-name>
 ```
 
-To disable auto swap:
+To disable auto swap, run the following command:
 
 ```azurecli-interactive
 az webapp deployment slot auto-swap --name <app-name> --resource-group <group-name> --slot <source-slot-name> --disable
@@ -337,7 +337,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps) later in
 
 ## Specify custom warm-up
 
-Some apps might require custom warm-up actions before the swap. You can specify these custom actions by using the `applicationInitialization` configuration element in *web.config*. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample *web.config* fragment:
+Some apps might require custom warm-up actions before the swap. You can specify these custom actions by using the `applicationInitialization` configuration element in `Web.config`. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample `Web.config` fragment:
 
 ```xml
 <system.webServer>
@@ -366,7 +366,7 @@ If the [swap operation](#AboutConfiguration) takes a long time to complete, you 
 
 # [Azure portal](#tab/portal)
 
-1. On your app's resource page in the portal, on the left pane, select **Activity log**.
+1. On your app's resource page in the portal, on the left menu, select **Activity log**.
 
 1. A swap operation appears in the log query as `Swap Web App Slots`. To view the details, you can expand it and select one of the suboperations or errors.
 
@@ -398,7 +398,7 @@ By default, all client requests to the app's production URL (`http://<app_name>.
 
 # [Azure portal](#tab/portal)
 
-1. Go to your web app's resource page and select **Deployment slots**.
+1. Go to your web app's resource page and select **Deployment** > **Deployment slots**.
 
 1. In the **Traffic %** column of the slot that you want to route to, specify a percentage (between 0 and 100) to represent the amount of total traffic that you want to route. Then select **Save**.
 
@@ -490,7 +490,7 @@ For more information, see [Remove-AzWebAppSlot](/powershell/module/az.websites/r
 
 ## Automate with Resource Manager templates
 
-[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files for automating the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files for automating the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you set two properties on the `Microsoft.Web/sites/slots` and `Microsoft.Web/sites` resources:
 
 - `buildVersion`: A string property that represents the current version of the app deployed in the slot. For example: `v1`, `1.0.0.1`, or `2019-09-20T11:53:25.2887393-07:00`.
 - `targetBuildVersion`: A string property that specifies what `buildVersion` value the slot should have. If the `targetBuildVersion` value doesn't equal the current `buildVersion` value, it triggers the swap operation by finding the slot with the specified `buildVersion` value.
@@ -545,7 +545,7 @@ This Resource Manager template is idempotent. You can run it repeatedly and prod
 
 ## Troubleshoot swaps
 
-If any error occurs during a [slot swap](#AboutConfiguration), the error appears in *D:\home\LogFiles\eventlog.xml*. It's also logged in the application-specific error log.
+If any error occurs during a [slot swap](#AboutConfiguration), the error appears in `D:\home\LogFiles\eventlog.xml`. It's also logged in the application-specific error log.
 
 Here are some common swap errors:
 
@@ -553,14 +553,14 @@ Here are some common swap errors:
 
 - Local cache initialization might fail when the app content exceeds the local disk quota that's specified for the local cache. For more information, see [Azure App Service local cache overview](overview-local-cache.md).
 
-- During a site update operation, the following error can occur: "The slot cannot be changed because its configuration settings have been prepared for swap." This error can occur if the first phase in a multiple-phase swap finishes but the second phase hasn't happened. It can also occur if a swap failed. There are two ways to resolve this issue:
+- During a site update operation, the following error can occur: "The slot cannot be changed because its configuration settings have been prepared for swap." This error can occur if the first phase in a multiple-phase swap finishes but the second phase hasn't happened. It can also occur if a swap failed. There are two ways to resolve this problem:
 
   - Cancel the swap operation, which resets the site back to the old state.
   - Complete the swap operation, which updates the site to the desired new state.
 
   To learn how to cancel or complete the swap operation, see [Swap with preview (multiple-phase swap)](#swap-with-preview-multiple-phase-swap) earlier in this article.
 
-- During [custom warm-up](#Warm-up), the HTTP requests are made internally without going through the external URL. They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
+- During [custom warm-up](#Warm-up), the HTTP requests are made internally without going through the external URL. They can fail with certain URL rewrite rules in `Web.config`. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this problem, modify your rewrite rules by adding the following two conditions:
 
     ```xml
     <conditions>
@@ -570,7 +570,7 @@ Here are some common swap errors:
     </conditions>
     ```
 
-- Without a custom warm-up, the URL rewrite rules can still block HTTP requests. To work around this issue, modify your rewrite rules by adding the following condition:
+- Without a custom warm-up, the URL rewrite rules can still block HTTP requests. To work around this problem, modify your rewrite rules by adding the following condition:
 
     ```xml
     <conditions>

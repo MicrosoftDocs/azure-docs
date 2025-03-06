@@ -19,11 +19,11 @@ This article describes how App Service helps simplify authentication and authori
 
 ## Reasons to use built-in authentication
 
-To implement authentication and authorization, you can use the bundled security features in your web framework of choice, or you can write your own utilities. However, implementing a secure solution for authentication and authorization can take significant effort. You need to follow industry best practices and standards. You also need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
+To implement authentication and authorization, you can use the bundled security features in your web framework of choice, or you can write your own tools. However, implementing a secure solution for authentication and authorization can take significant effort. You need to follow industry best practices and standards. You also need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
 The built-in capabilities of App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, so you can focus on the rest of your application.
 
-With App Service, you can integrate a variety of authentication capabilities into your web app or API without implementing them yourself. This feature is built directly into the platform and doesn't require any particular language, SDK, security expertise, or even any code. You can integrate it with multiple login providers, such as Microsoft Entra, Facebook, Google, and X.
+With App Service, you can integrate a variety of authentication capabilities into your web app or API without implementing them yourself. This feature is built directly into the platform and doesn't require any particular language, SDK, security expertise, or code. You can integrate it with multiple login providers, such as Microsoft Entra, Facebook, Google, and X.
 
 Your app might need to support more complex scenarios, such as Visual Studio integration or incremental consent. Several authentication solutions are available to support these scenarios. To learn more, read [Authentication scenarios and recommendations](identity-scenarios.md).
 

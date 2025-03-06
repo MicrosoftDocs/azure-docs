@@ -75,7 +75,7 @@ To use an existing registration, select either:
 
   - **Application (client) ID**.
   - **Client secret (recommended)**. A secret value that the application uses to prove its identity when it requests a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which we *don't* recommend.
-  - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://sts.windows.net` as its authentication endpoint.
+  - **Issuer URL**. This URL takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value that's specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use `https://sts.windows.net` as its authentication endpoint.
 
 If you need to manually create an app registration in a workforce tenant, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). As you go through the registration process, be sure to note the application (client) ID and client secret values.
 
@@ -301,53 +301,72 @@ In prior sections, you registered your App Service or Azure Functions app to aut
 
 ### Native client application
 
-You can register native clients to request access to your App Service app's APIs on behalf of a signed-in user.
+You can register native clients to request access to your App Service app's APIs on behalf of a signed-in user:
 
 1. On the Azure portal menu, select **Microsoft Entra ID**.
-1. On the left pane, select **Manage** > **App registrations** > **New registration**.
+
+1. On the left pane, select **Manage** > **App registrations**. Then select **New registration**.
+
 1. On the **Register an application** pane, for **Name**, enter a name for your app registration.
+
 1. In **Redirect URI**, select **Public client/native (mobile & desktop)** and enter the URL `<app-url>/.auth/login/aad/callback`. For example, enter `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+
 1. Select **Register**.
+
 1. After the app registration is created, copy the value of **Application (client) ID**.
 
    > [!NOTE]
    > For a Microsoft Store application, use the [package SID](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) as the URI instead.
 
 1. On the left pane, select **Manage** > **API permissions**. Then select **Add a permission** > **My APIs**.
+
 1. Select the app registration that you created earlier for your App Service app. If you don't see the app registration, be sure to add the **user_impersonation** scope in the app registration.
+
 1. Under **Delegated permissions**, select **user_impersonation**, and then select **Add permissions**.
 
-You configured a native client application that can request access your App Service app on behalf of a user.
+You've now configured a native client application that can request access your App Service app on behalf of a user.
 
 ### Daemon client application (service-to-service calls)
 
 In an N-tier architecture, your client application can acquire a token to call an App Service or Azure Functions app on behalf of the client app itself, not on behalf of a user. This scenario is useful for non-interactive daemon applications that perform tasks without a logged-in user. It uses the standard OAuth 2.0 client credentials grant. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
 1. On the Azure portal menu, select **Microsoft Entra ID**.
-1. On the left pane, select **Manage** > **App registrations** > **New registration**.
+
+1. On the left pane, select **Manage** > **App registrations**. Then select **New registration**.
+
 1. On the **Register an application** pane, for **Name**, enter a name for your app registration.
+
 1. For a daemon application, you don't need a redirect URI, so you can keep the **Redirect URI** box empty.
+
 1. Select **Register**.
+
 1. After the app registration is created, copy the value of **Application (client) ID**.
+
 1. On the left pane, select **Manage** > **Certificates & secrets**. Then select **Client secrets** > **New client secret**.
+
 1. Enter a description and expiration, and then select **Add**.
+
 1. In the **Value** field, copy the client secret value. After you move away from this page, it doesn't appear again.
 
 You can now [request an access token by using the client ID and client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret). Set the `resource` parameter to the **Application ID URI** value of the target app. The resulting access token can then be presented to the target app via the standard [OAuth 2.0 Authorization header](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#use-a-token). App Service authentication validates and uses the token to indicate that the caller is authenticated. In this case, the caller is an application, not a user.
 
-This approach allows *any* client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce *authorization* to allow only certain client applications, you must perform extra configuration.
+This approach allows *any* client application in your Microsoft Entra tenant to request an access token and authenticate to the target app. If you also want to enforce authorization to allow only certain client applications, you must perform extra configuration.
 
 1. [Define an app role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) in the manifest of the app registration that represents the App Service or Azure Functions app that you want to protect.
+
 1. On the app registration that represents the client that needs to be authorized, select **API permissions** > **Add a permission** > **My APIs**.
+
 1. Select the app registration that you created earlier. If you don't see the app registration, make sure that you [added an app role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+
 1. Under **Application permissions**, select the app role that you created earlier. Then select **Add permissions**.
+
 1. Select **Grant admin consent** to authorize the client application to request the permission.
 
    Similar to the previous scenario (before you added any roles), you can now [request an access token](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) for the same target resource. The access token includes a `roles` claim that contains the app roles that were authorized for the client application.
 
 Within the target App Service or Azure Functions app code, you can now validate that the token has the expected roles. App Service authentication doesn't perform this validation. For more information, see [Access user claims in app code](configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-You've configured a daemon client application that can access your App Service app by using its own identity.
+You've now configured a daemon client application that can access your App Service app by using its own identity.
 
 ## Best practices
 
@@ -379,7 +398,7 @@ With these changes, when App Service authentication tries to sign in, it no long
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 - [Quickstart: Add app authentication to your web app running on Azure App Service](scenario-secure-app-authentication-app-service.md)
-- [Tutorial: Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md)
+
 <!-- URLs. -->
 
 [aad-graph]: /graph/migrate-azure-ad-graph-overview

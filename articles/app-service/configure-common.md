@@ -18,16 +18,16 @@ This article explains how to configure common settings for web apps, a mobile ba
 
 ## Configure app settings
 
-In App Service, app settings are variables passed as environment variables to the application code. The following conditions apply to app settings:
+In Azure App Service, app settings are variables passed as environment variables to the application code. The following conditions apply to app settings:
 
 - App setting names can contain only letters, numbers (0-9), periods (.), and underscores (_).
 - Special characters in the value of an app setting must be escaped as needed by the target operating system.
 
-For example, to set an environment variable in Azure App Service for Linux with the value `"pa$$w0rd\"`, the string for the app setting should be `"pa\$\$w0rd\\"`.
+For example, to set an environment variable in App Service for Linux with the value `"pa$$w0rd\"`, the string for the app setting should be `"pa\$\$w0rd\\"`.
 
 For Linux apps and custom containers, App Service passes app settings to the container by using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
 
-For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in *Web.config* or *appsettings.json*. But the values in App Service override the ones in *Web.config* or *appsettings.json*. You can keep development settings (for example, local MySQL password) in *Web.config* or *appsettings.json* and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, configuring app settings in App Service is like configuring them in `<appSettings>` in `Web.config` or `appsettings.json`. But the values in App Service override the ones in `Web.config` or `appsettings.json`. You can keep development settings (for example, local MySQL password) in `Web.config` or `appsettings.json` and production secrets (for example, Azure MySQL database password) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
 
 Other language stacks get the app settings as environment variables at runtime. For steps that are specific to each language stack, see:
 
@@ -41,7 +41,7 @@ Other language stacks get the app settings as environment variables at runtime. 
 App settings are always encrypted when they're stored (encrypted at rest).
 
 > [!NOTE]
-> If you store secrets in app settings, consider using [Azure Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider more secure connectivity options that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+> If you store secrets in app settings, consider using [Azure Key Vault references](app-service-key-vault-references.md). If your secrets are for connectivity to back-end resources, consider connectivity options that are more secure and that don't require secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -205,13 +205,13 @@ It's not possible to edit app settings in bulk by using a JSON file with Azure P
 ## Configure connection strings
 
 > [!NOTE]
-> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
+> Consider connectivity options that are more secure and that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in *Web.config*. But the values that you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service is like setting them in `<connectionStrings>` in `Web.config`. But the values that you set in App Service override the ones in `Web.config`. You can keep development settings (for example, a database file) in `Web.config` and production secrets (for example, SQL database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when it's deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys to access the values.
 
-There is one case where you might want to use connection strings instead of app settings for non-.NET languages: certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
+There is one case where you might want to use connection strings instead of app settings for non-.NET languages. Certain Azure database types are backed up along with the app *only* if you configure a connection string for the database in your App Service app. For more information, see [Create a custom backup](manage-backup.md#create-a-custom-backup). If you don't need this automated backup, use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
@@ -446,7 +446,7 @@ Here, you can configure some common settings for the app. Some settings require 
     :::image type="content" source="./media/configure-common/open-general-linux.png" alt-text="Screenshot that shows stack settings for Linux containers.":::
 
 - **Platform settings**: Configure settings for the hosting platform, including:
-  - **Platform bitness**: Choose 32-bit or 64-bit. For Windows apps only.
+  - **Platform bitness**: Choose 32 bit or 64 bit. For Windows apps only.
   - **FTP state**: Allow only FTPS, or disable FTP altogether.
   - **HTTP version**: Set to **2.0** to enable support for the [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
@@ -608,7 +608,7 @@ To add a custom handler:
 
 1. Select **New handler mapping**. Configure the handler as follows:
 
-    - **Extension**. The file extension that you want to handle, such as *\*.php* or *handler.fcgi*.
+    - **Extension**. The file extension that you want to handle, such as `*.php` or `handler.fcgi`.
     - **Script processor**. The absolute path of the script processor to you. The script processor processes requests to files that match the file extension. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
     - **Arguments**. Optional command-line arguments for the script processor.
 
@@ -624,7 +624,7 @@ To add a custom handler:
 - [Environment variables and app settings in Azure App Service](reference-app-settings.md)
 - [Map an existing custom DNS name to Azure App Service]
 - [Set up staging environments in Azure App Service]
-- [Provide security for a custom DNS name with a TLS/SSL binding in App Service](configure-ssl-bindings.md)
+- [Provide security for a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 - [Enable diagnostics logging for apps in Azure App Service](troubleshoot-diagnostic-logs.md)
 - [Scale up an app in Azure App Service]
 - [Azure App Service quotas and alerts]

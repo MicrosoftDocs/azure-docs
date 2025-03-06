@@ -29,7 +29,7 @@ To read secrets from a key vault, you first need to create a vault and give your
 
 1. Authorize [read access to secrets in your key vault](/azure/key-vault/general/security-features#privileged-access) for the managed identity that you created. How you do it depends on the permissions model of your key vault:
 
-    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
+    - **Azure role-based access control**: Assign the **Key Vault Secrets User** role to the managed identity. For instructions, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide).
     - **Vault access policy**: Assign the **Get** secrets permission to the managed identity. For instructions, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy).
 
 ### Access network-restricted vaults
@@ -126,14 +126,12 @@ Apps can use the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` application setting 
 
 The platform relies on having a content share within Azure Files, and it assumes a default name unless one is specified via the `WEBSITE_CONTENTSHARE` setting. For any requests that modify these settings, the platform validates if this content share exists. If the content share doesn't exist, the platform tries to create it. If the platform can't locate or create the content share, it blocks the request.
 
-When you use Key Vault references in this setting, the validation check fails by default, because the secret itself can't be resolved while during processing of the incoming request. To avoid this problem, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to `1`. This setting tells App Service to bypass all checks, and it doesn't create the content share for you. You should ensure that it's created in advance.
+When you use Key Vault references in this setting, the validation check fails by default, because the secret can't be resolved during processing of the incoming request. To avoid this problem, you can skip the validation by setting `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` to `1`. This setting tells App Service to bypass all checks, and it doesn't create the content share for you. You should ensure that the content share is created in advance.
 
 > [!CAUTION]
-> If you skip validation and either the connection string or the content share is invalid, the app will be unable to start properly and will only serve HTTP 500 errors.
+> If you skip validation and either the connection string or the content share is invalid, the app won't start properly and will serve HTTP 500 errors.
 
-As part of creating the app, attempted mounting of the content share could fail because managed identity permissions aren't being propagated or the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate this behavior. To learn more, see [Azure Resource Manager deployment](#azure-resource-manager-deployment) later in this article.
-
-In this case, App Service uses a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+As part of creating the app, attempted mounting of the content share could fail because managed identity permissions aren't being propagated or the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate this behavior. To learn more, see [Azure Resource Manager deployment](#azure-resource-manager-deployment) later in this article. In this case, App Service uses a default file system until Azure Files is set up, and files aren't copied over. You must ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Considerations for Application Insights instrumentation
 
@@ -261,14 +259,14 @@ If the syntax is correct, you can view other causes for error by checking the cu
 
 You can also use one of the built-in detectors to get additional information.
 
-### Use the detector for App Service
+To use the detector for App Service:
 
 1. In the portal, go to your app.
 2. Select **Diagnose and solve problems**.
 3. Select **Availability and Performance** > **Web app down**.
 4. In the search box, search for and select **Key Vault Application Settings Diagnostics**.
 
-### Use the detector for Azure Functions
+To use the detector for Azure Functions:
 
 1. In the portal, go to your app.
 2. Go to **Platform features**.

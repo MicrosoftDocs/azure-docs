@@ -28,7 +28,7 @@ Each App Service plan defines:
 
 ## Pricing tiers
 
-The *pricing tier* of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system that you select at creation time. These are the categories of pricing tiers:
+The pricing tier of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system that you select at creation time. These are the categories of pricing tiers:
 
 | Category | Tiers | Description |
 |-|-|-|
@@ -126,9 +126,7 @@ Isolate your app in a new App Service plan when:
 
 - The app is resource intensive.
 - You want to scale the app independently from the other apps in the existing plan.
-- The app needs resources in a different geographical region.
-
-  This way, you can allocate a new set of resources for your app and gain greater control of your apps.
+- The app needs resources in a different geographical region. This way, you can allocate a new set of resources for your app and gain greater control of your apps.
 
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.

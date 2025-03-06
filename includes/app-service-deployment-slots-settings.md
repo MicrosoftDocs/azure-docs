@@ -40,6 +40,6 @@ When you swap slots, these settings aren't swapped:
 - Settings that [Service Connector](../articles/service-connector/overview.md) created
 
 > [!NOTE]
-> To make settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app. Set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped. This override app setting doesn't affect them.
+> To make settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app. Set its value to `0` or `false`. These settings are either all swappable or all not swappable. You can't make just some settings swappable and not the others. Managed identities are never swapped. This override app setting doesn't affect them.
 >
 > Certain app settings that apply to unswapped settings are also not swapped. For example, because diagnostic settings aren't swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.

@@ -25,9 +25,9 @@ The following environment variables are related to the app environment in genera
 | `REGION_NAME` | Read-only. Region name of the app. |
 | `WEBSITE_PLATFORM_VERSION` | Read-only. App Service platform version. |
 | `HOME` | Read-only. Path to the home directory (for example, `D:\home` for Windows). |
-| `SERVER_PORT` | Read-only. The port that the app should listen to. |
+| `SERVER_PORT` | Read-only. Port that the app should listen to. |
 | `WEBSITE_WARMUP_PATH` | Relative path to ping to warm up the app, beginning with a slash. The default is `/robots933456.txt`.<br/><br/>Whenever the platform starts up a container, the orchestrator makes repeated requests against this endpoint. The platform considers any response from this endpoint as an indication that the container is ready. When the platform considers the container to be ready, it starts forwarding organic traffic to the newly started container. Unless `WEBSITE_WARMUP_STATUSES` is configured, the platform considers any response from the container at this endpoint (even error codes such as 404 or 502) as an indication that the container is ready.<br/><br/>This app setting doesn't change the path that Always On uses. |
-| `WEBSITE_WARMUP_STATUSES` | Comma-delimited list of HTTP status codes that are considered successful when the platform makes warmup pings against a newly started container. Used in conjunction with `WEBSITE_WARMUP_PATH`.<br/><br/>By default, any status code is considered an indication that the container is ready for organic traffic. You can use this app to require a specific response before organic traffic is routed to the container.<br/><br/>An example is `200,202`. If pings against the app's configured warmup path receive a response with a 200 or 202 status code, organic traffic is routed to the container. If a status code that isn't in the list is received (such as 502), the platform continues to make pings until a 200 or 202 is received, or until the container startup timeout limit is reached. (See `WEBSITES_CONTAINER_START_TIME_LIMIT` later in this table.)<br/><br/>If the container doesn't respond with an HTTP status code that's in the list, the platform eventually fails the startup attempt and retries, which results in 503 errors. |
+| `WEBSITE_WARMUP_STATUSES` | Comma-delimited list of HTTP status codes that are considered successful when the platform makes warm-up pings against a newly started container. Used in conjunction with `WEBSITE_WARMUP_PATH`.<br/><br/>By default, any status code is considered an indication that the container is ready for organic traffic. You can use this app to require a specific response before organic traffic is routed to the container.<br/><br/>An example is `200,202`. If pings against the app's configured warm-up path receive a response with a 200 or 202 status code, organic traffic is routed to the container. If a status code that isn't in the list is received (such as 502), the platform continues to make pings until a 200 or 202 is received, or until the container startup timeout limit is reached. (See `WEBSITES_CONTAINER_START_TIME_LIMIT` later in this table.)<br/><br/>If the container doesn't respond with an HTTP status code that's in the list, the platform eventually fails the startup attempt and retries, which results in 503 errors. |
 | `WEBSITE_COMPUTE_MODE` | Read-only. Specifies whether the app runs on dedicated (`Dedicated`) or shared (`Shared`) virtual machines (VMs). |
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
@@ -36,10 +36,10 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version that the app is using. |
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for concurrent WebSocket requests. For the `Standard` tier and higher, the value is `-1`, but there's still a per-VM limit based on your VM size. See [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits). |
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. |
-| `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). If the specified value isn't recognized, the app uses UTC. <br/><br/>Example: `Atlantic Standard Time` |
-| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app might experience unexpected restarts. The reason is that after a swap, the host-name binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) might detect these discrepancies and force all worker processes to restart.<br/><br/>To minimize these types of restarts, set the app setting value to `1` on all slots. (The default is `0`.) But don't set this value if you're running a Windows Communication Foundation (WCF) application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps). |
-| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively corrected when it uses more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance triggers one of these rules, the recovery process is an overlapping restart of the instance.<br/><br/>Set to `false` to disable this recovery behavior. The default is `true`.<br/><br/>For more information, see [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). |
-| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance. The debugger process collects a memory dump when the worker process crashes again. This memory dump is then analyzed, and the call stack of the thread that caused the crash is logged in your App Service logs.<br/><br/>Set to `false` to disable this automatic monitoring behavior. The default is `true`.<br/><br/>For more information, see [Proactive Crash Monitoring in Azure App Service](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). |
+| `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [Default time zones](/windows-hardware/manufacture/desktop/default-time-zones). If the specified value isn't recognized, the app uses UTC. <br/><br/>Example: `Atlantic Standard Time` |
+| `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app might experience unexpected restarts. The reason is that after a swap, the host-name binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) might detect these discrepancies and force all worker processes to restart.<br/><br/>To minimize these types of restarts, set the app setting value to `1` on all slots. (The default is `0`.) But don't set this value if you're running a Windows Communication Foundation application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps). |
+| `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively corrected when it uses more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance triggers one of these rules, the recovery process is an overlapping restart of the instance.<br/><br/>Set to `false` to disable this recovery behavior. The default is `true`.<br/><br/>For more information, see the [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) blog post. |
+| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance. The debugger process collects a memory dump when the worker process crashes again. This memory dump is then analyzed, and the call stack of the thread that caused the crash is logged in your App Service logs.<br/><br/>Set to `false` to disable this automatic monitoring behavior. The default is `true`.<br/><br/>For more information, see the [Proactive Crash Monitoring in Azure App Service](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) blog post. |
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the shared access signature (SAS) URI. |
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. |
 | `WEBSITE_CRASHMONITORING_SETTINGS` | JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. |
@@ -65,7 +65,7 @@ The following table shows environment variable prefixes that App Service uses fo
 | `SQLAZURECONNSTR_` | Azure SQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `POSTGRESQLCONNSTR_` | PostgreSQL connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `CUSTOMCONNSTR_` | Custom connection string in the app configuration. It's injected into a .NET app as a connection string. |
-| `MYSQLCONNSTR_` | MySQL Database connection string in the app configuration. It's injected into a .NET app as a connection string. |
+| `MYSQLCONNSTR_` | MySQL database connection string in the app configuration. It's injected into a .NET app as a connection string. |
 | `AZUREFILESSTORAGE_` | Connection string to a custom share for a custom container in Azure Files. |
 | `AZUREBLOBSTORAGE_` | Connection string to a custom storage account for a custom container in Azure Blob Storage. |
 | `NOTIFICATIONHUBCONNSTR_` | Connection string to a notification hub in Azure Notification Hubs. |
@@ -82,7 +82,7 @@ The following environment variables are related to app deployment. For variables
 | Setting name| Description |
 |-|-|
 | `DEPLOYMENT_BRANCH`| For [local Git](deploy-local-git.md) or [cloud Git](deploy-continuous-deployment.md) deployment (such as GitHub), set to the branch in Azure that you want to deploy to. By default, it's `master`. |
-| `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to the URL of an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
+| `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
 | `WEBSITE_USE_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `SCM_MAX_ZIP_PACKAGE_COUNT`| Your app keeps five of the most recent ZIP files deployed via [ZIP deploy](deploy-zip.md). You can keep more or fewer by changing the app setting to a different number. |
@@ -126,7 +126,7 @@ This section shows the configurable runtime settings for each supported language
 
 | Setting name | Description |
 |-|-|
-| `PORT` | Read-only. For Linux apps, it's the port that the .NET runtime listens to in the container. |
+| `PORT` | Read-only. For Linux apps, the port that the .NET runtime listens to in the container. |
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
 | `HOME` | Read-only. Directory that points to shared storage (`/home`). |
 | `DUMP_DIR` | Read-only. Directory for the crash dumps (`/home/logs/dumps`). |
@@ -144,8 +144,8 @@ This section shows the configurable runtime settings for each supported language
 | `JAVA_OPTS` | For Java SE apps, environment variables to pass into the `java` command. They can contain system variables. For Tomcat, use `CATALINA_OPTS`.<br/><br/>Example: `-Dmysysproperty=%DRIVEPATH%` |
 | `AZURE_JAVA_APP_PATH` | Environment variable that custom scripts can use so that they have a location for `app.jar` after it's copied to a local location. |
 | `SKIP_JAVA_KEYSTORE_LOAD` | Set a value of 1 to disable App Service from loading the certificates into the key store automatically. |
-| `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends .jar if the string doesn't end in .jar. Defaults to `app.jar`. |
-| `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends .war if the string doesn't end in .war. Defaults to `app.war`. |
+| `WEBSITE_JAVA_JAR_FILE_NAME` | The .jar file to use. Appends `.jar` if the string doesn't end in `.jar`. Defaults to `app.jar`. |
+| `WEBSITE_JAVA_WAR_FILE_NAME` | The .war file to use. Appends `.war` if the string doesn't end in `.war`. Defaults to `app.war`. |
 | `JAVA_ARGS` | `JAVA_OPTS` value required by a different Java web server. Defaults to `-noverify -Djava.net.preferIPv4Stack=true`. |
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, MicroProfile Thorntail, Helidon, Ratpack, and Quarkus. |
 | `JAVA_TMP_DIR` | Added to Java arguments as `-Dsite.tempdir`. Defaults to `TEMP`. |
@@ -153,7 +153,7 @@ This section shows the configurable runtime settings for each supported language
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | For Tomcat apps, environment variables to pass into the `java` command. Can contain system variables. |
 | `CATALINA_BASE` | To use a custom Tomcat installation, set to the installation's location. |
-| `WEBSITE_JAVA_MAX_HEAP_MB` | The Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
+| `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
@@ -241,7 +241,7 @@ This section shows the configurable runtime settings for each supported language
 > | `DATABASE_USERNAME` | Database | Not applicable | Not applicable | Database username used to connect to WordPress. |
 > | `DATABASE_PASSWORD` |Database | Not applicable | Not applicable | Database password used to connect to the MySQL database. To change the MySQL database password, see [Update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the application settings also need to be updated. |
 > | `WORDPRESS_ADMIN_EMAIL` | Deployment only | Not applicable | Not applicable | WordPress admin email. |
-> | `WORDPRESS_ADMIN_PASSWORD` | Deployment only | Not applicable | Not applicable | WordPress admin password. This setting is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [Resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). |
+> | `WORDPRESS_ADMIN_PASSWORD` | Deployment only | Not applicable | Not applicable | WordPress admin password. This setting is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [Reset your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). |
 > | `WORDPRESS_ADMIN_USER` | Deployment only | Not applicable | Not applicable|WordPress admin username. |
 > | `WORDPRESS_ADMIN_LOCALE_CODE` | Deployment only | Not applicable | Not applicable | Database username used to connect to WordPress. |
 
@@ -272,12 +272,12 @@ For more information on deployment slots, see [Set up staging environments in Az
 | Setting name | Description |
 |-|-|
 | `WEBSITE_OVERRIDE_STICKY_EXTENSION_VERSIONS` | By default, the versions for site extensions are specific to each slot. This default prevents unanticipated application behavior due to changing extension versions after a swap. If you want the extension versions to also swap, set to `0` on *all slots*. |
-| `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` | Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this value to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grain control for specific setting types. |
+| `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` | Designates certain settings as [sticky or not swappable by default](deploy-staging-slots.md#which-settings-are-swapped). Default is `true`. Set this value to `false` or `0` for *all deployment slots* to make them swappable instead. There's no fine-grained control for specific setting types. |
 | `WEBSITE_SWAP_WARMUP_PING_PATH` | Path to ping to warm up the target slot in a swap, beginning with a slash. The default is `/`, which pings the root path over HTTP.<br/><br/>Example: `/statuscheck` |
-| `WEBSITE_SWAP_WARMUP_PING_STATUSES` | Valid HTTP response codes for the warmup operation during a swap. If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.<br/><br/>Example: `200,202` |
+| `WEBSITE_SWAP_WARMUP_PING_STATUSES` | Valid HTTP response codes for the warm-up operation during a swap. If the returned status code isn't in the list, the warm-up and swap operations are stopped. By default, all response codes are valid.<br/><br/>Example: `200,202` |
 | `WEBSITE_SLOT_NUMBER_OF_TIMEOUTS_BEFORE_RESTART` | During a slot swap, maximum number of timeouts before a forced restart of the site on a specific VM instance. The default is `3`. |
 | `WEBSITE_SLOT_MAX_NUMBER_OF_TIMEOUTS` | During a slot swap, maximum number of timeout requests for a single URL to make before giving up. The default is `5`. |
-| `WEBSITE_SKIP_ALL_BINDINGS_IN_APPHOST_CONFIG` | Set to `true` or `1` to skip all bindings in `applicationHost.config`. The default is `false`. If your app triggers a restart because `applicationHost.config` is updated with the swapped host names of the slots, set this variable to `true` to avoid a restart of this kind. If you're running a Windows Communication Foundation (WCF) app, don't set this variable. |
+| `WEBSITE_SKIP_ALL_BINDINGS_IN_APPHOST_CONFIG` | Set to `true` or `1` to skip all bindings in `applicationHost.config`. The default is `false`. If your app triggers a restart because `applicationHost.config` is updated with the swapped host names of the slots, set this variable to `true` to avoid a restart of this kind. If you're running a Windows Communication Foundation app, don't set this variable. |
 
 ## Custom containers
 
@@ -334,7 +334,7 @@ The following are "fake" environment variables that don't exist if you enumerate
 |-|-|
 | `WEBSITE_COUNTERS_ASPNET` | JSON object that contains ASP.NET performance counters. |
 | `WEBSITE_COUNTERS_APP` | JSON object that contains sandbox counters. |
-| `WEBSITE_COUNTERS_CLR` | JSON object that contains Common Language Runtime (CLR) counters. |
+| `WEBSITE_COUNTERS_CLR` | JSON object that contains Common Language Runtime counters. |
 | `WEBSITE_COUNTERS_ALL` | JSON object that contains the combination of the other three variables. |
 
 ## Caching
@@ -356,7 +356,7 @@ The following environment variables are related to [hybrid connections](app-serv
 |-|-|
 | `WEBSITE_RELAYS` | Read-only. Data needed to configure the hybrid connection, including endpoints and service bus data. |
 | `WEBSITE_REWRITE_TABLE` | Read-only. Used at runtime to do the lookups and rewrite connections appropriately. |
-| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional virtual network integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app routes only RFC1918 traffic into your virtual network. Set to `1` to route all outbound traffic into your virtual network and be subject to the same network security groups (NSGs) and user-defined routes (UDRs). The setting lets you access non-RFC1918 endpoints through your virtual network, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
+| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional virtual network integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app routes only RFC1918 traffic into your virtual network. Set to `1` to route all outbound traffic into your virtual network and be subject to the same network security groups and user-defined routes. The setting lets you access non-RFC1918 endpoints through your virtual network, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
 | `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app that's [integrated with a virtual network](./overview-vnet-integration.md). For regional virtual network integration, the value is an IP from the address range of the delegated subnet. For gateway-required virtual network integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway.<br/><br/>The app uses this IP to connect to the resources through the virtual network. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In virtual network integration, shows which ports the app can use to communicate with other nodes. |
 | `WEBSITE_CONTENTOVERVNET` | If you're mounting an Azure file share on App Service and the storage account is restricted to a virtual network, enable this setting with a value of `1`. |
@@ -368,8 +368,8 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all key vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (by using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a key vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/><br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a virtual network](/azure/key-vault/general/overview-vnet-service-endpoints).<br/><br/>To avoid errors at create or update time, set this variable to `1`. |
-| `WEBSITE_DELAY_CERT_DELETION` | Setting this environment variable to 1 ensures that a certificate that a worker process depends on isn't deleted until it exits. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (by using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a key vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/><br/>- The app accesses the key vault by using a system-assigned identity.<br/>- The app accesses the key vault by using a user-assigned identity, and the key vault is [locked with a virtual network](/azure/key-vault/general/overview-vnet-service-endpoints).<br/><br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_DELAY_CERT_DELETION` | Setting this environment variable to `1` ensures that a certificate that a worker process depends on isn't deleted until it exits. |
 
 ## CORS
 
@@ -380,14 +380,14 @@ The following environment variables are related to cross-origin resource sharing
 | `WEBSITE_CORS_ALLOWED_ORIGINS` | Read-only. Shows the allowed origins for CORS. |
 | `WEBSITE_CORS_SUPPORT_CREDENTIALS` | Read-only. Shows whether setting the `Access-Control-Allow-Credentials` header to `true` is enabled (`True`) or not (`False`). |
 
-<a name = "authentication--authorization"></a> ## Authentication and authorization
+## <a name = "authentication--authorization"></a> Authentication and authorization
 
 The following environment variables are related to [App Service authentication](overview-authentication-authorization.md).
 
 | Setting name | Description|
 |-|-|
 | `WEBSITE_AUTH_DISABLE_IDENTITY_FLOW` | When set to `true`, disables assigning the thread principal identity in ASP.NET-based web applications (including v1 function apps). This capability allows developers to protect access to their site with authentication, but still have it use a separate sign-in mechanism within their app logic. The default is `false`. |
-| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`. The default value is `false`. This is a setting for the legacy Mobile Apps integration for Azure App Service. Setting the value to `true` resolves an issue where the security ID (SID) generated for authenticated users might change if the user changes their profile information.<br/><br/>Changing this value might cause existing Azure Mobile Apps user IDs to change. Most apps don't need to use this setting. |
+| `WEBSITE_AUTH_HIDE_DEPRECATED_SID` | `true` or `false`. The default value is `false`. This is a setting for the legacy Mobile Apps integration for Azure App Service. Setting the value to `true` resolves an issue where the security ID generated for authenticated users might change if the user changes their profile information.<br/><br/>Changing this value might cause existing Azure Mobile Apps user IDs to change. Most apps don't need to use this setting. |
 | `WEBSITE_AUTH_NONCE_DURATION` | A time-span value in the form `hours:minutes:seconds`. The default value is `00:05:00`, or 5 minutes. This setting controls the lifetime of the [cryptographic nonce](https://en.wikipedia.org/wiki/Cryptographic_nonce) generated for all browser-driven sign-ins. If a sign-in fails to finish in the specified time, the sign-in flow is retried automatically.<br/><br/>This application setting is intended for use with the V1 (classic) configuration experience. If you're using the V2 authentication configuration schema, you should instead use the `login.nonce.nonceExpirationInterval` configuration value. |
 | `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` | When set to `true` and users select app links that contain URL fragments, the sign-in process ensures that the URL fragment part of your URL doesn't get lost in the sign-in redirect process. For more information, see [Customize sign-in and sign-out in Azure App Service authentication](configure-authentication-customize-sign-in-out.md#preserve-url-fragments). |
 | `WEBSITE_AUTH_USE_LEGACY_CLAIMS` | To maintain backward compatibility across upgrades, the authentication module uses the legacy claims mapping of short to long names in the `/.auth/me` API, so certain mappings are excluded (for example, "roles"). To get the more modern version of the claims mappings, set this variable to `False`. In the "roles" example, it would be mapped to the long claim name `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`. |
@@ -430,7 +430,7 @@ The following environment variables are related to the [push notifications](/pre
 |-|-|
 | `WEBSITE_PUSH_ENABLED` | Read-only. Added when push notifications are enabled. |
 | `WEBSITE_PUSH_TAG_WHITELIST` | Read-only. Contains the tags in the notification registration. |
-| `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
+| `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in the notification registration that require user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. |
 
 > [!NOTE]
