@@ -51,7 +51,7 @@ To download and set up the Remote Desktop client for Windows:
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/windows-open-rdp-client.png" alt-text="Screenshot of the card for a user's dev boxes with the option for opening in an RDP client.":::
 
-1. In the **Connect with the Remote Desktop Client** window, under **New to Microsoft Dev Box?**, select your platform configuration in the dropdown list: Windows 64 bit, Windows 32 bit, or Windows ARM 64.
+1. In the **Connect with the Remote Desktop Client** window, under **New to Microsoft Dev Box?**, select your platform configuration in the dropdown list: Windows 64 bit, Windows 32 bit, or Windows Arm64.
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/connect-remote-desktop-client.png" alt-text="Screenshot that shows how to select your platform configuration for the Windows Remote Desktop client.":::
 
