@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: java
 ms.custom: devx-track-extended-java
+ms.subservice: kafka
 author: spelluru
 ms.author: spelluru
 ---

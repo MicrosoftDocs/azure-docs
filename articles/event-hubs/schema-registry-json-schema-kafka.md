@@ -4,6 +4,7 @@ description: This article provides information on how to use JSON Schema in Sche
 ms.topic: how-to
 ms.date: 04/26/2023
 ms.devlang: spark-scala
+ms.subservice: kafka
 author: spelluru
 ms.author: spelluru
 ---

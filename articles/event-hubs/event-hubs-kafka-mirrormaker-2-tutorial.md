@@ -2,6 +2,7 @@
 title: Use Apache Kafka MirrorMaker 2 - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka MirrorMaker 2 to replicate a Kafka cluster in Azure Event Hubs.
 ms.topic: how-to
+ms.subservice: kafka
 ms.date: 12/04/2022
 ---
 

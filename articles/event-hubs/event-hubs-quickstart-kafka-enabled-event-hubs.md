@@ -4,6 +4,7 @@ description: 'This quickstart shows you how to stream data into and from Azure E
 ms.topic: quickstart
 ms.date: 02/16/2024
 author: spelluru
+ms.subservice: kafka
 ms.author: spelluru
 ms.custom: mode-other, passwordless-java
 ---

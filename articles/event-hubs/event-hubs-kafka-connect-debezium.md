@@ -2,6 +2,7 @@
 title: Integrate Apache Kafka Connect on Azure Event Hubs with Debezium for Change Data Capture
 description: This article provides information on how to use Debezium with Azure Event Hubs for Kafka.
 ms.topic: how-to
+ms.subservice: kafka
 ms.date: 10/18/2021
 ---
 

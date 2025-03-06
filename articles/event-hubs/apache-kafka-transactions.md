@@ -2,6 +2,7 @@
 title: Transactions for Apache Kafka in Event Hubs on Azure Cloud
 description: Learn about the transactional API in Apache Kafka and how to use that in Apache Kafka applications with Event Hubs service on Azure Cloud.
 ms.topic: overview
+ms.subservice: kafka
 ms.date: 04/29/2024
 ---
 

@@ -2,6 +2,7 @@
 title: Troubleshoot issues with Azure Event Hubs for Apache Kafka
 description: This article shows how to troubleshoot issues with Azure Event Hubs for Apache Kafka
 ms.topic: article
+ms.subservice: kafka
 ms.date: 05/10/2021
 ---
 

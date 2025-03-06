@@ -2,6 +2,7 @@
 title: Integrate with Apache Kafka Connect
 description: This article provides a walkthrough that shows you how to use Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
+ms.subservice: kafka
 ms.date: 07/31/2024
 # customer intent: As a developer, I want to know how to use Apache Kafka Connect with Azure Event Hubs for Kafka. 
 ---

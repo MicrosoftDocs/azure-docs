@@ -2,6 +2,7 @@
 title: Migrate to Azure Event Hubs for Apache Kafka
 description: This article explains how to migrate clients from Apache Kafka to Azure Event Hubs. 
 ms.topic: article
+ms.subservice: kafka
 ms.date: 12/18/2024
 ---
 
