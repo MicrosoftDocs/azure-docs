@@ -44,9 +44,9 @@
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
 - name: Migrate to App Service Environment v3
-    items:
-    - name: Auto-migration overview
-      href: auto-migration.md
+  items:
+  - name: Auto-migration overview
+    href: auto-migration.md
 - name: Resources
   items:
   - name: Azure Roadmap
