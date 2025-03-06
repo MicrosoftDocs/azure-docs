@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 09/29/2023
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
