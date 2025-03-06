@@ -53,8 +53,6 @@ Azure Virtual Network Manager instances created prior to the release of the virt
 1. In the Azure Portal, search for "Preview features".
 2. On the "Preview Features" page, ensure the subscription selected is the subscription that contains your Azure Virtual Network Manager instance. Filter the features by "Network manager".
 3. Select the feature named "Network manager billing by virtual networks" and register. The Azure Virtual Network Manager instance in the registered subscription will now charge on the virtual network-based pricing.
-
-:::image type="content" source="./media/overview/new-pricing-feature-flag-registration.png" alt-text="Screenshot of Preview Features page with Network manager billing by virtual networks feature selected.":::
  
 ## FAQs  
 For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).
