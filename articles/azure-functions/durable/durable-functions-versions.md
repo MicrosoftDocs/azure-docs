@@ -15,6 +15,9 @@ ms.author: azfuncdf
 
 This section introduces the new [Microsoft.Azure.WebJobs.Extensions.DurableTask v3](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) package (referred to as WebJobs.Extensions.DurableTask in subsequent sections) and provides details on its updates and changes. This update is only considered a breaking-change for customers running Durable C# apps that use the [in-process model](../functions-dotnet-class-library.md).
 
+> [!NOTE]
+> The Durable Functions .NET out-of-process package, Microsoft.Azure.Functions.Worker.Extensions.DurableTask, references Microsoft.Azure.WebJobs.Extensions.DurableTask as its underlying assembly. Thus, this update also applies to Microsoft.Azure.Functions.Worker.Extensions.DurableTask, starting from version [1.2.x](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.0).
+
 ### New Azure Storage SDK
 
 By default, Durable Functions use Azure Storage as a storage backend to durably save application state. In WebJobs.Extensions.DurableTask v3, the Azure Storage backend was upgraded to use the latest versions of the Azure Storage SDKs: [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables), [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs), and [Azure.Storage.Queues](https://www.nuget.org/packages/Azure.Storage.Queues). The new Azure Storage SDKs are more secured and offer enhanced support for Managed Identity. They also offer better performance, more efficient data handling, and other latest storage features. 
@@ -40,10 +43,10 @@ Migration from WebJobs.Extensions.DurableTask v2.x to v3.x is designed to be str
 - For .NET isolated users:
   Update to [Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.2.0) or later.
 - For users of other languages with extension bundles:
-  The Durable Functions v3.x package isn't yet available in the extension bundles used by non-.NET language function apps. At this point, you must [follow these instructions](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to opt-out of using extension bundles and instead manually install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/3.0.0) (version 3.0.0 or later) and any other Functions binding extensions required by your app. 
+  Support for Durable Functions v3 at Extension Bundles will be available starting from version [4.22.0](https://github.com/Azure/azure-functions-extension-bundles/releases).
 
 > [!NOTE]
-> WebJobs.Extensions.DurableTask v3 uses the latest version of the Azure Storage SDK, which has a different text encoding (Base64) when compared to the one used in v2 (UTF-8). If you must downgrade from v3.x to v2.x, use WebJobs.Extensions.DurableTask [v2.13.5](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.13.5#versions-body-tab) or higher, which supports backward compatibility with v3.x.
+> WebJobs.Extensions.DurableTask v3 uses the latest version of the Azure Storage SDK, which has a different text encoding (Base64) when compared to the one used in v2 (UTF-8). If you need to downgrade from v3.x to v2.x, to ensure backward compatibility, use at least **[v2.13.5](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.13.5)**. For .NET out-of-process users with Microsoft.Azure.Functions.Worker.Extensions.DurableTask, downgrade to **[v1.1.5](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v1.1.5Worker.Extensions.DurableTask)** or higher if reverting from v1.2.x or higher..
 
 
 ### Support and Maintenance of v2.x
@@ -164,4 +167,4 @@ In Durable Functions 1.x, the orchestration client binding uses a `type` of `orc
 
 #### Raise event changes
 
-In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that didn't exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an exception.
+In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that didn't exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an excepti
