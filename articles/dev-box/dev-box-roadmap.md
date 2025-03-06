@@ -3,8 +3,8 @@ title: Roadmap for Microsoft Dev Box
 description: Learn about features coming soon and in development for Microsoft Dev Box.
 ms.service: dev-box
 ms.topic: concept-article
-author: Taysser-Gherfal
-ms.author: tagherfa
+author: fawadalikhan
+ms.author: fkhan
 ms.date: 03/05/2025
 
 #customer intent: As a customer, I want to understand upcoming features and enhancements in Microsoft Dev Box so that I can plan and optimize development and deployment strategies.
