@@ -72,7 +72,7 @@ The hybrid option uses a billing model where you pay only for what you need and 
 
 The vCPU usage for your Standard logic app affects your billing charges. A *vCPU* refers to the number of CPU cores, but this ratio isn't necessarily 1:1. The following formula calculates the vCPU usage for your logic app:
 
-**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**) // 
+**vCPU usage** = (**# of allocated vCPUs**) x (**# of replicas**)
 
 | Value | Description |
 |-------|-------------|
