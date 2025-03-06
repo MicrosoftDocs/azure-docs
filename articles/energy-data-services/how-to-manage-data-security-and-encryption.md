@@ -58,8 +58,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 1.	Create a **Azure Data Manager for Energy** instance.
 2.	Select the **Encryption** tab.
-
-   [![Screenshot of Encryption tab while creating Azure Data Manager for Energy.](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
+    [![Screenshot of Encryption tab while creating Azure Data Manager for Energy.](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
  
 3.	In the encryption tab, select **Customer-managed keys (CMK)**. 
 4.	For using CMK, you need to select the key vault where the key is stored. 
@@ -71,8 +70,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 8.	Next, select the user-assigned managed identity that is used to authorize access to the key vault that contains the key. 
 9.	Select "**Select a user identity**" Select the user-assigned managed identity that you created in the prerequisites. 
- 
-   [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png#lightbox)
+    [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png#lightbox)
 
 10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](/azure/key-vault/general/assign-access-policy). 
  
