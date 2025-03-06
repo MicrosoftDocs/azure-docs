@@ -171,7 +171,7 @@ ms.author: wchi
    ```bash
    gem install pg
    ```
-In code, get the PostgreSQL connection information from environment variables added by Service Connector.
+2. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
     ```ruby
     require 'pg'
     require 'dotenv/load'
