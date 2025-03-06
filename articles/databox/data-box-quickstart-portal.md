@@ -14,7 +14,9 @@ zone_pivot_groups: data-box-sku
 
 # Get started with Azure Data Box to import data into Azure
 
+:::zone pivot="dbx"
 [!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
 
 ::: zone target="docs"
 

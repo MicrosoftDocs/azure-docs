@@ -14,7 +14,9 @@ zone_pivot_groups: data-box-sku
 
 # Quickstart: Get started with Azure Data Box to export data from Azure
 
+:::zone pivot="dbx"
 [!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 

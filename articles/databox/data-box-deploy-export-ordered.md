@@ -12,7 +12,9 @@ ms.author: shaas
 ---
 # Tutorial: Create export order for Azure Data Box
 
+:::zone pivot="dbx"
 [!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
 
 Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premises storage gets compromised and a back-up needs to be restored.
 
