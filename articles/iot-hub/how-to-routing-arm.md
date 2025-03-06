@@ -411,7 +411,7 @@ Add a route definition to your Resource Manager template. For more information, 
    | Property | Value |
    | -------- | ----- |
    | name | Provide a unique value to name your route. |
-   | source | Select the message or event logs source to route to the endpoint. For a list of source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters). |
+   | source | Select the message or event logs source to route to the endpoint. For a list of source options, see [az iot hub route](/azure/iot-hub/how-to-routing-azure-cli?tabs=eventhubs). |
    | condition | A query to filter the source data. If no condition is required, say `true`. For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md). |
    | endpointNames | The name of the existing endpoint where this data will be routed. Currently only one endpoint is allowed. |
    | isEnabled | Set to `true` to enable the route, or `false` to disable the route. |
