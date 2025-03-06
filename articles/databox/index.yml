@@ -27,7 +27,7 @@ landingContent:
           - text: What is Data Box Next-Gen?
             url: data-box-overview.md?pivots=dbx-ng
           - text: What is Data Box?
-            url: data-box-overview.mdpivots=dbx
+            url: data-box-overview.md?pivots=dbx
           - text: What is Data Box Disk?
             url: data-box-disk-overview.md
           - text: What is Data Box Heavy?
