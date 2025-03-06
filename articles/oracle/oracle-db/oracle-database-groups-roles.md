@@ -15,7 +15,7 @@ This article lists groups and roles you use to manage access to Oracle Database@
 
 ## Groups and roles in Azure
 
-For more information about groups and roles in Azure, see [Set Up Role Based Access Control for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm)
+For more information about groups and roles in Azure, see [Set Up Role Based Access Control for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm).
 
 ## Groups in Oracle Cloud Infrastructure
 
