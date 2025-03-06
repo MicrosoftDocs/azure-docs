@@ -23,7 +23,7 @@ author: lilyjma
    | Do you want to deploy code or container image? | Keep the **Code** option selected. | 
    | Runtime stack | Select the runtime you're using for this quickstart. | 
    | Version | Select your runtimei stack version. | 
-   | Region | Select [one of the supported regions](../durable-task-scheduler.md#supported-regions). | 
+   | Region | Select [one of the supported regions](../durable-task-scheduler.md). | 
    | Operating System | Select your operating system. | 
 
 1. Select the **Durable Functions** tab. 

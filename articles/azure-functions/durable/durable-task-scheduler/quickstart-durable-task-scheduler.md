@@ -55,9 +55,10 @@ In this quickstart, you configure a Durable Functions app to use the [Durable Ta
 
 ::: zone pivot="csharp"  
 
-## Add the Durable Task Scheduler extension (.NET only)
+## Add the Durable Task Scheduler extension
 
-> [!NOTE] The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
+> [!NOTE] 
+> The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
 
@@ -75,7 +76,7 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 
 ::: zone pivot="other"  
 
-## Specify the required extension bundles (non .NET languages)
+## Specify the required extension bundles
 
 Update the `extensionBundle` property to use the preview version that contains the DTS package: 
 
@@ -177,7 +178,7 @@ Get the DTS emulator port number in [the next step](#set-up-dts-emulator).
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
-1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../functions-develop-local.md#http-test-tools) you chose. 
+1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../../functions-develop-local.md#http-test-tools) you chose. 
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in your browser's address bar. You should see the status on the orchestration instance:
 
@@ -223,7 +224,7 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 #### Apps on Functions Premium plan
 
-If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) after deployment. This ensures your app autoscales based on load. 
+If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) after deployment. This ensures your app autoscales based on load. 
 
 ### Test your function app in Azure
 

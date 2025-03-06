@@ -353,6 +353,7 @@ Now that the identity has the required RBAC to access DTS, you need to assign it
 ::: zone-end 
 
 ### Add environment variables to app
+
 Add these two environment variables to app setting:
   - `TASKHUB_NAME`: name of task hub
   - `DURABLE_TASK_SCHEDULER_CONNECTION_STRING`: the format of the string is `"Endpoint={DTS endpoint};Authentication=ManagedIdentity;ClientID={client id}"`, where *endpoint* is the DTS endpoint and *client id* is the managed identity client ID. 
