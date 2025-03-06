@@ -69,9 +69,9 @@ The following error indicates that the private endpoint being connected to an Ap
 
 > The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'.
 
-This error is typically seen when the private endpoint's subscription is different to the App Configuration store's subscription. To resolve:
+This error is typically seen when the private endpoint's subscription is different from the App Configuration store's subscription. To resolve:
 1. Register the `Microsoft.AppConfiguration` resource provider in the private endpoint's subscription.
-2. Reconnect the private endpoint to the App Configuration store.
+1. Reconnect the private endpoint to the App Configuration store.
 
 For more details on registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
@@ -86,4 +86,4 @@ Learn more about creating a private endpoint for your App Configuration store, r
 Learn to configure your DNS server with private endpoints:
 
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
+- [DNS configuration for private endpoints](../private-link/private-endpoint-overview.md#dns-configuration)
