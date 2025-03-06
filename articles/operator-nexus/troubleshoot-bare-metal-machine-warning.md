@@ -100,7 +100,7 @@ Either of the following conditions can trigger this _Warning_. These conditions 
 To troubleshoot this issue:
 
 - review the `conditions` status of the kubernetes `bmm` object, as described in the [Troubleshooting](#troubleshooting) section
-- this information should identify the specific root cause (port down and port flapping) and approximate time of the issue
+- this information should identify the specific root cause (port down or port flapping) and approximate time of the issue
 - check the Ethernet cabling and Top Of Rack (TOR) switch for the affected PXE port
 - check for any other BMMs which are also reporting unhealthy PXE status or other network-related problems
 - check for any recent deployment or infrastructure changes which coincide with the time of failure.
