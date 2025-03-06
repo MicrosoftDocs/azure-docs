@@ -39,7 +39,7 @@ However, your existing PostgreSQL single server database backups will be retaine
 You'll no longer be charged **Protected Instance (PI)** fee after **March 31, 2025** for protecting your PostgreSQL single server databases. But, **Storage** fee for storing your backups will still apply after **March 31, 2025**. To avoid the Storage fee, delete all restore points from the Azure Business Continuity Center.
 
 >[!Note]
->Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+>Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
 
 ### Changes in restore
 
