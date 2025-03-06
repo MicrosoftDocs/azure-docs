@@ -63,9 +63,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use Dev Home to manage dev boxes
-            url: how-to-use-dev-home-customize-dev-box.md  
-          - text: Use multiple monitors with your dev box 
-            url: tutorial-configure-multiple-monitors.md 
+            url: how-to-use-dev-home-customize-dev-box.md 
       - linkListType: how-to-guide
         links:
           - text: Use the Troubleshoot and Repair tool
