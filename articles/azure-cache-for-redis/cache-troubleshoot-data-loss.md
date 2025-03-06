@@ -126,4 +126,3 @@ Consider using [Redis data persistence](https://redis.io/topics/persistence) and
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [Monitor Azure Cache for Redis](monitor-cache.md)
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
-- [Sample code for examining keyspace notifications](https://gist.github.com/JonCole/0d6205b4771e5c803bc1e085517484a2#file-rediskeyspacenotificationsexample-cs)
