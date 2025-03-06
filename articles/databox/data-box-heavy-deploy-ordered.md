@@ -13,6 +13,7 @@ ms.author: shaas
 
 # Tutorial: Order Azure Data Box Heavy
 
+[!INCLUDE [data-box-heavy-retirement](includes/data-box-heavy-retirement.md)]
 
 Azure Data Box Heavy is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 770 TB (approximate usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
 

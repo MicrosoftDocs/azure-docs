@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Order Azure Data Box
 
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied storage device with 80 TB of usable capacity, and then ship the device back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:   

@@ -14,6 +14,8 @@ zone_pivot_groups: data-box-sku
 
 # Quickstart: Get started with Azure Data Box to export data from Azure
 
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Create export order for Azure Data Box](data-box-deploy-export-ordered.md)

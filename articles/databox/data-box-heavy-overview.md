@@ -12,6 +12,8 @@ ms.author: shaas
 
 # What is Azure Data Box Heavy?
 
+[!INCLUDE [data-box-heavy-retirement](includes/data-box-heavy-retirement.md)]
+
 Azure Data Box Heavy is a service that allows you to transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable way. 
 
 The transfer process begins when a Data Box Heavy device with 1-PB storage capacity is shipped to your data center. After the device is received, set it up using the local web UI and copy your data to the device and return it to Microsoft. The device has a rugged case that protects and secures your data during transit. Your data is uploaded to your Azure Storage account after the device arrives at the Azure datacenter.
