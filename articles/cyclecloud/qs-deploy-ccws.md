@@ -2,8 +2,8 @@
 title: Quickstart - Deploy Azure CycleCloud Workspace for Slurm
 description: Learn how to get CycleCloud Workspace for Slurm running using the Marketplace.
 author: xpillons
-ms.date: 01/29/2025
-ms.author: xpillons
+ms.date: 03/05/2025
+ms.author: padmalathas
 ---
 
 # Quickstart - Deploy Azure CycleCloud Workspace for Slurm using the Marketplace
@@ -84,7 +84,7 @@ Specify the VM size and image to use for the Scheduler and the Login nodes. Imag
 
 | Image Name | URI |
 |------------|-----|
-| Alma Linux 8.7 | almalinux:almalinux-hpc:8_7-hpc-gen2:latest |
+| Alma Linux 8.10 | almalinux:almalinux-hpc:8_10-hpc-gen2:latest |
 | Ubuntu 20.04 | microsoft-dsvm:ubuntu-hpc:2004:latest |
 | Ubuntu 22.04 | microsoft-dsvm:ubuntu-hpc:2204:latest |
 | Custom Image | You will have to specify an image URN or image ID |
