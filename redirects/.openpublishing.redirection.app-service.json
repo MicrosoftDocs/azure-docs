@@ -2786,6 +2786,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/environment/create-external-ase.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/environment/using-an-ase.md",
       "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
@@ -2842,6 +2847,16 @@
     },
     {
       "source_path_from_root": "/articles/app-service/environment/version-comparison.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/how-to-side-by-side-migrate.md",
+      "redirect_url": "/azure/app-service/environment/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/environment/how-to-migrate.md",
       "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     }
