@@ -17,8 +17,8 @@ Azure Event Hubs provides an Apache Kafka endpoint on an event hub, which enable
 To learn more about how to migrate your Apache Kafka applications to Azure Event Hubs, see the [migration guide](apache-kafka-migration-guide.md).
 
 > [!NOTE]
-> - This feature is supported only in the **standard, premium** and **dedicated** tiers. 
-> - Event Hubs for Apache Kafka Ecosystems supports [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
+> - This feature is supported only in the **standard, premium, and **dedicated** tiers. 
+> - Event Hubs for Apache Kafka Ecosystems support [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) and later.
 
 ## Apache Kafka and Azure Event Hubs conceptual mapping
 
@@ -141,7 +141,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 > When using SAS authentication with Kafka clients, established connections aren't disconnected when the SAS key is regenerated. 
 
 > [!NOTE]
-> [Generated shared access signature tokens](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) are not supported when using the Event Hubs for Apache Kafka endpoint.
+> [Generated shared access signature tokens](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) aren't supported when using the Event Hubs for Apache Kafka endpoint.
 
 ## Samples 
 For a **tutorial** with step-by-step instructions to create an event hub and access it using SAS or OAuth, see [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md).
