@@ -40,7 +40,7 @@ Here's information about the SxS Network Stack.
 
 In this release, we've made the following changes:
 
-- A fix has been implemented to resolve a deadlock issue that was causing VMs to stop accepting new AVD connections. 
+- A fix has been implemented to resolve a deadlock issue that was causing session hosts to stop accepting new Azure Virtual Desktop connections. 
 
 ## Version 1.0.2409.29800
 
