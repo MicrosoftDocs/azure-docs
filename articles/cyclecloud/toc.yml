@@ -86,8 +86,6 @@
       href: ./how-to/ccws/plan-your-deployment.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
-    - name: How to clean up roles using the CLI
-      href: ./how-to/ccws/cleanup-roles.md
     - name: How to connect to a Login Node through Bastion
       href: ./how-to/ccws/connect-to-login-node-with-bastion.md
     - name: How to connect to the CycleCloud Portal through Bastion
