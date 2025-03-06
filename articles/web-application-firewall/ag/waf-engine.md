@@ -54,4 +54,4 @@ In contrast, the new WAF engine logs the request action type as *Log*, whether t
 ## Next step
 
 > [!div class="nextstepaction"]
-> [WAF managed rules](application-gateway-crs-rulegroups-rules.md).
+> [WAF managed rules](application-gateway-crs-rulegroups-rules.md)
