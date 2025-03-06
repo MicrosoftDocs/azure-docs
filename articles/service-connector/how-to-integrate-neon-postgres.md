@@ -1,6 +1,6 @@
 ---
 title: Integrate Neon Serverless Postgres with Service Connector
-description: Integrate Neon Serverless Postgres into your application with Service Connector
+description: Integrate Neon Serverless Postgres into your application with Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
