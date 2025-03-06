@@ -78,7 +78,7 @@ Azure IoT devices can use either shared access signature (SAS) tokens or X.509 c
 
 All data exchanged between a device and an IoT hub is encrypted.
 
-To learn more about security in your IoT solution, see [Security architecture for IoT solutions](iot-security-architecture.md).
+To learn more about security in your IoT solution, see [Security architecture for IoT solutions](/azure/well-architected/service-guides/azure-iot-hub#security).
 
 ## Protocols
 

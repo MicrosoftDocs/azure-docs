@@ -67,8 +67,8 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().folderPath  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
 
-   > [!NOTE]
-   > If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters. Those two properties capture blob information. Use those properties instead of using `@triggerBody().fileName` and `@triggerBody().folderPath`.
+> [!NOTE]
+> If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.fileName` and `@trigger().outputs.body.folderPath` as parameters. Those two properties capture blob information. Use those properties instead of using `@triggerBody().fileName` and `@triggerBody().folderPath`.
 
 ## Custom event trigger scope
 
@@ -83,6 +83,9 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().event.subject | Subject of the custom event that caused the trigger to fire. |
 | @triggerBody().event.data._keyName_ | Data field in custom event is a free from JSON blob, which customer can use to send messages and data. Please use data._keyName_ to reference each field. For example, @triggerBody().event.data.callback returns the value for the _callback_ field stored under _data_. |
 | @trigger().startTime | Time at which the trigger fired to invoke the pipeline run. |
+
+> [!NOTE]
+> If you are creating your pipeline and trigger in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), you must use `@trigger().outputs.body.event` as parameters. This property captures event information. Use this property instead of using `@triggerBody().event`.
 
 ## Related content
 

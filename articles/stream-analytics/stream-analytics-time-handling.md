@@ -133,7 +133,7 @@ You can observe a number of the Event ordering time tolerance effects through [A
 
 ## Watermark delay details
 
-The **Watermark delay** metric is computed as the wall clock time of the processing node minus the largest watermark it has seen so far. For more information, see the [watermark delay blog post](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/).
+The **Watermark delay** metric is computed as the wall clock time of the processing node minus the largest watermark it has seen so far. For more information, see [watermark delay](./stream-analytics-job-analysis-with-metric-dimensions.md)
 
 There can be several reasons this metric value is larger than 0 under normal operation:
 

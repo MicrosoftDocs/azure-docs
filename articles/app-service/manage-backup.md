@@ -359,18 +359,22 @@ You can back up to a firewall-protected storage account if it's part of the same
 
 ### How do I restore to an app in a different subscription?
 
-1. Make a custom backup to an Azure Storage container.
-1. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) to your local machine.
-1. On the **Backups** page for your target app, select **Restore** in the top menu.
-1. In **Backup details**, select **Storage** in **Source**.
-1. Select the preferred storage account.
-1. In **Zip file**, select **Upload file**.
-1. In **Name**, select **Browse** and select the downloaded ZIP file.
-1. Configure the rest of the sections as described in [Restore a backup](#restore-a-backup).
+1. Make a custom backup of the source App to an **Azure Storage container**.
+2. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) and the **XML metadata file** to your local machine.
+3. Upload **both the ZIP and XML files** to the target storage account.
+4. In the **Backups** page of your target app, click **Restore** in the top menu.
+5. In the **Backup details** section, choose **Storage** as the **Source**. Select the **storage account** where you uploaded the backup files.
+6. Click **Use file in storage account** and select the **ZIP file** to restore.
+7. Configure the remaining settings as outlined in the [Restore a backup](#restore-a-backup). Confirm and start the restore process.
 
 ### How do I restore to an app in the same subscription but in a different region?
 
-The steps are the same as in [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription).
+You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup).
+
+#### Key considerations
+Ensure that the backup storage for the source app is accessible by the target app.
+The restoration process in the Azure portal allows selecting an app in a different region as long as it remains within the same subscription.
+
 
 ### Where are the automatic backups stored?
 

@@ -121,7 +121,7 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |-------------|:-------------:|:-----:|:----------:|:-----------:|:--------------------------:|
 |KubeDaemonsetStatusCurrentNumberScheduled|Daemonset|Daemonsets Current Number Scheduled|Count|Number of daemonsets currently scheduled. In the absence of data, this metric will default to 0|Daemonset, Namespace|
 |KubeDaemonsetStatusDesiredNumberScheduled|Daemonset|Daemonsets Desired Number Scheduled|Count|Number of daemonsets desired scheduled. In the absence of data, this metric will default to 0|Daemonset, Namespace|
-|KubeDaemonsetStatusNotScheduled|Daemonset|Daemonsets Not Scheduled|Count|Number of daemonsets not scheduled. In the absence of data, this metric will default to 0|Daemonset, Namespace|
+|KubeDaemonsetStatusNotScheduled|Daemonset|Daemonsets Not Scheduled|Count|Number of daemonsets not scheduled. In the absence of data, this metric will default to 150|Daemonset, Namespace|
 
 ### ***Kubernetes Deployment***
 
@@ -267,10 +267,10 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |HostFilesystemDeviceError|Filesystem|Host Filesystem Device Errors|Count|Indicates if there was an error getting information from the filesystem. Value is 1 if there was an error, 0 otherwise. In the absence of data, this metric will default to 0|Device, FS Type, Host, Mount Point|
 |HostFilesystemFiles|Filesystem|Host Filesystem Files|Count|Total number of permitted inodes (file nodes). In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
 |HostFilesystemFilesFree|Filesystem|Total Number of Free inodes|Count|Total number of free (not occupied or reserved) inodes (file nodes). In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
-|HostFilesystemFilesPercentFree|Filesystem|Host Filesystem Files Percent Free|Percent|Percentage of permitted inodes which are free to be used. In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
+|HostFilesystemFilesPercentFree|Filesystem|Host Filesystem Files Percent Free|Percent|Percentage of permitted inodes which are free to be used. In the absence of data, this metric will default to 150.|Device, FS Type, Host, Mount Point|
 |HostFilesystemReadOnly|Filesystem|Host Filesystem Read Only|Unspecified|Indication of whether a filesystem is readonly or not. Value is 1 if readonly, 0 otherwise. In the absence of data, this metric will retain the most recent value emitted|Device, FS Type, Host, Mount Point|
 |HostFilesystemSizeBytes|Filesystem|Host Filesystem Size In Bytes|Count|Host filesystem size in bytes. In the absence of data, this metric will retain the most recent value emitted|Device, FS Type, Host, Mount Point|
-|HostFilesystemUsage|Filesystem|Host Filesystem Usage In Percentage|Percent|Percentage of filesystem which is in use. In the absence of data, this metric will default to 0.|Device, FS Type, Host, Mount Point|
+|HostFilesystemUsage|Filesystem|Host Filesystem Usage In Percentage|Percent|Percentage of filesystem which is in use. In the absence of data, this metric will default to 150.|Device, FS Type, Host, Mount Point|
 |HostHwmonTempCelsius|HardwareMonitor|Host Hardware Monitor Temp|Count|Temperature (in Celsius) of different hardware components. In the absence of data, this metric will retain the most recent value emitted|Chip, Host, Sensor|
 |HostHwmonTempMax|HardwareMonitor|Host Hardware Monitor Temp Max|Count|Maximum temperature (in Celsius) of different hardware components. In the absence of data, this metric will retain the most recent value emitted|Chip, Host, Sensor|
 |HostInletTemp|HardwareMonitor|Host Hardware Inlet Temp|Count|Inlet temperature for hardware nodes (in Celsius). In the absence of data, this metric will retain the most recent value emitted|Host|
@@ -333,7 +333,7 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |CpuUsageSoftirq|CPU|CPU Usage Soft IRQ|Count|Percentage of time that the CPU is servicing software interrupt requests. In the absence of data, this metric will default to 0|Host, CPU|
 |CpuUsageSteal|CPU|CPU Usage Steal|Count|Percentage of time that the CPU is in stolen time, which is time spent in other operating systems in a virtualized environment. In the absence of data, this metric will default to 0|Host, CPU|
 |CpuUsageSystem|CPU|CPU Usage System|Count|Percentage of time that the CPU is in system mode. In the absence of data, this metric will default to 0|Host, CPU|
-|CpuUsageTotal|CPU|CPU Usage Total|Percent|Percentage of time that the CPU is active (not idle). In the absence of data, this metric will default to 0|Host, CPU|
+|CpuUsageTotal|CPU|CPU Usage Total|Percent|Percentage of time that the CPU is active (not idle). In the absence of data, this metric will default to 150|Host, CPU|
 |CpuUsageUser|CPU|CPU Usage User|Count|Percentage of time that the CPU is in user mode. In the absence of data, this metric will default to 0|Host, CPU|
 
 ## Storage Appliances

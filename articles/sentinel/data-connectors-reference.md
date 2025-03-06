@@ -241,6 +241,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Digital Shadows Searchlight (using Azure Functions)](data-connectors/digital-shadows-searchlight.md)
 
+## Doppel
+
+- [Doppel Data Connector](data-connectors/doppel-data-connector.md)
+
 ## Dynatrace
 
 - [Dynatrace Attacks](data-connectors/dynatrace-attacks.md)
@@ -280,6 +284,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Fortinet
 
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
+
+## Garrison Technology
+
+- [Garrison ULTRA Remote Logs (using Azure Functions)](data-connectors/garrison-ultra-remote-logs.md)
 
 ## Gigamon, Inc
 
