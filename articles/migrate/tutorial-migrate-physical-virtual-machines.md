@@ -223,11 +223,12 @@ Follow the steps:
 1. Provide a password for the administrator user. 
 1. Select **Finalize** the system reboots, and you can log in with the administrator user account.
 
-**Set up the appliance using PowerShel**
+**Set up the appliance using PowerShell**
 
 If there are organizational restrictions, you can manually set up the replication appliance through PowerShell. 
 
 Follow these steps:
+
 1. Download the installers and place them on the replication appliance.
 1. Unzip and extract the components.
 1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
@@ -316,7 +317,12 @@ Use the following steps to register the appliance:
 1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
 1. Finally, select **Add**.
 
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Shows to add physical server credentials":::
 
+1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**
+1. Select the **credential account**, and then select **Add**.
+
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Shows to add physical server details":::
 
 ## Install the Mobility service agent
 
