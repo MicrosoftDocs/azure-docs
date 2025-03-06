@@ -1,9 +1,10 @@
 ---
 author: KarlErickson
 ms.author: karler
+ms.reviewer: hangwan
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 02/24/2025
+ms.date: 03/05/2025
 ---
 
 ## Related content

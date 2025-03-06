@@ -1,18 +1,19 @@
 ---
 title: Launch Your First Java application in Azure Container Apps Using a Dockerfile
-description: Learn how to deploy a Java project in Azure Container Apps by using a Dockerfile.
+description: Learn how to deploy a Java project in Azure Container Apps using a Dockerfile.
 services: container-apps
 author: KarlErickson
+ms.author: karler
+ms.reviewer: hangwan
 ms.service: azure-container-apps
 ms.custom: devx-track-java, devx-track-extended-java 
 ms.topic: quickstart
-ms.date: 02/24/2025
-ms.author: hangwan
+ms.date: 03/05/2025
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps by using a Dockerfile
+# Quickstart: Launch your first Java application in Azure Container Apps using a Dockerfile
 
-This article shows you how to use a Dockerfile to deploy the Spring PetClinic sample application to Azure Container Apps.
+This article shows you how to deploy the Spring PetClinic sample application to Azure Container Apps using a Dockerfile.
 
 [!INCLUDE [java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension](includes/java-get-started-introduction-and-prerequisites-and-install-azure-container-apps-cli-extension.md)]
 
@@ -60,23 +61,14 @@ Deploy the PetClinic application to Azure Container Apps by using the following 
 
     ```bash
     export RESOURCE_GROUP="pet-clinic-container-apps"
-    export LOCATION="canada-central"
+    export LOCATION="canadacentral"
     export ENVIRONMENT="env-pet-clinic-container-apps"
     export CONTAINER_APP_NAME="pet-clinic"
     ```
 
-1. If you haven't yet, sign in to Azure from the CLI. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
+1. Sign in to Azure from the CLI if you aren't already signed in. For more information, see the [Setup](quickstart-code-to-cloud.md?tabs=bash%2Cjava#setup) section of [Build and deploy from local source code to Azure Container Apps](quickstart-code-to-cloud.md).
 
 1. Build and deploy the Spring PetClinic app by using the following command. The `..` (dot dot) indicates that you're using the Dockerfile in the parent folder.
-
-    > [!NOTE]
-    > This command accomplishes the following tasks:
-    >
-    > - Creates the resource group.
-    > - Creates an Azure container registry.
-    > - Builds the container image and pushes it to the registry.
-    > - Creates the Container Apps environment with a Log Analytics workspace.
-    > - Creates and deploys the container app using the built container image.
 
     ```azurecli
     az containerapp up \
@@ -86,5 +78,13 @@ Deploy the PetClinic application to Azure Container Apps by using the following 
         --environment $ENVIRONMENT \
         --source ..
     ```
+
+    This command accomplishes the following tasks:
+
+    - Creates the resource group.
+    - Creates an Azure container registry.
+    - Builds the container image and pushes it to the registry.
+    - Creates the Container Apps environment with a Log Analytics workspace.
+    - Creates and deploys the container app using the built container image.
 
 [!INCLUDE [java-get-started-verify-app-status-and-cleanup-and-next-steps](includes/java-get-started-verify-app-status-and-cleanup-and-next-steps.md)]
