@@ -65,7 +65,7 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- The primary region temporarily loses both read and write access.
 - Replication of all data from the primary region to the secondary region completes.
 - DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
@@ -83,7 +83,7 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- The primary region temporarily loses both read and write access.
 - All data finishes replicating from the current primary region to the current secondary region.
 - The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
