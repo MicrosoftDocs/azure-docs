@@ -60,8 +60,6 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and se
 - Verify compression is enabled.
 - Verify the MIME type for the content to be compressed is included in the list of compressed formats.
 
-![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
-
 ### Check the request at the origin server for a **Via** header
 
 The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server. Microsoft IIS web servers by default don't compress responses when the request contains a **Via** header. To override this behavior, perform the following:

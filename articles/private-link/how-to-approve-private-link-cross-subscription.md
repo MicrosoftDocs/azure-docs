@@ -6,7 +6,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 01/11/2024
+ms.date: 01/18/2025
 # Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---

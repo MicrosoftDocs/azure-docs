@@ -56,7 +56,7 @@ The .NET Core configuration system is used to determine the state of feature fla
 
 ### Feature Flag Declaration
 
-The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported across all Microsoft feature management libraries.
+The feature management library supports appsettings.json as a feature flag source since it's a provider for .NET Core's `IConfiguration` system. Feature flags are declared using the [`Microsoft Feature Management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). This schema is language agnostic in origin and is supported across all Microsoft feature management libraries.
 
 The following example declares feature flags in a json file.
 
@@ -104,7 +104,7 @@ The `feature_management` section of the json document is used by convention to l
 
 **Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
-#### RequirementType
+#### Requirement type
 
 The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 
@@ -844,7 +844,7 @@ When defining an Audience, users and groups can be excluded from the audience. E
             "RolloutPercentage": 100
         }
     ],
-    "DefaultRolloutPercentage": 0
+    "DefaultRolloutPercentage": 0,
     "Exclusion": {
         "Users": [
             "Mark"
@@ -884,7 +884,7 @@ For each feature, a variant can be retrieved using the `IVariantFeatureManager`'
 …
 IVariantFeatureManager featureManager;
 …
-Variant variant = await featureManager.GetVariantAsync(MyFeatureFlags.FeatureU, CancellationToken.None);
+Variant variant = await featureManager.GetVariantAsync("MyVariantFeatureFlag", CancellationToken.None);
 
 IConfigurationSection variantConfiguration = variant.Configuration;
 

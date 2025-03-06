@@ -59,7 +59,7 @@ The Messages SDK supports the following WhatsApp Interactive messages:
 
 - [Send an Interactive List options message to a WhatsApp user](#send-an-interactive-list-options-message-to-a-whatsapp-user).
 - [Send an Interactive Reply Button message to a WhatsApp user](#send-an-interactive-reply-button-message-to-a-whatsapp-user).
-- [Send an Interactive Click-to-action URL-based message to a WhatsApp user](#send-an-interactive-click-to-action-url-based-message-to-a-whatsapp-user).
+- [Send an Interactive Click-to-action URL-based message to a WhatsApp user](#send-an-interactive-call-to-action-url-based-message-to-a-whatsapp-user).
 
 ### Send an Interactive List options message to a WhatsApp user
 
@@ -168,14 +168,13 @@ public async Task SendWhatsAppReplyButtonMessage()
 }
 ```
 
-### Send an Interactive Click-to-action URL-based message to a WhatsApp user
+### Send an Interactive Call-To-Action URL-based message to a WhatsApp user
 
 To send Click-To-Action or URL-based messages:
 
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E.164 format](#set-recipient-list).
-
-Click-To-Action Messages can be created using the following properties:
+- Call-To-Action Messages can be created using the following properties:
 
 | Action type   | Description |
 | --- | --- |

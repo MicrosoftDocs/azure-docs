@@ -13,6 +13,9 @@ ms.date: 10/22/2024
 
 Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
+> [!IMPORTANT]
+> Follow best practices to secure the Azure Key Vault you use with Azure IoT Operations. Ensuring the security of your Key Vault is crucial to protect your secrets. For detailed guidance on how to secure your Azure Key Vault, see [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices).
+
 ## Prerequisites
 
 * An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
@@ -34,7 +37,7 @@ Secrets are used in asset endpoints and data flow endpoints for authentication. 
 
 - **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Secret Store extension. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
-- **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.
+- **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand. *Only the latest version of the secret is synced to the edge*.
 
 When you add the username and password references to the asset endpoints or data flow endpoints, you then need to give the synchronized secret a name. The secret references will be saved in the edge with this given name as one resource. In the example from the screenshot below, the username and password references are saved to the edge as *edp1secrets*.
 

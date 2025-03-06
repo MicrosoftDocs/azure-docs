@@ -70,7 +70,7 @@ The Azure IoT Operations REST API provides the following capabilities that are u
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical IoT solution. This article focuses on the extensibility points highlighted in the diagram:
+The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the extensibility points highlighted in the diagram:
 
 :::image type="content" source="media/iot-overview-solution-extensibility/iot-cloud-extensibility-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture highlighting solution extensibility areas." border="false":::
 
