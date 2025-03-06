@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2025
+ms.date: 03/10/2025
 # Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -619,7 +619,7 @@ az containerapp connected-env create \
 For more information, see the following resources:
 
 - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-the-azure-container-apps-connected-environment)
-- [**az containerapp connected-env create**](/cli/azure/containerapp#az-containerapp-create)
+- [**az containerapp arc setup-core-dns**](/cli/azure/containerapp/arc)
 
 <a name="update-coredns-azure-local"></a>
 
@@ -637,30 +637,31 @@ For more information, see the following documentation:
 To update the CoreDNS configuration, run the following Azure CLI command using the options for your scenario:
 
 ```azurecli
-az containerapp connected-env prepare setup-core-dns
+az containerapp arc setup-core-dns
 ```
 
-| Arguments | Description |
-|-----------|-------------|
-| **`--distro`** | The supported distribution to use for updating the CoreDNS configuration. Allowed values: `AksAzureLocal` |
-| **`--kube-config`** | The path to the ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), which contains the configuration parameters for accessing Kubernetes clusters. |
-| **`--kube-context`** | The kubeconfig context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
-| **`--yes -y`** | Don't prompt for confirmation. |
+| Parameters | Required | Description |
+|------------|----------|--------------|
+| **`--distro`** | Yes | The supported distribution to use for updating the CoreDNS configuration. Allowed values: `AksAzureLocal` |
+| **`--kube-config`** | No | The path to the ([*kubeconfig file*](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)), which contains the configuration parameters for accessing Kubernetes clusters. |
+| **`--kube-context`** | No | The kubeconfig context from the on-premises host for your cluster. In Kubernetes, a *context* defines how to communicate with a Kubernetes cluster. |
+| **`skip-ssl-verification`** | No | Skip SSL verification for any cluster connection. |
+| **`--yes -y`** | No | Don't prompt for confirmation. |
 
-For more information, see [**az containerapp connected-env**](/cli/azure/containerapp/connected-env).
+For more information, such as global parameters, see [**az containerapp arc setup-core-dns**](/cli/azure/containerapp/arc#az-containerapp-arc-setup-core-dns).
 
 ### Examples
 
 - Set up CoreDNS configuration for Azure Local:
 
   ```azurecli
-  az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal
+  az containerapp arc setup-core-dns --distro AksAzureLocal
   ```
 
 - Set up CoreDNS configuration for Azure Local using a Kubernetes configuration file and the Kubernetes context:
 
    ```azurecli
-   az containerapp connected-env prepare setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kubeconfig-context-name>
+   az containerapp arc setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kubeconfig-context-name>
    ```
 
 <a name="create-storage-provider"></a>
