@@ -20,17 +20,17 @@ A storage task assignment is saved as part of the storage account resource insta
 
 ## Permission to manage storage task assignments
 
-To create an assignment, your identity must be assigned either the `Storage Actions Privileged Contributor` role or a custom role that contains the following RBAC actions:
+To create an assignment, your identity must be assigned either the **Storage Actions Privileged Contributor** role or a custom role that contains the following RBAC actions:
 
-- `Microsoft.Authorization/roleAssignments/write`
-- `Microsoft.Authorization/roleAssignments/delete`
-- `Microsoft.Storage/storageAccounts/reports/read`
-- `Microsoft.Storage/storageAccounts/read`
-- `Microsoft.Storage/storageAccounts/blobServices/read`
-- `Microsoft.Storage/storageAccounts/storageTaskAssignments/read`
-- `Microsoft.Storage/storageAccounts/storageTaskAssignments/write`
-- `Microsoft.Storage/storageAccounts/storageTaskAssignments/delete`
-- `Microsoft.Storage/storageAccounts/storageTaskAssignments/reports/read`
+- Microsoft.Authorization/roleAssignments/write
+- Microsoft.Authorization/roleAssignments/delete
+- Microsoft.Storage/storageAccounts/reports/read
+- Microsoft.Storage/storageAccounts/read
+- Microsoft.Storage/storageAccounts/blobServices/read
+- Microsoft.Storage/storageAccounts/storageTaskAssignments/read
+- Microsoft.Storage/storageAccounts/storageTaskAssignments/write
+- Microsoft.Storage/storageAccounts/storageTaskAssignments/delete
+- Microsoft.Storage/storageAccounts/storageTaskAssignments/reports/read
 
 To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
@@ -38,11 +38,7 @@ To learn how to create a custom role, see [Azure custom roles](../../role-based-
 
 As you create an assignment, you must choose an Azure Built-in or custom role that has the permission necessary to perform the specified operations on the target storage account or storage account container. That role is assigned to the managed identity of the storage task. You can choose only roles that are assigned to your user identity. 
 
-### Least privileged built-in role
-
 While the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role provides all of the permissions necessary for a storage task to perform all data operations, the least privileged built-in role is the `Storage Actions Blob Data Operator` role.  
-
-### Least privileged custom role
 
 If you prefer to use a custom role, you must make sure that your role contains the RBAC actions necessary to perform the operations. The following table shows the RBAC actions required by each operation.
 
