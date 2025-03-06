@@ -27,8 +27,6 @@ The following table describes the configuration settings of a storage task assig
 > [!NOTE]
 > The names that appear in the following table appear in the **Add Assignment** page of the Azure portal. If plan to create an assignment by using REST, an SDK, PowerShell, or Azure CLI, see the appropriate reference content set to obtain the names of specific properties used to configure each setting.
 
-The following settings define the 
-
 | Setting | Required or optional | Description |
 |--|--|--|
 | Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
