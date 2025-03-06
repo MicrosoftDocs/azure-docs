@@ -21,10 +21,11 @@ If you instead want to offboard Microsoft Sentinel from the Defender portal, see
 
 ## Prerequisites
 
-Before you begin, review [Implications of removing Microsoft Sentinel from your workspace](offboard-implications.md). 
+Before you begin, make sure that you understand the effects of removing Microsoft Sentinel from your environment.
 
 For example, you can't manage Microsoft Sentinel tables in Log Analytics after removing Microsoft Sentinel, such as to set extended data retention. Therefore, to avoid extra data retention charges, we recommend that you set per-table retention to 90 days or less for Microsoft Sentinel tables stored in Log Analytics that will be inaccessible after removing Microsoft Sentinel.
 
+For more information, see [Implications of removing Microsoft Sentinel from your workspace](offboard-implications.md).
 ## Remove Microsoft Sentinel
 
 Complete the following steps to remove Microsoft Sentinel from your Log Analytics workspace.
