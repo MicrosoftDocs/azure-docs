@@ -34,13 +34,13 @@ Complete the following steps in the Azure CLI to create an environment and confi
     az login
     ```
 
-1. Install the Azure Dev Center extension for the CLI.
+1. Install or upgrade the Azure Dev Center extension for the CLI:
 
    ```azurecli
    az extension add --name devcenter --upgrade
    ```
 
-1. List all the Azure Deployment Environments projects you have access to:
+1. List all the Azure Deployment Environments projects that you have access to:
 
    ```azurecli
    az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
@@ -58,7 +58,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az config set defaults.group=<resourceGroupName>
    ```
 
-1. List the type of environments you can create in a specific project:
+1. List the type of environments that you can create in a specific project:
 
    ```azurecli
    az devcenter dev environment-type list --dev-center <devcenterName> --project-name <projectName> -o table
@@ -70,7 +70,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
    az devcenter dev environment-definition list --dev-center <devcenterName> --project-name <projectName> -o table
    ```
 
-1. Create an environment by using an *environment-definition* (an infrastructure as code template defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
+1. Create an environment by using an *environment-definition* (an infrastructure-as-code template that's defined in the [environment.yaml](configure-environment-definition.md#add-a-new-environment-definition) file) from the list of available environment definitions:
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenterName>
