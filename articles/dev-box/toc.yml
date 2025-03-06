@@ -86,9 +86,6 @@ items:
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Use Dev Home to manage dev boxes
     href: how-to-use-dev-home-customize-dev-box.md
-  - name: Connect with Remote Desktop
-    displayName: Windows App, connect, access dev box, RDP, iPad 
-    href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md
 - name: Security
