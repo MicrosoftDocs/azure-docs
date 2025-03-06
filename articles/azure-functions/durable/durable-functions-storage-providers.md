@@ -3,7 +3,7 @@ title: Durable Functions storage providers - Azure
 description: Learn about the different storage providers for Durable Functions and how they compare
 author: cgillum
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 03/05/2025
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand what storage providers are available Durable Functions and which one I should choose.
 ---
@@ -33,7 +33,7 @@ The key benefits of the Durable Task Scheduler include:
 
 Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
-The source code for Durable Task Scheduler can be found in the [TODO]() GitHub repo.
+The source code for Durable Task Scheduler can be found on its [GitHub repository](https://aka.ms/dts-preview).
 
 ## Azure Storage
 

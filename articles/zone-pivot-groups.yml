@@ -223,9 +223,9 @@ groups:
     title: Consumption plan
   - id: azure-arc
     title: Azure Arc
-- id: dts-lanugages
+- id: dts-runtime
   title: Application languages for Durable Task Scheduler
-  prompt: Choose your application language
+  prompt: Choose an option
   pivots:
   - id: csharp
     title: .NET (isolated)

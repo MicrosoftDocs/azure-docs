@@ -3,9 +3,10 @@ title: "Quickstart: Set a Durable Functions app to use Durable Task Scheduler (p
 description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler.
 author: lilyjma
 ms.topic: how-to
-ms.date: 02/24/2025
+ms.date: 03/05/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
+zone_pivot_groups: dts-runtime
 ---
 
 # Quickstart: Set a Durable Functions app to use Durable Task Scheduler (preview)
@@ -14,7 +15,7 @@ Use Durable Functions, a feature of [Azure Functions](../../functions-overview.m
 
 Durable Functions supports several [storage providers](../durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. 
 
-In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler (DTS)](../durable-functions-storage-providers.md#dts) as the backend.
+In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler (DTS)](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
 
 > [!NOTE]
 >
@@ -26,28 +27,39 @@ In this quickstart, you configure a Durable Functions app to use the [Durable Ta
 
 ## Prerequisites
 
-The following steps assume that you have an existing Durable Functions app and that you're familiar with how to operate it.
+- An existing Durable Functions app, specifically that you already have:
+   - Created an Azure Functions project on your local computer.
+   - Added Durable Functions to your project with an [orchestrator function](../durable-functions-bindings.md#orchestration-trigger) and a [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
+   - Configured the project for local debugging.
 
-Specifically, this quickstart assumes that you have already:
+   If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
 
-- Created an Azure Functions project on your local computer.
-- Added Durable Functions to your project with an [orchestrator function](../durable-functions-bindings.md#orchestration-trigger) and a [client function](../durable-functions-bindings.md#orchestration-client) that triggers the Durable Functions app.
+::: zone pivot="csharp"  
 
-If you don't meet these prerequisites, we recommend that you begin with one of the following quickstarts to set up a local Functions project:
+   - [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
 
-- [Create a Durable Functions app - C#](../durable-functions-isolated-create-first-csharp.md)
-- [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
-- [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
-- [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
-- [Create a Durable Functions app - Java](../quickstart-java.md)
+::: zone-end 
 
-You'll also need to have the following installed:
-- [Docker](https://docs.docker.com/engine/install/) to run the DTS emulator
-- [Azurite](../../../storage/common/storage-use-azurite.md), which is the Azure Storage emulator needed by the function app
+::: zone pivot="other"  
+
+   - [Create a Durable Functions app - JavaScript](../quickstart-js-vscode.md)
+   - [Create a Durable Functions app - Python](../quickstart-python-vscode.md)
+   - [Create a Durable Functions app - PowerShell](../quickstart-powershell-vscode.md)
+   - [Create a Durable Functions app - Java](../quickstart-java.md)
+
+::: zone-end 
+
+- [Docker](https://docs.docker.com/engine/install/) installed to run the DTS emulator. 
+- [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite) installed.
+- An [HTTP test tool](../../functions-develop-local.md#http-test-tools) that keeps your data secure.
+
+::: zone pivot="csharp"  
 
 ## Add the Durable Task Scheduler extension (.NET only)
 
-First, install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
+> [!NOTE] The DTS extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
+
+Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) extension from NuGet. There are several ways of doing this: 
 
 1. Add a reference to the extension in your _.csproj_ file and then build the project. 
 
@@ -59,9 +71,12 @@ First, install the latest version of the [Microsoft.Azure.Functions.Worker.Exten
    func extensions install --package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged 
    ```
 
+::: zone-end 
+
+::: zone pivot="other"  
+
 ## Specify the required extension bundles (non .NET languages)
 
-[TODO]
 Update the `extensionBundle` property to use the preview version that contains the DTS package: 
 
 ```json
@@ -72,6 +87,8 @@ Update the `extensionBundle` property to use the preview version that contains t
   }
 }
 ```
+
+::: zone-end 
 
 ## Update host.json
 
@@ -107,40 +124,50 @@ Add connection information for local development:
 }
 ```
 
+Get the DTS emulator port number in [the next step](#set-up-dts-emulator). 
+
 > [!NOTE]
-> For local development, it's easiest to use `default` task hub. It is possible to set up other task hubs but that needs extra configuration. 
+> For local development, it's easiest to use the `default` task hub. Setting up other task hubs require extra configuration. 
 
 ## Set up DTS emulator 
 
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull <tag>
+   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.4
    ```
-
-   - **For M-series macs,** use tag: [TODO]
-   - **For Windows and other AMD 64 machines,** use tag: [TODO]
 
 1. Run the emulator.
 
    ```bash
-   docker run -itP <tag>
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.4
    ```
 
-   You'll notice three ports exposed: `8080`, `8081`, and `8082`. These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:
+   The following indicates the emulator started successfully.
+     :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
+
+1. Make note of the three ports exposed on Docker desktop: `8080`, `8081`, and `8082`. 
+
+   These static ports are exposed by the container and mapped dynamically by default. DTS exposes multiple ports for different purposes:  
    - `8080`: gRPC endpoint that allows an app to connect to DTS
    - `8081`: Endpiont for metrics gathering
    - `8082`: Endpoint for DTS dashboard
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
-1. Update the connection string in *local.settings.json*. In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
+1. Update the connection string in *local.settings.json* with the gRPC endpoint port number. 
+
+   In the example above, port `55000` is mapped to the gRPC `8080` endpoint, so the connection string should be `Endpoint=http://localhost:55000;Authentication=None`.
 
 ## Test locally 
 
-1. Start [Azurite](../../../storage/common/storage-use-azurite.md#run-azurite).
+1. Go to the root directory of your app and start Azurite.
 
-1. Go to the root directory of your app and run the application.
+   ```bash
+   azurite start
+   ```
+
+1. Run the application.
 
    ```sh
    func start
@@ -150,7 +177,7 @@ Add connection information for local development:
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/function-list.png" alt-text="Screenshot of functions listed when running app locally.":::
 
-1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using an HTTP test tool. 
+1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../functions-develop-local.md#http-test-tools) you chose. 
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in your browser's address bar. You should see the status on the orchestration instance:
 
@@ -171,7 +198,7 @@ Add connection information for local development:
      }
    ```
 
-1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the [DTS dashboard](./durable-task-scheduler-dashboard.md). 
+1. To view more details about the orchestration instance, go to the Docker desktop app and click the `8082` link to access the DTS dashboard. 
 
    :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
 
@@ -194,22 +221,23 @@ Create a DTS instance and Azure Functions app on Azure following the *Function a
 
 [!INCLUDE [functions-publish-project-vscode](../../../../includes/functions-deploy-project-vs-code.md)]
 
+#### Apps on Functions Premium plan
+
+If your app is running on the Functions Premium plan, follow instructions to [turn on Runtime Scale Monitoring](./develop-with-durable-task-scheduler.md#scaling-in-functions-premium-plan) after deployment. This ensures your app autoscales based on load. 
+
 ### Test your function app in Azure
 
-If you created your app by following one of the Durable Functions quickstarts, you can test using the instructions for [testing locally](#test-locally). 
-
-To get your functions' URL, run the following command.   
+Run the following command to get your function's URL: 
   
 ```bash
 az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output table
 ```
 
-### Use DTS dashboard to check orchestration details 
+### Check orchestration status
+
+Check the status of the orchestration instance and activity details on the DTS dashboard. 
 
 [!INCLUDE [assign-dev-identity-rbac-portal](./includes/assign-dev-identity-rbac-portal.md)]
-
-> [!NOTE]
-> You can also [use the Azure CLI](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) to check orchestration details.
 
 ## Clean up resources
 

@@ -1,21 +1,32 @@
 ---
-title: Durable Task Scheduler storage provider for Durable Functions (preview)
-description: Learn about the characteristics of the Durable Functions Durable Task Scheduler storage provider.
+title: Durable Task Scheduler backend for Durable Functions (preview)
+description: Learn about the characteristics of the Durable Functions Durable Task Scheduler backend.
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 03/05/2025
 ms.author: azfuncdf
 author: hhunter-ms
 ms.subservice: durable
 ---
 
-# Durable Task Scheduler storage provider for Durable Functions (preview)
+# Durable Task Scheduler backend for Durable Functions (preview)
 
-The Durable Task Scheduler (DTS) is a backend for Durable Functions. DTS is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, key features, and pricing.
+The Durable Task Scheduler (DTS) is a backend for Durable Functions. DTS is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
 
 For an in-depth comparision between the supported storage providers for Durable Functions, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
 
 > [!NOTE]
 > DTS currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
+>
+> The following regions are supported today:
+>   - Australia East
+>   - North Europe
+>   - Sweden Central
+>   - UK South
+>   - North Central US
+>   - West US 2
+>
+> You can create up to **five schedulers per region** per subscription. 
+
 
 ## Architecture 
 
@@ -23,39 +34,30 @@ The Durable Task Scheduler (DTS) is designed from the ground up to be the fastes
 - Dispatching orchestrator and activity work items
 - Storing history at scale with minimal latency
 
-[TODO - a brief discussion of DTS architecture and why it's fast]
-
-## Supported regions
-
-DTS is currently supported in the following regions.
-- Australia East
-- North Europe
-- Sweden Central
-- UK South
-- North Central US
-- West US 2
-
-You can create up to five schedulers per region per subscription. To increase this limit, [submit a request in the Durable Task Scheduler repository]()[TODO]. 
+[TODO - @cgillum @sebastianburckhardt to provide an overview of DTS architecture and why it's fast]
 
 ## Feature highlight
 
-The following features are available at the current stage of public preview. More features are under development. See [the DTS roadmap and how to request new features]()[TODO]. 
+> [!NOTE]
+> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [Durable Task Scheduler repository](https://aka.ms/dts-preview). 
 
 ### Managed by Azure 
 
-Unlike [other BYO backend options](../durable-functions-storage-providers.md), DTS is fully managed by Azure. This reduces management burdens, such as cleaning up the completed orchestration history or handling failover in the case of disaster recovery. Managing the storage is now a task of Azure, so you can focus on business logic. 
+Unlike [other BYO backend options](../durable-functions-storage-providers.md), DTS is fully managed by Azure. This reduces management burdens, such as cleaning up completed orchestration history data, handling failover in the case of disaster recovery, etc. Managing the state store is now a task of Azure, so you can focus on business logic. 
 
-From a support perspective, since Azure has direct access to the orchestration data and storage resource, it's much easier to debug and resolve problems for customers using DTS. 
+Since Azure has direct access to your app's backend, it also becomes easier to diagnose and resolve problems related to DTS so users can expect a better support experience. 
 
 ### Durable Task Scheduler dashboard
 
-When a DTS resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations instances and allows you to quickly filter by different criteria. You can easily gather data about an orchestration instance, such as status, duration, input/output, etc. You can also drill into an instance to get data about sub-orchestrations and activities. 
+When a DTS resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations instances and allows you to quickly filter by different criteria. You can easily gather data about an orchestration instance, such as status, duration, input/output, etc. You can also drill into an instance to get data about sub-orchestrations and activities. The dashboard displays data related to Durable Entities as well. 
 
-Aside from monitoring purposes, you can also perform ad hoc management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance (provided you have the permission to do so). 
+Aside from monitoring purposes, you can also perform ad hoc management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. See [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) for more details. 
 
-See [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) for more details about the dashboard. 
+[Access to the dashboard](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard) is secured by identity and role-based access. 
 
 ### Supports the highest throughput
+
+[TODO - @cgillum  and @sebastianburckhardt to provide more updated data, if available.]
 
 The following table shows the results of a series of benchmarks ran to compare the relative throughput of each storage backend provider supported by Durable Functions:
 
@@ -93,52 +95,17 @@ For this particular test, the results show that Durable Task Scheduler is **30% 
 
 ### Supports multiple task hubs
 
-The concept of a task hub in DTS is similar to that of other backend providers like Azure Storage. An application's states are durably persisted in a task hub. One DTS resource instance allows for the creation of multiple task hubs, each of which can be used by a different application. This allows for multiple applications to share one DTS instance through different task hubs.
-
-Since all task hubs in a DTS resource share the same storage and compute resources, adding more applications will limit the resources that each one gets. In this case, more resources for the DTS instance can be added by purchasing extra capacity units. See [pricing](#pricing).
+A Durable Functions application states are durably persisted in a task hub. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to task hubs requires identity-based authentication. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
 
 ### Other features
 
-- **DTS emulator**: DTS offers an [emulator for local development](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) through a Docker image. 
-- **Managed identity support**: DTS and DTS dashboard support [identity-based authentication](./quickstart-durable-task-scheduler.md).
+- **DTS emulator**: DTS offers an [emulator for local development](./quickstart-durable-task-scheduler.md#set-up-dts-emulator) through a Docker image. The DTS dashboard is also available when using the emulator. 
 
-## Pricing 
+- **Durable Entities**: Users of Durable Entities can use DTS as the backend without any code changes just like orchestrations. Entities related data will surface on the dashboard as well. 
 
-### Dedicated SKU
+## DTS Concepts 
+[TODO @cgillum @torosent - example: scaling, task hub]
 
-You're billed based on the number of "Capacity Units (CUs)" purchased. In the Durable Task Scheduler context:
-
-- **A Capacity Unit (CU)** is a measure of the resources allocated to your Durable Task Scheduler. Each CU represents a preallocated amount of CPU, memory, and storage resources. A single CU guarantees the dispatch of a number of *work items* and provides a defined amount of storage. If extra performance and/or storage is needed, more CUs can be purchased.
-- **Work item** is a message dispatched by the Durable Task Scheduler to an application, triggering the execution of orchestrator, activity, or entity functions. The number of work items that can be dispatched per second is determined by the CUs allocated to the Durable Task Scheduler.
-
-The following table explains the minimum cost and features provided with each CU.
-
-| Number of CUs | Features |
-| ------------- | -------- |
-| One CU        | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​</br>- Dashboard for monitoring and managing orchestrations​</br>- Authentication and role-based access control with Managed Identity |
-
-### Determining the number of Capacity Units needed
-
-To determine how many Capacity Units (CUs) you require, follow these steps:
-
-1. **Understand how to identify the number of work items per orchestration**
-   - Starting an orchestration consumes a single work item.
-   - Each schedule of an activity run consumes another work item.
-   - Each response sent back to the Durable Task Scheduler consumes another work item.
-     
-1. **Estimate monthly orchestrations**  
-    Calculate the total number of orchestrations you need to run per month. 
-
-1. **Calculate total work items per second**  
-    Multiply the number of orchestrations by the number of work items each orchestration consumes.
-
-1. **Convert to work items per second**  
-    Divide the total work items per month by the number of seconds in a month (approximately 2,628,000 seconds).
-
-1. **Determine required CUs**  
-    If one CU allows for up to 2,000 work items per second, divide the required work items per second by the capacity of one CU to determine the number of CUs needed.
-
-For example, if you run 100 million orchestrations per month and each orchestration consumes seven work items, you need 700 million work items per month. Dividing this by 2,628,000 results in approximately 266 work items per second. If one CU supports 2,000 work items per second, you need one CU to handle this workload.
 
 ## Next steps
 

@@ -113,6 +113,8 @@
     href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
   - name: Troubleshooting
     href: ./durable-task-scheduler/troubleshoot-durable-task-scheduler.md
+  - name: Billing
+    href: ./durable-task-scheduler/dts-dedicated-sku.md  
 
 - name: Reference
   items:

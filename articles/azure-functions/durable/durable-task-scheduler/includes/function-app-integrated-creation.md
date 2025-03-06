@@ -1,13 +1,13 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/25/2025
+ms.date: 03/05/2025
 ms.author: jiayma
 ms.reviewer: azfuncdf
 author: lilyjma
 ---
 
-1. Navigate to the Function app creation blade and select **App Service** as a hosting option.
+1. Navigate to the Function app creation blade and select **Functions Premium** or **App Service** as a hosting option.
 
    :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
