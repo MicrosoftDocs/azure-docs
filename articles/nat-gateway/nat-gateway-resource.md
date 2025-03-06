@@ -107,7 +107,7 @@ UDP idle timeout timers aren't configurable, UDP keepalives should be used to en
 
 ### Port Reuse Timers
 
-Port reuse timers determine the amount of time after a connection closes that a source port is in hold down before it can be reused to go to the same destination endpoint by the NAT gateway.  
+Port reuse timers determine the amount of time after a connection closes that a source port is in hold down before it can be reused for a new connection to go to the same destination endpoint by the NAT gateway.  
 
 The following table provides information about when a TCP port becomes available for reuse to the same destination endpoint by the NAT gateway. 
 
@@ -135,9 +135,9 @@ Each NAT gateway can provide up to a total of 50 Gbps of throughput. Data throug
 
 ## Performance
 
-A NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. The NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+A NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP traffic. The NAT gateway can process 1M packets per second and scale up to 5M packets per second.
 
-The total number of connections that a NAT gateway can support at any given time is up to 2 million. If NAT gateway exceeds 2 million connections, you will see a decline in your datapath availability and new connections will fail.
+NAT gateway can support up to 2 million active connections simultaneously. The number of connections on NAT Gateway is counted based on the 5 tuple (source IP address, source port, destination IP address, destination port, and protocol). If NAT gateway exceeds 2 million connections, you will see a decline in your datapath availability and new connections will fail. 
 
 ## Limitations
 
