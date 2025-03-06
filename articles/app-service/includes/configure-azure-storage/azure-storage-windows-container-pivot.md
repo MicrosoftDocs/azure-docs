@@ -105,7 +105,7 @@ Now you're ready to use Key Vault to access your storage account.
    | **Configuration options** | Select **Basic** |
    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
    | **Share name** | Files share to mount. |
-   | **Mount path** | Directory inside your Windows container that you want to mount. Don't use a root directory (*[C-Z]:\** or */*) or the *home* directory (*[C-Z]:\home* or */home*).|
+   | **Mount path** | Directory inside your Windows container that you want to mount. Don't use a root directory (*[C-Z]:\* or */*) or the *home* directory (*[C-Z]:\home* or */home*).|
    | **Deployment slot setting** | When selected, the storage mount settings also apply to deployment slots.|
 
 # [Azure portal](#tab/portal/access-key)
@@ -121,7 +121,7 @@ Now you're ready to use Key Vault to access your storage account.
    | **Storage accounts** | Azure Storage account. It must contain an Azure Files share. |
    | **Share name** | Files share to mount. |
    | **Access key** (Advanced only) | [Access key](../../../storage/common/storage-account-keys-manage.md) for your storage account. |
-   | **Mount path** | Directory inside your Windows container that you want to mount. Don't use a root directory (*[C-Z]:\** or */*) or the *home* directory (*[C-Z]:\home* or */home*).|
+   | **Mount path** | Directory inside your Windows container that you want to mount. Don't use a root directory (*[C-Z]:\* or */*) or the *home* directory (*[C-Z]:\home* or */home*).|
    | **Application settings**| Select the app setting with the Azure Key Vault secret.|
    | **Deployment slot setting** | When selected, the storage mount settings also apply to deployment slots.|
 
