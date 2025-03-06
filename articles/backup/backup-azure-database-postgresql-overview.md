@@ -30,16 +30,16 @@ Azure Backup provides compliance and resiliency solutions, including vaulted bac
 - The backup configuration won't be allowed for new PostgreSQL single server workloads.
 - All scheduled backup jobs will be permanently discontinued.
 - Creation of new backup policies or modification of existing ones for this workload won't be possible.
-- Scheduled backup jobs for your PostgreSQL single server databases will be permanently stopped, and no new restore points will be created after this date.
 
-  However, your existing PostgreSQL single server database backups will be retained as per the backup policy. The restore point will only be deleted after the expiration of the retention period. To retain the restore points indefinitely or delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
+Scheduled backup jobs for your PostgreSQL single server databases will be permanently stopped, and no new restore points will be created after this date.
+However, your existing PostgreSQL single server database backups will be retained as per the backup policy. The restore point will only be deleted after the expiration of the retention period. To retain the restore points indefinitely or delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
 
 ### Changes in billing
 
 You'll no longer be charged **Protected Instance (PI)** fee after **March 31, 2025** for protecting your PostgreSQL single server databases. But, **Storage** fee for storing your backups will still apply after **March 31, 2025**. To avoid the Storage fee, delete all restore points from the Azure Business Continuity Center.
 
 >[!Note]
->Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can delete the last restore point only be deleted manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+>Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
 
 ### Changes in restore
 
