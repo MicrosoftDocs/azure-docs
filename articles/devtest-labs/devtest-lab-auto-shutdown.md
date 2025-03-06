@@ -69,9 +69,9 @@ To set autoshutdown policy for your lab:
 
 If the autoshutdown policy allows, you can also set autoshutdown schedules for individual lab VMs.
 
-1. On the Azure portal home page for the VM, in the **Operations** section on the left menu, select **Auto-shutdown**.
+1. On the Azure portal home page for the VM, select **Auto-shutdown** from the **Operations** section of the left menu.
 1. On the **Auto-shutdown** screen, select **On** for **Enabled** to enable autoshutdown, or **Off** to disable it.
-1. For **Scheduled shutdown** and **Time zone**, specify the time and time zone to shut down all lab VMs.
+1. For **Scheduled shutdown** and **Time zone**, specify the time and time zone to shut down the VM.
 1. For **Send notification before auto-shutdown?**, select **Yes** if you want to send a notification 30 minutes before the specified autoshutdown time.
 1. If you chose **Yes**, enter a webhook URL endpoint under **Webhook URL** or an email address under **Email address** where you want the notification to post or be sent.
 1. Select **Save**.
@@ -83,7 +83,7 @@ If the autoshutdown policy allows, you can also set autoshutdown schedules for i
 After you update autoshutdown settings, you can see that activity logged in the activity log for the VM.
 
 1. On the Azure portal home page for the VM, select **Activity log** from the left menu.
-1. Remove the **Resource** filter, apply the appropriate **Resource group** filter, and view the entries for **Add or modify schedules**.
+1. Apply the appropriate **Resource group** filter, and view the entries for **Add or modify schedules**.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/activity-log-entry.png" alt-text="Screenshot showing Add or modify schedules in the Activity log."::: 
 
