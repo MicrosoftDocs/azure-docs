@@ -141,13 +141,69 @@ For this, we run the virtual network peering create command with the optional pa
 az network vnet peering create -n vnet-1_to_vnet-2
                                -g test-rg
                                -o none
+                               --vnet-name vnet-1
+                               --remote-vnet vnet-2
                                --allow-forwarded-traffic 
                                --allow-gateway-transit 
                                --allow-vnet-access 
-                               --peer-complete-vnet fasle
+                               --peer-complete-vnet false
                                --local-subnet-names subnet-1
                                --remote-subnet-names subnet-3
+az network vnet peering create -n vnet-2_to_vnet-1
+                               -g test-rg
+                               -o none
+                               --vnet-name vnet-2
+                               --remote-vnet vnet-1
+                               --allow-forwarded-traffic 
+                               --allow-gateway-transit 
+                               --allow-vnet-access 
+                               --peer-complete-vnet false
+                               --local-subnet-names subnet-3
+                               --remote-subnet-names subnet-1
+```
 
+**Add a new subnet to peering**
+```azurecli
+az network vnet peering update -n vnet-1_to_vnet-2
+                               -g test-rg
+                               --vnet-name vnet-1
+                               --local-subnet-names subnet-1 subnet-2
+az network vnet peering update -n vnet-2_to_vnet-1
+                               -g test-rg
+                               --vnet-name vnet-2
+                               --remote-subnet-names subnet-3 subnet-4
+```
+
+**Remove subnets to peering**
+```azurecli
+az network vnet peering update -n vnet-1_to_vnet-2
+                               -g test-rg
+                               --vnet-name vnet-1
+                               --local-subnet-names subnet-1
+az network vnet peering update -n vnet-2_to_vnet-1
+                               -g test-rg
+                               --vnet-name vnet-2
+                               --remote-subnet-names subnet-3
+```
+
+**Sync peerings**
+```azurecli
+az network vnet peering sync -n vnet-1_to_vnet-2
+                             -g test-rg
+                             --vnet-name vnet-1
+az network vnet peering sync -n vnet-2_to_vnet-1
+                             -g test-rg
+                             --vnet-name vnet-2
+```
+
+**Show peerings**
+```azurecli
+az network vnet peering show -n vnet-1_to_vnet-2
+                             -g test-rg
+                             --vnet-name vnet-1
+az network vnet peering show -n vnet-2_to_vnet-1
+                             -g test-rg
+                             --vnet-name vnet-2
 ```
 
 ## Subnet Peering Checks and Limitations
