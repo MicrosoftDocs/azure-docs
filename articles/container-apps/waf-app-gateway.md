@@ -5,13 +5,13 @@ services: container-apps
 author: cachai2
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 03/31/2023
+ms.date: 03/06/2025
 ms.author: cachai
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
 
-When you host your apps or microservices in Azure Container Apps, you may not always want to publish them directly to the internet. Instead, you may want to expose them through a reverse proxy.
+When you host your apps or microservices in Azure Container Apps, you might not always want to publish them directly to the internet. Instead, you might want to expose them through a reverse proxy.
 
 A reverse proxy is a service that sits in front of one or more services, intercepting and directing incoming traffic to the appropriate destination.
 
@@ -47,6 +47,8 @@ Use the following steps to retrieve the values of the **default domain** and the
 1. Copy the values for the **defaultDomain** and **staticIp** properties and paste them into a text editor. You'll create a private DNS zone using these values for the default domain in the next section.
 
 ## Create and configure an Azure Private DNS zone
+
+To create and configure an Azure Private DNS zone, perform the following steps:
 
 1. On the Azure portal menu or the *Home* page, select **Create a resource**.
 
@@ -110,7 +112,16 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 ## Create and configure Azure Application Gateway
 
+To create and configure an Azure Application Gateway, perform the following steps:
+
+1. On the Azure portal menu or the *Home* page, select **Create a resource**.
+1. Search for *Application Gateway*, and select **Application Gateway** from the search results.
+
+Now, enter the required details under the *Basics* tab, *Frontends* tab, *Backends* tab, and *Configuration* tab.
+
 ### Basics tab
+
+Perform the following steps:
 
 1. Enter the following values in the *Project details* section.
 
@@ -151,6 +162,8 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 ### Frontends tab
 
+Perform the following steps:
+
 1. On the *Frontends* tab, enter the following values:
 
     | Setting | Action |
@@ -174,7 +187,9 @@ The backend pool is used to route requests to the appropriate backend servers. B
 - Fully qualified domain names (FQDN)
 - Multi-tenant back-ends like Azure App Service and Container Apps
 
-In this example, you create a backend pool that targets your container app.
+In this example, you create a backend pool that targets your container app. 
+
+To create a backend pool, perform the following steps:
 
 1. Select **Add a backend pool**.
 
@@ -197,7 +212,9 @@ In this example, you create a backend pool that targets your container app.
 
 ### Configuration tab
 
-On the *Configuration* tab, you connect the frontend and backend pool you created using a routing rule.
+On the *Configuration* tab, you connect the frontend and backend pool you created using a routing rule. 
+
+To connect the frontend and backend pool, perform the following steps:
 
 1. Select **Add a routing rule**. Enter the following values:
 
@@ -266,7 +283,7 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
 
 ## Add private link to your Application Gateway
 
-You can establish a secured connection to internal-only container app environments by leveraging private link, as it allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
+You can establish a secured connection to internal-only container app environments using private link. Private link allows your Application Gateway to communicate with your Container App on the backend through the virtual network.
 
 1. Once the Application Gateway is created, select **Go to resource**.
 
