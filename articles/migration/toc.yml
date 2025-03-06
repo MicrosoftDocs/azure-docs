@@ -41,20 +41,19 @@
           href: ./placeholder.md
       - name: Databases
         items:
-        - name: Azure Database for PostgreSQL
+        - name: From Amazon RDS for PostgreSQL to Azure Database for PostgreSQL
           items:
-          - name: From Amazon RDS for PostgreSQL to Azure Database for PostgreSQL
             items:
           - name: Migrate from Amazon RDS offline
             href: https://learn.microsoft.com/azure/postgresql/https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
           - name: Migrate from Amazon RDS online
             href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
-          - name: From Amazon Aurora PostgreSQL to Azure Database for PostgreSQL
-            items:
-            - name: Migrate from Amazon Aurora offline
-              href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
-            - name: Migrate from Amazon Aurora online
-              href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
+        - name: From Amazon Aurora PostgreSQL to Azure Database for PostgreSQL
+          items:
+          - name: Migrate from Amazon Aurora offline
+            href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
+          - name: Migrate from Amazon Aurora online
+            href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
         - name: Azure Database for MySQL
           items:
           - name: Replatform from Aurora MySQL to Azure Database for MySQL
@@ -109,7 +108,7 @@
         href: ./placeholder.md
     - name: Databases
       items:
-      - name: Azure Database for PostgreSQL
+      - name: From Google Cloud to Azure Database for PostgreSQL
         items:
         - name: Migrate from Google Cloud SQL for PostgreSQL offline
           href: https://learn.microsoft.com/azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
