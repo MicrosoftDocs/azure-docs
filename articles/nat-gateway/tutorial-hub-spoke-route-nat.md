@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial 
-ms.date: 02/06/2025
+ms.date: 03/06/2025
 ms.custom: template-tutorial 
 ---
 
