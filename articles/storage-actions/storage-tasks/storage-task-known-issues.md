@@ -22,8 +22,9 @@ During the public, you can target only storage accounts that are in the same reg
 
 | Scale factor | Supported limit |
 |---|---|
-| Storage tasks per subscription | 100 |
-| Storage task assignments per storage task | 50 |
+| Storage tasks per subscription | 5,000 |
+| Storage task assignments per storage task | 5,000 |
+| Storage task assignments per subscription | 10,000 |
 | Storage task assignments per storage account | 50 |
 | Storage task nested grouping of clauses per condition | 10 |
 
@@ -32,6 +33,30 @@ Azure Storage Actions autoscales its processing tasks based on the volume of dat
 During the, Azure Storage Actions can invoke up to 200 million operations per day for a maximum of seven days on a flat-namespace storage account. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 200 million and four billion blobs in a day.
 
 For storage accounts with a hierarchical namespace, Azure Storage Actions can invoke up to 35 million operations per day for a maximum of seven days during the. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 35 million to 400 million blobs in a day.
+
+## Premium Block Blobs 
+
+Creating assignments on PBB storage accounts does not work. Will be fixed in STG100. 
+
+## Soft deleted blobs are included in listing during scanning as objects targeted 
+
+No workaround yet available.
+
+## Billing does not show task assignment name 
+
+Billing meters show up on the bill with only the storage account name. Subscription bill does not show the task assignment name for which the meter was emitted. To correlate the meter with the task assignment, you must look at the resource metrics for Storage Actions filtered by the storage account for that day.
+
+## Propagation of task definition updates 
+
+Task assignments are not updated when changes are made to a task definition. New task assignments must be created after deleting the older ones to pick up any changes.  
+
+## Stopping task assignments
+
+We do not plan to support "Disable" for task assignments and "Stop" for in-progress runs. You can work around this by removing the role assignment for the underlying managed identity. 
+
+## Move for storage account resource is blocked when a task assignment exists
+
+The workaround is to delete the storage task assignment and then move the storage account resource.
 
 ## Restrictions on moving a storage task
 
@@ -113,8 +138,6 @@ Moving storage tasks and task assignments across different resource groups and s
 
 ## Cleaning up task assignments before moving storage accounts
 Task assignments must be cleaned up before moving storage accounts across resource groups and subscriptions. Specifically, before a storage account is moved from one resource group to another, or from one subscription to another, all task assignments applied to the storage account must be deleted to ensure a smooth transition.
-
-
 
 ## See Also
 
