@@ -1,16 +1,16 @@
 ---
-title: Review copy errors in uploads from Azure Data Box, Azure Data Box Heavy devices
-description: Describes review and follow-up for errors during uploads from an Azure Data Box or Azure Data Box Heavy device to the Azure cloud.
+title: Review copy errors in uploads from Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy devices
+description: Describes review and follow-up for errors during uploads from an Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy device to the Azure cloud.
 services: databox
 author: v-dalc
 
 ms.service: azure-databox
 ms.topic: troubleshooting
-ms.date: 06/06/2022
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
-# Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices
+# Review copy errors in uploads from Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy devices
 
 This article describes review and follow-up for errors that occasionally prevent files from uploading to the Azure cloud from an Azure Data Box or Azure Data Box Heavy device.
 

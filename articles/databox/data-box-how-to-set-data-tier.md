@@ -1,21 +1,21 @@
 ---
-title: Send data to Hot, Cool, Archive blob tier via Azure Data Box/Azure Data Box Heavy 
-description: Describes how to use Azure Data Box or Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, Cool, or archive
+title: Send data to Hot, Cool, and Archive blob tier via Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy 
+description: Describes how to use Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, cool, or archive
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 05/24/2019
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
-# Use Azure Data Box or Azure Data Box Heavy to send data to appropriate Azure Storage blob tier
+# Use Azure Data Box devices to send data to the appropriate Azure Storage blob tier
 
 Azure Data Box moves large amounts of data to Azure by shipping you a proprietary storage device. You fill up the device with data and return it. The data from Data Box is uploaded to a default tier associated with the storage account. You can then move the data to another storage tier.
 
-This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cool, or Archive blob tier. This article applies to both Azure Data Box and Azure Data Box Heavy.
+This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cool, or Archive blob tier. This article applies to both Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy Heavy.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
