@@ -5,7 +5,7 @@ description: Learn how to configure access to projects for developers by using t
 ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/05/2023
+ms.date: 03/14/2025
 ms.topic: how-to
 ---
 
