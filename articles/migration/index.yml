@@ -241,7 +241,7 @@ sections:
     textColor: light
     background:
       componentType: image
-      src: images/credentials-banner-wide.png
+      src: images/training-banner.png
     links:
       - componentType: link
         url: /training/modules/introduction-to-migrating-aws-to-azure/ 
