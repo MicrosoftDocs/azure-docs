@@ -4,10 +4,10 @@ description: Learn how to automatically patch your Azure Virtual Machines and Sc
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/27/2025
+ms.date: 03/07/2025
 ms.topic: overview
 ---
-# Automatic Guest Patching for Azure Virtual Machines
+# Automatic guest patching for Azure virtual machines
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 

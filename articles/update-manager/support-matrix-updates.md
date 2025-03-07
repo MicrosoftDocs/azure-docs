@@ -20,7 +20,6 @@ This article details the Windows and Linux operating systems supported and syste
 
 ::: zone pivot="azure-vm"
 
-
 ## Azure Marketplace/PIR images
 
 The Azure Marketplace image has the following attributes:
@@ -39,74 +38,74 @@ Following is the list of supported images and no other marketplace images releas
 
 #### [Supported Windows OS images](#tab/mpir-winos)
 
-| Publisher      | Offer           | Plan        | Unsupported image(s)|
-|--------------|----------------|-----------------|---------|
-|aod | win2019azpolicy | win2019azpolicy | |
-|belindaczsro1588885355210 | belvmsrv* | belvmsrv* | |
-|bissantechnology1583581147809 | bissan_secure_windows_server2019 | secureserver2019 | |
-|center-for-internet-security-inc | cis-win-2016-stig | cis-win-2016-stig  |    |
-|center-for-internet-security-inc | cis-win-2019-stig | cis-win-2019-stig  |    |
-|center-for-internet-security-inc | cis-windows-server                    | cis-windows-server2016-l*   ||
-|center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1  | cis-ws2012-r2-l1    ||
-|center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2  | cis-ws2012-r2-l2    ||
-|center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1     | cis-ws2016-l1       ||
-|center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2     | cis-ws2016-l2       ||
-|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l1     | cis-ws2019-l1       ||
-|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l2     | cis-ws2019-l2       ||
-|center-for-internet-security-inc | cis-windows-server-2022-l1            | *                   ||
-|center-for-internet-security-inc | cis-windows-server-2022-l2            | *                   ||
-|center-for-internet-security-inc || cis-windows-server2019-l*  ||
-|center-for-internet-security-inc || cis-windows-server2022-l* ||
-|center-for-internet-security-inc |||cis-windows-server-l*-azure-observability |
-|center-for-internet-security-inc ||cis-windows-server2019-stig-gen1|
-|cloud-infrastructure-services    | ad-dc-2016 | ad-dc-2016  |      |
-|cloud-infrastructure-services    | ad-dc-2019 | ad-dc-2019  |      |
-|cloud-infrastructure-services    | hpc2019-windows-server-2019 | hpc2019-windows-server-2019 | |
-|cloud-infrastructure-services    | servercore-2019 | servercore-2019      |        |
-|cloud-infrastructure-services   | ad-dc-2022 | ad-dc-2022  |  |
-|cloud-infrastructure-services  | sftp-2016 | sftp-2016   |  |
-|cloud-infrastructure-services | hmailserver | hmailserver-email-server-2016|   |
-|cloud-infrastructure-services | rds-farm-2019 | rds-farm-2019 |    |
-|cognosys        | sql-server-2016-sp2-std-win2016-debug-utilities | sql-server-2016-sp2-std-win2016-debug-utilities |    |
-|esri | arcgis-enterprise* | byol* | |
-|esri | pro-byol | pro-byol-* | |
-|filemagellc     | filemage-gateway-vm-win    | filemage-gateway-vm-win-*    |        |
-|microsoft-dsvm | dsvm-win-2019| *| |
-|microsoft-dsvm | dsvm-win-2022| *||
-|microsoft-dsvm | dsvm-windows  | *  | |
-|microsoftazuresiterecovery| process-server | windows-2012-r2-datacenter |   |
-|microsoftbiztalkserver| biztalk-server | * | |
-|microsoftdynamicsax | dynamics | * | |
-|microsoftdynamicsnav | dynamicsnav | 2017 | |
-|microsoftpowerbi | *   | * |  |
-|microsoftsharepoint | microsoftsharepointserver | *| |
-|microsoftsqlserver               | *                                          | *             |    |
-|microsoftvisualstudio | | *-ws2016 | |
-|microsoftvisualstudio | | *-ws2019 | |
-|microsoftvisualstudio | | *-ws2022 | |
-|microsoftvisualstudio | visualstudio* | *-ws2012r2 | |
-|microsoftwindowsserver | | 2016-datacenter-hub | |
-|microsoftwindowsserver | windows-cvm | * | |
-|microsoftwindowsserver | windowsserver | * | |
-|microsoftwindowsserver | windowsserver-gen2preview | * | |
-|microsoftwindowsserver | windowsserver-hub | 2012-r2-datacenter-hub | |
-|microsoftwindowsserver | windowsserverdotnet | * | |
-|microsoftwindowsserver | windowsserversemiannual | * | |
-|microsoftwindowsserver | windowsserverupgrade | * | |
-|microsoftwindowsserverhpcpack | windowsserverhpcpack | * | |
-|ntegralinc1586961136942 | ntg_windows_datacenter_2019 | ntg_windows_server_2019 | |
-|outsystems | os11-vm-baseimage | platformserver | |
-|southrivertech1586314123192 | tn-ent-payg | tnentpayg* | |
-|southrivertech1586314123192 | tn-sftp-payg | tnsftppayg* | |
-|tidalmediainc | windows-server-2022-datacenter | windows-server-2022-datacenter | |
-|veeam | office365backup | veeamoffice365backup | |
-|veeam | veeam-backup-replication | veeam-backup-replication-v* | |
+|Publisher |Offer |Plan |Unsupported image(s) |
+|--|--|--|--|
+| aod | win2019azpolicy | win2019azpolicy |  |
+| belindaczsro1588885355210 | belvmsrv* | belvmsrv* |  |
+| bissantechnology1583581147809 | bissan_secure_windows_server2019 | secureserver2019 |  |
+| center-for-internet-security-inc | cis-win-2016-stig | cis-win-2016-stig |  |
+| center-for-internet-security-inc | cis-win-2019-stig | cis-win-2019-stig |  |
+| center-for-internet-security-inc | cis-windows-server | cis-windows-server2016-l* |  |
+| center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 |  |
+| center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 |  |
+| center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis-ws2016-l1 |  |
+| center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 |  |
+| center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 |  |
+| center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 |  |
+| center-for-internet-security-inc | cis-windows-server-2022-l1 | * |  |
+| center-for-internet-security-inc | cis-windows-server-2022-l2 | * |  |
+| center-for-internet-security-inc |  | cis-windows-server2019-l* |  |
+| center-for-internet-security-inc |  | cis-windows-server2022-l* |  |
+| center-for-internet-security-inc |  |  | cis-windows-server-l*-azure-observability |
+| center-for-internet-security-inc |  | cis-windows-server2019-stig-gen1 |
+| cloud-infrastructure-services | ad-dc-2016 | ad-dc-2016 |  |
+| cloud-infrastructure-services | ad-dc-2019 | ad-dc-2019 |  |
+| cloud-infrastructure-services | hpc2019-windows-server-2019 | hpc2019-windows-server-2019 |  |
+| cloud-infrastructure-services | servercore-2019 | servercore-2019 |  |
+| cloud-infrastructure-services | ad-dc-2022 | ad-dc-2022 |  |
+| cloud-infrastructure-services | sftp-2016 | sftp-2016 |  |
+| cloud-infrastructure-services | hmailserver | hmailserver-email-server-2016 |  |
+| cloud-infrastructure-services | rds-farm-2019 | rds-farm-2019 |  |
+| cognosys | sql-server-2016-sp2-std-win2016-debug-utilities | sql-server-2016-sp2-std-win2016-debug-utilities |  |
+| esri | arcgis-enterprise* | byol* |  |
+| esri | pro-byol | pro-byol-* |  |
+| filemagellc | filemage-gateway-vm-win | filemage-gateway-vm-win-* |  |
+| microsoft-dsvm | dsvm-win-2019 | * |  |
+| microsoft-dsvm | dsvm-win-2022 | * |  |
+| microsoft-dsvm | dsvm-windows | * |  |
+| microsoftazuresiterecovery | process-server | windows-2012-r2-datacenter |  |
+| microsoftbiztalkserver | biztalk-server | * |  |
+| microsoftdynamicsax | dynamics | * |  |
+| microsoftdynamicsnav | dynamicsnav | 2017 |  |
+| microsoftpowerbi | * | * |  |
+| microsoftsharepoint | microsoftsharepointserver | * |  |
+| microsoftsqlserver | * | * |  |
+| microsoftvisualstudio |  | *-ws2016 |  |
+| microsoftvisualstudio |  | *-ws2019 |  |
+| microsoftvisualstudio |  | *-ws2022 |  |
+| microsoftvisualstudio | visualstudio* | *-ws2012r2 |  |
+| microsoftwindowsserver |  | 2016-datacenter-hub |  |
+| microsoftwindowsserver | windows-cvm | * |  |
+| microsoftwindowsserver | windowsserver | * |  |
+| microsoftwindowsserver | windowsserver-gen2preview | * |  |
+| microsoftwindowsserver | windowsserver-hub | 2012-r2-datacenter-hub |  |
+| microsoftwindowsserver | windowsserverdotnet | * |  |
+| microsoftwindowsserver | windowsserversemiannual | * |  |
+| microsoftwindowsserver | windowsserverupgrade | * |  |
+| microsoftwindowsserverhpcpack | windowsserverhpcpack | * |  |
+| ntegralinc1586961136942 | ntg_windows_datacenter_2019 | ntg_windows_server_2019 |  |
+| outsystems | os11-vm-baseimage | platformserver |  |
+| southrivertech1586314123192 | tn-ent-payg | tnentpayg* |  |
+| southrivertech1586314123192 | tn-sftp-payg | tnsftppayg* |  |
+| tidalmediainc | windows-server-2022-datacenter | windows-server-2022-datacenter |  |
+| veeam | office365backup | veeamoffice365backup |  |
+| veeam | veeam-backup-replication | veeam-backup-replication-v* |  |
 
 
 #### [Supported Linux OS images](#tab/mpir-linos)
 
-| Publisher| Offer| Plan| Unsupported image(s) |
-|--------|-----------|--------|---------|
+| Publisher| Offer| Plan| Unsupported image(s)|
+|--|--|--|--|
 |almalinux | | 8_5-hpc* |  |
 |almalinux | | 8_6-hpc-gen2 | |
 |almalinux | | 8_7-hpc-gen* ||
@@ -257,7 +256,6 @@ Following is the list of supported images and no other marketplace images releas
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
-
 ---
 
 ## Custom images
