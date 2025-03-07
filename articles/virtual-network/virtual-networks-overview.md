@@ -103,7 +103,7 @@ There's no charge for using Azure Virtual Network. It's free of cost. Standard c
 
 ## Next steps
 
-- Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md).
+- Learn about [Azure Virtual Network concepts and best practices](concepts-and-best-practices.md)
 
 - Get started with using a virtual network by creating one, deploying a few VMs to it, and communicating between the VMs. To learn how, see the [Use the Azure portal to create a virtual network](quick-create-portal.md) quickstart.
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 05/27/2024
 ms.author: anfdocs
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -56,7 +56,7 @@ The examples in this section use the following domain name and IP address:
 
 5.	Configure the NTP client.  
 
-    RHEL 8 uses chrony by default.
+    RHEL 8 uses `chrony` by default.
 
 6.	Join the Active Directory domain:  
 
@@ -103,7 +103,6 @@ The examples in this section use the following domain name and IP address:
     For example:   
 
     `sudo kinit ad_admin@CONTOSO.COM`
-
 
 ### RHEL 8 configuration if you are using dual protocol
 
@@ -223,7 +222,7 @@ The examples in this section use the following domain name and IP address:
 
     `sudo systemctl start rpc-gssd.service`
 
-5. Ubuntu 18.04 uses chrony by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
+5. Ubuntu 18.04 uses `chrony` by default. Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
 6. Join the Active Directory domain:   
  

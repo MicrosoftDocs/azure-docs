@@ -134,10 +134,6 @@
     href: gateway-settings.md
   - name: Apply Zero Trust principles
     href: /security/zero-trust/azure-virtual-wan?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-  - name: Secured virtual hubs
-    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Pricing explained
     href: pricing-concepts.md
 - name: How-to guides
@@ -222,6 +218,8 @@
             href: point-to-site-azure-vpn-client-certificate-linux.md
           - name: OpenVPN client
             href: point-to-site-vpn-client-certificate-openvpn-linux.md
+          - name: IKEv2 - strongSwan
+            href: point-to-site-vpn-client-certificate-ike-linux.md
         - name: macOS and iOS clients
           items:
           - name: Native VPN client
@@ -231,16 +229,28 @@
           - name: OpenVPN client - iOS
             href: point-to-site-vpn-client-certificate-openvpn-ios.md  
         - name: Generate self-signed certificates
-          href: certificates-point-to-site.md
+          items:
+          - name: .cer and .pfx files
+            items:
+            - name: Azure PowerShell
+              href: certificates-point-to-site.md
+            - name: MakeCert
+              href: certificates-point-to-site-makecert.md
+          - name: .pem files
+            items:
+            - name: Linux - OpenSSL
+              href: ../vpn-gateway/point-to-site-certificates-linux-openssl.md
+            - name: Linux - strongSwan
+              href: ../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md
         - name: Install client certificates
           href: install-client-certificates.md
     - name: Microsoft Entra ID authentication
       items:
       - name: P2S server configuration
         items:
-        - name: P2S - Microsoft-registered VPN client app
+        - name: Configure P2S - Microsoft Entra ID authentication
           href: point-to-site-entra-gateway.md
-        - name: P2S - manually registered VPN client app
+        - name: Configure P2S - manually registered VPN client
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Change VPN client app to Microsoft-registered
           href: point-to-site-entra-gateway-update.md
@@ -318,18 +328,6 @@
         href: create-bgp-peering-hub-portal.md
       - name: Azure PowerShell
         href: create-bgp-peering-hub-powershell.md
-  - name: Security
-    items:
-    - name: Install Azure Firewall in a hub
-      href: howto-firewall.md
-    - name: Inter-hub and branch-to-branch inspection
-      href: how-to-routing-policies.md
-    - name: Software-as-a-service (SaaS)
-      href: how-to-palo-alto-cloud-ngfw.md
-    - name: Configure Private Link connectivity
-      href: howto-private-link.md
-    - name: Manage access to resources - Spoke VNet P2S
-      href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
     - name: Monitor Virtual WAN
@@ -350,6 +348,24 @@
       href: monitor-point-to-site-connections.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
+- name: Security
+  items:
+  - name: Secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+  - name: Install Azure Firewall in a hub
+    href: howto-firewall.md
+  - name: Inter-hub and branch-to-branch inspection
+    href: how-to-routing-policies.md
+  - name: Software-as-a-service (SaaS)
+    href: how-to-palo-alto-cloud-ngfw.md
+  - name: Configure Private Link connectivity
+    href: howto-private-link.md
+  - name: Manage access to resources - Spoke VNet P2S
+    href: manage-secure-access-resources-spoke-p2s.md
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -364,17 +380,20 @@
     href: monitor-virtual-wan-reference.md
 - name: Resources
   items:
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Microsoft Q&A question page
+    href: /answers/tags/34/azure-virtual-wan
+  - name: Networking feedback
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789
+  - name: Subscription and service limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/virtual-wan/toc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
-  - name: Subscription and service limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-  - name: Networking Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: Networking update announcements
-    href: https://go.microsoft.com/fwlink/?linkid=2299811
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
+

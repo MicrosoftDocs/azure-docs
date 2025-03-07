@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 06/27/2024
+ms.date: 03/04/2025
 ms.topic: troubleshooting
 ---
 
@@ -333,12 +333,12 @@ Guest configuration relies on custom metadata added to policy definitions when c
 #### Resolution
 
 Instead of using the portal, duplicate the policy definition using the Policy
-Insights API. The following PowerShell sample provides an option.
+Insights API. The following PowerShell sample can copy the policy definition including the metadata using **Az.Resources 7.3.0** or higher.
 
 ```powershell
 # duplicates the built-in policy which audits Windows machines for pending reboots
-$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
-New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+$def = Get-AzPolicyDefinition -id "/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c"
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameter | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
 ```
 
 ### Scenario: Kubernetes resource gets created during connectivity failure despite deny policy being assigned

@@ -8,7 +8,7 @@ ms.review: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Flatten transformation in mapping data flow

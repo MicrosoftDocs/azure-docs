@@ -73,9 +73,6 @@ To enable HTTPS on a custom domain, follow these steps:
 
 3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png" alt-text="Screenshot of endpoints list.":::
-    The **Endpoint** page appears.
-
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain.png" alt-text="Screenshot of the custom domain page with the option to use my own certificate.":::
@@ -245,8 +242,6 @@ In this section, you learn how to disable HTTPS for your custom domain.
 3. In the list of endpoints, pick the endpoint containing your custom domain.
 
 4. Choose the custom domain for which you want to disable HTTPS.
-
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain-certificate-deployed.png" alt-text="Screenshot of the custom domains list.":::
 
 5. Choose **Off** to disable HTTPS, then select **Apply**.
 

@@ -153,7 +153,7 @@ using Azure.Storage.Blobs.Models;
 using Azure.Storage.Blobs.Specialized;
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add using statements for any CSV or Json parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add using statements for any CSV or JSON parsing libraries that you choose to use. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library that is available on NuGet. Therefore, we'd add these `using` statements to the top of the code file.
 
 ```csharp
 using CsvHelper;
@@ -199,7 +199,7 @@ Include the `storage-blob` module by placing this statement at the top of your c
 const { BlobServiceClient } = require("@azure/storage-blob");
 ```
 
-Query acceleration retrieves CSV and Json formatted data. Therefore, make sure to add statements for any CSV or Json parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
+Query acceleration retrieves CSV and JSON formatted data. Therefore, make sure to add statements for any CSV or JSON parsing modules that you choose to use. The examples that appear in this article parse a CSV file by using the [fast-csv](https://www.npmjs.com/package/fast-csv) module. Therefore, we'd add this statement to the top of the code file.
 
 ```javascript
 const csv = require('@fast-csv/parse');

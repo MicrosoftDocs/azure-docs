@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article discusses how to use Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 01/27/2025
+ms.date: 02/25/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -153,7 +153,7 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI Desktop                         | Yes          |
 | Power BI service (app.powerbi.com)       | Yes          |
 | Power BI mobile applications             | Yes          |
-| Power BI publish to web                  | No           |
+| Power BI publish to web                  | Yes          |
 | Power BI Embedded                        | Yes          |
 | Power BI service embedding (PowerBI.com) | Yes          |
 

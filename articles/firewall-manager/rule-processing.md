@@ -2,11 +2,11 @@
 title: Azure Firewall Manager rule processing logic
 description: Learn about Azure Firewall rule processing logic
 services: firewall-manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 ms.topic: concept-article
 ms.date: 07/29/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall rule processing logic

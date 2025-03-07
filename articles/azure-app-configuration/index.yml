@@ -166,6 +166,8 @@ landingContent:
           url: howto-variant-feature-flags-python.md
       - linkListType: reference
         links:
+        - text: Overview
+          url: feature-management-overview.md
         - text: .NET feature management
           url: feature-management-dotnet-reference.md
         - text: .NET feature management API reference
@@ -176,11 +178,15 @@ landingContent:
           url: feature-management-python-reference.md
         - text: Python feature management API reference
           url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+        - text: JavaScript feature management
+          url: feature-management-javascript-reference.md
 
   - title: Client libraries and tools
     linkLists:
       - linkListType: reference
         links:
+        - text: Overview
+          url: configuration-provider-overview.md
         - text: .NET provider
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Java Spring provider
