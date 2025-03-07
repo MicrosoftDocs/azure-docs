@@ -1,18 +1,20 @@
 ---
-title:  Request a quota limit increase for Azure Deployment Environments resources
-description: Learn how to request a quota increase to extend the number of Deployment Environments resources you can use in your subscription. 
+title: Request a quota limit increase for Deployment Environments resources
+description: Learn how to request a quota increase to extend the number of Azure Deployment Environments resources you can use in your subscription. 
 ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/13/2025
+
+#customer intent: As a platform engineer, I want to increase a quota limit to extend the number of resources that are available.
 ---
 
 # Request a quota limit increase for Azure Deployment Environments resources
 
 This guide explains how to submit a support request to increase the number of resources available to Azure Deployment Environments in your Azure subscription.
 
-If your organization uses Deployment Environments extensively, you might encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+If your organization uses Deployment Environments extensively, you might encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a *capacity increase* or a *quota increase*) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
 To learn more about the general process for creating Azure support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
@@ -30,8 +32,8 @@ Submitting a support request to increase your quota is quicker if you gather the
    If you reach the quota limit for a Deployment Environments resource, you see a notification indicating which quota type is affected during deployment. Take note of it and submit a request for that quota type.
 
    The following resources are limited by subscription: 
-   - Runtime limit per month (mins)
-   - Runtime limit per deployment (mins)
+   - Runtime limit per month (minutes)
+   - Runtime limit per deployment (minutes)
    - Storage limit per environment (GBs)
 
 - **Determine the region for the quota increase**
@@ -44,13 +46,13 @@ Submitting a support request to increase your quota is quicker if you gather the
 
 Follow these steps to request a limit increase:  
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select Support & troubleshooting from the menu bar, and then choose **Help + support**. If this option doesn't appear, enter *Help + support* in the search bar.
+1. Sign in to the [Azure portal](https://portal.azure.com), select Support & troubleshooting from the menu bar, and then select **Help + support**. If this option doesn't appear, enter *Help + support* in the search bar.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Request core limit increase button is highligted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
 1. On the **Help + support** page, select **Create a support request**.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page, highlighting Create a support request." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page. Create a support request is highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
 
 1. On the **New support request** page, enter the following information, and then select **Next**.
 
@@ -62,7 +64,7 @@ Follow these steps to request a limit increase:
 
 1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
-    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page, highlighting Enter details." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
+    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page.Enter details is highlighted." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
 
 1. In **Quota details**, enter the following information, and then select **Next**.
  
@@ -73,7 +75,7 @@ Follow these steps to request a limit increase:
     | **Additional quota** | Enter the additional number of minutes that you need, or GBs per environment for Storage limit increases. |
     | **Additional info** | Enter any extra information about your request. |
 
-    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
+    :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot that shows the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
 
 1. Select **Save and continue**.
 
@@ -109,7 +111,7 @@ To complete the support request, enter the following information:
    |**Additional email for notification**|Enter an email for notifications.|
    |**Phone**|Enter your contact phone number.|
    |**Country/region**|Enter your location.|
-   |**Save contact changes for future support requests.**|Select the check box to save changes.|
+   |**Save contact changes for future support requests.**|Select the checkbox to save changes.|
 
 1. Select **Next**.
 
