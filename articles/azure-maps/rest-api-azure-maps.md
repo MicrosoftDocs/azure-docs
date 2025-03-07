@@ -49,7 +49,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | In the 2024-07-01-preview, the Route Range API `isSimplifiedPolygon` param supports high-definition isochrone polygons. |
+| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
