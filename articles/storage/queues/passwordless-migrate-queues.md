@@ -165,7 +165,7 @@ The Azure Identity client library, for each of the following ecosystems, provide
     credential = DefaultAzureCredential()
 
     queue_client = QueueClient(
-        account_url = "https://%s.blob.core.windows.net" % storage_account_name,
+        account_url = "https://%s.queue.core.windows.net" % storage_account_name,
         queue_name = queue_name,
         credential = credential
     )
