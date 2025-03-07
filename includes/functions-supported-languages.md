@@ -8,7 +8,7 @@ ms.custom:
   - include file
   - ignite-2023
 ---
-Make sure to select your preferred development language at the [top](#top) of the article.
+Make sure to select your preferred development language at the [top of the article](#top).
 ::: zone pivot="programming-language-csharp"
 The following table shows the .NET versions supported by Azure Functions.  
 
@@ -16,13 +16,13 @@ The supported version of .NET depends on both your Functions runtime version and
 
 ### [Isolated worker model](#tab/isolated-process)
 
-Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Develop .NET isolated worker process functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
+Your function code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). To learn more, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
 ### [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
-Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop .NET class library functions](../articles/azure-functions/functions-dotnet-class-library.md).  
+Your function code runs in the same process as the Functions host process. Supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).  
 
 ---
 
@@ -67,7 +67,7 @@ For more information, see [Guide for running C# Azure Functions in the isolated 
 
 Running C# functions in an isolated worker process isn't supported by version 1.x of the Functions runtime. Instead choose the **In-process** tab or choose **v4.x**.
 
---- 
+---
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
