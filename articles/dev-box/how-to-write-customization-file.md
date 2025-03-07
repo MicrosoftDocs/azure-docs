@@ -1,20 +1,20 @@
 ---
 title: Write a Customization File
-description: Learn how to create and test a customization file for your dev box by using Visual Studio Code and Dev Home.
+description: Learn how to create, test, and edit a customization file for your dev box by using Visual Studio Code.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 02/21/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
 
 # Write a customization file for a dev box
 
-In this article, you learn how to create and test a customization file for your dev box by using Visual Studio Code (VS Code) and Dev Home.
+In this article, you learn how to create, test, and edit a customization file for your dev box by using Visual Studio Code (VS Code).
 
 There are two ways to use a customization file in Microsoft Dev Box. *Team customizations* are applied automatically when developers configure them on a pool. *Individual customizations* are applied when a user creates a dev box.
 

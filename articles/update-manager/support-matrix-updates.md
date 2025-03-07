@@ -119,17 +119,17 @@ Following is the list of supported images and no other marketplace images releas
 |aviatrix-systems | aviatrix-bundle-payg | aviatrix-enterprise-bundle-byol | |
 |aviatrix-systems || avx-cplt-byol-02 | | 
 |aviatrix-systems |aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | 
-|aviatrix-systems |aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 </br> aviatrix-companion-gateway-v10u ||
-|aviatrix-systems |aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | | |
-|aviatrix-systems |aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 </br> aviatrix-companion-gateway-v13u ||
-|aviatrix-systems |aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 </br> aviatrix-companion-gateway-v14u||
+|aviatrix-systems |aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 <br> aviatrix-companion-gateway-v10u ||
+|aviatrix-systems |aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | |
+|aviatrix-systems |aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 <br> aviatrix-companion-gateway-v13u ||
+|aviatrix-systems |aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 <br> aviatrix-companion-gateway-v14u||
 |aviatrix-systems |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | 
 |aviatrix-systems |aviatrix-copilot | avx-cplt-byol-01 | | 
 |canonical| *| *||
-|center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l*-gen1 </br> cis-redhat9-l1-gen* ||
+|center-for-internet-security-inc | cis-rhel | cis-redhat7-l1-gen1 <br> cis-redhat8-l*-gen1 <br> cis-redhat9-l1-gen* ||
 |center-for-internet-security-inc | cis-rhel-7-l2 | cis-rhel7-l2 ||
 |center-for-internet-security-inc| cis-oracle-linux-8-l1 | cis-oracle8-l1||
-|center-for-internet-security-inc| cis-oracle| cis-oraclelinux8-l1-gen1 </br> cis-oraclelinux9-l1-gen*||
+|center-for-internet-security-inc| cis-oracle| cis-oraclelinux8-l1-gen1 <br> cis-oraclelinux9-l1-gen*||
 |center-for-internet-security-inc| cis-rhel-7-stig| cis-rhel-7-stig||
 |center-for-internet-security-inc| cis-rhel-7-v2-2-0-l1| cis-rhel7-l1||
 |center-for-internet-security-inc| cis-rhel-8-l*| cis-rhel8-l*||
@@ -137,8 +137,8 @@ Following is the list of supported images and no other marketplace images releas
 |center-for-internet-security-inc| cis-rhel9-l1| cis-rhel9-l1*||
 |center-for-internet-security-inc| cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 |center-for-internet-security-inc| cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
-|center-for-internet-security-inc| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
-|center-for-internet-security-inc| cis-ubuntu| cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen*||
+|center-for-internet-security-inc| cis-ubuntu-linux-2204-l1| cis-ubuntu-linux-2204-l1 <br> cis-ubuntu-linux-2204-l1-gen2||
+|center-for-internet-security-inc| cis-ubuntu| cis-ubuntu1804-l1 <br> cis-ubuntulinux2004-l1-gen1 <br> cis-ubuntulinux2204-l1-gen*||
 |cloud-infrastructure-services | dns-ubuntu-2004 | dns-ubuntu-2004 ||
 |cloud-infrastructure-services | gitlab-ce-ubuntu20-04 | gitlab-ce-ubuntu-20-04 | |
 |cloud-infrastructure-services| load-balancer-nginx | load-balancer-nginx | |
@@ -196,40 +196,40 @@ Following is the list of supported images and no other marketplace images releas
 |openlogic | centos | 7* |8* |
 |openlogic | centos-ci | 7-ci | |
 |openlogic | centos-hpc | |* | 
-|openlogic | centos-lvm | 7-lvm </br> 7-lvm-gen2 </br> 8-lvm | |
+|openlogic | centos-lvm | 7-lvm <br> 7-lvm-gen2 <br> 8-lvm | |
 |openvpn| openvpnas| access_server_byol||
 |oracle| oracle-database-*| 18.*||
 |oracle| oracle-database-19-3| oracle-database-19-0904 |
 |oracle| oracle-database| oracle_db_21||
-|oracle| oracle-linux| 7* </br> ol7* </br> ol8* </br> ol9* </br> ol9-lvm*||
-|oracle| oracle-linux| 8 </br> 8-ci </br> 81 </br> 81-ci </br> 81-gen2 </br> ol82 </br> ol8_2-gen2 </br> ol82-gen2 </br> ol83-lvm </br> ol83-lvm-gen2 </br> ol84-lvm </br> ol84-lvm-gen2||
+|oracle| oracle-linux| 7* <br> ol7* <br> ol8* <br> ol9* <br> ol9-lvm*||
+|oracle| oracle-linux| 8 <br> 8-ci <br> 81 <br> 81-ci <br> 81-gen2 <br> ol82 <br> ol8_2-gen2 <br> ol82-gen2 <br> ol83-lvm <br> ol83-lvm-gen2 <br> ol84-lvm <br> ol84-lvm-gen2||
 |procomputers| almalinux-8-7| almalinux-8-7||
 |procomputers| rhel-8-2| rhel-8-2||
 |procomputers| rhel-8-8-gen2| rhel-8-8-gen2||
 |procomputers| rhel-8-9-gen2| rhel-8-9-gen2||
 |rapid7| nexpose-scan-engine| nexpose-scan-engine||
 |rapid7| rapid7-vm-console| rapid7-vm-console||
-|redhat| rhel-byos| rhel-raw76 </br> rhel-lvm7* </br> rhel-lvm8* </br> rhel-lvm92 </br> rhel-lvm-92-gen2||
-|redhat| rhel-ha| 8* </br> 9_2 </br> 9_2-gen2 |81_gen2|
-|redhat| rhel-raw| 7* </br> 8* </br> 9*||
+|redhat| rhel-byos| rhel-raw76 <br> rhel-lvm7* <br> rhel-lvm8* <br> rhel-lvm92 <br> rhel-lvm-92-gen2||
+|redhat| rhel-ha| 8* <br> 9_2 <br> 9_2-gen2 |81_gen2|
+|redhat| rhel-raw| 7* <br> 8* <br> 9*||
 |redhat| rhel-sap-*| 9_0||
-|redhat| rhel-sap-apps| 7* </br> 8* </br> 9_0 </br> 90sapapps-gen2 </br> 9_2 </br> 92sapapps-gen2||
-|redhat| rhel-sap-ha| 7* </br> 8* </br> 9_2 </br> 92sapha-gen2||
+|redhat| rhel-sap-apps| 7* <br> 8* <br> 9_0 <br> 90sapapps-gen2 <br> 9_2 <br> 92sapapps-gen2||
+|redhat| rhel-sap-ha| 7* <br> 8* <br> 9_2 <br> 92sapha-gen2||
 |redhat| rhel-sap| 7*||
-|redhat| rhel| 7* </br> 8* </br> 9*||
+|redhat| rhel| 7* <br> 8* <br> 9*||
 |suse| opensuse-leap-15-*| gen*||
 |suse| sle-hpc-15-sp4-byos| gen*||
 |suse| sle-hpc-15-sp4| gen*||
 |suse| sle-hpc-15-sp5 | gen*||
 |suse| sle-hpc-15-sp5-byos| gen*||
 |suse| sles-12-sp5-*| gen*||
-|suse| sles-12-sp5| gen1 </br> gen2 ||
+|suse| sles-12-sp5| gen1 <br> gen2 ||
 |suse| sles-15-sp1-basic| gen1||
 |suse| sles-15-sp1-sapcal| gen*||
-|suse| sles-15-sp2-basic| gen1 </br> gen2||
+|suse| sles-15-sp2-basic| gen1 <br> gen2||
 |suse| sles-15-sp2-hpc| gen2||
-|suse| sles-15-sp2| gen1 </br> gen2||
-|suse| sles-15-sp3-basic| gen1 </br> gen2||
+|suse| sles-15-sp2| gen1 <br> gen2||
+|suse| sles-15-sp3-basic| gen1 <br> gen2||
 |suse| sles-15-sp3-sapcal| gen*||
 |suse| sles-15-sp4-basic| gen*||
 |suse| sles-15-sp4-byos| gen*||
@@ -243,14 +243,14 @@ Following is the list of supported images and no other marketplace images releas
 |suse| sles-15-sp5-chost-byos| gen*||
 |suse| sles-15-sp5-hardened-byos| gen*|
 |suse| sles-15-sp5-sapcal| gen*||
-|suse| sles-byos| 12-sp4 </br> 12-sp4-gen2||
+|suse| sles-byos| 12-sp4 <br> 12-sp4-gen2||
 |suse| sles-sap-12-sp5*| gen*||
 |suse| sles-sap-15-*| gen*||
-|suse| sles-sap-byos| 12-sp4 </br> 12-sp4-gen2 </br> gen2-12-sp4 </br> 15||
-|suse| sles-sap| 12-sp3 </br> 12-sp4 </br> 12-sp4-gen2 </br> 15 </br> gen2-15||
+|suse| sles-sap-byos| 12-sp4 <br> 12-sp4-gen2 <br> gen2-12-sp4 <br> 15||
+|suse| sles-sap| 12-sp3 <br> 12-sp4 <br> 12-sp4-gen2 <br> 15 <br> gen2-15||
 |suse| sles-sapcal| 12-sp3||
 |suse| sles-standard| 12-sp4-gen2||
-|suse| sles| 12-sp4-gen2 </br> 12-sp3||
+|suse| sles| 12-sp4-gen2 <br> 12-sp3||
 |talend| talend_re_image| tlnd_re||
 |tenable| tenablecorenessus| tenablecorenessusbyol||
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
