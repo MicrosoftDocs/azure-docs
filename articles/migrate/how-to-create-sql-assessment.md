@@ -31,7 +31,7 @@ In this article, you'll learn how to:
 
 1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sqlcreate an assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sql create an assessment.":::
 
 1. In **Assessments** page, select **Create assessment**
 
@@ -51,7 +51,7 @@ In this article, you'll learn how to:
 
 1. On the **General** settings tab, modify the assessment settings that apply to all Azure target.
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text="Explains how to modify assessment settings.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text=" Screenshot that explains on how to modify assessment settings.":::
 
 Settings | Possible values | Comments
 --- | --- | ---
@@ -67,7 +67,7 @@ Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service 
 
 1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings. 
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Screenshot of sql assessment that shows how to edit defaults.":::
 
 **AKS settings**: The following table details about the AKS settings.
 
@@ -85,7 +85,7 @@ Isolation required    | No <br/> Yes   | The isolated plan enables customers to 
 
 1. Now, review and create the assessment. 
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Illustrate how to review and create assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Screenshot of sql assessment page on how to review and create assessment.":::
 
 ## Next steps
 
