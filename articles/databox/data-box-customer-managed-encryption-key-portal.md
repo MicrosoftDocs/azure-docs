@@ -7,7 +7,6 @@ ms.service: azure-databox
 ms.topic: how-to
 ms.date: 03/06/2025
 ms.author: shaas
-ms.subservice: pod
 ---
 
 # Use customer-managed keys in Azure Key Vault for Azure Data Box
