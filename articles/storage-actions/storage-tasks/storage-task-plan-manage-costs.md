@@ -6,12 +6,16 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ms.service: azure-storage-actions
 ms.topic: how-to
-ms.date: 04/07/2025
+ms.date: 03/07/2025
 ---
 
 # Plan to manage costs for Azure Storage Actions
 
-This article describes how you plan for and manage costs for Azure Storage Actions. Before you deploy the service, you can use the Azure pricing calculator to estimate costs for Azure Storage Actions. After you've started using Azure Storage Actions resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Storage Actions are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage Actions, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
+This article describes how you plan for and manage costs for Azure Storage Actions.
+
+Before you deploy the service, you can use the Azure pricing calculator to estimate costs for Azure Storage Actions. After you've started using Azure Storage Actions resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. 
+
+Costs for Azure Storage Actions are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage Actions, you're billed for all Azure services and resources used in your Azure subscription, including the third-party services.
 
 ## Prerequisites
 
@@ -21,7 +25,7 @@ Cost analysis in Cost Management supports most Azure account types, but not all 
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you add Azure Storage Actions.
 
-<Image goes here>
+Image goes here
 
 ## Understand the full billing model for Azure Storage Actions
 
@@ -42,15 +46,15 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 When you create resources for Azure Storage Actions, resources for other Azure services are also created. They include:
 
-- <OtherAzureService1>
-- <OtherAzureService2>
+- OtherAzureService1
+- OtherAzureService2
 
 ### Costs might accrue after resource deletion
 
 After you delete Azure Storage Actions resources, the following resources might continue to exist. They continue to accrue costs until you delete them.
 
-- <OtherServiceResource1>
-- <OtherServiceResource2>
+- OtherServiceResource1
+- OtherServiceResource2
 
 ### Using Azure Prepayment with Azure Storage Actions
 
@@ -70,13 +74,13 @@ To view Azure Storage Actions costs in cost analysis:
 
 Actual monthly costs are shown when you initially open cost analysis. Here's an example showing all monthly usage costs.
 
-<image goes here>
+image goes here
 
 To narrow costs for a single service, like Azure Storage Actions, select **Add filter** and then select **Service name**. Then, select **Azure Storage Actions**.
 
 Here's an example showing costs for just Azure Storage Actions.
 
-<image goes here>
+image goes here
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and Azure Storage Actions costs by resource group are also shown. From here, you can explore costs on your own.
 
@@ -101,7 +105,3 @@ Put something here.
 - Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](https://learn.microsoft.com/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-
-<!-- Insert links to other articles that might help users save and manage costs for you service here.
-
-Create a table of contents entry for the article in the How-to guides section where appropriate. -->
