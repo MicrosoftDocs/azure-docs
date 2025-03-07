@@ -6,19 +6,21 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/06/2025
 ms.custom: UpdateFrequency2
+
+#customer intent: As a lab administrator, I want to create autoshutdown schedules and autoshutdown policies for my lab, and learn how to use webhooks to implement automatic autoshutdown notifications.
 ---
 
 # Configure autoshutdown for lab VMs in DevTest Labs
 
-Autoshutdown in Azure DevTest Labs helps minimize waste by automatically shutting down a lab's VMs at a specific time of day or night. As a lab owner, you can configure an autoshutdown schedule for all your lab VMs. A lab owner can also set a central autoshutdown policy to control whether lab users can schedule autoshutdown for their own VMs. If allowed by policy, lab virtual machine (VM) owners can configure autoshutdown schedules for their own VMs.
+Autoshutdown in Azure DevTest Labs helps minimize waste by automatically shutting down a lab's VMs at a specific time of day or night. As a lab owner, you can configure an autoshutdown schedule for all your lab VMs. Lab owners can also set a central autoshutdown policy to control whether lab users can configure autoshutdown schedules for their own VMs.
 
-This article explains how to set autoshutdown schedules and policies for labs and lab VMs in the Azure portal. The article also describes how to configure autoshutdown notifications, and how to create a logic app in Azure Logic Apps that automatically sends shutdown notifications.
+This article explains how to set autoshutdown schedules and policies for labs and lab VMs in the Azure portal. The article also describes how to configure autoshutdown notifications, and how to create a logic app in Azure Logic Apps that automatically sends autoshutdown notifications.
 
 ## Prerequisites
 
 - To set autoshutdown schedules or autoshutdown policy for a lab, at least **Contributor**-level access to the lab. For more information, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
-- To set autoshutdown schedules for an individual lab VM if allowed by policy, at least **Contributor**-level permissions on the VM.
-- To create the Logic Apps app to send shutdown notifications, an Outlook 365 email client, and at least **Contributor**-level permissions in the Azure subscription that contains the DevTest Labs instance.
+- To set autoshutdown schedules for an individual lab virtual machine (VM) if allowed by policy, at least **Contributor**-level permissions on the VM.
+- To create the Logic Apps app to send shutdown notifications, an Outlook 365 email client and at least **Contributor**-level permissions in the Azure subscription that contains the DevTest Labs instance.
 
 <a name="configure-lab-auto-shutdown-schedule"></a>
 ## Configure lab autoshutdown schedule
@@ -55,11 +57,11 @@ To set autoshutdown policy for your lab:
 1. On the **Configuration and policies** page, select **Auto shutdown policy** from the **Schedules** section of the left menu.
 1. On the **Auto shutdown policy** page, select one of the following options:
 
-   - **User sets a schedule and can opt out**: Lab users can override or opt out of the lab schedule. This option grants VM owners full control over their own VMs' autoshutdown behavior.
+   - **User sets a schedule and can opt out**: Lab users can override or opt out of the lab autoshutdown schedule. This option grants VM owners full control over their own VMs' autoshutdown behavior.
 
-   - **User sets a schedule and cannot opt out**: Lab users can change the shutdown schedule for their own VMs, but they can't opt out of the lab autoshutdown policy. VM owners can update shutdown times and set up shutdown notifications for their own VMs. This option ensures that every lab VM is under an autoshutdown schedule.
+   - **User sets a schedule and cannot opt out**: Lab users can change the shutdown timing for their own VMs, but they can't opt out of the lab autoshutdown policy. VM owners can update their own VMs' shutdown times and shutdown notifications. This option ensures that every lab VM is under some autoshutdown schedule.
 
-   - **User has no control over the schedule set by lab administrator**: Lab users can't alter or opt out of the lab autoshutdown schedule. They can still set up shutdown notifications for their own VMs. This option gives the lab administrator complete control of the schedule for all lab VMs.
+   - **User has no control over the schedule set by lab administrator**: Lab users can't alter or opt out of the lab autoshutdown schedule. They can still set up shutdown notifications for their own VMs. This option gives the lab administrator complete control over the autoshutdown schedule for all lab VMs.
 
 1. Select **Save**.
 
@@ -130,8 +132,8 @@ Follow these steps to create a logic app in Azure.
    - **Resource group**: Select an existing resource group or create a new one.
    - **Logic app name**: Enter a descriptive name for your logic app.
    - **Region**: Select a nearby Azure region or the one that contains your lab.
-   - **Windows Plan**: Keep the default App Service Plan (ASP).
-   - **Pricing plan**: Keep the default **Workflow Standard WS1**.
+   - **Windows Plan**: Keep the provided default App Service Plan (ASP).
+   - **Pricing plan**: Keep the provided default **Workflow Standard WS1** pricing plan.
    - **Zone redundancy**: Keep set to **Disabled**.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/new-logic-app-page.png" alt-text="Screenshot showing the Create Logic App page."::: 
@@ -150,9 +152,11 @@ Follow these steps to create a logic app in Azure.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/select-http-request-response-option.png" alt-text="Screenshot showing the HTTP Request Response template."::: 
 
-1. On the **Request-Response: Receive and respond to messages over HTTP or HTTPS** page, select **Use this template**.
-1. On the **Create a new workflow from template** screen, provide a name for the workflow.
-1. Select **Stateless** under **State type**, and then select **Next**.
+1. On the **Request-Response: Receive and respond to messages over HTTP or HTTPS** screen, select **Use this template**.
+1. On the **Create a new workflow from template** screen:
+   - Provide a name for the workflow.
+   - Select **Stateless** under **State type**.
+1. Select **Next**.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/create-from-template.png" alt-text="Screenshot showing the Create from template screen."::: 
 
@@ -243,7 +247,7 @@ Follow these steps to create a logic app in Azure.
 
 1. In the **Send an email (V2)** form, fill in the **To**, **Subject**, and **Body** fields.
 
-   You can select the **Add dynamic content** icon next to the fields to automatically populate the notification with values that the app and connectors use. For example, select **owner** for **To**, select **vmName** and **labName** for **Subject**, and add **skipUrl** and **delayUrl** to the message body.
+   You can select the **Add dynamic content** icon next to the fields to automatically populate the notification with values from fields that the app and connectors use. For example, select **owner** for **To**, add **vmName** and **labName** to **Subject**, and add **skipUrl** and **delayUrl** to the message **Body**.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/email-options.png" alt-text="Screenshot showing shows an example notification email."::: 
 
