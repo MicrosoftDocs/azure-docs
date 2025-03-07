@@ -16,38 +16,38 @@ This article explains how to create SQL assessments for migration to Azure, targ
 
 In this article, you'll learn how to:
 
-1. Set up your Azure Migrate environment to assess web applications.
-1. Select a set of related applications discovered using Azure Migrate appliance.
-1. Provide assessment configuration, including preferred Azure targets, target regions, and Azure reserved instances.
-1. Create a web assessment with a recommended modernization path.
+* Set up your Azure Migrate environment to assess web applications.
+* Select a set of related applications discovered using Azure Migrate appliance.
+* Provide assessment configuration, including preferred Azure targets, target regions, and Azure reserved instances.
+* Create a web assessment with a recommended modernization path.
 
 ## Prerequisites
 
-1. Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md) [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
-1. Check the appliance requirement[Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
-1. Follow the [steps][Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
+* Deploy and configure the Azure Migrate appliance in your [VMware](vmware/tutorial-discover-vmware.md) [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
+* Check the appliance requirement [Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
+* Follow the steps [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
 
 ## Create a workload assessment for web apps
 
 1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text="Illustrates the assessment page to create the assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sqlcreate an assessment.":::
 
 1. In **Assessments** page, select **Create assessment**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Illustrates to how to create the assessment.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/create-assessment.png" alt-text="Screenshot of assessment page on how to create an assessment.":::
 
 1. Provide a suitable name for the assessment, then select **Add Workloads**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Illustrates how to add the workloads.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Screenshot of sql assessment page on how to add the workloads.":::
 
 1. Use the appropriate filters, select the web apps and then select **Add**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Illustrates how to select web apps and add.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select web apps and add.":::
 
 1. Review the selected workloads and then select **Next**.
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Explains how to review the selected workloads.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/review-selected-workloads.png" alt-text="Screenshot of sql assessment page on how to review the selected workloads.":::
 
 1. On the **General** settings tab, modify the assessment settings that apply to all Azure target.
 
@@ -56,20 +56,20 @@ In this article, you'll learn how to:
 Settings | Possible values | Comments
 --- | --- | ---
 Default target location  | All locations supported by Azure targets  | Used to generate regional cost for Azure targets. 
-Default Environment  | Production <br/> Dev/Test . | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. 
+Default Environment  | Production <br/> Dev/Test | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. 
 Currency  | All common currencies such as USD, INR, GBP, Euro  | We generate the cost in the currency selected here.
-Program/offer  |Pay-as-you-go <br/.> Enterprise Agreement  | Allows you to toggle between pay-as-you-go and Enterprise Agreement offers. 
+Program/offer  |Pay-as-you-go <br/> Enterprise Agreement  | Allows you to toggle between pay-as-you-go and Enterprise Agreement offers. 
 Default savings option  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/> None | Select a savings option if you've opted for Reserved Instances or Savings Plan.
 Discount Percentage  | Numeric decimal value  | Use this option to factor in any custom discount agreements with Microsoft. It's disabled if Savings options are selected. 
 EA subscription  | Subscription ID  | Select the subscription ID for which you have an Enterprise Agreement. 
 Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
-Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. \
+Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. 
 
 1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings. 
 
     :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
 
-**AKS settings**
+AKS settings
 
 Settings | Possible values | Comments
 --- | --- | ---
@@ -77,7 +77,7 @@ Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> Hi
 AKS pricing tier   | Standard  | Pricing tier for AKS 
 Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
 
-**App Service Settings** 
+App Service Settings
 
 Settings | Possible values | Comments
 --- | --- | ---

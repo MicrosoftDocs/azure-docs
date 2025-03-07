@@ -14,14 +14,15 @@ ms.custom: engagement-fy23
 
 In this article, you'll explore the concepts of an SQL assessment, its characteristics, and how to review an SQL assessment for different migration targets. The SQL Assessment provides a comprehensive report that allows you to compare the migration of your on-premises workloads to available SQL targets. The report outlines various migration strategies for SQL deployments. 
 
-**Recommended Deployment**
+**Recommended Deployment**:
 
-The recommended deployment involves selecting an Azure SQL deployment type that is highly compatible with your SQL instance. This recommendation is based on your migration preferences and cost considerations. If your instance is suitable for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, the recommended target deployment type will minimizes migration readiness issues while optimizing cost. 
+The recommended deployment involves selecting an Azure SQL deployment type that is highly compatible with your SQL instance. This recommendation is based on your migration preferences and cost considerations. If your instance is suitable for SQL Server on Azure VM, Azure SQL Managed Instance, and Azure SQL Database, the recommended target deployment type will minimize migration readiness issues while optimizing cost. 
 
 > [!NOTE]
 > Migrating instances to SQL Server on Azure VM is the preferred approach for migrating SQL Server instances. When SQL Server credentials are unavailable, the Azure SQL assessment provides right-sized lift-and-shift, recommendations, specifically suggesting a move to SQL Server on Azure VM.
 
-**Migrate all instances to Azure SQL MI**: 
+**Migrate all instances to Azure SQL Managed Instance**: 
+
 This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There's no storage cost for the first 32-GB instance per month, with another storage costs applied in 32-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
 
 This strategy provides readiness and cost estimates for migrating all SQL Server instances to Azure SQL Managed Instance. There's no storage cost for the first 32-GB instance per month, with other storage costs applied in 32-GB increments.
@@ -36,17 +37,17 @@ This strategy offers readiness and cost estimates for migrating all SQL Server i
 
 This strategy outlines how to migrate individual databases to Azure SQL Database, including readiness, and cost estimates. A minimum of 5-GB storage cost is added in the cost with another storage costs applied in 1-GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql-database/single/)
 
-## Azure readiness for SQL Workloads
+## Azure readiness for SQL workloads
 
 Azure SQL readiness for SQL instances and databases is based on a feature compatibility check with SQL Server on Azure VM, Azure SQL Database, and Azure SQL Managed Instance. The assessment evaluates the features currently used by the source SQL Server workloads such as SQL Agent jobs, linked servers, and the user database schemas (including tables, views, triggers, stored procedures, etc.) to identify potential compatibility issues.
 
-**Azure Readiness** | **Probable Compatibility Issues** | **Details** | **Recommended Remediation Guidance**
+**Azure readiness** | **Probable compatibility issues** | **Details** | **Recommended remediation guidance**
     --- | --- | --- | --- 
     Ready datastore | No compatibility issues found | Instance is ready for the target deployment type (SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance) | N/A
     Ready  | Noncritical compatibility issues | Deprecated or unsupported features that don't block the migration to a specific target deployment type | Recommended remediation guidance provided
     Ready with conditions | Compatibility issues that might block migration to a specific target| | Recommended remediation guidance provided
-    Ready with conditions | In the recommended deployment strategy, for both Azure SQL MI, and SQL Server on Azure VM readiness reports, if even one database within a SQL instance isn't ready for a particular target deployment type, the entire instance is marked as Ready with conditions for that deployment type| Instance is marked as Ready with conditions for that deployment type | Recommended remediation guidance provided
-    Not ready  | No suitable configuration found| The assessment couldn't find a SQL Server on Azure VM, Azure SQL MI, Azure SQL DB configuration that meets the desired configuration and performance characteristics. For example, if the assessment can't find a disk for the required size, it marks the instance as unsuitable | Review the recommendation to make the instance/server ready for the desired target deployment type
+    Ready with conditions | In the recommended deployment strategy, for both Azure SQL Managed Instance, and SQL Server on Azure VM readiness reports, if even one database within a SQL instance isn't ready for a particular target deployment type, the entire instance is marked as Ready with conditions for that deployment type| Instance is marked as Ready with conditions for that deployment type | Recommended remediation guidance provided
+    Not ready  | No suitable configuration found| The assessment couldn't find a SQL Server on Azure VM, Azure SQL Managed Instance, Azure SQL DB configuration that meets the desired configuration and performance characteristics. For example, if the assessment can't find a disk for the required size, it marks the instance as unsuitable | Review the recommendation to make the instance/server ready for the desired target deployment type
     Unknown| Discovery in progress or discovery issues| The assessment couldn't compute the readiness for that SQL instance| N/A
     
 > [!NOTE]
@@ -69,7 +70,7 @@ Sizing criteria | Details| Data
 As on-premises   | Recommendations based on on-premises SQL Server configuration alone.  | The Azure SQL configuration is based on the on-premises SQL Server configuration, which includes allocated cores, total memory, and database sizes.
 Performance-based   | The Azure SQL configuration is based on performance data of SQL instances and databases including CPU utilization, Memory usage, IOPS (Data and Log files), throughput, and latency of IO operations for both data and log files.
 
-## Rightsizing for Azure SQL MI and Azure SQL DB 
+## Rightsizing for Azure SQL Managed Instance and Azure SQL Database 
 
 **As on-premises sizing calculation**
 
@@ -105,7 +106,7 @@ The assessment computes and identifies a service tier and Azure SQL configuratio
 The assessment aggregates all the configuration and performance data to identify the best match across various Azure SQL service tiers and configurations, selecting a setup that meets or exceeds the SQL instance's performance requirements while optimizing cost.
 
 
-## Rightsizing for Instances to SQL Server on Azure VM configuration
+## Rightsizing for instances to SQL Server on Azure VM configuration
 
 **As on-premises sizing calculation**
 
@@ -118,7 +119,7 @@ For storage sizing, the assessment maps each disk on the on-premises instance to
 * The required disk size is the sum of the SQL Data and SQL Log drives.
 * The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temporary drives, it suggests storing the files on the local drive.
 * If the assessment can't find a disk that meets the required size, it marks the instance as unsuitable for migrating to SQL Server on Azure VM.
-* If the environment type is Production, the assessment attempts to map each disk to a premium disk. For non production environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+* If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
 **Compute sizing**
 
@@ -143,9 +144,9 @@ For storage sizing, the assessment maps each disk on the on-premises instance to
 * The IO/s and throughput requirements are determined by adding read and write IO/s and read and write throughput. Candidate disks are then identified based on their ability to meet the required throughput and are mapped to required size. 
 * The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temp drives, it suggests storing the files in the local drive.
 * If the source is a SQL Server Always On Failover Cluster Instance, a shared disk configuration is selected.
-*  If the environment type is Production, the assessment attempts to map each disk to a premium disk. For non production environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+*  If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
-If the environment type is Production, the assessment attempts to map each disk to a premium disk. For non production environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
 **Compute sizing**
 
@@ -155,9 +156,9 @@ After identifying storage disks, the assessment considers CPU and memory require
 * If multiple eligible Azure VM sizes are available, the one with the lowest cost is recommended.
 * If the source is a SQL Server Always On Failover Cluster Instance, the compute size is used for a second Azure VM to meet the need for two nodes.
 
-## Rightsizing for Lift and Shift Migration to Azure VM
+## Rightsizing for lift and shift migration to Azure VM
 
-For lift and shift migration, refer to the compute and storage sizing [here](add link)
+For lift and shift migration, refer to the compute and storage sizing [here](/en-us/azure/migrate/concepts-assessment-calculation#calculate-sizing-as-is-on-premises)
 
 ### Recommendation details
 
