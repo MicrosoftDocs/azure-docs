@@ -12,7 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 # TLS/SSL certificates for Azure App Service
 
 > [!NOTE]
-> The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
+> The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service, Azure Functions, or Logic Apps (Standard).  Applications on either App Service, Azure Functions, or Logic Apps (Standard) configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
 
 Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps. 
 
