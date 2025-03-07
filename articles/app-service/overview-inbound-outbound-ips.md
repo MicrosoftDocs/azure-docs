@@ -90,7 +90,9 @@ You can control the IP address of outbound traffic from your app by using virtua
 
 IP Addresses appear in multiple places in Azure portal. The properties page will show you the raw output from `inboundIpAddress`, `possibleInboundIpAddresses`, `outboundIpAddresses` and `possibleOutboundIpAddresses`. The overview page will also show the same values, but not include the Possible Inbound Ip Addresses.
 
-Networking overview shows the combination of **Inbound IP Address** and any private endpoint IP addresses. If public network access is disabled, the public IP address will not be shown. The **Outbound addresses** field will have a combined list of (Possible) Outbound IP Addresses and if the app is virtual network integrated and is routing all traffic, and the subnet has a NAT gateway attached, the field will also include the IP addresses from the NAT gateway.
+Networking overview shows the combination of **Inbound IP Address** and any private endpoint IP addresses in the **Inbound addresses** field. If public network access is disabled, the public IP address will not be shown. The **Outbound addresses** field will have a combined list of **(Possible) Outbound IP Addresses**, and if the app is virtual network integrated and is routing all traffic, and the subnet has a NAT gateway attached, the field will also include the IP addresses from the NAT gateway.
+
+:::image type="content" source="./media/overview-inbound-outbound-ips/networking-overview.png" alt-text="Screenshot that shows how IP addresses are shown in the networking overview page.":::
 
 ## Service tag
 
