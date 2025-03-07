@@ -35,28 +35,28 @@ sections:
       url: /azure/dms/tutorial-postgresql-azure-postgresql-online-portal
       icon: 
         componentType: image
-        src: images/chevron-icon.png
+        src: images/postgresql-icon.svg
     - componentType: icon-card
       title: AKS for EKS Professionals
       summary: Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
       url: /azure/architecture/aws-professional/eks-to-aks/
       icon: 
         componentType: image
-        src: images/chevron-icon.png
+        src: images/azure-kubernetes-service.svg
     - componentType: icon-card
       title: Azure for AWS Professionals
       summary: Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration. 
       url: /azure/architecture/aws-professional/
       icon: 
         componentType: image
-        src: images/chevron-icon.png
+        src: images/azure-database.svg
     - componentType: icon-card
       title: Azure for GCP Professionals
       summary: Understand Azure's account organization and resource management practices for Google Cloud experts.
       url: /azure/architecture/gcp-professional/
       icon: 
         componentType: image
-        src: images/chevron-icon.png
+        src: images/azure.svg
 
 # Learning journey
 #  - componentType: grid
@@ -113,11 +113,11 @@ sections:
     content: |
       ## Planning your migration
 
-      Explore the three critical phases of migrating to Microsoft Azure: Readiness and Foundation, Design and Govern, and Manage and Optimize. Each phase is designed to guide you through the necessary steps, best practices, and technical resources to ensure a successful migration journey. Select a phase to access detailed insights and actionable guidance tailored to your migration needs.
+      Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs.
       
-      #### [Foundation](#tab/foundation)
+      #### [Adopt](#tab/adopt)
       
-      ### Foundation
+      ### Adopt
 
       :::row:::
          :::column:::
@@ -206,12 +206,12 @@ sections:
 
       :::row:::
          :::column:::
-         **[Migrating from AWS to Azure](/training/modules/introduction-to-migrating-aws-to-azure/)**
+         **[Introduction to migrating from AWS to Azure](/training/modules/introduction-to-migrating-aws-to-azure/)**
 
          Comparing AWS and Azure services, covering terminology, IAM, governance, IaaS, databases, messaging, and Kubernetes, with resources for further information.
          :::column-end:::
          :::column:::
-         **[Migrating from GCP to Azure](/training/modules/introduction-to-migrating-gcp-to-azure/)**
+         **[Introduction to migrating from GCP to Azure](/training/modules/introduction-to-migrating-gcp-to-azure/)**
 
          Mapping Google Cloud services to their equivalents in Azure, covering terminology, IAM, governance, IaaS options, databases, messaging, and Kubernetes, along with resources for further information.
          :::column-end:::
