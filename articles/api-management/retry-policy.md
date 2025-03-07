@@ -55,7 +55,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 ## Elements
 
-The `retry` policy may contain any other policies as its child elements.
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
 
 ## Usage
 
