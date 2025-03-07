@@ -17,8 +17,6 @@
 | Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
 | ExpressRoute circuit connections per hub | 8 |
 | VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
-| Aggregate throughput per Virtual WAN hub router | 50 Gbps for VNet to VNet transit |
+| Aggregate throughput per Virtual WAN hub for VNet to VNet transit | Without routing intent: 50 Gbps for hub router<br>[With routing intent](/azure/virtual-wan/how-to-routing-policies#considerations): Firewall solution limit<br> |
 | VM workload across all VNets connected to a single Virtual WAN hub | 2000 (If you want to raise the limit or quota above the default limit, see [hub settings](../articles/virtual-wan/hub-settings.md)). |
 | Total number of routes the hub can accept from its connected resources (virtual networks, branches, other virtual hubs, etc.) | 10,000 |
-
-
