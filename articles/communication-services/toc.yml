@@ -480,6 +480,9 @@ items:
         href: tutorials/add-video-augmented-reality-tutorial.md
     - name: Set video constraints in a calling app
       href: quickstarts/voice-video-calling/get-started-video-constraints.md
+    - name: Optimize video placement on your web app
+      href: quickstarts/voice-video-calling/optimizing-video-placement.md
+      displayName: Optimal Video Count, OVC, dual pin
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
       displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
