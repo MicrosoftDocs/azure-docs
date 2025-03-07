@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 03/04/2025
+ms.date: 03/06/2025
 ms.author: anfdocs
 ---
 
@@ -15,6 +15,10 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 ## March 2025
+
+* [Storage with cool access enhancement:](manage-cool-access.md) snapshot-only tiering policy
+
+    Azure NetApp Files storage with cool access now supports a snapshots-only policy. With this policy enabled, only snapshots are moved to the cool tier. 
 
 * [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
 
