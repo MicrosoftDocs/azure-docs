@@ -29,9 +29,9 @@
         href: ./placeholder.md
       - name: Replatform from AWS Lambda to Azure Functions
         href: ./placeholder.md
-      - name: Replatform from Elastic Kubernetes Service (EKS)
+      - name: Elastic Kubernetes Service (EKS)
         items:
-        - name: Migrate EKS to Azure Kubernetes Service (AKS)
+        - name: Migrate to Azure Kubernetes Service (AKS)
           href: ./placeholder.md
         - name: Migrate a public website from EKS to AKS
           href: ./placeholder.md
@@ -41,12 +41,22 @@
         href: ./placeholder.md
     - name: Databases
       items:
-      - name: Replatform from Amazon RDS for PostgreSQL to Azure Database for PostgreSQL
-        href: ./placeholder.md
-      - name: Replatform from Aurora MySQL to Azure Database for MySQL
-        href: ./placeholder.md
-      - name: Replatform from Amazon RDS for MariaDB to Azure Database for MariaDB
-        href: ./placeholder.md
+      - name: Amazon RDS for PostgreSQL
+        items:
+        - name: Migrate to Azure Database for PostgreSQL (offline)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
+        - name: Migrate to Azure Database for PostgreSQL (online)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
+      - name: Amazon Aurora PostgreSQL
+        items:
+        - name: Migrate to Azure Database for PostgreSQL (offline)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
+        - name: Migrate to Azure Database for PostgreSQL (online)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
+      - name: Aurora MySQL
+        items:
+        - name: Replatform from Aurora MySQL to Azure Database for MySQL
+          href: ./placeholder.md
     - name: Identity and access management (IAM)
       items:
       - name: IAM migration guide
@@ -97,10 +107,12 @@
         href: ./placeholder.md
     - name: Databases
       items:
-      - name: Database migration guide
-        href: ./placeholder.md
-      - name: Replatform from Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL
-        href: ./placeholder.md
+      - name: Google Cloud SQL for PostgreSQL
+        items:
+        - name: Migrate to Azure Database for PostgreSQL (offline)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
+        - name: Migrate to Azure Database for PostgreSQL (online)
+          href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
     - name: Networking
       items:
       - name: Networking migration guide
