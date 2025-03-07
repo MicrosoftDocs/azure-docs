@@ -31,10 +31,14 @@ For an in-depth comparision between the supported storage providers for Durable 
 ## Architecture 
 
 The Durable Task Scheduler (DTS) is designed from the ground up to be the fastest and most efficient backend for Durable Functions. DTS has its own dedicated compute and memory resources optimized for:
-- Dispatching orchestrator and activity work items
-- Storing history at scale with minimal latency
 
-[TODO - @cgillum @sebastianburckhardt to provide an overview of DTS architecture and why it's fast]
+- Dispatching orchestrator, activity, and entity work items
+- Storing and querying history at scale with minimal latency
+- Providing a rich monitoring experience through the DTS dashboard
+
+:::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Diagram of the Durable Task Scheduler architecture.":::
+
+Unlike other storage providers, DTS is not a generic storage system. Rather, it's a purpose-built backend-as-a-service that is optimized for the specific needs of the Durable Task Framework. This allows DTS to do the heavy lifting of work item dispatching, partition management, and other tasks that are typically handled internally by the "bring your own storage" backends running in the app process (e.g., the Azure Functions host). As a result, durable apps using DTS run with significantly less overhead.
 
 ## Feature highlight
 
