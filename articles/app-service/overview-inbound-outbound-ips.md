@@ -100,7 +100,7 @@ By using the `AppService` service tag, you can define network access for the Azu
 
 The `AppService` service tag includes only the inbound IP addresses of multitenant apps. Inbound IP addresses from apps deployed in isolated (App Service Environment) and apps using [IP-based TLS bindings](./configure-ssl-bindings.md) aren't included. Further all outbound IP addresses used in both multitenant and isolated aren't included in the tag.
 
-The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead. As the tag only includes inbound IP address, the tag can't be used in access restrictions to limit access to an app from other apps in App Service.
+The tag can be used to allow outbound traffic in a Network security group (NSG) to apps. If the app is using IP-based TLS or the app is deployed in isolated mode, you must use the dedicated IP address instead. As the tag only includes inbound IP addresses, the tag can't be used in access restrictions to limit access to an app from other apps in App Service.
 
 > [!NOTE]
 > Service tag helps you define network access, but it shouldn't be considered as a replacement for proper network security measures as it doesn't provide granular control over individual IP addresses.
