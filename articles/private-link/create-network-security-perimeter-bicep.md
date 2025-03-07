@@ -1,6 +1,7 @@
 ---
 title: Quickstart - Create a network security perimeter - Bicep
-description: Learn how to create a network security perimeter for an Azure resource using the Bicep. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
+titleSuffix: Azure Private Link
+description: Learn how to create a network security perimeter for an Azure resource using Bicep. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
@@ -12,7 +13,7 @@ ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 
 # Quickstart - Create a network security perimeter - Bicep
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Bicep. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using Bicep. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 

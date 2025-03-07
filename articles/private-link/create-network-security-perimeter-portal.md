@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure portal
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using the Azure portal. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
