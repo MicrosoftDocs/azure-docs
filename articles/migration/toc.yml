@@ -53,9 +53,9 @@
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
         - name: Migrate to Azure Database for PostgreSQL (online)
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
-      - name: Aurora MySQL
+      - name: Amazon Aurora MySQL
         items:
-        - name: Replatform from Aurora MySQL to Azure Database for MySQL
+        - name: Migrate to Azure Database for MySQL
           href: ./placeholder.md
     - name: Identity and access management (IAM)
       items:
