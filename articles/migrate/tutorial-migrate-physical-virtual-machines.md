@@ -285,7 +285,7 @@ Use the following steps to register the appliance:
 1. Enter your Microsoft Azure credentials to complete the registration. 
 1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows to enter the microsoft code":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows the microsoft code":::
 
 > [!Note]
 > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
@@ -293,14 +293,14 @@ Use the following steps to register the appliance:
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
 1. Select **Continue** to proceed.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Shows to enter the microsoft code":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Illustrates how to register with recovery services":::
 
 1. After successful registration, proceed to configure **vCenter** details.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Shows to enter the microsoft code":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrate how to provide vcenter information":::
 
 1. Select **Add vCenter Server** to input the vCenter information.
-1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](vmware-azure-tutorial-prepare-on-premises?branch=pr-en-us-295329#prepare-an-account-for-automatic-discovery). The user account details are encrypted and stored locally on the machine.
+1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/en-us/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises?branch=main). The user account details are encrypted and stored locally on the machine.
 
 > [!Note]
 > If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
