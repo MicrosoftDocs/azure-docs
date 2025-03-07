@@ -1,16 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure reliability documentation
-summary: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+summary: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
 
 metadata:
   title: Azure reliability documentation
-  description: Azure reliability documentation for availability zones, cross-regional disaster recovery, availability of services for sovereign clouds, regions, and category.
+  description: Azure reliability documentation, which includes guidance for reliability in Azure services, Azure platform reliability feature support including availability zones and multi-region support, and fundamental cloud reliability concepts.
+  keywords: Azure reliability, business continuity, high availability, disaster recovery, redundancy, replication, backup, failover, failback, shared responsibility, availability zones, paired regions, nonpaired regions, multi-region support.
   ms.topic: landing-page
   ms.author: anaharris
   author: anaharris-ms
   ms.service: azure
-  ms.date: 01/28/2025
+  ms.date: 02/27/2025
   ms.subservice: azure-reliability
 
 landingContent: 

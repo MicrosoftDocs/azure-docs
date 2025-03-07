@@ -1,10 +1,11 @@
 ---
-title: Add and manage TLS/SSL certificates
-description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
+title: Install a TLS/SSL certificate for Your App
+description: Step-by-step guide to adding and managing TLS/SSL certificates in Azure App Service to secure your custom domain.
+keywords: TLS/SSL certificate installation, Azure security, HTTPS setup, custom domain security
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 09/19/2024
+ms.date: 02/14/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -68,7 +69,7 @@ The free App Service managed certificate is a turn-key solution for helping to s
 >
 > Free certificates are issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 >
-> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at anytime. These changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
+> Azure fully manages the certificates on your behalf, so any aspect of the managed certificate, including the root issuer, can change at anytime. Certificate renewals change both public and private key parts.  All of these certificate changes are outside your control. Make sure to avoid hard dependencies and "pinning" practice certificates to the managed certificate or any part of the certificate hierarchy. If you need the certificate pinning behavior, add a certificate to your custom domain using any other available method in this article.
 
 The free certificate comes with the following limitations:
 

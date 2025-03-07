@@ -190,6 +190,8 @@ items:
       href: how-to-integrate-confluent-kafka.md
     - name: SQL database in Microsoft Fabric
       href: how-to-integrate-fabric-sql.md
+    - name: Neon Serverless Postgres
+      href: how-to-integrate-neon-postgres.md
 - name: Reference
   expanded: false
   items: 
