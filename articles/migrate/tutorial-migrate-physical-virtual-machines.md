@@ -137,7 +137,7 @@ The first step of migration is to set up the replication appliance. To set up th
 1. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
 1. In **Download and install the replication appliance software**, download the appliance installer and the registration key. You need the key to register the appliance. The key is valid for five days after it was downloaded.
 
-    ![Screenshot that shows downloading the provider.](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/simplified-experience.png" alt-text="Shows the simplified experience":::
 
 1. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
 
@@ -152,7 +152,9 @@ The mobility service agent must be installed on the servers to get them discover
 > [!NOTE]
 > We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For more information, see [Discover physical servers](tutorial-discover-physical.md).
 
-## Agent-based migration stack
+## Simplified experience
+
+This section introduces a new process, which is simplified experience. Users will follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
 
 This section introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
 
