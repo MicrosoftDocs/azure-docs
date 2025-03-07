@@ -23,8 +23,7 @@ While the two portals share some features, they also have distinct differences. 
 | Feature | API Management developer portal | API Center portal |
 | --- | --- | --- |
 | Audience| External and internal developers | Internal developers |
-| API inventory | API Management instance only | All APIs |
-| Search and filter APIs | ❌ | ✔️ |
+| Search and filter API inventory | API Management instance only | All APIs |
 | View API details and definitions | ✔️ | ✔️ |
 | View API documentation | ✔️ | ✔️ |
 | Customize with branding | ✔️ | Name only |
