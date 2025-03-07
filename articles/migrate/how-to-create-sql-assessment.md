@@ -2,7 +2,7 @@
 title: Create an SQL assessment with Azure Migrate | Microsoft Docs
 description: Describes how to create SQL Azure assessment with the Azure Migrate 
 author: rashi-ms
-ms.author: rajosh
+ms.author: uhabiba
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
