@@ -229,7 +229,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 1. In the first screen, for  **Account Type**, select **Personal Account**. 
 1. For **Access Code**, enter *88888*, and then select **Continue**. 
-1. Enter the rest of the details as required, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. 
+1. Enter the rest of the details as required, and then select **Continue**. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. 
 1. Repeat step 5, but this time, select **Account Type**, select **Contoso Employee Account**, and then follow the prompts.  
  
 
