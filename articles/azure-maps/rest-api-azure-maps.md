@@ -25,7 +25,7 @@ The most recent stable release of the Azure Maps services.
 | [Data Registry] |  2023-06-01  | Programmatically store and update geospatial data to use in spatial operations.<br>The Data registry service is deprecated and will be retired on 9/30/25. |
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
-| [Route] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
+| [Route] |  2025-01-01  | Calculate optimized travel times and distances between locations for multiple modes of transportation and returns localized travel instructions. Now supports [Snap to Roads] API that snaps GPS data to road aligned coordinates. |
 | [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
 | [Spatial] |  2022-08-01  | Use geofences, great circle distances, and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
@@ -49,7 +49,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | Returns the ideal route in GeoJSON between locations for multiple modes of transportation.<BR><BR>Some of the updates in this version of the Route service include:<ul><li>New Snap to Roads API that snaps GPS data to road aligned coordinates.</li><li>Support for up to 50,000 cells in Route Matrix async.</li><li>High-definition route range polygon.</li><li>Routes with "via" waypoints that the route must pass through.</li><li>More geographies</li><li>More languages available for localized travel instructions.</li> |
+| [Route][Route-2024-07-01-preview] | 2024-07-01-preview | In the 2024-07-01-preview, the Route Range API `isSimplifiedPolygon` param supports high-definition isochrone polygons. |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Data Registry]: /rest/api/maps/data-registry
@@ -57,6 +57,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 [Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search
+[Snap to Roads]: /azure/azure-maps/tutorial-snap-to-road
 [Spatial]: /rest/api/maps/spatial
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
