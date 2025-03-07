@@ -14,9 +14,6 @@ ms.author: madsd
 
 Because App Service Environments are isolated to the individual customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific network customizations that are available for App Service Environment v3.
 
-> [!NOTE]
-> This article is about App Service Environment v3, which is used with isolated v2 App Service plans.
-
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
 App Service Environment network customizations are stored in a subresource of the *hostingEnvironments* Azure Resource Manager entity called networking.
