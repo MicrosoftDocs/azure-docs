@@ -23,7 +23,7 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-interactive?view=azps-13.2.0).
+Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-interactive).
 
 ```azurepowershell-interactive
 Connect-AzAccount
