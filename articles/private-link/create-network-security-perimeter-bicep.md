@@ -71,9 +71,6 @@ The Bicep file defines multiple Azure resources:
 1. Select the **networkPerimeter** resource from the list of network security perimeters.
 1. Verify that the **networkPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles, associated resources, and Policy assignments.
 
-> [!NOTE]
-> The Bicep file generates a unique name for the virtual machine myVm<b>{uniqueid}</b> resource, and for the SQL Database sqlserver<b>{uniqueid}</b> resource. Substitute your generated value for **{uniqueid}**.
-
 ## Clean up resources
 
 When you no longer need the resources that you created with the network security perimeter service, delete the resource group. This removes the network security perimeter service and all the related resources.
