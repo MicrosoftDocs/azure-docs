@@ -703,3 +703,6 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
+:::zone pivot="dbx-ng"
+
+:::zone-end
