@@ -16,6 +16,8 @@ ms.author: danlep
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
 
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
