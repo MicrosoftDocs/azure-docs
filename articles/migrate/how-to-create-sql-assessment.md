@@ -69,7 +69,7 @@ Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service 
 
     :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Shows the edit defaults.":::
 
-AKS settings
+**AKS settings**: The following table details about the AKS settings.
 
 Settings | Possible values | Comments
 --- | --- | ---
@@ -77,7 +77,7 @@ Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> Hi
 AKS pricing tier   | Standard  | Pricing tier for AKS 
 Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
 
-App Service Settings
+**App service settings**: The following table details the App service settings
 
 Settings | Possible values | Comments
 --- | --- | ---
