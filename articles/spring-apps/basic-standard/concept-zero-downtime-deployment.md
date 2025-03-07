@@ -5,7 +5,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 08/29/2024
-ms.author: haital
+ms.author: karler
+ms.reviewer: haital
 ms.custom: devx-track-java
 ---
 

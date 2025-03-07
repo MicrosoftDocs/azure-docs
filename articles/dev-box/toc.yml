@@ -82,10 +82,13 @@ items:
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
+    displayName: Windows App, connect, access dev box, RDP, iPad   
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
     displayName: Windows App, connect, access dev box, RDP, iPad 
     href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
   - name: Connect with Remote Desktop
     displayName: Windows App, connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md

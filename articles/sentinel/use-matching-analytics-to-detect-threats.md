@@ -43,6 +43,7 @@ You must install one or more of the supported data connectors to produce high-fi
   |[Syslog solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-syslog?tab=Overview)  |[Syslog connector for Microsoft Sentinel](data-connectors/syslog.md)  |
   |[Microsoft 365 solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=Overview) | [Office 365 connector for Microsoft Sentinel](data-connectors/office-365.md)    |
   |[Azure Activity solution for Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azureactivity?tab=Overview)    |  [Azure Activity connector for Microsoft Sentinel](data-connectors/azure-activity.md)   |
+  |[Windows Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-windowsfirewall?tab=Overview)  | [Windows Firewall Events via AMA connector](data-connectors/windows-firewall-events-via-ama.md)  |
 
 ## Configure the matching analytics rule
 
