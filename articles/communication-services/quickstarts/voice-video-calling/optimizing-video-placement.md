@@ -55,7 +55,9 @@ When placing multiple videos on a web page, consider the user's network bandwidt
 
 ### Use the Web UI Library
 
-The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. It offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable, allowing developers to focus on building functionality rather than designing from scratch. This library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By leveraging the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, by utilizing the Web UI will take out the guesswork of how to determine how many optimal. optimal videos you can subscribe to at a time.
+The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. The Web UI Library offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable. This solution enables developers to focus on building functionality rather than designing from scratch.
+
+The Web UI Library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By applying the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, using the Web UI Library removes the guesswork of determining how many videos you can optimally subscribe to at one time.
 
 ### Use optimal video count API
 
