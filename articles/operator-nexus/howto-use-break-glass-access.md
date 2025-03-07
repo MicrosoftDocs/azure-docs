@@ -19,18 +19,21 @@ To start with break glass Identity and Access Management (IAM) configuration, yo
 
 ### Prerequisites
 
-- **Setup Method D v2.0** using as referred in [article](howto-set-up-break-glass-access.md)
-- **Windows Computer** with PowerShell
-- **OpenSSH**: Version 9.4 or higher
-- **Python**: Version 3.11 or higher (64-bit)
-- **Azure CLI**: Version 2.61 or higher (64-bit)
-- **Nexusidentity Extension**: This extension must be added to Azure CLI.
-- **YubiKey Firmware Version**: Must be 5.2.3 or higher.
-- **Enable Long paths** - Windows long paths support must be enabled [Refer](https://pip.pypa.io/warnings/enable-long-paths).
+- **Setup Method D v2.0** using as referred in [article](howto-set-up-break-glass-access.md).
+- **Windows** machine with PowerShell or **Linux** machine with bash terminal.
+- **OpenSSH**: Version 9.4 or higher.
+- **Python**: Version 3.11 or higher (64-bit).
+- **Azure CLI**: Version 2.61 or higher (64-bit).
+- **Managednetworkfabric extension**: 7.0.0
+- **Nexusidentity extension**: 1.0.0b4 or higher.
+- **YubiKey firmware version**: Must be 5.2.3 or higher.
+- **Enable Long paths**: - Windows long paths support must be enabled [Refer](https://pip.pypa.io/warnings/enable-long-paths).
+- **Microsoft Authentication Library (MSAL) version**: 1.31.2b1
+- **azure-mgmt-resource**: 23.1.1
 
-### Steps to Install Nexusidentity Extension and Generate SSH Keys
+### Steps to install Nexusidentity extension and generate SSH keys 
 
-1.  **Enabling long paths**
+1.  **Enabling long paths** (Windows OS only)
    
 - Run the following PowerShell as an administrator.
 
@@ -40,7 +43,7 @@ To start with break glass Identity and Access Management (IAM) configuration, yo
 
 - Close the PowerShell terminal.
 
-2. **Open PowerShell**:
+2. **Open PowerShell**: (Windows OS only)
 
 > [!Note]
 > Use non-admin mode for this process.

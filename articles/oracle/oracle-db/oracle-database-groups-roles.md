@@ -15,16 +15,7 @@ This article lists groups and roles you use to manage access to Oracle Database@
 
 ## Groups and roles in Azure
 
-Use the following groups in your Azure account:
-
-|Group name|Azure role assigned|description|
-|----------|-------------------|-----------|
-|odbaa-exa-infra-administrators| odbaa-exa-infra-administrator |This group is for administrators who need to manage all Oracle Exadata Database@Azure resources in Azure. |
-|odbaa-vm-cluster-administrators |odbaa-vm-cluster-administrator |Users in this group can administer virtual machine (VM) cluster resources in Azure. |
-|odbaa-db-family-administrators |*Not applicable* | This group is replicated in Oracle Cloud Infrastructure (OCI) during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
-|odbaa-db-family-readers |*Not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
-|odbaa-exa-cdb-administrators |*Not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
-|odbaa-exa-pdb-administrators |*Not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
+For more information about groups and roles in Azure, see [Set Up Role Based Access Control for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm).
 
 ## Groups in Oracle Cloud Infrastructure
 
