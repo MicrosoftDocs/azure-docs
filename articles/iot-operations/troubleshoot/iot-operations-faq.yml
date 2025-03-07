@@ -6,7 +6,7 @@ metadata:
   ms.author: patricka
   ms.topic: faq
   ms.custom: references_regions
-  ms.date: 03/06/2025
+  ms.date: 01/16/2025
 
 title: Azure IoT Operations frequently asked questions
 summary: |
@@ -51,7 +51,6 @@ sections:
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
       answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
-      
 additionalContent: |
     ## Related content
 
