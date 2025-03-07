@@ -1,8 +1,8 @@
 ---
-title: Create Parameters Files for Bicep Deployment
-description: Learn how to create Bicep parameters files, instead of passing parameters as inline values in your script.
+title: Create a parameters file for bicep deployment
+description: Learn how to create Bicep parameters files instead of passing parameters as inline values in your script.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/07/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -469,7 +469,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-For more information, see [Deploy Bicep files by using Azure PowerShell](./deploy-powershell.md#parameters). To deploy `.bicep` files, you need Azure PowerShell version 5.6.0 or later.
+For more information, see [Deploy Bicep files with Azure PowerShell](./deploy-powershell.md#parameters). To deploy `.bicep` files, you need Azure PowerShell version 5.6.0 or later.
 
 ## Parameter precedence
 
