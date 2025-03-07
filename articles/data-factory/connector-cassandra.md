@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/28/2025
+ms.date: 03/07/2025
 ms.author: jianleishen
 ---
 # Copy data from Cassandra using Azure Data Factory or Synapse Analytics
@@ -259,6 +259,10 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 > The length of Binary Column and String Column lengths cannot be greater than 4000.
 >
 
+## Work with collections using original type when using version 2.0
+
+For collection types including map, set and list, the data are represented in Json format. There are no virtual tables for collection types, and instead copying a source table to sink in its original type.
+
 ## Work with collections using virtual table when using version 1.0
 
 The service uses a built-in ODBC driver to connect to and copy data from your Cassandra database. For collection types including map, set and list, the driver renormalizes the data into corresponding virtual tables. Specifically, if a table contains any collection columns, the driver generates the following virtual tables:
@@ -328,11 +332,11 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 The Cassandra connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0. 
 
-| version 2.0 | version 1.0 |
+| Version 2.0 | Version 1.0 |
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
-| Support specifying `keyspace` and `tableName` separately in Cassandra dataset. | Support editing `keyspace` when you select enter manually table name in Cassandra dataset. |
-| There is no virtual tables for collection types. | For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
+| Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
+| For collection types (map, set, list, etc.), there are no virtual tables for collection types. You can copy a source table to sink in its original type, refer to [Work with collections using original type when using version 2.0](#work-with-collections-using-original-type-when-using-version-20) section.  | For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
 
 ## Upgrade the Cassandra connector
 
@@ -341,8 +345,6 @@ Here are steps that help you upgrade the Cassandra connector:
 1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties).
 
 2. If you use `query` in the copy activity source for version 2.0, see [Cassandra as source](#cassandra-as-source).
-
-3. The data type mapping for version 2.0 is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
