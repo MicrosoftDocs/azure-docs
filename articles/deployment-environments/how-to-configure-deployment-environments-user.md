@@ -1,5 +1,5 @@
 ---
-title: Provide user access to Azure Deployment Environments projects
+title: Provide user access to Deployment Environments projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure access to projects for developers by using the Deployment Environments User built-in role.
 ms.service: azure-deployment-environments
@@ -7,6 +7,8 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/14/2025
 ms.topic: how-to
+
+#customer intent: As a platform engineer, I want to provide user access for Deployment Environments projects so that team members can create deployment environments. 
 ---
 
 # Provide access to projects for developers
@@ -19,7 +21,7 @@ When assigned at the project level, a developer who has the Deployment Environme
 
 * View the project environment types.
 * Create an environment.
-* Read, write, delete, or perform actions (like deploy or reset) on their own environment.
+* Read, write to, delete, or perform actions (like deploy or reset) on their own environment.
 
 A developer who has the Deployment Environments Reader role can:
 
@@ -31,9 +33,9 @@ When you assign a role to specific environment types, the user can perform the a
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, then choose the project that you want your developers to be able to access.
+1. Select **Projects** in the left pane, and then choose the project that you want your developers to be able to access.
 
-1. Select **Access control (IAM)** from the left pane.
+1. Select **Access control (IAM)** in the left pane.
 
 1. Select **Add** > **Add role assignment**.
 
@@ -43,7 +45,7 @@ When you assign a role to specific environment types, the user can perform the a
     | --- | --- |
     | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
-    | **Members** | Select the users or groups you want to have access to the project. |
+    | **Members** | Select the users or groups that you want to have access to the project. |
 
     :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
@@ -53,9 +55,9 @@ The users can now view the project and all the environment types enabled within 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, then choose the project that you want your developers to be able to access.
+1. Select **Projects** in the left pane, and then choose the project that you want your developers to be able to access.
 
-1. Select **Environment types** from the left pane, and then select the ellipsis (**...**) beside the specific environment type.
+1. Select **Environment types** in the left pane, and then select the ellipsis (**...**) next to the specific environment type.
 
    :::image type="content" source="media\configure-deployment-environments-user\project-environment-types.png" alt-text="Screenshot that shows the environment types associated with a project." lightbox="media\configure-deployment-environments-user\project-environment-types.png":::
 
@@ -69,7 +71,7 @@ The users can now view the project and all the environment types enabled within 
     | --- | --- |
     | **Role** | Select **[Deployment Environments User](how-to-configure-deployment-environments-user.md)**. |
     | **Assign access to** | Select **User, group, or service principal**. |
-    | **Members** | Select the users or groups you want to have access to the project. |
+    | **Members** | Select the users or groups that you want to have access to the project. |
 
     :::image type="content" source="media/configure-deployment-environments-user/add-role-assignment.png" alt-text="Screenshot that shows the Add role assignment pane for environment type." lightbox="media/configure-deployment-environments-user/add-role-assignment.png":::
 
