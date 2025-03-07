@@ -51,11 +51,13 @@ To improve the end user experience, we need to understand how internet speeds ar
 
 When placing multiple videos on a web page, consider the user's network bandwidth. Higher resolution videos require more data to stream. The more overall videos placed on a page, the more bandwidth each one consumes. If someone connects to the internet via a connection with lower overall bandwidth throughput, their ability to stream higher resolution videos or multiple videos on a page are limited. Conversely, if someone has higher internet bandwidth for both inbound and outbound traffic, they have a greater ability to deliver and consume high-resolution videos and accommodate more videos on the page.
 
-## Use the Web UI Library
+## Methods to best optimize how you handle incoming video streams
+
+### Use the Web UI Library
 
 The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. It offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable, allowing developers to focus on building functionality rather than designing from scratch. This library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By leveraging the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, by utilizing the Web UI will take out the guesswork of how to determine how many optimal. optimal videos you can subscribe to at a time.
 
-## Use optimal video count API
+### Use optimal video count API
 
 The Azure Communication Services WebJS SDK introduced the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web) feature in version 1.15.1. OVC informs applications how many incoming videos from different participants can be optimally rendered during a group call. The `optimalVideoCount` property adjusts dynamically based on network and hardware capabilities. Applications should update the number of videos rendered according to the output from OVC. Developers should ensure that their application subscribes to changes in the `Optimal Video Count` in group calls. The optimal video count returns an integer defining the ideal number of videos that can be displayed on a web page. The value from optimal video count (OVC) is updated every 10 seconds.
 
@@ -72,7 +74,7 @@ When there's a change in the optimal video count value, if the result indicates 
 
 Conversely, if the optimal count decreases and is [less than the current number of videos on the page](../../resources/troubleshooting/voice-video-calling/video-issues/reaching-max-number-of-active-video-subscriptions.md), consider disposing of a video using the dispose method and updating the application layout accordingly.
 
-## Determine the maximum resolution sizes
+### Things to consider when adding a 1080P or 720P video to a page.
 
 In the  version 1.33 and later of the WebJS SDK:
 
@@ -80,8 +82,6 @@ In the  version 1.33 and later of the WebJS SDK:
 - You can place two 720p incoming videos with the rest smaller than 720p.
 
 For instance, in a group call where seven participants have their video cameras on, on each client page you can select two participants' videos are displayed at higher resolutions. These two participants set to show their video at 720p by setting their views on the web page to be 720 pixels in height by 1280 pixels in width (or greater). The remaining five participant videos should be set to a lower resolution, such as 360p or lower.
-
-## Other considerations to consider
 
 - To ensure that the total number of rendered videos remains below the OVC value threshold, review and adhere to the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web).
 - Each client can specify which user's video they want to receive and set individual resolution sizes on their respective machines.
