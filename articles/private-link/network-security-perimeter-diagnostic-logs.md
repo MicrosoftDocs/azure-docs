@@ -1,5 +1,6 @@
 ---
 title: 'Diagnostic logs for Network Security Perimeter'
+titleSuffix: Azure Private Link
 description: Learn the options for storing diagnostic logs for Network Security Perimeter and how to enable logging through the Azure portal.
 author: mbender-ms
 ms.author: mbender
