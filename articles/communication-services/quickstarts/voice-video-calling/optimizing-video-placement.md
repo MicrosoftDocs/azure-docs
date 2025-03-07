@@ -5,7 +5,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: This document describes how to place video on a web page based on resolution size to optimize video placement and enhance overall page performance.
 author: sloanster
 services: azure-communication-services
-ms.date: 02/25/2025
+ms.date: 03/07/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -14,9 +14,9 @@ ms.custom: mode-other, devx-track-js
 
 # Best practices for subscribing to video feeds
 
-A crucial element to consider when building web pages is how to best integrate video into the page layout. The placement and number of videos can impact page performance, user quality experience, and overall aesthetic. This article includes guidelines to help developers determine how many videos to place on a web page and the best video resolution size to optimize the end user experience.
+A crucial element to consider when building web apps is how to best integrate video into the page layout. The placement and number of videos can impact page performance, user quality experience, and overall aesthetic. This article includes guidelines to help developers determine how many videos to place on a web page and the best video resolution size to optimize the end user experience.
 
-## Understand video resolution
+## Understanding video resolution
 
 Developers need to know important details about video resolution. Resolution refers to the number of pixels displayed on a video output, typically measured in `width x height` format. Higher resolution means more pixels, leading to sharper and clearer images. Incoming video resolutions available in Azure Communication Services video calling include:
 
@@ -25,19 +25,17 @@ Developers need to know important details about video resolution. Resolution ref
 - 540p (qHD): 960 x 540 pixels
 - 360p (SD): 640 x 360 pixels
 - 240p: 426 x 240 pixels
-- 240p: 320 x 240 pixels
+- 180p: 320 x 180 pixels
 
-## Factors that influence the video quality experience
+## Factors Influencing Video Quality
 
-Several factors influence how many videos you can effectively place on a web page. These factors include resolution, device type, bandwidth, and user experience considerations.
+Several factors influence how many videos you can effectively place on a web page. These factors include device type, resolution, bandwidth available, and user experience considerations.
 
 ### Local device abilities
 
 The type of device used to display the web page plays a significant role. For example, desktops and laptops with larger screens can accommodate more videos than mobile devices. We recommend using [responsive design techniques](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) to adjust the number and sizes of videos based on screen dimensions.
 
 In addition, the local machine must process, encode, and display these videos properly. The size of the local monitor screen and browser abilities also determine the number of active videos that can be displayed simultaneously on a web page.
-
-Consider all these factors when developing the concept of happy pages to embed on a web page.
 
 ### Resolution and video screen size
 
@@ -53,21 +51,11 @@ To improve the end user experience, we need to understand how internet speeds ar
 
 When placing multiple videos on a web page, consider the user's network bandwidth. Higher resolution videos require more data to stream. The more overall videos placed on a page, the more bandwidth each one consumes. If someone connects to the internet via a connection with lower overall bandwidth throughput, their ability to stream higher resolution videos or multiple videos on a page are limited. Conversely, if someone has higher internet bandwidth for both inbound and outbound traffic, they have a greater ability to deliver and consume high-resolution videos and accommodate more videos on the page.
 
-## Optimal number of videos to subscribe
-
-### Prioritize content
-
-Highlight the most important or engaging videos prominently on the page. Ensure they're purposeful and effectively enhance the narrative or key people the page you intend to have video be viewable.
-
-### Implement lazy loading
-
-Lazy loading delays the loading of videos until they're needed or in the viewport. This method can significantly enhance page performance, especially when multiple videos are present.
-
-### Use the Web UI Library
+## Use the Web UI Library
 
 The Azure Communication Services [Web UI Library](../../concepts/ui-library/ui-library-overview.md) is a powerful tool for developers looking to create seamless and visually appealing web applications. It offers a comprehensive set of pre-built UI components that are easy to integrate and highly customizable, allowing developers to focus on building functionality rather than designing from scratch. This library ensures consistent design standards across different projects and platforms, enhancing user experience and reducing development time. Its extensive documentation and active community support make it an excellent choice for both beginners and experienced developers. By leveraging the Web UI Library, you can streamline your workflow, create professional-quality interfaces, and deliver engaging web applications more efficiently. Also, by utilizing the Web UI will take out the guesswork of how to determine how many optimal. optimal videos you can subscribe to at a time.
 
-### Use optimal video count API
+## Use optimal video count API
 
 The Azure Communication Services WebJS SDK introduced the [Optimal Video Count (OVC)](../../how-tos/calling-sdk/manage-video.md?pivots=platform-web) feature in version 1.15.1. OVC informs applications how many incoming videos from different participants can be optimally rendered during a group call. The `optimalVideoCount` property adjusts dynamically based on network and hardware capabilities. Applications should update the number of videos rendered according to the output from OVC. Developers should ensure that their application subscribes to changes in the `Optimal Video Count` in group calls. The optimal video count returns an integer defining the ideal number of videos that can be displayed on a web page. The value from optimal video count (OVC) is updated every 10 seconds.
 
@@ -108,4 +96,4 @@ For instance, in a group call where seven participants have their video cameras 
 
 ## Conclusion
 
-To determine how many videos to place on a web page, you need to carefully consider resolution, device type, bandwidth, and user experience. Follow these guidelines and best practices to create web pages that not only look appealing but also function seamlessly, providing an optimal viewing experience for users across various devices and connection speeds.
+To determine how many videos to place on a web page, you need to carefully consider resolution, device type, bandwidth, and user experience. Follow these guidelines and best practices to create web apps that not only look appealing but also function seamlessly, providing an optimal viewing experience for users across various devices and connection speeds.
