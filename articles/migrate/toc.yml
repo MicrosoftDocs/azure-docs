@@ -325,6 +325,10 @@ items:
       href: appcat/index.yml
     - name: Assess a SQL Server database
       href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
+    - name: Create SQL Assessment
+      href: how-to-create-sql-assessment.md
+    - name: Review SQL Assessment
+      href: how-to-review-sql-assessment.md
     - name: Customize an assessment
       href: how-to-modify-assessment.md
     - name: Recalculate an assessment
