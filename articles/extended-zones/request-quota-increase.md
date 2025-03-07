@@ -21,7 +21,9 @@ In this article, you learn how to request a quota increase for your Azure Extend
 
 In this section, you request a quota increase in the Azure portal.
 
-1. Select the **?** in the global header, then enter a few words to describe your issue.
+1. Select the **?** in the global header. 
+
+    :::image type="content" source="./media/request-quota-increase/support-and-troubleshoot.png" alt-text="Screenshot of reaching support request page.":::
 
 1. In the **Support + troubleshooting** search box, enter **compute quota**, then select **Subscription Management**. Select **Next**.
 
