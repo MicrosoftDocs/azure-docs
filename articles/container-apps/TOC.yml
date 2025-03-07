@@ -378,6 +378,8 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
