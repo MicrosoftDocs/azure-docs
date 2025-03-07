@@ -120,7 +120,7 @@ Following is the list of supported images and no other marketplace images releas
 |aviatrix-systems || avx-cplt-byol-02 | | 
 |aviatrix-systems |aviatrix-companion-gateway-v9 | aviatrix-companion-gateway-v9 | | 
 |aviatrix-systems |aviatrix-companion-gateway-v10 | aviatrix-companion-gateway-v10 <br> aviatrix-companion-gateway-v10u ||
-|aviatrix-systems |aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | | |
+|aviatrix-systems |aviatrix-companion-gateway-v12| aviatrix-companion-gateway-v12 | |
 |aviatrix-systems |aviatrix-companion-gateway-v13 | aviatrix-companion-gateway-v13 <br> aviatrix-companion-gateway-v13u ||
 |aviatrix-systems |aviatrix-companion-gateway-v14 | aviatrix-companion-gateway-v14 <br> aviatrix-companion-gateway-v14u||
 |aviatrix-systems |aviatrix-companion-gateway-v16 | aviatrix-companion-gateway-v16 | | 
