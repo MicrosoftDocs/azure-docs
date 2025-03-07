@@ -7,6 +7,8 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/07/2025
 ms.custom: subject-reliability, references_regions
+
+#customer intent: As a platform engineer, I want to get information about reliability in Azure Deployment Environments so that I can improve the reliability of my workloads.
 ---
 
 # Reliability in Azure Deployment Environments 
@@ -59,7 +61,7 @@ You can replicate the following Deployment Environments resources in an alternat
 
 For more information, see [Azure to Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). 
 
-## Next steps 
+## Related content
 
 - To learn more about how Azure supports reliability, see [Azure reliability](/azure/reliability). 
 - To learn more about Deployment Environments resources, see [Azure Deployment Environments key concepts](../deployment-environments/concept-environments-key-concepts.md).
