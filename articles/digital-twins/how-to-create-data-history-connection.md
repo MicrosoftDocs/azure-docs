@@ -167,7 +167,7 @@ Remember the names you specify for these resources, so you can use them later.
 
 Now that you created the required resources, use the command in this section to create a data history connection between the Azure Digital Twins instance, the event hub, and the Azure Data Explorer cluster. 
 
-This command also creates three tables in your Azure Data Explorer database to store twin property updates, twin lifecycle events, and relationship lifecycle events, respectively. For more information about these types of historized data and their corresponding Azure Data Explorer tables, see [Data types and schemas](concepts-data-history.md#data-types-and-schemas).
+This command also creates three tables in your Azure Data Explorer database to store twin property updates, relationship lifecycle events, and twin lifecycle events, respectively. For more information about these types of historized data and their corresponding Azure Data Explorer tables, see [Data types and schemas](concepts-data-history.md#data-types-and-schemas).
 
 # [CLI](#tab/cli) 
 
@@ -212,7 +212,7 @@ Start by navigating to your Azure Digital Twins instance in the Azure portal (yo
 
     Select **Next**.
 
-4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose a custom name for the table that stores twin property updates, or leave it blank to use the default table name of *AdtPropertyEvents*, and you can choose whether twin property deletions (events that remove properties entirely) should be included with the historized data. If you want to historize twin lifecycle and relationship lifecycle events, enter custom names for these tables. 
+4. On the **Store** page, enter the details of the [Azure Data Explorer resources](#create-a-kusto-azure-data-explorer-cluster-and-database) that you created earlier. You can choose a custom name for the table that stores twin property updates, or leave it blank to use the default table name of *AdtPropertyEvents*, and you can choose whether twin property deletions (events that remove properties entirely) should be included with the historized data. If you want to historize relationship lifecycle and twin lifecycle events, enter custom names for these tables. 
     :::image type="content"  source="media/how-to-create-data-history-connection/store.png" alt-text="Screenshot of the Azure portal showing the Store step in the data history connection setup." lightbox="media/how-to-create-data-history-connection/store.png":::
 
     Select **Next**.
@@ -325,7 +325,7 @@ Next, add the following commands to the query window and run them. Each command 
 | count
 ```
 
-You should see in the results that the count of items in each table is something greater than zero, indicating that relationship lifecycle, twin lifecycle, and property update events are being historized to their respective tables.
+You should see in the results that the count of items in each table is something greater than zero, indicating that property update, relationship lifecycle, and twin lifecycle events are being historized to their respective tables.
 
 #### Explore twin property updates table
 
