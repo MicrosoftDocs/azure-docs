@@ -54,7 +54,7 @@ Once you select the Java development stack, the *Customize Java features for you
 
 1. In the *Overview* section, under *Essentials*, find *Development stack* and select **manage**.
 
-1. In the *Development stack* drop down, select **Java**.
+1. In the *Development stack* drop-down, select **Java**.
 
 1. Select **Apply**.
 
@@ -130,4 +130,5 @@ You can see Java metric names on Azure Monitor, but the data sets show as empty 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor logs with Log Analytics](log-monitoring.md)
+- [Build a Java metrics dashboard with Azure Managed Grafana](java-metrics-with-grafana.md)
+- [Monitor logs with Log Analytics](log-monitoring.md)

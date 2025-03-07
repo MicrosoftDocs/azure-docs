@@ -16,8 +16,6 @@ services: azure-communication-services
 
 # Add a Microsoft Teams user to an existing call using Call Automation
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 In this quickstart, we use the Azure Communication Services Call Automation APIs to add, remove, and transfer call to a Teams user.
 
 ## Prerequisites

@@ -16,7 +16,7 @@ ms.date: 06/07/2024
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifer or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
+To add business context around the Azure resources in an integration solution, you can visualize business processes flows for the tasks implemented by these resources. In Azure Business Process Tracking, a business process is a series of stages that represent the tasks that flow through a real-world business scenario. This business process also specifies a single business identifier or *transaction ID*, such as a ticket number, order number, case number, and so on, to identify a transaction that exists across all the stages in the business process and to correlate those stages together.
 
 When you add a stage to your business process, you can also define other business property values to capture as data moves through each stage. You can then later map the transaction ID and other properties to specific operations and data outputs in Standard logic app workflows. For more information, see [What is Azure Business Process Tracking](overview.md)?
 
@@ -89,7 +89,7 @@ After you define a business process, you can then map each stage to actual Azure
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Transaction ID** | Yes | <*transaction-ID*> | This important and unique ID identifies a transaction, such as an order number, ticket number, case number, or another similar business identifier that's available across all stages in your business process. <br><br>This example uses the transaction ID named **TicketNumber** to correlate events across the different systems in the example business process, which include CRM, Work Order Management, and Marketing. <br><br>**Note**: Azure Business Process Tracking automatically includes and records the transaction timestamp so that you don't have to separately add this value. Although you can define only a single transaction ID when you create a business process, you can later define other business properties in each stage that you want to record. |
-   | **Data type** | Yes | <*transacton-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **Integer** data type. |
+   | **Data type** | Yes | <*transaction-ID-data-type*> | The data type for your transaction ID: **String** or **Integer**. <br><br>This example uses the **Integer** data type. |
 
    The following example shows the sample transaction ID:
 

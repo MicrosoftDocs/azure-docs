@@ -278,7 +278,12 @@ Here's an example of a Notification Hubs binding in a *function.json* file:
 
 ### Connection string setup
 
-To use a notification hub output binding, you must configure the connection string for the hub. You can select an existing notification hub or create a new one from the **Integrate** tab in the Azure portal. You can also configure the connection string manually.
+To use a notification hub output binding, you must configure the connection string for the hub. 
+
+> [!IMPORTANT]
+> The Notification Hubs binding doesn't support Microsoft Entra authentication and managed identities. You can use Azure Key Vault to centrally manage your notification hub connection string and help with key rotation. To learn more, see [Manage Connections](./manage-connections.md). 
+
+You can select an existing notification hub or create a new one from the **Integrate** tab in the Azure portal. You can also configure the connection string manually.
 
 To configure the connection string to an existing notification hub:
 

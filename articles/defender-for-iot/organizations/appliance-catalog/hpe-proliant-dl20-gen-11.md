@@ -9,8 +9,6 @@ ms.topic: reference
 
 This article describes the **HPE ProLiant DL20 Gen 11** appliance for OT sensors monitoring production lines.
 
-The HPE ProLiant DL20 Gen11 is also available for the on-premises management console.
-
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | E1800 |
@@ -79,4 +77,3 @@ Continue learning about the system requirements for physical or virtual applianc
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

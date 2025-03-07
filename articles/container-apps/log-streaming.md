@@ -2,12 +2,12 @@
 title: View log streams in Azure Container Apps
 description: View your container app's log stream.
 services: container-apps
-author: v-jaswel
+author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/24/2023
-ms.author: v-wellsjason
+ms.date: 02/03/2025
+ms.author: cshoe
 ---
 
 # View log streams in Azure Container Apps
@@ -30,8 +30,6 @@ To troubleshoot issues in your container app environment, you can view the syste
 1. Go to your environment in the Azure portal.
 1. Select **Log stream** under the *Monitoring* section on the sidebar menu.
 
-    :::image type="content" source="media/observability/system-log-streaming-env.png" alt-text="Screenshot of Container Apps environment system log stream page.":::
-
 ### Container app log stream
 
 You can view a log stream of your container app's system or console logs from your container app page.
@@ -39,13 +37,10 @@ You can view a log stream of your container app's system or console logs from yo
 1. Go to your container app in the Azure portal.
 1. Select **Log stream** under the *Monitoring* section on the sidebar menu.
 1. To view the console log stream, select **Console**.
+
     1. If you have multiple revisions, replicas, or containers, you can select from the drop-down menus to choose a container. If your app has only one container, you can skip this step.
 
-    :::image type="content" source="media/observability/screenshot-log-stream-console-app.png" alt-text="Screenshot of Container Apps console log stream from app page.":::
-
 1. To view the system log stream, select **System**. The system log stream displays the system logs for all running containers in your container app.
-
-    :::image type="content" source="media/observability/screenshot-log-stream-system-app.png" alt-text="Screenshot of Container Apps system log stream from app page.":::
 
 ## View log streams via the Azure CLI
 
@@ -76,7 +71,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -100,7 +95,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -135,7 +130,7 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -158,7 +153,7 @@ az containerapp replica list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp replica list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -185,7 +180,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show  `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -217,7 +212,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show  `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -245,7 +240,7 @@ az containerapp env logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp env logs show  `
   --name <ENVIRONMENT_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -269,7 +264,7 @@ az containerapp env logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp env logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

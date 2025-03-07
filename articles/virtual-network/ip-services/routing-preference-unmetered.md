@@ -2,13 +2,13 @@
 title: What is routing preference unmetered?
 titleSuffix: Azure Virtual Network
 description: Learn about how you can configure routing preference for your resources egressing data to CDN provider.
-ms.date: 08/24/2023
+ms.date: 01/07/2025
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # What is routing preference unmetered?
@@ -35,8 +35,5 @@ You can also enable routing preference for your storage account and publish a se
 
 ## Next steps
 
-* [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
-
-* [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md)
-
-* [Configure routing preference for your storage account](../../storage/common/network-routing-preference.md)
+> [!div class="nextstepaction"]
+> [Configure routing preference for a virtual machine](./configure-routing-preference-virtual-machine.md)

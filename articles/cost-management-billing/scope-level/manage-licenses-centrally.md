@@ -36,7 +36,7 @@ Prices shown in the following image are only examples.
 
 The Azure SQL resources covered by the assigned Core licenses can vary from hour to hour. The variance depends on what resources run and in what order the automated system processes their usage. However, the system ensures the maximum usage of the assigned SQL licenses in the selected scope. You can monitor the usage using Cost Management. For more information, see [How to track assigned license usage](create-sql-license-assignments.md#track-assigned-license-use).
 
-The following diagram shows how the assigned SQL Server licenses apply over time to get the maximum Azure Hybrid Benefit discount.
+The following diagram shows how the assigned SQL Server licenses apply over time to get the maximum Azure Hybrid Benefit allocation.
 
 :::image type="content" source="./media/manage-licenses-centrally/ncl-utilization-over-time.png" alt-text="Diagram showing NC use over time." border="false" lightbox="./media/manage-licenses-centrally/ncl-utilization-over-time.png":::
 

@@ -1,17 +1,17 @@
 ---
 title: Create and manage projects
 description: Find, create, manage, and delete projects in Azure Migrate.
-author: v-sreedevank
-ms.author: v-sreedevank
+author: SnehaSudhirG
+ms.author: sudhirsneha 
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/22/2023
-ms.custom: engagement-fy23
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
 ---
 
 # Create and manage projects
 
-This article describes how to create, manage, and delete [projects](migrate-services-overview.md). 
+This article describes how to create, manage, and delete [projects](migrate-services-overview.md).
 
 Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, the classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic projects, delete those projects and follow the steps to create a new project. You can't upgrade classic projects or components to Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
 
@@ -22,8 +22,7 @@ A project is used to store discovery, assessment, and migration metadata collect
 Ensure you have the correct permissions to create a project using the following steps:
 
 1. In the Azure portal, open the relevant subscription, and select **Access control (IAM)**.
-2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions. 
-
+2. In **Check access**, find the relevant account, and select it and view permissions. You should have *Contributor* or *Owner* permissions.
 
 ## Create a project for the first time
 
@@ -41,17 +40,15 @@ Set up a new project in an Azure subscription.
 
 5. In **Create project**, select the Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project.
-    - The geography is only used to store the metadata gathered from on-premises servers. You can assess or migrate servers for any target region regardless of the selected geography. 
-    - Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government). 
-
+    - The geography is only used to store the metadata gathered from on-premises servers. You can assess or migrate servers for any target region regardless of the selected geography.
+    - Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
+    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
 
 7. Select **Create**.
 
      :::image type="content" source="./media/create-manage-projects/project-details.png" alt-text="Image of Azure Migrate page to input project settings.":::
-
 
 Wait for a few minutes for the project to deploy.
 
@@ -68,13 +65,12 @@ PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/Migra
 If you already have a project and you want to create an additional project, do the following:  
 
 1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-   
-3. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
+
+2. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the top left.
 
     :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot containing Create Project button.":::
 
 3. To create a new project, select **Click here**.
-
 
 ## Find a project
 
@@ -87,22 +83,9 @@ Find a project as follows:
 
 3. Select the appropriate subscription and project.
 
-
-### Find a classic project
-
-If you created the project in the [previous version](migrate-services-overview.md) of Azure Migrate, find it as follows:
-
-1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*.
-2. In the Azure Migrate dashboard, if you've created a project in the previous version, a banner referencing older projects appears. Select the banner.
-
-    :::image type="content" source="./media/create-manage-projects/access-existing-projects.png" alt-text="Screenshot to access already existing projects.":::
-
-3. Review the list of old projects.
-
-
 ## Delete a project
 
-To delete a project, follow these steps: 
+To delete a project, follow these steps:
 
 1. Open the Azure resource group in which the project was created.
 2. In the Resource Groups page, select **Show hidden types**.
@@ -115,8 +98,8 @@ Note that:
 - When you delete, both the project and the metadata about discovered servers are deleted.
 - If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
 - If you're using dependency analysis with an Azure Log Analytics workspace:
-    - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
-    - If you want to delete the Log Analytics workspace, do that manually.
+  - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
+  - If you want to delete the Log Analytics workspace, do that manually.
 - Project deletion is irreversible. Deleted objects can't be recovered.
 
 ### Delete a workspace manually
@@ -125,11 +108,11 @@ Note that:
 
     - If you haven't deleted the project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
     :::image type="content" source="./media/create-manage-projects/loganalytics-workspace.png" alt-text="Screenshot of the Log Analytics Workspace.":::
-       
+
     - If you've already deleted the project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
-       
+
 2. [Follow the instructions](/azure/azure-monitor/logs/delete-workspace) to delete the workspace.
 
 ## Next steps
 
-Add [assessment](how-to-assess.md) or [migration](how-to-migrate.md) tools to projects.
+Add [assessment](how-to-create-assessment.md) or [migration](how-to-migrate.md) tools to projects.

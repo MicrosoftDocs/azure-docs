@@ -1,9 +1,9 @@
 ---
-author: kgremban
+author: SoniaLopezBravo
 ms.service: redis-cache 
 ms.topic: include
 ms.date: 04/02/2019
-ms.author: kgremban
+ms.author: sonialopez
 ---
 
 ### cacheSKUName

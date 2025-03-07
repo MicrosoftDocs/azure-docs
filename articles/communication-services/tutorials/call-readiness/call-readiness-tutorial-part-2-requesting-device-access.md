@@ -56,7 +56,7 @@ export const PermissionsDeniedPrompt = (props: { isOpen: boolean }): JSX.Element
   <PermissionsModal isOpen={props.isOpen} kind="denied" />
 );
 
-/** Base component utilitzed by the above prompts for better code separation. */
+/** Base component utilized by the above prompts for better code separation. */
 const PermissionsModal = (props: { isOpen: boolean, kind: "denied" | "request" | "check" }): JSX.Element => (
   <Modal isOpen={props.isOpen}>
     <CameraAndMicrophoneSitePermissions

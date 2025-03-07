@@ -86,7 +86,7 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 6. If you need to target that version, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples for the isolated worker model.
 
 ::: zone-end
 
@@ -343,7 +343,7 @@ Some key classes changed names between version 1.x and version 4.x. These change
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-| Version 1.x | .NET 6 (in-process) | 
+| Version 1.x | .NET 8 (in-process) | 
 | --- | --- | 
 | `FunctionName` (attribute) | `FunctionName` (attribute) | 
 | `TraceWriter` | `ILogger<T>`, `ILogger`  |

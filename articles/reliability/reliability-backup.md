@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-backup
-ms.date: 10/18/2023
+ms.date: 06/13/2024
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Backup so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -70,7 +70,7 @@ To learn how to migrate a Recovery Services vault to availability zone support, 
 
 When an entire Azure region or datacenter experiences downtime, your vaults continue to be accessible and you'll still be able to see your backup items. However, unless you deploy for regional redundancy, the underlying backup data isn't accessible to you for performing a restore operation.  
 
-To achieve regional redundancy for your backup data, Azure Backup allows you to replicate your backups to an additional [Azure paired region](./availability-zones-overview.md#paired-and-unpaired-regions) by using [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, by using Cross Region Restore you can access and perform restores from the secondary region recovery points even when no outage occurs in the primary region. With Cross Region Store you can perform drills to assess regional resiliency. 
+To achieve regional redundancy for your backup data, Azure Backup allows you to replicate your backups to an additional [Azure paired region](./regions-paired.md) by using [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#geo-redundant-storage) to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, by using Cross Region Restore you can access and perform restores from the secondary region recovery points even when no outage occurs in the primary region. With Cross Region Store you can perform drills to assess regional resiliency. 
 
 ## Next steps
 

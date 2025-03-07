@@ -106,7 +106,7 @@ select restore.
 
 - Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
   <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
-  - FireFox and Internet Explorer may not support clipboard permissions properly.
+  - Firefox and Internet Explorer may not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 - Linux: <kbd>CTRL</kbd>-<kbd>C</kbd> to copy and <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>V</kbd> to paste.
 

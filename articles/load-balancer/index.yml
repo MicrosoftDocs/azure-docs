@@ -133,17 +133,8 @@ landingContent:
             url: /azure/load-balancer/load-balancer-test-frontend-reachability
           - text: Troubleshoot Azure Load Balancer health probe status
             url: /azure/load-balancer/load-balancer-troubleshoot-health-probe-status
-  - title: Load balancing and content delivery
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Azure Front Door overview
-            url: /azure/frontdoor/front-door-overview
-          - text: Azure Application Gateway overview
-            url: /azure/application-gateway/overview
-
   # Card
-  - title: Load balancing and content delivery
+  - title: Related load balancing and content delivery services
     linkLists:
       - linkListType: get-started
         links:

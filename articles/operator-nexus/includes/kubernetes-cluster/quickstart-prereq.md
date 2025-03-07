@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * Install the latest version of the [necessary Azure CLI extensions](../../howto-install-cli-extensions.md).
-* This article requires version 2.49.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires version 2.61.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`][az-account] command.
 * Refer the VM SKU table in the [reference section](../../reference-nexus-kubernetes-cluster-sku.md) for the list of supported VM SKUs.
 * Refer the [supported Kubernetes versions](../../reference-nexus-kubernetes-cluster-supported-versions.md) for the list of supported Kubernetes versions.

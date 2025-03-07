@@ -8,8 +8,8 @@ metadata:
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
   ms.service: azure-firewall
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
+  author: duongau
+  ms.author: duau
   ms.date: 05/30/2024
   ms.custom: e2e-hybrid
 
@@ -40,7 +40,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+            url: https://azure.microsoft.com/updates?filters=%5B%22Azure+Firewall%22%5D
 
 
   # Card

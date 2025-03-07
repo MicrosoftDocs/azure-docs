@@ -699,7 +699,7 @@ const teamsAppIdentifier: MicrosoftTeamsAppIdentifier = {
 Finally we can run the application to make our calls! Run the following commands to install our dependencies and run our app.
 
 ```bash
-# Install the newe dependencies
+# Install the new dependencies
 npm install
 
 # run the React app

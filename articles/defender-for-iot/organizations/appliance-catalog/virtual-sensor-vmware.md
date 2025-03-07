@@ -75,13 +75,10 @@ This procedure describes how to create a virtual machine by using ESXi.
 
 1. Continue with the [generic procedure for installing sensor software](../ot-deploy/install-software-ot-sensor.md).
 
-
 ## Next steps
 
 For more information, see:
 
 - [Which appliances do I need?](../ot-appliance-sizing.md)
 - [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
-- [On-premises management console (VMware ESXi)](virtual-management-vmware.md)
 - [OT network sensor VM (Microsoft Hyper-V)](virtual-sensor-hyper-v.md)
-- [On-premises management console (Microsoft Hyper-V hypervisor)](virtual-management-hyper-v.md)

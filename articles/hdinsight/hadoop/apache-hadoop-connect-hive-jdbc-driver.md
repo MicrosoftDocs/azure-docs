@@ -4,7 +4,7 @@ description: Use the JDBC driver from a Java application to submit Apache Hive q
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-ms.date: 02/12/2024
+ms.date: 02/03/2025
 ---
 
 # Query Apache Hive through the JDBC driver in HDInsight
@@ -145,7 +145,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Symptoms**: HDInsight unexpectedly disconnects the connection when trying to download a huge amount of data (say several GBs) through JDBC/ODBC.
 
-**Cause**:  The limitation on Gateway nodes causes this error. When getting data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway isn't designed to download a huge amount of data, so the Gateway might close the connection if it can't handle the traffic.
+**Cause**:  The limitation on Gateway nodes causes this error. When you get data from JDBC/ODBC, all data needs to pass through the Gateway node. However, a gateway isn't designed to download a huge amount of data, so the Gateway might close the connection if it can't handle the traffic.
 
 **Resolution**: Avoid using JDBC/ODBC driver to download huge amounts of data. Copy data directly from blob storage instead.
 

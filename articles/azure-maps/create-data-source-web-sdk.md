@@ -50,7 +50,7 @@ map.sources.add(source);
 The following code shows the different ways GeoJSON data can be added to a `DataSource`.
 
 ```javascript
-//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
+//GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature collection, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
 source.add(geoJsonData);

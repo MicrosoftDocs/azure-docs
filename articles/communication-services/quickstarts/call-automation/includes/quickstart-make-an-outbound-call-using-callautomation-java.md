@@ -57,7 +57,7 @@ acs:
   callerphonenumber: <YOUR ACS PHONE NUMBER ex. "+1425XXXAAAA"> 
   targetphonenumber: <YOUR TARGET PHONE NUMBER ex. "+1425XXXAAAA"> 
   cognitiveServiceEndpoint: <YOUR COGNITIVE SERVICE ENDPOINT>
-  targetTeamsUserId: <(OPTIONAL) YOUR TARGET TEAMS USER ID ex. "ab01bc12-d457-4995-a27b-c405ecfe4870">
+  targetTeamsUserId: <(OPTIONAL) YOUR TARGET TEAMS USER ID ex. "00aa00aa-bb11-cc22-dd33-44ee44ee44ee">
 ```
 
 
@@ -199,5 +199,3 @@ Navigate to the directory containing the pom.xml file and use the following mvn 
 - Compile the application: `mvn compile`
 - Build the package: `mvn package`
 - Execute the app: `mvn exec:java`
-
-

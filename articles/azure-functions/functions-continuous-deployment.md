@@ -56,7 +56,7 @@ After you enable continuous deployment, access to function code in the Azure por
 Building your code project is part of the deployment process. The specific build process depends on your specific language stack, operating system, and hosting plan. Builds can be done locally or remotely, again depending on your specific hosting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 > [!IMPORTANT]
-> For increased security, consider using a build provider that supports managed identities, including Azure Pipelines and Gitub Actions. The App Service (Kudu) service requires you to [enable basic authenication](#enable-basic-authentication-for-deployments) and work with text-based credentials. 
+> For increased security, consider using a build provider that supports managed identities, including Azure Pipelines and GitHub Actions. The App Service (Kudu) service requires you to [enable basic authentication](#enable-basic-authentication-for-deployments) and work with text-based credentials. 
 
 Functions supports these build providers:
 
@@ -70,7 +70,7 @@ GitHub Actions is the default build provider for GitHub projects. GitHub Actions
 
 ### [App Service (Kudu) service](#tab/app-service)
 
-The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintainence tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site can be accessed by your deployment. While you can use identities to connect to the `scm` endpoint, many publishing tools instead require basic authentication to connect to the `scm` endpoint. 
+The App Service platform maintains a native deployment service ([Project Kudu](https://github.com/projectkudu/kudu/wiki)) to support local Git deployment, some container deployments, and other deployment sources not supported by either Pipelines or GitHub Actions. Remote builds, packaging, and other maintenance tasks are performed in a subdomain of `scm.azurewebsites.net` dedicated to your app, such as `https://myfunctionapp.scm.azurewebsites.net`. This build service can only be used when the `scm` site can be accessed by your deployment. While you can use identities to connect to the `scm` endpoint, many publishing tools instead require basic authentication to connect to the `scm` endpoint. 
 
 This build provider is used when you deploy your code project by using Visual Studio, Visual Studio Code, or Azure Functions Core Tools. If you haven't already deployed code to your function app by using one of these tools, you might need to [Enable basic authentication for deployments](#enable-basic-authentication-for-deployments) to use the `scm` site.  
 
@@ -185,7 +185,7 @@ If you want to use a different deployment source or build provider for continuou
 In some cases, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
 
 > [!IMPORTANT]
-> When you use basic authenication, credentials are sent in clear text. To protect these credentials, you must only access the `scm` endpoint over an encrypted connection (HTTPS) when using basic authentication. For more information, see [Secure deployment](security-concepts.md#secure-deployment).
+> When you use basic authentication, credentials are sent in clear text. To protect these credentials, you must only access the `scm` endpoint over an encrypted connection (HTTPS) when using basic authentication. For more information, see [Secure deployment](security-concepts.md#secure-deployment).
 
 To enable basic authentication to the `scm` endpoint:
 

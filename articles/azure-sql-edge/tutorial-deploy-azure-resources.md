@@ -72,7 +72,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These resou
    $imagePublisher = "microsoft_iot_edge"
    $imageSku = "ubuntu_1604_edgeruntimeonly"
    $AdminAcc = "iotadmin"
-   $AdminPassword = ConvertTo-SecureString "IoTAdmin@1234" -AsPlainText -Force
+   $AdminPassword = ConvertTo-SecureString "<password>" -AsPlainText -Force
    $VMSize = "Standard_DS3"
    $NetworkName = "MyNet"
    $NICName = "MyNIC"

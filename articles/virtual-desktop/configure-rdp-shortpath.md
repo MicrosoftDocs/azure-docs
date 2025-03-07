@@ -119,7 +119,7 @@ To enable the RDP Shortpath listener on your session hosts using Group Policy in
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -195,7 +195,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 1. Select **Host pools**, then select the host pool you want to configure.
 
-1. Select **Networking**, then select **RDP Shortpath**.
+1. Under **Settings**, select **Networking**, then select **RDP Shortpath**.
 
    :::image type="content" source="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png" alt-text="A screenshot showing the RDP Shortpath tab of a host pool's networking properties." lightbox="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png":::
 
@@ -408,7 +408,7 @@ To limit the port range used with STUN and TURN using Group Policy in an Active 
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -506,4 +506,4 @@ WVDCheckpoints
 
 ## Related content
 
-If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](troubleshoot-rdp-shortpath.md).
+If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath).

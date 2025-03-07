@@ -4,15 +4,13 @@ description: Learn how to update session hosts in a host pool with a session hos
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 10/01/2024
+ms.date: 01/24/2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Session host update for Azure Virtual Desktop is currently in PREVIEW. This limited preview is provided as-is, with all faults and as available, and are excluded from the service-level agreements (SLAs) or any limited warranties Microsoft provides for Azure services in general availability. To register for the limited preview, complete this form: [https://forms.office.com/r/ZziQRGR1Lz](https://forms.office.com/r/ZziQRGR1Lz).
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Session host update for Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 When you want to update session hosts in a host pool with a session host configuration, you use session host update. Session host update enables you to update the underlying virtual machine (VM) image, size, disk type, and other configuration properties. During an update, the existing virtual machines are deleted or deallocated, and new ones are created with the updated configuration stored in the session host configuration. The update also uses the values from the session host management policy to determine how session hosts should get updated.
 
@@ -29,7 +27,7 @@ Before you update session hosts using session host update, you need:
 - The new image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and match the [generation of virtual machine](/azure/virtual-machines/generation-2). If you're using [Trusted launch virtual machines](security-guide.md#trusted-launch) or [Confidential virtual machines](security-guide.md#azure-confidential-computing-virtual-machines), your image must be for generation 2 VMs. It can be from:
 
    - Azure Marketplace.
-   - An existing Azure Compute Gallery shared image. We recommend having at least two replicas of the image you use.
+   - An existing Azure Compute Gallery shared image. We recommend having at least two replicas of the image you use. Using a shared image located in a different Azure subscription from the host pool isn't currently supported.
    - An existing managed image.
 
 - Remove any resource locks on session hosts or the resource group they're in.
@@ -51,11 +49,11 @@ Before you update session hosts using session host update, you need:
 
       | Name | Type | Applies to |
       |--|--|--|
-      | Reset password | Allow | Decendent Computer objects |
-      | Validated write to DNS host name | Allow | Decendent Computer objects |
-      | Validated write to service principal name | Allow | Decendent Computer objects |
-      | Read account restrictions | Allow | Decendent Computer objects |
-      | Write account restrictions | Allow | Decendent Computer objects |
+      | Reset password | Allow | Descendant Computer objects |
+      | Validated write to DNS host name | Allow | Descendant Computer objects |
+      | Validated write to service principal name | Allow | Descendant Computer objects |
+      | Read account restrictions | Allow | Descendant Computer objects |
+      | Write account restrictions | Allow | Descendant Computer objects |
 
       Beginning with [KB5020276](https://support.microsoft.com/help/5020276), further protections were introduced for the reuse of computer accounts in an Active Directory domain. To successfully reuse the existing computer object for the session host, either:
 
@@ -65,15 +63,15 @@ Before you update session hosts using session host update, you need:
 
 - A key vault containing the secrets you want to use for your virtual machine local administrator account credentials and, if you're joining session hosts to an Active Directory domain, your domain join account credentials. You need one secret for each username and password. The virtual machine local administrator password must meet the [password requirements when creating a VM](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
-   - You need to provide the Azure Virtual Desktop service principal the ability to read the secrets. Your key vault can be configured to use either:
+   - Provide the Azure Virtual Desktop service principal the ability to read the secrets. See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal. Your key vault can be configured to use either:
 
       - [The Azure RBAC permission model](/azure/key-vault/general/rbac-guide) with the role [Key Vault Secrets User](../role-based-access-control/built-in-roles.md#key-vault-secrets-user) assigned to the Azure Virtual Desktop service principal.
 
       - [An access policy](/azure/key-vault/general/assign-access-policy) with the *Get* secret permission assigned to the Azure Virtual Desktop service principal.
 
-   - The key vault must allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
+   - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-   See [Assign Azure RBAC roles or Microsoft Entra roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md) to make sure you're using the correct service principal.
+   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 - For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
 
@@ -88,9 +86,7 @@ When you schedule an update, the session host configuration for the host pool is
 To schedule an update for your session hosts, select the relevant tab for your scenario and follow the steps.
 
 > [!IMPORTANT]
-> - During an update, the number of available session hosts for user sessions is reduced and any logged on users will be asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
->
-> - If you use a custom network security group (NSG) for the session hosts you want to update, there's a known issue where you can't start an update using the Azure portal. To work around this issue, use Azure PowerShell to start the update.
+> During an update, the number of available session hosts for user sessions is reduced and any logged on users are asked to log off. We recommend you schedule an update during less busy periods to minimize disruption to end users.
 
 # [Azure portal](#tab/portal)
 
@@ -101,7 +97,11 @@ Here's how to schedule a new update for your session hosts using the Azure porta
 >
 > If you edit the session host configuration using the Azure portal, you have to schedule an update.
 
-1. Make sure you've registered for the limited preview using the link at the beginning of this article, then sign in to the Azure portal using the specific link provided to you after registration. From the Azure Virtual Desktop overview, select **Host pools**, then select the host pool with a session host configuration that you want to update.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry.
+
+1. Select **Host pools**, then select the host pool with a session host configuration that you want to update.
 
 1. Select **Session hosts**.
 

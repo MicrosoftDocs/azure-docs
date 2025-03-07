@@ -6,16 +6,14 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 10/17/2024
+ms.date: 11/14/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
 
-# Tutorial: Add OPC UA assets to your Azure IoT Operations Preview cluster
+# Tutorial: Add OPC UA assets to your Azure IoT Operations cluster
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
-
-In this tutorial, you manually add OPC UA assets to your Azure IoT Operations Preview cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
+In this tutorial, you manually add OPC UA assets to your Azure IoT Operations cluster. These assets publish messages to the MQTT broker in your Azure IoT Operations cluster. Typically, an OT user completes these steps.
 
 An _asset_ is a physical device or logical entity that represents a device, a machine, a system, or a process. For example, a physical asset could be a pump, a motor, a tank, or a production line. A logical asset that you define can have properties, stream telemetry, or generate events.
 
@@ -25,9 +23,9 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 ## Prerequisites
 
-An instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
+An instance of Azure IoT Operations deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
-- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
+- [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the tutorials.
 - [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s.
 
 To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
@@ -36,7 +34,7 @@ Unless otherwise noted, you can run the console commands in this tutorial in eit
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and dataflows.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
 
 ## Deploy the OPC PLC simulator
 
@@ -117,6 +115,7 @@ To create an asset, select **Create asset**. Then enter the following asset info
 | Asset Endpoint | `opc-ua-connector-0` |
 | Asset name | `thermostat` |
 | Description | `A simulated thermostat asset` |
+| Default MQTT topic | `azure-iot-operations/data/thermostat` |
 
 Remove the existing **Custom properties** and add the following custom properties. Be careful to use the exact property names, as the Power BI template in a later tutorial queries for them:
 
@@ -138,8 +137,7 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
-| ns=3;s=FastUInt10  | temperature | None               |
-| ns=3;s=FastUInt100 | Tag 10      | None               |
+| ns=3;s=SpikeData   | temperature | None               |
 
 The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
 
@@ -161,6 +159,16 @@ This configuration deploys a new asset called `thermostat` to the cluster. You c
 kubectl get assets -n azure-iot-operations
 ```
 
+## View resources in the Azure portal
+
+To view the asset endpoint and asset you created in the Azure portal, go to the resource group that contains your Azure IoT Operations instance. You can see the thermostat asset in the **Azure IoT Operations** resource group. If you select **Show hidden types**, you can also see the asset endpoint:
+
+:::image type="content" source="media/tutorial-add-assets/azure-portal.png" alt-text="Screenshot of Azure portal showing the Azure IoT Operations resource group including the asset and asset endpoint.":::
+
+The portal enables you to view the asset details. Select **JSON View** for more details:
+
+:::image type="content" source="media/tutorial-add-assets/thermostat-asset.png" alt-text="Screenshot of Azure IoT Operations asset details in the Azure portal.":::
+
 ## Verify data is flowing
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
@@ -168,16 +176,12 @@ kubectl get assets -n azure-iot-operations
 To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
 ```output
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:17.1858435Z","Value":4558},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:17.1858869Z","Value":4558}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:18.1838125Z","Value":4559},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:18.1838523Z","Value":4559}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:19.1834363Z","Value":4560},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:19.1834879Z","Value":4560}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:44.5030912Z","Value":48.17536741017152}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (90 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:45.50333Z","Value":98.22872507286887}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:46.503381Z","Value":12.533323356430426}}
 ```
 
 If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
@@ -201,12 +205,8 @@ The sample tags you added in the previous tutorial generate messages from your a
 ```json
 {
     "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
+        "SourceTimestamp": "2025-02-14T11:27:46.503381Z",
+        "Value": 212.45
     }
 }
 ```
@@ -223,4 +223,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Send asset telemetry to the cloud using the data lake connector for the MQTT broker](tutorial-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using a data flow](tutorial-upload-telemetry-to-cloud.md).

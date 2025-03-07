@@ -79,7 +79,7 @@ ms.service: azure-health-insights
                       "code": {
                         "coding": [
                           {
-                            "system": "Https://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "26086-9",
                             "display": "XR KNEE - LEFT 2 VIEWS"
                           }

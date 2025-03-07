@@ -63,7 +63,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 - **Recommendation**:  Provide a valid string in the multi-target lookup target column.
 
 
-## Error code: DynamicsFailedToRequetServer
+## Error code: DynamicsFailedToRequestServer
 
 - **Message**: `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 

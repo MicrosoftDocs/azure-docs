@@ -9,16 +9,13 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.
-
-
-#Customer intent: As a developer using Azure Active Directory B2C, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for signing up, signing in, profile editing, and password resetting.
 
 ---
 
@@ -300,6 +297,6 @@ To rearrange the input fields on the sign-up page for local accounts form, follo
 
 ::: zone-end
 
-## Next steps
+## Related content
 
 Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application in Azure Active Directory B2C](customize-ui-with-html.md).
