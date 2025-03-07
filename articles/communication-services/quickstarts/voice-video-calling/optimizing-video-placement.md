@@ -41,7 +41,7 @@ In addition, the local machine must process, encode, and display these videos pr
 
 The display resolution of the end user device directly affects the number of videos you can display per page. The higher the resolution of the monitor and screen, the more videos you can display.
 
-It is important to remember that the more videos you place on a page, the more internet bandwidth each of those videos will consume. Additionally, the local machine must have sufficient performance capabilities to encode and display the video properly.
+Remember that for each video you place on a page, the more internet bandwidth the videos require. In addition, the local machine must have sufficient performance capabilities to encode and display the video properly.
 
 We recommend balancing the video quality and performance. Don't fill every pixel on the screen with video output, which can overwhelm the user. Consider the incoming and outgoing bandwidth as you add more videos to a page.
 
