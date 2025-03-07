@@ -22,10 +22,10 @@ Before you begin, it's a good idea to read the conceptual overview information a
 
 ### Check if you are using the desired state configuration extension
 
-To verify if you’re using the desired state configuration extension on Virtual Machines,
+To verify if you’re using the desired state configuration extension on virtual machines,
 in the Azure Portal open “Virtual machines”, select the name of each virtual machine, then
 “Settings” in the table of contents, and finally “Extensions + Applications”.
-There you will see a list of extensions assigned.   
+There you will see a list of extensions assigned.
 
 ## Major differences
 
