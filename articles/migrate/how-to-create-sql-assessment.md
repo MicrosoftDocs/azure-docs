@@ -65,7 +65,7 @@ EA subscription  | Subscription ID  | Select the subscription ID for which you h
 Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
 Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. 
 
-1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings. 
+1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings.  
 
     :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Screenshot of sql assessment that shows how to edit defaults.":::
 
