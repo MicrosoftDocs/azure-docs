@@ -117,7 +117,7 @@ Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repositor
 Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly:$true
 ```
 
 ### Example: upgrade by name
