@@ -2,8 +2,8 @@
 title: How to connect a service to IoT Hub using Microsoft Entra (Python)
 titleSuffix: Azure IoT Hub
 description: Learn how to connect a service to IoT Hub using Microsoft Entra and the Azure IoT Hub SDK for Python.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: include

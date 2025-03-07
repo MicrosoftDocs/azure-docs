@@ -47,6 +47,7 @@ Data Box caveats for an export order include:
 - Maximum filename size is 1,024 characters. Filenames that exceed this length aren't exported. 
 - Duplicate prefixes in the *xml* file (uploaded during order creation) are exported. Duplicate prefixes aren't ignored.
 - Page blobs and container names are case-sensitive. If the casing is mismatched, the blob and/or container won't be found.
+- Data Box currently does not support the scenario where the customer's data is actively changing during export
  
 
 ## Azure storage account size limits

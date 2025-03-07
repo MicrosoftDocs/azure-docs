@@ -397,12 +397,15 @@ The following IDs are used for a [Verification display control](display-control-
 | `but_send_new_code` | Send new code|
 | `but_change_claims` | Change e-mail|
 | `UserMessageIfVerificationControlClaimsNotVerified` <sup>2</sup> | The claims for verification control have not been verified. |
+| `UserMessageIfVerificationControlClaimsHaveChanged` <sup>3</sup> | The claims to verify have been changed. |
 
 <sup>1</sup> The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
 
 `.verificationInfoText div{display: block!important}`
 
 <sup>2</sup> This error message is displayed to the user if they enter a verification code, but instead of completing the verification by selecting on the **Verify** button, they select the **Continue** button.
+
+<sup>3</sup> This error message is displayed to the user if they validate an email address but then they select the **Change e-mail** button and don't validate the new email.
 
 ### Verification display control example
 
@@ -420,6 +423,7 @@ The following IDs are used for a [Verification display control](display-control-
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsNotVerified">The claims for verification control have not been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationControlClaimsHaveChanged">The claims to verify have been changed.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -496,18 +500,18 @@ The following IDs are used for a [time-based one-time password (TOTP) display co
       </LocalizedResources>
 ```
 
-## Restful service error messages
+## RESTful service error messages
 
-The following IDs are used for [Restful service technical profile](restful-technical-profile.md) error messages:
+The following IDs are used for [RESTful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | --- | ------------- |
-| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. Restful service URL: {0} |
-| `UserMessageIfCircuitOpen` | {0} Restful Service URL: {1} |
-| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
-| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
+| `DefaultUserMessageIfRequestFailed` | Failed to establish connection to restful service end point. RESTful service URL: {0} |
+| `UserMessageIfCircuitOpen` | {0} RESTful Service URL: {1} |
+| `UserMessageIfDnsResolutionFailed` | Failed to resolve the hostname of the restful service endpoint. RESTful service URL: {0} |
+| `UserMessageIfRequestTimeout` | Failed to establish connection to restful service end point within timeout limit {0} seconds. RESTful service URL: {1} |
 
-### Restful service example
+### RESTful service example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
