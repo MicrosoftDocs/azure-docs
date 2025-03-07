@@ -51,18 +51,6 @@ sections:
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
       answer: Azure IoT Operations currently does not support Azure Private Link and private endpoints. 
-    - question: |
-         Why am I seeing the UnauthorizedNamespaceError error message? 
-      answer:   |
-        [!INCLUDE [UnauthorizedNamespaceError error](includes/UnauthorizedNamespaceError-error-message.md)]
-    - question: |
-         Why am I seeing the MissingResourceVersionOnHost error message? 
-      answer:   |
-        [!INCLUDE [MissingResourceVersionOnHost error](includes/MissingResourceVersionOnHost-error-message.md)]
-    - question: |
-         Why am I seeing the LinkedAuthorizationFailed error message?
-      answer:   |
-        [!INCLUDE [LinkedAuthorizationFailed error](includes/LinkedAuthorizationFailed-error-message.md)]
       
 additionalContent: |
     ## Related content
