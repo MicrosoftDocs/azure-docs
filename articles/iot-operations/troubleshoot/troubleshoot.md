@@ -15,13 +15,13 @@ This article contains troubleshooting tips for Azure IoT Operations.
 
 ## Troubleshoot general deployment of Azure IoT Operations
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
+For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
 [Azure CLI version 2.53.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
-- Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
+- Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The `check` command can help you find problems in your deployment and configuration.
 
-- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
+- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
 ### Troubleshoot UnauthorizedNamespaceError error message
 
