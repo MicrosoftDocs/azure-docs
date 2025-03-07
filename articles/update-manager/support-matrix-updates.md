@@ -256,6 +256,7 @@ Following is the list of supported images and no other marketplace images releas
 |tenable| tenablecorewas| tenablecoreol8wasbyol||
 |thorntechnologiesllc| sftpgateway| sftpgateway||
 |zscaler| zscaler-private-access| zpa-con-azure||
+
 ---
 
 ### Custom images
