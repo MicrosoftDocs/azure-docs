@@ -42,7 +42,7 @@ In this section, you request a quota increase in the Azure portal.
 
 1. In the **Additional details** tab, select **Enter details**.
 
-    :::image type="content" source="./media/request-quota-increase/select-request-details.png" alt-text="Screenshot that shows where to click to select Enter details.":::
+    :::image type="content" source="./media/request-quota-increase/select-request-details.png" alt-text="Screenshot that shows where to select to select Enter details.":::
  
 1. In the **Request Details** pane, enter the following information:
 
@@ -66,7 +66,7 @@ In this section, you request a quota increase in the Azure portal.
 
 1. In the **Advanced diagnostic information** section, select **Yes (Recommended)** to allow Azure support to gather advanced diagnostic information from your resources, or **No** if you prefer not to share this information.
 
-1. In the **Support Method** section provide your preferred contact method, availability, and support language, and confirm your country/region setting. Complete the *Contact info* section to ensure we can reach you.
+1. In the Support Method section, provide your preferred contact method, availability, and support language, and confirm your region. Complete the *Contact info* section to ensure we can reach you.
 
 1. Select **Next**. Review your request and select **Create**. Your request will be processed by the Extended Zones engineering team accordingly.
 
