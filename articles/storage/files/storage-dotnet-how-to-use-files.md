@@ -42,9 +42,8 @@ For general information about these approaches, see [Overview of application dev
 This article focuses on working with Azure Files resources using the following approaches:
 
 - [Work with Azure Files using System.IO](#work-with-azure-files-using-systemio): Mount a file share using SMB or NFS and use the `System.IO` namespace to work with files and directories in the share.
-- [Work with Azure Files using the File Shares client library for .NET](#work-with-azure-files-using-the-file-shares-client-library-for-net): Use the Azure Storage File Shares client library for .NET to work with files and directories in a file share. This client library builds on the FileREST API.
-
-To learn about using the Storage resource provider REST API and management libraries, see [Libraries for resource management](storage-files-developer-overview.md#libraries-for-resource-management).
+- [Work with Azure Files using the File Shares client library for .NET](#work-with-azure-files-data-using-the-file-shares-client-library-for-net): Use the Azure Storage File Shares client library for .NET to work with files and directories in a file share. This client library builds on the FileREST API.
+- [Manage Azure Files resources using the Azure Storage management libraries](#manage-azure-files-resources-using-the-azure-storage-management-libraries): Use the Azure Storage management libraries to manage file shares and other resources in your storage account. The management libraries build on the Azure Storage resource provider REST API.
 
 ## Prerequisites
 
@@ -93,21 +92,23 @@ If you don't already have a .NET app, create one using Visual Studio or the .NET
 
 ### Install the package
 
-If you plan to interact with Azure Files using the `System.IO` namespace, you don't need to install any additional packages. The `System.IO` namespace is included with the .NET SDK. If you plan to use the File Shares client library for .NET, install the package using NuGet.
+If you plan to interact with Azure Files using the `System.IO` namespace, you don't need to install any additional packages. The `System.IO` namespace is included with the .NET SDK. If you plan to use the File Shares client library for .NET or the Azure Storage management library for .NET, install the package using NuGet.
 
 ### [Visual Studio](#tab/visual-studio)
 
 1. In **Solution Explorer**, right-click your project and choose **Manage NuGet Packages**.
-1. In **NuGet Package Manager**, select **Browse**. Then search for and choose **Azure.Storage.Files.Shares**. Select **Install**.
+1. In **NuGet Package Manager**, select **Browse**. Then search for and choose the appropriate package and select **Install**. For the File Shares client library, choose **Azure.Storage.Files.Shares**. For the Azure Storage management library, choose **Azure.ResourceManager.Storage**. For the Azure Identity library, which is needed for passwordless  choose **Azure.Identity**.
 
    This step installs the package and its dependencies.
 
 ### [.NET CLI](#tab/dotnet-cli)
 
-1. In a console window, run the following command to install the `Azure.Storage.Files.Shares` package.
+1. In a console window, run the following command to install the `Azure.Storage.Files.Shares` or the `Azure.ResourceManager.Storage` package. You can also install the `Azure.Identity` package to use the `DefaultAzureCredential` class for authentication.
 
    ```dotnetcli
    dotnet add package Azure.Storage.Files.Shares
+   dotnet add package Azure.ResourceManager.Storage
+   dotnet add package Azure.Identity
    ```
 
 ---
@@ -124,6 +125,18 @@ If you plan to use the File Shares client library for .NET, add the following us
 
 ```csharp
 using Azure.Storage.Files.Shares;
+```
+
+If you plan to use the Azure Storage management library for .NET, add the following using directive to the top of your *Program.cs* file:
+
+```csharp
+using Azure.ResourceManager;
+```
+
+To use the Azure Identity library for passwordless connections to Azure services, add the following using directive to the top of your *Program.cs* file:
+
+```csharp
+using Azure.Identity;
 ```
 
 ## Work with Azure Files using System.IO
@@ -279,7 +292,7 @@ static void EnumerateFileACLs(string filePath)
 }
 ```
 
-## Work with Azure Files using the File Shares client library for .NET
+## Work with Azure Files data using the File Shares client library for .NET
 
 The FileREST API provides programmatic access to Azure Files. It allows you to call HTTPS endpoints to perform operations on file shares, directories, and files. The FileREST API is designed for high scalability and advanced features that might not be available through native protocols. The Azure SDK provides client libraries, such as the File Shares client library for .NET, that build on the FileREST API.
 
@@ -289,7 +302,7 @@ Consider using the FileREST API and the File Share client library if your applic
 - **Custom cloud integrations:** Build custom value-added services, such as backup, antivirus, or data management, that interact directly with Azure Files.
 - **Performance optimization:** Benefit from performance advantages in high-scale scenarios using data plane operations.
 
-The FileREST API models Azure Files as a hierarchy of resources, and is recommended for operations that are performed at the *directory* or *file* level. You should prefer the Storage resource provider REST API for operations that are performed at the *file service* or *file share* level.
+The FileREST API models Azure Files as a hierarchy of resources, and is recommended for operations that are performed at the *directory* or *file* level. You should prefer the [Storage resource provider REST API](#manage-azure-files-resources-using-the-azure-storage-management-libraries) for operations that are performed at the *file service* or *file share* level.
 
 In this section, you learn how to use the File Shares client library to work with Azure Files resources.
 
@@ -382,7 +395,71 @@ For information about how to obtain account keys and best practice guidelines fo
 
 To learn more about each of these authorization mechanisms, see [Choose how to authorize access to file data](authorize-data-operations-portal.md).
 
-### Example: TODO:Add examples here
+### Example: Copy files using the File Shares client library
+
+The following code example shows how to copy a file to another file:
+
+```csharp
+```
+
+The following code example shows how to copy a file to a blob:
+
+```csharp
+```
+
+## Manage Azure Files resources using the Azure Storage management libraries
+
+The Azure Storage management libraries are built on the Azure Storage resource provider REST API. The Azure Storage resource provider is a service based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods. The Azure Storage resource provider REST API provides programmatic access to Azure Storage resources, including file shares. The Azure SDK provides management libraries that build on the Azure Storage resource provider REST API.
+
+The management libraries are recommended for operations that are performed at the *file service* or *file share* level. In this section, you learn how to use the Azure Storage management libraries to manage Azure Files resources.
+
+### Example: Create a file share using the Azure Storage management library
+
+The following code example shows how to create a top-level `ArmClient` object, register the Storage resource provider with a subscription, and create a file share using the Azure Storage management library:
+
+```csharp
+ArmClient armClient = new ArmClient(new DefaultAzureCredential());
+
+// Create a resource identifier, then get the subscription resource
+ResourceIdentifier resourceIdentifier = new($"/subscriptions/<subscription-id>");
+SubscriptionResource subscription = armClient.GetSubscriptionResource(resourceIdentifier);
+
+ResourceProviderResource resourceProvider =
+    await subscription.GetResourceProviderAsync("Microsoft.Storage");
+
+// Check the registration state of the resource provider and register, if needed
+if (resourceProvider.Data.RegistrationState == "NotRegistered")
+    resourceProvider.Register();
+
+// Get a resource group
+ResourceGroupResource resourceGroup = await subscription.GetResourceGroupAsync("<resource-group-name>");
+
+// Get a collection of storage account resources
+StorageAccountCollection accountCollection = resourceGroup.GetStorageAccounts();
+
+// Get a specific storage account resource
+StorageAccountResource storageAccount = await accountCollection.GetAsync("<storage-account-name>");
+
+// Get a file service resource for the storage account
+FileServiceResource fileService = storageAccount.GetFileService();
+
+// Create a new file share (or update if it already exists)
+ArmOperation <FileShareResource> fileShareOperation = await fileService
+    .GetFileShares()
+    .CreateOrUpdateAsync(WaitUntil.Completed, "sample-file-share", new FileShareData()
+    {
+        ShareQuota = 1024,
+        // Add file share properties here
+    });
+
+// Get the file share resource
+FileShareResource fileShare = fileShareOperation.Value;
+```
+
+You can configure the file share properties using the [FileShareData](/dotnet/api/azure.resourcemanager.storage.filesharedata) class. The previous example shows how to set the `ShareQuota` property.
+
+>[!NOTE]
+> To perform the register operation, you need permissions for the following Azure RBAC action: Microsoft.Storage/register/action. This permission is included in the Contributor and Owner built-in roles.
 
 ## Related content
 
