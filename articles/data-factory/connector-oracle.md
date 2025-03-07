@@ -182,13 +182,13 @@ For `server` property, you can specify it in one of the following three formats:
 |[Easy Connect (Plus) Naming](https://download.oracle.com/ocomdocs/global/Oracle-Net-Easy-Connect-Plus.pdf)|salesserver1:1521/sales.us.example.com|
 |[Oracle Net Services Name (TNS Alias)](https://docs.oracle.com/en/database/oracle/oracle-database/23/netrf/local-naming-parameters-in-tns-ora-file.html#GUID-12C94B15-2CE1-4B98-9D0C-8226A9DDF4CB) (only for the self-hosted integration runtime)|sales|
 
-For the parameters used in `server`, we provide an allowlist to avoid security risks, as shown below. You can refer to it to determine which parameters to be set. If you use parameters that are not in the allowlist, your connection fails.
+The following list shows the supported parameters used in `server`. If you use parameters that are not in the following list, your connection fails.
 
-- The allowlist for using the Azure integration runtime:
+- When using the Azure integration runtime:
 
     HOST<br>PORT<br>PROTOCOL<br>SERVICE_NAME<br>SID<br>INSTANCE_NAME<br>SERVER<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN
     
-- The allowlist for using the self-hosted integration runtime:
+- When using the self-hosted integration runtime:
 
     HOST<br>PORT<br>PROTOCOL<br>ENABLE<br>EXPIRE_TIME<br>FAILOVER<br>LOAD_BALANCE<br>RECV_BUF_SIZE<br>SDU<br>SEND_BUF_SIZE<br>SOURCE_ROUTE<br>TYPE_OF_SERVICE<br>COLOCATION_TAG<br>CONNECTION_ID_PREFIX<br>FAILOVER_MODE<br>GLOBAL_NAME<br>HS<br>INSTANCE_NAME<br>POOL_BOUNDARY<br>POOL_CONNECTION_CLASS<br>POOL_NAME<br>POOL_PURITY<br>RDB_DATABASE<br>SHARDING_KEY<br>SHARDING_KEY_ID<br>SUPER_SHARDING_KEY<br>SERVER<br>SERVICE_NAME<br>SID<br>TUNNEL_SERVICE_NAME<br>SSL_CLIENT_AUTHENTICATION<br>SSL_CERTIFICATE_ALIAS<br>SSL_CERTIFICATE_THUMBPRINT<br>SSL_VERSION<br>SSL_SERVER_DN_MATCH<br>SSL_SERVER_CERT_DN<br>WALLET_LOCATION<br>CONNECT_TIMEOUT<br>RETRY_COUNT<br>RETRY_DELAY<br>TRANSPORT_CONNECT_TIMEOUT<br>RECV_TIMEOUT<br>COMPRESSION<br>COMPRESSION_LEVELS
 
@@ -527,7 +527,7 @@ Here are steps that help you upgrade the Oracle connector:
 
 1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties version 2.0](#version-20). 
 
-    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0. For other connection properties in version 1.0 including host, port and Oracle Service Name/Oracle SID, they all become parts of the [server property in version 2.0](#server-property-configuration).  
+    For the authentication related properties including username and password, specify the original values in the corresponding fields in version 2.0. Other connection properties such as host, port, and Oracle Service Name/Oracle SID in version 1.0 are now parameters of the [`server` property in version 2.0](#server-property-configuration).
 
     For example, if you configure the version 1.0 linked service as shown below:
     
@@ -611,19 +611,19 @@ Here are steps that help you upgrade the Oracle connector:
     
         | Version 1.0 | Version 2.0  | 
         |:--- |:--- |
-        | encryptionmethod| PROTOCOL (server parameter) | 
+        | encryptionmethod| PROTOCOL (parameter in `server`) | 
         | tnsnamesfile | TNS_ADMIN (environment variable supported on the self-hosted integration runtime)  | 
-        | servername | server (property) | 
-        | enablebulkload<br>Value: 1, 0 | enableBulkLoad (additional property)<br>Value: true, false | 
-        | fetchtswtzastimestamp<br>Value: 1, 0 | fetchTswtzAsTimestamp (additional property)<br>Value: true, false | 
-        | alternateservers | DESCRIPTION_LIST  (server parameter) | 
-        | arraysize | fetchSize (additional property) | 
-        | cachedcursorlimit | statementCacheSize (additional property) | 
-        | connectionretrycount | RETRY_COUNT (server parameter) | 
-        | initializationstring | initializationString (additional property) | 
-        | logintimeout | CONNECT_TIMEOUT (server parameter) | 
-        | cryptoprotocolversion | SSL_VERSION (server parameter) | 
-        | truststore | WALLET_LOCATION (server parameter) | 
+        | servername | server  | 
+        | enablebulkload<br>Value: 1, 0 | enableBulkLoad <br>Value: true, false | 
+        | fetchtswtzastimestamp<br>Value: 1, 0 | fetchTswtzAsTimestamp <br>Value: true, false | 
+        | alternateservers | DESCRIPTION_LIST  (parameter in `server`) | 
+        | arraysize | fetchSize  | 
+        | cachedcursorlimit | statementCacheSize | 
+        | connectionretrycount | RETRY_COUNT (parameter in `server`) | 
+        | initializationstring | initializationString  | 
+        | logintimeout | CONNECT_TIMEOUT (parameter in `server`) | 
+        | cryptoprotocolversion | SSL_VERSION (parameter in `server`) | 
+        | truststore | WALLET_LOCATION (parameter in `server`) | 
     
         For example, if you use `alternateservers` in version 1.0, you can set the `DESCRIPTION_LIST` parameter in the server property in version 2.0:
     
@@ -669,6 +669,6 @@ The Oracle connector version 2.0 offers new functionalities and is compatible wi
 
 | Version 2.0 | Version 1.0  | 
 |:--- |:--- |
-|The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
-| convertDecimalToInteger in copy source is not supported.  | Support convertDecimalToInteger in copy source.  | 
+|The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) -> Int16, Int32, Int64, Double, Single, Decimal <br>FLOAT(p)-> Double or Decimal based on its precision <br>NUMBER -> Decimal <br>TIMESTAMP WITH TIME ZONE -> DateTimeOffset <br>INTERVAL YEAR TO MONTH -> Int64 <br>INTERVAL DAY TO SECOND ->  TimeSpan  |The following mappings are used from Oracle data types to interim service data types used by the service internally. <br><br>NUMBER(p,s) ->  Decimal or String based on its precision <br>FLOAT(p)-> Double  <br>NUMBER -> Double <br>TIMESTAMP WITH TIME ZONE -> DateTime <br>INTERVAL YEAR TO MONTH -> String <br>INTERVAL DAY TO SECOND ->  String  | 
+| Support convertDecimalToInteger in copy source when `supportV1DataTypes` is set to `true`. | Support convertDecimalToInteger in copy source.  | 
 | Using `?` as a placeholder for script activity query parameters is not support. You can use the named parameter (such as `:paramA`) or the positional parameter (such as `:1`) as a replacement.    | Support using `?` as a placeholder for script activity query parameters.  | 
