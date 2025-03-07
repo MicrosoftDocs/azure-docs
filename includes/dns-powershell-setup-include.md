@@ -2,11 +2,11 @@
  title: include file for PowerShell for Azure DNS
  description: include file for PowerShell for Azure DNS
  services: dns
- author: subsarma
+ author: greg-lindsay
  ms.service: azure-dns
  ms.topic: include file for PowerShell for Azure DNS
- ms.date: 04/28//2021
- ms.author: subsarma
+ ms.date: 03/07/2025
+ ms.author: greglin
  ms.custom: include file for PowerShell for Azure DNS, devx-track-azurepowershell
 ---
 
@@ -23,7 +23,7 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/azurerm/authenticate-azureps).
+Open your PowerShell console and connect to your account. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-interactive?view=azps-13.2.0).
 
 ```azurepowershell-interactive
 Connect-AzAccount
