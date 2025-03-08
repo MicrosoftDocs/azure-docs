@@ -66,7 +66,7 @@ For more information about WhatsApp requirements for templates, see the WhatsApp
 ##  Code examples
 
 Follow these steps to add required code snippets to the Main function of your `Program.cs` file.
-- [List WhatsApp templates in Azure portal](#list-whatsapp-templates-in-azure-portal).
+- [List WhatsApp templates](#list-whatsapp-templates).
 - [Send Template message with no parameters](#send-template-message-with-no-parameters).
 - [Send Template message with text parameters in the body](#send-template-message-with-text-parameters-in-the-body).
 - [Send Template message with media parameter in the header](#send-template-message-with-media-parameter-in-the-header).
@@ -573,13 +573,11 @@ Response<SendMessageResult> sendTemplateMessageResult4 =
 ```
 
 ### Send Authentication Template message
-For static links, you don't need to include `MessageTemplateQuickAction` model because the WhatsApp template has a static `CallToAction` link with no input required from the user.
+This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
 
 #### Example
 
-`auth_sample_template` template:
-
-This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
+`auth_sample_template` template in the Azure portal:
 
 :::image type="content" source="../../media/template-messages/sample-authentication-based-template.jpeg" lightbox="../../media/template-messages/sample-authentication-based-template.jpeg" alt-text="Screen capture that shows details for the authentication-template.":::
 
