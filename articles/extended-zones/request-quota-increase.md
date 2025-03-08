@@ -54,7 +54,7 @@ In this section, you request a quota increase in the Azure portal.
     | Field          | Value                                                   |
     |----------------|---------------------------------------------------------|
     | Deployment model | Select **Resource Manager**.                           |
-    | Choose request types | Select **Edge Zone Access**.                           |
+    | Choose request types | Select **Extended Zone Access**.                           |
     | Locations       | Select the Extended Zone location.                     |
     | Extended Zones   | Select the location of your edge zone.                          |
     | Quotas        | Select the quota you want to increase.               |
