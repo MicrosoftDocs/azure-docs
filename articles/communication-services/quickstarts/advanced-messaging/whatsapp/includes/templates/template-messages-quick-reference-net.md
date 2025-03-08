@@ -74,8 +74,11 @@ Follow these steps to add required code snippets to the Main function of your `P
 - [Send Template message with quick reply buttons](#send-template-message-with-quick-reply-buttons).
 - [Send Template message with call to action buttons with dynamic link](#send-template-message-with-call-to-action-buttons-with-dynamic-link).
 - [Send Template message with call to action buttons with static link](#send-template-message-with-call-to-action-buttons-with-static-link).
+- [Send Authentication Template message](#send-authentication-template-message).
 
-### List WhatsApp templates in Azure portal
+### List WhatsApp templates
+
+List of templates can be viewed in Azure portal or In WhatsApp Manager or Using SDK. All options are listed below in detail.
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Advanced Messaging** > **Templates**.
 
@@ -567,6 +570,72 @@ TemplateNotificationContent templateContent4 =
     new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplateWithcta);
 Response<SendMessageResult> sendTemplateMessageResult4 =
     notificationMessagesClient.Send(templateContent4);
+```
+
+### Send Authentication Template message
+For static links, you don't need to include `MessageTemplateQuickAction` model because the WhatsApp template has a static `CallToAction` link with no input required from the user.
+
+#### Example
+
+`auth_sample_template` template:
+
+This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
+
+:::image type="content" source="../../media/template-messages/sample-authentication-based-template.jpeg" lightbox="../../media/sample-authentication-based-template.jpeg" alt-text="Screen capture that shows details for the authentication-template.":::
+
+The template json looks like this:
+
+```json
+[
+  {
+    "type": "BODY",
+    "text": "*{{1}}* is your verification code.",
+    "add_security_recommendation": false,
+    "example": {
+      "body_text": [
+        [
+          "123456"
+        ]
+      ]
+    }
+  },
+  {
+    "type": "BUTTONS",
+    "buttons": [
+      {
+        "type": "URL",
+        "text": "Copy code",
+        "url": "https://www.whatsapp.com/otp/code/?otp_type=COPY_CODE&code=otp{{1}}",
+        "example": [
+          "https://www.whatsapp.com/otp/code/?otp_type=COPY_CODE&code=otp123456"
+        ]
+      }
+    ]
+  }
+]
+```
+
+Create one `MessageTemplateText`, one `MessageTemplateQuickAction` params. Then assemble your list of params values and your `WhatsAppMessageTemplateBindingsButton` by providing the parameters in the order that the parameters appear in the template content. The order also matters when defining your bindings' buttons.
+
+```csharp
+  // Send auth sample template message
+  string templateNameWithauth = "auth_sample_template";
+  string oneTimePassword = "3516517";
+  var messageTemplateWithAuth = new MessageTemplate(templateNameWithauth, templateLanguage);
+  WhatsAppMessageTemplateBindings auth_bindings = new();
+  var bodyParam2 = new MessageTemplateText(name: "code", text: oneTimePassword);
+  var uri_to_copy = new MessageTemplateQuickAction("url") { Text = oneTimePassword };
+
+  auth_bindings.Body.Add(new(bodyParam2.Name));
+  auth_bindings.Buttons.Add(new WhatsAppMessageTemplateBindingsButton(WhatsAppMessageButtonSubType.Url.ToString(), uri_to_copy.Name));
+  messageTemplateWithAuth.Values.Add(bodyParam2);
+  messageTemplateWithAuth.Values.Add(uri_to_copy);
+  messageTemplateWithAuth.Bindings = auth_bindings;
+
+  TemplateNotificationContent templateContent5 =
+      new TemplateNotificationContent(channelRegistrationId, recipientList, messageTemplateWithAuth);
+  Response<SendMessageResult> sendTemplateMessageResult5 =
+      notificationMessagesClient.Send(templateContent5);
 ```
 
 ## Run the code
