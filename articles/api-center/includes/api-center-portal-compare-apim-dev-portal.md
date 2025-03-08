@@ -16,7 +16,7 @@ ms.custom: Include file
 The [Azure API Management](../../api-management/api-management-key-concepts.md) and [Azure API Center](../overview.md) services both provide portals for developers to discover and consume APIs:
 
 * The *API Management developer portal* allows users to find managed APIs, learn how to use them, request access, and test them.
-* The *API Center portal* (preview) enables users to discover and filter the API inventory.
+* The *API Center portal* (preview) is a multi-gateway portal where  users can discover and filter the organization's complete API inventory.
 
 While the two portals share some features, they also have distinct differences. The following table compares key capabilities to help determine which portal to use. Some organizations may prefer one portal, while others may need both.
 
