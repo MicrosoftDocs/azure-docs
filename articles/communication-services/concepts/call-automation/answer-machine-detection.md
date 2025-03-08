@@ -13,16 +13,16 @@ ms.custom: public_preview
 
 # Implementing Answer Machine Detection with Call Automation
 
-Answer Machine Detection (AMD) helps contact centers identify whether a call is answered by a human or an answering machine. This guide will show you how to implement a simple AMD solution using Dual-Tone Multi-Frequency (DTMF) tones with Azure Communication Services existing play and recognize APIs.
+Answer Machine Detection (AMD) helps contact centers identify whether a call is answered by a human or an answering machine. This guide shows you how to implement an AMD solution using Dual-Tone Multi-Frequency (DTMF) tones with Azure Communication Services existing play and recognize APIs.
 
-To achieve this developers can implement a logic that uses the call connected event and plays an automated message requesting the callee to press a specific key verifying that they are a human before connecting them to an agent or playing a more specific message. 
+To achieve this, developers can implement a logic that uses the call connected event and plays an automated message. This message requests the callee to press a specific key to verify they're human before connecting them to an agent or playing a more specific message.
 
 ## Step-by-step guide 
-1. Create an outbound call. If you're not familiar with creating outbound calls you can review our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
-2. Once the call is answered you will get a `CallConnected` event. This lets your application know that the call has been answered, at this stage it could be a human or an answer machine.
-3. After receiving the `CallConnected` event your application should use the [recognize API](./recognize-action.md) and play a message to the callee requesting them to press a number on their dial pad to validate they're human, for example your application might say "This is a call from [your company name] regarding [reason for call]. Please press 1 to be connected to an agent."
-4. If the user presses a key on the dialpad, Azure Communication Services will send a `RecognizeCompleted` event to your application. This indicates that a human has answered the call and you should continue with your regular workflow.
-5. If no DTMF input is received, Azure Communication Services will send a `RecognizeFailed` event to your application. This indicates that this call has gone to voicemail and you should follow your voicemail flow for this call.
+1. Create an outbound call. If you're not familiar with creating outbound calls, you can review our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+2. Once the call is answered, you get a `CallConnected` event. This event lets your application know that the call has been answered, at this stage it could be a human or an answer machine.
+3. After receiving the `CallConnected` event your application should use the [recognize API](./recognize-action.md) and play a message to the callee requesting them to press a number on their dial pad to validate they're human, for example, your application might say "This is a call from [your company name] regarding [reason for call]. Press 1 to be connected to an agent."
+4. If the user presses a key on the dialpad, Azure Communication Services sends a `RecognizeCompleted` event to your application. This indicates that a human answered the call and you should continue with your regular workflow.
+5. If no DTMF input is received, Azure Communication Services sends a `RecognizeFailed` event to your application. This indicates that this call went to voicemail and you should follow your voicemail flow for this call.
 
 ## Example code 
 
