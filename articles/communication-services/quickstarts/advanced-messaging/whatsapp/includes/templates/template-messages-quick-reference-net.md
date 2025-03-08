@@ -581,7 +581,7 @@ For static links, you don't need to include `MessageTemplateQuickAction` model b
 
 This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
 
-:::image type="content" source="../../media/template-messages/sample-authentication-based-template.jpeg" lightbox="../../media/sample-authentication-based-template.jpeg" alt-text="Screen capture that shows details for the authentication-template.":::
+:::image type="content" source="../../media/template-messages/sample-authentication-based-template.jpeg" lightbox="../../media/template-messages/sample-authentication-based-template.jpeg" alt-text="Screen capture that shows details for the authentication-template.":::
 
 The template json looks like this:
 
