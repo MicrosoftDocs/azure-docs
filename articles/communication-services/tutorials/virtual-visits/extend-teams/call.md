@@ -147,7 +147,7 @@ callAgent.join(meetingLocator , new JoinCallOptions());
 
 Those steps allow you to join the Teams meeting. You can then extend those steps with [management of speakers, microphone, camera and individual video streams](/azure/communication-services/how-tos/calling-sdk/manage-video?pivots=platform-web). Then, optionally, you can also integrate chat in the Virtual appointment experience.
 
-Create a [ChatClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatClient.html) that initiates the SDK and give you access to notifications and [ChatThreadClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatThreadClient.html).
+Create a [ChatClient](/dotnet/api/azure.communication.chat.chatclient) that initiates the SDK and give you access to notifications and [ChatThreadClient](/dotnet/api/azure.communication.chat.chatthreadclient).
 
 ```js
 const chatClient = new ChatClient(
@@ -169,7 +169,7 @@ Subscribe to an event when message is received.
 chatClient.on("chatMessageReceived", (e) => { /*Render message*/})
 ```
 
-Create [ChatThreadClient](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-communication-chat/1.3.2-beta.1/classes/ChatThreadClient.html) to initiate client for operations related to specific chat thread. 
+Create [ChatThreadClient](/dotnet/api/azure.communication.chat.chatthreadclient) to initiate client for operations related to specific chat thread. 
 
 ```js
 chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
