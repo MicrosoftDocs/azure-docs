@@ -32,6 +32,9 @@ Azure has thousands of permissions that you can potentially include in your cust
 
 There are three ways that you can start to create a custom role. You can clone an existing role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
 
+> [!NOTE]  
+> For Azure roles in Azure RBAC, you can clone baseline permissions for both custom and built-in roles. However for Microsoft Entra roles, you can clone the baseline permissions from a custom role but you can't clone a built-in role.
+
 ### Clone a role
 
 If an existing role does not quite have the permissions you need, you can clone it and then modify the permissions. Follow these steps to start cloning a role.
