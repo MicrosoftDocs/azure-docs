@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: Abell
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 03/09/2025
 ms.custom: template-concept
 ---
 
@@ -38,6 +38,7 @@ The following table shows features and corresponding tiers.
 | Public IP Basic tier protection | No | Yes |
 | DDoS rapid response support | Not available | Yes |
 | Cost protection | Not available  | Yes |
+| vNet protection | Not available | Yes |
 | WAF discount | Not available | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
