@@ -54,6 +54,7 @@ You can customize and use an ARM template from any available Azure VM base to us
    :::image type="content" source="media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png" alt-text="Screenshot that shows an ARM template to save for later use.":::
 1. If you want to create the VM or VMs immediately, select **Create** at the bottom of the **Create lab resource** page.
 
+<a name="set-vm-expiration-date"></a>
 ## Edit ARM templates for VMs
 
 When you reuse the ARM template to create more VMs, you can edit the values in your template file. To update only the `parameters` section of your template without having to edit the main template file, you can create and edit a separate file called *azuredeploy.parameters.json*.
