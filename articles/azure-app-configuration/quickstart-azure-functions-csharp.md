@@ -5,9 +5,11 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 03/09/2025
+ms.author: zhenlwa
+ms.custom: "devx-track-csharp, azure-functions"
+ms.tgt_pltfrm: Azure Functions
 
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -20,7 +22,7 @@ This quickstart shows you how to manage your Azure Functions app settings outsid
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
-- [Azure Functions tools](../azure-functions/functions-develop-vs.md), if you don't have it installed with Visual Studio already.
+- [Azure Functions tools](../azure-functions/functions-develop-vs.md).
 
 ## Add a key-value
 
@@ -42,10 +44,8 @@ Use the following table as a reference for key parameters when creating your Fun
 | Function             | HTTP trigger               |
 | Authorization level  | Anonymous                  |
 
-
 > [!NOTE]  
 > Azure App Configuration can be used with Azure Functions in either the [isolated worker model](../azure-functions/dotnet-isolated-process-guide.md) or the [in-process model](../azure-functions/functions-dotnet-class-library.md). This quickstart uses the isolated worker model as an example. You can find complete code examples for both models in the [Azure App Configuration GitHub repository](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetCore/AzureFunctions).
-
 
 ## Connect to an App Configuration store
 You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
@@ -63,7 +63,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
     ---
 
-2. Open *Program.cs* and update the code as follows. You add Azure App Configuration as an additional configuration source by calling the `AddAzureAppConfiguration()` method.
+2. Open *Program.cs* and update the code as follows. You add Azure App Configuration as an additional configuration source by calling the `AddAzureAppConfiguration` method.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 
@@ -171,7 +171,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -204,11 +204,11 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
 ## Manage trigger parameters with App Configuration references
 
-Azure Functions triggers define how a function is invoked. Trigger attributes, such as queue names or database names, are loaded at host startup time and cannot directly retrieve values from Azure App Configuration. To manage these parameters, you can use the App Configuration reference feature available for Azure Functions and App Service.
+Azure Functions triggers define how a function is invoked. Trigger attributes, such as queue names or database names, are loaded at host startup time and can't directly retrieve values from Azure App Configuration. To manage these parameters, you can use the App Configuration reference feature available for Azure Functions and App Service.
 
 The App Configuration reference feature allows you to reference key-values stored in Azure App Configuration directly from your application settings. Azure Functions resolves these references at startup, enabling you to manage trigger parameters centrally and securely.
 
-For example, consider a queue-triggered Azure Function. Instead of specifying the queue name directly in the trigger attribute, you can reference a key-value stored in Azure App Configuration.
+For example, consider a queue-triggered Function app. Instead of specifying the queue name directly in the trigger attribute, you can reference a key-value stored in Azure App Configuration.
 
 1. In your Azure App Configuration store, add a key-value for your queue name:
 
@@ -216,14 +216,14 @@ For example, consider a queue-triggered Azure Function. Instead of specifying th
    |------------------------------|----------------------------------------------|
    | *TestApp:Storage:QueueName*  | *\<The queue name in your storage account>*  |
 
-1. In your Azure Functions, select **Settings** -> **Environment variables** -> **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
+1. In your Function app, select **Settings** -> **Environment variables** -> **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
 
    | Name                 | Value                                      |
    |----------------------|--------------------------------------------|
-   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=https://<your-store-name>.azconfig.io; Key=TestApp:Storage:QueueName)`   |
+   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=https://<your-store-name>.azconfig.io; Key=TestApp:Storage:QueueName)` |
 
    > [!TIP]
-   > If you have multiple key-values in Azure App Configuration, you can [export them in batch as App Configuration references](./howto-import-export-data.md?#export-data-to-azure-app-service) to Azure Functions using the Azure Portal or CLI.
+   > If you have multiple key-values in Azure App Configuration, you can [export them in batch as App Configuration references](./howto-import-export-data.md?#export-data-to-azure-app-service) to Azure Functions using the Azure portal or CLI.
 
 1. Enable the managed identity for your Azure Functions app and assign it the **App Configuration Data Reader** role for your App Configuration store. For detailed instructions on setting up App Configuration references, see [Use App Configuration references in App Service and Azure Functions](../app-service/app-service-configuration-references.md).
 

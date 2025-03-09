@@ -3,11 +3,10 @@ title: Tutorial for using Azure App Configuration dynamic configuration in an Az
 description: In this tutorial, you learn how to dynamically update the configuration data for Azure Functions apps
 services: azure-app-configuration
 author: zhenlan
-manager: qingye
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/14/2022
+ms.date: 03/09/2025
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
@@ -16,7 +15,7 @@ ms.tgt_pltfrm: Azure Functions
 ---
 # Tutorial: Use dynamic configuration in an Azure Functions app
 
-This tutorial shows how you can enable dynamic configuration updates in your Azure Functions app. It builds upon the Azure Functions app introduced in the quickstarts. Before you continue, finish [Create an Azure functions app with Azure App Configuration](./quickstart-azure-functions-csharp.md) first.
+This tutorial shows how you can enable dynamic configuration updates in your Azure Functions app. It builds upon the Azure Functions app introduced in the quickstarts. Before you continue, finish [Create an Azure Functions app with Azure App Configuration](./quickstart-azure-functions-csharp.md) first.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Finish quickstart [Create an Azure functions app with Azure App Configuration](./quickstart-azure-functions-csharp.md)
+- Finish quickstart [Create an Azure Functions app with Azure App Configuration](./quickstart-azure-functions-csharp.md)
 
 ## Reload data from App Configuration
 
@@ -129,7 +128,7 @@ The Azure App Configuration .NET provider supports caching and dynamic refresh o
     ```
 
     ### [Connection string](#tab/connection-string)
-    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
+    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access settings* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
@@ -166,7 +165,7 @@ The Azure App Configuration .NET provider supports caching and dynamic refresh o
     |---|---|
     | *TestApp:Settings:Message* | *Data from Azure App Configuration - Updated* |
 
-6. Refresh your browser a few times. After the default refresh interval of 30 seconds passes, the page displays the updated value retrieved from your Azure Functions app.
+6. Refresh your browser a few times. After the default refresh interval of 30-seconds passes, the page displays the updated value retrieved from your Azure Functions app.
 
     ![Quickstart Function refresh local](./media/quickstarts/dotnet-core-function-refresh-local.png)
 
