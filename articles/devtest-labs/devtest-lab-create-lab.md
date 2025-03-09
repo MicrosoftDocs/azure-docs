@@ -4,10 +4,10 @@ description: Learn how to quickly create a lab in Azure DevTest Labs by using th
 ms.topic: quickstart
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2025
+ms.date: 03/09/2025
 ms.custom: mode-ui, UpdateFrequency2
 
-#customer intent: As a lab administrator, I want to know how to quickly set up Azure DevTest Labs by using the Azure portal.
+#customer intent: As a lab administrator, I want to learn how to quickly set up Azure DevTest Labs by using the Azure portal, so I can create labs for development, testing, or training.
 ---
 
 # Quickstart: Create a lab in the Azure portal

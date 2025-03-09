@@ -4,11 +4,11 @@ description: This article describes primary Azure DevTest Labs scenarios, and ho
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/06/2025
+ms.date: 03/09/2025
 ms.reviewer: christianreddington,anthdela,juselph
 ms.custom: UpdateFrequency2
 
-#customer intent: As a customer, I want to know how I can use Azure DevTest Labs for popular scenarios like development, test, and training.
+#customer intent: As a customer, I want to know about Azure DevTest Labs capabilities, so I can use DevTest Labs for popular scenarios like development, test, and training.
 ---
 
 # Azure DevTest Labs scenarios
