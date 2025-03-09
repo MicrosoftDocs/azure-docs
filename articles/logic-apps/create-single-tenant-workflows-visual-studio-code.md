@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 03/12/2025
 ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -14,19 +14,21 @@ ms.custom: engagement-fy23, devx-track-dotnet
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-This how-to guide shows how to create an example integration workflow that runs in single-tenant Azure Logic Apps by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. Before you create this workflow, you'll create a Standard logic app resource, which provides the following capabilities:
+This guide shows how to create an example integration workflow that runs in single-tenant Azure Logic Apps by using Visual Studio Code with the **Azure Logic Apps (Standard)** extension. Before you create this workflow, you'll create a Standard logic app resource, which provides the following capabilities:
 
 * Your logic app can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless).
 
 * Workflows in the same logic app and tenant run in the same process as the Azure Logic Apps runtime, so they share the same resources and provide better performance.
 
-* You can locally create, run, and test workflows using the Visual Studio Code development environment.
+* You can locally create, debug, run, and test workflows in the local Visual Studio Code development environment.
 
   When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime.
 
   For more information about single-tenant Azure Logic Apps, see [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
 
-While the example workflow is cloud-based and has only two steps, you can create workflows from hundreds of operations that can connect a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments. The example workflow starts with the built-in **Request** trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
+While the example workflow is cloud-based and has only two steps, you can create workflows using operations from [1,400+ connectors](/azure/connectors/introduction) for a wide range of apps, data, services, and systems across cloud, on premises, and hybrid environments.
+
+The example workflow starts with the built-in **Request** trigger and follows with an Office 365 Outlook action. The trigger creates a callable endpoint for the workflow and waits for an inbound HTTPS request from any caller. When the trigger receives a request and fires, the next action runs by sending email to the specified email address along with selected outputs from the trigger.
 
 > [!TIP]
 >
@@ -35,14 +37,15 @@ While the example workflow is cloud-based and has only two steps, you can create
 >
 > To create this example workflow using the Azure portal instead, follow the steps in 
 > [Create integration workflows using single tenant Azure Logic Apps and the Azure portal](create-single-tenant-workflows-azure-portal.md). 
-> Both options provide the capability to develop, run, and deploy logic app workflows in the same kinds of environments. 
-> However, with Visual Studio Code, you can *locally* develop, test, and run workflows in your development environment.
+> Both options provide the capability to develop, run, and deploy logic app workflows 
+> in the same kinds of environments. However, with Visual Studio Code, you can *locally* 
+> build, debug, run, and test workflows in your development environment.
 
-![Screenshot that shows Visual Studio Code, logic app project, and workflow.](./media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png" alt-text="Screenshot that shows Visual Studio Code, logic app workspace, project, and workflow.":::
 
 As you progress, you'll complete these high-level tasks:
 
-* Create a project for your logic app and a blank [*stateful* workflow](single-tenant-overview-compare.md#stateful-stateless).
+* Create your logic app workspace and project with a blank [*stateful* workflow](single-tenant-overview-compare.md#stateful-stateless).
 * Add a trigger and an action.
 * Run, test, debug, and review run history locally.
 * Find domain name details for firewall access.
@@ -74,9 +77,9 @@ As you progress, you'll complete these high-level tasks:
    - [Install all dependencies automatically](#dependency-installer).
    - [Download and install each dependency separately](#install-dependencies-individually).
 
-   <a name="dependency-installer"></a>
+<a name="dependency-installer"></a>
 
-   **Install all dependencies automatically**
+##### Install all dependencies automatically
 
    Starting with version **2.81.5**, the Azure Logic Apps (Standard) extension for Visual Studio Code includes a dependency installer that automatically installs all the required dependencies in a new binary folder and leaves any existing dependencies unchanged. For more information, see [Get started more easily with the Azure Logic Apps (Standard) extension for Visual Studio Code](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/making-it-easy-to-get-started-with-the-azure-logic-apps-standard/ba-p/3979643).
 
@@ -348,59 +351,33 @@ After you create the required workspace, follow the prompts that appear to creat
 
 1. When the **Select a resource group for new resources** prompt appears, select **Create new resource group**.
 
-   ![Screenshot shows Explorer pane with resource group list and selected option to create new resource group.](./media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
+   ![Screenshot shows Explorer pane with resource group list and selected option to create new resource group.](media/create-single-tenant-workflows-visual-studio-code/create-select-resource-group.png)
 
 1. Enter the name to use for the Azure resource group.
 
    This example uses **Fabrikam-Workflows-RG**.
 
-   ![Screenshot shows Explorer pane and resource group name box.](./media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png)
+   :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/enter-name-for-resource-group.png" alt-text="Screenshot shows Explorer pane and resource group name box.":::
 
 1. When the **Select a location for new resources** prompt appears, select the Azure region to use for creating your resource group and resources.
 
    This example uses **West Central US**.
 
-   ![Screenshot shows Explorer pane with locations list and selected option for West Central US.](./media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png)
+   :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/select-azure-region.png" alt-text="Screenshot shows Explorer pane with locations list and selected option for West Central US.":::
 
-Your project is now ready for you to start building your workflow.
+1. If your project needs other setup or supporting artifacts before you start building your workflow, see the following tasks. Otherwise, [open the designer for your workflow](#open-workflow-designer).
 
-
-   After you perform this step, Visual Studio Code opens the workflow designer.
-
-   > [!NOTE]
-   > When Visual Studio Code starts the workflow design-time API, you might get a message 
-   > that startup might take a few seconds. You can ignore this message or select **OK**.
-   >
-   > If the designer won't open, see the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
-
-1. From the Visual Studio Activity Bar, open the Explorer pane, if not already open.
-
-   The Explorer pane shows your workspace and project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
-
-   ![Screenshot shows Explorer pane with workspace, project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-workspace-project-created.png)
-
-   [!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
-
-   > [!NOTE]
-   >
-   > The **FUNCTIONS_WORKER_RUNTIME** app setting is required for your Standard logic app, and the
-   > value was previously set to **node**. However, the required value is now **dotnet** for all new
-   > and existing deployed Standard logic apps. This change in value shouldn't affect your workflow's
-   > runtime, so everything should work the same way as before. For more information, see the
-   > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
-   > 
-   > The **APP_KIND** app setting is required for your Standard logic app, and the value
-   > must be **workflowApp**. However, in some scenarios, this app setting might be missing,
-   > for example, due to automation using Azure Resource Manager templates or other scenarios
-   > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
-   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **workflowApp**.
-   > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   | Scenario | Task |
+   |----------|------|
+   | Add artifacts and dependencies, such as maps, schemas, and assemblies. | [Add artifacts and dependencies](#add-artifacts-dependencies). |
+   | Work with a NuGet-based (.NET) project | - [Convert your project to a NuGet package-based (.NET) project](#convert-project-nuget) <br><br>- |
+   | Create your own built-in connectors. | [Enable-built-in-connector-authoring](#enable-built-in-connector-authoring), which requires [converting your extension bundle-based project (Node.js) to a NuGet package-based project (.NET)](#convert-project-nuget). |
 
 <a name="convert-project-nuget"></a>
 
 ## Convert your project to NuGet package-based (.NET)
 
-By default, Visual Studio Code creates a logic app project that is extension bundle-based (Node.js), not NuGet package-based (.NET). If you require a logic app project that is NuGet package-based (.NET), for example, to enable built-in connector authoring, you must convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
+By default, Visual Studio Code creates a logic app project that is extension bundle-based (Node.js). If you need a logic app project that is NuGet package-based (.NET), for example, to create your own built-in connectors, you must convert your default project to a NuGet package-based (.NET) project.
 
 > [!IMPORTANT]
 >
@@ -408,47 +385,47 @@ By default, Visual Studio Code creates a logic app project that is extension bun
 
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to NuGet-based logic app project**.
 
-   ![Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.](./media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png)
+   :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/convert-logic-app-project.png" alt-text="Screenshot shows Explorer pane with project shortcut menu opened from blank area in project window.":::
 
 1. When the prompt appears, confirm the project conversion.
 
-<a name="enable-built-in-connector-authoring"></a>
+<a name="add-artifacts-dependencies"></a>
 
-## Enable built-in connector authoring
+## Add artifacts and dependencies to your project
 
-You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
+In a logic app workflow, some connectors have dependencies on artifacts such as maps, schemas, or assemblies. In Visual Studio Code, you can upload these artifacts to your logic app project, which is similar to how you can upload these artifacts to your logic app resource in the Azure portal under **Artifacts**, for example:
 
-The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
-
-1. If you haven't already, [convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](#convert-project-nuget).
-
-1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
-
-<a name="add-custom-artifacts"></a>
-
-## Add custom artifacts to your project
-
-In a logic app workflow, some connectors have dependencies on artifacts such as maps, schemas, or assemblies. In Visual Studio Code, you can upload these artifacts to your logic app project, similar to how you can upload these artifacts in the Azure portal through the logic app resource menu under **Artifacts**, for example:
-
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/show-artifacts-portal.png" alt-text="Screenshot shows Azure portal and Standard logic app resource menu with Artifacts section highlighted." lightbox="media/create-single-tenant-workflows-visual-studio-code/show-artifacts-portal.png":::
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/show-artifacts-portal.png" alt-text="Screenshot shows Azure portal and Standard logic app resource menu with Artifacts section highlighted.":::
 
 ### Add maps to your project
 
-To add maps to your project, in your project hierarchy, expand **Artifacts** > **Maps**, which is the folder where you can put your maps.
+1. In your local project project folder, open the **Artifacts** folder > **Maps** folder.
 
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/map-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Maps folders expanded." lightbox="media/create-single-tenant-workflows-visual-studio-code/map-upload-visual-studio-code.png":::
+1. Add your map files to the **Maps** folder.
+
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/map-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Maps folders expanded.":::
 
 ### Add schemas to your project
 
-To add schemas to your project, in your project hierarchy, expand **Artifacts** > **Schemas**, which is the folder where you can put your schemas.
+1. In your local project project folder, open the **Artifacts** folder > **Schemas** folder.
 
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded." lightbox="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png":::
+1. Add your schema files to the **Schemas** folder.
+
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/schema-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code project hierarchy with Artifacts and Schemas folders expanded.":::
+
+### Add business engine rules to your project
+
+1. In your local project project folder, open the **Artifacts** folder > **Rules** folder.
+
+1. Add your business engine rules files to the **Rules** folder.
 
 <a name="add-assembly"></a>
 
 ### Add assemblies to your project
 
-A Standard logic app can use or reference specific kinds of assemblies, which you can upload to your project in Visual Studio Code. However, you must add them to specific folders in your project. The following table provides more information about each assembly type and where exactly to put them in your project.
+A Standard logic app resource can use or reference specific kinds of assemblies, which you can upload to your project in Visual Studio Code. However, you must add them to specific project folders.
+
+The following table describes each supported assembly type and the folder where to put them:
 
 | Assembly type | Description |
 |---------------|-------------|
@@ -458,15 +435,24 @@ A Standard logic app can use or reference specific kinds of assemblies, which yo
 
 The following image shows where to put each assembly type in your project:
 
-:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies." lightbox="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png":::
+:::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/assembly-upload-visual-studio-code.png" alt-text="Screenshot shows Visual Studio Code, logic app project, and where to upload assemblies.":::
+
+> [!NOTE]
+>
+> If you have a NuGet package-based (.NET) logic app 
+> project before assemblies support became available, see 
+> [Migrate NuGet package-based projects to use **"lib\\*"** assemblies](#migrate-nuget-assemblies).
 
 For more information about uploading assemblies to your logic app resource in the Azure portal, see [Add referenced assemblies](logic-apps-enterprise-integration-maps.md?tabs=standard#add-assembly).
 
-### Migrate NuGet-based projects to use "lib\\*" assemblies
+<a name="migrate-nuget-assemblies"></a>
+
+#### Migrate NuGet package-based projects to use "lib\\*" assemblies
 
 > [!IMPORTANT]
 >
-> This task is required only for NuGet-based logic app projects.
+> This task is required only for NuGet package-based (.NET) logic 
+> app projects created before assemblies support became available.
 
 If you created your logic app project when assemblies support wasn't available for Standard logic app workflows, you can add the following lines to your **<*project-name*>.csproj** file to work with projects that use assemblies:
  
@@ -481,16 +467,31 @@ If you created your logic app project when assemblies support wasn't available f
 
 > [!IMPORTANT]
 >
-> For a project that runs on Linux or macOS, make sure to update the directory separator. For example, 
-> review the following image that shows the previous code added to the **<*project-name*>.csproj** file.
+> For a project that runs on Linux or macOS, make sure to update the 
+> directory separator. For example, review the following image that 
+> shows the previous code added to the **<*project-name*>.csproj** file:
 >
-> :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file." lightbox="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png":::
+> :::image type="content" source="media/create-single-tenant-workflows-visual-studio-code/migrate-projects-assemblies-visual-studio-code.png" alt-text="Screenshot shows migrated assemblies and added code in the CSPROJ file.":::
 
-<a name="open-workflow-definition-designer"></a>
+<a name="enable-built-in-connector-authoring"></a>
 
-## Open the workflow definition file in the designer
+## Enable built-in connector authoring
 
-1. Expand your workflow's project folder, which is named **Stateful-Workflow** in this example, and open the **workflow.json** file.
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
+
+The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
+
+1. If you haven't already, [convert your extension bundle-based (Node.js) project to a NuGet package-based (.NET) project](#convert-project-nuget).
+
+1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+
+<a name="open-workflow-designer"></a>
+
+## Open the workflow designer
+
+1. In the Explorer pane, expand the folder for your workflow, nd find the **workflow.json** file.
+
+   In this example, the workflow folder is named **Stateful-Workflow**.
 
 1. Open the **workflow.json** file's shortcut menu, and select **Open Designer**.
 
@@ -524,6 +525,7 @@ If you created your logic app project when assemblies support wasn't available f
    After you perform this step, Visual Studio Code opens the workflow designer.
 
    > [!NOTE]
+   >
    > When Visual Studio Code starts the workflow design-time API, you might get a message 
    > that startup might take a few seconds. You can ignore this message or select **OK**.
    >
@@ -536,6 +538,39 @@ If you created your logic app project when assemblies support wasn't available f
    ![Screenshot shows workflow designer, the selected prompt named Add a trigger, and the gallery for connectors with triggers.](./media/create-single-tenant-workflows-visual-studio-code/workflow-designer-triggers-overview.png)
 
 1. Next, [add a trigger and actions](#add-trigger-actions) to your workflow.
+
+
+1. In the Explorer pane, 
+
+1. From the Visual Studio Activity Bar, open the Explorer pane, if not already open.
+
+   The Explorer pane shows your workspace and project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
+
+   ![Screenshot shows Explorer pane with workspace, project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-workspace-project-created.png)
+
+   [!INCLUDE [Visual Studio Code - logic app project structure](includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+
+   > [!NOTE]
+   >
+   > The **FUNCTIONS_WORKER_RUNTIME** app setting is required for your Standard logic app, and the
+   > value was previously set to **node**. However, the required value is now **dotnet** for all new
+   > and existing deployed Standard logic apps. This change in value shouldn't affect your workflow's
+   > runtime, so everything should work the same way as before. For more information, see the
+   > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   > 
+   > The **APP_KIND** app setting is required for your Standard logic app, and the value
+   > must be **workflowApp**. However, in some scenarios, this app setting might be missing,
+   > for example, due to automation using Azure Resource Manager templates or other scenarios
+   > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
+   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to **workflowApp**.
+   > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+
+   > [!NOTE]
+   >
+   > When Visual Studio Code starts the workflow design-time API, you might get a message 
+   > that startup might take a few seconds. You can ignore this message or select **OK**.
+   >
+   > If the designer won't open, see the troubleshooting section, [Designer fails to open](#designer-fails-to-open).
 
 <a name="add-trigger-actions"></a>
 
