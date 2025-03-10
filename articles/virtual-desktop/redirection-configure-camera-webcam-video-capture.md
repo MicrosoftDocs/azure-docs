@@ -155,7 +155,7 @@ To configure camera, webcam and video capture redirection using host pool RDP pr
 1. To test the configuration, connect to a remote session with a camera, webcam, or video capture peripheral and use it with a supported application for the peripheral, such as Microsoft Teams.
 
 > [!WARNING]
-> Clients that are [optimized with the new VDI solution for Teams](https://learn.microsoft.com/en-us/microsoftteams/vdi-2) using `MsTeamsPluginAvd.dll`, which is bundled with the latest versions of RD Client for Windows and Windows App, will bypass the "Don't redirect any cameras" RDP property and permit the use of client cameras in Microsoft Teams within a remote session.
+> Clients that are [optimized with the new VDI solution for Teams](https://github.com/MicrosoftDocs/OfficeDocs-SkypeForBusiness/blob/public/Teams/vdi-2.md) using `MsTeamsPluginAvd.dll`, which is bundled with the latest versions of RD Client for Windows and Windows App, will bypass the "Don't redirect any cameras" RDP property and permit the use of client cameras in Microsoft Teams within a remote session.
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
