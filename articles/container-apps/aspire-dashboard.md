@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-dotnet
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 1/14/2025
 ms.author: cshoe
 zone_pivot_groups: azure-azd-cli-portal
 ---
@@ -40,30 +40,28 @@ The dashboard is secured against unauthorized access and modification. To use th
 
 You can enable the .NET Aspire Dashboard on any existing container app using the following steps.
 
-1. Go to the Azure portal.
+1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Open the *Overview* window of your container app.
+1. Browse to your container app.
 
-1. Find the *.NET Aspire Dashboard* label, and select the **enable** link.
+1. In the *Overview* page, find the *.NET Aspire Dashboard* label, and select **enable**. This action opens the .NET Aspire Dashboard settings page.
 
-    This action opens the .NET Aspire Dashboard settings window.
+1. In the settings page, next to the *.NET Aspire Dashboard* label, select the **Enabled** checkbox. You can ignore the other settings on this page, as they pertain to logging rather than to the .NET Aspire Dashboard.
 
-1. Next to the *.NET Aspire Dashboard* label, select the **Enabled** checkbox.
+1. In the *Overview* page for your container app, find the *.NET Aspire Dashboard* label. The **enable** link has been replaced by an **Open dashboard** link. Select this link. You might need to reload the *Overview* page for the link to appear.
 
-    Now the .NET Aspire Dashboard URL is displayed to you.
-
-1. Select the URL to your dashboard.
+You can also find the .NET Aspire Dashboard settings by browsing to your Container Apps environment and selecting *Monitoring* > *Logging options*.
 
 ::: zone-end
 
 ::: zone pivot="azurecli"
 
-You can enable the .NET Aspire Dashboard on any existing container app environment by using the following commands. 
+You can enable the .NET Aspire Dashboard on any existing container app environment by using the following commands. Replace the `<PLACEHOLDERS>` with your values.
 
 ```azurecli
 az containerapp env dotnet-component create \
   --environment <ENVIRONMENT_NAME> \
-  --name <CONTAINER_APP_NAME> \
+  --name aspire-dashboard \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 

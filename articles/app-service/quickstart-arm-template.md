@@ -206,7 +206,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 > [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Python with Postgres](tutorial-python-postgresql-app.md)
+> [Python with Postgres](tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [PHP with MySQL](tutorial-php-mysql-app.md)

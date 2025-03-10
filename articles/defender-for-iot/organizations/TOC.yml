@@ -154,6 +154,8 @@
       href: iot-solution.md
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: iot-advanced-threat-monitoring.md
+  - name: Set up automatic sensor disconnection notifications
+    href: automate-sensor-disconnection-alerts.md
   - name: Monitor with Zero Trust principles
     href: monitor-zero-trust.md
 - name: How-to guides
@@ -330,8 +332,6 @@
         items:
         - name: HPE ProLiant DL360 Gen11
           href: appliance-catalog/hpe-proliant-dl360-gen11.md
-        - name: HPE ProLiant DL360
-          href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R660
           href: appliance-catalog/dell-poweredge-r660.md
       - name: Large enterprises
@@ -368,6 +368,8 @@
           href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
         - name: HPE ProLiant DL20 Gen10 Plus (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
+        - name: HPE ProLiant DL360
+          href: appliance-catalog/hpe-proliant-dl360.md
         - name: Dell PowerEdge R350
           href: appliance-catalog/dell-poweredge-r350-e1800.md
         - name: Dell PowerEdge R340 XL (E1800)

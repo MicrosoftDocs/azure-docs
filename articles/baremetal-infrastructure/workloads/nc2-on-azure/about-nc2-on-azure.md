@@ -62,7 +62,7 @@ For further pricing details see: [Nutanix Cloud Clusters Pricing](https://www.nu
 ### Nodes in Azure
 A minimum of three nodes are required to deploy an NC2 on Azure cluster. For pricing, go to the [Nutanix Cloud Clusters on Azure pricing page](https://azure.microsoft.com/pricing/details/nutanix-on-azure/). 
 
-More cost savings on the hardware can be realized with reserved instances: [Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure](https://learn.microsoft.com/azure/cost-management-billing/reservations/nutanix-bare-metal)
+More cost savings on the hardware can be realized with reserved instances: [Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure](/azure/cost-management-billing/reservations/nutanix-bare-metal)
 
 ## Other cost benefits
 
@@ -70,7 +70,7 @@ More cost savings on the hardware can be realized with reserved instances: [Save
 NC2 on Azure infrastructure counts toward your organization's Microsoft Azure Consumption Commitment (MACC) agreement.
 
 ### Azure Hybrid Benefit for Windows and SQL Server
-With Software Assurance or an active Linux subscription, you can also take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. 
+Azure Hybrid Benefit enables commercial customers to use their qualifying on-premises licenses on Azure. With Software Assurance or an active Linux subscription, you can take advantage of Azure Hybrid Benefit for SQL Server, Windows Server, or Linux running in the NC2 on Azure environment. 
 
 The primary benefit allows you to reuse you existing licensing investments to run in NC2 on Azure. There are other benefits, including allowing you to migrate over time while maintaining license compliance both on-premises and in Azure. 
 
@@ -79,12 +79,14 @@ Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicat
 - [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS) 
 - [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS)
 
-For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive.
+There's no current product integration where you can choose Azure Hybrid Benefit for VMs in NC2 on Azure. 
+
+For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
 
 ### No-cost Extended Security Updates (ESU) for Windows Server
 Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. 
 
-For further information on ESUs, including qualifying Windows product versions and timelines see: [Extended Security Updates for Windows Server overview](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview).
+For further information on ESUs, including qualifying Windows product versions and timelines see: [Extended Security Updates for Windows Server overview](/windows-server/get-started/extended-security-updates-overview).
 
 The process to get the Extended Security Updates for Windows VMs in NC2 on Azure requires a manual request, approval, and delivery. 
 

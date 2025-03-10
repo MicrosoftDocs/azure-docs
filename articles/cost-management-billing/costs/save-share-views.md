@@ -147,7 +147,7 @@ There could be a few reasons why you're not receiving alert emails. Try the foll
 - Confirm that your email address is shown as a recipient and that it's correct.
 - Check your spam or junk mail folder for emails from `microsoft-noreply@microsoft.com`.
 - Check to see if the alert is expired, disabled, or deleted. You can extend, reenable, or create a new scheduled alert to fix the problem.
-- Work with your admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements with a Microsoft partner.
+- Work with your billing admin to reenable the [view charges policy](assign-access-acm-data.md#enable-access-to-costs-in-the-azure-portal) in the Azure portal. The policy applies to indirect Enterprise Agreements and to Microsoft Customer Agreements.
 
 >[!NOTE]
 > Azure checks the permissions of the alert rule creator before sending the alert email. If your organization has a policy that prohibits permanently assigning higher privileges to users, you can use a service principal and create the alert directly using the [Scheduled Actions API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope).

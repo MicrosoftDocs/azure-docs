@@ -76,13 +76,13 @@ Bicep provides the following advantages:
 
   ---
 
-- **Authoring experience**: When you use the [Bicep Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, IntelliSense, and syntax validation.
+- **Authoring experience**: When you use the [Bicep Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to create your Bicep files, you get a first-class authoring experience. The editor provides rich type safety, IntelliSense, and syntax validation.
 
   ![A screen capture of authoring a Bicep file in real time](./media/overview/bicep-intellisense.gif)
 
   You can also create Bicep files in Visual Studio with the [Bicep extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
-- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence that your resources are deployed in a consistent manner. Bicep files are idempotent, which means that you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state instead of developing many separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account when the specified properties already exist, changes aren't made:
+- **Repeatable results**: Deploy your infrastructure throughout the development lifecycle with confidence that your resources are deployed consistently. Bicep files are idempotent, which means that you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state instead of developing many separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account when the specified properties already exist, changes aren't made:
 
   # [Bicep](#tab/bicep)
 
@@ -127,29 +127,29 @@ Bicep provides the following advantages:
   ```
 
 ---
-  
+
 - **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so that they're created in the correct order. When possible, Resource Manager deploys resources in parallel, which helps your deployments to finish faster than serial deployments. You deploy the file through one rather than multiple imperative commands.
 
    :::image type="content" source="./media/overview/bicep-processing.png" alt-text="A diagram comparing deployment between a Bicep file and infrastructure as code not in a template." border="false":::
 
-- **Modularity**: You can use [modules](./modules.md) to segment your Bicep code into manageable parts. Modules help you to reuse code and simplify development. A module deploys a set of related resources. Add a module to a Bicep file any time you need to deploy those resources.
+- **Modularity**: Use [modules](./modules.md) to segment your Bicep code into manageable parts. Modules help you to reuse code and simplify development. A module deploys a set of related resources. Add a module to a Bicep file when you need to deploy those resources.
 - **Integration with Azure services**: Bicep integrates with Azure services such as Azure Policy, template specs, and Azure Blueprints.
-- **Preview changes**: You can use the [what-if operation](./deploy-what-if.md) to preview changes before deploying the Bicep file. The what-if operation shows you which resources will be created, updated, or deleted and any resource properties that'll be changed. It also checks the current state of your environment and eliminates the need to manage this state.
-- **No state or state files to manage**: All state is stored in Azure. Users can collaborate and be confident that their updates are handled as expected.
-- **No cost and open source**: Since Bicep is completely free, you don't have to pay for premium capabilities. It's also supported by Microsoft Support.
+- **Preview changes**: You can use the [what-if operation](./deploy-what-if.md) to preview changes before deploying the Bicep file. The what-if operation shows you which resources to create, update, or delete and any resource properties to change. It also checks the current state of your environment and eliminates the need to manage this state.
+- **No state or state files to manage**: Azure stores all state. You can collaborate with others and be confident that your updates are handled as expected.
+- **No cost and open source**: Since Bicep is free, you don't have to pay for premium capabilities. Microsoft Support supports it.
 
 ## Get started
 
 To start with Bicep:
 
-1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md) or use the [VS Code devcontainer/Codespaces repository](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
+1. **Install the tools**. For more information, see [Set up Bicep development and deployment environments](./install.md) or use the [VS Code devcontainer/Codespaces repository](https://github.com/Azure/vscode-remote-try-bicep) to get a preconfigured authoring environment.
 2. **Complete the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and [Learn modules for Bicep](./learn-bicep.md)**.
 
 To decompile an existing Resource Manager template to Bicep, see [Decompiling ARM template JSON to Bicep](./decompile.md). You can use [Bicep Playground](https://aka.ms/bicepdemo) to view Bicep and its equivalent, JSON, side by side.
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/).
 
-Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts).
+You can find Bicep examples in the [Bicep GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts).
 
 ## About the language
 
@@ -157,7 +157,7 @@ Bicep isn't intended as a general programming language to write applications. A 
 
 To track the status of the Bicep work, see the [Bicep project repository](https://github.com/Azure/bicep).
 
-Watch the following video to learn about Bicep:
+To learn about Bicep, watch the following video:
 
 > [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
@@ -177,6 +177,6 @@ The structure of the Bicep file is more flexible than a JSON template. You can d
 
 ## Next steps
 
-Get started with the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
+To get started, see the [Quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
 
 For answers to common questions, see [Frequently asked questions for Bicep](frequently-asked-questions.yml).

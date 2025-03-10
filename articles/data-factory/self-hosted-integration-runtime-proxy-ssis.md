@@ -57,7 +57,7 @@ Finally, you download and install the latest version of self-hosted IR, as well 
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
 
-  If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=56730).  
+  If you use the latest version of OLEDB driver for SQL Server (MSOLEDBSQL), [download the 64-bit version](https://go.microsoft.com/fwlink/?linkid=2278038).  
   
   If you use OLEDB/ODBC/ADO.NET drivers for other database systems, such as PostgreSQL, MySQL, Oracle, and so on, you can download the 64-bit versions from their websites.
 - If you use data flow components from Azure Feature Pack in your packages, [download and install Azure Feature Pack for SQL Server 2017](https://www.microsoft.com/download/details.aspx?id=54798) on the same machine where your self-hosted IR is installed, if you haven't done so already.

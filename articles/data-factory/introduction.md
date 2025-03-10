@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.topic: overview
 ms.subservice: authoring
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # What is Azure Data Factory?

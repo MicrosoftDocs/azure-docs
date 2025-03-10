@@ -168,7 +168,7 @@ For more information, see the following resources:
 
 - [Sign up for Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial)
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
-- [Ask questions via the azure-gov tag on StackOverflow](https://stackoverflow.com/tags/azure-gov)
+- [Ask questions via the azure-gov tag on Stack Overflow](https://stackoverflow.com/tags/azure-gov)
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [What is Infrastructure as Code? – Azure DevOps](/devops/deliver/what-is-infrastructure-as-code)
 - [DevSecOps for infrastructure as code (IaC) – Azure Architecture Center](/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code)

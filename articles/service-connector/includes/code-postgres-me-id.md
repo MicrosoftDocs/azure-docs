@@ -60,12 +60,12 @@ using (var connection = new NpgsqlConnection(connectionString))
     <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.3.6</version>
+        <version>42.7.5</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 
@@ -332,7 +332,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
 
     # For user-assigned identity.
-    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client-id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
+    # uri = URI(ENV[IDENTITY_ENDPOINT] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01&client_id=' + ENV['AZURE_POSTGRESQL_CLIENTID'])
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  
     
     # For service principal

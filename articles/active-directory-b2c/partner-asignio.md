@@ -435,7 +435,7 @@ If you have an Asignio Signature, you're prompted to authenticate with your Asig
 ## Next steps
 
 * [Solutions and Training for Azure Active Directory B2C](solution-articles.md)
-* Ask questions on [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
+* Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * [Azure AD B2C Samples](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 * YouTube: [Identity Azure AD B2C Series](https://www.youtube.com/playlist?list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0)
 * [Azure AD B2C custom policy overview](custom-policy-overview.md)

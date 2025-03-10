@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add and localize maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. 
 author: sinnypan
 ms.author: sipa
-ms.date: 06/29/2023
+ms.date: 02/11/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -14,8 +14,6 @@ ms.custom: devx-track-js
 # Use the Azure Maps map control
 
 The Azure Maps Web SDK provides a [Map Control] that enables the customization of interactive maps with your own content and imagery for display in your web or mobile applications. This module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript.
-
-This article uses the Azure Maps Web SDK, however the Azure Maps services work with any map control. For a list of third-party map control plug-ins, see [Azure Maps community - Open-source projects].
 
 > [!NOTE]
 >

@@ -1,9 +1,9 @@
 ---
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 02/14/2019
-ms.author: kgremban
+ms.author: sonialopez
 ---
 > [!div class="op_single_selector"]
 > * [Raspberry Pi web simulator](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   

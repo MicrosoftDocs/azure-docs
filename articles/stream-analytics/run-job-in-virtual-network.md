@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 02/05/2025
 ms.custom: references_regions, ignite-2024
 ---
 
@@ -20,8 +20,8 @@ Virtual network support enables you to lock down access to Azure Stream Analytic
 - [Service tags](../virtual-network/service-tags-overview.md), which allow or deny traffic to Azure Stream Analytics. 
 
 ## Availability 
-Currently, this capability is only available in select **regions**: East US, East US 2, West US, Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, and France Central.
-If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.    
+Currently, this capability is only available in select **regions**: East US, East US 2, West US, West US 2, Central US, North-Central US, Central Canada, West Europe, North Europe, Southeast Asia, Brazil South, Japan East, UK South, Central India, Australia East, France Central, Germany West Central, and UAE North.
+If you're interested in enabling virtual network integration in your region, **fill out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzFwASREnlZFvs9gztPNuTdUMU5INk5VT05ETkRBTTdSMk9BQ0w3OEZDQi4u)**.  Regions are added based on demand and feasibility. We will notify you if we are able to accommodate your request.
 
 ## Requirements for virtual network integration support 
 
@@ -50,9 +50,9 @@ If you're interested in enabling virtual network integration in your region, **f
     For more information about Azure NAT Gateway, see [Azure NAT Gateway](../nat-gateway/nat-overview.md). 
 
 ## Subnet Requirements 
-Virtual network integration depends on a dedicated subnet. When you create a subnet, the Azure subnet consumes five IPs from the start.  
+Virtual network integration depends on a dedicated subnet. 
 
-You must take into consideration the IP range associated with your delegated subnet as you think about future needs required to support your ASA workload. Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your job might reach. 
+When configuring your delegated subnet, it is crucial to consider the IP range to accommodate both current and future requirements for your ASA workload. Since the subnet size cannot be modified once established, it is recommended to select a subnet size that can support the potential scale of your job. Additionally, be aware that Azure Networking reserves the first five IP addresses within the subnet range for internal use.
 
 The scale operation affects the real, available supported instances for a given subnet size.  
 
@@ -64,10 +64,15 @@ The scale operation affects the real, available supported instances for a given 
     - **One** IP address is required to facilitate features such as sample data, test connection, and metadata discovery for jobs associated with this subnet. 
     - **Two** IP addresses are required for every six streaming unit (SU) or one SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
 
-When you indicate virtual network integration with your Azure Stream Analytics job, Azure portal automatically delegates the subnet to the ASA service. Azure portal undelegates the subnet in the following scenarios: 
+### Releasing the subnet
+When you indicate virtual network integration with your Azure Stream Analytics job, Azure portal automatically delegates the subnet to the ASA service. Azure undelegates the subnet in the following scenarios: 
 
 - You inform us that virtual network integration is no longer needed for the [last job](#last-job) associated with specified subnet via the ASA portal (see the how-to section). 
 - You delete the [last job](#last-job) associated with the specified subnet. 
+
+### Intra-Subnet traffic
+The subnet configuration must enable intra-subnet network traffic. This means that it must allow inbound and outbound traffic where both the source and destination IP addresses reside within the same subnet.
+Learn more [here](../virtual-network/network-security-group-how-it-works.md#intra-subnet-traffic).
 
 ### Last job 
 Several Stream Analytics jobs can utilize the same subnet. The last job here refers to no other jobs utilizing the specified subnet. When the last job has been deleted or removed by associated, Azure Stream Analytics releases the subnet as a resource, which was delegated to ASA as a service. Allow several minutes for this action to be completed. 

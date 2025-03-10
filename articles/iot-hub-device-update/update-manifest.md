@@ -48,7 +48,7 @@ The update manifest JSON schema version 4 is hosted at [SchemaStore.org](https:/
   "instructions": {
     "steps": [
       {
-        "handler": "microsoft/swupdate:1",
+        "handler": "microsoft/swupdate:2",
         "handlerProperties": {
           "installedCriteria": "1.0"
         },

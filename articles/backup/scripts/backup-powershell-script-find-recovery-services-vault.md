@@ -5,8 +5,8 @@ ms.topic: sample
 ms.date: 10/20/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell Script to find the Recovery Services vault where a Storage Account is registered

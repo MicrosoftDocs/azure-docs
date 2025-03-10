@@ -3,6 +3,7 @@ metadata:
   title: Azure NAT Gateway frequently asked questions
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
+  ms.service: azure-nat-gateway
   ms.date: 12/10/2024
 
 title: Frequently asked questions for Azure NAT Gateway
@@ -22,7 +23,7 @@ sections:
 
       - question: What are the known limits of Azure NAT Gateway?
         answer: |
-          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#nat-gateway-limits). 
+          See [Azure NAT Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-nat-gateway-limits). 
 
       - question: How many NAT gateway resources are allowed per subscription?
         answer: | 

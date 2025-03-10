@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 author: SnehaSudhirG
 ms.author: sudhirsneha 
 ms.topic: conceptual
-ms.date: 08/08/2024
+ms.date: 01/27/2025
 ms.custom: engagement-fy25
 ---
 
@@ -67,11 +67,13 @@ Europe | North Europe or West Europe
 France | France Central
 Germany | Germany West Central
 India | Central India or South India
+Israel| Israel Central
 Italy | North Italy
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
 Korea | Korea Central
 Norway | Norway East
+Spain  | Spain Central 
 Sweden | Sweden Central
 Switzerland | Switzerland North
 United Arab Emirates | UAE North

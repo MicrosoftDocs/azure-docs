@@ -30,7 +30,7 @@ For some configurations, the user can connect to the virtual machine via the nat
 
 For configuration steps, see:
 
-* [Deploy Bastion automatically - Basic SKU only](quickstart-host-portal.md)
+* [Deploy Bastion automatically using default settings and the Standard SKU](quickstart-host-portal.md)
 * [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
 
 ## <a name="developer"></a>Deployment - Developer SKU
@@ -41,7 +41,7 @@ For configuration steps, see:
 
 For more information about the Developer SKU, see [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md).
 
-## <a name="private-only"></a>Deployment - Private-only (Preview)
+## <a name="private-only"></a>Deployment - Private-only
 
 :::image type="content" source="./media/private-only-deployment/private-only-architecture.png" alt-text="Diagram showing Azure Bastion private-only architecture." lightbox="./media/private-only-deployment/private-only-architecture.png":::
 
@@ -57,7 +57,7 @@ For more information about private-only deployments, see [Deploy Bastion as priv
 
 ## Next steps
 
-* [Deploy Bastion automatically - Basic SKU only](quickstart-host-portal.md)
-* [Deploy Bastion using manually specified settings](tutorial-create-host-portal.md)
+* [Deploy Bastion automatically - Standard SKU only](quickstart-host-portal.md)
+* [Deploy Bastion using manually specified settings and SKU](tutorial-create-host-portal.md)
 * [Deploy Azure Bastion - Developer SKU](quickstart-developer-sku.md)
 * [Deploy Bastion as private-only](private-only-deployment.md)

@@ -177,7 +177,11 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that access is forbidden.
 1. Return to the resource group and select the previously created virtual machine. In order to access the site from the VM, you need to connect to the VM via the Azure Bastion service.
 1. Select **Connect** and then choose **Bastion**.
-1. Provide the required username and password to log into the virtual machine.
+1. Provide the required username and password to log into the virtual machine. 
+
+    > [!NOTE]  
+    > For enhanced security, you should require Microsoft Entra authentication to access your virtual machines in Azure.
+
 1. Select **Connect**. A new browser window will pop up to allow you to interact with the virtual machine.
 It's possible to access the site from the web browser on the VM because the VM is accessing the site through the virtual network.  While the site is only accessible from within the designated virtual network, a public DNS entry remains.
 

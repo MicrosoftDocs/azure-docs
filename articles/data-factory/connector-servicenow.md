@@ -1,7 +1,7 @@
 ---
-title: Copy data from ServiceNow
+title: Copy data from ServiceNow V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from ServiceNow V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
@@ -10,14 +10,14 @@ ms.custom: synapse
 ms.date: 10/23/2024
 ---
 
-# Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
+# Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 
@@ -270,11 +270,11 @@ Here are the steps that help you to upgrade your ServiceNow connector:
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).
 
-## Differences between ServiceNow and ServiceNow (legacy)
+## <a name="differences-between-servicenow-and-servicenow-legacy"></a> Differences between ServiceNow V2 and V1
 
-The ServiceNow connector offers new functionalities and is compatible with most features of ServiceNow (legacy) connector. The table below shows the feature differences between ServiceNow and ServiceNow (legacy).
+The ServiceNow V2 connector offers new functionalities and is compatible with most features of ServiceNow V1 connector. The table below shows the feature differences between V2 and V1.
 
-| ServiceNow | ServiceNow (legacy) | 
+| ServiceNow V2| ServiceNow V1 | 
 |:--- |:--- |
 | useEncryptedEndpoints, useHostVerification and usePeerVerification are not supported in the linked service. | Support useEncryptedEndpoints, useHostVerification and usePeerVerification in the linked service. | 
 | Support **Query builder** in the source. | **Query builder** is not supported in the source. | 

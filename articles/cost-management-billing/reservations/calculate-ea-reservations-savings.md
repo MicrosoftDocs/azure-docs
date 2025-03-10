@@ -7,7 +7,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 01/13/2024
+ms.date: 01/22/2025
 ms.author: banders
 #customer intent: As an Enterprise Agreement user, I want to learn about manually calculating my reservations savings.
 ---

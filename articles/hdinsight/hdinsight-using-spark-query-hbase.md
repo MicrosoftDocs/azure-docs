@@ -4,7 +4,7 @@ description: Use the Spark HBase Connector to read and write data from a Spark c
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/27/2024
+ms.date: 02/03/2025
 ---
 
 # Use Apache Spark to read and write Apache HBase data
@@ -105,11 +105,11 @@ wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.ne
     |Persisted|yes|
 
 
-    * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (In this example, the Spark cron runs every minute, while the HBase cron doesn't run)
+    * You can specify how often you want this cluster to automatically check if update. Default: `-s “*/1 * * * *” -h 0` (In this example, the Spark cron job runs every minute, while the HBase cron doesn't run)
     * Since HBase cron isn't set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-s '*/1 * * * *' -h '*/30 * * * *' -d "securehadooprc"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
   
 >[!NOTE]
->These scripts works only on HDI 5.0 and HDI 5.1 clusters.
+>These scripts work only on HDI 5.0 and HDI 5.1 clusters.
     
     
 

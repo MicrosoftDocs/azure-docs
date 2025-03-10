@@ -109,7 +109,7 @@ An `inline` step object is an installation instruction step that performs code e
 |---|---|---|---|
 |**type**|`string`|Instruction step type that performs code execution. Must be `inline`. Defaults to `inline` if no value is provided.|No|
 |**description**|`string`|Optional instruction step description. Maximum length: 64 characters.|No|
-|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: Five characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
+|**handler**|`string`|Identity of the handler on the device that can execute this step.<br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: Five characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:2`, `microsoft/apt:1` |Yes|
 |**files**|`string` `[1-10]`| Names of update files defined as [file objects](#files-object) that the agent passes to the handler. Each element length must be 1-255 characters. |Yes|
 |**handlerProperties**|`inlineStepHandlerProperties`|JSON objects that the agent passes to the handler as arguments.|No|
 
