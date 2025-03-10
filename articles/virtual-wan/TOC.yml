@@ -12,6 +12,7 @@
   - name: About Virtual WAN pricing
     href: pricing-concepts.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Configure a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
@@ -232,7 +233,7 @@
   - name: Azure VPN Client versions & settings
     items:
     - name: Configure optional settings
-      href: azure-vpn-client-optional-configurations-windows.md
+      href: azure-vpn-client-optional-configurations.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
   - name: Assign IP addresses to specific User Groups

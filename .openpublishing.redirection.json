@@ -5451,6 +5451,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/azure-vpn-client-optional-configurations-windows.md",
+      "redirect_url": "/azure/virtual-wan/azure-vpn-client-optional-configurations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/openvpn-azure-ad-client.md",
       "redirect_url": "/azure/virtual-wan/point-to-site-entra-vpn-client-windows",
       "redirect_document_id": false
