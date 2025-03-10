@@ -735,7 +735,7 @@
         "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-spaces/*.md": "msangapu",
-        "articles/automanage/*md": "orspodek",
+        "articles/automanage/*md": "memccror",
         "articles/automation/**/*.md": "sudhirsneha",
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
@@ -1298,6 +1298,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/cyclecloud/release-notes/8-7-1.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",

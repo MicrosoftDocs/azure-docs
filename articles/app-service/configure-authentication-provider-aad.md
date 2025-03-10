@@ -41,7 +41,7 @@ Create a new app registration automatically, unless you need to create an app re
 The following situations are the most common cases to use an existing app registration:
 
 - Your account doesn't have permissions to create app registrations in your Microsoft Entra tenant.
-- You want to use an app registration from a different Microsoft Entra tenant than the one your app is in.
+- You want to use an app registration from a different Microsoft Entra tenant than the one your app is in. This is always the case if you have chosen **External configuration** in the previous step.
 - The option to create a new registration isn't available for government clouds.
 
 # [Workforce configuration](#tab/workforce-configuration)
@@ -68,7 +68,7 @@ Use this option unless you need to create an app registration separately. You ca
 
 You can change the name of the registration or the supported account types later if you want.
 
-A client secret is created as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update that setting later to use [Key Vault references](./app-service-key-vault-references.md).
+A client secret is created as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If you want to manage the secret in Azure Key Vault, you can update that setting later to use [Key Vault references](./app-service-key-vault-references.md). Alternatively, you can change this to [use an identity instead of a client secret][fic-config]. Support for using identity is currently in preview.
 
 ### <a name="advanced"> </a>Option 2: Use an existing registration created separately
 
@@ -79,6 +79,9 @@ Select either:
 
   - **Application (client) ID**.
   - **Client secret (recommended)**. A secret value that the application uses to prove its identity when requesting a token. This value is saved in your app's configuration as a slot-sticky application setting named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. If the client secret isn't set, sign-in operations from the service use the OAuth 2.0 implicit grant flow, which *isn't* recommended.
+    
+    You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using identity is currently in preview.
+
   - **Issuer URL**, which takes the form `<authentication-endpoint>/<tenant-id>/v2.0`. Replace `<authentication-endpoint>` with the authentication endpoint [value specific to the cloud environment](/entra/identity-platform/authentication-national-cloud#azure-ad-authentication-endpoints). For example, a workforce tenant in global Azure would use "https://sts.windows.net" as its authentication endpoint.
 
 If you need to manually create an app registration in a workforce tenant, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app). As you go through the registration process, be sure to note the application (client) ID and client secret values.
@@ -98,12 +101,14 @@ After creation, modify the app registration:
    1. Enter the consent scope name. Enter a description you want users to see on the consent page. For example, enter *Access &lt;application-name&gt;*.
    1. Select **Add scope**.
 
-1. (Recommended) To create a client secret:
+1. (Recommended) Create a client assertion for the app. To create a client secret:
 
-    1. From the left navigation, select **Certificates & secrets** > **Client secrets** > **New client secret**.
-    1. Enter a description and expiration and select **Add**.
+    1. From the left navigation, select **Certificates & secrets** > **Client secrets** > **New client secret**. 
+    1. Enter a description and expiration and select **Add**. 
     1. In the **Value** field, copy the client secret value. After you navigate away from this page, it doesn't appear again.
-
+    
+    You can also configure the application to [use an identity instead of a client secret][fic-config]. Support for using identity is currently in preview.
+    
 1. (Optional) To add multiple **Reply URLs**, select **Authentication**.
 
 # [External configuration](#tab/external-configuration)
@@ -292,6 +297,42 @@ This setting can require that the incoming token is from one of the specified te
 Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
 
 [Payload claims]: ../active-directory/develop/access-token-claims-reference.md#payload-claims
+
+## Use a managed identity instead of a secret (preview)
+
+[fic-config]: #use-a-managed-identity-instead-of-a-secret-preview
+
+Instead of configuring a client secret for your app registration, you can [configure an application to trust a managed identity (preview)][entra-fic]. Using an identity instead of a secret means you don't have to manage a secret. You don't have secret expiration events to handle, and you don't have the same level of risk associated with possibly disclosing or leaking that secret. The identity allows you to create a _federated identity credential_, which can be used instead of a client secret as a _client assertion_. This approach is only available for workforce configurations. The built-in authentication feature currently only supports federated identity credentials as a preview.
+
+You can use the steps in this section to configure your App Service or Azure Functions resource to use this pattern. The steps here assume that you already set up an app registration using one of the supported methods, and that you have a secret defined already.
+
+1. Create a user-assigned managed identity resource according to [these instructions](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+1. [Assign that identity](./overview-managed-identity.md#add-a-user-assigned-identity) to your App Service or Azure Functions resource.
+ 
+    > [!IMPORTANT]
+    > The user-assigned managed identity that you create should only be assigned to the App Service or Azure Functions application using this registration. If you assign the identity to another resource, you are giving that resource access to your app registration when it doesn't need it.
+
+1. Note down the **Object ID** and **Client ID** of the managed identity. You will need the object ID to created a federated identity credential in the next step. The managed identity's client ID will be used in a later step.
+1. Follow the Entra ID instructions to [configure a federated identity credential on an existing application](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-federated-identity-credential-on-an-existing-application). Those instructions also include sections for updating application code, which you can skip.
+1. Add a new [application setting] named `OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID` and set its value to the managed identity's **client ID** you obtained in a previous step. Don't use the client ID of your app registration. Make sure to mark this application setting as slot-sticky.
+1. In the built-in authentication settings for your app resource, set the **Client secret setting name** to "OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID".
+
+    **To make this change using the Azure portal**, navigate back to your App Service or Azure Functions resource and select the **Authentication** tab. In the **Identity provider** section, you should see a "Microsoft" entry. Select icon in the **Edit** column. On the **Edit identity provider** screen, open the dropdown for **Client secret setting name** and choose "OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID". Click **Save**.
+
+    **To make this change using the REST API**, set the `clientSecretSettingName` property to "OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID". You can find this property under `properties` -> `identityProviders` -> `azureActiveDirectory` -> `registration`.
+
+1. Verify that the application works as you expect. You should be able to successfully perform a new login action.
+
+Once you are satisfied with the behavior using a managed identity, remove the existing secret:
+
+1. Make sure that your app code doesn't take a dependency on the application setting. If it does, follow the instructions to [update your application code to request an access token](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#update-your-application-code-to-request-an-access-token).
+1. Remove the application setting that previously held your secret. The name of this application setting is the previous **Client secret setting name** value, before you set it to "OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID".
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) using the tenant that contains your app registration. Navigate to the app registration again.
+1. Under **Certificates & secrets**, select **Client secrets** and remove the client secret.
+
+Your app is now configured to use Entra ID authentication without secrets.
+
+[entra-fic]: /entra/workload-id/workload-identity-federation-config-app-trust-managed-identity
 
 ## Configure client apps to access your App Service
 
