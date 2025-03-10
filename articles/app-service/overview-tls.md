@@ -128,17 +128,17 @@ To serve HTTPS traffic, App Service requires an SSL/TLS certificate bound to you
 
 ### Types of certificates
 
-1. **App Service Certificates (ASC)**  
+- **App Service Certificates (ASC)**  
    Fully managed certificates issued and renewed automatically by Azure, stored securely in Azure Key Vault.
 
-2. **Bring your own certificate (BYOC)**  
+- **Bring your own certificate (BYOC)**  
    Upload and manage certificates (PFX format) issued by third-party Certificate Authorities (CAs).
 
 ### Binding certificates to custom domains
 
 After uploading or creating a certificate, you bind it to a custom domain on your web app using:
 
-- **SNI SSL bindings** for multi-tenant hosting.
+- **SNI SSL bindings** for multitenant hosting.
 - **IP SSL bindings** for dedicated IP addresses.
 
 > [!NOTE]
