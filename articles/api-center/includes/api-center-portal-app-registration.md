@@ -19,9 +19,9 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
 1. Select **+ New registration**. 
 1. On the **Register an application** page, set the values as follows:
     
-    * Set **Name** to a meaningful name such as *api-center-portal*
-    * Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
-    * In **Redirect URI**, select **Single-page application (SPA)** and set the URI. 
+    1. Set **Name** to a meaningful name such as *api-center-portal*
+    1. Under **Supported account types**, select **Accounts in this organizational directory (Single tenant)**. 
+    1. In **Redirect URI**, select **Single-page application (SPA)** and set the URI. 
         Enter the URI of your API Center portal deployment, in the following form: `https://<service-name>.portal.<location>.azure-api-center.ms`. Replace `<service name>` and `<location>` with the name of your API center and the location where it's deployed, Example: `https://myapicenter.portal.eastus.azure-api-center.ms`.
     * Select **Register**.
 1. On the **Overview** page, copy the **Application (client) ID**. You set this value when you publish the portal.
