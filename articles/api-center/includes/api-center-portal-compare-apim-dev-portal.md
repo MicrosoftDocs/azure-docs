@@ -18,9 +18,9 @@ The [Azure API Management](../../api-management/api-management-key-concepts.md) 
 * The *API Management developer portal* allows users to find managed APIs, learn how to use them, request access, and test them.
 * The *API Center portal* (preview) is a multi-gateway portal where  users can discover and filter the organization's complete API inventory.
 
-While the two portals share some features, they also have distinct differences. The following table compares key capabilities to help determine which portal to use. Some organizations may prefer one portal, while others may need both.
+While the two portals share some features, they also have distinct differences. The following table compares current capabilities to help determine which portal to use. Some organizations may prefer one portal, while others may need both.
 
-| Feature | API Management developer portal | API Center portal |
+| Feature | API Management developer portal | API Center portal (preview) |
 | --- | --- | --- |
 | Search and filter API inventory | API Management instance only | All APIs<sup>1</sup> |
 | View API details and definitions | ✔️ | ✔️ |
