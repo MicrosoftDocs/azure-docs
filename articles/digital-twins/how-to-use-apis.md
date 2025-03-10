@@ -17,7 +17,7 @@ ms.date: 03/10/2025
 This article contains information about the following steps:
 
 1. Set up a Visual Studio project and `.http` file, with variables that represent your Azure Digital Twins instance.
-1. To make API requests in Visual Studio, use the Azure CLI to [get a bearer token](#add-bearer-token).
+1. To authorize API requests in Visual Studio, use the Azure CLI to [get a bearer token](#add-bearer-token).
 1. To craft requests in the `.http` file and send them to the Azure Digital Twins APIs, use the [Azure Digital Twins REST API documentation](/rest/api/azure-digitaltwins/) as a resource.
 
 Azure Digital Twins has two sets of APIs that you can work with: *data plane* and *control plane*. For more information about the difference between these API sets, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains instructions for both API sets.
