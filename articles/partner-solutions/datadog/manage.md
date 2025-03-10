@@ -54,15 +54,11 @@ A summary of resources is also displayed in the working pane.
 
 To change the configuration rules for metrics and logs:
 
-[!INCLUDE [manage](../includes/manage.md)]
-
 1. Select **Datadog organization configurations > Metrics and Logs** from the Resource menu.
 
 ## View monitored resources
 
 To see the list of resources emitting logs to Datadog:
-
-[!INCLUDE [manage](../includes/manage.md)]
 
 1. Select **Datadog organization configurations > Monitored Resources** in the Resource menu.
 
@@ -73,8 +69,6 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 ## Monitor multiple subscriptions
 
 To monitor multiple subscriptions:
-
-[!INCLUDE [manage](../includes/manage.md)]
 
 1. Select **Datadog organization configurations > Monitored Subscriptions**.
 
@@ -113,11 +107,11 @@ To view the updated list of monitored subscriptions, select **Refresh** from the
 
 To view the list of API keys for your Datadog resource:
 
-1.  Select **Settings > Keys** from the Resource menu.
+1. Select **Settings > Keys** from the Resource menu.
 
     The Azure portal provides a read-only view of the API keys. 
 
-1. To manage the keys, select the **Datadog portal** link.
+1. Select the **Datadog portal** link.
 
     The Datadog portal opens in a new tab.  
 
@@ -134,25 +128,25 @@ You can install Datadog agents on virtual machines, App Service extensions, Azur
 
 To monitor resources for virtual machines, select **Datadog organization configurations > Virtual machine agent** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/=datadog-agent.md)]
+[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
 
 ### App Service
 
 To monitor resources for App Service, select **Datadog organization configurations > App Service extension** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/=datadog-agent.md)]
+[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
 
 ### Azure Kubernetes Services
 
 To monitor resources Azure Kubernetes Services, select **Datadog organization configurations > Azure Kubernetes Services** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/=datadog-agent.md)]
+[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
 
 ### Azure Arc Machines
 
 To monitor resources for Azure Arc Machines, select **Datadog organization configurations > Azure Arc Machines** from the Resource pane.
 
-[!INCLUDE [install-datadog-agent](../includes/=datadog-agent.md)]
+[!INCLUDE [install-datadog-agent](../includes/datadog-agent.md)]
 
 ## Reconfigure single sign-on
 
