@@ -20,7 +20,7 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [configure your environment](prerequisites.md)
+- You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
 ## Create a New Relic resource
