@@ -39,6 +39,8 @@ Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell com
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without disruption. However, users may experience brief connectivity issues or interruptions during the migration process.
 
+After completing the gateway migration and deleting the older gateway and its connections, the newly created gateway will be tagged with "CreatedBy : GatewaySKUMigration". This tag will serve as a key differentiator from your other gateways that have not been migrated and should not be deleted.
+
 > [!NOTE]
 > The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
 
