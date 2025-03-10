@@ -1,7 +1,6 @@
 ---
 title: Create a Datadog resource
 description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
-
 ms.topic: quickstart
 ms.date: 03/10/2025
 ms.custom:

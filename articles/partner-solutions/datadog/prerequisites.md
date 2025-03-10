@@ -1,20 +1,17 @@
 ---
-title: Prerequisites for Datadog on Azure
+title: Configure your environment for Datadog
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-
-
-
 ms.topic: conceptual
 ms.date: 03/10/2025
 ---
 
-# Configure environment before Datadog deployment
+# Configure your environment for Datadog
 
-This article describes how to set up your environment before deploying your first instance of Datadog. These conditions are prerequisites for completing the quickstarts.
+This article describes how to set up your environment before deploying your first instance of Datadog. 
 
-## Access control
+## Prerquisites
 
-To set up the Datadog, you must have **Owner** access on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
 ## Add enterprise application
 
