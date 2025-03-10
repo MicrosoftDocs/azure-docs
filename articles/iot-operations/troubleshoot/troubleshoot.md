@@ -23,7 +23,7 @@ For general deployment and configuration troubleshooting, you can use the Azure 
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-### Troubleshoot UnauthorizedNamespaceError error message
+### You see an UnauthorizedNamespaceError error message
 
 If you see the following error message, you either didn't enable the required azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
 
