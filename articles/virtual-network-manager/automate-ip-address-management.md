@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 03/10/2023
+ms.date: 03/10/2025
 ms.custom: template-concept
 ---
 
@@ -129,4 +129,7 @@ for ($i = 0; $i -lt @($vnetList).Count; $i++) {
 }
 Write-Output "Finished bulk association for existing VNets at: " (Get-Date).ToString("HH:mm:ss")
 
+## Next steps
 
+> [!div class="nextstepaction"]
+> 

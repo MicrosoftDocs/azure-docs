@@ -1,5 +1,5 @@
 ---
-title: Prevent overlapping VNet address spaces using Azure Policy and IPAM 
+title: Prevent overlapping virtual network address spaces using Azure Policy and IPAM 
 description: 
 author: mbender-ms
 ms.author: mbender
@@ -9,16 +9,11 @@ ms.date: 03/10/2023
 ms.custom: template-concept
 ---
 
-# Prevent overlapping VNet address spaces using Azure Policy and IPAM
+# Prevent overlapping virtual network address spaces using Azure Policy and IPAM
 
-Azure Virtual Network Manager helps you centrally manage virtual networks (VNets) across your organization. While it provides governance for VNets, it doesn't automatically prevent overlapping address spaces during VNet creation or updates. You can enforce non-overlapping address spaces by combining Azure Policy with IP Address Management (IPAM) pools, ensuring network connectivity without IP conflicts in your environment.
+Azure Virtual Network Manager helps you centrally manage virtual networks across your organization. While it provides governance for VNets, it doesn't automatically prevent overlapping address spaces during virtual network creation or updates. You can enforce nonoverlapping address spaces by combining [Azure Policy](../governance/policy/overview.md) with [IP Address Management (IPAM) pools](concept-ip-address-management.md#manage-ip-address-pools), ensuring network connectivity without IP conflicts in your environment.
 
- The following sample Azure policy definition ensures that any virtual network (Microsoft.Network/virtualNetworks) must have at least one IPAM pool prefix allocation from one of the two specified pools. If a virtual network lacks an allocation from either pool, the policy denies the deployment or update of that resource. This enforces VNets with only non-overlapped CIDRs can be created in the scope of this policy definition.
-
-so the tutorial shows the policy definition
- 
-once this policy definition is applied to an Azure policy scope like subscription/management group, then it's enforced on the scope
- 
+The following sample Azure policy definition ensures that any virtual network (`Microsoft.Network/virtualNetworks`) in the scope of this policy definition must have one IPAM pool prefix allocation from one of the two specified pools. If a virtual network lacks an allocation from either pool, the policy denies the creation or update of a virtual network by enforcing the use of nonoverlapped classless inter-domain routing (CIDRs) addresses.
 
 ```json
 "mode": "All", 
@@ -49,7 +44,7 @@ once this policy definition is applied to an Azure policy scope like subscriptio
 
                   "field": "Microsoft.Network/virtualnetworks/addressSpace.ipamPoolPrefixAllocations[*].pool.id", 
 
-                  "equals": "/subscriptions/c9295b92-3574-4021-95a1-26c8f74f8359/resourceGroups/ipam-test-rg/providers/Microsoft.Network/networkManagers/ipam-test-nm/ipamPools/paigePolicyTestPool2" 
+                  "equals": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkManagers/network-manager/ipamPools/IPAM-pool-2" 
 
                 }, 
 
@@ -57,7 +52,7 @@ once this policy definition is applied to an Azure policy scope like subscriptio
 
                   "field": "Microsoft.Network/virtualnetworks/addressSpace.ipamPoolPrefixAllocations[*].pool.id", 
 
-                  "equals": "/subscriptions/c9295b92-3574-4021-95a1-26c8f74f8359/resourceGroups/ipam-test-rg/providers/Microsoft.Network/networkManagers/ipam-test-nm/ipamPools/paigePolicyTestPool3" 
+                  "equals": "/subscriptions/subscriptionID/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/networkManagers/network-manager/ipamPools/IPAM-pool-3" 
 
                 } 
 
@@ -80,17 +75,25 @@ once this policy definition is applied to an Azure policy scope like subscriptio
     } 
 ```
 
-This Azure Policy blocks the creation or update of a virtual network unless it includes an IPAM pool allocation from one of two approved pools. It works as follows: 
+Included in the policy definition are the following actions:
 
-Resource Check: It applies only to virtual networks (Microsoft.Network/virtualNetworks). 
+- **Resource Check** - It applies only to virtual networks (`Microsoft.Network/virtualNetworks`).
+- **Pool Allocation Check** - It verifies if the virtual network has an IPAM pool allocation from either:  
+  - `IPAM-pool-2`, or 
+  - `IPAM-pool-3`.
+- **Enforcement** - If neither allocation is present, the policy denies the action. And in order to have pool allocation, IP prefixes must be nonoverlapped within the pool, as such no VNets with overlapped prefixes can be created.
+Resource Check: It applies only to virtual networks (`Microsoft.Network/virtualNetworks`).
 
-Pool Allocation Check: It verifies if the virtual network has an IPAM pool allocation from either:  
+## Implementation steps of the policy
 
-paigePolicyTestPool2, or 
+With the policy definition, you can enforce nonoverlapping address spaces in your Azure environment. Follow these steps to implement the policy:
 
-paigePolicyTestPool3. 
+1. **Identify existing network manager and IPAM pools** - Ensure you have an existing Azure Virtual Network Manager instance and at least two IPAM pools created. For more information, see [Create a virtual network manager](./create-virtual-network-manager-powershell.md) and [Create an IPAM pool](./how-to-manage-ip-addresses-network-manager.md).
+1. **Create an Azure Policy definition** - Create a policy definition in Azure Policy using the JSON example. You can do this through the Azure portal, Azure CLI, or PowerShell. For more information, see [Create and assign a policy definition](../governance/policy/tutorials/create-and-manage.md).
+2. **Assign the policy** - Assign the policy to a specific scope (subscription or management group) where you want to enforce the nonoverlapping address space rule.
+1. **Test the policy** - Create or update a virtual network without an IPAM pool allocation from the specified pools. The operation should be denied if the policy is working correctly.
 
-Enforcement: If neither allocation is present, the policy denies the action. And in order to have pool allocation, IP prefixes must be non-overlapped within the pool, as such no VNets with overlapped prefixes can be created. 
 
 ## Next steps
-- [Create a virtual network using Azure CLI](../quickstart-create-vnet-cli.md)
+> [!div class="nextstepaction"]
+> [Manage IP addresses with Azure Virtual Network Manager](./how-to-manage-ip-addresses-network-manager.md)
