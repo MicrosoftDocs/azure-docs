@@ -1,4 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="27px" height="16px" viewBox="0 0 27 16">
-  <circle fill="#008000" cx="16" cy="8" r="8" />
-  <path fill="#FFFFFF" d="M 11.553,8.291 C 11.479,8.212 11.441,8.108 11.445,8 11.449,7.891 11.495,7.791 11.575,7.716 L 12.41,6.944 c 0.076,-0.069 0.173,-0.107 0.274,-0.107 0.112,0 0.22,0.047 0.296,0.129 l 2.136,2.292 3.807,-4.875 C 19,4.284 19.116,4.226 19.242,4.226 c 0.09,0 0.175,0.029 0.247,0.084 l 0.906,0.699 c 0.173,0.128 0.21,0.377 0.08,0.554 l -4.868,6.233 c -0.189,0.242 -0.55,0.258 -0.76,0.033 z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   x="0px"
+   y="0px"
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="yes-icon.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="59.333333"
+     inkscape:cx="8.511236"
+     inkscape:cy="8.3342697"
+     inkscape:window-width="2304"
+     inkscape:window-height="1430"
+     inkscape:window-x="-11"
+     inkscape:window-y="355"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <circle
+     fill="#008000"
+     cx="8"
+     cy="8"
+     r="8"
+     id="circle1" />
+  <path
+     fill="#ffffff"
+     d="m 3.5542267,8.1839466 c -0.074,-0.079 -0.112,-0.183 -0.108,-0.291 0.004,-0.109 0.05,-0.209 0.13,-0.284 l 0.835,-0.772 c 0.076,-0.069 0.173,-0.107 0.274,-0.107 0.112,0 0.22,0.047 0.296,0.129 l 2.136,2.292 3.8070003,-4.875 c 0.077,-0.099 0.193,-0.157 0.319,-0.157 0.09,0 0.175,0.029 0.247,0.084 l 0.906,0.699 c 0.173,0.128 0.21,0.377 0.08,0.554 L 7.6082267,11.688947 c -0.189,0.242 -0.55,0.258 -0.76,0.033 z"
+     id="path1" />
 </svg>

@@ -139,7 +139,7 @@ Each service guide generally contains information on how the service supports:
 | Product| Guidance |
 |----------|---------|
 |Azure Device Registry |[Reliability in Azure Device Registry](reliability-device-registry.md)|
-|Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery) |
+|Azure IoT Hub| [Reliability in IoT Hub](reliability-iot-hub.md) |
 |Azure Notification Hubs| [Reliability in Azure Notification Hubs](reliability-notification-hubs.md)|
 
 

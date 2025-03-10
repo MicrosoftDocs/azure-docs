@@ -14,12 +14,6 @@ ms.date: 02/20/2025
 
 # Reliability in Azure IoT Hub
 
-<!-- 2. Introductory paragraph ---------------------------------------------------------
-Required: Provide an introduction. 
-
-Use the following as the introduction:
--->
-
 This article describes reliability support in Azure IoT Hub, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
 Resiliency is a shared responsibility between you and Microsoft and so this article also covers ways for you to create a resilient solution that meets your needs.
@@ -37,13 +31,6 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
     This section opens with an include that contains a brief explanation of production deployment recommendations such as SKUs and whether to enable zone redundancy in all production environments.
 -->
 
-Here's a summary of the HA/DR options presented in this article that can be used as a frame of reference to choose the right option that works for your solution.
-
-| HA/DR option | Recovery time | Requires manual intervention? | Implementation complexity | Cost impact|
-| --- | --- | --- | --- | --- |
-| Microsoft-initiated failover |2 - 26 hours|No|None|None|
-| Manual failover |10 min - 2 hoursYes|Very low. You only need to trigger this operation from the portal.|None|
-| Cross region HA |< 1 min|No|High|> 1x the cost of 1 IoT hub|
 
 ## Redundancy
 
@@ -52,16 +39,7 @@ Here's a summary of the HA/DR options presented in this article that can be used
     This section is generally for database and storage services.  Describe how your service achieves redundancy by default in the primary region. Describe how it protects against data loss in the case of a data center outage or power failure.
 -->
 
-The IoT Hub service provides intra-region high availability (HA) by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No extra work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns) must be built in to the components interacting with a cloud application to deal with transient failures.
-
-**Example:**
-
-By default, \[service-name\] achieves redundancy by spreading compute nodes and data throughout a single datacenter in the primary region. This approach protects your data in the event of a localized failure, such as a small-scale network or power failure, and even during the following events:
-
-- Customer initiated management operations that result in a brief downtime.
-- Service maintenance operations.
-
-    *etc...*
+The IoT Hub service provides intra-region high availability (HA) by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No extra steps are required to take advantage of these HA features.
 
 ## Transient faults
 
@@ -73,6 +51,8 @@ By default, \[service-name\] achieves redundancy by spreading compute nodes and 
   
     If your service hosts the customer's code or applications, it might also be capable of causing or propagating transient faults. If you have guidance to help to avoid these situations, provide it here. For example, App Service supports deployment slots, which avoid application downtime during deployments. 
 -->
+
+Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry patterns](../iot/concepts-manage-device-reconnections.md#retry-patterns) must be built in to the components interacting with a cloud application to deal with transient failures.
 
 ## Availability zone support
 
@@ -92,25 +72,25 @@ Availability zone support for IoT Hub is enabled automatically for new IoT Hub r
 
 | Region | Data resiliency | Smoother deployments |
 | ------ | --------------- | ------------ |
-| Australia East | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Brazil South | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Canada Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Central India | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Central US | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| East US | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| France Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Germany West Central | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Japan East | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Korea Central | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| North Europe  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Norway East | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Qatar Central | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Southcentral US | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Southeast Asia  | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| UK South | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| West Europe | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| West US 2 | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| West US 3 | :::image type="icon" source="./media/icons/no-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Australia East | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Brazil South | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Canada Central | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Central India | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Central US | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| East US | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| France Central | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Germany West Central | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Japan East | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Korea Central | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| North Europe  | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Norway East | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Qatar Central | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Southcentral US | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| Southeast Asia  | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| UK South | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| West Europe | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| West US 2 | :::image type="icon" source="./media/yes-icon.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
+| West US 3 | :::image type="icon" source="./media/icon-unsupported.svg"::: | :::image type="icon" source="./media/yes-icon.svg"::: |
 
 ### Requirements
 
@@ -130,9 +110,6 @@ This section explains how data is replicated: synchronously, asynchronously, or 
 This section should describe how data replication is performed during regular day-to-day operations - NOT during a zone failure.  
 
 -->
-
->[!IMPORTANT]
->The data replication approach across zones is usually different to the approach used across regions.
 
 <!--
 Most Azure services replicate data across zones synchronously, which means that changes are applied to multiple (or all) zones simultaneously, and the change isn't considered to be completed until multiple/all zones have acknowledged the change. Use wording similar to the following to explain this approach and its tradeoffs.
@@ -224,34 +201,24 @@ TODO: Add your failback
 -->
 
 ### Testing for zone failures  
-TODO: Add your testing for zone failures  
 
-<!-- 6H. Testing for zone failures ----------------------------------------------------
-
-For zonal services, can you trigger a fault in an availability zone, such as by using Azure Chaos Studio? If so, link to the specific fault types that simulate the appropriate failure. 
-
--->
-
-**Example:**
-
-> You can simulate a zone failure by using Azure Chaos Studio. Inject the XXX fault to simulate the loss of an availability zone. Regularly test your responses to zone failures so that you can be ready for unexpected availability zone outages.
-
-<!--
-For zone-redundant services, is there a way for the customer to test a zone failover? Usually that's not possible, so use wording like this: 
--->
-
-**Example:**
-  
-> The Azure IoT Hub  platform manages traffic routing, failover, and failback for zone-redundant X resources. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
-
+Azure IoT Hub manages traffic routing, failover, and failback for zone failures. You don't need to initiate anything. Because this feature is fully managed, you don't need to validate availability zone failure processes.
 
 ## Multi-region support
 
 Azure IoT Hub uses [Azure region pairs](../reliability/regions-paired.md) to provide resiliency in the rare situation where a datacenter experiences extended outages. The recovery options available in such a situation are [Microsoft-initiated failover](#microsoft-initiated-failover) and [manual failover](#manual-failover) from the IoT hub's primary region to its geo-paired region. The fundamental difference between the two is that Microsoft initiates the former and the user initiates the latter. Also, manual failover provides a lower recovery time objective (RTO) compared to the Microsoft-initiated failover option.
 
+Here's a summary of the HA/DR options presented in this article that can be used as a frame of reference to choose the right option that works for your solution.
+
+| HA/DR option | Recovery time | Requires manual intervention? | Implementation complexity | Cost impact|
+| --- | --- | --- | --- | --- |
+| Microsoft-initiated failover |2 - 26 hours|No|None|None|
+| Manual failover |10 min - 2 hoursYes|Very low. You only need to trigger this operation from the portal.|None|
+| Cross region HA |< 1 min|No|High|> 1x the cost of 1 IoT hub|
+
 ### Region support 
 
-Failover is available in all regions that Azure IoT Hub supports. Only users deploying IoT hubs to the Brazil South and Southeast Asia (Singapore) regions can opt out of Microsoft-initiated failover. For more information, see [Disable disaster recovery](#disable-disaster-recovery).
+Failover is available in all regions that Azure IoT Hub supports. Only users deploying IoT hubs to the Brazil South and Southeast Asia (Singapore) regions can opt out of Microsoft-initiated failover. For more information, see [Disable disaster recovery](../iot-hub/iot-hub-ha-dr.md#disable-disaster-recovery).
 
 >[!NOTE]
 >Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Azure region pairs](../reliability/regions-paired.md).
@@ -282,7 +249,7 @@ Azure IoT Hub failover options offer the following recovery point objectives:
 
 <sup>1</sup>Cloud-to-device messages and parent jobs aren't recovered as a part of manual failover.
 
-#### Microosft-initiated failover
+#### Microsoft-initiated failover
 
 Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over all of the IoT hubs from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's hub is failed over. Microsoft-initiated failover has a recovery time objective (RTO) of 2-26 hours.
 
@@ -296,7 +263,7 @@ The manual failover option is always available for use whether the primary regio
 
 For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)
 
-### Configure multi-region support 
+### Configure multi-region support
 
 <!-- 7E. Configure multi-region support  ----------------------
 
@@ -306,12 +273,6 @@ For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT
     
     Provide links to documents that show how to create a resource or instance with multi-region support. Ideally, the documents should contain examples using the Azure portal, Azure CLI, Azure PowerShell, and Bicep. 
 -->   
-
-**Example:**
-
-> To deploy a new multi-region IoT Hub resource, see [Create an IoT Hub resource with multi-region support].
->
-> To enable multi-region support for an existing IoT Hub resource, see [Enable multi-region support in an IoT Hub resource]. 
 
 <!--   
     If your service does NOT support enabling multi-region support after deployment, add an explicit statement to indicate that. 
