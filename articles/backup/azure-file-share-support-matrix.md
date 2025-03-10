@@ -36,9 +36,9 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 
 ---
 
-### Supported regions for Cross Subscription Backup (preview)
+### Supported regions (preview)
 
-Cross Subscription Backup (CSB) for Azure Files (preview) is currently available in the following regions: East Asia, Southeast Asia, UK South, UK West, Central India.
+Azure files backup (preview) is currently available in the following regions: East Asia, Southeast Asia, UK South, UK West, Central India.
 
 ## Supported storage accounts
 
