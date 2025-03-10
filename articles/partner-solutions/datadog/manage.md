@@ -122,7 +122,7 @@ After making changes in the Datadog portal, refresh the Azure portal view.
 You can install Datadog agents on virtual machines, App Service extensions, Azure Kubernetes Services, and Azure Arc Machines. 
 
 > [!IMPORTANT]
-> If a default key isn't selected, your Datadog agent installation will fail. See [API keys](#api-keys).
+> If a default key isn't selected, your Datadog agent installation fails. See [API keys](#api-keys).
 
 ### Virtual machines
 
