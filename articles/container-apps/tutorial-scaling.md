@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 03/06/2025
+ms.date: 03/10/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -88,8 +88,8 @@ Add an HTTP scale rule to your container app by running the `az containerapp upd
 
 ```azurecli
 az containerapp update \
-	--name my-container-app \
-	--resource-group my-container-apps \
+    --name my-container-app \
+    --resource-group my-container-apps \
     --min-replicas 1 \
     --max-replicas 10 \
     --scale-rule-name my-http-scale-rule \
@@ -100,8 +100,8 @@ az containerapp update \
 
 ```powershell
 az containerapp update `
-	--name my-container-app `
-	--resource-group my-container-apps `
+    --name my-container-app `
+    --resource-group my-container-apps `
     --min-replicas 1 `
     --max-replicas 10 `
     --scale-rule-name my-http-scale-rule `
@@ -122,20 +122,20 @@ You can observe the effects of your application scaling by viewing the logs gene
 
 ```azurecli
 az containerapp logs show \
-	--name my-container-app \
-	--resource-group my-container-apps \
-	--type=system \
-	--follow=true
+    --name my-container-app \
+    --resource-group my-container-apps \
+    --type=system \
+    --follow=true
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp logs show `
-	--name my-container-app `
-	--resource-group my-container-apps `
-	--type=system `
-	--follow=true
+    --name my-container-app `
+    --resource-group my-container-apps `
+    --type=system `
+    --follow=true
 ```
 
 ---
@@ -144,46 +144,46 @@ The `show` command returns entries from the system logs for your container app i
 
 ```json
 {
-	"TimeStamp":"2023-08-01T16:49:03.02752",
-	"Log":"Connecting to the container 'my-container-app'..."
+    "TimeStamp":"2023-08-01T16:49:03.02752",
+    "Log":"Connecting to the container 'my-container-app'..."
 }
 {
-	"TimeStamp":"2023-08-01T16:49:03.04437",
-	"Log":"Successfully Connected to container:
-	'my-container-app' [Revision: 'my-container-app--9uj51l6',
-	Replica: 'my-container-app--9uj51l6-5f96557ffb-5khg9']"
+    "TimeStamp":"2023-08-01T16:49:03.04437",
+    "Log":"Successfully Connected to container:
+    'my-container-app' [Revision: 'my-container-app--9uj51l6',
+    Replica: 'my-container-app--9uj51l6-5f96557ffb-5khg9']"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9480811+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[14]"
+    "TimeStamp":"2023-08-01T16:47:31.9480811+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[14]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
-	"Log":"Now listening on: http://[::]:8080"
+    "TimeStamp":"2023-08-01T16:47:31.9481264+00:00",
+    "Log":"Now listening on: http://[::]:8080"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9490917+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.9490917+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9491036+00:00",
-	"Log":"Application started. Press Ctrl+C to shut down."
+    "TimeStamp":"2023-08-01T16:47:31.9491036+00:00",
+    "Log":"Application started. Press Ctrl+C to shut down."
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.949723+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.949723+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497292+00:00",
-	"Log":"Hosting environment: Production"
+    "TimeStamp":"2023-08-01T16:47:31.9497292+00:00",
+    "Log":"Hosting environment: Production"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497325+00:00",
-	"Log":"Microsoft.Hosting.Lifetime[0]"
+    "TimeStamp":"2023-08-01T16:47:31.9497325+00:00",
+    "Log":"Microsoft.Hosting.Lifetime[0]"
 }
 {
-	"TimeStamp":"2023-08-01T16:47:31.9497367+00:00",
-	"Log":"Content root path: /app/"
+    "TimeStamp":"2023-08-01T16:47:31.9497367+00:00",
+    "Log":"Content root path: /app/"
 }
 ```
 
@@ -252,15 +252,15 @@ In the first shell, where you ran the `az containerapp logs show` command, the o
 
 ```json
 {
-	"TimeStamp":"2023-08-01 18:09:52 +0000 UTC",
-	"Type":"Normal",
-	"ContainerAppName":"my-container-app",
-	"RevisionName":"my-container-app--9uj51l6",
-	"ReplicaName":"my-container-app--9uj51l6-5f96557ffb-f795d",
-	"Msg":"Replica 'my-container-app--9uj51l6-5f96557ffb-f795d' has been scheduled to run on a node.",
-	"Reason":"AssigningReplica",
-	"EventSource":"ContainerAppController",
-	"Count":0
+    "TimeStamp":"2023-08-01 18:09:52 +0000 UTC",
+    "Type":"Normal",
+    "ContainerAppName":"my-container-app",
+    "RevisionName":"my-container-app--9uj51l6",
+    "ReplicaName":"my-container-app--9uj51l6-5f96557ffb-f795d",
+    "Msg":"Replica 'my-container-app--9uj51l6-5f96557ffb-f795d' has been scheduled to run on a node.",
+    "Reason":"AssigningReplica",
+    "EventSource":"ContainerAppController",
+    "Count":0
 }
 ```
 
@@ -297,7 +297,7 @@ The following screenshot shows a zoomed view of how the requests received by you
 
 ## CPU and memory scaling
 
-You should prefer [HTTP scaling rules](/azure/container-apps/scale-app#http) to CPU or memory scale rules when possible.
+You should prefer [HTTP scale rules](/azure/container-apps/scale-app#http) to CPU or memory scale rules when possible.
 
 When you use the Azure CLI to add a scale rule to a container app that already has a scale rule, the new scale rule replaces the old scale rule. To see how to add multiple scale rules, see [Multiple scale rules](#multiple-scale-rules).
 
@@ -313,8 +313,8 @@ Add a CPU scale rule to your container app by running the `az containerapp updat
 
 ```azurecli
 az containerapp update \
-	--name my-container-app \
-	--resource-group my-container-apps \
+    --name my-container-app \
+    --resource-group my-container-apps \
     --min-replicas 1 \
     --max-replicas 10 \
     --scale-rule-name my-cpu-scale-rule \
@@ -326,8 +326,8 @@ az containerapp update \
 
 ```powershell
 az containerapp update `
-	--name my-container-app `
-	--resource-group my-container-apps `
+    --name my-container-app `
+    --resource-group my-container-apps `
     --min-replicas 1 `
     --max-replicas 10 `
     --scale-rule-name my-cpu-scale-rule `
@@ -347,8 +347,8 @@ Add a memory scale rule to your container app by running the `az containerapp up
 
 ```azurecli
 az containerapp update \
-	--name my-container-app \
-	--resource-group my-container-apps \
+    --name my-container-app \
+    --resource-group my-container-apps \
     --min-replicas 1 \
     --max-replicas 10 \
     --scale-rule-name my-memory-scale-rule \
@@ -360,8 +360,8 @@ az containerapp update \
 
 ```powershell
 az containerapp update `
-	--name my-container-app `
-	--resource-group my-container-apps `
+    --name my-container-app `
+    --resource-group my-container-apps `
     --min-replicas 1 `
     --max-replicas 10 `
     --scale-rule-name my-memory-scale-rule `
@@ -420,8 +420,8 @@ To add multiple scale rules to your container app using the Azure CLI, you must 
                 metadata:
                   type: "Utilization"
                   value: "<MEMORY_UTILIZATION>"
-...
-```
+    ...
+    ```
 
 1. Import your container app configuration from `app.yaml` with the `az containerapp update` command.
 
