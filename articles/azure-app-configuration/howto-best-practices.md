@@ -5,9 +5,8 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 10/01/2024
+ms.date: 03/10/2025
 ms.author: zhenlwa
-ms.custom: "devx-track-csharp, mvc"
 ---
 
 # Azure App Configuration best practices
@@ -23,7 +22,7 @@ App Configuration provides two options for organizing keys:
 
 You can use either one or both options to group your keys.
 
-*Key prefixes* allow you to group related keys by using a common prefix in their names. Prefixes can include multiple segments separated by delimiters such as `/` or `:`, forming a hierarchical namespace. This approach is particularly useful when storing configuration keys for multiple applications or microservices within a single App Configuration store.
+*Key prefixes* allow you to group related keys by using a common prefix in their names. Prefixes can include multiple segments separated by delimiters such as `/` or `:`, forming a hierarchical namespace. This approach is useful when storing configuration keys for multiple applications or microservices within a single App Configuration store.
 
 It's important to remember that keys are directly referenced by your application code to retrieve their corresponding values. Therefore, keys should remain stable to avoid code changes. If needed, you can use the App Configuration provider to trim key prefixes at runtime.
 
@@ -54,7 +53,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
 
-**Monitoring all selected keys**
+#### Monitoring all selected keys
 
 In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without needing a dedicated sentinel key.
 
@@ -74,7 +73,7 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
-**Monitoring a sentinel key**
+#### Monitoring a sentinel key
 
 Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
 
