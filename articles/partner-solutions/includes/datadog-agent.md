@@ -14,10 +14,8 @@ To install a Datadog agent:
 
 1. Select **OK**.
 
-> [!NOTE]
-> 
-> - After the Datadog agent is installed, the status changes to *Installed*.
-> - The service restarts once installation is complete.
+After the Datadog agent is installed, the status changes to *Installed*.
+The service restarts once installation is complete.
 
 #### Uninstall a Datadog agent
 
