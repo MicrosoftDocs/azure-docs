@@ -75,7 +75,7 @@ To monitor multiple subscriptions:
 
     The **Add Subscriptions** experience that opens and displays subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
     
-    If the subscription you want to monitor has a resource already linked to the same Datadog org, delete the Datadog resources to avoid shipping duplicate data, and incurring double the charges.
+    If the subscription you want to monitor has a resource already linked to the same Datadog org, delete the Datadog resources to avoid shipping duplicate data and incurring double the charges.
 
 1. Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
 
