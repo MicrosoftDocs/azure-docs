@@ -33,7 +33,7 @@ Message: Microsoft.ExtendedLocation resource provider does not have the required
 
 To resolve, follow [this guidance](/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) for enabling the custom locations feature with the correct OID.
 
-### Troubleshoot MissingResourceVersionOnHost error message
+### You see a MissingResourceVersionOnHost error message
 
 If you see the following error message, your custom location resource associated with the deployment isn't properly configured with the API version(s) of resources attempting to be projected to the cluster.
 
