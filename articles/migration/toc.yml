@@ -25,10 +25,10 @@
         href: ./placeholder.md
     - name: Compute
       items:
-      - name: Compute migration guide
-        href: ./placeholder.md
-      - name: Replatform from AWS Lambda to Azure Functions
-        href: ./placeholder.md
+      - name: AWS Lambda
+        items:
+        - name: Converting an AWS Lambda Function in Go into an Azure Function using LLMs
+          href: https://techcommunity.microsoft.com/blog/azurearchitectureblog/converting-an-aws-lambda-function-in-go-into-an-azure-function-using-llms/4054916
       - name: Elastic Kubernetes Service (EKS)
         items:
         - name: Migrate to Azure Kubernetes Service (AKS)
@@ -37,7 +37,7 @@
           href: ./placeholder.md
         - name: Migrate an event driven EKS workload to AKS
           href: ./placeholder.md
-      - name: Replatform from EC2 to Azure Web Apps
+      - name: Amazon EC2
         href: ./placeholder.md
     - name: Databases
       items:
@@ -53,8 +53,10 @@
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
         - name: Migrate to Azure Database for PostgreSQL (online)
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
+      - name: Aurora MySQL
       - name: Amazon Aurora MySQL
         items:
+        - name: Replatform from Aurora MySQL to Azure Database for MySQL
         - name: Migrate to Azure Database for MySQL
           href: ./placeholder.md
     - name: Identity and access management (IAM)
@@ -67,10 +69,14 @@
         href: ./placeholder.md
     - name: Storage
       items:
-      - name: Storage migration guide
-        href: ./placeholder.md
-      - name: Replatform from AWS S3 to Azure Storage
-        href: ./placeholder.md
+      - name: Amazon Simple Storage Service (S3)
+        items:
+        - name: Copy data from Amazon S3 to Azure Storage by using AzCopy
+          href: /azure/storage/common/storage-use-azcopy-s3
+        - name: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage
+          href: /azure/data-factory/data-migration-guidance-s3-azure-storage
+        - name: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
+          href: /azure/data-factory/solution-template-migration-s3-azure
     - name: Messaging
       items:
       - name: Replatform from AWS SQS to Azure Service Bus
