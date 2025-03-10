@@ -292,6 +292,8 @@ Select VMs for migration.
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
+## Simplified experience
+
 Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](#)
 
 
