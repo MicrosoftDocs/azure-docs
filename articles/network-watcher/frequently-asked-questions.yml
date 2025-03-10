@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 01/14/2025
+  ms.date: 03/10/2025
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to the most frequently asked questions asked about Azure Network Watcher.
@@ -173,13 +173,6 @@ sections:
         answer: |
           There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
-  - name: Diagnostic tools
-    questions:
-      - question: | 
-          Are there limitations with diagnostics tools with private-only Application Gateways?
-        answer: |
-          Yes. Private-only applicaton gateways do not currently support Connection Troubleshoot or NSG Diagnostic operations. See additional information on [Private Application Gateway deployment (preview) - Azure Application Gateway](https://learn.microsoft.com/azure/application-gateway/application-gateway-private-deployment?tabs=portal#network-watcher-integration)
-  
   - name: Flow logs
     questions:
       - question: |
@@ -268,4 +261,11 @@ sections:
           Can I automate network security group flow logs?
         answer: |
           Yes, you can automate network security group flow logs via Azure Resource Manager templates (ARM templates). For more information, see [Configure NSG flow logs using an Azure Resource Manager (ARM) template](quickstart-configure-network-security-group-flow-logs-from-arm-template.md).
+
+  - name: Network diagnostic tools
+    questions:
+      - question: | 
+          Are there any limitations with network diagnostics tools for Application Gateway?
+        answer: |
+          Yes. Connection troubleshoot or NSG diagnostics don't support private Application Gateway deployments. For more information, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment).
 
