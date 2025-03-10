@@ -13,7 +13,7 @@ ms.date: 03/07/2025
 
 This article contains troubleshooting tips for Azure IoT Operations.
 
-## Troubleshoot general deployment of Azure IoT Operations
+## Troubleshoot Azure IoT Operations deployment
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
