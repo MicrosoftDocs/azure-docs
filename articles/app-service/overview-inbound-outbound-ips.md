@@ -4,7 +4,7 @@ description: Learn how inbound and outbound IP addresses are used in Azure App S
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
-ms.date: 05/13/2024
+ms.date: 03/10/2025
 ms.custom: UpdateFrequency3
 ---
 
@@ -26,7 +26,7 @@ Regardless of the number of scaled-out instances, each app has a single inbound 
 
 - Delete an app and recreate it in a different resource group (deployment unit may change).
 - Delete the last app in a resource group _and_ region combination and recreate it (deployment unit may change).
-- Delete an existing IP-based TLS/SSL binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-an-expiring-certificate)).
+- Delete an existing IP-based TLS binding, such as during certificate renewal (see [Renew certificate](configure-ssl-certificate.md#renew-an-expiring-certificate)).
 
 ## Find the inbound IP
 
@@ -88,9 +88,9 @@ You can control the IP address of outbound traffic from your app by using virtua
 
 ## IP Address properties in Azure portal
 
-IP Addresses appear in multiple places in Azure portal. The properties page will show you the raw output from `inboundIpAddress`, `possibleInboundIpAddresses`, `outboundIpAddresses` and `possibleOutboundIpAddresses`. The overview page will also show the same values, but not include the Possible Inbound Ip Addresses.
+IP Addresses appear in multiple places in Azure portal. The properties page will show you the raw output from `inboundIpAddress`, `possibleInboundIpAddresses`, `outboundIpAddresses`, and `possibleOutboundIpAddresses`. The overview page will also show the same values, but not include the **Possible Inbound IP Addresses**.
 
-Networking overview shows the combination of **Inbound IP Address** and any private endpoint IP addresses in the **Inbound addresses** field. If public network access is disabled, the public IP address will not be shown. The **Outbound addresses** field will have a combined list of **(Possible) Outbound IP Addresses**, and if the app is virtual network integrated and is routing all traffic, and the subnet has a NAT gateway attached, the field will also include the IP addresses from the NAT gateway.
+Networking overview shows the combination of **Inbound IP Address** and any private endpoint IP addresses in the **Inbound addresses** field. If public network access is disabled, the public IP address won't be shown. The **Outbound addresses** field has a combined list of **(Possible) Outbound IP Addresses**, and if the app is virtual network integrated and is routing all traffic, and the subnet has a NAT gateway attached, the field will also include the IP addresses from the NAT gateway.
 
 :::image type="content" source="./media/overview-inbound-outbound-ips/networking-overview.png" alt-text="Screenshot that shows how IP addresses are shown in the networking overview page.":::
 
