@@ -20,7 +20,7 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
+- You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
 ## Create a New Relic resource
 
@@ -58,9 +58,9 @@ There are required fields (identified with a red asterisk) in each section that 
     |-------------------|--------------------------------------------------------------------------------------------------|
     | Datadog org name  | Choose to create a new organization, or associate your resource with an existing organization.   | 
 
-        Select the **Change plan** link to [change your billing plan](manage.md#change-billing-plan). 
-    
-        The remaining fields update to reflect the details of the plan you selected for this new organization.
+    Select the **Change plan** link to [change your billing plan](manage.md#change-billing-plan). 
+
+    The remaining fields update to reflect the details of the plan you selected for this new organization.
 
 1. Choose your preferred billing term. 
 
