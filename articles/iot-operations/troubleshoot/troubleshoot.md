@@ -43,7 +43,7 @@ Message: The resource {resource Id} extended location {custom location resource 
 
 To resolve, delete any provisioned resources associated with prior deployment(s) including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before re-deploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended.
 
-### Troubleshoot LinkedAuthorizationFailed error message
+### You see a LinkedAuthorizationFailed error message
 
 If you see the following error message, the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
