@@ -12,6 +12,7 @@
   - name: About Virtual WAN pricing
     href: pricing-concepts.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Configure a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
