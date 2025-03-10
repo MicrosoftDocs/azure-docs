@@ -57,7 +57,7 @@ There are required fields (identified with a red asterisk) in each section that 
     | Field              | Action                                    |
     |--------------------|-------------------------------------------|
     | Resource name      | Specify a unique name for the resource.   |
-    | Location            | Select a region to deploy your resource.  |
+    | Location           | Select a region to deploy your resource.  |
 
 1. Select **Link to Datadog organization** under *Datadog organization details*.
 
