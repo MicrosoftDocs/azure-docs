@@ -106,6 +106,43 @@ Learn more about [other commands related to Trusted Access](/azure/aks/trusted-a
 
 This section describes several Azure Backup supported management operations that make it easy to manage Azure Kubernetes Service cluster backups.
 
+### Adjusting CPU and Memory for Azure Backup for AKS
+
+Azure Backup for AKS relies on pods deployed within the AKS cluster as part of the backup extension under the namespace `dataprotection-microsoft`. To perform backup and restore operations, these pods have specific CPU and memory requirements.
+
+#### Default Resource Reservations
+
+       1. Memory: requests - 128Mi, limits - 1280Mi
+       1. CPU: requests - 500m, limits - 1000m
+
+However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter an BackupPluginPodRestarted due to OOMKilled (Out of Memory) error during backup jobs.
+
+#### Resolving OOMKilled Errors by Increasing CPU and Memory
+
+To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
+
+1. Open the AKS cluster in the Azure Portal.
+
+    ![Screenshot shows AKS cluster in Azure Portal.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster.png)
+
+1. Navigate to Extensions + Applications under Settings in the left-hand pane.
+
+    ![Screenshot shows how to select Extensions + Applications.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-applications.png)
+
+1. Click on the extension titled "azure-aks-backup".
+
+    ![Screenshot shows how to open Backup extension settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup.png)
+
+1. Scroll down, add new value under configuration settings and then click Save. 
+ 
+   `resources.limits.memory : 4400Mi`
+
+    ![Screenshot shows how to add values under configuration settings.](./media/azure-kubernetes-service-cluster-manage-backups/aks-cluster-extension-azure-aks-backup-configuration-update.png)
+
+#### Verifying the Changes
+
+After applying the changes, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
+
 ### Monitor a backup operation
 
 The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
