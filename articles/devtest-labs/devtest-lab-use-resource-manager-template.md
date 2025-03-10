@@ -7,7 +7,7 @@ author: RoseHJM
 ms.date: 03/10/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab user, I want to know how to create, manage, and access ARM templates, so I can use the templates to create VMs.
+#customer intent: As a lab user, I want to know how to create, manage, and access ARM templates for creating Azure VMs, so I can use the templates to create more VMs.
 ---
 
 # Create and manage ARM templates for VMs in DevTest Labs
@@ -16,7 +16,7 @@ This article describes how DevTest Labs users can:
 
 - View, edit, and save Azure Resource Manager (ARM) templates for creating Azure VMs.
 - Store the ARM templates in source control repositories.
-- Connect the ARM template repositories to Azure DevTest Labs so other lab users can access the templates.
+- Access the ARM template repositories in Azure DevTest Labs to use the templates.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -49,11 +49,9 @@ For more information on creating lab VMs, see [Create lab virtual machines in Az
 <a name="set-vm-expiration-date"></a>
 ## Edit ARM templates for VMs
 
-When you reuse the ARM template to create more VMs, you might want to update the parameters and values in your template file. To update only the template `parameters` section without having to edit the main template file, you can create and edit a separate file called *azuredeploy.parameters.json*.
+When you reuse the ARM template to create more VMs, you can update the parameters and values in your template file. To update only the template `parameters` section without having to edit the main template file, you can create and edit a separate file called *azuredeploy.parameters.json*.
 
-For example, in training, demo, and trial scenarios, you can automatically delete VMs after a certain date so they don't keep incurring costs. When you create a lab VM in the Azure portal, you can specify the **Expiration date** on the **Advanced settings** tab. You can also add an `expirationDate` parameter to an ARM template. For an example template, see [Create a new VM in a lab with a specified expiration date](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
-
-The following example shows an `expirationDate` parameter.
+For example, in training, demo, and trial scenarios, you can automatically delete VMs after a certain date so they don't keep incurring costs. When you create a lab VM in the Azure portal, you can specify the **Expiration date** on the **Advanced settings** tab. You can also add an `expirationDate` parameter or change the value in an ARM template.
 
 ```json
   "parameters": {
@@ -64,12 +62,14 @@ The following example shows an `expirationDate` parameter.
   }
 ```
 
+For an example template, see [Create a new VM in a lab with a specified expiration date](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
 >[!TIP]
 >To create a URI value for automatically managing *nested templates*, you can add the `_artifactsLocation` and `_artifactsLocationSasToken` parameters to your `parameters` section or file. For more information about nested templates, see [Deploy nested Azure Resource Manager templates for testing environments](deploy-nested-template-environments.md).
 
 ### Create multiple VMs at once
 
-In the Azure portal, you can create more than one instance of a VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the VM creation screen. In the ARM template, the `copy` parameter in the `resources` section determines the number of instances to create.
+In the Azure portal, you can create more than one instance of a VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the VM creation screen. In an ARM template, you can add or edit the `copy` parameter in the `resources` section to specify the number of instances to create.
 
 ```json
       "copy": {
@@ -94,39 +94,51 @@ The following screenshot shows a typical ARM template folder structure in a repo
 
 :::image type="content" source="media/devtest-lab-use-arm-template/repo-structure.png" alt-text="Screenshot that shows key ARM template files in a repository.":::
 
-## Add template repositories to labs
+## Access template repositories for labs
 
 To see and access the template repositories available to your lab:
 
 1. On the lab's **Overview** page in the Azure portal, select **Configuration and policies** from the left navigation.
 1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
+1. Copy the **Git Clone URL**s and connect to the repos to access the templates.
+
+:::image type="content" source="media/devtest-lab-use-arm-template/public-repo.png" alt-text="Screenshot that shows the Repositories configuration screen." lightbox="media/devtest-lab-use-arm-template/public-repo.png":::
 
 The **Public Artifact Repo** and **Public Environment Repo** at the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab) are available for all labs. If these repos aren't enabled for your lab, a lab owner or contributor can enable them by selecting the checkboxes next to **Public Artifact Repo** and **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings).
 
-If you're a lab owner or contributor, you can add a private ARM template repository to the lab so all lab users can access its templates.
+## Add template repositories to labs
 
-1. On the **Repositories** page, select **Add** in the top menu bar.
+Lab owners or contributors can add ARM template repositories to their labs so all lab users can access the templates. To add a repo, select **Add** in the top menu bar of the **Repositories** page.
 
-   :::image type="content" source="media/devtest-lab-use-arm-template/public-repo.png" alt-text="Screenshot that shows the Repositories configuration screen.":::
+# [GitHub repo](#tab/GitHubRepo/)
 
 1. On the **Repository** screen, enter the following information:
-
    - **Name**: Repository name.
-   - **Git clone URL**: The Git HTTPS clone URL from GitHub or Azure Repos.
+   - **Git clone URL**: The Git HTTPS clone URL from GitHub.
    - **Branch** (optional): The branch that has the ARM template definitions.
    - **Azure Resource Manager template folder path**: The folder path, relative to the Git clone URI, for the ARM template definitions.
-
-1. For **Authentication type**, specify the authentication method to securely access the repository.
-   - For GitHub repos, select **Personal access token** or **GitHub App** authentication.
-     - To get a personal access token from GitHub, select your profile and then select **Settings** > **Developer settings** > **Personal access tokens**.
-     - To use the GitHub app, you must have the [Microsoft DevCenter GitHub App](https://github.com/apps/microsoft-devcenter) installed. If necessary, select **Sign in with GitHub** and sign in to GitHub.
-   - For Azure Repos repos, select **Personal access token** or **Managed Identity** authentication.
-     - To get a personal access token from Azure Repos, select **User settings** at upper right and then select **Personal access tokens**.
-     - To use managed identity, add the lab's system-assigned managed identity to the Azure DevOps organization as a user. For more information, see [Add an artifact repo](add-artifact-repository.md?tabs=DevOpsRepoMSI#add-an-artifact-repo).
-
+   - **Authentication type**: The authentication method to securely access the repository, **Personal access token** or **GitHub App**.
+     - To get a personal access token, select your profile in GitHub and then select **Settings** > **Developer settings** > **Personal access tokens**.
+     - To use the GitHub app, select **Sign in with GitHub** and sign in if necessary. You must have the [Microsoft DevCenter GitHub App](https://github.com/apps/microsoft-devcenter) installed.
 1. Select **Save**.
 
-   :::image type="content" source="media/devtest-lab-use-arm-template/repo-values-gh.png" alt-text="Screenshot that shows settings for adding a new template repository to a lab.":::
+:::image type="content" source="media/devtest-lab-use-arm-template/repo-values-gh.png" alt-text="Screenshot that shows GitHub settings for adding a new template repository to a lab.":::
+
+# [Azure Repos repo](#tab/DevOpsRepo/)
+
+1. On the **Repository** screen, enter the following information:
+   - **Name**: Repository name.
+   - **Git clone URL**: The Git HTTPS clone URL from Azure Repos.
+   - **Branch** (optional): The branch that has the ARM template definitions.
+   - **Azure Resource Manager template folder path**: The folder path, relative to the Git clone URI, for the ARM template definitions.
+   - **Authentication type**: The authentication method to securely access the repository, **Personal access token** or **Managed Identity**.
+     - To get a personal access token, select **User settings** at upper right in Azure DevOps and then select **Personal access tokens**.
+     - To use managed identity, add the lab's system-assigned managed identity to the Azure DevOps organization as a user. For more information, see [Add an artifact repo](add-artifact-repository.md?tabs=DevOpsRepoMSI#add-an-artifact-repo).
+1. Select **Save**.
+
+:::image type="content" source="media/devtest-lab-use-arm-template/repo-values.png" alt-text="Screenshot that shows Azure Repos settings for adding a new template repository to a lab.":::
+
+---
 
 The repository now appears in the **Repositories** list for the lab. Lab users can use the repository templates to [create multi-VM DevTest Labs environments](devtest-lab-create-environment-from-arm.md). Lab administrators can use the templates to [automate lab deployment and management tasks](devtest-lab-use-arm-and-powershell-for-lab-resources.md#arm-template-automation).
 
@@ -149,4 +161,4 @@ For more information about deployment, see [Template deployment process](/azure/
 - [Best practices for creating ARM templates](/azure/azure-resource-manager/templates/best-practices)
 - [Add a Git repository to store custom artifacts and ARM templates](devtest-lab-add-artifact-repo.md)
 - [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md)
-- [ARM quickstart templates for DevTest Labs automation](https://github.com/Azure/azure-quickstart-templates)
+- [Quickstart ARM templates for DevTest Labs automation](https://github.com/Azure/azure-quickstart-templates)
