@@ -340,7 +340,7 @@ To view in Azure Monitor, select the **Transactions** metric and **Apply splitti
 
 The following chart illustrates a workload that experienced a sudden increase in metadata IOPS (transactions), triggering Success with Metadata Warnings, which indicates a risk of metadata throttling. In this example, the workload subsequently reduced its transaction volume, preventing metadata throttling from occurring.
 
-:::image type="content" source="media/analyze-files-metrics/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
+:::image type="content" source="media/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
 
 If your workload encounters **Success with Metadata Warnings** or **Sucess with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
 
