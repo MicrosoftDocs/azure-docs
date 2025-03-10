@@ -2,7 +2,7 @@
 title: Restore Azure PostgreSQL databases via Azure data protection REST API
 description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/09/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -56,7 +56,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 #### Responses for list of recovery points
 
-Once you submit the *GET* request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
+Once you submit the `GET` request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -226,7 +226,7 @@ For an archive-based recovery point, you need to:
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named `testcontainerrestore` under a storage account `testossstorageaccount` with a different subscription.
 
 ```http
 "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
@@ -342,7 +342,7 @@ We have constructed a section of the same in the [above section](#create-a-reque
 
 ##### Response to validate restore requests
 
-The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
+The `validate restore request` is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
 
 It returns two responses: 202 (Accepted) when another operation is created. Then 200 (OK) when that operation completes.
 
@@ -604,3 +604,4 @@ The job status mentioned above will indicate that the restore job is complete.
 ## Next steps
 
 - [Azure PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)
+- [Manage restore jobs using REST API](backup-azure-arm-userestapi-managejobs.md).

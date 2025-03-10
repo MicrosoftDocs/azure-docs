@@ -45,7 +45,7 @@ The following code shows the overall structure of the `systemconfig.json` file:
 
     "connector_configuration": {...},
 
-    "abap_table_selector":: {...}
+    "abap_table_selector": {...}
 
 ...
 

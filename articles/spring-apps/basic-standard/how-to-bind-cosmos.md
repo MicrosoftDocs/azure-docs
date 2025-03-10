@@ -29,7 +29,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 
 ### [Java](#tab/Java)
 
-1. Add one of the following dependencies to your application's *pom.xml* file. Choose the dependency that is appropriate for your API type.
+1. Add one of the following dependencies to your application's **pom.xml** file. Choose the dependency that is appropriate for your API type.
 
    * API type: NoSQL
 

@@ -2187,6 +2187,603 @@ Built-in role that allows a Connected Cluster managed identity to call the check
 }
 ```
 
+## Container Registry Configuration Reader and Data Access Configuration Reader
+
+Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/operationStatuses/read | Gets a registry async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/operationStatuses/read | Get Private Endpoint Connection Async Operation Status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listCredentials/action | Lists the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/read | Gets the properties of the specified token or lists all the tokens for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/operationStatuses/read | Gets a token async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/read | Gets the properties of the specified scope map or lists all the scope maps for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/read | Gets the properties of the specified webhook or lists all the webhooks for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/getCallbackConfig/action | Gets the configuration of service URI and custom headers for the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/read | Gets the properties of the specified replication or lists all the replications for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/operationStatuses/read | Gets a replication async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Microsoft ContainerRegistry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft ContainerRegistry |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to list container registries and registry configuration properties. Provides permissions to list data access configuration such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/69b07be0-09bf-439a-b9a6-e73de851bd59",
+  "name": "69b07be0-09bf-439a-b9a6-e73de851bd59",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/listCredentials/action",
+        "Microsoft.ContainerRegistry/registries/tokens/read",
+        "Microsoft.ContainerRegistry/registries/tokens/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/listEvents/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/replications/read",
+        "Microsoft.ContainerRegistry/registries/replications/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Configuration Reader and Data Access Configuration Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Contributor and Data Access Configuration Administrator
+
+Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/operationStatuses/read | Gets a registry async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/write | Creates or updates a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/delete | Deletes a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listCredentials/action | Lists the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/regenerateCredential/action | Regenerates one of the login credentials for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/generateCredentials/action | Generate keys for a token of a specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/read | Gets the properties of the specified replication or lists all the replications for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/write | Creates or updates a replication for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/delete | Deletes a replication from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/replications/operationStatuses/read | Gets a replication async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/write | Approves/Rejects the private endpoint connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/delete | Deletes the private endpoint connection |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/operationStatuses/read | Get Private Endpoint Connection Async Operation Status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/read | Gets the properties of the specified token or lists all the tokens for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/write | Creates or updates a token for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/delete | Deletes a token from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tokens/operationStatuses/read | Gets a token async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/read | Gets the properties of the specified scope map or lists all the scope maps for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/write | Creates or updates a scope map for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/delete | Deletes a scope map from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Microsoft ContainerRegistry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft ContainerRegistry |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/read | Gets the properties of the specified connected registry or lists all the connected registries for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/write | Creates or updates a connected registry for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/delete | Deletes a connected registry from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/connectedRegistries/deactivate/action | Deactivates a connected registry for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/read | Gets the properties of the specified webhook or lists all the webhooks for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/write | Creates or updates a webhook for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/delete | Deletes a webhook from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/getCallbackConfig/action | Gets the configuration of service URI and custom headers for the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/ping/action | Triggers a ping event to be sent to the webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/listEvents/action | Lists recent events for the specified webhook. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/webhooks/operationStatuses/read | Gets a webhook async operation status |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/locations/operationResults/read | Gets an async operation result |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/write | Creates a new private link service proxy, or updates an existing private link service proxy. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to create, list, and update container registries and registry configuration properties. Provides permissions to configure data access such as admin user credentials, scope maps, and tokens, which can be used to read, write or delete repositories and images. Does not provide direct permissions to read, list, or write registry contents including repositories and images. Does not provide permissions to modify data plane content such as imports, Artifact Cache or Sync, and Transfer Pipelines. Does not provide permissions for managing Tasks.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3bc748fc-213d-45c1-8d91-9da5725539b9",
+  "name": "3bc748fc-213d-45c1-8d91-9da5725539b9",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerRegistry/registries/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/write",
+        "Microsoft.ContainerRegistry/registries/delete",
+        "Microsoft.ContainerRegistry/registries/listCredentials/action",
+        "Microsoft.ContainerRegistry/registries/regenerateCredential/action",
+        "Microsoft.ContainerRegistry/registries/generateCredentials/action",
+        "Microsoft.ContainerRegistry/registries/replications/read",
+        "Microsoft.ContainerRegistry/registries/replications/write",
+        "Microsoft.ContainerRegistry/registries/replications/delete",
+        "Microsoft.ContainerRegistry/registries/replications/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/write",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/delete",
+        "Microsoft.ContainerRegistry/registries/privateEndpointConnections/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/tokens/read",
+        "Microsoft.ContainerRegistry/registries/tokens/write",
+        "Microsoft.ContainerRegistry/registries/tokens/delete",
+        "Microsoft.ContainerRegistry/registries/tokens/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/read",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/write",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/delete",
+        "Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/logDefinitions/read",
+        "Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/read",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/write",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/delete",
+        "Microsoft.ContainerRegistry/registries/connectedRegistries/deactivate/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/read",
+        "Microsoft.ContainerRegistry/registries/webhooks/write",
+        "Microsoft.ContainerRegistry/registries/webhooks/delete",
+        "Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/ping/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/listEvents/action",
+        "Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.ContainerRegistry/locations/operationResults/read",
+        "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Contributor and Data Access Configuration Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Data Importer and Data Reader
+
+Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importImage/action | Import Image to container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pull/read | Pull or Get images from a container registry. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides the ability to import images into a registry through the registry import operation. Provides the ability to list repositories, view images and tags, get manifests, and pull images. Does not provide permissions for importing images through configuring registry transfer pipelines such as import and export pipelines. Does not provide permissions for importing through configuring Artifact Cache or Sync rules.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/577a9874-89fd-4f24-9dbd-b5034d0ad23a",
+  "name": "577a9874-89fd-4f24-9dbd-b5034d0ad23a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/importImage/action",
+        "Microsoft.ContainerRegistry/registries/read",
+        "Microsoft.ContainerRegistry/registries/pull/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Data Importer and Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Catalog Lister
+
+Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/catalog/read | List repositories in a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for listing all repositories in an Azure Container Registry. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
+  "name": "bfdb9389-c9a5-478a-bb2f-ba9ca092c3c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/catalog/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Catalog Lister",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Contributor
+
+Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/write | Updates the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/write | Push or Write images to a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/delete | Delete the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/delete | Delete artifact in a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read, write, and delete access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2efddaa5-3f1f-4df3-97df-af3f13818f4c",
+  "name": "2efddaa5-3f1f-4df3-97df-af3f13818f4c",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/write",
+        "Microsoft.ContainerRegistry/registries/repositories/content/write",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/delete",
+        "Microsoft.ContainerRegistry/registries/repositories/content/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Reader
+
+Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b93aa761-3e63-49ed-ac28-beffa264f7ac",
+  "name": "b93aa761-3e63-49ed-ac28-beffa264f7ac",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Repository Writer
+
+Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/read | Gets the metadata of a specific repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/read | Pull or Get images from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/metadata/write | Updates the metadata of a repository for a container registry |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/repositories/content/write | Push or Write images to a container registry. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read and write access to Azure Container Registry repositories, but excluding catalog listing. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/2a1e307c-b015-4ebd-883e-5b7698a07328",
+  "name": "2a1e307c-b015-4ebd-883e-5b7698a07328",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/read",
+        "Microsoft.ContainerRegistry/registries/repositories/content/read",
+        "Microsoft.ContainerRegistry/registries/repositories/metadata/write",
+        "Microsoft.ContainerRegistry/registries/repositories/content/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Repository Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Tasks Contributor
+
+Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/read | Get a agentpool for a container registry or list all agentpools. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/write | Create or Update an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/delete | Delete an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/listQueueStatus/action | List all queue status of an agentpool for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/operationResults/status/read | Gets an agentpool async operation result status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/agentpools/operationStatuses/read | Gets an agentpool async operation status |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/read | Gets a task for a container registry or list all tasks. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/write | Creates or Updates a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/delete | Deletes a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/tasks/listDetails/action | List all details of a task for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/scheduleRun/action | Schedule a run against a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/read | Gets the properties of a run against a container registry or list runs. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/write | Updates a run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/listLogSasUrl/action | Gets the log SAS URL for a run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/runs/cancel/action | Cancel an existing run. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/read | Get a taskrun for a container registry or list all taskruns. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/write | Create or Update a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/delete | Delete a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/listDetails/action | List all details of a taskrun for a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/taskruns/operationStatuses/read | Gets a taskrun async operation status |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/read | Gets the properties of the specified container registry or lists all the container registries under the specified resource group or subscription. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permissions to configure, read, list, trigger, or cancel Container Registry Tasks, Task Runs, Task Logs, Quick Runs, Quick Builds, and Task Agent Pools. Permissions granted for Tasks management can be used for full registry data plane permissions including reading/writing/deleting container images in registries. Permissions granted for Tasks management can also be used to run customer authored build directives and run scripts to build software artifacts.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fb382eab-e894-4461-af04-94435c366c3f",
+  "name": "fb382eab-e894-4461-af04-94435c366c3f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/agentpools/read",
+        "Microsoft.ContainerRegistry/registries/agentpools/write",
+        "Microsoft.ContainerRegistry/registries/agentpools/delete",
+        "Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action",
+        "Microsoft.ContainerRegistry/registries/agentpools/operationResults/status/read",
+        "Microsoft.ContainerRegistry/registries/agentpools/operationStatuses/read",
+        "Microsoft.ContainerRegistry/registries/tasks/read",
+        "Microsoft.ContainerRegistry/registries/tasks/write",
+        "Microsoft.ContainerRegistry/registries/tasks/delete",
+        "Microsoft.ContainerRegistry/registries/tasks/listDetails/action",
+        "Microsoft.ContainerRegistry/registries/scheduleRun/action",
+        "Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action",
+        "Microsoft.ContainerRegistry/registries/runs/read",
+        "Microsoft.ContainerRegistry/registries/runs/write",
+        "Microsoft.ContainerRegistry/registries/runs/listLogSasUrl/action",
+        "Microsoft.ContainerRegistry/registries/runs/cancel/action",
+        "Microsoft.ContainerRegistry/registries/taskruns/read",
+        "Microsoft.ContainerRegistry/registries/taskruns/write",
+        "Microsoft.ContainerRegistry/registries/taskruns/delete",
+        "Microsoft.ContainerRegistry/registries/taskruns/listDetails/action",
+        "Microsoft.ContainerRegistry/registries/taskruns/operationStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.ContainerRegistry/registries/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Tasks Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Container Registry Transfer Pipeline Contributor
+
+Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/read | Gets the properties of the specified export pipeline or lists all the export pipelines for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/write | Creates or updates an export pipeline for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/exportPipelines/delete | Deletes an export pipeline from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/read | Gets the properties of the specified import pipeline or lists all the import pipelines for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/write | Creates or updates an import pipeline for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/importPipelines/delete | Deletes an import pipeline from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/read | Gets the properties of the specified pipeline run or lists all the pipeline runs for the specified container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/write | Creates or updates a pipeline run for a container registry with the specified parameters. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/delete | Deletes a pipeline run from a container registry. |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/pipelineRuns/operationStatuses/read | Gets a pipeline run async operation status. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides the ability to transfer, import, and export artifacts through configuring registry transfer pipelines that involve intermediary storage accounts and key vaults. Does not provide permissions to push or pull images. Does not provide permissions to create, manage, or list storage accounts or key vaults. Does not provide permissions to perform role assignments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bf94e731-3a51-4a7c-8c54-a1ab9971dfc1",
+  "name": "bf94e731-3a51-4a7c-8c54-a1ab9971dfc1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerRegistry/registries/exportPipelines/read",
+        "Microsoft.ContainerRegistry/registries/exportPipelines/write",
+        "Microsoft.ContainerRegistry/registries/exportPipelines/delete",
+        "Microsoft.ContainerRegistry/registries/importPipelines/read",
+        "Microsoft.ContainerRegistry/registries/importPipelines/write",
+        "Microsoft.ContainerRegistry/registries/importPipelines/delete",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/read",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/write",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/delete",
+        "Microsoft.ContainerRegistry/registries/pipelineRuns/operationStatuses/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Container Registry Transfer Pipeline Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Kubernetes Agentless Operator
 
 Grants Microsoft Defender for Cloud access to Azure Kubernetes Services

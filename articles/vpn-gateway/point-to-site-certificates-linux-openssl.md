@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 02/26/2025
 ms.author: cherylmc
 ---
 # Generate and export certificates - Linux - OpenSSL
@@ -36,7 +36,10 @@ This section helps you generate a self-signed root certificate. After you genera
 
 ## Client certificates
 
-In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial is that the client certificate is signed by the root certificate.
+> [!NOTE]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+In this section, you generate the user certificate (client certificate). Certificate files are generated in the local directory in which you run the commands. You can use the same client certificate on each client computer, or generate certificates that are specific to each client. It's crucial that the client certificate is signed by the root certificate.
 
 1. To generate a client certificate, use the following examples.
 
@@ -62,4 +65,5 @@ In this section, you generate the user certificate (client certificate). Certifi
 
 ## Next steps
 
-To continue configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).
+* To continue VPN Gateway configuration steps, see [Point-to-site certificate authentication](point-to-site-certificate-gateway.md#uploadfile).
+* To continue Virtual WAN configuration steps, see [Create a P2S User VPN connection](../virtual-wan/virtual-wan-point-to-site-portal.md).

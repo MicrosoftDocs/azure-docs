@@ -26,7 +26,7 @@ First, download the AzAcSnap executable file to any directory on your computer. 
   - The Linux binary has an associated [Linux signature file](https://aka.ms/azacsnap-linux-signature). This file is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
 
   > [!IMPORTANT]
-  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to setup the user's profile to run AzAcSnap and its dependencies.
+  > The installer is no longer available for Linux. Please follow the [guidelines here](azacsnap-installation.md) to set up the user's profile to run AzAcSnap and its dependencies.
 
 - [Windows 64-bit](https://aka.ms/azacsnap-windows) (executable)
   - The Windows binary is signed by Microsoft.
@@ -88,6 +88,10 @@ Follow the guidelines to set up and run the snapshots and disaster-recovery comm
     DB20000I  The QUIT command completed successfully.
     ```
 
+    # [Microsoft SQL Server](#tab/mssql)
+
+    There are no specific database connection requirements for MS SQL Server as AzAcSnap has built-in connectivity to MS SQL Server.
+   
     ---
 ## Install the snapshot tools
 

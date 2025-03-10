@@ -232,6 +232,8 @@ items:
         href: lifecycle-management-policy-configure.md
       - name: Monitor policy runs
         href: lifecycle-management-policy-configure.md
+      - name: Lifecycle management performance characteristics
+        href: lifecycle-management-performance-characteristics.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
@@ -246,6 +248,8 @@ items:
         href: storage-blobs-static-site-github-actions.md
       - name: 'Tutorial: Host a static website'
         href: storage-blob-static-website-host.md
+    - name: Create a Managed Application to Store Blob Digests
+      href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Security and networking
     items:
     - name: Security recommendations

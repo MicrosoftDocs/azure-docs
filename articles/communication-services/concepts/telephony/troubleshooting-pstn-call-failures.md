@@ -16,7 +16,7 @@ When you're troubleshooting Azure Communication Services PSTN call failures, we 
 
 ## Use ResultCategories to troubleshoot failures
 
-The `ResultCategories` array is a property of the [call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema). It contains a list of general reasons that describe how the call ended:
+The `ResultCategories` array is a property of the [Call Summary Log Schema](../analytics/logs/call-summary-log-schema.md). It contains a list of general reasons that describe how the call ended:
 
 - `Success`
 - `Failure`
@@ -27,7 +27,7 @@ This information can help you determine why a call ended without generating a de
 
 ## Use ParticipantEndReason and ParticipantEndSubCode to troubleshoot failures
 
-If the level of detail in `ResultCategories` isn't sufficient when you're troubleshooting PSTN calls, you can use `ParticipantEndReason` and `ParticipantEndSubCode` to understand the reasons why a call ended in greater detail. `ParticipantEndReason` and `ParticipantEndSubCode` are also properties of the [call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema).
+If the level of detail in `ResultCategories` isn't sufficient when you're troubleshooting PSTN calls, you can use `ParticipantEndReason` and `ParticipantEndSubCode` to understand the reasons why a call ended in greater detail. `ParticipantEndReason` and `ParticipantEndSubCode` are also properties of the [Call Summary Log Schema](../analytics/logs/call-summary-log-schema.md).
 
 ### ParticipantEndReason
 

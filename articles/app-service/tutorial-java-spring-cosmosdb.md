@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/31/2024
+ms.date: 01/31/2025
 ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -634,7 +634,7 @@ Pricing for the created resources is as follows:
 The Java SE container in App Service already has network connectivity to Cosmos DB, but doesn't contain any migration tools or other MongoDB tools. You have a few options:
 
 - Run database migrations automatically at app start, such as with Hibernate and or Flyway.
-- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like [Flyway CLI](https://documentation.red-gate.com/fd/command-line-184127404.html), then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
+- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like Flyway, then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
 - [Integrate the Azure cloud shell](../cloud-shell/private-vnet.md) with the virtual network and run database migrations from there.
 
 #### How does local app development work with GitHub Actions?

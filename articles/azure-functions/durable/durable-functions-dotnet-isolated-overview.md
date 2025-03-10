@@ -94,7 +94,7 @@ This guide assumes you're starting with a .NET Durable Functions 2.x project.
 
 ### Update your project
 
-The first step is to update your project to [Azure Functions .NET isolated](../migrate-version-3-version-4.md). Then, update your Durable Functions NuGet package references.
+The first step is to update your project to [Azure Functions .NET isolated](../migrate-dotnet-to-isolated-model.md). Then, update your Durable Functions NuGet package references.
 
 Old:
 

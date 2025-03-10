@@ -6,18 +6,18 @@ description: 'Learn how to use Azure Cache for Redis with these code samples: co
 
 ms.custom:
 ms.topic: sample
-ms.date: 05/11/2021
+ms.date: 03/04/2025
 ---
 # Azure Cache for Redis samples
 
-You'll find a list of Azure Cache for Redis samples in this article.
+You'll find a list of Azure Redis samples in this article.
 The samples cover scenarios such as:
 
 * Connecting to a cache
 * Reading and writing data to and from a cache
 * And using the ASP.NET Azure Cache for Redis providers.
 
-Some samples are downloadable projects. Other samples provide step-by-step guidance that includes code snippets but don't link to a downloadable project.
+Some samples are downloadable projects. Other samples provide step-by-step guidance that includes code snippets, but don't link to a downloadable project.
 
 ## Hello world samples
 
@@ -69,7 +69,3 @@ The [Access Azure Cache for Redis Monitoring data](https://github.com/rustd/Redi
 ## An X-style clone written using PHP and Redis
 
 The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello World. It's a minimal X-style social network clone written using Redis and PHP using the [Predis](https://github.com/nrk/predis) client. The source code is designed to be simple and at the same time to show different Redis data structures.
-
-## Bandwidth monitor
-
-The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.

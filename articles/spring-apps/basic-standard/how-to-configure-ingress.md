@@ -2,7 +2,8 @@
 title: Customize the Ingress Configuration in Azure Spring Apps
 description: Learn how to customize the ingress configuration in Azure Spring Apps.
 author: KarlErickson
-ms.author: haital
+ms.author: karler
+ms.reviewer: haital
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
@@ -113,11 +114,11 @@ This command updates the app with the following settings:
 
 - How do you enable gRPC?
 
-  Set the backend protocol to *GRPC*.
+  Set the backend protocol to **GRPC**.
 
 - How do you enable WebSocket?
 
-  WebSocket is enabled by default if you set the backend protocol to *Default*. The WebSocket connection limit is 20000. When you reach that limit, the connection fails.
+  WebSocket is enabled by default if you set the backend protocol to **Default**. The WebSocket connection limit is 20000. When you reach that limit, the connection fails.
 
   You can also use RSocket based on WebSocket.
 

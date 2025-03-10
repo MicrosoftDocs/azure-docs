@@ -137,7 +137,7 @@ When you select the **Close** button, the Cloud Shell session is terminated.
 
 - Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
-  - The FireFox browser might not support clipboard permissions properly.
+  - The Firefox browser might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
 - Linux: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
 

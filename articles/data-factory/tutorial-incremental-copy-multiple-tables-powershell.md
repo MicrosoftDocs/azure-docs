@@ -225,7 +225,7 @@ END
 
 ### Azure PowerShell
 
-Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a data factory
 

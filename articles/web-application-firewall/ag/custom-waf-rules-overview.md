@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) v2 custom rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: concept-article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 01/30/2024
-ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -162,6 +161,9 @@ A list of strings with names of transformations to do before the match is attemp
 ### Match values [required]
 
 List of values to match against, which can be thought of as being *OR*'ed. For example, it could be IP addresses or other strings. The value format depends on the previous operator.
+
+> [!NOTE]
+> If your WAF is running Core Rule Set (CRS) 3.1, or any other earlier CRS version, the match value only allows letters, numbers and punctuation marks. Quotation marks `"`, `'` and spaces are not supported.
 
 Supported HTTP request method values include:
 - GET
