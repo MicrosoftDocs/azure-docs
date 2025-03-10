@@ -40,7 +40,7 @@ The *Basics* tab has three sections:
 - Project details
 - Azure resource details
 - Datadog organization details
-- 
+
 - :::image type="content" source="media/create/link-existing-basics-tab.png" alt-text="A screenshot of the Link Azure subscription to an existing Datadog organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
@@ -57,7 +57,7 @@ There are required fields (identified with a red asterisk) in each section that 
     | Field              | Action                                    |
     |--------------------|-------------------------------------------|
     | Resource name      | Specify a unique name for the resource.   |
-    | Region             | Select a region to deploy your resource.  |
+    | Location            | Select a region to deploy your resource.  |
 
 1. Select **Link to Datadog organization** under *Datadog organization details*.
 
@@ -66,9 +66,9 @@ There are required fields (identified with a red asterisk) in each section that 
     > [!IMPORTANT]
     > 
     > - By default, Azure links your current Datadog organization to your Datadog resource. If you would like to link to a different organization, select the appropriate organization in the authentication window.
-    > - If the subscription is already linked to an organization through a Datadog resource, you cannot link the subscription to the same organization through a different Datadog resource.  This avoids duplicate logs and metrics being shipped to the same organization for the same subscription. 
+    > - You can't link the subscription to the same organization through a different Datadog resource if the subscription is already linked to an organization to avoid duplicate logs and metrics being shipped to the same organization for the same subscription. 
 
-    Once you've finished authenticating, return to the Azure portal.
+    Once you finish authenticating, return to the Azure portal.
 
 1. Select the **Next** button at the bottom of the page.
 
