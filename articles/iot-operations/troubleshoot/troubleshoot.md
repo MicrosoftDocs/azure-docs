@@ -69,7 +69,7 @@ For help resolving this issue, please see https://go.microsoft.com/fwlink/?linki
 
 This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, you need to add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
-## Troubleshoot asset connector for OPC UA
+## Troubleshoot OPC UA server connections
 
 An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
 
