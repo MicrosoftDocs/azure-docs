@@ -28,7 +28,7 @@ Use the following steps to set up the enterprise application:
 
 1. Go to **Single sign-on** from the side panel. Then select **SAML**.
 
-1. Select **Yes** when prompted to **Save single sign-on settings**.
+1. Select **Yes** when prompted to save single sign-on settings.
 
 The setup of single sign-on is now complete.
 
