@@ -23,10 +23,10 @@ For detailed prerequisites and steps to assign a role to users and groups, see [
 1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
 1. In the left menu, select **Access control (IAM)** > **+ Add role assignment**.
 1. In the **Add role assignment** pane, set the values as follows:
-    * On the **Role** page, search for and select **Azure API Center Data Reader**. Select **Next**.
-    * On the **Members** page, In **Assign access to**, select **User, group, or service principal** > **+ Select members**.
-    * On the **Select members** page, search for and select the users or groups to assign the role to. Click **Select** and then **Next**.
-    * Review the role assignment, and select **Review + assign**.
+    1. On the **Role** page, search for and select **Azure API Center Data Reader**. Select **Next**.
+    1. On the **Members** page, In **Assign access to**, select **User, group, or service principal** > **+ Select members**.
+    1. On the **Select members** page, search for and select the users or groups to assign the role to. Click **Select** and then **Next**.
+    1. Review the role assignment, and select **Review + assign**.
 
 > [!NOTE]
 > To streamline access configuration for new users, we recommend that you assign the role to a Microsoft Entra group and configure a dynamic group membership rule. To learn more, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule).
