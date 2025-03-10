@@ -12,6 +12,7 @@ ms.service: azure-communication-services
 
 - A working [Communication Services calling iOS app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- Teams users must have a Teams Phone license and be [Enterprise Voice enabled](/microsoftteams/direct-routing-enable-users#use-powershell-1)
 
 We will use beta.12 of AzureCommunicationCalling SDK for this quickstart so we need to update the podfile and install the Pods again.
 
