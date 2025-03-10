@@ -112,7 +112,9 @@ You can confirm that the Azure Digital Twins permissions were granted by looking
 
 Next, collect some important values about the app registration that you need to use the app registration to authenticate a client application. These values include:
 * resource name
+
   When working with Azure Digital Twins, the **resource name** is `http://digitaltwins.azure.net`.
+
 * client ID
 * tenant ID
 * client secret
