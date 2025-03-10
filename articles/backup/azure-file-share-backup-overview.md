@@ -104,7 +104,7 @@ The following diagram explains the lifecycle of the lease acquired by Azure Back
 
 Cross Subscription Backup (CSB) for Azure Files enables you to back up File Shares across subscriptions. This feature is useful when you want to centralize backup management for File Shares across different subscriptions. You can back up File Shares from a source subscription to a Recovery Services vault in a target subscription.
 
-Learn about the [additional prerequisites](backup-azure-files.md#prerequisites) and [steps to configure Cross Subscription Backup for Azure Files](backup-azure-files.md#configure-the-backup). For information on the Cross Subscription Backup, see the [Azure Files backup support matrix](azure-file-share-support-matrix.md#supported-regions-for-cross-subscription-backup-preview).
+Learn about the [additional prerequisites](backup-azure-files.md#prerequisites) and [steps to configure Cross Subscription Backup for Azure Files](backup-azure-files.md#configure-the-backup). For information on the Cross Subscription Backup, see the [Azure Files backup support matrix](azure-file-share-support-matrix.md#supported-regions-for-azure-files-backup-preview)
 
 ## Next steps
 
