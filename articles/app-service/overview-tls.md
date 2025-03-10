@@ -1,5 +1,5 @@
 ---
-title: SSL and TLS overview
+title: TLS and SSL overview
 description: Learn how SSL and TLS work in Azure App Service, including TLS version support, certificate management, secure bindings, and mutual authentication to protect web app traffic.
 keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual authentication, secure bindings, SSL certificates, App Service Certificates, SSL in code, TLS versions
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# SSL and TLS overview for Azure App Service
+# TLS and SSL overview for Azure App Service
 
 > [!NOTE]
 > The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service, Azure Functions, or Logic Apps (Standard).  Applications on either App Service, Azure Functions, or Logic Apps (Standard) configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
