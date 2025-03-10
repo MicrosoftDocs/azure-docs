@@ -13,6 +13,8 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 ## Replication process
 
 The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from virtual machine disks. The following block diagram shows you various steps involved when you migrate your virtual machines using the Migration and modernization tool.

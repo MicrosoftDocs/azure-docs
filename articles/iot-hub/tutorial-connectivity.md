@@ -2,8 +2,8 @@
 title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-azurecli]
 ms.date: 02/01/2023
 ms.topic: tutorial
@@ -117,7 +117,7 @@ In some scenarios, such as in a cloud protocol gateway or as part of a custom au
 > [!NOTE]
 > The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
 
-1. Run the [az iot hub genereate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
+1. Run the [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) command to generate a known-good SAS token using the CLI:
 
    ```azurecli-interactive
    az iot hub generate-sas-token --device-id {your_device_id} --hub-name {your_iot_hub_name}

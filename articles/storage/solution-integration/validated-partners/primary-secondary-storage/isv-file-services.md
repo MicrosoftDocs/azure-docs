@@ -12,10 +12,11 @@ ms.subservice: storage-common-concepts
 
 # Running ISV file services in Azure
 
-Azure offers various options for storing file data. Azure native services are:
+Azure offers various options for storing file data. Azure native storage services, both first party and [native ISV services](/azure/partner-solutions/overview), are:
 - [Azure Files](https://azure.microsoft.com/services/storage/files/) – Fully managed file shares in the cloud that are accessible via the industry-standard SMB and NFS protocols. Azure Files offer two different types (standard and premium) with different performance characteristics.
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) – Fully managed file shares in the cloud designed to meet the performance requirements for enterprise line-of-business applications. Azure NetApp Files offer multiple service levels with different performance limitations (standard, premium, and ultra).
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics. 
+- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) – Large-scale object storage platform for storing unstructured data. Azure Blob Storage offer two different types (standard and premium) with different performance characteristics.
+- [Azure Native Qumulo](https://qumulo.com/product/azure/) - Fully managed, cloud-native file service offering elastic performance, and capacity scaling. Pay-as-you-go consumption model ensures you only pay what you use. Hot, and Cold storage class options are available.
   
 There are several articles that describe the differences and recommendation on selecting the native file service. You can learn more:
 - Our migration guide describes the [basic flow chart](../../../common/storage-migration-overview.md#choose-a-target-storage-service)
@@ -70,7 +71,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Nasuni** | **UniFS** is an enterprise file service with a simpler, low-cost, cloud alternative built on Microsoft Azure | - Primary file storage <br> - Departmental file shares <br> - Centralized file management <br> - multi-site collaboration with global file locking <br> - Azure Virtual Desktop <br> - Remote work/VDI file shares |
 | **NetApp** | **Cloud Volumes ONTAP** optimizes your cloud storage costs, and performance while enhancing data protection, security, and compliance. Includes enterprise-grade data management, availability, and durability | - Business applications <br> - Relational and NoSQL databases <br> - Big Data & Analytics <br> - Persistent data for containers <br> - CI/CD pipelines <br> - Disaster recovery for on-premises NetApp solutions |
 | **Panzura**| **CloudFS** is an enterprise global file system with added resiliency and high-performance. Offers ransomware protection. | - Simplified legacy storage replacement <br> - Backup and disaster recovery, with granular recovery ability <br> - Cloud native access to unstructured data for Analytics, AI/ML. <br> - Multi-site file collaboration, with automatic file locking and real time global file consistency <br> - Global remote work with cloud VDI <br> - Accelerated cloud migration for legacy workloads |
-| **Qumulo** | **Qumulo** on Azure offers multiple petabytes (PiB) of storage capacity, and up to 20 GB/s of performance per file system. Windows (SMB) and Linux (NFS) are both natively supported, and Qumulo provides onboard real-time workload analytics. | – Primary file storage for High Performance Compute, Media & Entertainment, Genomics, Electronic design, and Financial modeling. |
+| **Qumulo** | **Cloud Native Qumulo** enables organizations to scale their unstructured data system from petabytes to exabytes of storage capacity, and up to 1TB/s+ throughput to meet their application needs. Both Azure Native Qumulo, and Cloud Native Qumulo support standard file-based protocols (SMB, and NFS), and provide real-time workload analytics for valuable operational insights. | – Primary file storage for High Performance Compute, Media & Entertainment, Healthcare PACS/VNA systems, Genomics, Electronic design, Geospatial mapping, and Financial modeling. |
 | **Tiger Technology** | **Tiger Bridge** is a data management software solution. Provides tiering between an NTFS file system and Azure Blob Storage or Azure managed disks. Creates a single namespace with local file locking. | - Cloud archive<br> - Continuous data protection (CDP) <br> - Disaster Recovery for Windows servers <br> - Multi-site sync and collaboration <br> - Remote workflows (VDI)<br> - Native access to cloud data for Analytics, AI, ML |
 | **WEKA** | **WEKA Data Platform** provides a fast, and scalable file storage system with a software-defined approach to data. It accelerates storage performance, reduces cloud storage costs, and simplifies data operations across on-premises, and cloud environments. | - Enterprise, and Generative AI <br> - High-Performance Computing (HPC) <br> - Containerized workloads <br> - Tiering, backup, and disaster recovery (DR) from on-premises WEKA systems |
 | **XenData** | **Cloud File Gateway** creates a highly scalable global file system using windows file servers | - Global sharing of engineering and scientific files <br> - Collaborative video editing |
@@ -106,7 +107,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Operating Environment**                           | UniFS                | ONTAP                          | PFOS                      | Qumulo Core           | Windows Server        | WekaFS                | Windows Server        |
 | **High-Availability**                               | Yes                  | Yes                            | Yes                       | Yes                   | Yes (requires setup)  | Yes                   | Yes                   |
 | **Automatic failover between nodes in the cluster** | Yes                  | Yes                            | Yes                       | Yes                   | Yes (windows cluster) | Yes                   | Yes (windows cluster) |
-| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
+| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | Yes                   | Yes (windows cluster) | No                    | Yes (windows cluster) |
 | **Automatic failover across regions**               | Yes (with Nasuni support)| No                         | No                        | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
 | **Snapshot support**                                | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
 | **Consistent snapshot support**                     | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
@@ -180,7 +181,8 @@ This article compares several ISV solutions that provide files services in Azure
 - Byte Level Locking (multiple simultaneous R/W opens)
 
 **Qumulo**
-- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp)
+- [Azure Native Qumulo Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.qumulo-saas-mpp)
+- [Cloud Native Qumulo Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qumulo1584033880660.cnq-azure)
 - Support for REST, and FTP
 
 **Tiger Technology**

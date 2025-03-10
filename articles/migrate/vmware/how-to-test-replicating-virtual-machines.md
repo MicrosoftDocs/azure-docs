@@ -15,6 +15,8 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 This article helps you understand how to test replicating virtual machines. Test migration provides a way to test and validate migrations prior to the actual migration.  
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 
 ##  Prerequisites
 
@@ -28,7 +30,7 @@ Before you get started, perform the following steps:
 > You'll need at least one replicating virtual machine in the project before you can test the migration.
 
 Review the following tutorials based on your environment:
-- [Migrating VMware VMs with agentless migration](./tutorial-migrate-vmware.md).
+- [Migrating VMware VMs with agentless migration](../tutorial-migrate-vmware.md).
 - [Migrating Hyper-V VMs to Azure](../tutorial-migrate-hyper-v.md).
 - [Migrating machines as physical servers to Azure](../tutorial-migrate-physical-virtual-machines.md)
 
@@ -84,7 +86,7 @@ You can change the VNet and subnet of a replicating machine by following the ste
     :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-4.png" alt-text="Screenshot shows how to select a subnet for each Network Interface Card of replicating machine in the network and compute options of replicating machine.":::
 
 5. To change the settings, select edit. Change the setting for the NIC in the new form. Select **OK**. 
-    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after clicking the pencil icon next to Network Interface Card's name in the network and compute screen.":::
+    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-5.png" alt-text="Screenshot shows the content of the Network Interface Card page after selecting the pencil icon next to Network Interface Card's name in the network and compute screen.":::
 
 6. Select **Save**. Changes aren't saved until you can see the colored square next to the NIC's name.
 

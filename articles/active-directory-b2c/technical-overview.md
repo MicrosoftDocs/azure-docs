@@ -5,7 +5,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: overview
-ms.date: 11/08/2023
+ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
 
@@ -268,8 +268,6 @@ In an audit log, which is available for your Azure AD B2C tenant or for a partic
 * CRUD operations on keys stored in a B2C key container
 * CRUD operations on B2C resources (for example, policies and identity providers)
 * Validation of user credentials and token issuance
-
-:::image type="content" source="media/technical-overview/audit-log.png" alt-text="Individual user audit log shown in the Azure portal.":::
 
 For more information on audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
 

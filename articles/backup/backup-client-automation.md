@@ -2,10 +2,11 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 02/28/2025
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -31,7 +32,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.
 
     ```powershell
-    New-AzResourceGroup –Name "test-rg" –Location "WestUS"
+    New-AzResourceGroup -Name "test-rg" –Location "WestUS"
     ```
 
 3. Use the **New-AzRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
@@ -48,8 +49,9 @@ The following steps lead you through creating a Recovery Services vault. A Recov
    >
 
     ```powershell
-    $Vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    $Vault1 = Get-AzRecoveryServicesVault -Name "testVault" 
     Set-AzRecoveryServicesBackupProperties -Vault $Vault1 -BackupStorageRedundancy GeoRedundant
+
     ```
 
 ## View the vaults in a subscription
@@ -168,7 +170,7 @@ Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 
 ```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
-SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+SubscriptionID      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ServiceResourceName : testvault
 Region              : WestUS
 Machine registration succeeded.

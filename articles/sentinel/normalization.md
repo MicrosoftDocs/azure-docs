@@ -80,7 +80,7 @@ For more information, see [ASIM schemas](normalization-about-schemas.md).
 
 ### Query time parsers
 
-ASIM uses query time parsers to map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
+ASIM uses query time parsers to map existing data to the normalized schemas using [KQL functions](/kusto/query/functions/user-defined-functions?view=microsoft-sentinel&preserve-view=true). Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
 
 For more information, see [ASIM parsers](normalization-parsers-overview.md).
 

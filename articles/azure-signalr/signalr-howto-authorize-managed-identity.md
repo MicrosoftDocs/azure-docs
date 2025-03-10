@@ -87,7 +87,7 @@ Besides, you can use either [DefaultAzureCredential](/dotnet/api/overview/azure/
 Notice that system-assigned managed identity is used by default, but *make sure that you don't configure any environment variables* that [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) preserved if you use `DefaultAzureCredential`. Otherwise, Azure SignalR Service falls back to use `EnvironmentCredential` to make the request, which usually results in an `Unauthorized` response. 
 
 > [!IMPORTANT]
-> Remove `Azure__SignalR__ConnectionString` if there was from environment variables in this way. `Azure__SignalR__ConnectionString` will be used to build default `ServiceEndpoint` with first priority and may leads your App Server use Access Key unexpectedly.
+> If `Azure__SignalR__ConnectionString` is in your environment variables, remove it. If found the environment variable will take priority and will be used to build the default `ServiceEndpoint`, which may lead your App Server to use Access Key unexpectedly.
 
 ```C#
 services.AddSignalR().AddAzureSignalR(option =>

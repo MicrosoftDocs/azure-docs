@@ -89,6 +89,31 @@
             "source_path_from_root": "/articles/container-apps/java-eureka-server-usage.md",
             "redirect_url": "/azure/container-apps/java-eureka-server",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/add-ons-qdrant.md",
+            "redirect_url": "/azure/container-apps/services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/connect-services.md",
+            "redirect_url": "/azure/container-apps/services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/tutorial-dev-services-kafka.md",
+            "redirect_url": "/azure/container-apps/services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/tutorial-dev-services-postgresql.md",
+            "redirect_url": "/azure/container-apps/services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-apps/vnet-custom-internal.md",
+            "redirect_url": "/azure/container-apps/vnet-custom",
+            "redirect_document_id": false
         }
     ]
 }

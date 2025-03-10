@@ -55,7 +55,7 @@ Business continuity and disaster recovery (BCDR) are enabled by using the OCI ma
 
 ### How many database servers can be deployed in each rack of Oracle Database@Azure? Is there flexibility in terms of being able to scale up and down as needed from both the consumption and licensing perspective?
 
-Oracle Database@Azure currently runs on Oracle Exadata X9M hardware and provides a configuration of a minimum of 2 database servers and 3 storage servers. This configuration is called *quarter-rack*. This configuration can be increased to a limit of 32 database servers and 64 storage servers. You can scale up and scale down as needed within the Oracle Exadata system depending on your SKU. For more information about configurations, see [Oracle Exadata Database service on a dedicated infrastructure](https://docs.oracle.com/iaas/exadatacloud/exacs/exa-service-desc.html#ECSCM-GUID-EC1A62C6-DDA1-4F39-B28C-E5091A205DD3). For details, see the [Oracle Exadata Cloud Infrastructure X9M data sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata/exadata-cloud-infrastructure-x9m-ds.pdf).
+Oracle Database@Azure currently runs on Oracle Exadata X9M hardware and provides a configuration of a minimum of 2 database servers and 3 storage servers. This configuration is called *quarter-rack*. This configuration can be increased to a limit of 32 database servers and 64 storage servers. You can scale up and scale down as needed within the Oracle Exadata system depending on your SKU. For more information about configurations, see [Oracle Exadata Database service on a dedicated infrastructure](https://docs.oracle.com/iaas/exadatacloud/doc/exadata-cloud-infrastructure-overview.html#ECSCM-GUID-EC1A62C6-DDA1-4F39-B28C-E5091A205DD3). For details, see the [Oracle Exadata Cloud Infrastructure X9M data sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata/exadata-cloud-infrastructure-x9m-ds.pdf).
 
 ### What Oracle applications can run on Azure?
 
@@ -155,8 +155,6 @@ This section includes questions related to management for Oracle Database@Azure.
 
 Oracle manages and hosts the data on OCI hosted in Azure datacenters. Your data resides in the provisioned Oracle Exadata infrastructure in Azure, and within the Azure Virtual Network boundary.
 
-If you enable backup to Azure, the data resides in the respective Azure storage, such as Azure NetApp Files and Azure Blob Storage.
-
 We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems in Azure datacenters and through enforced access assignment policies. For more information about compliance, see [Overview of Oracle Database@Azure](database-overview.md) and [Oracle Cloud compliance](https://docs.oracle.com/iaas/Content/multicloud/compliance.htm).
 
 ### How is data security managed? Is the data encrypted in transit and at rest?
@@ -165,7 +163,7 @@ Data is encrypted at rest. All traffic between sites, including to the Oracle Da
 
 ### Can I use Azure Monitor with Oracle Database@Azure?
 
-Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view.
+Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-monitoring-exadata-services.html) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-autonomous/odadb-monitoring-autonomous-database-services.html).
 
 ### What are the different options for backup on Oracle Database@Azure?
 

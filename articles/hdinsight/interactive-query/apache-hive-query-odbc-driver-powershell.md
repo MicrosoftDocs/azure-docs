@@ -37,7 +37,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
 
 1. From Windows, navigate to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (32-bit)/(64-bit)**.  An **ODBC Data Source Administrator** window opens.
 
-    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="OBDC data source administrator." border="true":::
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="ODBC data source administrator." border="true":::
 
 1. From the **User DSN** tab, select **Add** to open the **Create New Data Source** window.
 

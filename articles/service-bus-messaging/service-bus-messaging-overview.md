@@ -159,7 +159,7 @@ Service Bus fully integrates with many Microsoft and Azure services, for instanc
 * [Event Grid](service-bus-to-event-grid-integration-example.md)
 * [Logic Apps](../connectors/connectors-create-api-servicebus.md)
 * [Azure Functions](../azure-functions/functions-bindings-service-bus.md)
-* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Power Platform](/connectors/servicebus)
 * [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
 * [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 

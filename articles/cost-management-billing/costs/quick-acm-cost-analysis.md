@@ -3,7 +3,7 @@ title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/01/2024
+ms.date: 01/07/2025
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management

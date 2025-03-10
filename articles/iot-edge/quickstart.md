@@ -4,8 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: PatAltimore
 manager: lizross
 ms.author: patricka
-ms.reviewer: fcabrera
-ms.date: 07/08/2024
+ms.date: 01/21/2025
 ms.topic: quickstart
 ms.service: azure-iot-edge
 services: iot-edge
@@ -117,14 +116,14 @@ Run the following PowerShell commands on the target device where you want to dep
       ```powershell
       $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
       $ProgressPreference = 'SilentlyContinue'
-      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_X64" -OutFile $msiPath
       ```
 
    * **ARM64**
       ```powershell
       $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
       $ProgressPreference = 'SilentlyContinue'
-      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+      Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_5_LTS_ARM64" -OutFile $msiPath
       ```
 
 1. Install IoT Edge for Linux on Windows on your device.

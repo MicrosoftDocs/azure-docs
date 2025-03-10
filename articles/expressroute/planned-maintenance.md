@@ -4,7 +4,7 @@ description: Learn how to plan for ExpressRoute maintenance events.
 author: duongau
 ms.author: duau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/10/2023
 ---
 

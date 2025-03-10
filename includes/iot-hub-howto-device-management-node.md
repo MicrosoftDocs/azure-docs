@@ -2,12 +2,12 @@
 title: Device management using direct methods (Node.js)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for Node.js for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
+ms.date: 1/6/2025
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -21,7 +21,7 @@ This article describes how to use the [Azure IoT SDK for Node.js](https://github
 
 This section describes how to use device application code to create a direct method callback.
 
-### Install SDK packages
+### Install SDK package
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. Run this command to install the **azure-iot-device** device SDK on your development machine:
 
@@ -29,7 +29,22 @@ The [azure-iot-device](/javascript/api/azure-iot-device) package contains object
 npm install azure-iot-device --save
 ```
 
-### Choose a transport protocol
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
+
+#### Authenticate using a shared access key
+
+##### Choose a transport protocol
 
 The `Client` object supports these protocols:
 
@@ -49,7 +64,7 @@ npm install azure-iot-device-amqp --save
 
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
-### Create a client object
+##### Create a client object
 
 Create a `Client` object using the installed package.
 
@@ -59,7 +74,7 @@ For example:
 const Client = require('azure-iot-device').Client;
 ```
 
-### Create a protocol object
+##### Create a protocol object
 
 Create a `Protocol` object using an installed transport package.
 
@@ -69,7 +84,7 @@ This example assigns the AMQP protocol:
 const Protocol = require('azure-iot-device-amqp').Amqp;
 ```
 
-### Add the device connection string and transport protocol
+##### Add the device connection string and transport protocol
 
 Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
@@ -84,7 +99,7 @@ const Protocol = require('azure-iot-device-mqtt').Amqp;
 let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
-### Open the connection to IoT Hub
+##### Open the connection to IoT Hub
 
 Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open connection between an IoT device and IoT Hub.
 

@@ -42,8 +42,6 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 
 1. Select **+ Add a route** to configure routing to your Web App origin.
 
-    :::image type="content" source="./media/blue-green-deployment/endpoint.png" alt-text="Screenshot of adding a new endpoint for a new Azure Front Door profile.":::
-
 1. Provide a name for the route and configure the route settings based on the needs of your application. For more information, see [Create a Front Door for your application](create-front-door-portal.md#create-a-front-door-for-your-application).
 
     :::image type="content" source="./media/blue-green-deployment/add-a-route.png" alt-text="Screenshot of the added route page for a new Azure Front Door profile.":::
@@ -65,8 +63,6 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 
 1. Select **+ Add** to add another origin to the origin group. Enter the following information for the new version of the application:
 
-    :::image type="content" source="./media/blue-green-deployment/add-new-origin.png" alt-text="Screenshot of adding the second origin in an origin group for a new Azure Front Door profile.":::
-
     | Settings | Values |
     |--|--|
     | Name | Enter `NewWebApp`. |
@@ -87,8 +83,6 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 1. Health probe settings can be left at the default values. Adjust the probe settings based on your application's needs. For more information, see [Health probes](health-probes.md).
 
 1. Under **Load balancing settings**, enter the following information:
-
-     :::image type="content" source="./media/blue-green-deployment/configure-origin-group-settings.png" alt-text="Screenshot of configuring the origin group settings.":::
 
     | Settings | Values |
     |--|--|

@@ -2,14 +2,16 @@
 title: Get started with Azure IoT Hub device twins (Java)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Java to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-java, devx-track-extended-java
 ---
+
+  * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
 
 ## Overview
 
@@ -38,9 +40,18 @@ import com.microsoft.azure.sdk.iot.device.*;
 import com.microsoft.azure.sdk.iot.device.DeviceTwin.*;
 ```
 
-### Connect to the device
+### Connect a device to IoT Hub
 
-To connect to a device:
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+To connect a device to IoT Hub:
 
 1. Use [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol) to choose a transport protocol. For example:
 
@@ -60,6 +71,10 @@ To connect to a device:
     ```java
     client.open(true);
     ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 ### Retrieve and view a device twin
 

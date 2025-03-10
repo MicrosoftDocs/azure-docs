@@ -4,7 +4,7 @@ description: This article provides a list of the various features available with
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2024
 ms.author: duau
 ---

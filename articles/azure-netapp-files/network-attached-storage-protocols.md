@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 01/28/2025
 ms.author: anfdocs
 ---
 
@@ -21,7 +21,7 @@ NAS protocols are how conversations happen between clients and servers. NFS and 
 
 ## Network File System (NFS) 
 
-NFS is primarily used with Linux/UNIX based clients such as Red Hat, SUSE, Ubuntu, AIX, Solaris, and Apple OS. Azure NetApp Files supports any NFS client that operates in the RFC standards. Windows can also use NFS for access, but it doesn't operate using Request for Comments (RFC) standards. 
+NFS is primarily used with Linux/UNIX based clients such as Red Hat, SUSE, Ubuntu, AIX, Solaris, and Apple OS. Azure NetApp Files supports any NFS client that operates in the Request for Comments (RFC) standards. Windows can also use NFS for access, but it doesn't operate using RFC standards. 
 
 RFC standards for NFS protocols can be found here: 
 
@@ -35,7 +35,7 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
 * NFSv3 is stateless, meaning that the NFS server doesn't keep track of the states of connections (including locks). 
 * Locking is handled outside of the NFS protocol, using Network Lock Manager (NLM). Because locks aren't integrated into the protocol, stale locks can sometimes occur. 
 * Because NFSv3 is stateless, performance with NFSv3 can be substantially better in some workloads, particularly in workloads with high-metadata operations such as OPEN, CLOSE, SETATTR, and GETATTR. This is the case because there's less general work that needs to be done to process requests on the server and client. 
-* NFSv3 uses a basic file permission model where only the owner of the file, a group and everyone else can be assigned a combination of read/write/execute permissions.  
+* NFSv3 uses a basic file permission model where permissions for read, write, and execute can be assigned to the file owner, a group, or everyone else. 
 * NFSv3 can use NFSv4.x ACLs, but an NFSv4.x management client would be required to configure and manage the ACLs. Azure NetApp Files doesn't support the use of nonstandard POSIX draft ACLs. 
 * NFSv3 also requires use of other ancillary protocols for regular operations such as port discovery, mounting, locking, status monitoring and quotas. Each ancillary protocol uses a unique network port, which means NFSv3 operations require more exposure through firewalls with well-known port numbers. 
 * Azure NetApp Files uses the following port numbers for NFSv3 operations. It's not possible to change these port numbers:  
@@ -47,7 +47,7 @@ NFSv3 is a basic offering of the protocol and has the following key attributes:
     * Rquota (4049) 
 * NFSv3 can use security enhancements such as Kerberos, but Kerberos only affects the NFS portion of the packets; ancillary protocols (such as NLM, portmapper, mount) aren't included in the Kerberos conversation. 
     * Azure NetApp Files only supports NFSv4.1 Kerberos encryption
-* NFSv3 uses numeric IDs for its user and group authentication. Usernames and group names aren't required for communication or permissions, which can make spoofing a user easier, but configuration and management are simpler. 
+* NFSv3 uses numeric IDs for its user and group authentication. Numeric IDs simplify configuration and management but may make user spoofing easier.
 * NFSv3 can use LDAP for user and group lookups. 
 
 #### NFSv3 service version support 
@@ -87,7 +87,7 @@ NFSv4.x has the following characteristics:
 * NFSv4.x can use a more robust file permission model that is similar to Windows NTFS permissions. These granular ACLs can be applied to users or groups and allow for permissions to be set on a wider range of operations than basic read/write/execute operations. NFSv4.x can also use the standard POSIX mode bits that NFSv3 employs. 
 * Since NFSv4.x doesn't use ancillary protocols, Kerberos is applied to the entire NFS conversation when in use. 
 * NFSv4.x uses a combination of user/group names and domain strings to verify user and group information. The client and server must agree on the domain strings for proper user and group authentication to occur. If the domain strings don't match, then the NFS user or group gets squashed to the specified user in the /etc/idmapd.conf file on the NFS client (for example, nobody). 
-* While NFSv4.x does default to using domain strings, it's possible to configure the client and server to fall back on the classic numeric IDs seen in NFSv3 when AUTH_SYS is in use. 
+* Although NFSv4.x typically uses domain strings by default, it's possible to configure both the client and server to revert to the classic numeric IDs used in NFSv3 when AUTH_SYS is employed.
 * NFSv4.x has deep integration with user and group name strings, and the server and clients must agree on these users and groups. As such, consider using a name service server for user authentication such as LDAP on NFS clients and servers. 
 
 For frequently asked questions regarding NFS in Azure NetApp Files, see the [Azure NetApp Files NFS FAQ](faq-nfs.md). 
@@ -152,7 +152,7 @@ Azure NetApp Files consolidates the infrastructure required for successful dual-
 
 Dual-protocol configuration is straightforward, and most of the tasks are shielded by the Azure NetApp Files resource management framework to simplify operations for cloud operators.
 
-After an Active Directory connection is established with Azure NetApp Files, dual-protocol volumes can use the connection to handle both the Windows and UNIX identity management needed for proper user and group authentication with Azure NetApp Files volumes without extra configuration steps outside of the normal user and group management within the Active Directory or LDAP services.
+After an Active Directory connection is established with Azure NetApp Files, dual-protocol volumes can use the connection to handle both the Windows and UNIX identity management needed for proper user and group authentication. This configuration eliminates the need for additional configuration steps outside of the normal user and group management within the Active Directory or LDAP services” 
 
 By removing the extra storage-centric steps for dual-protocol configurations, Azure NetApp Files streamlines the overall dual-protocol deployment for organizations looking to move to Azure.
 

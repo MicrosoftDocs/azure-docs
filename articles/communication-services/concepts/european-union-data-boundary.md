@@ -25,6 +25,7 @@ Calls and meetings can be established in various ways by various users.  We defi
 - Initiator: the first person who joins the meeting (the meeting only exists as a calendar item before the first person joins it)
 - Guest: a participant who isn't a member of the tenant of the Organizer.  May include a member of a different tenant, PSTN (dial-in) user, etc. (Note that this use of Guest is specific to this description and broader than used within IC3 generally, but useful for the discussion here)
 - Call: refers to a 1:1 call and\or to a Group call to a larger group.  For the purposes of this conversation, they should be the same.
+- Real Time Text: RTT is an accessibility compliance requirement for voice and video platforms in the EU. You can find more information about this here: [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)
 
 For EU communication resources, when the organizer, initiator, or guests join a call from the EU, processing and storage of personal data will be limited to the EU.
 

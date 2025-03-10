@@ -48,7 +48,7 @@ The Metadata DR feature replicates configuration information for a namespace fro
 
 The newer Geo-replication feature replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired. 
 
-This rest of this article focuses on the Geo-replication feature. For details on the metadata DR feature, see [Event Hubs Geo-disater recovery for metadata](./event-hubs-geo-dr.md).
+This rest of this article focuses on the Geo-replication feature. For details on the metadata DR feature, see [Event Hubs Geo-disaster recovery for metadata](./event-hubs-geo-dr.md).
 
 ## Geo-replication 
 The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:

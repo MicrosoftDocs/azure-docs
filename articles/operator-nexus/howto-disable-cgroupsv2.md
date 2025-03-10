@@ -65,7 +65,7 @@ Before proceeding with this how-to guide, it's recommended that you:
 > If you perform this step on a Kubernetes cluster that already has workloads
 > running on it, any workloads that are running on Kubernetes cluster nodes
 > will be terminated because the `Daemonset` reboots the host machine.
-> Therefore it is highly recommmended that you apply this `Daemonset` on a new
+> Therefore it is highly recommended that you apply this `Daemonset` on a new
 > Nexus Kubernetes cluster before workloads are scheduled on it.
 
 Copy the following `Daemonset` definition to a file on a computer where you can

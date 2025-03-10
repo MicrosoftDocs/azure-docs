@@ -2,15 +2,15 @@
 title: About Azure Database for PostgreSQL Flexible server backup
 description: An overview on Azure Database for PostgreSQL Flexible server backup
 ms.topic: overview
-ms.date: 09/09/2024
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# About Azure Database for PostgreSQL - Flexible server backup (preview)
+# About Azure Database for PostgreSQL - Flexible Server backup
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. The feature offers the following capabilities:
 
@@ -27,7 +27,7 @@ To perform the backup operation:
 1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access, and control. 
 1. Configure backup policies, specify scheduling, retention, and other parameters. 
 
-Once the configuration is complete:
+Once the configuration is successful:
 
 1. The Backup service invokes the backup based on the policy schedules on the ARM API of PostgresFlex server, writing data to a secure blob-container with a SAS for enhanced security. 
 1. Backup runs independently preventing disruptions during long-running tasks. 
@@ -59,4 +59,4 @@ You incur charges for:
 
 ## Next steps
 
-[Azure Database for PostgreSQL -Flex backup](backup-azure-database-postgresql-flex.md).
+[Back up Azure Database for PostgreSQL - Flexible Server using Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md).

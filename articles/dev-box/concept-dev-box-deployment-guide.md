@@ -38,8 +38,8 @@ Each of these roles has specific responsibilities during the deployment of Micro
     - Provide input to platform engineers for creating and managing dev box definitions in the dev center
  
 - **Developer**: self-serve one or more dev boxes within their assigned projects.
-    - Create and manage a dev box based on project dev box pool from the developer portal
-    - Connect to a dev box by using a Remote Desktop client like Windows App
+    - Connect to a dev box from the developer portal
+    - Create and manage a dev box from the developer portal
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for Dev Box platform engineers, team leads, and developers." lightbox="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" border="false":::
 

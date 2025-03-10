@@ -102,7 +102,7 @@ As part of the **Secure Future Initiative (SFI)**, **On-Behalf-Of (OBO) tokens**
    - To activate the role, select **Role Based Access Control Administrator** from Eligible assignments tab.
 
 > [!NOTE]
-> Ensure that **Role Based Access Control Administrator** is sucessfully activated.
+> Ensure that **Role Based Access Control Administrator** is successfully activated.
 
 ## Next Steps
 

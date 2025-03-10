@@ -2,12 +2,12 @@
 title: Get started with module identities and module identity twins (Node.js)
 titleSuffix: Azure IoT Hub
 description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDK for Node.js.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: include
-ms.date: 11/19/2024
+ms.date: 1/3/2025
 ms.custom: mqtt, devx-track-js
 ---
 
@@ -25,9 +25,9 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 * Update module identity reported twin properties
 * Receive notice of module identity twin desired property changes
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device module identity twin data.
 
-### Install SDK packages
+### Install SDK package
 
 Run this command to install the **azure-iot-device** device SDK on your development machine:
 
@@ -35,9 +35,18 @@ Run this command to install the **azure-iot-device** device SDK on your developm
 npm install azure-iot-device --save
 ```
 
-The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device module identity twin data.
+### Connect a device to IoT Hub
 
-### Choose a transport protocol
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
+
+##### Choose a transport protocol
 
 The `Client` object supports these protocols:
 
@@ -57,7 +66,7 @@ npm install azure-iot-device-amqp --save
 
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a device communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
-### Create a client object
+##### Create a client object
 
 Create a `Client` object using the installed package.
 
@@ -67,7 +76,7 @@ For example:
 const Client = require('azure-iot-device').Client;
 ```
 
-### Create a protocol object
+##### Create a protocol object
 
 Create a `Protocol` object using an installed transport package.
 
@@ -77,7 +86,7 @@ This example assigns the AMQP protocol:
 const Protocol = require('azure-iot-device-amqp').Amqp;
 ```
 
-### Add the device connection string and transport protocol
+##### Add the device connection string and transport protocol
 
 Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
@@ -92,7 +101,7 @@ const Protocol = require('azure-iot-device-mqtt').Amqp;
 let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
-### Open the connection to IoT Hub
+##### Open the connection to IoT Hub
 
 Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
 
@@ -106,6 +115,10 @@ client.open(function(err) {
   }
 })
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
 
 ### Retrieve a module identity twin and examine reported properties
 

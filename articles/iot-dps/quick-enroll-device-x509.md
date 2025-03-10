@@ -1,8 +1,8 @@
 ---
 title: How to programmatically create an Azure Device Provisioning Service enrollment group for X.509 certificate attestation
 description: This article shows you how to programmatically create an enrollment group to enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 07/22/2022
 ms.topic: how-to
 ms.service: azure-iot-hub
@@ -16,7 +16,7 @@ ms.subservice: azure-iot-hub-dps
  
 # Programmatically create a Device Provisioning Service enrollment group for X.509 certificate attestation
 
-This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Azure IoT Hub DPS service SDK](libraries-sdks.md#service-sdks) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Use X.509 certificates with DPS](./concepts-x509-attestation.md#authentication-using-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+This article shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) in Azure IoT Hub Device Provisioning Service (DPS) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Azure IoT service SDK](libraries-sdks.md#service-sdks) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Use X.509 certificates with DPS](./concepts-x509-attestation.md#authentication-using-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
 ## Prerequisites
 
@@ -223,6 +223,9 @@ This section shows you how to create a .NET Core console application that adds a
 :::zone pivot="programming-language-nodejs"
 
 This section shows you how to create a Node.js script that adds an enrollment group to your provisioning service.
+
+>[!TIP]
+>For simplicity, this sample uses SAS authentication to connect to the DPS service API. A more secure approach is to use Azure token credentials. For an example of that authentication method, see the [create_tpm_enrollment_with_token_credentials.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/service/samples/create_tpm_enrollment_with_token_credential.js) sample in the Node.js SDK.
 
 1. From a command window in your working folder, run:
 

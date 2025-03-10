@@ -42,7 +42,7 @@ Each NC2 on Azure architectural component has the following function:
 - Nutanix Cost Governance: Provides multi-cloud optimization to reduce cost & enhance cloud security.
 - Azure Virtual Network (VNet): Private network used to connect AHV hosts, Azure services and resources together.
 - Azure Route Server: Enables network appliances to exchange dynamic route information with Azure networks.
-- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPSec VPN, ExpressRoute, and VNet to VNet.
+- Azure Virtual Network Gateway: Cross premises gateway for connecting Azure services and resources to other private networks using IPsec VPN, ExpressRoute, and VNet to VNet.
 - Azure ExpressRoute: Provides high-speed private connections between Azure data centers and on-premises or colocation infrastructure.
 - Azure Virtual WAN (vWAN): Aggregates networking, security, and routing functions together into a single unified Wide Area Network (WAN).
 
@@ -120,6 +120,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | North Central US | AN36P |
 | Qatar Central | AN36P |
 | Southeast Asia | AN36P |
+| South India | AN36P |
 | UAE North | AN36P |
 | UK South | AN36P |
 | West Europe | AN36P |

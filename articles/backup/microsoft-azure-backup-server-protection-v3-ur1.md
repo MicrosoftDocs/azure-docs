@@ -5,8 +5,8 @@ ms.date: 11/23/2024
 ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix
@@ -64,31 +64,15 @@ The following sections details the protection support matrix for MABS:
 
 ## Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
+You can back up your data over Azure ExpressRoute with Microsoft peering. Backup over private peering isn't supported.
 
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
+Select the following services/regions and relevant community values:
 
 * Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
 For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
 
 ## Operating systems and applications at end of support
 

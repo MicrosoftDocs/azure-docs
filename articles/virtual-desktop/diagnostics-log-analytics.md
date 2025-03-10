@@ -191,4 +191,4 @@ WVDErrors
 ## Next steps
 
 - [Enable Insights to monitor Azure Virtual Desktop](insights.md).
-- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).
+- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).

@@ -2,14 +2,16 @@
 title: Get started with Azure IoT Hub device twins (Node.js)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-js
 ---
+
+  *  Requires Node.js version 10.0.x or later
 
 ## Overview
 
@@ -27,13 +29,28 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Install SDK packages
+### Install device SDK package
 
 Run this command to install the **azure-iot-device** device SDK on your development machine:
 
 ```cmd/sh
 npm install azure-iot-device --save
 ```
+
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
+
+#### Authenticate using a shared access key
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device twin data.
 
@@ -245,7 +262,7 @@ This section describes how to create a backend application that:
 * Retrieves and updates a device twin
 * Creates a device twin query
 
-### Install service SDK packages
+### Install service SDK package
 
 Run this command to install **azure-iothub** on your development machine:
 

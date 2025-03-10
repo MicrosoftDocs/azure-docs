@@ -180,7 +180,7 @@ Here are the field and property descriptions for API logs.
 | `OperationVersion` | String | The API Version used during the event |
 | `Category` | String | The type of resource being emitted |
 | `ResultType` | String | Outcome of the event |
-| `ResultSignature` | String | Http status code for the event |
+| `ResultSignature` | String | HTTP status code for the event |
 | `ResultDescription` | String | Additional details about the event |
 | `DurationMs` | String | How long it took to perform the event in milliseconds |
 | `CallerIpAddress` | String | A masked source IP address for the event |

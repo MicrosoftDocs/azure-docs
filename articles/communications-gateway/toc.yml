@@ -88,12 +88,6 @@ items:
     href: emergency-calls-zoom.md
   - name: Manage Zoom Phone Cloud Peering customers
     href: manage-enterprise-zoom.md
-- name: Integration with Azure Operator Call Protection
-  items:
-    - name: Overview of Operator Call Protection
-      href: ../operator-call-protection/overview.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
-    - name: Set up Operator Call Protection
-      href: ../operator-call-protection/set-up-operator-call-protection.md?toc=/azure/communications-gateway/toc.json&bc=/azure/communications-gateway/breadcrumb/toc.json
 - name: Maintenance
   items:
   - name: Set up user roles

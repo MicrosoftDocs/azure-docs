@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: greg-lindsay
   ms.author: greglin
-  ms.date: 07/20/2023
+  ms.date: 10/27/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,7 +33,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new
-            url: https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway
+            url: https://azure.microsoft.com/updates?filters=%5B%22Application+Gateway%22%5D
       - linkListType: learn
         links:
           - text: Intro to Azure Application Gateway

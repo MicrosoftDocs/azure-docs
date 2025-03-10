@@ -1,11 +1,12 @@
 ---
-title: Manage costs for Azure Spring Apps
+title: Manage Costs for Azure Spring Apps
 description: Learn about how to manage costs in Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 08/28/2024
-ms.author: hangwan
+ms.author: karler
+ms.reviewer: hangwan
 ms.custom: devx-track-java
 ---
 
@@ -64,7 +65,3 @@ If you collect more logs, metrics, and traces than you can use or afford, you mu
 ## Deactivate debug mode
 
 If you forget to switch off debug mode for apps, a large amount of data is collected and sent to monitoring platforms. Forgetting to deactivate debug mode could be unnecessary and costly.
-
-## Next steps
-
-[Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)

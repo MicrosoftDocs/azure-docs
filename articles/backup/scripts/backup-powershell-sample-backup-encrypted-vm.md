@@ -4,8 +4,8 @@ description: In this article, learn how to use an Azure PowerShell Script sample
 ms.topic: sample
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up an encrypted Azure virtual machine with PowerShell

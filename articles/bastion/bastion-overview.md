@@ -6,7 +6,7 @@ ms.service: azure-bastion
 ms.custom:
   - ignite-2024
 ms.topic: overview
-ms.date: 04/30/2024
+ms.date: 03/03/2025
 ms.author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ---
@@ -73,7 +73,7 @@ Azure Bastion pricing is a combination of hourly pricing based on SKU and instan
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) page.
+Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Bastion%22%5D) page.
 
 ## Bastion FAQ
 
@@ -81,9 +81,9 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 ## Next steps
 
-* [Quickstart: Deploy Bastion automatically - Basic SKU](quickstart-host-portal.md)
+* [Quickstart: Deploy Bastion automatically with default settings and Standard SKU](quickstart-host-portal.md)
 * [Quickstart: Deploy Bastion automatically - Developer SKU](quickstart-developer-sku.md)
-* [Tutorial: Deploy Bastion using specified settings](tutorial-create-host-portal.md)
+* [Tutorial: Deploy Bastion using specified settings and SKUs](tutorial-create-host-portal.md)
 * [Learn module: Introduction to Azure Bastion](/training/modules/intro-to-azure-bastion/)
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure
 * [Learn more about Azure network security](../networking/security/index.yml)

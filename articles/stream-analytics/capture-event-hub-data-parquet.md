@@ -1,12 +1,13 @@
 ---
-title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Parquet format
+title: Event Hubs to Azure Data Lake in Parquet format
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format.
 author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 08/15/2023
+ms.date: 01/23/2025
+# Customer intent: I want to lean how to use the no-code editor to automatically capture streaming data in Azure Event Hubs to an Azure Data Lake Storage Gen2 account in the Parquet format. 
 ---
 # Capture data from Event Hubs in Parquet format
 This article explains how to use the no code editor to automatically capture streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in the Parquet format. 
@@ -18,9 +19,13 @@ This article explains how to use the no code editor to automatically capture str
     If you don't have an event hub, create one by following instructions from [Quickstart: Create an event hub](../event-hubs/event-hubs-create.md). 
 
     If you don't have a Data Lake Storage Gen2 account, create one by following instructions from [Create a storage account](../storage/blobs/create-data-lake-storage-account.md)
-- The data in your Event Hubs must be serialized in either JSON, CSV, or Avro format. For testing purposes, select **Generate data (preview)** on the left menu, select **Stocks data** for dataset, and then select **Send**.
+- The data in your Event Hubs instance (event hub) must be serialized in either JSON, CSV, or Avro format. On the **Event Hubs Instance** page for your event hub, follow these steps:  
+    1. On the left menu, select **Data Explorer**. 
+    1. In the middle pane, select **Send events**. 
+    1. In the **Send events** pane, for **Select dataset**, select **Stocks data**.
+    1. Select **Send**. 
 
-    :::image type="content" source="./media/capture-event-hub-data-parquet/stocks-data.png" alt-text="Screenshot showing the Generate data page to generate sample stocks data." lightbox="./media/capture-event-hub-data-parquet/stocks-data.png":::
+        :::image type="content" source="./media/capture-event-hub-data-parquet/stocks-data.png" alt-text="Screenshot showing the Generate data page to generate sample stocks data." lightbox="./media/capture-event-hub-data-parquet/stocks-data.png":::
 
 ## Configure a job to capture data
 
@@ -33,7 +38,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 1. Enter a **name** for your Stream Analytics job, and then select **Create**.  
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/new-stream-analytics-job-name.png" alt-text="Screenshot showing the New Stream Analytics job window where you enter the job name." :::
-1. Specify the **Serialization** type of your data in the Event Hubs and the **Authentication method** that the job uses to connect to Event Hubs. Then select **Connect**.
+1. Specify the **Serialization** type of your data in the Event Hubs and the **Authentication method** that the job uses to connect to Event Hubs. For this tutorial, keep the default settings. Then select **Connect**.
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/event-hub-configuration.png" alt-text="Screenshot showing the Event Hubs connection configuration." lightbox="./media/capture-event-hub-data-parquet/event-hub-configuration.png" :::
 1. When the connection is established successfully, you see:
@@ -69,11 +74,15 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 
 ## Verify output
 
-1. On the Event Hubs instance page for your event hub, select **Generate data**, select **Stocks data** for dataset, and then select **Send** to send some sample data to the event hub. 
+1. On the Event Hubs instance page for your event hub, follow these steps:
+    1. On the left menu, select **Data Explorer**. 
+    1. In the middle pane, select **Send events**. 
+    1. In the **Send events** pane, for **Select dataset**, select **Stocks data**.
+    1. Select **Send**. 
 1. Verify that the Parquet files are generated in the Azure Data Lake Storage container. 
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the Azure Data Lake Storage container." lightbox="./media/capture-event-hub-data-parquet/verify-captured-data.png" :::
-1. Select **Process data** on the left menu. Switch to the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. 
+1. Back on the Event Hubs instance page, select **Process data** on the left menu. Switch to the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. Add **Input metrics** to the chart using the **Add metric** on the toolbar. If you don't see the metrics in the chart, wait for a few minutes, and refresh the page. 
 
     :::image type="content" source="./media/capture-event-hub-data-parquet/open-metrics-link.png" alt-text="Screenshot showing Open Metrics link selected." lightbox="./media/capture-event-hub-data-parquet/open-metrics-link.png" :::
     
@@ -84,7 +93,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 
 [!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
-## Next steps
+## Related content
 
 Now you know how to use the Stream Analytics no code editor to create a job that captures Event Hubs data to Azure Data Lake Storage Gen2 in Parquet format. Next, you can learn more about Azure Stream Analytics and how to monitor the job that you created.
 

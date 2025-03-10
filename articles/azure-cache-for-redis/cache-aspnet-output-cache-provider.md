@@ -15,8 +15,7 @@ The Redis Output Cache Provider is an out-of-process storage mechanism for outpu
 
 For ASP.NET Core applications, see [Output Caching in ASP.NET core using Redis in .NET 8](/aspnet/core/performance/caching/output?view=aspnetcore-8.0#redis-cache&preserve-view=true).
 
-<!-- This section points to create azure cache for redis instead of amr. Not sure if this article was updated or not? -->
-To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Managed Redis (preview) instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This article provides guidance on configuring your application to use the Redis Output Cache Provider.
 
 ## Store ASP.NET core page output in Redis
 
@@ -148,7 +147,7 @@ If you don’t think you need retry or if you want to handle the retry logic you
 
 ### About _redisSerializerType_
 
-The serialization to store the values on Redis is done in a binary format by default, which is provided by the **BinaryFormatter** class. Use _redisSerializerType_ to specify the assembly qualified type name of a class that implements **Microsoft.Web.Redis.ISerializer** and has the custom logic to serialize and deserialize the values. For example, here's a Json serializer class using JSON.NET:
+The serialization to store the values on Redis is done in a binary format by default, which is provided by the **BinaryFormatter** class. Use _redisSerializerType_ to specify the assembly qualified type name of a class that implements **Microsoft.Web.Redis.ISerializer** and has the custom logic to serialize and deserialize the values. For example, here's a JSON serializer class using JSON.NET:
 
 ```cs
 namespace MyCompany.Redis

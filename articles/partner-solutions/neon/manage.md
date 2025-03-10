@@ -3,7 +3,7 @@ title: Manage a Neon resource through the Azure portal (Preview)
 description: This article describes management functions for Neon on the Azure portal.
 author: ProfessorKendrick
 ms.topic: how-to
-ms.custom:
+ms. custom:
 
 ms.date: 12/04/2024
 ---
@@ -41,5 +41,5 @@ Once the Neon resource is deleted, all billing stops for that resource through A
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class"nextstepaction"]
 > [Neon Serverless Postgres developer resources and tools](tools.md)
