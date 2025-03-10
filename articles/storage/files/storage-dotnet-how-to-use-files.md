@@ -461,6 +461,27 @@ You can configure the file share properties using the [FileShareData](/dotnet/ap
 >[!NOTE]
 > To perform the register operation, you need permissions for the following Azure RBAC action: Microsoft.Storage/register/action. This permission is included in the Contributor and Owner built-in roles.
 
+### Example: List file shares and snapshots using the Azure Storage management library
+
+The following code example shows how to list file shares and snapshots in a storage account:
+
+```csharp
+// Iterate over a collection of file shares and list them along with any snapshots
+string expand = "snapshots";
+await foreach (FileShareResource shareResource in fileService.GetFileShares().GetAllAsync(expand: expand))
+{
+    // Call operations on the file share resource
+
+    // For this demo, print out the resource name and snapshot information
+    FileShareData resourceData = shareResource.Data;
+    Console.WriteLine($"Resource name: {resourceData.Name}");
+    if (resourceData.SnapshotOn.HasValue)
+    {
+        Console.WriteLine($"Snapshot created: {resourceData.SnapshotOn}");
+    }
+}
+```
+
 ## Related content
 
 For more information about Azure Files, see the following resources:
