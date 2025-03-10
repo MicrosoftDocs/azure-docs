@@ -1,3 +1,4 @@
+items:
 - name: Microsoft Azure migration guide
   href: ./index.yml
   items:
@@ -8,7 +9,7 @@
   - name: Migrate from AWS
     items:
     - name: Getting started
-      href: ./placeholder.md
+      href: ./migrate-from-aws.md
     - name: Workload migration process
       items:
       - name: 1. Assess your current workload
@@ -26,9 +27,7 @@
     - name: Compute
       items:
       - name: Migrate compute
-        href: ./placeholder.md
-      - name: Replatform from AWS Lambda to Azure Functions
-        href: ./placeholder.md
+        href: ./migrate-compute-from-aws.md
       - name: Elastic Kubernetes Service (EKS)
         items:
         - name: Migrate to Azure Kubernetes Service (AKS)
@@ -37,10 +36,16 @@
           href: ./placeholder.md
         - name: Migrate an event driven EKS workload to AKS
           href: ./placeholder.md
-      - name: Replatform from Amazon EC2 to Azure Web Apps
-        href: ./placeholder.md
+      - name: Amazon EC2
+        items:
+        - name: Migrate to Azure Virtual Machines (Azure Migrate)
+          href: /azure/migrate/tutorial-migrate-aws-virtual-machines
+        - name: Migrate virtual machine images to Azure Managed Disks
+          href: /azure/virtual-machines/windows/on-prem-to-azure
     - name: Databases
       items:
+      - name: Migrate databases
+        href: ./placeholder.md
       - name: Amazon RDS for PostgreSQL
         items:
         - name: Migrate to Azure Database for PostgreSQL (offline)
@@ -67,6 +72,8 @@
         href: ./placeholder.md
     - name: Storage
       items:
+      - name: Migrate storage
+        href: ./placeholder.md
       - name: Amazon Simple Storage Service (S3)
         items:
         - name: Copy data from Amazon S3 to Azure Storage (AzCopy)
@@ -77,9 +84,7 @@
           href: /azure/data-factory/solution-template-migration-s3-azure
     - name: Messaging
       items:
-      - name: Replatform from AWS SQS to Azure Service Bus
-        href: ./placeholder.md
-      - name: Replatform from AWS SNS to Azure Storage Queues
+      - name: Migrate messaging
         href: ./placeholder.md
     - name: Monitoring
       items:
@@ -88,7 +93,7 @@
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
-      href: ./placeholder.md
+      href: ./migrate-from-google-cloud.md
     - name: Workload migration process
       items:
       - name: 1. Assess your current workload
@@ -105,12 +110,16 @@
         href: ./placeholder.md
     - name: Compute
       items:
+      - name: Migrate compute
+        href: ./migrate-compute-from-google-cloud.md
       - name: Replatform from GCP Cloud Run to Azure Functions
         href: ./placeholder.md
       - name: Replatform from Google Kubernetes Engine (GKE) to Azure Kubernetes Service (AKS)
         href: ./placeholder.md
     - name: Databases
       items:
+      - name: Migrate databases
+        href: ./placeholder.md
       - name: Google Cloud SQL for PostgreSQL
         items:
         - name: Migrate to Azure Database for PostgreSQL (offline)
@@ -128,4 +137,8 @@
     - name: Storage
       items:
       - name: Storage migration guide
+        href: ./placeholder.md
+    - name: Monitoring
+      items:
+      - name: Monitoring migration guide
         href: ./placeholder.md
