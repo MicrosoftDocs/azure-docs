@@ -91,13 +91,13 @@ To filter the set of Azure resources that send logs to Datadog, use inclusion an
 
 Select the **Next** button at the bottom of the page.
 
-## Security tab (optional)
+### Security tab (optional)
 
 If you wish to enable Datadog Cloud Security Posture management, select the checkbox.
 
 Select the **Next** button at the bottom of the page.
 
-## Single sign-on tab (optional)
+### Single sign-on tab (optional)
 
 If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog. 
 
