@@ -125,8 +125,6 @@ Prepare for the appliance as follows:
 - Review the [public cloud URLs](../migrate-replication-appliance.md#url-access), and [Azure Government URLs](../migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](../migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
 
-
-
 ### Check VMware vSphere requirements
 
 Make sure VMware vSphere VMs comply with requirements for migration to Azure.
@@ -270,7 +268,6 @@ Select VMs for migration.
    > [!NOTE]
    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
 
-
 15. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
@@ -294,6 +291,8 @@ Select VMs for migration.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
+
+Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](#)
 
 
 ## Track and monitor
