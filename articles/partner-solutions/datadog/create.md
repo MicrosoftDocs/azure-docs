@@ -59,7 +59,7 @@ There are required fields (identified with a red asterisk) in each section that 
     |-------------------|--------------------------------------------------------------------------------------------------|
     | Datadog org name  | Choose to create a new organization, or associate your resource with an existing organization.   | 
 
-    Select the **Change plan** link to [!INCLUDE [change your billing plan](../includes/change-plan.md)].
+    Select the **Change plan** link to change your billing plan.
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
