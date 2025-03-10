@@ -84,7 +84,7 @@ To monitor multiple subscriptions:
     > [!TIP]
     > - If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. 
 
-When the subscription is successfully added, One the subscription is added, the status changes to *Active*. 
+Once the subscription is added, the status changes to *Active*. 
 
 > [!NOTE] 
 >  
