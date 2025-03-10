@@ -132,7 +132,7 @@ You can't install Azure IoT Operations components on nested layers. For example,
     DNS should respond with the IP address of the Layered Network Management service.
 
 1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#check-the-allowlist-of-layered-network-management).
-1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
+1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management to a packet trace](#you-want-to-capture-layered-network-management-to-a-packet-trace).
 
 ### You can install Azure IoT Operations on the isolated cluster but the pods fail to start
 
