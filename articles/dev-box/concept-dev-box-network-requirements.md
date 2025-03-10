@@ -112,21 +112,23 @@ For more information, see [Use Azure Firewall to manage and secure Windows 365 e
 
 The following table is the list of FQDNs and endpoints your dev boxes need to access. All entries are outbound; you don't need to open inbound ports for dev boxes. 
 
-|Address    |Protocol    |Outbound port    |Purpose    |Service tag| Required? |
-|---|---|---|---|---|---|
-|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services | AzureActiveDirectory | Yes |   
-|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |WindowsVirtualDesktop | Yes |
-|*.prod.warm.ingest.monitor.core.windows.net    |TCP    |443    |Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor | Yes |
-|catalogartifact.azureedge.net    |TCP    |443    |Azure Marketplace    |AzureFrontDoor.Frontend| Yes |
-|gcs.prod.monitoring.core.windows.net    |TCP    |443    |Agent traffic    |AzureCloud| Yes |
-|kms.core.windows.net    |TCP    |1688    |Windows activation    |Internet| Yes |
-|azkms.core.windows.net    |TCP    |1688    |Windows activation    |Internet| Yes |
-|mrsglobalsteus2prod.blob.core.windows.net    |TCP    |443    |Agent and side-by-side (SXS) stack updates    |AzureCloud| Yes |
-|wvdportalstorageblob.blob.core.windows.net    |TCP    |443    |Azure portal support    |AzureCloud| Yes |
-|169.254.169.254    |TCP    |80    |[Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service)|N/A| Yes |
-|168.63.129.16    |TCP    |80    |[Session host health monitoring](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)|N/A| Yes |
-|oneocsp.microsoft.com    |TCP    |80    |Certificates    |N/A| Yes |
-|www.microsoft.com    |TCP    |80    |Certificates    |N/A| Yes |
+
+|Address    |Protocol    |Outbound port    |Purpose    |Service tag|
+|---|---|---|---|---|
+|login.microsoftonline.com    |TCP    |443    |Authentication to Microsoft Online Services | AzureActiveDirectory |    
+|*.wvd.microsoft.com    |TCP    |443    |Service traffic    |WindowsVirtualDesktop |
+|*.prod.warm.ingest.monitor.core.windows.net    |TCP    |443    |Agent traffic [Diagnostic output](/azure/virtual-desktop/diagnostics-log-analytics) |AzureMonitor |
+|catalogartifact.azureedge.net    |TCP    |443    |Azure Marketplace    |AzureFrontDoor.Frontend|
+|gcs.prod.monitoring.core.windows.net    |TCP    |443    |Agent traffic    ||
+|kms.core.windows.net    |TCP    |1688    |Windows activation    ||
+|azkms.core.windows.net    |TCP    |1688    |Windows activation    ||
+|mrsglobalsteus2prod.blob.core.windows.net    |TCP    |443    |Agent and side-by-side (SXS) stack updates    ||
+|wvdportalstorageblob.blob.core.windows.net    |TCP    |443    |Azure portal support    ||
+|169.254.169.254    |TCP    |80    |[Azure Instance Metadata service endpoint](/azure/virtual-machines/windows/instance-metadata-service)|N/A|
+|168.63.129.16    |TCP    |80    |[Session host health monitoring](/azure/virtual-network/network-security-groups-overview#azure-platform-considerations)|N/A|
+|oneocsp.microsoft.com    |TCP    |80    |Certificates    |N/A|
+|www.microsoft.com    |TCP    |80    |Certificates    |N/A|
+
 
 The following table lists optional FQDNs and endpoints that your session host virtual machines might also need to access for other services:
 
