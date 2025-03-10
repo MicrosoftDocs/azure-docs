@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Local preview mirroring
+title: Quickstart - Turn Off local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
 description: This quickstart describes how to mirror local preview
 author: yassirbisteni
@@ -7,14 +7,14 @@ manager: gaobob
 
 ms.author: yassirb
 ms.date: 2/21/2025
-ms.topic: quickstart
+ms.topic: quickstart 
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other, devx-track-js
 
 zone_pivot_groups: acs-plat-windows-android-ios
 ---
-# We’re excited to announce the rollout of the Local preview mirroring feature for the native ACS calling experience! 
+# We’re excited to announce the rollout of the Turn off local preview mirroring feature for the native ACS calling experience! 
 <br/>Meeting participants can now choose to stop mirroring their video preview—the small window showing how they appear during meetings.
 <br/>This is especially useful for situations like:
 <br/>✅ Virtual backgrounds with text – ensuring words appear correctly in your preview.
@@ -31,18 +31,18 @@ zone_pivot_groups: acs-plat-windows-android-ios
     <br/>  - Preview videos
     <br/>  - PowerPoint content sharing & PowerPoint Live
     <br/>  *These views mirror your self-view, but others still see your actual video.
-# Quickstart: Mirror local preview
+## Quickstart: Mirror local preview
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirroring-windows.md)]
+[!INCLUDE [Turn off local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirroring-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Local preview mirroring on Android](./includes/local-preview-mirroring/local-preview-mirroring-android.md)]
+[!INCLUDE [Turn off local preview mirroring on Android](./includes/local-preview-mirroring/local-preview-mirroring-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Local preview mirroring on iOS](./includes/local-preview-mirroring/local-preview-mirroring-ios.md)]
+[!INCLUDE [Turn off local preview mirroring on iOS](./includes/local-preview-mirroring/local-preview-mirroring-ios.md)]
 ::: zone-end
 
 ## Next steps
