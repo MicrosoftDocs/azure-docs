@@ -220,14 +220,14 @@
     href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
   - name: Troubleshoot virtual network deletion failures
     href: virtual-network-troubleshoot-cannot-delete-vnet.md
-- name: Security and compliance
+- name: Security
   items:
   - name: Azure Kubernetes network policies
     href: kubernetes-network-policies.md
   - name: Azure Policy Regulatory Compliance controls
     href: ./security-controls-policy.md
   - name: Azure security baseline for Virtual Network
-    href: /azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+    href: /security/benchmark/azure/baselines/virtual-network-security-baseline?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
   - name: Azure Security blog
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: DDoS protection
