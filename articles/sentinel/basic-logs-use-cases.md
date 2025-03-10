@@ -18,11 +18,7 @@ ms.collection: usx-security
 
 This article highlights log sources to consider configuring as Auxiliary Logs (or Basic Logs) when they're stored in Log Analytics tables. Before choosing a log type for which to configure a given table, do the research to see which is most appropriate. For more information about data categories and log data plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
-> [!IMPORTANT]
->
-> The **Auxiliary Logs** log type is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> [!INCLUDE [unified-soc-preview](includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Storage access logs for cloud providers
 
@@ -69,6 +65,6 @@ A new and growing source of log data is Internet of Things (IoT)-connected devic
 ## Next steps
 
 - [Select a table plan based on data usage in a Log Analytics workspace](/azure/azure-monitor/logs/logs-table-plans)
-- [Set up a table with the Auxiliary plan in your Log Analytics workspace (Preview)](/azure/azure-monitor/logs/create-custom-table-auxiliary)
+- [Set up a table with the Auxiliary plan in your Log Analytics workspace](/azure/azure-monitor/logs/create-custom-table-auxiliary)
 - [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure)
 - [Start an investigation by searching for events in large datasets (preview)](investigate-large-datasets.md)

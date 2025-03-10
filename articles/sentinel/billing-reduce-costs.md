@@ -53,7 +53,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Select low-cost log types for high-volume, low-value data
 
-While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](/azure/azure-monitor/logs/basic-logs-configure)&mdash;are more suited for ad-hoc querying and search of verbose, high-volume, low-value logs that aren't frequently needed or accessed on demand. Enable basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion (now in Preview) at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+While standard analytics logs are most appropriate for continuous, real-time threat detection, two other log types&mdash;[basic logs and auxiliary logs](/azure/azure-monitor/logs/basic-logs-configure)&mdash;are more suited for ad-hoc querying and search of verbose, high-volume, low-value logs that aren't frequently needed or accessed on demand. Enable basic log data ingestion at a significantly reduced cost, or auxiliary log data ingestion at an even lower cost, for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
@@ -88,7 +88,7 @@ Microsoft Sentinel security data might lose some of its value after a few months
 
 To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers long-term retention. Data that ages out of its interactive retention state can still be retained for up to twelve years, at a much-reduced cost, and with limitations on its usage. For more information, see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure).
 
-You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan (now in Preview). This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md). While the auxiliary logs plan remains in Preview, you also have the option of enrolling these tables in the **Basic logs** plan. Basic logs offers similar functionality to auxiliary logs, but with less of a cost savings.
+You can reduce costs even further by enrolling tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md). While the auxiliary logs plan remains in Preview, you also have the option of enrolling these tables in the **Basic logs** plan. Basic logs offers similar functionality to auxiliary logs, but with less of a cost savings.
 
 ## Use data collection rules for your Windows Security Events
 

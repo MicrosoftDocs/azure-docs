@@ -90,10 +90,6 @@ These two log types are best suited for use in playbook automation, ad-hoc query
 
 To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive).
 
-> [!IMPORTANT]
->
-> The **Auxiliary Logs** log type is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ### Simplified pricing tiers
 
 Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel and ingestion storage costs of Log Analytics into a single pricing tier. The following screenshot shows the simplified pricing tier that all new workspaces use.
