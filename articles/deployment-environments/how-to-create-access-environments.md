@@ -23,7 +23,7 @@ This guide explains how to create and access an [environment](concept-environmen
 |Installation| [The Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md).|
 |Procedure|Completion of [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md).|
 |Procedure|Completion of [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md).|
-|Permissions|To create an environment: The [Deployment Environments User](../how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](../how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions. |
+|Permissions|To create an environment: The [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a built-in role that has appropriate permissions. |
 
 ## Create an environment
 
