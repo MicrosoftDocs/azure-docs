@@ -8,6 +8,8 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
 ms.date: 03/10/2025
+
+#customer-intent: As a developer, I want to deploy an environment to create resources and a resource group.
 ---
 
 # Create and access an environment by using the Azure CLI
@@ -16,9 +18,11 @@ This guide explains how to create and access an [environment](concept-environmen
 
 ## Prerequisites
 
-- [Install the Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md)
-- [Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md)
-- [Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)
+|Category|Requirement|
+|-|-|
+|Installation|[Install the Azure CLI extension for Azure Deployment Environments](how-to-install-devcenter-cli-extension.md)|
+|Procedure|[Create and configure a dev center by using the Azure CLI](how-to-create-configure-dev-center.md)|
+|Procedure|[Create and configure a project by using the Azure CLI](how-to-create-configure-projects.md)|
 
 ## Create an environment
 
