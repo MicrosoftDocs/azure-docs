@@ -58,11 +58,10 @@ To change the configuration rules for metrics and logs:
 
 ## View monitored resources
 
-To see the list of resources emitting logs to Datadog:
+To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the Resource menu.
 
-1. Select **Datadog organization configurations > Monitored Resources** in the Resource menu.
-
-You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. 
+> [!TIP]
+> You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. 
 
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. 
 
