@@ -43,7 +43,7 @@ Azure App Service supports the following TLS versions for incoming requests to y
 
 You can configure the **minimum TLS version** for incoming requests to your web app and its SCM site. By default, the minimum is set to **TLS 1.2**.
 
-You can use Azure Policy to help audit your resources when it comes to minimum TLS version. You can refer to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to your desired minimum TLS version. For similar policy definitions for other App Service resources, refer to [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies.md#app-service). 
+You can use Azure Policy to help audit your resources when it comes to minimum TLS version. You can refer to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to your desired minimum TLS version. For similar policy definitions for other App Service resources, refer to [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies.md#app-service).
 
 ### TLS 1.3
 
@@ -56,6 +56,7 @@ TLS 1.3 is fully supported on App Service and introduces several improvements ov
 To require TLS 1.3 for all inbound requests, set your **Minimum Inbound TLS Version** to **TLS 1.3** in the Azure portal, CLI, or ARM templates.
 
 TLS 1.3 supports the following cipher suites, which are fixed and cannot be customized:
+
 - `TLS_AES_256_GCM_SHA384`
 - `TLS_AES_128_GCM_SHA256`
 
@@ -99,10 +100,12 @@ Once you update your cluster setting, **you must restart your front-end** for th
 End-to-end (E2E) TLS encryption ensures that **front-end to worker communication** within Azure App Service is encrypted using TLS. Without this feature, while incoming HTTPS requests are encrypted to the front ends, the traffic from front ends to workers running the application workloads would travel unencrypted inside Azure’s infrastructure.
 
 E2E TLS helps ensure **full encryption of traffic** between:
+
 - Clients and App Service front ends.
 - App Service front ends and worker processes hosting the application.
 
 This feature is available on:
+
 - **Premium App Service plans** (recommended for new deployments).
 - **Legacy Standard App Service plans** (existing users).
 
@@ -112,6 +115,7 @@ This feature is available on:
 ### How to enable end-to-end TLS encryption
 
 You can enable E2E TLS encryption via:
+
 - **Azure portal** settings.
 - **Azure CLI** commands.
 - **ARM templates** for automation.
