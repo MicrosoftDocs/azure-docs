@@ -13,9 +13,7 @@ ms.custom:
 
 # QuickStart: Get started with Datadog
 
-In this quickstart, you create a new instance of Datadog. You can either create a new Datadog organization or [link to an existing Datadog organization](link-to-existing-organization.md).
-
-In this quickstart, you create an instance of Azure Native New Relic Service.
+In this quickstart, you create a new instance of Datadog. 
 
 ## Prerequisites
 
@@ -26,6 +24,9 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 ## Create a New Relic resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
+
+> [!NOTE] 
+> The steps in this article are for creating a new Datadog organization.  See [link to an existing Datadog organization](link-to-existing-organization.md) if you have an existing Datadog organization you'd prefer to link your Azure subscription to.
 
 ### Basics tab
 
