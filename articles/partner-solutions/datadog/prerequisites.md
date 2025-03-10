@@ -5,7 +5,7 @@ description: This article describes how to configure your Azure environment to c
 
 
 ms.topic: conceptual
-ms.date: 12/05/2024
+ms.date: 03/10/2025
 ---
 
 # Configure environment before Datadog deployment

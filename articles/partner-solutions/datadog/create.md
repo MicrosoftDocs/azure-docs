@@ -3,7 +3,7 @@ title: Create a Datadog resource
 description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 
 ms.topic: quickstart
-ms.date: 12/11/2024
+ms.date: 03/10/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -20,6 +20,7 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+- You must [configure your environment](prerequisites.md)
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
 ## Create a New Relic resource

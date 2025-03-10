@@ -3,7 +3,7 @@ title: Manage settings for your Datadog resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
 
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 03/10/2025
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-desc
