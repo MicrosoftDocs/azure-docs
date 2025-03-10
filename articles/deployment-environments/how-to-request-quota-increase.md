@@ -20,8 +20,8 @@ To learn more about the general process for creating Azure support requests, see
 
 ## Prerequisites
 
-- To create a support request, your Azure account needs the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
-- Before you create a support request for a limit increase, you need to gather additional information.
+- Have the [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
+- Gather additional information.
 
 ## Gather information for your request
 
