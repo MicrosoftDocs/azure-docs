@@ -8,11 +8,13 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/13/2025
 ms.topic: how-to
+
+#customer intent: As a platform engineer, I want to configure project environment types in order to preconfigure the environments that my team will create.   
 ---
 
 # Configure project environment types
 
-This guide explains how to add environment types to projects in Azure Deployment Environments.
+This guide explains how to add environment types to projects in Azure Deployment Environments. It also explains how to updtate, enable, disable, and delete environment types. 
 
 Project environment types are a subset of the [environment types configured for a dev center](how-to-configure-devcenter-environment-types.md). They help preconfigure the environments that a specific development team can create. 
 
@@ -33,26 +35,25 @@ In this article, you'll learn how to:
 * Delete a project environment type. 
 
 ## Prerequisites
-Before you configure a project environment type, you need:
 
 - An [environment type at the dev center level](how-to-configure-devcenter-environment-types.md).
 - [Write access](/azure/devops/organizations/security/add-users-team-project) to a specific project.
 
-## Add a new project environment type
+## Add a project environment type
 
-When you configure a new project environment type, your development teams can use it to create an environment. They'll create the environment in the mapped subscription by using the configured deployment identity, along with permissions granted to resources created as part of the environment. All the associated policies are automatically applied.
+When you configure a project environment type, your development teams can use it to create an environment. They'll create the environment in the mapped subscription by using the configured deployment identity, along with permissions granted to resources created as part of the environment. All the associated policies are automatically applied.
 
-Add a new project environment type as follows:
+To add a new project environment type:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, and then choose the specific project.
+1. Select **Projects** in the left pane, and then choose the specific project.
 
-1. Select **Environment types** from the left pane.
+1. Select **Environment types** in the left pane.
 
 1. Select **+ Add**.
 
-   :::image type="content" source="media/configure-project-environment-types/add-new-project-environment-type.png" alt-text="Screenshot that shows selections for adding a project environment type." lightbox="media/configure-project-environment-types/add-new-project-environment-type.png":::
+   :::image type="content" source="media/configure-project-environment-types/add-new-project-environment-type.png" alt-text="Screenshot that shows how to add a project environment type." lightbox="media/configure-project-environment-types/add-new-project-environment-type.png":::
 
 1. On the **Add environment type to Project** page, provide the following details:
 
@@ -65,26 +66,26 @@ Add a new project environment type as follows:
     |**Permissions on environment resources** > **Additional access** | Select the users or Microsoft Entra groups that are granted specific roles on the environment resources.|
     |**Tags** (optional) | Provide a name and value for tags that are applied on all resources created as part of the environments.|
 
-   :::image type="content" source="media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot that shows adding details on the page for adding a project environment type." lightbox="media/configure-project-environment-types/add-project-environment-type-page.png":::
+   :::image type="content" source="media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot that shows the page for adding a project environment type." lightbox="media/configure-project-environment-types/add-project-environment-type-page.png":::
 
 > [!NOTE]
-> At least one managed identity (system assigned or user assigned) must be enabled for deployment identity. It will be used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [granted Contributor and User Access Administrator access to the deployment subscription](how-to-configure-managed-identity.md) configured per environment type.
+> At least one managed identity (system assigned or user assigned) must be enabled for deployment identity. It will be used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [granted Contributor and User Access Administrator access to the deployment subscription](how-to-configure-managed-identity.md) that's configured for the environment type.
 
 ## Update a project environment type
 
-You can update a project environment type so that it uses a different subscription or deployment identity when developers deploy environments. Updating a project environment type affects only the creation of new environments. Existing environments will continue to exist in the previously mapped subscription.
+You can update a project environment type so that it uses a different subscription or deployment identity when developers deploy environments. Updating a project environment type affects only newly created environments. Existing environments will continue to exist in the previously mapped subscription.
 
-Update an existing project environment type as follows:
+To update an existing project environment type:
 
 1. In the Azure portal, go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, and then choose the specific project.
+1. Select **Projects** in the left pane, and then choose the specific project.
 
-1. Select **Environment types** from the left pane.
+1. Select **Environment types** in the left pane.
 
-1. For the environment type that you want to update, select the ellipsis (**...**) on the specific row, then choose **Edit**.
+1. For the environment type that you want to update, select the ellipsis (**...**) on the specific row, and then choose **Edit**.
 
-1. On the **Edit environment type** page, update the previous configuration, and then select **Submit**. 
+1. On the **Edit environment type** page, update the configuration, and then select **Submit**. 
 
 ## Enable or disable a project environment type
 
@@ -94,9 +95,9 @@ When you enable an environment type (or re-enable one that you disabled), develo
 
 1. In the Azure portal, go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, and then choose the specific project.
+1. Select **Projects** in the left pane, and then choose the specific project.
 
-1. Select **Environment types** from the left pane.
+1. Select **Environment types** in the left pane.
 
 1. Select the environment type to enable or disable.
 
@@ -108,9 +109,9 @@ You can delete a specific project environment type only if no deployed environme
 
 1. In the Azure portal, go to Azure Deployment Environments.
 
-1. Select **Projects** from the left pane, and then choose the specific project.
+1. Select **Projects** in the left pane, and then choose the specific project.
 
-1. Select **Environment types** from the left pane.
+1. Select **Environment types** in the left pane.
 
 1. Select a project environment type to delete.
 
