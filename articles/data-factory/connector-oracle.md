@@ -551,7 +551,7 @@ Here are steps that help you upgrade the Oracle connector:
     
     The identical version 2.0 linked service configuration using **Easy Connect (Plus) Naming** is: 
     
-    :::image type="content" source="media/connector-oracle/easy-connect-naming-linked-service.png" alt-text="Screenshot of linked service using easy connector (Plus) naming":::
+    :::image type="content" source="media/connector-oracle/easy-connect-naming-linked-service.png" alt-text="Screenshot of linked service using easy connector (Plus) naming.":::
     
     ```json
     { 
