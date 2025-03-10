@@ -239,14 +239,17 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 | BIGINT |Int64 |Int64 |
 | BLOB |Byte[] |Byte[] |
 | BOOLEAN |Boolean |Boolean |
+| DATE | IDate | DateTime |
 | DECIMAL |Decimal |Decimal |
 | DOUBLE |Double |Double |
 | FLOAT |Single |Single |
 | INET |String |String |
 | INT |Int32 |Int32 |
+| SMALLINT | Short | Int16 |
 | TEXT |String |String |
 | TIMESTAMP |DateTime |DateTime |
 | TIMEUUID |Guid |Guid |
+| TINYINT | SByte | Int16 |
 | UUID |Guid |Guid |
 | VARCHAR |String |String |
 | VARINT |Decimal |Decimal |
@@ -261,7 +264,23 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 
 ## Work with collections using original type when using version 2.0
 
-For collection types including map, set and list, the data are represented in Json format. There are no virtual tables for collection types, and instead copying a source table to sink in its original type.
+There are no virtual tables for collection types, you can copy a source table to sink in its original type.
+
+### Example
+
+For example, the following "ExampleTable" is a Cassandra database table that contains an integer primary key column named "pk_int", a text column named value, a list column, a map column, and a set column (named "StringSet").
+
+| pk_int | Value | List | Map | StringSet |
+| --- | --- | --- | --- | --- |
+| 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
+
+No need to create any virtual tables. You can directly read data from a source table and treat complex type column values as its original type, as shown in the following table:
+
+| pk_int | Value | List | Map | StringSet |
+| --- | --- | --- | --- | --- |
+| 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |["A", "B", "C"] |
+| 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |["A", "E"] |
 
 ## Work with collections using virtual table when using version 1.0
 
@@ -336,7 +355,8 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
 | Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
-| For collection types (map, set, list, etc.), there are no virtual tables for collection types. You can copy a source table to sink in its original type, refer to [Work with collections using original type when using version 2.0](#work-with-collections-using-original-type-when-using-version-20) section.  | For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
+| There are no virtual tables for collection types, refer to [Work with collections using original type when using version 2.0](#work-with-collections-using-original-type-when-using-version-20) section.  | For collection types, refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
+| The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte | The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> DateTime <br> SMALLINT -> Int16 <br> TINYINT -> Int16 | 
 
 ## Upgrade the Cassandra connector
 
@@ -345,6 +365,8 @@ Here are steps that help you upgrade the Cassandra connector:
 1. In **Edit linked service** page, select **2.0 (Preview)** under **Version** and configure the linked service by referring to [Linked service properties](#linked-service-properties).
 
 2. If you use `query` in the copy activity source for version 2.0, see [Cassandra as source](#cassandra-as-source).
+
+3. The data type mapping for version 2.0 is different from that for version 1.0. To learn the latest data type mapping, see [Data type mapping for Cassandra](#data-type-mapping-for-cassandra). 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
