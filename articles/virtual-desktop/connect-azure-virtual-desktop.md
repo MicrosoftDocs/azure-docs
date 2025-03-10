@@ -9,7 +9,7 @@ ms.date: 03/05/2025
 
 # Connect to Azure Virtual Desktop
 
-You can connect to their remote desktops and apps running in Azure Virtual Desktop using Windows App or the Remote Desktop client.
+You can connect to remote desktops and apps running in Azure Virtual Desktop using Windows App or the Remote Desktop client.
 
 Windows App and the Remote Desktop client are available on many different types of devices on different platforms and form factors, such as desktops and laptops, tablets, smartphones, through a web browser, and virtual reality headsets. This choice provides flexibility and convenience to access desktops and apps from anywhere.
 
