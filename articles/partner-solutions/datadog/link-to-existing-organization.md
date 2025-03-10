@@ -43,7 +43,7 @@ The *Basics* tab has three sections:
 
 :::image type="content" source="media/create/link-existing-basics-tab.png" alt-text="A screenshot of the Link Azure subscription to an existing Datadog organization options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
-There are required fields (identified with a red asterisk) in each section that you need to fill out.
+There are required fields (identified with a red asterisk) in the first two sections that you need to fill out.
 
 1. Enter the values for each required setting under *Project details*.
 
