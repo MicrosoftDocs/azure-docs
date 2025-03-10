@@ -26,11 +26,13 @@ To restore access to your service endpoints:
 
 1. Unblock access to your service endpoints. You can unblock access using the portal or the Azure CLI.
 
+    > [!WARNING]
+    > After you unblock access to your service endpoints, they're publicly accessible from the internet. To protect your environment, make sure to reestablish your virtual network as soon as possible after unblocking access.
+
     #### [Portal](#tab/portal)
     
     In the portal, on the **Overview** page of the instance, select **Unblock my service**. This action is not reversible.
-        > [!WARNING]
-        > After you unblock access to your service endpoints, your service endpoints are publicly accessible from the internet. To protect your environment, make sure to reestablish your virtual network as soon as possible.
+
 
     #### [Azure CLI](#tab/cli)
 
