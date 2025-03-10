@@ -45,16 +45,36 @@ Add the following key-value to the App Configuration store and leave **Label** a
 1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.2** or higher. Press **Create**.
 
 ## Reload data from App Configuration
+
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest version of the following NuGet package to your project.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    *Azure.Identity*
+
+    ### [Connection string](#tab/connection-string)
+
    *Microsoft.Extensions.Configuration.AzureAppConfiguration*
+    ---
 
 1. Open *Program.cs* and add following namespaces.
+
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    ```csharp
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    using Azure.Identity;
+    ```
+
+   ### [Connection string](#tab/connection-string)
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+    ---
 
 1. Add two variables to store configuration-related objects.
 
@@ -128,7 +148,10 @@ Add the following key-value to the App Configuration store and leave **Label** a
         _configuration = builder.Build();
         PrintMessage().Wait();
     }
+    // The rest of existing code in Program.cs
+    // ... ...
     ```
+    ---
 
     In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. The `SetCacheExpiration` method specifies the minimum time that must elapse before a new request is made to App Configuration to check for any configuration changes. In this example, you override the default expiration time of 30 seconds, specifying a time of 10 seconds instead for demonstration purposes.
 

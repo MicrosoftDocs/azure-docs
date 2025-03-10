@@ -33,11 +33,14 @@ Finish the quickstart [Create a .NET app with App Configuration](./quickstart-do
 
 ## Activity-driven configuration refresh
 
-Open *Program.cs* and update the file with the following code.
+Open *Program.cs* and update the file with the following code. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
+
+You use the `DefaultAzureCredential` to authenticate to your App Configuration store. While completing the quickstart listed in the prerequisites, you already [assigned your credential the **App Configuration Data Reader role**](./concept-enable-rbac.md#authentication-with-token-credentials).
 
 ```csharp
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using Azure.Identity;
 
 IConfiguration _configuration = null;
 IConfigurationRefresher _refresher = null;
@@ -45,7 +48,8 @@ IConfigurationRefresher _refresher = null;
 var builder = new ConfigurationBuilder();
 builder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
+    string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+    options.Connect(new Uri(endpoint), new DefaultAzureCredential());
             .ConfigureRefresh(refresh =>
             {
                 refresh.Register("TestApp:Settings:Message")
@@ -114,22 +118,24 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **Endpoint**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-     setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
-    If you use Windows PowerShell, run the following command:
+    If you use PowerShell, run the following command:
 
     ```powershell
-     $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux, run the following command:
 
-    ```console
-     export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
 1. Run the following command to build the console app:
