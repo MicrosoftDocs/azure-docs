@@ -23,31 +23,88 @@ App Configuration provides two options for organizing keys:
 
 You can use either one or both options to group your keys.
 
-*Key prefixes* are the beginning parts of keys. You can logically group a set of keys by using the same prefix in their names. Prefixes can contain multiple components connected by a delimiter, such as `/`, similar to a URL path, to form a namespace. Such hierarchies are useful when you're storing keys for many applications and microservices in one App Configuration store.
+**Key prefixes** allow you to logically group related keys by using a common prefix in their names. Prefixes can include multiple segments separated by delimiters such as `/` or `:`, forming a hierarchical namespace. This approach is particularly useful when storing configuration keys for multiple applications or microservices within a single App Configuration store.
 
-An important thing to keep in mind is that keys are what your application code references to retrieve the values of the corresponding settings. Keys shouldn't change, or else you'll have to modify your code each time that happens.
+It's important to remember that keys are directly referenced by your application code to retrieve their corresponding values. Therefore, keys should remain stable to avoid code changes. If needed, you can use the App Configuration provider to trim key prefixes at runtime.
 
-*Labels* are an attribute on keys. They're used to create variants of a key. For example, you can assign labels to multiple versions of a key. A version might be an iteration, an environment, or some other contextual information. Your application can request an entirely different set of key-values by specifying another label. As a result, all key references remain unchanged in your code.
+**Labels** enable you to create variations of a key, such as different versions or environment-specific settings. By assigning labels, you can maintain multiple values for the same key. Your application can then retrieve different sets of key-values by specifying the appropriate label, allowing your key references in code to remain consistent.
 
 ## Key-value compositions
 
-App Configuration treats all keys stored with it as independent entities. App Configuration doesn't attempt to infer any relationship between keys or to inherit key-values based on their hierarchy. You can aggregate multiple sets of keys, however, by using labels coupled with proper configuration stacking in your application code.
+App Configuration treats each key stored within it as an independent entity. It doesn't infer relationships between keys or inherit values based on key hierarchy. However, you can aggregate multiple sets of keys effectively by using labels combined with configuration stacking in your application.
 
-Let's look at an example. Suppose you have a setting named **Asset1**, whose value might vary based on the development environment. You create a key named "Asset1" with an empty label and a label named "Development". In the first label, you put the default value for **Asset1**, and you put a specific value for "Development" in the latter.
+Consider an example where you have a configuration setting named *TestApp:MySetting*, whose value varies depending on the environment. You can create two keys with the same name, but assign different labels—one with no label (default) and another labeled *Development*. The unlabeled key holds the default value, while the labeled key contains the environment-specific value.
 
-In your code, you first retrieve the key-values without any labels, and then you retrieve the same set of key-values a second time with the "Development" label. When you retrieve the values the second time, the previous values of the keys are overwritten. The .NET configuration system allows you to "stack" multiple sets of configuration data on top of each other. If a key exists in more than one set, the last set that contains it is used. With a modern programming framework, such as .NET, you get this stacking capability for free if you use a native configuration provider to access App Configuration. The following code snippet shows how you can implement stacking in a .NET application:
+In your application code, you first load the default (unlabeled) key-values, then load the environment-specific key-values using the *Development* label. When loading the second set, any matching keys overwrite the previously loaded values. This approach allows you to "stack" multiple configuration sets, with the last loaded value taking precedence. [App Configuration providers](./configuration-provider-overview.md) across supported languages and platforms support this stacking capability.
+
+The following example demonstrates how to implement key-value composition in a .NET application:
 
 ```csharp
-// Augment the ConfigurationBuilder with Azure App Configuration
-// Pull the connection string from an environment variable
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect(configuration["connection_string"])
-           .Select(KeyFilter.Any, LabelFilter.Null)
-           .Select(KeyFilter.Any, "Development");
+    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and compose with two different labels
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .Select(keyFilter: "TestApp:*", labelFilter: "Development");
 });
 ```
 
 [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+
+
+
+## Configuration refresh
+
+Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
+
+### Monitoring all selected keys
+
+In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This ensures immediate updates without needing a dedicated sentinel key.
+
+Here's an example using .NET:
+
+```csharp
+configBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and have no label
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .ConfigureRefresh(refreshOptions =>
+           {
+               // Trigger full configuration refresh when any selected key changes.
+               refreshOptions.RegisterAll();
+           });
+});
+```
+
+### Monitoring a sentinel key
+
+Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is particularly useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
+
+Here's an example using .NET:
+
+```csharp
+configBuilder.AddAzureAppConfiguration(options =>
+{
+    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+           // Load all keys that start with `TestApp:` and have no label
+           .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+           .ConfigureRefresh(refreshOptions =>
+           {
+               // Register the sentinel key; refresh all values if this key changes.
+               refreshOptions.Register("SentinelKey", refreshAll: true);
+           });
+});
+```
+
+Both approaches are supported by App Configuration providers across supported languages and platforms.
+
+Regardless of the approach you choose, consider the following best practices to minimize the risk of configuration inconsistencies:
+
+- Design your application to tolerate transient configuration inconsistencies.
+- Warm up your application before serving requests.
+- Include default configuration within your application as a fallback when validation fails.
+- Choose a configuration update strategy that minimizes impact, such as updating during low-traffic periods.
+- Use [configuration snapshots](./howto-create-snapshots.md) for guaranteed configuration integrity.
 
 ## References to external data
 
@@ -59,9 +116,11 @@ The App Configuration [Key Vault reference](use-key-vault-references-dotnet-core
 
 ## App Configuration bootstrap
 
-To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Because connection strings contain credential information, they're considered secrets. These secrets need to be stored in Azure Key Vault, and your code must authenticate to Key Vault to retrieve them.
+To access an Azure App Configuration store, you can authenticate using either a connection string or Microsoft Entra ID. While connection strings are readily available in the Azure portal, they contain credential information and must be treated as secrets. If you choose this approach, store the connection string securely in Azure Key Vault and ensure your application authenticates to Key Vault to retrieve it.
 
-A better option is to use the managed identities feature in Microsoft Entra ID. With managed identities, you need only the App Configuration endpoint URL to bootstrap access to your App Configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Use managed identities to access App Configuration](howto-integrate-azure-managed-service-identity.md) for details.
+A more secure and recommended approach is to use Microsoft Entra ID authentication. If your application is hosted in Azure—such as on Azure Kubernetes Service, App Service, or Azure Functions—you can leverage managed identities provided by Microsoft Entra ID. Managed identities eliminate the need to manage secrets explicitly. With this method, your application only requires the App Configuration endpoint URL, which can be safely embedded in your application code or configuration files.
+
+For more information, see [Use managed identities to access App Configuration](./howto-integrate-azure-managed-service-identity.md).
 
 ## Azure Kubernetes Service access to App Configuration
 
