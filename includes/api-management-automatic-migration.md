@@ -16,16 +16,66 @@ Im most cases, automatic migration retains the virtual network settings of your 
 
 :::image type="content" source="media/api-management-automatic-migration/blocked-access.png" alt-text="Screenshot of blocked access to API Management in the portal.":::
 
-While access is blocked, access to the API gateway, developer portal, direct management API, and Git repository is disabled. To restore access to your service endpoints:
+While access is blocked, access to the API gateway, developer portal, direct management API, and Git repository is disabled. 
 
-1. Redeploy your API Management instance in your virtual network. For steps, see the guidance for deploying API Management in an [external](../articles/api-management/api-management-using-with-vnet.md) or [internal](../articles/api-management/api-management-using-with-internal-vnet.md) virtual network. We strongly recommend deploying the instance in a **new subnet** of the virtual network with settings compatible with the API Management `stv2` compute platform. 
-1. After the virtual network is reestablished, unblock access to your service endpoints. In the portal, on the **Overview** page of the instance, select **Unblock my service**. This action is not reversible.
+To restore access to your service endpoints:
 
-> [!WARNING]
-> If you unblock access to your service endpoints before reconfiguring the virtual network, your service endpoints will be publicly accessible from the internet. To protect your environment, make sure to reestablish your virtual network as soon as possible.
+1. Make sure you understand the following steps to re-establish your virtual network and are prepared to do so before proceeding. 
+    > [!TIP]
+    > If you need a reminder of the names of the virtual network and subnet where your API Management instance was originally deployed, you can find information in the portal. In the left menu of your instance, select **Diagnose and solve problems** > **Availability and performance** > **VNet Verifier**. In **Time range**, select a period before the instance was migrated.
 
-> [!TIP]
-> If you need a reminder of the names of the virtual network and subnet where your API Management instance was originally deployed, you can find information in the portal. In the left menu of your instance, select **Diagnose and solve problems** > **Availability and performance** > **VNet Verifier**. In **Time range**, select a period before the instance was migrated.
+1. Unblock access to your service endpoints. You can unblock access using the portal or the Azure CLI.
+
+    #### [Portal](#tab/portal)
+    
+    In the portal, on the **Overview** page of the instance, select **Unblock my service**. This action is not reversible.
+        > [!WARNING]
+        > After you unblock access to your service endpoints, your service endpoints are publicly accessible from the internet. To protect your environment, make sure to reestablish your virtual network as soon as possible.
+
+    #### [Azure CLI](#tab/cli)
+
+    Run the following Azure CLI commands to update the API Management instance, setting variables where indicated.
+
+    > [!NOTE]
+    > The following script is written for the bash shell. To run the script in PowerShell, prefix each variable name with the `$` character when setting the variables. Example: `$APIM_NAME=...`.
+    
+    ```azurecli
+    APIM_NAME={name of your API Management instance}
+    RG_NAME={name of your resource group}
+    SUBNET_NAME={name of the subnet where your API Management instance was originally deployed}
+    VNET_NAME={name of the virtual network where your API Management instance was originally deployed}
+    VNET_TYPE={external or internal}
+
+    # Get resource ID of subnet
+    SUBNET_ID=$(az network vnet subnet show \
+        --resource-group $RG_NAME \
+        --name $SUBNET_NAME \
+        --vnet-name $VNET_NAME \
+        --query id --output tsv)
+
+    # Get resource ID of API Management instance
+    APIM_RESOURCE_ID=$(az apim show \
+        --resource-group $RG_NAME --name $APIM_NAME \
+        --query id --output tsv)
+    
+    # Unblock access to service endpoints
+    az rest --method PATCH --uri "$APIM_RESOURCE_ID?api-version=2024-05-01" --body '{
+        "properties": {
+            "virtualNetworkType": "'$VNET_TYPE'",
+            "virtualNetworkConfiguration": {
+                "subnetResourceId": "'$SUBNET_ID'"
+            },
+            "customProperties": {
+                "Microsoft.WindowsAzure.ApiManagement.Service.Disabled": "False"
+            }
+        }
+    }'
+    ```
+    ---
+
+1. Redeploy your API Management instance in your virtual network. 
+
+    For steps, see the guidance for deploying API Management in an [external](../articles/api-management/api-management-using-with-vnet.md) or [internal](../articles/api-management/api-management-using-with-internal-vnet.md) virtual network. We strongly recommend deploying the instance in a **new subnet** of the virtual network with settings compatible with the API Management `stv2` compute platform.     
 
 
 
