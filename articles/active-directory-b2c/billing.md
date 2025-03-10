@@ -85,7 +85,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 ### Create the link
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra tenant from the **Directories + subscriptions** menu.
 1. Select **Create a resource**, and then, in the **Search services and Marketplace** field, search for and select **Azure Active Directory B2C**.
 1. Select **Create**.
 1. Select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
