@@ -88,7 +88,8 @@ The following limitations apply to tags:
    > * The following Azure resources only support 15 tags:
    >     * Azure Automation
    >     * Azure Content Delivery Network
-   >     * Azure DNS (Zone and A records)
+   >     * Azure Public DNS (Zone and A records)
+   >     * Azure Private DNS (Zone and A records)
    >     * Azure Log Analytics saved search
 
 ## Next steps
