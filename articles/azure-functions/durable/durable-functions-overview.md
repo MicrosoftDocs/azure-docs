@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Learn how to use the Durable Functions extension for Azure Functions to write stateful functions in a serverless compute environment.
 author: cgillum
 ms.topic: overview
-ms.date: 03/07/2025
+ms.date: 03/10/2025
 ms.author: cgillum
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python
 ms.reviewer: azfuncdf
@@ -62,6 +62,9 @@ You can use Durable Functions to implement the function chaining pattern concise
 ::: zone pivot="csharp"
 
 #### [In-process](#tab/in-process)
+
+> [!IMPORTANT]
+> [Support ends for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). We highly recommend that you [migrate your apps to the isolated worker model](../migrate-dotnet-to-isolated-model.md).
 
 In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the same function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
 
