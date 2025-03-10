@@ -220,19 +220,15 @@ items:
       items:
       - name: Overview
         href: lifecycle-management-overview.md
-      - name: Best practices
-        href: lifecycle-management-overview.md
       - name: Create and manage a policy
         href: lifecycle-management-policy-configure.md
-      - name: Enable last access time tracking
-        href: lifecycle-management-policy-configure.md
       - name: Move blobs between tiers
-        href: lifecycle-management-policy-configure.md
+        href: lifecycle-management-policy-access-tiers.md
       - name: Delete blobs
-        href: lifecycle-management-policy-configure.md
+        href: lifecycle-management-policy-delete.md
       - name: Monitor policy runs
-        href: lifecycle-management-policy-configure.md
-      - name: Lifecycle management performance characteristics
+        href: lifecycle-management-policy-monitor.md
+      - name: Performance characteristics
         href: lifecycle-management-performance-characteristics.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

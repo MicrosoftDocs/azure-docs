@@ -73,20 +73,6 @@ Each rule within the policy has several parameters, described in the following t
 | `type` | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition` | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
-## Lifecycle policy characteristics
-
-When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
-
-An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
-
-The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
-Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
-
-To view default scale limits, see the following articles:
-
-- [Scalability and performance targets for Blob storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
-- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
 ## Lifecycle management rule definition
 
 Each rule definition within a policy includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
@@ -144,7 +130,7 @@ The following sample rule filters the account to run the actions on objects that
 > [!NOTE]
 > The **baseBlob** element in a lifecycle management policy refers to the current version of a blob. The **version** element refers to a previous version.
 
-### Rule filters
+### Filters
 
 Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude.
 
@@ -158,33 +144,7 @@ Filters include:
 
 To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
 
-### Rule actions
-
-Actions are applied to the filtered blobs when the run condition is met.
-
-Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
-
-> [!NOTE]
-> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
-
-| Action                                  | Current Version                            | Snapshot      | Previous Versions |
-|-----------------------------------------|--------------------------------------------|---------------|-------------------|
-| tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
-| tierToCold                              | Supported for `blockBlob`                  | Supported     | Supported         |
-| enableAutoTierToHotFromCool<sup>1</sup> | Supported for `blockBlob`                  | Not supported | Not supported     |
-| tierToArchive<sup>4</sup>               | Supported for `blockBlob`                  | Supported     | Supported         |
-| delete<sup>2,3</sup>                    | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
-
-<sup>1</sup> The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
-
-<sup>2</sup> When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
-
-<sup>3</sup> A lifecycle management policy will not delete the current version of a blob until any previous versions or snapshots associated with that blob have been deleted. If blobs in your storage account have previous versions or snapshots, then you must include previous versions and snapshots when you specify a delete action as part of the policy.
-
-<sup>4</sup> Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving blobs to the archive tier. The archive tier isn't supported for ZRS, GZRS, or RA-GZRS accounts. This action gets listed based on the redundancy configured for the account. 
-
-> [!NOTE]
-> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+### Conditions
 
 The run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
@@ -197,7 +157,44 @@ The run conditions are based on age. Current versions use the last modified time
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 
-## Lifecycle policy completed event
+### Actions
+
+Actions are applied to the filtered blobs when the run condition is met.
+
+Lifecycle management supports tiering and deletion of current versions, previous versions, and blob snapshots. Define at least one action for each rule.
+
+> [!NOTE]
+> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+
+| Action                                  | Current Version                            | Snapshot      | Previous Versions |
+|-----------------------------------------|--------------------------------------------|---------------|-------------------|
+| tierToCool                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| tierToCold                              | Supported for `blockBlob`                  | Supported     | Supported         |
+| enableAutoTierToHotFromCool | Supported for `blockBlob`                  | Not supported | Not supported     |
+| tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported         |
+| delete                   | Supported for `blockBlob` and `appendBlob` | Supported     | Supported         |
+
+
+> [!NOTE]
+> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+
+## Runs
+
+When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
+
+An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+
+The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
+
+To view default scale limits, see the following articles:
+
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
+- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
+
+## Events
+
 The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
 
@@ -246,221 +243,7 @@ The following table describes the schema of the `LifecyclePolicyCompleted` event
 |tierToColdSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-cold operation|
 |tierToArchiveSummary|vector\<byte\>|The results summary of blobs scheduled for tier-to-archive operation|
 
-## Examples of lifecycle policies
-
-The following examples demonstrate how to address common scenarios with lifecycle policy rules.
-
-### Move aging data to a cooler tier
-
-This example shows how to transition block blobs prefixed with `sample-container/blob1` or `container2/blob2`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
-
-```json
-{
-  "rules": [
-    {
-      "name": "agingRule",
-      "enabled": true,
-      "type": "Lifecycle",
-      "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "sample-container/blob1", "container2/blob2" ]
-        },
-        "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-          }
-        }
-      }
-    }
-  ]
-}
-```
-
-### Move data based on last accessed time
-
-You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
-
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
-
-If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
-
-- The value of the `LastAccessTime` property of the blob is a null value.
-
-  > [!NOTE]
-  > The `lastAccessedOn` property of the blob is null if a blob hasn't been accessed since last access time tracking was enabled.
-
-- Last access time tracking is not enabled. 
-
-To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
-
-In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
-
-> [!TIP]
-> If a blob is moved to the cool tier, and then is automatically moved back before 30 days has elapsed, an early deletion fee is charged. Before you set the `enableAutoTierToHotFromCool` property, make sure to analyze the access patterns of your data so you can reduce unexpected charges.
-
-```json
-{
-  "enabled": true,
-  "name": "last-accessed-thirty-days-ago",
-  "type": "Lifecycle",
-  "definition": {
-    "actions": {
-      "baseBlob": {
-        "enableAutoTierToHotFromCool": true,
-        "tierToCool": {
-          "daysAfterLastAccessTimeGreaterThan": 30
-        }
-      }
-    },
-    "filters": {
-      "blobTypes": [
-        "blockBlob"
-      ],
-      "prefixMatch": [
-        "mylifecyclecontainer/log"
-      ]
-    }
-  }
-}
-```
-
-### Archive data after ingest
-
-Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it's ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time. 
-
-```json
-{
-  "rules": [
-    {
-      "name": "archiveRule",
-      "enabled": true,
-      "type": "Lifecycle",
-      "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "archivecontainer" ]
-        },
-        "actions": {
-          "baseBlob": {
-              "tierToArchive": { 
-                "daysAfterModificationGreaterThan": 0
-              }
-          }
-        }
-      }
-    }
-  ]
-}
-
-```
-
-> [!NOTE]
-> Microsoft recommends that you upload your blobs directly to the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
-
-### Expire data based on age
-
-Some data is expected to expire days or months after creation. You can configure a lifecycle management policy to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs that haven't been modified in the last 365 days.
-
-```json
-{
-  "rules": [
-    {
-      "name": "expirationRule",
-      "enabled": true,
-      "type": "Lifecycle",
-      "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ]
-        },
-        "actions": {
-          "baseBlob": {
-            "delete": { "daysAfterModificationGreaterThan": 365 }
-          }
-        }
-      }
-    }
-  ]
-}
-```
-
-### Delete data with blob index tags
-
-Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about blob index, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
-
-```json
-{
-    "rules": [
-        {
-            "enabled": true,
-            "name": "DeleteContosoData",
-            "type": "Lifecycle",
-            "definition": {
-                "actions": {
-                    "baseBlob": {
-                        "delete": {
-                            "daysAfterModificationGreaterThan": 0
-                        }
-                    }
-                },
-                "filters": {
-                    "blobIndexMatch": [
-                        {
-                            "name": "Project",
-                            "op": "==",
-                            "value": "Contoso"
-                        }
-                    ],
-                    "blobTypes": [
-                        "blockBlob"
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
-
-### Manage previous versions
-
-For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule moves previous versions within container `activedata` that are 90 days or older after version creation to the cool tier, and deletes previous versions that are 365 days or older.
-
-```json
-{
-  "rules": [
-    {
-      "enabled": true,
-      "name": "versionrule",
-      "type": "Lifecycle",
-      "definition": {
-        "actions": {
-          "version": {
-            "tierToCool": {
-              "daysAfterCreationGreaterThan": 90
-            },
-            "delete": {
-              "daysAfterCreationGreaterThan": 365
-            }
-          }
-        },
-        "filters": {
-          "blobTypes": [
-            "blockBlob"
-          ],
-          "prefixMatch": [
-            "activedata/"
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-## Regional availability and pricing
-
-The lifecycle management feature is available in all Azure regions.
+## Pricing and billing
 
 Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. However, other Azure services and utilities such as [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) may charge for operations that are managed through a lifecycle policy.
 
