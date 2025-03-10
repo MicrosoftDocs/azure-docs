@@ -303,7 +303,7 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends. |
 > | Microsoft.ApiManagement/service/policies/read | Lists all the Global Policy definitions of the Api Management service. or Get the Global policy definition of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/write | Creates or updates the global policy configuration of the Api Management service. |
-> | Microsoft.ApiManagement/service/policies/delete | Deletes the global policy configuration of the API Management Service. |
+> | Microsoft.ApiManagement/service/policies/delete | Deletes the global policy configuration of the API Management service. |
 > | Microsoft.ApiManagement/service/policy/read | Get the policy configuration at Tenant level |
 > | Microsoft.ApiManagement/service/policy/write | Create policy configuration at Tenant level |
 > | Microsoft.ApiManagement/service/policy/delete | Delete the policy configuration at Tenant level |
@@ -314,7 +314,7 @@ Azure service: [API Management](/azure/api-management/)
 > | Microsoft.ApiManagement/service/policyFragments/listReferences/action | Lists policy resources that reference the policy fragment. |
 > | Microsoft.ApiManagement/service/policyRestrictions/read | Lists all the Global Policy Restrictions of the Api Management service. or Get the Global policy restriction of the Api Management service. |
 > | Microsoft.ApiManagement/service/policyRestrictions/write | Creates or updates the global policy restriction of the Api Management service. or Updates the global policy restriction of the Api Management service. |
-> | Microsoft.ApiManagement/service/policyRestrictions/delete | Deletes the global policy restriction of the API Management Service. |
+> | Microsoft.ApiManagement/service/policyRestrictions/delete | Deletes the global policy restriction of the API Management service. |
 > | Microsoft.ApiManagement/service/policySnippets/read | Lists all policy snippets. |
 > | Microsoft.ApiManagement/service/portalConfigs/read | Lists a collection of developer portal config entities. or Gets developer portal config specified by its identifier. |
 > | Microsoft.ApiManagement/service/portalConfigs/write | Creates a new developer portal config. or Updates the description of specified portal config or makes it current. |
