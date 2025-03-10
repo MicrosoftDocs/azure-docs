@@ -101,7 +101,7 @@ Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
 Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
 
    >[!NOTE]
-   >Changing this setting will cause a performance impact, please refer : Refer : [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/)
+   >Changing this setting will cause a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
