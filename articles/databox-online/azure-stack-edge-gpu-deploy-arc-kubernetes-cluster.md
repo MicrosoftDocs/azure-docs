@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 03/10/2025
 ms.author: alkohli
 ---
 
@@ -106,7 +106,28 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. Make a note of the `appID`, `name`, `password`, and `tenantID` as you'll use these values as input to the next command.
 
-1. After creating the new service principal, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
+   Note that there are several ways to obtain ‘appId’. If you use one of the following methods, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
+
+   - Use Minishell to run the following PowerShell cmdlet: 
+
+   ```powershell
+   Get-AzureDataBoxEdgeApplicationId 
+   ```
+
+   - In Azure portal, navigate to your Azure Stack Edge device **Overview** and then at top right, select **JSON view**. You see **Resource JSON** details for your device. Make note of the `principalId` for your device. 
+
+   <Include new screenshot from portal> 
+   ![View JSON details for your Azure Stack Edge device](media/azure-stack-edge-gpu-connect-powershell-interface/view-json-details.png)
+
+   - Use non-Azure Stack Edge PowerShell on a client machine to run the following:
+
+   ```powershell
+   $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name> 
+
+   $ASEResource.Identity.PrincipalId
+   ```
+
+1. After you create the new service principal or create it using one of these methods, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
 
     `az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee <appId-from-service-principal> --scope /subscriptions/<SubscriptionID>/resourceGroups/<Resource-group-name>`
 
@@ -128,7 +149,6 @@ You can also register resource providers via the `az cli`. For more information,
     PS /home/user>
     ```
 
-
 ## Enable Arc on Kubernetes cluster
 
 Follow these steps to configure the Kubernetes cluster for Azure Arc management:
@@ -139,14 +159,16 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"`
 
-    When this command is run, there's a follow-up prompt to enter the `ClientSecret`. Provide the service principal password.
+    After you run this command, you see a follow-up prompt to specify `ClientSecret`. Provide the service principal password at the prompt.
 
     Add the `CloudEnvironment` parameter if you're using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
-    > [!NOTE]
-    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
-    > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-    > - `ClientId` and `ClientSecret` are required.
+**Usage considerations**
+
+- To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+- Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
+- `ClientId`, `TenantId`, and `ClientSecret` are optional.
+- If you assign a role to `appId`, do not specify `ClientId`, `TenantId`, and `ClientSecret`.   
 
     Here's an example:
 
