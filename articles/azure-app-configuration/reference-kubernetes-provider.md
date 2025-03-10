@@ -552,9 +552,9 @@ spec:
 
 ### On-demand Refresh
 
-While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating arbitrary key-value pairs of type `string` in the `metadata.annotations` section. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating any annotations in the `metadata.annotations` section of the `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
 
-In the following example, the `annotations` of `AzureAppConfigurationProvider` are updated with a new key-value pair. After modifying the annotations, apply the changes using `kubectl apply` to trigger an on-demand refresh.
+In the following example, the `AzureAppConfigurationProvider` is updated with a new annotation. After the modification, apply the changes using `kubectl apply` to trigger an on-demand refresh.
 
 ``` yaml
 apiVersion: azconfig.io/v1
