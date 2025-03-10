@@ -13,11 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 # SSL and TLS overview for Azure App Service
 
 > [!NOTE]
-> The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service or Azure Functions. Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
-
-SSL (Secure Sockets Layer) and its successor TLS (Transport Layer Security) are cryptographic protocols that secure communications over networks. TLS is the modern, more secure version used by Azure App Service to encrypt traffic between clients and web apps.
-
-Azure App Service enables you to securely serve traffic over HTTPS using SSL/TLS. This article explains how SSL and TLS work in App Service, how to configure certificates, manage TLS versions, and implement mutual TLS (mTLS) authentication.
+> The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service, Azure Functions, or Logic Apps (Standard).  Applications on either App Service, Azure Functions, or Logic Apps (Standard) configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
 
 Azure App Service supports TLS to ensure:
 

@@ -5,22 +5,22 @@ services: app-service
 author: cephalin
 ms.service: azure-app-service
 ms.topic: "include"
-ms.date: 03/27/2019
+ms.date: 03/06/2025
 ms.author: cephalin
 ms.custom: include file, linux-related-content
 ---
 
 You can access the console logs generated from inside the container.
 
-First, turn on container logging by running the following command:
+To turn on container logging, run the following command:
 
 ```azurecli-interactive
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
-Replace `<app-name>` and `<resource-group-name>` with the names appropriate for your web app.
+Replace *\<app-name>* and *\<resource-group-name>* with the names appropriate for your web app.
 
-Once container logging is turned on, run the following command to see the log stream:
+After you turn on container logging, run the following command to see the log stream:
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
