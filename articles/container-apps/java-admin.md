@@ -360,7 +360,7 @@ When you use the admin component in your own container app, you need to add the 
 ```
 
 > [!NOTE]
-> You don't have to add this dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
+> You don't have to add the admin starter client dependency for Spring Boot Admin if you enable Java agent in your container app by running the following command in Azure CLI:
 > ```azurecli
 > az containerapp update --enable-java-agent \
 > --resource-group $RESOURCE_GROUP \
