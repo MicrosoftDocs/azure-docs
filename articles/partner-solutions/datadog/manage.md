@@ -182,7 +182,7 @@ To establish single sign-on through Microsoft Entra ID, select **Enable single s
 
 The portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
 
-## Change Plan
+## Change your billing plan
 
 To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
 
