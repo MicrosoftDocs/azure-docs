@@ -2,11 +2,11 @@
 title: Custom domains with Azure Static Web Apps
 description: Using a custom domain with Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 06/24/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Custom domains with Azure Static Web Apps
@@ -32,6 +32,9 @@ The following table includes links to articles that demonstrate how to configure
 Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Squarespace (formerly Google) don't support these DNS records. If your domain registrar doesn't support all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md). 
 
 Alternatively, for domain registrars that don't support `ALIAS` records, `ANAME` records or `CNAME` flattening, you can configure an `A` record for your static web app. This configuration directs traffic to a single regional host of your static web app. Using `A` records isn't recommended as your application no longer benefits from global distribution, and this type of setup could affect application performance if your traffic is globally distributed.
+
+> [!NOTE]  
+> `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record. Let’s say you have WebApp1 and you would like users to access it from https://www.contoso.com. You can do it in two possible ways: you can create a `CNAME` record and map it to WebApp1.azurestaticapps.net. Alternatively, you can create an `A` record and map it to the IP address of WebApp1.
 
 The following are terms you might encounter as you set up a custom domain.
 

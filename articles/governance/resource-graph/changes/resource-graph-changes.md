@@ -38,7 +38,7 @@ You can compose and join tables to project change data any way you want.
 
 ## Data retention
 
-Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and manually export query results to any of the Azure data stores like [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your desired retention.
+Changes are queryable for 14 days. For longer retention, you can [integrate your Resource Graph query with Azure Logic Apps](../tutorials/logic-app-calling-arg.md) and manually export query results to any of the Azure data stores like [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your desired retention.
 
 ## Cost
 
@@ -46,7 +46,7 @@ You can use Azure Resource Graph Change Analysis at no extra cost.
 
 ## Change Analysis in Azure Resource Graph vs. Azure Monitor
 
-The Change Analysis experience is in the process of moving from [Azure Monitor](../../../azure-monitor/change/change-analysis.md) to Azure Resource Graph. During this transition, you might see two options for Change Analysis when you search for it in the Azure portal:
+The Change Analysis experience is in the process of moving from [Azure Monitor](/azure/azure-monitor/change/change-analysis) to Azure Resource Graph. During this transition, you might see two options for Change Analysis when you search for it in the Azure portal:
 
 :::image type="content" source="./media/transitional-overview/change-analysis-portal-search.png" alt-text="Screenshot of the search results for Change Analysis in the Azure portal.":::
 

@@ -1,14 +1,15 @@
 ---
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
-ms.topic: conceptual
-ms.date: 06/19/2024
+ms.topic: overview
+ms.date: 03/06/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure Database for PostgreSQL backup
+
 
 Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
@@ -19,6 +20,33 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 - Use of **pg_dump** allows a greater flexibility in restores. This helps you restore across database versions 
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](/azure/postgresql/concepts-backup) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
+
+## Changes to Vaulted backups for PostgreSQL single server
+
+Azure Database for PostgreSQL single servers is scheduled for retirement on **March 28, 2025**. On this date, changes will be implemented to Azure Backup for PostgreSQL single servers. Learn more [about the retirement announcement here](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).
+
+Azure Backup provides compliance and resiliency solutions, including vaulted backups and long-term retention of restore points. Starting **March 28, 2025**, the following changes will take effect:
+
+- The backup configuration won't be allowed for new PostgreSQL single server workloads.
+- All scheduled backup jobs will be permanently discontinued.
+- Creation of new backup policies or modification of existing ones for this workload won't be possible.
+
+Scheduled backup jobs for your PostgreSQL single server databases will be permanently stopped, and no new restore points will be created after this date.
+However, your existing PostgreSQL single server database backups will be retained as per the backup policy. The restore point will only be deleted after the expiration of the retention period. To retain the restore points indefinitely or delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
+
+### Changes in billing
+
+You'll no longer be charged **Protected Instance (PI)** fee after **March 31, 2025** for protecting your PostgreSQL single server databases. But, **Storage** fee for storing your backups will still apply after **March 31, 2025**. To avoid the Storage fee, delete all restore points from the Azure Business Continuity Center.
+
+>[!Note]
+>Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+
+### Changes in restore
+
+You can restore PostgreSQL single server databases as **Restore as Files**. Then you need to manually [create a new PostgreSQL flexible server](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql) from the restored files. 
+
+>[!Note]
+>**Restore as Database** won't be supported after **March 28, 2025**; only **Restore as Files** will be supported.
 
 ## Backup process
 
@@ -89,7 +117,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 1. Network line of sight access on the Azure PostgreSQL server: Set ‘Allow access to Azure services’ flag to ‘Yes’.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-inline.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png" alt-text="Screenshot showing the option to set network line of sight access on the Azure PostgreSQL server." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-azure-postgresql-server.png":::
 
 ### Access permissions on the Azure Key vault (associated with the PostgreSQL server)
 
@@ -137,7 +165,6 @@ END LOOP;
 END;
 $do$
 ```
- )
 
  > [!NOTE]  
   > If a database for which backup was already configured is failing with **UserErrorMissingDBPermissions** Please refer to this [troubleshooting guide](backup-azure-database-postgresql-troubleshoot.md) for assistance in resolving the issue.
@@ -156,7 +183,7 @@ Create new server with a name of your choice. Enter the Host name/address name s
 
 Ensure that you add the _current client ID address_ to the Firewall rules for the connection to go through.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="Screenshot showing the process to add the current client I D address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png" alt-text="Screenshot showing the process to add the current client ID address to the Firewall rules." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules.png":::
 
 You can add new databases and database users to the server. For database users, add a new **Login/Group Roles**’. Ensure **Can login?** is set to **Yes**.
 

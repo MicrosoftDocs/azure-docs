@@ -1,9 +1,9 @@
 ---
 title: Cloud feature availability for commercial and US Government customers
 description: This article describes security feature availability in Azure and Azure Government clouds
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
+ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
@@ -103,7 +103,7 @@ For more information, see the [Azure Information Protection product documentatio
 |---------|---------|---------|---------|
 |**Administration**     |         |         | |
 |- [PowerShell for RMS service administration](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
-|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/)      |         |         |         |
+|- [PowerShell for AIP UL client bulk operations](/powershell/azure/aip/overview)      |         |         |         |
 |**SDK**     |         |         |         |
 |- [MIP and AIP Software Development Kit (SDK)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
 |**Customizations**     |         |         |         |
@@ -314,7 +314,6 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [SYSLOG Server (LEEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
 | [SYSLOG Server (Object)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
 | [SYSLOG Server (Text Message)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [Web callback (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### For device builders
 

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-java, devx-track-extended-azdevcli
-ms.date: 03/04/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
@@ -608,14 +608,7 @@ You'll be prompted to confirm the deletion of the resources. Enter `y` to confir
 
 ::: zone-end
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using Java.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
-
-- To learn more, see the [Azure Blob Storage client libraries for Java](/java/api/overview/azure/storage-blob-readme).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for Java developers](/azure/developer/java/sdk/overview).
+> [Azure Storage samples and developer guides for Java](../common/storage-samples-java.md?toc=/azure/storage/blobs/toc.json)

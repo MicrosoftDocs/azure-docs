@@ -2,10 +2,10 @@
 title: Import and export device identities
 titleSuffix: Azure IoT Hub
 description: Use the Azure IoT service SDK to import and export device identities so that you can create, update, and delete device identities in bulk.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 01/25/2024
 ms.custom: devx-track-csharp, references_regions
@@ -36,6 +36,8 @@ Identity registry operations use the job system when the operation:
 * Returns a large amount of data to the user.
 
 Instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a job for that IoT hub. The operation then immediately returns a **JobProperties** object.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 The following C# code snippet shows how to create an export job:
 

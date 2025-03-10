@@ -3,83 +3,157 @@ items:
   displayName: functions library
   href: /azure/data-explorer/kusto/functions-library/functions-library?context=/azure/synapse-analytics/context/context
 - name: bartlett_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/bartlett-test-fl?context=/azure/synapse-analytics/context/context
 - name: binomial_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/binomial-test-fl?context=/azure/synapse-analytics/context/context
 - name: comb_fl()
-  displayName: functions library
+  displayName: functions library, statistics
   href: /azure/data-explorer/kusto/functions-library/comb-fl?context=/azure/synapse-analytics/context/context
 - name: factorial_fl()
-  displayName: functions library
+  displayName: functions library, statistics
   href: /azure/data-explorer/kusto/functions-library/factorial-fl?context=/azure/synapse-analytics/context/context
+- name: geoip_fl()
+  displayName: functions library, geographic, ip, country, state, city, longitude,
+    latitude
+  href: /azure/data-explorer/kusto/functions-library/geoip-fl?context=/azure/synapse-analytics/context/context
+- name: get_packages_version_fl()
+  displayName: functions library, python, version, package
+  href: /azure/data-explorer/kusto/functions-library/get-packages-version-fl?context=/azure/synapse-analytics/context/context
 - name: kmeans_fl()
-  displayName: functions library
+  displayName: functions library, clustering, K-Means
   href: /azure/data-explorer/kusto/functions-library/kmeans-fl?context=/azure/synapse-analytics/context/context
 - name: ks_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/ks-test-fl?context=/azure/synapse-analytics/context/context
 - name: normality_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/normality-test-fl?context=/azure/synapse-analytics/context/context
 - name: levene_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/levene-test-fl?context=/azure/synapse-analytics/context/context
+- name: log_reduce_fl()
+  displayName: functions library, log reduce, log parse, clustering, text analytics
+  href: /azure/data-explorer/kusto/functions-library/log-reduce-fl?context=/azure/synapse-analytics/context/context
+- name: log_reduce_full_fl()
+  displayName: functions library, log reduce, log parse, clustering, text analytics
+  href: /azure/data-explorer/kusto/functions-library/log-reduce-full-fl?context=/azure/synapse-analytics/context/context
+- name: log_reduce_predict_fl()
+  displayName: functions library, log reduce, log parse, clustering, text analytics
+  href: /azure/data-explorer/kusto/functions-library/log-reduce-predict-fl?context=/azure/synapse-analytics/context/context
+- name: log_reduce_predict_full_fl()
+  displayName: functions library, log reduce, log parse, clustering, text analytics
+  href: /azure/data-explorer/kusto/functions-library/log-reduce-predict-full-fl?context=/azure/synapse-analytics/context/context
+- name: log_reduce_train_fl()
+  displayName: functions library, log reduce, log parse, clustering, text analytics
+  href: /azure/data-explorer/kusto/functions-library/log-reduce-train-fl?context=/azure/synapse-analytics/context/context
 - name: mann-whitney-u-test-fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/mann-whitney-u-test-fl?context=/azure/synapse-analytics/context/context
+- name: pair_probabilities_fl()
+  displayName: functions library, jaccard, lift
+  href: /azure/data-explorer/kusto/functions-library/pair-probabilities-fl?context=/azure/synapse-analytics/context/context
+- name: pairwise_dist_fl()
+  displayName: functions library, multivariate, distance, anomaly, pairwise
+  href: /azure/data-explorer/kusto/functions-library/pairwise-dist-fl?context=/azure/synapse-analytics/context/context
+- name: percentiles_linear_fl()
+  displayName: functions library, percentile, rank, statistics
+  href: /azure/data-explorer/kusto/functions-library/percentiles-linear-fl?context=/azure/synapse-analytics/context/context
 - name: perm_fl()
-  displayName: functions library
+  displayName: functions library, statistics
   href: /azure/data-explorer/kusto/functions-library/perm-fl?context=/azure/synapse-analytics/context/context
+- name: plotly_anomaly_fl()
+  displayName: functions library, Plotly, anomaly, chart, render
+  href: /azure/data-explorer/kusto/functions-library/plotly-anomaly-fl?context=/azure/synapse-analytics/context/context
+- name: plotly_scatter3d_fl()
+  displayName: functions library, Plotly, scatter, chart, render
+  href: /azure/data-explorer/kusto/functions-library/plotly-scatter3d-fl?context=/azure/synapse-analytics/context/context
 - name: predict_fl()
-  displayName: functions library
+  displayName: functions library, score, classify
   href: /azure/data-explorer/kusto/functions-library/predict-fl?context=/azure/synapse-analytics/context/context
 - name: predict_onnx_fl()
-  displayName: functions library
+  displayName: functions library, score, classify
   href: /azure/data-explorer/kusto/functions-library/predict-onnx-fl?context=/azure/synapse-analytics/context/context
 - name: quantize_fl()
-  displayName: functions library
+  displayName: functions library, binning
   href: /azure/data-explorer/kusto/functions-library/quantize-fl?context=/azure/synapse-analytics/context/context
+- name: series_clean_anomalies_fl()
+  displayName: functions library, anomalies, outliers
+  href: /azure/data-explorer/kusto/functions-library/series-clean-anomalies-fl?context=/azure/synapse-analytics/context/context
+- name: series_cosine_similarity_fl()
+  displayName: functions library, embedding, vector, cosine, similarity
+  href: /azure/data-explorer/kusto/functions-library/series-cosine-similarity-fl?context=/azure/synapse-analytics/context/context
 - name: series_dbl_exp_smoothing_fl()
-  displayName: functions library
+  displayName: functions library, exponential, filter, low-pass
   href: /azure/data-explorer/kusto/functions-library/series-dbl-exp-smoothing-fl?context=/azure/synapse-analytics/context/context
 - name: series_dot_product_fl()
-  displayName: functions library
+  displayName: functions library, inner product, scalar product
   href: /azure/data-explorer/kusto/functions-library/series-dot-product-fl?context=/azure/synapse-analytics/context/context
 - name: series_downsample_fl()
-  displayName: functions library
+  displayName: functions library, subsampling, sub-sampling
   href: /azure/data-explorer/kusto/functions-library/series-downsample-fl?context=/azure/synapse-analytics/context/context
 - name: series_exp_smoothing_fl()
-  displayName: functions library
+  displayName: functions library, exponential, filter, low-pass
   href: /azure/data-explorer/kusto/functions-library/series-exp-smoothing-fl?context=/azure/synapse-analytics/context/context
 - name: series_fit_lowess_fl()
-  displayName: functions library
+  displayName: functions library, filter, low-pass, smoothing, regression
   href: /azure/data-explorer/kusto/functions-library/series-fit-lowess-fl?context=/azure/synapse-analytics/context/context
 - name: series_fit_poly_fl()
-  displayName: functions library
+  displayName: functions library, filter, low-pass, smoothing, regression
   href: /azure/data-explorer/kusto/functions-library/series-fit-poly-fl?context=/azure/synapse-analytics/context/context
 - name: series_fbprophet_forecast_fl()
-  displayName: functions library, prophet algorithm, predict
+  displayName: functions library
   href: /azure/data-explorer/kusto/functions-library/series-fbprophet-forecast-fl?context=/azure/synapse-analytics/context/context
 - name: series_metric_fl()
-  displayName: functions library
+  displayName: functions library, PromQL, Prometheus
   href: /azure/data-explorer/kusto/functions-library/series-metric-fl?context=/azure/synapse-analytics/context/context
+- name: series_lag_fl()
+  displayName: functions library, filter, time shift, delay
+  href: /azure/data-explorer/kusto/functions-library/series-lag-fl?context=/azure/synapse-analytics/context/context
+- name: series_monthly_decompose_anomalies_fl()
+  displayName: functions library, anomaly detection, monthly
+  href: /azure/data-explorer/kusto/functions-library/series-monthly-decompose-anomalies-fl?context=/azure/synapse-analytics/context/context
 - name: series_moving_avg_fl()
-  displayName: functions library
+  displayName: functions library, filter, low-pass, smoothing
   href: /azure/data-explorer/kusto/functions-library/series-moving-avg-fl?context=/azure/synapse-analytics/context/context
+- name: series_moving_var_fl()
+  displayName: functions library, filter, rolling, variance, standard deviation, std
+  href: /azure/data-explorer/kusto/functions-library/series-moving-var-fl?context=/azure/synapse-analytics/context/context
+- name: series_mv_ee_anomalies_fl()
+  displayName: functions library, anomaly detection, multivariate, elliptical envelope
+  href: /azure/data-explorer/kusto/functions-library/series-mv-ee-anomalies-fl?context=/azure/synapse-analytics/context/context
+- name: series_mv_if_anomalies_fl()
+  displayName: functions library, anomaly detection, multivariate, isolation forest
+  href: /azure/data-explorer/kusto/functions-library/series-mv-if-anomalies-fl?context=/azure/synapse-analytics/context/context
+- name: series_mv_oc_anomalies_fl()
+  displayName: functions library, anomaly detection, multivariate, one class svm,
+    support vector machines
+  href: /azure/data-explorer/kusto/functions-library/series-mv-oc-anomalies-fl?context=/azure/synapse-analytics/context/context
 - name: series_rate_fl()
-  displayName: functions library
+  displayName: functions library, PromQL, Prometheus
   href: /azure/data-explorer/kusto/functions-library/series-rate-fl?context=/azure/synapse-analytics/context/context
 - name: series_rolling_fl()
-  displayName: functions library
+  displayName: functions library, rolling, sliding
   href: /azure/data-explorer/kusto/functions-library/series-rolling-fl?context=/azure/synapse-analytics/context/context
+- name: series_shapes_fl()
+  displayName: functions library, shape, trend, jump, detect
+  href: /azure/data-explorer/kusto/functions-library/series-shapes-fl?context=/azure/synapse-analytics/context/context
+- name: series_uv_anomalies_fl()
+  displayName: functions library, anomaly detection, univariate
+  href: /azure/data-explorer/kusto/functions-library/series-uv-anomalies-fl?context=/azure/synapse-analytics/context/context
+- name: series_uv_change_points_fl()
+  displayName: functions library, anomaly detection, univariate, change point
+  href: /azure/data-explorer/kusto/functions-library/series-uv-change-points-fl?context=/azure/synapse-analytics/context/context
 - name: time_weighted_avg_fl()
-  displayName: functions library
+  displayName: functions library, binning
   href: /azure/data-explorer/kusto/functions-library/time-weighted-avg-fl?context=/azure/synapse-analytics/context/context
+- name: time_window_rolling_avg_fl()
+  displayName: functions library, rolling, sliding
+  href: /azure/data-explorer/kusto/functions-library/time-window-rolling-avg-fl?context=/azure/synapse-analytics/context/context
 - name: two_sample_t_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/two-sample-t-test-fl?context=/azure/synapse-analytics/context/context
 - name: wilcoxon_test_fl()
-  displayName: functions library
+  displayName: functions library, statistical test
   href: /azure/data-explorer/kusto/functions-library/wilcoxon-test-fl?context=/azure/synapse-analytics/context/context

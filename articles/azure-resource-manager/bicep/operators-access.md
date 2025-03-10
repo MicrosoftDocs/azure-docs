@@ -3,7 +3,7 @@ title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 02/12/2025
 ---
 
 # Bicep accessor operators
@@ -35,7 +35,7 @@ The following example gets an element in an array.
 var arrayVar = [
   'Coho'
   'Contoso'
-  'Fabrikan'
+  'Fabrikam'
 ]
 
 output accessorResult string = arrayVar[1]

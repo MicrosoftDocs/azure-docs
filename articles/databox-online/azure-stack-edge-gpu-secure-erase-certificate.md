@@ -4,8 +4,7 @@ description: Describes the process to erase data from an Azure Stack Edge device
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: alkohli

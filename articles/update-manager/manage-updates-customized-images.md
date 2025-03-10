@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 08/22/2024
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Manage updates for customized images

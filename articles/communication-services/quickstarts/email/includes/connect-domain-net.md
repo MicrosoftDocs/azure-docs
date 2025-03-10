@@ -13,10 +13,10 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
 - An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails. This domain must be fully verified before attempting to link it to the Communication Service resource.
-- An Azure Communication Services Resource. [Create a Communication Services Resources.](../../create-communication-resource.md)
+- An Azure Communication Services Resource. [Create a Communication Services Resources](../../create-communication-resource.md).
 - We're using a [service principal for authentication](/entra/identity-platform/howto-create-service-principal-portal). Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
@@ -45,7 +45,7 @@ ArmClient client = new ArmClient(new DefaultAzureCredential());
 
 Replace the `<subscription-id>`, `<resource-group-name>`, `<azure-communication-services-resource-name>`, and `<linked-domain-resource-id>` in the sample code.
 
-The linked domain resource ID should be in the following format. 
+Format the linked domain resource ID as follows: 
 
 ```
 /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Communication/emailServices/<email-service-name>/domains/<domain-name>

@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Deduce for identity verification 
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As an Azure AD B2C administrator, I want to integrate Deduce with Azure AD B2C authentication. I want to combat identity fraud and create a trusted user experience for my organization.
 ---

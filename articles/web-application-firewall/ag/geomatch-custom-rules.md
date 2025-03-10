@@ -1,12 +1,11 @@
 ---
 title: Azure Web Application Firewall (WAF) Geomatch custom rules
 description: This article is an overview of Web Application Firewall (WAF) geomatch custom rules on Azure Application Gateway.
-services: web-application-firewall
-ms.topic: article
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
+ms.topic: concept-article
 ms.date: 09/05/2023
-ms.author: victorh
 ---
 
 # Geomatch custom rules
@@ -19,7 +18,7 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 > Geo-filtering works based on mapping each request's IP address to a country or region. There might be some IP addresses in the data set that are not yet mapped to a country or region. To avoid accidentally blocking legitimate users, Application Gateway's WAF allows requests from unknown IP addresses.
 
 > [!IMPORTANT]
-> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country/region) captures IP addresses that are not yet mapped to a country or region in our dataset. This avoids false positives.
 
 ## Country/Region codes
 

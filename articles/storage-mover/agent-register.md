@@ -152,7 +152,7 @@ You can reference this Azure Resource Manager (ARM) resource when you want to as
 
 ### Azure Arc service
 
-The agent is also registered with the [Azure Arc service](../azure-arc/overview.md). Arc is used to assign and maintain an [Microsoft Entra managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
+The agent is also registered with the [Azure Arc service](/azure/azure-arc/overview). Arc is used to assign and maintain an [Microsoft Entra managed identity](../active-directory/managed-identities-azure-resources/overview.md) for this registered agent.
 
 Azure Storage Mover uses a system-assigned managed identity. A managed identity is a service principal of a special type that can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is also automatically removed.
 

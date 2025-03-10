@@ -105,10 +105,8 @@
             displayName: TypeScript, quickstart, get started, Flex Consumption plan
             href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
-          items:
-          - name: Visual Studio Code
-            displayName: Go, Rust, quickstart, get started
-            href: create-first-function-vs-code-other.md
+          displayName: Go, Rust, quickstart, get started
+          href: create-first-function-vs-code-other.md   
         - name: Resource Manager
           items:
           - name: Bicep
@@ -117,14 +115,6 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-        - name: Azure Arc (preview)
-          items:
-            - name: Code-only publishing
-              displayName: Arc, container, Kubernetes
-              href: create-first-function-arc-cli.md
-            - name: Custom container
-              displayName: Arc, container, Kubernetes, Docker
-              href: create-first-function-arc-custom-container.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -346,7 +336,7 @@
       items:
         - name: Consumption plan
           href: consumption-plan.md
-        - name: Flex Consumption plan (preview)
+        - name: Flex Consumption plan
           href: flex-consumption-plan.md
         - name: Premium plan
           href: functions-premium-plan.md
@@ -383,12 +373,8 @@
           displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
-        - name: Use binding return values
-          href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
-        - name: Binding definitions for Python v2
-          href: functions-bindings-triggers-python.md
     - name: Frameworks
       items:
         - name: Express.js
@@ -451,6 +437,8 @@
         - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
         - name: Python worker extensions
           href: develop-python-worker-extensions.md
         - name: Scale and performance recommendations
@@ -526,13 +514,11 @@
                 - name: Azure portal
                   href: functions-integrate-storage-queue-output-binding.md
                 - name: Visual Studio Code
-                  href: ./functions-add-output-binding-storage-queue-vs-code.md
+                  href: functions-add-output-binding-storage-queue-vs-code.md
                 - name: Visual Studio
-                  href: ./functions-add-output-binding-storage-queue-vs.md
-                - name: Java
-                  href: functions-add-output-binding-storage-queue-java.md
-                - name: Python
-                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+                  href: functions-add-output-binding-storage-queue-vs.md
+                - name: Command line
+                  href: functions-add-output-binding-storage-queue-cli.md
         - name: Debug
           items:
             - name: Debug local PowerShell functions
@@ -597,8 +583,8 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Move across regions
-          href: functions-move-across-regions.md
+        - name: Relocate to another region
+          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
     - name: Migrate
@@ -839,6 +825,20 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure Database for MySQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-mysql.md
+              displayName: Azure Database for MySQL
+            - name: Input
+              href: functions-bindings-azure-mysql-input.md
+              displayName: Azure Database for MySQL
+            - name: Output
+              href: functions-bindings-azure-mysql-output.md
+              displayName: Azure Database for MySQL
+            - name: Trigger
+              href: functions-bindings-azure-mysql-trigger.md
+              displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:
             - name: Overview

@@ -6,12 +6,12 @@ description: A list of the error codes that can be returned by the Azure Active 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the possible error codes and their meanings, so that I can handle them appropriately and provide a better user experience.

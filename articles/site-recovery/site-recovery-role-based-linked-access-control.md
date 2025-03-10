@@ -2,9 +2,9 @@
 title: Manage Azure role-based access control in Azure Site Recovery
 description: This article describes how to apply Azure role-based access control (Azure RBAC) to manage Azure Site Recovery access.
 ms.service: azure-site-recovery
-ms.date: 04/08/2019
+ms.date: 12/28/2024
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: overview
 ms.author: ankitadutta
 
 ---
@@ -40,6 +40,7 @@ A user needs the following permissions to complete replication of a new virtual 
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
+|  |  | Microsoft.compute/disks/delete |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
 |  | Classic | Microsoft.ClassicCompute/domainNames/read |
@@ -57,11 +58,11 @@ A user needs the following permissions to complete replication of a new virtual 
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Classic | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | microsoft.storage/storageaccounts/write |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Classic | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Resource Group | Resource Manager | Microsoft.Resources/deployments/* |
+| Resource Group | Resource Manager | Microsoft.RecoveryServices/register/action |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.

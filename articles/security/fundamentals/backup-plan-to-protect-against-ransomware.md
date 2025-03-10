@@ -1,13 +1,13 @@
 ---
 title: Azure backup and restore plan to protect against ransomware | Microsoft Docs
 description: Learn what to do before and during a ransomware attack to protect your critical business systems and ensure a rapid recovery of business operations.
-author: TerryLanfear
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
-ms.date: 06/27/2024
+ms.date: 10/16/2024
 ---
 
 # Backup and restore plan to protect against ransomware
@@ -134,8 +134,8 @@ Apply these best practices during an attack.
 | Task | Detail |
 | --- | --- |
 | Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts may be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[The Microsoft Incident Response team](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. Microsoft Incident Response engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). The focus of this team during a ransomware attack is to restore authentication service and limit the impact of ransomware. <br><br>Microsoft Incident Response is part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/en-us/msservices/security) security service line. |
-| Contact your local or federal law enforcement agencies. | If you're in the United States, contact the FBI to report a ransomware breach using the [IC3 Complaint Referral Form](https://ransomware.ic3.gov/default.aspx). |
-| Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected computers and devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) or (for older clients) [Microsoft Security Essentials](https://www.microsoft.com/download/details.aspx?id=5201). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). |
+| Contact your local or federal law enforcement agencies. | If you're in the United States, contact the FBI to report a ransomware breach using the [IC3 Complaint Referral Form](https://www.ic3.gov/). |
+| Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected computers and devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). |
 | Restore business-critical systems first. Remember to validate again that your backup is good before you restore.| At this point, you don’t need to restore everything. Focus on the top five business-critical systems from your restore list. |
 | If you have offline backups, you can probably restore the encrypted data **after** you've removed the ransomware payload (malware) from your environment. | To prevent future attacks, ensure ransomware or malware is not on your offline backup before restoring. |
 | Identify a safe point-in-time backup image that is known not to be infected. <br><br>If you use Recovery Services vault, carefully review the incident timeline to understand the right point-in-time to restore a backup. | To prevent future attacks, scan backup for ransomware or malware before restoring. |
@@ -149,12 +149,12 @@ After a ransomware attack or an incident response simulation, take the following
 
 1. Identify lessons learned where the process didn't work well (and opportunities to simplify, accelerate, or otherwise improve the process)
 2. Perform root cause analysis on the biggest challenges (at enough detail to ensure solutions address the right problem — considering people, process, and technology)
-3. Investigate and remediate the original breach (engage the [Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
+1. Investigate and remediate the original breach (engage the [Microsoft Incident Response team (formerly DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
 4. Update your backup and restore strategy based on lessons learned and opportunities — prioritizing based on highest impact and quickest implementation steps first
 
 ## Next steps
 
-In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
+For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
 
 Key industry information:
 
@@ -178,9 +178,3 @@ Microsoft Defender XDR:
 
 - [Find ransomware with advanced hunting](/microsoft-365/security/defender/advanced-hunting-find-ransomware)
 
-Microsoft Security team blog posts:
-
-- [Becoming resilient by understanding cybersecurity risks: Part 4, navigating current threats (May 2021)](https://www.microsoft.com/security/blog/2021/05/26/becoming-resilient-by-understanding-cybersecurity-risks-part-4-navigating-current-threats/). See the Ransomware section
-- [Human-operated ransomware attacks: A preventable disaster (March 2020)](https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/). Includes attack chain analysis of actual human-operated ransomware attacks
-- [Ransomware response — to pay or not to pay? (December 2019)](https://www.microsoft.com/security/blog/2019/12/16/ransomware-response-to-pay-or-not-to-pay/)
-- [Norsk Hydro responds to ransomware attack with transparency (December 2019)](https://www.microsoft.com/security/blog/2019/12/17/norsk-hydro-ransomware-attack-transparency/)

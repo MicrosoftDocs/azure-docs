@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to understand the ASIM File Event normalization schema so that I can effectively monitor and analyze file activity across different systems.
+
 ---
 
 # The Advanced Security Information Model (ASIM) File Event normalization schema reference (Public preview)
@@ -180,7 +184,7 @@ The following fields represent information about the system initiating the file 
 | **SrcDvcIdType** | Conditional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For a list of allowed values and further information, refer to [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For a list of allowed values and further information, refer to [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 | <a name="srcsubscriptionid"></a>**SrcSubscriptionId** | Optional | String | The cloud platform subscription ID the source device belongs to. **SrcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. |
-| **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
+| **SrcGeoCountry** | Optional | Country | The country/region associated with the source IP address.<br><br>Example: `USA` |
 | **SrcGeoRegion** | Optional | Region | The region associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
 | **SrcGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the source IP address.<br><br>Example: `44.475833` |
@@ -199,7 +203,7 @@ The following fields represent information about the network session when the fi
 
 ### Target application fields
 
-The following fields represent information about the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using Saas (Software as a service) applications.  
+The following fields represent information about the destination application performing the file activity on behalf of the user. A destination application is usually related to over-the-network file activity, for example using SaaS (Software as a service) applications.  
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|

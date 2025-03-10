@@ -2,33 +2,32 @@
 title: Manage protection policy for resources
 description: In this article, you learn how to manage backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 11/19/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Manage backup and replication policies for your resources (preview)
+# Manage backup and replication policies for your resources
 
-Using Azure Business Continuity center (preview), you can centrally manage the lifecycle of your replication and backup protection policies for both Azure Backup or Azure Site Recovery.
+This article describes how to view your protection policies (backup and replication policies), and perform actions related to them using Azure Business Continuity center. 
 
-This tutorial shows you how to view your protection policies (backup and replication policies), and perform actions related to them using Azure Business Continuity center. 
+Using Azure Business Continuity center, you can centrally manage the lifecycle of your replication and backup protection policies for both Azure Backup or Azure Site Recovery.
 
 ## Prerequisites
 
-Before you start this tutorial:
-
-- Ensure you have the required resource permissions to view them in the ABC center.
+Before you start, ensure you have the required resource permissions to view them in the ABC center.
 
 ## View protection policies
 
 Use Azure Business Continuity center to view all your existing protection policies (backup and replication policies) from a single location and manage their lifecycle as needed.
 
-Follow these steps:
+To view the protection policies, follow these steps:
 
-1.	In the Azure Business Continuity center, select **Protection policies** under **Manage**. 
+1.	On **Business Continuity Center**, go to **Manage** > **Protection policies**. 
     In this view, you can see a list of all the backup and replication policies across subscription, resource groups, location, type etc. along with their properties. 
     
     :::image type="content" source="./media/manage-protection-policy/protection-policy.png" alt-text="Screenshot showing list of policies." lightbox="./media/manage-protection-policy/protection-policy.png":::

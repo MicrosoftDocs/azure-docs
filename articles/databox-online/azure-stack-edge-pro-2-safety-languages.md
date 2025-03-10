@@ -4,10 +4,9 @@ description: Describes the safety instructions in other languages to follow whil
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 12/05/2022
+ms.date: 09/27/2024
 ms.author: alkohli
 ---
 # Safety instructions for your Azure Stack Edge Pro 2 in other languages
@@ -18,7 +17,7 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 ## Safety instructions in Azure languages
 
-Use a locale code in the table below to create a URL for the article in a specific language.
+To create a URL for the article in a specific language, use a locale code in the following table.
 
 Examples:
  - English-language article using the *en* locale code: 
@@ -57,43 +56,43 @@ Examples:
 
 |Language in English |Code | Download PDF |
 |--------------------|-----|--------------|
-| Amharic             | am   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Amharic_RevA_5-25-2022.pdf)     |
-| Azerbaijani         | az   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Azerbaijani_RevA_5-25-2022.pdf) |
-| Bulgarian           | bg   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Bulgarian_RevA_5-25-2022.pdf)   |
-| Bengali             | bn   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Bengali_RevA_5-25-2022.pdf)     |
-| Bosnian             | bs   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Bosnian_RevA_5-25-2022.pdf)     |
-| Danish              | da   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Danish_RevA_5-25-2022.pdf)      |
-| Greek               | el   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Greek_RevA_5-25-2022.pdf)       |
-| Estonian            | et   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Estonian_RevA_5-25-2022.pdf)    |
-| Finnish             | fi   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Finnish_RevA_5-25-2022.pdf)     |
-| Hebrew              | he   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Hebrew_RevA_5-25-2022.pdf)      |
-| Hindi               | hi   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Hindi_RevA_5-25-2022.pdf)       |
-| Croatian            | hr   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Croatian_RevA_5-25-2022.pdf)    |
-| Hungarian           | hu   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Hungarian_RevA_5-25-2022.pdf)   |
-| Icelandic           | is   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Icelandic_RevA_5-25-2022.pdf)   |
-| Georgian            | ka   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Georgian_RevA_5-25-2022.pdf)    |
-| Lithuanian          | lt   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Lithuanian_RevA_5-25-2022.pdf)  |
-| Latvian             | lv   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Latvian_RevA_5-25-2022.pdf)     |
-| Macedonian          | mk   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Macedonian_RevA_5-25-2022.pdf)  |
-| Mongolian           | mn   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Mongolian_RevA_5-25-2022.pdf)   |
-| Malay               | ms   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Malay_RevA_5-25-2022.pdf)       |
-| Maltese             | mt   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Maltese_RevA_5-25-2022.pdf)     |
-| Norwegian Bokmål    | nb   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Norwegian_RevA_5-25-2022.pdf)   |
-| Nepali              | ne   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Nepali_RevA_5-25-2022.pdf)      |
-| Romanian            | ro   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Romanian_RevA_5-25-2022.pdf)    |
-| Slovak              | sk   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Slovak_RevA_5-25-2022.pdf)      |
-| Slovenian           | sl   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Slovenian_RevA_5-25-2022.pdf)   |
-| Montenegrin         | sr   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Montenegrin_RevA_5-25-2022.pdf) |
-| Serbian             | sr   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Serbian_RevA_5-25-2022.pdf)     |
-| Kiswahili           | sw   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Kiswahili_RevA_5-25-2022.pdf)   |
-| Thai                | th   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Thai_RevA_5-25-2022.pdf)        |
-| Turkmen             | tk   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Turkmen_RevA_5-25-2022.pdf)     |
-| Ukrainian           | uk   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Ukrainian_RevA_5-25-2022.pdf)   |
-| Urdu                | ur   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Urdu_RevA_5-25-2022.pdf)        |
-| Uzbek               | uz   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Uzbek_RevA_5-25-2022.pdf)       |
-| Vietnamese          | vi   | [Download PDF](https://asedocs.blob.core.windows.net/safety-documentation/MicrosoftAzureStackEdgePro2_SafetyGuide_Vietnamese_RevA_5-25-2022.pdf)  |
+| Amharic             | am   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Amharic_RevA_5-25-2022.pdf)     |
+| Azerbaijani         | az   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Azerbaijani_RevA_5-25-2022.pdf) |
+| Bulgarian           | bg   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Bulgarian_RevA_5-25-2022.pdf)   |
+| Bengali             | bn   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Bengali_RevA_5-25-2022.pdf)     |
+| Bosnian             | bs   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Bosnian_RevA_5-25-2022.pdf)     |
+| Danish              | da   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Danish_RevA_5-25-2022.pdf)      |
+| Greek               | el   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Greek_RevA_5-25-2022.pdf)       |
+| Estonian            | et   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Estonian_RevA_5-25-2022.pdf)    |
+| Finnish             | fi   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Finnish_RevA_5-25-2022.pdf)     |
+| Hebrew              | he   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Hebrew_RevA_5-25-2022.pdf)      |
+| Hindi               | hi   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Hindi_RevA_5-25-2022.pdf)       |
+| Croatian            | hr   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Croatian_RevA_5-25-2022.pdf)    |
+| Hungarian           | hu   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Hungarian_RevA_5-25-2022.pdf)   |
+| Icelandic           | is   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Icelandic_RevA_5-25-2022.pdf)   |
+| Georgian            | ka   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Georgian_RevA_5-25-2022.pdf)    |
+| Lithuanian          | lt   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Lithuanian_RevA_5-25-2022.pdf)  |
+| Latvian             | lv   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Latvian_RevA_5-25-2022.pdf)     |
+| Macedonian          | mk   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Macedonian_RevA_5-25-2022.pdf)  |
+| Mongolian           | mn   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Mongolian_RevA_5-25-2022.pdf)   |
+| Malay               | ms   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Malay_RevA_5-25-2022.pdf)       |
+| Maltese             | mt   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Maltese_RevA_5-25-2022.pdf)     |
+| Norwegian Bokmål    | nb   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Norwegian_RevA_5-25-2022.pdf)   |
+| Nepali              | ne   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Nepali_RevA_5-25-2022.pdf)      |
+| Romanian            | ro   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Romanian_RevA_5-25-2022.pdf)    |
+| Slovak              | sk   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Slovak_RevA_5-25-2022.pdf)      |
+| Slovenian           | sl   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Slovenian_RevA_5-25-2022.pdf)   |
+| Montenegrin         | sr   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Montenegrin_RevA_5-25-2022.pdf) |
+| Serbian             | sr   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Serbian_RevA_5-25-2022.pdf)     |
+| Kiswahili           | sw   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Kiswahili_RevA_5-25-2022.pdf)   |
+| Thai                | th   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Thai_RevA_5-25-2022.pdf)        |
+| Turkmen             | tk   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Turkmen_RevA_5-25-2022.pdf)     |
+| Ukrainian           | uk   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Ukrainian_RevA_5-25-2022.pdf)   |
+| Urdu                | ur   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Urdu_RevA_5-25-2022.pdf)        |
+| Uzbek               | uz   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Uzbek_RevA_5-25-2022.pdf)       |
+| Vietnamese          | vi   | [Download PDF](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/AzureStackEdgePro2Safety/MicrosoftAzureStackEdgePro2_SafetyGuide_Vietnamese_RevA_5-25-2022.pdf)  |
 
 ## Next steps
 
 - Review the [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-pro-2-system-requirements.md).
-- [Prepare to deploy Azure Stack Edge Pro 2 device](azure-stack-edge-pro-2-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro 2 device](azure-stack-edge-pro-2-deploy-prep.md).

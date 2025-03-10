@@ -3,11 +3,11 @@ title: Azure Active Directory B2C global identity framework proof of concept for
 description: Learn how to create a proof of concept regional based approach for Azure AD B2C to provide customer identity and access management for global customers.
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 01/24/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer implementing Azure Active Directory B2C, and I want to configure region-based sign-up, sign-in, and password reset journeys. My goal is for users to be directed to the correct region and their data managed accordingly.
 ---
@@ -128,7 +128,7 @@ The response should be an HTTP 200 with the users registered region and objectId
 
 ```json
 {
-  "objectId": "460f9ffb-8b6b-458d-a5a4-b8f3a6816fc2",
+  "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "region": "APAC"  
 }
 ```
@@ -149,7 +149,7 @@ Authorization Bearer: <token>
 Content-Type: application/json
 
 {
-  "objectId": "460f9ffb-8b6b-458d-a5a4-b8f3a6816fc2",
+  "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "password": "some!strong123STRING"
 }
 
@@ -335,7 +335,7 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
             <Item Key="AllowInsecureAuthInProduction">true</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="apac_client_id" PartnerClaimType="client_id" DefaultValue="cf3f6898-9a79-426a-ba16-10e1a377c843" />
+            <InputClaim ClaimTypeReferenceId="apac_client_id" PartnerClaimType="client_id" DefaultValue="00001111-aaaa-2222-bbbb-3333cccc4444" />
             <InputClaim ClaimTypeReferenceId="ropc_grant_type" PartnerClaimType="grant_type" DefaultValue="password" />
             <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="username" />
             <InputClaim ClaimTypeReferenceId="password" />

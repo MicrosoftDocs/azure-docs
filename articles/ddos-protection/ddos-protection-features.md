@@ -4,7 +4,7 @@ description: Learn Azure DDoS Protection features
 services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/17/2024
 ms.author: abell
 ---
@@ -38,7 +38,7 @@ The complexity of attacks (for example, multi-vector DDoS attacks) and the appli
 
 ## DDoS Protection telemetry, monitoring, and alerting
 
-Azure DDoS Protection exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection exposes rich telemetry via [Azure Monitor](/azure/azure-monitor/overview). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ### Azure DDoS Protection mitigation policies
 

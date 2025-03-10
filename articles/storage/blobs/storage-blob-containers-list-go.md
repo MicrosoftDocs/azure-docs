@@ -39,7 +39,7 @@ To list containers in a storage account, call the following method:
 
 This method returns a [Pager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime#Pager), which allows your app to process one page of results at a time. Containers are ordered lexicographically by name.
 
-You can specify options for listing containers by using the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct. This struct includes fields for managing the number of results, filtering by prefix, and including container information using[ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude).
+You can specify options for listing containers by using the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct. This struct includes fields for managing the number of results, filtering by prefix, and including container information using [ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude).
 
 ### Manage how many results are returned
 

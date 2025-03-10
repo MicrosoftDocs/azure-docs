@@ -15,26 +15,21 @@ ms.custom: references_regions
 
 In this article, you learn how to monitor and alert with Azure Load Balancer health event logs. These logs can help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. The health event logs are provided through the Azure Monitor resource log category *LoadBalancerHealthEvent*.
 
-[!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
-
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - An Azure Load Balancer resource. To learn how to create a Load Balancer resource, see [Quickstart: Create a public Standard Load Balancer](./quickstart-load-balancer-standard-public-portal.md).
-- An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+- An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Configuring diagnostic settings to collect LoadBalancerHealthEvent logs
 
 In this section, you learn configure diagnostic settings to collect LoadBalancerHealthEvent logs and store the logs in a log analytics workspace. 
 
 > [!IMPORTANT]
-> We recommend sending your logs to a Log Analytics workspace, which will enable you to control access, log data retention and archive settings, and more. To learn more about configuring Log Analytics workspaces, see [Log Analytics workspace overview - Azure Monitor](../azure-monitor/logs/log-analytics-workspace-overview.md).
+> We recommend sending your logs to a Log Analytics workspace, which will enable you to control access, log data retention and archive settings, and more. To learn more about configuring Log Analytics workspaces, see [Log Analytics workspace overview - Azure Monitor](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 1. In the Azure portal, navigate to your load balancer resource.
 1. From your load balancer resource's **Overview** page, choose  **Monitoring** > **Diagnostic settings**.
-   
-   :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/add-diagnostic-settings.png" alt-text="Screenshot of diagnostic settings window in Azure portal.":::
-
 1. Select **+ Add diagnostic setting**.
 1. In the **Diagnostic setting** window, select or enter the following settings:
    
@@ -62,12 +57,12 @@ In this section, you learn how to query LoadBalancerHealthEvent logs in a Log An
 
 1. In the Azure portal, navigate to your load balancer resource.
 1. From your load balancer resource’s **Overview** page, choose  **Monitoring** > **Logs**.
-3. In the **Queries** window, enter **Latest SNAT Port** in the search bar.
-4. From the results, select **Load to editor** under **Latest SNAT Port Exhaustion per LB Frontend**.
+1. In the **Queries** window, enter **Latest SNAT Port** in the search bar.
+1. From the results, select **Load to editor** under **Latest SNAT Port Exhaustion per LB Frontend**.
    
    :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/search-queries.png" alt-text="Screenshot of Queries window performing search for built-in query.":::
 
-5. The following code is displayed in the query editor:
+1. The following code is displayed in the query editor:
 
     ```kusto
         // Latest Snat Port Exhaustion Per LB Frontend 
@@ -79,11 +74,10 @@ In this section, you learn how to query LoadBalancerHealthEvent logs in a Log An
     ```
     :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/view-snat-query.png" alt-text="Screenshot of query editor with SNAT port exhaustion kusto query.":::
 
-6. Select **Run** to execute the query.
+1. Select **Run** to execute the query.
 1. If you want to modify and save the query, make your query changes and select **Save**>**Save as query**.
 1. In the **Save a query** window, enter a name for the query, other optional information, and select **Save**.
 
-    :::image type="content" source="media/monitor-alert-load-balancer-health-event-logs/save-snat-query.png" alt-text="Screenshot of Save a query window.":::
 
 ## Create alerts based on LoadBalancerHealthEvent logs
 

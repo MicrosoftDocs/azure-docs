@@ -2,13 +2,13 @@
 title: Shared responsibility in the cloud - Microsoft Azure
 description: "Understand the shared responsibility model and which security tasks are handled by the cloud provider and which tasks are handled by you."
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/28/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 # Shared responsibility in the cloud

@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 05/15/2024
-ms.custom: engagement-fy24
+ms.date: 02/04/2025
+ms.custom: engagement-fy25
 ---
 
 # Provide server credentials to discover software inventory, dependencies, web apps, and SQL Server instances and databases
@@ -16,10 +16,7 @@ Follow this article to learn how to add multiple server credentials on the appli
 
 The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment to discover on-premises servers and send server configuration and performance metadata to Azure. The appliance can also be used to perform software inventory, agentless dependency analysis and discover of web app, and SQL Server instances and databases.
 
-> [!Note]
-> Currently, the discovery of ASP.NET web apps is only available in the appliance used for discovery and assessment of servers running in a VMware environment.
-
-If you want to use these features, you can provide server credentials by performing the following steps. For servers running on vCenter Server(s) and Hyper-V host(s)/cluster(s), the appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
+If you want to use these features, you can provide server credentials by performing the following steps. For servers running on vCenter Servers and Hyper-V hosts/clusters, the appliance will attempt to automatically map the credentials to the servers to perform the discovery features.
 
 ## Add server credentials
 
@@ -66,6 +63,6 @@ Feature | Windows credentials | Linux credentials
 
 ## Next steps
 
-- [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md#provide-server-credentials).
+- [Steps to add credentials in VMware appliance](./tutorial-discover-vmware.md?context=/azure/migrate/context/migrate-context#provide-server-credentials).
 - [Steps to add credentials in Hyper-V appliance](tutorial-discover-hyper-v.md#provide-server-credentials).
 - [Steps to add credentials in physical appliance](tutorial-discover-physical.md#start-continuous-discovery). 

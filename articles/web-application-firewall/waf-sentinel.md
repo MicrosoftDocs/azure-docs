@@ -2,10 +2,10 @@
 title: Using Microsoft Sentinel with Azure Web Application Firewall 
 description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF)
 services: web-application-firewall
-author: TreMansdoerfer
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.date: 06/19/2023
-ms.author: victorh
 ms.topic: how-to
 ---
 
@@ -100,4 +100,4 @@ The automation section of these rules can help you automatically respond to the 
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

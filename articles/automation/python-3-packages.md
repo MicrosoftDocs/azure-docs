@@ -3,8 +3,8 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages  in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2023
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
 ---
@@ -96,12 +96,12 @@ You can import a Python 3.8 package and its dependencies by importing the follow
 
 #### [System assigned managed identity](#tab/sa-mi)
 
-```cmd
+```
 https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py
 ```
 
 #### [User assigned managed identity](#tab/ua-mi)
-```cmd
+```python
 import requests
 import sys
 import pip
@@ -167,14 +167,14 @@ def make_temp_dir():
     return destdir
 
 def import_package_with_dependencies (packagename):
-    # download package with all depeendencies
+    # download package with all dependencies
     download_dir = make_temp_dir()
     pip.main(['download', '-d', download_dir, packagename])
     for file in os.listdir(download_dir):
         pkgname = get_packagename_from_filename(file)
         download_uri_for_file = resolve_download_url(pkgname, file)
         send_webservice_import_module_request(pkgname, download_uri_for_file)
-        # Sleep a few seconds so we don't send too many import requests https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#automation-limits
+        # Sleep a few seconds so we don't send too many import requests https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-automation-limits
         time.sleep(10)
 
 if __name__ == '__main__':

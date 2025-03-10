@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Blob backup and restore issues
-description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to Blob backup and restore.
+description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 07/24/2024
+ms.date: 02/24/2025
 ms.service: azure-backup
 ms.reviewer: geg
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -79,7 +79,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The required setting PITR is disabled on storage account.
 
-**Recommendation**: Enable that the point-in-restore setting on the storage account. [Learn more](../storage/blobs/point-in-time-restore-manage.md?tabs=portal#enable-and-configure-point-in-time-restore).
+**Recommendation**: Enable that the point-in-time restore setting on the storage account. [Learn more](../storage/blobs/point-in-time-restore-manage.md?tabs=portal#enable-and-configure-point-in-time-restore).
 
 ### UserErrorImmutabilityPolicyConfigured
 
@@ -151,15 +151,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: Incorrect containers selected for operation.
 
-**Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend to re-trigger the operation after modifying the protected container list using the edit backup instance option.
-
-### UserErrorCrossTenantOrsPolicyDisabled
-
-**Error code**: `UserErrorCrossTenantOrsPolicyDisabled`
-
-**Error message**: Cross tenant object replication policy disabled.
-
-**Recommendation**: Enable cross-tenant object replication policy on storage account and trigger the operation again. To check this, go to the *storage account* > **Object replication** > **Advanced settings**, and ensure that the checkbox is enabled.
+**Recommendation**: This error may occur if one or more containers included in the scope of protection no longer exist in the protected storage account. We recommend you to re-trigger the operation after modifying the protected container list using the edit backup instance option.
 
 ### UserErrorPitrRestoreInProgress
 
@@ -168,3 +160,236 @@ This article provides troubleshooting information to address issues you encounte
 **Error message**: The operation can't be performed while a restore is in progress on the source account. 
 
 **Recommendation**: You need to retrigger the operation once the in-progress restore completes. 
+
+### UserErrorMaxConcurrentOperationLimitReached
+
+**Error code**: `UserErrorMaxConcurrentOperationLimitReached`
+
+**Error message**: The operation can't start because the number of allowed concurrent operations has reached the maximum limit.
+
+**Cause**: This error appears due to the following reasons:
+
+- A backup job is already in progress and another one is triggered (either scheduled or ad hoc).
+- A long-running backup is in progress; it might be caused by a large account with a high number of blobs and versions. The initial backup (IR) takes longer depending on the account size, number of blobs, and versions.
+
+**Recommended action**: To resolve the error, follow these steps:
+
+- Wait for the ongoing operation(s) to complete before starting a new one.
+- To reduce the backup duration, consider cleaning up older versions using an appropriate Lifecycle Management (LCM) policy.
+
+### UserErrorConflictingFeatureEnabled
+
+**Error code**: `UserErrorConflictingFeatureEnabled`
+
+**Error message**: **Permanent delete** is a conflicting job for point-in-time-restore, which is blocking protection/backup.
+        
+**Recommended action**: Disable the conflicting job (such as **Permanent delete**) on the storage account and retry the operation. 
+
+### UserErrorSelectedContainerPartOfAnotherORPolicy
+
+**Error code**: `UserErrorSelectedContainerPartOfAnotherORPolicy`
+
+**Error message**: The selected container is present in another **Object replication policy**. A given container can be part of only one Object replication policy at a time.
+
+**Cause**: This error might appear due to the following scenarios:
+
+- The container in use is a part of the Object replication policy you created.
+- Protection is triggered for restored containers  for which the Object replication policy (that gets created in storage account during restore) cleanup has fail due to resource lock. 
+
+**Recommended action**: Remove the container from other Object replication policy or change protection intent.
+
+## Common errors for Azure Blob vaulted backup
+
+### UserErrorInvalidParameterInRequest 
+
+**Error code**: `UserErrorInvalidParameterInRequest`
+
+**Error message**: Request parameter is invalid.
+
+**Recommended action**: Retry the operation with valid inputs.
+
+
+### UserErrorRequestDisallowedByAzurePolicy
+
+**Error code**: `UserErrorRequestDisallowedByAzurePolicy`
+
+**Error message**: An Azure Policy is configured on the resource which is preventing the operation.
+
+**Recommended action**: Correct the policy and retry the operation.
+
+### LongRunningRestoreTrackingFailure
+
+**Error code**: `LongRunningRestoreTrackingFailure`
+
+
+**Error message**: Failed to track the long-running restore operation. The operation is still running and is expected to complete the restore of data.
+
+**Recommended action**: Track further progress of this operation using the storage account's activity log for Restore blob ranges operation.
+
+### LongRunningBackupTrackingFailure
+
+**Error code**: `LongRunningBackupTrackingFailure`
+
+**Error message**: Failed to track the long-running backup operation. The operation is still running and is expected to complete the backup of data.
+
+**Recommended action**: Track further progress of this operation using the storage account's activity log or check the blob replication status.
+
+### LongRunningOperationTrackingFailure
+
+**Error code**: `LongRunningOperationTrackingFailure`
+
+**Error message**: Failed to track the long-running operation. The operation is still running and is expected to complete.
+
+**Recommended action**: Track further progress on the operation in storage account activity log.
+
+### UserErrorVaultedBackupFeatureNotEnabled
+
+**Error code**: `UserErrorVaultedBackupFeatureNotEnabled`
+
+**Error message**: The subscription must be registered for the required features to use vaulted backup for blobs.
+
+**Recommended action**: Register your subscription for Microsoft.Storage/HardenBackup and Microsoft.DataProtection/BlobVaultedBackup.
+
+### ObjectReplicationPolicyCreationFailure
+
+**Error code**: `ObjectReplicationPolicyCreationFailure`
+
+**Error message**: Failed to create object replication policy on the storage account.
+
+**Recommended action**: Failed to create object replication policy. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
+
+### UserErrorRequiredStorageFeaturesDisabled 
+
+**Error code**: `UserErrorRequiredStorageFeaturesDisabled`
+
+**Error message**: The operation failed due to required storage feature(s) being disabled on the storage account.
+
+**Recommended action**: Enable required features for Azure backup on source Storage account.
+
+### UserErrorSelectedContainerPartOfAnotherORPolicy
+
+**Error code**: `UserErrorSelectedContainerPartOfAnotherORPolicy`
+
+**Error message**: The selected container is present in another Object replication policy. A given container can be part of only one OR policy at a time.
+
+**Recommended action**: The container from other OR policy. Or change protection intent.
+
+### UserErrorTooManyRestoreCriteriaGivenForBlobRestore
+
+**Error code**: `UserErrorTooManyRestoreCriteriaGivenForBlobRestore`
+
+**Error message**: The count of containers passed in the restore request exceeds the supported limit.
+
+**Recommended action**: Reduce the number of containers in item level restore request to adhere to the limit.
+	
+### UserErrorTooManyPrefixesGivenForBlobRestore 
+
+**Error code**: `UserErrorTooManyPrefixesGivenForBlobRestore `
+
+**Error message**: Restore operation failed as too many blob prefixes were given for a container
+
+**Recommended action**: Limit the number of blob prefixes to lower it on a per-container basis.
+
+### UserErrorStopProtectionNotSupportedForBlobOperationalBackup
+
+**Error code**: `UserErrorStopProtectionNotSupportedForBlobOperationalBackup`
+
+**Error message**: Stop protection is not supported for operational tier blob backups
+
+**Recommended action**: Operational tier blob backups cannot be stopped.up
+
+### UserErrorAzureStorageAccountManagementOperationLimitReached 
+
+**Error code**: `UserErrorAzureStorageAccountManagementOperationLimitReached`
+
+**Error message**: Requested operation failed due to throttling by the Azure service. Azure Storage account management list operations limit reached.
+
+**Recommended action&&: Wait for a few minutes and then try the operation again.
+
+### UserErrorBlobVersionDeletedDuringBackup 
+
+**Error code**: `UserErrorBlobVersionDeletedDuringBackup`
+
+**Error message**: The backup failed due to one or more blob versions getting deleted in the backup job duration.
+
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is 7 days.
+
+### UserErrorBlobVersionArchivedDuringBackup
+
+**Error code**: `UserErrorBlobVersionArchivedDuringBackup`
+
+**Error message**: The backup failed due to one or more blob versions moving to the archive tier in the backup job duration.
+
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is *7 days*.
+
+### UserErrorBlobVersionArchivedAndDeletedDuringBackup
+
+**Error code**: `UserErrorBlobVersionArchivedAndDeletedDuringBackup`
+
+**Error message**: The backup failed due to one or more blob versions moving to the archive tier or getting deleted in the backup job duration.
+
+**Recommended action**: We recommend you to avoid tampering with blob versions while a backup job is in  progress. Ensure the minimum retention configured for versions in the life cycle management policy is 7 days.
+
+### UserErrorContainerHasImmutabilityPolicyDuringRestore
+
+**Error code**: `UserErrorContainerHasImmutabilityPolicyDuringRestore` 
+
+**Error message**: One or more containers selected for the restore has an immutability policy.
+
+**Recommended action**: Remove the immutability policy from the container and retry the operation.
+
+### UserErrorArchivedRecoveryPointsRequestedForRestore
+
+**Error code**: `UserErrorArchivedRecoveryPointsRequestedForRestore`
+
+**Error message**: One or more containers selected for the restore have archived recovery points.
+
+**Recommended action**: Re-hydrate archived recovery points or remove containers with archived recovery points from request and retry the operation.
+
+### UserErrorObjectReplicationPolicyDeletionFailureOnRestoreTarget
+
+**Error code**: `UserErrorObjectReplicationPolicyDeletionFailureOnRestoreTarget`
+
+**Error message**: Failed to delete object replication policy on the restore target storage account.
+
+**Recommended action**: Check if a resource lock is preventing deletion. The restore has succeeded but the object replication policy created during restore operation was not cleaned up after restore completion. You must delete the policy to prevent issues in future restores.
+
+### UserErrorRestoreFailurePreviousObjectReplicationPolicyNotDeleted
+
+**Error code**: `UserErrorRestoreFailurePreviousObjectReplicationPolicyNotDeleted`
+
+**Error message**: Failed to restore the backup instance because an object replication policy from a previous restore is still on the restore target storage account
+
+**Recommended action**: Remove the old object replication policy from the restore target and retry.
+
+### UserErrorKeyVaultKeyWasNotFound
+
+**Error code**: `UserErrorKeyVaultKeyWasNotFound`
+
+**Error message**: Operation failed because key vault key is not found to unwrap the encryption key.
+
+**Recommended action**: Check the key vault settings.	
+
+### UserErrorInvalidResourceUriInRequest 
+
+**Error code**: `UserErrorInvalidResourceUriInRequest`
+
+**Error message**: Operation failed due to invalid Resource Uri in the request.
+
+**Recommended action**: Fix the Resource Uri format in the request object and trigger the operation again.
+
+### UserErrorDatasourceAndBackupVaultLocationMismatch
+
+**Error code**: `UserErrorDatasourceAndBackupVaultLocationMismatch`
+
+**Error message**: Operation failed because the datasource location is different from the Backup Vault location.
+
+**Recommended action**: Ensure that the datasource and the Backup Vault are in the same location.
+
+### LinkedAuthorizationFailed
+
+*Error code**: `LinkedAuthorizationFailed`
+
+**Error message**: The client [user name] with object ID has permissions to perform the required action [operation name] on scope [vault name], however, it does not have the required permissions to perform action(s) [operation name] on the linked scope [datasource name].
+
+**Recommended action**: Ensure that you have read access on the datasource associated with this backup instance to be able to trigger the restore operation. Once the required permissions are provided, retry the operation. 

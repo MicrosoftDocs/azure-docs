@@ -7,7 +7,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/27/2023
+ms.date: 12/04/2024
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -22,7 +22,7 @@ The Feature Management libraries also manage feature flag lifecycles behind the 
 
 The [Add feature flags to a Spring Boot app Quickstart](./quickstart-feature-flag-spring-boot.md) shows several ways to add feature flags in a Spring Boot application. This tutorial explains these methods in more detail.
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
@@ -44,8 +44,6 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
-### [Spring Boot 3](#tab/spring-boot-3)
-
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
@@ -57,36 +55,13 @@ The easiest way to connect your Spring Boot application to App Configuration is 
         <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>5.8.0</version>
+        <version>5.18.0</version>
         <type>pom</type>
         <scope>import</scope>
         </dependency>
     </dependencies>
 </dependencyManagement>
 ```
-
-### [Spring Boot 2](#tab/spring-boot-2)
-
-```xml
-<dependency>
-    <groupId>com.azure.spring</groupId>
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-</dependency>
-
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>spring-cloud-azure-dependencies</artifactId>
-        <version>4.14.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
----
 
 ## Feature flag declaration
 
@@ -199,7 +174,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries.  For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917). The reference documentation has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
 * [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

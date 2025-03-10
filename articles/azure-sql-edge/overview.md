@@ -3,7 +3,7 @@ title: What is Azure SQL Edge?
 description: Learn about Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
@@ -13,7 +13,9 @@ keywords:
 ---
 # What is Azure SQL Edge?
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and nonrelational data such as JSON, graph and time-series data, which makes it the right choice for various modern IoT applications.
@@ -74,7 +76,7 @@ Azure SQL Edge makes developing and maintaining applications easier and more pro
 - [Azure Data Studio](/azure-data-studio/what-is-azure-data-studio) - A free, downloadable, cross platform database tool for data professional using the Microsoft family of on-premises and cloud data platforms on Windows, macOS, and Linux.
 - [Visual Studio Code](https://code.visualstudio.com/docs) - A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure Synapse Analytics.
 
-## Next steps
+## Related content
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md)
 - [Machine Learning and Artificial Intelligence with SQL Edge](onnx-overview.md)

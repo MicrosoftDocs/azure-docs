@@ -1,10 +1,10 @@
 ---
 title: Monitor your backups with Backup Explorer
 description: This article describes how to use Backup Explorer to perform real-time monitoring of backups across vaults, subscriptions, regions, and tenants.
-ms.topic: conceptual
-ms.date: 02/03/2020
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.topic: how-to
+ms.date: 09/11/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitor your backups with Backup Explorer
@@ -46,31 +46,31 @@ Backup Explorer displays multiple tabs, each providing detailed information abou
 
 The **Summary** tab provides a quick glance at the overall condition of your backup estate. For example, you can view the number of items being protected, the number of items for which protection hasn't been enabled, or how many jobs were successful in the last 24 hours.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=885e788d-8344-4ff4-ad68-b3a2dcdc12c9]
 
 ### The Backup Items tab
 
 You can filter and view each of your backup items by subscription, vault, and other characteristics. By selecting the name of a backup item, you can open the Azure pane for that item. For example, from the table, you might observe that the last backup failed for item *X*. By selecting *X*, you can open the item's **Backup** pane, where you can trigger an on-demand backup operation.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f7c15d28-f48c-4766-adf5-96cd142ce830]
 
 ### The Jobs tab
 
 Select the **Jobs** tab to view the details of all the jobs that were triggered over the last 7 days. Here, you can filter by *Job Operation*, *Job Status*, and *Error Code* (for failed jobs).
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=bcf5de61-d5f2-4701-a8f1-438b4c3ca5c4]
 
 ### The Alerts tab
 
 Select the **Alerts** tab to view details of all alerts that were generated on your vaults over the last 7 days. You can filter alerts by type (*Backup Failure* or *Restore Failure*), current status (*Active* or *Resolved*), and severity (*Critical*, *Warning*, or *Information*). You can also select a link to go the Azure VM and take any necessary action.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=4dd33d0e-d6b4-4615-aabf-203723745526]
 
 ### The Policies tab
 
 You can select the **Policies** tab to view key information about all the backup policies that have been created across your backup estate. You can view the number of items associated with each policy, along with the retention range and backup frequency specified by the policy.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f00e4d2f-741f-4876-a03d-e9931d73669e]
 
 ### The Backup Not Enabled tab
 
@@ -78,7 +78,7 @@ Backup should be enabled for all machines that require protection. With Backup E
 
 The **Backup Not Enabled** pane displays a table with a list of unprotected machines. Your organization might assign different tags to production machines and test machines, or to machines that serve a variety of functions. Because each class of machines needs a separate backup policy, filtering by tags helps you view information that's specific to each. Selecting the name of any machine redirects you to that machine's **Configure Backup** pane, where you can choose to apply an appropriate backup policy.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=38679a96-fde7-4cdd-9b2c-290e0b7101c0]
 
 ## Export to Excel
 
@@ -90,7 +90,7 @@ You can select the "pin" icon at the top of each table or chart to pin it to you
 
 ## Cross-tenant views
 
-If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md).
+If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](/azure/lighthouse/overview).
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Troubleshooting Azure IoT Hub error codes
 description: Understand specific error codes and how to fix errors reported by Azure IoT Hub
-author: kgremban
+author: SoniaLopezBravo
 manager: lizross
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 04/04/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [mqtt, iot]
 ---
 

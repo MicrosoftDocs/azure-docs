@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics
@@ -17,7 +17,7 @@ ms.date: 10/20/2023
 
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory and Azure Synapse Analytics.
 
-To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse](../synapse-analytics/overview-what-is.md).
+To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse](../synapse-analytics/overview-what-is.md).
 
 ## Overview
 
@@ -27,7 +27,7 @@ Now, a **dataset** is a named view of data that simply points to or references t
 
 Before you create a dataset, you must create a **linked service** to link your data store to the Data Factory or Synapse Workspace. Linked services are much like connection strings, which define the connection information needed for the service to connect to external resources. Think of it this way: the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the service. An Azure Blob dataset represents the blob container and the folder within that Azure Storage account that contains the input blobs to be processed.
 
-Here is a sample scenario. To copy data from Blob storage to a SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that the service uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL Database to which the data is to be copied.
+Here's a sample scenario. To copy data from Blob storage to a SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that the service uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL Database to which the data is to be copied.
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in the service:
 
@@ -37,21 +37,21 @@ The following diagram shows the relationships among pipeline, activity, dataset,
 
 # [Azure Data Factory](#tab/data-factory)
 
-To create a new linked service in Azure Data Factory Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **New** to create a new linked service.
+To create a new linked service in Azure Data Factory Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **+ New** to create a new linked service.
 
 :::image type="content" source="media/concepts-linked-services/create-linked-service.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
 
-After selecting New to create a new linked service you will be able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+After selecting **+ New** to create a new linked service you can choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
 
 :::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
-To create a new linked service in Synapse Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **New** to create a new linked service.
+To create a new linked service in Synapse Studio, select the **Manage** tab and then **linked services**, where you can see any existing linked services you defined.  Select **+ New** to create a new linked service.
 
 :::image type="content" source="media/concepts-linked-services/create-linked-service-synapse.png" alt-text="Shows the Azure Data Factory studio Manage tab with linked services and the New button highlighted.":::
 
-After selecting New to create a new linked service you will be able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
+After selecting **+ New** to create a new linked service you are able to choose any of the supported connectors and configure its details accordingly.  Thereafter you can use the linked service in any pipelines you create.
 
 :::image type="content" source="media/concepts-linked-services/new-linked-service-window.png" alt-text="Shows the new linked service window.":::
 
@@ -113,15 +113,15 @@ Linked services can be created in the Azure Data Factory UX via the [management 
 
 You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), [Azure Resource Manager Template](quickstart-create-data-factory-resource-manager-template.md), and [Azure portal](quickstart-create-data-factory-portal.md).
 
-When creating a linked service, the user needs appropriate authorization to the designated service. If sufficient access is not granted, the user will not be able to see the available resources and will need to use manual entry option.
+When creating a linked service, the user needs appropriate authorization to the designated service. If sufficient access isn't granted, the user can't see the available resources and needs to use manual entry option.
 
 ## Data store linked services
 
-You can find the list of supported data stores in the [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Click a data store to learn the supported connection properties.
+You can find the list of supported data stores in the [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Select a data store to learn the supported connection properties.
 
 ## Compute linked services
 
-Reference [compute environments supported](compute-linked-services.md) for details about different compute environments you can connect to from your service as well as the different configurations.
+Reference [compute environments supported](compute-linked-services.md) for details about different compute environments you can connect to from your service and the different configurations.
 
 ## Related content
 

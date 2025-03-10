@@ -58,4 +58,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## See Also
 
 - See [Monitoring Azure Storage Actions](monitor-storage-tasks.md) for a description of monitoring Azure Storage Actions.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

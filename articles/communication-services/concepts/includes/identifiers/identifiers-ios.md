@@ -113,10 +113,10 @@ switch (communicationIdentifier)
         print(#"Communication user: \(communicationUser.id)"#)
     case let teamsUser as MicrosoftTeamsUserIdentifier:
         print(#"Teams user: \(teamsUser.UserId)"#)
+    case let teamsApp as MicrosoftTeamsAppIdentifier:
+        print(#"Teams app: \(teamsApp.appId)"#)
     case let phoneNumber as PhoneNumberIdentifier:
         print(#"Phone number: \(phoneNumber.PhoneNumber)"#)
-    case let bot as MicrosoftBotIdentifier:
-        print(#"Microsoft bot: \(bot.botId)"#)
     case let unknown as UnknownIdentifier:
         print(#"Unknown: \(unknown.Id)"#)
     @unknown default:

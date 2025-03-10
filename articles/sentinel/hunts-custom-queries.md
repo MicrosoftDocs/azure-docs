@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to create and edit custom hunting queries so that I can proactively identify and mitigate security threats specific to my organization's environment.
+
 ---
 
 # Create custom hunting queries in Microsoft Sentinel
@@ -71,7 +75,7 @@ Only queries that from a custom content source can be edited. Other content sour
 
 ## Related content
 
-- [KQL quick reference](/azure/data-explorer/kusto/query/kql-quick-reference?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
+- [KQL quick reference](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json)
 - [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md)
 - [Threat hunting in Microsoft Sentinel](hunting.md)
 - [Conduct end-to-end proactive threat hunting in Microsoft Sentinel](hunts.md)

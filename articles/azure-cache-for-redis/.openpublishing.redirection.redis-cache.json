@@ -251,13 +251,18 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
+          "source_path_from_root": "/articles/redis-cache/scripts/delete-cache.md",
+          "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+          "redirect_document_id": false
+       },
+        {
+            "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/redis-cache/scripts/show-cache.md",
-            "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+            "source_path_from_root": "/articles/azure-cache-for-redis/managed-redis/managed-redis-configure-role-based-access-control.md",
+            "redirect_url": "/azure/azure-cache-for-redis/managed-redis/managed-redis-entra-for-authentication",
             "redirect_document_id": false
         }
     ]

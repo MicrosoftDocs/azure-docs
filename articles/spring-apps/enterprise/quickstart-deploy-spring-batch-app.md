@@ -1,8 +1,9 @@
 ---
-title: Quickstart - Deploy your first Spring batch application to Azure Spring Apps
+title: Quickstart - Deploy Your First Spring Batch Application to Azure Spring Apps
 description: Describes how to deploy a Spring batch application to Azure Spring Apps.
 author: KarlErickson
-ms.author: v-muyaofeng
+ms.author: karler
+ms.reviewer: v-muyaofeng
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 05/21/2024
@@ -11,15 +12,11 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-
 
 # Quickstart: Deploy your first Spring Batch application to Azure Spring Apps
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
-
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This quickstart shows how to deploy a Spring Batch ephemeral application to Azure Spring Apps. The sample project is derived from the Spring Batch sample [Football Job](https://github.com/spring-projects/spring-batch/blob/main/spring-batch-samples/src/main/java/org/springframework/batch/samples/football/README.md). It's a statistics loading job. In the original sample, a unit test triggers the job. In the adapted sample, the `main` method of `FootballJobApplication` initiates the job.
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 The following diagram shows the architecture of the system:
 
@@ -162,7 +159,7 @@ Use the following steps to deploy the app:
 1. Go to the Azure Spring Apps instance you created, expand **Settings** in the navigation pane, and then select **Apps**.
 
 1. On the **Apps** pane, select **Create App** to open the **Create App** page.
-1. Set **App name** to *football-billboard*, select **Service Registry** on the **Bind** column, and then select **Create**.
+1. Set **App name** to **football-billboard**, select **Service Registry** on the **Bind** column, and then select **Create**.
 
    :::image type="content" source="media/quickstart-deploy-spring-batch-app/create-app.png" alt-text="Screenshot of the Azure portal that shows the Create App page with the App name and Bind fields highlighted." lightbox="media/quickstart-deploy-spring-batch-app/create-app.png":::
 
@@ -251,7 +248,7 @@ Use the following steps to create and execute the job:
 
 Use the following steps to create and execute the job:
 
-1. Use the following command navigate to the sample project folder from the *football-billboard* folder where you left off previously:
+1. Use the following command navigate to the sample project folder from the **football-billboard** folder where you left off previously:
 
    ```azurecli
    cd ..
@@ -378,7 +375,7 @@ Be sure to delete the resources you created in this article when you no longer n
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [clean-up-resources-via-resource-group](includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
+[!INCLUDE [clean-up-resources-via-resource-group](../basic-standard/includes/quickstart-deploy-web-app/clean-up-resources-via-resource-group.md)]
 
 ### [Azure CLI](#tab/Azure-CLI)
 

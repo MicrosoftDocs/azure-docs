@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Manually failover an Azure IoT hub
 description: Learn how to perform a manual failover of your IoT hub to a different region and then return it to the original region.
-author: kgremban
+author: SoniaLopezBravo
 manager: lizross
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 11/17/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
@@ -47,7 +47,7 @@ For more information about manual failover and Microsoft-initiated failover with
 
    :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="Screenshot showing IoT Hub properties pane.":::
 
-1. On the **Failover** pane, you see the **Current location** and the **Failover location** listed for your IoT hub. The current location always indicates the location in which the hub is currently active. The failover location is the standard [Azure geo-paired region](../availability-zones/cross-region-replication-azure.md) that is paired to the current location. You cannot change the location values.
+1. On the **Failover** pane, you see the **Current location** and the **Failover location** listed for your IoT hub. The current location always indicates the location in which the hub is currently active. The failover location is the standard [Azure geo-paired region](../reliability/cross-region-replication-azure.md) that is paired to the current location. You cannot change the location values.
 
 1. At the top of the **Failover** pane, select **Start failover**.
 

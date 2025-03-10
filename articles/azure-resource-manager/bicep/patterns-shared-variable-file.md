@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 07/28/2023
+ms.date: 09/26/2024
 ---
 
 # Shared variable file pattern

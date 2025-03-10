@@ -41,17 +41,20 @@ landingContent:
             url: oracle-db/database-overview.md
           - text: Onboard with Oracle Database@Azure
             url: oracle-db/onboard-oracle-database.md
-          - text: Network planning for Oracle Database@Azure
+          - text: Region availability
+            url: oracle-db/oracle-database-regions.md
+          - text: Network planning
             url: oracle-db/oracle-database-network-plan.md
-          - text: Groups and roles for Oracle Database@Azure
-            url: oracle-db/oracle-database-groups-roles.md          
-          - text: Overview of provisioning
-            url: oracle-db/provision-oracle-database.md
-          - text: Provision Oracle Autonomous databases
-            url: oracle-db/provision-autonomous-oracle-databases.md
-          - text: Link Oracle Database@Azure to multiple Azure subscriptions
-            url: oracle-db/link-oracle-database-multiple-subscription.md
-          - text: Support for Oracle Database@Azure
-            url: oracle-db/oracle-database-support.md
+          - text: Known issues
+            url: oracle-db/oracle-database-known-issues.md
+          - text: Manage access to Oracle Database@Azure 
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaagroupsroles.htm
+          - text: Plan IP address space 
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm
+          - text: Delegated subnet limits
+            url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa-delegated-subnets-limits.htm
           - text: FAQs
             url: oracle-db/faq-oracle-database-azure.md
+          
+            
+          

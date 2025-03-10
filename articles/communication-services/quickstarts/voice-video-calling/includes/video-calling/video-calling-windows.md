@@ -351,14 +351,14 @@ Add the methods to start or join the different types of Call (1:1 Azure Communic
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
     return call;
 }
 
 private async Task<CommunicationCall> StartPhoneCallAsync(string acsCallee, string alternateCallerId)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     options.AlternateCallerId = new PhoneNumberCallIdentifier(alternateCallerId);
 
     var call = await this.callAgent.StartCallAsync( new [] { new PhoneNumberCallIdentifier(acsCallee) }, options);
@@ -383,7 +383,7 @@ private async Task<CommunicationCall> JoinTeamsMeetingByLinkAsync(Uri teamsCallL
     return call;
 }
 
-private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+private async Task<StartCallOptions> GetStartCallOptionsAsync()
 {
     return new StartCallOptions() {
         OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true, OutgoingAudioStream = micStream  },
@@ -403,8 +403,8 @@ private async Task<JoinCallOptions> GetJoinCallOptionsAsync()
 Add the code to create the LocalVideoStream depending on the selected camera on the `CameraList_SelectionChanged` method.
 
 ```C#
-var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
  var localUri = await cameraStream.StartPreviewAsync();
 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -437,7 +437,10 @@ _ = await incomingCall.AcceptAsync(acceptCallOptions);
 
 ### Remote participant and remote video streams
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call becomes connected (`CallState.Connected`), we can access the remote participants of the call and handle the remote video streams. 
+
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `RemoteParticipants` collection. The `RemoteParticipantsUpdated` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
 
 ```C#
 
@@ -845,8 +848,8 @@ if (this.deviceManager.Cameras?.Count > 0)
     var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
     if (videoDeviceInfo != null)
     {
-        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+        var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
         var localUri = await cameraStream.StartPreviewAsync();
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -880,8 +883,8 @@ if (this.deviceManager.Cameras?.Count > 0)
     var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
     if (videoDeviceInfo != null)
     {
-        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+        var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
         var localUri = await cameraStream.StartPreviewAsync();
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

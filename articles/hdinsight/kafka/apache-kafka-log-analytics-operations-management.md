@@ -29,7 +29,7 @@ Apache Kafka logs in the cluster are located at `/var/log/kafka`. Kafka logs are
 
 The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsight clusters. Use the following links to understand how to create and configure the required services:
 
-1. Create a Log Analytics workspace. For more information, see the [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) document.
+1. Create a Log Analytics workspace. For more information, see the [Logs in Azure Monitor](/azure/azure-monitor/logs/data-platform-logs) document.
 
 2. Create a Kafka on HDInsight cluster. For more information, see the [Start with Apache Kafka on HDInsight](apache-kafka-get-started.md) document.
 
@@ -90,7 +90,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
 
 ## Next steps
 
-For more information on Azure Monitor, see [Azure Monitor overview](../../azure-monitor/overview.md), and [Query Azure Monitor logs to monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+For more information on Azure Monitor, see [Azure Monitor overview](/azure/azure-monitor/overview), and [Query Azure Monitor logs to monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 For more information on working with Apache Kafka, see the following documents:
 

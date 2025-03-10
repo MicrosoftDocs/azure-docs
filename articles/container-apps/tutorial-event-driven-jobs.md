@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 12/09/2024
 ms.author: cshoe
 ---
 
@@ -61,10 +61,24 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
         --kind StorageV2
     ```
 
+    If this command returns the error:
+
+    ```
+    (SubscriptionNotFound) Subscription <SUBSCRIPTION_ID> was not found.
+    Code: SubscriptionNotFound
+    Message: Subscription <SUBSCRIPTION_ID> was not found.
+    ```
+
+    Be sure you have registered the `Microsoft.Storage` namespace in your Azure subscription.
+
+    ```azurecli
+    az provider register --namespace Microsoft.Storage
+    ```
+
 1. Save the queue's connection string into a variable.
 
     ```bash
-    QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --output tsv`
+    QUEUE_CONNECTION_STRING=$(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT_NAME --query connectionString --output tsv)
     ```
 
 1. Create the message queue.
@@ -74,6 +88,32 @@ The job uses an Azure Storage queue to receive messages. In this section, you cr
         --name "$QUEUE_NAME" \
         --account-name "$STORAGE_ACCOUNT_NAME" \
         --connection-string "$QUEUE_CONNECTION_STRING"
+    ```
+
+## Create a user-assigned managed identity
+
+To avoid using administrative credentials, pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication. When possible, use a user-assigned managed identity to pull images.
+
+1. Create a user-assigned managed identity. Before you run the following commands, choose a name for your managed identity and replace the `\<PLACEHOLDER\>` with the name.
+
+    ```bash
+    IDENTITY="<YOUR_IDENTITY_NAME>"
+    ```
+
+    ```azurecli
+    az identity create \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP
+    ```
+
+1. Get the identity's resource ID.
+
+    ```azurecli
+    IDENTITY_ID=$(az identity show \
+        --name $IDENTITY \
+        --resource-group $RESOURCE_GROUP \
+        --query id \
+        --output tsv)
     ```
 
 ## Build and deploy the job
@@ -96,8 +136,29 @@ To deploy the job, you must first build a container image for the job and push i
         --name "$CONTAINER_REGISTRY_NAME" \
         --resource-group "$RESOURCE_GROUP" \
         --location "$LOCATION" \
-        --sku Basic \
-        --admin-enabled true
+        --sku Basic
+    ```
+
+1. Your container registry must allow Azure Resource Manager (ARM) audience tokens for authentication in order to use managed identity to pull images.
+
+    Use the following command to check if ARM tokens are allowed to access your Azure Container Registry (ACR).
+
+    ```azurecli
+    az acr config authentication-as-arm show --registry "$CONTAINER_REGISTRY_NAME"
+    ```
+
+    If ARM tokens are allowed, the command outputs the following.
+    
+    ```
+    {
+      "status": "enabled"
+    }
+    ```
+
+    If the `status` is `disabled`, allow ARM tokens with the following command.
+
+    ```azurecli
+    az acr config authentication-as-arm update --registry "$CONTAINER_REGISTRY_NAME" --status enabled
     ```
 
 1. The source code for the job is available on [GitHub](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial). Run the following command to clone the repository and build the container image in the cloud using the `az acr build` command.
@@ -132,6 +193,8 @@ To deploy the job, you must first build a container image for the job and push i
         --memory "1Gi" \
         --secrets "connection-string-secret=$QUEUE_CONNECTION_STRING" \
         --registry-server "$CONTAINER_REGISTRY_NAME.azurecr.io" \
+        --mi-user-assigned "$IDENTITY_ID" \
+        --registry-identity "$IDENTITY_ID" \
         --env-vars "AZURE_STORAGE_QUEUE_NAME=$QUEUE_NAME" "AZURE_STORAGE_CONNECTION_STRING=secretref:connection-string-secret"
     ```
 
@@ -149,6 +212,8 @@ To deploy the job, you must first build a container image for the job and push i
     | `--scale-rule-auth` | The authentication for the scale rule. |
     | `--secrets` | The secrets to use for the job. |
     | `--registry-server` | The container registry server to use for the job. For an Azure Container Registry, the command automatically configures authentication. |
+    | `--mi-user-assigned` | The resource ID of the user-assigned managed identity to assign to the job. |
+    | `--registry-identity` | The resource ID of a managed identity to authenticate with the registry server instead of using a username and password. If possible, an 'acrpull' role assignment is created for the identity automatically. |
     | `--env-vars` | The environment variables to use for the job. |
 
     The scale rule configuration defines the event source to monitor. It is evaluated on each polling interval and determines how many job executions to trigger. To learn more, see [Set scaling rules](scale-app.md).
@@ -184,7 +249,7 @@ To verify the job was configured correctly, you can send some messages to the qu
 1. Run the following commands to see logged messages. These commands require the Log analytics extension, so accept the prompt to install extension when requested.
 
     ```azurecli
-    LOG_ANALYTICS_WORKSPACE_ID=`az containerapp env show --name $ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+    LOG_ANALYTICS_WORKSPACE_ID=$(az containerapp env show --name $ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --output tsv)
 
     az monitor log-analytics query \
         --workspace "$LOG_ANALYTICS_WORKSPACE_ID" \

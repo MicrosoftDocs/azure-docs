@@ -1,23 +1,23 @@
 ---
-title: Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
+title: Configure Transmit Security with Azure Active Directory B2C for passkeys authentication
 titleSuffix: Azure AD B2C
-description: Configure Azure AD B2C with Transmit Security hosted sign in for passwordless customer authentication
+description: Configure Azure AD B2C with Transmit Security hosted sign in for passkeys customer authentication
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 01/06/2025
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
-# Customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure integration, so I can enable passwordless authentication using FIDO2 biometrics for my application.
+# Customer intent: I'm a developer integrating Azure Active Directory B2C with Transmit Security BindID. I need instructions to configure integration, so I can enable passkeys authentication using FIDO2 biometrics for my application.
 ---
 
-# Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
+# Configure Transmit Security with Azure Active Directory B2C for passkeys authentication
 
-In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's hosted passwordless authentication solution](https://transmitsecurity.com/solutions/password-mfa-replacement). Transmit Security uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign-in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
+In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's hosted passkeys authentication solution](https://transmitsecurity.com/solutions/password-mfa-replacement). Transmit Security uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign-in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
 
 ## Scenario description
 
@@ -195,7 +195,7 @@ You can define the Transmit Security as a claims provider by adding it to the **
              <Metadata>
                <Item Key="METADATA">https://api.transmitsecurity.io/cis/oidc/.well-known/openid-configuration</Item>
                 <!-- Update the Client ID below to the Transmit Security client ID -->
-               <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
+               <Item Key="client_id">00001111-aaaa-2222-bbbb-3333cccc4444</Item>
                <Item Key="response_types">code</Item>
                <Item Key="scope">openid email</Item>
                <Item Key="response_mode">form_post</Item>

@@ -47,10 +47,18 @@ sections:
           - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
           
       - question: |
+          Can I deploy another CDN from an external vendor behind or in front of Front Door?
+        answer:  |
+          Chaining two CDNs is generally not a recommended approach, it would work but comes with the following cons
+          1. CDN’s last mile acceleration utilizes keeping the connection stream with the origin, and finding optimal path to the origin to achieve best results. Chaining two CDNs together typically negates some of the benefits from last mile acceleration.
+          2. Security controls become less effective at the second CDN. Any client IP based ACLing will not work at the second CDN as the second CDN will see the first CDN’s exit node as Client IPs. Content payload will still be inspected.
+          3. Many organizations can’t handle the complexity of troubleshooting two CDNs being chained and when a problem it becomes hard to figure out which CDN is having the issue.
+
+      - question: |
           Can I deploy Azure Load Balancer behind Front Door?
         answer:  |
           To use Azure Front Door, you must have a public VIP or a DNS name that is publicly accessible. Azure Front Door uses the public IP to route the traffic to your origin. A common scenario is to deploy an Azure Load Balancer behind Front Door. You can also use Private Link with Azure Front Door Premium to connect to an internal load balancer. For more information, see [enable Private Link with internal load balancer](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
-
+      
       - question: |
           What protocols does Azure Front Door support?
         answer:  |
@@ -151,6 +159,13 @@ sections:
           Does Azure Front Door support gRPC?
         answer:  |
           No. Currently, Azure Front Door only supports HTTP/1.1 from the edge to the origin. For gRPC to work, HTTP/2 is required.
+
+      - question: |
+          Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
+        answer:  |
+          - Front Door Standard/Premium and Azure CDN profiles can be moved between resource groups or subscriptions without any downtime. To execute the move, follow these [instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+          - Front Door Classic doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) the Classic profile to Standard/Premium and then execute the move.
+          - If the customer has WAF associated to the  Front Door Standard/Premium, then move operation will fail. Customer has to disassociate WAF policies first, move and then associate.
           
   - name: Configuration
     questions:
@@ -225,6 +240,11 @@ sections:
         answer:  |   
           At this time, we don't offer the option to move domains from one endpoint to another without any interruption in service. You need to plan for some downtime if you want to migrate your domains to a different endpoint.
 
+      - question: |
+           Azure Front Door Privatelink integration is not supported in the region where my origin is located. What do I do?
+        answer:  |   
+           Azure Front Door Private Link feature is region agnostic and will work even if you choose a region that is different from the region where your origin is located. In such cases, to ensure lower latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. We are in the process of enabling support for more regions. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+
   - name: Performance
     questions:
       - question: |
@@ -269,6 +289,25 @@ sections:
         answer: |
           Azure Front Door is a service that provides fast and secure web delivery. It allows you to define how your web traffic is routed and optimized across multiple regions and endpoints. Azure Front Door resources, such as Front Door profiles and routing rules, are only charged when they're enabled. However, web application firewall (WAF) policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
           
+  - name: Caching
+    questions:
+      - question: |
+          Is it possible to use the HTTP request header as a cache key?
+        answer: |
+          No.
+      - question: |
+          Does Front Door support ETag?
+        answer: |
+          No.
+      - question: |
+          Is it possible to support compression for file sizes above 8 MB?
+        answer: |
+          AFD does not support dynamic compression for content greater than 8 MB. However, if the content has been already compressed by the origin, Front Door supports serving static compressed content over 8 MB as long as range request is supported and chunked transfer encoding is not enabled.
+      - question: |
+          Does AFD support setting the Authorization Header in the HTTP request if caching is enabled?
+        answer: |
+          No.
+  
   - name: Diagnostics and logging
     questions:
       - question: |

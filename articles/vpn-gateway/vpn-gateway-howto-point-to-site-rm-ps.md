@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication - PowerShell
 
-This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet) using Azure PowerShell. This article contains basic PowerShell configuration steps. For more comprehensive information about creating this type of P2S VPN, see the Azure portal article [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet) using Azure PowerShell. This article contains basic PowerShell configuration steps. For more comprehensive information about creating this type of P2S VPN, see the Azure portal article [Configure a point-to-site VPN using the Azure portal](point-to-site-certificate-gateway.md).
 
 P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
@@ -98,7 +98,7 @@ A VPN gateway must have a Public IP address. You first request the IP address re
 
 ### Create the VPN gateway
 
-In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](vpn-gateway-howto-point-to-site-resource-manager-portal.md#type) in the Azure portal version of this article.
+In this step, you configure and create the virtual network gateway for your VNet. For more complete information about authentication and tunnel type, see [Specify tunnel and authentication type](point-to-site-certificate-gateway.md#type) in the Azure portal version of this article.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
 * The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP can't be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
@@ -171,7 +171,7 @@ It's important that you follow the steps in the instructions when generating sel
 Verify that your VPN gateway has finished creating. Once it has completed, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Once a .cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed.
 
 >[!NOTE]
-> You can't upload the .cer file using Azure Cloud Shell. You can either use PowerShell locally on your computer, or you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+> You can't upload the .cer file using Azure Cloud Shell. You can either use PowerShell locally on your computer, or you can use the [Azure portal steps](point-to-site-certificate-gateway.md#uploadfile).
 >
 
 1. Declare the variable for your certificate name, replacing the value with your own.
@@ -188,7 +188,7 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    ```
 
-1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you're running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). When the upload is complete, you'll see a PowerShell return showing PublicCertData. It takes about 10 minutes for the certificate upload process to complete.
+1. Upload the public key information to Azure. Once the certificate information is uploaded, Azure considers it to be a trusted root certificate. When uploading, make sure you're running PowerShell locally on your computer, or instead, you can use the [Azure portal steps](point-to-site-certificate-gateway.md#uploadfile). When the upload is complete, you'll see a PowerShell return showing PublicCertData. It takes about 10 minutes for the certificate upload process to complete.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG1" -PublicCertData $CertBase64

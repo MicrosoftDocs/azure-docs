@@ -24,9 +24,9 @@ When you create a virtual machine image reference, you must specify the followin
 
 | **Image reference property** | **Example** |
 | --- | --- |
-| Publisher |Canonical |
-| Offer |UbuntuServer |
-| SKU |20.04-LTS |
+| Publisher |canonical |
+| Offer |0001-com-ubuntu-server-focal |
+| SKU |20_04-lts |
 | Version |latest |
 
 > [!TIP]
@@ -89,9 +89,9 @@ new_pool.start_task = start_task
 # Create an ImageReference which specifies the Marketplace
 # virtual machine image to install on the nodes
 ir = batchmodels.ImageReference(
-    publisher="Canonical",
-    offer="UbuntuServer",
-    sku="20.04-LTS",
+    publisher="canonical",
+    offer="0001-com-ubuntu-server-focal",
+    sku="20_04-lts",
     version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
@@ -118,8 +118,8 @@ images = client.account.list_supported_images()
 image = None
 for img in images:
   if (img.image_reference.publisher.lower() == "canonical" and
-        img.image_reference.offer.lower() == "ubuntuserver" and
-        img.image_reference.sku.lower() == "20.04-lts"):
+        img.image_reference.offer.lower() == "0001-com-ubuntu-server-focal" and
+        img.image_reference.sku.lower() == "20_04-lts"):
     image = img
     break
 
@@ -157,9 +157,9 @@ List<ImageInformation> images =
 ImageInformation image = null;
 foreach (var img in images)
 {
-    if (img.ImageReference.Publisher == "Canonical" &&
-        img.ImageReference.Offer == "UbuntuServer" &&
-        img.ImageReference.Sku == "20.04-LTS")
+    if (img.ImageReference.Publisher == "canonical" &&
+        img.ImageReference.Offer == "0001-com-ubuntu-server-focal" &&
+        img.ImageReference.Sku == "20_04-lts")
     {
         image = img;
         break;
@@ -187,9 +187,9 @@ Although the previous snippet uses the [PoolOperations.istSupportedImages](/dotn
 
 ```csharp
 ImageReference imageReference = new ImageReference(
-    publisher: "Canonical",
-    offer: "UbuntuServer",
-    sku: "20.04-LTS",
+    publisher: "canonical",
+    offer: "0001-com-ubuntu-server-focal",
+    sku: "20_04-lts",
     version: "latest");
 ```
 ::: zone-end

@@ -166,7 +166,8 @@ Be sure to record the connection string and container name for later use in the 
 
 ## [Connection String](#tab/connection-string)
 
-[Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
+Follow instructions from [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md) to get the connection string to the storage account, which you use in the script (`BLOB_STORAGE_CONNECTION_STRING`). You need the connection string and the name of the blob container you just created. 
+
 
 ---
 
@@ -268,10 +269,10 @@ In this section, you create a Python script to receive events from your event hu
 
     In the code, use real values to replace the following placeholders:
 
-    * `BLOB_STORAGE_CONNECTION_STRING`
-    * `BLOB_CONTAINER_NAME`
-    * `EVENT_HUB_CONNECTION_STR`
-    * `EVENT_HUB_NAME`
+    * `BLOB_STORAGE_CONNECTION_STRING` - Connection string to the Blob Storage account that you noted earlier. 
+    * `BLOB_CONTAINER_NAME` - Name of the blob container you created in the blob storage.
+    * `EVENT_HUB_CONNECTION_STR` - Connection string to the Event Hubs namespace you noted earlier.
+    * `EVENT_HUB_NAME` - Name of the event hub. 
 
     ```python
     import asyncio

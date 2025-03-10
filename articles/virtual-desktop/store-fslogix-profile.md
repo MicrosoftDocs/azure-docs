@@ -11,7 +11,7 @@ ms.custom: docs_inherited
 
 Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article compares storage solutions that Azure offers for Azure Virtual Desktop FSLogix user profile containers. We recommend storing FSLogix profile containers on Azure Files for most of our customers.
 
-Azure Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Azure Virtual Desktop. At sign-in, this container is dynamically attached to the computing environment using a natively supported Virtual Hard Disk (VHD) and a Hyper-V Virtual Hard Disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
+Azure Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Azure Virtual Desktop. At sign-in, this container is dynamically attached to the computing environment using a natively supported Virtual Hard Disk (VHD) and a Hyper-V Virtual Hard Disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. All FSLogix containers can be stored on file shares that support the SMB protocol.
 
 The following tables compare the storage solutions Azure Storage offers for Azure Virtual Desktop FSLogix profile container user profiles.
 
@@ -23,10 +23,9 @@ The following tables compare the storage solutions Azure Storage offers for Azur
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true)|All regions|
 |Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant/zone-redundant [with cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md)/geo-redundant [with cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md)|Locally redundant/zone-redundant/geo-redundant|
-|Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3-ms latency|Standard<br>Premium<br>Ultra<br>Up to max 460K IOPS per volume with 4.5 GBps per volume at about 1 ms latency. For IOPS and performance details, see [Azure NetApp Files performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) and [the FAQ](../azure-netapp-files/faq-performance.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops).|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
+|Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3-ms latency|Standard<br>Premium<br>Ultra<br>Up to max 460K IOPS per volume with 4.5 GBps per volume at about 1 ms latency. For IOPS and performance details, see [Azure NetApp Files performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) and [the FAQ](../azure-netapp-files/faq-performance.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-inputoutput-operations-per-second-iops).|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
 |Capacity|100 TiB per share, Up to 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per NetApp account|Maximum 32 TiB per disk|
-|Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 2 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
-|Protocols|SMB 3.0/2.1, NFSv4.1 (preview), REST|[NFSv3, NFSv4.1](../azure-netapp-files/azure-netapp-files-create-volumes.md), [SMB 3.x/2.x](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md), [dual-protocol](../azure-netapp-files/create-volumes-dual-protocol.md)|NFSv3, NFSv4.1, SMB 3.1|
+|Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 1 TiB, min volume size 50 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
 
 ## Azure management details
 
@@ -74,7 +73,7 @@ The following table lists our recommendations for which performance tier to use 
 | Heavy | Software engineers, content creators | Premium tier: small-medium user count<br>Standard tier: large user count |
 | Power | Graphic designers, 3D model makers, machines learning researchers | Ultra tier: small user count<br>Premium tier: medium user count<br> Standard tier: large user count |
 
-In order to provision the optimal tier and volume size, consider using [this calculator](https://github.com/ANFTechTeam/Fslogix-Calculator) for guidance. 
+In order to provision the optimal tier and volume size, consider using [this calculator](https://azure.github.io/azure-netapp-files/calc/) for guidance. 
 
 ## Next steps
 

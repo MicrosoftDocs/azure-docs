@@ -7,7 +7,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 12/13/2024
 ms.author: normesta
 ---
 
@@ -30,13 +30,17 @@ During the public preview, you can target only storage accounts that are in the 
 | Storage tasks per subscription | 100 |
 | Storage task assignments per storage task | 50 |
 | Storage task assignments per storage account | 50 |
-| Storage task definition versions | 50 |
+| Storage task nested grouping of clauses per condition | 10 |
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
 During the preview, Azure Storage Actions can invoke up to 200 million operations per day for a maximum of seven days on a flat-namespace storage account. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 200 million and four billion blobs in a day.
 
 For storage accounts with a hierarchical namespace, Azure Storage Actions can invoke up to 35 million operations per day for a maximum of seven days during the preview. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 35 million to 400 million blobs in a day.
+
+## Restrictions on moving a storage task
+
+You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
 
 ## Overlapping prefix for assignments
 
@@ -107,7 +111,15 @@ When you apply storage task assignments to storage accounts that have IP or netw
 
 ## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
 
-If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
+
+## Moving storage tasks and task assignments
+Moving storage tasks and task assignments across different resource groups and subscriptions is not supported. This limitation means that any storage tasks and their associated task assignments cannot be transferred between resource groups or subscriptions.
+
+## Cleaning up task assignments before moving storage accounts
+Task assignments must be cleaned up before moving storage accounts across resource groups and subscriptions. Specifically, before a storage account is moved from one resource group to another, or from one subscription to another, all task assignments applied to the storage account must be deleted to ensure a smooth transition.
+
+
 
 ## See Also
 

@@ -4,7 +4,7 @@ description: This article provides guidance to configure Azure Application Gatew
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/19/2023
 ms.author: greglin
 ---
@@ -18,7 +18,7 @@ You can use Application Gateway with Web Application Firewall (WAF) for a scalab
 
 It's important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you're prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
-Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
+Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](/azure/azure-monitor/alerts/alerts-metric) on how to set alerts for metrics.
 
 For details and recommendations on performance efficiency for Application Gateway, see [Azure Well-Architected Framework review - Azure Application Gateway v2](/azure/well-architected/services/networking/azure-application-gateway#performance-efficiency).
 
@@ -44,7 +44,7 @@ Make sure to check your subnet size and available IP address count in your subne
 
 ### Set your minimum instance count based on your average Compute Unit usage
 
-For Application Gateway v2 SKU, autoscaling takes six to seven minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
+For Application Gateway v2 SKU, autoscaling takes three to five minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 
 
 It's recommended that you set your minimum instance count to an optimal level. For example, if you require 50 instances to handle the traffic at peak load, then setting the minimum 25 to 30 is a good idea rather than at <10 so that even when there are short bursts of traffic, Application Gateway would be able to handle it and give enough time for autoscaling to respond and take effect.
 
@@ -62,7 +62,7 @@ Check your Compute Unit metric for the past one month. Compute unit metric is a 
 
 ## Monitoring and alerting
 
-To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
+To get notified of any traffic or utilization anomalies, you can set up alerts on certain metrics. See [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](/azure/azure-monitor/alerts/alerts-metric) on how to set alerts for metrics.
 
 To configure alerts using ARM templates, see [Configure Azure Monitor alerts for Application Gateway](configure-alerts-with-templates.md).
 

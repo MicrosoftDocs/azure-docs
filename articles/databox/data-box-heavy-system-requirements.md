@@ -4,9 +4,8 @@ description: Learn about the software and networking requirements for your Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
-ms.topic: article
+ms.service: azure-data-box-heavy
+ms.topic: conceptual
 ms.date: 06/13/2023
 ms.author: shaas
 ---

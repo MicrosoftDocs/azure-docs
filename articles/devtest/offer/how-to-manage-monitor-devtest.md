@@ -24,7 +24,7 @@ When managing from an operational expense perspective, you only pay for what you
 
 ## Monitoring through a different lens
 
-[Azure Monitor](../../azure-monitor/overview.md) helps maximize availability and performance for your applications and services. Deliver comprehensive solutions for collecting, analyzing, and acting on data from your cloud and on-premises environments. Understand how your applications are performing. Azure Monitor proactively identifies issues affecting your applications and the resources they depend on.  
+[Azure Monitor](/azure/azure-monitor/overview) helps maximize availability and performance for your applications and services. Deliver comprehensive solutions for collecting, analyzing, and acting on data from your cloud and on-premises environments. Understand how your applications are performing. Azure Monitor proactively identifies issues affecting your applications and the resources they depend on.  
 
 Within Azure, use monitoring to accelerate time to market and ensure performance data in your production services. You can aggregate and analyze metrics, logs, and traces. Through monitoring, you can also fire alerts and send notifications or call automated solutions.  
 
@@ -53,9 +53,9 @@ Load and duress analysis provide another data in preproduction so you can contin
 As you perform load and duress testing with your application or service, the method for scaling up or out depends on your workloads. You can learn more about scaling your apps in Azure:  
 
 - [Scale up an app in Azure App Service](../../app-service/manage-scale-up.md)  
-- [Get started with Autoscale in Azure](../../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)  
+- [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=/azure/app-service/toc.json)  
 
-Enable monitoring for your application with [Application Insights](../../azure-monitor/app/app-insights-overview.md) to collect detailed information including page views, application requests, and exceptions.  
+Enable monitoring for your application with [Application Insights](/azure/azure-monitor/app/app-insights-overview) to collect detailed information including page views, application requests, and exceptions.  
 
 ## Azure Automation
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -132,11 +132,155 @@ Gives user permission to view and download debug snapshots collected with the Ap
 }
 ```
 
+## Azure Managed Grafana Workspace Contributor
+
+Can manage Azure Managed Grafana resources, without providing access to the workspaces themselves.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/write | Write grafana |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/delete | Delete grafana |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/PrivateEndpointConnectionsApproval/action | Approve PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/action | Operations on Private Endpoints |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/locations/operationStatuses/write | Write operation statuses |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/write | Create/Update PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnectionProxies/delete | Delete PrivateEndpointConnectionProxy |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnections/write | Update PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/privateEndpointConnections/delete | Delete PrivateEndpointConnection |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/write | Write Managed Private Endpoints |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/delete | Delete Managed Private Endpoints |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Activated/Action | Classic metric alert activated |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/delete | Deletes a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/cancel/action | Cancels a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates an deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/whatIf/action | Predicts template deployment changes. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/exportTemplate/action | Export template for a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can manage Azure Managed Grafana resources, without providing access to the workspaces themselves.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95",
+  "name": "5c2d7e57-b7c2-4d8a-be4f-82afa42c6e95",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Dashboard/grafana/write",
+        "Microsoft.Dashboard/grafana/delete",
+        "Microsoft.Dashboard/grafana/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/action",
+        "Microsoft.Dashboard/locations/operationStatuses/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/validate/action",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/delete",
+        "Microsoft.Dashboard/grafana/privateEndpointConnections/write",
+        "Microsoft.Dashboard/grafana/privateEndpointConnections/delete",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/write",
+        "Microsoft.Dashboard/grafana/managedPrivateEndpoints/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/AlertRules/Write",
+        "Microsoft.Insights/AlertRules/Delete",
+        "Microsoft.Insights/AlertRules/Read",
+        "Microsoft.Insights/AlertRules/Activated/Action",
+        "Microsoft.Insights/AlertRules/Resolved/Action",
+        "Microsoft.Insights/AlertRules/Throttled/Action",
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/deployments/delete",
+        "Microsoft.Resources/deployments/cancel/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deployments/whatIf/action",
+        "Microsoft.Resources/deployments/exportTemplate/action",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/deployments/operationstatuses/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Managed Grafana Workspace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Data Purger
+
+Delete private data from a Log Analytics workspace.
+
+[Learn more](/azure/azure-monitor/logs/personal-data-mgmt)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/*/read |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/purge/action | Purging data from Application Insights |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/purge/action | Delete specified data by query from workspace. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can purge analytics data",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/150f5e0c-0603-4f03-8c7f-cf70034c4e90",
+  "name": "150f5e0c-0603-4f03-8c7f-cf70034c4e90",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Insights/components/*/read",
+        "Microsoft.Insights/components/purge/action",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/purge/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Data Purger",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Grafana Admin
 
-Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana.
+Manage server-wide settings and manage access to resources such as organizations, users, and licenses.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -154,7 +298,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana admin role",
+  "description": "Manage server-wide settings and manage access to resources such as organizations, users, and licenses.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/22926164-76b3-42b3-bc55-97df8dab3e41",
   "name": "22926164-76b3-42b3-bc55-97df8dab3e41",
   "permissions": [
@@ -175,9 +319,9 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 
 ## Grafana Editor
 
-View and edit a Grafana instance, including its dashboards and alerts.
+Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -195,7 +339,7 @@ View and edit a Grafana instance, including its dashboards and alerts.
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana Editor role",
+  "description": "Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/a79a5197-3a5c-4973-a920-486035ffd60f",
   "name": "a79a5197-3a5c-4973-a920-486035ffd60f",
   "permissions": [
@@ -214,11 +358,52 @@ View and edit a Grafana instance, including its dashboards and alerts.
 }
 ```
 
+## Grafana Limited Viewer
+
+View home page.
+
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/ActAsGrafanaLimitedViewer/action | Act as Grafana Limited Viewer role |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View home page.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/41e04612-9dac-4699-a02b-c82ff2cc3fb5",
+  "name": "41e04612-9dac-4699-a02b-c82ff2cc3fb5",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Grafana Limited Viewer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Grafana Viewer
 
-View a Grafana instance, including its dashboards and alerts.
+View dashboards, playlists, and query data sources.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -236,7 +421,7 @@ View a Grafana instance, including its dashboards and alerts.
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana Viewer role",
+  "description": "View dashboards, playlists, and query data sources.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/60921a7e-fef1-4a43-9b16-a26c52ad4769",
   "name": "60921a7e-fef1-4a43-9b16-a26c52ad4769",
   "permissions": [
@@ -255,16 +440,136 @@ View a Grafana instance, including its dashboards and alerts.
 }
 ```
 
+## Log Analytics Contributor
+
+Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
+[Learn more](/azure/azure-monitor/logs/manage-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | */read | Read resources of all types, except secrets. |
+> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
+> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/* |  |
+> | [Microsoft.OperationsManagement](../permissions/monitor.md#microsoftoperationsmanagement)/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Log Analytics Contributor can read all monitoring data and edit monitoring settings. Editing monitoring settings includes adding the VM extension to VMs; reading storage account keys to be able to configure collection of logs from Azure Storage; adding solutions; and configuring Azure diagnostics on all Azure resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+  "name": "92aaf0da-9dab-42b6-94a3-d43ce8d16293",
+  "permissions": [
+    {
+      "actions": [
+        "*/read",
+        "Microsoft.ClassicCompute/virtualMachines/extensions/*",
+        "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
+        "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.OperationalInsights/*",
+        "Microsoft.OperationsManagement/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Log Analytics Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Log Analytics Reader
+
+Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
+[Learn more](/azure/azure-monitor/logs/manage-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | */read | Read resources of all types, except secrets. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/73c42c96-874c-492b-b04d-ab87d138a893",
+  "name": "73c42c96-874c-492b-b04d-ab87d138a893",
+  "permissions": [
+    {
+      "actions": [
+        "*/read",
+        "Microsoft.OperationalInsights/workspaces/analytics/query/action",
+        "Microsoft.OperationalInsights/workspaces/search/action",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Log Analytics Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Monitoring Contributor
 
 Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
+
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alertsSummary/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/actiongroups/* |  |
@@ -289,18 +594,23 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/workbooktemplates/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privateLinkScopes/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privateLinkScopeOperationStatuses/* |  |
+> | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/accounts/* |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/intelligencepacks/* | Read/write/delete log analytics solution packs. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/action | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/storageinsightconfigs/* | Read/write/delete log analytics storage insight configurations. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/locations/workspaces/failover/action | Initiates workspace failover to replication location. |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/failback/action | Initiates workspace failback. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartGroups/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/migrateFromSmartDetection/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/investigations/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/prometheusRuleGroups/* |  |
 > | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/investigations/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -345,18 +655,23 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.Insights/workbooktemplates/*",
         "Microsoft.Insights/privateLinkScopes/*",
         "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.Monitor/accounts/*",
         "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",
         "Microsoft.OperationalInsights/workspaces/sharedKeys/action",
+        "Microsoft.OperationalInsights/workspaces/sharedKeys/read",
         "Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*",
+        "Microsoft.OperationalInsights/locations/workspaces/failover/action",
+        "Microsoft.OperationalInsights/workspaces/failback/action",
         "Microsoft.Support/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*",
         "Microsoft.AlertsManagement/migrateFromSmartDetection/*",
         "Microsoft.AlertsManagement/investigations/*",
+        "Microsoft.AlertsManagement/prometheusRuleGroups/*",
         "Microsoft.Monitor/investigations/*"
       ],
       "notActions": [],
@@ -423,12 +738,14 @@ Enables publishing metrics against Azure resources
 
 Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/roles-permissions-security#built-in-monitoring-roles).
 
+[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+
 [Learn more](/azure/azure-monitor/roles-permissions-security)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | */read | Read resources of all types, except secrets. |
+> | */read | Read control plane information for all Azure resources. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/search/action | Executes a search query |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |

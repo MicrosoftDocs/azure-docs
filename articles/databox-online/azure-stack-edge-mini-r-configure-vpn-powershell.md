@@ -4,8 +4,7 @@ description: Describes how to configure VPN on your Azure Stack Edge Mini R devi
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli 
@@ -210,7 +209,7 @@ After you've successfully run the script, verify that all the resources were cre
 
         To install the root certificate, make sure the certificate is Base-64 encoded with a .cer extension. Open this certificate and copy the text in the certificate between ==BEGIN CERTIFICATE== and ==END CERTIFICATE== in one continuous line in the public certificate data under Root certificates.
 
-        To upload the root certificates, follow the detailed steps in [Upload the root certificate public certificate data](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+        To upload the root certificates, follow the detailed steps in [Upload the root certificate public certificate data](../vpn-gateway/point-to-site-certificate-gateway.md#uploadfile).
     
     5. Save the configuration.
 

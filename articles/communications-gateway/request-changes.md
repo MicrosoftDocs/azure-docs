@@ -1,8 +1,8 @@
 ---
 title: Get support or request changes for Azure Communications Gateway
 description: This article guides you through how to submit support requests if you have a problem with your service or require changes to it.
-author: rcdun
-ms.author: rdunstan
+author: GemmaWakeford
+ms.author: gwakeford
 ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 01/08/2023
@@ -14,7 +14,7 @@ If you notice problems with Azure Communications Gateway or you need Microsoft t
 
 When you raise a request, we'll investigate. If we think the problem is caused by traffic from Zoom servers, we might ask you to raise a separate support request with Zoom.
 
-This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+This article provides an overview of how to raise support requests for Azure Communications Gateway. For more detailed information on raising support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 [!INCLUDE [communications-gateway-lab-ticket-sla](includes/communications-gateway-lab-ticket-sla.md)]
 
@@ -44,9 +44,6 @@ If you're providing Zoom service, you'll need to raise a separate support reques
 
 ## Enter a description of the problem or the change
 
-> [!TIP]
-> If you know the problem or change affects Azure Operator Call Protection Preview, then you should set **Service type** to **Azure Operator Call Protection** instead. If unsure, keep it as **Azure Communications Gateway**.
-
 1. Concisely describe your problem or the change you need in the **Summary** box.
 1. Select an **Issue type** from the drop-down menu.
 1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support engineer assigned to your case can only access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support engineer can only work on subscriptions to which you have access.
@@ -69,7 +66,7 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 ## Enter additional details
 
-In this section, we collect more details about the problem or the change and how to contact you. Providing thorough and detailed information in this step helps us route your support request to the right engineer. For more information, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+In this section, we collect more details about the problem or the change and how to contact you. Providing thorough and detailed information in this step helps us route your support request to the right engineer. For more information, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Review and create your support request
 
@@ -78,5 +75,5 @@ Before creating your request, review the details and diagnostic files that you'r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to manage an Azure support request](../azure-portal/supportability/how-to-manage-azure-support-request.md).
+> [Learn how to manage an Azure support request](/azure/azure-portal/supportability/how-to-manage-azure-support-request).
 

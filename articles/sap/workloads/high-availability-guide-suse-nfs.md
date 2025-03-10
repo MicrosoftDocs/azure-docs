@@ -28,10 +28,6 @@ ms.author: radeltch
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
-[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
-[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
-
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
@@ -65,10 +61,10 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SUSE Linux Enterprise High Availability Extension 12 SP3 best practices guides][sles-hae-guides]
-  * Highly Available NFS Storage with DRBD and Pacemaker
-* [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
-* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise High Availability Extension 12 SP5 Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/fr-fr/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 best practices guides](https://documentation.suse.com/en-us/sles-sap/12-SP5/html/SLES4SAP-guide/pre-s4s.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP5)
+
 
 ## Overview
 

@@ -11,7 +11,7 @@ ms.author: allensu
 # Virtual network TAP
 
 > [!IMPORTANT]
-> Virtual network TAP Preview is currently on hold in all Azure regions. You can email us at <azurevnettap@microsoft.com> with your subscription ID and we will notify you with future updates about the preview. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
+> Virtual network TAP Preview is currently in Private Preview in select Azure regions. You can sign up for our Previews using the sign form (https://forms.office.com/r/EWqbgLGNcV) and we will notify you when you are selected. In the interim, you can use agent based or NVA solutions that provide TAP/Network Visibility functionality through our [Packet Broker partner solutions](#virtual-network-tap-partner-solutions) available in [Azure Marketplace Offerings](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances%3Ball&search=Network%20Traffic&filters=partners).
 
 Azure virtual network TAP (Terminal Access Point) allows you to continuously stream your virtual machine network traffic to a network packet collector or analytics tool. The collector or analytics tool is provided by a [network virtual appliance](https://azure.microsoft.com/solutions/network-appliances/) partner. For a list of partner solutions that are validated to work with virtual network TAP, see [partner solutions](#virtual-network-tap-partner-solutions).
 
@@ -43,7 +43,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
-- [cPacket Cloud Visbility](https://www.cpacket.com/resources/ccloud/)
+- [cPacket Cloud Visibility](https://www.cpacket.com/cloud)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
@@ -54,8 +54,6 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 
 - [Darktrace](https://www.darktrace.com)
-
-- [ExtraHop Reveal(x)](https://hop.extrahop.com/partners/tech-partners/microsoft/)
 
 - [Fidelis Cybersecurity](https://fidelissecurity.com/)
 

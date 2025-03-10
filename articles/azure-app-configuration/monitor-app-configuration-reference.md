@@ -16,19 +16,19 @@ ms.custom: horz-monitor
 This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for how to collect and analyze monitoring data for App Configuration.
 
 ## Metrics 
-Resource Provider and Type: [App Configuration Platform Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores)
+Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores)
 
 | Metric | Unit | Description |
 |-------|-----| ----- |
-| Http Incoming Request Count	| Count	| Total number of incoming Http Request |
-| Http Incoming Request Duration | Milliseconds | Server side duration of an Http Request |
-| Throttled Http Request Count | Count |	Throttled requests are Http requests that receive a response with a status code of 429 |
+| HTTP Incoming Request Count	| Count	| Total number of incoming HTTP Request |
+| HTTP Incoming Request Duration | Milliseconds | Server side duration of an HTTP Request |
+| Throttled HTTP Request Count | Count |	Throttled requests are HTTP requests that receive a response with a status code of 429 |
 | Daily Storage Usage | Percent |	Represents the amount of storage in use as a percentage of the maximum allowance. This metric is updated at least once daily. |
 | Request Quota Usage | Percent |	Represents the current total request usage in percentage. |
 | Replication Latency | Milliseconds |	Represents the average time it takes for a replica to be consistent with current state. |
 | Snapshot Storage Size | Count | Represents the total storage usage of configuration snapshot(s) in bytes. |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 
 ## Metric Dimensions
@@ -36,24 +36,24 @@ App Configuration has the following dimensions associated with its metr
 
 | Metric Name | Dimension description |
 |-------|-----|
-| Http Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication.   |
-| Http Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
-| Throttled Http Request Count | The **Endpoint** of each request is included as a dimension.  |
+| HTTP Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication.   |
+| HTTP Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
+| Throttled HTTP Request Count | The **Endpoint** of each request is included as a dimension.  |
 | Daily Storage Usage | This metric does not have any dimensions.  |
 | Request Quota Usage | The supported dimensions are the **OperationType** ("Read"or "Write") and **Endpoint** of each request.  |
 | Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension.  |
 | Snapshot Storage Size | This metric does not have any dimensions.  |
 
- For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+ For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
 ## Resource logs
 This section lists the category types of resource log collected for App Configuration. 
 
 | Resource log type | Further information|
 |-------|-----|
-| HttpRequest | [App Configuration Resource Log Category Information](../azure-monitor/essentials/resource-logs-categories.md) |
+| HttpRequest | [App Configuration Resource Log Category Information](/azure/azure-monitor/essentials/resource-logs-categories) |
 
-For more information, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
+For more information, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/essentials/resource-logs-schema).
  
 ## Azure Monitor Logs tables
 
@@ -61,16 +61,17 @@ This section refers to all of the Azure Monitor Logs Kusto tables re
 
 |Resource type | Notes |
 |-------|-----|
-| [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | Entries of every Http request sent to a selected app configuration resource. |
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
+| [AACAudit](/azure/azure-monitor/reference/tables/AACAudit) | Azure App Configuration audit logs. |
+| [AACHttpRequest](/azure/azure-monitor/reference/tables/AACHttpRequest) | Entries of every HTTP request sent to a selected app configuration resource. |
+| [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity) | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/microsoft-appconfiguration_configurationstores).
 
 ### Diagnostics tables
 
 App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/reference/tables/aachttprequest) to store resource log information.
 
-**Http Requests**
+**HTTP Requests**
 
 |Property | Type | Description |
 |-------|-----| ----- |
@@ -80,7 +81,7 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 |CorrelationId|	string|	An ID provided by the client to correlate multiple requests.
 |DurationMs|	int	|The duration of the operation in milliseconds.
 |HitCount|	int	|The number of requests that the record is associated with.
-|Method	string|	HTTP| Http request method (get or post)
+|Method	string|	HTTP| HTTP request method (get or post)
 |RequestId|	string|	Unique request ID generated by server.
 |RequestLength|	int	|Length in bytes of the HTTP request.
 |RequestURI|	string|	URI of the request, can include key and label name. 
@@ -97,4 +98,4 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 ## See Also
 
 * See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
-* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

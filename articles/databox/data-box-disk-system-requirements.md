@@ -4,10 +4,9 @@ description: Learn about the software and networking requirements for your Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/18/2024
 ms.author: shaas
 ---

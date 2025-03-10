@@ -1,10 +1,10 @@
 ---
 title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/11/2019
@@ -91,7 +91,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    [{
     "id": "fbfd8ee1-cf78-74c6-dbcf-e1c58638ccbd",
     "topic":
-      "/SUBSCRIPTIONS/DEMO5CDD-8DAB-4CF4-9B2F-C22E8A755472/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/MYIOTHUB",
+      "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/EGTESTRG/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/MYIOTHUB",
     "subject": "devices/Demo-Device-1",
     "eventType": "Microsoft.Devices.DeviceConnected",
     "eventTime": "2018-07-03T23:20:11.6921933+00:00",

@@ -51,13 +51,13 @@ To enable rate limiting for an existing ExpressRoute Direct circuit, complete th
 
 1. Select **Yes** for *Enable Rate Limiting*. The following diagram illustrates the configuration page for enabling rate limiting for an ExpressRoute Direct circuit.
 
-    :::image type="content" source="./media/rate-limit/existing-circuit.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing the rate limiting setting.":::
+    :::image type="content" source="./media/rate-limit/existing-circuit.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing the Enable Rate Limiting setting set to Yes.":::
 
 1. Finally, select the **Save** button at the top of the page to apply the changes.
 
 ## Disable rate limiting
 
-To disable rate limiting for an existing ExpressRoute Direct circuit, complete the following these:
+To disable rate limiting for an existing ExpressRoute Direct circuit, complete the following steps:
 
 1. Sign-in to the Azure portal using this [Azure portal](https://portal.azure.com/?feature.erdirectportratelimit=true) link, then go to the ExpressRoute Direct circuit that you want to configure rate limiting for.
 
@@ -65,7 +65,7 @@ To disable rate limiting for an existing ExpressRoute Direct circuit, complete t
 
 1. Select **No** for *Enable Rate Limiting*. The following diagram illustrates the configuration page for disabling rate limiting for an ExpressRoute Direct circuit.
 
-    :::image type="content" source="./media/rate-limit/disable-rate-limiting.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing how to disable rate limiting.":::
+    :::image type="content" source="./media/rate-limit/disable-rate-limiting.png" alt-text="Screenshot of the configuration page for an ExpressRoute Direct circuit showing the Enable Rate Limiting setting set to No.":::
 
 1. Finally,  select the **Save** button at the top of the page to apply the changes.
 
@@ -81,11 +81,11 @@ To disable rate limiting for an existing ExpressRoute Direct circuit, complete t
 
 * How does rate limiting affect my circuit performance?
 
-    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth is set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, it isn't a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
+    An ExpressRoute circuit has two connection links between Microsoft edge routers and customer edge (CE) routers. For example, if your circuit bandwidth is set to 1 Gbps and you distribute your traffic evenly across both links, you can reach up to 2*1 (that is, 2) Gbps. However, this is not a recommended practice and we suggest using the extra bandwidth for high availability only. If you exceed the configured bandwidth over private or Microsoft peering on either of the links by more than 20%, then rate limiting lowers the throughput to the configured bandwidth.
 
 * How can I check the rate limiting status of my ExpressRoute Direct port circuits?
 
-    In Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct port, you would see all the circuits configured over the ExpressRoute Direct port along with the rate limiting status. See the following screenshot:
+    In the Azure portal, on the ‘Circuits’ pane of your ExpressRoute Direct port, you will see all the circuits configured over the ExpressRoute Direct port along with the rate limiting status. See the following screenshot as an example:
 
     :::image type="content" source="./media/rate-limit/status.png" alt-text="Screenshot of the rate limiting status from an ExpressRoute Direct resource.":::
 
@@ -116,7 +116,7 @@ To disable rate limiting for an existing ExpressRoute Direct circuit, complete t
 
 * How does increasing the circuit bandwidth affect the traffic flow through the circuit? 
 
-    Increasing the circuit bandwidth doesn’t affect the traffic flow through the circuit. The bandwidth increase is seamless and the circuit bandwidth upgrade reflects in a few minutes. However, the bandwidth increase is irreversible.
+    Increasing the circuit bandwidth does not affect the traffic flow through the circuit. The bandwidth increase is seamless and the circuit bandwidth upgrade will be reflected in a few minutes. It is important to note the bandwidth increase is irreversible.
 
 * Can I enable or disable rate limiting for a specific circuit configured over my ExpressRoute Direct port? 
 

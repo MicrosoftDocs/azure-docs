@@ -4,8 +4,7 @@ description: Learn the deployment prerequisites and how to export data from an A
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: how-to
 ms.date: 09/29/2023
 ms.author: shaas
@@ -35,6 +34,9 @@ Complete the following configuration prerequisites for Data Box service and devi
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
 
 * Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
+  
+> [!NOTE] 
+> The Export functionality will not include Access Control List (ACL) or metadata regarding the files and folders. If you are exporting Azure Files data, you may consider using a tool such as Robocopy to apply ACLs to the target folders prior to import. 
 
 ### For device
 
@@ -66,7 +68,7 @@ Perform the following steps in the Azure portal to order a device.
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |
-    |Destination country     |     Select the country where you want to ship the device.        |
+    |Destination country     |     Select the country/region where you want to ship the device.        |
 
    ![Select your Data Box settings](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-box-settings.png)
 

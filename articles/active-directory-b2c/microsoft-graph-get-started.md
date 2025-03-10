@@ -6,12 +6,12 @@ description: Prepare for managing Azure AD B2C resources with Microsoft Graph by
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer, I want to register a Microsoft Graph application, so that I can automate tenant management tasks in my Azure AD B2C directory, such as migrating user stores, deploying custom policies, and obtaining audit logs.
 

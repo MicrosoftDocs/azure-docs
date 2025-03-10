@@ -4,7 +4,8 @@ description:  This tutorial provides steps for dynamically setting column names 
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Dynamically set column names in data flows

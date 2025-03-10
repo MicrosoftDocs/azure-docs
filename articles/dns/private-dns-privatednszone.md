@@ -4,7 +4,7 @@ description: Overview of Private DNS zones
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.topic: article
+ms.topic: concept-article
 ms.date: 10/12/2023
 ms.author: greglin
 ---

@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Site Recovery
 description: Start here to learn how to monitor Azure Site Recovery.
-ms.date: 03/21/2024
+ms.date: 01/17/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
@@ -41,7 +41,7 @@ Azure Site Recovery shares the `Microsoft.RecoveryServices/Vaults` namespace wit
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace pertain to the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics (preview)](/azure/backup/metrics-overview).
+There are no automatically collected platform metrics for Azure Site Recovery. All the automatically collected metrics for the `Microsoft.RecoveryServices/Vaults` namespace pertain to the Azure Backup service. For information about Azure Backup metrics, see [Monitor the health of your backups using Azure Backup Metrics](/azure/backup/metrics-overview).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -95,7 +95,7 @@ Azure Site Recovery provides default alerts via Azure Monitor as a preview featu
 - Failover failure alerts for Azure VM, Hyper-V, and VMware replication.
 - Auto certification expiry alerts for Azure VM replication.
 
-For detailed instructions on enabling and configuring these built-in alerts, see [Built-in Azure Monitor alerts for Azure Site Recovery (preview)](site-recovery-monitor-and-troubleshoot.md#built-in-azure-monitor-alerts-for-azure-site-recovery). Also see [Common questions about built-in Azure Monitor alerts for Azure Site Recovery](monitoring-common-questions.md#built-in-azure-monitor-alerts-for-azure-site-recovery).
+For detailed instructions on enabling and configuring these built-in alerts, see [Built-in Azure Monitor alerts for Azure Site Recovery](site-recovery-monitor-and-troubleshoot.md#built-in-azure-monitor-alerts-for-azure-site-recovery). Also see [Common questions about built-in Azure Monitor alerts for Azure Site Recovery](monitoring-common-questions.md#built-in-azure-monitor-alerts-for-azure-site-recovery).
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

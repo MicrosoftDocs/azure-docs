@@ -46,5 +46,5 @@ Available log categories:
 
 ## Next steps
 
-- [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)
-- [Azure Monitor Metrics aggregation and display explained](../../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)
+- [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained)

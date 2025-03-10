@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, wsilveira
 ms.topic: how-to
-ms.date: 07/05/2024
+ms.date: 02/19/2025
 #Customer intent: As a developer, I want to export one or more Consumption workflows to a Standard workflow.
 ---
 
@@ -27,7 +27,7 @@ You can now export Consumption logic apps to a Standard logic app. Using Visual 
 > exported workflows to your satisfaction with the destination environment. You choose when 
 > to disable or delete your source logic apps. 
 
-This article provides information about the export process and shows how to export your logic app workflows from an ISE to a local Standard logic app project in Visual Studio Code.
+This article provides information about the export process and shows how to export your logic app workflows from a Consumption workflow to a local Standard logic app project in Visual Studio Code.
 
 ## Known issues and limitations
 

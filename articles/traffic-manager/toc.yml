@@ -60,7 +60,7 @@
     href: traffic-manager-traffic-view-overview.md
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
-  - name: Disaster recovery using Azure DNS and Traffic Manager
+  - name: Reliability and disaster recovery
     href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
@@ -136,8 +136,6 @@
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking/
   - name: Microsoft Q&A question page
@@ -147,7 +145,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

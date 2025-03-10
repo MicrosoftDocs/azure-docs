@@ -1,11 +1,14 @@
 ---
 title: Troubleshoot AWS S3 connector issues - Microsoft Sentinel
 description: Troubleshoot AWS S3 connector issues in Microsoft Sentinel.
-author: limwainstein
-ms.author: lwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: troubleshooting
 ms.date: 09/08/2022
-#Customer intent: As a security operator, I want to quickly identify the cause of the problem occurring with the AWS S3 connector so I can find the steps needed to resolve the problem.
+
+
+#Customer intent: As a security engineer, I want to troubleshoot AWS S3 connector issues so that I can ensure seamless log ingestion into Microsoft Sentinel.
+
 ---
 
 # Troubleshoot AWS S3 connector issues
@@ -145,6 +148,15 @@ There might be errors in the health logs, or the health feature might not be ena
     ```
 
 1. If the health feature isn’t enabled, [enable it](enable-monitoring.md).
+
+   See more information on the following items used in the preceding example, in the Kusto documentation:
+   - [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***mv-expand*** operator](/kusto/query/mv-expand-operator?view=microsoft-sentinel&preserve-view=true)
+   - [***ago()*** function](/kusto/query/ago-function?view=microsoft-sentinel&preserve-view=true)
+
+   [!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Next steps
 

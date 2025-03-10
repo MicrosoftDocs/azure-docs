@@ -3,7 +3,7 @@ title: Tutorial - Create and manage budgets
 description: This tutorial helps you plan and account for the costs of Azure services that you consume.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/09/2024
+ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -39,8 +39,11 @@ In this tutorial, you learn how to:
 Budgets are supported for the following types of Azure account types and scopes:
 
 - Azure role-based access control (Azure RBAC) scopes
-    - Management groups
-    - Subscription
+  - Management group
+    
+  - Subscription
+  - Resource group
+    
 - Enterprise Agreement scopes
     - Billing account
     - Department
@@ -71,7 +74,9 @@ The following Azure permissions, or scopes, are supported per subscription for b
 - Contributor and Cost Management contributor – Can create, modify, or delete their own budgets. Can modify the budget amount for budgets created by others.
 - Reader and Cost Management reader – Can view budgets that they have permission to.
 
-**For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md)**. For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
+**Single currency requirement:** For budget evaluations, our system requires that all subscriptions within the scope, like a management group, operate under a single currency. Multi-currency budget evaluations are not supported, and you may miss out on your budget alerts if this situation arises. 
+
+For more information about scopes, including access needed to configure exports for Enterprise Agreement and Microsoft Customer agreement scopes, see [Understand and work with scopes](understand-work-scopes.md). For more information about assigning permission to Cost Management data, see [Assign access to Cost Management data](./assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -89,7 +94,7 @@ After you create budgets, they show a simple view of your current spending again
 
 Select **Add**.
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenthost showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/budgets-cost-management.png" alt-text="Screenshot showing a list of budgets already created." lightbox="./media/tutorial-acm-create-budgets/budgets-cost-management.png" :::
 
 In the **Create budget** window, make sure that the scope shown is correct. Choose any filters that you want to add. Filters allow you to create budgets on specific costs, such as resource groups in a subscription or a service like virtual machines. For more information about the common filter properties that you can use in budgets and cost analysis, see [Group and filter properties](group-filter.md#group-and-filter-properties).
 
@@ -151,9 +156,9 @@ Budget cost evaluations are based on actual cost. They don't include amortizatio
 
 ## Trigger an action group
 
-When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. You can receive mobile push notifications when your budget threshold is met by enabling [Azure app push notifications](../../azure-monitor/alerts/action-groups.md#create-an-action-group-in-the-azure-portal) while configuring the action group.
+When you create or edit a budget for a subscription or resource group scope, you can configure it to call an action group. The action group can perform various actions when your budget threshold is met. You can receive mobile push notifications when your budget threshold is met by enabling [Azure app push notifications](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) while configuring the action group.
 
-Action groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [action groups](../../azure-monitor/alerts/action-groups.md). 
+Action groups are currently only supported for subscription and resource group scopes. For more information about creating action groups, see [action groups](/azure/azure-monitor/alerts/action-groups). 
 
 For more information about using budget-based automation with action groups, see [Manage costs with budgets](../manage/cost-management-budget-scenario.md).
 
@@ -163,7 +168,7 @@ To create or update action groups, select **Manage action group** while you're c
 
 Next, select **Add action group** and create the action group.
 
-You can integrate budgets with action groups, regardless of whether the common alert schema is enabled or disabled in those groups. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](../../azure-monitor/alerts/alerts-common-schema.md#enable-the-common-alert-schema)
+You can integrate budgets with action groups, regardless of whether the common alert schema is enabled or disabled in those groups. For more information on how to enable common alert schema, see [How do I enable the common alert schema?](/azure/azure-monitor/alerts/alerts-common-schema#enable-the-common-alert-schema)
 
 ## Budgets in the Azure mobile app
 
@@ -173,7 +178,7 @@ You can view budgets for your subscriptions and resource groups from the **Cost 
 1. Find the **Cost Management** card and tap **More**.
 1. Budgets load below the **Current cost** card. They're sorted by descending order of usage.
 
-To receive mobile push notifications when your budget threshold is met, you can configure action groups. When setting up budget alerts, make sure to select an action group that has [Azure app push notifications](../../azure-monitor/alerts/action-groups.md#create-an-action-group-in-the-azure-portal) enabled.
+To receive mobile push notifications when your budget threshold is met, you can configure action groups. When setting up budget alerts, make sure to select an action group that has [Azure app push notifications](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) enabled.
 
 > [!NOTE]
 > Currently, the Azure mobile app only supports the subscription and resource group scopes for budgets.

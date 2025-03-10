@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
 author: sinnypan
 ms.author: sipa
-ms.date: 11/01/2023
+ms.date: 09/05/2024
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -79,7 +79,7 @@ The following screenshot shows the general layout of the Contoso Coffee store lo
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a screenshot showing a sample of the small-screen layout:  
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
 
 <a id="create a data-set"></a>
 
@@ -151,7 +151,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
     Your workspace folder should now look like the following screenshot:
 
-    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
+    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" lightbox="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
 
 ## Create the HTML
 

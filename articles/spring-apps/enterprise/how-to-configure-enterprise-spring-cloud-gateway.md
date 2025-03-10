@@ -2,7 +2,8 @@
 title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
@@ -11,10 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Configure VMware Spring Cloud Gateway
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article shows you how to configure VMware Spring Cloud Gateway for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
@@ -285,7 +285,7 @@ To enhance security and help protect sensitive information from interception by 
 
 Before you configure TLS, you need to have a TLS-enabled application and a TLS certificate. To prepare a TLS certificate, generate a certificate from a trusted certificate authority (CA). The certificate verifies the identity of the server and establishes a secure connection.
 
-After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+After you have a TLS-enabled application running in Azure Spring Apps, upload the certificate to Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 With the certificate updated to Azure Spring Apps, you can configure the TLS certificate for the gateway and enable certificate verification. You can configure the certificate in the Azure portal or by using the Azure CLI.
 
@@ -319,7 +319,7 @@ az spring gateway update \
 
 You must specify the protocol as HTTPS in the route configuration. The following JSON object instructs VMware Spring Cloud Gateway to use the HTTPS protocol for all traffic between the gateway and the app.
 
-1. Create a file named *test-tls-route.json* with the following content:
+1. Create a file named **test-tls-route.json** with the following content:
 
    ```json
    {
@@ -353,7 +353,7 @@ You can now test whether the application is TLS enabled with the endpoint of the
 As certificates expire, you need to rotate certificates in VMware Spring Cloud Gateway by using the following steps:
 
 1. Generate new certificates from a trusted CA.
-1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](how-to-use-tls-certificate.md#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](how-to-use-tls-certificate.md).
+1. Import the certificates into Azure Spring Apps. For more information, see the [Import a certificate](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#import-a-certificate) section of [Use TLS/SSL certificates in your application in Azure Spring Apps](../basic-standard/how-to-use-tls-certificate.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 1. Synchronize the certificates by using the Azure portal or the Azure CLI.
 
 VMware Spring Cloud Gateway restarts to ensure that the gateway uses the new certificate for all connections.
@@ -419,7 +419,7 @@ az monitor autoscale rule create \
 
 ---
 
-For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+For more information on the available metrics, see the [User metrics options](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#user-metrics-options) section of [Metrics for Azure Spring Apps](../basic-standard/concept-metrics.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 ## Configure the response cache
 
@@ -617,11 +617,11 @@ To monitor VMware Spring Cloud Gateway, you can configure APM. The following tab
 
 For other supported environment variables, see the following sources:
 
-- [Application Insights overview](../../azure-monitor/app/app-insights-overview.md?tabs=net)
+- [Application Insights overview](/azure/azure-monitor/app/app-insights-overview?tabs=net)
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 - [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 #### Configure APM integration on the service instance level (recommended)
 
@@ -865,7 +865,7 @@ Use the following steps to update the add-on configuration.
 
 ### [Azure CLI](#tab/Azure-CLI) 
 
-1. Prepare the JSON file for add-on configurations (*\<file-name-of-addon-configs-json\>.json*) with the following content:
+1. Prepare the JSON file for add-on configurations (**\<file-name-of-addon-configs-json\>.json**) with the following content:
 
    ```json
    {

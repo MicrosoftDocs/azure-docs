@@ -2,12 +2,12 @@
 title: Understand Azure IoT Hub device twins
 titleSuffix: Azure IoT Hub
 description: This article describes how to use device twins to synchronize state and configuration data between IoT Hub and your devices.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/22/2024
+ms.date: 12/17/2024
 ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
@@ -20,7 +20,7 @@ ms.custom: [mqtt, 'Role: Cloud Development']
 This article describes:
 
 * The structure of the device twin: *tags*, *desired properties*, and *reported properties*.
-* The operations that device and back-end applications can perform on device twins.
+* The operations that [*device applications*](../iot/iot-glossary.md#device-app) and the [*solution back end*](../iot/iot-glossary.md#solution-back-end) can perform on device twins.
 
 Use device twins to:
 
@@ -28,7 +28,7 @@ Use device twins to:
 
 * Report current state information such as available capabilities and conditions from your device app. For example, whether a device is connected to your IoT hub over cellular or WiFi.
 
-* Synchronize the state of long-running workflows between device app and back-end app. For example, when the solution back end specifies the new firmware version to install, and the device app reports the various stages of the update process.
+* Synchronize the state of long-running workflows between device app and back-end apps. For example, when a back-end app specifies the new firmware version to install, and the device app reports the various stages of the update process.
 
 * Query your device metadata, configuration, or state.
 
@@ -42,7 +42,7 @@ To learn how device twins relate to the device model used by an Azure IoT Plug a
 
 Device twins store device-related information that:
 
-* Device and back ends can use to synchronize device conditions and configuration.
+* Device apps and back-end apps can use to synchronize device conditions and configuration.
 
 * The solution back end can use to query and target long-running operations.
 
@@ -50,13 +50,13 @@ The lifecycle of a device twin is linked to its corresponding [device identity](
 
 A device twin is a JSON document that includes:
 
-* **Tags**. A section of the JSON document that the solution back end can read from and write to. Tags aren't visible to device apps.
+* **Tags**. A section of the JSON document that back-end apps can read from and write to. Tags aren't visible to device apps.
 
-* **Desired properties**. Used along with reported properties to synchronize device configuration or conditions. The solution back end can set desired properties, and the device app can read them. The device app can also receive notifications of changes in the desired properties.
+* **Desired properties**. Used along with reported properties to synchronize device configuration or conditions. Back-end apps can set desired properties, and the device app can read them. The device app can also receive notifications of changes in the desired properties.
 
-* **Reported properties**. Used along with desired properties to synchronize device configuration or conditions. The device app can set reported properties, and the solution back end can read and query them.
+* **Reported properties**. Used along with desired properties to synchronize device configuration or conditions. The device app can set reported properties, and back-end apps can read and query them.
 
-* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md). Properties `connectionStateUpdatedTime` and `generationId` won't be included.
+* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md). The `connectionStateUpdatedTime` and `generationId` properties aren't included.
 
 ![Diagram that shows which applications interact with which device twin properties.](./media/iot-hub-devguide-device-twins/twin.png)
 
@@ -109,16 +109,16 @@ The root object contains the device identity properties, and container objects f
 
 ### Reported property example
 
-In the previous example, the device twin contains a `batteryLevel` property that is reported by the device app. This property makes it possible to query and operate on devices based on the last reported battery level. Other examples include the device app reporting device capabilities or connectivity options.
+In the previous example, the device twin contains a `batteryLevel` reported property. This property makes it possible to query and operate on devices based on the last reported battery level. Other examples include the device app reporting device capabilities or connectivity options.
 
 > [!NOTE]
-> Reported properties simplify scenarios where the solution back end is interested in the last known value of a property. Use [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) if the solution back end needs to process device telemetry in the form of sequences of timestamped events, such as time series.
+> Reported properties simplify scenarios where you're interested in the last known value of a property. Use [device-to-cloud messages](iot-hub-devguide-messages-d2c.md) if you want to process device telemetry in the form of sequences of timestamped events, such as time series.
 
 ### Desired property example
 
 In the previous example, the `telemetryConfig` device twin desired and reported properties are used by the solution back end and the device app to synchronize the telemetry configuration for this device. For example:
 
-1. The solution back end sets the desired property with the desired configuration value. Here's the portion of the document with the desired property set:
+1. A back-end app sets the desired property with the desired configuration value. Here's the portion of the document with the desired property set:
 
    ```json
    "desired": {
@@ -141,7 +141,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
    }
    ```
 
-3. The solution back end tracks the results of the configuration operation across many devices by [querying](iot-hub-devguide-query-language.md) device twins.
+3. A back-end app tracks the results of the configuration operation across many devices by [querying](iot-hub-devguide-query-language.md) device twins.
 
 > [!NOTE]
 > The preceding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
@@ -157,7 +157,7 @@ The solution back end operates on the device twin using the following atomic ope
 
 * **Retrieve device twin by ID**. This operation returns the device twin document, including tags and desired and reported system properties.
 
-* **Partially update device twin**. This operation enables the solution back end to partially update the tags or desired properties in a device twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
+* **Partially update device twin**. This operation partially updates the tags or desired properties in a device twin. The partial update is expressed as a JSON document that adds or updates any property. Properties set to `null` are removed. The following example creates a new desired property with value `{"newProperty": "newValue"}`, overwrites the existing value of `existingProperty` with `"otherNewValue"`, and removes `otherOldProperty`. No other changes are made to existing desired properties or tags:
 
    ```json
    {
@@ -173,11 +173,11 @@ The solution back end operates on the device twin using the following atomic ope
    }
    ```
 
-* **Replace desired properties**. This operation enables the solution back end to completely overwrite all existing desired properties and substitute a new JSON document for `properties/desired`.
+* **Replace desired properties**. This operation completely overwrites all existing desired properties and substitutes a new JSON document for `properties/desired`.
 
-* **Replace tags**. This operation enables the solution back end to completely overwrite all existing tags and substitute a new JSON document for `tags`.
+* **Replace tags**. This operation completely overwrites all existing tags and substitutes a new JSON document for `tags`.
 
-* **Receive twin notifications**. This operation allows the solution back end to be notified when the twin is modified. To do so, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Nontelemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+* **Receive twin notifications**. This operation notifies when the twin is modified. To receive device twin change notifications, your IoT solution needs to create a route and to set the Data Source equal to *twinChangeEvents*. By default, no such route exists, so no twin notifications are sent. If the rate of change is too high, or for other reasons such as internal failures, the IoT Hub might send only one notification that contains all changes. Therefore, if your application needs reliable auditing and logging of all intermediate states, you should use device-to-cloud messages. To learn more about the properties and body returned in the twin notification message, see [Nontelemetry event schemas](iot-hub-non-telemetry-event-schema.md).
 
 All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in [Control access to IoT Hub](iot-hub-dev-guide-sas.md).
 
@@ -193,9 +193,9 @@ The device app operates on the device twin using the following atomic operations
 
 * **Retrieve device twin**. This operation returns the device twin document (including desired and reported system properties) for the currently connected device. (Tags aren't visible to device apps.)
 
-* **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
+* **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected device.
 
-* **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties when they happen. The device receives the same form of update (partial or full replacement) executed by the solution back end.
+* **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties when they happen.
 
 All the preceding operations require the **DeviceConnect** permission, as defined in [Control Access to IoT Hub](iot-hub-dev-guide-sas.md).
 
@@ -254,7 +254,7 @@ IoT Hub enforces an 8-KB size limit on the value of `tags`, and a 32-KB size lim
 
 Twin size is computed as follows:
 
-* For each property in the JSON document, IoT Hub cumulatively computes and adds the length of the property's key and value.
+* IoT Hub cumulatively computes and adds the length of each property's key and value.
 
 * Property keys are considered as UTF8-encoded strings.
 
@@ -327,7 +327,7 @@ Tags, desired properties, and reported properties all support optimistic concurr
 
 Device twins have an ETag property `etag`, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This property is the only option for ensuring consistency in operations that involve the `tags` container.
 
-Device twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a device app for a reported property or the solution back end for a desired property.
+Device twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, you can use the version property to enforce consistency of updates. For example, a device app for a reported property or a back-end app for a desired property.
 
 Versions are also useful when an observing agent (such as the device app observing the desired properties) must reconcile races between the result of a retrieve operation and an update notification. The [Device reconnection flow section](#device-reconnection-flow) provides more information.
 

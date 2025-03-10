@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.author: xupzhou
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 10/11/2023
+ms.date: 09/25/2024
 ---
 
 # What's new in Azure Data Factory
@@ -58,7 +58,7 @@ Pipeline activity limit lifted to 80 activities. [Learn more](https://techcommun
 
 ### Data movement
 
-- Mysql Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
+- MySQL Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
 - MariaDB Connector driver upgrade available for Copy activity. [Learn more](connector-mariadb.md)
 - We added native UI support of parameterization for the following linked services: SAP HANA; MariaDB; Google BigQuery. [Learn more](parameterize-linked-services.md#supported-linked-service-types)
 

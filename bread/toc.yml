@@ -118,34 +118,12 @@ items:
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
-  - name: Advisor
-    tocHref: /azure/advisor/
-    topicHref: /azure/advisor/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
-  - name: Azure Arc
-    tocHref: /azure/azure-arc/
-    topicHref: /azure/azure-arc/
-    items:
-    - name: Azure Arc-enabled data services
-      tocHref: /azure/azure-arc/data/
-      topicHref: /azure/azure-arc/index
-    - name: Azure Arc-enabled Kubernetes
-      tocHref: /azure/azure-arc/kubernetes/
-      topicHref: /azure/azure-arc/index
-    - name: Azure Arc-enabled VMWare
-      tocHref: /azure/azure-arc/vmware-vsphere/
-      topicHref: /azure/azure-arc/index
-    - name: Arc-enabled servers
-      tocHref: /azure/azure-arc/servers/
-      topicHref: /azure/azure-arc/servers/
-    - name: Azure Container Storage enabled by Azure Arc
-      tocHref: /azure/azure-arc/container-storage/
-      topicHref: /azure/azure-arc/container-storage/index
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -183,9 +161,6 @@ items:
   - name: Azure HPC Cache
     tocHref: /azure/hpc-cache/
     topicHref: /azure/hpc-cache/
-  - name: Azure Lighthouse
-    tocHref: /azure/lighthouse/
-    topicHref: /azure/lighthouse/
   - name: Azure Managed Grafana
     tocHref: /azure/managed-grafana/
     topicHref: /azure/managed-grafana/
@@ -196,15 +171,9 @@ items:
     - name: Application Insights
       tocHref: /azure/azure-monitor/azure-monitor-app-hub
       topicHref: /azure/azure-monitor/azure-monitor-app-hub
-  - name: Azure Spatial Anchors
-    tocHref: /azure/spatial-anchors/
-    topicHref: /azure/spatial-anchors/
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/
-  - name: Container Registry
-    tocHref: /azure/container-registry/
-    topicHref: /azure/container-registry/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -230,9 +199,6 @@ items:
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
-  - name: Azure portal documentation
-    tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
   - name: Azure portal documentation
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
@@ -296,39 +262,42 @@ items:
     tocHref: /azure/partner-solutions/
     topicHref: /azure/partner-solutions/
     items:
-    - name: Apache Kafka & Apache Flink on Confluent Cloud
+    - name: Astro
+      tocHref: /azure/partner-solutions/astronomer/
+      topicHref: /azure/partner-solutions/astronomer/index
+    - name: Confluent
       tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/
       topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
     - name: Datadog
       tocHref: /azure/partner-solutions/datadog/
       topicHref: /azure/partner-solutions/datadog/overview
-    - name: Elastic
-      tocHref: /azure/partner-solutions/elastic/
-      topicHref: /azure/partner-solutions/elastic/overview
-    - name: Logz.io
-      tocHref: /azure/partner-solutions/logzio/
-      topicHref: /azure/partner-solutions/logzio/overview
     - name: Dynatrace
       tocHref: /azure/partner-solutions/dynatrace/
       topicHref: /azure/partner-solutions/dynatrace/dynatrace-overview
-    - name: NGINX
-      tocHref: /azure/partner-solutions/nginx/
-      topicHref: /azure/partner-solutions/nginx/nginx-overview
-    - name: Qumulo
-      tocHref: /azure/partner-solutions/qumulo/
-      topicHref: /azure/partner-solutions/qumulo/qumulo-overview
+    - name: Elastic
+      tocHref: /azure/partner-solutions/elastic/
+      topicHref: /azure/partner-solutions/elastic/overview
+    - name: Informatica
+      tocHref: /azure/partner-solutions/informatica/
+      topicHref: /azure/partner-solutions/informatica/index
+    - name: Logz.io
+      tocHref: /azure/partner-solutions/logzio/
+      topicHref: /azure/partner-solutions/logzio/overview
+    - name: Neon
+      tocHref: /azure/partner-solutions/neon/
+      topicHref: /azure/partner-solutions/neon/overview
     - name: New Relic
       tocHref: /azure/partner-solutions/new-relic/
       topicHref: /azure/partner-solutions/new-relic/new-relic-overview
+    - name: NGINX
+      tocHref: /azure/partner-solutions/nginx/
+      topicHref: /azure/partner-solutions/nginx/nginx-overview
     - name: Palo Alto Networks
       tocHref: /azure/partner-solutions/palo-alto/
       topicHref: /azure/partner-solutions/palo-alto/palo-alto-overview
-    - name: Apache Airflow on Astro
-      tocHref: /azure/partner-solutions/astronomer/
-      topicHref: /azure/partner-solutions/astronomer/index
-    - name: Informatica Intelligent Data Management Cloud
-      tocHref: /azure/partner-solutions/informatica/
-      topicHref: /azure/partner-solutions/informatica/index
+    - name: Qumulo
+      tocHref: /azure/partner-solutions/qumulo/
+      topicHref: /azure/partner-solutions/qumulo/qumulo-overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -452,12 +421,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Kubernetes Fleet Manager
-    tocHref: /azure/kubernetes-fleet/
-    topicHref: /azure/kubernetes-fleet/
-  - name: OpenShift
-    tocHref: /azure/openshift/
-    topicHref: /azure/openshift/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -468,6 +431,9 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: CycleCloud
+    tocHref: /azure/cyclecloud/
+    topicHref: /azure/cyclecloud/index/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -552,22 +518,6 @@ items:
     - name: Storm
       tocHref: /azure/hdinsight/storm
       topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: HDInsight on AKS
-    tocHref: /azure/hdinsight-aks/
-    topicHref: ../articles/hdinsight-aks/index.yml
-    items:
-    - name: Flink
-      tocHref: /azure/hdinsight-aks/flink
-      topicHref: ../articles/hdinsight-aks/flink/flink-overview.md
-    - name: Release Notes
-      tocHref: /azure/hdinsight-aks/release-notes
-      topicHref: ../articles/hdinsight-aks/release-notes/hdinsight-aks-release-notes.md
-    - name: Spark
-      tocHref: /azure/hdinsight-aks/spark
-      topicHref: ../articles/hdinsight-aks/spark/hdinsight-on-aks-spark-overview.md
-    - name: Trino
-      tocHref: /azure/hdinsight-aks/trino
-      topicHref: ../articles/hdinsight-aks/trino/trino-overview.md
   - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
@@ -782,18 +732,15 @@ items:
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
-  - name: Private multi-access edge compute
-    tocHref: /azure/private-multi-access-edge-compute-mec/
-    topicHref: /azure/private-multi-access-edge-compute-mec/
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
   - name: Private 5G Core
     tocHref: /azure/private-5g-core/
     topicHref: /azure/private-5g-core/
-  - name: Azure Cache for Redis
+  - name: Redis
     tocHref: /azure/azure-cache-for-redis/
-    topicHref: /azure/azure-cache-for-redis/
+    topicHref: /azure/azure-cache-for-redis/index
   - name: Remoteapp
     tocHref: /azure/remoteapp/
     topicHref: /azure/remoteapp/
@@ -803,9 +750,6 @@ items:
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
-  - name: Service Health
-    tocHref: /azure/service-health/
-    topicHref: /azure/service-health/
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/
@@ -983,9 +927,6 @@ items:
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
-  - name: Azure Orbital
-    tocHref: /azure/orbital/
-    topicHref: /azure/orbital/
   - name: Load Testing
     tocHref: /azure/load-testing/
     topicHref: /azure/load-testing/overview-what-is-azure-load-testing
@@ -1020,9 +961,3 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Microsoft Copilot in Azure
-    tocHref: /azure/copilot/
-    topicHref: /azure/copilot/
-  - name: Operator Call Protection
-    tocHref: /azure/operator-call-protection/
-    topicHref: /azure/operator-call-protection/

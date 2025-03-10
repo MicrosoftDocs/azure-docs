@@ -4,7 +4,7 @@ description: Learn how to update the password of the Active Directory Domain Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 11/08/2024
 ms.author: kendownie
 recommendations: false
 ---
@@ -60,3 +60,12 @@ $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```
+
+## Test that the AD DS account password matches a Kerberos key
+
+Now that you've updated the AD DS account password, you can test it using the following PowerShell command.
+
+```powershell
+ Test-AzStorageAccountADObjectPasswordIsKerbKey -ResourceGroupName "<your-resource-group-name>" -Name "<your-storage-account-name>" -Verbose
+```
+

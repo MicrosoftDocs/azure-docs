@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall Premium features
 description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
-author: vhorne
+author: duau
 ms.service: azure-firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/14/2023
-ms.author: victorh
+ms.author: duau
 ms.custom: references_regions
 ---
 
@@ -85,13 +85,9 @@ IDPS allows you to detect attacks in all ports and protocols for nonencrypted tr
 
 The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. The IDPS Bypass list isn't intended to be a way to improve throughput performance, as the firewall is still subject to the performance associated with your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
 
-:::image type="content" source="media/premium-features/idps-bypass-list.png" alt-text="Screenshot showing the IDPS Bypass list screen." lightbox="media/premium-features/idps-bypass-list.png":::
-
 ### IDPS Private IP ranges
 
 In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So, traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
-
-:::image type="content" source="media/premium-features/idps-private-ip.png" alt-text="Screenshot showing IDPS private IP address ranges.":::
 
 ### IDPS signature rules
 
@@ -121,8 +117,6 @@ IDPS signature rules have the following properties:
 |Protocol     |The protocol associated with this signature.|
 |Source/Destination Ports     |The ports associated with this signature.|
 |Last updated     |The last date that this signature was introduced or modified.|
-
-:::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Screenshot showing the IDPS signature rule columns." lightbox="media/idps-signature-categories/firewall-idps-signature.png":::
 
 For more information about IDPS, see [Taking Azure Firewall IDPS on a Test Drive](https://techcommunity.microsoft.com/t5/azure-network-security-blog/taking-azure-firewall-idps-on-a-test-drive/ba-p/3872706).
 
@@ -156,8 +150,6 @@ You can create exceptions to your web category rules. Create separate allow or d
 ### Web category search
 
 You can identify what category a given FQDN or URL is by using the **Web Category Check** feature. To use this, select the **Web Categories** tab under **Firewall Policy Settings**. This is useful when defining your application rules for destination traffic.
-
-:::image type="content" source="media/premium-features/firewall-category-search.png" alt-text="Firewall category search dialog":::
 
 > [!IMPORTANT]
 > To use the **Web Category Check** feature, the user must have an access of Microsoft.Network/azureWebCategories/* for **subscription** level, not resource group level.

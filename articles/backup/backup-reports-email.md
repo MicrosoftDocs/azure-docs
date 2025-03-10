@@ -1,11 +1,11 @@
 ---
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
-ms.topic: conceptual
-ms.date: 04/29/2024
+ms.topic: how-to
+ms.date: 09/20/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
@@ -19,7 +19,7 @@ Using the **Email Report** feature available in Backup Reports, you can create a
 
 To configure email tasks via Backup Reports, perform the following steps:
 
-1.	Go to **Backup Center** > **Backup Reports** and click on the **Email Report** tab.
+1.	Go to **Business Continuity Center** > **Backup Reports** and click on the **Email Report** tab.
 2.	Create a task by specifying the following information:
     * **Task Details** - The name of the logic app to be created, and the subscription, resource group, and location in which it should be created. Note that the logic app can query data across multiple subscriptions, resource groups, and locations (as selected in the Report Filters section), but is created in the context of a single subscription, resource group and location.
     * **Data To Export** - The tab which you wish to export. You can either create a single task app per tab, or email all tabs using a single task, by selecting the **All Tabs** option.
@@ -89,7 +89,7 @@ When attempting to authorize the Microsoft 365 API connection, you might see an 
 
 This error can occur if the mailbox is on a dedicated Microsoft Exchange Server and isn't a valid Office 365 mailbox. [Learn more](/connectors/office365/#common-errors)
 
-To get a valid Office 365 mailbox, submit a request to your Exchange or Global administrator to migrate the mailbox account. Users who don't have administrator permissions can't migrate accounts. For information on how to migrate the mailbox account, see [How to migrate mailbox data by using the Exchange Admin Center in Office 365](/exchange/troubleshoot/move-or-migrate-mailboxes/migrate-data-with-admin-center).
+To get a valid Office 365 mailbox, submit a request to your Exchange administrator to migrate the mailbox account. Users who don't have administrator permissions can't migrate accounts. For information on how to migrate the mailbox account, see [How to migrate mailbox data by using the Exchange Admin Center in Office 365](/exchange/troubleshoot/move-or-migrate-mailboxes/migrate-data-with-admin-center).
 
 ### Scenario 4: Error in authorizing Azure Monitor Logs connection
 

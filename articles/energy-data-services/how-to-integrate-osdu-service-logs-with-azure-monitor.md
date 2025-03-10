@@ -3,7 +3,7 @@ title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Man
 description: This how-to article shows you how to integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
 author: nitinnms
 ms.author: nitindwivedi
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/19/2023
 ms.custom: template-how-to
@@ -16,7 +16,7 @@ Azure Data Manager for Energy supports exporting OSDU Service Logs to Azure Moni
 ## Prerequisites
 
 * An existing **Log Analytics Workspace**.
-    This workspace is used to query OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+    This workspace is used to query OSDU service logs using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log analytics workspace in Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 * An existing **storage account**:
     It's used to store JSON dumps of OSDU service logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace.
@@ -86,4 +86,4 @@ You can archive OSDU service logs to storage accounts and take advantage of Azur
 Now that you're collecting OSDU service logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
 
 > [!div class="nextstepaction"]
-> [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)
+> [Create a log query alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)

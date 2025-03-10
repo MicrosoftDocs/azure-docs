@@ -5,15 +5,14 @@ description: Learn about options to secure access to the API Management develope
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/12/2023
 ms.author: danlep
 ---
 
 # Secure access to the API Management developer portal
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
-
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 API Management has a fully customizable, standalone, managed [developer portal](api-management-howto-developer-portal.md), which can be used externally (or internally) to allow developer users to discover and interact with the APIs published through API Management. The developer portal has several options to facilitate secure user sign-up and sign-in. 
 
@@ -36,6 +35,9 @@ API Management has a fully customizable, standalone, managed [developer portal](
     
 
 * **Basic authentication** - A default option is to use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider, which allows developers to register directly in API Management and sign in using API Management user accounts. User sign up through this option is protected by a CAPTCHA service. 
+
+    > [!CAUTION]
+    > While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Azure AD B2C](api-management-howto-aad-b2c.md).
 
 
 ## Developer portal test console
@@ -112,6 +114,6 @@ Key configurations:
 Go a step further by delegating [user registration or product subscription](api-management-howto-setup-delegation.md) and extend the process with your own logic. 
 
 
-## Next steps
+## Related content
 * Learn more about [authentication and authorization](../active-directory/develop/authentication-vs-authorization.md) in the Microsoft identity platform.
 * Learn how to [mitigate OWASP API security threats](mitigate-owasp-api-threats.md) using API Management.

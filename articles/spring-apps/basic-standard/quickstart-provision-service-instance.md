@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Provision an Azure Spring Apps service"
+title: "Quickstart - Provision an Azure Spring Apps Service"
 description: Describes creation of an Azure Spring Apps service instance for app deployment.
 author: KarlErickson
 ms.author: karler
@@ -12,17 +12,13 @@ zone_pivot_groups: programming-languages-spring-apps
 
 # Provision an Azure Spring Apps service instance
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Standard consumption and dedicated (Preview) ✔️ Basic/Standard ❌ Enterprise
+**This article applies to:** ❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to provision a Basic or Standard plan Azure Spring Apps service instance.
 
-Azure Spring Apps supports multiple plans. For more information, see [Quotas and service plans for Azure Spring Apps](../enterprise/quotas.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json). To learn how to create service instances for other plans, see the following articles:
-
-- [Quickstart: Provision an Azure Spring Apps Standard consumption and dedicated plan service instance](../consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md)
-- [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](../enterprise/how-to-migrate-standard-tier-to-enterprise-tier.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json)
+Azure Spring Apps supports multiple plans. For more information, see [Quotas and service plans for Azure Spring Apps](quotas.md). To learn how to create service instances for the Enterprise plan, see [Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan](how-to-migrate-standard-tier-to-enterprise-tier.md).
 
 ## Prerequisites
 

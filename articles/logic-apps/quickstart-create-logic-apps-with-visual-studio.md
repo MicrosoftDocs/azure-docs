@@ -1,24 +1,25 @@
 ---
-title: Quickstart - Create integration workflows with multitenant Azure Logic Apps in Visual Studio
-description: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio Code.
+title: "(Deprecated) Create automated workflows in multitenant Azure Logic Apps with Visual Studio"
+description: Create automated integration workflows that run in multitenant Azure Logic Apps with Visual Studio.
 services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 01/04/2024
-#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
+ms.date: 12/10/2024
+#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio.
 ---
 
-# Quickstart: Create automated integration workflows with multitenant Azure Logic Apps and Visual Studio
+# Quickstart: Create automated workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multitenant [Azure Logic Apps](logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant model, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
+[!INCLUDE [visual-studio-extension-deprecation](includes/visual-studio-extension-deprecation.md)]
 
-If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating an example Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md). The workflow designer works similarly in both the Azure portal and Visual Studio.
+You can create, develop, and deploy automated workflows that integrate services, systems, apps, and data across enterprises and organizations by using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). Although you can perform these tasks in the Azure portal, you can also use Visual Studio as your local development environment to create logic app projects that you can add to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multitenant versus single-tenant logic app workflows, see [Single-tenant versus multitenant in Azure Logic Apps](/azure/logic-apps/single-tenant-overview-compare).
 
-In this quickstart, you create the same logic app workflow with Visual Studio as the Azure portal quickstart. You can also learn to [create an example logic app workflow in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), and [create and manage logic app workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md). This logic app workflow monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app workflow looks like the following high-level workflow:
+This quickstart shows how to create the same example logic app workflow as the Azure portal quickstart. You can also learn to [create an example logic app workflow in Visual Studio Code](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code) or [create and manage logic app workflows using the Azure CLI](/azure/logic-apps/quickstart-logic-apps-azure-cli). This logic app workflow monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app workflow looks like the following high-level workflow:
 
 ![Screenshot shows high-level view for example logic app workflow.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -30,11 +31,11 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
 * Download and install these tools, if you don't have them already:
 
-  * [Visual Studio 2019 - Community edition](https://aka.ms/download-visual-studio), which is free. This quickstart uses Visual Studio Community 2017.
+  * [Visual Studio 2019 - Community edition](https://aka.ms/download-visual-studio), which is free. This quickstart uses Visual Studio Community 2017 for the examples.
 
     > [!IMPORTANT]
     >
-    > If you use Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    > If you use Visual Studio 2019, make sure that you select the **Azure development** workload.
     >
     > The Azure Logic Apps extension is unavailable for Visual Studio 2022.
 
@@ -42,11 +43,7 @@ In this quickstart, you create the same logic app workflow with Visual Studio as
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * The corresponding Azure Logic Apps Tools for the Visual Studio extension, which is unavailable for Visual Studio 2022:
-
-    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
-
-    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+  * The [Azure Logic Apps Tools extension for Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019). This extension is unavailable for Visual Studio 2022.
 
     You can download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
@@ -88,10 +85,6 @@ To work with Azure Government subscriptions in Azure Logic Apps, you need to [ad
 To revert this setup, delete the JSON file at the following location, and restart Visual Studio:
 
 `%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
-
-### Visual Studio 2017
-
-You can use the [Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
 <a name="create-resource-group-project"></a>
 
@@ -152,10 +145,10 @@ When you have your Azure Resource Group project, create your logic app with the 
 
    | Setting | Example value | Description |
    | ------- | ------------- | ----------- |
-   | User account | Fabrikam <br> sophia-owen@fabrikam.com | The account that you used when you signed in to Visual Studio |
-   | **Subscription** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | The name for your Azure subscription and associated account |
-   | **Resource Group** | MyLogicApp-RG <br> (West US) | The Azure resource group and location for storing and deploying your logic app's resources |
-   | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app resource. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
+   | User account | **Fabrikam** <br>**sophia-owen@fabrikam.com** | The account that you used when you signed in to Visual Studio |
+   | **Subscription** | **Pay-As-You-Go** <br>(**sophia-owen@fabrikam.com**) | The name for your Azure subscription and associated account |
+   | **Resource Group** | **MyLogicApp-RG** <br>(**West US**) | The Azure resource group and location for storing and deploying your logic app's resources |
+   | **Location** | **Same as Resource Group** | The location type and location to deploy your logic app resource. <br><br>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <br><br>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
 
 1. The workflow designer opens a page that shows an introduction video and commonly used triggers. Scroll down past the video and triggers to **Templates**, and select **Blank Logic App**.
 

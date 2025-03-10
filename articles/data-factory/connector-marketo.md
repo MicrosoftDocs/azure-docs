@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2024
+ms.date: 01/26/2025
 ms.author: makromer
 author: kromerm
 ---
@@ -14,7 +14,7 @@ author: kromerm
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -139,7 +139,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **MarketoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activitiy_Types"`. | No (if "tableName" in dataset is specified) |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activity_Types"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -163,7 +163,7 @@ To copy data from Marketo, set the source type in the copy activity to **Marketo
         "typeProperties": {
             "source": {
                 "type": "MarketoSource",
-                "query": "SELECT top 1000 * FROM Activitiy_Types"
+                "query": "SELECT top 1000 * FROM Activity_Types"
             },
             "sink": {
                 "type": "<sink type>"

@@ -3,10 +3,10 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/16/2025
 ---
 
-To deploy with the service principal you configured, use the `azure/login@v1` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you [created earlier](../../deploy-github-actions.md?tabs=userlevel#2-configure-the-github-secret).
+To deploy with the service principal you configured, use the `azure/login@v2` action with the `creds` key and reference the `AZURE_CREDENTIALS` secret that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -27,7 +27,7 @@ jobs:
     steps:
       # Checkout the repo
       - uses: actions/checkout@main
-      - uses: azure/login@v1
+      - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -59,7 +59,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -79,7 +79,7 @@ jobs:
     # checkout the repo
     - uses: actions/checkout@main
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -110,7 +110,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Java Spring Boot app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven
@@ -124,7 +124,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Set up JDK 1.8
@@ -148,7 +148,7 @@ jobs:
 
 # [Tomcat](#tab/tomcat)
 
-Build and deploy a Tomcat app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Tomcat app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Build and deploy WAR app to Azure Web App using Service Principal Connect
@@ -193,11 +193,11 @@ jobs:
           package: '*.war'
 ```
 
-You can find this full example using multiple jobs for build and deploy [here](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-service-principal.yml) as well.
+You can find this [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-service-principal.yml) using multiple jobs for build and deploy.
 
 # [Node.js](#tab/nodejs)
 
-Build and deploy a Node.js app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Node.js app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: JavaScript CI
@@ -219,7 +219,7 @@ jobs:
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
    
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
@@ -249,7 +249,7 @@ jobs:
 
 # [Python](#tab/python)
 
-Build and deploy a Python app to Azure using an Azure service principal. Note how the `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
+Build and deploy a Python app to Azure using an Azure service principal. The `creds` input references the `AZURE_CREDENTIALS` secret that you created earlier.
 
 ```yaml
 name: Python application
@@ -267,7 +267,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 

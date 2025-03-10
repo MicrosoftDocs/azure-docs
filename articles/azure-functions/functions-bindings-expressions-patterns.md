@@ -317,6 +317,6 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
 
 In C# and other .NET languages, you can use an imperative binding pattern, as opposed to the declarative bindings in *function.json* and attributes. Imperative binding is useful when binding parameters need to be computed at runtime rather than design time. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#binding-at-runtime) or the [C# script developer reference](functions-reference-csharp.md#binding-at-runtime).
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Using the Azure Function return value](./functions-bindings-return-value.md)
+## Related content
+
++ [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md)

@@ -2,11 +2,11 @@
 title: Overview of API support in Azure Static Web Apps
 description: Learn what API features Azure Static Web Apps supports
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
-ms.date: 06/14/2022
-ms.author: cshoe
+ms.date: 10/02/2024
+ms.author: wujia
 ---
 
 # Overview of API support in Azure Static Web Apps
@@ -17,7 +17,7 @@ Key features of Azure Static Web Apps APIs include:
 
 - **Integrated security** with direct access to user [authentication and role-based authorization](user-information.md) data.
 
-- **Seamless routing** that makes the `/api` route available to the front-end web app without requiring custom CORS rules.
+- **Seamless routing** that makes the back-end `/api` route available to the front-end web app without requiring custom CORS rules.
 
 ## API options
 

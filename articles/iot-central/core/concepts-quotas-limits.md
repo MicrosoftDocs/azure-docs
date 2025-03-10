@@ -4,8 +4,8 @@ description: This article lists the key quotas and limits that apply to an IoT C
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/17/2024
-ms.topic: conceptual
-ms.service: iot-central
+ms.topic: reference
+ms.service: azure-iot-central
 services: iot-central
 
 ---

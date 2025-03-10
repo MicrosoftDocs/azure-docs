@@ -216,7 +216,7 @@ After setting up the cloud services network, you can use it to create a VM or cl
 > [!NOTE]
 > To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
 >
-> In addition, if your ACR has dedicated data endpoints enabled, you will need to add all the new data-endpoints to the egress allow list.  To find all the possible endpoints for your ACR follow the instruction [here](../container-registry/container-registry-dedicated-data-endpoints.md#dedicated-data-endpoints).
+> In addition, if your ACR has dedicated data endpoints enabled, you will need to add all the new data-endpoints to the egress allow list.  To find all the possible endpoints for your ACR follow the instruction [here](/azure/container-registry/container-registry-dedicated-data-endpoints#dedicated-data-endpoints).
 
 ### Use the proxy to reach outside of the virtual machine
 

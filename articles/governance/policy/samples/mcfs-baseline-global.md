@@ -1,8 +1,8 @@
 ---
 title: Regulatory Compliance details for Microsoft Cloud for Sovereignty Baseline Global Policies
 description: Details of the Microsoft Cloud for Sovereignty Baseline Global Policies Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/26/2024
-ms.topic: sample
+ms.date: 03/03/2025
+ms.topic: generated-reference
 ms.custom: generated
 ---
 # Details of the Microsoft Cloud for Sovereignty Baseline Global Policies Regulatory Compliance built-in initiative
@@ -64,5 +64,5 @@ Additional articles about Azure Policy:
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - See the [initiative definition structure](../concepts/initiative-definition-structure.md).
 - Review other examples at [Azure Policy samples](./index.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

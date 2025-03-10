@@ -12,11 +12,11 @@ ms.date: 06/17/2024
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. For more information about Azure Monitor Alerts for Application Gateway, see [Monitoring Azure Application Gateway](monitor-application-gateway.md#alerts).
 
-The templates for alerts described here are defined generically for settings like Severity, Aggregation Granularity, Frequency of Evaluation, Condition Type, and so on. You can modify the settings after deployment to meet your needs. See [detailed information about configuring a metric alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md) for more information.
+The templates for alerts described here are defined generically for settings like Severity, Aggregation Granularity, Frequency of Evaluation, Condition Type, and so on. You can modify the settings after deployment to meet your needs. See [detailed information about configuring a metric alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule) for more information.
 
-The templates for metric-based alerts use the  **Dynamic threshold** value with [high sensitivity](../azure-monitor/alerts/alerts-dynamic-thresholds.md#known-issues-with-dynamic-threshold-sensitivity). You can choose to adjust these settings based on your needs.
+The templates for metric-based alerts use the  **Dynamic threshold** value with [high sensitivity](/azure/azure-monitor/alerts/alerts-dynamic-thresholds#known-issues-with-dynamic-threshold-sensitivity). You can choose to adjust these settings based on your needs.
 
-The following ARM templates are available to configure Azure Monitor alerts for Application Gateway. For the procedure to use these templates, see [Create a new alert rule using an ARM template](../azure-monitor/alerts/alerts-create-rule-cli-powershell-arm.md#create-a-new-alert-rule-using-an-arm-template).
+The following ARM templates are available to configure Azure Monitor alerts for Application Gateway. For the procedure to use these templates, see [Create a new alert rule using an ARM template](/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm#create-a-new-alert-rule-using-an-arm-template).
 
 - Alert for Backend Response Status as 5xx
 
@@ -46,4 +46,4 @@ The following ARM templates are available to configure Azure Monitor alerts for 
 
 - See [Monitoring Application Gateway data reference](monitor-application-gateway-reference.md) for a reference of the metrics, logs, and other important values created by Application Gateway.
 
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
+
+
+#Customer intent: As a security operations manager, I want to troubleshoot and resolve issues with scheduled analytics rules in Microsoft Sentinel so that I can ensure continuous and accurate monitoring of security events.
+
 ---
 
 # Troubleshooting analytics rules in Microsoft Sentinel
@@ -68,12 +72,11 @@ SOC managers should be sure to check the rule list regularly for the presence of
 
 Another kind of permanent failure occurs due to an **improperly built query** that causes the rule to consume **excessive computing resources** and risks being a performance drain on your systems. When Microsoft Sentinel identifies such a rule, it takes the same three steps mentioned for the other types of permanent failures&mdash;disables the rule, prepends **"AUTO DISABLED"** to the rule name, and adds the reason for the failure to the description.
 
-To re-enable the rule, you must address the issues in the query that cause it to use too many resources. See the following articles for best practices to optimize your Kusto queries:
+To re-enable the rule, you must address the issues in the query that cause it to use too many resources. For more information, see:
 
-- [Query best practices - Azure Data Explorer](/azure/data-explorer/kusto/query/best-practices)
-- [Optimize log queries in Azure Monitor](../azure-monitor/logs/query-optimization.md)
-
-Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
+- [Query best practices - Kusto documentation](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
+- [Optimize log queries in Azure Monitor](/azure/azure-monitor/logs/query-optimization)
+- [Kusto Query Language learning resources](/kusto/query/kql-learning-resources?view=microsoft-sentinel?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 
 ### Permanent failure due to lost access across subscriptions/tenants
 

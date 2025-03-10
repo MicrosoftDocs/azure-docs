@@ -4,8 +4,7 @@ description: Learn how to use logs to troubleshoot the validation issues that mi
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: shaas

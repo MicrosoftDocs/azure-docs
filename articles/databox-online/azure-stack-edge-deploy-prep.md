@@ -4,8 +4,7 @@ description: The first tutorial about deploying Azure Stack Edge Pro FPGA involv
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/27/2024
 ms.author: alkohli

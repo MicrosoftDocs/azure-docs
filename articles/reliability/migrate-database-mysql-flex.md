@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/13/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 ---
  
 # Migrate MySQL – Flexible Server to availability zone support

@@ -2,10 +2,10 @@
 title: Tutorial - Visualize IoT data in a web app
 titleSuffix: Azure IoT Hub
 description: This tutorial uses a web application to visualize temperature and humidity data that is collected from a sensor and sent to your IoT hub.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 05/23/2023
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
@@ -63,6 +63,8 @@ The service connection string should look similar to the following example:
 ```
 
 Note down the service connection string, you need it later in this tutorial.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Download the web app from GitHub
 

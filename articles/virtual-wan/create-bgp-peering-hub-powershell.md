@@ -75,9 +75,9 @@ Update an existing hub BGP peer connection.
 ```azurepowershell-interactive
 Update-AzVirtualHubBgpConnection -ResourceGroupName "[resource group name]" -VirtualHubName "westushub" -PeerIp 192.168.1.6 -PeerAsn 20000 -Name "testBgpConnection" -VirtualHubVnetConnection $hubVnetConnection
 ```
-## BGP learned route in HUB
+## Check BGP learned route
 
-Check BGP learned route in HUB.
+Check BGP learned route in a hub.
 
 ```azurepowershell-interactive
 Get-AzRouteServerPeerLearnedRoute -ResourceGroupName "[resource group name]" -RouteServerName "[hub name]" -PeerName "[peer name]"

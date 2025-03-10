@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Data Share
 description: This article contains important reference material you need when you monitor Azure Data Share.
-ms.date: 02/28/2024
+ms.date: 02/12/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: sidontha
@@ -20,7 +20,7 @@ See [Monitor Data Share](monitor-data-share.md) for details on the data you can 
 ### Supported metrics for Microsoft.DataShare/accounts
 The following table lists the metrics available for the Microsoft.DataShare/accounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DataShare/accounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datashare-accounts-metrics-include.md)]
+[!INCLUDE [Microsoft.DataShare/accounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-datashare-accounts-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
@@ -31,7 +31,7 @@ The following table lists the metrics available for the Microsoft.DataShare/acco
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.DataShare/accounts
-[!INCLUDE [Microsoft.DataShare/accounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-datashare-accounts-logs-include.md)]
+[!INCLUDE [Microsoft.DataShare/accounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-datashare-accounts-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

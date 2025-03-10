@@ -4,7 +4,7 @@ description: Reference guide to the JSON schema and syntax for the Workflow Defi
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/13/2024
 ---
 

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, laveeshb, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 12/06/2023
+ms.date: 01/26/2025
 ---
 
 # Handle errors and exceptions in Azure Logic Apps
@@ -195,67 +195,34 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 ### Change "run after" behavior in the designer
 
-### [Standard](#tab/standard)
-
 1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
 
-1. On the designer, select the action shape. On the details pane, select **Run After**.
+1. On the designer, select the action shape. On the details pane, select **Settings**.
 
-   ![Screenshot showing Standard workflow designer and current action details pane with "Run After" selected.](./media/error-exception-handling/configure-run-after-standard.png)
+   The **Run After** section in the **Settings** pane shows the predecessor action for the currently selected action.
 
-   The **Run After** pane shows the predecessor action for the currently selected action.
+   :::image type="content" source="media/error-exception-handling/configure-run-after.png" alt-text="Screenshot shows workflow designer and current action details pane with selected Settings tab.":::
 
-   ![Screenshot showing Standard designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-standard.png)
 
-1. Expand the predecessor action node to view all the "run after" statuses.
+1. Expand the predecessor action to view all the possible predecessor statuses.
 
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
+   By default, the "run after" status is set to **Is successful**. So, the predecessor action must successfully finish before the currently selected action can run.
 
-   ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/change-run-after-status-standard.png)
+   :::image type="content" source="media/error-exception-handling/change-run-after-status.png" alt-text="Screenshot shows current action and its default run after status set to Is successful.":::
 
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
+1. To change the "run after" behavior to the statuses that you want, select those statuses. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
-   The following example selects **has failed**.
+   The following example selects **Has failed**.
 
-   ![Screenshot showing Standard designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-standard.png)
+   :::image type="content" source="media/error-exception-handling/failed-run-after-status.png" alt-text="Screenshot shows current action with run after behavior set to Has failed.":::
 
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
+1. To specify that the current action runs when the predecessor action completes with **Failed**, **Skipped**, or **TimedOut** status, select these statuses.
 
-   ![Screenshot showing Standard designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-standard.png)
+   :::image type="content" source="media/error-exception-handling/run-after-multiple-statuses.png" alt-text="Screenshot shows current action and multiple selected run after statuses.":::
 
 1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
 
-   ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/error-exception-handling/multiple-predecessor-actions-standard.png)
-
-1. When you're ready, select **Done**.
-
-### [Consumption](#tab/consumption)
-
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
-
-1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
-
-   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/error-exception-handling/configure-run-after-consumption.png)
-
-   The action shape expands and shows the predecessor action for the currently selected action.
-
-   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-consumption.png)
-
-1. Expand the predecessor action node to view all the "run after" statuses.
-
-   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
-
-   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/default-run-after-status-consumption.png)
-
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
-
-   The following example selects **has failed**.
-
-   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-consumption.png)
-
-1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
-
-   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-consumption.png)
+   :::image type="content" source="media/error-exception-handling/multiple-predecessor-actions.png" alt-text="Screenshot shows current action and available multiple predecessor actions.":::
 
 1. When you're ready, select **Done**.
 
@@ -331,6 +298,38 @@ By default, when all the scope's actions succeed, the scope's status is marked *
 To catch exceptions in a **Failed** scope and run actions that handle those errors, you can use the "run after" setting that **Failed** scope. That way, if *any* actions in the scope fail, and you use the "run after" setting for that scope, you can create a single action to catch failures.
 
 For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
+
+### Set up a scope with "run after" for exception handling
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+   Your workflow must already have a trigger that starts the workflow.
+
+1. On the designer, [follow these generic steps to add a **Control** action named **Scope** to your workflow](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action).
+
+1. In the **Scope** action, [follow these generic steps to the add actions to run](/azure/logic-apps/logic-apps-control-flow-run-steps-group-scopes#add-steps-to-scope), for example:
+
+    :::image type="content" source="media/error-exception-handling/add-actions-into-scope.png" alt-text="Screenshot shows workflow designer with actions grouped inside the scope.":::
+
+   The following list shows some example actions that you might include inside a **Scope** action:
+   
+   - Get data from an API.
+   - Process the data.
+   - Save the data to a database.
+
+1. Now define the "run after" rules for running the actions in the scope.
+   
+   1. On the designer, select the **Scope** title. When the scope's information pane opens, select **Settings**.
+
+   1. If you have more than one preceding action in the workflow, from the **Select actions** list, select the action after which you want to run the scoped actions.
+
+   1. For the selected action, select all the action statuses that can run the scoped actions.
+      
+      In other words, any of the chosen statuses that result from the selected action cause the actions in the scope to run.
+
+      In the following example, the scoped actions run after the **HTTP** action completes with any of the selected statuses:
+
+      :::image type="content" source="media/error-exception-handling/set-run-after-in-scope.png" alt-text="Screenshot shows scope action's Settings tab, run after section, and selected action statuses that run the scoped actions.":::
 
 <a name="get-results-from-failures"></a>
 
@@ -440,7 +439,7 @@ To perform different exception handling patterns, you can use the expressions pr
 
 The previous patterns are useful ways to handle errors and exceptions that happen within a run. However, you can also identify and respond to errors that happen independently from the run. To evaluate run statuses, you can monitor the logs and metrics for your runs, or publish them into any monitoring tool that you prefer.
 
-For example, [Azure Monitor](../azure-monitor/overview.md) provides a streamlined way to send all workflow events, including all run and action statuses, to a destination. You can [set up alerts for specific metrics and thresholds in Azure Monitor](monitor-logic-apps.md#set-up-monitoring-alerts). You can also send workflow events to a [Log Analytics workspace](../azure-monitor/logs/data-platform-logs.md) or [Azure storage account](../storage/blobs/storage-blobs-overview.md). Or, you can stream all events through [Azure Event Hubs](../event-hubs/event-hubs-about.md) into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
+For example, [Azure Monitor](/azure/azure-monitor/overview) provides a streamlined way to send all workflow events, including all run and action statuses, to a destination. You can [set up alerts for specific metrics and thresholds in Azure Monitor](monitor-logic-apps.md#set-up-monitoring-alerts). You can also send workflow events to a [Log Analytics workspace](/azure/azure-monitor/logs/data-platform-logs) or [Azure storage account](../storage/blobs/storage-blobs-overview.md). Or, you can stream all events through [Azure Event Hubs](../event-hubs/event-hubs-about.md) into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
 
 For more information, review [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-workflows-collect-diagnostic-data.md).
 

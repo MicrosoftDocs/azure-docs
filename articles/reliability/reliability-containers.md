@@ -12,9 +12,6 @@ ms.date: 11/29/2022
 
 # Reliability in Azure Container Instances
 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
-
 This article describes reliability support in Azure Container Instances (ACI) and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and information on Disaster Recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Availability zone support
@@ -26,9 +23,6 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 
 
 ### Prerequisites
-
-> [!IMPORTANT]
-> This feature is currently not available for Azure portal.
 
 - Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
 
@@ -178,7 +172,7 @@ To create a Container Instance resource with availability zone enabled, you'll n
     }
     ```
 
-2. Create a resource group with the [az group create][availability-zones-group-create] command:
+2. Create a resource group with the [az group create][az-group-create] command:
 
     ```azurecli
     az group create --name myResourceGroup --location eastus
@@ -194,7 +188,7 @@ To create a Container Instance resource with availability zone enabled, you'll n
 4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
     
     ```azurecli
-    az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+    az container show --name acilinuxpublicipcontainergroup --resource-group myResourceGroup
     ```
 
 ### Zonal failover support

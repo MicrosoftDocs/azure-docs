@@ -5,7 +5,7 @@ description: Learn how to train a model, convert it to ONNX, deploy it to Azure 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: hudequei, randolphwest
-ms.date: 01/10/2024
+ms.date: 09/21/2024
 ms.service: sql
 ms.subservice: machine-learning
 ms.topic: quickstart
@@ -14,7 +14,9 @@ keywords: deploy SQL Edge
 ---
 # Deploy and make predictions with an ONNX model and SQL machine learning
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
@@ -397,6 +399,6 @@ SELECT predict_input.id,
 FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME = ONNX) WITH (variable1 FLOAT) AS p;
 ```
 
-## Next steps
+## Related content
 
 - [Machine Learning and AI with ONNX in SQL Edge](onnx-overview.md)

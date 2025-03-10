@@ -23,6 +23,8 @@
     href: custom-health-probe.md
   - name: ECDSA and RSA certificates
     href: ecdsa-rsa-certificates.md
+  - name: gRPC
+    href: grpc.md
   - name: Scaling and zone resiliency
     href: scaling-zone-resiliency.md
   - name: Server-sent events
@@ -31,6 +33,8 @@
     href: session-affinity.md
   - name: TLS policy
     href: tls-policy.md
+  - name: WebSockets
+    href: websockets.md
   - name: Frequently Asked Questions (FAQ)
     href: faq.yml
   - name: Understanding pricing
@@ -53,8 +57,14 @@
     items:
     - name: Backend MTLS
       href: how-to-backend-mtls-gateway-api.md
+    - name: Frontend MTLS
+      href: how-to-frontend-mtls-gateway-api.md
+    - name: End-to-End TLS
+      href: how-to-end-to-end-tls-gateway-api.md
     - name: Header rewrite
       href: how-to-header-rewrite-gateway-api.md
+    - name: Managed certificates with cert-manager
+      href: how-to-cert-manager-lets-encrypt-gateway-api.md
     - name: Multi-site hosting
       href: how-to-multiple-site-hosting-gateway-api.md
     - name: Path, header, and query string based routing
@@ -67,8 +77,12 @@
       href: how-to-url-redirect-gateway-api.md
     - name: URL rewrite
       href: how-to-url-rewrite-gateway-api.md
+    - name: WebSockets
+      href: how-to-websockets-gateway-api.md
   - name: Ingress API
     items:
+    - name: End-to-End TLS
+      href: how-to-end-to-end-tls-ingress-api.md
     - name: Header rewrite
       href: how-to-header-rewrite-ingress-api.md
     - name: Multi-site hosting
@@ -109,12 +123,10 @@
   - name: Author templates
     displayName: ARM
     href: ../../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway-for-containers
+    href: https://stackoverflow.com/questions/tagged/azure-app-gateway-for-containers
  

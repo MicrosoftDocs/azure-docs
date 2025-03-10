@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: yeturis
 ms.author: sairamyeturi 
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Scenario: Brokers are unhealthy or can't restart due to disk space full issue

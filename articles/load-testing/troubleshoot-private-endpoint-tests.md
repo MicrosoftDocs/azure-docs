@@ -24,6 +24,9 @@ Azure Load Testing service requires outbound connectivity from the virtual netwo
 
 Optionally, outbound connectivity is needed to *.maven.org and *.github.com to download any plugins that are included in your test configuration. 
 
+> [!NOTE]
+> For [Azure Government](/azure/azure-government/documentation-government-welcome) regions, ensure outbound connectivity to *.azure.us, *.usgovcloudapi.net and *.azurecr.us. For more information on Azure Government endpoints, see [Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers).
+
 ## Troubleshoot connectivity from the virtual network by deploying an Azure Virtual Machine
 
 To test connectivity from your virtual network: 

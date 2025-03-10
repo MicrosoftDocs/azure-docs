@@ -4,8 +4,7 @@ description: In this tutorial, learn how to cable your Azure Data Box, connect A
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: tutorial
 ms.date: 02/16/2023
 ms.author: shaas

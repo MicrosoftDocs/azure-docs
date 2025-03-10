@@ -6,14 +6,14 @@ description: Learn how to configure a sign-up and sign-in flow for a social acco
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow with a social account using Azure Active Directory B2C custom policy, so that users can sign in to my application using their social media credentials.
@@ -32,7 +32,7 @@ For local accounts, a user account is uniquely identified by using the `objectId
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms.  
+- [Register a web application](tutorial-register-applications.md).  
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
@@ -452,7 +452,7 @@ When the custom policy runs:
 
 - **Orchestration Step 5** - This step runs if the user doesn't already exist (`objectId` doesn't exist), so the `AAD-UserWriteUsingAlternativeSecurityId` Technical Profile executes to write the social account into Microsoft Entra ID.  
 
-- **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT token at the end of the policy’s execution.
+- **Orchestration Step 6** - Finally, step 6 assembles and returns the JWT at the end of the policy’s execution.
 
 ## Step 5 - Update relying party output claims 
 
@@ -466,7 +466,7 @@ In the `ContosoCustomPolicy.XML` file, locate the `RelyingParty` element, and th
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
     <OutputClaim ClaimTypeReferenceId="identityProvider" />
 ```
-We've added the identity provider (*identityProvider*) as an output claim, so it will be included in the JWT token returned to the relying party application. 
+We've added the identity provider (*identityProvider*) as an output claim, so it will be included in the JWT returned to the relying party application. 
  
 ## Step 6 - Upload policy
 
@@ -485,7 +485,7 @@ If it's the first time running this policy (social account doesn't already exist
 
 Enter or update **Display Name**, **Given Name** and the **Surname**, and then select **Continue** button.  
 
-After the policy finishes execution, you're redirected to https://jwt.ms, and you see a decoded JWT token. It looks similar to the following JWT token snippet:
+After the policy finishes execution, you're redirected to https://jwt.ms, and you see a decoded JWT. It looks similar to the following JWT snippet:
 
 ```json
 {
@@ -504,7 +504,7 @@ After the policy finishes execution, you're redirected to https://jwt.ms, and yo
 }.[Signature]
 ```
 
-Notice the identity provider, `"idp": "facebook.com"`, has been included in the JWT token. 
+Notice the identity provider, `"idp": "facebook.com"`, has been included in the JWT. 
 
 ## A combined local and social sign-in
 

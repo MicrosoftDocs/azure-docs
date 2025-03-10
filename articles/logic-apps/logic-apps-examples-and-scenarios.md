@@ -40,7 +40,6 @@ Every workflow starts with a single [*trigger*](logic-apps-overview.md#logic-app
 After you add the trigger, continue building your workflow by adding one or more actions. The following quickstarts help you build your first Consumption logic app workflow, which runs in global, multitenant Azure Logic Apps:
 
 * [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md)
-* [Quickstart: Create automated tasks, processes, and workflows by using Azure Logic Apps - Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Quickstart: Create and manage automated logic app workflows by using Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
 The following how-to guides help you build a Standard logic app workflow that runs in single-tenant Azure Logic Apps:
@@ -77,12 +76,15 @@ Sometimes, your logic app workflow might need access to secured resources, such 
 
 ## Deploy, manage, and monitor logic app workflows
 
-You can fully develop and deploy logic app resources with Visual Studio, Azure DevOps, or any other source control and automated build tools. To support deployment for workflows and dependent connections in a resource template, logic app resources use Azure resource deployment templates. Visual Studio tools automatically generate these templates, which you can check in to source control for versioning. For notification and diagnostic logs for workflow run status, Azure Logic Apps also provides monitoring and alerts.
+You can fully develop and deploy logic app resources with Azure DevOps or any other source control and automated build tools. To support deployment for workflows and dependent connections in a resource template, logic app resources use Azure resource deployment templates. For notification and diagnostic logs for workflow run status, Azure Logic Apps also provides monitoring and alerts.
 
 ### Deploy
 
-* [Quickstart: Create automated tasks, processes, and workflows by using Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
-* [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Set up deployment slots to enable zero downtime deployment in single-tenant Azure Logic Apps](/azure/logic-apps/set-up-deployment-slots)
+* [DevOps deployment for Standard logic apps in single-tenant Azure Logic Apps](/azure/logic-apps/devops-deployment-single-tenant-azure-logic-apps)
+* [Set up DevOps deployment for Standard logic apps in single-tenant Azure Logic Apps](/azure/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps)
+* [Automate build and deployment with Azure DevOps for Standard logic apps](/azure/logic-apps/automate-build-deployment-standard)
+* [Overview: Automate logic app deployment with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Create Azure Resource Manager templates to automate deployment for Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Deploy Azure Resource Manager templates for Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Sample: Set up an API Management action for Azure Logic Apps](https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/api-management-actions)
@@ -96,7 +98,6 @@ You can fully develop and deploy logic app resources with Visual Studio, Azure D
 
 * [Plan and manage costs](plan-manage-costs.md)
 * [Manage logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md)
-* [Manage logic apps with Visual Studio](manage-logic-apps-with-visual-studio.md)
 * [Create and manage integration accounts for B2B enterprise integrations](logic-apps-enterprise-integration-create-integration-account.md)
 * [Move logic app resources to other Azure resource groups, regions, or subscriptions](move-logic-app-resources.md)
 
@@ -121,7 +122,7 @@ You can access, convert, and transform multiple content types by using the many 
 
 Azure Logic Apps integrates with many services, such as Azure Functions, Azure API Management, Azure App Service, and custom HTTP endpoints, for example, REST and SOAP.
 
-* [Call Azure Functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
+* [Call Azure Functions from Azure Logic Apps](call-azure-functions-from-workflows.md)
 * [Tutorial: Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutorial: Create a function that integrates with Azure Logic Apps and Azure AI services to analyze X post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: Build an AI-powered social dashboard by using Power BI and Azure Logic Apps](/shows/)
