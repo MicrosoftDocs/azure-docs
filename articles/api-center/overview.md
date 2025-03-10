@@ -55,8 +55,11 @@ For more about the entities you can manage and the capabilities in Azure API Cen
 Azure API Center is currently available in the following Azure regions:
 
 * Australia East
+* Canada Central
 * Central India
 * East US
+* France Central
+* Sweden Central
 * UK South
 * West Europe 
 
