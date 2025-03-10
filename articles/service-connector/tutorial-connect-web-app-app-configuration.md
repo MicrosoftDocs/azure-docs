@@ -295,7 +295,7 @@ to let the application access it and get app configuration endpoint in [code](ht
 Service Connector manages the connection configuration for you:
 
 - Set up the web app's `AZURE_APPCONFIGURATION_ENDPOINT` to let the application access it and get the App Configuration endpoint. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L10).
-- save service principal credential to WebApp AppSettings `AZURE_APPCONFIGURATION_CLIENTID`. `AZURE_APPCONFIGURATION_TENANTID`, `AZURE_APPCONFIGURATION_CLIENTSECRET` and grant App Configuration Data Reader role to the service principal, so the application could be authenticated to the App Configuration in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L11-L18), by using `ClientSecretCredential` from [Azure.Identity](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html).
+- save service principal credential to WebApp AppSettings `AZURE_APPCONFIGURATION_CLIENTID`. `AZURE_APPCONFIGURATION_TENANTID`, `AZURE_APPCONFIGURATION_CLIENTSECRET` and grant App Configuration Data Reader role to the service principal, so the application could be authenticated to the App Configuration in [code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/service-principal/ServiceConnectorSample/Program.cs#L11-L18), by using `ClientSecretCredential` from [Azure.Identity](/dotnet/api/azure.identity.clientsecretcredential).
 
 ### [Connection string](#tab/connectionstring)
 

@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 02/10/2025
+ms.date: 03/03/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,6 +22,30 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## February 2025
+
+Here's what changed in February 2025:
+
+### Using Azure Private Link with RDP Shortpath for managed networks is now in preview
+
+Private Link provides private connectivity to your remote resources over a private endpoint. You can now use Azure Private Link with RDP Shortpath for managed networks, which is now available in preview. All other RDP Shortpath options using STUN or TURN aren't currently supported with Private Link.
+
+For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
+
+### Updated browser requirements to connect to Azure Virtual Desktop using Windows App in a web browser or the Remote Desktop web client
+
+Starting June 15, 2025, using Windows App in a web browser or the Remote Desktop web client will have updated browser requirements. Ensure your browser is updated and meets the requirements listed at [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop&tabs=web-avd#prerequisites) or [Get started with the Remote Desktop client](users/connect-remote-desktop-client.md?tabs=web#prerequisites) by this date.
+
+### Support for FIDO devices and passkeys on connecting to Azure Virtual Desktop from an Android device is now in preview
+
+Windows App and the Remote Desktop app for Android now support FIDO devices and passkeys for Microsoft Entra ID sign-in. For more information, see [Compare Windows App features across platforms and devices](/windows-app/compare-platforms-features?pivots=azure-virtual-desktop#cloud-service-authentication).
+
+### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
+
+The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
+
 ## January 2025
 
 Here's what changed in January 2025:
@@ -34,13 +58,13 @@ When you use QuickStart, it deploys a sample Azure Virtual Desktop environment c
 
 For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
 
-### iOS, iPadOS, and Android now support screen capture protection via Intune Mobile Application Management (MAM) 
+### iOS, iPadOS, and Android now support screen capture protection via Microsoft Intune Mobile Application Management (MAM) 
 
-Screen capture protection helps prevent sensitive information from being captured on client devices. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing. 
+Screen capture protection helps prevent sensitive information from being captured on client devices. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing. You can now use Intune MAM policies to configure screen capture protection on iOS, iPadOS, and Android.
 
-You can now use Intune MAM policies to configure screen capture protection on iOS, iPadOS, and Android. For more information, see [Screen capture protection in Azure Virtual Desktop](screen-capture-protection.md). 
+For more information, see [Screen capture protection in Azure Virtual Desktop](screen-capture-protection.md). 
 
-### Intune Mobile Application Management (MAM) support on Windows App on Android (preview) for devices running Android 15  
+### Microsoft Intune Mobile Application Management (MAM) support on Windows App on Android (preview) for devices running Android 15  
 
 Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn’t take effect.   
 

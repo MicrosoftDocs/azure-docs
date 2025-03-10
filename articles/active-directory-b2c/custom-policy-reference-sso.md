@@ -53,7 +53,7 @@ The following table shows which session provider to use depending on the type of
 |---------|---------|---------|---------|---------|
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)  | [Self-asserted](self-asserted-technical-profile.md), [Microsoft Entra ID](active-directory-technical-profile.md), [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md), [Claims transformation](claims-transformation-technical-profile.md)| Skips technical profile execution.| Yes | Yes |
 |[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider) | [OAuth1 identity provider](oauth1-technical-profile.md), [OAuth2 identity provider](oauth2-technical-profile.md), [OpenID Connect identity provider](openid-connect-technical-profile.md), [SAML identity provider](saml-identity-provider-technical-profile.md)| Accelerate identity provider selection page. Performing single-logout.|Yes|Yes|
-|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT token issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
+|[OAuthSSOSessionProvider](#oauthssosessionprovider) |[JWT issuer](jwt-issuer-technical-profile.md) | Manages session between OAuth2 or OpenId Connect relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[SamlSSOSessionProvider](#samlssosessionprovider) | [SAML token issuer](saml-issuer-technical-profile.md) | Manages session between SAML relying party and Azure AD B2C. Performs single-logout. | No | No |
 |[NoopSSOSessionProvider](#noopssosessionprovider) |Any| Suppress any technical profile from being part of the session.| No | No |
 
