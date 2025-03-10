@@ -15,6 +15,8 @@ ms.collection: ce-skilling-ai-copilot
 > [!NOTE]
 > The [retirement of TLS 1.1 and 1.0 on Azure services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) doesn't affect applications running on App Service, Azure Functions, or Logic Apps (Standard).  Applications on either App Service, Azure Functions, or Logic Apps (Standard) configured to accept TLS 1.0 or TLS 1.1 for incoming requests **will continue to run unaffected**.
 
+Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps.
+
 Azure App Service supports TLS to ensure:
 
 - **Encryption** of data in transit.
@@ -40,6 +42,8 @@ Azure App Service supports the following TLS versions for incoming requests to y
 - **TLS 1.1 and TLS 1.0** — Supported for backward compatibility, but not recommended.
 
 You can configure the **minimum TLS version** for incoming requests to your web app and its SCM site. By default, the minimum is set to **TLS 1.2**.
+
+You can use Azure Policy to help audit your resources when it comes to minimum TLS version. You can refer to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to your desired minimum TLS version. For similar policy definitions for other App Service resources, refer to [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies.md#app-service). 
 
 ### TLS 1.3
 
