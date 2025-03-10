@@ -38,7 +38,7 @@ The Durable Task Scheduler (DTS) is designed from the ground up to be the fastes
 
 :::image type="content" source="media/durable-task-scheduler/architecture.png" alt-text="Diagram of the Durable Task Scheduler architecture.":::
 
-Unlike other storage providers, DTS is not a generic storage system. Rather, it's a purpose-built backend-as-a-service that is optimized for the specific needs of the Durable Task Framework. This allows DTS to do the heavy lifting of work item dispatching, partition management, and other tasks that are typically handled internally by the "bring your own storage" backends running in the app process (e.g., the Azure Functions host). As a result, durable apps using DTS run with significantly less overhead.
+Unlike other generic storage providers, DTS is a purpose-built backend-as-a-service optimized for the specific needs of the Durable Task Framework. DTS does the heavy lifting of work item dispatching, partition management, and other tasks typically handled internally by the BYO backends running in the app process (like the Azure Functions host). As a result, durable apps using DTS run with significantly less overhead.
 
 ## Feature highlight
 
@@ -72,15 +72,15 @@ The following table shows the results of a series of benchmarks ran to compare t
 | Netherite | 151.3 |
 | DTS | **196.9** |
 
-To test the relative throughput of the backend providers, a series of benchmarks were run using a standard orchestration function that calls five activity functions, one for each city, in a list. Each activity simply returns a "Hello, {cityName}!" string value and doesn't do any other work. 
+To test the relative throughput of the backend providers, these benchmarks were run using a standard orchestration function that calls five activity functions, one for each city, in a list. Each activity simply returns a "Hello, {cityName}!" string value and doesn't do any other work. 
 
 The intent is to measure the overhead of each backend without doing anything too complicated. This type of orchestration was chosen due to its commonality amongst Durable Functions users. 
 
 #### Test details
 
-The test consists of the following:  
+The test consists of the following criteria:  
 
-- The function app used for this test runs on **a single P2v3 App Service VM instance with 16 GB of memory and four cores**. 
+- The function app used for this test runs on **a single P2v3 App Service virtual machine instance with 16 GB of memory and four cores**. 
 - A Consumption plan was intentionally avoided in order to keep the machine resources constant across all tests. 
 - The orchestration code was written in C# using the **.NET Isolated worker model on NET 8**. 
 - The same app was used for all storage providers, and the only change was the storage provider configuration.
@@ -92,14 +92,14 @@ For this particular test, the results show that Durable Task Scheduler is **30% 
 - The complexity of your orchestrations and activities
 - The number of orchestrations running concurrently
 - The size of the data payloads being passed between orchestrations and activities
-- Other factors such as the VM size. 
+- Other factors such as the virtual machine size. 
 
 > [!NOTE]
-> These results are meant to provide a rough comparison of the relative performance of each storage provider backend, but should not be taken as definitive.
+> These results are meant to provide a rough comparison of the relative performance of each storage provider backend, but shouldn't be taken as definitive.
 
 ### Supports multiple task hubs
 
-A Durable Functions application states are durably persisted in a task hub. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to task hubs requires identity-based authentication. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
+Durable Functions application states are durably persisted in a task hub. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to task hubs requires identity-based authentication. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
 
 ### Other features
 
