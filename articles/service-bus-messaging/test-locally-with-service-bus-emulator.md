@@ -57,7 +57,8 @@ To run the Service Bus emulator locally on Linux or macOS:
 
 1. To start the emulator, supply a configuration for the entities that you want to use. Save the following JSON file locally as _config.json_:
 
-   ```JSON
+
+ ```JSON
    {
   "UserConfig": {
     "Namespaces": [
@@ -106,16 +107,15 @@ To run the Service Bus emulator locally on Linux or macOS:
                     "Properties": {
                       "FilterType": "Correlation",
                       "CorrelationFilter": {
-                        "ContentType": "application/json"
-                        // Other supported properties
-                        // "CorrelationId": "id1",
-                        // "Label": "subject1",
-                        // "MessageId": "msgid1",
-                        // "ReplyTo": "someQueue",
-                        // "ReplyToSessionId": "sessionId",
-                        // "SessionId": "session1",
-                        // "To": "xyz"
-                      }
+                     "ContentType": "application/text",
+                     "CorrelationId": "id1",
+                     "Label": "subject1",
+                     "MessageId": "msgid1",
+                     "ReplyTo": "someQueue",
+                     "ReplyToSessionId": "sessionId",
+                     "SessionId": "session1",
+                     "To": "xyz"
+                   }
                     }
                   }
                 ]
@@ -193,8 +193,7 @@ To run the Service Bus emulator locally on Linux or macOS:
     }
   }
 }
-
-   ```
+```
 
 2.To spin up containers for Service Bus emulator, save the following .yaml file as _docker-compose.yaml_
 
