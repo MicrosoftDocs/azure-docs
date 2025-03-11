@@ -53,8 +53,6 @@
     href: ../application-gateway/tutorial-protect-application-gateway-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Deploy Load Balancer with DDoS Protection
     href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
-  - name: DDoS Protection on Front Door
-    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Resiliency
   items:
   - name: Components of a DDoS response strategy
@@ -89,6 +87,8 @@
     href: ddos-rapid-response.md
 - name: Security
   items:
+  - name: DDoS Protection on Front Door
+    href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
   - name: Defend against API Management DDoS attacks
     href: ../api-management/protect-with-ddos-protection.md?toc=/azure/ddos-protection/TOC.json
   - name: Inline L7 DDoS protection with Gateway Load Balancer and partner NVAs
