@@ -15,7 +15,7 @@ ms.tgt_pltfrm: Azure Functions
 ---
 # Quickstart: Create an Azure Functions app with Azure App Configuration
 
-This quickstart shows you how to manage your Azure Functions app settings outside of your code using Azure App Configuration. With the .NET configuration provider integration, you can easily add App Configuration as an extra source with just a few simple code changes.
+This quickstart shows you how to centralize and manage your Azure Functions application settings outside of your code using Azure App Configuration. With the .NET configuration provider integration, you can add App Configuration as an extra configuration source with just a few simple code changes.
 
 ## Prerequisites
 
