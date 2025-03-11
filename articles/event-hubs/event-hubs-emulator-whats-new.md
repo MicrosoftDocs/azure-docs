@@ -21,10 +21,10 @@ This article provides a detailed overview of the enhancements introduced in the 
 
 ## Latest version ``2.1.0``
 
-> *Released February 26th, 2025*
+> *Released March 11th, 2025*
 
 This release introduces health check API in Event Hubs emulator. 
-- Health check API can be accessed via "need to add more details"
+- It can be accessed at http://localhost:5300/health
 
 ## Previous releases
 
