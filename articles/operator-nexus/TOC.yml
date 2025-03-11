@@ -159,8 +159,8 @@
               href: howto-run-instance-readiness-testing.md
             - name: Cluster Upgrades
               href: howto-cluster-runtime-upgrade.md
-            - name: Cluster Upgrades With PauseRack Startegy
-              href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
+            - name: Cluster Upgrades With PauseAfterRack Strategy
+              href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
             - name: Credential Rotation
@@ -210,11 +210,23 @@
           href: howto-set-up-break-glass-access.md
         - name: How to use-break-glass-access
           href: howto-use-break-glass-access.md
+        - name: How to set up break-glass access using In-Band management
+          href: howto-set-up-break-glass-access-using-in-band-management.md
         - name: How to enable-Micro-BFD on CE and PE devices
           href: howto-enable-micro-bfd.md
-        - name: How to replace a terminal server
-          href: howto-replace-a-terminal-server.md
+        - name: How to replace terminal server
+          href: howto-replace-terminal-server.md
         - name: How to upgrade os of terminal server
+          href: howto-upgrade-os-of-terminal-server.md
+        - name: How to restrict serial port access and set timeout on terminal-server
+          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
+        - name: How to append custom suffix to interface descriptions
+          href: howto-append-custom-suffix-to-interface-descriptions.md
+        - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
+          href: howto-reboot-network-device.md
+        - name: How to Configure NNF with Bring Your Own (BYO) Storage
+          href: howto-configure-bring-your-own-storage-network-fabric.md
+        - name: How to upgrade OS of terminal server
           href: howto-upgrade-os-of-terminal-server.md
         - name: How to restrict serial port access and set timeout on terminal-server
           href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
@@ -269,6 +281,7 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
+
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -345,6 +358,8 @@
           href: troubleshoot-hardware-validation-failure.md
         - name: Troubleshoot Degraded status
           href: troubleshoot-bare-metal-machine-degraded.md
+        - name: Troubleshoot Warning status
+          href: troubleshoot-bare-metal-machine-warning.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource
