@@ -2,7 +2,7 @@
 title: Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing
 description: Learn how to use the Azure Front Door (AFD) to with Cross-Origin Resource Sharing (CORS).
 services: frontdoor
-author: duongau
+author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 12/28/2023

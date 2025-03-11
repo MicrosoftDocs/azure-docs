@@ -2,8 +2,8 @@
 title: Add delivery rules to Azure Front Door with the Azure CLI
 description: Learn how to create an Azure Front Door Standard/Premium (Preview) with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
 ms.topic: sample
-author: duau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.date: 12/30/2021
 ms.custom: devx-track-azurecli

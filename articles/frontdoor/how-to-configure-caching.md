@@ -3,7 +3,7 @@ title: Configure caching
 titleSuffix: Azure Front Door
 description: This article shows you how to configure caching on Azure Front Door.
 services: frontdoor
-author: duongau
+author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
