@@ -72,6 +72,17 @@ There's no downtime unless you're using Spring Cloud Config Server and Spring Cl
 
 All in-flight transactions execute without any interruptions, unless you're using Spring Cloud Config Server and Spring Cloud Service Registry, which you must manually recreate in Azure Container Apps.
 
+### How can I find migrated application in Azure Container Apps?
+You can locate your migrated applications using one of two methods:
+
+Go to the resource group with: 
+<code>
+`az spring show --name <spring service instance name> --resource-group <spring service instance resource group> --query "properties.infraResourceGroup"` 
+</code>
+All migrated applications of the Azure Spring Apps Service Instance will be displayed there, retaining their originally created resource names.
+
+Navigate to the Azure Container Apps Environment that hosts your Azure Spring Apps Service Instance. List all its applications by executing the command <code>`az containerapp list --environment <environment name hosts Azure Spring Apps Service Instance>`</code>. The migrated applications will have the same names as those previously created within the Spring Apps.
+
 ### Is there any change in IP address/FQDN after the migration?
 
 There's no change. All IP addresses/FQDNs remain the same after the migration.
