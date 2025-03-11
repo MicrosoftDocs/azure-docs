@@ -15,22 +15,76 @@ part of a **table** in Resource Graph.
 
 For sample queries for this table, see [Resource Graph sample queries for advisorresources](../samples/samples-by-table.md#advisorresources).
 
+- microsoft.advisor/assessments
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
   - Sample query: [Get cost savings summary from Azure Advisor](../samples/samples-by-category.md#get-cost-savings-summary-from-azure-advisor)
   - Sample query: [List Arc-enabled servers not running latest released agent version](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.advisor/recommendations/suppressions
+- microsoft.advisor/resiliencyreviews
 - microsoft.advisor/suppressions
+- microsoft.advisor/triagerecommendations
+- microsoft.advisor/triageresources
+
+## aksresources
+
+- microsoft.containerservice/fleets/autoupgradeprofiles
+- microsoft.containerservice/fleets/members
+- microsoft.containerservice/fleets/updateruns
+- microsoft.containerservice/fleets/updatestrategies
 
 ## alertsmanagementresources
 
 - microsoft.alertsmanagement/alerts
 
+## appserviceresources
+
+- microsoft.web/sites/config
+- microsoft.web/sites/slots/config
+- microsoft.web/sites/workflows
+
+## authorizationresources
+
+- microsoft.authorization/classicadministrators
+- microsoft.authorization/roleassignments
+- microsoft.authorization/roledefinitions
+
+## awsresources
+
+- microsoft.awsconnector/ec2instances
+- microsoft.awsconnector/eksclusters
+
+## azurebusinesscontinuityresources
+
+- microsoft.azurebusinesscontinuity/deletedunifiedprotecteditems
+- microsoft.azurebusinesscontinuity/unifiedprotecteditems
+
+## azuredevopsplatformresources
+
+- microsoft.azuredevopsplatform/organizations
+
+## batchresources
+
+- microsoft.batch/batchaccounts/pools
+
+## capabilityresources
+
+- "microsoft.resources/capabilities
+
 ## chaosresources
 
+- microsoft.chaos/experiments/executions
 - microsoft.chaos/experiments/statuses
 - microsoft.chaos/targets
 - microsoft.chaos/targets/capabilities
+
+## communitygalleryresources
+
+- microsoft.compute/locations/communitygalleries
+- microsoft.compute/locations/communitygalleries/applications
+- microsoft.compute/locations/communitygalleries/applications/versions
+- microsoft.compute/locations/communitygalleries/images
+- microsoft.compute/locations/communitygalleries/images/versions
 
 ## computeresources
 
@@ -38,9 +92,42 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
 - microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces/ipconfigurations/publicipaddresses
 
+## deploymentresources
+
+- microsoft.resources/deploymentstacks
+
 ## desktopvirtualizationresources
 
 - microsoft.desktopvirtualization/hostpools/sessionhosts
+
+## dnsresources
+
+- microsoft.network/dnszones/a
+- microsoft.network/dnszones/aaaa
+- microsoft.network/dnszones/cname
+- microsoft.network/dnszones/mx
+- microsoft.network/dnszones/ptr
+- microsoft.network/dnszones/soa
+- microsoft.network/dnszones/srv
+- microsoft.network/dnszones/txt
+- microsoft.network/privatednszones/a
+- microsoft.network/privatednszones/aaaa
+- microsoft.network/privatednszones/cname
+- microsoft.network/privatednszones/mx
+- microsoft.network/privatednszones/ptr
+- microsoft.network/privatednszones/soa
+- microsoft.network/privatednszones/srv
+- microsoft.network/privatednszones/txt
+
+## edgeorderresources
+
+- microsoft.edgeorder/orders
+
+## elasticsanresources
+
+- microsoft.elasticsan/elasticsans
+- microsoft.elasticsan/elasticsans/volumegroups
+- microsoft.elasticsan/elasticsans/volumegroups/volumes
 
 ## extendedlocationresources
 
@@ -50,6 +137,15 @@ For sample queries for this table, see [Resource Graph sample queries for extend
   - Sample query: [Get enabled resource types for Azure Arc-enabled custom locations](../samples/samples-by-category.md#get-enabled-resource-types-for-azure-arc-enabled-custom-locations)
   - Sample query: [List Azure Arc-enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
 
+## extensibilityresourcechanges
+
+- microsoft.resources/changes
+
+## featureresources
+
+- microsoft.features/featureprovidernamespaces/featureconfigurations
+- microsoft.features/featureproviders/subscriptionfeatureregistrations
+
 ## guestconfigurationresources
 
 For sample queries for this table, see [Resource Graph sample queries for guestconfigurationresources](../samples/samples-by-table.md#guestconfigurationresources).
@@ -58,6 +154,11 @@ For sample queries for this table, see [Resource Graph sample queries for guestc
   - Sample query: [Count machines in scope of guest configuration policies](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
   - Sample query: [Count of non-compliant guest configuration assignments](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
   - Sample query: [Find all reasons a machine is non-compliant for guest configuration assignments](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
+- microsoft.guestconfiguration/guestconfigurationassignments/reports
+
+## healthresourcechanges
+
+- microsoft.resources/changes
 
 ## healthresources
 
@@ -68,11 +169,24 @@ For sample queries for this table, see [Resource Graph sample queries for health
   - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
   - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+- microsoft.resourcehealth/resourceannotations
+
+## impactreportresources
+
+- microsoft.impact/connectors
+- microsoft.impact/workloadimpacts
+- microsoft.impact/workloadimpacts/insights
+
+## insightresources
+
+- microsoft.insights/datacollectionruleassociations
+- microsoft.insights/tenantactiongroups
 
 ## iotsecurityresources
 
 For sample queries for this table, see [Resource Graph sample queries for iotsecurityresources](../samples/samples-by-table.md#iotsecurityresources).
 
+- microsoft.iotfirmwaredefense/firmwaregroups/firmwares
 - microsoft.iotsecurity/locations/devicegroups/alerts
   - Sample query: [Get all New alerts from the past 30 days](../samples/samples-by-category.md#get-all-new-alerts-from-the-past-30-days)
 - microsoft.iotsecurity/locations/devicegroups/devices
@@ -95,20 +209,42 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
   - Sample query: [List all Azure Arc-enabled Kubernetes clusters with Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension)
   - Sample query: [List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
 - microsoft.kubernetesconfiguration/fluxconfigurations
+- microsoft.kubernetesconfiguration/namespaces
 - microsoft.kubernetesconfiguration/sourcecontrolconfigurations
+
+## kustoresources
+
+- microsoft.kusto/clusters/databases/dataconnections
+
+## maintenanceresourcechanges
+
+- microsoft.resources/changes
 
 ## maintenanceresources
 
+- microsoft.containerservice/managedclusters/scheduledevents
 - microsoft.maintenance/applyupdates
+- microsoft.containerservice/managedclusters/scheduledevents
 - microsoft.maintenance/configurationassignments
+- microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
-- microsoft.resources/subscriptions (Subscriptions)
-  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
-  - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
-  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
-  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
-  - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
-  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
+
+## managedserviceresources
+
+- microsoft.managedservices/registrationassignments
+- microsoft.managedservices/registrationdefinitions
+
+## mirgateresources
+
+## networkresourcechanges
+
+- microsoft.resources/changes 
+
+## networkresources
+
+## orbitalresources
+
+- microsoft.orbital/spacecrafts/contacts
 
 ## patchassessmentresources
 
@@ -116,6 +252,8 @@ For sample queries for this table, see [Resource Graph sample queries for patcha
 
 - microsoft.compute/virtualmachines/patchassessmentresults
 - microsoft.compute/virtualmachines/patchassessmentresults/softwarepatches
+- microsoft.connectedvmwarevsphere/virtualmachines/patchassessmentresults
+- microsoft.connectedvmwarevsphere/virtualmachines/patchassessmentresults/softwarepatches
 - microsoft.hybridcompute/machines/patchassessmentresults
 - microsoft.hybridcompute/machines/patchassessmentresults/softwarepatches
 
@@ -123,6 +261,8 @@ For sample queries for this table, see [Resource Graph sample queries for patcha
 
 - microsoft.compute/virtualmachines/patchinstallationresults
 - microsoft.compute/virtualmachines/patchinstallationresults/softwarepatches
+- microsoft.connectedvmwarevsphere/virtualmachines/patchinstallationresults
+- microsoft.connectedvmwarevsphere/virtualmachines/patchinstallationresults/softwarepatches
 - microsoft.hybridcompute/machines/patchinstallationresults
 - microsoft.hybridcompute/machines/patchinstallationresults/softwarepatches
 
@@ -132,7 +272,13 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 - microsoft.authorization/policyassignments
 - microsoft.authorization/policydefinitions
+- microsoft.authorization/policydefinitions/versions
+- microsoft.authorization/policyenrollments
+- microsoft.authorization/policyexemptions
 - microsoft.authorization/policysetdefinitions
+- microsoft.authorization/policysetdefinitions/versions
+- microsoft.policyinsights/componentpolicystates
+- microsoft.policyinsights/policymetadata
 - microsoft.policyinsights/policystates
   - Sample query: [Compliance by policy assignment](../samples/samples-by-category.md#compliance-by-policy-assignment)
   - Sample query: [Compliance by resource type](../samples/samples-by-category.md#compliance-by-resource-type)
@@ -140,15 +286,38 @@ For sample queries for this table, see [Resource Graph sample queries for policy
   - Sample query: [Summarize resource compliance by state](../samples/samples-by-category.md#summarize-resource-compliance-by-state)
   - Sample query: [Summarize resource compliance by state per location](../samples/samples-by-category.md#summarize-resource-compliance-by-state-per-location)
 
+## quotaresourcechanges
+
+- microsoft.resources/changes
+
 ## recoveryservicesresources
 
+- microsoft.azurebusinesscontinuity/deletedunifiedprotecteditems
+- microsoft.azurebusinesscontinuity/deletedunifiedprotecteditems
 - microsoft.dataprotection/backupvaults/backupinstances
 - microsoft.dataprotection/backupvaults/backupjobs
 - microsoft.dataprotection/backupvaults/backuppolicies
+- microsoft.dataprotection/backupvaults/deletedbackupinstances
+- microsoft.recoveryservices/locations/deletedvaults
+- microsoft.recoveryservices/locations/deletedvaults/backupfabrics/protectioncontainers/protecteditems
+- microsoft.recoveryservices/vaults
 - microsoft.recoveryservices/vaults/alerts
+- microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protectableitems
 - Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems (Backup Items)
 - microsoft.recoveryservices/vaults/backupjobs
 - microsoft.recoveryservices/vaults/backuppolicies
+- microsoft.recoveryservices/vaults/replicationfabrics/replicationprotectioncontainers/replicationprotecteditems
+- microsoft.recoveryservices/vaults/replicationjobs
+- microsoft.recoveryservices/vaults/replicationpolicies
+- microsoft.recoveryservices/vaults/replicationrecoveryplans
+
+## resourcechanges
+
+- microsoft.resources/changes
+
+## resourcecontainerchanges
+
+- microsoft.resources/changes
 
 ## resourcecontainers
 
@@ -157,6 +326,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.management/managementgroups
   - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Sample query: [List all management group ancestors for a specified management group](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
+- microsoft.management/servicegroups 
 - microsoft.resources/subscriptions (Subscriptions)
   - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
@@ -915,21 +1085,30 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 
 For sample queries for this table, see [Resource Graph sample queries for securityresources](../samples/samples-by-table.md#securityresources).
 
+- microsoft.authorization/locks/providers/assessments/governanceassignments
+- microsoft.authorization/roleassignments/providers/assessments/governanceassignments
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assessments
   - Sample query: [Count healthy, unhealthy, and not applicable resources per recommendation](../samples/samples-by-category.md#count-healthy-unhealthy-and-not-applicable-resources-per-recommendation)
   - Sample query: [List Azure Security Center recommendations](../samples/samples-by-category.md)
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
+- microsoft.security/assessments/governanceassignments
 - microsoft.security/assessments/subassessments
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
-- microsoft.security/insights/classification (Data Sensitivity Security Insights (Preview))
-  - Sample query: [Get sensitivity insight of a specific resource](../samples/samples-by-category.md)
+- microsoft.security/attackpaths
+- microsoft.security/governancerules
+- microsoft.security/healthreports
+- microsoft.security/insights
+- microsoft.security/integrations
 - microsoft.security/iotalerts
   - Sample query: [Get all IoT alerts on hub, filtered by type](../samples/samples-by-category.md#get-all-iot-alerts-on-hub-filtered-by-type)
   - Sample query: [Get specific IoT alert](../samples/samples-by-category.md#get-specific-iot-alert)
 - microsoft.security/locations/alerts (Security Alerts)
-- microsoft.security/pricings
+- microsoft.security/locations/attackpaths
+- - microsoft.security/pricings
   - Sample query: [Show Azure Defender pricing tier per subscription](../samples/samples-by-category.md)
 - microsoft.security/regulatorycompliancestandards
   - Sample query: [Regulatory compliance state per compliance standard](../samples/samples-by-category.md#regulatory-compliance-state-per-compliance-standard)
@@ -941,8 +1120,34 @@ For sample queries for this table, see [Resource Graph sample queries for securi
   - Sample query: [Secure score per subscription](../samples/samples-by-category.md#secure-score-per-subscription)
 - microsoft.security/securescores/securescorecontrols
   - Sample query: [Controls secure score per subscription](../samples/samples-by-category.md#controls-secure-score-per-subscription)
+- microsoft.security/securityconnectors/devops 
+- microsoft.security/securityconnectors/devops/azuredevopsorgs
+- microsoft.security/securityconnectors/devops/azuredevopsorgs
+- microsoft.security/securityconnectors/devops/azuredevopsorgs/projects/repos
+- microsoft.security/securityconnectors/devops/githubowners
+- microsoft.security/securityconnectors/devops/githubowners/repos
+- microsoft.security/securityconnectors/devops/gitlabgroups
+- microsoft.security/securityconnectors/devops/gitlabgroups/projects
 - microsoft.security/softwareinventories
 - microsoft.security/softwareinventory
+- microsoft.security/standardassignments
+
+## servicefabricresources
+
+- applications
+- applicationtypes
+- microsoft.servicefabric/clusters/applications
+- microsoft.servicefabric/clusters/applications/services
+- microsoft.servicefabric/clusters/applicationtypes
+- microsoft.servicefabric/clusters/applicationtypes/versions
+- microsoft.servicefabric/managedclusters
+- microsoft.servicefabric/managedclusters/applications
+- microsoft.servicefabric/managedclusters/applications/services
+- microsoft.servicefabric/managedclusters/applicationtypes
+- microsoft.servicefabric/managedclusters/applicationtypes/versions
+- microsoft.servicefabric/managedclusters/nodetypes
+- services
+- versions
 
 ## servicehealthresources
 
@@ -954,10 +1159,19 @@ For sample queries for this table, see [Resource Graph sample queries for servic
   - Sample query: [All active planned maintenance events](../samples/samples-by-category.md#all-active-planned-maintenance-events)
   - Sample query: [All active Service Health events](../samples/samples-by-category.md#all-active-service-health-events)
   - Sample query: [All active service issue events](../samples/samples-by-category.md#all-active-service-issue-events)
+- microsoft.resourcehealth/events/impactedresources
 
-## workloadmonitorresources
+## sportresources
 
-- microsoft.workloadmonitor/monitors
+- microsoft.compute/skualternativespotvmsize/location
+- microsoft.compute/skuspotevictionrate/location
+- microsoft.compute/skuspotpricehistory/ostype/location
+
+## tagresources
+
+- microsoft.resources/tagnamespaces
+- microsoft.resources/tagnamespaces/tagnames
+- microsoft.resources/tagnamespaces/tags
 
 ## Next steps
 
