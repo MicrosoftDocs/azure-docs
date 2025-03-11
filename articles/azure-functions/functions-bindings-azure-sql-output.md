@@ -50,8 +50,8 @@ To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple
 public static class OutputType
 {
     [SqlOutput("dbo.ToDo", connectionStringSetting: "SqlConnectionString")]
-    public ToDoItem ToDoItem { get; set; }
-    public HttpResponseData HttpResponse { get; set; }
+    public static ToDoItem ToDoItem { get; set; }
+    public static HttpResponseData HttpResponse { get; set; }
 }
 ```
 
