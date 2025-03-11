@@ -62,7 +62,6 @@ Build your instance of `ServiceManager` from a `ServiceManagerBuilder`.
 
 [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
-
 ``` C#
 
 var serviceManager = new ServiceManagerBuilder()
