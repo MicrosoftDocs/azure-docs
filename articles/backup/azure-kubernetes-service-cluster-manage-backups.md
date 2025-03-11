@@ -114,7 +114,7 @@ Azure Backup for AKS relies on pods deployed within the AKS cluster as part of t
 
 ```
        1. Memory: requests - 128Mi, limits - 1280Mi
-       1. CPU: requests - 500m, limits - 1000m
+       2. CPU: requests - 500m, limits - 1000m
 ```
 
 However, if the number of resources in the cluster exceeds 1000, the pods may require additional CPU and memory beyond the default reservation. If the required resources exceed the allocated limits, you might encounter an BackupPluginPodRestarted due to OOMKilled (Out of Memory) error during backup jobs.
