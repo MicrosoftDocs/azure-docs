@@ -39,7 +39,6 @@ Grafana Enterprise plugins, as of March 2025:
 - Grafana Enterprise Traces
 - Honeycomb
 - Jira
-- k6 Cloud App
 - Looker
 - MongoDB
 - Netlify
