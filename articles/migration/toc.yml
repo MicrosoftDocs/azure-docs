@@ -112,14 +112,14 @@ items:
         href: ./migrate-messaging-from-aws.md
       - name: Azure messaging services map
         href: /azure/architecture/aws-professional/messaging
-      - name: Migrate Amazon EventBridge to Azure
-        href: ./placeholder.md
-      - name: Migrate Amazon Kinesis to Azure
-        href: ./placeholder.md
-      - name: Migrate Amazon Simple Queue Service to Azure
-        href: ./placeholder.md
-      - name: Migrate Amazon Simple Notification Service to Azure
-        href: ./placeholder.md
+#      - name: Migrate Amazon EventBridge to Azure
+#        href: ./placeholder.md
+#      - name: Migrate Amazon Kinesis to Azure
+#        href: ./placeholder.md
+#      - name: Migrate Amazon Simple Queue Service to Azure
+#        href: ./placeholder.md
+#      - name: Migrate Amazon Simple Notification Service to Azure
+#        href: ./placeholder.md
       - name: Synchronize API Gateway APIs into Azure API Center
         href: /azure/api-center/synchronize-aws-gateway-apis
 #    - name: Monitoring
