@@ -157,5 +157,5 @@ You can edit the workbook you see in any side-panel or detailed metric view by u
 
 ## Related content
 
-- To learn more about network monitoring, see [What is Azure Network Watcher?](../network-watcher/network-watcher-overview.md)
-- To learn about the scenarios workbooks are designed to support and how to create reports and customize existing reports, see [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).
+- [What is Azure Network Watcher?](../network-watcher/network-watcher-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview)
