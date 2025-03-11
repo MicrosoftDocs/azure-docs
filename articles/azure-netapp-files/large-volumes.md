@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 10/29/2024
+ms.date: 03/10/2025
 ms.author: anfdocs
 ---
 # Understand large volumes in Azure NetApp Files 
