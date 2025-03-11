@@ -31,10 +31,14 @@ In this example, we retained the 403 response code and set a brief message stati
 ::: zone-end
 
 
-## Configure a custom response status code and message by using PowerShell
+## Configure a custom response status code and message by using Azure PowerShell
 
-Follow these steps to configure a custom response status code and message by using PowerShell.
+Follow these steps to configure a custom response status code and message using PowerShell. [Learn more](src/Network/Network/help/New-AzApplicationGatewayFirewallPolicySetting.md).
 
+ 
+## Configure a custom response status code and message by using Azure CLI 
+
+Follow these steps to configure a custom response status code and message using PowerShell. [Learn more](https://learn.microsoft.com/en-us/cli/azure/network/application-gateway/waf-policy/policy-setting?view=azure-cli-latest&source=docs).
 
 ## Next steps
 
