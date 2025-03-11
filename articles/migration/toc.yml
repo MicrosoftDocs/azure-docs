@@ -30,6 +30,8 @@ items:
         href: ./migrate-compute-from-aws.md
       - name: Elastic Kubernetes Service (EKS)
         items:
+        - name: AKS for Amazon EKS professionals
+          href: /azure/architecture/aws-professional/eks-to-aks/
         - name: Migrate to Azure Kubernetes Service (AKS)
           href: /azure/aks/aks-migration
         - name: Migrate a web app from EKS to AKS
