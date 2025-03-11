@@ -68,10 +68,8 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
         - name: Migrate to Azure Database for PostgreSQL (online)
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
-      - name: Amazon Aurora MySQL
-        items:
-        - name: Migrate to Azure Database for MySQL
-          href: ./placeholder.md
+      - name: Migrate MySQL on AWS to Azure Database for MySQL
+        href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db
       - name: Amazon DynamoDB
         items:
         - name: Migrate DynamoDB app to Azure Cosmos DB for NoSQL
@@ -170,6 +168,8 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
         - name: Migrate to Azure Database for PostgreSQL (online)
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
+      - name: Migrate MySQL on Google Cloud to Azure Database for MySQL
+        href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db
     - name: Networking
       items:
       - name: Networking migration guide
