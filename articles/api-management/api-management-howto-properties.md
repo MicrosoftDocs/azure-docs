@@ -27,7 +27,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 |---------|---------|
 |Plain     |  Literal string or policy expression     |
 |Secret     |   Literal string or policy expression that is encrypted by API Management      |
-|[Key vault](#key-vault-secrets)     |  Identifier of a secret stored in an Azure key vault.      |
+|[Key vault](#key-vault-secrets)     |  Identifier of a secret stored in an Azure Key Vault.      |
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
