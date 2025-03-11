@@ -8,9 +8,9 @@ ms.custom: devx-track-arm-template
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment
 
-Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy an Azure Resource Manager template (ARM template). The parameter value is never exposed, because you reference only its key vault ID. You can reference the key vault secret by using a static ID or a dynamic ID. This tutorial uses a static ID. With the static ID approach, you reference the key vault in the template parameter file, not the template file. For more information about both approaches, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
+Learn how to retrieve secrets from an Azure Key Vault and pass the secrets as parameters when you deploy an Azure Resource Manager template (ARM template). The parameter value is never exposed, because you reference only its key vault ID. You can reference the key vault secret by using a static ID or a dynamic ID. This tutorial uses a static ID. With the static ID approach, you reference the key vault in the template parameter file, not the template file. For more information about both approaches, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
 
-In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure key vault and then customize the template to retrieve the password from the key vault during the deployment.
+In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure Key Vault and then customize the template to retrieve the password from the key vault during the deployment.
 
 ![Diagram displaying the integration of a Resource Manager template with a key vault](./media/template-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
@@ -216,7 +216,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to use virtual machine extensions to perform post deployment tasks, see:
+In this tutorial, you retrieved a secret from your Azure Key Vault. You then used the secret in your template deployment. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
 > [Deploy virtual machine extensions](./template-tutorial-deploy-vm-extensions.md)
