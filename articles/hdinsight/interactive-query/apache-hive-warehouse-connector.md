@@ -57,6 +57,7 @@ Hive Warehouse Connector needs separate clusters for Spark and Interactive Query
 |:---:|:---:|---|
 | v1 | Spark 2.4 \| HDI 4.0 | Interactive Query 3.1 \| HDI 4.0 |
 | v2 | Spark 3.1 \| HDI 5.0 | Interactive Query 3.1 \| HDI 5.0 |
+| v2.1 | Spark 3.3 \| HDI 5.1 | Interactive Query 3.1 \| HDI 5.1 |
 
 ### Create clusters
 
