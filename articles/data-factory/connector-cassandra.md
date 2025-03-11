@@ -355,7 +355,7 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
 | Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
-| No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0](#work-with-collections-when-using-version-20) section.  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
+| No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0](#work-with-collections-when-using-version-20).  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10). |
 | The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte | The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> DateTime <br> SMALLINT -> Int16 <br> TINYINT -> Int16 | 
 
 ## Upgrade the Cassandra connector
