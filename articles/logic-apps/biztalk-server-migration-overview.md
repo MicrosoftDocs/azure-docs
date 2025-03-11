@@ -866,7 +866,7 @@ The process to get each component ready for deployment usually takes the followi
 
   1. Prepare the code with the environment-specific configuration.
   
-     The details for this step depend on each technology's support for external injection of environment variables. The basic premise is that environment-based configuration information, such as connection strings and references to external resources, are abstracted to reference an application settings repository. So, in this scenario, you'd store references that can exist as clear text directly in the application settings repository, but you'd store sensitive values, such as secrets, as reference pointers to entries in a secrets store, such as an Azure key vault.
+     The details for this step depend on each technology's support for external injection of environment variables. The basic premise is that environment-based configuration information, such as connection strings and references to external resources, are abstracted to reference an application settings repository. So, in this scenario, you'd store references that can exist as clear text directly in the application settings repository, but you'd store sensitive values, such as secrets, as reference pointers to entries in a secrets store, such as an Azure Key Vault.
 
      Azure Logic Apps makes this approach possible for a Standard logic app resource by supporting references to the application settings repository, which you can then map name-value pairs to entries in your key vault.
      
