@@ -53,17 +53,17 @@ In this article, you'll learn how to:
 
     :::image type="content" source="./media/how-to-create-sql-assessment/general-settings.png" alt-text=" Screenshot that explains on how to modify assessment settings.":::
 
-Settings | Possible values | Comments
---- | --- | ---
-Default target location  | All locations supported by Azure targets  | Used to generate regional cost for Azure targets. 
-Default Environment  | Production <br/> Dev/Test | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. 
-Currency  | All common currencies such as USD, INR, GBP, Euro  | We generate the cost in the currency selected here.
-Program/offer  |Pay-as-you-go <br/> Enterprise Agreement  | Allows you to toggle between pay-as-you-go and Enterprise Agreement offers. 
-Default savings option  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/> None | Select a savings option if you've opted for Reserved Instances or Savings Plan.
-Discount Percentage  | Numeric decimal value  | Use this option to factor in any custom discount agreements with Microsoft. It's disabled if Savings options are selected. 
-EA subscription  | Subscription ID  | Select the subscription ID for which you have an Enterprise Agreement. 
-Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
-Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. 
+    Settings | Possible values | Comments
+    --- | --- | ---
+    Default target location  | All locations supported by Azure targets  | Used to generate regional cost for Azure targets. 
+    Default Environment  | Production <br/> Dev/Test | Allows you to toggle between pay-as-you-go and pay-as-you-go Dev/Test offers. 
+    Currency  | All common currencies such as USD, INR, GBP, Euro  | We generate the cost in the currency selected here.
+    Program/offer  |Pay-as-you-go <br/> Enterprise Agreement  | Allows you to toggle between pay-as-you-go and Enterprise Agreement offers. 
+    Default savings option  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/> None | Select a savings option if you've opted for Reserved Instances or Savings Plan.
+    Discount Percentage  | Numeric decimal value  | Use this option to factor in any custom discount agreements with Microsoft. It's disabled if Savings options are selected. 
+    EA subscription  | Subscription ID  | Select the subscription ID for which you have an Enterprise Agreement. 
+    Default savings options  | One year reserved <br/> Three years reserved <br/> One year savings plan <br/> Three years savings plan <br/>None  | Select a savings option if you've opted for Reserved Instances or Savings Plan. 
+    Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service costs in the month-over-month cost estimate. 
 
 1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings.  
 
@@ -71,17 +71,17 @@ Microsoft Defender for Cloud  | - | Includes Microsoft Defender for App Service 
 
 **AKS settings**: The following table details about the AKS settings.
 
-Settings | Possible values | Comments
---- | --- | ---
-Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> High performance compute <br/> Isolated <br/> Memory optimized <br/> Storage optimized   | Selecting a specific SKU category ensures that we recommend the best AKS node SKUs from that category. 
-AKS pricing tier   | Standard  | Pricing tier for AKS 
-Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
+    Settings | Possible values | Comments
+    --- | --- | ---
+    Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> High performance compute <br/> Isolated <br/> Memory optimized <br/> Storage optimized   | Selecting a specific SKU category ensures that we recommend the best AKS node SKUs from that category. 
+    AKS pricing tier   | Standard  | Pricing tier for AKS 
+    Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
 
 **App service settings**: The following table details the App service settings
 
-Settings | Possible values | Comments
---- | --- | ---
-Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
+    Settings | Possible values | Comments
+    --- | --- | ---
+    Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
 
 1. Now, review and create the assessment. 
 
