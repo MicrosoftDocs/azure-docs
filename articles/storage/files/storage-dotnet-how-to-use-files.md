@@ -435,6 +435,15 @@ ShareFileClient destShareFileClient = new(
 await destShareFileClient.StartCopyAsync(srcShareFileClient.Uri);
 ```
 
+## Lease a file using the File Shares client library
+
+A lease creates a lock on a file that's managed by Azure via a lease ID. The lease provides a mechanism to coordinate access to files across multiple clients in a distributed system. A lease on a file provides exclusive write and delete access. To learn more about lease duration and actions, see [Lease File](/rest/api/storageservices/lease-file).
+
+The following code example shows how to acquire a lease on a file:
+
+```csharp
+```
+
 ## Manage Azure Files resources using the Azure Storage management libraries
 
 The Azure Storage management libraries are built on the Azure Storage resource provider REST API. The Azure Storage resource provider is a service based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods. The Azure Storage resource provider REST API provides programmatic access to Azure Storage resources, including file shares. The Azure SDK provides management libraries that build on the Azure Storage resource provider REST API.
