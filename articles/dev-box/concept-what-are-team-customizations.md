@@ -52,7 +52,7 @@ When you configure Dev Box team customizations for your organization, careful pl
 
 Dev Box customizations use a YAML-formatted file to specify a list of tasks to apply from the catalog when developers are creating a dev box. These tasks identify the catalog task and provide parameters like the name of the software to install. You then make the customization file available to the developers.
 
-You can use secrets from your Azure key vault in your customization file to clone private repositories, or with any custom task you author that requires an access token.
+You can use secrets from your Azure Key Vault in your customization file to clone private repositories, or with any custom task you author that requires an access token.
 
 ## What are tasks?
 
