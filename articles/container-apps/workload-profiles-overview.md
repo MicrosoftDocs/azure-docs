@@ -50,7 +50,7 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 ## Profile types
 
-There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
+There are different types and sizes of workload profiles available by region. By default, each workload profile enabled environment includes a Consumption profile, but you can also add any of the following profiles:
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation | Quota name |
 |---|---|---|---|---|---|---|
