@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Turn Off local preview mirroring
+title: Quickstart - Turn off local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
 description: This quickstart describes how to mirror local preview
 author: yassirbisteni
@@ -14,7 +14,7 @@ ms.custom: mode-other, devx-track-js
 
 zone_pivot_groups: acs-plat-windows-android-ios
 ---
-# We’re excited to announce the rollout of the Turn off local preview mirroring feature for the native ACS calling experience! 
+# We’re excited to announce the rollout of the turn off local preview mirroring feature for the native ACS calling experience! 
 <br/>Meeting participants can now choose to stop mirroring their video preview—the small window showing how they appear during meetings.
 <br/>This is especially useful for situations like:
 <br/>✅ Virtual backgrounds with text – ensuring words appear correctly in your preview.
