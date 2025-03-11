@@ -15,8 +15,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 ## Prerequisites
 
-- The variant feature flag from the [Feature Flags Quickstart](./manage-feature-flags.md).
-- Also updated the variant feature flag with telemetry enabled. If you have't, follow the [guide to update it](./howto-telemetry.md). 
+- The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md). 
 
 ## Add telemetry to your python application
 
@@ -108,4 +107,14 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
 1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
-1. Select the **Like** button to trigger the telemetry event.
+1. Create 10 different users and log into the application. As you log in with each user you will get a different message variant for some of them. ~50% of the time you will get no message. 25% of the time you will get the message "Hello!" and 25% of the time you will get "I hope this makes your day!".
+1. With some of the users select the **Like** button to trigger the telemetry event.
+1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
+
+    ```kusto
+    customEvents
+    | where name == "FeatureEvaluation" or name == "Liked"
+    | order by timestamp desc
+    ```
+
+You will see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event will have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events will have a custom property called `TargetingId` with the name of the user that liked the quote.
