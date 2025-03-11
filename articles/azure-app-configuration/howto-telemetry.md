@@ -11,25 +11,23 @@ ms.date: 03/05/2025
 
 # Tutorial: Enable telemetry for feature flags (preview)
 
-Having telemetry data on your feature flags can be a powerful tool for understanding how your feature flags are used. Telemetry allows you to make informed decisions about your feature management strategy. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
+Telemetry allows you to make informed decisions about your feature management strategy. When a feature flag change is deployed, it's often important to analyze its effect on an application. For example, here are a few questions that may arise:
 
 - Are my flags enabled/disabled as expected?
 - Are targeted users getting access to a certain feature as expected?
-- Which variant is a particular user seeing?
+- <TODO: Third Benefit Here>
 
 These types of questions can be answered through the emission and analysis of feature flag evaluation events.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [If you don't have one](https://azure.microsoft.com/free/) before you begin.
-- An App Configuration store. If you don't have one, [create an App Configuration store](./quickstart-azure-app-configuration-create.md).
-- An Application Insights resource. If you don't have one, [create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource).
+- The feature flag created in [Use variant feature flags](./howto-variant-feature-flags.md).
 
 ## Connect to Application Insights (preview)
 
 1. Open your App Configuration store in the Azure portal.
 1. In the **Telemetry** section, select the **Application Insights (preview)** blade.
-1. Select the subscription, resource group, and the Application Insights resource you want to connect to your App Configuration store.
+1. Select the subscription, resource group. Then either select your existing Application Insights resource you want to connect to your App Configuration store to, or select **Create new** to create a new Application Insights resource.
 1. Select the **Connect** button.
 
     > [!div class="mx-imgBorder"]
@@ -51,4 +49,4 @@ These types of questions can be answered through the emission and analysis of fe
 
 1. Continue to the following instructions to use telemetry in your application for the language or platform you're using.
 
-* [Python](./howto-telemetry-python.md)
+    * [Python](./howto-telemetry-python.md)
