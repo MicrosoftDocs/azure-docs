@@ -140,7 +140,7 @@ The following tables contain the parameters stored in the *sap-parameters.yaml* 
 > [!div class="mx-tdCol2BreakAll "]
 > | Parameter                    | Description                                                                                                      | Type       |
 > | ---------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
-> | `kv_name`                    | The name of the Azure key vault that contains the system credentials                                                | Required   |
+> | `kv_name`                    | The name of the Azure Key Vault that contains the system credentials                                                | Required   |
 > | `secret_prefix`              | The prefix for the name of the secrets for the SID stored in the key vault                                           | Required   |
 > | `upgrade_packages`           | Updates all installed packages on the virtual machines                                                            | Required   |
 > | `use_msi_for_clusters`       | Uses managed identities for fencing                                                                               | Required   |
