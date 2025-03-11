@@ -59,7 +59,7 @@ To run the Service Bus emulator locally on Linux or macOS:
 
    ```JSON
    {
-   "UserConfig": {
+  "UserConfig": {
     "Namespaces": [
       {
         "Name": "sbemulatorns",
@@ -73,7 +73,7 @@ To run the Service Bus emulator locally on Linux or macOS:
               "ForwardDeadLetteredMessagesTo": "",
               "ForwardTo": "",
               "LockDuration": "PT1M",
-              "MaxDeliveryCount": 10,
+              "MaxDeliveryCount": 3,
               "RequiresDuplicateDetection": false,
               "RequiresSession": false
             }
@@ -95,7 +95,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
@@ -106,14 +106,15 @@ To run the Service Bus emulator locally on Linux or macOS:
                     "Properties": {
                       "FilterType": "Correlation",
                       "CorrelationFilter": {
-                        "ContentType": "application/text",
-                        "CorrelationId": "id1",
-                        "Label": "subject1",
-                        "MessageId": "msgid1",
-                        "ReplyTo": "someQueue",
-                        "ReplyToSessionId": "sessionId",
-                        "SessionId": "session1",
-                        "To": "xyz"
+                        "ContentType": "application/json"
+                        // Other supported properties
+                        // "CorrelationId": "id1",
+                        // "Label": "subject1",
+                        // "MessageId": "msgid1",
+                        // "ReplyTo": "someQueue",
+                        // "ReplyToSessionId": "sessionId",
+                        // "SessionId": "session1",
+                        // "To": "xyz"
                       }
                     }
                   }
@@ -125,7 +126,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
@@ -137,7 +138,7 @@ To run the Service Bus emulator locally on Linux or macOS:
                       "FilterType": "Correlation",
                       "CorrelationFilter": {
                         "Properties": {
-                          "prop3": "value3"
+                          "prop1": "value1"
                         }
                       }
                     }
@@ -150,11 +151,37 @@ To run the Service Bus emulator locally on Linux or macOS:
                   "DeadLetteringOnMessageExpiration": false,
                   "DefaultMessageTimeToLive": "PT1H",
                   "LockDuration": "PT1M",
-                  "MaxDeliveryCount": 10,
+                  "MaxDeliveryCount": 3,
                   "ForwardDeadLetteredMessagesTo": "",
                   "ForwardTo": "",
                   "RequiresSession": false
                 }
+              },
+              {
+                "Name": "subscription.4",
+                "Properties": {
+                  "DeadLetteringOnMessageExpiration": false,
+                  "DefaultMessageTimeToLive": "PT1H",
+                  "LockDuration": "PT1M",
+                  "MaxDeliveryCount": 3,
+                  "ForwardDeadLetteredMessagesTo": "",
+                  "ForwardTo": "",
+                  "RequiresSession": false
+                },
+                "Rules": [
+                  {
+                    "Name": "sql-filter-1",
+                    "Properties": {
+                      "FilterType": "Sql",
+                      "SqlFilter": {
+                        "SqlExpression": "sys.MessageId = '123456' AND userProp1 = 'value1'"
+                      },
+                      "Action" : {
+                        "SqlExpression": "SET sys.To = 'Entity'"
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -164,8 +191,8 @@ To run the Service Bus emulator locally on Linux or macOS:
     "Logging": {
       "Type": "File"
     }
-   }
-   }
+  }
+}
 
    ```
 
@@ -180,14 +207,17 @@ services:
   emulator:
     container_name: "servicebus-emulator"
     image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
+    pull_policy: always
     volumes:
       - "${CONFIG_PATH}:/ServiceBus_Emulator/ConfigFiles/Config.json"
     ports:
       - "5672:5672"
+      - "5300:5300"
     environment:
-      SQL_SERVER: sqledge  
-      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: "${SQL_PASSWORD}"  # Password should be same as what is set for SQL Edge  
       ACCEPT_EULA: ${ACCEPT_EULA}
+      SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
     depends_on:
       - sqledge
     networks:
@@ -203,9 +233,11 @@ services:
               - "sqledge"
         environment:
           ACCEPT_EULA: ${ACCEPT_EULA}
-          MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
+          MSSQL_SA_PASSWORD: "${SQL_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+
 networks:
   sb-emulator:
+
 ```
 
 3. Create .env file to declare the environment variables for Service Bus emulator and ensure all of the following environment variables are set.
