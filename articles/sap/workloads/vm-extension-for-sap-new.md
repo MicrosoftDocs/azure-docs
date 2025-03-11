@@ -287,15 +287,14 @@ SETTINGS
 
 If you want to disable automatic updates for the VM extension or want to deploy a specific version of the extension, you can retrieve the available versions with Azure CLI or Azure PowerShell.
 
-**Azure PowerShell**
+### [Azure PowerShell](#tab/powershell1)
 ```powershell
 # Windows
 Get-AzVMExtensionImage -Location westeurope -PublisherName Microsoft.AzureCAT.AzureEnhancedMonitoring -Type MonitorX64Windows
 # Linux
 Get-AzVMExtensionImage -Location westeurope -PublisherName Microsoft.AzureCAT.AzureEnhancedMonitoring -Type MonitorX64Linux
 ```
-
-**Azure CLI**
+### [Azure CLI](#tab/cli1)
 ```azurecli
 # Windows
 az vm extension image list --location westeurope --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows
@@ -400,51 +399,6 @@ The script tests the configuration of the virtual machine you select.
 
 Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows]. Repeat the checks described in [Readiness check][readiness-check] and this chapter. If the checks still indicate a problem with some or all counters, see [Troubleshooting for Linux][troubleshoot-linux] or [Troubleshooting for Windows][troubleshoot-windows].
 
-
-## <a name="dee9099b-7b8a-4cdd-86a2-3f6ee964266f"></a>Troubleshooting for Windows
- 
-### Azure performance counters do not show up at all
-The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process is not running in your VM, no performance metrics can be collected.
-
-#### The installation directory of the Azure Extension for SAP is empty
-##### Issue
-The installation directory
-C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>
-is empty.
-##### Solution
-The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine or install the VM extension again.
- 
-### Some Azure performance counters are missing
-
-The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
-
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
-
-## <a name="02783aa4-5443-43f5-bc11-7af19ebf0c36"></a>Troubleshooting for Linux
-
-### Azure performance counters do not show up at all
-Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
-
-#### The installation directory of the Azure Extension for SAP is empty
-##### Issue
-The directory /var/lib/waagent/ does not have a subdirectory for the Azure Extension for SAP.
-##### Solution
-The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or install the VM extension again.
- 
-### Some Azure performance counters are missing
-
-Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
-For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure-windows]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
-
-
-## Azure extension error codes
- 
-All error IDs have a unique tag in the form of a-#, where # is a number. It allows a fast search for a specific error and possible solutions.
- 
-| Error ID | Error description | Solutions |
-|---|---|---|
-| `a-0116` | no auth token | More info:<br />The extension cannot obtain authentication token to access VM metrics in Azure monitor. To deliver VM metrics it needs access to VM resources like VM itself, all disks and all NICs  attached to a VM<br />Solution:<br />Please enable VM managed Identity and give it a reader role for a VM resource group. When you use a setup script, the script does it for you. Normally you don’t need to enable and assign VM managed identity manually. |
 
 ## Next steps
 * [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
