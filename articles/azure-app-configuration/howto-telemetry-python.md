@@ -11,28 +11,24 @@ ms.date: 03/05/2025
 
 # Tutorial: Enable telemetry for feature flags in a Python application (preview)
 
-In this tutorial, you use telemetry (preview) in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature lag named *Greeting* in your Configuration store with telemetry enabled.
+In this tutorial, you use telemetry in your Python application to track feature flag evaluations and custom events. Telemetry allows you to make informed decisions about your feature management strategy. You utilize the feature flag with telemetry enabled created in [Enable telemetry for feature flags](./howto-telemetry.md). Before proceeding, ensure that you create a feature lag named *Greeting* in your Configuration store with telemetry enabled.
 
 ## Prerequisites
 
-- A variant feature flag named *Greeting*. If you don't have one, follow the [instructions to create it](./manage-feature-flags.md).
-- A variant feature flag named *Greeting* with telemetry enabled. If you don't have one, follow the [update it](./howto-telemetry.md). 
+- The variant feature flag from the [Feature Flags Quickstart](./manage-feature-flags.md).
+- Also updated the variant feature flag with telemetry enabled. If you have't, follow the [guide to update it](./howto-telemetry.md). 
 
 ## Add telemetry to your python application
 
-1. Install the `azure-appconfiguration-provider` and the `featuremanagement` packages using pip:
+1. Install the using pip:
 
     ```bash
-    pip install azure-appconfiguration-provider==2.0.0b2 featuremanagement["AzureMonitor"]==2.0.0b2
-    ```
-
-1. Install the `azure-monitor-opentelemetry` package using pip:
-
-    ```bash
+    pip install azure-appconfiguration-provider
+    pip install featuremanagement["AzureMonitor"]
     pip install azure-monitor-opentelemetry
     ```
 
-1. Configure your code to connect to Application Insights to publish telemetry. Add the following code to `app.py`.
+1. Open `app.py` and configure your code to connect to Application Insights to publish telemetry.
 
     ```python
     import os
@@ -42,7 +38,7 @@ In this tutorial, you use telemetry (preview) in your Python application to trac
     configure_azure_monitor(connection_string=os.getenv("APPLICATIONINSIGHTS_CONNECTION_STRING"))
     ```
     
-1. Load your feature flags from App Configuration and load them into feature management. Update your `app.py` with the following code, `FeatureManager` uses the `publish_telemetry` callback function to publish telemetry to Azure Monitor.
+1. Also in `app.py` load your feature flags from App Configuration and load them into feature management. `FeatureManager` uses the `publish_telemetry` callback function to publish telemetry to Azure Monitor.
 
     ```python
     from featuremanagement.azuremonitor import publish_telemetry
@@ -50,13 +46,24 @@ In this tutorial, you use telemetry (preview) in your Python application to trac
     feature_manager = FeatureManager(config, on_feature_evaluated=publish_telemetry)
     ```
 
-1. Track your own events in your application. When `track_event` is called, a custom event is published to Azure Monitor with the provided user. Updated `routes.py` to track an event whenever a POST request is made.
+1. Open `routes.py` and update your code to track your own events in your application. When `track_event` is called, a custom event is published to Azure Monitor with the provided user.
 
     ```python
     from featuremanagement import track_event
-
-    # Something has happened in your application
-    track_event("Liked", user)
+    
+    @bp.route("/", methods=["GET", "POST"])
+    def index():
+        context = {}
+        user = ""
+        if current_user.is_authenticated:
+            user = current_user.username
+            context["user"] = user
+        else:
+            context["user"] = "Guest"
+        if request.method == "POST":
+            # Update the post request to track liked events
+            track_event("Liked", user)
+            return redirect(url_for("pages.index"))
     ```
 
 ## Build and run the app
@@ -128,3 +135,7 @@ In this tutorial, you use telemetry (preview) in your Python application to trac
     ```console
     export APPCONFIGURATION_ENDPOINT='<app-configuration-store-endpoint>'
     ```
+
+1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
+1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
+1. Select the **Like** button to trigger the telemetry event.
