@@ -65,7 +65,7 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
 7. Review the information associated with your key vault and select **Create**. Wait for a couple minutes for the key vault creation to complete.
 
-    ![Screenshot of the Review Plus Create screen for a new Azure key vault. The Create button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
+    ![Screenshot of the Review Plus Create screen for a new Azure Key Vault. The Create button is highlighted.](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
 8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
 
