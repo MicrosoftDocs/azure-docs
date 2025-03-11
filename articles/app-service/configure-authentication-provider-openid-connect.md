@@ -19,10 +19,10 @@ You can configure your app to use one or more OIDC providers. Each must have a u
 
 ## <a name="register"> </a>Register your application with the identity provider
 
-Your provider will require you to register the details of your application with it. One of these steps involves specifying a redirect URI. This redirect URI has the form `<app-url>/.auth/login/<provider-name>/callback`. Each identity provider should provide more instructions on how to complete these steps. The `<provider-name>` value refers to the friendly name that you give to the OpenID provider name in Azure.
+Your provider requires you to register the details of your application with it. One of these steps involves specifying a redirect URI that has the form `<app-url>/.auth/login/<provider-name>/callback`. Each identity provider should provide more instructions on how to complete these steps. The `<provider-name>` value refers to the friendly name that you give to the OpenID provider name in Azure.
 
 > [!NOTE]
-> Some providers might require additional steps for their configuration and how to use the values that they provide. For example, Apple provides a private key that isn't itself used as the OIDC client secret. You instead must use it to craft a JSON Web Token (JWT) that's treated as the secret that you provide in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens) in the Apple developer documentation.
+> Some providers might require additional steps for their configuration and for how to use the values that they provide. For example, Apple provides a private key that isn't itself used as the OIDC client secret. You instead must use it to craft a JSON Web Token (JWT) that's treated as the secret that you provide in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens) in the Apple developer documentation.
 
 You need to collect a *client ID* and a *client secret* for your application. The client secret is an important security credential. Don't share this secret with anyone or distribute it within a client application.
 
@@ -49,14 +49,14 @@ If you can't use a configuration metadata document, gather the following values 
 
 1. Provide the earlier collected **Client ID** and **Client Secret** values in the appropriate fields.
 
-1. Specify an application setting name for your client secret. Your client secret will be stored as an app setting to ensure that secrets are stored in a secure fashion. You can update that setting later to use [Azure Key Vault references](./app-service-key-vault-references.md) if you want to manage the secret in Key Vault.
+1. Specify an application setting name for your client secret. Your client secret is stored as an app setting to ensure that secrets are stored in a secure fashion. You can update that setting later to use [Azure Key Vault references](./app-service-key-vault-references.md) if you want to manage the secret in Key Vault.
 
 1. Select **Add** to finish setting up the identity provider.
 
 > [!NOTE]
-> The OpenID provider name can't contain symbols like a hyphen (-) because an app setting will be created based on this and it doesn't support it. Use an underscore (_) instead.  
+> The OpenID provider name can't contain a hyphen (-) because an app setting is created based on this name, and the app setting doesn't support hyphens. Use an underscore (_) instead.  
 >
-> Azure requires "openid," "profile," and "email" scopes. Make sure you've configured your app registration in your ID provider with at least these scopes.  
+> Azure requires `openid`, `profile`, and `email` scopes. Make sure that you configured your app registration in your ID provider with at least these scopes.  
 
 ## <a name="related-content"> </a>Related content
 
