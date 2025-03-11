@@ -1528,16 +1528,16 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 * [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) *(OOPSLA'21)*
 * [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(preprint)*
 
-## Compare orchestration
-
-Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), and might not be appropriate for all applications.
-
-For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
-
-## Related content
+## Video demo
 
 The following video highlights the benefits of Durable Functions:
 
 > [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player]
+
+## Compare orchestration
+
+Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), and might not be appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+
+## Related content
 
 - [Durable Functions types and features](durable-functions-types-features-overview.md)
