@@ -1162,7 +1162,7 @@ public void raiseEventToOrchestration(
 
 ### <a name="aggregator"></a>Pattern #6: Aggregator (stateful entities)
 
-The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
+The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated might come from multiple sources, might be delivered in batches, or might be scattered over long periods of time. The aggregator might need to take action on event data as it arrives, and external clients might need to query the aggregated data.
 
 :::image type="content" source="media/durable-functions-concepts/aggregator.png" alt-text="Diagram that shows an aggregator.":::
 
@@ -1385,7 +1385,7 @@ def entity_function(context: df.DurableOrchestrationContext):
 
 ::: zone-end
 
-Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
+Clients can enqueue *operations* for (also known as *signaling*) an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
 
 ::: zone pivot="csharp"
 
@@ -1502,24 +1502,24 @@ Behind the scenes, the Durable Functions extension is built on top of the [Durab
 
 ## Code constraints
 
-In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see the [Orchestrator function code constraints](durable-functions-code-constraints.md) article.
+In order to provide reliable and long-running execution guarantees, orchestrator functions have a set of coding rules that must be followed. For more information, see [Orchestrator function code constraints](durable-functions-code-constraints.md).
 
 ## Billing
 
-Durable Functions are billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in the Azure Functions [Consumption plan](../consumption-plan.md), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
+Durable Functions is billed the same as Azure Functions. For more information, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). When executing orchestrator functions in Azure Functions [Consumption plan](../consumption-plan.md), there are some billing behaviors to be aware of. For more information on these behaviors, see the [Durable Functions billing](durable-functions-billing.md) article.
 
 ## Jump right in
 
 You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
 
-* [C# using Visual Studio 2019](durable-functions-isolated-create-first-csharp.md)
+* [C# using Visual Studio](durable-functions-isolated-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [TypeScript using Visual Studio Code](quickstart-ts-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)
 * [PowerShell using Visual Studio Code](quickstart-powershell-vscode.md)
 * [Java using Maven](quickstart-java.md)
 
-In these quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
+In these quickstarts, you locally create and test a *Hello world* durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.
 
 ## Publications
 
@@ -1528,15 +1528,16 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 * [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) *(OOPSLA'21)*
 * [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(preprint)*
 
-## Learn more
+## Compare orchestration
+
+Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), and might not be appropriate for all applications.
+
+For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
+
+## Related content
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player]
 
-Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Durable Functions function types and features](durable-functions-types-features-overview.md)
+- [Durable Functions types and features](durable-functions-types-features-overview.md)
