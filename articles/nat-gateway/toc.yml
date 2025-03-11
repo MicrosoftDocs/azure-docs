@@ -48,7 +48,6 @@ items:
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
     - name: Network security blog
       href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
-- name: Deploy
   - name: SNAT with NAT gateway
     href: nat-gateway-snat.md
   - name: NAT gateway design guidance
