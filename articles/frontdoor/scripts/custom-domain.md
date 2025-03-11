@@ -6,8 +6,8 @@ ms.service: azure-frontdoor
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.date: 11/18/2024
 ---
 

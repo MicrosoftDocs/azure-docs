@@ -6,7 +6,6 @@ author: duongau
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 ms.custom: references_regions
 ---
 

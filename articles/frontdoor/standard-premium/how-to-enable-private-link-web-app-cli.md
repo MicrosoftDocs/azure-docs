@@ -3,12 +3,12 @@ title: 'Connect Azure Front Door Premium to an App Service origin with Private L
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a webapp privately using Azure CLI.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to an App Service origin with Private Link using Azure CLI
