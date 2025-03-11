@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/04/2023
+ms.date: 3/11/2025
 ms.custom:
   - kr2b-contr-experiment
   - build-2024
@@ -13,6 +13,8 @@ ms.custom:
 ---
 
 # Quickstart: Create a service connection in Azure Spring Apps from the Azure portal
+
+[!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
 
 This quickstart shows you how to connect Azure Spring Apps to other Cloud resources using the Azure portal and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
