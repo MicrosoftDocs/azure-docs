@@ -35,7 +35,7 @@ items:
     - name: Portal - Templates gallery
       href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
-      href: create-single-tenant-workflows-visual-studio-code.md
+      href: create-standard-workflows-visual-studio-code.md
 - name: Tutorials
   items:
   - name: Create Consumption schedule-based workflow
