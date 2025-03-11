@@ -307,8 +307,6 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNSG --n
 
 To duplicate existing security rules, you can export the JSON of the existing NSG, extract the `securityRules`, and include it in your ARM template.
 
-# [**Portal**](#tab/network-security-group-portal)
-
 1. In the search box at the top of the portal, enter **Network security group**. Then select **Network security groups** in the search results.
 
 1. Select the name of the NSG for which you want to duplicate the rules.
