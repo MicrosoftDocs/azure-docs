@@ -85,7 +85,10 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     RUN sed -i "s|-days 365|-days 7300 |g" ./createCA.sh
     
     ## If you want to use the EST server to issue Edge CA certificates, 
-    ## uncomment the RUN sed section after this comment block.
+    ## uncomment the RUN sed section after this comment block. 
+    ## The sed commands add special extensions for Edge CA certificates. For more information see: 
+    ## https://learn.microsoft.com/azure/iot-edge/how-to-manage-device-certificates?tabs=windows#edge-ca-in-production
+    ##
     ## IMPORTANT:
     ##   DO NOT issue Edge CA certificates in production.
     ##   For production, use digital certificates from a trusted CA.
