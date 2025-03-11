@@ -294,7 +294,7 @@ Select VMs for migration.
 
 ## Simplified experience
 
-Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](#)
+Now, the selection experience type is both classic and simplified. The new simplified process follow a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](../tutorial-migrate-physical-virtual-machines.md)
 
 
 ## Track and monitor
