@@ -3,9 +3,9 @@ items:
   href: ./index.yml
   items:
   - name: Adopt Azure
-    href: ./placeholder.md
+    href: ./start-strong.md
   - name: Workload migration strategy
-    href: ./placeholder.md
+    href: ./migrate-workload.md
   - name: Migrate from AWS
     items:
     - name: Getting started
@@ -38,8 +38,6 @@ items:
           href: /azure/aks/eks-web-overview
         - name: Migrate an event-driven EKS workload to AKS
           href: /azure/aks/eks-edw-overview
-        - name: Migrate stateful workloads to AKS
-          href: /azure/aks/stateful-workloads-overview
       - name: Amazon EC2
         items:
         - name: Migrate to Azure Virtual Machines (Azure Migrate)
@@ -49,7 +47,7 @@ items:
     - name: Databases
       items:
       - name: Migrate databases
-        href: ./placeholder.md
+        href: ./migrate-databases-from-aws.md
       - name: Amazon RDS for PostgreSQL
         items:
         - name: Migrate to Azure Database for PostgreSQL (offline)
@@ -81,11 +79,11 @@ items:
     - name: Networking
       items:
       - name: Networking migration guide
-        href: ./placeholder.md
+        href: ./migrate-networking-from-aws.md
     - name: Storage
       items:
-      - name: Migrate storage
-        href: ./placeholder.md
+      - name: Storage migration guide
+        href: ./migrate-storage-from-aws.md
       - name: Amazon Simple Storage Service (S3)
         items:
         - name: Copy data from Amazon S3 to Azure Storage (AzCopy)
@@ -96,12 +94,20 @@ items:
           href: /azure/data-factory/solution-template-migration-s3-azure
     - name: Messaging
       items:
-      - name: Migrate messaging
+      - name: Messaging migration guide
+        href: ./migrate-messaging-from-aws.md
+      - name: Migrate Amazon EventBridge to Azure
+        href: ./placeholder.md
+      - name: Migrate Amazon Kinesis to Azure
+        href: ./placeholder.md
+      - name: Migrate Amazon Simple Queue Service to Azure
+        href: ./placeholder.md
+      - name: Migrate Amazon Simple Notification Service to Azure
         href: ./placeholder.md
     - name: Monitoring
       items:
       - name: Monitoring migration guide
-        href: ./placeholder.md
+        href: ./migrate-monitoring-from-aws.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
@@ -131,7 +137,7 @@ items:
     - name: Databases
       items:
       - name: Migrate databases
-        href: ./placeholder.md
+        href: ./migrate-databases-from-google-cloud.md
       - name: Google Cloud SQL for PostgreSQL
         items:
         - name: Migrate to Azure Database for PostgreSQL (offline)
@@ -141,16 +147,18 @@ items:
     - name: Networking
       items:
       - name: Networking migration guide
-        href: ./placeholder.md
+        href: ./migrate-networking-from-google-cloud.md
     - name: Messaging
       items:
+      - name: Messaging migration guide
+        href: ./migrate-messaging-from-google-cloud.md
       - name: Replatform from Google Pub/Sub to Azure Service Bus
         href: ./placeholder.md
     - name: Storage
       items:
       - name: Storage migration guide
-        href: ./placeholder.md
+        href: ./migrate-storage-from-google-cloud.md
     - name: Monitoring
       items:
       - name: Monitoring migration guide
-        href: ./placeholder.md
+        href: ./migrate-monitoring-from-google-cloud.md

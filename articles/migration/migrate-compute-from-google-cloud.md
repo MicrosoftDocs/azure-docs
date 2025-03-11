@@ -1,6 +1,6 @@
 ---
 title: Migrate Compute from Google Cloud
-description: Concepts, how-tos, best practices from moving compute from Google Cloud to Azure.
+description: Concepts, how-tos, best practices for moving compute from Google Cloud to Azure.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
