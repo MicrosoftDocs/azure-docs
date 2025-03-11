@@ -98,7 +98,7 @@ You can create and manage customization files by using VS Code. You can use the 
 
 ## Clone a private repository by using a customization file
 
-You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
+You can use secrets from your Azure Key Vault in your YAML customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
 ### Use key vault secrets in team customization files
 
