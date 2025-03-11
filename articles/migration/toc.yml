@@ -2,10 +2,10 @@ items:
 - name: Microsoft Azure migration guide
   href: ./index.yml
   items:
-  - name: Adopt Azure
-    href: ./start-strong.md
-  - name: Workload migration strategy
-    href: ./migrate-workload.md
+  - name: Migrate to Azure
+    href: ./migration-overview.md
+#  - name: Workload migration strategy
+#    href: ./migrate-workload.md
   - name: Migrate from AWS
     items:
     - name: Getting started
@@ -80,18 +80,6 @@ items:
         href: /azure/azure-cache-for-redis/cache-migration-guide
       - name: Migrate from CouchBase to Azure Cosmos DB for NoSQL
         href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
-    - name: Identity and access management (IAM)
-      items:
-      - name: Azure identity services map
-        href: /azure/architecture/aws-professional/security-identity
-    - name: Networking
-      items:
-      - name: Migrate network components
-        href: ./migrate-networking-from-aws.md
-      - name: Azure networking services mapping
-        href: /azure/architecture/aws-professional/networking
-      - name: Connect AWS and Azure using a BGP-enabled VPN gateway
-        href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
     - name: Storage
       items:
       - name: Migrate storage components
@@ -106,26 +94,22 @@ items:
           href: /azure/data-factory/data-migration-guidance-s3-azure-storage
         - name: Migrate to Azure Data Lake Storage
           href: /azure/data-factory/solution-template-migration-s3-azure
+    - name: Identity and access management (IAM)
+      items:
+      - name: Azure identity services map
+        href: /azure/architecture/aws-professional/security-identity
+    - name: Networking
+      items:
+      - name: Azure networking services mapping
+        href: /azure/architecture/aws-professional/networking
+      - name: Connect AWS and Azure using a BGP-enabled VPN gateway
+        href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
     - name: Messaging and integration
       items:
-      - name: Migrate messaging and integrations
-        href: ./migrate-messaging-from-aws.md
       - name: Azure messaging services map
         href: /azure/architecture/aws-professional/messaging
-#      - name: Migrate Amazon EventBridge to Azure
-#        href: ./placeholder.md
-#      - name: Migrate Amazon Kinesis to Azure
-#        href: ./placeholder.md
-#      - name: Migrate Amazon Simple Queue Service to Azure
-#        href: ./placeholder.md
-#      - name: Migrate Amazon Simple Notification Service to Azure
-#        href: ./placeholder.md
       - name: Synchronize API Gateway APIs into Azure API Center
         href: /azure/api-center/synchronize-aws-gateway-apis
-#    - name: Monitoring
-#      items:
-#      - name: Monitoring migration guide
-#        href: ./migrate-monitoring-from-aws.md
     - name: Security
       items:
       - name: Azure security services map
@@ -150,10 +134,6 @@ items:
 #        href: ./placeholder.md
 #      - name: 6. Optimize with Azure
 #        href: ./placeholder.md
-#    - name: Compute
-#      items:
-#      - name: Migrate compute
-#        href: ./migrate-compute-from-google-cloud.md
     - name: Databases
       items:
       - name: Migrate databases
@@ -168,24 +148,6 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
       - name: Migrate MySQL on Google Cloud to Azure Database for MySQL
         href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-#    - name: Networking
-#      items:
-#      - name: Networking migration guide
-#        href: ./migrate-networking-from-google-cloud.md
-#    - name: Messaging
-#      items:
-#      - name: Messaging migration guide
-#        href: ./migrate-messaging-from-google-cloud.md
-#      - name: Replatform from Google Pub/Sub to Azure Service Bus
-#        href: ./placeholder.md
-#    - name: Storage
-#      items:
-#      - name: Storage migration guide
-#        href: ./migrate-storage-from-google-cloud.md
-#    - name: Monitoring
-#      items:
-#      - name: Monitoring migration guide
-#        href: ./migrate-monitoring-from-google-cloud.md
     - name: Security
       items:
       - name: Azure security services map
