@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
+# As an integration solution developer, I want to know how to create and work with variables in my workflows using Azure Logic Apps.
 ---
 
 # Create variables to store and manage values in Azure Logic Apps

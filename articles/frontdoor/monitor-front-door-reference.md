@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 01/21/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 zone_pivot_groups: front-door-tiers
 #customer intent: As the engineer responsible for my team's Azure Front Door configuration, I want to find the elements of Azure Monitor for the service, including metrics and logs.

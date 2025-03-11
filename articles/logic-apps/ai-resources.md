@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.date: 01/23/2025
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---

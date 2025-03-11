@@ -28,8 +28,6 @@ The following steps walk you through how to navigate to the Route Map dashboard.
 1. In the left pane, under Routing, select **Route-Maps**.
 1. Select **Route Map Dashboard** from the Settings section to open the **Route Map Dashboard**.
 
-   :::image type="content" source="./media/route-maps-dashboard/dashboard-view.png" alt-text="Screenshot shows the Route Map dashboard page." lightbox="./media/route-maps-dashboard/dashboard-view.png":::
-
 ## View connections
 
 After you open the Route Map dashboard, you can view the details of your connection. The following steps walk you through selecting the necessary values.

@@ -47,8 +47,6 @@ Enable connectivity between your on-premises networks. There are separate sets o
     > [!NOTE]
     > If you wish to enable IPv6 support for ExpressRoute Global Reach, select "Both" for the *Subnets* field and include a **/125 IPv6** subnet for the *Global Reach IPv6 subnet*.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/add-global-reach-configuration.png" alt-text="Screenshot of adding Global Reach in Overview tab.":::
-
 3. Select **Save** to complete the Global Reach configuration. When the operation completes, you have connectivity between your two on-premises networks through both ExpressRoute circuits.
 
     > [!NOTE]

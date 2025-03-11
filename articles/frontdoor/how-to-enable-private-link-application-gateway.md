@@ -3,18 +3,72 @@ title: 'Connect Azure Front Door Premium to an Azure Application Gateway origin 
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an Azure Application Gateway privately.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 09/23/2024
-ms.author: duau
-zone_pivot_groups: front-door-dev-exp-ps-cli
+zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ms.custom: ai-usage
 ---
 
 # Connect Azure Front Door Premium to an Azure Application Gateway with Private Link (Preview)
 
 This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure Application Gateway using Azure Private Link.
+
+::: zone pivot="front-door-portal"
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door](create-front-door-portal.md).
+
+- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure portal](../application-gateway/quick-create-portal.md)
+
+## Enable private connectivity to Azure Application Gateway
+
+Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
+
+## Create an origin group and add the application gateway as an origin
+
+1. In your Azure Front Door Premium profile, go to *Settings* and select **Origin groups**.
+
+1. Click on **Add**
+1. Enter a name for the origin group
+1. Select **+ Add an origin** 
+1. Use the following table to configure the settings for the origin:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter a name to identify this origin. |
+    | Origin Type | Application Gateway |
+    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Origin host header | Will be autopopulated with the IP of the chosen Application Gateway|
+    | HTTP port | 80 (default) |
+    | HTTPS port | 443 (default) |
+    | Priority | Assign different priorities to origins for primary, secondary, and backup purposes. |
+    | Weight | 1000 (default). Use weights to distribute traffic among different origins. |
+    | Region | Select the region that matches or is closest to your origin. |
+    | Target sub resource | Name of the Azure Application Gateway frontend IP configuration. |
+    | Request message | Enter a custom message to display while approving the Private Endpoint.  |
+
+   :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin dettings for configuring Application Gateway as a private origin.":::    
+
+1. Select **Add** to save your origin settings
+1. Select **Add** to save the origin group settings.
+
+## Approve the private endpoint
+
+1. Navigate to the Application Gateway you configured with Private Link in the previous section. Under **Settings**, select **Private link**.
+
+1. Select **Private endpoint connections** tab.
+
+1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
+
+1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your Application Gateway through Front Door. Direct access to the Application Gateway from the public internet is disabled once private endpoint is enabled.
+:::image type="content" source="media/private-link/application-gateway-private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections tab in Application Gateway portal.":::
+    
+::: zone-end
 
 ::: zone pivot="front-door-ps"
 

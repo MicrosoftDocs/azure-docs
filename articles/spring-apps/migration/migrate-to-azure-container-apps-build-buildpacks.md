@@ -2,7 +2,8 @@
 title: Build a Container Image by Using Paketo Buildpacks
 description: Describes how to build a container image by using Paketo Buildpacks.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -210,7 +211,7 @@ You can inspect the builder by using the following command:
 pack builder inspect <builder-name>
 ```
 
-Now you have a builder similar to the default builder in Azure Spring Apps Enterprise plan. With this builder, you can use the following command to build your JAR file, WAR file, Java source code, .NET source code, Golang source code, NodeJS source code, or Python source code to a container image:
+Now you have a builder similar to the default builder in Azure Spring Apps Enterprise plan. With this builder, you can use the following command to build your JAR file, WAR file, Java source code, .NET source code, Golang source code, Node.js source code, or Python source code to a container image:
 
 ```bash
 pack build <image-name> \

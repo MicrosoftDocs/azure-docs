@@ -11,10 +11,25 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
         ]
       },
       {
@@ -58,6 +73,22 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
           "**/_themes/**",
           "**/obj/**"
         ]
@@ -253,6 +284,8 @@
         "articles/cloud-shell/**/*.md": "sdwheeler",
         "articles/connectors/*.md": "ecfan",
         "articles/container-registry/**/*.md": "tejaswikolli-web",
+        "articles/cyclecloud/**/*.md": "adriankjohnson",
+        "articles/cyclecloud/**/*.yml": "adriankjohnson",
         "articles/data-catalog/*.md": "whhender",
         "articles/defender-for-iot/device-builders/*.md": "limwainstein",
         "articles/defender-for-iot/organizations/*.md": "limwainstein",
@@ -269,9 +302,6 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
-        "articles/hdinsight-aks/*.md": "sreekzz",
-        "articles/hdinsight-aks/*.yml": "sreekzz",
-        "articles/hdinsight-aks/**/*.md": "sreekzz",
         "articles/hdinsight/*.md": "sreekzz",
         "articles/hdinsight/*.yml": "sreekzz",
         "articles/hdinsight/**/*.md": "sreekzz",
@@ -287,6 +317,8 @@
         "articles/logic-apps/**/.md": "ecfan",
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
+        "articles/network-watcher/**/*.md": "halkazwini",
+        "articles/network-watcher/**/*.yml": "halkazwini",
         "articles/notebooks/*.md": "j-martens",
         "articles/openshift/**/*.md": "johnmarco",
         "articles/openshift/**/*.yml": "johnmarco",
@@ -299,6 +331,8 @@
         "articles/playwright-testing/**/*.md": "vvs11",
         "articles/quotas/**/*.md": "JnHs",
         "articles/quotas/**/*.yml": "JnHs",
+        "articles/route-server/*.md": "halkazwini",
+        "articles/route-server/*.yml": "halkazwini",
         "articles/sap/**/*.md": "lauradolan",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-health/*.md": "rboucher",
@@ -307,7 +341,9 @@
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/update-center/**/*.md": "SnehaSudhirG",
         "articles/virtual-network-manager/*.md": "mbender-ms",
-        "articles/virtual-network-manager/*.yml": "mbender-ms"
+        "articles/virtual-network-manager/*.yml": "mbender-ms",
+        "articles/web-application-firewall/**/*.md": "halkazwini",
+        "articles/web-application-firewall/**/*.yml": "halkazwini"
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -392,7 +428,6 @@
         "articles/governance/**/*.md": "https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0",
         "articles/guidance/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
         "articles/guides/**/*.md": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
-        "articles/hdinsight-aks/**/*.md": "https://feedback.azure.com/d365community/forum/14770d6d-7626-ec11-b6e6-000d3a4f032c",
         "articles/hdinsight/**/*.md": "https://feedback.azure.com/d365community/forum/14770d6d-7626-ec11-b6e6-000d3a4f032c",
         "articles/industry/agriculture/**/*.md": "https://feedback.azure.com/d365community/forum/28494f0f-f224-ec11-b6e6-000d3a4f0da0",
         "articles/iot-central/**/*.md": "https://feedback.azure.com/d365community/forum/35b59d83-f424-ec11-b6e6-000d3a4f0da0",
@@ -555,7 +590,6 @@
         "articles/governance/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/governance/policy/**/*": "https://learn.microsoft.com/answers/tags/228/azure-policy",
         "articles/governance/resource-graph/NO-QA-TAG-USE-GLOBAL/": "",
-        "articles/hdinsight-aks/**/*": "https://learn.microsoft.com/answers/tags/453/azure-hdinsight-aks/",
         "articles/hdinsight/**/*": "https://learn.microsoft.com/answers/tags/168/azure-hdinsight/",
         "articles/healthcare-apis/**/*": "https://learn.microsoft.com/answers/tags/389/azure-health-data-services/",
         "articles/high-performance-computing/NO-QA-TAG-USE-GLOBAL/": "",
@@ -701,7 +735,7 @@
         "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-spaces/*.md": "msangapu",
-        "articles/automanage/*md": "orspodek",
+        "articles/automanage/*md": "memccror",
         "articles/automation/**/*.md": "sudhirsneha",
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
@@ -769,9 +803,6 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnema",
-        "articles/hdinsight-aks/*.md": "v-sreeiyer",
-        "articles/hdinsight-aks/*.yml": "v-sreeiyer",
-        "articles/hdinsight-aks/**/*.md": "v-sreeiyer",
         "articles/hdinsight/*.md": "v-sreeiyer",
         "articles/hdinsight/*.yml": "v-sreeiyer",
         "articles/hdinsight/**/*.md": "v-sreeiyer",
@@ -870,6 +901,7 @@
         "articles/azure-portal/supportability/**/*.md": "azure-supportability",
         "articles/azure-relay/**/*": "azure-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
+        "articles/azure-resource-manager/**/*.yml": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
         "articles/azure-resource-manager/managed-applications/**/*.md": "azure-managed-applications",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
@@ -886,14 +918,18 @@
         "articles/cloud-shell/**/*.md": "azure-cloud-shell",
         "articles/connectors/*.md": "azure-logic-apps",
         "articles/container-registry/**/*.md": "azure-container-registry",
+        "articles/cyclecloud/**/*.md": "azure-cyclecloud",
+        "articles/cyclecloud/**/*.yml": "azure-cyclecloud",
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/defender-for-iot/device-builders/*.md": "defender-for-iot",
         "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
+        "articles/defender-for-iot/organizations/**/*.yml": "defender-for-iot",
         "articles/defender-for-iot/organizations/**/*.md": "defender-for-iot",
         "articles/deployment-environments/**/*.md": "azure-deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/devtest-labs/**/*.md": "azure-devtest-labs",
+        "articles/devtest-labs/**/*.yml": "azure-devtest-labs",
         "articles/event-grid/**/*": "azure-event-grid",
         "articles/event-hubs/**/*": "azure-event-hubs",
         "articles/governance/*.md": "azure-policy",
@@ -902,7 +938,6 @@
         "articles/governance/management-groups/**/*.md": "azure",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "azure-resource-graph",
-        "articles/hdinsight-aks/**/*.md": "azure-hdinsight-on-aks",
         "articles/industry/**/*.md": "azure-industry",
         "articles/integration-environments/*.md": "azure-integration-environments",
         "articles/iot-operations/**/*.md": "azure-iot-operations",
@@ -1037,6 +1072,8 @@
         "articles/backup/**/*.yml": ["Azure","Azure Backup"],
         "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
         "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
+        "articles/cyclecloud/**/*.md": ["Azure","CycleCloud"],
+        "articles/cyclecloud/**/*.yml": ["Azure","CycleCloud"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
         "articles/data-catalog/**/*.yml": ["Azure","Azure Data Catalog"],
         "articles/data-factory/**/*.md": ["Azure","Azure Data Factory"],
@@ -1060,8 +1097,6 @@
         "articles/governance/policy/**/*.yml": ["Azure","Azure Policy"],
         "articles/governance/resource-graph/**/*.md": ["Azure","Azure Resource Graph"],
         "articles/governance/resource-graph/**/*.yml": ["Azure","Azure Resource Graph"],
-        "articles/hdinsight-aks/**/*.md": ["Azure","Azure HDInsight", "Azure HDInsight on AKS"],
-        "articles/hdinsight-aks/**/*.yml": ["Azure","Azure HDInsight", "Azure HDInsight on AKS"],
         "articles/hdinsight/**/*.md": ["Azure","Azure HDInsight"],
         "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
         "articles/iot-central/**/*.md": ["Azure","IoT","Azure IoT Central"],
@@ -1145,6 +1180,8 @@
         "articles/container-registry/**/*.md": "Azure Container Registry",
         "articles/cost-management-billing/**/*.md": "Microsoft Cost Management",
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
+        "articles/cyclecloud/**/*.md": "Azure CycleCloud",
+        "articles/cyclecloud/**/*.yml": "Azure CycleCloud",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/defender-for-iot/*.md": "Microsoft Defender for IoT",
@@ -1162,8 +1199,6 @@
         "articles/governance/management-groups/**/*.md": "Azure governance",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
-        "articles/hdinsight-aks/**/*.md": "Azure HDInsight on AKS",
-        "articles/hdinsight-aks/**/*.yml": "Azure HDInsight on AKS",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/integration-environments/*.md": "Azure Integration Environments",
         "articles/integration-environments/*.yml": "Azure Integration Environments",
@@ -1210,12 +1245,28 @@
         "articles/terraform/**/*.yml": "Terraform"
       },
       "ms.custom": {
+      },
+      "ms.topic": {
+        "articles/cyclecloud/**/*.md": "conceptual",
+        "articles/cyclecloud/**/*.yml": "conceptual",
+        "articles/cyclecloud/includes/**/*.md": "include",
+        "articles/cyclecloud/**/qs-*.md": "quickstart",
+        "articles/cyclecloud/tutorials/**/*.md": "tutorial",
+        "articles/cyclecloud/how-to/**/*.md": "how-to",
+        "articles/cyclecloud/**overview.md": "overview",
+        "articles/cyclecloud/**overview.yml": "overview"
       }
     },
     "template": [
       "docs.html",
       "default","DocFx.Plugins.PlantUml/template"
     ],
+    "groups": {
+      "cyclecloud-7-group": {
+        "dest": "tempdest_cyclecloud_7",
+        "moniker_range": ">= cyclecloud-7"
+      }
+    },
     "dest": "azure",
     "rules": {
       "sensitive-language-ma": {
@@ -1247,6 +1298,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/cyclecloud/release-notes/8-7-1.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/kafka/apache-kafka-mirror-maker-2.md",

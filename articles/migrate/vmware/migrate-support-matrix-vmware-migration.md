@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 01/27/2025
+ms.date: 02/05/2025
 ms.custom: vmware-scenario-422, engagement-fy25
 ---
 
@@ -85,7 +85,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **NVMe disks** | Not supported.
-**Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Target disk** | VMs can be migrated only to managed disks (standard HDD, standard SSD, Premium V2 SSD (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](../how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
 

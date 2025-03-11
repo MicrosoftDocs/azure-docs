@@ -45,8 +45,6 @@ For tools that require a redirect URL, select **Add a platform** to configure th
 
 [ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
 
-For Postman, select **Mobile and desktop applications**. Enter "https://www.getpostman.com/oauth2/callback" in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
-
 [ ![Screenshot of configure other services.](media/register-application-five-bravo-fix-nov-24.png) ](media/register-application-five-bravo-fix-nov-24.png#lightbox)
 
 ## Certificates & secrets
@@ -88,7 +86,7 @@ The following steps are required for the DICOM service, but optional for the FHI
    [ ![Screenshot of scopes (permissions) that the client application will ask for on behalf of a user.](dicom/media/dicom-select-scope.png) ](dicom/media/dicom-select-scope.png#lightbox)
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
+>Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as REST Client. For more details, visit [Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
 >>Use  grant_type of client_credentials or authentication_code when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.
