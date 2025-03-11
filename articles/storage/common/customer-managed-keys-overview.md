@@ -76,8 +76,8 @@ Using a key vault or managed HSM has associated costs. For more information, see
 
 You can configure customer-managed keys with the key vault and storage account in the same tenant or in different Microsoft Entra tenants. To learn how to configure Azure Storage encryption with customer-managed keys when the key vault and storage account are in the same tenants, see one of the following articles:
 
-- [Configure customer-managed keys in an Azure key vault for a new storage account](customer-managed-keys-configure-new-account.md)
-- [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
+- [Configure customer-managed keys in an Azure Key Vault for a new storage account](customer-managed-keys-configure-new-account.md)
+- [Configure customer-managed keys in an Azure Key Vault for an existing storage account](customer-managed-keys-configure-existing-account.md)
 
 When you enable customer-managed keys with a key vault in the same tenant, you must specify a managed identity that is to be used to authorize access to the key vault that contains the key. The managed identity may be either a user-assigned or system-assigned managed identity:
 
