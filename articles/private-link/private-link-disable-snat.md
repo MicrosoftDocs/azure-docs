@@ -5,7 +5,7 @@ author: abell
 ms.author: abell
 ms.service: azure-private-link
 ms.topic: how-to #Don't change
-ms.date: 02/19/2025
+ms.date: 03/11/2025
 
 #customer intent: As a network administrator, I want to disable SNAT requirement for private endpoint traffic through NVA so that I can ensure symmetric routing and comply with internal logging standards.
 
@@ -13,7 +13,7 @@ ms.date: 02/19/2025
 
 # How to Guide: Disable SNAT requirement for Private Endpoint Traffic through NVA
 
-Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA VMs to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
+Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA virtual machines to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
 
 Enabling this feature provides a more streamlined experience for guaranteeing symmetric routing without affecting nonprivate endpoint traffic. It also allows you to follow internal compliance standards where the source of traffic origination needs to be available during logging. This feature is available in all regions.
 
@@ -24,22 +24,22 @@ Enabling this feature provides a more streamlined experience for guaranteeing sy
 
 * An active Azure account with a subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * A configured private endpoint in your subscription. For more information on how to create a private endpoint, see [Create a private endpoint](./create-private-endpoint-portal.md).
-* A network virtual appliance (NVA) deployed in your subscription. For the example in this article, a virtual machine (VM) is used as the NVA. For more information on how to deploy a VM, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
+* A network virtual appliance (NVA) deployed in your subscription. For the example in this article, a virtual machine (VM) is used as the NVA. For more information on how to deploy a virtual machine, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 * Understanding of how to add tags to Azure resources. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
 ### Disable SNAT requirement for Private Endpoint Traffic through NVA
 
-The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set (VMSS) you enable the tag on the VMSS instance.
+The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set (VMSS) you enable the tag on the virtual machine scale set instance.
 
-#### Add Tag to your VM NIC
+#### Add Tag to your virtual machine NIC
 
-Here we add the tag to the VM NIC. 
+Here we add the tag to the virtual machine's NIC. 
 
 # [Portal](#tab/vm-nic-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar at the top, type "Virtual machines" and select it from the services.
-1. From the list of VMs, select your virtual machine.
+1. From the list of virtual machines, select your virtual machine.
 1. In the left navigation pane under **Settings**, select **Networking**, then select **Network settings**.
 1. Under the **Network Interface** section, select on the NIC name. Now you are in the Network interface pane.
 1. In the left navigation pane under **Overview**, select **Tags**.
@@ -51,13 +51,14 @@ Here we add the tag to the VM NIC.
    | Value | `true` |
 
 1. Select **Apply** to save the tag.
+1. Select the **Overview** section, then select **Refresh** to see the updated tags.
 
 > [!NOTE]
 > The tag is case-sensitive. Ensure you enter it exactly as shown.
 
 # [PowerShell](#tab/vm-nic-powershell)
 
-1. Use the following PowerShell command to add the tag to your VM NIC:
+1. Use the following PowerShell command to add the tag to your virtual machine's NIC:
 
 ```azurepowershell-interactive
     $nic = Get-AzNetworkInterface -Name "myNIC" -ResourceGroupName "MyResourceGroup"
@@ -69,22 +70,22 @@ Here we add the tag to the VM NIC.
 
 # [Azure CLI](#tab/vm-nic-cli)
 
-1. Use the following CLI command to add the tag to your VM NIC:
+1. Use the following CLI command to add the tag to your virtual machine's NIC:
 
 ```azurecli-interactive
     az network nic update --name "myNIC" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=\'true\'
 ```
 ---
 
-### Add Tag to your VMSS
+### Add Tag to your Virtual Machine Scale Sets
 
-Here we add the tag to the VMSS instance. 
+Here we add the tag to the virtual machine scale set instance. 
 
 # [Portal](#tab/vmss-portal)  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar at the top, type "Virtual machine scale sets" and select it from the services.
-1. From the list of scale sets, select your VMSS.
+1. From the list of scale sets, select your virtual machine scale set.
 1. In the left navigation pane under **Overview**, select **Tags**.
 1. Add a new tag with the following details:
 
@@ -94,13 +95,14 @@ Here we add the tag to the VMSS instance.
    | Value | `true` |
 
 1. Select **Apply** to save the tag.
+1. Select the **Overview** section, then select **Refresh** to see the updated tags.
 
 > [!NOTE]
 > The tag is case-sensitive. Ensure you enter it exactly as shown.
 
 # [PowerShell](#tab/vmss-powershell) 
 
-1. Use the following PowerShell command to add the tag to your VMSS:
+1. Use the following PowerShell command to add the tag to your virtual machine scale set:
 
 ```azurepowershell-interactive
     $vmss = Get-AzVmss -ResourceGroupName "MyResourceGroup" -VMScaleSetName "myVmss"
@@ -110,16 +112,16 @@ Here we add the tag to the VMSS instance.
 
 # [Azure CLI](#tab/vmss-cli) 
 
-1. Use the following Azure CLI command to add the tag to your VMSS:
+1. Use the following Azure CLI command to add the tag to your virtual machine scale set:
 
 ```azurecli-interactive
-    az vmss update --name "myVmss" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=true
+    az vmss update --name "myVmss" --resource-group "MyResourceGroup" --set tags.disableSnatOnPL=\'true\'
 ```
 ---
 
 #### Validate the Tag
 
-Verify the tag is present in the VM's NIC settings or VMSS settings.
+Verify the tag is present in the virtual machine's NIC settings or virtual machine scale set settings.
 
 1. Navigate to the **Tags** service in the Azure portal.
 1. In the **Filter by** field, type `disableSnatOnPL`.
