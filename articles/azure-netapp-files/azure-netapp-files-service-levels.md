@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/24/2025
+ms.date: 03/10/2025
 ms.author: anfdocs
 ---
 # Service levels for Azure NetApp Files
@@ -71,8 +71,7 @@ The following diagram illustrates the scenarios for the SAP HANA volumes but wit
 
 :::image type="content" source="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png" alt-text="Diagram of Flexible service level throughput with SAP HANA volumes." lightbox="./media/azure-netapp-files-service-levels/flexible-service-sap-hana-examples.png":::
 
-
-The example extends to the Flexible service as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
+The example extends to the Flexible service level as well. A Flexible service level capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
 - SAP HANA data volume: Size 4 TiB with up to 704 MiB/s
 - SAP HANA log volume: Size 0.5 TiB with up to 256 MiB/s
@@ -87,10 +86,10 @@ As illustrated in the diagram, the SAP HANA backup volume received the 128MiB/s 
 | - | - | -- |
 | 1 | 128 | 5 * 128 * 1 = 640 |
 | 2 | 128 | 5 * 128 * 2 = 1,280 |
-| 5 | 128 | 5 * 128 * 5 = 3,200 |
 | 10 | 128 | 5 * 128 * 10 = 6,400 |
 | 50 | 128 | 5 * 128 * 50 = 32,000 |
 | 100 | 128 | 5 * 128 * 100 = 64,000 |
+| 1,024 | 128 | 5 * 128 * 1,024 = 655,360 |
 
 >[!NOTE]
 >A Flexible capacity pool with 128 MiB/s throughput assigned to it is only charged for the allocated capacity.
