@@ -185,8 +185,6 @@
             href: network-watcher-nsg-grafana.md
           - name: Use Graylog
             href: network-watcher-analyze-nsg-flow-logs-graylog.md
-      - name: Delete NSG flow log storage blobs
-        href: network-watcher-delete-nsg-flow-log-blobs.md
   - name: Read flow logs
     href: flow-logs-read.md
   - name: Traffic analytics
@@ -207,6 +205,8 @@
   items:
   - name: Security baseline
     href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure CLI
@@ -231,6 +231,8 @@
   items:
   - name: Microsoft Q&A
     href: /answers/topics/azure-network-watcher.html
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Product feedback
     href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=cd276b66-8326-ec11-b6e6-000d3a4f0789
   - name: Azure support

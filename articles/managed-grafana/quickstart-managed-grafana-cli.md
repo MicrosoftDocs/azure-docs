@@ -38,7 +38,10 @@ az login
 
 This command prompts your web browser to launch and load an Azure sign-in page.
 
-The CLI experience for Azure Managed Grafana is part of the `amg` extension for the Azure CLI (version 2.30.0 or higher). The extension automatically installs the first time you run the `az grafana` command.
+The CLI experience for Azure Managed Grafana is part of the `amg` extension for the Azure CLI (version 2.30.0 or higher). The extension automatically installs the first time you run the `az grafana` command. If this doesn't work, run:
+```azurecli
+az extension add --name amg
+```
 
 ## Create a resource group
 

@@ -1,9 +1,9 @@
 ---
 title: Concepts overview for Azure IoT Hub
 description: The Azure IoT Hub conceptual documentation includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, messaging, and many other features.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 01/13/2025

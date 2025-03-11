@@ -32,8 +32,8 @@ A technical profile enables these types of scenarios:
 - [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
 - [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
-- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT token signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
-- [JWT token issuer](jwt-issuer-technical-profile.md): Emits a JWT token that's returned back to the relying party application.
+- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
+- [JWT issuer](jwt-issuer-technical-profile.md): Emits a JWT that's returned back to the relying party application.
 - [OAuth1](oauth1-technical-profile.md): Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md): Federation with any OAuth 2.0 protocol identity provider.
 - [One-time password](one-time-password-technical-profile.md): Provides support for managing the generation and verification of a one-time password.
