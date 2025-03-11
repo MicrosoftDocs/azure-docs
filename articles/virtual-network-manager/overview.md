@@ -55,7 +55,7 @@ Azure Virtual Network Manager instances created prior to the release of the virt
 3. Select the feature named "Network manager billing by virtual networks" and register. The Azure Virtual Network Manager instance in the registered subscription will now charge on the virtual network-based pricing.
 
 > [!NOTE]
-> This virtual network-based pricing is [generally available](https://azure.microsoft.com/en-us/updates/?id=480669). Its enablement mechanism is available through AFEC because the previous subscription-based pricing is not yet retired and for ease of setup.
+> This virtual network-based pricing is [generally available](https://azure.microsoft.com/updates/?id=480669). Its enablement mechanism is available through AFEC because the previous subscription-based pricing is not yet retired and for ease of setup.
  
 ## FAQs  
 For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).
