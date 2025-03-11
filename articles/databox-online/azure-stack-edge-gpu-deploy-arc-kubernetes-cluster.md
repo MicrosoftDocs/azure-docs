@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: azure-stack-edge
 ms.topic: how-to
-ms.date: 03/10/2025
+ms.date: 03/11/2025
 ms.author: alkohli
 ---
 
@@ -16,10 +16,10 @@ ms.author: alkohli
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device.
 
-This procedure assumes that you have read and understood the following articles:
+This procedure assumes that you've read and understood the following articles:
 
-- [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md)
-- [What is Azure Arc-enabled Kubernetes (Preview)?](/azure/azure-arc/kubernetes/overview)
+- [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md).
+- [What is Azure Arc-enabled Kubernetes (Preview)?](/azure/azure-arc/kubernetes/overview).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Make sure that you've completed the following prerequisites on your Azure Stack 
     1. The device is activated. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
     1. The device has the compute role configured via Azure portal and has a Kubernetes cluster. See [Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. You've owner access to the subscription. You would need this access during the role assignment step for your service principal.
+1. You have owner access to the subscription. You would need this access during the role assignment step for your service principal.
 
 
 ### For client accessing the device
@@ -106,7 +106,7 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. Make a note of the `appId`, `name`, `password`, and `tenantID` as you'll use these values as input to the next command.
 
-   Note that there are several ways to obtain ‘appId’. If you use one of the following methods, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
+   There are several ways to obtain `appId`. If you use one of the following methods, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
 
    - Use Minishell to run the following PowerShell cmdlet: 
 
@@ -119,7 +119,7 @@ You can also register resource providers via the `az cli`. For more information,
    <Include new screenshot from portal> 
    ![View JSON details for your Azure Stack Edge device](media/azure-stack-edge-gpu-connect-powershell-interface/view-json-details.png)
 
-   - Use non-Azure Stack Edge PowerShell on a client machine to run the following:
+   - Use non-Azure Stack Edge PowerShell on a client machine to run the following command:
 
       ```powershell
       $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name> 
@@ -155,7 +155,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
 
-1. Type:
+1. Run the following command:
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"`
 
@@ -163,32 +163,32 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
     Add the `CloudEnvironment` parameter if you're using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
-**Usage considerations**
+   **Usage considerations**
 
-- To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
-- Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-- Specifying `ClientId`, `TenantId`, and `ClientSecret` is optional.
-- If you assign a role to `appId`, do not specify `ClientId`, `TenantId`, and `ClientSecret`.   
+   - To deploy Azure Arc on your device, make sure that you're using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
+   - Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
+   - Specifying `ClientId`, `TenantId`, and `ClientSecret` is optional.
+   - If you assign a role to `appId`, don't specify `ClientId`, `TenantId`, and `ClientSecret`.   
 
-    Here's an example:
+   Here's an example:
 
-    ```powershell
-    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -ClientId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+   ```powershell
+   [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -ClientId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-    WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
-    enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
-    application or script that is requesting the data.
+   WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
+   enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
+   application or script that is requesting the data.
 
-    cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
+   cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
 
-    Supply values for the following parameters:
-    ClientSecret: **********************************
-    [10.100.10.10]: PS>
-    ```
+   Supply values for the following parameters:
+   ClientSecret: **********************************
+   [10.100.10.10]: PS>
+   ```
 
-    In the Azure portal, a resource should be created with the name you provided in the preceding command.
+   In the Azure portal, a resource should be created with the name you provided in the preceding command.
 
-    ![Go to Azure Arc resource](media/azure-stack-edge-gpu-connect-powershell-interface/verify-azure-arc-enabled-1.png)
+   ![Go to Azure Arc resource](media/azure-stack-edge-gpu-connect-powershell-interface/verify-azure-arc-enabled-1.png)
 
 1. To verify that Azure Arc is enabled successfully, run the following command from PowerShell interface:
 
@@ -237,7 +237,7 @@ To remove the Azure Arc management, follow these steps:
 
 
 > [!NOTE]
-> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster#additional-parameters)
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources aren't deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster#additional-parameters)
 
 ## Next steps
 
