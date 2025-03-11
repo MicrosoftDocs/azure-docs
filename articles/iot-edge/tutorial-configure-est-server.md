@@ -15,11 +15,11 @@ services: iot-edge
 
 With Azure IoT Edge, you can configure your devices to use an Enrollment over Secure Transport (EST) server to manage x509 certificates.
 
-This tutorial walks you through hosting a test EST server and configuring an IoT Edge device for the enrollment and renewal of x509 certificates. In this tutorial, you learn how to:
+This tutorial walks you through hosting a test EST server and configuring an IoT Edge device for the enrollment and renewal of device identity x509 certificates. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create and host a test EST server
+> * Create and host a test EST server for device identity certificates
 > * Configure DPS group enrollment
 > * Configure device
 
@@ -41,7 +41,9 @@ Enrollment over Secure Transport (EST) is a cryptographic protocol that automate
 For certificate issuance and renewal, you need an EST server accessible to your devices.
 
 > [!IMPORTANT]
-> For enterprise grade solutions, consider: [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager).
+> For production, use [GlobalSign IoT Edge Enroll](https://www.globalsign.com/en/iot-edge-enroll) or [DigiCert IoT Device Manager](https://www.digicert.com/iot/iot-device-manager).
+>
+> For more information using GlobalSign's EST service, see [Automatic IoT Edge Certificate Management with GlobalSign EST](https://techcommunity.microsoft.com/blog/iotblog/automatic-iot-edge-certificate-management-with-globalsign-est/4384385).
 
 For testing and development, you can use a test EST server. In this tutorial, we'll create a test EST server.
 
@@ -87,6 +89,8 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     ## IMPORTANT:
     ##   DO NOT issue Edge CA certificates in production.
     ##   For production, use digital certificates from a trusted CA.
+    ##   See https://techcommunity.microsoft.com/blog/iotblog/automatic-iot-edge-certificate-management-with-globalsign-est/4384385
+    ##
     ##   Using EST for Edge CA is for demonstration and learning purposes only.
     ##
     # RUN sed -i "s|basicConstraints=CA:FALSE|basicConstraints=critical,CA:TRUE,pathlen:0|g" ./estExampleCA.cnf && \
