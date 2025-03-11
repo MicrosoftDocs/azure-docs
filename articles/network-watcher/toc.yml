@@ -185,8 +185,6 @@
             href: network-watcher-nsg-grafana.md
           - name: Use Graylog
             href: network-watcher-analyze-nsg-flow-logs-graylog.md
-      - name: Delete NSG flow log storage blobs
-        href: network-watcher-delete-nsg-flow-log-blobs.md
   - name: Read flow logs
     href: flow-logs-read.md
   - name: Traffic analytics
