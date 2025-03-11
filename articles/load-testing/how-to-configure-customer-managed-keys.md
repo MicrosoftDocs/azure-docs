@@ -41,7 +41,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 
 - Azure Load Testing can't automatically rotate the customer-managed key to use the latest version of the encryption key. You should update the key URI in the resource after the key is rotated in the Azure Key Vault.
 
-## Configure your Azure key vault
+## Configure your Azure Key Vault
 
 To use customer-managed encryption keys with Azure Load Testing, you need to store the key in Azure Key Vault. You can use an existing key vault or create a new one. The load testing resource and key vault may be in different regions or subscriptions in the same tenant.
 
@@ -49,10 +49,10 @@ Make sure to configure the following key vault settings when you use customer-ma
 
 ### Configure key vault networking settings
 
-If you restricted access to your Azure key vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
+If you restricted access to your Azure Key Vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
 
 > [!IMPORTANT]
-> Retrieving customer-managed keys from a private Azure key vault that has access restrictions is currently not supported in **US Gov Virginia** region.
+> Retrieving customer-managed keys from a private Azure Key Vault that has access restrictions is currently not supported in **US Gov Virginia** region.
 
 ### Configure soft delete and purge protection
 
@@ -147,7 +147,7 @@ az keyvault key create \
 
 When you use customer-managed encryption keys, you have to specify a user-assigned managed identity. The user-assigned managed identity for accessing the customer-managed keys in Azure Key Vault must have appropriate permissions to access the key vault.
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure key vault instance that you plan to use to host your encryption keys.
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
 1. Select **Access Policies** from the left menu.
 
