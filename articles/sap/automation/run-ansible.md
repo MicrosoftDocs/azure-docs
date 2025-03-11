@@ -251,7 +251,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to perform the Operating System configuration
@@ -340,7 +340,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to perform the SAP Specific Operating System configuration
@@ -417,7 +417,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -493,7 +493,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -570,7 +570,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -646,7 +646,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -724,7 +724,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -801,7 +801,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -877,7 +877,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -953,7 +953,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
@@ -1030,7 +1030,7 @@ playbook_options=(
         "${@}"
 )
 
-# Run the playbook to retrieve the ssh key from the Azure key vault
+# Run the playbook to retrieve the ssh key from the Azure Key Vault
 ansible-playbook "${playbook_options[@]}" ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/pb_get-sshkey.yaml
 
 # Run the playbook to download the software from the SAP Library
