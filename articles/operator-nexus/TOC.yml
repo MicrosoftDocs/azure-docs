@@ -229,7 +229,7 @@
         - name: How to upgrade OS of terminal server
           href: howto-upgrade-os-of-terminal-server.md
         - name: How to restrict serial port access and set timeout on terminal-server
-          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md           
+          href: howto-restrict-serial-port-access-and-set-timeout-on-terminal-server.md
     - name: Cluster
       expanded: false
       items:
@@ -281,7 +281,6 @@
           href: howto-kubernetes-cluster-install-microsoft-defender.md
         - name: Kubernetes cluster features
           href: howto-kubernetes-cluster-features.md
-
 
     - name: Nexus Virtual Machine
       expanded: false
@@ -359,6 +358,8 @@
           href: troubleshoot-hardware-validation-failure.md
         - name: Troubleshoot Degraded status
           href: troubleshoot-bare-metal-machine-degraded.md
+        - name: Troubleshoot Warning status
+          href: troubleshoot-bare-metal-machine-warning.md
         - name: Troubleshoot Control Plane Quorum
           href: troubleshoot-control-plane-quorum.md
         - name: Troubleshoot Accepted Cluster Resource

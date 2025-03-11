@@ -22,13 +22,13 @@ When you create an App Service plan in a certain region (for example, West Europ
 - Region (West US, East US, and so on)
 - Number of VM instances
 - Size of VM instances (Small, Medium, Large)
-- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2)
+- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, IsolatedV2)
 
 The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time. These are the categories of pricing tiers:
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out. These tiers are intended to be used only for development and testing purposes.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out.
-- **Isolated**: The **Isolated** and **IsolatedV2** tiers run dedicated Azure VMs on dedicated Azure virtual networks. They provide network isolation on top of compute isolation to your apps. They provide the maximum scale-out capabilities.
+- **Isolated**: The **IsolatedV2** tier runs dedicated Azure VMs on dedicated Azure virtual networks. This provides network isolation on top of compute isolation to your apps. This tier provides the maximum scale-out capabilities.
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features that are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
 
@@ -76,7 +76,7 @@ Except for the **Free** tier, an App Service plan carries a charge on the comput
 
 - In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged for the CPU quota.
 - In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan is charged. These VM instances are charged the same regardless of how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
-- In the **Isolated** and **IsolatedV2** tiers, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged. In addition, in the **Isolated** tier there's a flat Stamp Fee for running the App Service Environment itself.
+- In the **IsolatedV2** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged.
 
 You don't get charged for using the App Service features that are available to you (configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). The exceptions are:
 

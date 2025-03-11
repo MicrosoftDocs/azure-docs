@@ -12,10 +12,25 @@
         "exclude": [
           "iot-edge/**",
           "migrate/**",
+          "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
         ]
       },
       {
@@ -73,6 +88,22 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "cyclecloud-7-group",
+        "src": "articles/cyclecloud",
+        "dest": "./cyclecloud/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
           "**/_themes/**",
           "**/obj/**"
         ]
@@ -290,6 +321,8 @@
         "articles/cloud-shell/**/*.md": "sdwheeler",
         "articles/connectors/*.md": "ecfan",
         "articles/container-registry/**/*.md": "tejaswikolli-web",
+        "articles/cyclecloud/**/*.md": "adriankjohnson",
+        "articles/cyclecloud/**/*.yml": "adriankjohnson",
         "articles/data-catalog/*.md": "whhender",
         "articles/defender-for-iot/device-builders/*.md": "limwainstein",
         "articles/defender-for-iot/organizations/*.md": "limwainstein",
@@ -922,6 +955,8 @@
         "articles/cloud-shell/**/*.md": "azure-cloud-shell",
         "articles/connectors/*.md": "azure-logic-apps",
         "articles/container-registry/**/*.md": "azure-container-registry",
+        "articles/cyclecloud/**/*.md": "azure-cyclecloud",
+        "articles/cyclecloud/**/*.yml": "azure-cyclecloud",
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/defender-for-iot/device-builders/*.md": "defender-for-iot",
         "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
@@ -1077,6 +1112,8 @@
         "articles/backup/**/*.yml": ["Azure","Azure Backup"],
         "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
         "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
+        "articles/cyclecloud/**/*.md": ["Azure","CycleCloud"],
+        "articles/cyclecloud/**/*.yml": ["Azure","CycleCloud"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
         "articles/data-catalog/**/*.yml": ["Azure","Azure Data Catalog"],
         "articles/data-factory/**/*.md": ["Azure","Azure Data Factory"],
@@ -1183,6 +1220,8 @@
         "articles/container-registry/**/*.md": "Azure Container Registry",
         "articles/cost-management-billing/**/*.md": "Microsoft Cost Management",
         "articles/cost-management-billing/**/*.yml": "Microsoft Cost Management",
+        "articles/cyclecloud/**/*.md": "Azure CycleCloud",
+        "articles/cyclecloud/**/*.yml": "Azure CycleCloud",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/defender-for-iot/*.md": "Microsoft Defender for IoT",
@@ -1246,12 +1285,28 @@
         "articles/terraform/**/*.yml": "Terraform"
       },
       "ms.custom": {
+      },
+      "ms.topic": {
+        "articles/cyclecloud/**/*.md": "conceptual",
+        "articles/cyclecloud/**/*.yml": "conceptual",
+        "articles/cyclecloud/includes/**/*.md": "include",
+        "articles/cyclecloud/**/qs-*.md": "quickstart",
+        "articles/cyclecloud/tutorials/**/*.md": "tutorial",
+        "articles/cyclecloud/how-to/**/*.md": "how-to",
+        "articles/cyclecloud/**overview.md": "overview",
+        "articles/cyclecloud/**overview.yml": "overview"
       }
     },
     "template": [
       "docs.html",
       "default","DocFx.Plugins.PlantUml/template"
     ],
+    "groups": {
+      "cyclecloud-7-group": {
+        "dest": "tempdest_cyclecloud_7",
+        "moniker_range": ">= cyclecloud-7"
+      }
+    },
     "dest": "azure",
     "rules": {
       "sensitive-language-ma": {

@@ -51,8 +51,8 @@ There are different types and sizes of workload profiles available by region. By
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation | Quota name |
 |---|---|---|---|---|---|---|
 | Consumption | Consumption | 4 | 8 | - | Consumption | per replica | Managed Environment Consumption Cores |
-| Consumption-GPU-NC24-A100 (preview) | Consumption GPU | 24 | 220 | 1 | Consumption | per replica | Subscription Consumption NCA 100 Gpus |
-| Consumption-GPU-NC8as-T4 (preview) | Consumption GPU | 8 | 56 | 1 | Consumption | per replica | Subscription Consumption T 4 Gpus |
+| Consumption-GPU-NC24-A100 (preview) | Consumption-GPU-NC24-A100 | 24 | 220 | 1 | Consumption GPU | per replica | Subscription Consumption NCA 100 Gpus |
+| Consumption-GPU-NC8as-T4 (preview) | Consumption-GPU-NC8as-T4 | 8 | 56 | 1 | Consumption GPU | per replica | Subscription Consumption T 4 Gpus |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node | Managed Environment General Purpose Cores |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node | Managed Environment General Purpose Cores |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node | Managed Environment General Purpose Cores |
