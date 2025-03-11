@@ -40,7 +40,7 @@ Synchronization is one-way from Amazon API Gateway to your Azure API center, mea
 
 * An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
 
-* An Azure key vault. If you need to create one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). To add or manage secrets in the key vault, at least the **Key Vault Secrets Officer** role or equivalent permissions are required. 
+* An Azure Key Vault. If you need to create one, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). To add or manage secrets in the key vault, at least the **Key Vault Secrets Officer** role or equivalent permissions are required. 
 
 * An [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/). 
 
