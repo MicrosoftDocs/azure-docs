@@ -115,6 +115,8 @@
     href: rbac-permissions.md 
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Network security perimeter
     items:
     - name: Role-based access control permissions
