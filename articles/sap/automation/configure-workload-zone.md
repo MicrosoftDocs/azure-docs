@@ -182,7 +182,7 @@ This table defines the parameters used for defining the key vault information.
 > | `spn_keyvault_id`                                | Azure resource identifier for existing deployment credentials (SPNs) key vault | Optional     |                                     |
 > | `user_keyvault_id`                               | Azure resource identifier for existing system credentials key vault            | Optional     |                                     |
 > | `additional_users_to_add_to_keyvault_policies`   | A list of user object IDs to add to the deployment key vault access policies   | Optional     |                                     |
-> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure key vaults                             | Optional     | Use only for test environments.     |
+> | `enable_purge_control_for_keyvaults`             | Disables the purge protection for Azure Key Vaults                             | Optional     | Use only for test environments.     |
 > | `enable_rbac_authorization_for_keyvault`         | Enables RBAC on key vaults                                                     | Optional     |                                     |
 > | `soft_delete_retention_days`                     | The number of days that items should be retained in the soft delete period     | Optional     |                                     |
 > | `keyvault_private_endpoint_id`                   | Azure resource ID of the key vault's private endpoint                          | Optional     |                                     |
