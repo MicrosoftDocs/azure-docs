@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Local preview mirroring
+title: Quickstart - Turn off local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
-description: This quickstart describes how to mirror local preview
+description: This quickstart describes how to turn off local preview mirroring
 author: yassirbisteni
 manager: gaobob
 
@@ -15,7 +15,7 @@ ms.custom: mode-other, devx-track-js
 zone_pivot_groups: acs-plat-web-windows-android-ios
 ---
 
-## Mirror local preview
+## Turn off local preview mirroring
 
 ````csharp
 var uri = await localOutgoingVideoStream.StartPreviewAsync();
