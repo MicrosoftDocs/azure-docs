@@ -68,7 +68,7 @@ Subscription  | Can be different from source virtual machines | Cache storage ac
 Azure Storage firewalls for virtual networks  | Supported | If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Don't restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
 Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
-Managed identity | Not supported | The cached storage account must allow shared key access and Shared Access Signatures (SAS) signed by the shared key. Recent changes in Azure Policy disable key authentication due to security concerns. However, for ASR, you need to enable it again.
+Managed identity | Not supported | The cached storage account must allow shared key access and Shared Access Signatures (SAS) signed by the shared key. Recent changes in Azure Policy disable key authentication due to security concerns. However, for Site Recovery, you need to enable it again.
 
 The following table lists the limits in terms of number of disks that can replicate to a single storage account.
 
@@ -114,7 +114,7 @@ Windows 7 (x64) with SP1 onwards | From version [9.30](https://support.microsoft
 #### Linux
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
 
 **Operating system** | **Details**
 --- | ---
@@ -158,7 +158,7 @@ RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_
 #### Supported Ubuntu kernel versions for Azure virtual machines
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
 
 
 **Release** | **Mobility service version** | **Kernel version** |
@@ -202,7 +202,7 @@ RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_
 #### Supported Debian kernel versions for Azure virtual machines
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
  
 
 **Release** | **Mobility service version** | **Kernel version** |
@@ -248,7 +248,7 @@ Debian 12 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azur
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure virtual machines
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
 
 
 **Release** | **Mobility service version** | **Kernel version** |
@@ -263,7 +263,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.60 | All [stock SU
 #### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure virtual machines
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
  
 
 **Release** | **Mobility service version** | **Kernel version** |
@@ -287,7 +287,7 @@ Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linu
 #### Supported Rocky Linux kernel versions for Azure virtual machines
 
 > [!NOTE]
-> Mobility service versions `9.58` and `9.59` are not released for Azure to Azure Site Recovery. 
+> Mobility service versions `9.58` and `9.59` aren't released for Azure to Azure Site Recovery. 
  
 
 **Release** | **Mobility service version** | **Red Hat kernel version** |
@@ -382,7 +382,7 @@ Double Encryption at rest | Supported | Learn more on supported regions for [Win
 FIPS encryption | Not supported
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
-SAS key rotation | Supported | If the access key is rotated for cache storage account it won't impact the replication, so there is no need to disable or enable the replication. |
+SAS key rotation | Supported | If the access key is rotated for cache storage account it won't impact the replication, so there's no need to disable or enable the replication. |
 Host Caching | Supported | |
 Hot add    | Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Only one disk can be hot added to an Azure VM at a time. Parallel addition of multiple disks isn't supported. |
 Hot remove disk    | Not supported | If you  remove data disk on the VM, you need to disable replication and enable replication again for the VM.
@@ -453,7 +453,7 @@ Unauthenticated proxy | Supported | [Learn more](./azure-to-azure-about-networki
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it can't be replicated using Azure Site Recovery.
 VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. [Learn more](./azure-to-azure-about-networking.md)
 VNET to VNET connection    | Supported | [Learn more](./azure-to-azure-about-networking.md)
-Virtual Network Service Endpoints | Supported | If you are restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
+Virtual Network Service Endpoints | Supported | If you're restricting the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
 Accelerated networking | Supported | Accelerated networking can be enabled on the recovery VM only if it is enabled on the source VM also. [Learn more](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With third-party appliances, there are often restrictions imposed by the provider inside the Virtual Machine. Azure Site Recovery needs agent, extensions, and outbound connectivity to be available. But the appliance doesn't let any outbound activity to be configured inside the Virtual Machine.
 IPv6  | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. However, Azure Site Recovery uses any free IPv4 address available, if there are no free IPv4 addresses in the subnet, then the configuration is not supported.
