@@ -55,7 +55,7 @@ The scenario we  walk through here's to deploy VNet with a Network Security Grou
    :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\vsts-libraries.png" alt-text="Shows the navigation pane in VSTS with Pipelines selected and the Library option highlighted.":::
 
 1. Under **Variable group**, create a new group and for **Variable group name** enter `AzureKeyVaultSecrets`.
-1. Toggle **Link secrets from an Azure key vault as variables**.
+1. Toggle **Link secrets from an Azure Key Vault as variables**.
 1. Select your Azure subscription and then the Azure Key Vault you created earlier, and then select Authorize.
 1. Once authorization is successful, you can add variables by clicking **Add** and are presented with the option to add references to the secrets in the Azure Key Vault. Add a reference to the `StorageSASToken` created in the earlier step, and save it.
 
