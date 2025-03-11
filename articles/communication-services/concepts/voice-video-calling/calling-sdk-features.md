@@ -160,7 +160,7 @@ We highly recommend identifying and validating your scenario by visiting the sup
 
 ## iOS Calling SDK support
 
-- Support for iOS 10.0+ at build time, and iOS 12.0+ at run time
+- Support the last two major iOS operating system updates (N and N-1 for iOS minimum OS support)
 - Xcode 12.0+
 - Support for **iPadOS** 13.0+
 
