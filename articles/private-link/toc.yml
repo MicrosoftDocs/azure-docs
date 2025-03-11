@@ -9,10 +9,8 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md
-  - name: Network security perimeter
-    items:
-    - name: What is a network security perimeter?
-      href: network-security-perimeter-concepts.md  
+  - name: What is a network security perimeter?
+    href: network-security-perimeter-concepts.md  
 - name: Configure
   items:
   - name: Create a private endpoint
@@ -53,6 +51,8 @@
       href: create-network-security-perimeter-powershell.md
     - name: Create a network security perimeter - Azure CLI
       href: create-network-security-perimeter-cli.md
+    - name: Create a network security perimeter - Bicep
+      href: create-network-security-perimeter-bicep.md
     - name: Transition to a network security perimeter
       href: network-security-perimeter-transition.md
   - name: DNS

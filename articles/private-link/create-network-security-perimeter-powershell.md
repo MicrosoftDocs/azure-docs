@@ -1,13 +1,12 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure PowerShell
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using Azure PowerShell. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
-ms.custom:
-  - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 03/05/2024
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
 ---
 
