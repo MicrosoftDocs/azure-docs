@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Turn off local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
-description: This quickstart describes how to mirror local preview
+description: This quickstart describes how to mirror turn off local preview mirroring
 author: yassirbisteni
 manager: gaobob
 
@@ -31,7 +31,7 @@ zone_pivot_groups: acs-plat-windows-android-ios
     <br/>  - Preview videos
     <br/>  - PowerPoint content sharing & PowerPoint Live
     <br/>  *These views mirror your self-view, but others still see your actual video.
-## Quickstart: Mirror local preview
+## Quickstart: Turn off local preview mirroring
 
 ::: zone pivot="platform-windows"
 [!INCLUDE [Turn off local preview mirroring on Windows](./includes/local-preview-mirroring/local-preview-mirroring-windows.md)]
