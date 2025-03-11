@@ -25,7 +25,7 @@ Replace the following "<>" fields with values specific to your environment:
 
 - `<base_url>` : The same for all requests, but be certain to update the provider to specify between `Microsoft.Compute/virtualMachines` or `Microsoft.HybridCompute/machines` as appropriate:
 ```https://management.azure.com/subscriptions/<vm_Subscription>/resourceGroups/<vm_ResourceGroup>/providers/<providerType>```
-- `<vm_name>`: Specify the name of the machine resource to apply the configuration on.
+- `<vm_name>`: Specify the name of the Machine Resource for this assignment
 - `<configuration_name>`: Specify the name of the configuration to apply.
 - `<api_version>` : Select the appropriate API-version, the newest version is `2022-01-25`
 ## Assign a built-in configuration
@@ -47,7 +47,7 @@ A request is composed of the following properties, which together make up a Mach
 
 ### Azure Resource Properties
 
-The comprise the top level of properties depicted in the sample above.
+These fields comprise the top level of properties as depicted in the sample request, and is made of the following properties.
 
 
 ```yaml
@@ -57,7 +57,7 @@ Guest Configuration Parameters: Contains a JSON Object of additional parameters 
 ```
 
 ### Guest Configuration parameters
-These parameters represent the majority of a Machine Configuration Assignment and are defined as follows.
+These parameters represent most of a Machine Configuration Assignment and are defined as follows.
 
 ```yaml
 Name: Name of the Built-In Machine Configuration Package
@@ -67,7 +67,7 @@ ContentHash: Required when assigning a custom Package
 ContentType: BuiltIn or Custom, automatically set by the service
 AssignmentType: Assigns one of the AssignmentTypes defined below
 ConfigurationParameters: Contains an array of parameters to pass in to the assignment.  These differ per package
-ConfigurationSettings: Contains additional configuration options for the assignment.
+ConfigurationSettings: Contains other configuration options for the assignment.
 ```
 
 ### Assignment Type
@@ -89,7 +89,7 @@ Value: The desired value to set or audit for the assignment.
 ```
 
 ### Configuration Setting
-Configurable additional settings presented by Machine Configuration.
+These properties represent other configurable settings presented by Machine Configuration.
 ```yaml
 ConfigurationMode: See "AssignmentType" above, supports same parameters.  Must match.
 ActionAfterReboot: Controls the action of the Machine Configuration Agent after applying a reboot.
@@ -146,7 +146,7 @@ curl --request PUT \
 
 ### Response
 
-You will recieve a response with the created assignment, and any additional needed parameters will be automatically filled in for you.
+You will recieve a response with the created assignment, and any additional needed parameters are automatically completed in for you.
 
 ```json
 {
