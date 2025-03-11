@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 03/10/2023
+ms.date: 03/10/2025
 ms.custom: template-concept
 ---
 
@@ -16,8 +16,9 @@ Azure Virtual Network Manager helps you centrally manage virtual networks across
 The following sample Azure policy definition ensures that any virtual network (`Microsoft.Network/virtualNetworks`) in the scope of this policy definition must have one IPAM pool prefix allocation from one of the two specified pools. If a virtual network lacks an allocation from either pool, the policy denies the creation or update of a virtual network by enforcing the use of nonoverlapped classless inter-domain routing (CIDRs) addresses.
 
 ```json
-"mode": "All", 
-
+{
+    "mode": "All", 
+    
     "parameters": {}, 
 
     "policyRule": { 
@@ -32,7 +33,7 @@ The following sample Azure policy definition ensures that any virtual network (`
 
             "equals": "Microsoft.Network/virtualNetworks" 
 
-          } 
+          },
 
           { 
 
@@ -72,7 +73,9 @@ The following sample Azure policy definition ensures that any virtual network (`
 
       } 
 
-    } 
+    }
+} 
+
 ```
 
 Included in the policy definition are the following actions:
