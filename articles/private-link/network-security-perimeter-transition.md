@@ -1,5 +1,6 @@
 ---
 title: Transition to a network security perimeter in Azure
+titleSuffix: Azure Private Link
 description: Learn about the different access modes and how to transition to a network security perimeter in Azure.
 author: mbender-ms
 ms.author: mbender

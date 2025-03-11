@@ -22,7 +22,7 @@ To recover from availability problems that affect your API Management service, b
 
 Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
-This article shows how to automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
+This article shows how to automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [API Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [API Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
 
 
 > [!WARNING]
