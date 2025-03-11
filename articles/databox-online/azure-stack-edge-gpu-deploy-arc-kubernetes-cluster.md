@@ -127,7 +127,7 @@ You can also register resource providers via the `az cli`. For more information,
       $ASEResource.Identity.PrincipalId
       ```
 
-1. After you create the new service principal or create it using one of these methods, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
+1. After you create the new service principal or retrieve it using one of these methods, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
 
     `az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee <appId-from-service-principal> --scope /subscriptions/<SubscriptionID>/resourceGroups/<Resource-group-name>`
 
@@ -168,7 +168,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
    - To deploy Azure Arc on your device, make sure that you're using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
    - Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
    - Specifying `ClientId`, `TenantId`, and `ClientSecret` is optional.
-   - If you assign a role to `appId`, don't specify `ClientId`, `TenantId`, and `ClientSecret`.   
+   - If you assign a role to `appId`, don't specify `ClientId`, `TenantId`, or `ClientSecret`.   
 
    Here's an example:
 
