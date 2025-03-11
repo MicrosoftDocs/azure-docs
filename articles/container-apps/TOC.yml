@@ -390,10 +390,10 @@
       - name: Launch your first Java app
         items:
         - name: Dockerfile
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile.md
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-dockerfile
           displayName: java
         - name: Github repository
-          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository.md
+          href: /azure/developer/java/toolkit-for-intellij/java-get-started-github-repository
           displayName: java
         - name: IntelliJ
           href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
