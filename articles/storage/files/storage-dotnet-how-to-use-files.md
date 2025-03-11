@@ -397,14 +397,42 @@ To learn more about each of these authorization mechanisms, see [Choose how to a
 
 ### Example: Copy files using the File Shares client library
 
-The following code example shows how to copy a file to another file:
+You can copy files within a file share or between file shares by using the following method:
+
+- [StartCopyAsync](/dotnet/api/azure.storage.files.shares.sharefileclient.startcopyasync)
+
+You can copy a file to a destination blob by using the following method from a `BlobClient` object:
+
+- [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
+
+The following code example shows how to copy a file to a file in another file share:
 
 ```csharp
-```
+string accountName = "<account-name>";
+string srcShareName = "src-file-share";
+string destShareName = "dest-file-share";
+string srcFilePath = "src/path/to/file";
+string destFilePath = "dest/path/to/file";
 
-The following code example shows how to copy a file to a blob:
+TokenCredential tokenCredential = new DefaultAzureCredential();
 
-```csharp
+ShareFileClient srcShareFileClient = new(
+    new Uri($"https://{accountName}.file.core.windows.net/{srcShareName}/{srcFilePath}"),
+    tokenCredential);
+
+ShareClientOptions options = new()
+{
+    ShareTokenIntent = ShareTokenIntent.Backup,
+};
+
+ShareFileClient destShareFileClient = new(
+    new Uri($"https://{accountName}.file.core.windows.net/{destShareName}/{destFilePath}"),
+    tokenCredential,
+    options);
+
+// Copy the file from the source share to the destination share
+
+await destShareFileClient.StartCopyAsync(srcShareFileClient.Uri);
 ```
 
 ## Manage Azure Files resources using the Azure Storage management libraries
