@@ -262,9 +262,9 @@ When copying data from Cassandra, the following mappings are used from Cassandra
 > The length of Binary Column and String Column lengths cannot be greater than 4000.
 >
 
-## Work with collections using original type when using version 2.0
+## Work with collections when using version 2.0
 
-There are no virtual tables for collection types, you can copy a source table to sink in its original type.
+When using version 2.0 to copy data from your Cassandra database, no virtual tables for collection types are created. You can copy a source table to the sink in its original type in JSON format.
 
 ### Example
 
@@ -275,7 +275,7 @@ For example, the following "ExampleTable" is a Cassandra database table that con
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
-No need to create any virtual tables. You can directly read data from a source table and treat complex type column values as its original type, as shown in the following table:
+The data can be directly read from a source table, and the column values are preserved in their original types in JSON format, as illustrated in the following table:
 
 | pk_int | Value | List | Map | StringSet |
 | --- | --- | --- | --- | --- |
@@ -355,7 +355,7 @@ The Cassandra connector version 2.0 offers new functionalities and is compatible
 | --- | --- |
 | Support CQL query. | Support SQL-92 query or CQL query. |
 | Support specifying `keyspace` and `tableName` separately in dataset. | Support editing `keyspace` when you select enter manually table name in dataset. |
-| There are no virtual tables for collection types, refer to [Work with collections using original type when using version 2.0](#work-with-collections-using-original-type-when-using-version-20) section.  | For collection types, refer to [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
+| No virtual tables are created for collection types. For more information, see [Work with collections when using version 2.0](#work-with-collections-when-using-version-20) section.  | Virtual tables are created for collection types. For more information, see [Work with Cassandra collection types using virtual table when using version 1.0](#work-with-collections-using-virtual-table-when-using-version-10) section. |
 | The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> IDate <br> SMALLINT -> Short <br> TINYINT -> SByte | The following mappings are used from Cassandra data types to interim service data type. <br><br> DATE -> DateTime <br> SMALLINT -> Int16 <br> TINYINT -> Int16 | 
 
 ## Upgrade the Cassandra connector
