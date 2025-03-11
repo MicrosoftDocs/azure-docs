@@ -3,7 +3,7 @@ title: Tutorial - Configure Enrollment over Secure Transport Server (EST) for Az
 description: This tutorial shows you how to set up an Enrollment over Secure Transport (EST) server for Azure IoT Edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/07/2024
+ms.date: 03/10/2025
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -22,8 +22,6 @@ This tutorial walks you through hosting a test EST server and configuring an IoT
 > * Create and host a test EST server
 > * Configure DPS group enrollment
 > * Configure device
-
-:::image type="content" source="./media/tutorial-configure-est-server/est-procedure.png" alt-text="Diagram showing high-level overview of the three steps needed to complete this tutorial.":::
 
 ## Prerequisites
 
@@ -68,7 +66,7 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
     > If you want to host your EST server in Azure Container Instance, change `myestserver.westus.azurecontainer.io` to the DNS name of your EST server. When choosing a DNS name, be aware the DNS label for an Azure Container instance must be at least five characters in length.
 
     ```dockerfile
-    # DO NOT USE IN PRODUCTION - Use only for testing #
+    # DO NOT USE IN PRODUCTION - Use only for testing 
 
     FROM ubuntu:18.04
      
@@ -83,11 +81,22 @@ The Dockerfile uses Ubuntu 18.04, a [Cisco library called `libest`](https://gith
      
     # Setting the root CA expiration to 20 years
     RUN sed -i "s|-days 365|-days 7300 |g" ./createCA.sh
-     
+    
+    ## If you want to use the EST server to issue Edge CA certificates, 
+    ## uncomment the RUN sed section after this comment block.
+    ## IMPORTANT:
+    ##   DO NOT issue Edge CA certificates in production.
+    ##   For production, use digital certificates from a trusted CA.
+    ##   Using EST for Edge CA is for demonstration and learning purposes only.
+    ##
+    # RUN sed -i "s|basicConstraints=CA:FALSE|basicConstraints=critical,CA:TRUE,pathlen:0|g" ./estExampleCA.cnf && \
+    #     sed -i "s|keyUsage=digitalSignature|keyUsage=critical,digitalSignature,keyCertSign|g" ./estExampleCA.cnf && \
+    #     sed -i "s|authorityKeyIdentifier=keyid|authorityKeyIdentifier=keyid:always|g" ./estExampleCA.cnf
+
     ## If you want to host your EST server remotely (for example, an Azure Container Instance),
     ## change myestserver.westus.azurecontainer.io to the fully qualified DNS name of your EST server
     ## OR, change the IP address
-    ## and uncomment the corresponding line.
+    ## and uncomment the corresponding lines.
     # RUN sed -i "s|DNS.2 = ip6-localhost|DNS.2 = myestserver.westus.azurecontainer.io|g" ./ext.cnf
     # RUN sed -i "s|IP.2 = ::1|IP.2 = <YOUR EST SERVER IP ADDRESS>|g" ./ext.cnf
      
