@@ -64,7 +64,7 @@ Follow these steps to create a formula from a base image:
 
       - For **SSH Public Key** authentication, provide an **SSH Public Key** for the user with administrator privileges.
       
-      - **Use a saved secret**: You can also save secrets in your Azure key vault first and then use the secrets when you create formulas and other resources in your lab. To use a password or SSH public key stored in your key vault, select **Use a saved secret**, and then specify a key value that corresponds to your stored secret (password or SSH public key). For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
+      - **Use a saved secret**: You can also save secrets in your Azure Key Vault first and then use the secrets when you create formulas and other resources in your lab. To use a password or SSH public key stored in your key vault, select **Use a saved secret**, and then specify a key value that corresponds to your stored secret (password or SSH public key). For more information, see [Store secrets in a key vault](devtest-lab-store-secrets-in-key-vault.md). 
 
    - **Virtual machine size**: A common size is prefilled according to the base image you selected for the formula. The size specifies the processor cores, RAM size, and hard drive size of the VM to create from the formula. To use a different size, select **Change size** and choose from a list of available sizes and support options.
 
