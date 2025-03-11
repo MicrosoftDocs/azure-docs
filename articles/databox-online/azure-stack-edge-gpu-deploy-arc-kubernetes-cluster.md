@@ -104,15 +104,15 @@ You can also register resource providers via the `az cli`. For more information,
     PS /home/user>
     ```
 
-1. Make a note of the `appID`, `name`, `password`, and `tenantID` as you'll use these values as input to the next command.
+1. Make a note of the `appId`, `name`, `password`, and `tenantID` as you'll use these values as input to the next command.
 
    Note that there are several ways to obtain ‘appId’. If you use one of the following methods, you can skip steps 1, 2, and 3 from the previous section and move directly to the following step 4.
 
    - Use Minishell to run the following PowerShell cmdlet: 
 
-   ```powershell
-   Get-AzureDataBoxEdgeApplicationId 
-   ```
+      ```powershell
+      Get-AzureDataBoxEdgeApplicationId 
+      ```
 
    - In Azure portal, navigate to your Azure Stack Edge device **Overview** and then at top right, select **JSON view**. You see **Resource JSON** details for your device. Make note of the `principalId` for your device. 
 
@@ -121,11 +121,11 @@ You can also register resource providers via the `az cli`. For more information,
 
    - Use non-Azure Stack Edge PowerShell on a client machine to run the following:
 
-   ```powershell
-   $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name> 
+      ```powershell
+      $ASEResource= GetAzResource –ResourceGroupName <resource-group-name> -ResourceName <resource-name> 
 
-   $ASEResource.Identity.PrincipalId
-   ```
+      $ASEResource.Identity.PrincipalId
+      ```
 
 1. After you create the new service principal or create it using one of these methods, assign the `Kubernetes Cluster - Azure Arc Onboarding` role to the newly created principal. This is a built-in Azure role (use the role ID in the command) with limited permissions. Use the following command:
 
@@ -167,7 +167,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 - Use the `az account list-locations` command to determine the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
-- `ClientId`, `TenantId`, and `ClientSecret` are optional.
+- Specifying `ClientId`, `TenantId`, and `ClientSecret` is optional.
 - If you assign a role to `appId`, do not specify `ClientId`, `TenantId`, and `ClientSecret`.   
 
     Here's an example:
@@ -230,7 +230,7 @@ A conceptual overview of these agents is available [here](/azure/azure-arc/kuber
 
 To remove the Azure Arc management, follow these steps:
 
-1. 1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
+1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of your device.
 2. Type:
 
     `Remove-HcsKubernetesAzureArcAgent`
@@ -242,4 +242,4 @@ To remove the Azure Arc management, follow these steps:
 ## Next steps
 
 To understand how to run an Azure Arc deployment, see
-[Deploy a stateless PHP `Guestbook` application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+[Deploy a stateless PHP `Guestbook` application with Redis via GitOps on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md).
