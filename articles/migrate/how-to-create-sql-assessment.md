@@ -85,7 +85,7 @@ In this article, you'll learn how to:
 
 Now, review and create the assessment. 
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Screenshot of sql assessment page on how to review and create assessment.":::
+:::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Screenshot of sql assessment page on how to review and create assessment.":::
 
 ## Next steps
 
