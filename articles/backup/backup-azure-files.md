@@ -2,7 +2,7 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 03/10/2025
+ms.date: 03/11/2025
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: jyothisuri
@@ -15,7 +15,7 @@ This article describes how to back up [Azure Files](../storage/files/storage-fil
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup seamlessly integrates with Azure File Sync, centralizing your file share data and backups. The simple, reliable, and secure solution allows you to protect your enterprise file shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 
-[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts.  You can:
+[Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. You can:
 
 - Define backup schedules and retention settings.
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
@@ -30,7 +30,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * Ensure that you allow the **Storage account key access** in the required storage account.
 
 >[!IMPORTANT]
->To perform [Cross Subscription Backup (CSB) for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites. Learn about the [supported regions for Cross Subscription Backup (preview)](azure-file-share-support-matrix.md#supported-regions-for-azure-files-backup-preview).
+>To perform [Cross Subscription Backup (CSB) for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
 
 
 ## Configure the backup
@@ -59,7 +59,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
 
 1. On the **Select storage account** pane, by default it list the storage accounts from the current subscription. Select an account, and select **OK**.
 
-   If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup - preview](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
+   If you want to configure the backup operation with a storage account in a different subscription ([Cross Subscription Backup](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works)), choose the other subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
    :::image type="content" source="./media/backup-azure-files/azure-file-share-confirm-storage-account.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-azure-files/azure-file-share-confirm-storage-account.png":::
    
