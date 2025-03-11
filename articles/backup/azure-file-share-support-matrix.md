@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 02/27/2025
+ms.date: 03/06/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -128,7 +128,7 @@ Cross Subscription Backup (CSB) for Azure Files (preview) is currently available
 | Maximum number of files in a File Share | 10 million |
 
 >[!Note]
->If you have multiple backups scheduled per day, only the last scheduled backup of the day is transferred to the vault.
+>If you have multiple backups scheduled per day, only the last scheduled snapshot of the day is transferred to the vault.
 
 ---
 
@@ -153,10 +153,7 @@ Cross Subscription Backup (CSB) for Azure Files (preview) is currently available
 
 | Setting | Limit |
 | --- | --- |
-| Maximum size of a file | 1 TB | 
-
->[!Note]
->Restore to File Shares connected with Azure File sync service or with restricted network access isn't supported.	
+| Maximum size of a file | 4 TB | 
 
 ---
 

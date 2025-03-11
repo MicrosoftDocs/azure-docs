@@ -20,6 +20,13 @@ New features in machine configuration:
 Before you begin, it's a good idea to read the conceptual overview information at the page
 [Azure Policy's machine configuration][01].
 
+### Check if you are using the desired state configuration extension
+
+To verify if you’re using the desired state configuration extension on virtual machines,
+in the Azure Portal open “Virtual machines”, select the name of each virtual machine, then
+“Settings” in the table of contents, and finally “Extensions + Applications”.
+There you will see a list of extensions assigned.
+
 ## Major differences
 
 Machine configuration uses DSC version 2. DSC Extension uses
