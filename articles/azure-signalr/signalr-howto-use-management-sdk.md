@@ -62,6 +62,7 @@ Build your instance of `ServiceManager` from a `ServiceManagerBuilder`.
 
 [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
+
 ``` C#
 
 var serviceManager = new ServiceManagerBuilder()
@@ -89,6 +90,10 @@ Create your instance of `ServiceHubContext` from a `ServiceManager`:
 ``` C#
 var serviceHubContext = await serviceManager.CreateHubContextAsync("<Your Hub Name>",cancellationToken);
 ```
+
+> [!NOTE]
+> 
+> Creating `ServiceHubContext` is a rather expensive operation. It's recommended to reuse the same `ServiceHubContext` instance for the same hub.
 
 ### Negotiation
 
