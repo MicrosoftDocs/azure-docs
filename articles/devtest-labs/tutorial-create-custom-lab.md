@@ -1,32 +1,32 @@
 ---
 title: Set up a lab, lab VM, and lab user
-description: Use the Azure portal to create a lab, create a virtual machine (VM) in the lab, and add a lab user in Azure DevTest Labs.
+description: Learn how to use the Azure portal to create a lab, create a virtual machine (VM) in the lab, and add a lab user in Azure DevTest Labs.
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/11/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab administrator, I want to learn how to create and delete labs, add Azure virtual machines (VMs) to labs, and add users to labs, so I can effectively manage my labs.
+#customer intent: As a lab administrator, I want to learn how to create and delete labs, add Azure virtual machines (VMs) to labs, and add users to labs, so I can better manage my labs.
 ---
 
 # Tutorial: Create a DevTest Labs lab and VM and add a user
 
-In this Azure DevTest Labs tutorial, you learn how lab administrators can use the Azure portal to:
+In this tutorial, you learn how an Azure DevTest Labs lab administrator can use the Azure portal to:
 
 > [!div class="checklist"]
 > * Create a lab in DevTest Labs.
 > * Add an Azure virtual machine (VM) to the lab.
 > * Add a user to the DevTest Labs User role.
-> * Delete the lab when no longer needed.
+> * Delete the lab resources when no longer needed.
 
-If you're a lab user, such as a developer, tester, or trainee, see [Access a lab in Azure DevTest Labs](tutorial-use-custom-lab.md) to learn how to claim, unclaim, and connect to lab VMs.
+If you're a lab user, such as a developer, tester, or trainee, see [Access a lab in Azure DevTest Labs](tutorial-use-custom-lab.md) to learn how to claim and connect to lab VMs.
 
 ## Prerequisite
 
 - To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- To add users to a lab, you must have [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the subscription the lab is in.
+- To add users to a lab, you must have [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the Azure subscription the lab is in.
 
 ## Create a lab
 
@@ -43,14 +43,14 @@ If you're a lab user, such as a developer, tester, or trainee, see [Access a lab
    - **Artifacts storage account access**: You can select whether the lab uses a user-assigned managed identity or a shared key to access the lab storage account. To use a user-assigned managed identity, select it from the dropdown list. Otherwise, keep the option set to **Storage account Shared Key**.
    - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments), or set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).
 
-   :::image type="content" source="./media/tutorial-create-custom-lab/portal-create-basic-settings-managed-identity.png" alt-text="Screenshot of the Basic Settings tab of the Create DevTest Labs form.":::
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-create-basic-settings-managed-identity.png" alt-text="Screenshot of the Basic Settings tab of the lab creation form.":::
 
 1. Optionally, select the [Auto-shutdown](devtest-lab-create-lab.md#auto-shutdown-tab), [Networking](devtest-lab-create-lab.md#networking-tab), and [Tags](devtest-lab-create-lab.md#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
 1. After you complete all settings, select **Review + create**.
 1. Once **Succeeded** appears on the **Review + create** page, review the settings and then select **Create**.
 
-> [!TIP]
-> Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs. For more information, see [Create VMs by using ARM templates](devtest-lab-use-resource-manager-template.md).
+   > [!TIP]
+   > Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs. For more information, see [Create VMs by using ARM templates](devtest-lab-use-resource-manager-template.md).
 
 1. After the lab creation process finishes, select **Go to resource** from the deployment notification.
 
@@ -92,7 +92,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    - **Number of instances**: To create more than one VM with this configuration, enter the number of VMs to create.
    - **View ARM template**: Select this button to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](/azure/azure-resource-manager/templates/overview).
 
-   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-advanced-settings.png" alt-text="Screenshot of the Advanced Settings tab of the Create lab resource page.":::
+   :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-advanced-settings.png" alt-text="Screenshot of the Advanced Settings tab of lab resource creation page.":::
 
 1. After you configure all settings, select **Create** at the bottom of the screen.
 
@@ -112,11 +112,11 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 
 1. Select **Add**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control (IAM) page with the Add role assignment menu open.":::
+   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-menu-generic.png" alt-text="Screenshot of the Access control (IAM) page with the role assignment menu open.":::
 
 1. On the **Role** tab, select the **DevTest Labs User** role, and then select **Next** or the **Members** tab.
 
-   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-role-generic.png" alt-text="Screenshot of the Add role assignment page with the Role tab selected.":::
+   :::image type="content" source="media/tutorial-create-custom-lab/add-role-assignment-role-generic.png" alt-text="Screenshot of the role assignment page with the Role tab selected.":::
 
 1. On the **Members** tab, select **Select members**.
 
@@ -128,7 +128,7 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 
 To share a link to the lab with your users, go to the lab home page in the [Azure portal](https://portal.azure.com) and copy the URL from your browser. Share the copied link with your lab users.
 
-If a lab user has a Microsoft account but isn't a member of your organization's Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
+If a lab user has a Microsoft account but isn't a member of your Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
 
 ## Clean up resources
 
