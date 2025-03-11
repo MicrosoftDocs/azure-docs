@@ -40,7 +40,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * You should have your backend service configured for client certificate authentication. To configure certificate authentication in the Azure App Service, refer to [this article][to configure certificate authentication in Azure WebSites refer to this article]. 
-* You need access to the certificate and the password for management in an Azure key vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
+* You need access to the certificate and the password for management in an Azure Key Vault or upload to the API Management service. The certificate must be in **PFX** format. Self-signed certificates are allowed. 
 
     If you use a self-signed certificate:
     * Install trusted root and intermediate [CA certificates](api-management-howto-ca-certificates.md) in your API Management instance. 
