@@ -10,20 +10,20 @@ items:
     items:
     - name: Getting started
       href: ./migrate-from-aws.md
-    - name: Workload migration process
-      items:
-      - name: 1. Assess your current workload
-        href: ./placeholder.md
-      - name: 2. Design a similar solution
-        href: ./placeholder.md
-      - name: 3. Prepare the workload and Azure
-        href: ./placeholder.md
-      - name: 4. Perform the migration
-        href: ./placeholder.md
-      - name: 5. Evaluate success
-        href: ./placeholder.md
-      - name: 6. Optimize with Azure
-        href: ./placeholder.md
+#    - name: Workload migration process
+#      items:
+#      - name: 1. Assess your current workload
+#        href: ./placeholder.md
+#      - name: 2. Design a similar solution
+#        href: ./placeholder.md
+#      - name: 3. Prepare the workload and Azure
+#        href: ./placeholder.md
+#      - name: 4. Perform the migration
+#        href: ./placeholder.md
+#      - name: 5. Evaluate success
+#        href: ./placeholder.md
+#      - name: 6. Optimize with Azure
+#        href: ./placeholder.md
     - name: Compute
       items:
       - name: Migrate compute
@@ -122,10 +122,10 @@ items:
         href: ./placeholder.md
       - name: Synchronize API Gateway APIs into Azure API Center
         href: /azure/api-center/synchronize-aws-gateway-apis
-    - name: Monitoring
-      items:
-      - name: Monitoring migration guide
-        href: ./migrate-monitoring-from-aws.md
+#    - name: Monitoring
+#      items:
+#      - name: Monitoring migration guide
+#        href: ./migrate-monitoring-from-aws.md
     - name: Security
       items:
       - name: Azure security services map
@@ -136,32 +136,30 @@ items:
     items:
     - name: Getting started
       href: ./migrate-from-google-cloud.md
-    - name: Workload migration process
-      items:
-      - name: 1. Assess your current workload
-        href: ./placeholder.md
-      - name: 2. Design a similar solution
-        href: ./placeholder.md
-      - name: 3. Prepare the workload and Azure
-        href: ./placeholder.md
-      - name: 4. Perform the migration
-        href: ./placeholder.md
-      - name: 5. Evaluate success
-        href: ./placeholder.md
-      - name: 6. Optimize with Azure
-        href: ./placeholder.md
-    - name: Compute
-      items:
-      - name: Migrate compute
-        href: ./migrate-compute-from-google-cloud.md
-      - name: Replatform from GCP Cloud Run to Azure Functions
-        href: ./placeholder.md
-      - name: Replatform from Google Kubernetes Engine (GKE) to Azure Kubernetes Service (AKS)
-        href: ./placeholder.md
+#    - name: Workload migration process
+#      items:
+#      - name: 1. Assess your current workload
+#        href: ./placeholder.md
+#      - name: 2. Design a similar solution
+#        href: ./placeholder.md
+#      - name: 3. Prepare the workload and Azure
+#        href: ./placeholder.md
+#      - name: 4. Perform the migration
+#        href: ./placeholder.md
+#      - name: 5. Evaluate success
+#        href: ./placeholder.md
+#      - name: 6. Optimize with Azure
+#        href: ./placeholder.md
+#    - name: Compute
+#      items:
+#      - name: Migrate compute
+#        href: ./migrate-compute-from-google-cloud.md
     - name: Databases
       items:
       - name: Migrate databases
         href: ./migrate-databases-from-google-cloud.md
+      - name: Azure databases services map
+        href: /azure/architecture/gcp-professional/services#data-platform
       - name: Google Cloud SQL for PostgreSQL
         items:
         - name: Migrate to Azure Database for PostgreSQL (offline)
@@ -170,25 +168,27 @@ items:
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
       - name: Migrate MySQL on Google Cloud to Azure Database for MySQL
         href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
-    - name: Networking
-      items:
-      - name: Networking migration guide
-        href: ./migrate-networking-from-google-cloud.md
-    - name: Messaging
-      items:
-      - name: Messaging migration guide
-        href: ./migrate-messaging-from-google-cloud.md
-      - name: Replatform from Google Pub/Sub to Azure Service Bus
-        href: ./placeholder.md
-    - name: Storage
-      items:
-      - name: Storage migration guide
-        href: ./migrate-storage-from-google-cloud.md
-    - name: Monitoring
-      items:
-      - name: Monitoring migration guide
-        href: ./migrate-monitoring-from-google-cloud.md
+#    - name: Networking
+#      items:
+#      - name: Networking migration guide
+#        href: ./migrate-networking-from-google-cloud.md
+#    - name: Messaging
+#      items:
+#      - name: Messaging migration guide
+#        href: ./migrate-messaging-from-google-cloud.md
+#      - name: Replatform from Google Pub/Sub to Azure Service Bus
+#        href: ./placeholder.md
+#    - name: Storage
+#      items:
+#      - name: Storage migration guide
+#        href: ./migrate-storage-from-google-cloud.md
+#    - name: Monitoring
+#      items:
+#      - name: Monitoring migration guide
+#        href: ./migrate-monitoring-from-google-cloud.md
     - name: Security
       items:
+      - name: Azure security services map
+        href: /azure/architecture/gcp-professional/services#security-and-identity
       - name: Migrate your SIEM in Google Cloud to Microsoft Sentinel
         href: /azure/sentinel/migration
