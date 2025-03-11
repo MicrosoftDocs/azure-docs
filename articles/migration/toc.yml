@@ -30,12 +30,16 @@ items:
         href: ./migrate-compute-from-aws.md
       - name: Elastic Kubernetes Service (EKS)
         items:
+        - name: AKS for Amazon EKS professionals
+          href: /azure/architecture/aws-professional/eks-to-aks/
         - name: Migrate to Azure Kubernetes Service (AKS)
-          href: ./placeholder.md
-        - name: Migrate a public website from EKS to AKS
-          href: ./placeholder.md
-        - name: Migrate an event driven EKS workload to AKS
-          href: ./placeholder.md
+          href: /azure/aks/aks-migration
+        - name: Migrate a web app from EKS to AKS
+          href: /azure/aks/eks-web-overview
+        - name: Migrate an event-driven EKS workload to AKS
+          href: /azure/aks/eks-edw-overview
+        - name: Migrate stateful workloads to AKS
+          href: /azure/aks/stateful-workloads-overview
       - name: Amazon EC2
         items:
         - name: Migrate to Azure Virtual Machines (Azure Migrate)
@@ -62,6 +66,14 @@ items:
         items:
         - name: Migrate to Azure Database for MySQL
           href: ./placeholder.md
+      - name: Amazon DynamoDB
+        items:
+        - name: Migrate DynamoDB app to Azure Cosmos DB for NoSQL
+          href: /azure/cosmos-db/nosql/dynamo-to-cosmos
+        - name: Migrate DynamoDB data to Azure Cosmos DB for NoSQL
+          href: /azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db
+      - name: Migrate from CouchBase to Azure Cosmos DB for NoSQL
+        href: /azure/cosmos-db/nosql/couchbase-cosmos-migration
     - name: Identity and access management (IAM)
       items:
       - name: IAM migration guide
