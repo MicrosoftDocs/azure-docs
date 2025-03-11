@@ -65,17 +65,15 @@ Each rule within the policy has several parameters, described in the following t
 | `type` | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition` | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
-Each rule definition within a policy includes a filter set and an action set. 
+Each rule definition within a policy includes collection of _filters_ and _actions_. 
 
-- [Filters](#filters) limit rule actions to a certain set of objects within a container or objects names. 
+- A filter limits rule actions to a certain set of objects within a container or objects names. 
 
-- [Actions](#actions) apply the tier or delete actions to the filtered set of objects.
-
-- Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
+- An action applies the tier or delete actions to the filtered set of objects.
 
 ### Filters
 
-You can apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters. 
+You can apply rules to an entire storage account, to select containers, or to a subset of blobs using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters. Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
 Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude.
 
