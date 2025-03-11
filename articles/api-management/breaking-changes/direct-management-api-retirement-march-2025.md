@@ -26,7 +26,7 @@ The direct management API is deprecated. Support for the direct management API w
 
 ## What do I need to do?
 
-You should no longer use the direct management API and, if it's enabled in your API Management instance, you should disable it Before the retirement date, update your tools, scripts, and programs to use equivalent operations in the Azure Resource Manager-based REST API instead. To detect API Management instances that have the direct management API enabled, you can use this [open-source tool](https://github.com/simonkurtz-MSFT/api-management-discover-direct-management-api-status/blob/main/apim-direct-management-api-statistics.sh).
+You should no longer use the direct management API and, if it's enabled in your API Management instance, you should disable it. Before the retirement date, update your tools, scripts, and programs to use equivalent operations in the Azure Resource Manager-based REST API instead. To detect API Management instances that have the direct management API enabled, you can use this [open-source tool](https://github.com/simonkurtz-MSFT/api-management-discover-direct-management-api-status/blob/main/apim-direct-management-api-statistics.sh).
 
 ## Help and support
 
