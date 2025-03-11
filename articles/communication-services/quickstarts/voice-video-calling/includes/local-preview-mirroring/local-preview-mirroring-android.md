@@ -15,7 +15,7 @@ ms.custom: mode-other, devx-track-js
 zone_pivot_groups: acs-plat-web-windows-android-ios
 ---
 
-## Mirror local preview
+## Turn off local preview mirroring
 
 ````java
 VideoStreamRenderer renderer = new VideoStreamRenderer(localVideoStream, this);
