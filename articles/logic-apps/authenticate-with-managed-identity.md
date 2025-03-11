@@ -530,7 +530,7 @@ The steps in this section describe how to assign role-based access using the [Az
 | Azure CLI | [Add role assignment](/entra/identity/managed-identities-azure-resources/how-to-assign-app-role-managed-identity-cli) |
 | Azure REST API | [Add role assignment](../role-based-access-control/role-assignments-rest.md) |
 
-For an Azure Key Vault, you also have the option to create an access policy for your managed identity on your key vault and assign the appropriate permissions for that identity on that key vault. The later steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, and Azure CLI, see the following documentation:
+For Azure Key Vault, you also have the option to create an access policy for your managed identity on your key vault and assign the appropriate permissions for that identity on that key vault. The later steps in this section describe how to complete this task by using the [Azure portal](#azure-portal-access-policy). For Resource Manager templates, PowerShell, and Azure CLI, see the following documentation:
 
 | Tool | Documentation |
 |------|---------------|
