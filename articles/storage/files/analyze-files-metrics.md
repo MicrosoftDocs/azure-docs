@@ -342,7 +342,7 @@ The following chart illustrates a workload that experienced a sudden increase in
 
 :::image type="content" source="media/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
 
-If your workload encounters **Success with Metadata Warnings** or **Sucess with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
+If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
 
 - For Premium SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-premium-smb-file-shares).
 - Distribute (shard) your workload across multiple file shares.
