@@ -86,7 +86,7 @@ items:
         href: /azure/architecture/aws-professional/security-identity
     - name: Networking
       items:
-      - name: Networking migration guide
+      - name: Migrate network components
         href: ./migrate-networking-from-aws.md
       - name: Azure networking services mapping
         href: /azure/architecture/aws-professional/networking
@@ -94,7 +94,7 @@ items:
         href: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
     - name: Storage
       items:
-      - name: Storage migration guide
+      - name: Migrate storage components
         href: ./migrate-storage-from-aws.md
       - name: Azure storage services map
         href: /azure/architecture/aws-professional/storage
@@ -108,7 +108,7 @@ items:
           href: /azure/data-factory/solution-template-migration-s3-azure
     - name: Messaging and integration
       items:
-      - name: Messaging migration guide
+      - name: Migrate messaging and integrations
         href: ./migrate-messaging-from-aws.md
       - name: Azure messaging services map
         href: /azure/architecture/aws-professional/messaging
