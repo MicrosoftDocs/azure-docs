@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 02/11/2025
+ms.date: 02/24/2025
 ms.author: anfdocs
 ---
 
@@ -15,6 +15,13 @@ ms.author: anfdocs
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
+
+* [Application volume group for SAP HANA extension one](application-volume-group-introduction.md) is now generally available (GA)
+
+    Application volume group for SAP HANA extension one enables you to improve your volume group deployment experience for SAP HANA. Key improvements include: 
+
+    - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
+    - Support for Standard network features for SAP HANA volumes 
 
 ## February 2025
 

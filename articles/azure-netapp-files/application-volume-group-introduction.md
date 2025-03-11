@@ -46,7 +46,7 @@ Application volume group for SAP HANA helps you simplify the deployment process 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
 
-### <a name="extension-1-features"></a> Extension 1 features (preview)
+### <a name="extension-1-features"></a> Extension 1 features
 
 Application volume group for SAP HANA extension one offers support for:
 
