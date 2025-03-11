@@ -184,10 +184,10 @@ The following table indicates which targets are soft, representing the Microsoft
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance depends upon many factors in your infrastructure, including:
 
 - Windows Server and the underlying disk configuration
-- network bandwidth between the server and the Azure storage
-- file size
-- total dataset size
-- activity on the dataset
+- Network bandwidth between the server and the Azure storage
+- File size
+- Total dataset size
+- Activity on the dataset
 
 Because Azure File Sync works on the file level, you should measure the performance characteristics of an Azure File Sync-based solution by the number of objects (files and directories) processed per second.
 
