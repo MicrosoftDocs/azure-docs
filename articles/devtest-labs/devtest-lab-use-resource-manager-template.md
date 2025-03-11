@@ -1,6 +1,6 @@
 ---
 title: Create and manage ARM templates for VMs
-description: Learn how to view, edit, store, and access Azure Resource Manager (ARM) virtual machine (VM) templates, and how lab admins can add template repositories to labs.
+description: Learn how to create and manage Azure Resource Manager (ARM) virtual machine (VM) templates, and how lab admins can add template repositories to labs.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
@@ -16,7 +16,7 @@ This article describes how DevTest Labs users can:
 
 - View, edit, and save Azure Resource Manager (ARM) templates for creating Azure VMs.
 - Store the ARM templates in source control repositories.
-- Access the ARM template repositories in Azure DevTest Labs to use the templates.
+- Add and access ARM template repositories in Azure DevTest Labs.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -69,7 +69,7 @@ For an example template, see [Create a new VM in a lab with a specified expirati
 
 ### Create multiple VMs at once
 
-In the Azure portal, you can create more than one instance of a VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the VM creation screen. In an ARM template, you can add or edit the `copy` parameter in the `resources` section to specify the number of instances to create.
+In the Azure portal, you can create more than one VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the VM creation screen. In an ARM template, you can add or edit the `copy` parameter in the `resources` section to specify the number of instances to create.
 
 ```json
       "copy": {
@@ -108,16 +108,17 @@ The **Public Artifact Repo** and **Public Environment Repo** at the [DevTest Lab
 
 ## Add template repositories to labs
 
-Lab owners or contributors can add ARM template repositories to their labs so all lab users can access the templates. To add a repo, select **Add** in the top menu bar of the **Repositories** page.
+Lab owners or contributors can add ARM template repositories to their labs so all lab users can access the templates. To add a repo to your lab:
 
 # [GitHub repo](#tab/GitHubRepo/)
 
+1. Select **Add** in the top menu bar of the **Repositories** page.
 1. On the **Repository** screen, enter the following information:
    - **Name**: Repository name.
    - **Git clone URL**: The Git HTTPS clone URL from GitHub.
    - **Branch** (optional): The branch that has the ARM template definitions.
    - **Azure Resource Manager template folder path**: The folder path, relative to the Git clone URI, for the ARM template definitions.
-   - **Authentication type**: The authentication method to securely access the repository, **Personal access token** or **GitHub App**.
+   - **Authentication type**: The authentication method to securely access the repository: **Personal access token** or **GitHub App**.
      - To get a personal access token, select your profile in GitHub and then select **Settings** > **Developer settings** > **Personal access tokens**.
      - To use the GitHub app, select **Sign in with GitHub** and sign in if necessary. You must have the [Microsoft DevCenter GitHub App](https://github.com/apps/microsoft-devcenter) installed.
 1. Select **Save**.
@@ -126,12 +127,13 @@ Lab owners or contributors can add ARM template repositories to their labs so al
 
 # [Azure Repos repo](#tab/DevOpsRepo/)
 
+1. Select **Add** in the top menu bar of the **Repositories** page.
 1. On the **Repository** screen, enter the following information:
    - **Name**: Repository name.
    - **Git clone URL**: The Git HTTPS clone URL from Azure Repos.
    - **Branch** (optional): The branch that has the ARM template definitions.
    - **Azure Resource Manager template folder path**: The folder path, relative to the Git clone URI, for the ARM template definitions.
-   - **Authentication type**: The authentication method to securely access the repository, **Personal access token** or **Managed Identity**.
+   - **Authentication type**: The authentication method to securely access the repository: **Personal access token** or **Managed Identity**.
      - To get a personal access token, select **User settings** at upper right in Azure DevOps and then select **Personal access tokens**.
      - To use managed identity, add the lab's system-assigned managed identity to the Azure DevOps organization as a user. For more information, see [Add an artifact repo](add-artifact-repository.md?tabs=DevOpsRepoMSI#add-an-artifact-repo).
 1. Select **Save**.
