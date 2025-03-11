@@ -83,6 +83,7 @@ In this article, you'll learn how to:
   --- | --- | ---
   Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
 
+
 1. Now, review and create the assessment. 
 
     :::image type="content" source="./media/how-to-create-sql-assessment/review-create-assessment.png" alt-text="Screenshot of sql assessment page on how to review and create assessment.":::
