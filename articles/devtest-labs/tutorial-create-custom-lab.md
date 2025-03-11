@@ -10,9 +10,9 @@ ms.custom: UpdateFrequency2
 #customer intent: As a lab administrator, I want to learn how to create and delete labs, add Azure virtual machines (VMs) to labs, and add users to labs, so I can effectively manage my labs.
 ---
 
-# Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal
+# Tutorial: Create a DevTest Labs lab and VM and add a user
 
-In this Azure DevTest Labs tutorial, you learn how lab administrators can:
+In this Azure DevTest Labs tutorial, you learn how lab administrators can use the Azure portal to:
 
 > [!div class="checklist"]
 > * Create a lab in DevTest Labs.
@@ -30,7 +30,7 @@ If you're a lab user, such as a developer, tester, or trainee, see [Access a lab
 
 ## Create a lab
 
-1. In the [Azure portal](https://portal.azure.com), search for and select *DevTest Labs*.
+1. In the [Azure portal](https://portal.azure.com), search for and select **DevTest Labs**.
 
    :::image type="content" source="./media/tutorial-create-custom-lab/portal-search-devtest-labs.png" alt-text="Screenshot of searching for DevTest Labs in the portal.":::
 
