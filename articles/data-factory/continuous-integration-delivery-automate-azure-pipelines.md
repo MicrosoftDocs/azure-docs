@@ -21,7 +21,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 -   A data factory configured with Azure Repos Git integration.
 
--   An [Azure key vault](https://azure.microsoft.com/services/key-vault/) that contains the secrets for each environment.
+-   An [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) that contains the secrets for each environment.
 
 ## Set up an Azure Pipelines release
 
