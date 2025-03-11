@@ -70,70 +70,40 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 1. Application insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to the connection string for your Application Insights resource.
 
-    #### [Windows command prompt](#tab/windowscommandprompt)
+    ```cmd
+    setx APPLICATIONINSIGHTS_CONNECTION_STRING "applicationinsights-connection-string"
+    ```
 
-    To run the app locally using the Windows command prompt, run the following command and replace `<applicationinsights-connection-string>` with the connection string of your app configuration store:
+    If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:APPLICATIONINSIGHTS_CONNECTION_STRING = "applicationinsights-connection-string"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export APPLICATIONINSIGHTS_CONNECTION_STRING='applicationinsights-connection-string'
+    ```
+
+1. If your environment variable for your App Configuration store endpoint is not setup. Set the `AzureAppConfigurationEndpoint` environment variable to the endpoint of your App Configuration store.
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx APPLICATIONINSIGHTS_CONNECTION_STRING "applicationinsights-configuration-store"
+    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
-    #### [PowerShell](#tab/powershell)
+    If you use PowerShell, run the following command:
 
-    If you use Windows PowerShell, run the following command and replace `<applicationinsights-connection-string>` with the connection string of your app configuration store:
-
-    ```azurepowershell
-    $Env:APPLICATIONINSIGHTS_CONNECTION_STRING = "<applicationinsights-connection-string>"
+    ```powershell
+    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
-    #### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command and replace `<applicationinsights-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export APPLICATIONINSIGHTS_CONNECTION_STRING='applicationinsights-connection-string>'
-    ```
-
-    #### [Linux](#tab/linux)
-
-    If you use Linux, run the following command and replace `<applicationinsights-connection-string>` with the connection string of your app configuration store:
-
-    ```console
-    export APPLICATIONINSIGHTS_CONNECTION_STRING='<applicationinsights-connection-string>'
-    ```
-
-1. If your environment variable for your App Configuration store endpoint is not setup. Set the `APPCONFIGURATION_ENDPOINT` environment variable to the endpoint of your App Configuration store.
-
-    #### [Windows command prompt](#tab/windowscommandprompt)
-
-    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
-
-    ```cmd
-    setx APPCONFIGURATION_ENDPOINT "app-configuration-store-endpoint"
-    ```
-
-    #### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
-
-    ```azurepowershell
-    $Env:APPCONFIGURATION_ENDPOINT = "<app-configuration-store-endpoint>"
-    ```
-
-    #### [macOS](#tab/unix)
-
-    If you use macOS, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
-
-    ```console
-    export APPCONFIGURATION_ENDPOINT='app-configuration-store-endpoint>'
-    ```
-
-    #### [Linux](#tab/linux)
-
-    If you use Linux, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
-
-    ```console
-    export APPCONFIGURATION_ENDPOINT='<app-configuration-store-endpoint>'
+    ```bash
+    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
     ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.

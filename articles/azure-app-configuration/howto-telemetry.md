@@ -15,7 +15,7 @@ Telemetry allows you to make informed decisions about your feature management st
 
 - Are my flags enabled/disabled as expected?
 - Are targeted users getting access to a certain feature as expected?
-- <TODO: Third Benefit Here>
+- How does a variant effect customer engagement?
 
 These types of questions can be answered through the emission and analysis of feature flag evaluation events.
 
