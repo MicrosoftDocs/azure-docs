@@ -126,4 +126,4 @@ Use the following cmdlets for Azure Synapse workspace.
 ## Related content
 
 - [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
-- [Create an Azure key vault and a key by using Resource Manager template](/azure/key-vault/keys/quick-create-template)
+- [Create an Azure Key Vault and a key by using Resource Manager template](/azure/key-vault/keys/quick-create-template)
