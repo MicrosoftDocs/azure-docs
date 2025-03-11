@@ -13,11 +13,11 @@ ms.custom: engagement-fy25
 
 In this tutorial to learn how to create an Azure VMware Solution on Native private cloud.This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve the your experience, quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by leveraging your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
-With this offering, you can create the Azure VMware Solution SDDC using the AV64 SKU directly. You no longer need to deploy a minimum of 3 hosts of AV36, AV36P or AV52 to provision a cluster with AV64.
+With this offering, you can directly create the Azure VMware Solution SDDC using the AV64 SKU. You're no longer required to deploy a minimum of three hosts of AV36, AV36P or AV52 to provision a cluster with AV64.
 
-## Before you begin
+## Prerequisites
 
-These prerequisites are required before you can create an Azure VMware Solution on Native private cloud:
+Before you begin, these items are required to create an Azure VMware Solution on Native private cloud:
 
 - Enable the Azure VMware Solution Fleet RP Service Principle as described in the enable Azure VMware Solution Fleet RP service principle.
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum Owner or User Access Administrator on the subscription.
