@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Review SQL assessment
 
-In this article, you'll explore the concepts of an SQL assessment, its characteristics, and how to review an SQL assessment for different migration targets. The SQL Assessment provides a comprehensive report that allows you to compare the migration of your on-premises workloads to available SQL targets. The report outlines various migration strategies for SQL deployments. 
+In this article, you'll explore the concepts of an SQL assessment, its characteristics, and how to review an SQL assessment for different migration targets. The SQL assessment provides a comprehensive report that allows you to compare the migration of your on-premises workloads to available SQL targets. The report outlines various migration strategies for SQL deployments. 
 
 **Recommended Deployment**:
 

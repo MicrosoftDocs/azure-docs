@@ -27,7 +27,7 @@ In this article, you'll learn how to:
 * Check the appliance requirement [Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
 * Follow the steps [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
 
-## Create a workload assessment for web apps
+## Create a workload assessment for webapps
 
 1. On the **Azure Migrate** project overview page, under **Decide and Plan**, select **Assessments**
 
@@ -41,9 +41,9 @@ In this article, you'll learn how to:
 
     :::image type="content" source="./media/how-to-create-sql-assessment/add-workloads.png" alt-text="Screenshot of sql assessment page on how to add the workloads.":::
 
-1. Use the appropriate filters, select the web apps and then select **Add**
+1. Use the appropriate filters, select the webapp and then select **Add**
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select web apps and add.":::
+    :::image type="content" source="./media/how-to-create-sql-assessment/select-add.png" alt-text="Screenshot of sql assessment page on how to select webapp and add.":::
 
 1. Review the selected workloads and then select **Next**.
 
@@ -67,21 +67,21 @@ In this article, you'll learn how to:
 
 1. On the Advanced Settings tab, select **Edit defaults** and then select the preferred Azure targets and configure target-specific settings.  
 
-    :::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Screenshot of sql assessment that shows how to edit defaults.":::
+:::image type="content" source="./media/how-to-create-sql-assessment/edit-defaults.png" alt-text="Screenshot of sql assessment that shows how to edit defaults.":::
 
 **AKS settings**: The following table details about the AKS settings.
 
-    Settings | Possible values | Comments
-    --- | --- | ---
-    Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> High performance compute <br/> Isolated <br/> Memory optimized <br/> Storage optimized   | Selecting a specific SKU category ensures that we recommend the best AKS node SKUs from that category. 
-    AKS pricing tier   | Standard  | Pricing tier for AKS 
-    Consolidation   | Full Consolidation   | Maximize the number of web apps to be packed per node. 
+ Settings | Possible values | Comments
+ --- | --- | ---
+ Category   | All <br/>Compute optimized <br/> General purpose <br/> GPU <br/> High performance compute <br/> Isolated <br/> Memory optimized <br/> Storage optimized   | Selecting a specific SKU category ensures that we recommend the best AKS node SKUs from that category. 
+ AKS pricing tier   | Standard  | Pricing tier for AKS 
+ Consolidation   | Full Consolidation   | Maximize the number of webapps to be packed per node. 
 
 **App service settings**: The following table details the App service settings
 
-    Settings | Possible values | Comments
-    --- | --- | ---
-    Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
+  Settings | Possible values | Comments
+  --- | --- | ---
+  Isolation required    | No <br/> Yes   | The isolated plan enables customers to run their apps in a private, dedicated environment within an Azure data center, using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard VMs.
 
 1. Now, review and create the assessment. 
 
@@ -89,6 +89,5 @@ In this article, you'll learn how to:
 
 ## Next steps
 
-- Understand the [assessment insights](https://microsoftapc.sharepoint.com/:w:/t/AzureCoreIDC/EQ8jF5QuAeJDqoYwJ8Y_k1IBOH8E2zjyGIChYANVLUxRdw?e=WIsw26) to make data-driven decisions for web app modernization. 
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context). 
 - Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 
