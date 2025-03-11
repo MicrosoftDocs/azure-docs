@@ -69,7 +69,7 @@ For an example template, see [Create a new VM in a lab with a specified expirati
 
 ### Create multiple VMs at once
 
-In the Azure portal, you can create more than one VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the VM creation screen. In an ARM template, you can add or edit the `copy` parameter in the `resources` section to specify the number of instances to create.
+In the Azure portal, you can create more than one VM at a time by specifying **Number of instances** on the **Advanced Settings** tab of the DevTest Labs VM creation screen. In an ARM template, you can add or edit the `copy` element in the `resources` section to specify the number of instances to create. For example:
 
 ```json
       "copy": {
@@ -77,6 +77,8 @@ In the Azure portal, you can create more than one VM at a time by specifying **N
         "count": 2
       },
 ```
+
+For more information about creating more than one instance of a VM in your ARM template, see [Resource iteration in ARM templates](/azure/azure-resource-manager/templates/copy-resources).
 
 <a name="configure-your-own-template-repositories"></a>
 <a name="create-your-own-template-repositories"></a>
