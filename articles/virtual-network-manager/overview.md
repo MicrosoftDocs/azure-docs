@@ -48,11 +48,14 @@ For pricing details, see [Azure Virtual Network Manager pricing](https://azure.m
 
 New Azure Virtual Network Manager instances will charge solely on the virtual network-based pricing described in the pricing page above.
 
-Azure Virtual Network Manager instances created prior to the release of the virtual network-based pricing will continue to charge on the subscription-based pricing described in the pricing page above. If you prefer for your Azure Virtual Network Manager instance to instead charge on the virtual network-based pricing, follow the steps below to switch its pricing model.
+Azure Virtual Network Manager instances created prior to the release of the virtual network-based pricing will continue to charge on the subscription-based pricing described in the pricing page above. If you prefer for your Azure Virtual Network Manager instance to instead charge on the virtual network-based pricing, follow the steps below to switch its pricing model through Azure Feature Exposure Control (AFEC).
 
 1. In the Azure Portal, search for "Preview features".
 2. On the "Preview Features" page, ensure the subscription selected is the subscription that contains your Azure Virtual Network Manager instance. Filter the features by "Network manager".
 3. Select the feature named "Network manager billing by virtual networks" and register. The Azure Virtual Network Manager instance in the registered subscription will now charge on the virtual network-based pricing.
+
+> [!NOTE]
+> This virtual network-based pricing is [generally available](https://azure.microsoft.com/en-us/updates/?id=480669). Its enablement mechanism through the AFEC page is purely for ease of setup.
  
 ## FAQs  
 For FAQs, see [Azure Virtual Network Manager FAQs](faq.md).
