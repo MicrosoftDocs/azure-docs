@@ -162,7 +162,7 @@ For lift and shift migration, refer to the compute and storage sizing [here](/en
 
 ### Recommendation details
 
-After the readiness and sizing calculation are complete, the optimization preference are applied to determine the recommended target and configuration. The recommendation details include a thorough explanation of the readiness and sizing calculations behind the recommendation.
+After the readiness and sizing calculation are complete, the optimization preference is applied to determine the recommended target and configuration. The recommendation details include a thorough explanation of the readiness and sizing calculations behind the recommendation.
 
 ### Migration guidance
 

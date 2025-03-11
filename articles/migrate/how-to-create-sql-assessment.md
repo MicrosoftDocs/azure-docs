@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Create SQL assessment
 
-This article explains how to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive remonneded target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
+This article explains how to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
 
 In this article, you'll learn how to:
 
