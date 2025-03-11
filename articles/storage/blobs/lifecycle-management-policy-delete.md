@@ -15,6 +15,9 @@ ms.topic: conceptual
 
 Intro para here
 
+- The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
+
+
 ## Delete action
 
 When applied to an account with a hierarchical namespace enabled, a delete action removes empty directories. If the directory isn't empty, then the delete action removes objects that meet the policy conditions within the first lifecycle policy execution cycle. If that action results in an empty directory that also meets the policy conditions, then that directory will be removed within the next execution cycle, and so on.
@@ -88,6 +91,83 @@ Some data should only be expired if explicitly marked for deletion. You can conf
     ]
 }
 ```
+
+## Manage previous versions
+
+For data that is modified and accessed regularly throughout its lifetime, you can enable blob storage versioning to automatically maintain previous versions of an object. You can create a policy to delete previous versions. The version age is determined by evaluating the version creation time. This policy rule deletes previous versions that are 365 days or older.
+
+```json
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "versionrule",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata/"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Example featured in the overview
+
+The following sample rule filters the account to run the actions on objects that exist inside `sample-container` and start with `blob1`.
+
+- Delete blob 2,555 days (seven years) after last modification
+- Delete previous versions 90 days after creation
+
+```json
+{
+  "rules": [
+    {
+      "enabled": true,
+      "name": "sample-rule",
+      "type": "Lifecycle",
+      "definition": {
+        "actions": {
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
+          },
+          "baseBlob": {
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
+          }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "sample-container/blob1"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+> [!NOTE]
+> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob. The **version** element refers to a previous version.
 
 ## See also
 
