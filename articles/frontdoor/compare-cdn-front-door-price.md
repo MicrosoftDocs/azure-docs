@@ -2,11 +2,11 @@
 title: Compare the pricing of Azure CDN Standard Microsoft and Azure Front Door
 description: This article compares the pricing of Azure CDN Standard Microsoft (classic) and Azure Front Door.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 05/11/2024
-ms.author: duau
 ms.reviewer: harishk
 ---
 

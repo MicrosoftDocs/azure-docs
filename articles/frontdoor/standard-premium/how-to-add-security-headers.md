@@ -3,7 +3,7 @@ title: Configure security headers with Standard/Premium Rule Set
 titleSuffix: Azure Front Door
 description: Learn how to use Azure Front Door Standard/Premium rule sets to configure security headers and prevent browser-based vulnerabilities.
 services: frontdoor
-author: duongau
+author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/25/2025

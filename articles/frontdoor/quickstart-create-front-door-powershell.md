@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Front Door (classic) using Azure PowerShell'
 description: This quickstart will show you how to use Azure Front Door to create a high availability and high-performance global web application using Azure PowerShell.
 services: front-door
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.date: 10/04/2024
 ms.topic: quickstart

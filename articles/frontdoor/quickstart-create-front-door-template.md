@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Azure Front Door (classic) using ARM template'
 description: This quickstart describes how to create an Azure Front Door (classic) by using an Azure Resource Manager template (ARM template).
 services: front-door
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.date: 10/04/2024
 ms.topic: quickstart
 ms.service: azure-frontdoor
