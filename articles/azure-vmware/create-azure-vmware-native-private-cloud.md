@@ -9,7 +9,7 @@ ms.date: 03/11/2025
 ms.custom: engagement-fy25
 ---
 
-# Create an Azure VMware Solution on Native Private Cloud (Public Preview)
+# Create an Azure VMware Solution on Native private cloud (Public Preview)
 
 In this tutorial, you learn how to create an Azure VMware Solution on Native private cloud. This solution combines a first-party Azure VMware Solution with Azure hardware and operations to improve your experience, enhance quality, and security. This offering provides updated architecture that uses Azure Native physical network and hardware infrastructure. You get the best of both worlds by leveraging your existing VMware expertise, with the benefits of the entire Azure cloud to effectively and efficiently manage your workloads. This initial launch of this offering utilizes the existing AV64 SKU.
 
@@ -35,7 +35,7 @@ az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAl
 1. Sign in to the Azure portal.
 
     >[!NOTE] 
-    > If you need access to the Azure US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/)
+    > If you need access to the Azure US Gov portal, go to [Azure portal](https://portal.azure.us/)
 
 1. Select **Create a resource**.
 
@@ -52,9 +52,9 @@ az feature register --namespace Microsoft.Network --name EnablePrivateIpPrefixAl
     | **Resource name**           | Provide the name of your Azure VMware Solution private cloud.                                                   |
     | **Location**                | Select a location, such as (US) East US 2. It's the region you defined during the planning phase.               |
     | **Size of host**            | Select the AV64 SKU.                                                                                            |
-    | **Availability Zone**       | Select which availability zone you want your private cloud deployed in.                                         |
+    | **Availability zone**       | Select which availability zone you want your private cloud deployed in.                                         |
     | **Number of hosts**         | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes aren't listed as available, contact support to request a quota increase. You can also select the link labeled If you need more hosts, request a quota increase in the Azure portal. |
-    | **Virtual Network**         | Azure Virtual Network with a minimum network address space of a /22. This can be a new or existing Virtual Network. |
+    | **Virtual network**         | Azure Virtual Network with a minimum network address space of a /22. This can be a new or existing Virtual Network. |
     | **Address block for private cloud** | Provide an IP address block for the private cloud. The CIDR represents the private cloud management network and is used for the cluster management services, such as vCenter Server and NSX-T Manager. Use /22 address space, for example, 10.175.0.0/22. The address should be unique and not overlap with other Azure Virtual Networks and with on-premises networks. |
     | **DNS Forward Lookup**      | Input on your DNS Forward Lookup Zone. Either Private or Public. If no option is selected, the default is Public. This can be changed after your private cloud is created. |
 
