@@ -46,7 +46,7 @@ You can add Dedicated workload profiles to your environment. These enable you to
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying microservices where each app can run on the appropriate compute infrastructure.
 
 > [!NOTE]
-> You can only apply a GPU workload profile to an environment as the environment is created.
+> You can only add a Dedicated GPU workload profile when initially creating an environment. Consumption GPU and other types of workload profiles may be added later.
 
 ## Profile types
 
@@ -65,9 +65,9 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-E8 | E8 | 8 | 64 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
 | Dedicated-E16 | E16 | 16 | 128 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
 | Dedicated-E32 | E32 | 32 | 256 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
-| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | 1 | GPU enabled | per node<sup>\*</sup> | Managed Environment Compute Optimized Cores |
-| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> | Managed Environment Compute Optimized Cores |
-| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> | Managed Environment Compute Optimized Cores |
+| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | 1 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
+| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
+| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
 
 <sup>\*</sup> Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.
 
