@@ -65,7 +65,7 @@ If you use [workspaces](../api-management/workspaces-overview.md) to share a sin
 
 ## Transient faults 
 
-[!INCLUDE[introduction to transient faults](includes/reliability-transient-faults-description-include.md)]
+[!INCLUDE[introduction to transient faults](./includes/reliability-transient-fault-description-include.md)]
 
 All applications should follow Azure's transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. To learn more about handling transient faults, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
 
