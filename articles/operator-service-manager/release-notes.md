@@ -384,6 +384,6 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 #### Bugfix Related Updates
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO - Cluster Registry Image Corruption Auto-Recovery (2502220010001187)
-* NFO - Reduces reconciliation time when an AOSM service pod changes state.
-
+* NFO - Cluster Registry Image Corruption Auto-Recovery [2502220010001187]: Sometimes, images in the cluster registry become corrupted due to failures during the download process. This results in all subsequent retry attempts for that image failing. This solution detects corrupted images, removes broken Docker image links, and ensures that future retries can successfully download the image.
+* NFO - Avoid performing an unnecessary image copy when the image is already present in the cluster registry: This update eliminates redundant image downloads when the Artifact Controller pod crashes or becomes temporarily unavailable due to network issues. If the image is already present in the cluster registry, the system will now bypass unnecessary copies, improving efficiency and reducing resource consumption.
+* NFO - Increase oras download concurrency count [ICM602686818]: This update increases the concurrency setting in ORAS, enhancing parallel processing and improving download speed.
