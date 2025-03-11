@@ -30,13 +30,17 @@ Profiles are configured to fit the different needs of your applications.
 > [!NOTE]
 > When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
 
-The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment when you create it or after you create it. Workload profiles environments are deployed separately from Consumption only environments.
+The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Consumption GPU workload profiles for each type of GPU. All Consuption workload profiles:
 
-For each Dedicated workload profile in your environment, you can:
+- Automatically scale as needed
+- Can deploy multiple apps
 
-- Select the type and size
-- Deploy multiple apps into the profile
-- Use autoscaling to add and remove instances based on the needs of the apps
+You can add Dedicated workload profiles to your environment. These enable you to:
+
+- Use reserved VMs for your apps
+- Select the type and size of the VM
+- Deploy multiple apps in each profile
+- Use autoscaling to add and remove VM instances based on the needs of the apps
 - Limit scaling of the profile to better control costs
 
 You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying microservices where each app can run on the appropriate compute infrastructure.
@@ -46,7 +50,7 @@ You can configure each of your apps to run on any of the workload profiles defin
 
 ## Profile types
 
-There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a consumption profile, but you can also add any of the following profiles:
+There are different types and sizes of workload profiles available by region. By default, each Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation | Quota name |
 |---|---|---|---|---|---|---|
