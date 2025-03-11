@@ -18,9 +18,9 @@ This article provides a detailed overview of the enhancements introduced in the 
 >
 > Kindly report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-service-bus-emulator-installer/issues).
 
-## Latest version ``1.1.1``
+## Latest version ``1.1.2``
 
-> *Released February 26th, 2025*
+> *Released March 11th, 2025*
 
 This release introduces new features, bug fixes for Service Bus emulator. The details are as follows:
 
