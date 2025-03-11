@@ -1,39 +1,37 @@
 ---
-title: Using Redis modules with Azure Cache for Redis
-description: You can use Redis modules with your Azure Cache for Redis instances to extend your caches on the Enterprise tiers.
+title: Using Redis modules with Azure Managed Redis (preview)
+description: You can use Redis modules with your Azure Managed Redis instances to extend your caching use cases.
 
 
 
-
+ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 04/10/2024
+ms.date: 11/15/2024
 ms.custom: template-concept, ignite-2024
 ---
-# Use Redis modules with Azure Cache for Redis
+# Use Redis modules with Azure Managed Redis (preview)
 
-With Azure Cache for Redis, you can use Redis modules as libraries to add more data structures and functionality to the core Redis software. You add the modules at the time you're creating your Enterprise tier cache.
+With Azure Managed Redis (preview), you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
 
-For more information on creating an Enterprise cache, see [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md).
-
-Modules were introduced in open-source Redis 4.0. The modules extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters.
+For more information on creating an AMR cache, see [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md).
 
 ## Scope of Redis modules
 
-Some popular modules are available for use in the Enterprise tier of Azure Cache for Redis:
+Some popular modules are available for use in Azure Managed Redis:
 
-| Module |Basic, Standard, and Premium  |Enterprise  |Enterprise Flash  |
-|---------|---------|---------|---------|
-|RediSearch   |    No   |    Yes     | Yes (preview)    |
-|RedisBloom   |      No   |    Yes    |   No    |
-|RedisTimeSeries |   No    |    Yes   |   No    |
-|RedisJSON  |     No    |  Yes    |   Yes      |
+| Module | Memory Optimized  |Balanced | Compute Optimized  |Flash Optimized  |
+|---------|---------|---------|---------|---------|
+|RediSearch   |   Yes   |    Yes     | Yes|  Yes (preview)    |
+|RedisBloom   |      Yes   |    Yes    | Yes |  No    |
+|RedisTimeSeries |   Yes    |    Yes   | Yes |  No    |
+|RedisJSON  |     Yes    |  Yes    |   Yes   | Yes |
 
 > [!NOTE]
-> Currently, you can't manually load any modules into Azure Cache for Redis. Manually updating modules version is also not possible.
+> Currently, you can't manually load any modules into Azure Managed Redis. Manually updating modules version is also not possible.
 
 ## Using modules with active geo-replication
 
-Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](cache-how-to-active-geo-replication.md).
+Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](../cache-how-to-active-geo-replication.md).
 
 Using these modules, you can implement searches across groups of caches that are synchronized in an active-active configuration. Also, you can search JSON structures in your active-active configuration.
 
@@ -43,20 +41,20 @@ The standard Redis client libraries have a varying amounts of support for each m
 
 ## Adding modules to your cache
 
-You must add modules when you create your Enterprise tier cache. To add a module or modules when creating a new cache, use the settings in the Advanced tab of the Enterprise tier caches.
+You must add modules when you create your Azure Managed Redis instance. To add a module or modules when creating a new instance, use the settings in the Advanced tab.
 
 You can add all the available modules or to select only specific modules to install.
 
-:::image type="content" source="media/cache-how-to-use-modules/cache-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
+:::image type="content" source="how-to-use-modules/managed-redis-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
 
 > [!IMPORTANT]
-> Modules must be enabled at the time you create an Azure Cache for Redis instance.
+> Modules must be enabled at the time you create an Azure Managed Redis instance.
 
-For more information, see [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md).
+For more information, see [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md).
 
 ## Modules
 
-The following modules are available when creating a new Enterprise cache.
+The following modules are available when creating a new Azure Managed Redis instance.
 
 - [RediSearch](#redisearch)
 - [RedisBloom](#redisbloom)
@@ -78,12 +76,12 @@ Features include:
 
 Additionally, **RediSearch** can function as a secondary index, expanding your cache beyond a key-value structure and offering more sophisticated queries.
 
-**RediSearch** also includes functionality to perform [vector similarity queries](https://redis.io/solutions/vector-search/) such as K-nearest neighbor (KNN) search. This feature allows Azure Cache for Redis to be used as a vector database, which is useful in AI use-cases like [semantic answer engines or any other application that requires the comparison of embeddings vectors](https://redis.com/blog/rediscover-redis-for-vector-similarity-search/) generated by machine learning models.
+**RediSearch** also includes functionality to perform [vector similarity queries](https://redis.io/solutions/vector-search/) such as K-nearest neighbor (KNN) search. This feature allows Azure Managed Redis to be used as a vector database, which is useful in AI use-cases like [semantic answer engines or any other application that requires the comparison of embeddings vectors](https://redis.com/blog/rediscover-redis-for-vector-similarity-search/) generated by machine learning models.
 
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/search/).
 
 >[!IMPORTANT]
-> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see   and [Memory Policies](redis/configure.md#memory-policies).
+> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering](managed-redis-architecture.md#clustering) and [Memory Policies](../cache-configure.md#memory-policies)
 >
 
 ### RedisBloom
@@ -107,7 +105,7 @@ The **RedisTimeSeries** module adds high-throughput time series capabilities to 
 
 - Aggregated queries (for example, average, maximum, standard deviation, etc.)
 - Time-based queries (for example, start-time and end-time)
-- Downsampling/decimation
+- Down sampling/decimation
 - Data labeling for secondary indexing
 - Configurable retention period
 
@@ -136,5 +134,5 @@ For more information, see [RedisJSON](https://redis.io/json/).
 
 ## Related content
 
-- [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
-- [Client libraries](cache-best-practices-client-libraries.md)
+- [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md)
+- [Client libraries](managed-redis-best-practices-client-libraries.md)

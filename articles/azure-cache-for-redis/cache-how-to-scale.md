@@ -388,7 +388,7 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 - If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
-> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
+> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering](redis/architecture.md#clustering).
 >
 
 ### How are keys distributed in a cluster?
@@ -455,11 +455,11 @@ If you're using StackExchange.Redis and receive `MOVE` exceptions when using clu
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
-OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering](redis/architecture.md#clustering).
 
 ### How many shards do Enterprise tier caches use?
 
-Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding configuration](managed-redis/managed-redis-architecture.md#sharding-configuration).
+Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding configuration](redis/architecture.md#sharding-configuration).
 
 ## Next steps
 

@@ -261,8 +261,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-cache-for-redis/managed-redis/managed-redis-configure-role-based-access-control.md",
-            "redirect_url": "/azure/azure-cache-for-redis/managed-redis/managed-redis-entra-for-authentication",
+            "source_path_from_root": "/articles/azure-cache-for-redis/redis/configure-role-based-access-control.md",
+            "redirect_url": "/azure/azure-cache-for-redis/redis/entra-for-authentication",
             "redirect_document_id": false
         }
     ]
