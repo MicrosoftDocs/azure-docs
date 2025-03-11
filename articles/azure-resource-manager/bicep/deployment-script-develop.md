@@ -391,7 +391,7 @@ The supporting files are copied to *azscripts/azscriptinput* at runtime. Use a r
 
 ## Access Azure resources
 
-To access Azure resources, you must configure the `identity` element. The following Bicep file demonstrates how to retrieve a list of Azure key vaults. Granting the user-assignment management identity permission to access the key vault is also necessary.
+To access Azure resources, you must configure the `identity` element. The following Bicep file demonstrates how to retrieve a list of Azure Key Vaults. Granting the user-assignment management identity permission to access the key vault is also necessary.
 
 # [CLI](#tab/CLI)
 
