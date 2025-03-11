@@ -24,7 +24,7 @@ This article provides a detailed overview of the enhancements introduced in the 
 > *Released March 11th, 2025*
 
 This release introduces health check API in Event Hubs emulator. 
-- It can be accessed at http://localhost:5300/health
+- Health check API can be accessed at *http://localhost:5300/health*
 
 ## Previous releases
 

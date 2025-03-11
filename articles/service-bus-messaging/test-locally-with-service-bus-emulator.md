@@ -35,7 +35,7 @@ Before you run an automated script, clone the emulator's [GitHub installer repos
 
 Use the following steps to run the Service Bus emulator locally on Windows:
 
-1. **Open PowerShell** and navigate to the directory where the common [ need to add link to folder] scripts folder is cloned using `cd`:
+1. **Open PowerShell** and navigate to the directory where the [common](https://github.com/Azure/azure-service-bus-emulator-installer/tree/main/ServiceBus-Emulator/Scripts/Common) scripts folder is cloned using `cd`:
    ```powershell
    cd <path to your common scripts folder> # Update this path
       
@@ -43,7 +43,7 @@ Use the following steps to run the Service Bus emulator locally on Windows:
    ```powershell
    wsl
 
-3. **Run the setup script** *./LaunchEmulator.sh* [Need to add link to the script].Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
+3. **Run the setup script** *./LaunchEmulator.sh*.Running the script brings up two containers: the Service Bus emulator and Sql Edge (a dependency for the emulator).
    ```bash
    ./Launchemulator.sh 
 
