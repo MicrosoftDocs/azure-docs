@@ -1,7 +1,6 @@
 ---
 title: Cache purging for Azure Front Door
 description: This article helps you understand how to purge cache for an Azure Front Door profile.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD

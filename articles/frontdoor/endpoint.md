@@ -1,8 +1,6 @@
 ---
 title: Endpoints in Azure Front Door
-TitleSuffix: Azure Front Door
 description: Learn about endpoints when using Azure Front Door.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

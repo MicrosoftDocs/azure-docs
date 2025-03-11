@@ -1,7 +1,6 @@
 ---
 title: Protocol support for HTTP headers in Azure Front Door
 description: This article describes HTTP header protocols that Front Door supports.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

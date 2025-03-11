@@ -1,7 +1,6 @@
 ---
 title: Configure Azure Front Door logs
 description: This article explains how to configure Azure Front Door logs.
-services: front-door
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

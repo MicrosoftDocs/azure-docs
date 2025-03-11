@@ -1,7 +1,6 @@
 ---
 title: About Azure Front Door (classic) to Standard/Premium tier migration
 description: This article explains the migration process and changes expected when using the migration tool to Azure Front Door Standard/Premium tier.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
