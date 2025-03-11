@@ -4,7 +4,7 @@ description: Learn how to create and manage Azure Resource Manager (ARM) virtual
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/10/2025
+ms.date: 03/11/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a lab user, I want to know how to create, manage, and access ARM templates for creating Azure VMs, so I can use the templates to create more VMs.
@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency2
 This article describes how DevTest Labs users can:
 
 - View, edit, and save Azure Resource Manager (ARM) templates for creating Azure VMs.
-- Store the ARM templates in source control repositories.
+- Store ARM templates in source control repositories.
 - Add and access ARM template repositories in Azure DevTest Labs.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
@@ -47,11 +47,11 @@ You can customize and use an ARM template from any available Azure VM base to us
 For more information on creating lab VMs, see [Create lab virtual machines in Azure DevTest Labs](devtest-lab-add-vm.md).
 
 <a name="set-vm-expiration-date"></a>
-## Edit ARM templates for VMs
+### Edit ARM templates
 
-When you reuse the ARM template to create more VMs, you can update the parameters and values in your template file. To update only the template `parameters` section without having to edit the main template file, you can create and edit a separate file called *azuredeploy.parameters.json*.
+When you reuse the ARM template to create more VMs, you can change the parameters and values in your template file. To update only the template `parameters` section without having to edit the main template file, you can create and edit a separate file called *azuredeploy.parameters.json*.
 
-For example, in training, demo, and trial scenarios, you can automatically delete VMs after a certain date so they don't keep incurring costs. When you create a lab VM in the Azure portal, you can specify the **Expiration date** on the **Advanced settings** tab. You can also add an `expirationDate` parameter or change the value in an ARM template.
+For example, in training, demo, and trial scenarios, you can automatically delete VMs after a certain date so they don't keep incurring costs. When you create a lab VM in the Azure portal, you can specify the **Expiration date** on the **Advanced settings** tab. You can also add an `expirationDate` parameter or change its value in an ARM template.
 
 ```json
   "parameters": {
