@@ -1,7 +1,6 @@
 ---
 title: 'Secure your Origin with Private Link in Azure Front Door Premium'
 description: This page provides information about how to secure connectivity to your origin using Private Link.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

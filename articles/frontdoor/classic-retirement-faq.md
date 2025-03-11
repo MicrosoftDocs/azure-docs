@@ -1,8 +1,6 @@
 ---
 title: Azure Front Door (classic) retirement FAQ
-titleSuffix:  Azure Front Door
 description: Common questions about the retirement of Azure Front Door (classic).
-services: front-door
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

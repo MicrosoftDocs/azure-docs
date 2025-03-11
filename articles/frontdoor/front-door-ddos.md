@@ -1,7 +1,6 @@
 ---
 title: DDoS protection on Azure Front Door
 description: Learn how Azure Front Door provides robust protection against DDoS attacks, ensuring the security and performance of your web applications.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
