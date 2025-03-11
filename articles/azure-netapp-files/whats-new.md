@@ -6,13 +6,15 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 02/24/2025
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+## March 2025
 
 * [Application volume group for Oracle](application-volume-group-oracle-introduction.md) is now generally available (GA)
 
@@ -23,11 +25,23 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Support for availability zone volume placement, avoiding the manual AVset pining requirement (when using PPG) 
     - Support for Standard network features for SAP HANA volumes 
 
+* [Storage with cool access enhancement:](manage-cool-access.md) snapshot-only tiering policy
+
+    Azure NetApp Files storage with cool access now supports a snapshots-only policy. With this policy enabled, only snapshots are moved to the cool tier. 
+
+* [Edit network features enhancement: no downtime](configure-network-features.md#no-downtime) is now generally available (GA)
+
+    Azure NetApp Files now supports the ability to edit network features (that is, upgrade from Basic to Standard network features) with no downtime for Azure NetApp Files volumes. Standard Network Features provide you with an enhanced virtual networking experience for a seamless and consistent experience along with security posture for Azure NetApp Files. This feature is available in all Azure NetApp Files regions. 
+
 ## February 2025
+
+* [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) (Preview)
+
+    Azure NetApp Files now supports private links with NSGs in all regions. This feature enables you to apply NSG policies to private link endpoints, enhancing the security of your workload deployments. 
 
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
-    Azure NetApp Files metrics now enable you to see the percentage of a volume's total [inodes](maxfiles-concept.md) consumed. 
+    The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
 
 ## January 2025 
 

@@ -37,7 +37,10 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
+| **25.1** | | | |
+| 25.1.0  |03/2025 | Major |02/2026 |
 | **24.1** | | | |
+| 24.1.9  |03/2025 | Minor |02/2026 |
 | 24.1.8  |12/2024 | Minor |12/2025 |
 | 24.1.7  |12/2024 | Minor |12/2025 |
 | 24.1.6  |11/2024 | Minor |12/2025 |
@@ -91,7 +94,28 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
+## Versions 25.1.x
+
+### Version 25.1.0
+
+**Release date**: 03/2025
+
+**Supported until**: 02/2026
+
+This version includes the following updates and enhancements:
+
+- ["Unauthorized Internet Connectivity Detected" alert now includes URL information](whats-new.md#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)
+- [Improved RDP brute force detection](whats-new.md#improved-rdp-brute-force-detection)
+
 ## Versions 24.1.x
+
+### 24.1.9
+
+**Release date**: 03/2025
+
+**Supported until**: 02/2026
+
+This version includes bug fixes for stability improvements.
 
 ### 24.1.8
 
