@@ -1,5 +1,5 @@
 ---
-title: Create an Azure VMware Solution on Native Private Cloud (Public Preview)
+title: Create an Azure VMware Solution on Native private cloud (Public Preview)
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn how to create an Azure VMware Solution on Native private cloud.
