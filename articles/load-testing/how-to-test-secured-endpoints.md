@@ -183,7 +183,7 @@ Follow the steps in [Import a certificate](/azure/key-vault/certificates/tutoria
 > [!IMPORTANT]
 > Azure Load Testing only supports PKCS12 certificates. Upload the client certificate in PFX file format.
 
-### Grant access to your Azure key vault
+### Grant access to your Azure Key Vault
 
 [!INCLUDE [include-grant-key-vault-access-secrets](includes/include-grant-key-vault-access-secrets.md)]
 
