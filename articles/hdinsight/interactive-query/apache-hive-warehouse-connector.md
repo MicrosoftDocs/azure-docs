@@ -171,9 +171,9 @@ This is a way to run Spark interactively through a modified version of the Scala
 
 ### Spark-submit
 
-Spark-submit is a utility to submit any Spark program (or job) to Spark clusters.
+`Spark-submit` is a utility to submit any Spark program (or job) to Spark clusters.
 
-The spark-submit job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
+The `spark-submit` job will set up and configure Spark and Hive Warehouse Connector as per our instructions, execute the program we pass to it, then cleanly release the resources that were being used.
 
 Once you build the scala/java code along with the dependencies into an assembly jar, use the below command to launch a Spark application. Replace `<VERSION>`, and `<APP_JAR_PATH>` with the actual values.
 
