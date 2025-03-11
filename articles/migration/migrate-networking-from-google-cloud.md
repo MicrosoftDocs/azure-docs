@@ -1,6 +1,6 @@
 ---
 title: Migrate Network Connectivity from Google Cloud
-description: Concepts, how-tos, best practices for network connectivity from AWS to Azure.
+description: Concepts, how-tos, best practices for network connectivity from Google Cloud to Azure.
 author: robbyatmicrosoft
 ms.author: robbymillsap
 ms.date: 01/28/2025  
