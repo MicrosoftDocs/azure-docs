@@ -11,6 +11,10 @@
     href: private-link-service-overview.md
   - name: What is a network security perimeter?
     href: network-security-perimeter-concepts.md  
+  - name: Availability
+    href: availability.md
+  - name: FAQ
+    href: private-link-faq.yml
 - name: Configure
   items:
   - name: Create a private endpoint
@@ -83,10 +87,24 @@
     href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: Approve private link connections across subscriptions
     href: how-to-approve-private-link-cross-subscription.md
-- name: Resiliency
+- name: Operational excellence
   items:
-  - name: Availability
-    href: availability.md
+  - name: Monitor Private Link
+    href: monitor-private-link.md
+  - name: Manage network policies for private endpoints
+    href: disable-private-endpoint-network-policy.md
+  - name: Disable network policies for a Private Link service
+    href: disable-private-link-service-network-policy.md
+  - name: Manage private endpoints
+    href: manage-private-endpoint.md
+  - name: Relocate Private Link Service to another region
+    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+  - name: Network security perimeter
+    items:
+    - name: Diagnostic logs
+      href: network-security-perimeter-diagnostic-logs.md
 - name: Security
   items:
   - name: Configure an application security group
@@ -101,22 +119,6 @@
     items:
     - name: Role-based access control permissions
       href: network-security-perimeter-role-based-access-control-requirements.md
-- name: Operational excellence
-  items:
-  - name: Monitor Private Link
-    href: monitor-private-link.md
-  - name: Manage network policies for private endpoints
-    href: disable-private-endpoint-network-policy.md
-  - name: Disable network policies for a Private Link service
-    href: disable-private-link-service-network-policy.md
-  - name: Manage private endpoints
-    href: manage-private-endpoint.md
-  - name: Relocate Private Link Service to another region
-    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
-  - name: Network security perimeter
-    items:
-    - name: Diagnostic logs
-      href: network-security-perimeter-diagnostic-logs.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot private endpoint connectivity problems
@@ -165,8 +167,8 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/category/networking
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
@@ -177,5 +179,4 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
-  - name: FAQ
-    href: private-link-faq.yml
+
