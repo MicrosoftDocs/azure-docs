@@ -34,13 +34,13 @@ App Configuration treats each key stored within it as an independent entity. It 
 
 Consider an example where you have a configuration setting named *TestApp:MySetting*, whose value varies depending on the environment. You can create two keys with the same name, but assign different labels—one with no label (default) and another labeled *Development*. The unlabeled key holds the default value, while the labeled key contains the environment-specific value.
 
-In your application code, you first load the default (unlabeled) key-values, then load the environment-specific key-values using the *Development* label. When loading the second set, any matching keys overwrite the previously loaded values. This approach allows you to "stack" multiple configuration sets, with the last loaded value taking precedence. [App Configuration providers](./configuration-provider-overview.md) across supported languages and platforms support this stacking capability.
+In your application code, you first load the default (unlabeled) key-values, then load the environment-specific key-values using the *Development* label. When loading the second set, any matching keys overwrite the previously loaded values. This approach allows you to "stack" multiple configuration sets, with the last loaded value taking precedence. [App Configuration providers](./configuration-provider-overview.md) across supported languages and platforms offer this stacking capability.
 
 The following example demonstrates how to implement key-value composition in a .NET application:
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and compose with two different labels
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .Select(keyFilter: "TestApp:*", labelFilter: "Development");
@@ -55,14 +55,14 @@ Azure App Configuration supports dynamic configuration refresh without requiring
 
 #### Monitoring all selected keys
 
-In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without needing a dedicated sentinel key.
+In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without requiring additional key modifications.
 
 Here's an example using .NET:
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -82,26 +82,20 @@ Here's an example using .NET:
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect("<your-app-config-endpoint>", new DefaultAzureCredential())
+    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
            {
-               // Register the sentinel key; refresh all values if this key changes.
+               // Trigger full configuration refresh only if the `SentinelKey` changes.
                refreshOptions.Register("SentinelKey", refreshAll: true);
            });
 });
 ```
 
-Both approaches are supported by App Configuration providers across supported languages and platforms.
+Both approaches are available through App Configuration providers across supported languages and platforms.
 
-Regardless of the approach you choose, consider the following best practices to minimize the risk of configuration inconsistencies:
-
-- Design your application to tolerate transient configuration inconsistencies.
-- Warm up your application before serving requests.
-- Include default configuration within your application as a fallback when validation fails.
-- Choose a configuration update strategy that minimizes impact, such as updating during low-traffic periods.
-- Use [configuration snapshots](./howto-create-snapshots.md) for guaranteed configuration integrity.
+To reduce the risk of configuration inconsistencies, use [configuration snapshots](./howto-create-snapshots.md) to ensure configuration integrity.
 
 ## References to external data
 
