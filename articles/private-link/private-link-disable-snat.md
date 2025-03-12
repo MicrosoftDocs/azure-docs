@@ -38,7 +38,7 @@ Here we add the tag to the virtual machine's NIC.
 # [Portal](#tab/vm-nic-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar at the top, type "Virtual machines" and select it from the services.
+1. In the search bar at the top, search for and select **virtual machines**.
 1. From the list of virtual machines, select your virtual machine.
 1. In the left navigation pane under **Settings**, select **Networking**, then select **Network settings**.
 1. Under the **Network Interface** section, select on the NIC name. Now you are in the Network interface pane.
@@ -84,7 +84,7 @@ Here we add the tag to the virtual machine scale set instance.
 # [Portal](#tab/vmss-portal)  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar at the top, type "Virtual machine scale sets" and select it from the services.
+1. In the search bar at the top, search and select **virtual machine scale sets**.
 1. From the list of scale sets, select your virtual machine scale set.
 1. In the left navigation pane under **Overview**, select **Tags**.
 1. Add a new tag with the following details:
