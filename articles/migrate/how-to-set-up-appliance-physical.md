@@ -128,7 +128,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
-	2. The appliance verifies the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+	2. The appliance verifies the key and starts the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
@@ -164,7 +164,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     * The appliance communicates with Windows servers over WinRM port 5986 (HTTPS) by default and with Linux servers over port 22 (TCP). 
     * If the HTTPS [prerequisites](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) are not configured on the target Hyper-V servers, appliance communication falls back to WinRM port 5985 (HTTP).
 
-      :::image type="content" source="./media/tutorial-assess-physical/provide-physical-or-virtual-server-details.png" alt-text="Provides the physical and virtual server details." :::
+      :::image type="content" source="./media/tutorial-assess-physical/provide-physical-or-virtual-server-details.png" lightbox="./media/tutorial-assess-physical/provide-physical-or-virtual-server-details.png" alt-text="Screenshot shows the physical and virtual server details." :::
 
     * To enforce https communication without fallback, enable the https protocol toggle in Appliance Config Manager.
     * After enabling the checkbox, ensure that the prerequisites are configured on the target servers. If certificates aren't configured on the target servers, discovery would fail on the current discovered servers and on newly added servers. 
