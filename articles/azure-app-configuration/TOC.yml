@@ -300,7 +300,7 @@
           href: ./rest-api-throttling.md
         - name: Versioning
           href: ./rest-api-versioning.md
-  - name: Client libraries
+  - name: Configuration providers
     items:
     - name: Overview
       href: ./configuration-provider-overview.md
@@ -359,6 +359,10 @@
         href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
+    - name: JavaScript
+      items:
+      - name: Feature reference
+        href: ./feature-management-javascript-reference.md
   - name: Deployment
     items:
     - name: ARM template
