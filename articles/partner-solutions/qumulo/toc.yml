@@ -3,10 +3,6 @@ items:
   href: index.yml
 - name: What is Azure Native Qumulo Scalable File Service?
   href: overview.md
-- name: Get started
-  items:
-- name: Create a Qumulo resource
-  href: create.md
 - name: Disaster recovery
   href: qumulo-disaster-recovery.md
 - name: Video editing
@@ -15,16 +11,16 @@ items:
   href: qumulo-vendor-neutral-archive.md
 - name: Virtual desktops
   href: qumulo-virtual-desktop.md
-
-
+- name: Get started
+  items:
+- name: Create a Qumulo resource
+  href: create.md
 - name: How to
   items:
   - name: Manage resources
     href: manage.md
   - name: Troubleshoot Azure Native Qumulo Scalable File Service
     href: troubleshoot.md
-
-
 - name: SDKs and command-lines
   items:
   - name: Python
