@@ -25,7 +25,7 @@ Azure Batch service is designed to support various scenarios that necessitate ac
   - **Application packages**: This requires communication with Azure Storage. For additional details, please refer to [batch-application-packages](./batch-application-packages.md).
   - **Customer-managed Keys**: This requires communication with Azure KeyVault. For additional details, please refer to [batch-customer-managed-key](./batch-customer-managed-key.md).
 
-By onboarding network security perimeter, network administrators can establish a network isolation boundary for their PaaS services. This allows for the configuration of public access controls for multiple PaaS resources through a uniform API and a consistent user experience.For the PaaS communications supported by Batch as mentioned above, Azure storage and Azure KeyVault have onboared network secruity perimeter, see [Network security perimeter in Azure Storage](/azure/storage/common/storage-network-security?tabs=azure-portal#network-security-perimeter-preview) and (Network security perimeter in Azure Key Vault)(/azure/key-vault/general/network-security#network-security-perimeter-preview)
+By onboarding network security perimeter, network administrators can establish a network isolation boundary for their PaaS services. This allows for the configuration of public access controls for multiple PaaS resources through a uniform API and a consistent user experience. For the PaaS communications supported by Batch as mentioned above, Azure storage and Azure KeyVault have onboared network secruity perimeter, see [Network security perimeter in Azure Storage](/azure/storage/common/storage-network-security?tabs=azure-portal#network-security-perimeter-preview) and [Network security perimeter in Azure Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)
 
 Network security perimeter provides several methods to enable Batch to interact with other PaaS services if the target PaaS service is in network security perimeter:
   - Associate the Batch account with the same perimeter as the target resource and assign the necessary RBAC permissions to the Managed Identity used across these resources.
@@ -144,7 +144,7 @@ Create your own network security perimeter resource using [Azure portal](/azure/
 
 ## Next steps
 
-- Learn more about [security best practices in Azure Batch](security-best-practices.md).
+- Learn more about [Security Best Practices in Azure Batch](security-best-practices.md).
 - Learn more about [Network Security Perimeter Concepts](/azure/private-link/network-security-perimeter-concepts.md).
 - Learn more about [Network Security Perimeter Diagnostic Logs](/azure/private-link/network-security-perimeter-diagnostic-logs.md).
 - Learn more about [Network Security Perimeter Role Based Access Control](/azure/private-link/network-security-perimeter-role-based-access-control-requirements.md).
