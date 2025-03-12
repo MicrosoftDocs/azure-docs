@@ -42,7 +42,7 @@ To begin using the Azure CLI:
 
 1. Deploy your application to an Azure hosting service. Optionally refer to the guides below for more information about deploying these resources.
 
-   - AAzure pp Service: [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
+   - Azure App Service: [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
    - Azure Container Apps: [Quickstart: Deploy your first container app](../container-apps/get-started.md).
    - Azure Spring Apps: [Build and deploy the app](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?#build-and-deploy-the-app).
        [!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
