@@ -32,7 +32,7 @@ There are two controls for basic authentication:
 
 1. For **SCM Basic Auth Publishing Credentials** or **FTP Basic Auth Publishing Credentials**, select **Off**, then select **Save**.
 
-    :::image type="content" source="media/configure-basic-auth-disable/basic-auth-disable.png" alt-text="A screenshot showing how to disable basic authentication for Azure App Service in the Azure portal.":::
+    :::image type="content" source="media/configure-basic-auth-disable/basic-auth-disable.png" alt-text="Screenshot that shows how to disable basic authentication for Azure App Service in the Azure portal.":::
 
 ### [Azure CLI](#tab/cli)
 
