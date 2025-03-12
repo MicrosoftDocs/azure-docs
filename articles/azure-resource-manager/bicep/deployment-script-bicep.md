@@ -317,7 +317,7 @@ The output of the list command is similar to this example:
   },
   "environmentVariables": null,
   "forceUpdateTag": null,
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
   "identity": null,
   "kind": "AzureCLI",
   "location": "centralus",
@@ -331,12 +331,12 @@ The output of the list command is similar to this example:
   "retentionInterval": "1:00:00",
   "scriptContent": "echo \"The argument is John Dole.\"; jq -n -c --arg st \"Hello John Dole\" '{\"text\": $st}' > $AZ_SCRIPTS_OUTPUT_PATH",
   "status": {
-    "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
+    "containerInstanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
     "endTime": "2023-12-11T20:20:12.149468+00:00",
     "error": null,
     "expirationTime": "2023-12-11T21:20:12.149468+00:00",
     "startTime": "2023-12-11T20:18:26.674492+00:00",
-    "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
+    "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
   },
   "storageAccountSettings": null,
   "supportingScriptUris": null,
@@ -367,10 +367,10 @@ The `Get-AzDeploymentScript` output is similar to this example:
 
 ```output
 Name                : inlinePS
-Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlinePS
+Id                  : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlinePS
 ResourceGroupName   : dsDemo
 Location            : centralus
-SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
@@ -379,8 +379,8 @@ StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM
 CleanupPreference   : OnExpiration
-StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/ee5o4rmoo6ilmazscripts
-ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/ee5o4rmoo6ilmazscripts
+StorageAccountId    : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/ee5o4rmoo6ilmazscripts
+ContainerInstanceId : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/ee5o4rmoo6ilmazscripts
 Outputs             :
                       Key                 Value
                       ==================  ==================
@@ -406,7 +406,7 @@ The following example uses [ARMClient](https://github.com/projectkudu/ARMClient)
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
+armclient get /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 The output is similar to this example:
@@ -435,19 +435,19 @@ The output is similar to this example:
       "containerGroupName": null
     },
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
+      "containerInstanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.ContainerInstance/containerGroups/jgczqtxom5oreazscripts",
       "endTime": "2023-12-11T20:20:12.149468+00:00",
       "error": null,
       "expirationTime": "2023-12-11T21:20:12.149468+00:00",
       "startTime": "2023-12-11T20:18:26.674492+00:00",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
+      "storageAccountId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Storage/storageAccounts/jgczqtxom5oreazscripts"
     },
     "outputs": {
       "text": "Hello John Dole"
     },
     "cleanupPreference": "OnSuccess"
   },
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/dsDemo/providers/Microsoft.Resources/deploymentScripts/inlineCLI",
   "type": "Microsoft.Resources/deploymentScripts",
   "name": "inlineCLI",
 }

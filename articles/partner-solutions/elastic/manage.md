@@ -1,10 +1,10 @@
 ---
 title: Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service
 description: This article describes management of Elastic Cloud (Elasticsearch) on the Azure portal. How to configure diagnostic settings and delete the resource.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/06/2023
-author: flang-msft
-ms.author: franlanglois
+
+
 ---
 
 # Manage Elastic Cloud (Elasticsearch) - An Azure Native ISV Service

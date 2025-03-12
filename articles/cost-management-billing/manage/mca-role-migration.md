@@ -7,7 +7,7 @@ ms.reviewer: vkulkarni
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -78,16 +78,16 @@ $billingProfile = ""
 ##(destination) MCA-E details
 $targetBillingProfile = ""
 $targetTenantId = ""
-$targerbillingAccout=""
+$targetbillingAccount=""
 ## Invoice section mapping in hash table
 $hash = @{
 "" = ""; #invoice section 1
 "" = ""; #invoice section 2
 }
-## Conect to Azure account using device authentication using tenantId
+## Connect to Azure account using device authentication using tenantId
 Connect-AzAccount -UseDeviceAuthentication -TenantId $tenantId
 Set-AzContext -TenantId $tenantId
-## Aquire access token for the current user
+## Acquire access token for the current user
 $var = Get-AzAccessToken
 $auth = 'Bearer ' + $var.Token
 #### Get Billing Account Role Assignments from source MCA-E
@@ -105,7 +105,7 @@ $ArrayListBARoles = [System.Collections.Generic.List[string]]::new();
 $ArrayListBPRoles = [System.Collections.Generic.List[string]]::new();
 $ArrayListISRoles = [System.Collections.Generic.List[string]]::new();
 #### Add each billing account role and principal id to array list 
-#### Push down the billing accout role assignments to billing profile role assignments (replacong 5 series with 4 series)
+#### Push down the billing account role assignments to billing profile role assignments (replacing 5 series with 4 series)
 foreach($j in $ret.value){                                                     
 	$BANameArrayArray= $j.name -replace "500000", "500000" #-split '_'                                           
 	foreach($i in $BANameArrayArray){
@@ -131,14 +131,14 @@ foreach($k in $retBPRoles.value){
 $invoiceSections = Get-AzInvoiceSection -BillingAccountName $billingAccount -BillingProfile $billingProfile
 for ($ii=0; $ii -lt $ArrayListBARoles.count;  $ii=$ii+1){ 
 	$paramsBARoleCreation = @{
-		Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/"+$targerbillingAccout+"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
+		Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/"+$targetbillingAccount+"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
 		Headers     = @{ 'Authorization' = $auth }
 		Method      = 'POST'
 		ContentType = 'application/json'
 		}
 	$BodyBARoleCreation = @{
 		principalTenantId = $tenantId
-		roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targerbillingAccout +"/" +($ArrayListBARoles[$ii] -SPLIT '_')[0]
+		roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targetbillingAccount +"/" +($ArrayListBARoles[$ii] -SPLIT '_')[0]
 		principalId=($ArrayListBARoles[$ii] -SPLIT '_')[1]
 		}
 	$retBARoles = Invoke-RestMethod @paramsBARoleCreation -body @($BodyBARoleCreation | ConvertTo-Json)
@@ -146,14 +146,14 @@ for ($ii=0; $ii -lt $ArrayListBARoles.count;  $ii=$ii+1){
 #BILLING PROFILE	
 for ($ii=0; $ii -lt $ArrayListBPRoles.count;  $ii=$ii+1){
 	$paramsBPRoleCreation = @{
-		Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/" +$targerbillingAccout +"/billingProfiles/"+ $targetBillingProfile +"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
+		Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/" +$targetbillingAccount +"/billingProfiles/"+ $targetBillingProfile +"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
 		Headers     = @{ 'Authorization' = $auth }
 		Method      = 'POST'
 		ContentType = 'application/json'
 	}
 	$BodyBPRoleCreation = @{
 		principalTenantId = $tenantId
-		roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targerbillingAccout +"/billingProfiles/"+ $targetBillingProfile +"/" +($ArrayListBPRoles[$ii] -SPLIT '_')[0]
+		roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targetbillingAccount +"/billingProfiles/"+ $targetBillingProfile +"/" +($ArrayListBPRoles[$ii] -SPLIT '_')[0]
 		principalId=($ArrayListBPRoles[$ii] -SPLIT '_')[1]
     }
 	$retBPRoles = Invoke-RestMethod @paramsBPRoleCreation -body @($BodyBPRoleCreation | ConvertTo-Json)
@@ -184,14 +184,14 @@ foreach ($m in $invoiceSections){
 	}
 		for ($ii=0; $ii -lt $ArrayListISRoles.count;  $ii=$ii+1){
 			$paramsISRoleCreation = @{
-				Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/" +$targerbillingAccout+ "/billingProfiles/"+ $targetBillingProfile +"/invoiceSections/"+ $targetinvoiceSection +"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
+				Uri = "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/" +$targetbillingAccount+ "/billingProfiles/"+ $targetBillingProfile +"/invoiceSections/"+ $targetinvoiceSection +"/createBillingRoleAssignment?api-version=2020-12-15-privatepreview"
 				Headers     = @{ 'Authorization' = $auth }
 				Method      = 'POST'
 				ContentType = 'application/json'
 			}
 			$BodyISRoleCreation = @{
 				principalTenantId = $tenantId
-				roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targerbillingAccout +"/billingProfiles/"+ $targetBillingProfile +"/invoiceSections/"+ $targetinvoiceSection+ "/" +($ArrayListISRoles[$ii] -SPLIT '_')[0]
+				roleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/" +$targetbillingAccount +"/billingProfiles/"+ $targetBillingProfile +"/invoiceSections/"+ $targetinvoiceSection+ "/" +($ArrayListISRoles[$ii] -SPLIT '_')[0]
 				#userEmailAddress = ($graph.UserPrincipalName -Replace '_', '@' -split '#EXT#@' )[0]
 				principalId=($ArrayListISRoles[$ii] -SPLIT '_')[1]
 			}

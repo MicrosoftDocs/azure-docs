@@ -6,7 +6,7 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 07/13/2023
 ms.topic: tutorial
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: mvc
 #Customer intent: As an IoT developer, I want to perform image recognition directly on my IoT Edge device so that I can have faster results and lower costs for data transfers.
 ---
@@ -77,7 +77,7 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | Project Types | **Classification** |
    | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
-   | Export Capabilities | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** |
+   | Export Capabilities | **Basic platforms (TensorFlow, CoreML, ONNX, ...)** |
 
 5. Select **Create project**.
 

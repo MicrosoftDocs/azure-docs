@@ -2,12 +2,11 @@
 title: 'Connect Azure Front Door Premium to a storage account origin with Private Link'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage account privately.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.author: duau
 ---
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
@@ -63,15 +62,12 @@ In this section, you map the Private Link service to a private endpoint created 
 
 1. In **Networking**, select **Private endpoint connections**. 
 
-    :::image type="content" source="../media/how-to-enable-private-link-storage-account/storage-account-configure-endpoint.png" alt-text="Screenshot of networking settings in a Web App.":::
 
 1. Select the *pending* private endpoint request from Azure Front Door Premium then select **Approve**.
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-pending-approval.png" alt-text="Screenshot of pending storage private endpoint request.":::
 
 1. Once approved, it should look like the following screenshot. It takes a few minutes for the connection to fully establish. You can now access your storage account from Azure Front Door Premium.
-
-    :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-approved.png" alt-text="Screenshot of approved storage endpoint request.":::
 
 > [!NOTE]
 > If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).

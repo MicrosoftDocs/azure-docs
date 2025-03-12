@@ -36,7 +36,7 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 >
 > Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 6. If you need to target that version, you can adapt the .NET 8 examples.
+This guide doesn't present specific examples for .NET 9. If you need to target that version, you can adapt the .NET 8 examples for the isolated worker model.
 
 ::: zone-end
 
@@ -277,7 +277,7 @@ Some key classes changed names between versions. These changes are a result eith
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-| .NET Core 3.1  | .NET 5 |  .NET 6 (in-process) | 
+| .NET Core 3.1  | .NET 5 |  .NET 8 (in-process) | 
 | --- | --- | --- | 
 | `FunctionName` (attribute) | `Function` (attribute) | `FunctionName` (attribute) | 
 | `ILogger` | `ILogger` | `ILogger` |
@@ -484,7 +484,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 ::: zone pivot="programming-language-csharp" 
 
-- Azure Functions 4.x supports .NET 6 in-process and isolated apps.
+- Azure Functions 4.x supports newer versions of .NET. See [Supported languages in Azure Functions](./supported-languages.md) for a full list of versions.
 
 - `InvalidHostServicesException` is now a fatal error. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
 

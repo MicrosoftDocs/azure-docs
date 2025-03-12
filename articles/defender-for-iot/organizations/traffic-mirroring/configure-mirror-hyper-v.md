@@ -30,7 +30,23 @@ Before you start:
 
 - Ensure that the data port SPAN configuration isn't configured with an IP address.
 
-## Configure a traffic mirroring port with Hyper-V
+## Create new Hyper-V virtual switch to relay the mirrored traffic into the VM
+
+### Create a new virtual switch with PowerShell
+
+```PowerShell
+New-VMSwitch -Name vSwitch_Span -NetAdapterName Ethernet -AllowManagementOS:$true
+```
+Where:
+
+| Parameter | Description |
+|--|--|
+|**vSwitch_Span** |Newly added SPAN virtual switch name |
+|**Ethernet** |Physical adapter name |
+
+Learn how to [Create and configure a virtual switch with Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines?tabs=powershell#create-a-virtual-switch)
+
+### Create a new virtual switch with Hyper-V Manager
 
 1. Open the Virtual Switch Manager.
 
@@ -48,13 +64,13 @@ Before you start:
 
 ## Attach a SPAN Virtual Interface to the virtual switch
 
-Use Windows PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
+Use Windows PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm).
 
 If you use PowerShell, define the name of the newly added adapter hardware as `Monitor`. If you use Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
 ### Attach a SPAN virtual interface to the virtual switch with PowerShell
 
-1. Select the newly added SPAN virtual switch you'd configured [earlier](#configure-a-traffic-mirroring-port-with-hyper-v), and run the following command to add a new network adapter:
+1. Select the newly added SPAN virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm), and run the following command to add a new network adapter:
 
     ```powershell
     ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
@@ -84,17 +100,25 @@ If you use PowerShell, define the name of the newly added adapter hardware as `M
 
     :::image type="content" source="../media/tutorial-install-components/vswitch-span.png" alt-text="Screenshot of selecting the following options on the virtual switch screen.":::
 
-1. In the **Hardware** list, under the **Network Adapter** drop-down list, select **Hardware Acceleration** and clear the **Virtual Machine Queue** option for the monitoring network interface.
-
 1. In the **Hardware** list, under the **Network Adapter** drop-down list, select **Advanced Features**. Under the **Port Mirroring** section, select **Destination** as the mirroring mode for the new virtual interface.
 
     :::image type="content" source="../media/tutorial-install-components/destination.png" alt-text="Screenshot of the selections needed to configure mirroring mode.":::
 
 1. Select **OK**.
 
-## Turn on Microsoft NDIS capture extensions
+## Turn on Microsoft NDIS capture extensions with PowerShell
 
-Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
+Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm).
+
+**To enable Microsoft NDIS capture extensions for your new virtual switch**:
+
+```PowerShell
+Enable-VMSwitchExtension -VMSwitchName vSwitch_Span -Name "Microsoft NDIS Capture"
+```
+
+## Turn on Microsoft NDIS capture extensions with Hyper-V Manager
+
+Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm).
 
 **To enable Microsoft NDIS capture extensions for your new virtual switch**:
 
@@ -110,7 +134,7 @@ Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/driver
 
 ## Configure the switch's mirroring mode
 
-Configure the mirroring mode on the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v) so that the external port is defined as the mirroring source. This includes configuring the Hyper-V virtual switch (vSwitch_Span) to forward any traffic that comes to the external source port to a virtual network adapter configured as the destination.
+Configure the mirroring mode on the virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm) so that the external port is defined as the mirroring source. This includes configuring the Hyper-V virtual switch (vSwitch_Span) to forward any traffic that comes to the external source port to a virtual network adapter configured as the destination.
 
 To set the virtual switch's external port as the source mirror mode, run:
 
@@ -124,7 +148,7 @@ Where:
 
 | Parameter | Description |
 |--|--|
-|**vSwitch_Span** | Name of the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v) |
+|**vSwitch_Span** | Name of the virtual switch you [created earlier](#create-new-hyper-v-virtual-switch-to-relay-the-mirrored-traffic-into-the-vm) |
 |**MonitorMode=2** | Source |
 |**MonitorMode=1** | Destination |
 |**MonitorMode=0** | None |
@@ -138,6 +162,24 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 | Parameter | Description |
 |--|--|
 |**vSwitch_Span** | Newly added SPAN virtual switch name |
+
+## Configure VLAN settings for the Monitor adapter (if needed)
+
+If the Hyper-V server is located in a different VLAN than the VLAN from which the mirrored traffic originates, set the Monitor adapter to accept traffic from the mirrored VLANs.
+
+Use this PowerShell command to enable the Monitor adapter to accept the monitored traffic from different VLANs:
+```PowerShell
+Set-VMNetworkAdapterVlan -VMName VK-C1000V-LongRunning-650 -VMNetworkAdapterName Monitor -Trunk -AllowedVlanIdList 1010-1020 -NativeVlanId 10
+```
+Where:
+
+| Parameter | Description |
+|--|--|
+|**VK-C1000V-LongRunning-650** | CPPM VA name |
+|**1010-1020** |VLAN range from which IoT traffic is mirrored |
+|**10** |Native VLAN ID of the environment |
+
+Learn more about the [Set-VMNetworkAdapterVlan](/powershell/module/hyper-v/set-vmnetworkadaptervlan) PowerShell cmdlet.
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 

@@ -2,8 +2,8 @@
 title: Tutorial - Configure policy control
 titleSuffix: Azure Private 5G Core
 description: In this tutorial, you'll create an example policy control configuration set with traffic handling for common scenarios. 
-author: robswain
-ms.author: robswain
+author: anzaman
+ms.author: alzam
 ms.service: azure-private-5g-core
 ms.topic: tutorial 
 ms.date: 01/16/2022

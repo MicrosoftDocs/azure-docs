@@ -57,7 +57,13 @@ sections:
           Why is my cache in "Failed" state?
         answer: |
           Azure Cache For Redis can end up in a *Failed* state if a management operation fails. Despite this state, you can expect your Azure Cache For Redis to be fully functional for client operations.
-          
+      - question: |
+          Why is Zone information missing on my subscription?
+        answer: |
+          Zone information may be missing on your subscription due to multiple reasons:
+          1. Subscription might not have been registered with the 'Microsoft.Cache' provider: Please run the following PowerShell command (after logging in into your subscription):
+                Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cache
+          2. Your subscription might not have been enabled for zones: Please raise a support ticket with Azure support, so that they can enable your subscription for zones. Once this step is completed, please execute step 1 (even if you have already registered your subscription with the Microsoft.Cache provider).
           
 additionalContent: |
 

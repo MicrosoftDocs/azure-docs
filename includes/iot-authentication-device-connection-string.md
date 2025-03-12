@@ -1,7 +1,7 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot
 ms.topic: include
 ms.date: 08/28/2024
 ---

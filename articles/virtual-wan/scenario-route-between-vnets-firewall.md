@@ -4,8 +4,8 @@ titleSuffix: Azure Virtual WAN
 description: Learn about routing scenarios to route traffic between VNets directly, but use Azure Firewall for VNet -> Internet/Branch and Branch to VNet traffic flows.
 author: cherylmc
 ms.service: azure-virtual-wan
-ms.topic: conceptual
-ms.date: 02/13/2023
+ms.topic: concept-article
+ms.date: 10/25/2024
 ms.author: cherylmc
 
 ---

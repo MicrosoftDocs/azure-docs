@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use the Registry Event normalization schema so that I can standardize and analyze Windows Registry activity across different monitoring systems.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview)

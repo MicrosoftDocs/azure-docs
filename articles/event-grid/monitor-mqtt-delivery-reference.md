@@ -34,7 +34,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 
 > [!NOTE]
-> Each subscription request increments the MQTT.RequestCount metric, while each topic filter within the subscription request increments the subscription operation metrics. For example, consider a subscription request that is sent with five different topic filters. Three of these topic filters were succeessfully processed while two of the topic filters failed to be processed. The following list represent the resulting increments to the metrics:
+> Each subscription request increments the MQTT.RequestCount metric, while each topic filter within the subscription request increments the subscription operation metrics. For example, consider a subscription request that is sent with five different topic filters. Three of these topic filters were successfully processed while two of the topic filters failed to be processed. The following list represent the resulting increments to the metrics:
 > - MQTT.RequestCount:1
 > - MQTT.SuccessfulSubscriptionOperations:3
 > - MQTT.FailedSubscriptionOperations:2

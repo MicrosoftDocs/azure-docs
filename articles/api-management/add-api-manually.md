@@ -91,7 +91,7 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 This section shows how to add a wildcard operation. A wildcard operation lets you pass an arbitrary value with an API request. Instead of creating separate GET operations as shown in the previous sections, you could create a wildcard GET operation.
 
 > [!CAUTION]
-> Use care when configuring a wildcard operation. This configuration may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#improper-assets-management).
+> Use care when configuring a wildcard operation. This configuration may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#improper-inventory-management).
 
 ### Add the operation
 

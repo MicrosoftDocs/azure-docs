@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/07/2023
+ms.date: 11/21/2024
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ---
@@ -17,33 +17,29 @@ ms.subservice: storage-common-concepts
 A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data. For example:
 
 - What resources the client may access.
-
 - What permissions they have to those resources.
-
 - How long the SAS is valid.
 
 ## Types of shared access signatures
 
 Azure Storage supports three types of shared access signatures:
 
-- User delegation SAS
-
-- Service SAS
-
-- Account SAS
+- [User delegation SAS](#user-delegation-sas)
+- [Service SAS](#service-sas)
+- [Account SAS](#account-sas)
 
 > [!IMPORTANT]
 > For scenarios where shared access signatures are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key, which provides superior security. For more information on authorization for data access, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 ### User delegation SAS
 
-A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only.
+A user delegation SAS is secured with Microsoft Entra credentials and also by the permissions specified for the SAS. A user delegation SAS is supported for Blob Storage and Data Lake Storage, and can be used for calls to `blob` endpoints and `dfs` endpoints. It's not currently supported for Queue Storage, Table Storage, or Azure Files.
 
 For more information about the user delegation SAS, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 ### Service SAS
 
-A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files.
+A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage (including Data Lake Storage and `dfs` endpoints), Queue storage, Table storage, or Azure Files.
 
 For more information about the service SAS, see [Create a service SAS (REST API)](/rest/api/storageservices/create-service-sas).
 
@@ -54,7 +50,6 @@ An account SAS is secured with the storage account key. An account SAS delegates
 You can also delegate access to the following:
 
 - Service-level operations (For example, the **Get/Set Service Properties** and **Get Service Stats** operations).
-
 - Read, write, and delete operations that aren't permitted with a service SAS.
 
 For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
@@ -62,7 +57,6 @@ For more information about the account SAS, [Create an account SAS (REST API)](/
 A shared access signature can take one of the following two forms:
 
 - **Ad hoc SAS**. When you create an ad hoc SAS, the start time, expiry time, and permissions are specified in the SAS URI. Any type of SAS can be an ad hoc SAS.
-
 - **Service SAS with stored access policy**. A stored access policy is defined on a resource container, which can be a blob container, table, queue, or file share. The stored access policy can be used to manage constraints for one or more service shared access signatures. When you associate a service SAS with a stored access policy, the SAS inherits the constraints&mdash;the start time, expiry time, and permissions&mdash;defined for the stored access policy.
 
 > [!NOTE]
@@ -94,8 +88,8 @@ When a request includes a SAS token, that request is authorized based on how tha
 The following table summarizes how each type of SAS token is authorized.
 
 | Type of SAS | Type of authorization |
-|-|-|
-| User delegation SAS (Blob storage only) | Microsoft Entra ID |
+| --- | --- |
+| User delegation SAS (Blob Storage and Data Lake Storage only) | Microsoft Entra ID |
 | Service SAS | Shared Key |
 | Account SAS | Shared Key |
 
@@ -132,24 +126,15 @@ Many real-world services may use a hybrid of these two approaches. For example, 
 
 Additionally, a SAS is required to authorize access to the source object in a copy operation in certain scenarios:
 
-- When you copy a blob to another blob that resides in a different storage account.
-
-  You can optionally use a SAS to authorize access to the destination blob as well.
-
-- When you copy a file to another file that resides in a different storage account.
-
-  You can optionally use a SAS to authorize access to the destination file as well.
-
-- When you copy a blob to a file, or a file to a blob.
-
-  You must use a SAS even if the source and destination objects reside within the same storage account.
+- When you copy a blob to another blob that resides in a different storage account. You can optionally use a SAS to authorize access to the destination blob, as well.
+- When you copy a file to another file that resides in a different storage account. You can optionally use a SAS to authorize access to the destination file, as well.
+- When you copy a blob to a file, or a file to a blob. You must use a SAS even if the source and destination objects reside within the same storage account.
 
 ## Best practices when using SAS
 
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
 - If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your storage account.
-
 - If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application's functionality may be hindered.
 
 The following recommendations for using shared access signatures can help mitigate these risks:
@@ -198,14 +183,23 @@ To get started with shared access signatures, see the following articles for eac
 - [Create a user delegation SAS for a container or blob with PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
 - [Create a user delegation SAS for a container or blob with the Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
 - [Create a user delegation SAS for a container or blob with .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a user delegation SAS for a container or blob with Python](../blobs/storage-blob-user-delegation-sas-create-python.md)
+- [Create a user delegation SAS for a container or blob with JavaScript](../blobs/storage-blob-create-user-delegation-sas-javascript.md)
+- [Create a user delegation SAS for a container or blob with Java](../blobs/storage-blob-user-delegation-sas-create-java.md)
 
 ### Service SAS
 
-- [Create a service SAS for a container or blob with .NET](../blobs/sas-service-create.md)
+- [Create a service SAS for a container or blob with .NET](../blobs/sas-service-create-dotnet.md)
+- [Create a service SAS for a container or blob with Python](../blobs/sas-service-create-python.md)
+- [Create a service SAS for a container or blob with JavaScript](../blobs/sas-service-create-javascript.md)
+- [Create a service SAS for a container or blob with Java](../blobs/sas-service-create-java.md)
 
 ### Account SAS
 
 - [Create an account SAS with .NET](storage-account-sas-create-dotnet.md)
+- [Create an account SAS with Python](storage-account-sas-create-python.md)
+- [Create an account SAS with JavaScript](../blobs/storage-blob-account-delegation-sas-create-javascript.md)
+- [Create an account SAS with Java](storage-account-sas-create-java.md)
 
 ## Next steps
 

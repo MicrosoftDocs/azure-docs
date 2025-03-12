@@ -105,7 +105,7 @@ You create a C# function app in an [Elastic Premium plan](./functions-premium-pl
 Congratulations! You've successfully created your premium function app.
 
 > [!NOTE] 
-> Some deployments may occassionally fail to create the private endpoints in the storage account with the error 'StorageAccountOperationInProgress'. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually. 
+> Some deployments may occasionally fail to create the private endpoints in the storage account with the error 'StorageAccountOperationInProgress'. This failure occurs even though the function app itself gets created successfully. When you encounter such an error, delete the function app and retry the operation. You can instead create the private endpoints on the storage account manually. 
 
 ### Create a Service Bus
 
@@ -189,6 +189,9 @@ Create the queue where your Azure Functions Service Bus trigger gets events:
     :::image type="content" source="./media/functions-create-vnet/6-create-queue.png" alt-text="Screenshot of how to create a Service Bus queue.":::
 
 1. Select **Create**.
+
+> [!IMPORTANT]
+> This tutorial currently shows you how to connect to Service Bus using a connection string, which requires you to handle a share secret. For improved security, you should instead use managed identities when connecting to Service Bus from your app. For more information, see [Identity-based connections](functions-bindings-service-bus-trigger.md?tabs=extensionv5#identity-based-connections) in the Service Bus binding reference article.
 
 ## Get a Service Bus connection string
 

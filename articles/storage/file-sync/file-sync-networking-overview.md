@@ -4,7 +4,7 @@ description: Learn how to configure networking and connect your Windows Server t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/05/2024
+ms.date: 11/06/2024
 ms.author: kendownie
 ---
 
@@ -89,9 +89,6 @@ Azure Files and Azure File Sync support the following mechanisms to tunnel traff
 ### Private endpoints
 
 In addition to the default public endpoints Azure Files and Azure File Sync provide through the storage account and Storage Sync Service, they provide the option to have one or more private endpoints per resource. This allows you to privately and securely connect to Azure file shares from on-premises using VPN or ExpressRoute and from within an Azure VNET. When you create a private endpoint for an Azure resource, it gets a private IP address from within the address space of your virtual network, much like how your on-premises Windows file server has an IP address within the dedicated address space of your on-premises network.
-
-> [!IMPORTANT]
-> In order to use private endpoints on the Storage Sync Service resource, you must use Azure File Sync agent version 10.1 or greater. Agent versions prior to 10.1 don't support private endpoints on the Storage Sync Service. All prior agent versions support private endpoints on the storage account resource.
 
 An individual private endpoint is associated with a specific Azure virtual network subnet. Storage accounts and Storage Sync Services may have private endpoints in more than one virtual network.
 

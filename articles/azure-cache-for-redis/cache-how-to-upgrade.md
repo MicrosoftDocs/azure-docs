@@ -17,7 +17,7 @@ New versions of Redis server software are frequently released with new features,
 This article details how to upgrade your Redis instance to the latest version of Redis available in Azure Cache for Redis.
 
 > [!IMPORTANT]
-> Following the [standard Redis versioning](https://redis.io/docs/about/releases/), this article only covers upgrades to the _major_ version of Redis, not the _minor_ or _patch_ versions. Updates to the minor and patch versions are made automatically during the normal patching cycle each month.
+> Following the [standard Redis versioning](https://redis.io/about/releases/), this article only covers upgrades to the _major_ version of Redis, not the _minor_ or _patch_ versions. Updates to the minor and patch versions are made automatically during the normal patching cycle each month.
 >
 
 ## Scope of availability
@@ -36,7 +36,7 @@ This table contains the information for which Redis version are available in eac
 | Tier                         |        Available Redis version       |
 |:---------------------------- |:------------------------------------:|
 | Basic, Standard, Premium     |               6.0 (GA)               |
-| Enterprise, Enterprise Flash | Redis 6.0 (GA), Redis 7.2 (preview)  |
+| Enterprise, Enterprise Flash |               7.2 (GA)               |
 
 ## How to upgrade - Basic, Standard, and Premium tiers
 
@@ -86,7 +86,7 @@ To defer upgrades to your cache, navigate to the **Advanced Settings** on the Re
 
 ## Considerations before upgrading Redis versions
 
-Each new Redis version is intended to be a seamless upgrade from previous versions with backwards-compatibilty as a design principle. However, small changes and bug fixes do occur which can cause application changes. Being conscious of these changes is always a good idea.
+Each new Redis version is intended to be a seamless upgrade from previous versions with backwards-compatibility as a design principle. However, small changes and bug fixes do occur which can cause application changes. Being conscious of these changes is always a good idea.
 
 ### Client version
 

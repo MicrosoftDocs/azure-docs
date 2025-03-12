@@ -9,6 +9,9 @@ ms.date: 03/04/2024
 
 # Create an MSIX image to use with app attach in Azure Virtual Desktop
 
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
+
 To use MSIX packages with app attach and MSIX app attach in Azure Virtual Desktop, you need to expand an MSIX package application into an MSIX image. This article shows you how to create an MSIX image.
 
 ## Prerequisites

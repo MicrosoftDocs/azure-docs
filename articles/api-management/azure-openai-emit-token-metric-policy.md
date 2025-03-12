@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 07/09/2024
+ms.topic: reference
+ms.date: 09/26/2024
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:

@@ -5,11 +5,11 @@ description: In this tutorial, learn how to integrate Azure AD B2C authenticatio
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party identity management system. I need a tutorial to configure WhoIAM Branded Identity Management System (BRIMS) with Azure AD B2C. My goal is to enable user verification with voice, SMS, and email in my application.
 ---

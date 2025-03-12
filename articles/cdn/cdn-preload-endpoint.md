@@ -2,13 +2,12 @@
 title: Pre-load assets on an Azure CDN endpoint
 description: Learn how to pre-load cached content on an Azure Content Delivery Network endpoint. This feature is available on certain versions of the product.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
-ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Pre-load assets on an Azure CDN endpoint
@@ -31,11 +30,8 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 2. Select the endpoint in the list. The endpoint pane opens.
 3. From the CDN endpoint pane, select **Load**.
 
-    ![CDN endpoint pane](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
-
     The **Load** pane opens.
 
-    ![CDN load pane](./media/cdn-preload-endpoint/cdn-load-blade.png)
 4. For **Content path**, enter the full path of each asset you wish to load (for example, `/pictures/kitten.png`).
 
    > [!TIP]

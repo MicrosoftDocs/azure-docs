@@ -6,7 +6,7 @@ ms.reviewer: kendalv
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 12/06/2024
 ms.author: banders
 ---
 

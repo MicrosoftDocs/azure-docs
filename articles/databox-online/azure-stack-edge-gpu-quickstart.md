@@ -3,8 +3,7 @@ title: Quickstart to configure and deploy Azure Stack Edge GPU | Microsoft Docs
 description: Get started with deploying Azure Stack Edge GPU after the device is received.
 services: databox
 author: alkohli
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: quickstart
 ms.date: 07/08/2022
 ms.author: alkohli

@@ -4,8 +4,7 @@ description: Describes placeholder doc.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: alkohli

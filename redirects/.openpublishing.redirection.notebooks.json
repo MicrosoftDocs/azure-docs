@@ -1,0 +1,104 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/notebooks/access-data-resources-jupyter-notebooks.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/azure-notebooks-overview.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/azure-notebooks-samples.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/azure-notebooks-user-account.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/azure-notebooks-user-profile.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/configure-manage-azure-notebooks-projects.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/create-clone-jupyter-notebooks.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/index.yml",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/install-packages-jupyter-notebook.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/present-jupyter-notebooks-slideshow.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-clone-jupyter-notebook.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-create-jupyter-notebook-project-environment.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-create-share-jupyter-notebook.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-migrate-local-jupyter-notebook.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/quickstart-sign-in-azure-notebooks.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/tutorial-create-run-jupyter-notebook.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/use-data-science-virtual-machine.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
+            "redirect_url": "/azure/machine-learning/samples-notebooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/notebooks/work-with-project-data-files.md",
+            "redirect_url": "https://notebooks.azure.com",
+            "redirect_document_id": false
+        }
+    ]
+}

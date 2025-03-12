@@ -69,15 +69,15 @@ The following JSON file is an example of what you'll see when you open a report:
     "Level": 4,
     "ActivityId": "c1111111-1111-1111-b111-11111cd1ba1b1",
     "time": "2021-08-31T16:00:46.5246835Z",
-    "resourceId": "/SUBSCRIPTIONS/AD11111A-1C21-1CF1-A7DE-CB1111E1D111/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.DESKTOPVIRTUALIZATION/SCALINGPLANS/TESTPLAN",
+    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.DESKTOPVIRTUALIZATION/SCALINGPLANS/TESTPLAN",
     "operationName": "HostPoolLoadBalancerTypeUpdated",
     "category": "Autoscale",
     "resultType": "Succeeded",
     "level": "Informational",
-    "correlationId": "35ec619b-b5d8-5b5f-9242-824aa4d2b878",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "properties": {
         "Message": "Host pool's load balancing algorithm updated",
-        "HostPoolArmPath": "/subscriptions/AD11111A-1C21-1CF1-A7DE-CB1111E1D111/resourcegroups/test/providers/microsoft.desktopvirtualization/hostpools/testHostPool ",
+        "HostPoolArmPath": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/test/providers/microsoft.desktopvirtualization/hostpools/testHostPool ",
         "PreviousLoadBalancerType": "BreadthFirst",
         "NewLoadBalancerType": "DepthFirst"
     }

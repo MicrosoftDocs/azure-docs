@@ -3,7 +3,7 @@ title: Publish Microsoft Azure Data Manager for Energy APIs to a secured API gat
 description: Learn how to publish Azure Data Manager for Energy APIs to Azure API Management.
 author: mitulashah
 ms.author: mitulshah
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/29/2024
 ms.custom: template-how-to

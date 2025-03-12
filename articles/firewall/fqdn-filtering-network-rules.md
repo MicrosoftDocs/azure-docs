@@ -2,11 +2,11 @@
 title: Azure Firewall FQDN filtering in network rules
 description: How to use Azure Firewall FQDN filtering in network rules
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 05/10/2024
-ms.author: victorh
+ms.author: duau
 ms.custom: engagement-fy23
 ---
 
@@ -29,7 +29,7 @@ When a new DNS resolution takes place, new IP addresses are added to firewall ru
 
    Always use application rules when possible:
   - If the protocol is HTTP/S or MSSQL, use application rules for FQDN filtering.
-  - For services like AzureBackup, HDInsight, etc., use application rules with FQDN tags.
+  - For services like AzureBackup and HDInsight, use application rules with FQDN tags.
   - For any other protocols, you can use network rules for FQDN filtering.
 
 ## Next steps

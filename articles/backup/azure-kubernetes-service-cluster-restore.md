@@ -5,19 +5,17 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 12/29/2023
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+  - ignite-2024
+ms.date: 01/30/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Kubernetes Service using Azure Backup 
 
-This article describes how to restore backed-up Azure Kubernetes Service (AKS).
+This article describes how to restore backed-up Azure Kubernetes Service (AKS). You can also restore AKS cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
-
->[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Before you start
 
@@ -123,11 +121,11 @@ Azure Backup for AKS currently supports the following two options when doing a r
 - **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
 
 >[!Note]
->AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
-## Restore in secondary region (preview)
+## Restore in secondary region
 
-To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region-preview).
+To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region).
 
 ## Next steps
 

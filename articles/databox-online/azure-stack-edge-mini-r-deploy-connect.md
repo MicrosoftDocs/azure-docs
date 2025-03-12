@@ -4,8 +4,7 @@ description: Learn how you can connect to your Azure Stack Edge Mini R device by
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 03/21/2022
 ms.author: alkohli
@@ -42,7 +41,7 @@ Before you configure and set up your Azure Stack Edge device, make sure that:
 
     ![Cabling for Wi-Fi](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)
 
-[!INCLUDE [azure-stack-edge-gateway-delpoy-connect](../../includes/azure-stack-edge-gateway-deploy-connect.md)]
+[!INCLUDE [azure-stack-edge-gateway-deploy-connect](../../includes/azure-stack-edge-gateway-deploy-connect.md)]
 
 
 ## Next steps

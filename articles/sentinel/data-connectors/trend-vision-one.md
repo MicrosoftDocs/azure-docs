@@ -2,7 +2,7 @@
 title: "Trend Vision One (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Trend Vision One (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -76,7 +76,7 @@ To integrate with Trend Vision One (using Azure Functions) make sure you have:
 
 Azure Resource Manager (ARM) Template Deployment
 
-This method provides an automated deployment of the Trend Vision One connector using an ARM Tempate.
+This method provides an automated deployment of the Trend Vision One connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 

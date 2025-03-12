@@ -5,7 +5,8 @@ description: Learn about compute environments that can be used with Azure Data F
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ms.custom: synapse
 ---
 
@@ -85,7 +86,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
         "value": "<service principal key>",
         "type": "SecureString"
       },
-      "tenant": "<tenent id>",
+      "tenant": "<tenant id>",
       "clusterResourceGroup": "<resource group name>",
       "version": "3.6",
       "osType": "Linux",
@@ -194,7 +195,7 @@ You can also specify the following properties for the granular configuration of 
             "value": "<service principal key>",
             "type": "SecureString"
           },
-          "tenant": "<tenent id>",
+          "tenant": "<tenant id>",
           "clusterResourceGroup": "<resource group name>",
           "version": "3.6",
           "osType": "Linux",
@@ -599,7 +600,7 @@ You create an Azure Synapse Analytics (Artifacts) linked service and use it with
         },
         "ConnectVia":{
           "referenceName": "integrationRuntime1",
-          "type": "IntergrationRuntimeReference"
+          "type": "IntegrationRuntimeReference"
         }
     }
 }

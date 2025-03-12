@@ -12,9 +12,6 @@ ms.custom: "UpdateFrequency3, references_regions"
 
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer. For more information on the differences between App Service Environment and App Service public multitenant, see the [comparison of the offerings](ase-multi-tenant-comparison.md).
 
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
->
 An App Service Environment can host your:
 
 - Windows web apps
@@ -50,7 +47,7 @@ An App Service Environment is a single-tenant deployment of Azure App Service th
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. An App Service plan is essentially a provisioning profile for an application host. As you scale out your App Service plan, you create more application hosts with all the apps in that App Service plan on each host. A single App Service Environment v3 can have up to 200 total App Service plan instances across all the App Service plans combined. A single App Service Isolated v2 (Iv2) plan can have up to 100 instances by itself.
 
-When you're deploying onto dedicated hardware (hosts), you're limited in scaling across all App Service plans to the number of cores in this type of environment. An App Service Environment that's deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance. Only I1v2, I2v2, and I3v2 SKU sizes are available on App Service Environment deployed on dedicated hosts.
+If you have a requirement that you must have physical isolation all the way down to the hardware level, you can deploy your App Service Environment v3 onto dedicated hardware (hosts). When you're deploying onto dedicated hosts, you're limited in scaling across all App Service plans to the number of cores in this type of environment. An App Service Environment that's deployed on dedicated hosts has 132 vCores available. I1v2 uses two vCores, I2v2 uses four vCores, and I3v2 uses eight vCores per instance. Only I1v2, I2v2, and I3v2 SKU sizes are available on App Service Environment deployed on dedicated hosts. There's extra charges associated with deployment on dedicated hosts. Isolation down to the hardware level is typically not a requirement for the majority of customers. The limitations with dedicated host deployments should be considered before using the feature. To ensure a dedicated host deployment is right for you, you should review your security and compliance requirements before deployment.
 
 ## Virtual network support
 
@@ -69,7 +66,7 @@ A benefit of using an App Service Environment instead of a multitenant service i
 App Service Environment v3 differs from earlier versions in the following ways:
 
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want.
-- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. Zone redundancy is a deployment time only decision. Changing zone redundancy isn't possible after it has been deployed. With zone redundant App Service Environment, each App Service Plan on the App Service Environment needs to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. Zone redundancy is a deployment time only decision. Changing zone redundancy isn't possible after it has been deployed. With zone redundant App Service Environment, each App Service Plan on the App Service Environment needs to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../reliability/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 - Scaling is faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multitenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
@@ -152,6 +149,7 @@ App Service Environment v3 is available in the following regions:
 | Korea Central        | ✅                           | ✅                          |
 | Korea South          | ✅                           |                             |
 | Mexico Central       | ✅                           | ✅**                        |
+| New Zealand North    | ✅                           | ✅                          |
 | North Central US     | ✅                           |                             |
 | North Europe         | ✅                           | ✅                          |
 | Norway East          | ✅                           | ✅                          |
@@ -243,6 +241,7 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Korea Central        | ✅          | ✅          |                   | 
 | Korea South          | ✅          | ✅          | ✅               |
 | Mexico Central       | ✅          | ✅          |                   | 
+| New Zealand North    | ✅          | ✅          |                   | 
 | North Central US     | ✅          | ✅          | ✅               | 
 | North Europe         | ✅          | ✅          | ✅               |
 | Norway East          | ✅          | ✅          | ✅               | 

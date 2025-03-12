@@ -40,7 +40,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 ## Add an Event Hub data connection
 
-The following example shows you how to add an Event Hub data connection programmatically. See [connect to the event hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hub) for adding an Event Hub data connection using the Azure portal.
+The following example shows you how to add an Event Hub data connection programmatically. See [connect to the event hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hubs) for adding an Event Hub data connection using the Azure portal.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient

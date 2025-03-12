@@ -7,6 +7,10 @@ ms.date: 06/08/2023
 ms.author: yelevin
 appliesto: 
     - Microsoft Sentinel
+
+
+#Customer intent: As a security administrator, I want to configure a customer-managed key for Microsoft Sentinel so that I can enhance data protection with my own encryption key.
+
 ---
 
 # Set up Microsoft Sentinel customer-managed key
@@ -41,11 +45,10 @@ This article provides background information and steps to configure a [customer-
 - Changing the customer-managed key to another key (with another URI) currently *isn't supported*. You should change the key by [rotating it](/azure/azure-monitor/logs/customer-managed-keys#key-rotation).
 
 - Before you make any CMK changes to a production workspace or to a Log Analytics cluster, contact the [Microsoft Sentinel Product Group](mailto:onboardrecoeng@microsoft.com).
-- CMK enabled workspaces don't support [search jobs](investigate-large-datasets.md).
 
 ## How CMK works 
 
-The Microsoft Sentinel solution uses a dedicated Log Analytics cluser for log collection and features. As part of the Microsoft Sentinel CMK configuration, you must configure the CMK settings on the related Log Analytics dedicated cluster. Data saved by Microsoft Sentinel in storage resources other than Log Analytics is also encrypted using the customer-managed key configured for the dedicated Log Analytics cluster.
+The Microsoft Sentinel solution uses a dedicated Log Analytics cluster for log collection and features. As part of the Microsoft Sentinel CMK configuration, you must configure the CMK settings on the related Log Analytics dedicated cluster. Data saved by Microsoft Sentinel in storage resources other than Log Analytics is also encrypted using the customer-managed key configured for the dedicated Log Analytics cluster.
 
 For more information, see:
 - [Azure Monitor customer-managed keys (CMK)](/azure/azure-monitor/logs/customer-managed-keys).

@@ -1,12 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
 
 IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This tutorial shows you how to use C# to connect to and control an IoT Plug and Play device that's connected to your solution.
+
+[!INCLUDE [iot-authentication-service-connection-string](iot-authentication-service-connection-string.md)]
 
 ## Prerequisites
 
@@ -15,7 +17,7 @@ IoT Plug and Play simplifies IoT by enabling you to interact with a device's cap
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
 * The latest [.NET SDK](https://dotnet.microsoft.com/download) for your platform.
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads).
 
 ### Clone the SDK repository with the sample code
 

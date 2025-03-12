@@ -4,8 +4,7 @@ description: Tutorial to deploy Azure Stack Edge Pro R instructs you to set up d
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/14/2022
 ms.author: alkohli

@@ -13,6 +13,8 @@ items:
     href: create-public-ip-powershell.md
   - name: Create public IP address - Azure CLI
     href: create-public-ip-cli.md
+  - name: Create public IP address - Terraform
+    href: create-public-ip-terraform.md
   - name: Create public IP address - ARM template
     href: create-public-ip-template.md
   - name: Create public IP prefix - Portal
@@ -21,17 +23,13 @@ items:
     href: create-public-ip-prefix-powershell.md
   - name: Create public IP prefix - Azure CLI
     href: create-public-ip-prefix-cli.md
+  - name: Create public IP prefix - Terraform
+    href: create-public-ip-prefix-terraform.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Configure VM with internet routing preference
-    items:
-    - name: Azure portal
-      href: tutorial-routing-preference-virtual-machine-portal.md
-    - name: Azure PowerShell
-      href: configure-routing-preference-virtual-machine-powershell.md
-    - name: Azure CLI
-      href: configure-routing-preference-virtual-machine-cli.md
+  - name: Configure internet routing preference for a virtual machine
+    href: configure-routing-preference-virtual-machine.md
   - name: Configure mixed Routing Preference for a VM
     href: routing-preference-mixed-network-adapter-portal.md
   - name: Configure Routing Preference for an AKS cluster
@@ -98,12 +96,8 @@ items:
       items:
       - name: Upgrade guidance for Basic SKU public IP addresses
         href: public-ip-basic-upgrade-guidance.md
-      - name: Upgrade a public IP address - Portal
-        href: public-ip-upgrade-portal.md
-      - name: Upgrade a public IP address - PowerShell
-        href: public-ip-upgrade-powershell.md
-      - name: Upgrade a public IP address - Azure CLI
-        href: public-ip-upgrade-cli.md
+      - name: Upgrade a public IP address
+        href: public-ip-upgrade.md
       - name: Migrate a classic reserved IP
         href: public-ip-upgrade-classic.md
     - name: Virtual machines
@@ -122,23 +116,11 @@ items:
         href: add-dual-stack-ipv6-vm-portal.md
       - name: Create a virtual machine with a dual-stack network
         href: create-vm-dual-stack-ipv6-portal.md
-      - name: Create VM - static public IP
-        items:
-        - name: Azure portal
-          href: virtual-network-deploy-static-pip-arm-portal.md
-        - name: Azure PowerShell
-          href: virtual-network-deploy-static-pip-arm-ps.md
-        - name: Azure CLI
-          href: virtual-network-deploy-static-pip-arm-cli.md
-      - name: Create VM - static private IP
-        items:
-        - name: Azure portal
-          href: virtual-networks-static-private-ip-arm-pportal.md
-        - name: Azure PowerShell
-          href: virtual-networks-static-private-ip-arm-ps.md
-        - name: Azure CLI
-          href: virtual-networks-static-private-ip-arm-cli.md
-      - name: Create VM - multiple IPs
+      - name: Create a virtual machine with static public IP
+        href: virtual-network-static-public-ip.md
+      - name: Create a virtual machine with static private IP
+        href: virtual-networks-static-private-ip.md
+      - name: Create a virtual machine with multiple IPs
         items:
         - name: Azure portal
           href: virtual-network-multiple-ip-addresses-portal.md
@@ -146,6 +128,8 @@ items:
           href: virtual-network-multiple-ip-addresses-powershell.md
         - name: Azure CLI
           href: virtual-network-multiple-ip-addresses-cli.md
+      - name: Assign private IP address prefixes to VM
+        href: virtual-network-private-ip-address-blocks-portal.md
       - name: Virtual machine scale set with IPv6
         href: ipv6-virtual-machine-scale-set.md
       - name: Configure DHCPv6 for Linux VMs
@@ -154,7 +138,7 @@ items:
       items:
       - name: Create public IP address
         href: routing-preference-portal.md
-    - name: Move across regions
+    - name: Move across regions 
       items:
       - name: Public IPs
         href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/ip-services/toc.json
@@ -187,10 +171,8 @@ items:
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback

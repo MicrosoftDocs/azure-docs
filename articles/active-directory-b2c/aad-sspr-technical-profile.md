@@ -6,12 +6,12 @@ description: Custom policy reference for Microsoft Entra ID SSPR technical profi
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C, I want to define a Microsoft Entra ID self-service password reset technical profile.

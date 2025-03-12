@@ -39,6 +39,7 @@ Install latest version of the
 Ensure access to the necessary Azure Resource Providers for the Azure Subscription for Operator Nexus resources. Register the following providers:
 
 ```Azure CLI
+az provider register --namespace Microsoft.AzureArcData
 az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerService
 az provider register --namespace Microsoft.ExtendedLocation
@@ -59,6 +60,7 @@ az provider register --namespace Microsoft.OperationsManagement
 az provider register --namespace Microsoft.ResourceConnector
 az provider register --namespace Microsoft.Resources
 az provider register --namespace Microsoft.Storage
+az provider register --namespace Microsoft.NexusIdentity
 ```
 
 ## EncryptionAtHost feature registration

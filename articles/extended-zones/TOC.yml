@@ -29,6 +29,10 @@
     href: create-storage-account.md
   - name: Request quota increase
     href: request-quota-increase.md
+- name: Security
+  items:
+  - name: Azure Network Security Blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reference
   items:
   - name: Azure CLI
@@ -39,8 +43,12 @@
   items:
   - name: Microsoft Q&A
     href: /answers/tags/133/azure
+  - name: Azure Networking Blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Azure support
-    href: https://azure.microsoft.com/support/
+    href: https://azure.microsoft.com/support
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing
   - name: Service updates
     href: https://azure.microsoft.com/updates
   - name: SLA

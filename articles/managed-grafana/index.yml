@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Managed Grafana documentation
-summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guides and tutorials to learn how to create, configure and manage Azure Managed Grafana instances.
+summary: This Azure Managed Grafana documentation page links to resources to learn how to use Azure Managed Grafana. On this page, access quickstarts, how-to guides and tutorials to create, configure and manage Azure Managed Grafana workspaces, Grafana in Azure.
 
 metadata:
-  title: Azure Managed Grafana
+  title: Azure Managed Grafana documentation
   description: Learn about Azure Managed Grafana
   ms.service: azure-managed-grafana
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 05/30/2024
+  ms.date: 12/15/2024
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -19,19 +19,30 @@ landingContent:
         links:
           - text: What is Azure Managed Grafana?
             url: overview.md
-          - text: What's new?
-            url: concept-whats-new.md
   
-  - title: Get started
+  - title: Get started documentation
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create an instance in the Azure portal
+          - text: Create a workspace in the Azure portal
             url: quickstart-managed-grafana-portal.md
-          - text: Create an instance in the Azure CLI
+          - text: Create a workspace in the Azure CLI
             url: quickstart-managed-grafana-cli.md
   
   - title: Manage dashboards
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a dashboard
+            url: how-to-create-dashboard.md
+          - text: Share a dashboard
+            url: how-to-share-dashboard.md
+          - text: Use reporting and image rendering
+            url: how-to-use-reporting-and-image-rendering.md
+          - text: Use Grafana Team Sync
+            url: how-to-sync-teams-with-entra-groups.md
+  
+  - title: Manage data sources
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -41,46 +52,55 @@ landingContent:
             url: how-to-manage-plugins.md
           - text: Add an Azure Monitor workspace
             url: how-to-connect-azure-monitor-workspace.md
-          - text: Create a dashboard
-            url: how-to-create-dashboard.md
-          - text: Share a dashboard
-            url: how-to-share-dashboard.md
-          - text: Use reporting and image rendering
-            url: how-to-use-reporting-and-image-rendering.md
+          - text: Configure Azure Data Explorer
+            url: how-to-connect-azure-data-explorer.md
+          - text: Enable Grafana Enterprise
+            url: how-to-grafana-enterprise.md
+      - linkListType: tutorial
+        links:
+          - text: Connect to self-hosted Prometheus via managed private endpoint
+            url: tutorial-mpe-oss-prometheus.md
   
   - title: Manage access and networking
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Share an instance
-            url: how-to-share-grafana-workspace.md
-          - text: Use Microsoft Entra groups
-            url: how-to-sync-teams-with-entra-groups.md
-          - text: Set up authentication and permissions
+          - text: Configure Grafana resource authentication and permissions
             url: how-to-authentication-permissions.md
           - text: Modify access to Azure Monitor
             url: how-to-permissions.md
+          - text: Manage access and permissions for users and identities
+            url: how-to-manage-access-permissions-users-identities.md
           - text: Connect to a data source privately
             url: how-to-connect-to-data-source-privately.md
           - text: Set up private access
             url: how-to-set-up-private-access.md
-          - text: Connect to self-hosted Prometheus via managed private endpoint
-            url: tutorial-mpe-oss-prometheus.md
+          - text: Use service accounts
+            url: how-to-service-accounts.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
-          - text: Grafana settings
+          - text: Configure Grafana settings
             url: grafana-settings.md
-
-  - title: Set up Grafana monitoring
+          - text: Use deterministic outbound IPs
+            url: how-to-deterministic-ip.md
+      - linkListType: concept
+        links:
+          - text: Encryption
+            url: encryption.md
+  - title: Monitor and alert
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor an instance
+          - text: Monitor using metrics
+            url: how-to-monitor-managed-grafana-metrics.md
+          - text: Monitor using diagnostic settings
             url: how-to-monitor-managed-grafana-workspace.md
           - text: Configure SMTP settings
             url: how-to-smtp-settings.md
+          - text: Use Azure Monitor alerts with Grafana
+            url: how-to-use-azure-monitor-alerts.md
 
-  - title: Manage availability
+  - title: Understand availability
     linkLists:
       - linkListType: concept
         links:
@@ -99,5 +119,7 @@ landingContent:
             url: https://aka.ms/managed-grafana/docs/http-api
           - text: Grafana UI
             url: grafana-app-ui.md
-          - text: Support
+          - text: Create a support request
             url: find-help-open-support-ticket.md
+          - text: Azure Managed Grafana product page
+            url: https://azure.microsoft.com/products/managed-grafana

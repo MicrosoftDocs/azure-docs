@@ -6,18 +6,15 @@ description: How to configure complexity requirements for passwords supplied by 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer or IT admin, I want to configure the complexity requirements for passwords, so that I can enforce strong password policies and customize password complexity rules for my user flows and custom policies.
-
-
-#Customer intent: As an Azure AD B2C administrator, I want to configure the complexity requirements for passwords, so that I can enforce strong password policies and customize password complexity rules for different user flows.
 
 ---
 
@@ -52,7 +49,7 @@ If you're using custom policies, you can [configure password complexity in a cus
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
-1. Select a user flow, and click **Properties**.
+1. Select a user flow, and select **Properties**.
 1. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
 
 ### Comparison Chart
@@ -88,7 +85,7 @@ Allows you to control the different character types used in the password.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** ensures the password contains all for character types.
 
     > [!NOTE]
-    > Requiring **4 of 4** can result in end-user frustration. Some studies have shown that this requirement does not improve password entropy. See [NIST Password Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)
+    > Requiring **4 of 4** can result in end-user frustration. Some studies have shown that this requirement doesn't improve password entropy. See [NIST Password Guidelines](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)
 
 ::: zone-end
 
@@ -237,7 +234,7 @@ Save the policy file.
 3. Select **Run now**.
 4. Select **Sign up now**, enter an email address, and enter a new password. Guidance is presented on password restrictions. Finish entering the user information, and then select **Create**. You should see the contents of the token that was returned.
 
-## Next steps
+## Related content
 
 - Learn how to [Configure password change in Azure Active Directory B2C](add-password-change-policy.md).
 - Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.

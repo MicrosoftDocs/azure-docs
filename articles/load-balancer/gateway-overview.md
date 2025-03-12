@@ -6,8 +6,7 @@ ms.service: azure-load-balancer
 author: mbender-ms
 ms.author: mbender
 ms.date: 06/26/2024
-ms.topic: conceptual
-ms.custom: template-concept, engagement-fy23
+ms.topic: concept-article
 ---
 
 # Gateway Load Balancer

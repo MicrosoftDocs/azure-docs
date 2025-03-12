@@ -9,6 +9,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security analyst, I want to create and manage hunting livestream sessions so that I can detect and respond to threats in real-time.
+
 ---
 
 # Detect threats by using hunting livestream in Microsoft Sentinel

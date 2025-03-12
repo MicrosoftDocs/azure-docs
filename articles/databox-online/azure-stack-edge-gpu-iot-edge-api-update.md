@@ -4,8 +4,7 @@ description: This article describes the impact of IoT Edge role management on Az
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
@@ -52,7 +51,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTDeviceDetails": {
                 "deviceId": "iotdevice",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {
                         "connectionString": {
@@ -66,7 +65,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTEdgeDeviceDetails": {
                 "deviceId": "iotEdge",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {
                         "connectionString": {
@@ -124,7 +123,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTDeviceDetails": {
                 "deviceId": "iotdevice",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {
                         "connectionString": {
@@ -138,7 +137,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTEdgeDeviceDetails": {
                 "deviceId": "iotEdge",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {
                         "connectionString": {
@@ -171,7 +170,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTDeviceDetails": {
                 "deviceId": "iotdevice",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {}
                 }
@@ -179,7 +178,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTEdgeDeviceDetails": {
                 "deviceId": "iotEdge",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {}
                 }
@@ -187,7 +186,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "shareMappings": [],
             "roleStatus": "Enabled"
         },
-        "id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1",
         "name": "IoTRole1",
         "type": "dataBoxEdgeDevices/roles"
     }    
@@ -209,7 +208,7 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTDeviceDetails": {
                 "deviceId": "iotdevice",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {}
                 }
@@ -217,14 +216,14 @@ If you're currently performing IoT Edge role management via API, you should use 
             "ioTEdgeDeviceDetails": {
                 "deviceId": "iotEdge",
                 "ioTHostHub": "iothub.azure-devices.net",
-                "ioTHostHubId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
+                "ioTHostHubId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/Microsoft.Devices/IotHubs/testrxiothub",
                 "authentication": {
                     "symmetricKey": {}
                 }
             },
             "version": "0.1.0-beta10"
         },
-        "id": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/res1/roles/kubernetesRole/addons/iotName",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/res1/roles/kubernetesRole/addons/iotName",
         "name": " iotName",
         "type": "Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/addon",
     }
@@ -253,7 +252,7 @@ If you're using the SDK, after you've installed the January 2021 update, you'll 
 ```csharp
 var iotRoleStatus = "Enabled";
 var iotHostPlatform = "Linux";
-var id = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/iotrole"; 
+var id = $@"/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/iotrole"; 
 var name = "iotrole";
 var type = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/role";
 var iotRoleName = "iotrole";
@@ -281,7 +280,7 @@ DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotRoleName, role, 
 ```csharp
 var k8sRoleStatus = "Enabled";
 var k8sHostPlatform = "Linux";
-var k8sId = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole"; 
+var k8sId = $@"/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole"; 
 var k8sRoleName = "KubernetesRole";
 var k8sClusterVersion = "v1.17.3"; //Final values will be updated here around January 2021
 var k8sVmProfile = "DS1_v2"; //Final values will be updated here around January 2021
@@ -298,7 +297,7 @@ var k8sRole = new KubernetesRole(
 );
 DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, k8sRoleName, k8sRole, resourceGroup); //Final usage will be updated here around January 2021
 
-var ioTId = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole/addons/iotaddon";
+var ioTId = $@"/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole/addons/iotaddon";
 var ioTAddonName = "iotaddon";
 var ioTAddonType = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/addons";
 var addon = new IoTAddon(
@@ -333,4 +332,3 @@ IoT Edge is an add-on under the Kubernetes role, which implies that you'll first
 ## Next steps
 
 - [Learn how to apply updates](azure-stack-edge-gpu-install-update.md)
-

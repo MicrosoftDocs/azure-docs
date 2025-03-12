@@ -2,10 +2,10 @@
 title: Source control
 description: Learn how to configure source control in Azure Data Factory.
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 01/29/2025
 ---
 
 # Source control in Azure Data Factory
@@ -26,7 +26,7 @@ You can also reference [Continuous integration and delivery (CI/CD) in Azure Dat
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=cea58440-722d-4e48-ae44-2f86c4eba0c4]
 
 ## Advantages of Git integration
 
@@ -153,6 +153,10 @@ For repositories owned by GitHub organization account, the admin has to authoriz
 ### GitHub settings
 
 :::image type="content" source="media/author-visually/github-configure-repository-pane.png" alt-text=" Screenshot showing GitHub Configure a repository pane.":::
+
+> [!NOTE]
+> If you encounter the error ***Failed to list GitHub repositories. Please make sure the account name is correct and you have permission to perform the action.***,
+> ensure you're using the correct owner name, and not the GitHub repository URL. 
 
 :::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot showing GitHub Configure a repository using enterprise server pane.":::
 
@@ -321,7 +325,7 @@ Below are some examples of situations that can cause a stale publish branch:
 - A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
 - A user modified the data factory using the SDK or PowerShell
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the user interface is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the user interface allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the user interface is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the user interface allows it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
 
 If the publish branch is out of sync with the main branch and contains out-of-date resources despite a recent publish, you can use either of the below solutions:
 

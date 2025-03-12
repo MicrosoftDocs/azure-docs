@@ -8,10 +8,7 @@ ms.custom: devx-track-csharp
 
 # Guidance for throttled requests in Azure Resource Graph
 
-When creating programmatic and frequent use of Azure Resource Graph data, consideration should be
-made for how throttling affects the results of the queries. Changing the way data is requested can
-help you and your organization avoid being throttled and maintain the flow of timely data about your
-Azure resources.
+When programmatically using Azure Resource Graph data, it is important to consider how throttling affects the results of the queries. Changing the way data is requested can help you and your organization avoid throttling issues and maintain the flow of timely data about your Azure resources.
 
 This article covers four areas and patterns related to the creation of queries in Azure Resource
 Graph:
@@ -64,7 +61,7 @@ small and targeted queries. The group size is recommended to be less than _300_.
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "Resoures | project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)

@@ -1,12 +1,11 @@
 ---
 title: Compare pricing between Azure Front Door tiers
 description: This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium, and (classic) tiers.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 ---
 
 # Compare pricing between Azure Front Door tiers
@@ -132,7 +131,7 @@ Azure Front Door Standard is ~68% cheaper than Azure Front Door (classic) for fi
 
 ### Scenario 4: Request heavy scenario with WAF protection
 
-* 150 routing rules are configured to origins in different countries.
+* 150 routing rules are configured to origins in different countries/regions.
 * 20 TB of outbound data transfer.
 * 10 TB of inbound data transfer.
 * 5 billion requests from client to Azure Front Door edge.

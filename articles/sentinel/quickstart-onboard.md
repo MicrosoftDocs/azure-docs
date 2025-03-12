@@ -7,6 +7,10 @@ ms.topic: quickstart
 ms.date: 06/18/2024
 ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
+
+
+#Customer intent: As a security analyst, I want to onboard to Microsoft Sentinel so that I can ingest and monitor security data from various sources for threat detection and response.
+
 ---
 
 # Quickstart: Onboard Microsoft Sentinel
@@ -36,7 +40,9 @@ To onboard to Microsoft Sentinel by using the API, see the latest supported vers
 
 - Before deploying Microsoft Sentinel to a production environment, review the [predeployment activities and prerequisites for deploying Microsoft Sentinel](prerequisites.md).
 
-## Enable Microsoft Sentinel <a name="enable"></a>
+<a name="enable"></a>
+
+## Enable Microsoft Sentinel
 
 To get started, add Microsoft Sentinel to an existing workspace or create a new one.
 

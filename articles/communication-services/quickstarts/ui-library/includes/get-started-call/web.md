@@ -19,6 +19,6 @@ ms.service: azure-communication-services
 
 ### You can access the following quickstarts
 
-- [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
-- [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
-- [Stateful Client (Calling)](https://azure.github.io/communication-ui-library/?path=/story/composites-call-basicexample--basic-example)
+- [UI Components](https://azure.github.io/communication-ui-library/?path=/docs/components-get-started--docs)
+- [Composites](https://azure.github.io/communication-ui-library/?path=/docs/composites-get-started--docs)
+- [Stateful Client (Calling)](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-get-started-call--docs)

@@ -1,12 +1,12 @@
 ---
 title: About migrating to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
-description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
+description: This article explains how to migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: duau
 ---
@@ -37,7 +37,12 @@ For enhanced reliability, it's recommended to use an Availability-Zone Enabled v
 
 Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell command or delete and recreate the virtual network gateway to migrate between SKUs.
 
-With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
+With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without disruption. However, users may experience brief connectivity issues or interruptions during the migration process.
+
+After completing the gateway migration and deleting the older gateway and its connections, the newly created gateway will be tagged with "CreatedBy : GatewaySKUMigration". This tag will serve as a key differentiator from your other gateways that have not been migrated and should not be deleted.
+
+> [!NOTE]
+> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
 
 Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
@@ -60,8 +65,9 @@ It's recommended to migrate to an Az-enabled SKU for enhanced reliability and hi
 
 ### Limitations
 
-The guided gateway migration experience doesn't support these scenarios:
-* Downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+The guided gateway migration experience doesn't support downgrade scenarios, Az-enabled Gateway SKU to non-Az-enabled Gateway SKU.
+
+To proceed with migration, a /27 prefix or longer is required in the GatewaySubnet.
 
 Private endpoints (PEs) in the virtual network, connected over ExpressRoute private peering, might have connectivity problems during the migration. To understand and reduce this issue, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 
@@ -71,10 +77,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 
 ### Virtual network 
 
-* Gateway Subnet needs two or more prefixes for migration.
-* MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
-
- You must create a second prefix in your Gateway Subnet for migration.
+MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
 ## Next steps
 

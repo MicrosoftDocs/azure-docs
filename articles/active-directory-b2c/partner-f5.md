@@ -6,8 +6,8 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 ms.topic: how-to
 ms.date: 06/21/2024
 

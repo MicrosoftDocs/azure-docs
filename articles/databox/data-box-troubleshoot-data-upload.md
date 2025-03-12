@@ -4,8 +4,7 @@ description: Describes review and follow-up for errors during uploads from an Az
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 06/06/2022
 ms.author: shaas

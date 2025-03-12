@@ -20,32 +20,40 @@ ms.custom: mode-other
 
 ## Connect an email domain to a Communication Service Resource
 
-1. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
+1. In the Azure Communication Service Resource overview page, in the left navigation panel under Email, click **Domains**.
 
     :::image type="content" source="../media/email-domains.png" alt-text="Screenshot that shows the left navigation panel for linking Email Domains." lightbox="../media/email-domains.png":::
 
-2. Select one of the options below
-    - Click **Connect domain** in the upper navigation bar.
-    - Click **Connect domain** in the splash screen.
+2. Select one of the following options:
+
+    - From the upper navigation bar, click **Connect domain**.
+    - From the splash screen, click **Connect domain**.
      
         :::image type="content" source="../media/email-domains-connect.png" alt-text="Screenshot that shows how to connect one of your verified email domains." lightbox="../media/email-domains-connect.png":::
-3. Select a one of the verified domains by filtering 
-    - Subscription
-    - Resource Group
-    - Email Service
-    - Verified Domain
+
+3. Select one of the verified domains by filtering:
+
+    - **Subscription**
+    - **Resource Group**
+    - **Email Service**
+    - **Verified Domain**
     
     :::image type="content" source="../media/email-domains-connect-select.png" alt-text="Screenshot that shows how to filter and select one of the verified email domains to connect." lightbox="../media/email-domains-connect-select.png":::
-> [!Note]
-> We allow only connecting the domains in the same geography. Please ensure that Data location for Communication Resource and Email Communication Resource that was selected during resource creation are the same.
 
-4. Click Connect
+> [!Note]
+> You can only connect domains in the same geography. Please ensure that the Data location for Communication Resource and Email Communication Resource you selected during resource creation are in the same geography.
+
+4. Click **Connect**.
  
     :::image type="content" source="../media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="../media/email-domains-connected.png":::
 
+> [!Note]
+> We enable customers to link up to 100 custom domains to a single communication service resource. All Mail-From addresses configured under these custom domains are accessible for the communication service resource. You can only link verified custom domains.
+
 ## Disconnect an email domain from the Communication Service Resource
 
-1. In the Azure Communication Service Resource overview page, click **Domains** on the left navigation panel under Email.
-2. Select the Connected Domains click the ... and click Disconnect.  
+1. In the Azure Communication Services Resource overview page, from the left navigation panel under Email, click **Domains**.
+
+1. Select the Connected Domains, then click **...** and select **Disconnect**.
 
     :::image type="content" source="../media/email-domains-connect-disconnect.png" alt-text="Screenshot that shows how to disconnect the connected domain." lightbox="../media/email-domains-connect-disconnect.png":::

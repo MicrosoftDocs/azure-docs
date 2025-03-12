@@ -4,8 +4,7 @@ description: Describes how to enable remote support on your Azure Stack Edge dev
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 07/27/2023
 ms.author: alkohli

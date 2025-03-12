@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022
 ---
@@ -128,7 +128,7 @@ sendTemperatureReading(THERMOSTAT_1);
 sendTemperatureReading(THERMOSTAT_2);
 ```
 
-The `sendTemperatureReading` method uses the `PnpHhelper` class to create messages for each component:
+The `sendTemperatureReading` method uses the `PnpHelper` class to create messages for each component:
 
 ```java
 Message message = PnpHelper.createIotHubMessageUtf8(telemetryName, currentTemperature, componentName);
