@@ -107,7 +107,7 @@ If your organization uses Microsoft Entra ID as its identity provider, you can e
 
 To establish single sign-on through Microsoft Entra ID:
 
-1. elect the checkbox.
+1. Select the checkbox.
 
     The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously. 
 

@@ -9,7 +9,7 @@ ms.date: 03/10/2025
 
 This article describes how to set up your environment before deploying your first instance of Datadog. 
 
-## Prerquisites
+## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
