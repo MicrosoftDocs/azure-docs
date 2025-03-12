@@ -26,7 +26,7 @@ The access restriction capability is implemented in the App Service front-end ro
 The ability to restrict access to your web app from an Azure virtual network is achieved by using [service endpoints][serviceendpoints]. With service endpoints, you can restrict access to a multitenant service from selected subnets. It doesn't restrict traffic to apps that are hosted in an App Service Environment. If you're in an App Service Environment, you can control access to your app by applying IP address rules.
 
 > [!NOTE]
-> The service endpoints must be enabled both on the networking side and for the Azure service that they're being enabled with. For a list of Azure services that support service endpoints, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
+> The service endpoints must be enabled both on the networking side and for the Azure service with which they're being enabled. For a list of Azure services that support service endpoints, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 >
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-flow.png" alt-text="Diagram that shows the flow of access restrictions." lightbox="media/app-service-ip-restrictions/access-restrictions-flow.png":::
@@ -53,7 +53,7 @@ To add an access restriction rule to your app:
 
 ### Permissions
 
-The following role-based access control permissions on the subnet or at a higher level are required to configure access restrictions through Azure portal, CLI, or when you set the site config properties directly:
+You must have the following role-based access control permissions on the subnet or at a higher level to configure access restrictions through Azure portal, CLI, or when you set the site `config` properties directly:
 
 | Action | Description |
 |:--|:--|
