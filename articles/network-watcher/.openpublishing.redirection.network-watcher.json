@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-template",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-azure-resource-manager.md",
             "redirect_url": "/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template",
             "redirect_document_id": false
