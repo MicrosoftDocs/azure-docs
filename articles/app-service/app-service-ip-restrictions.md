@@ -1,6 +1,6 @@
 ---
 title: Azure App Service Access Restrictions 
-description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/deny list that controls network access.
+description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/block list that controls network access.
 author: madsd
 ms.author: madsd
 ms.topic: how-to #Don't change
@@ -84,7 +84,7 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 1. Select **Save** on the **Access Restrictions** pane.
 
 > [!NOTE]
-> There's a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider a standalone security product like Azure Front Door, Azure App Gateway, or a different web application firewall (WAF).
+> There's a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider a standalone security product like Azure Front Door, Azure Application Gateway, or a different web application firewall (WAF).
 >
 #### Set an IP address-based rule
 
@@ -111,7 +111,7 @@ If you need someone else to enable service endpoints on the subnet, select **Ign
 
 You can't use service endpoints to restrict access to apps that run in an App Service Environment. When your app is in an App Service Environment, you can control access to it by applying IP access rules.
 
-With service endpoints, you can configure your app by using application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [App Service networking features](networking-features.md) and [Application gateway integration](networking/app-gateway-with-service-endpoints.md).
+With service endpoints, you can configure your app by using application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [App Service networking features](networking-features.md) and [Application Gateway integration](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
 > Service endpoints aren't supported for web apps that use IP-based TLS/SSL bindings with a virtual IP.
@@ -163,7 +163,7 @@ For each header name, you can add up to eight values separated by commas. The ht
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to eight IP ranges or eight Service Tags in a single rule. Use multi-source rules if you have more than 512 IP ranges or if you want to create logical rules. For example: a logical rule could include multiple IP ranges combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight service tags in a single rule. Use multi-source rules if you have more than 512 IP ranges or if you want to create logical rules. For example: a logical rule could include multiple IP ranges combined with a single http header filter.
 
 Multi-source rules are defined the same way as single-source rules, but each range is separated by a comma.
 
@@ -212,7 +212,7 @@ You can add access restrictions rules for **Main site** programmatically by choo
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -225,7 +225,7 @@ az webapp config access-restriction add --resource-group ResourceGroup --name Ap
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Add-AzWebAppAccessRestrictionRule`](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Add-AzWebAppAccessRestrictionRule`](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
 ```azurepowershell-interactive
 Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
@@ -325,7 +325,7 @@ You can add access restrictions rules for *Advanced tool site* programmatically.
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az webapp config access-restriction`](/cli/azure/webapp/config/access-restriction).
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -334,7 +334,7 @@ az webapp config access-restriction add --resource-group ResourceGroup --name Ap
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [Add-AzWebAppAccessRestrictionRule](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [Add-AzWebAppAccessRestrictionRule](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule).
 
 ```azurepowershell-interactive
 Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
@@ -406,7 +406,7 @@ You can change **Unmatched rule action** for **Main site** programmatically by c
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az resource`](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az resource`](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
 ```azurecli-interactive
 az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -415,7 +415,7 @@ az resource update --resource-group ResourceGroup --name AppName --resource-type
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Set-AzResource`](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Set-AzResource`](/powershell/module/az.resources/set-azresource). Accepted values for `ipSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
 ```azurepowershell-interactive
 $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
@@ -473,7 +473,7 @@ You can change **Unmatched rule action** for **Advanced tool site** programmatic
 
 ### [Azure CLI](#tab/azurecli)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az resource`](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`az resource`](/cli/azure/resource?view=azure-cli-latest#az-resource-update&preserve-view=true). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
 ```azurecli-interactive
 az resource update --resource-group ResourceGroup --name AppName --resource-type "Microsoft.Web/sites" \
@@ -482,7 +482,7 @@ az resource update --resource-group ResourceGroup --name AppName --resource-type
 
 ### [PowerShell](#tab/powershell)
 
-You can run the following command in the [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Set-AzResource`](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
+You can run the following command in [Cloud Shell](https://shell.azure.com). For more information about the command, see [`Set-AzResource`](/powershell/module/az.resources/set-azresource). Accepted values for `scmIpSecurityRestrictionsDefaultAction` are `Allow` or `Deny`.
 
 ```azurepowershell-interactive
 $Resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName ResourceGroup -ResourceName AppName
