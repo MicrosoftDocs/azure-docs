@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 10/25/2024
+ms.date: 03/10/2025
 ms.author: anfdocs
 ---
 # Azure NetApp Files large volume performance benchmarks for Linux
@@ -22,13 +22,7 @@ This article describes the tested performance capabilities of a single [Azure Ne
 
 ## Testing summary 
 
-* The Azure NetApp Files large volumes feature offers three service levels, each with throughput limits. The service levels can be scaled up or down nondisruptively as your performance needs change.  
-
-    * Ultra service level: 12,800 MiB/s
-    * Premium service level: 6,400 MiB/s
-    * Standard service level: 1,600 MiB/s
-
-    The Ultra service level was used in these tests. 
+* Azure NetApp Files offers three services levels. All three service levels support large volumes. The service levels can be scaled up or down nondisruptively. Although the throughput levels differ on _regular_ volumes, the large volume performance limit is 12,800 MiB/s on all service levels. The Ultra service level was used in these tests. 
 
 * Sequential writes: 100% sequential writes maxed out at ~8,500 MiB/second in these benchmarks. (A single large volume’s maximum throughput is capped at 12,800 MiB/second by the service, so more potential throughput is possible.)
 * Sequential reads: 100% sequential reads maxed out at ~12,761 MiB/second in these benchmarks. (A single large volume's throughput is capped at 12,800 MiB/second. This result is near the maximum achievable throughput at this time.)

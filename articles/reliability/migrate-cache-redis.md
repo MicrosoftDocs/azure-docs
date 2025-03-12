@@ -19,9 +19,6 @@ Azure Cache for Redis supports zone redundancy in its Standard, Premium, Enterpr
 > [!NOTE]
    > Converting an existing resource from non-availability zone support to availability zone support is available for Standard and Premium tier caches. Enterprise and Enterprise Flash tier caches are created to be zonal by default. 
 
- > [!NOTE]
-   > Zone redundancy isn't supported with geo-replication on the Standard and Premium tiers. It is supported on the Enterprise and Enteprise Flash tiers.
-
 ## Enabling Zone Redundancy for Enterprise, and Enterprise Flash tiers
 
 Currently, the only way to convert an enterprise / enterprise flash resource from non-availability zone support to availability zone support is to redeploy your current cache.
@@ -67,7 +64,7 @@ Users can't disable zone redundancy once it's enabled.
 
 This update can also be done by passing `ZonalAllocationPolicy` as `Automatic` in the request body while updating the cache using REST API. For more information regarding the update process using REST API, see [Update - ZonalAllocationPolicy](/rest/api/redis/redis/update#zonalallocationpolicy).
 
-Updating `ZonalAllocationPolicy to any other value than `Automatic` isn't supported.
+Updating `ZonalAllocationPolicy` to any other value than `Automatic` isn't supported.
 
   > [!IMPORTANT]
   > Automatic Zonal Allocation cannot be modified once enabled for a cache.
