@@ -2,12 +2,12 @@
 title: Monitor the health of Azure Content Delivery Network resources| Microsoft Docs
 description: Learn how to monitor the health of your Azure Content Delivery Network resources using Azure Resource Health.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Monitor the health of Azure Content Delivery Network resources
