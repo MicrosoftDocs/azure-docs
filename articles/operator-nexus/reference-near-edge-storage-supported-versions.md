@@ -31,11 +31,14 @@ Each number in the version indicates general compatibility with the previous ver
 * **Patch version numbers** change when backwards-compatible bug fixes are made. Patch releases are made available frequently and are intended for critical bug fixes within a minor version. The type of issues fixed under patch release includes fixes for security vulnerabilities or major bugs.
 
 ## Version support guidelines
+
+- It is best practice for Pure devices to be running the latest Purity patch version in a supported release train. Microsoft recommends upgrading all Pure devices to the latest Purity patch version verified and supported by Azure Operator Nexus.
 - All changes to version support and any version specific upgrade instructions are communicated in release notes.
 - Nexus will only support Long Term Support (LTS) storage versions. Purity LTS versions contain an odd number minor version, such as 6.1.x, 6.5.x etc.
 - Nexus will support up to two LTS versions at any time.
 - Support shall be provided for all patch releases documented in Nexus public documentation. Which means that Nexus will handle and resolve issue tickets where storage appliance is running a supported release version. These tickets may require a fix to Nexus software or be referred to the storage vendor support team depending on the specific details. If a fix requires inclusion of new Pure patch release, it is appropriately tested and documented.
 - Each Pure LTS release listed as supported is tested equally with each new Nexus release to ensure comprehensive compatibility.
+- Azure Operator Nexus instances can have two Pure storage appliances. It is supported to run these storage appliances on different Purity versions, so long as each Purity version is supported by the Azure Operator Nexus version. Note, however, that Microsoft recommends upgrading all Pure devices to the latest Purity patch version verified and supported by Azure Operator Nexus.
 
 
 ## Release process
