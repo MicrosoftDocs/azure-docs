@@ -552,14 +552,16 @@ To set up distributed tracing, please update the host.json and set up an Applica
 
 #### host.json
 ```
-"extensions": {
-  "durableTask": {
-    "tracing": {
-      "DistributedTracingEnabled": true,
-      "Version": "V2"
-    }
-  }
-}
+{
+   "extensions": {
+     "durableTask": {
+       "tracing": {
+         "distributedTracingEnabled": true,
+         "version": "V2"
+       }
+     }
+   }
+ }
 ```
 
 #### Application Insights
