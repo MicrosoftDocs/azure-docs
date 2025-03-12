@@ -34,7 +34,7 @@ The JSON output shows the password as `null`.
 
 # [Azure PowerShell](#tab/powershell)
 
-You can't configure the user-scope credentials with Azure PowerShell. Use a different method, or consider [using application-scope credentials](#appscope).
+You can't configure the user-scope credentials by using Azure PowerShell. Use a different method, or consider [using application-scope credentials](#appscope).
 
 # [Azure portal](#tab/portal)
 
@@ -50,7 +50,7 @@ Once you set your deployment credentials, you can find the Git deployment userna
 
 ![Screenshot that shows you how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-If Git deployment is configured, the page shows a **Git/deployment username**; otherwise, it shows an **FTP/deployment username**.
+If Git deployment is configured, the page shows a **Git/deployment username**. Otherwise, it shows an **FTP/deployment username**.
 
 > [!NOTE]
 > Azure doesn't show your user-scope deployment password. If you forget the password, you can follow the steps in this section to reset your credentials.
@@ -59,16 +59,16 @@ If Git deployment is configured, the page shows a **Git/deployment username**; o
 
 ## Use user-scope credentials with FTP/FTPS
 
-To authenticate to an FTP/FTPS endpoint using user-scope credentials, your username must follow this format:
+To authenticate to an FTP/FTPS endpoint by using user-scope credentials, your username must follow this format:
 `<app-name>\<user-name>`
 
-Since user-scope credentials are linked to the user and not a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
+Since user-scope credentials are linked to the user and not to a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
 
 ## <a name="appscope"></a>Get application-scope credentials
 
 # [Azure CLI](#tab/cli)
 
-Get the application-scope credentials using the [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. For example:
+Get the application-scope credentials by using the [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command. For example:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
@@ -85,7 +85,7 @@ az webapp deployment list-publishing-credentials --resource-group <group-name> -
 
 # [Azure PowerShell](#tab/powershell)
 
-Get the application-scope credentials using the [`Get-AzWebAppPublishingProfile`](/powershell/module/az.websites/get-azwebapppublishingprofile) command. For example:
+Get the application-scope credentials by using the [`Get-AzWebAppPublishingProfile`](/powershell/module/az.websites/get-azwebapppublishingprofile) command. For example:
 
 ```azurepowershell-interactive
 Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
@@ -103,7 +103,7 @@ Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 
 # [Azure CLI](#tab/cli)
 
-Reset the application-scope credentials using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command:
+Reset the application-scope credentials by using the [`az resource invoke-action`](/cli/azure/resource#az-resource-invoke-action) command:
 
 ```azurecli-interactive
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
@@ -111,7 +111,7 @@ az resource invoke-action --action newpassword --resource-group <group-name> --n
 
 # [Azure PowerShell](#tab/powershell)
 
-Reset the application-scope credentials using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command:
+Reset the application-scope credentials by using the [`Invoke-AzResourceAction`](/powershell/module/az.resources/invoke-azresourceaction) command:
 
 ```azurepowershell-interactive
 Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
@@ -131,4 +131,4 @@ See [Disable basic authentication in App Service deployment](configure-basic-aut
 
 ## Related content
 
-Find out how to use these credentials to deploy your app from [local Git](deploy-local-git.md) or using [FTP/FTPS](deploy-ftp.md).
+Find out how to use these credentials to deploy your app from a [local Git](deploy-local-git.md) or by using [FTP/FTPS](deploy-ftp.md).
