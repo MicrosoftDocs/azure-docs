@@ -78,7 +78,7 @@
       - name: Security
         items:
         - name: Security baseline
-          href: /security/benchmark/azure/baselines/databox-security-baseline?context=/azure/databox/context/context
+          href: /security/benchmark/azure/baselines/databox-security-baseline?pivots=dbx-ng
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md?pivots=dbx-ng
         - name: Review security

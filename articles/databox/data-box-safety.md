@@ -11,8 +11,9 @@ ms.author: shaas
 zone_pivot_groups: data-box-sku
 ---
 
+# Safely install and operate your Azure Data Box
+
 :::zone pivot="dbx-ng"
-# Safety instructions for your Next Gen Azure Data Box
 
 :::image type="icon" source="media/data-box-next-gen-safety/icon-hazard-lrg.png" border="false"::: :::image type="icon" source="media/data-box-next-gen-safety/icon-safety-read-all-instructions-lrg-2.png" border="false":::
 
@@ -451,7 +452,7 @@ A 급 기기(업무용 정보통신기기)
 
 :::zone pivot="dbx"
 
-# Safely install and operate your Azure Data Box
+
 ![Warning Icon](./media/data-box-safety/warning_icon.png)
 ![Read Safety Notice Icon](./media/data-box-safety/read_safety_and_health_information_icon.png) **READ SAFETY AND HEALTH INFORMATION**
 
