@@ -292,42 +292,80 @@ sections:
       #### [Databases](#tab/databases)
 
       :::row:::
-        ### Migrate SQL Server databases
-      :::row:::
-        :::column:::
-        **[Azure Database Migration Guide](/azure/dms/dms-overview)**
+       :::column span="1":::
+        ### Migrate Amazon RDS for SQL Server
+       :::column-end:::
+       :::column span="1":::
+        **[Migrate SQL Server to Azure SQL Database](/data-migration/sql-server/database/overview)**
         
-        Comprehensive guide to migrate SQL Server databases to Azure SQL Database.
+        Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Database.
         :::column-end:::
-        :::column:::
-        **[Data Migration from SQL Server](/data-migration/sql-server/overview)**
+        :::column span="1":::
+        **[Migration guide: SQL Server to Azure SQL Database](/data-migration/sql-server/database/guide)**
         
-        Options for migrating from SQL Server to Azure SQL.
+        Learn about the options and considerations for migrating your SQL Server databases to Azure SQL Database..
         :::column-end:::
-      :::row-end:::
+       :::row-end:::
 
       :::row:::
-        ### Migrate PostgreSQL databases
-      :::row:::
-        :::column:::
-        **[Migrate AWS RDS PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online)**
+       :::column span="1":::
+        ### Migrate Amazon RDS for PostgreSQL
+       :::column-end::: 
+       :::column span="1":::
+        **[Migrate AWS RDS PostgreSQL to Azure offline](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline)**
         
         How to migrate an AWS RDS PostgreSQL database to Azure Database for PostgreSQL, covering setup and migration steps.
         :::column-end:::
-        :::column:::
-        **[Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online)**
+        :::column span="1":::
+        **[Migrate AWS RDS PostgreSQL to Azure online](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online)**
         
-        How to migrate an AWS Aurora PostgreSQL database to Azure Database for PostgreSQL, covering setup and migration steps.
+        How to migrate an AWS RDS PostgreSQL database to Azure Database for PostgreSQL online, covering setup and migration steps.
         :::column-end:::
       :::row-end:::
 
       :::row:::
-        ### Migrate Amazon DynamoDB
+       :::column span="1":::
+        ### Migrate Amazon Aurora PostgreSQL
+       :::column-end:::
+       :::column span="1":::
+        **[Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL offline](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline)**
+        
+        How to migrate an AWS Aurora PostgreSQL database to Azure Database for PostgreSQL offline, covering setup and migration steps.
+        :::column-end:::
+       :::column span="1":::
+        **[Migrate Amazon Aurora PostgreSQL to Azure Database for PostgreSQL online](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online)**
+        
+        How to migrate an AWS Aurora PostgreSQL database to Azure Database for PostgreSQL online, covering setup and migration steps.
+        :::column-end:::
+      :::row-end:::
+
       :::row:::
-        :::column:::
+       :::column span="1":::
+        ### Migrate Amazon RDS for MySQL
+       :::column-end:::
+       :::column span="1":::
+        **[Migrate AWS RDS MySQL to Azure offline](/azure/dms/tutorial-mysql-azure-external-to-flex-offline-portal)**
+        
+        How to migrate an AWS RDS MySQL database to Azure Database for MySQL online, covering setup and migration steps.
+        :::column-end:::
+       :::column span="1":::
+        **[Migrate AWS RDS MySQL to Azure online](/azure/dms/tutorial-mysql-azure-external-to-flex-online-portal)**
+        
+        How to migrate an AWS RDS MySQL database to Azure Database for MySQL offline, covering setup and migration steps.
+        :::column-end:::
+      :::row-end:::
+
+      :::row:::
+       :::column span="1":::
+        ### Migrate Amazon DynamoDB
+       :::column-end:::
+       :::column span="1":::
         **[Migrate from DynamoDB to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db)**
         
         Options for data migration from DynamoDB to Cosmos DB for NoSQL.
+        :::column-end:::
+        :::column span="1":::
+        &nbsp;
         :::column-end:::
       :::row-end:::
 
