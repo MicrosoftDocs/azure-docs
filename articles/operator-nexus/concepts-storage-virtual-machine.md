@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 Azure Operator Nexus supports deploying workloads as virtual machines (VMs). A virtual machine (VM) on Nexus can be deployed with two different kinds of storage: local; and persistent. Local storage is provided by the Bare Metal Machine (BMM) hosting the VM. Persistent storage is provided by the storage appliance in the Azure Operator Nexus instance.
 
-All persistent disks are backed by raw block storage on the storage appliance. There's no support for NAS-backed persistent disks.
+All persistent disks are backed by the storage appliance in the first aggregator rack slot. This also applies to deployments with two storage appliances: there is no support for placing VM data disks on the storage appliance in the second aggregator rack slot. All persistent disks are backed using raw block storage. There's no support for NAS-backed persistent disks.
 
 > [!IMPORTANT]
 > Local storage isn't suitable for stateful VMs. Available local storage is limited to the [size of the disks in the BMM](./reference-near-edge-compute.md#compute-configurations) and is lower in deployments with Nexus Kubernetes Clusters. Local storage has no support for VM migration to another host, and all VM data is lost on host failure. All stateful VMs should use persistent storage.
@@ -31,6 +31,8 @@ Azure Operator Nexus supports the following persistent data disk features.
 | Feature                                            | Persistent data disk support                         |
 | -------------------------------------------------- | ---------------------------------------------------- |
 | Disk lifecycle through Azure Resource Manager      | Supported using the Volume (Operator Nexus) resource. Disk lifecycle is independent of VM lifecycle, with one exception. Attached disks can't be deleted. |
+| Volume expansion                                   | Not supported                                        |
+| Placement of data disks on a second storage appliance(if present) | Not supported                         |
 | Dynamic data disks (thin provisioning)             | Supported                                            |
 | Static data disks (thick provisioning)             | Not supported                                        |
 | Attach data disks to a VM at creation time         | Supported                                            |
