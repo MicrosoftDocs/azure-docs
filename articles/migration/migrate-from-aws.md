@@ -23,16 +23,11 @@ Microsoft Azure has a collection of articles that can help guide you with some o
 
 ## Migration guidance
 
-If you're new to Azure, be sure to start with a good foundation by reviewing the content in the [Azure for AWS professionals guide](/azure/architecture/aws-professional/). This guide will help you map technology that you are familar with to similar services available on Azure.
+You'll need to make sure you've established a strong foundation on Azure. Follow the Azure adoption guidance in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/) to build a solid platform for any workloads you'll be migrating.
 
-You'll also need to make sure you've established a strong foundation on Azure. Follow the Azure adoption guidance in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/) to build a solid platform for any workloads you'll be migrating.
+If you're new to designing workloads in Azure, be sure to start with the basics by reviewing the content in the [Azure for AWS professionals guide](/azure/architecture/aws-professional/). This guide will help you map technology that you are familar with to similar services available on Azure.
 
-### Training
-
-Learn migration skills by working through the available training modules on Microsoft Learn.
-
-- [Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud](/training/modules/cloud-adoption-framework-migrate/)
-- [Introduction to migrating from Amazon Web Services to Microsoft Azure](/training/modules/introduction-to-migrating-aws-to-azure/)
+For a quick start on migration training, use the [Introduction to migrating from Amazon Web Services to Microsoft Azure](/training/modules/introduction-to-migrating-aws-to-azure/) module on Microsoft Learn.
 
 ### Learn through examples
 
