@@ -4,7 +4,7 @@ description: Learn how to customize settings for your SAP agentless data connect
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 02/27/2025
+ms.date: 03/12/2025
 
 #Customer intent: As a security engineer, I want to customize settings for my SAP agentless connector for Microsoft Sentinel to meet my organization's needs.
 
@@ -14,7 +14,7 @@ ms.date: 02/27/2025
 
 If you have an SAP agentless data connector for Microsoft Sentinel, you can use the SAP Integration Suite to customize how the agentless data connector ingests data from your SAP system into Microsoft Sentinel.
 
-This procedure is only relevant when you want to customize the SAP agentless data connector behavior. Skip the procedures in this article if you're satisfied with the default functionality.
+This procedure is only relevant when you want to customize the SAP agentless data connector behavior. Skip the procedures in this article if you're satisfied with the default functionality. For example, if you're using Sybase, we recommend that you turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter Due to database performance issues, ingesting Change Docs logs Sybase isn't supported.
 
 > [!IMPORTANT]
 > Microsoft Sentinel's agentless data connector for SAP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -27,13 +27,51 @@ Starting my examining the message processing logs. For more information, see the
 
 If you don't see a related error to your issue, turn on trace logging for more in-depth troubleshooting. For more information, see the [SAP documentation](https://help.sap.com/docs/cloud-integration/sap-cloud-integration/setting-log-levels).
 
-## Missing required functionality for the RFC_READ_TABLE function
+## Check for prerequisites
 
-Some older system may be missing required functionality for RFC_READ_TABLE function module.  Make sure your SAP admin has reviewed notes 3390051 and 382318 and patched the system accordingly. For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
+The [agentless solution package](preparing-sap.md#import-and-deploy-the-microsoft-sentinel-solution-for-sap-package) includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
+
+**To run the tool**:
+
+1. Select the **Prerequisite checker** iflow > **Configure**, and then set the target RFC destination to the SAP system you want to check.
+1. Deploy the iflow as you would otherwise for your SAP systems. For example, use the following sample PowerShell script, modifying the sample, placeholder values for your environment:
+
+    ```powershell
+    $cpiEndpoint = "https://my-cpi-uri.it-cpi012-rt.cfapps.eu01-010.hana.ondemand.com" # CPI endpoint URL
+    $credentialsUrl = "https://my-uaa-uri.authentication.eu01.hana.ondemand.com/oauth/token" # SAP authorization server URL
+    $serviceKey = 'sb-12324cd-a1b2-5678-a1b2-1234cd5678ef!g9123|it-rt-my-cpi!h45678' # Process Integration Runtime Service client ID
+    $serviceSecret = '< client secret >' # Your Process Integration Runtime service secret (make sure to use single quotes)
+
+    $credentials = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$serviceKey`:$serviceSecret"))
+    $headers = @{
+        "Authorization" = "Basic $credentials"
+        "Content-Type"  = "application/json"
+    }
+    $authResponse = Invoke-WebRequest -Uri $credentialsUrl"?grant_type=client_credentials" `
+        -Method Post `
+        -Headers $headers
+    $token = ($authResponse.Content | ConvertFrom-Json).access_token
+    $path = "/http/checkSAP"
+    $param = "?startTimeUTC=$((Get-Date).AddMinutes(-1).ToString("yyyy-MM-ddTHH:mm:ss"))&endTimeUTC=$((Get-Date).ToString("yyyy-MM-ddTHH:mm:ss"))"
+    $headers = @{
+        "Authorization"      = "Bearer $token"
+        "Content-Type"       = "application/json"
+    }
+    $response = Invoke-WebRequest -Uri "$cpiEndpoint$path$param" -Method Get -Headers $headers
+    Write-Host $response.RawContent
+    ```
+
+Make sure that the prerequisites checker runs successfully before connecting to Microsoft Sentinel.
+
+## Missing functionality in legacy SAP systems
+
+Some legacy SAP systems may be missing required functionality for the **RFC_READ_TABLE** function module. Make sure that your SAP admin has reviewed SAP notes 3390051 and 382318, and has patched the system accordingly.
+
+For more information, see [Configure SAP Cloud Connector settings](preparing-sap.md#configure-sap-cloud-connector-settings).
 
 ## Missing "Last address routed"
 
-If you see an error that you're missing the last address routed (an IP address), in the security audit log, follow the guidance in the SAP note 3566290.
+If you see an error in the security audit log that you're missing the last address routed (an IP address), follow the guidance in the SAP note 3566290.
 
 ## Incomplete SAP user master data
 

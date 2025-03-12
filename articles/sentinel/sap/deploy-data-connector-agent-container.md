@@ -32,7 +32,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 
 :::zone pivot="connection-agentless"
 
-:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step."  :::
+:::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false":::
 
 Content in this article is relevant for your **security** team, using information provided by your **SAP BASIS** teams.
 
@@ -362,15 +362,19 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     | **Authorization server URL**  | The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token` |
     | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
 
+## Customize data connector behavior (optional)
+
+If the agentless data connector's default functionality doesn't fit your organization's needs, customize it using SAP Integration Suite value mapping.
+
+Also, due to database performance issues, ingesting Change Docs logs Sybase isn't supported. We recommend that customers using Sybase turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter.
+
+For more information, see [Customize your SAP agentless data connector for Microsoft Sentinel](configure-agentless.md).
+
 :::zone-end
 
 ## Check connectivity and health
 
 After you deploy the SAP data connector, check your agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md).
-
-## Customize data connector behavior (optional)
-
-If the agentless data connector's default functionality doesn't fit your organization's needs, customize it using SAP Integration Suite value mapping. For more information, see [Customize your SAP agentless data connector for Microsoft Sentinel](configure-agentless.md).
 
 ## Next step
 
