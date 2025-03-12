@@ -49,9 +49,9 @@ landingContent:
           url: disaster-recovery.md
         - text: Video editing
           url: video-editing.md
-        - text: Azure Native Qumulo for PACS VNA?
+        - text: Azure Native Qumulo for PACS VNA
           url: vendor-neutral-archive.md
-        - text: Azure Native Qumulo for virtual desktops?
+        - text: Azure Native Qumulo for virtual desktops
           url: virtual-desktop.md
   
   #Card
