@@ -1745,8 +1745,8 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Get news articles relevant for a given query. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/batches/action | Creates a batch job |
-> | Microsoft.CognitiveServices/accounts/OpenAI/issuetoken/action | Issue Cognitive Services jwt token for authentication. |
-> | Microsoft.CognitiveServices/accounts/OpenAI/issuescopedtoken/action | Issue scoped Cognitive Services jwt token for authentication. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/issuetoken/action | Issue Cognitive Services JWT for authentication. |
+> | Microsoft.CognitiveServices/accounts/OpenAI/issuescopedtoken/action | Issue scoped Cognitive Services JWT for authentication. |
 > | Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/action | Export completions data using filters |
 > | Microsoft.CognitiveServices/accounts/OpenAI/1p-jobs/write | Creates or cancels First party Fine-tune jobs like RLHF jobs (SupervisedFineTuning, RewardModel, ProximalPolicyOptimisation). |
 > | Microsoft.CognitiveServices/accounts/OpenAI/1p-jobs/read | Gets information about First party Fine-tune jobs. |
@@ -1900,7 +1900,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker/operations/read | Gets details of a specific long running operation. |
-> | Microsoft.CognitiveServices/accounts/SpeechServices/issuetoken/action | Issue Cognitive Services jwt token for authentication. |
+> | Microsoft.CognitiveServices/accounts/SpeechServices/issuetoken/action | Issue Cognitive Services JWT for authentication. |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/models/action | This method can be used to copy a model from one location to another. If the target subscription |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/transcriptions/action | Transcribe audio |
 > | Microsoft.CognitiveServices/accounts/SpeechServices/speechrest/webhooks/action | Web hooks operations |
