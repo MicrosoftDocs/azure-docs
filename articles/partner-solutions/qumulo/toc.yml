@@ -19,7 +19,7 @@ items:
   items:
   - name: Manage resources
     href: manage.md
-  - name: Troubleshoot Azure Native Qumulo Scalable File Service
+  - name: Troubleshoot Azure Native Qumulo
     href: troubleshoot.md
 - name: SDKs and command-lines
   items:
