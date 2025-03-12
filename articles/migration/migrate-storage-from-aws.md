@@ -28,7 +28,7 @@ Microsoft publishes guidance for select services to help architects, developers,
 Your workload contains other components as well that will need to migrate with your compute. Microsoft has similar guidance for:
 
 - [Compute](./migrate-compute-from-aws.md)
-- [Storage](./migrate-storage-from-aws.md)
+- [Databases and data](./migrate-databases-from-aws.md)
 - Identity and access management (IAM)
 - Networking
 - Messaging and integration
