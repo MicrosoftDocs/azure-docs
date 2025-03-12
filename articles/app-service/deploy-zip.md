@@ -30,7 +30,7 @@ When you deploy a ZIP package, App Service unpacks its contents in the default p
 
 This ZIP package deployment uses the same Kudu service that powers continuous integration-based deployments. Kudu supports the following functionality for ZIP package deployment:
 
-- Deletion of files left over from a previous deployment
+- Deletion of files leftover from a previous deployment
 - Option to turn on the default build process, which includes package restore
 - Deployment customization, including running deployment scripts
 - Deployment logs
@@ -39,17 +39,17 @@ This ZIP package deployment uses the same Kudu service that powers continuous in
 > [!NOTE]
 > Files in the ZIP package are copied only if their timestamps don't match what is already deployed.
 
-### Deploy with zip deploy UI in Kudu
+### Deploy with ZIP deploy UI in Kudu
 
 In the browser, go to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`. For the app name, see the [note at the beginning of the article](#dnl-note).
 
-Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the file explorer area on the web page.
+Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the **File Explorer** area on the web page.
 
-When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the explorer area. When deployment completes, the last message should say, "Deployment successful."
+When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the **File Explorer** area. When deployment completes, the last message should say, "Deployment successful."
 
 This endpoint doesn't work for App Service on Linux at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
-### Deploy without zip deploy UI in Kudu
+### Deploy without ZIP deploy UI in Kudu
 
 # [Azure CLI](#tab/cli)
 
@@ -65,7 +65,7 @@ This command restarts the app after deploying the ZIP package.
 
 # [Azure PowerShell](#tab/powershell)
 
-The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders * \<group-name>*, *\<app-name>*, and *\<zip-package-path>*
+The following example uses [`Publish-AzWebapp`](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders *\<group-name>*, *\<app-name>*, and *\<zip-package-path>*.
 
 ```azurepowershell
 Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
@@ -100,7 +100,7 @@ ARM templates only support [deployments from remotely hosted packages](#deploy-t
 
 -----
 
-## Enable build automation for zip deploy
+## Enable build automation for ZIP deploy
 
 By default, the deployment engine assumes that a ZIP package is ready to run as-is and doesn't run any build automation. To enable the same build automation used in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting. Run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -110,11 +110,11 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-## Deploy WAR/JAR/EAR packages
+## Deploy WAR, JAR, or EAR packages
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app by using the Azure CLI, PowerShell, or Kudu publish API.
 
-The deployment process shown here puts the package on the app's content share with the right naming convention and directory structure. For more information, see [Kudu publish API reference](#kudu-publish-api-reference). We recommend this approach. If you deploy WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or Web Deploy instead, you might see unknown failures due to mistakes in the naming or structure.
+The deployment process shown here puts the package on the app's content share with the right naming convention and directory structure. For more information, see [Kudu publish API reference](#kudu-publish-api-reference). We recommend this approach. If you deploy WAR, JAR, or EAR packages using [FTP](deploy-ftp.md) or Web Deploy instead, you might see unknown failures due to mistakes in the naming or structure.
 
 # [Azure CLI](#tab/cli)
 
@@ -195,7 +195,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path conf
 
 # [Azure PowerShell](#tab/powershell)
 
-Not supported. See Azure CLI or Kudu API.
+Not supported. See the Azure CLI or Kudu API tabs.
 
 # [Kudu API](#tab/api)
 
@@ -278,7 +278,7 @@ ARM templates only support [deployments from remotely hosted packages](#deploy-t
 
 Depending on your web app's networking configuration, direct access to the app from your development environment might be blocked. (See [Deploying to network-secured sites](https://azure.github.io/AppService/2021/01/04/deploying-to-network-secured-sites.html) and [Deploying to network-secured sites, part 2](https://azure.github.io/AppService/2021/03/01/deploying-to-network-secured-sites-2.html).) Instead of pushing the package or file to the web app directly, you can publish it to a storage system that's accessible from the web app and trigger the app to pull the ZIP from the storage location.
 
-The remote URL can be any publicly accessible location, but it's best to use a blob storage container with a SAS key to protect it.
+The remote URL can be any publicly accessible location, but it's best to use a blob storage container with a shared access signature (SAS) key to protect it.
 
 # [Azure CLI](#tab/cli)
 
@@ -290,7 +290,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-url "http
 
 # [Azure PowerShell](#tab/powershell)
 
-Not supported. See Azure CLI, Kudu API, or ARM template.
+Not supported. See the tabs for Azure CLI, Kudu API, or ARM template.
 
 # [Kudu API](#tab/api)
 
@@ -359,7 +359,7 @@ The following table shows the available query parameters, their allowed values, 
 | `restart` | `true`\|`false` | By default, the API restarts the app following the deployment operation (`restart=true`). When you deploy multiple artifacts, you can prevent restarts on all but the final deployment by setting `restart=false`. | No | Boolean |
 | `clean` | `true`\|`false` | Specifies whether to clean (delete) the target deployment before deploying the artifact there. | No | Boolean |
 | `ignorestack` | `true`\|`false` | The publish API uses the `WEBSITE_STACK` environment variable to choose safe defaults depending on your site's language stack. Setting this parameter to `false` disables any language-specific defaults. | No | Boolean |
-| `target-path` | An absolute path | The absolute path to deploy the artifact to. For example, `"/home/site/deployments/tools/driver.jar"`, `"/home/site/scripts/helper.sh"`. | No | String |
+| `target-path` | An absolute path | The absolute path to deploy the artifact to. For example, `/home/site/deployments/tools/driver.jar` or `/home/site/scripts/helper.sh`. | No | String |
 
 ## Related content
 
