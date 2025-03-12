@@ -128,7 +128,28 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
 
+In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft might initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you are able to access your Azure Data Factory in the failover region.
+
+Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored on [local region only](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft won't be able to recover your Azure Data Factory data.  
+
+> [!NOTE]
+> Microsoft-managed failover doesn't apply to self-hosted integration runtime (SHIR) since this infrastructure is typically customer-managed. If the SHIR is set up on Azure VM, then the recommendation is to use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) for handling the [Azure VM failover](../site-recovery/azure-to-azure-architecture.md) to another region.
+
 If you use a [paired region](./regions-paired.md), Microsoft might initiate a failover of Azure Data Factory resources in the affected region to the region pair. However, this is likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. To learn more, see [Azure Data Factory data redundancy](../data-factory/concepts-data-redundancy.md). If you require resiliency to region failures, you should follow the approach described in the next section.
+
+### **Using source control in Azure Data Factory**
+
+To ensure you can track and audit the changes made to your metadata, you should consider setting up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). 
+
+ Learn how to set up [source control in Azure Data Factory](./source-control.md). 
+
+> [!NOTE]
+> If there is a disaster (loss of region), new data factory can be provisioned manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository.
+
+### **Data stores**
+
+Azure Data Factory enables you to move data among data stores located on-premises and in the cloud. To ensure business continuity with your data stores, you should refer to the business continuity recommendations for each of these data stores. 
+
 
 <!-- TODO
 
@@ -139,8 +160,6 @@ More clarity needed on the following points:
 2. We have this statement in another doc: "IR fails over automatically to the paired region when you select Auto Resolve as the IR region" (see https://learn.microsoft.com/en-nz/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery#set-up-automated-recovery).
 
     Is this separate to the paired region failover of other Data Factory resources or part of the same thing? What's the expected RTO? Does this apply to Azure and Azure-SSIS?
-
-3. Should we remove the article at ../data-factory/concepts-data-redundancy.md and incorporate it the contents into this document?
 
 -->
 
