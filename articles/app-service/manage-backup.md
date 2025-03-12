@@ -27,7 +27,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 | Pricing tiers | Basic, Standard, Premium, Isolated. | Basic, Standard, Premium, Isolated. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Azure DB for MySQL - Flexible Server and Azure DB for PostgreSQL Flexible Server aren't supported in custom backups. |
+| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), and [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Azure Database for MySQL - Flexible Server and Azure Database for PostgreSQL Flexible Server aren't supported in custom backups. |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. <br><br> Days 1-3: hourly backups retained.<br><br> Days 4-14: every third hourly backup retained.<br><br> Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
@@ -114,8 +114,6 @@ There are two types of backups in App Service. If your app is in a supported pri
 
 1. Go to your app management pane in the [Azure portal](https://portal.azure.com). In the service menu, select **Backups**.
 
-    :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
-
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
 1. In **Storage account**, select an existing storage account in the same subscription or select **Create new**. Repeat in **Container**.
@@ -123,7 +121,7 @@ There are two types of backups in App Service. If your app is in a supported pri
     To back up the linked databases, select **Next: Advanced** > **Include database**, and select the databases to backup.
 
     > [!NOTE]
-    > A supported database will only appear in this list when its connection string exists in the **Connection strings** section of the **Configuration** page for your app.
+    > A supported database only appears in this list when its connection string exists in the **Connection strings** section of the **Configuration** page for your app.
     >
     > In-app MySQL databases are always backed up without any configuration. If you manually create settings for in-app MySQL databases, like adding connection strings, the backups might not work correctly.
     >
@@ -133,9 +131,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 
     Once the storage account and container is configured, you can initiate an on-demand backup at any time. On-demand backups are retained indefinitely.
 
-1. At the top of the **Backups** page, select **Backup Now**.
-
-    :::image type="content" source="./media/manage-backup/manual-backup.png" alt-text="Screenshot that shows how to make an on-demand backup.":::
+1. At the top of the **Backups** pane, select **Backup Now**.
 
     The custom backup is displayed in the list with a progress indicator. If it fails with an error, you can select the line item to see the error message.
 
@@ -150,12 +146,12 @@ There are two types of backups in App Service. If your app is in a supported pri
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only **Single Server SKUs** of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
+> Custom backups with linked databases for App Service support only Single Server SKUs of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 
 >
 > For backup and restore of Flexible Servers, see the respective database documentation:
->- [Azure Database for MySQL: Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
->- [Azure Database for PostgreSQL: Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
+>- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
+>- [Azure Database for PostgreSQL - Flexible Server: Back up and restore](/azure/postgresql/flexible-server/concepts-backup-restore).
 >
 
 Custom backups can include linked databases (except when the backup is configured over Azure Virtual Network). To make sure your backup includes a linked database, take the following steps:
@@ -231,12 +227,12 @@ Run backups as normal: [custom on-demand](#create-a-custom-backup) or [custom sc
 
 ## How backups are stored
 
-After you make one or more backups for your app, the backups are visible on the **Containers** page of your storage account and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse through these files if you want to access your backups without actually performing an app restore.
+After you make one or more backups for your app, the backups are visible on the **Containers** page of your storage account and your app. In the storage account, each backup consists of a ZIP file that contains the backup data and an XML file that contains a manifest of the ZIP file contents. You can unzip and browse through these files if you want to access your backups without actually performing an app restore.
 
 The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](/azure/azure-sql/database/database-import).
 
 > [!WARNING]
-> Altering any of the files in your `websitebackups` container can cause the backup to become invalid and therefore non-restorable.
+> Altering any of the files in your `websitebackups` container can cause the backup to become invalid and nonrestorable.
 
 ## Error messages
 
@@ -246,12 +242,12 @@ The **Backups** page shows you the status of each backup. To get log details reg
 | - | - |
 | Storage access failed. | Delete and reconfigure the backup schedule, or reconfigure the backup storage. |
 | The website and database size exceeds the `{0}` GB limit for backups. Your content size is `{1}` GB. | [Exclude some files](#configure-partial-backups) from the backup, or remove the database portion of the backup and use externally offered backups instead. |
-| Error occurred while connecting to the database `{0}` on server `{1}`: Authentication to host `{1}` for user `\<username>` using method `mysql_native_password` failed with message: Unknown database `\<db-name>` | Update the database connection string. |
+| Error occurred while connecting to the database `{0}` on server `{1}`: Authentication to host `{1}` for user `\<username>` using method `mysql_native_password` failed with message: Unknown database `\<db-name>`. | Update the database connection string. |
 | Cannot resolve `{0}`. `{1}` (`CannotResolveStorageAccount`) | Delete the backup schedule and reconfigure it. |
 | Login failed for user `{0}`. | Update the database connection string. |
 | Create Database copy of `{0}` `({1})` threw an exception. Could not create Database copy. | Use an administrative user in the connection string. |
 | The server principal `"\<name>"` is not able to access the database "master" under the current security context. Cannot open database "master" requested by the login. The login failed. Login failed for user `\<name>`. | Use an administrative user in the connection string. |
-| A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Ensure that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
+| A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (Provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server). | Ensure that the connection string is valid. Allow the app's [outbound IPs](overview-inbound-outbound-ips.md) in the database server settings. |
 | Cannot open server "`\<name>`" requested by the login. The login failed. | Ensure that the connection string is valid. |
 | Missing mandatory parameters for valid Shared Access Signature. | Delete the backup schedule and reconfigure it. |
 | SSL connection is required. Specify SSL options and retry when trying to connect. | SSL connectivity to Azure Database for MySQL and Azure Database for PostgreSQL isn't supported for database backups. Use the native backup feature in the respective database instead. |
@@ -264,7 +260,7 @@ The **Backups** page shows you the status of each backup. To get log details reg
 
 ## Automate with scripts
 
-You can automate backup management with scripts by using [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
+You can automate backup management with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 For samples, see:
 
@@ -304,8 +300,8 @@ The following table shows which content is backed up in an automatic backup:
 |Content| Restored?|
 |-|-|
 | **Windows apps**: All app content under the `%HOME%` directory.<br/>**Linux apps**: All app content under the `/home` directory.<br/>**Custom containers (Windows and Linux)**: Content in [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage).| Yes |
-| Content of the [run-from-ZIP package](deploy-run-package.md)| No |
-| Content from any [custom-mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows), such as from an Azure Files share | No |
+| Content of the [run-from-ZIP package](deploy-run-package.md).| No |
+| Content from any [custom-mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows), such as from an Azure Files share. | No |
 
 The following table shows which app configurations are restored when you choose to restore app configurations:
 
@@ -358,21 +354,17 @@ You can back up to a firewall-protected storage account if it's part of the same
 
 ### How do I restore to an app in a different subscription?
 
-1. Make a custom backup of the source App to an **Azure Storage container**.
-2. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) and the **XML metadata file** to your local machine.
-3. Upload **both the ZIP and XML files** to the target storage account.
+1. Make a custom backup of the source app to an Azure Storage container.
+2. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) and the XML metadata file to your local machine.
+3. Upload both the ZIP and XML files to the target storage account.
 4. In the **Backups** page of your target app, click **Restore** in the top menu.
 5. In the **Backup details** section, choose **Storage** as the **Source**. Select the **storage account** where you uploaded the backup files.
 6. Click **Use file in storage account** and select the **ZIP file** to restore.
-7. Configure the remaining settings as outlined in the [Restore a backup](#restore-a-backup). Confirm and start the restore process.
+7. Configure the remaining settings as outlined in [Restore a backup](#restore-a-backup). Confirm and start the restore process.
 
 ### How do I restore to an app in the same subscription but in a different region?
 
-You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup).
-
-#### Key considerations
-Ensure that the backup storage for the source app is accessible by the target app.
-The restoration process in the Azure portal allows selecting an app in a different region as long as it remains within the same subscription.
+You can restore an app to a different region within the same subscription. The process follows the same steps outlined in [Restore a backup](#restore-a-backup). Ensure that the backup storage for the source app is accessible by the target app. The restoration process in the Azure portal allows selecting an app in a different region as long as it remains within the same subscription.
 
 ### Where are the automatic backups stored?
 
