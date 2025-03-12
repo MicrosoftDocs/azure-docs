@@ -20,7 +20,7 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web
 
 YAML pipelines are defined by using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios, like when you need to use XML parameters in your deploy, you can use the [Azure App Service deploy task `AzureRmWebAppDeployment`](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment).
+You use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios, like when you need to use XML parameters in your deployment, you can use the [Azure App Service deploy task `AzureRmWebAppDeployment`](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment).
 
 ## Prerequisites include:
 
@@ -28,11 +28,11 @@ You use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/d
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
 - The ability to run pipelines on Microsoft-hosted agents. You can purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or request a free tier.
 - A working Azure App Service app with the code hosted on [GitHub](https://docs.github.com/en/get-started/quickstart/create-a-repo) or [Azure Repos](https://docs.github.com/en/get-started/quickstart/create-a-repo).
-    - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md)
-    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48)
-    - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md)  
-    - Java: [Create a Java app in Azure App Service](quickstart-java.md)
-    - Python: [Create a Python app in Azure App Service](quickstart-python.md)
+    - .NET: [Create an ASP.NET Core web app in Azure](quickstart-dotnetcore.md).
+    - ASP.NET: [Create an ASP.NET Framework web app in Azure](./quickstart-dotnetcore.md?tabs=netframework48).
+    - JavaScript: [Create a Node.js web app in Azure App Service](quickstart-nodejs.md).  
+    - Java: [Create a Java app in Azure App Service](quickstart-java.md).
+    - Python: [Create a Python app in Azure App Service](quickstart-python.md).
 
 ## 1. Create a pipeline for your stack
 
@@ -76,7 +76,7 @@ To get started:
 
 1. Select the end of the YAML file, then select **Show assistant**.
 
-1. Use the **Task assistant** to add the [Azure Web App](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task.
+1. Use the **Task assistant** to add the [Azure web app](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task.
 
     Alternatively, you can add the [Azure App Service deploy `AzureRmWebAppDeployment`](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task.
 
@@ -101,9 +101,9 @@ To get started:
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     ```
 
-    * `azureSubscription`: Name of the authorized service connection to your Azure subscription.
-    * `appName`: Name of your existing app.
-    * `package`: File path to the package or a folder containing your app service contents. Wildcards are supported.
+    * `azureSubscription`: Name of the authorized service connection to your Azure subscription
+    * `appName`: Name of your existing app
+    * `package`: File path to the package or a folder containing your App Service contents (wildcards are supported)
 
 # [Classic](#tab/classic/)
 
@@ -128,7 +128,7 @@ To get started:
 
 # [YAML](#tab/yaml/)
 
-To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure Web App, use the following snippet to deploy the build to an app.
+To deploy a .zip web package (for example, from an ASP.NET web app) to an Azure web app, use the following snippet to deploy the build to an app.
 
 ```yaml
 variables:
@@ -147,16 +147,16 @@ steps:
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 ```
 
-* `azureSubscription`: Your Azure subscription.
-* `appType`: Your Web App type.
-* `appName`: The name of your existing app service.
-* `package`: The file path to the package or a folder containing your app service contents. Wildcards are supported.
+* `azureSubscription`: Your Azure subscription
+* `appType`: Your web app type
+* `appName`: The name of your existing app service
+* `package`: File path to the package or a folder containing your App Service contents (wildcards are supported)
 
 # [Classic](#tab/classic/)
 
 For classic pipelines, it's easier to define build and release stages in separate panes (**Pipelines** and **Releases**, respectively).
 
-* In the **Pipelines** pane, build and test your app by using the template of your choice, such as **ASP.NET Core**, **Node.js with Grunt**, **Maven**, or others, and publish an artifact.
+* In the **Pipelines** pane, build and test your app by using the template of your choice, such as **ASP.NET Core**, **Node.js with Grunt**, **Maven**, or others. Publish an artifact.
 * In the **Release** pane, use the generic **Azure App Service deployment** template to deploy the artifact.
 
 There might be templates for specific programming languages to choose from.
@@ -167,7 +167,7 @@ There might be templates for specific programming languages to choose from.
 
 # [YAML](#tab/yaml/)
 
-By default, your deployment happens to the root application in the Azure Web App. You can deploy to a specific virtual application by using the `VirtualApplication` property of the Azure App Service deploy task `AzureRmWebAppDeployment`:
+By default, your deployment happens to the root application in the Azure web app. You can deploy to a specific virtual application by using the `VirtualApplication` property of the Azure App Service deploy task `AzureRmWebAppDeployment`:
 
 ```yaml
 - task: AzureRmWebAppDeployment@4
@@ -180,7 +180,7 @@ By default, your deployment happens to the root application in the Azure Web App
 
 # [Classic](#tab/classic/)
 
-By default, your deployment happens to the root application in the Azure Web App. If you want to deploy to a specific virtual application, enter its name in the **Virtual Application** property of the **Azure App Service deploy** task.
+By default, your deployment happens to the root application in the Azure web app. If you want to deploy to a specific virtual application, enter its name in the **Virtual Application** property of the **Azure App Service deploy** task.
 
 ---
 
@@ -217,7 +217,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * `deployToSlotOrASE*`: Boolean. Deploy to an existing deployment slot or Azure App Service Environment.
 * `resourceGroupName`: Name of the resource group. Required if `deployToSlotOrASE` is true.
 * `slotName`: Name of the slot, which defaults to `production`. Required if `deployToSlotOrASE` is true.
-* `package`: The file path to the package or a folder containing your app service contents. Wildcards are supported.
+* `package`: File path to the package or a folder containing your App Service contents (wildcards are supported).
 * `SourceSlot`: Slot sent to production when `SwapWithProduction` is true.
 * `SwapWithProduction`: Boolean. Swap the traffic of source slot with production.
 
@@ -322,7 +322,7 @@ To learn more, see [Release, branch, and stage triggers](/azure/devops/pipelines
 
 ## Example: Deploy using Web Deploy
 
-The Azure App Service deploy task `AzureRmWebAppDeployment` can deploy to App Service by using **Web Deploy**.
+The Azure App Service deploy task `AzureRmWebAppDeployment` can deploy to App Service by using Web Deploy.
 
 # [YAML](#tab/yaml/)
 
@@ -375,7 +375,7 @@ If you're using the **Azure App Service deployment** template in the release pip
 
 ### What's the difference between the `AzureWebApp` and `AzureRmWebAppDeployment` tasks?
 
-The Azure Web App task `AzureWebApp` is the simplest way to deploy to an Azure Web App. By default, your deployment happens to the root application in the Azure Web App.
+The **Azure Web App** task `AzureWebApp` is the simplest way to deploy to an Azure web app. By default, your deployment happens to the root application in the Azure web app.
 
 The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) can handle more custom scenarios, such as:
 
