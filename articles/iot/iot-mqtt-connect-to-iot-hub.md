@@ -21,12 +21,12 @@ ms.custom:
 
 This article describes how devices can use the MQTT protocol to communicate with Azure IoT Hub. The IoT Hub device endpoints support device connectivity using:
 
-* [MQTT v3.1.1](https://mqtt.org/) on TCP port 8883
-* MQTT v3.1.1 over WebSocket on TCP port 443.
+* [MQTT v3.1.1](https://mqtt.org/) on port 8883
+* [MQTT v3.1.1 over WebSocket](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127) on port 443
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-All device communication with IoT Hub must be secured using TLS. Therefore, IoT Hub doesn't support insecure MQTT connections over TCP port 1883.
+All device communication with IoT Hub must be secured using TLS. Therefore, IoT Hub doesn't support insecure MQTT connections over port 1883.
 
 ## Compare MQTT support in IoT Hub and Event Grid
 
@@ -49,7 +49,7 @@ A device can use the MQTT protocol to connect to an IoT hub using one of the fol
 * The [Azure IoT device SDKs](iot-sdks.md).
 * The MQTT protocol directly.
 
-Many corporate and educational firewalls block the MQTT port (TCP port 8883). If you can't open port 8883 in your firewall, use MQTT over WebSockets. MQTT over WebSockets communicates over port 443, which is almost always open. To learn how to specify the MQTT and MQTT over WebSockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#using-the-device-sdks).
+Many corporate and educational firewalls block the MQTT port (TCP port 8883). If you can't open port 8883 in your firewall, use MQTT over WebSockets. MQTT over WebSockets communicates over port 443, which is almost always open. To learn how to specify the MQTT and MQTT over WebSockets protocols when using the Azure IoT SDKs, see [Using the device SDKs](#use-the-device-sdks).
 
 ## Use the device SDKs
 
@@ -120,6 +120,8 @@ When you change from AMQP to MQTT, check the following items:
 
 If a device can't use the IoT device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883.
 
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
+
 In the **CONNECT** packet, the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
@@ -132,7 +134,7 @@ In the **CONNECT** packet, the device should use the following values:
 
     To avoid unexpected behavior, include api-version in the field.
 
-* For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
+* For the **Password** field, use a SAS token. The following snippet shows the format of the SAS token:
 
     `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
   
@@ -183,7 +185,7 @@ To learn more, see [Tutorial - Use MQTT to develop an IoT device client](./tutor
 
 ## TLS configuration
 
-To use the MQTT protocol directly, your client must connect over TLS. Any attempts to skip this step will fail with connection errors.
+To use the MQTT protocol directly, your client must connect over TLS 1.2. Any attempts to skip this step will fail with connection errors.
 
 In order to establish a TLS connection, you might need to download and reference the DigiCert Global Root G2 root certificate that Azure uses. For more information about this certificate, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
@@ -297,7 +299,7 @@ For more information, see [Send device-to-cloud and cloud-to-device messages wit
 
 ## Receive cloud-to-device messages
 
-To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the topic filter is used to enable the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards to filter subtopics. IoT Hub isn't a general-purpose publish-subscribe messaging broker, it only supports the documented topic names and topic filters. A device can only subscribe to five topics at a time.
+To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the topic filter enables the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards to filter subtopics. IoT Hub isn't a general-purpose publish-subscribe messaging broker, it only supports the documented topic names and topic filters. A device can only subscribe to five topics at a time.
 
 The device doesn't receive any messages from IoT Hub until it successfully subscribes to its device-specific endpoint, represented by the `devices/{device-id}/messages/devicebound/#` topic filter. After a subscription is established, the device receives cloud-to-device messages that were sent to it after the time of the subscription. If the device connects with **CleanSession** flag set to **0**, the subscription is persisted across different sessions. In this case, the next time the device connects with **CleanSession 0** it receives any outstanding messages sent to it while disconnected. If the device uses **CleanSession** flag set to **1** though, it doesn't receive any messages from IoT Hub until it subscribes to its device-endpoint.
 
