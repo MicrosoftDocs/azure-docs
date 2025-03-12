@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 02/19/2025
+ms.date: 03/12/2025
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -107,6 +107,7 @@ For more information about payment methods, see [Add, update, or remove a paymen
 | Monaco | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Mongolia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Montenegro |     |     |     | ✔   | ✔   |     |     |     |
+| Morocco |  ✔   |     |     | ✔   | ✔   |     |     |     |
 | Namibia | ✔   |     |     | ✔   | ✔   |     |     |     |
 | Nepal |     |     |     |  ✔   |   ✔  |     |     |     |
 | Netherlands | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
