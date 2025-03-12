@@ -41,13 +41,13 @@ To add an access restriction rule to your app:
 
 1. On the service menu, select **Settings** > **Networking**.
 
-1. On the **Networking** page, under **Inbound traffic configuration**, select the **Public network access** setting.
+1. On the **Networking** pane, under **Inbound traffic configuration**, select the **Public network access** setting.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot of the App Service networking options page in the Azure portal.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot of the App Service networking options pane in the Azure portal.":::
 
-1. On the **Access Restrictions** page, review the list of access restriction rules that are defined for your app.
+1. On the **Access Restrictions** pane, review the list of access restriction rules that are defined for your app.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions pane in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
 
    The list displays the restrictions that are currently applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for `Microsoft.Web`. If no restrictions are defined on your app and your unmatched rule isn't set to **Deny**, the app is accessible from anywhere.
 
@@ -70,7 +70,7 @@ If you add a service endpoint-based rule and the virtual network is in a differe
 
 ### Add an access restriction rule
 
-To add an access restriction rule to your app, on the **Access Restrictions** page, select **Add**. The rule is effective only after you save it.
+To add an access restriction rule to your app, on the **Access Restrictions** pane, select **Add**. The rule is effective only after you save it.
 
 Rules are enforced in priority order, from the lowest number in the **Priority** column. If you don't configure unmatched rule, an implicit *deny all* is in effect when you add one rule.
 
@@ -140,11 +140,11 @@ All publicly available service tags are supported in access restriction rules. E
 
 ### Delete a rule
 
-1. To delete a rule, on the **Access Restrictions** page, select the rule or rules that you want to delete, and then select **Delete**.
+1. To delete a rule, on the **Access Restrictions** pane, select the rule or rules that you want to delete, and then select **Delete**.
 
 1. Select **Save** to save the changes.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the 'Access Restrictions' page, showing the 'Remove' ellipsis next to the access restriction rule to be deleted.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the 'Access Restrictions' pane, showing the 'Remove' ellipsis next to the access restriction rule to be deleted.":::
 
 ## Access restriction advanced scenarios
 
@@ -179,19 +179,19 @@ PowerShell example:
 
 If you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, you can add a **Deny** rule for the specific IP address. Then configure the unmatched rule action to **Allow**.
 
-:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing a single blocked IP address.":::
+:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing a single blocked IP address.":::
 
 ### Restrict access to an SCM site
 
 In addition to being able to control access to your app, you can restrict access to the SCM (supply chain management) advanced tool site used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select **Use main site rules**, the rules list is hidden. The SCM site uses the rules from the main site. If you unselect the checkbox, your SCM site settings appear again.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
 
 ### Restrict access to a specific Azure Front Door instance
 
 Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. By using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique http header that Azure Front Door sends.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot of the 'Access Restrictions' page in the Azure portal, showing how to add Azure Front Door restriction.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing how to add an Azure Front Door restriction.":::
 
 PowerShell example:
 
