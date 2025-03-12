@@ -161,7 +161,7 @@ Example log message:
 ```
 **Resolution**:
 In this case, the there is Network/Calico policy or NSG that did not allow dataprotection-microsoft pods to communicate with the API server. 
-You should whitelist the dataprotection-microsoft namespace ,and then reinstall the extension.
+You should allow the dataprotection-microsoft namespace ,and then reinstall the extension.
 
 
 ## Backup Extension post installation related errors
