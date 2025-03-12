@@ -12,7 +12,7 @@ ms.date: 09/10/2024
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
 > [!NOTE]
-> In this tutorial, you use Service Connector to connect a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
+> In this tutorial, you use Service Connector to connect a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app-django.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
 This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](../app-service/overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/) database.
 

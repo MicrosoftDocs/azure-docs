@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 12/12/2024
+ms.date: 01/25/2025
 ms.custom: generated
 ---
 
@@ -1149,6 +1149,24 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/)
 > | **DataAction** | **Description** |
 > | Microsoft.DesktopVirtualization/appattachpackages/useapplications/action | Allow user permissioning on app attach packages in an application group |
 > | Microsoft.DesktopVirtualization/applicationgroups/useapplications/action | Use ApplicationGroup |
+
+## Microsoft.Quantum
+
+Azure service: [Azure Quantum](/azure/quantum/overview-azure-quantum)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Quantum/register/action | Registers the subscription for the quantum resource provider and enables the creation of quantum workspaces. |
+> | Microsoft.Quantum/locations/offerings/read | Read providers supported |
+> | Microsoft.Quantum/Workspaces/read | Read Workspace |
+> | Microsoft.Quantum/Workspaces/write | Writes Workspace |
+> | Microsoft.Quantum/Workspaces/delete | Deletes Workspace |
+> | Microsoft.Quantum/Workspaces/regenerateKey/action | Regenerate workspace api key |
+> | Microsoft.Quantum/Workspaces/listKeys/action | List workspace api keys |
+> | **DataAction** | **Description** |
+> | Microsoft.Quantum/Workspaces/jobs/read | Read jobs and other data |
+> | Microsoft.Quantum/Workspaces/jobs/write | Write jobs and other data |
 
 ## Microsoft.ServiceFabric
 

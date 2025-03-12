@@ -290,51 +290,6 @@ If you want to deploy to multiple web apps, add stages to your release pipeline.
 
 ---
 
-## Example: Make variable substitutions
-
-For most language stacks, [app settings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) and [connection strings](./configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-connection-strings) can be set as environment variables at runtime.
-
-But there are other reasons you would want to make variable substitutions to your *Web.config*. In this example, your Web.config file contains a connection string named `connectionString`. You can change its value before deploying to each web app. You can do this either by applying a Web.config transformation or by substituting variables in your Web.config file. 
-
-# [YAML](#tab/yaml/)
-
-The following snippet shows an example of variable substitution by using the Azure App Service Deploy (`AzureRmWebAppDeployment`) task:
-
-```yaml
-jobs:
-- job: test
-  variables:
-    connectionString: <test-stage connection string>
-  steps:
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      azureSubscription: '<Test stage Azure service connection>'
-      WebAppName: '<name of test stage web app>'
-      enableXmlVariableSubstitution: true
-
-- job: prod
-  dependsOn: test
-  variables:
-    connectionString: <prod-stage connection string>
-  steps:
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      azureSubscription: '<Prod stage Azure service connection>'
-      WebAppName: '<name of prod stage web app>'
-      enableXmlVariableSubstitution: true
-```
-
-# [Classic](#tab/classic/)
-
-To change `connectionString` by using variable substitution:
-
-1. Create a release pipeline with two stages.
-1. Link the artifact of the release to the build that produces the web package.
-1. Define `connectionString` as a variable in each of the stages. Set the appropriate value.
-1. Select the **XML variable substitution** option under **File Transforms and Variable Substitution Options** for the **Azure App Service Deploy** task.
-
----
-
 ## Example: Deploy conditionally
 
 # [YAML](#tab/yaml/)
@@ -428,7 +383,6 @@ The Azure Web App task (`AzureWebApp`) is the simplest way to deploy to an Azure
 
 The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) can handle more custom scenarios, such as:
 
-- [Modify configuration settings](#example-make-variable-substitutions) inside web packages and XML parameters files. 
 - [Deploy with Web Deploy](#example-deploy-using-web-deploy), if you're used to the IIS deployment process.
 - [Deploy to virtual applications](#example-deploy-to-a-virtual-application).
 - Deploy to other app types, like Container apps, Function apps, WebJobs, or API and Mobile apps.

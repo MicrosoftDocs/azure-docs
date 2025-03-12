@@ -40,7 +40,7 @@ To enable your managed identity to access data on ADLS Gen2 accounts, you need t
 Your workspace identity is now a member of the Storage Blob Data Contributor role and has access to the source folder.
 
 > [!NOTE]
-> These steps also apply to secure ADLS Gen2 accounts that are configured to restrict public access. To learn more about securing your ADLS Gen2 account, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security).
+> These steps also apply to secure ADLS Gen2 accounts that are configured to restrict public access. If your storage account is associated with a secured ADLS Gen2 account or associated with a VNet, you must authenticate using a managed identity. To learn more about securing your ADLS Gen2 account, see [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security). 
 
 ## Ingest data using COPY INTO
 
@@ -121,7 +121,7 @@ To create the external data source, use the following T-SQL command:
 CREATE EXTERNAL DATA SOURCE <ExternalDataSourceName>
 WITH (
     TYPE = HADOOP,
-    LOCATION = 'abfss://<Container>@<AccountName>.dfs.core.windows.net/<Folder>/,
+    LOCATION = 'abfss://<Container>@<AccountName>.dfs.core.windows.net/<Folder>/',
     CREDENTIAL = <CredentialName>
 );
 ```
@@ -184,6 +184,8 @@ Where:
 - `<FileFormatName>` is the name of [the external file format you created previously](#create-the-external-file-format).
 
 Make sure to adjust the table name and schema to the desired name and the schema of the data in your source files.
+
+### Query the external table
 
 At this point, all the metadata required to access the external table are created. To test your external table, use a query such as the following T-SQL sample to validate your work:
 

@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 11/27/2024
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 

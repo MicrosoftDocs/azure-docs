@@ -69,4 +69,4 @@ To solve this recommendation, make sure you unblock all the URLs on the [Safe UR
 
 ## Next steps
 
-If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+If you're looking for more in-depth guides about how to resolve common issues, check out [Troubleshooting overview, feedback, and support for Azure Virtual Desktop](/troubleshoot/azure/virtual-desktop/troubleshoot-set-up-overview).

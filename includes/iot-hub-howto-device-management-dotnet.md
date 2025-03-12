@@ -2,12 +2,12 @@
 title: Device management using direct methods (.NET)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for .NET for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
+ms.date: 1/6/2025
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -21,9 +21,7 @@ This article describes how to use the [Azure IoT SDK for .NET](https://github.co
 
 This section describes how to use device application code to create a direct method callback listener.
 
-[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
-
-### Required device NuGet package
+### Required device NuGet packages
 
 Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
@@ -34,7 +32,16 @@ using Microsoft.Azure.Devices.Client;
 using Microsoft.Azure.Devices.Shared;
 ```
 
-### Connect to a device
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to interact with device messages from the device.
 
@@ -58,6 +65,10 @@ static deviceClient = null;
 deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString, 
    TransportType.Mqtt);
 ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-dotnet](iot-hub-howto-auth-device-cert-dotnet.md)]
 
 ### Create a direct method callback listener
 

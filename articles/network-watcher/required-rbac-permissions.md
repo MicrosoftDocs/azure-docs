@@ -6,17 +6,21 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 09/23/2024
+ms.date: 03/06/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
 
 # Azure role-based access control permissions required to use Network Watcher capabilities
 
-Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities. To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow. To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin. To learn more about Network Watcher's capabilities, see [What is Network Watcher?](network-watcher-monitoring-overview.md)
+Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities.
+
+To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow.
+
+To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
 > [!IMPORTANT]
-> [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) does not cover the following actions:
+> [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't cover the following actions:
 > - Microsoft.Storage/* actions listed in [Additional actions](#additional-actions) or [Flow logs](#flow-logs) section.
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
 > - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
@@ -83,7 +87,10 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 <sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
 > [!CAUTION]
-> Data collection rule and data collection endpoint resources are created and managed by traffic analytics. If you perform any operation on these resources, traffic analytics may not function as expected.
+> Traffic analytics creates and manages data collection rule and data collection endpoint resources in the same resource group as the workspace, prefixed with `NWTA`. If you perform any operation on these resources, traffic analytics might not function as expected.
+
+> [!IMPORTANT]
+> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions are currently not supported for enabling traffic analytics.
 
 ## Connection troubleshoot
 
@@ -132,14 +139,13 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Action                                                              | Description                                                    |
 > | ------------------------------------------------------------------- | -------------------------------------------------------------- |
 > | Microsoft.Network/networkWatchers/topology/action                   | Get topology                                                   |
-> | Microsoft.Network/networkWatchers/topology/read                     | Same as above                                                  |
+> | Microsoft.Network/networkWatchers/topology/read                     | Get topology                                                   |
 
 ## Reachability report
 
 | Action                                                              | Description                                                    |
 | ------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
-
 
 ## Additional actions
 
@@ -158,3 +164,9 @@ Network Watcher capabilities also require the following actions:
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Check if Network Watcher extension is present, and install if necessary |
 > | Microsoft.Insights/alertRules/*                                     | Set up metric alerts                                          |
 > | Microsoft.Support/*                                                 | Create and update support tickets from Network Watcher        |
+
+## Related content
+
+- [What is Network Watcher?](network-watcher-overview.md)
+
+- [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml)

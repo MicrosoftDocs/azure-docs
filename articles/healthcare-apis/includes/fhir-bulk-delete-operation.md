@@ -52,7 +52,7 @@ Query parameters allow you to filter the raw resources you plan to delete. To su
 |Query parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Allows you to hard delete a resource. If you don't pass this parameter or set hardDelete to false, the historic versions of the resource are still available.|
-|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources.|
+|_purgeHistory|False|Allows you to delete history versions associated with resource. It will not delete current version of the resource and soft deleted resources. Note: When _purgeHistory used with the _hardDelete parameter set to true, it permanently deletes all versions associated with the resource.|
 |FHIR service supported search parameters||Allows you to specify search criteria and resources matching the search criteria are deleted. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`|
 
 All the query parameters are optional.

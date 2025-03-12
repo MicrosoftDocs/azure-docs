@@ -61,6 +61,8 @@ To create a project and register the Azure Migrate appliance, you must have an A
 
 Follow the instructions on [how to set up an Azure Migrate project](../tutorial-discover-import.md#set-up-a-project).
 
+> [!NOTE]
+> Import using RVTools is not supported for Migrate projects configured with private endpoints.
 
 ## Import the servers using the RVTools XLSX file (preview)
 

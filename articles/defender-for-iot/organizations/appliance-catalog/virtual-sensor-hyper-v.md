@@ -71,7 +71,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
 1. Select **Firmware**, in **Boot order** move **DVD Drive** to the top of the list, select **Apply** and then select **OK**.
 
-1. Connect the management console's ISO image to a virtual DVD drive.
+1. Connect the OT sensor's ISO image to a virtual DVD drive.
 
 1. Start the virtual machine.
 

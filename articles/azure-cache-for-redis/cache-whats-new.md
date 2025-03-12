@@ -37,22 +37,23 @@ For the Standard and Premium tiers, you can now use availability zones (Preview)
 
 Azure cache for Redis now offers you the ability to use Redis 7.2 (preview) with your Enterprise and Enterprise Flash tiers.
 
-You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md). 
+You can upgrade your caches automatically or manually. For more information, see [How to upgrade an existing cache](cache-how-to-upgrade.md).
 
 You are able to manually trigger an upgrade to the latest version of Redis software. This provides two benefits above waiting for the automatic upgrade to occur:
 
 1. You can control when the upgrade occurs.
 1. You can upgrade to preview releases of Redis software.
 
-| **Tier**         | Basic, Standard, Premium                                | Enterprise, Enterprise Flash |
-|:--------------------------|:----------------------------------------------:|:----------------------------:|
-| **Latest Redis Version** | Redis 6.0 (GA)                                 | Redis 6.0 (GA) / Redis 7.2 (Preview)|
-| **Upgrade Policy** | Manual upgrade to newer version     | Automatic upgrade to latest GA version         |
+This table contains the information for Redis upgrades features available in each tier.
+
+| Tier                         | Automatic Upgrade | Manual Upgrade |
+|:---------------------------- |:-----------------:|:--------------:|
+| Basic, Standard, Premium     |        No         |       No       |
+| Enterprise, Enterprise Flash |        Yes        |       Yes      |
 
 ### Enterprise tier E1 (preview) SKU
 
 The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale out E1. However, it's still possible to scale up to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
-
 
 ### .NET Output cache and HybridCache
 

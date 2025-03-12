@@ -5,8 +5,8 @@ ms.service: azure-backup
 ms.topic: how-to
 ms.date: 03/29/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 

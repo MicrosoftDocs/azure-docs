@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/03/2025
+ms.date: 09/05/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -59,7 +59,6 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Sweden Central
 * Switzerland North 
 * Switzerland West 
-* Taiwan North
 * UAE North
 * UK South 
 * UK West

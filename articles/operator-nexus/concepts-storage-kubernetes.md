@@ -11,10 +11,10 @@ ms.custom: template-concept
 
 # Azure Operator Nexus storage for Kubernetes
 
-Each Azure Operator Nexus cluster uses a single storage appliance to provide persistent storage to tenant workloads. The Azure Operator Nexus software Kubernetes stack offers two types of persistent storage. Operators select them through the Kubernetes StorageClass mechanism.
+Each Azure Operator Nexus cluster uses a single storage appliance to provide persistent storage to Nexus Kubernetes cluster tenant workloads. The Azure Operator Nexus software Kubernetes stack offers two types of persistent storage. Operators select them through the Kubernetes StorageClass mechanism.
 
 > [!IMPORTANT]
-> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
+> Azure Operator Nexus does not support ephemeral volumes. Nexus recommends that the persistent volume storage mechanisms described in this document are used for all Nexus Kubernetes cluster workload volumes as these provide the highest levels of performance and availability. All storage in Azure Operator Nexus is provided by the storage appliance. There is no support for storage provided by baremetal machine disks.
 
 ## Kubernetes storage classes
 
@@ -50,7 +50,7 @@ status:
 In situations where a shared file system is required, the *nexus-shared* storage class is available. This storage class provides a highly available shared storage solution by enabling multiple pods in the same Nexus Kubernetes cluster to concurrently access and share the same volume. The *nexus-shared* storage class is backed by a highly available NFS storage service. This NFS storage service (storage pool currently limited to a maximum size of 1 TiB) is available per Cloud Service Network (CSN). The NFS storage service is deployed automatically on creation of a CSN resource. Any Nexus Kubernetes cluster attached to the CSN can provision persistent volumes from this shared storage pool. Nexus-shared supports both Read Write Once (RWO) and Read Write Many (RWX) access modes. What that means is that the workload applications can make use of either of these access modes to access the shared storage.
 
 <!--- IMG ![Nexus Shared Volume](Docs/media/nexus-shared-volume.png) IMG --->
-:::image type="content" source="media/nexus-shared-volume.png" alt-text="Diagram depicting how nexus-shared provisions a volume for a workload in Nexus Kubernetes Cluster":::
+:::image type="content" source="media/nexus-shared-volume.png" alt-text="Diagram depicting how nexus-shared provisions a volume for a workload in Nexus Kubernetes Cluster.":::
 
 Figure: Nexus Shared Volume
 

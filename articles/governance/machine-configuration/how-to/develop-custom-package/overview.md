@@ -36,6 +36,11 @@ non-Azure machine.
 1. [Provide access to a package][07]
 1. [Sign the package artifact][08]
 
+The following video provides a step by step guide on how to author a custom machine configuration
+policy using the [GuestConfiguration PowerShell module][09].
+
+> [!VIDEO https://www.youtube.com/embed/75MTIftSEfk?si=tiJwHNlXckpM7k75]
+
 <!-- Link reference definitions -->
 [01]: ../../overview.md
 [02]: /powershell/dsc/overview
@@ -45,3 +50,4 @@ non-Azure machine.
 [06]: ./4-publish-package.md
 [07]: ./5-access-package.md
 [08]: ./6-sign-package.md
+[09]: https://www.powershellgallery.com/packages/GuestConfiguration/4.6.0

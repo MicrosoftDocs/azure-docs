@@ -80,8 +80,8 @@ In some cases, even if your disk is capable of copying your data quickly, comput
 Each of the target platforms discussed in this section has a different performance profile.
 
 - **Azure Monitor Basic logs**. By default, Basic logs can be pushed to Azure Monitor at a rate of approximately 1 GB per minute. This rate allows you to ingest approximately 1.5 TB per day or 43 TB per month.
-- **Azure Data Explorer**. Ingestion performance varies, depending on the size of the cluster you provision, and the batching settings you apply. [Learn about ingestion best practices](/azure/data-explorer/kusto/management/ingestion-faq), including performance and monitoring. 
-- **Azure Blob Storage**. The performance of an Azure Blob Storage account can greatly vary depending on the number and size of the files, job size, concurrency, and so in. [Learn how to optimize AzCopy performance with Azure Storage](/azure/data-explorer/kusto/management/ingestion-faq).  
+- **Azure Data Explorer**. Ingestion performance varies, depending on the size of the cluster you provision, and the batching settings you apply. [Learn about ingestion best practices](/azure/data-explorer/ingestion-faq), including performance and monitoring. 
+- **Azure Blob Storage**. The performance of an Azure Blob Storage account can greatly vary depending on the number and size of the files, job size, concurrency, and so in. [Learn how to optimize AzCopy performance with Azure Storage](/azure/data-explorer/ingestion-faq).  
 
 ### Amount of data
 

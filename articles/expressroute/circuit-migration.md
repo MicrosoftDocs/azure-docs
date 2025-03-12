@@ -5,43 +5,43 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 10/06/2023
+ms.date: 01/31/2025
 ms.author: duau
 ---
 
 # Migrate to a new ExpressRoute circuit
 
-If you want to switch from one ExpressRoute circuit to another, you might want to do it smoothly with minimum service interruption. This document helps you to follow the steps to migrate your production traffic without causing major disruptions or risks. You can use this method whether you're moving to a new or the same peering location.
+If you want to switch from one ExpressRoute circuit to another, you can do it smoothly with minimal service interruption. This document guides you through the steps to migrate your production traffic without causing major disruptions or risks. This method applies whether you're moving to a new or the same peering location.
 
-If you've got your ExpressRoute circuit through a Layer 3 service provider, create the new circuit under your subscription in the Azure portal. Work with your service provider to switch the traffic seamlessly to the new circuit. After the service provider has deprovisioned your old circuit, delete it from the Azure portal.
+If you have your ExpressRoute circuit through a Layer 3 service provider, create the new circuit under your subscription in the Azure portal. Work with your service provider to switch the traffic seamlessly to the new circuit. After the service provider has deprovisioned your old circuit, delete it from the Azure portal.
 
-The rest of the article applies to you if you've got your ExpressRoute circuit through a Layer 2 service provider or ExpressRoute direct ports.
+The rest of the article applies if you have your ExpressRoute circuit through a Layer 2 service provider or ExpressRoute direct ports.
 
 ## Steps for seamless ExpressRoute circuit migration
 
 :::image type="content" source="./media/circuit-migration/migrate-circuit.png" alt-text="Diagram showing an ExpressRoute circuit migration from Circuit A to Circuit B.":::
 
-The diagram above illustrates the migration process from an existing ExpressRoute circuit, referred to as Circuit A, to a new ExpressRoute circuit, referred to as Circuit B. Circuit B can be in the same or a different peering location as Circuit A. The migration process consists of the following steps:
+The previous diagram illustrates the migration process from an existing ExpressRoute circuit, referred to as Circuit A, to a new ExpressRoute circuit, referred to as Circuit B. Circuit B can be in the same or a different peering location as Circuit A. The migration process consists of the following steps:
 
 1. **Deploy Circuit B in isolation:** While the traffic continues to flow over Circuit A, deploy a new Circuit B without affecting the production environment.
 
-1. **Block the production traffic flow over Circuit B:** Prevent any traffic from using Circuit B until it's fully tested and validated.
+2. **Block the production traffic flow over Circuit B:** Prevent any traffic from using Circuit B until it's tested fully and validated.
 
-1. **Complete and validate end-to-end connectivity of Circuit B:** Ensure that Circuit B can establish and maintain a stable and secure connection with all the required endpoints.
+3. **Complete and validate end-to-end connectivity of Circuit B:** Ensure that Circuit B can establish and maintain a stable and secure connection with all the required endpoints.
 
-1. **Switch over the traffic:** Redirect the traffic flow from Circuit A to Circuit B and block the traffic flow over Circuit A.
+4. **Switch over the traffic:** Redirect the traffic flow from Circuit A to Circuit B and block the traffic flow over Circuit A.
 
-1. **Decommission Circuit A:** Remove Circuit A from the network and release its resources.
+5. **Decommission Circuit A:** Remove Circuit A from the network and release its resources.
 
 ## Deploy new circuit in isolation
 
 For a one-to-one replacement of the existing circuit, select the **Standard Resiliency** option and follow the steps outlined in the [Create a circuit with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) guide to create your new ExpressRoute circuit (Circuit B) in the desired peering location. Then, follow the steps in [Configure peering for ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md) to configure the required peering types: private and Microsoft.
 
-To prevent the private peering production traffic from using Circuit B before testing and validating it, don't link virtual network gateway that has production deployment to Circuit B. Similarly to avoid Microsoft peering production traffic from using Circuit B, don't associate a route filter to Circuit B. 
+To prevent the private peering production traffic from using Circuit B before testing and validating it, don't link a virtual network gateway that has production deployment to Circuit B. Similarly, to avoid Microsoft peering production traffic from using Circuit B, don't associate a route filter to Circuit B.
 
 ## Block the production traffic flow over the newly created circuit
 
-Prevent the route advertisement over the new peering(s) on the CE devices.
+Prevent the route advertisement over one or more new peerings on the CE devices.
 
 For Cisco IOS, you can use a `route-map` and a `prefix-list` to filter the routes advertised over a BGP peering. The following example shows how to create and apply a `route-map` and a `prefix-list` for this purpose:
 
@@ -56,7 +56,7 @@ router bgp <your_AS_number>
  neighbor <neighbor_IP_address> route-map BLOCK-ADVERTISEMENTS in
 ```
 
-Use export/import policy to filter the routes advertised and received on the new peering(s) on the Junos devices. The following example shows how to configure export/import policy for this purpose:
+Use export/import policy to filter the routes advertised and received on the new peering on the Junos devices. The following example shows how to configure export/import policy for this purpose:
 
 ```
 user@router>show configuration policy-options policy-statement BLOCK-ALL-ROUTES
@@ -81,15 +81,15 @@ protocols {
 
 ### Private peering
 
-Follow the steps in [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md) to link the new circuit to the gateway of a test virtual network and verify your private peering connectivity. After linking virtual networks to the circuit, examine the route table of the private peering of the circuit and verify that the address space of the virtual network is included in the table. The following example shows a route table of the private peering of an ExpressRoute circuit in the Azure Management portal:
+To link the new circuit to the gateway of a test virtual network and verify your private peering connectivity, follow the steps in [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md) . After linking the virtual networks to the circuit, check the route table of the private peering to ensure the address space of the virtual network is included. The following example shows a route table of the private peering of an ExpressRoute circuit in the Azure Management portal:
 
 :::image type="content" source="./media/circuit-migration/route-table.png" alt-text="Screenshot of the route table for the primary link of the ExpressRoute circuit.":::
 
-The following diagram illustrates a test VM configured in a test virtual network and a test device located on-premises for verifying the connectivity over the ExpressRoute private peering.
+The following diagram illustrates a test VM in a test virtual network and a test device on-premises used to verify connectivity over the ExpressRoute private peering.
 
 :::image type="content" source="./media/circuit-migration/test-connectivity.png" alt-text="Diagram showing a VM in Azure communicating with a test device on-premises through the ExpressRoute connection.":::
 
-Modify the route-map or the policy configuration that you have applied to filter the routes advertised and allow the specific IP address of the test device from on-premises. Similarly, allow the test virtual network’s address space from Azure.
+Modify the route-map or policy configuration to filter the advertised routes and allow the specific IP address of the on-premises test device. Similarly, allow the test virtual network’s address space from Azure.
 
 ```
 route-map BLOCK ADVERTISEMENTS permit 5
@@ -132,36 +132,38 @@ Verify the end-to-end connectivity over the private peering. For example, you ca
 
 ### Microsoft peering
 
-The verification of your Microsoft peering requires careful planning to avoid any effect on the production traffic. You need to use [distinct prefixes](expressroute-howto-routing-portal-resource-manager.md#to-create-microsoft-peering) for the Microsoft peering of Circuit B that are different from the ones used for Circuit A, to prevent any routing conflicts between the two circuits. You also need to link the Microsoft peering of Circuit B to a separate route filter than the one linked to Circuit A, following the steps in [configuring route filters for Microsoft peering](how-to-routefilter-portal.md). Additionally, you need to ensure that the route filters for both circuits don't have any common routes that are advertised to the on-premises network, to avoid asymmetrical routing between Circuit A and Circuit B. To achieve this, you can either: 
- - select a service or an Azure region for testing Circuit B that isn't used by the production traffic on Circuit A, or
- - minimize the overlap between the two route filters and permit only more specific test public endpoints received through Circuit B
+The verification of your Microsoft peering requires careful planning to avoid affecting production traffic. Follow these steps to ensure a smooth process:
 
-Once you have linked a route filter, you need to check the routes that are advertised and received over the BGP peering on the CE device. To filter the routes that are advertised and allow only the on-premises prefixes of the Microsoft peering and the specific IP address of the selected Microsoft public endpoints for testing, you need to modify the route-map or the Junos policy configuration that you have applied.
+1. **Use Distinct Prefixes:** Configure the Microsoft peering for Circuit B with prefixes different from the ones used for Circuit A to prevent routing conflicts. Refer to [creating Microsoft peering](expressroute-howto-routing-portal-resource-manager.md#to-create-microsoft-peering) for guidance.
+2. **Separate Route Filters:** Link Circuit B's Microsoft peering to a different route filter than Circuit A. Follow the steps in [configuring route filters for Microsoft peering](how-to-routefilter-portal.md).
+3. **Avoid Common Routes:** Ensure the route filters for both circuits don't share common routes to prevent asymmetrical routing. This can be done by:
+    - Selecting a service or Azure region for testing Circuit B that isn't used by Circuit A's production traffic.
+    - Minimizing overlap between the two route filters and permitting only specific test public endpoints through Circuit B.
 
-To test the connectivity to Microsoft 365 endpoints, follow the steps in [Implementing ExpressRoute for Microsoft 365 – Build your test procedures](/microsoft-365/enterprise/implementing-expressroute#build-your-test-procedures). For Azure public endpoints, you could start with basic connectivity testing such as traceroute from on-premises and verify that the request goes over ExpressRoute endpoints. Beyond ExpressRoute endpoints, ICMP messages are suppressed over Microsoft network. You could also test the connectivity at the application level, in addition to basic ping tests. For instance, if you have an Azure VM with Azure public IP running a web server, you can try accessing the web server public IP from your on-premises network through the ExpressRoute connection. This helps you confirm that more complex traffic, such as HTTP requests, can reach Azure services.
+After linking a route filter, check the routes advertised and received over the BGP peering on the CE device. Modify the route-map or Junos policy configuration to filter the advertised routes, allowing only the on-premises prefixes of the Microsoft peering and specific IP addresses of the selected Microsoft public endpoints for testing.
 
-## Switch over the production traffic
+To test connectivity to Microsoft 365 endpoints, follow the steps in [Implementing ExpressRoute for Microsoft 365 – Build your test procedures](/microsoft-365/enterprise/implementing-expressroute#build-your-test-procedures). For Azure public endpoints, start with basic connectivity tests like traceroute from on-premises to ensure requests go over ExpressRoute endpoints. Beyond ExpressRoute endpoints, ICMP messages are suppressed over the Microsoft network. Additionally, test connectivity at the application level. For example, if you have an Azure VM with a public IP running a web server, try accessing the web server's public IP from your on-premises network through the ExpressRoute connection. This confirms that complex traffic, such as HTTP requests, can reach Azure services.
 
 ### Private peering
 
-1. Disconnect Circuit B from any test virtual network gateways that you have connected it to.
-1. Remove any exceptions that you have made to the Cisco route-maps or Junos policy.
-1. Follow the steps in [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md) and connect Circuit B to production virtual network gateway(s).
-1. On the CE, make sure that you're ready to advertise all the routes that you're currently advertising over Circuit A, over Circuit B when you remove the route-map or policy applied to Circuit B interfaces on CE. This also includes ensuring that the interfaces of Circuit B are associated with the appropriate VRF or routing-instance, if any.
-1. Remove the route-maps or policy on Circuit B interfaces. Apply the route-maps or policy on Circuit A interfaces to block the route advertisement over Circuit A. This will switch the traffic flow over Circuit B.
-1. Verify the traffic flow over Circuit B. If the verification fails, undo the route-map or firewall association that you did in the previous step and switch the traffic flow back over Circuit A.
-1. If the verification of traffic flow over Circuit B is successful, delete Circuit A.
+1. Disconnect Circuit B from any test virtual network gateways.
+2. Remove any exceptions made to the Cisco route-maps or Junos policy.
+3. Connect Circuit B to the production virtual network gateway following the steps in [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md).
+4. Ensure that Circuit B is ready to advertise all routes currently advertised over Circuit A. Verify that Circuit B interfaces are associated with the appropriate VRF or routing-instance.
+5. Remove the route-maps or policy on Circuit B interfaces and apply them to Circuit A interfaces to block route advertisements over Circuit A, switching the traffic flow to Circuit B.
+6. Verify the traffic flow over Circuit B. If verification fails, revert the changes and switch the traffic flow back to Circuit A.
+7. If verification is successful, delete Circuit A.
 
 ### Microsoft peering
 
-1. Remove Circuit B from any test Azure route filter that you have linked it to.
-1. Remove any exceptions that you have made to the route-maps or policy.
-1. On CE, make sure that the interface of Circuit B is associated with the appropriate VRF or routing-instance.
-1. Validate and confirm the advertised prefix over the Microsoft peering.
-1. Associate Circuit B Microsoft peering to the Azure route filter that is currently associated to Circuit A.
-1. Remove the route-maps or export/import policy on Circuit B interfaces. Apply the route-maps or export/import policy on Circuit A interfaces to block the route advertisement over Circuit A. This will switch the traffic flow over Circuit B.
-1. Verify the traffic flow over Circuit B. If the verification fails, undo the route-map or policy association that you did in the previous step and switch the traffic flow back over Circuit A.
-1. If the verification of traffic flow over Circuit B is successful, delete Circuit A.
+1. Remove Circuit B from any test Azure route filter.
+2. Remove any exceptions made to the route-maps or policy.
+3. Ensure that Circuit B interfaces are associated with the appropriate VRF or routing-instance.
+4. Validate and confirm the advertised prefixes over the Microsoft peering.
+5. Associate Circuit B Microsoft peering with the Azure route filter currently associated with Circuit A.
+6. Remove the route-maps or export/import policy on Circuit B interfaces and apply them to Circuit A interfaces to block route advertisements over Circuit A, switching the traffic flow to Circuit B.
+7. Verify the traffic flow over Circuit B. If verification fails, revert the changes and switch the traffic flow back to Circuit A.
+8. If verification is successful, delete Circuit A.
 
 ## Next step
 

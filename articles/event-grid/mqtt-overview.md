@@ -1,8 +1,8 @@
 ---
-title: 'Overview of MQTT broker feature in Azure Event Grid'
-description: Describes how Azure Event Grid enables MQTT clients to communicate with each other and with Azure services, to support your Internet of Things (IoT) solutions.
+title: MQTT (PubSub) broker'
+description: Message Queuing Telemetry Transport (MQTT) PubSub broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
 ms.topic: concept-article
-ms.date: 12/12/2024
+ms.date: 03/05/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -23,8 +23,6 @@ The MQTT broker is ideal for the implementation of automotive and mobility scena
 
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
 
-
-
 ## Key concepts
 The following are a list of key concepts involved in Azure Event Grid’s MQTT broker feature.
 
@@ -32,7 +30,7 @@ The following are a list of key concepts involved in Azure Event Grid’s MQTT b
 
 MQTT is a publish-subscribe messaging transport protocol that was designed for constrained environments. It's the goto communication standard for IoT scenarios due to efficiency, scalability, and reliability. MQTT broker enables clients to publish and subscribe to messages over MQTT v3.1.1, MQTT v3.1.1 over WebSockets, MQTT v5, and MQTT v5 over WebSockets protocols. The following list shows some of the feature highlights of MQTT broker:
 - MQTT v5 features:
- 	- **Last Will and Testament (LWT)** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
+ 	- **Last Will and Testament** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **User properties** allow you to add custom key-value pairs in the message header to provide more context about the message. For example, include the purpose or origin of the message so the receiver can handle the message efficiently.
 	- **Request-response pattern** enables your clients to take advantage of the standard request-response asynchronous pattern, specifying the response topic and correlation ID in the request for the client to respond without prior configuration. 
 	- **Message expiry interval** allows you to declare to MQTT broker when to disregard a message that is no longer relevant or valid. For example, disregard stale commands or alerts. 
@@ -45,10 +43,10 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 - MQTT broker is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Will message, Retain flag, Message ordering, and QoS 2 aren't supported.
 
 - MQTT v3.1.1 features:
-  	- **Last Will and Testament (LWT)** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
+  	- **Last Will and Testament** notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
 	- **Persistent sessions** ensure reliability by preserving the client's subscription information and messages when a client disconnects.
 	- **QoS 0 and 1** provide your clients with control over the efficiency and reliability of the communication.
--  MQTT broker is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v3.1.1 specification: Retain flag, Message ordering and QoS 2 aren't supported.
+-  MQTT broker is adding more MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v3.1.1 specification: Retain flag, Message ordering, and QoS 2 aren't supported.
  
 [Learn more about the MQTT broker and current limitations.](mqtt-support.md) 
 
@@ -97,7 +95,7 @@ Event Grid allows you to route your MQTT messages to Azure services or webhooks 
 :::image type="content" source="media/mqtt-overview/routing-high-res.png" alt-text="Diagram that shows MQTT message routing in Azure Event Grid." border="false":::
 
 ### Edge MQTT broker integration
-Event Grid integrates with [Azure IoT Operations](https://aka.ms/iot-mq) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud. Azure IoT Operations provides a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID authentication using system-assigned managed identity, which simplifies credential management. MQTT Broker provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](https://aka.ms/iot-mq-preview) as part of Azure IoT Operations. [Learn more about connecting Azure IoT Operations MQTT Broker to Azure Event Grid's MQTT broker](https://aka.ms/iot-mq-eg-bridge).
+Event Grid integrates with [Azure IoT Operations](../iot-operations/manage-mqtt-broker/overview-broker.md) to bridge its MQTT broker capability on the edge with Azure Event Grid’s MQTT broker feature in the cloud. Azure IoT Operations provides a new distributed MQTT broker for edge computing, running on Arc enabled Kubernetes clusters. It can connect to Event Grid MQTT broker with Microsoft Entra ID authentication using system-assigned managed identity, which simplifies credential management. MQTT Broker provides high availability, scalability, and security for your IoT devices and applications. It's now available in [public preview](../iot-operations/manage-mqtt-broker/overview-broker.md) as part of Azure IoT Operations. [Learn more about connecting Azure IoT Operations MQTT Broker to Azure Event Grid's MQTT broker](../iot-operations/connect-to-cloud/howto-create-dataflow.md).
 
 ### MQTT Clients Life Cycle Events
 
@@ -109,6 +107,7 @@ Custom domain names support allows users to assign their own domain names to Eve
 
 
 ## Concepts
+See the following articles for concepts of MQTT broker in Azure Event Grid: 
 
 - [Terminology](mqtt-event-grid-namespace-terminology.md)
 - [Client authentication](mqtt-client-authentication.md) 

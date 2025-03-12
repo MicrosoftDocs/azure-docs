@@ -4,7 +4,7 @@
  author: spelluru
  ms.service: azure-service-bus
  ms.topic: include
- ms.date: 12/11/2024
+ ms.date: 01/16/2025
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -15,5 +15,5 @@
 1. Enter a **name** for the queue, and leave the other values with their defaults.
 1. Now, select **Create**.
  
-    :::image type="content" source="./media/service-bus-create-queue-portal/create-queue.png" alt-text="Screenshot that shows the Create queue page.":::
+    :::image type="content" source="./media/service-bus-create-queue-portal/create-queue.png" alt-text="Screenshot that shows the Create queue page." lightbox="./media/service-bus-create-queue-portal/create-queue.png":::
 

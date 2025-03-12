@@ -101,6 +101,9 @@ When configuring SNC:
 - If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent.
 - If you're using the data connector agent, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). If you're using the agentless solution, the SNC configuration is done in the SAP Cloud Connector.
 
+
+For more information about SNC, see [Getting started with SAP SNC for RFC integrations - SAP blog](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/getting-started-with-sap-snc-for-rfc-integrations/ba-p/13983462).
+
 :::zone pivot="connection-agent"
 
 ## Configure support for extra data retrieval (recommended)
@@ -186,6 +189,8 @@ For more information, see the [SAP documentation](https://help.sap.com/docs/inte
    - **BAPI_USER_GET_DETAIL**, to retrieve SAP user details
       
    - **RFC_READ_TABLE**, to read data from required tables
+      
+   - **SIAG_ROLE_GET_AUTH**, to retrieve security role authorizations
       
 1. Add a new destination in SAP BTP that points the virtual host you'd created earlier. Use the following details to populate the new destination:
 

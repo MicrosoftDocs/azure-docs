@@ -4,8 +4,8 @@ description: This article explains how to monitor and operate backups and disast
 ms.topic: how-to
 ms.date: 12/24/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Monitor and operate backups and disaster recovery using Backup center

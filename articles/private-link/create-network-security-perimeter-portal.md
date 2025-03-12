@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure portal
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using the Azure portal. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
@@ -13,7 +14,7 @@ ms.date: 11/04/2024
 
 # Quickstart: Create a network security perimeter - Azure portal
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using the Azure portal. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using the Azure portal. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -96,14 +97,14 @@ Once you create a key vault, you can proceed to create a network security perime
 
 ## Delete a network security perimeter
 
-When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
+When you no longer need a network security perimeter and associated resources, you can delete the resource group that contains the network security perimeter and all associated resources. This action removes the network security perimeter and all resources within it.
 
-1. From your network security perimeter, select **Associated resources** under **Settings**.
-2. Select **key-vault-YYYYDDMM** from the list of associated resources.
-3. From the action bar, select **Settings ** and then select **Remove** in the confirmation window.
-4. Navigate back to the **Overview** page of your network security perimeter.
-5. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
-6. Browse to the **resource-group** and select **Delete** to remove the resource group and all resources within it.
+1. In the Azure portal, select **Resource groups** from the left-hand menu.
+1. Select **resource-group** from the list of resource groups.
+1. In the **resource-group** window, select **Delete resource group** from the action bar.
+1. In the **Delete a resource group** window, enter the name of the resource group to confirm the deletion.
+1. Select **Delete** to remove the resource group and all resources within it.
+1. Verify the resource group is no longer listed in the **Resource groups** window.
 
 [!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
 

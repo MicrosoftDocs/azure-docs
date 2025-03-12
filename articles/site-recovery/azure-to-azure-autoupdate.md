@@ -83,7 +83,7 @@ param(
     [Parameter(Mandatory=$false)]
     [String] $AutomationAccountArmId
 )
-$SiteRecoveryRunbookName = "Modify-AutoUpdateForVaultForPatner"
+$SiteRecoveryRunbookName = "Modify-AutoUpdateForVaultForPartner"
 $TaskId = [guid]::NewGuid().ToString()
 $SubscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 $AsrApiVersion = "2021-12-01"

@@ -5,8 +5,8 @@ ms.topic: sample
 ms.date: 03/26/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # PowerShell script to delete a Recovery Services vault

@@ -103,7 +103,7 @@ For every app in Azure Container Apps, there are two URLs.
 
 The Container Apps runtime initially generates a fully qualified domain name (FQDN) used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the FQDN of your container app.
 
-A second URL is also generated for you. This location grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
+A second URL is also generated for you. This location grants access to the log streaming service and the console. If necessary, you may need to add `https://<region>.azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
 
 ## Ports and IP addresses
 
@@ -153,7 +153,7 @@ Different environment types have different subnet requirements:
     | /26 | 52 | 26 | 260 |
     | /27 | 20 | 10 | 100 |
     
-    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -219,7 +219,7 @@ If you're using the Azure CLI with a Consumption only environment and the [platf
 User Defined Routes (UDR) and controlled egress through NAT Gateway are supported in the workload profiles environment. In the Consumption only environment, these features aren't supported.
 
 > [!NOTE]
-> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDN's and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
+> When using UDR with Azure Firewall in Azure Container Apps, you need to add certain FQDNs and service tags to the allowlist for the firewall. To learn more, see [configuring UDR with Azure Firewall](./networking.md#configuring-udr-with-azure-firewall).
 
 - You can use UDR with workload profiles environments to restrict outbound traffic from your container app through Azure Firewall or other network appliances.
 
@@ -231,10 +231,10 @@ Azure creates a default route table for your virtual networks upon create. By im
 
 #### Configuring UDR with Azure Firewall
 
-User defined routes is only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
+User defined routes are only supported in a workload profiles environment. The following application and network rules must be added to the allowlist for your firewall depending on which resources you're using.
 
 > [!NOTE]
-> For a guide on how to setup UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
+> For a guide on how to set up UDR with Container Apps to restrict outbound traffic with Azure Firewall, visit the [how to for Container Apps and Azure Firewall](./user-defined-routes.md).
 
 ##### Application rules
 
@@ -270,9 +270,9 @@ You can use NAT Gateway to simplify outbound connectivity for your outbound inte
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
 
-### <a name="public-network-access"></a>Public network access (preview)
+### <a name="public-network-access"></a>Public network access
 
-The public network access setting determines whether your container apps environment is accesible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
+The public network access setting determines whether your container apps environment is accessible from the public Internet. Whether you can change this setting after creating your environment depends on the environment's virtual IP configuration. The following table shows valid values for public network access, depending on your environment's virtual IP configuration.
 
 | Virtual IP | Supported public network access | Description |
 |--|--|--|
@@ -298,7 +298,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 
 #### Considerations
 - Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic is not supported.
-- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When configuring your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
+- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
 
@@ -306,7 +306,7 @@ In order to connect to your container apps through a private endpoint, you must 
 
 | Service | subresource | Private DNS zone name |
 |--|--|--|
-| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | private link.{regionName}.azurecontainerapps.io |
 
 ### Environment security
 
@@ -337,9 +337,9 @@ The following example shows an environment with peer-to-peer encryption enabled.
 
 <sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with a private certificate and decrypted by the receiver. 
 
-<sup>3</sup> Calls made from app A to app B's FQDN are first sent to the edge ingress proxy, and are TLS encrypted.
+<sup>3</sup> Calls made from app A to app B's FQDN are first sent to the edge ingress proxy, and are TLS encrypted. 
 
-<sup>4</sup> Calls made from app A to app B using app B's app name are sent directly to app B and are TLS encrypted.
+<sup>4</sup> Calls made from app A to app B using app B's app name are sent directly to app B and are TLS encrypted. Calls between apps and [Java components](./java-overview.md#java-components-support) are treated in the same way as app to app communication and TLS encrypted.
 
 Applications within a Container Apps environment are automatically authenticated. However, the Container Apps runtime doesn't support authorization for access control between applications using the built-in peer-to-peer encryption.
 

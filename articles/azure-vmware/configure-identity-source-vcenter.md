@@ -38,16 +38,7 @@ In this article, you learn how to:
 
 - Ensure that your Windows Server Active Directory network is connected to your Azure VMware Solution private cloud.
 
-- For Windows Server Active Directory authentication with LDAPS:
-
-  1. Get access to the Windows Server Active Directory domain controller with Administrator permissions.
-  1. Enable LDAPS on your Windows Server Active Directory domain controllers by using a valid certificate. You can obtain the certificate from an [Active Directory Certificate Services Certificate Authority (CA)](https://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx) or a [third-party or public CA](/troubleshoot/windows-server/identity/enable-ldap-over-ssl-3rd-certification-authority).
-  1. To obtain a valid certificate, complete the steps in [Create a certificate for secure LDAP](../active-directory-domain-services/tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Ensure that the certificate meets the listed requirements.
-
-     > [!NOTE]
-     > Avoid using self-signed certificates in production environments.  
-  
-  1. Optional: If you don't provide the `SSLCertificatesSasUrl` parameter, the certificate is automatically downloaded from the domain controller via the `PrimaryUrl` or the `SecondaryUrl` parameters. Alternatively, you can manually [export the certificate for LDAPS authentication](#export-the-certificate-for-ldaps-authentication-optional) and upload it to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources by using an SAS](../storage/common/storage-sas-overview.md).  
+- Windows Server Active Directory authentication with LDAPS, see [Configure LDAPS within Azure Vmware Solution](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/configure-ldaps-within-azure-vmware-solution/3725759).
 
 - Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Set up a DNS forwarder in the Azure portal. For more information, see [Configure a DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
 
@@ -100,7 +91,7 @@ If you need multiple certificates, upload each one individually and generate an 
 > Remember to copy all SAS URL strings. The strings aren't accessible after you leave the page.
 
 > [!TIP]
-> An alternative method to consolidate certificates involves storing all the certificate chains in one file, as detailed in a [VMware knowledge base article](https://kb.vmware.com/s/article/2041378). Then, generate a single SAS URL for the file that contains all the certificates.
+> An alternative method to consolidate certificates involves storing all the certificate chains in one file, as detailed in a [VMware knowledge base article](https://knowledge.broadcom.com/external/article?legacyId=2041378). Then, generate a single SAS URL for the file that contains all the certificates.
 
 ## Set up NSX-T DNS for Windows Server Active Directory domain resolution
 
@@ -312,4 +303,3 @@ To remove all existing external identity sources at once, run the Remove-Externa
 - [Create a storage policy](configure-storage-policy.md)
 - [Azure VMware Solution identity architecture](architecture-identity.md)
 - [Set an external identity source for NSX](configure-external-identity-source-nsx-t.md)
-- [VMware product documentation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DB5A44F1-6E1D-4E5C-8B50-D6161FFA5BD2.html)

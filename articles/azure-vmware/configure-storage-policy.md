@@ -3,7 +3,7 @@ title: Configure storage policy
 description:  Learn how to configure storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 01/08/2025
 ms.custom: engagement-fy23
 
 #Customer intent: As an Azure service administrator, I want set the VMware vSAN storage policies to determine how storage is allocated to the VM.
@@ -35,7 +35,7 @@ In this article learn how to:
 
 ## Prerequisites
 
-Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/VMware-Cloud-on-AWS/services/com.vmware.vsphere.vmc-aws-manage-data-center-vms.doc/GUID-EDBB551B-51B0-421B-9C44-6ECB66ED660B.html).
+Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.com/us/en/vmware-cis/cloud/vmware-cloud-on-aws/SaaS/operations-guide/managing-sddc-hosts-and-clusters/vsan-storage-in-vmware-cloud-on-aws/virtual-san-policies-aws.html).
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |

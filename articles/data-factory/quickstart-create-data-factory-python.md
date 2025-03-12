@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.subservice: data-movement
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.custom: devx-track-python, mode-api
 ---
 

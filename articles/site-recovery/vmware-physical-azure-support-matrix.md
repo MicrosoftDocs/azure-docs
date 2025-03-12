@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 12/20/2024
+ms.date: 03/11/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23, linux-related-content
@@ -419,7 +419,7 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 ## Resource group limits
 
-To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
+To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).
 
 ## Churn limits
 

@@ -17,7 +17,7 @@ appliesto:
 
 ---
 
-# SOC optimization reference of recommendations
+# SOC optimization reference of recommendations types
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
@@ -29,7 +29,7 @@ Microsoft Sentinel SOC optimizations include the following types of recommendati
 
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
-This article provides a reference of the SOC optimization recommendations available.
+This article provides a detailed reference of the types of SOC optimization recommendations available.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -39,9 +39,9 @@ To optimize your cost/security value ratio, SOC optimization surfaces hardly use
 
 Data value optimizations only look at billable tables that ingested data in the past 30 days.
 
-The following table lists the available data value SOC optimization recommendations:
+The following table lists the available types of data value SOC optimization recommendations:
 
-| Observation | Action |
+| Type of observation | Action |
 |---------|---------|
 | The table wasn’t used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move to [auxiliary logs (Preview) or basic logs](../billing.md#auxiliary-logs-and-basic-logs) if the table is eligible.   |
 | The table wasn’t used at all in the last 30 days.     | Turn on analytics rule templates <br>OR<br> Stop data ingestion and remove the table or move the table to long term retention.       |
@@ -60,9 +60,9 @@ To provide threat-based recommendations, SOC optimization looks at your ingested
 
 Threat-based optimizations consider both predefined and user-defined detections.
 
-The following table lists the available threat-based SOC optimization recommendations:
+The following table lists the available types of threat-based SOC optimization recommendations:
 
-| Observation | Action |
+| Type of observation | Action |
 |---------|---------|
 | There are data sources, but detections are missing.     | Turn on analytics rule templates based on the threat: Create a rule using an analytics rule template, and adjust the name, description, and query logic to suit your environment. <br><br>For more information, see [Threat detection in Microsoft Sentinel](../threat-detection.md). |
 | Templates are turned on, but data sources are missing.     | Connect new data sources.     |
@@ -72,7 +72,7 @@ The following table lists the available threat-based SOC optimization recommenda
 
 SOC optimization uses advanced machine learning to identify tables that are missing from your workspace, but are used by organizations with similar ingestion trends and industry profiles to yours. It shows how other organizations use these tables and recommends to you the relevant data sources, along with related rules, to improve your security coverage.
 
-| Observation | Action |
+| Type of observation | Action |
 |---------|---------|
 | Log sources ingested by similar customers are missing   | Connect the suggested data sources. <br><br>This recommendation doesn't include: <ul><li>Custom connectors<li>Custom tables<li>Tables that are ingested by fewer than 10 workspaces <li>Tables that contain multiple log sources, like the `Syslog` or `CommonSecurityLog` tables   |
 
