@@ -142,15 +142,15 @@ The upgrade CRDs pre-install job is failing in the cluster.
 
 **Debug**
 
-1-check for any events in the cluster related to pod spawn issue
+1. check for any events in the cluster related to pod spawn issue
 ```azurecli-interactive
 kubectl events -n dataprotection-microsoft
 ```
-2-check the pods for dataprotection crds
+2. check the pods for dataprotection crds
 ```azurecli-interactive
 kubectl get pods -A | grep "dataprotection-microsoft-kubernetes-agent-upgrade-crds"
 ```
-3-check the pods logs
+3. check the pods logs
 ```azurecli-interactive
 kubectl logs -f --all-containers=true --timestamps=true -n dataprotection-microsoft <pod-name-from-prev-command>
 ```
