@@ -1,5 +1,5 @@
 ---
-title: Deploy to App Service Using GitHub Actions
+title: Deploy to Azure App Service Using GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline by using GitHub Actions. Customize the build tasks and run complex deployments.
 author: cephalin
 ms.author: cephalin
@@ -8,7 +8,7 @@ ms.topic: how-to #Don't change
 ms.date: 01/16/2025
 ms.custom: github-actions-azure, devx-track-azurecli
 
-#customer intent: As a build developer, I want to learn how to automate my deployment of web apps using Azure App Service and GitHub.
+#customer intent: As a build developer, I want to learn how to automate my deployment of web apps by using Azure App Service and GitHub.
 
 ---
 
@@ -63,7 +63,7 @@ You can also authenticate with a user-assigned managed identity, a service princ
 
 # [OpenID Connect](#tab/openid)
 
-The following procedure describes the steps for creating a Microsoft Entra application, service principal, and federated credentials using the Azure CLI statements. To learn how to create a Microsoft Entra application, service principal, and federated credentials in the Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+The following procedure describes the steps for creating a Microsoft Entra application, service principal, and federated credentials using Azure CLI statements. To learn how to create a Microsoft Entra application, service principal, and federated credentials in the Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
 1. If you don't have an existing application, register a [new Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Microsoft Entra application.
 
@@ -118,11 +118,11 @@ The following procedure describes the steps for creating a Microsoft Entra appli
 # [Publish profile](#tab/applevel)
 
 > [!NOTE]
-> Publish profile requires that you enable [basic authentication](configure-basic-auth-disable.md).
+> To use publish profile, you must enable [basic authentication](configure-basic-auth-disable.md).
 
 A publish profile is an app-level credential. Set up your publish profile as a GitHub secret.
 
-1. Go to your app service in the Azure portal.
+1. Go to your App Service in the Azure portal.
 
 1. On the **Overview** page, select **Download publish profile**.
 
@@ -154,7 +154,7 @@ In the previous example, replace the placeholders with your subscription ID, res
 ```
 
 > [!IMPORTANT]
-> It's always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
+> We recommend that you grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 ---
 
@@ -236,13 +236,13 @@ The following examples show the part of the workflow that builds the web app, in
 
 ## Frequently Asked Questions
 
-- [How do I deploy a WAR file through Maven plugin?](#how-do-i-deploy-a-war-file-through-maven-plugin)
+- [How do I deploy a WAR file through the Maven plugin?](#how-do-i-deploy-a-war-file-through-the-maven-plugin)
 - [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-the-azure-cli)
 - [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
 - [How do I deploy to a container?](#how-do-i-deploy-to-a-container)
 - [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
 
-### How do I deploy a WAR file through Maven plugin?
+### How do I deploy a WAR file through the Maven plugin?
 
 If you configured your Java Tomcat project with the [Maven plugin](https://github.com/microsoft/azure-maven-plugins), you can also deploy to Azure App Service through this plugin. If you use the [Azure CLI GitHub action](https://github.com/Azure/cli), it makes use of your Azure credentials.
 
@@ -290,7 +290,7 @@ With the **Azure Web Deploy** action, you can automate your workflow to deploy c
 
 ### How do I update the Tomcat configuration after deployment?
 
-If you'd like to update any of your web apps settings after deployment, you can use the [App Service Settings](https://github.com/Azure/appservice-settings) action.
+If you'd like to update any of your web apps settings after deployment, you can use the [App Service settings](https://github.com/Azure/appservice-settings) action.
 
 ```yaml
     - uses: azure/appservice-settings@v1
@@ -303,11 +303,11 @@ If you'd like to update any of your web apps settings after deployment, you can 
       id: settings
 ```
 
-For more information on how to use and configure this action, see the [App Service Settings](https://github.com/Azure/appservice-settings) repository.
+For more information on how to use and configure this action, see the [App Service settings](https://github.com/Azure/appservice-settings) repository.
 
 ## Related content
 
-Check out references on Azure GitHub Actions and workflows:
+Check out the following references on Azure GitHub Actions and workflows:
 
 - [`Azure/login` action](https://github.com/Azure/login)
 - [`Azure/webapps-deploy` action](https://github.com/Azure/webapps-deploy)
