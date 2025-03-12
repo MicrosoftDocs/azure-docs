@@ -4,10 +4,10 @@ description: Learn how to use the Azure portal to create a lab, create a virtual
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/11/2025
+ms.date: 03/12/2025
 ms.custom: UpdateFrequency2
 
-#customer intent: As a lab administrator, I want to learn how to create and delete labs, add Azure virtual machines (VMs) to labs, and add users to labs, so I can better manage my labs.
+#customer intent: As a lab administrator, I want to learn how to create and delete labs, add virtual machines (VMs) to labs, and add users to labs, so I can better manage my labs.
 ---
 
 # Tutorial: Create a lab and VM and add a user in DevTest Labs
@@ -20,15 +20,19 @@ This tutorial shows Azure DevTest Labs administrators how to use the Azure porta
 > * Add a user to the DevTest Labs User role.
 > * Delete the lab resources when no longer needed.
 
-If you're a lab user, such as a developer, tester, or trainee, see [Access a lab in Azure DevTest Labs](tutorial-use-custom-lab.md) to learn how to claim and connect to lab VMs.
+If you're a developer, tester, or trainee, see [Access a lab in Azure DevTest Labs](tutorial-use-custom-lab.md) to learn how to claim and connect to lab VMs.
 
-## Prerequisite
+## Prerequisites
 
 - To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- To add a VM to a lab, you need at least [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) role in the lab.
 
 - To add users to a lab, you must have [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the Azure subscription the lab is in.
 
 ## Create a lab
+
+To create a lab, follow these steps. For more information, see [Quickstart: Create a lab in the Azure portal](devtest-lab-create-lab.md).
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **DevTest Labs**.
 
@@ -96,7 +100,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
 
 1. You can also select the **Tags** tab to apply tags to the VM. After you configure all settings, select **Create** at the bottom of the screen.
 
-During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
+   During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
 
 After the VM is created, select **Claimable virtual machines** under **My Lab** in the left navigation of the lab **Overview** page to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if the VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
 
@@ -128,7 +132,7 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 
 To share a link to the lab with your users, go to the lab home page in the [Azure portal](https://portal.azure.com) and copy the URL from your browser. Share the copied link with your lab users.
 
-If a lab user has a Microsoft account but isn't a member of your Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
+Lab users must have a Microsoft account, but they don't need to have an Azure account. If a lab user isn't a member of your Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
 
 ## Clean up resources
 
