@@ -17,8 +17,8 @@ If you haven't yet selected your application platform in Azure, review the [Azur
 
 See, [Azure database services map](/azure/architecture/gcp-professional/services#data-platform) and the [Azure big data and analytics services map](/azure/architecture/gcp-professional/services#big-data-and-analytics).
 
-## Component level guides
+## Component guides
 
-Microsoft publishes guidance for select services to help architects, developers, and database administrators plan their migration efforts. Use this guidance combined with guidance available for your other components to assess, plan, and perform your migration.
+Microsoft publishes guidance for select services to help architects, developers, and database administrators plan their migration efforts. Use these guides, combined with guidance available for your other components, to assess, plan, and perform your migration.
 
 ### TODO MD version of TOC GOES HERE
