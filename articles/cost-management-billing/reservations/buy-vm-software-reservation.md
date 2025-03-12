@@ -26,7 +26,7 @@ There are two ways to purchase a virtual machine software reservation:
 
 **Option 1**
 
-1. Navigate to Reservations, select **Add**, and then select **Virtual Machine**. The Azure Marketplace shows offers that have reservation pricing.
+1. Navigate to Reservations, select **Add**, and then select **Virtual Machine software reservation**. The Azure Marketplace shows offers that have reservation pricing.
 2. Select the desired Virtual machine software plan that you want to buy.  
     Any virtual machine software reservation that matches the attributes of what you buy gets a discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.  
