@@ -53,11 +53,11 @@ The access restriction rules of your app aren't evaluated for traffic through th
 
 You can find the client source IP in the web HTTP logs of your app. This feature is implemented by using the transmission control protocol (TCP) proxy, which forwards the client IP property up to the app. For more information, see [Getting connection information by using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
 
-:::image type="content" source="./media/overview-private-endpoint/global-schema-web-app.png" alt-text="Diagram shows App Service app private endpoint global overview.":::
+:::image type="content" source="./media/overview-private-endpoint/global-schema-web-app.png" alt-text="Diagram that shows a global overview of App Service private endpoints.":::
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app, which is by default `<app-name>.azurewebsites.net`. When you use [unique default hostname](#dnl-note), your app name has the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the following examples, `mywebapp` could also represent the full regionalized unique hostname.
+When you use private endpoint for App Service apps, the requested URL must match the name of your app, which is by default `<app-name>.azurewebsites.net`. When you use a [unique default hostname](#dnl-note), your app name has the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the following examples, `mywebapp` could also represent the full regionalized unique hostname.
 
 By default, without a private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
 
@@ -75,20 +75,20 @@ For example, the name resolution is:
 | `mywebapp.azurewebsites.net` | `CNAME` | `mywebapp.privatelink.azurewebsites.net` | |
 | `mywebapp.privatelink.azurewebsites.net` | `CNAME` | `clustername.azurewebsites.windows.net` | |
 | `clustername.azurewebsites.windows.net` | `CNAME` | `cloudservicename.cloudapp.net` | |
-| `cloudservicename.cloudapp.net` | `A` | `192.0.2.13` | <--This public IP isn't your private endpoint, you receive a 403 error. |
+| `cloudservicename.cloudapp.net` | `A` | `192.0.2.13` | <--This public IP isn't your private endpoint. You receive a 403 error. |
 
-You must set up a private DNS server or an Azure DNS private zone. For tests, you can modify the host entry of your test machine. The DNS zone that you need to create is: `privatelink.azurewebsites.net`. Register the record for your app with an A record and the private endpoint IP.
+You must set up a private DNS server or an Azure DNS private zone. For tests, you can modify the host entry of your test machine. The DNS zone that you need to create is: `privatelink.azurewebsites.net`. Register the record for your app with an `A` record and the private endpoint IP.
 
 For example, the name resolution is:
 
 | Name | Type | Value | Remark |
 |:----|:----|:-----|:------|
-| `mywebapp.azurewebsites.net` | `CNAME` | `mywebapp.privatelink.azurewebsites.net`| <--Azure creates this `CNAME` entry in Azure Public DNS to point the app address to the private endpoint address |
-| `mywebapp.privatelink.azurewebsites.net` | `A` | `10.10.10.8` | <--You manage this entry in your DNS system to point to your private endpoint IP address |
+| `mywebapp.azurewebsites.net` | `CNAME` | `mywebapp.privatelink.azurewebsites.net`| <--Azure creates this `CNAME` entry in Azure Public DNS to point the app address to the private endpoint address. |
+| `mywebapp.privatelink.azurewebsites.net` | `A` | `10.10.10.8` | <--You manage this entry in your DNS system to point to your private endpoint IP address. |
 
 When you set up this DNS configuration, you can reach your app privately with the default name `mywebapp.azurewebsites.net`. You must use this name, because the default certificate is issued for `*.azurewebsites.net`.
 
-If you need to use a custom DNS name, add the custom name in your app. You must validate the custom name like any custom name, using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
+If you need to use a custom DNS name, add the custom name in your app. You must validate the custom name like any custom name, by using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
 
 For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Services self-hosted agents, for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM of your app.
 
@@ -115,15 +115,15 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Limitations
 
-- When you use Azure Function in the Elastic Premium plan with a private endpoint, you must have direct network access to run the function in the Azure portal. Otherwise, you receive an HTTP 403 error. Your browser must be able to reach the private endpoint to run the function from the Azure portal.
+- When you use an Azure function in the Elastic Premium plan with a private endpoint, you must have direct network access to run the function in the Azure portal. Otherwise, you receive an HTTP 403 error. Your browser must be able to reach the private endpoint to run the function from the Azure portal.
 - You can connect up to 100 private endpoints to a particular app.
 - Remote debugging functionality isn't available through the private endpoint. We recommend that you deploy the code to a slot and debug it remotely there.
 - FTP access is provided through the inbound public IP address. A private endpoint doesn't support FTP access to the app.
-- IP-based transport layer security (TLS) isn't supported with private endpoints.
+- IP-based TLS isn't supported with private endpoints.
 - Apps that you configure with private endpoints can't receive public traffic that comes from subnets with a `Microsoft.Web` service endpoint enabled and can't use [service endpoint-based access restriction rules](./overview-access-restrictions.md#access-restriction-rules-based-on-service-endpoints).
 - Private endpoint naming must follow the rules defined for resources of the `Microsoft.Network/privateEndpoints` type. For more information, see [Naming rules and restrictions](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
 
-For up-to-date information about limitations, see [Limitations](../private-link/private-endpoint-overview.md#limitations).
+For up-to-date information about limitations, see [this documentation](../private-link/private-endpoint-overview.md#limitations).
 
 ## Related content
 
@@ -131,5 +131,5 @@ For up-to-date information about limitations, see [Limitations](../private-link/
 - [How to connect privately to an app by using Azure CLI](../private-link/create-private-endpoint-cli.md).
 - [How to connect privately to an app by using PowerShell](../private-link/create-private-endpoint-powershell.md).
 - [How to connect privately to an app by using an Azure template](../private-link/create-private-endpoint-template.md).
-- See this [quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using the ARM template.
+- See this [Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using the ARM template.
 - See this [sample](./scripts/terraform-secure-backend-frontend.md) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using Terraform.
