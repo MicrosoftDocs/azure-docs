@@ -16,7 +16,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/azure/partner-solutions/qumulo/features.md",
+            "source_path_from_root": "features.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
             "redirect_document_id": true
         },
