@@ -9,7 +9,7 @@ items:
   href: create.md
 - name: Disaster recovery
   href: qumulo-disaster-recovery.md
-- name: Video editing?
+- name: Video editing
   href: qumulo-video-editing.md
 - name: ANQ for PACS VNA
   href: qumulo-vendor-neutral-archive.md
