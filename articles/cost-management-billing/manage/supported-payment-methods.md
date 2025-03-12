@@ -1,6 +1,6 @@
 ---
 title: Supported payment methods
-description: Learn which credit and debit cards are supported for Azure subscriptions, based on your country or region.
+description: Learn about the payment methods that are supported for Azure subscriptions, based on your country or region.
 author: bandersmsft
 ms.reviewer: lishepar
 ms.service: cost-management-billing
