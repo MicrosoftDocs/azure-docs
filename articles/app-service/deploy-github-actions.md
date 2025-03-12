@@ -63,7 +63,7 @@ You can also authenticate with a user-assigned managed identity, a service princ
 
 # [OpenID Connect](#tab/openid)
 
-The following procedure describes the steps for creating a Microsoft Entra application, service principal, and federated credentials using Azure CLI statements. To learn how to create a Microsoft Entra application, service principal, and federated credentials in the Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+The following procedure describes the steps for creating a Microsoft Entra application, service principal, and federated credentials using the Azure CLI statements. To learn how to create a Microsoft Entra application, service principal, and federated credentials in the Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
 
 1. If you don't have an existing application, register a [new Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). Create the Microsoft Entra application.
 
@@ -182,7 +182,7 @@ In [GitHub](https://github.com/), browse to your repository. Select **Settings**
 
 To use the app-level credentials that you created in the previous section, paste the contents of the downloaded publish profile file into the secret's value field. Name the secret `AZURE_WEBAPP_PUBLISH_PROFILE`.
 
-When you configure the GitHub workflow file later, use the `AZURE_WEBAPP_PUBLISH_PROFILE` in the deploy Azure Web App action. For example:
+When you configure the GitHub workflow file later, use the `AZURE_WEBAPP_PUBLISH_PROFILE` in the **Deploy Azure Web App** action. For example:
 
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -237,7 +237,7 @@ The following examples show the part of the workflow that builds the web app, in
 ## Frequently Asked Questions
 
 - [How do I deploy a WAR file through Maven plugin?](#how-do-i-deploy-a-war-file-through-maven-plugin)
-- [How do I deploy a WAR file through Azure CLI?](#how-do-i-deploy-a-war-file-through-azure-cli)
+- [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-azure-cli)
 - [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
 - [How do I deploy to a container?](#how-do-i-deploy-to-a-container)
 - [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
@@ -256,7 +256,7 @@ If you configured your Java Tomcat project with the [Maven plugin](https://githu
 
 For more information on how to use and configure the Maven plugin, see [Maven plugin wiki for Azure App Service](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App).
 
-### How do I deploy a WAR file through Azure CLI?
+### How do I deploy a WAR file through the Azure CLI?
 
 If you prefer to use the Azure CLI to deploy to App Service, you can use the GitHub Action for Azure CLI.
 
@@ -268,13 +268,13 @@ If you prefer to use the Azure CLI to deploy to App Service, you can use the Git
       az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
 ```
 
-For more information on how to use and configure the GitHub Action for CLI, see [Azure CLI GitHub action](https://github.com/Azure/cli).
+For more information on how to use and configure the GitHub Action for Azure CLI, see [Azure CLI GitHub action](https://github.com/Azure/cli).
 
 For more information on the `az webapp deploy` command, including how to use it and the parameter details, see [`az webapp deploy` documentation](/cli/azure/webapp#az-webapp-deploy).
 
 ### How do I deploy a startup file?
 
-Use the GitHub Action for CLI. For example:
+Use the GitHub Action for Azure CLI. For example:
 
 ```yaml
 - name: Deploy startup script
