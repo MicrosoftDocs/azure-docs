@@ -2,7 +2,6 @@
 title: Origins and origin groups
 titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
-services: front-door
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor

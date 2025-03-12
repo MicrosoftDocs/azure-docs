@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using Azure CLI'
 description: This quickstart will show you how to use Azure Front Door (classic) to create a high availability and high-performance global web application using Azure CLI.
-services: front-door
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD
