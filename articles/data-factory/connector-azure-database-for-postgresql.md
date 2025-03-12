@@ -458,6 +458,10 @@ IncomingStream sink(allowSchemaDrift: true,
     skipDuplicateMapOutputs: true) ~> AzurePostgreSQLSink
 ```
 
+## Script activity
+
+For more information about script activity, see [Script activity](transform-data-using-script.md).
+
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
