@@ -34,7 +34,7 @@ Azure Native Qumulo Scalable File Service provides the following capabilities:
 Azure Native Qumulo offers multiple storage class options for your workloads.
 
 - Hot LRS
-- Hot ZRS //do not specify zone
+- Hot ZRS 
 - Cold LRS
 
 See Qumulo's documentation to learn more about [storage class options](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html#using-cold-workloads). 
