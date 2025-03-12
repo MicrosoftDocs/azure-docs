@@ -167,6 +167,8 @@
             href: nsg-flow-logs-cli.md
           - name: REST
             href: nsg-flow-logs-rest.md
+          - name: ARM template
+            href: nsg-flow-logs-template.md
           - name: Bicep
             href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
           - name: Built-in Policy
