@@ -23,7 +23,7 @@ Microsoft publishes guidance for select services to help architects, developers,
 
 ### TODO: Organize and present key migration content available for this technology area
 
-## Additional workload components
+## Related workload components
 
 Your workload contains other components as well that will need to migrate with your compute. Microsoft has similar guidance for:
 
