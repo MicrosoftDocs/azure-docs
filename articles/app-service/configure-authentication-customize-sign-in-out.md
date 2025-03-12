@@ -56,8 +56,8 @@ The token format varies slightly according to the provider:
 | Provider value | Required in request body | Comments |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
-| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When you're requesting the token from live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When `authorization_code` specified, it can optionally be accompanied by a `redirect_uri` property. |
+| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When you're requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When you specify `authorization_code`, you can optionally accompany it with a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<access_token_secret>"}` | |
 | | | |
@@ -129,7 +129,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 ## Set the domain hint for sign-in accounts
 
-Both Microsoft accounts and Microsoft Entra let you sign in from multiple domains. For example, a Microsoft account allows `outlook.com`, `live.com`, and `hotmail.com` accounts. Microsoft Entra allows any number of custom domains for the sign-in accounts. However, you might want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`).
+Both Microsoft accounts and Microsoft Entra let users sign in from multiple domains. For example, a Microsoft account allows `outlook.com`, `live.com`, and `hotmail.com` accounts. Microsoft Entra allows any number of custom domains for the sign-in accounts. However, you might want to accelerate your users straight to your own branded Microsoft Entra sign-in page (such as `contoso.com`).
 
 To suggest the domain name of the sign-in accounts, follow these steps:
 
@@ -196,5 +196,5 @@ If either of the other levels doesn't provide the authorization that you need, o
 
 ## Related content
 
-- [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
+- [Tutorial: Authenticate and authorize users end to end in Azure App Service](tutorial-auth-aad.md)
 - [Environment variables and app settings for authentication](reference-app-settings.md#authentication--authorization)
