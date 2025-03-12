@@ -16,7 +16,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-
+- Teams users must have a Teams Phone license and be [Enterprise Voice enabled](/microsoftteams/direct-routing-enable-users#use-powershell-1)
 
 ## Add the Teams UI controls
 
