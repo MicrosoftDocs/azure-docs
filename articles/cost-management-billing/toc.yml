@@ -241,7 +241,7 @@
       href: manage/resolve-past-due-balance.md
     - name: Add, update, or delete payment method
       href: manage/change-credit-card.md
-    - name: Supported credit and debit cards
+    - name: Supported payment methods
       href: manage/supported-credit-debit-cards.md
     - name: View payment history
       href: manage/view-payment-history.md
