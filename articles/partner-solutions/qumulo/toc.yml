@@ -13,8 +13,8 @@ items:
   href: qumulo-virtual-desktop.md
 - name: Get started
   items:
-- name: Create a Qumulo resource
-  href: create.md
+  - name: Create a Qumulo resource
+    href: create.md
 - name: How to
   items:
   - name: Manage resources
