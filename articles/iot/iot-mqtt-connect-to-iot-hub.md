@@ -295,7 +295,7 @@ The following list summarizes IoT Hub MQTT implementation-specific behaviors:
 
 For more information, see [Send device-to-cloud and cloud-to-device messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
-## Receiving cloud-to-device messages
+## Receive cloud-to-device messages
 
 To receive messages from IoT Hub, a device should subscribe using `devices/{device-id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the topic filter is used to enable the device to receive more properties in the topic name. IoT Hub doesn't allow the usage of the `#` or `?` wildcards to filter subtopics. IoT Hub isn't a general-purpose publish-subscribe messaging broker, it only supports the documented topic names and topic filters. A device can only subscribe to five topics at a time.
 
