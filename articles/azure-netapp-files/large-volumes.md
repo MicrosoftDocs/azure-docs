@@ -21,7 +21,7 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | - | - | 
 | Capacity | <ul><li>50 GiB minimum</li><li>100 TiB maximum</li></ul> |
 | File count | 2,147,483,632 |
-| Performance (MiB/s) | <ul><li>Standard: 1,600</li><li>Premium: 1,600</li><li>Ultra: 4,500</li><li>Flexible: 4,500</ul> |
+| Performance (MiB/s) | <ul><li>Standard: 1,600</li><li>Premium: 6,400</li><li>Ultra: 12,800</li></ul> |
 
 Large volumes have the following limits: 
 
@@ -29,7 +29,7 @@ Large volumes have the following limits:
 | - | - | 
 | Capacity | <ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> |
 | File count | 15,938,355,048 |
-| Performance | The large volume performance limit is 12,800 MiB/s regardless of service level. |
+| Performance | The large volume performance limit is 12,800 MiB/s on all service levels. |
 
 
 ## Large volumes effect on performance 
