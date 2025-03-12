@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Turn off local preview mirroring
+title: Quickstart - Local preview mirroring
 titleSuffix: An Azure Communication Services Quickstart
 description: This quickstart describes how to turn off local preview mirroring
 author: yassirbisteni
