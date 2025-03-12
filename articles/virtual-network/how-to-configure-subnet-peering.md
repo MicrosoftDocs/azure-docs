@@ -27,7 +27,7 @@ The following limitations apply during the public preview:
 
 - Subscription allowlisting: To use this feature, you must have the subscription on which you want to configure subnet peering be registered. Fill this [form](https://forms.office.com/r/99J2fSfd9L) to get your subscription registered. For more information about registering preview features in your subscription, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
 
-- Availability: The feature is available in all regions, however, it can be configured via Terraform, PowerShell, API, CLI, and ARM template only. Portal experience will be made available in the future.
+- Availability: The feature is available in all regions, however, it can be configured via Terraform, PowerShell, API, CLI, and ARM template only.
 
 ## Prerequisites
 
@@ -41,10 +41,10 @@ The following limitations apply during the public preview:
 
 In the existing virtual network peering create process, few new optional parameters are introduced. This is the description/reference of each:
 
-### New Optional Parameters Introduced:
+### New optional parameters introduced:
 
 - **--peer-complete-vnet**  
-This parameter would let user exercise an option to select subnet peering. By default the value for this parameter is set to true, which means entire virtual networks are peered (all address spaces/subnets). To use subnet peering, this parameter needs to be set to false.  
+This parameter would let users exercise an option to select subnet peering. By default the value for this parameter is set to true, which means entire virtual networks are peered (all address spaces/subnets). To use subnet peering, this parameter needs to be set to false.  
 Accepted values: 0, 1, f, false, n, no, t, true, y, yes  
 Default value: True
 
@@ -188,7 +188,7 @@ For this, we run the virtual network peering create command with the optional pa
                                  --vnet-name vnet-2
     ```
 
-## Subnet Peering Checks and Limitations
+## Subnet peering checks and limitations
 
 The following diagram displays the checks performed while configuring subnet peering and current limitations.
 
@@ -199,7 +199,7 @@ The following diagram displays the checks performed while configuring subnet pee
     - However, virtual network A’s Subnet 4 (10.0.1.0/24) can subnet peer with Subnet 5 in virtual network C (10.6.1.0/24) as these subnets are unique across the virtual networks and they belong to unique address spaces across virtual networks. Subnet 4 belongs to 10.0.0.0/16 address space in virtual network A and Subnet 5 belongs to 10.6.0.0/16 address space in virtual network C.
 
 1. There can be **only one peering link between any two virtual networks**. If you want to add or remove subnets from the peering link, then the same peering link is required to be updated. **Multiple exclusive peering between set of subnets are not possible**.<br>
-**A given peering link type cannot be changed**. If there's a virtual network peering between virtual network A and virtual network B, and user wants to change that to subnet peering, the existing virtual network peering link must be deleted, and a new peering must be created with the required parameters for subnet peering and vice versa.
+**A given peering link type cannot be changed**. If there's a virtual network peering between virtual network A and virtual network B, and the user wants to change that to subnet peering, the existing virtual network peering link must be deleted, and a new peering must be created with the required parameters for subnet peering and vice versa.
 
 1. **Number of subnets that can be part of a peering link should be less than or equal to 400 (200 limit from each local and remote side).**
     - For example, in the virtual network A and virtual network B peering link (illustrated by blue arrow headed line), total number of subnets participating in the peering here's 4 (two from virtual network A and two from virtual network B side). This number should be <=400.
@@ -207,16 +207,16 @@ The following diagram displays the checks performed while configuring subnet pee
 1. In the present release (Public preview, feature remains behind subscription flag), **forward route from non-peered subnet to peered subnet exists** - In the current scenario virtual network A and virtual network B peering, even though Subnet 2 from virtual network A side isn't peered, but it will still have route for Subnet 1 and Subnet 2 in virtual network B.
     - In the subnet peering for virtual network A and virtual network B, customer would expect only Subnet 1 and Subnet 3 from virtual network A to have route for Subnet 1 and Subnet 2 in remote virtual network B, however, Subnet 2 and Subnet 4 (from local side virtual network A which isn't peered) also have route for Subnet 1 and Subnet 2 in remote side (virtual network B), meaning the nonpeered subnets can send packet to destination node in the peered subnet, although the packet is dropped and doesn't reach the virtual machine.
 
-    - It's recommended users to apply NSGs on the participating subnets to allow traffic from only peered subnets/address spaces. This limitation will be removed in the post GA release.
+    - It's recommended that users apply NSGs on the participating subnets to allow traffic from only peered subnets/address spaces. This limitation will be removed in the post GA release.
 
 1. Subnet Peering and AVNM
     - Connected Group<br>
     If two virtual networks are connected in 'Connected Group', and if Subnet peering is configured over these two virtual networks, subnet peering takes preference and the connectivity between nonpeered subnets gets dropped.
     - AVNM Connectivity Configuration<br>
-    AVNM today can't differentiate between virtual network peering and subnet peering. If Subnet peering exists between virtual network A and virtual network B, and later an AVNM user tries to establish a virtual network peering between virtual network A and virtual network B through some AVNM connectivity configuration (Hub and Spoke deployment), AVNM would assume that peering between virtual network A and virtual network B already exists and would ignore the new peering request. We recommend users to exercise caution in such conflicting scenarios while using AVNM and Subnet peering
+    AVNM today can't differentiate between virtual network peering and subnet peering. If Subnet peering exists between virtual network A and virtual network B, and later an AVNM user tries to establish a virtual network peering between virtual network A and virtual network B through some AVNM connectivity configuration (Hub and Spoke deployment), AVNM would assume that peering between virtual network A and virtual network B already exists and would ignore the new peering request. We recommend that users exercise caution in such conflicting scenarios while using AVNM and Subnet peering
 
 ## Next steps
 
 Subnet peering helps you have better conservation of IPv4 space, by letting you reuse address spaces across subnets that need not be peered. It also prevents unnecessary exposure of entire virtual network address space through gateways to on-premises environments. With IPv6 only peering, you can further configure peering over IPv6 only for dual-stack subnets or IPv6 only subnets. Explore these capabilities and let us know if you have feedback and suggestions here.
 
-To learn more about peering, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview.md).
+To learn more about peering, see [Virtual network peering](./virtual-network-peering-overview.md).

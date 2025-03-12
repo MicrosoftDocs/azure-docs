@@ -33,9 +33,9 @@ The benefits of using virtual network peering, whether local or global, include:
 
 Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public internet, gateways, or encryption are required in the communication between the virtual networks.
 
-We recently introduce an added flexibility on top of virtual network peering - '**Subnet peering**'.
+We recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
  
-It's an added flexibility built on top of virtual network peering, where users get an option to choose specific subnets that need to be peered across virtual networks. User can specify/enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
+It's an added flexibility built on top of virtual network peering, where users get an option to choose specific subnets that need to be peered across virtual networks. Users can specify/enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
  
 > [!IMPORTANT]
 > Subnet peering is currently in preview.
