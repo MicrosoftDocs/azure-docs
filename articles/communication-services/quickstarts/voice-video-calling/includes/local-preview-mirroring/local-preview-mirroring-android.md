@@ -7,7 +7,7 @@ manager: gaobob
 
 ms.author: yassirb
 ms.date: 2/21/2025
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other, devx-track-js
@@ -15,7 +15,7 @@ ms.custom: mode-other, devx-track-js
 zone_pivot_groups: acs-plat-web-windows-android-ios
 ---
 
-## Turn off local preview mirroring
+### Turn off local preview mirroring
 
 ````java
 VideoStreamRenderer renderer = new VideoStreamRenderer(localVideoStream, this);
