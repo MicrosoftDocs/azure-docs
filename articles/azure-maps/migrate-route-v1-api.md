@@ -1,16 +1,16 @@
 ---
-title: Migrate Bing Maps Geocode Dataflow API to Azure Maps Geocoding Batch and Reverse Geocoding Batch API
+title: Migrate Azure Maps Route API version 1.0 to Azure Maps Routing API version 2025-01-01.
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Geocode Dataflow API to the Azure Maps Geocoding Batch and Reverse Geocoding Batch API.
+description: Learn how to Migrate the Azure Maps Route API version 1.0 to Azure Maps Route API version 2025-01-01.
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 03/15/2025
+ms.date: 03/12/2025
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: search
+ms.subservice: rest-api
 ---
 
-# Migrate Bing Maps Geocode Dataflow API
+# Migrate Azure Maps Route 1.0 API
 
 This article explains how to migrate the [Azure Maps Route v1.0 API] to [Azure Maps Route v2025-01-01 API]. The following table shows the Route v1.0 APIs and the migration options.
 
