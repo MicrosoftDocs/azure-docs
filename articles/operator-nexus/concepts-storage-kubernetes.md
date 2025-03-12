@@ -45,19 +45,7 @@ status:
   phase: Bound
 ```
 
-Some Azure Operator Nexus deployments may have two storage appliances installed. *nexus-volume* persistent volume claims (PVCs) can be placed on a specific storage appliance using the *storageApplianceName* annotation.
-
-```yml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: testPvc
-  namespace: default
-  annotations:
-    storageApplianceName: exampleStorageAppliance
-```
-
-The *storageApplianceName* field requires the name of a Storage Appliance (Operator Nexus) resource in Azure.
+Some Azure Operator Nexus deployments may have two storage appliances installed. Persistent volume claims (PVCs) using the *nexus-volume* storage class can place the associated persistent volumes onto a specific storage appliance by using the *storageApplianceName* annotation. More information is available in [this document](/concepts-storage-multiple-appliances.md).
 
 ### StorageClass: nexus-shared
 
