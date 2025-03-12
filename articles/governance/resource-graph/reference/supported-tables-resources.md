@@ -1266,12 +1266,8 @@ v
 - microsoft.NetApp/netAppAccounts (NetApp accounts)
 - microsoft.netapp/netappaccounts/backuppolicies
 - microsoft.netapp/netappaccounts/backupvaults
-- 
 - microsoft.NetApp/netAppAccounts/capacityPools (Capacity pools)
 - microsoft.NetApp/netAppAccounts/capacityPools/Volumes (Volumes)
-- microsoft.netapp/netappaccounts/capacitypools/volumes/mounttargets
-- microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots (Snapshots)
-- microsoft.netapp/netappaccounts/capacitypools/volumes/subvolumes
 - microsoft.NetApp/netAppAccounts/snapshotPolicies (Snapshot policies)
 - microsoft.Network/applicationGateways (Application gateways)
 - microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies (Web application firewall policies (WAF))
@@ -1283,8 +1279,19 @@ v
 - microsoft.network/ddoscustompolicies
 - microsoft.Network/ddosProtectionPlans (DDoS protection plans)
 - microsoft.Network/dnsForwardingRulesets (Dns Forwarding Rulesets)
+- microsoft.network/dnsresolverdomainlists
+- microsoft.network/dnsresolverpolicies
+- microsoft.network/dnsresolverpolicies/dnssecurityrules
+- microsoft.network/dnsresolverpolicies/virtualnetworklinks
 - microsoft.Network/dnsResolvers (DNS Private Resolvers)
+- microsoft.network/dnsresolvers/inboundendpoints
+- microsoft.network/dnsresolvers/outboundendpoints
+- microsoft.network/dnssecuritypolicies
+- microsoft.network/dnssecuritypolicies/virtualnetworklinks
+- microsoft.network/dnssecuritypolicydomainlists
 - microsoft.Network/dnsZones (DNS zones)
+- microsoft.network/dnszones/a
+- microsoft.network/dnszones/cname
 - microsoft.network/dscpconfigurations
 - microsoft.Network/expressRouteCircuits (ExpressRoute circuits)
 - microsoft.network/expressroutecrossconnections
@@ -1294,66 +1301,106 @@ v
 - microsoft.network/firewallpolicies/rulegroups
 - microsoft.Network/frontdoors (Front Doors)
 - microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall policies (WAF))
+- microsoft.network/gatewayloadbalanceraliases
 - microsoft.network/ipallocations
 - microsoft.Network/ipGroups (IP Groups)
 - microsoft.Network/LoadBalancers (Load balancers)
 - microsoft.Network/localnetworkgateways (Local network gateways)
-- microsoft.network/mastercustomipprefixes
-- microsoft.Network/natGateways (NAT gateways)
-- microsoft.Network/NetworkExperimentProfiles (Internet Analyzer profiles)
+- microsoft.network/natgateways
+- microsoft.network/networkexperimentprofiles
 - microsoft.network/networkintentpolicies
-- microsoft.Network/networkinterfaces (Network interfaces)
-  - Sample query: [Get virtual networks and subnets of network interfaces](../samples/samples-by-category.md#get-virtual-networks-and-subnets-of-network-interfaces)
-  - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
-- microsoft.Network/networkManagers (Network Managers)
+- microsoft.network/networkinterfaces
+- microsoft.network/networkmanagers
+- microsoft.network/networkmanagers/ipampools
+- microsoft.network/networkmanagers/verifierworkspaces
 - microsoft.network/networkprofiles
-- microsoft.Network/NetworkSecurityGroups (Network security groups)
-  - Sample query: [Show unassociated network security groups](../samples/samples-by-category.md#show-unassociated-network-security-groups)
+- microsoft.network/networksecuritygroups
 - microsoft.network/networksecurityperimeters
+- microsoft.network/networkverifiers
 - microsoft.network/networkvirtualappliances
-- microsoft.network/networkwatchers (Network Watchers)
+- microsoft.network/networkwatchers
+- microsoft.network/networkwatchers/connectionanalyzers
 - microsoft.network/networkwatchers/connectionmonitors
-- microsoft.network/networkwatchers/flowlogs (NSG Flow Logs)
+- microsoft.network/networkwatchers/flowlogs
 - microsoft.network/networkwatchers/lenses
+- microsoft.network/networkwatchers/networkwatcheragents
 - microsoft.network/networkwatchers/pingmeshes
 - microsoft.network/p2svpngateways
-- microsoft.Network/privateDnsZones (Private DNS zones)
+- microsoft.network/privatednszones
 - microsoft.network/privatednszones/virtualnetworklinks
 - microsoft.network/privateendpointredirectmaps
-- microsoft.Network/privateEndpoints (Private endpoints)
-- microsoft.Network/privateLinkServices (Private link services)
-- microsoft.Network/PublicIpAddresses (Public IP addresses)
-  - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
-- microsoft.Network/publicIpPrefixes (Public IP Prefixes)
-- microsoft.Network/routeFilters (Route filters)
-- microsoft.Network/routeTables (Route tables)
+- microsoft.network/privateendpoints
+- microsoft.network/privatelinkservices
+- microsoft.network/publicipaddresses
+- microsoft.network/publicipprefixes
+- microsoft.network/routefilters
+- microsoft.network/routetables
 - microsoft.network/sampleresources
 - microsoft.network/securitypartnerproviders
-- microsoft.Network/serviceEndpointPolicies (Service endpoint policies)
-- microsoft.Network/trafficmanagerprofiles (Traffic Manager profiles)
+- microsoft.network/serviceendpointpolicies
+- microsoft.network/servicegateways
+- microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
 - microsoft.network/virtualhubs/bgpconnections
 - microsoft.network/virtualhubs/ipconfigurations
-- microsoft.Network/virtualNetworkGateways (Virtual network gateways)
-- microsoft.Network/virtualNetworks (Virtual networks)
+- microsoft.network/virtualnetworkgateways
+- microsoft.network/virtualnetworks
 - microsoft.network/virtualnetworktaps
 - microsoft.network/virtualrouters
-- microsoft.Network/virtualWans (Virtual WANs)
+- microsoft.network/virtualwans
 - microsoft.network/vpngateways
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
+- microsoft.networkanalytics/dataconnectors
+- microsoft.networkanalytics/datalakehouses
+- microsoft.networkanalytics/dataproducts
+- microsoft.networkanalytics/metricsingestionendpoints
+- microsoft.networkcloud/baremetalmachines
+- microsoft.networkcloud/cloudservicesnetworks
+- microsoft.networkcloud/clustermanagers
+- microsoft.networkcloud/clusters
+- microsoft.networkcloud/clusters/baremetalmachinekeysets
+- microsoft.networkcloud/clusters/bmckeysets
+- microsoft.networkcloud/clusters/metricsconfigurations
+- microsoft.networkcloud/defaultcninetworks
+- microsoft.networkcloud/edgeclusters
+- microsoft.networkcloud/edgeclusters/nodes
+- microsoft.networkcloud/hybridaksclusters
+- microsoft.networkcloud/kubernetesclusters
+- microsoft.networkcloud/kubernetesclusters/agentpools
+- microsoft.networkcloud/kubernetesclusters/features
+- microsoft.networkcloud/l2networks
+- microsoft.networkcloud/l3networks
+- microsoft.networkcloud/racks
+- microsoft.networkcloud/registrationhubs
+- microsoft.networkcloud/registrationhubs/images
+- microsoft.networkcloud/registrationhubs/machines
+- microsoft.networkcloud/storageappliances
+- microsoft.networkcloud/trunkednetworks
+- microsoft.networkcloud/virtualmachines
+- microsoft.networkcloud/virtualmachines/consoles
+- microsoft.networkcloud/volumes
 - microsoft.networkfunction/azuretrafficcollectors
-- microsoft.NotificationHubs/namespaces (Notification Hub Namespaces)
-- microsoft.NotificationHubs/namespaces/notificationHubs (Notification Hubs)
+- microsoft.networkfunction/azuretrafficcollectors/collectorpolicies
+- microsoft.networkfunction/meshvpns
+- microsoft.networkfunction/vpnbranches
+- microsoft.nexusidentity/identitycontrollers
+- microsoft.nexusidentity/identitysets
+- microsoft.notificationhubs/namespaces
+- microsoft.notificationhubs/namespaces/notificationhubs
 - microsoft.nutanix/interfaces
 - microsoft.nutanix/nodes
 - microsoft.objectstore/osnamespaces
+- microsoft.offazure/appliances
 - microsoft.offazure/hypervsites
 - microsoft.offazure/importsites
 - microsoft.offazure/mastersites
 - microsoft.offazure/serversites
 - microsoft.offazure/vmwaresites
+- microsoft.offazurespringboot/springbootsites
+- microsoft.onlineexperimentation/workspaces
 - microsoft.OpenEnergyPlatform/energyServices (Azure OpenEnergy)
+- microsoft.openlogisticsplatform/applicationmanagers
 - microsoft.openlogisticsplatform/applicationworkspaces
 - microsoft.OpenLogisticsPlatform/workspaces (Open Supply Chain Platform)
 - microsoft.operationalinsights/clusters
@@ -1361,21 +1408,28 @@ v
 - microsoft.OperationalInsights/workspaces (Log Analytics workspaces)
 - microsoft.OperationsManagement/solutions (Solutions)
 - microsoft.operationsmanagement/views
+- microsoft.oraclediscovery/oraclesites
+- microsoft.orbital/cloudaccessrouters
 - microsoft.Orbital/contactProfiles (Contact Profiles)
 - microsoft.Orbital/EdgeSites (Edge Sites)
+- microsoft.orbital/geocatalogs
 - microsoft.Orbital/GroundStations (Ground Stations)
 - microsoft.Orbital/l2Connections (L2 Connections)
-- microsoft.orbital/orbitalendpoints
-- microsoft.orbital/orbitalgateways
-- microsoft.orbital/orbitalgateways/orbitall2connections
-- microsoft.orbital/orbitalgateways/orbitall3connections
-- microsoft.Orbital/spacecrafts (Spacecrafts)
-- microsoft.Peering/peerings (Peerings)
-- microsoft.Peering/peeringServices (Peering Services)
+- microsoft.orbital/sdwancontrollers
+- microsoft.orbital/spacecrafts
+- microsoft.orbital/terminals
+- microsoft.peering/peerings (Peerings)
+- microsoft.peering/peeringservices (Peering Services)
+- microsoft.pki/pkis
 - microsoft.PlayFab/playerAccountPools (Player account pools)
 - microsoft.PlayFab/titles (PlayFab titles)
 - microsoft.Portal/dashboards (Shared dashboards)
 - microsoft.portalsdk/rootresources
+- microsoft.portalservices/dashboards
+- microsoft.portalservices/extensions
+- microsoft.portalservices/extensions/deployments
+- microsoft.portalservices/extensions/slots
+- microsoft.portalservices/extensions/versions
 - microsoft.powerbi/privatelinkservicesforpowerbi
 - microsoft.powerbi/tenants
 - microsoft.powerbi/workspacecollections
@@ -1383,44 +1437,63 @@ v
 - microsoft.PowerBIDedicated/capacities (Power BI Embedded)
 - microsoft.powerplatform/accounts
 - microsoft.powerplatform/enterprisepolicies
-- microsoft.projectbabylon/accounts
-- microsoft.providerhubdevtest/regionalstresstests
-- microsoft.Purview/Accounts (Purview accounts)
-- microsoft.Quantum/Workspaces (Quantum Workspaces)
-- microsoft.RecommendationsService/accounts (Intelligent Recommendations Accounts)
-- microsoft.RecommendationsService/accounts/modeling (Modeling)
-- microsoft.RecommendationsService/accounts/serviceEndpoints (Service Endpoints)
-- microsoft.RecoveryServices/vaults (Recovery Services vaults)
-- microsoft.recoveryservices/vaults/replicationfabrics/replicationprotectioncontainers/replicationprotecteditems
-- microsoft.recoveryservices/vaults/replicationfabrics/replicationrecoveryservicesproviders
-- microsoft.RedHatOpenShift/OpenShiftClusters (Azure Red Hat OpenShift)
-- microsoft.Relay/namespaces (Relays)
+- microsoft.professionalservice/resources
+- microsoft.programmableconnectivity/gateways
+- microsoft.programmableconnectivity/operatorapiconnections
+- microsoft.programmableconnectivity/operatorconnections
+- microsoft.proposal/proposals
+- microsoft.providerhub/providermonitorsettings
+- microsoft.purview/accounts
+- microsoft.quantum/workspaces
+- microsoft.recommendationsservice/accounts
+- microsoft.recommendationsservice/accounts/modeling
+- microsoft.recommendationsservice/accounts/serviceendpoints
+- microsoft.recoveryservices/vaults
+- microsoft.redhatopenshift/openshiftclusters
+- microsoft.relay/namespaces
 - microsoft.remoteapp/collections
 - microsoft.resiliency/chaosexperiments
-- microsoft.ResourceConnector/Appliances (Resource bridges)
-- microsoft.resourcegraph/queries (Resource Graph queries)
-- microsoft.Resources/deploymentScripts (Deployment Scripts)
-- microsoft.Resources/templateSpecs (Template specs)
+- microsoft.resourceconnector/appliances
+- microsoft.resourcegraph/queries
+- microsoft.resources/deploymentscripts
+- microsoft.resources/mobobrokers
+- microsoft.resources/templatespecs (Template specs)
 - microsoft.resources/templatespecs/versions
-- microsoft.SaaS/applications (Software as a Service (classic))
+- microsoft.saas/applications (Software as a Service (classic))
 - microsoft.SaaS/resources (SaaS)
-- microsoft.Scheduler/jobCollections (Scheduler Job Collections)
-- microsoft.Scom/managedInstances (Aquila Instances)
+- microsoft.saashub/cloudservices
+- microsoft.scom/managedinstances
 - microsoft.scvmm/availabilitysets
 - microsoft.scvmm/clouds
 - microsoft.scvmm/virtualMachines (SCVMM virtual machine - Azure Arc)
+- microsoft.scvmm/virtualmachines/extensions
 - microsoft.scvmm/virtualmachinetemplates
 - microsoft.scvmm/virtualnetworks
 - microsoft.scvmm/vmmservers
 - microsoft.Search/searchServices (Search services)
+- microsoft.secretmanagementsampleprovider/forecasts
+- microsoft.secretsynccontroller/azurekeyvaultsecretproviderclasses
+- microsoft.secretsynccontroller/secretsyncs
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
 - microsoft.security/customentitystoreassignments
+- microsoft.security/datascanners
 - microsoft.security/iotsecuritysolutions
 - microsoft.security/securityconnectors
 - microsoft.security/standards
+- microsoft.securitycopilot/capacities
 - microsoft.SecurityDetonation/chambers (Security Detonation Chambers)
+- microsoft.securitydevops/azuredevopsconnectors
+- microsoft.securitydevops/githubconnectors
+- microsoft.securitydevops/gitlabconnectors
+- microsoft.securityplatform/accountlinks
+- microsoft.servicebus/namespaces
+- microsoft.servicefabric/clusters
+- microsoft.servicefabric/containergroupsets
+- microsoft.servicefabric/managedclusters
+- microsoft.servicefabricmesh/applications
+- microsoft.servicefabricmesh/gateways
 - microsoft.ServiceBus/namespaces (Service Bus Namespaces)
 - microsoft.ServiceFabric/clusters (Service Fabric clusters)
 - microsoft.servicefabric/containergroupsets
@@ -1430,16 +1503,24 @@ v
 - microsoft.servicefabricmesh/networks
 - microsoft.servicefabricmesh/secrets
 - microsoft.servicefabricmesh/volumes
+- microsoft.servicenetworking/trafficcontrollers
+- microsoft.servicenetworking/trafficcontrollers/associations
+- microsoft.servicenetworking/trafficcontrollers/frontends
+- microsoft.servicenetworking/trafficcontrollers/securitypolicies
 - microsoft.ServicesHub/connectors (Services Hub Connectors)
 - microsoft.SignalRService/SignalR (SignalR)
+- microsoft.signalrservice/signalr/replicas
 - microsoft.SignalRService/WebPubSub (Web PubSub Service)
+- microsoft.signalrservice/webpubsub/replicas
 - microsoft.singularity/accounts
 - microsoft.skytap/nodes
+- microsoft.softwareplan/softwaresubscriptions
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
 - microsoft.Solutions/applicationDefinitions (Service catalog managed application definitions)
 - microsoft.Solutions/applications (Managed applications)
 - microsoft.solutions/jitrequests
+- microsoft.sovereign/landingzoneaccounts
 - microsoft.spoolservice/spools
 - microsoft.Sql/instancePools (Instance pools)
 - microsoft.Sql/managedInstances (SQL managed instances)
@@ -1455,42 +1536,65 @@ v
 - microsoft.Sql/virtualClusters (Virtual clusters)
 - microsoft.sqlvirtualmachine/sqlvirtualmachinegroups
 - microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
-- microsoft.sqlvm/dwvm
+- microsoft.standbypool/standbycontainergrouppools
+- microsoft.standbypool/standbyvirtualmachinepools
 - microsoft.storage/datamovers
 - microsoft.Storage/StorageAccounts (Storage accounts)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - Sample query: [List all storage accounts with specific tag value](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
   - Sample query: [List impacted resources when transferring an Azure subscription](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
+- microsoft.storage/storageaccounts/connectors
+- microsoft.storage/storagetasks
+- microsoft.storageactions/storagetasks
 - microsoft.StorageCache/amlFilesystems (Lustre File Systems)
 - microsoft.StorageCache/caches (HPC caches)
+- microsoft.storagediscovery/storagediscoveryworkspaces
+- microsoft.storageinsights/storagecollectionrules
+- microsoft.storagemover/storagemovers
 - microsoft.StoragePool/diskPools (Disk Pools)
 - microsoft.StorageSync/storageSyncServices (Storage Sync Services)
-- microsoft.StorageSyncDev/storageSyncServices (Storage Sync Services)
-- microsoft.StorageSyncInt/storageSyncServices (Storage Sync Services)
+- microsoft.storagetasks/storagetasks
 - microsoft.StorSimple/Managers (StorSimple Device Managers)
 - microsoft.StreamAnalytics/clusters (Stream Analytics clusters)
 - microsoft.StreamAnalytics/StreamingJobs (Stream Analytics jobs)
+- microsoft.sustainabilityservices/calculations
 - microsoft.swiftlet/virtualmachines
 - microsoft.swiftlet/virtualmachinesnapshots
+- microsoft.symphony/instances
+- microsoft.symphony/solutions
+- microsoft.symphony/targets
 - microsoft.Synapse/privateLinkHubs (Azure Synapse Analytics (private link hubs))
 - microsoft.Synapse/workspaces (Azure Synapse Analytics)
 - microsoft.Synapse/workspaces/bigDataPools (Apache Spark pools)
-- microsoft.synapse/workspaces/eventstreams
 - microsoft.Synapse/workspaces/kustopools (Data Explorer pools (preview))
-- microsoft.synapse/workspaces/sqldatabases
-- microsoft.Synapse/workspaces/sqlPools (Dedicated SQL pools)
-- microsoft.terraformoss/providerregistrations
+- microsoft.synapse/workspaces/sqlpools
+- microsoft.syntex/accounts
+- microsoft.syntex/documentprocessors
+- microsoft.systemintegritymonitoring/simhubs
+- microsoft.systemintegritymonitoring/simhubs/deviceprofiles
 - microsoft.TestBase/testBaseAccounts (Test Base Accounts)
 - microsoft.testbase/testbaseaccounts/packages
-- microsoft.testbase/testbases
-- microsoft.TimeSeriesInsights/environments (Time Series Insights environments)
-- microsoft.TimeSeriesInsights/environments/eventsources (Time Series Insights event sources)
-- microsoft.TimeSeriesInsights/environments/referenceDataSets (Time Series Insights reference data sets)
-- microsoft.token/stores
-- microsoft.tokenvault/vaults
-- microsoft.VideoIndexer/accounts (Video Analyzer for Media)
-- microsoft.VirtualMachineImages/imageTemplates (Image Templates)
+- microsoft.timeseriesinsights/environments
+- microsoft.timeseriesinsights/environments/eventsources
+- microsoft.timeseriesinsights/environments/referencedatasets
+- microsoft.toolchainorchestrator/activations
+- microsoft.toolchainorchestrator/campaigns
+- microsoft.toolchainorchestrator/campaigns/versions
+- microsoft.toolchainorchestrator/catalogs
+- microsoft.toolchainorchestrator/catalogs/versions
+- microsoft.toolchainorchestrator/diagnostics
+- microsoft.toolchainorchestrator/instances
+- microsoft.toolchainorchestrator/instances/versions
+- microsoft.toolchainorchestrator/solutions
+- microsoft.toolchainorchestrator/solutions/versions
+- microsoft.toolchainorchestrator/targets
+- microsoft.toolchainorchestrator/targets/versions
+- microsoft.updatemanager/updaterules
+- microsoft.usagebilling/accounts
+- microsoft.verifiedid/authorities
+- microsoft.videoindexer/accounts
+- microsoft.virtualmachineimages/imagetemplates
 - microsoft.visualstudio/account (Azure DevOps organizations)
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project (DevOps Starter)
@@ -1500,13 +1604,12 @@ v
 - microsoft.vmware/virtualmachines
 - microsoft.vmware/virtualmachinetemplates
 - microsoft.vmware/virtualnetworks
-- microsoft.VMwareCloudSimple/dedicatedCloudNodes (CloudSimple Nodes)
-- microsoft.VMwareCloudSimple/dedicatedCloudServices (CloudSimple Services)
-- microsoft.VMwareCloudSimple/virtualMachines (CloudSimple Virtual Machines)
-- microsoft.vmwareonazure/privateclouds
-- microsoft.vmwarevirtustream/privateclouds
+- microsoft.voiceservices/communicationsgateways
+- microsoft.voiceservices/communicationsgateways/contacts
+- microsoft.voiceservices/communicationsgateways/testlines
+- microsoft.voiceservices/operatorvoicemailinstances
 - microsoft.vsonline/accounts
-- microsoft.VSOnline/Plans (Visual Studio Online Plans)
+- microsoft.vsonline/plans
 - microsoft.web/apimanagementaccounts
 - microsoft.web/apimanagementaccounts/apis
 - microsoft.web/certificates
@@ -1518,51 +1621,542 @@ v
 - microsoft.Web/KubeEnvironments (App Service Kubernetes Environments)
 - microsoft.Web/serverFarms (App Service plans)
 - microsoft.Web/sites (App Services)
-- microsoft.web/sites/premieraddons
+- microsoft.web/sites/certificates
 - microsoft.Web/sites/slots (App Service (Slots))
+- microsoft.web/sites/workflows
 - microsoft.Web/StaticSites (Static Web Apps)
 - microsoft.web/workerapps
+- microsoft.weightsandbiases/instances
+- microsoft.whiteboxcadlprovider/whiteboxresources
+- microsoft.windows365/cloudpcdelegatedmsis
 - microsoft.WindowsESU/multipleActivationKeys (Windows Multiple Activation Keys)
 - microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- microsoft.windowspushnotificationservices/registrations
 - microsoft.workloadbuilder/migrationagents
 - microsoft.workloadbuilder/workloads
+- microsoft.workloads/connectors
+- microsoft.workloads/connectors/acssbackups
+- microsoft.workloads/connectors/amsinsights
+- microsoft.workloads/connectors/sapvirtualinstancemonitors
+- microsoft.workloads/epicvirtualinstances
+- microsoft.workloads/epicvirtualinstances/databaseinstances
+- microsoft.workloads/epicvirtualinstances/hyperspacewebinstances
+- microsoft.workloads/epicvirtualinstances/presentationinstances
+- microsoft.workloads/epicvirtualinstances/sharedinstances
+- microsoft.workloads/epicvirtualinstances/wssinstances
+- microsoft.workloads/insights
+- microsoft.workloads/instancegroupmonitors
+- microsoft.workloads/instancehealthdefinitions
+- microsoft.workloads/instancemonitors
 - microsoft.workloads/monitors
+- microsoft.workloads/oraclevirtualinstances
+- microsoft.workloads/oraclevirtualinstances/databaseinstances
 - microsoft.Workloads/phpworkloads (Linux workloads (LAMP) (preview))
+- microsoft.workloads/sapdiscoverysites
 - microsoft.Workloads/sapVirtualInstances (SAP Virtual Instances)
 - microsoft.Workloads/sapVirtualInstances/applicationInstances (SAP app server instances)
 - microsoft.Workloads/sapVirtualInstances/centralInstances (SAP central server instances)
 - microsoft.Workloads/sapVirtualInstances/databaseInstances (SAP database server instances)
-- myget.packagemanagement/services
-- NGINX.NGINXPLUS/nginxDeployments (NGINX Deployment)
-- Paraleap.CloudMonix/services (CloudMonix)
-- Pokitdok.Platform/services (PokitDok Platform)
+- microsoft.workloads/virtualinstances
+- microsoft.workloads/virtualinstances/components
+- microsoft.zerotrustsegmentation/segmentationmanagers
+- microsoftdnsagent
+- microsoftmonitoringagent
+- mongodb.atlas/organizations
+- neon.postgres/organizations
+- networkwatcheragentlinux
+- networkwatcheragentwindows
+- newrelic.observability/monitors
+- nginx.nginxplus/nginxdeployments
+- omsagentforlinux
+- oracle.database/autonomousdatabases
+- oracle.database/cloudexadatainfrastructures
+- oracle.database/cloudvmclusters
+- oracle.database/exadbvmclusters
+- oracle.database/exascaledbstoragevaults
+- paloaltonetworks.cloudngfw/firewalls
+- paloaltonetworks.cloudngfw/localrulestacks
+- pinecone.vectordb/organizations
+- private.access/accesspoints
+- private.access/circuits
+- private.access/circuits/devices
+- private.accesspoint/accesspointaccounts
+- private.acns/domains
+- private.acpazure/cluster
+- private.advisor/copilotquery
+- private.advisorprivate/helloworldresourcetype
+- private.advisorprivate/resiliencyreviewstracked
+- private.advisorprivate/wafreviewstracked
+- private.aicontainerplatform/clusterscalesets
+- private.aiforscience/bookshelves
+- private.aiforscience/catalog
+- private.aiforscience/catalogs
+- private.aiforscience/supercomputer
+- private.aiforscience/supercomputers
+- private.aiforscience/supercomputers/nodepools
+- private.aiforscience/workspaces
+- private.aiforscience/workspaces/projects
+- private.aksarccmp/edgenodepool
+- private.akshybrid/billingprovisionedclusters
+- private.akshybrid/ips
+- private.akshybrid/logicalnetworks
+- private.akshybrid/managedclusters
+- private.akshybrid/provisionedclusters
+- private.akshybrid/provisionedclusters/agentpools
+- private.akshybridbilling/provisionedclusters
+- private.akshybridbilling/provisionedclusters/agentpools
+- private.altstest/jobs
+- private.altstest/jobtemplates
+- private.ao5gc2/clusters
+- private.applicationdiscovery/discoveryhubs
+- private.applicationdiscovery/discoveryhubs/applications
+- private.applicationdiscovery/discoveryhubs/applications/dependents
+- private.applicationdiscovery/discoveryhubs/applications/members
+- private.approvals/approvaldefinitions
+- private.approvals/approvalinstances
+- private.approvals/approvalinstances/approversignoffs
+- private.arb/batchprocessingjob
+- private.arccontainerstorage/edgestorageconfigurations
+- private.arccontainerstorage/parents
 - private.arsenv1/resourcetype1
+- private.aszlabhardware/labservers
+- private.aszlabhardware/pools
+- private.aszlabhardware/pools/servers
+- private.aszlabhardware/pools/trackedservers
+- private.aszlabhardware/reservations
+- private.aszlabhardware/reservations/servers
+- private.aszlabhardware/servers
+- private.autonomousdevelopmentplatform/accounts
+- private.autonomousdevelopmentplatform/workspaces
+- private.azsdevicecom/devres
+- private.azsdevicecom/disks
+- private.azurechangecontrol/changecontrols
+- private.azurechangecontrol/dilanhewage
+- private.azurechangecontrol/henrydai
+- private.azurechangecontrol/remedyoperation
+- private.azurechangecontrol/stagemaps
+- private.azurechangecontrol/stages
+- private.azurechangecontrol/targets
+- private.azuredatatransfer/connections
+- private.azuredatatransfer/connections/flows
+- private.azuredatatransfer/pipelines
+- private.azurestackhci/clusters
+- private.azurestackhci/clusters/arcsettings
+- private.azurestackhci/devicepools
+- private.azurestackhci/edgemachines
+- private.azurestackhci/edgenodepools
+- private.azurestackhci/resourcepool
+- private.azuretoolbox/tool
+- private.bbeedev1/discoveryservices
+- private.bbeedev1/discoveryservices/ownershipvoucherpublickeys
+- private.bbeedev1/onboardingservices
+- private.bbeedev1/onboardingservices/policies
+- private.bbeedev1/provisioningresources
+- private.bbeedev1/provisioningresources/provisioningpolicies
+- private.bbeedev2/discoveryservices
+- private.bbeedev2/onboardingservices
+- private.bbeedev2/onboardingservices/policies
+- private.bbeedev2/provisioningresources
+- private.bbeedev2/provisioningresources/provisioningpolicies
+- private.bbeedev3/anushrprovisioningresources"
+- private.bbeedev3/anushrprovisioningresources/anushrprovisioningpolicies
+- private.bbeedev3/conlvprovisioiningresources
+- private.bbeedev3/conlvprovisioiningresources/provisioningpolicies
+- private.bbeedev3/conlvprovisioningresources
+- private.bbeedev3/conlvprovisioningresources/provisioningpolicies
+- private.bbeedev3/discoveryservices
+- private.bbeedev3/discoveryservices/ownershipvoucherpublickeys
+- private.bbeedev3/onboardingservices
+- private.bbeedev3/onboardingservices/policies
+- private.bbeedev3/provisioningresources
+- private.bbeedev3/provisioningresources/provisioningpolicies
+- private.bbeedev4/discoveryservices
+- private.bbeedev4/discoveryservices/ownershipvoucherpublickeys
+- private.bbeedev4/onboardingservices
+- private.bbeedev4/onboardingservices/policies
+- private.bbeedev4/provisioningresources
+- private.bbeedev4/provisioningresources/provisioningpolicies
+- private.bbeeint1/discoveryservices
+- private.bbeeint1/discoveryservices/ownershipvoucherpublickeys
+- private.bbeeint1/onboardingservices
+- private.bbeeint1/onboardingservices/policies
+- private.bbeeint1/provisioningresources
+- private.bbeeint1/provisioningresources/provisioningpolicies
+- private.bbeeint2/discoveryservices
+- private.bbeeint2/discoveryservices/ownershipvoucherpublickeys
+- private.bbeeint2/onboardingservices
+- private.bbeeint2/onboardingservices/policies
+- private.bbeeint2/provisioningresources
+- private.bbeeint2/provisioningresources/provisioningpolicies
+- private.bbeesta1/discoveryservices
+- private.bbeesta1/discoveryservices/ownershipvoucherpublickeys
+- private.bbeesta1/onboardingservices
+- private.bbeesta1/onboardingservices/policies
+- private.bbeesta1/provisioningresources
+- private.bbeesta1/provisioningresources/provisioningpolicies
+- private.billingbenefits/creditstest
+- private.billingbenefits/discounts
+- private.billingbenefits/reservationstest
+- private.billingbenefits/savingsplanstest
+- private.bluefin/instances
+- private.bluefin/instances/datasets
+- private.bluefin/instances/pipelines
+- private.bluefin/workspaces
+- private.changesafetysaferollout/saferollouts
+- private.cleanroom/cleanrooms
+- private.cleanroom/microservices
+- private.cleanroom/workspaces
+- private.cloudapplink/applinks
+- private.cloudapplink/environment
+- private.cloudhealth/healthmodels
+- private.commonedge/devices
+- private.commonedge/devices/arcsettings
+- private.commonedge/devices/updates
+- private.commvault/metallictest
+- private.config/configurations
+- private.config/globalconfigurations
+- private.config/targetbindings
+- private.config/targets
+- private.config/usecases
+- private.config/valuesmetadata
+- private.connectedcache/enterprisemcccustomers
+- private.connectedcache/enterprisemcccustomers/enterprisemcccachenodes
+- private.connectedcache/ispcustomers
 - private.contoso/employees
+- private.contoso/localemployees
+- private.contosotestrp/contosotests
+- private.contosoworkbench/contosoworkbenches
+- private.copilot/chat
+- private.cosmic2/namespace
+- private.dependencymap/maps
+- private.dependencymap/maps/discoverysources
+- private.devcenter/devcenters
+- private.devcenter/devcenters/devboxdefinitions
+- private.devcenter/networkconnections
+- private.devcenter/plans
+- private.devcenter/projects
+- private.devcenter/projects/pools
+- private.deviceregistry/armdevices
+- private.deviceregistry/assetendpointprofiles
+- private.deviceregistry/assets
+- private.deviceregistry/devices
+- private.deviceregistry/discoveredassetendpointprofiles
+- private.deviceregistry/discoveredassets
+- private.deviceregistry/namespaces
+- private.deviceregistry/namespaces/devices
+- private.deviceregistry/schemaregistries
+- private.deviceregistryjobs/jobs
+- private.devices/registries
+- private.devmodsimworkbench/workbenches
+- private.devmodsimworkbench/workbenches/chambers
+- private.devmodsimworkbench/workbenches/chambers/connectors
+- private.devmodsimworkbench/workbenches/chambers/storages
+- private.devmodsimworkbench/workbenches/chambers/workloads
+- private.devmodsimworkbench/workbenches/sharedstorages
+- private.devtunnels/tunneldomains
+- private.devtunnels/tunnelplans
+- private.dnsresolver/dnsresolvers
+- private.durabletask/namespaces
+- private.durabletask/namespaces/taskhubs
+- private.durabletask/schedulers
+- private.durabletask/schedulers
+- private.e4k/broker
+- private.e4k/broker/authentication
+- private.e4k/broker/authorization
+- private.e4k/broker/listener
+- private.e4k/e4k
+- private.e4k/e4k/broker
+- private.e4k/e4k/broker/authentication
+- private.e4k/e4k/broker/listener
+- private.e4k/e4k/mqttbridgeconnector
+- private.e4k/e4k/mqttbridgeconnector/topicmap
+- private.easm/workspaces
+- private.edge/capabilitylists
+- private.edge/configtemplates
+- private.edge/configurations
+- private.edge/contexts
+- private.edge/deploymenttargets
+- private.edge/hierarchylists
+- private.edge/schemas
+- private.edge/solutionbindings
+- private.edge/solutions
+- private.edge/solutiontemplates
+- private.edge/targetbindings
+- private.edge/targets
+- private.edge/usecases
+- private.edge/usecases/helmusecases
+- private.edgeinternal/disconnectedoperations
+- private.edgeinternal/disconnectedoperationss
+- private.edgeinternal/winfields
+- private.edgesite/regionalresourcepoc1
+- private.edgesite/sctestconfigfull
+- private.edgesite/sctestconfignested
+- private.edgesite/siteconfigurations
+- private.edgetest/trackedresource1
+- private.edgetest/trackedresourceconnectivity
+- private.edgetest/trackedresourceupdates
+- private.elements/workspaces
+- private.encryptedtransport/encryptedtransportaccounts
+- private.eucloudprototype/eucloudprototype
+- private.externaldeviceregistry/devices
+- private.ezgambac/robots
+- private.ezgambac/robots/gundams
+- private.ezgambac/robots/terminators
+- private.fixme/surgery
+- private.flows/connections
+- private.flows/connections/flows
 - private.flows/flows
-- Providers.Test/statefulIbizaEngines (My Resources)
-- RavenHq.Db/databases (RavenHQ)
-- Raygun.CrashReporting/apps (Raygun)
-- Sendgrid.Email/accounts (SendGrid Accounts)
-- sparkpost.basic/services
-- stackify.retrace/services
-- test.shoebox/testresources
-- test.shoebox/testresources2
-- TrendMicro.DeepSecurity/accounts (Deep Security SaaS)
-- u2uconsult.theidentityhub/services
+- private.flows/pipelines
+- private.gemprivaterp/globalentrymanagers
+- private.gemprivaterp/globalentrymanagers/entrylinks
+- private.gemprivaterp/globalentrymanagers/entryprofiles
+- private.gemprivaterp/globalentrymanagers/entryprofiles/entryprofilepolicies
+- private.gemprivaterp/globalentrymanagers/entryprofiles/entryprofilerules
+- private.gemprivaterp/globalentrymanagers/entryregions
+- private.graphdb/graphindexes
+- private.graytown/gtbundles
+- private.hdinsight/clusterpools
+- private.hdinsight/clusterpools/clusters
+- private.healthcareinteropdev/hl7edgeconnectors
+- private.healthcareinteropdev/hubs
+- private.healthcareinteropdev/onelakeconnectors
+- private.healthcareinteropdev/storageaccountconnectors
+- private.healthmodeling/healthmodels
+- private.hpcclusters/clusters
+- private.hpkcrud/computers
+- private.hpkcrudtest/pies
+- private.hybridcontainerservice/virtualnetworks
+- private.hybridfabric/clusters
+- private.hybridfabric/instances
+- private.hybridfabric/messagingservices
+- private.hybridfabric/namespaces
+- private.hybridfabric/solutions
+- private.hybridfabric/targets
+- private.hybridonboarding/extensionmanagers
+- private.industryplatform/industryservicedefinitions
+- private.industryplatform/industryservices
+- private.integrationservice/applications
+- private.integrationservice/businessprocesses
+- private.integrationservice/pseudospaces
+- private.integrationservice/pseudospaces/applications
+- private.integrationservice/pseudospaces/applications/resources
+- private.integrationservice/pseudospaces/infrastructureresources
+- private.integrationservice/spaces
+- private.integrationservice/spaces/applications
+- private.integrationservice/spaces/applications/resources
+- private.integrationservice/spaces/infrastructureresources
+- private.iotdevices/devices
+- private.iotfirmwaredefense/workspaces
+- private.iotoperations/instances
+- private.iotoperations/instances/brokers
+- private.iotoperations/instances/brokers/authentications
+- private.iotoperations/instances/brokers/listeners
+- private.iotoperationsdataprocessor/instances
+- private.kubernetes/connectedclusters
+- private.kx/kdbinsightsenterprise
+- private.learning/communitytraining
+- private.liftrbasicsamplerp/organizations
+- private.m365cloudmanagedidentity/governedidentities
+- private.m365cloudmanagedidentity/m365.cloudmanagedidentity
+- private.managednetworkfabric/networkfabriccontrollers
+- private.manufacturingplatform/manufacturingdatadefinitions
+- private.manufacturingplatform/manufacturingdatadefinitions/schemadefinitions
+- private.manufacturingplatform/manufacturingdataservices
+- private.marinerprovisioninginstaller/installerimage
+- private.messagecatalog/catalog
+- private.messagecatalog/catalogs
+- private.messagingconnectors/connectors
+- private.microsoftazurevalidation/validations
+- private.microsoftazurevalidation/validators
+- private.migrateworkload/sites
+- private.migrateworkload/sitesarc
+- private.migrateworkload/workloadsite
+- private.migrateworkload/workloadsites
+- private.mission/communities
+- private.mission/communities/communityendpoints
+- private.mission/communities/transithubs
+- private.mission/enclaveconnections
+- private.mission/externalconnections
+- private.mission/internalconnections
+- private.mission/virtualenclaves
+- private.mission/virtualenclaves/enclaveendpoints
+- private.mission/virtualenclaves/endpoints
+- private.mission/virtualenclaves/workloads
+- private.mixedreality/spatialmapsaccounts
+- private.modelonboarding/demort
+- private.modelonboarding/epconfigrt
+- private.modelonboarding/epconfigrt/nestedrt
+- private.modelonboarding/privatemodelobotest
+- private.modelonboarding/privatemodelrt
+- private.modelonboarding/privatemodeltestresourcetype
+- private.modelonboarding/privateproviderassetdemo
+- private.modelonboarding/privateproviderassettestrt
+- private.modelonboarding/privatetestreadonly
+- private.modelonboarding/providerrt
+- private.modelonboarding/providerrt/modelsrt
+- private.modelonboarding/providertestrt
+- private.modelonboarding/testcustomaction
+- private.modelonboarding/testrt
+- private.modsimworkbench/instances
+- private.monitor/gateways
+- private.monitor/pipelinegroups
+- private.monitorgrafana/dashboard
+- private.monitorgrafana/dashboards
+- private.mptest/mytesttypes
+- private.mysqldiscovery/mysqlsites
+- private.mysqldiscovery/mysqlsites/mysqlservers
+- private.natalierp/employees
+- private.natalierp/players
+- private.networkcloud/edgeclusters
+- private.networkcloud/edgeclusters/nodes
+- private.networkcloud/registrationhubs
+- private.networkcloud/registrationhubs/images
+- private.networkcloud/registrationhubs/machines
+- private.nsptestpaasrp/nsptestpaasrpresource
+- private.oracledatabase/billingsubscription
+- private.oracledatabase/billingsubscriptions
+- private.oracledatabase/cloudexadatainfrastructures
+- private.oracledatabase/cloudvmclusters
+- private.oracledatabase/cloudvmclusters
+- private.oracledatabase/pingpongs
+- private.oracledatabasedev/autonomousdatabases
+- private.oracledatabasedev/billingsubscriptions
+- private.oracledatabasedev/cloudexadatainfrastructures
+- private.oracledatabasedev/cloudvmclusters
+- private.oracledatabasedev/exadbvmclusters
+- private.oracledatabasedev/exascaledbstoragevaults
+- private.oracledatabasedev/multiversionpingpong
+- private.oracledatabasedev/networkanchors
+- private.oracledatabasedev/pingpongs
+- private.oracledatabasedev/resourceanchors
+- private.oryx/builders
+- private.oryx/worker
+- private.pilot/liteorganization
+- private.pilot/organizations
+- private.platformplayground/organizations
+- private.porter/compositesolutiondefinitions
+- private.porter/compositesolutions
+- private.porter/credentialsets
+- private.porter/installations
+- private.porter/kstest1
+- private.porter/motest
+- private.porter/parametersets
+- private.premonition/analyses
+- private.premonition/libraries
+- private.premonition/libraries/analyses
+- private.premonition/libraries/samples
+- private.programmableconnectivity/anmagahalf
+- private.programmableconnectivity/gateways
+- private.programmableconnectivity/operatorapiconnections
+- private.programmableconnectivity/operatorconnections
+- private.redhathostedcontrolplane/clusters
+- private.samplepartnercf/organizations
+- private.scheduledactions/testsubmitaction
+- private.science/bookshelves
+- private.science/workspaces
+- private.search/indexes
+- private.search/indexes/indexers
+- private.search/searchindexes
+- private.secretsynccontroller/azurekeyvaultsecretproviderclasses
+- private.secretsynccontroller/secretsyncs
+- private.securitycopilot/capacities
+- private.securitycopilot2/capacities
+- private.serviceshubdev/connectors
+- private.serviceshubdev/connectors/connectorspaces
+- private.snowlake/imscoresite
+- private.softwareinventory/inventoryinstances
+- private.sovereignanmock/landingzoneaccounts
+- private.sovereignenclave/enclaves
+- private.storagedatamanagementrp/storageaccounts
+- private.storagedatamanagementrp/storageaccounts/connectors
+- private.storagedatamanagementrp/storageaccounts/datashares
+- private.storagedatarp/connectors
+- private.storagediscovery/storagediscoveryworkspaces
+- private.storagediscovery/storagediscoveryworkspaces}
+- private.storagegateway/agents
+- private.storagegateway/jobdefinitions
+- private.storagegatewayrp/jobdefinitions
+- private.storagegatewayuserrp/storagegateways
+- private.storageinsights/collectionrules
+- private.storageinsights/storagecollectionrules
+- private.strimzikafka/kafkas
+- private.strimzikafka/kafkas/topics
+- private.supplychaindevice/fulfillmentorder
+- private.sustainabilityservices/calculations
+- private.symphony/activations
+- private.symphony/campaigns
+- private.symphony/campaigns/versions
+- private.symphony/catalogs
+- private.symphony/catalogs/versions
+- private.symphony/diagnostics
+- private.symphony/edgedeployments
+- private.symphony/edgetemplates
+- private.symphony/gates
+- private.symphony/gitrepos
+- private.symphony/gitrepos/armdeploymentgitops
+- private.symphony/gitrepos/edgedeploymentgitops
+- private.symphony/instances
+- private.symphony/instances/versions
+- private.symphony/solutions
+- private.symphony/solutions/versions
+- private.symphony/targets
+- private.symphony/targets/versions
+- private.verifiedid/authorities
+- private.vptest/billeditems
+- private.workloads/sapdiscoverysites
+- private.workloads/sapdiscoverysites/sapinstances
+- private.workloads/virtualinstances
+- private.workloads/virtualinstances/components
+- private.workloads/workloadresourcedefinitions
+- private.workloads/workloadvirtualinstances
+- private.xrpaaslivetest/employees
+- private.xrpaaslivetest/employees1234
+- private.xrpaaslivetest/employees2
+- private.xrpaaslivetest/employees3
+- private.xrpaaslivetest/employees4
+- private.xrpaaslivetest/employees8
+- private.xrpaaslivetest/employees9
+- private.zerotrustsegmentation/segmentationmanagers
+- private.ztsi/simhubs
+- private.ztsi/simhubs/deviceprofiles
+- providers.test/softdeletesupportedresources
+- providers.test/statefulibizaengines
+- providers.test/statefulresources
+- providers.test/statefulresources/nestedresources
+- providers.test/statelessresources
+- providers.test/trackedresources
+- purestorage.block/reservations
+- purestorage.block/storagepools
+- purestorage.block/volumepools
+- qumulo.qaas/storages
+- qumulo.storage/filesystems
+- sendgrid.email/accounts
+- solarwinds.observability/organizations
+- splitio.experimentation/experimentationworkspaces
+- sqlassessmentplus
+- telemetryanddiagnostics
 - Wandisco.Fusion/fusionGroups (LiveData Planes)
 - Wandisco.Fusion/fusionGroups/azureZones (Azure Zones)
 - Wandisco.Fusion/fusionGroups/azureZones/plugins (Plugins)
-- Wandisco.Fusion/fusionGroups/hiveReplicationRules (Hive Replication Rules)
 - Wandisco.Fusion/fusionGroups/managedOnPremZones (On-premises Zones)
-- wandisco.fusion/fusiongroups/onpremzones
 - Wandisco.Fusion/fusionGroups/replicationRules (Replication Rules)
-- Wandisco.Fusion/migrators (LiveData Migrators)
-- Wandisco.Fusion/migrators/exclusionTemplates (Exclusions)
-- Wandisco.Fusion/migrators/liveDataMigrations (Migrations)
-- Wandisco.Fusion/migrators/metadataMigrations (Metadata Migrations)
-- Wandisco.Fusion/migrators/metadataTargets (Metadata Targets)
-- Wandisco.Fusion/migrators/pathMappings (Path Mappings)
-- Wandisco.Fusion/migrators/targets (Targets)
+- wandisco.fusion/migrators (LiveData Migrators)
+- wandisco.fusion/migrators/datatransferagents
+- wandisco.fusion/migrators/exclusiontemplates (Exclusions)
+- wandisco.fusion/migrators/livedatamigrations (Migrations)
+- wandisco.fusion/migrators/metadatamigrations (Metadata Migrations)
+- wandisco.fusion/migrators/metadatatargets (Metadata Targets)
+- wandisco.fusion/migrators/pathmappings (Path Mappings)
+- wandisco.fusion/migrators/targets (targets)
+- wandisco.fusion/migrators/verifications
+- windows
+- windowsagent.azuresecuritycenter
+- windowsagent.sqlserver
+- windowsclientassessmentplus
+- windowsopenssh
+- windowsosupdateextension
+- windowspatchextension
+- windowsserverassessment
 
 ## securityresources
 
