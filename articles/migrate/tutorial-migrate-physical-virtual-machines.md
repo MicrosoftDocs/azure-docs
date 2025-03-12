@@ -165,8 +165,6 @@ This section introduces an upgraded agent-based migration stack for physical and
 * Ubuntu 22.04
 * SLES 15 SP5
 
-To try the private preview, go to [Azure Portal](/?bundlingKind=DefaultPartitioner&configHash=aQy6IDek4p1d&env=ms&feature.rcmstack=true&l=en.en-us&pageVersion=15.118.0.1016132058.250212-1352#view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/serverGoal)
-
 ## Navigate to Azure Migrate project
 
 Follow the steps to navigate to the Azure Migrate project
