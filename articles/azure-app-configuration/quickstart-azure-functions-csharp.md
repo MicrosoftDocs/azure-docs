@@ -220,7 +220,7 @@ For example, consider a queue-triggered Function app. Instead of specifying the 
 
    | Name                 | Value                                      |
    |----------------------|--------------------------------------------|
-   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=https://<your-store-name>.azconfig.io; Key=TestApp:Storage:QueueName)` |
+   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=<your-store-endpoint>; Key=TestApp:Storage:QueueName)` |
 
    > [!TIP]
    > If you have multiple key-values in Azure App Configuration, you can [export them in batch as App Configuration references](./howto-import-export-data.md?#export-data-to-azure-app-service) to Azure Functions using the Azure portal or CLI.
