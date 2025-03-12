@@ -6509,6 +6509,11 @@
       "source_path": "articles/cloud-services/schema-csdef-workerrole.md",
       "redirect_url": "/previous-versions/azure/cloud-services/schema-csdef-workerrole",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/reliability/migrate-sql-managed-instance.md",
+      "redirect_url": "/azure/azure-sql/managed-instance/instance-zone-redundancy-configure",
+      "redirect_document_id": false
     }
   ]
 }
