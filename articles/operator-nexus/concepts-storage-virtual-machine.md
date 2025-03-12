@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 Azure Operator Nexus supports deploying workloads as virtual machines (VMs). A virtual machine (VM) on Nexus can be deployed with two different kinds of storage: local; and persistent. Local storage is provided by the Bare Metal Machine (BMM) hosting the VM. Persistent storage is provided by the storage appliance in the Azure Operator Nexus instance.
 
-All persistent disks are backed by the storage appliance in the first aggregator rack slot. This also applies to deployments with two storage appliances: there is no support for placing VM data disks on the storage appliance in the second aggregator rack slot. All persistent disks are backed using raw block storage. There's no support for NAS-backed persistent disks.
+All persistent VM disks are backed by the storage appliance in the first aggregator rack slot. This also applies to deployments with two storage appliances: there is no support for placing VM data disks on the storage appliance in the second aggregator rack slot. All persistent disks are backed using raw block storage. There's no support for NAS-backed persistent disks.
 
 > [!IMPORTANT]
 > Local storage isn't suitable for stateful VMs. Available local storage is limited to the [size of the disks in the BMM](./reference-near-edge-compute.md#compute-configurations) and is lower in deployments with Nexus Kubernetes Clusters. Local storage has no support for VM migration to another host, and all VM data is lost on host failure. All stateful VMs should use persistent storage.
