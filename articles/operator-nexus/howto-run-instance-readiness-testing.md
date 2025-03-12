@@ -232,7 +232,7 @@ SP_OBJECT_ID: "<generated-sp-object-id>"
 SP_TENANT_ID: "<generated-sp-tenant-id>"
 ADMIN_GROUP_OBJECT_ID: "<generated-aad-group-id>"
 KV_NAME: "<provided-key-vault-name>" # If SP already exists please fill it in to retrieve the SP Password.
-KV_ID: "<provided-key-valut-secret>" # If SP already exists please fill it in to retrieve the SP Password.
+KV_ID: "<provided-key-vault-secret>" # If SP already exists please fill it in to retrieve the SP Password.
 ```
 
 #### Creating a custom role for execution
@@ -288,7 +288,7 @@ If you have an existing service principal and would like the convenience of only
 
    ```bash
     # The Application ID of your Service Principal for your application
-    appId="00000000-0000-0000-0000-000000000000"
+    appId="00001111-aaaa-2222-bbbb-3333cccc4444"
     # this MUST match the deployment name used above.
     deploymentName="IRTRoleDefinitionDeployment"
 

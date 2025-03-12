@@ -19,9 +19,9 @@ ms.author: pgrandhi
 
 ## Create event subscription
 
-To create event subscriptions for Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal, then and provide your credentials. Run the following command to create the event subscription for the resource:
+To create event subscriptions for Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal, then provide your credentials.
 
-To create an event subscription using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. 
+To create an event subscription using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command:
 
 ```azurecli-interactive
 az eventgrid event-subscription create 

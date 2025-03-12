@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/23/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -141,6 +141,9 @@ Your new billing account simplifies billing for your organization and provides e
 2. You use the billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).
 3. You use an invoice section to organize your costs based on your needs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
 4. The accounts that were created in your Enterprise Agreement aren't supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections.
+
+> [!NOTE]
+> When you have SQL Server licenses applied with centrally managed SQL Azure Hybrid Benefit in your Enterprise Agreement and then transfer the agreement to a Microsoft Customer Agreement (enterprise), the licenses don’t automatically transfer. After your new agreement migration completes, you must manually assign licenses with centrally managed SQL Hybrid Benefit. For more information about planning and getting started, see [Transition to centrally managed Azure Hybrid Benefit](../scope-level/transition-existing.md). For more information about centrally managed Azure Hybrid Benefit, see [What is centrally managed Azure Hybrid Benefit for SQL Server](../scope-level/overview-azure-hybrid-benefit-scope.md).
 
 ## Changes to billing administrator access
 

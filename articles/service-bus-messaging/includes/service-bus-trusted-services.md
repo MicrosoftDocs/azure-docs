@@ -31,4 +31,5 @@ The other trusted services for Azure Service Bus can be found below:
 -	Azure Kubernetes 
 - Azure Machine Learning
 - Microsoft Purview
-
+- Microsoft Defender for Cloud
+- Azure Provider Hub

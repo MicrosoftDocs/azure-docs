@@ -53,7 +53,7 @@ az resource update --resource-group <resource-group> --name scm --namespace Micr
 
 -----
 
-To confirm that FTP access is blocked, try [connecting to your app using FTP/S](deploy-ftp.md). You should get a `401 Unauthenticted` message.
+To confirm that FTP access is blocked, try [connecting to your app using FTP/S](deploy-ftp.md). You should get a `401 Unauthenticated` message.
 
 To confirm that Git access is blocked, try [local Git deployment](deploy-local-git.md). You should get an `Authentication failed` message.
 
@@ -68,19 +68,19 @@ The following table shows how various deployment methods behave when basic authe
 | Visual Studio deployment | Doesn't work. |
 | [FTP](deploy-ftp.md) | Doesn't work. |
 | [Local Git](deploy-local-git.md) | Doesn't work. |
-| Azure CLI | In Azure CLI 2.48.1 or higher, the following commands fall back to Microsoft Entra authentication:<br/>- [az webapp up](/cli/azure/webapp#az-webapp-up)<br/>- [az webapp deploy](/cli/azure/webapp#az-webapp-deploy)<br/>- [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip)<br/>- [az webapp log deployment show](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show)<br/>- [az webapp log deployment list](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list)<br/>- [az webapp log download](/cli/azure/webapp/log#az-webapp-log-download)<br/>- [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)<br/>- [az webapp browse](/cli/azure/webapp#az-webapp-browse)<br/>- [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection)<br/>- [az webapp ssh](/cli/azure/webapp#az-webapp-ssh)<br/>- [az functionapp deploy](/cli/azure/functionapp#az-functionapp-deploy)<br/>- [az functionapp log deployment list](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list)<br/>- [az functionapp log deployment show](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show)<br/>- [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) |
+| Azure CLI | In Azure CLI 2.48.1 or higher, the following commands fall back to Microsoft Entra authentication:<br/>- [az webapp up](/cli/azure/webapp#az-webapp-up)<br/>- [az webapp deploy](/cli/azure/webapp#az-webapp-deploy)<br/>- [az webapp log deployment show](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-show)<br/>- [az webapp log deployment list](/cli/azure/webapp/log/deployment#az-webapp-log-deployment-list)<br/>- [az webapp log download](/cli/azure/webapp/log#az-webapp-log-download)<br/>- [az webapp log tail](/cli/azure/webapp/log#az-webapp-log-tail)<br/>- [az webapp browse](/cli/azure/webapp#az-webapp-browse)<br/>- [az webapp create-remote-connection](/cli/azure/webapp#az-webapp-create-remote-connection)<br/>- [az webapp ssh](/cli/azure/webapp#az-webapp-ssh)<br/>- [az functionapp deploy](/cli/azure/functionapp#az-functionapp-deploy)<br/>- [az functionapp log deployment list](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-list)<br/>- [az functionapp log deployment show](/cli/azure/functionapp/log/deployment#az-functionapp-log-deployment-show)<br/>- [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) |
 | [Maven plugin](https://github.com/microsoft/azure-maven-plugins) or [Gradle plugin](https://github.com/microsoft/azure-gradle-plugins) | Works. |
 | [GitHub with App Service Build Service](deploy-continuous-deployment.md?tabs=github) | Doesn't work. |
 | [GitHub Actions](deploy-continuous-deployment.md?tabs=github) | - An existing GitHub Actions workflow that uses **basic authentication** can't authenticate. In the Deployment Center, disconnect the existing GitHub configuration and create a new GitHub Actions configuration with the **user-assigned identity** option instead. <br/> - If the existing GitHub Actions deployment is [manually configured](deploy-github-actions.md), try using a service principal or OpenID Connect instead. <br/> - For new GitHub Actions configuration in the Deployment Center, use the **user-assigned identity** option. |
 | Deployment in [create wizard](https://portal.azure.com/#create/Microsoft.WebSite) | When **Basic authentication** is set to **Disable** and **Continuous deployment** set to **Enable**, GitHub Actions is configured with the **user-assigned identity** option (OpenID Connect). |
 | [Azure Repos with App Service Build Service](deploy-continuous-deployment.md?tabs=github) | Doesn't work. |
-| [BitBucket](deploy-continuous-deployment.md?tabs=bitbucket) | Doesn't work. |
+| [Bitbucket](deploy-continuous-deployment.md?tabs=bitbucket) | Doesn't work. |
 | [Azure Pipelines](deploy-azure-pipelines.md) with [AzureWebApp](/azure/devops/pipelines/tasks/reference/azure-web-app-v1) task | Works. |
 | [Azure Pipelines](deploy-azure-pipelines.md) with [AzureRmWebAppDeployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment) task | - Use the latest AzureRmWebAppDeployment task to get fallback behavior. <br/> - The **Publish Profile (`PublishProfile`)** connection type doesn't work, because it uses basic authentication. Change the connection type to **Azure Resource Manager (`AzureRM`)**. <br/> - On non-Windows Pipelines agents, authentication works. <br/> - On Windows agents, the [deployment method used by the task](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#deployment-methods) might need to be modified. When Web Deploy is used (`DeploymentType: 'webDeploy'`) and basic authentication is disabled, the task authenticates with a Microsoft Entra token. There are additional requirements if you're not using the `windows-latest` agent or if you're using a self-hosted agent. For more information, see [I can't Web Deploy to my Azure App Service using Microsoft Entra authentication from my Windows agent](/azure/devops/pipelines/tasks/reference/azure-rm-web-app-deployment-v4#i-cant-web-deploy-to-my-azure-app-service-using-microsoft-entra-id-authentication-from-my-windows-agent).<br/> - Other deployment methods work, such as **zip deploy** or **run from package**. |
 
 ## Create a custom role with no permissions for basic authentication
 
-To prevent a lower-priveldged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
+To prevent a lower-privileged user from enabling basic authentication for any app, you can create a custom role and assign the user to the role.
 
 ### [Azure portal](#tab/portal)
 
@@ -143,7 +143,7 @@ To confirm that the logs are shipped to your selected service(s), try logging in
 <pre>
 {
   "time": "2023-10-16T17:42:32.9322528Z",
-  "ResourceId": "/SUBSCRIPTIONS/EF90E930-9D7F-4A60-8A99-748E0EEA69DE/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.WEB/SITES/MY-DEMO-APP",
+  "ResourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.WEB/SITES/MY-DEMO-APP",
   "Category": "AppServiceAuditLogs",
   "OperationName": "Authorization",
   "Properties": {

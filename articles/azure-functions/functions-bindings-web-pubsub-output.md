@@ -211,6 +211,8 @@ The following table explains the binding configuration properties that you set i
 | **hub** | Hub | The value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **connection** | Connection | The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString"). |
 
+[!INCLUDE [functions-azure-web-pubsub-authorization-note](../../includes/functions-azure-web-pubsub-authorization-note.md)]
+
 ## Troubleshooting
 
 ### Setting up console logging

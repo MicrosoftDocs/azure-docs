@@ -18,13 +18,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Cloud NGFW by Palo Alto Networks?
-            url: palo-alto-overview.md
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Manage your Cloud NGFW by Palo Alto Networks resource
-            url: palo-alto-manage.md
+            url: manage.md
           - text: Deploying Cloud NGFW by Palo Alto Networks and Application Gateway
-            url: palo-alto-application-gateway.md
+            url: application-gateway.md
 
   # Card
   - title: Create a Cloud NGFW by Palo Alto Networks resource
@@ -32,12 +32,12 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Get started with Cloud NGFW by Palo Alto Networks
-            url: palo-alto-create.md
+            url: create.md
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting Cloud NGFW by Palo Alto Networks
-            url: palo-alto-troubleshoot.md
+            url: troubleshoot.md
           - text: Deploying Cloud NGFW by Palo Alto Networks and Application Gateway
-            url: palo-alto-application-gateway.md
+            url: application-gateway.md
 
   

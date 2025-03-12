@@ -24,7 +24,7 @@ az communication create --name "<acsResourceName>" --location "Global" --data-lo
 
 If you would like to select a specific subscription, you can also specify the ```--subscription``` flag and provide the subscription ID.
 ```azurepowershell-interactive
-az communication create --name "<acsResourceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup> --subscription "<subscriptionId>"
+az communication create --name "<acsResourceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>" --subscription "<subscriptionId>"
 ```
 
 You can configure your Communication Services resource with the following options:

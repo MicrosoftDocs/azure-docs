@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 10/21/2024
+ms.date: 12/26/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -494,6 +494,7 @@ Currently, these Azure services don't support NSG flow logs:
 - [Azure Database for MariaDB](/azure/mariadb/overview)
 - [Azure Database for MySQL](/azure/mysql/single-server/overview)
 - [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).

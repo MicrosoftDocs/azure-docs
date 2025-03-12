@@ -68,7 +68,7 @@ This article describes how to set your Azure Resource Manager password. You need
 
     
     ```azurepowershell
-    PS Azure:\> Set-AzContext -SubscriptionId 8eb87630-972c-4c36-a270-f330e6c063df
+    PS Azure:\> Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     
         Name        Account   SubscriptionName   Environment  TenantId
         ----       -------    ----------------   -----------  --------

@@ -6,7 +6,7 @@ ms.service: sql
 ms.topic: conceptual
 ms.date: 04/15/2024
 ms.author: anaharris 
-ms.custom: references_regions, subject-reliability, devx-track-azurecli
+ms.custom: subject-reliability, devx-track-azurecli
 ---
 
 # Migrate Azure Cosmos DB for NoSQL to availability zone support
@@ -24,7 +24,7 @@ Enabling availability zones is a great way to increase resilience of your Cosmos
 
 - Serverless accounts can use availability zones, but this choice is only available during account creation. Existing accounts without availability zones cannot be converted to an availability zone configuration. For mission critical workloads, provisioned throughput is the recommended choice.
  
-- Understand that enabling availability zones is not an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions do not yet support availability zones, but adding them to a Cosmos DB account will not prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-service-support.md#azure-regions-with-availability-zone-support)
+- Understand that enabling availability zones is not an account-wide choice. A single Cosmos DB account can span an arbitrary number of Azure regions, each of which can independently be configured to leverage availability zones and some regional pairs may not have availability zone support. This is important, as some regions do not yet support availability zones, but adding them to a Cosmos DB account will not prevent enabling availability zones in other regions configured for that account.  The billing model also reflects this possibility. For more information on SLA for Cosmos DB, see [Reliability in Cosmos DB for NoSQL](./reliability-cosmos-db-nosql.md#sla-improvements). To see which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-region-support.md).
 
 ## Downtime requirements
 
@@ -107,4 +107,5 @@ Follow the steps below to enable availability zones for your account in select r
 ## Related content
 
 - [Move an Azure Cosmos DB account to another region](/azure/cosmos-db/how-to-move-regions)
-- [Azure services and regions that support availability zones](availability-zones-service-support.md)
+- [Azure services with availability zones](availability-zones-service-support.md)
+- [Azure regions with availability zones](availability-zones-region-support.md)

@@ -20,7 +20,7 @@ Site Recovery uses the [process server](vmware-physical-azure-config-process-ser
 We recommend that you monitor the health of process servers in the portal to ensure that they are connected and working properly, and that replication is progressing for the source machines that are associated with the process server.
 
 - [Learn about](vmware-physical-azure-monitor-process-server.md) monitoring process servers.
-- [Review best practices].(vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment)
+- [Review best practices](vmware-physical-azure-troubleshoot-process-server.md#best-practices-for-process-server-deployment).
 - [Troubleshoot](vmware-physical-azure-troubleshoot-process-server.md#check-process-server-health) process server health.
 
 ## Step 2: Troubleshoot connectivity and replication issues

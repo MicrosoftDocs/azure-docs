@@ -1,8 +1,8 @@
 ---
 title: Regulatory Compliance details for Canada Federal PBMM
 description: Details of the Canada Federal PBMM Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/21/2024
-ms.topic: sample
+ms.date: 03/03/2025
+ms.topic: generated-reference
 ms.custom: generated
 ---
 # Details of the Canada Federal PBMM Regulatory Compliance built-in initiative
@@ -154,15 +154,6 @@ initiative definition.
 
 ## Identification and Authentication
 
-### Identification and Authentication (Organizational Users) | Network Access to Privileged Accounts
-
-**ID**: CCCS IA-2(1)
-
-|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[Accounts with owner permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3e008c3-56b9-4133-8fd7-d3347377402a) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with owner permissions to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForAccountsWithOwnerPermissions_Audit.json) |
-|[Accounts with write permissions on Azure resources should be MFA enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F931e118d-50a1-4457-a5e4-78550e086c52) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with write privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForAccountsWithWritePermissions_Audit.json) |
-
 ### Authenticator Management
 
 **ID**: CCCS IA-5
@@ -291,5 +282,5 @@ Additional articles about Azure Policy:
 - [Regulatory Compliance](../concepts/regulatory-compliance.md) overview.
 - See the [initiative definition structure](../concepts/initiative-definition-structure.md).
 - Review other examples at [Azure Policy samples](./index.md).
-- Review [Understanding policy effects](../concepts/effects.md).
+- Review [Understanding policy effects](../concepts/effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

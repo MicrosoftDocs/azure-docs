@@ -32,7 +32,7 @@ Biometric authentication has the following benefits:
 
 To get started, you'll need:
 
-- License to [Grit's Visual IEF builder](https://www.gritiefedit.com/). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
+- License to [Grit's Visual IEF builder](/azure/active-directory-b2c/partner-grit-editor). Contact [Grit support](mailto:info@gritsoftwaresystems.com) for licensing details. For this tutorial you don't need a license.
 
 - An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
@@ -62,7 +62,7 @@ Contact [Grit support](mailto:info@gritsoftwaresystems.com) for details to get o
 
 ### Configure Grit's biometric authentication with Azure AD B2C
 
-1. Navigate to <https://www.gritiefedit.com> and enter your email if you're asked for it.
+1. Navigate to </azure/active-directory-b2c/partner-grit-editor> and enter your email if you're asked for it.
 
 1. Press cancel in the quick start wizard.
 

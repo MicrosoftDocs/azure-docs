@@ -8,7 +8,6 @@ ms.topic: reference
 # Dell PowerEdge R350
 
 This article describes the Dell PowerEdge R350 appliance, supported for OT sensors in an enterprise deployment.
-The Dell PowerEdge R350 is also available for the on-premises management console.
 
 |Appliance characteristic  | Description|
 |---------|---------|
@@ -233,4 +232,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

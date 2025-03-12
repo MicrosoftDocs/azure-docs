@@ -22,7 +22,7 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 
     ```Powershell
     Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
-    New-MgServicePrincipal -AppId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "Confidential VM Orchestrator"
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 ## Create confidential VM

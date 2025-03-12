@@ -2,14 +2,16 @@
 title: Get started with Azure IoT Hub device twins (Node.js)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/20/2024
 ms.custom: mqtt, devx-track-js
 ---
+
+  *  Requires Node.js version 10.0.x or later
 
 ## Overview
 
@@ -25,13 +27,30 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 * Update reported device twin properties
 * Receive notice of desired property changes
 
-### Install SDK packages
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+### Install device SDK package
 
 Run this command to install the **azure-iot-device** device SDK on your development machine:
 
 ```cmd/sh
 npm install azure-iot-device --save
 ```
+
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
+
+#### Authenticate using a shared access key
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device twin data.
 
@@ -243,7 +262,7 @@ This section describes how to create a backend application that:
 * Retrieves and updates a device twin
 * Creates a device twin query
 
-### Install service SDK packages
+### Install service SDK package
 
 Run this command to install **azure-iothub** on your development machine:
 
@@ -255,14 +274,27 @@ The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods 
 
 ### Connect to IoT hub
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the prerequisites section.
+You can connect a backend service to IoT Hub using the following methods:
+
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. Your application needs the **service connect** permission to modify desired properties of a device twin, and it needs **registry read** permission to query the identity registry. There is no default shared access policy that contains only these two permissions, so you need to create one if a one does not already exist. Supply this shared access policy connection string as a parameter to `fromConnectionString`. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
 'use strict';
 var iothub = require('azure-iothub');
-var connectionString = '{Iot Hub service connection string}';
+var connectionString = '{Shared access policy connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
 ### Retrieve and update a device twin
 

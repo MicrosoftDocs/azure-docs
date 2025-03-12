@@ -2,7 +2,7 @@
 title: "1Password (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector 1Password (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 07/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -72,13 +72,13 @@ To integrate with 1Password (using Azure Functions) make sure you have:
 
 Option 1 - Azure Resource Manager (ARM) Template
 
-This method provides an automated deployment of the 1Password connector using an ARM Tempate.
+This method provides an automated deployment of the 1Password connector using an ARM Template.
 
 1. Click the **Deploy to Azure** button below. 
 
 	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-OnePassword-azuredeploy)
 2. Select the preferred **Subscription**, **Resource Group**, and **Location**. 
-3. Enter the **Workspace Name**, **Workspace Name**, **1Password Events API Key**, and **URI**.
+3. Enter the **Workspace Name**, **1Password Events API Key**, and **URI**.
      - The default **Time Interval** is set to five (5) minutes. If you'd like to modify the interval, you can adjust the Function App Timer Trigger accordingly (in the function.json file, post deployment) to prevent overlapping data ingestion.
      - If using Azure Key Vault secrets for any of the values above, use the`@Microsoft.KeyVault(SecretUri={Security Identifier})`schema in place of the string values. Refer to [Key Vault references documentation](/azure/app-service/app-service-key-vault-references) for further details. 
 4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 

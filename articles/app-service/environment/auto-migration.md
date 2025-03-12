@@ -10,38 +10,18 @@ ms.custom: references_regions
 # Prevent and resolve issues caused by an auto-migration of an App Service Environment
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 are retired and no longer supported. If you have an App Service Environment v1 or v2, you must migrate to App Service Environment v3. For more information, see [Upgrade to App Service Environment v3](upgrade-to-asev3.md).
+> App Service Environment v1 and v2 are retired and no longer supported.
 >
-> Auto-migrations are migrations that are initiated by Microsoft. As of September 1, 2024, the platform will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+> Auto-migrations are migrations that are initiated by Microsoft. As of September 1, 2024, the platform auto-migrated any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data were deleted.
 >
 
 If you have an App Service Environment v1 or v2 that was auto-migrated to App Service Environment v3, you might encounter issues with your apps or services. This article provides guidance on how to address these issues.
 
 ## Overview
 
-After September 1, 2024, all App Service Environments v1 and v2 are eligible to be automatically migrated (auto-migrated) to App Service Environment v3 at any given time unless otherwise stated. The platform initiates auto-migrations, which are necessary to ensure that your App Service Environment is running on a supported platform.
-
-> [!NOTE]
-> Auto-migrations and deletions are done in batches. If your App Service Environment isn't auto-migrated yet, it's subject to auto-migration or deletion at any time. The only way to ensure that your App Service Environment isn't unexpectedly auto-migrated or deleted is to request a 30-day grace period.
->
+After September 1, 2024, all App Service Environments v1 and v2 were automatically migrated (auto-migrated) to App Service Environment v3. The platform initiated auto-migrations, which are necessary to ensure that your App Service Environment is running on a supported platform.
 
 Auto-migrations are done using the [in-place migration feature](migrate.md). There's about one hour of downtime during the migration process. The inbound and outbound IP addresses of your App Service Environment might change during the migration process. Downtime might be longer if you have dependencies on these IP addresses. Downtime might also be longer if you use features that aren't supported in App Service Environment v3.
-
-## Grace period
-
-If you need more time to complete your migrations, we can offer a one-time 30-day grace period. Your App Service Environment isn't auto-migrated or deleted during the grace period. When the grace period ends, we attempt to auto-migrate your App Service Environment. If auto-migration isn't feasible, your resources and associated app data are deleted.
-
-To receive this grace period, go to [Azure portal](https://portal.azure.com) and visit the Migration page for your App Service Environment. If you have more than one App Service Environment, you need to acknowledge and receive a grace period for each of your environments that requires more time to migrate.
-
-:::image type="content" source="./media/migration/ack-grace-period.png" alt-text="Screenshot that shows the button on the Migration page where you can acknowledge the available one-time 30-day grace period.":::
-
-Once you receive the grace period, the banner at the top of the Migration page shows the grace period end date. You might need to refresh the page to see the updated banner. It can take up to five minutes for the banner to update with the date.
-
-:::image type="content" source="./media/migration/grace-period-end-date.png" alt-text="Screenshot that shows the banner on the Migration page where you see the end date for the 30-day grace period that is provided.":::
-
-If you need more support or have questions, contact Azure Support using the *Open support ticket* option in the Azure portal on the Migration page. It's important that you acknowledge and receive a grace period for each of your environments that require more time to migrate before you open the support request. The acknowledgment and grace period ensures your environments don't get auto-migrated while the support request is being processed.
-
-:::image type="content" source="./media/migration/migration-support-ticket.png" alt-text="Screenshot that shows the button on the Migration page where you can open a support ticket.":::
 
 ## Auto-migration limitations
 
@@ -52,14 +32,14 @@ Auto-migrations are done using the [in-place migration feature](migrate.md). The
 - The new App Service Environment v3 is in the same resource group as your old environment.
 - All resources maintain the same names and resource IDs.
 - IP-based TLS/SSL bindings aren't supported in App Service Environment v3. If you have IP-based TLS/SSL bindings, you must remove them once the migration is complete. Your apps don't work until you remove the bindings.
-- App Service Environment v1 in a [Classic virtual network](/previous-versions/azure/virtual-network/create-virtual-network-classic) isn't supported for migration. If you have an App Service Environment v1 in a Classic virtual network, you must [migrate manually](migration-alternatives.md). **Your App Service Environment is eligible for deletion at any time if you don't request a 30-day grace period.**
-- The in-place migration feature isn't available in China East 2 and China North 2. The feature isn't supported there because App Service Environment v3 isn't available in these regions. Therefore, auto-migration isn't possible for App Service Environments in these regions. If you have an App Service Environment in these regions, you must [migrate manually](migration-alternatives.md) to one of the supported regions, such as China East 3 or China North 3. **Your App Service Environment is eligible for deletion at any time if you don't request a 30-day grace period.**
+- App Service Environment v1 in a [Classic virtual network](/previous-versions/azure/virtual-network/create-virtual-network-classic) isn't supported for migration. If you have an App Service Environment v1 in a Classic virtual network, you must [migrate manually](migration-alternatives.md). **Your App Service Environment is eligible for deletion at any time.**
+- The in-place migration feature isn't available in China East 2 and China North 2. The feature isn't supported there because App Service Environment v3 isn't available in these regions. Therefore, auto-migration isn't possible for App Service Environments in these regions. If you have an App Service Environment in these regions, you must [migrate manually](migration-alternatives.md) to one of the supported regions, such as China East 3 or China North 3. **Your App Service Environment is eligible for deletion at any time.**
 
 For more information about in-place migrations and to see what process is followed during an auto-migration, see the [Migration to App Service Environment v3 using the in-place migration feature](migrate.md).
 
 ### Ineligible for auto-migration
 
-There are two scenarios where you might be ineligible for auto-migration. The first scenario is if your current environment is in a region that doesn't support App Service Environment v3. The other scenario is if you have an App Service Environment v1 in a Classic virtual network. If you're ineligible for auto-migration and can never auto-migrate, the portal displays a message with the reason why you're ineligible. You must [migrate manually](migration-alternatives.md). **Your App Service Environment is eligible for deletion at any time if you don't request a 30-day grace period.**
+There are two scenarios where you might be ineligible for auto-migration. The first scenario is if your current environment is in a region that doesn't support App Service Environment v3. The other scenario is if you have an App Service Environment v1 in a Classic virtual network. If you're ineligible for auto-migration and can never auto-migrate, the portal displays a message with the reason why you're ineligible. You must [migrate manually](migration-alternatives.md). **Your App Service Environment is eligible for deletion at any time .**
 
 In some cases, you might be temporarily blocked from auto-migration, but you can resolve the blocking issue and enable auto-migration. For example, if you have a resource lock on your App Service Environment, you can remove the resource lock to enable auto-migration. An auto-migration that is blocked by a resource lock, Azure Policy, or networking configuration is automatically suspended. If you need to unsuspend your App Service Environment, open a support ticket.
 
@@ -74,7 +54,7 @@ The following errors might be displayed in the portal if you're ineligible for a
 
 ## What to do if your App Service Environment is suspended
 
-If your App Service Environment is suspended, you have two options.
+If your App Service Environment is suspended, you have three options.
 
 ### Unsuspend and self-migrate
 
@@ -87,6 +67,14 @@ If you want to migrate yourself, open a support ticket using the option in the M
 If you want to expedite migration, you can resume/unsuspend your environment as an **App Service Environment v3**. To resume your App Service Environment as a v3, go to the [Azure portal](https://portal.azure.com) and visit the Migration page for your App Service Environment. To resume your environment as an App Service Environment v3, select the "Migrate now" button. This button initiates the same process that is used for auto-migrations. The limitations, downtime, and other considerations are the same as for auto-migrations. If you have more than one App Service Environment, you need to resume each of your environments that are suspended.
 
 :::image type="content" source="./media/migration/resume-as-asev3.png" alt-text="Screenshot that shows the button on the Migration page where you can resume as an App Service Environment v3.":::
+
+### Delete your App Service Environment
+
+If you no longer need your App Service Environment, you can delete your environment using the following CLI command. Replace the placeholders for the subscription id, environment name, and resource group with your values for the App Service Environment that you want to delete. The Azure CLI is the only available method for deleting your environment. If you haven't previously used the Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. Deleting your environment will also delete the associated apps and App Service plans. This action is irreversible.
+
+```azurecli
+az rest --method delete --url "https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Web/hostingEnvironments/<ASE-NAME>?api-version=2020-12-01" --url-parameters forceDelete=true --verbose
+```
 
 ## Features to limit the effects of auto-migrations
 
@@ -190,8 +178,6 @@ We encourage you to complete migration to Azure App Service Environment v3 as so
 
 ## Frequently asked questions
 
-- **Why am I experiencing temporary application outages on my App Service Environment v1/v2?**  
-  The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the effect of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
 - **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
 - **Why are my apps not working after auto-migration?**  
@@ -201,4 +187,4 @@ We encourage you to complete migration to Azure App Service Environment v3 as so
 - **Will I be charged for auto-migrations?**  
   There's no cost associated with auto-migrating your App Service Environment. You stop being charged for your previous App Service Environment as soon as it shuts down during the migration process. You begin getting charged for your new App Service Environment v3 as soon as it gets deployed.
 - **Why was my App Service Environment deleted?**  
-  If auto-migration isn't feasible, your resources and associated app data are deleted. We strongly urge you to act now to avoid this scenario. If you need more time to complete your migrations, we can offer a one-time 30-day grace period. Your App Service Environment isn't deleted during the grace period. When the grace period ends, we might delete your App Service Environment and all associated data.
+  If auto-migration isn't feasible, your resources and associated app data are deleted. We strongly urge you to act now to avoid this scenario.

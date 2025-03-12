@@ -132,7 +132,7 @@ Locate the installer files for the server’s operating system using the followi
    ```
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
-    ![sample string for downloading configuration flle ](./media/vmware-physical-mobility-service-overview-modernized/configuration-string.png)
+    ![sample string for downloading configuration file ](./media/vmware-physical-mobility-service-overview-modernized/configuration-string.png)
 
 4. After successfully installing, register the source machine with the above appliance using the following command:
 

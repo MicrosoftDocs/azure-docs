@@ -2,21 +2,21 @@
 title: Cross-tenant connections to Azure DevOps
 description: Learn how to configure connections to Azure DevOps in another tenant in Azure Data Factory
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
+author: kromerm
+ms.author: makromer
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 01/29/2025
 ---
 
 # Cross-tenant connections to Azure DevOps
 
-This document covers a step-by-step guide for configuring Azure DevOps account in another tenant than the Azure Data Factory.  This is useful for when your Azure DevOps is not in the same tenant as the Azure Data Factory.
+This document covers a step-by-step guide for configuring Azure DevOps organization in another tenant than the Azure Data Factory.  This is useful for when your Azure DevOps isn't in the same tenant as the Azure Data Factory.
 
 :::image type="content" source="media/cross-tenant-connections-to-azure-devops/cross-tenant-architecture-diagram.png" alt-text="Shows an architectural diagram of a connection from Azure Data Factory to Azure DevOps in another tenant.":::
 
 ## Prerequisites
 
-- You need to have an Azure DevOps account in another tenant than your Azure Data Factory. 
+- You need to have an Azure DevOps organization in another tenant than your Azure Data Factory. 
 - You should have a project in the above Azure DevOps tenant. 
 
 ## Step-by-step guide
@@ -33,7 +33,7 @@ This document covers a step-by-step guide for configuring Azure DevOps account i
 
    :::image type="content" source="media/cross-tenant-connections-to-azure-devops/cross-tenant-sign-in-confirm.png" alt-text="Shows the confirmation dialog for cross tenant sign in.":::
 
-1. Choose a different account to login to Azure DevOps in the remote tenant.
+1. Choose a different account to log in to Azure DevOps in the remote tenant.
 
    :::image type="content" source="media/cross-tenant-connections-to-azure-devops/use-another-account.png" alt-text="Shows the account selection dialog for choosing an account to connect to the remote Azure DevOps tenant.":::
 
@@ -49,6 +49,6 @@ This document covers a step-by-step guide for configuring Azure DevOps account i
 
 While opening the Azure Data Factory in another tab or a new browser, use the first sign-in to log into to your Azure Data Factory user account.
 
-You should see a dialog with the message _You do not have access to the VSTS repo associated with this factory._  Click **OK** to sign in with the cross-tenant account to gain access to Git through the Azure Data Factory.
+You should see a dialog with the message _You don't have access to the VSTS repo associated with this factory._  Select **OK** to sign in with the cross-tenant account to gain access to Git through the Azure Data Factory.
 
 :::image type="content" source="media/cross-tenant-connections-to-azure-devops/sign-in-with-account-with-repository-access.png" alt-text="Shows the sign-in prompt to associate a VSTS repo with a cross-tenant Azure Data Factory.":::

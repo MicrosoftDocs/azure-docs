@@ -12,7 +12,7 @@ ms.date: 06/18/2024
 ms.author: ampatel
 ---
 
-# High availability of SAP HANA scale-up with Azure NetApp Files on SUSE Enterprise Linux
+# High availability of SAP HANA scale-up with Azure NetApp Files on SUSE Linux Enterprise Server
 
 This article describes how to configure SAP HANA system replication in scale-up deployment when the HANA file systems are mounted via NFS by using Azure NetApp Files. In the example configurations and installation commands, instance number 03 and HANA System ID HN1 are used. SAP HANA replication consists of one primary node and at least one secondary node.
 
@@ -62,7 +62,7 @@ Read the following SAP Notes and papers first:
 
 ## Overview
 
-Traditionally, in a scale-up environment, all file systems for SAP HANA are mounted from local storage. Setting up HA of SAP HANA system replication on SUSE Enterprise Linux is published in [Set up SAP HANA system replication on SLES](./sap-hana-high-availability.md).
+Traditionally, in a scale-up environment, all file systems for SAP HANA are mounted from local storage. Setting up HA of SAP HANA system replication on SUSE Linux Enterprise Server is published in [Set up SAP HANA system replication on SLES](./sap-hana-high-availability.md).
 
 To achieve SAP HANA HA of a scale-up system on Azure NetApp Files NFS shares, we need extra resource configuration in the cluster. This configuration is needed so that HANA resources can recover when one node loses access to the NFS shares on Azure NetApp Files.
 
@@ -407,7 +407,7 @@ This section describes the necessary steps that are required for the cluster to 
 
 ### Create a Pacemaker cluster
 
-Follow the steps in [Setting up Pacemaker on SUSE Enterprise Linux](./high-availability-guide-suse-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
+Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server](./high-availability-guide-suse-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
 
 ## Implement HANA hooks SAPHanaSR and susChkSrv
 

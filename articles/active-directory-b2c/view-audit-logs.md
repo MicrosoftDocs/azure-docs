@@ -166,7 +166,7 @@ Here's the JSON representation of the example activity event shown earlier in th
 {
     "id": "B2C_DQO3J_4984536",
     "category": "Authentication",
-    "correlationId": "00000000-0000-0000-0000-000000000000",
+    "correlationId": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0",
     "result": "success",
     "resultReason": "N/A",
     "activityDisplayName": "Issue an id_token to the application",
@@ -176,7 +176,7 @@ Here's the JSON representation of the example activity event shown earlier in th
     "initiatedBy": {
         "user": null,
         "app": {
-            "appId": "00000000-0000-0000-0000-000000000000",
+            "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
             "displayName": null,
             "servicePrincipalId": null,
             "servicePrincipalName": "00000000-0000-0000-0000-000000000000"

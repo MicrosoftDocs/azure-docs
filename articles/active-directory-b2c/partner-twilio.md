@@ -66,8 +66,8 @@ The following components make up the Twilio solution:
 
     ```xml
     <add key="ida:Tenant" value="yourtenant.onmicrosoft.com" />
-    <add key="ida:TenantId" value="d6f33888-0000-4c1f-9b50-1590f171fc70" />
-    <add key="ida:ClientId" value="6bd98cc8-0000-446a-a05e-b5716ef2651b" />
+    <add key="ida:TenantId" value="aaaabbbb-0000-cccc-1111-dddd2222eeee" />
+    <add key="ida:ClientId" value="00001111-aaaa-2222-bbbb-3333cccc4444" />
     <add key="ida:ClientSecret" value="secret" />
     <add key="ida:AadInstance" value="https://yourtenant.b2clogin.com/tfp/{0}/{1}" />
     <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />

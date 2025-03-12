@@ -3,11 +3,11 @@ title: Rule set actions
 titleSuffix: Azure Front Door
 description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 

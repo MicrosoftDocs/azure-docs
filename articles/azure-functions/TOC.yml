@@ -115,14 +115,6 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
-        - name: Azure Arc (preview)
-          items:
-            - name: Code-only publishing
-              displayName: Arc, container, Kubernetes
-              href: create-first-function-arc-cli.md
-            - name: Custom container
-              displayName: Arc, container, Kubernetes, Docker
-              href: create-first-function-arc-custom-container.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -344,7 +336,7 @@
       items:
         - name: Consumption plan
           href: consumption-plan.md
-        - name: Flex Consumption plan (preview)
+        - name: Flex Consumption plan
           href: flex-consumption-plan.md
         - name: Premium plan
           href: functions-premium-plan.md
@@ -522,13 +514,11 @@
                 - name: Azure portal
                   href: functions-integrate-storage-queue-output-binding.md
                 - name: Visual Studio Code
-                  href: ./functions-add-output-binding-storage-queue-vs-code.md
+                  href: functions-add-output-binding-storage-queue-vs-code.md
                 - name: Visual Studio
-                  href: ./functions-add-output-binding-storage-queue-vs.md
-                - name: Java
-                  href: functions-add-output-binding-storage-queue-java.md
-                - name: Python
-                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+                  href: functions-add-output-binding-storage-queue-vs.md
+                - name: Command line
+                  href: functions-add-output-binding-storage-queue-cli.md
         - name: Debug
           items:
             - name: Debug local PowerShell functions
@@ -835,6 +825,20 @@
             - name: Output
               href: functions-bindings-azure-data-explorer-output.md
               displayName: Azure Data Explorer
+        - name: Azure Database for MySQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-mysql.md
+              displayName: Azure Database for MySQL
+            - name: Input
+              href: functions-bindings-azure-mysql-input.md
+              displayName: Azure Database for MySQL
+            - name: Output
+              href: functions-bindings-azure-mysql-output.md
+              displayName: Azure Database for MySQL
+            - name: Trigger
+              href: functions-bindings-azure-mysql-trigger.md
+              displayName: Azure Database for MySQL
         - name: Azure OpenAI
           items:
             - name: Overview

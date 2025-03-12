@@ -78,10 +78,10 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
+ "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444",
  "step": "PreTokenIssuance",
  "ui_locales":"en-US"
 }
@@ -169,7 +169,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 </ClaimType>
 ```
 ## Add the RESTful API technical profile 
-A [Restful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
+A [RESTful technical profile](restful-technical-profile.md) provides support for interfacing with your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element in your <em>**`TrustFrameworkExtensions.xml`**</em> file and add a new claims provider as follows:
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
@@ -280,8 +280,8 @@ Save the files you changed: *TrustFrameworkBase.xml*, and *TrustFrameworkExtensi
   "exp": 1584961516,
   "nbf": 1584957916,
   "ver": "1.0",
-  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "iss": "https://contoso.b2clogin.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/v2.0/",
+  "aud": "11112222-bbbb-3333-cccc-4444dddd5555",
   "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
   "iat": 1584957916,

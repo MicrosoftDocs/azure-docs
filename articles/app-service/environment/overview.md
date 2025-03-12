@@ -12,9 +12,6 @@ ms.custom: "UpdateFrequency3, references_regions"
 
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting infrastructure is shared, with App Service Environment, compute is dedicated to a single customer. For more information on the differences between App Service Environment and App Service public multitenant, see the [comparison of the offerings](ase-multi-tenant-comparison.md).
 
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
->
 An App Service Environment can host your:
 
 - Windows web apps
@@ -69,7 +66,7 @@ A benefit of using an App Service Environment instead of a multitenant service i
 App Service Environment v3 differs from earlier versions in the following ways:
 
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want.
-- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. Zone redundancy is a deployment time only decision. Changing zone redundancy isn't possible after it has been deployed. With zone redundant App Service Environment, each App Service Plan on the App Service Environment needs to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. Zone redundancy is a deployment time only decision. Changing zone redundancy isn't possible after it has been deployed. With zone redundant App Service Environment, each App Service Plan on the App Service Environment needs to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../reliability/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 - Scaling is faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multitenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
@@ -152,6 +149,7 @@ App Service Environment v3 is available in the following regions:
 | Korea Central        | ✅                           | ✅                          |
 | Korea South          | ✅                           |                             |
 | Mexico Central       | ✅                           | ✅**                        |
+| New Zealand North    | ✅                           | ✅                          |
 | North Central US     | ✅                           |                             |
 | North Europe         | ✅                           | ✅                          |
 | Norway East          | ✅                           | ✅                          |
@@ -243,6 +241,7 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Korea Central        | ✅          | ✅          |                   | 
 | Korea South          | ✅          | ✅          | ✅               |
 | Mexico Central       | ✅          | ✅          |                   | 
+| New Zealand North    | ✅          | ✅          |                   | 
 | North Central US     | ✅          | ✅          | ✅               | 
 | North Europe         | ✅          | ✅          | ✅               |
 | Norway East          | ✅          | ✅          | ✅               | 

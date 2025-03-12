@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 09/11/2024
+ms.date: 01/22/2025
 ms.author: banders
 ---
 
@@ -23,7 +23,7 @@ As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft
 
 ## Grant access
 
-To [create subscriptions under an enrollment account](programmatically-create-subscription-enterprise-agreement.md), users must have the Azure RBAC [Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the Azure RBAC Owner role on an enrollment account by following these steps:
+To [create subscriptions under an enrollment account](programmatically-create-subscription-preview.md), users must have the Azure RBAC [Owner role](../../role-based-access-control/built-in-roles.md#owner) on that account. You can grant a user or a group of users the Azure RBAC Owner role on an enrollment account by following these steps:
 
 1. Get the object ID of the enrollment account you want to grant access to
 

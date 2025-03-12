@@ -40,12 +40,12 @@ The following dimensions are available on the `Email Service Delivery Status Upd
 | MessageStatus       | Terminal state of the Delivered, Failed, Suppressed. Emails are suppressed when a user sends an email to an email address that is known not to exist. Sending emails to addresses that don't exist trigger a hard bounce. |
 | IsHardBounce       | True when a message delivery failed due to a hard bounce or if an item was suppressed due to a previous hard bounce. |
 | SenderDomain       | The domain portion of the senders email address. |
-| SmtpStatusCode       | Smpt error code from for failed deliveries. |
+| SmtpStatusCode       | Smtp error code from for failed deliveries. |
 | EnhancedSmtpStatusCode       | The EnhancedSmtpStatusCode status code will be emitted if it's available. This status code provides other details not available with the SmtpStatusCode. |
 
 :::image type="content" source="./media/acs-email-delivery-status-hardbounce-metrics.png" alt-text="Screenshot showing the Email delivery status update metric - IsHardBounce.":::
 
-:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Screenshot showing the Email delivery status update metric - SmptStatusCode.":::
+:::image type="content" source="./media/acs-email-delivery-status-smtp-metrics.png" alt-text="Screenshot showing the Email delivery status update metric - SmtpStatusCode.":::
 
 ### Email Service API requests
 
