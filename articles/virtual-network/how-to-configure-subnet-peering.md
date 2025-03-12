@@ -158,7 +158,7 @@ For this, we run the virtual network peering create command with the optional pa
                                    --vnet-name vnet-2
                                    --remote-subnet-names subnet-3 subnet-4
     ```  
-    **Remove subnets to peering**
+    **Remove subnets from peering**
     ```azurecli
     az network vnet peering update --name vnet-1_to_vnet-2
                                    --resource-group test-rg
