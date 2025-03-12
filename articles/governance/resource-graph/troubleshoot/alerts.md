@@ -30,6 +30,7 @@ The following are known unsupported operators and functions:
 | `rand()` | scalar function |
 | `stdev()`, `stdevif()`, `stdevp()` | aggregation function |
 | `variance()`, `varianceif()`, `variancep()` | aggregation function |
+| `now()/ago()` | operator |
 | Using keys with bag functions | scalar function |
 
 For more information about operators and functions, go to [tabular operators](/azure/data-explorer/kusto/query/queries), [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions), and [aggregation functions](/azure/data-explorer/kusto/query/aggregation-functions).
