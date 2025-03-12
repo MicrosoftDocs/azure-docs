@@ -15,9 +15,9 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-When you set up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. For more information, see [Azure App Service access restrictions](./overview-access-restrictions.md).
+When you set up access restrictions, you can define a priority-ordered allow/block list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. For more information, see [Azure App Service access restrictions](./overview-access-restrictions.md).
 
-The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers, and Functions.
+The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers, and Azure Functions apps.
 
 When someone makes a request to your app, the `FROM` address is evaluated against the rules in your access restriction list. If the `FROM` address is in a subnet that's configured by using service endpoints to `Microsoft.Web`, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
@@ -49,7 +49,7 @@ To add an access restriction rule to your app:
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot of the Access Restrictions page in the Azure portal, showing the list of access restriction rules defined for the selected app.":::
 
-   The list displays all the current restrictions that are applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for `Microsoft.Web`. If no restrictions are defined on your app and your unmatched rule isn't set to **Deny**, the app is accessible from anywhere.
+   The list displays the restrictions that are currently applied to the app. If you have a virtual network restriction on your app, the table shows whether the service endpoints are enabled for `Microsoft.Web`. If no restrictions are defined on your app and your unmatched rule isn't set to **Deny**, the app is accessible from anywhere.
 
 ### Permissions
 
@@ -57,20 +57,20 @@ You must have the following role-based access control permissions on the subnet 
 
 | Action | Description |
 |:--|:--|
-| `Microsoft.Web/sites/config/read` | Get web app configuration settings. |
-| `Microsoft.Web/sites/config/write` | Update web app's configuration settings. |
+| `Microsoft.Web/sites/config/read` | Gets web app configuration settings. |
+| `Microsoft.Web/sites/config/write` | Updates web app's configuration settings. |
 | `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action`* | Joins resource such as storage account or SQL database to a subnet. |
-| `Microsoft.Web/sites/write`** | Update web app settings. |
+| `Microsoft.Web/sites/write`** | Updates web app settings. |
 
-*Only required when adding a virtual network (service endpoint) rule.
+*Only required when adding a virtual network (service endpoint) rule
 
-**Only required if you're updating access restrictions through the Azure portal.
+**Only required if you're updating access restrictions through the Azure portal
 
 If you add a service endpoint-based rule and the virtual network is in a different subscription than the app, ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider, but it's also automatically registered when you create the first web app in a subscription. For more information, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
 ### Add an access restriction rule
 
-To add an access restriction rule to your app, on the **Access Restrictions** page, select **Add**. The rule is only effective after you save it.
+To add an access restriction rule to your app, on the **Access Restrictions** page, select **Add**. The rule is effective only after you save it.
 
 Rules are enforced in priority order, from the lowest number in the **Priority** column. If you don't configure unmatched rule, an implicit *deny all* is in effect when you add one rule.
 
@@ -92,7 +92,7 @@ Follow the procedure as outlined in the preceding section, but with the followin
 
 - For step 4, in the **Type** dropdown list, select **IPv4** or **IPv6**.
 
-Specify the **IP Address Block** in Classless Inter-Domain Routing (CIDR) notation for both the **IPv4** and **IPv6** addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The **IPv4** CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Specify the **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the **IPv4** and **IPv6** addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The **IPv4** CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 > [!NOTE]
 > IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use service endpoints to restrict traffic to select subnets in your virtual network.
@@ -105,7 +105,7 @@ Specify the **IP Address Block** in Classless Inter-Domain Routing (CIDR) notati
 
 Specify the **Subscription**, **Virtual Network**, and **Subnet** drop-down lists, matching what you want to restrict access to.
 
-By using service endpoints, you can restrict access to selected Azure virtual network subnets. If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you select, they're automatically enabled unless you select **Ignore missing Microsoft.Web service endpoints**. Whether you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
+By using service endpoints, you can restrict access to selected Azure Virtual Network subnets. If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you select, they're automatically enabled unless you select **Ignore missing Microsoft.Web service endpoints**. Whether you might want to enable service endpoints on the app but not the subnet depends on if you have the permissions to enable them on the subnet.
 
 If you need someone else to enable service endpoints on the subnet, select **Ignore missing Microsoft.Web service endpoints**. Your app is configured for service endpoints. They can later be enabled on the subnet.
 
@@ -125,7 +125,7 @@ With service endpoints, you can configure your app by using application gateways
 All publicly available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
 
 > [!NOTE]
-> When you create service tag-based rules through Azure portal or Azure CLI, you need read access at the subscription level to get the full list of service tags for selection/validation. In addition, the `Microsoft.Network` resource provider needs to be registered on the subscription.
+> When you create service tag-based rules through Azure portal or the Azure CLI, you need read access at the subscription level to get the full list of service tags for selection/validation. In addition, the `Microsoft.Network` resource provider needs to be registered on the subscription.
 
 ### Edit a rule
 
@@ -152,7 +152,7 @@ The following sections describe using access restrictions in advanced scenarios.
 
 ### Filter by http header
 
-As part of any rule, you can add http header filters. The following http header names are supported:
+You can add http header filters to any rule. The following http header names are supported:
 
 - `X-Forwarded-For`
 - `X-Forwarded-Host`
@@ -321,7 +321,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ### Add access restrictions rules for advanced tool site
 
-You can add access restrictions rules for *Advanced tool site* programmatically. Choose one of the following options:
+You can add access restrictions rules for **Advanced tool site** programmatically. Choose one of the following options:
 
 ### [Azure CLI](#tab/azurecli)
 
