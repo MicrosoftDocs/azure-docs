@@ -100,14 +100,26 @@
     href: scenario-365-expressroute-private.md
 - name: Virtual WAN and virtual hub settings
   items:
-  - name: Virtual hub settings
-    href: hub-settings.md
+  - name: Virtual WAN gateway settings
+    href: gateway-settings.md
+  - name: Upgrade from Basic virtual WAN to Standard
+    href: upgrade-virtual-wan.md
   - name: Roles and permissions
     href: roles-permissions.md
-  - name: Gateway settings
-    href: gateway-settings.md
-  - name: Install Azure Firewall in a hub
+  - name: Virtual hub settings
+    href: hub-settings.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
+  - name: Secured hub - install Azure Firewall in a hub
     href: howto-firewall.md
+  - name: Integrated NVA in a virtual hub
+    items:
+    - name: Create a NVA in a virtual hub
+      href: how-to-nva-hub.md
+    - name: Restart a NVA in a virtual hub
+      href: how-to-network-virtual-appliance-restart.md
+    - name: Configure DNAT/Internet inbound
+      href: how-to-network-virtual-appliance-inbound.md
 - name: Configure site-to-site connections
   items:
   - name: Create a site-to-site connection
