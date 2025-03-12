@@ -87,7 +87,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 1. In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
 
-1. In the service menu, select **Deployment Center**. Then select **Settings** > **Disconnect**:
+1. In the service menu, select **Deployment Center**. Then select **Settings** > **Disconnect**.
 
     ![Screenshot that shows you how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-continuous-deployment/disable.png)
 
@@ -97,13 +97,13 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## What are the build providers?
 
-Depending on your deployment source in the **Deployment Center**, you might see a few options to select for build providers. Build providers help you build a continuous integration and continuous delivery (CI/CD) solution with Azure App Service by automating build, test, and deployment.
+Depending on your deployment source in the **Deployment Center**, you might see a few build provider options. Build providers help you build a continuous integration and continuous delivery (CI/CD) solution with Azure App Service by automating build, test, and deployment.
 
 You're not limited to the build provider options found in the **Deployment Center**, but by using App Service, you can set them up quickly and get some integrated deployment logging experience.
 
 # [GitHub Actions](#tab/githubactions)
 
-The GitHub Actions build provider is available only for [GitHub deployment](?tabs=github#configure-the-deployment-source). When configured from the app's **Deployment Center**, the build provider sets up CI/CD by depositing a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
+The GitHub Actions build provider is available only for [GitHub deployment](?tabs=github#configure-the-deployment-source). When configured from the app's **Deployment Center**, the build provider sets up CI/CD by depositing a GitHub Actions workflow file into your GitHub repository that handles build and deploy tasks to App Service.
 
 For basic authentication, it adds the publish profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service. For user-assigned identity, see [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 
