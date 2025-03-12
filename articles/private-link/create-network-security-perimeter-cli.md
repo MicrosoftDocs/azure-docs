@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure CLI
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using Azure CLI. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
@@ -13,7 +14,7 @@ ms.date: 11/06/2024
 
 # Quickstart: Create a network security perimeter - Azure CLI
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 

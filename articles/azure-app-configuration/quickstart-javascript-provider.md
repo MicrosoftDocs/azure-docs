@@ -409,3 +409,8 @@ In this quickstart, you created a new App Configuration store and learned how to
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-javascript.md)
+
+For the full feature rundown of the JavaScript configuration provider library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [JavaScript configuration provider](./reference-javascript-provider.md)

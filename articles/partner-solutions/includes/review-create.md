@@ -1,13 +1,13 @@
 ---
 author: ProfessorKendrick
 ms.topic: include
-ms.date: 01/10/2025
+ms.date: 02/18/2025
 ms.author: kkendrick
 ---
 
 If no errors are found, the *Create* button is enabled.
 
-If the review identifies errors, a red dot appears next each section where errors exist. 
+If the review identifies errors, a red dot appears next to each section where errors exist. 
 
 #### Resolve errors
 

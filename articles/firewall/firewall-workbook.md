@@ -6,7 +6,7 @@ author: gopimsft
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 12/06/2023
-ms.author: victorh
+ms.author: duau
 ---
 
 # Using Azure Firewall Workbooks

@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ms.author: xupzhou
 ms.custom: subject-armqs
 ---

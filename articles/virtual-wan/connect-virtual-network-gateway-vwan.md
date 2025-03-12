@@ -132,7 +132,7 @@ In this section, you create a connection between the VPN Gateway local network g
 1. On the **Add connection** page, configure the following values for your connection:
 
    * **Name:** Name your connection.
-   * **Connection type:** Select **Site-to-site(IPSec)**
+   * **Connection type:** Select **Site-to-site(IPsec)**
    * **Virtual network gateway:** The value is fixed because you're connecting from this gateway.
    * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
    * **Shared Key:** Enter the shared key from earlier.
