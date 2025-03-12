@@ -237,7 +237,7 @@ The following examples show the part of the workflow that builds the web app, in
 ## Frequently Asked Questions
 
 - [How do I deploy a WAR file through Maven plugin?](#how-do-i-deploy-a-war-file-through-maven-plugin)
-- [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-azure-cli)
+- [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-the-azure-cli)
 - [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
 - [How do I deploy to a container?](#how-do-i-deploy-to-a-container)
 - [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
