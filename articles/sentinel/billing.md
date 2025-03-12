@@ -47,7 +47,7 @@ Use the [Microsoft Sentinel pricing calculator](https://azure.microsoft.com/pric
 
 For example, enter the GB of daily data you expect to ingest in Microsoft Sentinel, and the region for your workspace. The calculator provides the aggregate monthly cost across these components:
 
-- Microsoft Sentinel: Analytics logs and auxiliary/basic logs
+- Microsoft Sentinel: Analytics logs and auxiliary logs
 - Azure Monitor: Retention
 - Azure Monitor: Data Restore
 - Azure Monitor: Search Queries and Search Jobs
@@ -60,7 +60,7 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Basic logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
+Pricing is based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high value security logs and support all data types offering full analytics, alerts and no query limits. Auxiliary logs tend to be verbose with low security value. It's important to note that billing is done per workspace on a daily basis for all log types and tiers.
 
 #### Analytics logs
 
@@ -76,15 +76,15 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
     To set and change your Commitment tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
-#### Auxiliary logs and Basic logs
+#### Auxiliary logs
 
-Basic logs are a low-cost option, and Auxiliary logs a super-low-cost option, for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
+Auxiliary logs are a super-low-cost option for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
 
 - Reduced querying capabilities
 - 30-day interactive retention
 - No support for scheduled alerts
 
-These two log types are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
+This log type is best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
 
@@ -146,7 +146,7 @@ If you're billed at the simplified pay-as-you-go rate, this table shows how Micr
 
 | Cost description | Service name | Meter |
 |--|--|--|
-| pay-as-you-go| `Sentinel` |**Pay-as-You-Go Analysis**|
+| Pay-as-you-go| `Sentinel` |**Pay-as-You-Go Analysis**|
 | Basic logs data analysis| `Sentinel` |**Basic Logs Analysis**|
 | Auxiliary logs data analysis| `Sentinel` |**???**|
 
