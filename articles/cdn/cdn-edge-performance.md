@@ -2,12 +2,12 @@
 title: Analyze edge node performance in Azure CDN
 description: Analyze edge node performance in Microsoft Azure CDN. Edge Performance Analytics provides granular information traffic and bandwidth usage for the CDN.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Analyze edge node performance in Microsoft Azure CDN

@@ -12,7 +12,7 @@ author: ankitaduttaMSFT
 
 Azure to Azure (A2A) disaster recovery in Site Recovery is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service.
 
-You can use this [pricing calculator](https://download.microsoft.com/download/6/3/4/634d782a-883f-4834-876d-a7c6eb25e199/ASR_A2A_Calculator.xlsm) to simulate the estimated costs for Azure to Azure Managed Disks. 
+You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure Managed Disks. 
 
 > [!NOTE]
 > This calculator gives an estimate of Site Recovery usage costs. It shouldn't be taken as the final cost. If you have any issues or feedback, contact askasr@microsoft.com.
@@ -61,7 +61,7 @@ This cost is applicable only during the initial replication. The duration for re
 
 ### Capacity Reservation cost
 
-Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
+Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
 
 
 ## Conclusion

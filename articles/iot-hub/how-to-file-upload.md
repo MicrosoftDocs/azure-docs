@@ -2,8 +2,8 @@
 title: Upload files from your device to the cloud with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using the Azure IoT SDKs for C#, Python, Java, and Node.js.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 manager: lizross
 ms.service: azure-iot-hub
 ms.topic: how-to
