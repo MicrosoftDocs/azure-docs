@@ -196,7 +196,7 @@ If you use containers, such as in Docker, to run your device code you can deploy
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
 > [!TIP]
-> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#field-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+> Azure IoT Edge enables multiple scenarios. In addition to running your IoT device code in containers, you can use Azure IoT Edge to run Azure services on your devices and implement [field gateways](iot-overview-device-connectivity.md#edge-gateways). For more information, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 ---
 
