@@ -48,7 +48,7 @@ items:
           href: /azure/virtual-machines/windows/on-prem-to-azure
       - name: Migrate VMWare Services to Azure
         href: /azure/migrate/vmware/migrate-support-matrix-vmware
-    - name: Databases
+    - name: Databases and data
       items:
       - name: Migrate databases
         href: ./migrate-databases-from-aws.md
