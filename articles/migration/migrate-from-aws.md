@@ -27,13 +27,20 @@ If you're new to Azure, be sure to start with a good foundation by reviewing the
 
 You'll also need to make sure you've established a strong foundation on Azure. Follow the Azure adoption guidance in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/get-started/) to build a solid platform for any workloads you'll be migrating.
 
-## Example workloads
+### Training
+
+Learn migration skills by working through the available training modules on Microsoft Learn.
+
+- [Use the Cloud Adoption Framework Migrate methodology to migrate your workload to the cloud](/training/modules/cloud-adoption-framework-migrate/)
+- [Introduction to migrating from Amazon Web Services to Microsoft Azure](/training/modules/introduction-to-migrating-aws-to-azure/)
+
+### Learn through examples
 
 Migration is typically planed and executed at the workload level, not technology by technology. Here are some end-to-end guides that address example workload migrations that cover a combination of application platform, data platforms, and other workload concerns. Use these examples to help you plan your workload migrations.
 
-### TODO LIST THE "End to End" examples that are available.
+### TODO: LIST key "end to end" examples that are available.
 
-## Service guides
+### Service guides
 
 While migration is typically addressed at the workload level, it's important that architects, software engineers, and data professionals have an understanding of service level migration concerns as well. Use these service level guides to help drive assessment, prepration, and migration steps.
 
