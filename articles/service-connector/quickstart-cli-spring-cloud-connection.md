@@ -57,7 +57,7 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 ### [Managed identity](#tab/Using-Managed-Identity)
 
 > [!NOTE]
-> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). If necessary, ask your subscription owner to grant you this permission.
+> To use a managed identity, you must have permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). If necessary, ask your subscription owner to grant you this permission.
 
 1. Run the `az spring connection create` command to connect application deployed to Azure Spring Apps to a Blob Storage resource, using a system-assigned managed identity.
 
