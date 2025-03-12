@@ -5,7 +5,7 @@ description: Learn how to develop .NET applications and services that use Azure 
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/14/2025
+ms.date: 03/13/2025
 ms.author: pauljewell
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
@@ -228,7 +228,9 @@ static void WriteToFile(string fileSharePath, string fileName)
 
 ### Example: Lock a file in a file share using System.IO
 
-The following code example shows how to lock a file in a file share:
+SMB clients that mount file shares can use file system locking mechanisms to manage access to shared files.
+
+The following code example shows how to lock a file in a file share with share mode set to `None`. This share mode declines sharing of the current file until the file is closed.
 
 ```csharp
 using System.IO;
@@ -258,6 +260,8 @@ static void LockFile(string filePath)
     }
 }
 ```
+
+When using both SMB and the FileREST API, be aware that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Enumerate file ACLs using System.IO
 
@@ -416,14 +420,15 @@ string destFilePath = "dest/path/to/file";
 
 TokenCredential tokenCredential = new DefaultAzureCredential();
 
-ShareFileClient srcShareFileClient = new(
-    new Uri($"https://{accountName}.file.core.windows.net/{srcShareName}/{srcFilePath}"),
-    tokenCredential);
-
 ShareClientOptions options = new()
 {
     ShareTokenIntent = ShareTokenIntent.Backup,
 };
+
+ShareFileClient srcShareFileClient = new(
+    new Uri($"https://{accountName}.file.core.windows.net/{srcShareName}/{srcFilePath}"),
+    tokenCredential,
+    options);
 
 ShareFileClient destShareFileClient = new(
     new Uri($"https://{accountName}.file.core.windows.net/{destShareName}/{destFilePath}"),
@@ -435,14 +440,98 @@ ShareFileClient destShareFileClient = new(
 await destShareFileClient.StartCopyAsync(srcShareFileClient.Uri);
 ```
 
-## Lease a file using the File Shares client library
+### Example: Lease a file using the File Shares client library
 
-A lease creates a lock on a file that's managed by Azure via a lease ID. The lease provides a mechanism to coordinate access to files across multiple clients in a distributed system. A lease on a file provides exclusive write and delete access. To learn more about lease duration and actions, see [Lease File](/rest/api/storageservices/lease-file).
+A lease creates a lock on a file that's managed by Azure via a lease ID. The lease provides a mechanism to coordinate access to files across multiple clients in a distributed system. A lease on a file provides exclusive write and delete access. To learn more about lease states and actions, see [Lease File](/rest/api/storageservices/lease-file#remarks).
 
-The following code example shows how to acquire a lease on a file:
+The following code example shows how to create a lease client, acquire a infinite duration lease on a file, and release the lease:
 
 ```csharp
+string accountName = "<account-name>";
+string shareName = "sample-file-share";
+string filePath = "path/to/file";
+
+TokenCredential tokenCredential = new DefaultAzureCredential();
+
+ShareClientOptions options = new()
+{
+    ShareTokenIntent = ShareTokenIntent.Backup,
+};
+
+ShareFileClient fileClient = new(
+    new Uri($"https://{accountName}.file.core.windows.net/{shareName}/{filePath}"),
+    tokenCredential,
+    options);
+
+ShareLeaseClient leaseClient = fileClient.GetShareLeaseClient();
+
+// Acquire a lease on the source file
+await leaseClient.AcquireAsync(duration: ShareLeaseClient.InfiniteLeaseDuration);
+
+// Do something with the file
+
+// Release the lease
+await leaseClient.ReleaseAsync();
 ```
+
+When using both SMB and the FileREST API, be aware that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+
+### Example: Create and list share snapshots using the File Shares client library
+
+Share snapshots are read-only copies of a file share at a point in time. You can create a snapshot of a file share, and then use the snapshot to access the data in the share at the time the snapshot was created. You can also list all snapshots in a file share, and delete share snapshots.
+
+The following code example shows how to create a share snapshot, list the snapshots in a file share, and traverse the directory tree in a share snapshot:
+
+```csharp
+string connectionString = "<connection-string>";
+
+ShareServiceClient shareServiceClient = new ShareServiceClient(connectionString);
+ShareClient shareClient = shareServiceClient.GetShareClient("sample-file-share");
+
+// Create a snapshot
+
+ShareSnapshotInfo snapshotInfo = await shareClient.CreateSnapshotAsync();
+Console.WriteLine($"Snapshot created: {snapshotInfo.Snapshot}");
+
+// List snapshots in a share
+
+await foreach (ShareItem shareItem in shareServiceClient.GetSharesAsync(ShareTraits.All, ShareStates.Snapshots))
+{
+    if (shareItem.Snapshot != null)
+    {
+        Console.WriteLine($"Share: {shareItem.Name} (Snapshot: {shareItem.Snapshot})");
+    }
+}
+
+// List directories and files in a share snapshot
+
+string snapshotTimestamp = snapshotInfo.Snapshot.ToString();
+ShareClient shareSnapshot = shareClient.WithSnapshot(snapshotTimestamp);
+ShareDirectoryClient rootDir = shareSnapshot.GetRootDirectoryClient();
+
+await ListDirectoryTreeAsync(rootDir);
+
+static async Task ListDirectoryTreeAsync(ShareDirectoryClient directory)
+{
+    await foreach (ShareFileItem fileItem in directory.GetFilesAndDirectoriesAsync())
+    {
+        if (fileItem.IsDirectory)
+        {
+            Console.WriteLine($"Directory: {fileItem.Name}");
+            await ListDirectoryTreeAsync(directory.GetSubdirectoryClient(fileItem.Name));
+        }
+        else
+        {
+            Console.WriteLine($"File: {fileItem.Name}");
+        }
+    }
+}
+```
+
+>[!NOTE]
+> OAuth tokens, such as those obtained when using `DefaultAzureCredential`, aren't allowed for data plane operations at the file share level. To work with share snapshots, the client object must be authorized using the account key. The `ShareClient` object created in this code example uses a connection string, which includes the account key.
+>
+> Storing account keys or connection strings presents a security risk. You should only use them when Microsoft Entra authentication isn't available. To learn more about securely storing account keys in Azure Key Vault, see [About Azure Key Vault managed storage account keys](/azure/key-vault/secrets/about-managed-storage-account-keys).
 
 ## Manage Azure Files resources using the Azure Storage management libraries
 
@@ -514,16 +603,18 @@ await foreach (FileShareResource shareResource in fileService.GetFileShares().Ge
     Console.WriteLine($"Resource name: {resourceData.Name}");
     if (resourceData.SnapshotOn.HasValue)
     {
-        Console.WriteLine($"Snapshot created: {resourceData.SnapshotOn}");
+        Console.WriteLine($"Snapshot: {resourceData.SnapshotOn}");
     }
 }
 ```
 
 ## Related content
 
-For more information about Azure Files, see the following resources:
+For more information about developing with Azure Files, see the following resources:
 
-- [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)
-- [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
-- [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage)
-- [File Service REST API](/rest/api/storageservices/File-Service-REST-API)
+- [Overview of application development with Azure Files](storage-files-developer-overview.md)
+- [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Manage file locks](/rest/api/storageservices/managing-file-locks)
+- [Operations on directories](/rest/api/storageservices/operations-on-directories)
+- [Operations on files](/rest/api/storageservices/operations-on-files)
+

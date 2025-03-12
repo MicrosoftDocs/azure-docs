@@ -5,7 +5,7 @@ description: Learn how to develop applications and services that use Azure Files
 author: pauljewellmsft
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 02/13/2025
+ms.date: 03/13/2025
 ms.author: pauljewell
 ---
 
