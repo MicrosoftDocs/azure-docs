@@ -167,8 +167,6 @@
             href: nsg-flow-logs-cli.md
           - name: REST
             href: nsg-flow-logs-rest.md
-          - name: ARM template
-            href: nsg-flow-logs-azure-resource-manager.md
           - name: Bicep
             href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
           - name: Built-in Policy
@@ -185,8 +183,6 @@
             href: network-watcher-nsg-grafana.md
           - name: Use Graylog
             href: network-watcher-analyze-nsg-flow-logs-graylog.md
-      - name: Delete NSG flow log storage blobs
-        href: network-watcher-delete-nsg-flow-log-blobs.md
   - name: Read flow logs
     href: flow-logs-read.md
   - name: Traffic analytics
