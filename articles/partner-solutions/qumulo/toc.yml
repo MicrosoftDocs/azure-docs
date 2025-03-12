@@ -4,6 +4,7 @@ items:
 - name: What is Azure Native Qumulo Scalable File Service?
   href: overview.md
 - name: Get started
+  expanded: true
   items:
   - name: Create a Qumulo resource
     href: create.md
