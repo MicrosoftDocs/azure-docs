@@ -298,7 +298,7 @@ An easy way to integrate key vault secrets into a pipeline is through variable g
 1. Select **Library** in the **Pipelines** section of the menu on the left.
 1. Select **+ Variable group**.
 1. Enter `keyvault` as the name for your variable group.
-1. Enable the toggle to link secrets from an Azure key vault.
+1. Enable the toggle to link secrets from an Azure Key Vault.
 1. Select your Azure subscription and authorize it. Then select your production key vault name.
 
 1. Select **Add** to start adding variables to the group.
