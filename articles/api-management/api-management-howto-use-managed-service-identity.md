@@ -123,7 +123,7 @@ The `tenantId` property identifies which Microsoft Entra tenant the identity bel
 
 ## Configure Key Vault access using a managed identity
 
-The following configurations are needed for API Management to access certificates from an Azure key vault.
+The following configurations are needed for API Management to access certificates from an Azure Key Vault.
 
 [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
