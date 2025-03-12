@@ -47,7 +47,7 @@ Upload the ZIP package you created in [Create a project ZIP package](#create-a-p
 
 When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the explorer area. When deployment completes, the last message should say, "Deployment successful."
 
-This endpoint doesn't work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
+This endpoint doesn't work for App Service on Linux at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
 ### Deploy without zip deploy UI in Kudu
 

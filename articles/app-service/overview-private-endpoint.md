@@ -49,7 +49,7 @@ Private endpoints and public access can coexist on an app. For more information,
 
 To ensure isolation, when you enable private endpoints to your app, be sure to disable public network access. You can enable multiple private endpoints in other virtual networks and subnets, including virtual networks in other regions.
 
-The access restriction rules of your app aren't evaluated for traffic through the private endpoint. You can eliminate the data exfiltration risk from the virtual network by removing all network security group (NSG) rules where the destination is tag internet or Azure services.
+The access restriction rules of your app aren't evaluated for traffic through the private endpoint. You can eliminate the data exfiltration risk from the virtual network. Remove all network security group (NSG) rules where the destination is tag internet or Azure services.
 
 You can find the client source IP in the web HTTP logs of your app. This feature is implemented by using the transmission control protocol (TCP) proxy, which forwards the client IP property up to the app. For more information, see [Getting connection information by using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
 

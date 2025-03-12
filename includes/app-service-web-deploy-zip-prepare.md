@@ -22,7 +22,7 @@ This directory should contain the entry file to your web app, such as `_index.ht
 
 If you don't want App Service to run deployment automation for you, run all the build tasks. For example: `npm`, `bower`, `gulp`, `composer`, and `pip`. Make sure that you have all the files you need to run the app. This step is required if you want to [run your package directly](../articles/app-service/deploy-run-package.md).
 
-Create a ZIP archive of everything in your project. For `dotnet` projects, add everything in the output directory of the `dotnet publish` command, excluding the output directory itself. For example, enter the following command in your terminal to create a ZIP package of the contents of the current directory:
+Create a ZIP archive of everything in your project. For `dotnet` projects, add everything in the output directory of the `dotnet publish` command, excluding the output directory itself. For example, enter the following command in your terminal to create a ZIP package that includes the contents of the current directory:
 
 ```cmd
 # Bash

@@ -21,7 +21,7 @@ To secure app deployment from a local computer, [Azure App Service](./overview.m
 
 # [Azure CLI](#tab/cli)
 
-Run the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace `<username>` and `<password>` with a deployment user username and password.
+Run the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace `<username>` and `<password>` with a deployment user's username and password.
 
 - The username must be unique within Azure, and for local Git pushes, must not contain the @ symbol.
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
