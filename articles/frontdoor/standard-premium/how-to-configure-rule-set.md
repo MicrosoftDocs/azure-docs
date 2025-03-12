@@ -1,12 +1,11 @@
 ---
 title: Configure rule sets in Azure Front Door
 description: This article provides guidance on how to configure rule sets you can use in an Azure Front Door profile. 
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/15/2024
-ms.author: duau
 ---
 
 # Configure rule sets in Azure Front Door

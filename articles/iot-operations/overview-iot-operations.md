@@ -22,7 +22,6 @@ Azure IoT Operations:
 * Is highly extensible, scalable, resilient, and secure.
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
 * Can integrate customer workloads into the platform to create a unified solution.
-* Supports GitOps configuration as code for deployment and updates.
 * Natively integrates with [Azure Event Hubs](../event-hubs/azure-event-hubs-apache-kafka-overview.md), [Azure Event Grid's MQTT broker](../event-grid/mqtt-overview.md), and [Microsoft Fabric](/fabric/) in the cloud.
 
 Use Azure IoT Operations to:
