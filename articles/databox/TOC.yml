@@ -14,9 +14,9 @@
       - name: Set up - Azure portal
         items:
         - name: For import
-          href: data-box-next-gen-quickstart-portal.md?pivots=dbx-ng
+          href: data-box-quickstart-portal.md?pivots=dbx-ng
         - name: For export
-          href: data-box-next-gen-quickstart-export.md?pivots=dbx-ng
+          href: data-box-quickstart-export.md?pivots=dbx-ng
     - name: Tutorials
       items:
       - name: Import data to Azure
@@ -189,8 +189,6 @@
       items:
       - name: Read safety guidelines
         href: data-box-safety.md?pivots=dbx
-      - name: Read safety guidelines - Next Gen
-        href: data-box-next-gen-safety.md?pivots=dbx
       - name: Review tracking and logging
         items:
         - name: For import orders

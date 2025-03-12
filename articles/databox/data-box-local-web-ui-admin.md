@@ -10,11 +10,11 @@ ms.date: 08/31/2022
 ms.author: shaas
 ---
 
-# Use the local web UI to administer your Data Box and Data Box Heavy
+# Use the local web UI to administer your Data Box
 
-This article describes some of the configuration and management tasks performed on Data Box and Data Box Heavy devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on tasks performed using the local web UI.
+This article describes some of the configuration and management tasks performed on Data Box 120, Data Box 525, and Data Box devices. You can manage the Data Box and Data Box Heavy devices via the Azure portal UI and the local web UI for the device. This article focuses on tasks performed using the local web UI.
 
-The local web UI for the Data Box and for Data Box Heavy is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, erase local data from the device, and generate a support package for Microsoft Support. On a Data Box Heavy device with two independent nodes, you can access two separate local web UIs corresponding to each node of the device.
+The local web UI for the devices is used for initial configuration of the device. You can also use the local web UI to shut down or restart the device, run diagnostic tests, update software, view copy logs, erase local data from the device, and generate a support package for Microsoft Support.
 
 ## Generate Support package
 
@@ -114,7 +114,7 @@ To get the credentials for a share:
 
 ## Download BOM or manifest files
 
-The BOM or the manifest files contain the list of the files that are copied to the Data Box or Data Box Heavy. These files are generated for an import order when you prepare the device to ship.
+The BOM or the manifest files contain the list of the files that are copied to the Data Box. These files are generated for an import order when you prepare the device to ship.
 
 Before you begin, follow these steps to download BOM or manifest files for your import order:
 
@@ -142,9 +142,6 @@ Before you begin, follow these steps to download BOM or manifest files for your 
     |utsac1_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
 
 You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
-
-> [!NOTE]
-> On a Data Box Heavy, two sets of list of files (BOM files) are present corresponding to the two nodes on the device.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -186,7 +183,7 @@ You use this list to verify the files uploaded into the Azure Storage account af
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-This file contains the list of all the files that were copied on the Data Box or Data Box Heavy. In this file, *crc64* value relates to the checksum generated for the corresponding file.
+This file contains the list of all the files that were copied on the Data Box. In this file, *crc64* value relates to the checksum generated for the corresponding file.
 
 ## View available capacity of the device
 
@@ -303,4 +300,4 @@ To enable TLS 1.1 in your Azure device:
 
 ## Next steps
 
-- Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
+- Learn how to [Manage the Data Box via the Azure portal](data-box-portal-admin.md).

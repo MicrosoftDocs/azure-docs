@@ -8,7 +8,9 @@ ms.service: azure-databox
 ms.topic: conceptual
 ms.date: 01/25/2022
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 ---
+
 # Azure Data Box limits
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box. The following table describes these limits for the Data Box.
@@ -19,10 +21,19 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data Box limits
 
+:::zone pivot="dbx-ng"
+- Data Box can store a maximum of 500 million files for both import and export.
+- Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
+- Data Box usage capacity might be less than stated 120 TiB /525 TiB because of ReFS metadata space consumption. 
+- Data Box supports a maximum of 100 client connections at a time on a Network File System (NFS) share.
+:::zone-end
+
+:::zone pivot="dbx"
 - Data Box can store a maximum of 500 million files for both import and export.
 - Data Box supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud. 
 - Data Box usage capacity might be less than 80 TiB because of ReFS metadata space consumption.
 - Data Box supports a maximum of 10 client connections at a time on a Network File System (NFS) share.
+:::zone-end
 
 ## Azure storage limits
 

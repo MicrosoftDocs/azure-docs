@@ -6,9 +6,11 @@ author: stevenmatthew
 
 ms.service: azure-databox
 ms.topic: overview
-ms.date: 04/13/2022
+ms.date: 03/11/2025
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 ---
+
 # Azure Data Box security and data protection
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. This article describes the Azure Data Box security features that help protect each of the Data Box solution components and the data stored on them.
@@ -45,6 +47,20 @@ Data Box provides a secure solution for data protection by ensuring that only au
 
 The Data Box device is protected by the following features:
 
+:::zone pivot="dbx-ng"
+- A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
+- Hardware and software tampering detection that prevents further device operations.
+- Built-in intrusion detection system that detects any unauthorized physical access to the devices. 
+- Semper Secure Flash technology integrated with a hardware Root of Trust (RoT) within the flash memory chip, ensuring firmware integrity and secure updates without hardware modifications.
+- A Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
+- Runs only Data Box-specific software.
+- Boots up in a locked state.
+- Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+- Access credentials to copy data in and out of the device. Each access to the **Device credentials** page in the Azure portal is logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
+- You can use your own passwords for device and share access. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+:::zone-end
+
+:::zone pivot="dbx"
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
 - Hardware and software tampering detection that prevents further device operations.
 - A Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
@@ -53,6 +69,7 @@ The Data Box device is protected by the following features:
 - Controls device access via a device unlock passkey. This passkey is protected by an encryption key. You can use your own customer-managed key to protect the passkey. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 - Access credentials to copy data in and out of the device. Each access to the **Device credentials** page in the Azure portal is logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
 - You can use your own passwords for device and share access. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+:::zone-end
 
 ### Establish trust with the device via certificates
 
@@ -62,9 +79,18 @@ A Data Box device lets you bring your own certificates and install those to be u
 
 The data that flows in and out of Data Box is protected by the following features:
 
+:::zone pivot="dbx-ng"
+- AES 256-bit encryption for Data-at-rest. In a high-security environment, you can use software-based double encryption. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+- The software based encryption is enhanced by RAID controller based hardware encryption.
+- Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
+- Secure erasure of data from the device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
+:::zone-end
+
+:::zone pivot="dbx"
 - AES 256-bit encryption for Data-at-rest. In a high-security environment, you can use software-based double encryption. For more information, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
 - Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy to it from your data servers.
 - Secure erasure of data from the device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
+:::zone-end
 
 ### Data Box service protection
 
