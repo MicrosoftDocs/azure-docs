@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Migration Program Details
-description: Overview of the Azure Storage Migration Program and how to leverage it
+description: Overview of the Azure Storage Migration Program and how to use it
 author: karauten
 ms.author: karauten
 ms.topic: conceptual
