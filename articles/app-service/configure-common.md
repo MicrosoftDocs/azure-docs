@@ -446,7 +446,7 @@ Here, you can configure some common settings for the app. Some settings require 
     :::image type="content" source="./media/configure-common/open-general-linux.png" alt-text="Screenshot that shows stack settings for Linux containers.":::
 
 - **Platform settings**: Configure settings for the hosting platform, including:
-  - **Platform bitness**: Choose 32 bit or 64 bit. For Windows apps only.
+  - **Platform bitness**: Choose 32-bit or 64-bit. For Windows apps only.
   - **FTP state**: Allow only FTPS, or disable FTP altogether.
   - **HTTP version**: Set to **2.0** to enable support for the [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
