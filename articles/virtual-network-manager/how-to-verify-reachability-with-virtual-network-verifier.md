@@ -88,7 +88,7 @@ In this step, you view the results of the analysis you started in the previous s
    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/network-manager-reachability-results-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
     Figure: View the details of a resource in the analysis results window.
 
-   :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-results-path-edge-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
+   :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-results-path-edge-details.png" alt-text="Screenshot of step details for a network manager from analysis intent results.":::
     Figure: View the step details of a path edge in the analysis results window.   
 
 5. Select the **JSON output** tab to view the full JSON output of the analysis result. The beginning of the JSON object details the outcome of the result, which indicates whether all packets reached, some packets reached, or no packets reached. Explanations are provided for each outcome and each reachability step.
