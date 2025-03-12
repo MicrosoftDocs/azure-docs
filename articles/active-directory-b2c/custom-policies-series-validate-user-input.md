@@ -357,7 +357,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
     You must correct your inputs before you continue.
 
-1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT token. The token looks similar to the following JWT token snippet: 
+1. Enter correct values as suggested by the error messages, and then select **Continue** button again. After the policy finishes execution, you're redirected to `https://jwt.ms`, and you see a decoded JWT. The token looks similar to the following JWT snippet: 
 
 ```json
     {
@@ -482,7 +482,7 @@ Use the following steps to learn how to validate user input by using validation 
     1. For **Email Address**, enter an invalid email address such as *maurice@fourthcoffee.com*.
     1. Enter the rest of the details as required and select **Continue**
     
-    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT token. 
+    Since *maurice@fourthcoffee.com* isn't a valid email, you'll see an error similar to the one shown in the screenshot below. You must use a valid email address to successfully run the custom policy and receive a JWT. 
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-error-due-to-invalid-email-address.png" alt-text="screenshot of error due to invalid email address.":::
 

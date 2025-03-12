@@ -1372,7 +1372,7 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | privateendpointredirectmaps | No | No | No |
 > | privateendpoints | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | **Yes** - for [supported private-link resources](./move-limitations/networking-move-limitations.md#private-endpoints)<br>No - for all other private-link resources | No |
 > | privatelinkservices | No | No | No |
-> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **Yes**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
+> | publicipaddresses | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | **No**<br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move public IP address configurations (IP addresses are not retained). |
 > | publicipprefixes | **Yes** | **Yes** | No |
 > | routefilters | No | No | No |
 > | routetables | **Yes** | **Yes** | No |

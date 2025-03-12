@@ -62,7 +62,7 @@ For further pricing details see: [Nutanix Cloud Clusters Pricing](https://www.nu
 ### Nodes in Azure
 A minimum of three nodes are required to deploy an NC2 on Azure cluster. For pricing, go to the [Nutanix Cloud Clusters on Azure pricing page](https://azure.microsoft.com/pricing/details/nutanix-on-azure/). 
 
-More cost savings on the hardware can be realized with reserved instances: [Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure](https://learn.microsoft.com/azure/cost-management-billing/reservations/nutanix-bare-metal)
+More cost savings on the hardware can be realized with reserved instances: [Save costs with reservations for Nutanix Cloud Clusters on Azure BareMetal infrastructure](/azure/cost-management-billing/reservations/nutanix-bare-metal)
 
 ## Other cost benefits
 
@@ -86,7 +86,7 @@ For any additional questions on Azure Hybrid Benefit, contact your Microsoft Acc
 ### No-cost Extended Security Updates (ESU) for Windows Server
 Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. 
 
-For further information on ESUs, including qualifying Windows product versions and timelines see: [Extended Security Updates for Windows Server overview](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-overview).
+For further information on ESUs, including qualifying Windows product versions and timelines see: [Extended Security Updates for Windows Server overview](/windows-server/get-started/extended-security-updates-overview).
 
 The process to get the Extended Security Updates for Windows VMs in NC2 on Azure requires a manual request, approval, and delivery. 
 

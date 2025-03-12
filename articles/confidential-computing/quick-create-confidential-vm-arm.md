@@ -173,7 +173,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
-1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
+1. Set up your Azure Key Vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
 
     1. Create a resource group for your key vault. Your key vault instance and your confidential VM must be in the same Azure region.
 
@@ -198,7 +198,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
-1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
+1. (Optional) If you don't want to use an Azure Key Vault, you can create an Azure Key Vault Managed HSM instead.
 
     1. Follow the [quickstart to create an Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.

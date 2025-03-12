@@ -1,13 +1,12 @@
 ---
 title: 'Configure HTTPS for your custom domain - Azure Front Door'
 description: In this article, you learn how to configure HTTPS on an Azure Front Door custom domain by using the Azure portal.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2024
-ms.author: duau
-ms.custom:
+
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
