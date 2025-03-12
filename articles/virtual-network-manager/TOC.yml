@@ -25,6 +25,8 @@
   items:
   - name: Create a secured hub and spoke
     href: tutorial-create-secured-hub-and-spoke.md
+  - name: Prevent overlapping IP address spaces with Azure Policy and IPAM
+    href: Prevent-overlapping-ip-address-space-policy-ipam.md
 - name: Concepts
   items:
   - name: FAQ
