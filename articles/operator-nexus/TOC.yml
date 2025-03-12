@@ -16,6 +16,8 @@
       items:
         - name: Storage overview
           href: concepts-storage.md
+        - name: Multiple storage appliances
+          href: concepts-multiple-storage-appliances.md
         - name: Storage for Nexus Kubernetes
           href: concepts-storage-kubernetes.md
         - name: Storage for Nexus Virtual Machines
