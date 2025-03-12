@@ -2,12 +2,11 @@
 title: How requests get matched to a route configuration
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/13/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
