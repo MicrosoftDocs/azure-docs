@@ -1,8 +1,8 @@
 ---
-title: Comparison of migration tools in Azure Storage Migration Program
-description: Basic functionality and comparison between migration tools supported by Azure Storage Migration Program
-author: dukicn
-ms.author: nikoduki
+title: Azure Storage Migration Program Details
+description: Overview of the Azure Storage Migration Program and how to leverage it
+author: karauten
+ms.author: karauten
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.service: azure-storage
