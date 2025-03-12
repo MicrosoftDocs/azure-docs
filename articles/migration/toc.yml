@@ -134,7 +134,7 @@ items:
 #        href: ./placeholder.md
 #      - name: 6. Optimize with Azure
 #        href: ./placeholder.md
-    - name: Databases
+    - name: Databases and data
       items:
       - name: Migrate databases
         href: ./migrate-databases-from-google-cloud.md
