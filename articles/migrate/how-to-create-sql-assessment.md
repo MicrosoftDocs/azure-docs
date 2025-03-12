@@ -89,5 +89,6 @@ Now, review and create the assessment.
 
 ## Next steps
 
+- Understand the [assessment insights](#create-web-app-assessment.md) to make data-driven decisions for web app modernization
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context). 
 - Review and implement [best practices](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=%2Fazure%2Faks%2Fcontext%2Faks-context) to build and manage apps on AKS. 

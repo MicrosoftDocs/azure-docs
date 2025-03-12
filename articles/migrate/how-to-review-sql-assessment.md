@@ -55,7 +55,7 @@ Azure SQL readiness for SQL instances and databases is based on a feature compat
 
 ## Security readiness
 
-If the database or instance is marked as Ready for the target deployment type - Azure SQL DB or Managed Instance, it's automatically considered Ready for Microsoft Defender for SQL. If marked Ready for SQL Server on Azure VM, it's considered Ready for Microsoft Defender for SQL if it's running any of the supported versions:
+If the database or instance is marked as Ready for the target deployment type - Azure SQL Managed Instance, it's automatically considered Ready for Microsoft Defender for SQL. If marked Ready for SQL Server on Azure VM, it's considered Ready for Microsoft Defender for SQL if it's running any of the supported versions:
 
 - SQL Server versions 2012, 2014, 2016, 2017, 2019, 2022
 - For all other versions, it's marked as Ready with conditions.
