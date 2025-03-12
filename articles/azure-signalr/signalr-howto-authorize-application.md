@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.custom: subject-rbac-steps
 ---
 
-# Authorize requests to Azure SignalR Service resources with Azure applications
+# Authorize requests to Azure SignalR Service resources with Microsoft Entra applications
 
 Azure SignalR Service supports Microsoft Entra ID for authorizing requests from [Microsoft Entra applications](../entra/identity-platform/app-objects-and-service-principals.md).
 
@@ -150,7 +150,7 @@ First, you need to specify the service URI of Azure SignalR Service. The key of 
 
 Then, you choose whether to configure your Microsoft Entra application identity in [predefined environment variables](#configure-an-identity-in-predefined-environment-variables) or in [SignalR-specified variables](#configure-an-identity-in-signalr-specified-variables).
 
-#### Configure an identity in predefined environment variables
+### Configure an identity in predefined environment variables
 
 See [Environment variables](/dotnet/api/overview/azure/identity-readme#environment-variables) for the list of predefined environment variables. When you have multiple services, we recommend that you use the same application identity, so that you don't need to configure the identity for each service. Other services might also use these environment variables, based on the settings of those services.
 
@@ -176,7 +176,7 @@ AZURE_TENANT_ID = ...
 AZURE_CLIENT_SECRET = ...
 ```
 
-#### Configure an identity in SignalR-specified variables
+### Configure an identity in SignalR-specified variables
 
 SignalR-specified variables share the same key prefix with the `serviceUri` key. Here's the list of variables that you might use:
 
