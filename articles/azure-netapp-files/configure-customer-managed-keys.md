@@ -259,7 +259,7 @@ The process to configure a NetApp account with customer-managed keys in the Azur
 1. Update your NetApp account with the key vault information.
 
     ```azurepowershell
-    Update-AzNetAppFilesAccount -ResourceGroupName $netappAccount.ResourceGroupName -AccountName $netappAccount.ResourceGroupName   -KeyVaultEncryption -KeyVaultUri <keyVaultUri> -KeyName <keyName>
+    Update-AzNetAppFilesAccount -ResourceGroupName $netappAccount.ResourceGroupName -AccountName $netappAccount.Name -KeyVaultEncryption -KeyVaultUri <keyVaultUri> -KeyName <keyName>
     ```
 
 #### Enable access for user-assigned identity

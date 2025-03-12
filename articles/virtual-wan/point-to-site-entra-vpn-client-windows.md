@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 03/07/2025
 ms.author: cherylmc
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -65,7 +65,7 @@ After you obtain the VPN client profile configuration package, extract the zip f
 
 ## Optional client configuration settings
 
-You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other settings. For more information, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations-windows.md).
+You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other settings. For more information, see [Configure Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## Azure VPN Client version information
 

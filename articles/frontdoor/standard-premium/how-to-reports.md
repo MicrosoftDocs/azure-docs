@@ -1,12 +1,11 @@
 ---
 title: 'Reports - Azure Front Door'
 description: This article explains how reporting works in Azure Front Door.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/31/2024
-ms.author: duau
 ---
 
 # Azure Front Door reports
@@ -47,8 +46,6 @@ Reports support any selected date range from the previous 90 days. With data poi
 1. Sign in to the [Azure portal](https://portal.azure.com) and select your Azure Front Door Standard/Premium profile.
 
 1. In the navigation pane, select **Reports** or **Security** under *Analytics*.
-
-   :::image type="content" source="../media/how-to-reports/front-door-reports-landing-page.png" alt-text="Screenshot of Reports landing page":::
 
 1. Select the report you want to view.
 
@@ -96,8 +93,6 @@ Reports support any selected date range from the previous 90 days. With data poi
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-domain.png" alt-text="Screenshot of Reports for domain dimension.":::
 
 1. If you want to export the data to a CSV file, select the *Download CSV* link on the selected tab.
-
-    :::image type="content" source="../media/how-to-reports/front-door-reports-download-csv.png" alt-text="Screenshot of download csv file for Reports.":::
 
 ### Export reports in CSV format
 
