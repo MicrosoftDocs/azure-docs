@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: cfowler
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2021
 ms.author: danlep
 ---
@@ -98,6 +98,4 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->
-> [Transform and protect a published api](transform-api.md)
+* [Transform and protect a published api](transform-api.md)

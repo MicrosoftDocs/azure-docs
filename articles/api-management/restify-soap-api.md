@@ -65,7 +65,5 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)
+## Related content
+* [Transform and protect a published API](transform-api.md)

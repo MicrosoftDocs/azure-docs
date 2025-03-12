@@ -146,5 +146,5 @@ The following policies aren't supported by and can't be applied to the onHandsha
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
 ## Related content
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)
+
+* [Transform and protect a published API](transform-api.md)

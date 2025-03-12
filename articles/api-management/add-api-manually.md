@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/30/2022
 ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
@@ -120,7 +120,6 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)
+* [Transform and protect a published API](transform-api.md)
