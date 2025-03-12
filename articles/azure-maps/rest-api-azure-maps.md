@@ -40,6 +40,7 @@ There are previous stable releases of an Azure Maps service that are still in us
 |-----|-------------|-------------|
 | [Render][Render v1] |  1.0  | Get road, satellite/aerial, weather, traffic map tiles, and static map images.<BR>The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API need to be updated to use the latest version of the [Render] API. |
 | [Render][render-2022-08-01] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
+| [Route] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search][Search v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 | [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
 
