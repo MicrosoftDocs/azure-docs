@@ -158,7 +158,7 @@ After identifying storage disks, the assessment considers CPU and memory require
 
 ## Rightsizing for lift and shift migration to Azure VM
 
-For lift and shift migration, refer to the compute and storage sizing [here](/azure/migrate/concepts-assessment-calculation#calculate-sizing-as-is-on-premises)
+For lift and shift migration, refer to the compute and storage sizing [here](/azure/migrate/concepts-assessment-calculation#calculate-sizing-as-is-on-premises).
 
 ### Recommendation details
 
