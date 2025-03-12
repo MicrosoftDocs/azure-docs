@@ -35,6 +35,19 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
+## Updates (March 2025)
+
+### Update Rollup 77
+
+Update [rollup 77](https://support.microsoft.com/topic/update-rollup-77-for-azure-site-recovery-dbd00d14-6b52-48dc-84d7-72b2f71ce20c) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, Ubuntu 24.04 to 18.04 distros, Oracle Linux 9.4, and RHEL 9 Linux distros. 
+
+
 ## Updates (October 2024)
 
 ### Update Rollup 76
