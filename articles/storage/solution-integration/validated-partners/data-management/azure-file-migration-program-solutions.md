@@ -11,13 +11,13 @@ ms.subservice: storage-partner-integration
 
 # Engaging with Azure Storage Migration Partners
 
-In our [Migration tools comparison](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) page, we highlighted cases where an ISV partner solution is required or well-suited to meet specific source - target storage combinations. In this page, we share more details on the ISVs enrolled in our Storage Migration Program, how to engage with them, and answer common questions about the program.
+In our [Migration tools comparison](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) page, we highlighted cases where an Independent Software Vendor (ISV) partner solution is required or well-suited to meet specific source - target storage combinations. In this page, we share more details on the ISVs enrolled in our Storage Migration Program (SMP), how to engage with them, and answer common questions about the program.
 
-## What is the Storage Migration Program and are all the partners below included?
+## What is the Storage Migration Program?
 
-Azure offers native migration tools for offline ([Azure Data Box](/azure/databox/data-box-overview)) and online ([Azure Storage Mover](/azure/storage-mover/service-overview)) data movement, but as the [tool comparison article](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) highlights they are not able to address all source – target scenarios. As a result, we have collaborated with the partners below to build support for data migration to Azure Storage Services.
+Azure offers native migration tools for offline ([Azure Data Box](/azure/databox/data-box-overview)) and online ([Azure Storage Mover](/azure/storage-mover/service-overview)) data movement, but as the [tool comparison article](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) highlights they are not able to address all source – target scenarios. As a result, we collaborated with the SMP partners to build support for data migration to Azure Storage Services.
 
-This page only lists the partners participating in our Storage Migration program who offer their software to customers for free due to sponsorship from the Azure Storage team. This is not a comprehensive list of vetted migration solution partners. You can find the full list of vetted migration partners [here](/azure/storage/solution-integration/validated-partners/data-management/partner-overview).
+This page only lists the partners participating in our Storage Migration program who offer their software to customers for free due to sponsorship from the Azure Storage team. This list is not a comprehensive list of vetted migration solution partners. You can find the full list of vetted migration partners [here](/azure/storage/solution-integration/validated-partners/data-management/partner-overview).
 
 ## Storage Migration Program Partners
 
@@ -39,7 +39,7 @@ List was last updated in March of 2025.
 
 __Q:__ Is the program ___really___ free?
 
-__A:__ Yes, the software IS free to use for migrations to Azure Storage services. However, if your need is continuous replication for disaster recovery or perpetual tiering of on-premises or Cloud-based data, you will need separate licensing from the partner. Azure is only offsetting the cost of the software for one-time migration. We have also found that migration performance is often fastest when the data copy engines are running as Azure VMs – so there may be a small monthly cost for the VMs while the migration is underway.
+__A:__ Yes, the software IS free to use for migrations to Azure Storage services. However, if your need is continuous replication for disaster recovery or perpetual tiering of on-premises or Cloud-based data, you need separate licensing from the partner. Azure is only offsetting the cost of the software for one-time migration. We found that migration performance is often fastest when the data copy engines are running as Azure VMs – so there may be a small monthly cost for the VMs while the migration is underway.
 
  
 
@@ -47,7 +47,7 @@ __Q:__ What is provided by the ISV as part of the program?
 
 __A:__ The software license to support your migration, an onboarding session (live or recorded education), and email based support.
 
-The ISVs do have right of refusal to accept an engagement under 50TB or suggest that professional services or a support contract is purchased if hands-on support is requested or you require phone support.
+The ISVs do have right of refusal to accept an engagement under 50TB. They can suggest that you purchase a professional services or support contract if hands-on or phone support is required.
 
 __Important -__ Support is provided by the ISV, not Microsoft.
 
@@ -67,21 +67,21 @@ __A:__ No. The Storage Migration Program (SMP) is complimentary and additive to
 
 __Q:__ What if my source files and objects are on another cloud?
 
-__A:__ You can leverage the program and tools to move the data from either on-premises or another cloud to Azure Storage. CIFS/SMB, NFS, and S3 compatible sources outside of Azure are all eligible.
+__A:__ You can use the program and tools to move the data from either on-premises or another cloud to Azure Storage. CIFS/SMB, NFS, and S3 compatible sources outside of Azure are all eligible.
 
  
 
-__Q:__ I am concerned that bandwidth will be a problem and migration will impact day-to-day business. How can I be sure the copy activity will not be disruptive?
+__Q:__ I am concerned that my available bandwidth is a problem and migration will impact day-to-day business. How can I be sure the copy activity is not disruptive?
 
-__A:__ Each partner has the experience and the tooling to help guide a non-impactful migration. Komprise developed a tool to identify bottlenecks and use that data to tune migration parameters and windows accordingly, for example. If bandwidth and project windows are a problem, each can use Azure DataBox for initial seeding and has done a tremendous amount of work to continuously improve copy performance and efficiency as Komprise illustrates with [HyperTransport](https://www.komprise.com/blog/komprise-hypertransfer-is-here-turbocharge-your-cloud-migrations/).
+__A:__ Each partner has the experience and the tooling to help guide a non-impactful migration. Komprise developed a tool to identify bottlenecks and use that data to tune migration parameters and windows accordingly, for example. If bandwidth and project windows are a problem, you can use Azure DataBox for initial seeding. The ISVs do a tremendous amount of work continuously to improve copy performance and efficiency as Komprise illustrates with [HyperTransport](https://www.komprise.com/blog/komprise-hypertransfer-is-here-turbocharge-your-cloud-migrations/).
 
  
 
-__Q:__ How long will the program continue? What about [Azure Storage Mover](/azure/storage-mover/service-overview)?
+__Q:__ How long is the program running? What about [Azure Storage Mover](/azure/storage-mover/service-overview)?
 
-__A:__ We do not have an end date for the Azure Storage Migration Program. Microsoft is committed to our relationships with Atempo, Cirrus Data, Data Dynamics and Komprise and have received tremendous feedback. We will provide at least one year’s notice prior to discontinuing the Storage Migration Program.
+__A:__ We do not have an end date for the Azure Storage Migration Program. Microsoft is committed to our relationships with Atempo, Cirrus Data, Data Dynamics and Komprise and have received tremendous feedback. We will offer one year’s notice prior to discontinuing the Storage Migration Program.
 
-Storage Mover is a maturing service and the supported source/target pairings will increase over time, but our partners have robust offerings today that have supported each and every combination of migration scenarios we have encountered. Also, their robust features have helped customers save money by selectively moving data from a single source to multiple targets based on business value (ex. Older, untouched files/objects migrated to Azure Blob Storage Cool or Archive tier while active data is migrated to Azure Files, Azure NetApp Files, or Azure Blob Storage Hot or Premium tier).
+Storage Mover is a maturing service and the supported source - target pairings will increase over time. Our partners have robust offerings today that support every combination of migration scenario we have encountered. Their robust features have helped customers save money by selectively moving data from a single source to multiple targets based on business value (ex. Older, untouched files or objects migrated to Azure Blob Storage Cool or Archive tier while active data is migrated to Azure Files, Azure NetApp Files, or Azure Blob Storage Hot or Premium tier). We expect Storage Mover and the Storage Migration Program to coexist for some time.
 
 ## Next steps
 
