@@ -11,6 +11,8 @@ ms.custom: template-concept
 
 # Prevent overlapping virtual network address spaces with Azure Policy and IPAM
 
+[!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
+
 Azure Virtual Network Manager helps you centrally manage virtual networks across your organization. While it provides governance for VNets, it doesn't automatically prevent overlapping address spaces during virtual network creation or updates. You can enforce nonoverlapping address spaces by combining [Azure Policy](../governance/policy/overview.md) with [IP Address Management (IPAM) pools](concept-ip-address-management.md#manage-ip-address-pools), ensuring network connectivity without IP conflicts in your environment.
 
 The following sample Azure policy definition ensures that any virtual network (`Microsoft.Network/virtualNetworks`) in the scope of this policy definition must have one IPAM pool prefix allocation from one of the two specified pools. If a virtual network lacks an allocation from either pool, the policy denies the creation or update of a virtual network by enforcing the use of nonoverlapped classless inter-domain routing (CIDRs) addresses.
