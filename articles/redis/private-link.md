@@ -33,7 +33,7 @@ To create a cache using the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
 
-    :::image type="content" source="private-link/1-create-resource.png" alt-text="Select Create a resource.":::
+    :::image type="content" source="media/private-link/1-create-resource.png" alt-text="Select Create a resource.":::
 
 2. On the **New** page, select **Networking** and then select **Virtual network**.
 
@@ -80,7 +80,7 @@ To create a cache instance, follow these steps:
 
 1. Select the **Add** button to create your private endpoint.
 
-   :::image type="content" source="private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
+   :::image type="content" source="media/private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
 
 1. On the **Create a private endpoint** page, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
 
@@ -143,15 +143,11 @@ To create a private endpoint, follow these steps:
 
 1. In the Azure portal, search for **Azure Cache for Redis**. Then, press enter or select it from the search suggestions for your cache.
 
-    <!-- :::image type="content" source="private-link/4-search-for-cache.png" alt-text="Search for Azure Managed Redis."::: -->
-
 1. Select the cache instance you want to add a private endpoint to.
 
 1. On the left side of the screen, select **Private Endpoint**.
 
 1. Select the **Private Endpoint** button to create your private endpoint.
-
-    <!-- :::image type="content" source="private-link/5-add-private-endpoint.png" alt-text="Add private endpoint."::: -->
 
 1. On the **Create a private endpoint page**, configure the settings for your private endpoint.
 
@@ -322,7 +318,7 @@ For more information, see [Azure services DNS zone configuration](/azure/private
   
 - Azure Managed Redis caches are limited to 84 private links.
 
-- You try to [persist data to storage account](managed-redis-how-to-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
+- You try to [persist data to storage account](how-to-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
 
 - You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
@@ -334,7 +330,7 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 
 Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. To verify that the command resolves to the private IP address for the cache, run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint.
 
-   :::image type="content" source="private-link/managed-redis-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
+   :::image type="content" source="media/private-link/managed-redis-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
@@ -369,4 +365,4 @@ Your private endpoint is only linked to your VNet. Because it's not in your VNet
 ## Related content
 
 - To learn more about Azure Private Link, see the [Azure Private Link documentation](/azure/private-link/private-link-overview).
-- To compare various network isolation options for your cache, see [Azure Cache for Redis network isolation options documentation](../cache-network-isolation.md).
+- To compare various network isolation options for your cache, see [Azure Cache for Redis network isolation options documentation](../azure-cache-for-redis/cache-network-isolation.md).

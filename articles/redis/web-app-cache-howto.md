@@ -86,9 +86,9 @@ IDatabase Database = _newConnection.GetDatabase();
     </appSettings>
     ```
 
-1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal. 
+1. Replace `<cache-hostname>` with your cache host name as it appears in the Overview on the Resource menu in Azure portal.
 
-   For example, with Azure Managed Redis or the Enterprise tiers: _my-redis.eastus.azure.net:10000_
+   For example, with Azure Managed Redis or the Enterprise tiers: *my-redis.eastus.azure.net:10000_
 
 1. Save the file.
 
@@ -130,7 +130,7 @@ By default, the project is configured to host the app locally in [IIS Express](/
 
 1. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Cache for Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed locally.":::
+   :::image type="content" source="media/web-app-cache-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed locally.":::
 
 ## Publish and run in Azure
 
@@ -140,11 +140,11 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 1. In Visual Studio, right-click the project node in Solution Explorer. Then select **Publish**.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publish-app.png" alt-text="Screenshot showing publish button.":::
+   :::image type="content" source="media/web-app-cache-howto/cache-publish-app.png" alt-text="Screenshot showing publish button.":::
 
 1. Select **Microsoft Azure App Service**, select **Create New**, and then select **Publish**.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publish-to-app-service.png" alt-text="Screenshot showing how to publish to App Service.":::
+   :::image type="content" source="media/web-app-cache-howto/cache-publish-to-app-service.png" alt-text="Screenshot showing how to publish to App Service.":::
 
 1. In the **Create App Service** dialog box, make the following changes:
 
@@ -155,13 +155,13 @@ After you successfully test the app locally, you can deploy the app to Azure and
     | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
     | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same **Location** you used when creating your cache. <br />Choose **Free** for the size. | An App Service plan defines a set of compute resources for a web app to run with. |
 
-    :::image type="content" source="media/cache-web-app-howto/cache-create-app-service-dialog.png" alt-text="Screenshot showing the App Service dialog box.":::
+    :::image type="content" source="media/web-app-cache-howto/cache-create-app-service-dialog.png" alt-text="Screenshot showing the App Service dialog box.":::
 
 1. After you configure the App Service hosting settings, select **Create**.
 
 1. Monitor the **Output** window in Visual Studio to see the publishing status. After the app is published, the URL for the app is logged:
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publishing-output.png" alt-text="Screenshot publishing information in the output pane.":::
+   :::image type="content" source="media/web-app-cache-howto/cache-publishing-output.png" alt-text="Screenshot publishing information in the output pane.":::
 
 ### Add the app setting for the cache
 
@@ -171,7 +171,7 @@ After the new app is published, add a new app setting. This setting is used to s
 
 1. To find the new app you created, type the app name in the search bar at the top of the Azure portal.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-find-app-service.png" alt-text="Screenshot showing how to find the app on the Azure portal.":::
+   :::image type="content" source="media/web-app-cache-howto/cache-find-app-service.png" alt-text="Screenshot showing how to find the app on the Azure portal.":::
 
 2. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `RedisHostName` in your *web.config* file.
 
@@ -185,5 +185,5 @@ After the new app is published, add a new app setting. This setting is used to s
 
 ## Related content
 
-- [Connection resilience](cache-best-practices-connection.md)
-- [Best Practices Development](cache-best-practices-development.md)
+- [Connection resilience](best-practices-connection.md)
+- [Best Practices Development](best-practices-development.md)

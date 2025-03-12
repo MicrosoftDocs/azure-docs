@@ -21,7 +21,8 @@ You can buy a reservation in the [Azure portal](https://portal.azure.com/). To b
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Managed Redis reservations.
 
-For the details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+For the details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) and [understand Azure reservation usage for your Pay-As-You-Go subscription](/azure/cost-management-billing/reservations/understand-reserved-instance-usage).
+(/azure/cost-management-billing/reservations/understand-reserved-instance-usages)
 
 ## Determine the right cache size before purchase
 
@@ -45,33 +46,33 @@ The Enterprise Flash tier is slightly different. It contains three nodes by defa
 
 For the number of nodes calculation, see "View Cost Calculation" on [Pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
-For an explanation of the architecture of a cache, see [A quick summary of cache architecture](../cache-failover.md#a-quick-summary-of-cache-architecture).
+For an explanation of the architecture of a cache, see [A quick summary of cache architecture](failover.md#a-quick-summary-of-cache-architecture).
 
 ## Buy Azure Managed Redis reservations
 
-You can buy reservations in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Pay for the reservation [up front or with monthly payments](../../cost-management-billing/reservations/prepare-buy-reservation.md).
+You can buy reservations in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Purchase reservations pane, select **Azure Managed Redis** to purchase a new reservation for your caches.
 4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reservation discount. The actual number of your instances that get the discount depend on the scope and quantity selected.
 
-:::image type="content" source="reserved-pricing/managed-redis-reserved-price.png" alt-text="Screenshot showing an overview of reserved pricing.":::
+:::image type="content" source="media/reserved-pricing/managed-redis-reserved-price.png" alt-text="Screenshot showing an overview of reserved pricing.":::
 
 The following table describes required fields.
 
-| Field | Description |
+|- Field name -|- Descriptions -|
 | :------------ | :------- |
-| Subscription   | The subscription used to pay for the Azure Managed Redis reservation. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
-| Scope | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the reservation discount is applied to Azure Managed Redis instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the reservation discount is applied to Azure Managed Redis instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to instances in the selected subscription and the selected resource group within that subscription.</br></br>**Management group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
-| Region | The Azure region that’s covered by the reservation.
-| Pricing tier | The service tier for the instances.
-| Term | One year or three years
-| Quantity | The amount of compute resources being purchased within the reservation. The quantity is the number of nodes in the selected Azure region and service tier that is being reserved, and will get the billing discount. For example, if you're running or planning to run an instance in the Premium tier with the total cache capacity of 26 GB in the East US region, then you would specify a quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches.
+| Subscription | The subscription used to pay for the Azure Managed Redis reservation. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription. |
+| Scope | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the reservation discount is applied to Azure Managed Redis instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the reservation discount is applied to Azure Managed Redis instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to instances in the selected subscription and the selected resource group within that subscription.</br></br>**Management group**, the reservation discount is applied to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. |
+| Region | The Azure region that’s covered by the reservation. |
+| Pricing tier | The service tier for the instances. |
+| Term | One year or three years |
+| Quantity | The amount of compute resources being purchased within the reservation. The quantity is the number of nodes in the selected Azure region and service tier that is being reserved, and will get the billing discount. For example, if you're running or planning to run an instance in the Premium tier with the total cache capacity of 26 GB in the East US region, then you would specify a quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches. |
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## Cache size flexibility
 
@@ -81,16 +82,16 @@ Cache size flexibility helps you scale up or down within a service tier and regi
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 The reservation discount is applied automatically to the Azure Managed Redis instances that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.
 
-- To learn how reservation discounts are applied to Azure Managed Redis, see [Understand the Azure reservation discount](../../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
+- To learn how reservation discounts are applied to Azure Managed Redis, see [Understand the Azure reservation discount](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
 
 - To learn more about Azure Reservations, see the following articles:
-  - [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-  - [Manage Azure Reservations](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
-  - [Understand Azure Reservations discount](../../cost-management-billing/reservations/understand-reservation-charges.md)
-  - [Understand reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
-  - [Understand reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+  - [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+  - [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+  - [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+  - [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+  - [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
   - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

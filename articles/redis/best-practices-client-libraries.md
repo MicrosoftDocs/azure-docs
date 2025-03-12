@@ -63,10 +63,10 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 For information on client library-specific guidance best practices, see the following links:
 
-- [StackExchange.Redis (.NET)](managed-redis-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
+- [StackExchange.Redis (.NET)](best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
 - [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
 - [Jedis (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Java-Jedis.md)
-- [Redisson (Java)](managed-redis-best-practices-client-libraries.md#redisson-java)
+- [Redisson (Java)](best-practices-client-libraries.md#redisson-java)
 - [Node.js](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
 - [PHP](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
 - [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
@@ -120,15 +120,15 @@ Besides the reference documentation, you can find tutorials showing how to get s
 
 For more information on using some of these client libraries in tutorials, see the following articles:
 
-- [Code a .NET Framework app](../cache-dotnet-how-to-use-azure-redis-cache.md)
-- [Code a .NET Core app](../cache-dotnet-core-quickstart.md)
-- [Code an ASP.NET web app](../cache-web-app-howto.md)
-- [Code an ASP.NET Core web app](../cache-web-app-aspnet-core-howto.md)
-- [Code a Java app](../cache-java-get-started.md)
-- [Code a Node.js app](../cache-nodejs-get-started.md)
-- [Code a Python app](../cache-python-get-started.md)
+- [Code a .NET Framework app](dotnet-how-to-use-azure-redis-cache.md)
+- [Code a .NET Core app](dotnet-core-quickstart.md)
+- [Code an ASP.NET web app](web-app-cache-howto.md)
+- [Code an ASP.NET Core web app](web-app-aspnet-core-howto.md)
+- [Code a Java app](java-get-started.md)
+- [Code a Node.js app](nodejs-get-started.md)
+- [Code a Python app](python-get-started.md)
 
 ## Next steps
 
-- [Azure Managed Redis development FAQs](managed-redis-development-faq.yml)
-- [Best practices for development](managed-redis-best-practices-development.md)
+- [Azure Managed Redis development FAQs](development-faq.yml)
+- [Best practices for development](best-practices-development.md)

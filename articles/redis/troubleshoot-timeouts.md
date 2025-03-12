@@ -55,11 +55,11 @@ In the preceding exception, there are several issues that are interesting:
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
 - You can also see `in: 64221`. This value indicates that 64,221 bytes were received at the client's kernel socket layer but weren't read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
-You can [configure your `ThreadPool` Settings](managed-redis-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
+You can [configure your `ThreadPool` Settings](management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 
 ### Large key value
 
-For information about using multiple keys and smaller values, see [Consider more keys and smaller values](managed-redis-best-practices-development.md#consider-more-keys-and-smaller-values).
+For information about using multiple keys and smaller values, see [Consider more keys and smaller values](best-practices-development.md#consider-more-keys-and-smaller-values).
 
 You can use the `redis-cli --bigkeys` command to check for large keys in your cache. For more information, see [redis-cli, the Redis command line interface--Redis](https://redis.io/topics/rediscli).
 
@@ -88,15 +88,15 @@ To mitigate a client's high CPU usage:
 
 Depending on the architecture of client machines, they might have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
 
-To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](managed-redis-best-practices-development.md#large-request-or-response-size).
+To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](best-practices-development.md#large-request-or-response-size).
 
 ### TCP settings for Linux based client applications
 
-Because of optimistic TCP settings in Linux, client applications hosted on Linux could experience connectivity issues. For more information, see [TCP settings for Linux-hosted client applications](managed-redis-best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications)
+Because of optimistic TCP settings in Linux, client applications hosted on Linux could experience connectivity issues. For more information, see [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications)
 
 ### RedisSessionStateProvider retry timeout
 
-If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Managed Redis](../cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+If you're using `RedisSessionStateProvider`, ensure you set the retry timeout correctly. The `retryTimeoutInMilliseconds` value should be higher than the `operationTimeoutInMilliseconds` value. Otherwise, no retries occur. In the following example, `retryTimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Managed Redis](aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
 ```xml
 <add 
@@ -120,18 +120,18 @@ If you're using `RedisSessionStateProvider`, ensure you set the retry timeout co
 
 Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, and when the cache closes its connections. For instance, an operation that sends a request but doesn't receive a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-For more information, see [Connection resilience](managed-redis-best-practices-connection.md).
+For more information, see [Connection resilience](best-practices-connection.md).
 
 ### High CPU
 
 High CPU means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](../monitor-cache.md#monitor-azure-cache-for-redis) such as CPU. Watch for spikes in `CPU` usage that correspond with timeouts. [Create alerts](../monitor-cache.md#create-alerts) on metrics on CPU to be notified early about potential impacts.
+[Monitor metrics](monitor-cache.md#monitor-azure-cache-for-redis) such as CPU. Watch for spikes in `CPU` usage that correspond with timeouts. [Create alerts](monitor-cache.md#create-alerts) on metrics on CPU to be notified early about potential impacts.
 
 There are several changes you can make to mitigate high CPU:
 
 - Investigate what is causing high CPU such as [long-running commands](#long-running-commands), noted in this article, because of high memory pressure.
-- [Scale](managed-redis-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Managed Redis architecture](managed-redis-architecture.md).
+- [Scale](how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Managed Redis architecture](architecture.md).
 - If your production workload on a cache is negatively affected by extra latency from some internal defender scan runs, you can reduce the effect by migrating the cache to compute optimized tier or scaling to a higher offering with more CPU cores.
 
 #### Spikes in CPU
@@ -140,7 +140,7 @@ On _B0_, _B1_, _B3_ and _B5_ caches, you might see short spikes in CPU not cause
 
 ### High memory usage
 
-For more information, see [High memory usage](managed-redis-troubleshoot-server.md#high-memory-usage).
+For more information, see [High memory usage](troubleshoot-server.md#high-memory-usage).
 
 ### Long running commands
 
@@ -177,12 +177,12 @@ event_no_wait_count:1
 
 Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](../monitor-cache.md#view-cache-metrics) in the portal. [Create alerts](../monitor-cache.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](monitor-cache.md#view-cache-metrics) in the portal. [Create alerts](monitor-cache.md#create-alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
 - Change client call behavior to reduce network demand.
-- [Scale](managed-redis-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md).
+- [Scale](how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Performance testing with Azure Managed Redis](best-practices-performance.md).
 
 ## StackExchange.Redis timeout exceptions
 
@@ -190,7 +190,7 @@ For more specific information to address timeouts when using StackExchange.Redis
 
 ## Related content
 
-- [Troubleshoot Azure Managed Redis client-side issues](managed-redis-troubleshoot-client.md)
-- [Troubleshoot Azure Managed Redis server-side issues](managed-redis-troubleshoot-server.md)
-- [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md)
-- [Monitor Azure Managed Redis](../monitor-cache.md)
+- [Troubleshoot Azure Managed Redis client-side issues](troubleshoot-client.md)
+- [Troubleshoot Azure Managed Redis server-side issues](troubleshoot-server.md)
+- [Performance testing with Azure Managed Redis](best-practices-performance.md)
+- [Monitor Azure Managed Redis](monitor-cache.md)

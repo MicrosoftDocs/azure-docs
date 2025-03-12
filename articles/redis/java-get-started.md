@@ -255,7 +255,7 @@ Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 fla
 
 In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
-- [Development](cache-best-practices-development.md)
-- [Connection resilience](cache-best-practices-connection.md)
+- [Development](best-practices-development.md)
+- [Connection resilience](best-practices-connection.md)
 - [Azure Cache for Redis with Jakarta EE](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
 - [Azure Cache for Redis with Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)

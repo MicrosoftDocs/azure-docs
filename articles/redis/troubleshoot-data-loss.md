@@ -29,7 +29,7 @@ This article discusses how to diagnose actual or perceived data losses that migh
 
 ## Partial loss of keys
 
-Azure Managed Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration policies, eviction policies, and to explicit key-deletion commands. You can run these commands through the [CLI](managed-redis-how-to-redis-cli-tool.md).
+Azure Managed Redis doesn't randomly delete keys after they've been stored in memory. However, it does remove keys in response to expiration policies, eviction policies, and to explicit key-deletion commands. You can run these commands through the [CLI](how-to-redis-cli-tool.md).
 
 Keys that have been written to the primary node in an Azure Managed Redis instance also might not be available on a replica right away. Data is replicated from the primary to the replica in an asynchronous and non-blocking manner.
 
@@ -114,11 +114,11 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 Redis is an in-memory data store. Data is kept on the physical or virtual machines (VM) that host the Redis cache. Azure Managed Redis caches offer high resiliency against data loss by providing Zone Resilient caches by default. When the primary shard in such a cache fails, the replica shard takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major data center outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
 
-Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](../cache-how-to-geo-replication.md) to improve protection of your data against these infrastructure failures.
+Consider using [Redis data persistence](https://redis.io/topics/persistence) and [geo-replication](how-to-active-geo-replication.md) to improve protection of your data against these infrastructure failures.
 
 ## Related content
 
-- [Troubleshoot Azure Managed Redis server-side issues](managed-redis-troubleshoot-server.md)
-- [Choosing the right tier](managed-redis-overview.md#choosing-the-right-tier)
-- [Monitor Azure Managed Redis](../monitor-cache.md)
-- [How can I run Redis commands?](managed-redis-development-faq.yml#how-can-i-run-redis-commands-)
+- [Troubleshoot Azure Managed Redis server-side issues](troubleshoot-server.md)
+- [Choosing the right tier](overview.md#choosing-the-right-tier)
+- [Monitor Azure Managed Redis](monitor-cache.md)
+- [How can I run Redis commands?](development-faq.yml#how-can-i-run-redis-commands-)

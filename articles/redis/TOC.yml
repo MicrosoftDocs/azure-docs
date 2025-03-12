@@ -1,3 +1,4 @@
+items:
 - name: Azure Redis Documentation
   href: index.yml
 
@@ -12,17 +13,17 @@
     - name: Create a cache
       items: 
       - name: Create an Azure Managed Redis instance
-        href: redis/quickstart-create-managed-redis.md 
+        href: quickstart-create-managed-redis.md 
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: /azure-cache-for-redis/cache-quickstart-create-redis.md
       - name: Create an Azure Cache for Redis instance in the Enterprise tiers
-        href: quickstart-create-redis-enterprise.md    
+        href: /azure-cache-for-redis/../azure-cache-for-redis/quickstart-create-redis-enterprise.md    
       - name: Create and manage with Azure PowerShell
         href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
-        href: scripts/create-manage-cache.md
+        href: scripts/create-managed-cache.md
       - name: Create and manage premium cache with Azure CLI
-        href: scripts/create-manage-premium-cache-cluster.md
+        href: /azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
         displayName: ARM, Resource Manager, Template
         href: redis-cache-bicep-provision.md
@@ -34,7 +35,7 @@
       expanded: false
       items:
       - name: ASP.NET app
-        href: web-app-howto.md
+        href: web-app-cache-howto.md
       - name: ASP.NET Core app
         href: web-app-aspnet-core-howto.md
       - name: .NET Core app
@@ -67,7 +68,7 @@
     - name: Save with reservations 
       href: reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
-      href: migration-guide.md
+      href: /azure-cache-for-redis/migration-guide.md
     - name: Planning FAQs
       href: planning-faq.yml
     - name: Redis modules 
@@ -81,11 +82,9 @@
     - name: Use Azure CLI
       items:
       - name: Overview
-        href: cli-samples.md
+        href: /azure-cache-for-redis/cache-cli-samples.md
       - name: Create and manage a cache
-        href: scripts/create-manage-cache.md
-      - name: Create and manage a premium cache
-        href: scripts/create-manage-premium-cache-cluster.md
+        href: scripts/create-managed-cache.md
 
   - name: Development and client libraries
     items:
@@ -117,7 +116,7 @@
     - name: Monitor using diagnostic settings
       href: monitor-diagnostic-settings.md
     - name: List of Redis metrics
-      href: monitor-cache-reference.md#metrics
+      href: /azure-cache-for-redis/monitor-cache-reference.md#metrics
 
   - name: Scaling and performance
     items:
@@ -240,15 +239,15 @@
   - name: Azure Event Grid
     items:
     - name: Route events with Azure portal  
-      href: event-grid-quickstart-portal.md
+      href: /azure-cache-for-redis/event-grid-quickstart-portal.md
     - name: Route events with Azure CLI 
       href: /azure-cache-for-redis/cache-event-grid-quickstart-cli.md
     - name: Route events with PowerShell 
-      href: event-grid-quickstart-powershell.md
+      href: /azure-cache-for-redis/event-grid-quickstart-powershell.md
   - name: Create leaderboards
     href: web-app-cache-aside-leaderboard.md
-  - name: Deploy a machine learning model 
-    href: ml.md
+  # - name: Deploy a machine learning model 
+  #   href: ml.md
   - name: Create Web App with Redis cache - Bicep
     displayName: ARM, Resource Manager, Template
     href: web-app-bicep-with-redis-cache-provision.md
@@ -288,7 +287,7 @@
           href: /azure/templates/microsoft.cache/allversions
         - name: Azure Policy built-ins
           displayName: samples, policies, definitions
-          href: ./policy-reference.md
+          href: /azure-cache-for-redis/policy-reference.md
         - name: Redis commands
           href: https://redis.io/commands#
         - name: Monitoring data reference

@@ -17,7 +17,7 @@ sections:
           Using TLS is recommended as a best practice across virtually all Redis use-cases. The option to connect without TLS is included for backwards compatibility purposes. 
           
           >[!NOTE]
-          >The non-TLS port is disabled by default for new Azure Managed Redis (preview) instances. If your client doesn't support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](managed-redis-configure.md#access-ports) section of the [Configure a cache in Azure Managed Redis](managed-redis-configure.md) article.
+          >The non-TLS port is disabled by default for new Azure Managed Redis (preview) instances. If your client doesn't support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](configure.md#access-ports) section of the [Configure a cache in Azure Managed Redis](configure.md) article.
           >
           >
           
@@ -32,32 +32,32 @@ sections:
 
           * Set `AbortConnect` to false, then let the ConnectionMultiplexer reconnect automatically.
           * Use a single, long-lived `ConnectionMultiplexer` instance rather than creating a new connection for each request.
-          * Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [the Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Best practices development](managed-redis-best-practices-development.md#consider-more-keys-and-smaller-values).
+          * Redis works best with smaller values, so consider chopping up bigger data into multiple keys. In [the Redis discussion](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb is considered large. For more information, see [Best practices development](best-practices-development.md#consider-more-keys-and-smaller-values).
           * Configure your [ThreadPool settings](#important-details-about-threadpool-growth) to avoid timeouts.
           * Use at least the default connectTimeout of 5 seconds. This interval gives StackExchange.Redis sufficient time to re-establish the connection if there's a network blip.
           * Be aware of the performance costs associated with different operations you're running. For instance, the `KEYS` command is an O(n) operation and should be avoided. The [redis.io site](https://redis.io/commands/) has details around the time complexity for each operation that it supports. Select each command to see the complexity for each operation.
           
           ### Configuration and concepts
 
-          * Remember that Redis is an **In-Memory** data store. For more information, see [Troubleshoot data loss in Azure Managed Redis](managed-redis-troubleshoot-data-loss.md) so that you're aware of scenarios where data loss can occur.
-          * Develop your system such that it can handle connection blips caused by [patching and failover](managed-redis-failover.md).
+          * Remember that Redis is an **In-Memory** data store. For more information, see [Troubleshoot data loss in Azure Managed Redis](troubleshoot-data-loss.md) so that you're aware of scenarios where data loss can occur.
+          * Develop your system such that it can handle connection blips caused by [patching and failover](failover.md).
 
           ### Performance testing
 
-          * See [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md) for example benchmarks and instructions for running your own performance tests on Azure Managed Redis. 
+          * See [Performance testing with Azure Managed Redis](best-practices-performance.md) for example benchmarks and instructions for running your own performance tests on Azure Managed Redis. 
           
       - question: |
           What are some of the considerations when using common Redis commands?
         answer: |
           * Avoid using certain Redis commands that take a long time to complete, unless you fully understand the result of these commands. For example, don't run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Each Redis shard is a single-threaded, and it processes commands one at a time. If you have other commands issued after KEYS, they're not be processed until Redis processes the KEYS command. The [redis.io site](https://redis.io/commands/) has details around the time complexity for each operation that it supports. Select each command to see the complexity for each operation.
           * Key sizes - should I use small key/values or large key/values? It depends on the scenario. If your scenario requires larger keys, you can adjust the ConnectionTimeout, then retry values and adjust your retry logic. From a Redis server perspective, smaller values give better performance.
-          * These considerations don't mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies are higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances. Configure each with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](managed-redis-development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-) section.
+          * These considerations don't mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies are higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances. Configure each with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](development-faq.yml#what-do-the-stackexchange-redis-configuration-options-do-) section.
           
       - question: |
           How can I benchmark and test the performance of my cache?
         answer: |
-          * [Enable cache diagnostics](../cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) so you can [monitor](../cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
-          * See [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md) for example benchmarks and instructions for running your own performance tests on Azure Managed Redis. 
+          * [Enable cache diagnostics](../azure-cache-for-redis/cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) so you can [monitor](../azure-cache-for-redis/cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+          * See [Performance testing with Azure Managed Redis](best-practices-performance.md) for example benchmarks and instructions for running your own performance tests on Azure Managed Redis. 
           
       - question: |
           Important details about ThreadPool growth
@@ -133,9 +133,9 @@ sections:
         answer: |
           Different SKUs might have different limits for client connections, memory, and bandwidth. While each size of cache allows *up to* some number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage because of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead plus load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you don't exceed the connection limit for the current cache size.
           
-          For more information about the different connections limits for each tier, see [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](managed-redis-configure.md#default-redis-server-configuration).
+          For more information about the different connections limits for each tier, see [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/cache/). For more information about connections and other default configurations, see [Default Redis server configuration](configure.md#default-redis-server-configuration).
           
 additionalContent: |
 
   ## Next steps
-     Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).
+     Learn about other [Azure Managed Redis FAQs](faq.yml).

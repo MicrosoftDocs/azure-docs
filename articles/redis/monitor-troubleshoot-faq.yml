@@ -16,7 +16,7 @@ sections:
       - question: |
           How do I monitor the health and performance of my cache?
         answer: |
-          Microsoft Azure Managed Redis instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Managed Redis](../cache-how-to-monitor.md).
+          Microsoft Azure Managed Redis instances can be monitored in the [Azure portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. For more information, see [Monitor Azure Managed Redis](../azure-cache-for-redis/cache-how-to-monitor.md).
           
           The Azure Managed Redis **Resource menu** also contains several tools for monitoring and troubleshooting your caches.
           
@@ -24,12 +24,12 @@ sections:
           * **Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](/azure/service-health/resource-health-overview).
           * **New support request** provides options to open a support request for your cache.
           
-          These tools enable you to monitor the health of your Azure Managed Redis instances. The tools also help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Cache for Redis](managed-redis-configure.md).
+          These tools enable you to monitor the health of your Azure Managed Redis instances. The tools also help you manage your caching applications. For more information, see the "Support & troubleshooting settings" section of [How to configure Azure Cache for Redis](configure.md).
           
       - question: |
           Why am I seeing timeouts?
         answer: |
-          Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up. The Redis server eventually picks up the command and executes it. However, the client can time out during this process. If it does, an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](managed-redis-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](managed-redis-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
+          Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up. The Redis server eventually picks up the command and executes it. However, the client can time out during this process. If it does, an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
           
       - question: |
           Why was my client disconnected from the cache?
@@ -60,6 +60,6 @@ sections:
 additionalContent: |
 
   ## Next steps
-     For more information about monitoring and troubleshooting your Azure Managed Redis instances, see [How to monitor Azure Cache for Redis](../cache-how-to-monitor.md) and the various troubleshoot guides.
+     For more information about monitoring and troubleshooting your Azure Managed Redis instances, see [How to monitor Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-monitor.md) and the various troubleshoot guides.
           
-     Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).
+     Learn about other [Azure Managed Redis FAQs](faq.yml).

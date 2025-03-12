@@ -13,7 +13,7 @@ ms.date: 11/15/2024
 
 ## Scale before load is too high
 
-Start scaling before the CPU or memory usage gets too high. If it's too high, that means Redis server is busy. The busy Redis server doesn't have enough resources to scale and redistribute data. For more information, see [When to scale](managed-redis-how-to-scale.md#when-to-scale).
+Start scaling before the CPU or memory usage gets too high. If it's too high, that means Redis server is busy. The busy Redis server doesn't have enough resources to scale and redistribute data. For more information, see [When to scale](how-to-scale.md#when-to-scale).
 
 ## Minimizing your data helps scaling complete quicker
 
@@ -21,8 +21,8 @@ If preserving the data in the cache isn't a requirement, consider flushing the d
 
 ## Using TLS/SSL
 
-If you're using TLS/SSL, there will be a higher CPU overhead on the cache to handle encryption. This is especially true if you're using a lot of connections or if you're using an instance with fewer vCPUs. Consider [scaling up to a higher tier](managed-redis-how-to-scale.md#performance-tiers) if you need additional performance.
+If you're using TLS/SSL, there will be a higher CPU overhead on the cache to handle encryption. This is especially true if you're using a lot of connections or if you're using an instance with fewer vCPUs. Consider [scaling up to a higher tier](how-to-scale.md#performance-tiers) if you need additional performance.
 
 ## Next steps
 
-- [Scale an Azure Managed Redis instance](managed-redis-how-to-scale.md)
+- [Scale an Azure Managed Redis instance](how-to-scale.md)

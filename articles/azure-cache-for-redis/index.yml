@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Redis Documentation
-summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure.
+title: Azure Cache for Redis Documentation
+summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Managed Redis, see the [Azure Managed Redis documentation](/azure/redis/index.yml).
 metadata:
-  title: Azure Redis Documentation
-  description: Learn how to use Azure Managed Redis or Azure Cache for Redis, secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
+  title: Azure Cacche forRedis Documentation
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that give applications fast access to data. Tutorials, API references, and more.
   
   ms.topic: landing-page
   ms.custom:
@@ -28,7 +28,7 @@ landingContent:
         links:
           - text: What's new?
             url: cache-whats-new.md
-  - title: Azure Managed Redis SDKs and CLI reference
+  - title: Azure Redis SDKs and CLI reference
     linkLists:
       - linkListType: reference
         links:

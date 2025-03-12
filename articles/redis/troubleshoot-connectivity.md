@@ -30,7 +30,7 @@ In this article, we provide troubleshooting help for connecting your client appl
 Your client application might have intermittent connectivity issues caused by events such as patching, or spikes in the number of connections.
 
 ### Server maintenance
-Sometimes, your cache undergoes a planned or an unplanned server maintenance. Your application can be negatively affected during the maintenance. To minimize the effects of failovers, see [Connection resilience](managed-redis-best-practices-connection.md).
+Sometimes, your cache undergoes a planned or an unplanned server maintenance. Your application can be negatively affected during the maintenance. To minimize the effects of failovers, see [Connection resilience](best-practices-connection.md).
 
 ### Number of connected clients
 
@@ -50,7 +50,7 @@ If your application can't connect to your Azure Managed Redis instance, it's pos
 
 ### Test connectivity using _redis-cli_
 
-Test connectivity using _redis-cli_. For more information on CLI, [Use the Redis command-line tool with Azure Managed Redis](managed-redis-how-to-redis-cli-tool.md).
+Test connectivity using _redis-cli_. For more information on CLI, [Use the Redis command-line tool with Azure Managed Redis](how-to-redis-cli-tool.md).
 
 ### Test connectivity using PSPING
 
@@ -65,7 +65,7 @@ You can confirm the number of sent packets is equal to the received packets. Con
 ### Private endpoint configuration
 
 Steps to check your private endpoint configuration:
-1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](managed-redis-private-link.md#create-a-private-endpoint-with-a-new-azure-managed-redis-instance).
+1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-private-endpoint-with-a-new-azure-managed-redis-instance).
 1. Verify if your application is connecting to `<instancename>.<region>.redis.azure.net` on port 10000. We recommend avoiding the use of `<instancename>.<region>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
 1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
 1. `Public Network Access` is currently not supported for Azure Managed Redis (preview). You cannot connect to your cache private endpoint from outside the virtual network of your cache.
@@ -80,9 +80,9 @@ When you use a third-party firewall or proxy in your network, check that the end
 
 ### Public IP address change
 
-If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](managed-redis-best-practices-development.md#rely-on-hostname-not-public-ip-address).
+If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](best-practices-development.md#rely-on-hostname-not-public-ip-address).
 
 ## Related content
 
-- [Best practices for connection resilience](managed-redis-best-practices-connection.md)
-- [High availability for Azure Managed Redis](managed-redis-high-availability.md)
+- [Best practices for connection resilience](best-practices-connection.md)
+- [High availability for Azure Managed Redis](high-availability.md)

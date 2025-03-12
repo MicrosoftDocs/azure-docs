@@ -68,7 +68,7 @@ You should also know that rebooting both nodes doesn't result in data flush. If 
 
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
-Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](../redis/how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ### Can I reboot my Enterprise cache?
 

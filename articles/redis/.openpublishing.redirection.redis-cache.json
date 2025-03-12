@@ -1,0 +1,10 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "articles/azure-cache-for-redis/managed-redis/managed-redis-administration.md",
+            "redirect_url": "/azure/redis/administration",
+            "redirect_document_id": false
+        }
+
+    ]
+}

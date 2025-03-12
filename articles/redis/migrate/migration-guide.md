@@ -23,7 +23,7 @@ Open-source Redis can run in many compute environments. Common examples include:
 
 If you have such a cache, you may be able to move it to Azure Managed Redis with minimal interruption or downtime. 
 
-If you're looking to move from one Azure region to another, we recommend you see our [Move Azure Managed Redis instances to different regions](../cache-moving-resources.md) article.
+If you're looking to move from one Azure region to another, you [Move Azure Managed Redis instances to different regions](../../azure-cache-for-redis/cache-moving-resources.md).
 
 ## Migration options
 
@@ -64,12 +64,12 @@ General steps to implement this option are:
 2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
     > [!NOTE]
-    > If you’re migrating data within Azure Managed Redis, see [these instructions on how to export an RDB file](managed-redis-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache) instead.
+    > If you’re migrating data within Azure Managed Redis, see [these instructions on how to export an RDB file](../how-to-import-export-data.md) or use the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache) instead.
     >
 
 3. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
 
-4. Import the RDB file into the new cache using these [import instructions](managed-redis-how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/az.rediscache/import-azrediscache).
+4. Import the RDB file into the new cache using these [import instructions](../how-to-import-export-data.md) or the [PowerShell Import cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 
 5. Update your application to use the new cache instance.
 
@@ -94,7 +94,7 @@ General steps to implement this option are:
 You can create a custom migration process by programmatically reading data from an existing cache and writing them into Azure Managed Redis. This [open-source tool](https://github.com/deepakverma/redis-copy) can be used to copy data from one Azure Managed Redis instance to another. A [compiled version](https://github.com/deepakverma/redis-copy/releases/download/alpha/Release.zip) is available as well. You may also find the source code to be a useful guide for writing your own migration tool.
 
 > [!NOTE]
-> This tool isn't officially supported by Microsoft. 
+> This tool isn't officially supported by Microsoft.
 >
 
 General steps to implement this option are:
@@ -111,8 +111,7 @@ General steps to implement this option are:
 
 4. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
 
-## Next steps
-<!-- these links need to change -->
-* [Azure Cache for Redis service tiers](../cache-overview.md#service-tiers)
-* [Choosing the right tier in AMR](managed-redis-overview.md#choosing-the-right-tier)
-* [Import data](managed-redis-how-to-import-export-data.md#import)
+## Related content
+
+- [Choosing the right tier in AMR](../overview.md#choosing-the-right-tier)
+- [Import data](../how-to-import-export-data.md#import)

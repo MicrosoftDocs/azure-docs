@@ -1,6 +1,8 @@
 ### YamlMime:Landing
-title: Azure Redis Documentation
-summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure.
+title: Azure Managed Redis Documentation
+summary: Learn how to use the managed Redis offerings on Azure, including Azure Managed Redis and Azure Cache for Redis. Either service can be used as a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Additionally, Azure Managed Redis can be used for more applications, like storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Redis from any application on Azure. For information about Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/index.yml).
+
+
 metadata:
   title: Azure Redis Documentation
   description: Learn how to use Azure Managed Redis or Azure Cache for Redis, secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
@@ -42,7 +44,7 @@ landingContent:
           # - text: Code a .NET Core app
           #   url: dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
-            url: web-app-howto.md
+            url: web-app-cache-howto.md
           - text: Code an ASP.NET Core web app
             url: web-app-aspnet-core-howto.md
           # - text: Code a Java app

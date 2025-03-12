@@ -20,15 +20,15 @@ On the left, **Reboot** allows you to reboot one or more nodes of your cache. Th
 > Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers.
 >
 
-:::image type="content" source="administration/managed-redis-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
+:::image type="content" source="media/administration/managed-redis-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
 
 Select the nodes to reboot and select **Reboot**.
 
-:::image type="content" source="administration/redis-cache-reboot-2.png" alt-text="Screenshot that shows which nodes you can reboot":::
+:::image type="content" source="media/administration/redis-cache-reboot-2.png" alt-text="Screenshot that shows which nodes you can reboot":::
 
 If you have a premium cache with clustering enabled, you can select which shards of the cache to reboot.
 
-:::image type="content" source="administration/redis-cache-reboot-cluster-2.png" alt-text="screenshot of shard options":::
+:::image type="content" source="media/administration/redis-cache-reboot-cluster-2.png" alt-text="screenshot of shard options":::
 
 To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot, and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
 
@@ -53,7 +53,7 @@ To test the resiliency of your application against failure of the primary node o
 
 ### Can I reboot the cache to clear client connections?
 
-Yes, if you reboot the cache, all client connections are cleared. Rebooting can be useful in the case where all client connections are used because of a logic error or a bug in the client application. Each pricing tier has different [client connection limits](managed-redis-configure.md#default-redis-server-configuration) for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
+Yes, if you reboot the cache, all client connections are cleared. Rebooting can be useful in the case where all client connections are used because of a logic error or a bug in the client application. Each pricing tier has different [client connection limits](configure.md#default-redis-server-configuration) for the various sizes, and once these limits are reached, no more client connections are accepted. Rebooting the cache provides a way to clear all client connections.
 
 > [!IMPORTANT]
 > If you reboot your cache to clear client connections, StackExchange.Redis automatically reconnects once the Redis node is back online. If the underlying issue is not resolved, the client connections may continue to be used up.
@@ -70,7 +70,7 @@ You should also know that rebooting both nodes doesn't result in data flush. If 
 
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
-Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](../cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ### Can I reboot my Enterprise cache?
 
@@ -85,7 +85,7 @@ The _flush_ operation, when executed on a clustered cache, clears data from all 
 > [!IMPORTANT]
 > Previously, the _flush_ operation was only available for geo-replicated Enterprise tier caches. Now, it is available in Basic, Standard and Premium tiers.
 >
-:::image type="content" source="administration/managed-redis-flush.png" alt-text="Screenshot showing flush data selected in the resource menu of a cache instance. ":::
+:::image type="content" source="media/administration/managed-redis-flush.png" alt-text="Screenshot showing flush data selected in the resource menu of a cache instance. ":::
 
 ## Update channel and Schedule updates
 
@@ -104,7 +104,7 @@ A maintenance window allows you to control the days and times of a week during w
 >
 Currently, no option is available to configure an update channel or scheduled updates for an Enterprise tier cache.
 
-:::image type="content" source="administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
+:::image type="content" source="media/administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 
 To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC and can only be configured on an hourly basis.
 
@@ -140,4 +140,4 @@ Yes. In general, updates aren't applied outside the configured Scheduled Updates
 
 ## Related content
 
-* [Azure Managed Redis service tiers](managed-redis-overview.md#choosing-the-right-tier)
+* [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)

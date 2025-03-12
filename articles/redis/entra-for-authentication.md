@@ -9,7 +9,7 @@ ms.date: 11/15/2024
 
 # Use Microsoft Entra for cache authentication with Azure Managed Redis (preview)
 
-Azure Managed Redis (preview)offers two methods to [authenticate](managed-redis-configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
+Azure Managed Redis (preview)offers two methods to [authenticate](configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
@@ -20,7 +20,7 @@ In this article, you learn how to use your service principal or managed identity
 ## Prerequisites and limitations
 
 - Microsoft Entra authentication is supported for SSL connections only.
-- Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Managed Redis](managed-redis-best-practices-client-libraries.md#blocked-commands).
+- Some Redis commands are blocked. For a full list of blocked commands, see [Redis commands not supported in Azure Managed Redis](best-practices-client-libraries.md#blocked-commands).
 
 > [!IMPORTANT]
 > After a connection is established by using a Microsoft Entra token, client applications must periodically refresh the Microsoft Entra token before expiry. Then the apps must send an `AUTH` command to the Redis server to avoid disrupting connections. For more information, see [Configure your Redis client to use Microsoft Entra](#configure-your-redis-client-to-use-microsoft-entra).
@@ -35,7 +35,7 @@ In this article, you learn how to use your service principal or managed identity
 
 1. Select **Enable Microsoft Entra Authentication** and choose "User or service principal" or "Managed Identity" buttons. The user you enter is automatically assigned same permissions as when using Access Keys when you **Select**. You can also enter a managed identity or service principal to connect to your AMR instance.
 
-    :::image type="content" source="entra-for-authentication/managed-redis-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the Enable Microsoft Entra authentication checkbox.":::
+    :::image type="content" source="media/entra-for-authentication/managed-redis-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the Enable Microsoft Entra authentication checkbox.":::
 
 For information on how to use Microsoft Entra with the Azure CLI, see the [reference pages for identity](/cli/azure/redis/identity).
 
@@ -64,12 +64,12 @@ If you have a cache where you use access keys, and you want to disable access ke
 
 1. Configure **Access Keys Authentication** to be disabled.
 
-   :::image type="content" source="entra-for-authentication/managed-redis-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with the Disable Access Keys Authentication checkbox. ":::
+   :::image type="content" source="media/entra-for-authentication/managed-redis-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with the Disable Access Keys Authentication checkbox. ":::
 
 1. Confirm that you want to update your configuration by selecting **Yes**.
 
 > [!IMPORTANT]
-> When the **Disable Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](managed-redis-best-practices-connection.md).
+> When the **Disable Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
 
 ## Configure your Redis client to use Microsoft Entra
 

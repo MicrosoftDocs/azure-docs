@@ -28,13 +28,13 @@ This tutorial uses a sample inventory page that shows three different T-shirt op
 
 ## Set up two Azure Redis instances
 
-1. Create a new Azure Cache for Redis Enterprise or Azure Managed Redis (preview) instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-redis-enterprise.md) to get started.
+1. Create a new Azure Cache for Redis Enterprise or Azure Managed Redis (preview) instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-managed-redis.md) to get started.
 
 1. On the **Advanced** tab:
 
    1. Enable **Non-TLS access only**.
    1. Set **Clustering Policy** to **Enterprise**
-   1. Configure a new active geo-replication group using [this guide](cache-how-to-active-geo-replication.md). Eventually, you add both caches to the same replication group. Create the group name with the first cache, and add the second cache to the same group.
+   1. Configure a new active geo-replication group using [this guide](how-to-active-geo-replication.md). Eventually, you add both caches to the same replication group. Create the group name with the first cache, and add the second cache to the same group.
 
     > [!IMPORTANT]
     > This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
@@ -279,7 +279,7 @@ With each of the two services opened in a browser, you see that changing the inv
 
 You did it! Click on the buttons and explore the demo. 
 
-:::image type="content" source="media/cache-tutorial-active-replication/cache-two-browser-region-small.png" alt-text="Screenshot of two matching browser with shopping cart app running in to different regions showing the same data." lightbox="media/cache-tutorial-active-replication/cache-two-browser-region.png":::
+:::image type="content" source="media/tutorial-active-replication/cache-two-browser-region-small.png" alt-text="Screenshot of two matching browser with shopping cart app running in to different regions showing the same data." lightbox="media/tutorial-active-replication/cache-two-browser-region.png":::
 
 To reset the count, add `/reset` after the url:
 
@@ -301,6 +301,6 @@ kubectl delete service shoppingcart-svc -n east
 
 ## Related Content
 
-- [Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service](cache-tutorial-aks-get-started.md)
+- [Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service](tutorial-aks-get-started.md)
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)

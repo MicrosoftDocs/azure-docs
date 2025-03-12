@@ -21,7 +21,7 @@ Azure Managed Redis (preview) runs on the [Redis Enterprise](https://redis.io/te
 
 The Basic, Standard, and Premium tiers of Azure Cache for Redis were built on the community edition of Redis. This version of Redis has several significant limitations, including being single-threaded by design. This reduces performance significantly and makes scaling less efficient as more vCPUs aren't fully utilized by the service. A typical Azure Cache for Redis instance uses an architecture like this:
 
-:::image type="content" source="architecture/cache-architecture.png" alt-text="Diagram showing the architecture of the Azure Cache for Redis offering.":::
+:::image type="content" source="media/architecture/cache-architecture.png" alt-text="Diagram showing the architecture of the Azure Cache for Redis offering.":::
 
 Notice that two VMs are used--a primary and a replica. These VMs are also called "nodes." The primary node holds the main Redis process and accepts all writes. Replication is conducted asynchronously to the replica node to provide a back-up copy during maintenance, scaling, or unexpected failure. Each node is only capable of running a single Redis server process due to the single-threaded design of community Redis.
 
@@ -29,7 +29,7 @@ Notice that two VMs are used--a primary and a replica. These VMs are also called
 
 Azure Managed Redis uses a more advanced architecture that looks something like this:
 
-:::image type="content" source="architecture/managed-redis-architecture.png" alt-text="Diagram showing the architecture of the Azure Managed Redis offering.":::
+:::image type="content" source="media/architecture/managed-redis-architecture.png" alt-text="Diagram showing the architecture of the Azure Managed Redis offering.":::
 
 There are several differences:
 
@@ -37,7 +37,7 @@ There are several differences:
 - Not all of the primary Redis shards are on the same VM/node. Instead, primary and replica shards are distributed across both nodes. Because primary shards use more CPU resources than replica shards, this approach enables more primary shards to be run in parallel.
 - Each node has a [high-performance proxy](https://redis.io/blog/redis-enterprise-proxy/) process to manage the shards, handle connection management, and trigger self-healing.
 
-This architecture enables both higher performance and also advanced features like [active geo-replication](managed-redis-how-to-active-geo-replication.md)
+This architecture enables both higher performance and also advanced features like [active geo-replication](how-to-active-geo-replication.md)
 
 ## Clustering
 
@@ -47,11 +47,11 @@ Because Redis Enterprise is able to use multiple shards per node, each Azure Man
 
 Azure Managed Redis offers two choices for clustering policy: _OSS_ and _Enterprise_. _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version.
 
-The **OSS clustering policy** implements the same [Redis Cluster API](https://redis.io/docs/reference/cluster-spec/) as community edition Redis. The Redis Cluster API allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput, allowing throughput to scale near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally provides the best latency and throughput performance. The OSS cluster policy, however, requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries. OSS clustering policy also can't be used with the [RediSearch module](../cache-redis-modules.md).
+The **OSS clustering policy** implements the same [Redis Cluster API](https://redis.io/docs/reference/cluster-spec/) as community edition Redis. The Redis Cluster API allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput, allowing throughput to scale near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally provides the best latency and throughput performance. The OSS cluster policy, however, requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries. OSS clustering policy also can't be used with the [RediSearch module](redis-modules.md).
 
 The OSS clustering protocol requires the client to make the correct shard connections. The initial connection is through port 10000. Connecting to individual nodes is done using ports in the 85XX range. The 85xx ports will change over time and shouldn't be hardcoded into your application. Redis clients that support clustering use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used for the primary and replica shards and make the shard connections for you. 
 
-The **Enterprise clustering policy** is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look nonclustered to users. That means that Redis client libraries don’t need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise, boosting backwards compatibility and making the connection simpler. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput. The Enterprise clustering policy is the only one that can be used with the [RediSearch module](../cache-redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be nonclustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
+The **Enterprise clustering policy** is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look nonclustered to users. That means that Redis client libraries don’t need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise, boosting backwards compatibility and making the connection simpler. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput. The Enterprise clustering policy is the only one that can be used with the [RediSearch module](redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be nonclustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
 
 ### Scaling out or adding nodes
 
@@ -104,7 +104,7 @@ On each Azure Managed Redis Instance, approximately 20% of the available memory 
 
 ## Scaling down
 
-Scaling down is not currently supported on Azure Managed redis. For more information, see [Prerequisites/limitations of scaling Azure Managed Redis](managed-redis-how-to-scale.md#prerequisiteslimitations-of-scaling-azure-managed-redis).
+Scaling down is not currently supported on Azure Managed redis. For more information, see [Prerequisites/limitations of scaling Azure Managed Redis](how-to-scale.md#prerequisiteslimitations-of-scaling-azure-managed-redis).
 
 ## Flash Optimized tier
 
@@ -135,4 +135,4 @@ Some workloads have access characteristics that are less optimized for the desig
 
 ## Next steps
 
-- [Scale an Azure Managed Redis instance](managed-redis-how-to-scale.md)
+- [Scale an Azure Managed Redis instance](how-to-scale.md)

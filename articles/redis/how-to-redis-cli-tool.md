@@ -41,13 +41,13 @@ You can gather the information needed to access the cache using these methods:
 
 In this section, you retrieve the keys from the Azure portal.
 
-[!INCLUDE [redis-cache-create](../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## Connect using redis-cli
 
 Open up a shell or terminal on a computer with the _Redis package_ installed. If using WSL, you can [use the Windows Terminal](/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. Before connecting with redis-cli, check:
 
-1. Whether TLS access is needed - By default, Azure Managed Redis instances use [TLS](../cache-tls-configuration.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option.
+1. Whether TLS access is needed - By default, Azure Managed Redis instances use [TLS](tls-configuration.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option.
 1. The port used - all Azure Managed Redis instances use port `10000`. Note that this is different than the default for the Redis community edition, which is `6379`. 
 1. Whether the cache instance uses the OSS cluster policy - If you're using the OSS cluster policy, add the `-c`option to ensure all shards can be accessed.
 
@@ -93,4 +93,4 @@ While the _redis-cli_ is a useful tool, you can connect to your cache in other w
 
 ## Related content
 
-Get started by creating a [new Azure Managed Redis Instance](../quickstart-create-managed-redis.md) instance.
+Get started by creating a [new Azure Managed Redis Instance](quickstart-create-managed-redis.md) instance.

@@ -125,7 +125,7 @@ Client applications should be able to use an Azure Managed Redis instance that h
 
 Learn more at:
 
-- [Scale an Azure Managed Redis (preview) instance](../managed-redis/managed-redis-how-to-scale.md)
+- [Scale an Azure Managed Redis (preview) instance](../how-to-scale.md)
 
 #### Options for Migrating Azure Cache for Redis to Azure Managed Redis
 
@@ -147,12 +147,12 @@ General steps to implement this option are:
 
 #### Export data to an RDB file and import it into Azure Managed Redis
 
-This option is applicable only to premium tier caches. Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. Another Redis cache can read the RDB file that was exported. [Azure Cache for Redis premium tier](../cache-overview.md#service-tiers) supports exporting data from a cache instance via RDB files. You can use an RDB file to transfer data from an existing Azure Cache for Redis instance to Azure Managed Redis instance.
+This option is applicable only to premium tier caches. Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. Another Redis cache can read the RDB file that was exported. [Azure Cache for Redis premium tier](../../azure-cache-for-redis/cache-overview.md#service-tiers)  supports exporting data from a cache instance via RDB files. You can use an RDB file to transfer data from an existing Azure Cache for Redis instance to Azure Managed Redis instance.
 
 General steps to implement this option are:
 
 1. Create a new Azure Managed Redis instance that is the same size (or bigger than) the existing Azure Cache for Redis instance.
-1. Export the RDB file from existing Azure Cache for Redis instance using these [export instructions](../cache-how-to-import-export-data.md#export) or the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache)
+1. Export the RDB file from existing Azure Cache for Redis instance using these [export instructions](../../azure-cache-for-redis/cache-how-to-import-export-data.md#export) or the [PowerShell Export cmdlet](/powershell/module/az.rediscache/export-azrediscache)
 1. Import the RDB file into new Azure Managed Redis instance using these import instructions or the PowerShell Import cmdlet
 1. Update your application to use the new Azure Managed Redis instance connection string.
 
@@ -204,4 +204,4 @@ General steps to implement this option are:
 
 ## Related content
 
-- [What is Azure Managed Redis?](../managed-redis/managed-redis-overview.md)
+- [What is Azure Managed Redis?](../overview.md)

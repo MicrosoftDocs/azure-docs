@@ -54,7 +54,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
    Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. 
 
-   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering](redis/architecture.md#clustering).
+   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Clustering](../redis/architecture.md#clustering).
 
      :::image type="content" source="media/cache-create/cache-clustering-policy.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
@@ -65,7 +65,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
    >
 
    > [!IMPORTANT]
-   > You can't change the clustering policy of an Enterprise cache instance after you create it. If you're using [RediSearch](cache-redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported. 
+   > You can't change the clustering policy of an Enterprise cache instance after you create it. If you're using [RediSearch](../redis/redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported. 
    >
 
    > [!IMPORTANT]
@@ -90,4 +90,4 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 In this quickstart, you learned how to create an Enterprise tier instance of Azure Cache for Redis.
 
-- [Create an ASP.NET web app that uses an Azure Cache for Redis](cache-web-app-aspnet-core-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis](../redis/web-app-aspnet-core-howto.md)

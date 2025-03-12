@@ -19,7 +19,7 @@ Diagnostic settings in Azure are used to collect resource logs. An Azure resourc
 
 ## Cache Metrics
 
-Azure Managed Redis (preview) emits [many metrics](../monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](../monitor-cache.md#view-cache-metrics).
+Azure Managed Redis (preview) emits [many metrics](monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](monitor-cache.md#view-cache-metrics).
 
 ## Connection Logs
 
@@ -37,7 +37,7 @@ Azure Managed Redis uses the [audit connection events](https://redis.io/docs/lat
 - Data loss (that is, missing a connection event) is rare, but possible. Data loss is typically caused by networking issues. 
 - Disconnection logs aren't yet fully stable and events may be missed.  
 - Because connection logs on Azure Managed Redis are event-based, be careful of your retention policies. For instance, if retention is set to 10 days, and a connection event occurred 15 days ago, that connection might still exist, but the log for that connection isn't retained.
-- If using [active geo-replication](managed-redis-how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
+- If using [active geo-replication](how-to-active-geo-replication.md), logging must be configured for each cache instance in the geo-replication group individually.
 - All diagnostic settings may take up to [90 minutes](/azure/azure-monitor/essentials/diagnostic-settings#time-before-telemetry-gets-to-destination) to start flowing to your selected destination. 
 - Enabling connection logs may cause a small performance degradation to the Redis instance.
 
@@ -69,14 +69,14 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your Azure Managed Redis account. Open the **Diagnostic Settings - Auditing** pane under the **Monitoring** section on the left. Then, select **Add diagnostic setting**.
-   :::image type="content" source="monitor-diagnostic-settings/managed-redis-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
+   :::image type="content" source="media/monitor-diagnostic-settings/managed-redis-enterprise-auditing.png" alt-text="Screenshot of Diagnostic settings - Auditing selected in the Resource menu.":::
 
 1. In the **Diagnostic Setting - Auditing** pane, select **Connection events** from **Categories**.
 
    For more detail on the data logged, see below [Contents of the Connection Logs](#contents-of-the-connection-logs).
 
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
-   :::image type="content" source="monitor-diagnostic-settings/managed-redis-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
+   :::image type="content" source="media/monitor-diagnostic-settings/managed-redis-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
 
 
 ## Enable connection logging using the REST API

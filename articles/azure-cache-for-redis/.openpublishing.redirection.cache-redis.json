@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "articles/azure-cache-for-redis/cache-aspnet-core-output-cache-provider.md",
+      "redirect_url": "/azure/redis/architecture",
+      "redirect_document_id": false
+    }
+    ]    
+  }

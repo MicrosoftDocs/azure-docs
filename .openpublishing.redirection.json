@@ -2886,21 +2886,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cache/cache-dotnet-how-to-use-in-role.md",
-      "redirect_url": "/azure/azure-cache-for-redis/cache-faq#in-role-cache",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cache/cache-dotnet-how-to-use-service.md",
-      "redirect_url": "/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cache/index.md",
-      "redirect_url": "/azure/azure-cache-for-redis/cache-faq#managed-cache-service",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cassandra-managed-instance/compare-cosmosdb-managed-instance.md",
       "redirect_url": "/azure/managed-instance-apache-cassandra/compare-cosmosdb-managed-instance",
       "redirect_document_id": false

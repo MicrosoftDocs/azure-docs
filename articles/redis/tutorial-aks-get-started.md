@@ -23,10 +23,10 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 
 ## Set up an Azure Cache for Redis instance
 
-1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](quickstart-create-redis.md) to get started. Alternately, you can create an Azure Managed Redis instance too.
+1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](../azure-cache-for-redis/quickstart-create-redis.md) to get started. Alternately, you can create an Azure Managed Redis instance too.
 
     For this tutorial, use a Standard C1 cache.
-    :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
+    :::image type="content" source="media/tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
 1. Follow the steps through to create the cache.
 

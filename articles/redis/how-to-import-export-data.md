@@ -41,21 +41,21 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
 > [!NOTE]
 > Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Managed Redis instance. If you are using managed identity for authentication, the storage account can be in a different subscription. For more information, see [Get started with Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
 
-1. To import one or more exported cache blobs, [browse to your cache](managed-redis-configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane, you see **Choose Blob(s)** where you can find RDB files.
+1. To import one or more exported cache blobs, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane, you see **Choose Blob(s)** where you can find RDB files.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-data.png" alt-text="Screenshot showing Import data selected in the Resource menu.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-data.png" alt-text="Screenshot showing Import data selected in the Resource menu.":::
 
 2. Select **Choose Blob(s)** and select the storage account that contains the data to import.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-choose-storage-account.png" alt-text="Screenshot showing a list of storage accounts.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-storage-account.png" alt-text="Screenshot showing a list of storage accounts.":::
 
 3. Select the container that contains the data to import.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-choose-container.png" alt-text="Screenshot showing list of containers from the previously chosen storage account.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-container.png" alt-text="Screenshot showing list of containers from the previously chosen storage account.":::
 
 4. Select one or more blobs to import by selecting the area to the left of the blob name, and then **Select**.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-choose-blobs.png" alt-text="Screenshot showing a blob from the container. ":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-blobs.png" alt-text="Screenshot showing a blob from the container. ":::
 
 5. Select **Import** to begin the import process.
 
@@ -63,7 +63,7 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
    > The cache is not accessible by cache clients during the import process, and any existing data in the cache is deleted.
    >
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-blobs.png" alt-text="Screenshot showing the Import button to select to begin the import.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-blobs.png" alt-text="Screenshot showing the Import button to select to begin the import.":::
 
     You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [activity log](/azure/azure-monitor/essentials/activity-log).
 
@@ -71,15 +71,15 @@ Use import to bring Redis compatible RDB files from any Redis server running in 
     > Activity log support is not yet available in Azure Managed Redis.
     >
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-import-data-import-complete.png" alt-text="Screenshot showing the import progress in the notifications area.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-import-data-import-complete.png" alt-text="Screenshot showing the import progress in the notifications area.":::
 
 ## Export
 
 Export allows you to export the data stored in Azure Managed Redis. You can use this feature to move data from one Azure Managed Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Managed Redis server instance. Then, the file is uploaded to the chosen storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-1. To export the current contents of the cache to storage, [browse to your cache](managed-redis-configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Export data** from the **Resource menu**. You see **Choose Storage Container** in the working pane.
+1. To export the current contents of the cache to storage, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Export data** from the **Resource menu**. You see **Choose Storage Container** in the working pane.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu":::
 
 2. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same region as your cache. If you're using managed identity for authentication, the storage account can be in a different subscription. Otherwise, the storage account must be in the same subscription as your cache.
 
@@ -90,19 +90,19 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
    > For more information, see [Azure storage account overview](/azure/storage/common/storage-account-overview).
    >
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane.":::
 
 3. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-export-data-container.png" alt-text="Screenshot of a list of containers with one highlighted and a select button.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-container.png" alt-text="Screenshot of a list of containers with one highlighted and a select button.":::
 
 4. Type a **Blob name prefix** and select **Export** to start the export process. The blob name prefix is used to prefix the names of files generated by this export operation.
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-export-data.png" alt-text="Screenshot showing a blob name prefix and an Export button.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data.png" alt-text="Screenshot showing a blob name prefix and an Export button.":::
 
     You can monitor the progress of the export operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](/azure/azure-monitor/essentials/activity-log).
 
-    :::image type="content" source="how-to-import-export-data/managed-redis-export-data-export-complete.png" alt-text="Screenshot showing the export progress in the notifications area.":::
+    :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-export-complete.png" alt-text="Screenshot showing the export progress in the notifications area.":::
 
     Caches remain available for use during the export process.
 
@@ -151,13 +151,13 @@ For more information on supported RDB versions used with import, see the [compat
 
 ### How is Import/Export different from Redis persistence?
 
-The Azure Managed Redis [persistence feature](managed-redis-how-to-persistence.md) is primarily a data durability feature. Conversely, the _import/export_ functionality is designed as a method to make periodic data backups for point-in-time recovery.
+The Azure Managed Redis [persistence feature](how-to-persistence.md) is primarily a data durability feature. Conversely, the _import/export_ functionality is designed as a method to make periodic data backups for point-in-time recovery.
 
 When _persistence_ is configured, your cache persists a snapshot of the data to disk, based on a configurable backup frequency. This persistence file is not accessible by the user. If a catastrophic event occurs that disables both the primary and the replica caches, the cache data is restored automatically using the most recent snapshot.
 
 Data persistence is designed for disaster recovery. It isn't intended as a point-in-time recovery mechanism.
 
-If you want to make periodic data backups for point-in-time recovery, we recommend using the _import/export_ functionality. For more information, see [How to configure data persistence for Azure Managed Redis](managed-redis-how-to-persistence.md).
+If you want to make periodic data backups for point-in-time recovery, we recommend using the _import/export_ functionality. For more information, see [How to configure data persistence for Azure Managed Redis](how-to-persistence.md).
 
 ### Can I automate Import/Export using PowerShell, CLI, or other management clients?
 
@@ -184,11 +184,11 @@ Export works only with RDB files stored as block blobs. Other blob types aren't 
 
 You need to check “Allow Azure services on the trusted services list to access this storage account” in your storage account settings. Then, use managed identity (System or User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
 
-For more information, see [managed identity for storage accounts - Azure Cache for Redis](../cache-managed-identity.md)
+For more information, see [managed identity for storage accounts - Azure Cache for Redis](../azure-cache-for-redis/cache-managed-identity.md)
 
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
-You can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](../cache-managed-identity.md) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
+You can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](../azure-cache-for-redis/cache-managed-identity.md) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
 In order for export to an Azure storage account to work successfully, the [shared access signature (SAS) token](/azure/storage/common/storage-sas-overview) must have the following permissions:
@@ -202,4 +202,4 @@ In order for export to an Azure storage account to work successfully, the [share
 
 ## Next steps
 
-- [Azure Managed Redis service tiers](managed-redis-overview.md#choosing-the-right-tier)
+- [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)

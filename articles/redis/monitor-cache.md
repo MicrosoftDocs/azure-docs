@@ -39,12 +39,13 @@ For a list of available metrics for Azure Cache for Redis, see [Azure Cache for 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cache for Redis, see [Azure Cache for Redis monitoring data reference](monitor-cache-reference.md#resource-logs).
+
 ## Azure Cache for Redis resource logs
 
 In Azure Cache for Redis, two options are available to log:
 
 - **Cache Metrics** ("AllMetrics") [logs metrics from Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
-- **Connection Logs** logs connections to the cache for security and diagnostic purposes. 
+- **Connection Logs** logs connections to the cache for security and diagnostic purposes.
 
 ### Cache metrics
 
@@ -70,7 +71,7 @@ The metrics are reported using several reporting intervals, including **Past hou
 
 Each metric includes two versions: One metric measures performance for the entire cache, and for caches that use clustering. A second version of the metric, which includes `(Shard 0-9)` in the name, measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` measures just the hits for that shard of the cache.
 
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager.":::
+:::image type="content" source="media/monitor-cache/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager.":::
 
 ### View cache metrics
 
@@ -78,7 +79,7 @@ You can view Azure Monitor metrics for Azure Cache for Redis directly from an Az
 
 [Select your Azure Cache for Redis instance]/azure-cache-for-redis/cache-configure.md#configure-azure-cache-for-redis-settings) in the portal. The **Overview** page shows the predefined **Memory Usage** and **Redis Server Load** monitoring charts. These charts are useful summaries that allow you to take a quick look at the state of your cache.
 
-:::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
+:::image type="content" source="media/monitor-cache/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
 
 For more in-depth information, you can monitor the following useful Azure Cache for Redis metrics from the **Monitoring** section of the Resource menu.
 
@@ -89,7 +90,7 @@ For more in-depth information, you can monitor the following useful Azure Cache 
 | Server load |[Redis Server Load](monitor-cache-reference.md#azure-cache-for-redis-metrics) |
 | Memory usage |[Cache performance - size]/azure-cache-for-redis/cache-planning-faq.yml#azure-cache-for-redis-performance) |
 
-:::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
+:::image type="content" source="media/monitor-cache/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
 
 ### Create your own metrics
 
@@ -99,7 +100,7 @@ Each metric includes two versions: One metric measures performance for the entir
 
 In the Resource menu on the left, select **Metrics** under **Monitoring**. Here, you design your own chart for your cache, defining the metric type and aggregation type.
 
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
+:::image type="content" source="media/monitor-cache/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
 
 #### Aggregation types
 
@@ -207,6 +208,7 @@ REDConnectionEvents
 | where EventType == "auth" and EventStatus != 2 and EventStatus != 8 and EventStatus != 7
 | project ClientIp, EventStatus, ConnectionId
 ```
+
 ---
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
@@ -221,7 +223,7 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 
 To configure alerts for your cache, select **Alerts** under **Monitoring** on the Resource menu.
 
-:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Screenshot showing how to create an alert.":::
+:::image type="content" source="media/monitor-cache/cache-monitoring.png" alt-text="Screenshot showing how to create an alert.":::
 
 ### Azure Cache for Redis common alert rules
 
@@ -229,7 +231,7 @@ The following table lists common and recommended alert rules for Azure Cache for
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-|Metric|99th percentile latency|Alert on the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. Track the health of your cache instance to see if long-running commands are compromising latency performance.
+|Metric|99th percentile latency|Alert on the worst-case latency of server-side commands in Azure Cache for Redis instances. Latency is measured by using `PING` commands and tracking response times. Track the health of your cache instance to see if long-running commands are compromising latency performance. |
 |Metric |High `Server Load` usage or spikes |High server load means the Redis server is unable to keep up with requests, leading to timeouts or slow responses. Create alerts on metrics on server load metrics to be notified early about potential impacts.|
 |Metric |High network bandwidth usage |If the server exceeds the available bandwidth, then data isn't sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough. Set up alerts for server-side network bandwidth limits by using the `Cache Read` and `Cache Write` counters. |
 
@@ -237,7 +239,7 @@ The following table lists common and recommended alert rules for Azure Cache for
 
 The following screenshot shows an advisor recommendation for an Azure Cache for Redis alert:
 
-:::image type="content" source="./media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
+:::image type="content" source="media/monitor-cache/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations.":::
 
 To upgrade your cache, select **Upgrade now** to change the pricing tier and [scale]/azure-cache-for-redis/cache-configure.md#scale) your cache. For more information on choosing a pricing tier, see [Choosing the right tier]/azure-cache-for-redis/cache-overview.md#choosing-the-right-tier).
 

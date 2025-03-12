@@ -23,7 +23,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
+- [Use Microsoft Entra ID for cache authentication](entra-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ::: zone pivot="azure-managed-redis"
@@ -265,6 +265,6 @@ Cache Response : Hello! The cache is working from Java! 2023-12-05T15:45:45.7486
 In this quickstart, you learned how to use Azure Cache for Redis from a Java application with Redisson Redis client and JCache. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+> [Create an ASP.NET web app that uses an Azure Cache for Redis.](web-app-cache-howto.md)
 > [!div class="nextstepaction"]
 > [Use Java with Azure Cache for Redis on Azure Kubernetes Service](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)

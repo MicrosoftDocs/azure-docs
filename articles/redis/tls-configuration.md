@@ -15,6 +15,7 @@ ms.date: 11/15/2024
 # What are configuration settings for the TLS protocol with Azure Managed Redis (preview)?
 
 Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Managed Redis (preview) supports TLS on all tiers.
+
 When you create a service that uses an Azure Managed Redis instance, we strongly encourage you to connect using TLS.
 
 > [!IMPORTANT]
@@ -59,8 +60,8 @@ By default, TLS is required for access. To disable TLS access:
 2. Select **Enable** for **Non-TLS access only**.
 3. Select **Save**.
 
-Azure Managed Redis instances use port `10000` for both TLS and non-TLS connections. If the OSS cluster policy is used, [more connections are established](managed-redis-architecture.md#cluster-policies) using ports in the `85XX` range, regardless of TLS status.
+Azure Managed Redis instances use port `10000` for both TLS and non-TLS connections. If the OSS cluster policy is used, [more connections are established](architecture.md#cluster-policies) using ports in the `85XX` range, regardless of TLS status.
 
 ## Related content
 
-- [Use Microsoft Entra for cache authentication with Azure Managed Redis](managed-redis-entra-for-authentication.md)
+- [Use Microsoft Entra for cache authentication with Azure Managed Redis](entra-for-authentication.md)

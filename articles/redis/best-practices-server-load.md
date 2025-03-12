@@ -17,8 +17,7 @@ The design of your client application determines whether you should store many s
 
 If your design requires you to store larger values in the Azure Managed Redis (preview), the server load will be higher. In this case, you might need to use a higher cache tier to ensure CPU usage doesn't limit throughput.
 
-Even if the cache has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](managed-redis-best-practices-connection.md#configure-appropriate-timeouts).
-
+Even if the cache has sufficient CPU capacity, larger values do increase latencies, so follow the guidance in [Configure appropriate timeouts](best-practices-connection.md#configure-appropriate-timeouts).
 
 ## Avoid client connection spikes
 
@@ -32,7 +31,7 @@ High memory usage on the server makes it more likely that the system needs to pa
 
 ## Avoid long running commands
 
-Redis server is a single-threaded system. Long running commands can cause latency or timeouts on the client side because the server can't respond to any other requests while it's busy working on a long running command. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](managed-redis-troubleshoot-server.md).  
+Redis server is a single-threaded system. Long running commands can cause latency or timeouts on the client side because the server can't respond to any other requests while it's busy working on a long running command. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](troubleshoot-server.md).  
 
 ## Monitor Server Load
 
@@ -47,7 +46,7 @@ When monitoring server load, we also recommend that you examine the max spikes o
 
 ## Plan for server maintenance
 
-Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](managed-redis-administration.md#reboot).
+Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](administration.md#reboot).
 
 ## Test for increased server load after failover
 
@@ -55,7 +54,7 @@ For standard and premium SKUs, each cache is hosted on two nodes. A load balance
 
 ## Next steps
 
-- [Troubleshoot Azure Managed Redis server-side issues](managed-redis-troubleshoot-server.md)
-- [Connection resilience](managed-redis-best-practices-connection.md)
-- [Configure appropriate timeouts](managed-redis-best-practices-connection.md#configure-appropriate-timeouts).
-- [Memory management](managed-redis-best-practices-memory-management.md)
+- [Troubleshoot Azure Managed Redis server-side issues](troubleshoot-server.md)
+- [Connection resilience](best-practices-connection.md)
+- [Configure appropriate timeouts](best-practices-connection.md#configure-appropriate-timeouts).
+- [Memory management](best-practices-memory-management.md)

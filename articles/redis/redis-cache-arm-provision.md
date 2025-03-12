@@ -37,7 +37,7 @@ The following resources are defined in the template:
 * [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
 * [Microsoft.Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
-Resource Manager templates for the new [Premium tier](cache-overview.md#service-tiers) are also available.
+Resource Manager templates for the new [Premium tier](../azure-cache-for-redis/cache-overview.md#service-tiers) are also available.
 
 * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
 * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
@@ -157,6 +157,6 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-## Next steps
+## Related Content
 
-In this tutorial, you learnt how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. To learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis, see [Create a Web App plus Azure Cache for Redis using a template](./cache-web-app-arm-with-redis-cache-provision.md).
+In this tutorial, you learnt how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. To learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis, see [Create a Web App plus Azure Cache for Redis using a template](web-app-arm-with-redis-cache-provision.md).

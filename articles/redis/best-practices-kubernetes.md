@@ -26,9 +26,9 @@ A pod running the client application can be affected by other pods running on th
 
 ## Linux-hosted client applications and TCP settings
 
-If your Azure Managed Redis (preview) client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](managed-redis-best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
+If your Azure Managed Redis (preview) client application runs on a Linux-based container, we recommend updating some TCP settings. These settings are detailed in [TCP settings for Linux-hosted client applications](best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications).
 
 ## Related content
 
-- [Development](managed-redis-best-practices-development.md)
-- [Azure Cache for Redis development FAQs](managed-redis-development-faq.yml)
+- [Development](best-practices-development.md)
+- [Azure Cache for Redis development FAQs](development-faq.yml)

@@ -16,7 +16,7 @@ Otherwise, if you're finished with the quickstart sample application, you can de
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named `TestResources`. On your resource group in the result list, select **Test Resources** then **Delete resource group**.
 
-   :::image type="content" source="../media/cache-java-redisson-get-started/redis-cache-delete-resource-group.png" alt-text="Screenshot of the Azure portal that shows the Resource group page with the Delete resource group button highlighted." lightbox="../media/cache-java-redisson-get-started/redis-cache-delete-resource-group.png":::
+   :::image type="content" source="../media/java-redisson-get-started/redis-cache-delete-resource-group.png" alt-text="Screenshot of the Azure portal that shows the Resource group page with the Delete resource group button highlighted." lightbox="../media/java-redisson-get-started/redis-cache-delete-resource-group.png":::
 
 1. Type the name of your resource group to confirm deletion and then select **Delete**.
 

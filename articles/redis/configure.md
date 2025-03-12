@@ -61,7 +61,7 @@ The **Overview** section provides you with basic information about your instance
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](../monitor-cache.md#azure-activity-log).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#azure-activity-log).
 
 ### Access control (IAM)
 
@@ -77,13 +77,13 @@ Select **Diagnose and solve problems** to be provided with common issues and str
 
 ## Redis console
 
-Direct access to the Redis console is not yet supported in Azure Managed Redis. Instead, consider using the [Redis CLI](managed-redis-how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/).
+Direct access to the Redis console is not yet supported in Azure Managed Redis. Instead, consider using the [Redis CLI](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/).
 
 ## Move your cache to a new subscription
 
 You can move your cache to a new subscription by selecting **Move**.
 
-:::image type="content" source="configure/redis-cache-move.png" alt-text="Move Azure Managed Redis":::
+:::image type="content" source="media/configure/redis-cache-move.png" alt-text="Move Azure Managed Redis":::
 
 For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 
@@ -101,19 +101,19 @@ The **Settings** section allows you to access and configure the following settin
 
 ### Authentication
 
-You have two options for authentication: access keys and [Microsoft Entra Authentication](managed-redis-entra-for-authentication.md). Using Microsoft Entra Authentication is recommended because it is more secure. 
+You have two options for authentication: access keys and [Microsoft Entra Authentication](entra-for-authentication.md). Using Microsoft Entra Authentication is recommended because it is more secure. 
 
 #### [Access keys](#tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
-:::image type="content" source="configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
+:::image type="content" source="media/configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
 
 #### [Microsoft Entra Authentication](#tab/entra)
 
 Select **Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID.
 
-:::image type="content" source="configure/managed-redis-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
+:::image type="content" source="media/configure/managed-redis-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
 
 ---
 
@@ -131,7 +131,7 @@ The following settings are configured on the **Advanced settings** on the left.
 By default, only TLS access is enabled for new caches. To enable non-TLS access, Select **Enable** for **Non-TLS access only** and then Select **Save**.
 
 > [!NOTE]
-> Azure Managed Redis supports TLS 1.2 and 1.3. See [What are the configuration settings for the TLS protocol?](managed-redis-tls-configuration.md) for more details.
+> Azure Managed Redis supports TLS 1.2 and 1.3. See [What are the configuration settings for the TLS protocol?](tls-configuration.md) for more details.
 >
 
 #### Memory policies
@@ -151,11 +151,10 @@ When you create a cache, approximately 20% of the instance memory is reserved as
 
 For more information, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
-
-#### Keyspace notifications 
+#### Keyspace notifications
 
 Redis keyspace notifications are configured using the **notify-keyspace-events** box. Keyspace notifications allow clients to receive notifications when certain events occur. 
-Keyspace notifications can be used to [trigger Azure Functions](../cache-tutorial-functions-getting-started.md) based on activity on your Redis instance.  
+Keyspace notifications can be used to [trigger Azure Functions](tutorial-functions-getting-started.md) based on activity on your Redis instance.  
 
 For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications).
 
@@ -163,25 +162,25 @@ For more information, see [Redis Keyspace Notifications](https://redis.io/topics
 
 **Data persistence** allows you to enable, disable, or configure data persistence for your Redis instance. Azure Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
-For more information, see [Configure data persistence for an Azure Managed Redis instance](managed-redis-how-to-persistence.md).
+For more information, see [Configure data persistence for an Azure Managed Redis instance](how-to-persistence.md).
 
 ### Encryption
 Select **Encryption** to encrypt any data stored on disk, such as data persistence files or files being exported from the instance. 
-For more information, see [Configure disk encryption for Azure Managed Redis instances using customer managed keys](managed-redis-how-to-encryption.md)
+For more information, see [Configure disk encryption for Azure Managed Redis instances using customer managed keys](how-to-encryption.md)
 
 ### Active geo-replication
 
 **Active geo-replication**, on the Resource menu, provides a mechanism for linking up to five Azure Managed Redis instances in an active-active configuration.
 This functionality can be used to replicate a cache across Azure regions, providing greater data durability and availability.
-For more information, see [Configure active geo-replication for Azure Managed Redis instances](managed-redis-how-to-active-geo-replication.md)
+For more information, see [Configure active geo-replication for Azure Managed Redis instances](how-to-active-geo-replication.md)
 
 ### Scale
 
-Select **Scale** to view or change the size and performance tier of your Redis instance. For more information on scaling, see [How to Scale Azure Managed Redis](managed-redis-how-to-scale.md).
+Select **Scale** to view or change the size and performance tier of your Redis instance. For more information on scaling, see [How to Scale Azure Managed Redis](how-to-scale.md).
 
 ### Schedule updates
 
-Scheduled updates are not yet available in Azure Managed Redis. 
+Scheduled updates are not yet available in Azure Managed Redis.
 
 <!--
 The **Schedule updates** section allows you to choose a maintenance window for Redis server updates for your cache.
@@ -190,20 +189,16 @@ The **Schedule updates** section allows you to choose a maintenance window for R
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
 
-:::image type="content" source="configure/redis-schedule-updates.png" alt-text="Schedule updates":::
+:::image type="content" source="media/configure/redis-schedule-updates.png" alt-text="Schedule updates":::
 
 To specify a maintenance window, check the days you want. Then, specify the maintenance window start hour for each day, and select **OK**. The maintenance window time is in UTC.
 
-For more information and instructions, see [Update channel and Schedule updates](managed-redis-administration.md#update-channel-and-schedule-updates).
+For more information and instructions, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
 -->
 
 ### Properties
 
 Select **Properties** to view information about your instance, including the endpoint, Redis DB version, and clustering policy.
-
-<!--
-:::image type="content" source="configure/redis-cache-properties.png" alt-text="Azure Managed Redis Properties":::
--->
 
 ### Locks
 
@@ -214,14 +209,9 @@ For more information, see [Lock resources with Azure Resource Manager](/azure/az
 
 The **Administration** section allows you to access and configure the following settings for your Redis instance:
 
-<!--
-:::image type="content" source="configure/redis-cache-administration.png" alt-text="Administration":::
--->
-
 - [Import data](#importexport)
 - [Export data](#importexport)
 - [Private endpoint](#private-endpoint)
-
 
 ### Import/Export
 
@@ -239,55 +229,50 @@ Importing data is an easy way to create a cache with prepopulated data. During t
 Export allows you to export the data stored in Azure Managed Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Managed Redis instance to another or to another Redis server.
 During the export process, a temporary file is created on the VM that hosts the Azure Managed Redis instance. The temporary file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
-For more information and instructions, see [Import and Export data in Azure Managed Redis](managed-redis-how-to-import-export-data.md).
+For more information and instructions, see [Import and Export data in Azure Managed Redis](how-to-import-export-data.md).
 
 ### Private endpoint
 
-The **Private Endpoint** section allows you to configure the private endpoint settings for your instance. 
+The **Private Endpoint** section allows you to configure the private endpoint settings for your instance.
 We recommend using private endpoints for all production workloads. 
 
-For more information, see [Azure Cache for Redis with Azure Private Link](managed-redis-private-link.md).
+For more information, see [Azure Cache for Redis with Azure Private Link](private-link.md).
 
 ## Monitoring
 
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Managed Redis instance.
 
-- For more information on Azure Managed Redis monitoring and diagnostics, see [Monitor Azure Managed Redis](../monitor-cache.md).
-- For a list of metrics used in Azure Managed Redis, see [Azure Managed Redis monitoring data reference](../monitor-cache-reference.md).
-
-<!--
-:::image type="content" source="configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
--->
+- For more information on Azure Managed Redis monitoring and diagnostics, see [Monitor Azure Managed Redis](monitor-cache.md).
+- For a list of metrics used in Azure Managed Redis, see [Azure Managed Redis monitoring data reference](monitor-cache-reference.md).
 
 ### Alerts
 
-Select **Alerts** to configure alerts based on Azure Managed Redis metrics. For more information, see [Create alerts](../monitor-cache.md#create-alerts).
+Select **Alerts** to configure alerts based on Azure Managed Redis metrics. For more information, see [Create alerts](monitor-cache.md#create-alerts).
 
 ### Metrics
 
-Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](../monitor-cache.md#create-your-own-metrics).
+Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](monitor-cache.md#create-your-own-metrics).
 
 ### Advisor recommendations
 
 The **Advisor recommendations** displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
-<!--Fran, I'm keeping the screenshots in this section because they're kind of necessary. But they should be updated at some point -->
+<!--I'm keeping the screenshots in this section because they're kind of necessary. But they should be updated at some point -->
 
-:::image type="content" source="configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
+:::image type="content" source="media/configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
 
 If any conditions occur during the operations of your cache such as imminent changes, high memory usage, network bandwidth, or server load, an alert is displayed in the **Overview** of the Resource menu.
 
-:::image type="content" source="configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in when Overview is selected in the Resource menu.":::
+:::image type="content" source="media/configure/redis-cache-recommendations-alert.png" alt-text="Screenshot that shows where alerts are displayed in when Overview is selected in the Resource menu.":::
 
 Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
-:::image type="content" source="configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
-
+:::image type="content" source="media/configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
 
 ### Diagnostic Settings Metrics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. 
-To persist your cache metrics for longer than 30 days, select **Diagnostics Settings - Metrics** to [configure the storage account](../monitor-cache.md#data-storage) used to store cache diagnostics.
+To persist your cache metrics for longer than 30 days, select **Diagnostics Settings - Metrics** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
 >In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
@@ -296,7 +281,7 @@ To persist your cache metrics for longer than 30 days, select **Diagnostics Sett
 ### Diagnostic Settings Auditing
 
 Use **Diagnostic Settings - Auditing** to log connections made to the Azure Managed Redis instance, including both successful and unsuccessful connection attempts. 
-For more information, see [Monitor Azure Managed Redis data using diagnostic settings](managed-redis-monitor-diagnostic-settings.md)
+For more information, see [Monitor Azure Managed Redis data using diagnostic settings](monitor-diagnostic-settings.md)
 
 ## Automation
 
@@ -315,10 +300,6 @@ Select **Export template** to build and export a template of your deployed resou
 ## Help
 
 The settings in the **Help** section provide you with options for resolving issues with your cache.
-
-<!--
-:::image type="content" source="configure/redis-cache-support-troubleshooting.png" alt-text="Support and troubleshooting":::
--->
 
 - [Resource health](#resource-health)
 - [Support + Troubleshooting](#support-and-troubleshooting)
@@ -363,7 +344,6 @@ The `maxclients` property is different for each Azure Managed Redis SKU.
 
 See the [Azure Managed Redis pricing page](https://aka.ms/amrpricing) for more information about the connection limits per SKU.  
 
-
 > [!NOTE]
 > While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
 >
@@ -395,9 +375,9 @@ For cache instances using active geo-replication, the following commands are als
 - FLUSHALL
 - FLUSHDB
 
-Instead, use the [control plane flush operation](managed-redis-how-to-active-geo-replication.md#flush-operation) through the portal, PowerShell, or CLI. 
+Instead, use the [control plane flush operation](how-to-active-geo-replication.md#flush-operation) through the portal, PowerShell, or CLI. 
 
 ## Related content
 
-- [How can I run Redis commands?](managed-redis-development-faq.yml#how-can-i-run-redis-commands-)
-- [Monitor Azure Cache for Redis](../monitor-cache.md)
+- [How can I run Redis commands?](development-faq.yml#how-can-i-run-redis-commands-)
+- [Monitor Azure Redis](monitor-cache.md)

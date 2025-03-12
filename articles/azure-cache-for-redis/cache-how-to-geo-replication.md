@@ -2,8 +2,6 @@
 title: Configure passive geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to use cross-region replication to provide disaster recovery on the Premium tier of Azure Cache for Redis.
 
-
-
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 11/15/2024
@@ -200,7 +198,7 @@ When the failover process is initiated, you see the link provisioning status upd
 
 ### Can I track the health of the geo-replication link?
 
-Yes, there are several [metrics available](monitor-cache-reference.md#metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
+Yes, there are several [metrics available](../redis/monitor-cache-reference.md#metrics) to help track the status of the geo-replication. These metrics are available in the Azure portal.
 
 - **Geo Replication Healthy** shows the status of the geo-replication link. The link show as unhealthy if either the geo-primary or geo-secondary caches are down. This is typically due to standard patching operations, but it could also indicate a failure situation.
 - **Geo Replication Connectivity Lag** shows the time since the last successful data synchronization between geo-primary and geo-secondary.

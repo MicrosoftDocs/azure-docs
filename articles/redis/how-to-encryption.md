@@ -12,7 +12,7 @@ ms.date: 11/15/2024
 
 # Configure disk encryption for Azure Managed Redis (preview) instances using customer managed keys
 
-Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, or because of deliberate actions to persist data using [export](managed-redis-how-to-import-export-data.md) or [data persistence](managed-redis-how-to-persistence.md).
+Data in a Redis server is stored in memory by default. This data isn't encrypted. You can implement your own encryption on the data before writing it to the cache. In some cases, data can reside on-disk, either due to the operations of the operating system, or because of deliberate actions to persist data using [export](how-to-import-export-data.md) or [data persistence](how-to-persistence.md).
 
 Azure Managed Redis (preview) offers platform-managed keys (PMKs), also know as Microsoft-managed keys (MMKs), by default to encrypt data on-disk in all tiers. Azure Managed Redis additionally offers the ability to encrypt the OS and data persistence disks with a customer-managed key (CMK). Customer managed keys can be used to wrap the MMKs to control access to these keys. This makes the CMK a _key encryption key_ or KEK. For more information, see [key management in Azure](/azure/security/fundamentals/key-management).
 
@@ -28,8 +28,8 @@ Azure Managed Redis (preview) offers platform-managed keys (PMKs), also know as 
 
 In Azure Managed Redis, disk encryption is used to encrypt the persistence disk, temporary files, and the OS disk:
 
-- persistence disk: holds persisted RDB or AOF files as part of [data persistence](managed-redis-how-to-persistence.md)
-- temporary files used in _export_: temporary data used exported is encrypted. When you [export](managed-redis-how-to-import-export-data.md) data, the encryption of the final exported data is controlled by settings in the storage account.
+- persistence disk: holds persisted RDB or AOF files as part of [data persistence](how-to-persistence.md)
+- temporary files used in _export_: temporary data used exported is encrypted. When you [export](how-to-import-export-data.md) data, the encryption of the final exported data is controlled by settings in the storage account.
 - the OS disk
 
 MMK is used to encrypt these disks by default, but CMK can also be used.
@@ -61,15 +61,15 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 
 ### Use the portal to create a new cache with CMK enabled
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and start the [Create an Azure Managed Redis instance](../quickstart-create-managed-redis.md) quickstart guide.
+1. Sign in to the [Azure portal](https://portal.azure.com) and start the [Create an Azure Managed Redis instance](quickstart-create-managed-redis.md) quickstart guide.
 
 1. On the **Advanced** page, go to the section titled **Customer-managed key encryption at rest** and enable the **Use a customer-managed key** option.
 
-   :::image type="content" source="how-to-encryption/managed-redis-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
+   :::image type="content" source="media/how-to-encryption/managed-redis-use-key-encryption.png" alt-text="Screenshot of the advanced settings with customer-managed key encryption checked and in a red box.":::
 
 1. Select **Add** to assign a [user assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to the resource. This managed identity is used to connect to the [Azure Key Vault](/azure/key-vault/general/overview) instance that holds the customer managed key.
 
-    :::image type="content" source="how-to-encryption/managed-redis-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
+    :::image type="content" source="media/how-to-encryption/managed-redis-managed-identity-user-assigned.png" alt-text="Screenshot showing user managed identity in the working pane.":::
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use.
 
@@ -80,7 +80,7 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 
 1. Choose the specific key and version using the **Customer-managed key (RSA)** and **Version** drop-downs.
 
-   :::image type="content" source="how-to-encryption/managed-redis-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
+   :::image type="content" source="media/how-to-encryption/managed-redis-managed-identity-version.png" alt-text="Screenshot showing the select identity and key fields completed.":::
 
 1. If using the **URI** input method, enter the Key Identifier URI for your chosen key from Azure Key Vault.  
 
@@ -91,7 +91,7 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 1. Go to the **Encryption** in the Resource menu of your cache instance. If CMK is already set up, you see the key information.
 
 1. If you haven't set up or if you want to change CMK settings, select **Change encryption settings**
-   :::image type="content" source="how-to-encryption/managed-redis-encryption-existing-use.png" alt-text="Screenshot encryption selected in the Resource menu for an Enterprise tier cache.":::
+   :::image type="content" source="media/how-to-encryption/managed-redis-encryption-existing-use.png" alt-text="Screenshot encryption selected in the Resource menu for an Enterprise tier cache.":::
 
 1. Select **Use a customer-managed key** to see your configuration options.
 
@@ -105,7 +105,7 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  
 
 1. Choose the specific key using the **Customer-managed key (RSA)** drop-down. If there are multiple versions of the key to choose from, use the **Version** drop-down.
-   :::image type="content" source="how-to-encryption/managed-redis-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::
+   :::image type="content" source="media/how-to-encryption/managed-redis-encryption-existing-key.png" alt-text="Screenshot showing the select identity and key fields completed for Encryption.":::
 
 1. If using the **URI** input method, enter the Key Identifier URI for your chosen key from Azure Key Vault.  
 
@@ -113,5 +113,5 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 
 ## Next steps
 
-- [Data persistence](managed-redis-how-to-persistence.md)
-- [Import/Export](managed-redis-how-to-import-export-data.md)
+- [Data persistence](how-to-persistence.md)
+- [Import/Export](how-to-import-export-data.md)

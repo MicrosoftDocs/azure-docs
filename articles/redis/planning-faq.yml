@@ -16,18 +16,18 @@ sections:
       - question: |
           How can I measure Azure Managed Redis (preview) performance?
         answer: |
-          For guidance on how to benchmark the performance of your Azure Managed Redis (preview) instance and for sample benchmarking numbers, please see the [Performance testing](managed-redis-best-practices-performance.md) page.
+          For guidance on how to benchmark the performance of your Azure Managed Redis (preview) instance and for sample benchmarking numbers, please see the [Performance testing](best-practices-performance.md) page.
           
       - question: |
           In what region should I locate my cache?
         answer: |
-          For best performance and lowest latency, locate your Azure Managed Redis in the same region as your cache client application. You can use [active geo replication](managed-redis-how-to-active-geo-replication.md) to distribute data to multiple regions for optimized latency. 
+          For best performance and lowest latency, locate your Azure Managed Redis in the same region as your cache client application. You can use [active geo replication](how-to-active-geo-replication.md) to distribute data to multiple regions for optimized latency. 
 
       - question: |
           Where does my cached data reside?
         answer: |
          In Azure Managed Redis (preview), your application data is stored in the RAM of the VM or VMs (depending on the tier and size configuration) that host your Redis instance. Your data resides strictly in the Azure region you've selected by default. 
-         If you set up [active geo-replication](managed-redis-how-to-active-geo-replication.md), however, your data is replicated to each Redis instance in the geo-replication group. If Redis instances in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
+         If you set up [active geo-replication](how-to-active-geo-replication.md), however, your data is replicated to each Redis instance in the geo-replication group. If Redis instances in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
          You need to explicitly configure Azure Managed Redis to use this feature and have complete control over the region(s) chosen. 
           
           >[!NOTE] 
@@ -49,4 +49,4 @@ additionalContent: |
 
   ## Next steps
   
-  Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).
+  Learn about other [Azure Managed Redis FAQs](faq.yml).

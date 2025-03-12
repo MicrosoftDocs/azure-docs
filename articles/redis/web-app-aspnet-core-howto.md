@@ -138,11 +138,11 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 
 1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
 
-   :::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed locally.":::
+   :::image type="content" source="media/web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed locally.":::
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content
 
-- [Connection resilience](cache-best-practices-connection.md)
-- [Best Practices Development](cache-best-practices-development.md)
+- [Connection resilience](best-practices-connection.md)
+- [Best Practices Development](best-practices-development.md)

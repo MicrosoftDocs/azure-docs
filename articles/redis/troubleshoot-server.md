@@ -36,19 +36,19 @@ Following are some options to consider for high CPU.
 
 ### Scale up or move to a higher performance tier
 
-For higher performance, consider scaling up to a larger cache size with more CPU cores. For more information, see [Performance tiers](managed-redis-how-to-scale.md#performance-tiers).
+For higher performance, consider scaling up to a larger cache size with more CPU cores. For more information, see [Performance tiers](how-to-scale.md#performance-tiers).
 
 ### Rapid changes in number of client connections
 
-For more information, see [Avoid client connection spikes](managed-redis-best-practices-connection.md#avoid-client-connection-spikes).
+For more information, see [Avoid client connection spikes](best-practices-connection.md#avoid-client-connection-spikes).
 
 ### Long running or expensive commands
 
-For more information, see [Long running commands](managed-redis-troubleshoot-timeouts.md#long-running-commands).
+For more information, see [Long running commands](troubleshoot-timeouts.md#long-running-commands).
 
 ### Scaling
 
-Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. For more information, see [Scaling](managed-redis-best-practices-scale.md).
+Scaling operations are CPU and memory intensive as it could involve moving data around nodes and changing cluster topology. For more information, see [Scaling](best-practices-scale.md).
 
 ### Server maintenance
 
@@ -72,28 +72,28 @@ If the `used_memory_rss` value is higher than 1.5 times the `used_memory` metric
 
 If a cache is fragmented and is running under high memory pressure, the system does a failover to try recovering Resident Set Size (RSS) memory.
 
-Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](../monitor-cache.md#view-cache-metrics) using the portal.
+Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO](https://redis.io/commands/info) command that can help you identify this issue. You can [view these metrics](monitor-cache.md#view-cache-metrics) using the portal.
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-- [Configure a memory policy](managed-redis-configure.md#memory-policies) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-- [Create alerts](../monitor-cache.md#create-alerts) on metrics like used memory to be notified early about potential impacts.
-- [Scale](managed-redis-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Managed Redis planning FAQs](./managed-redis-planning-faq.yml).
+- [Configure a memory policy](configure.md#memory-policies) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
+- [Create alerts](monitor-cache.md#create-alerts) on metrics like used memory to be notified early about potential impacts.
+- [Scale](how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Managed Redis planning FAQs](planning-faq.yml).
 
-For recommendations on memory management, see [Best practices for memory management](managed-redis-best-practices-memory-management.md).
+For recommendations on memory management, see [Best practices for memory management](best-practices-memory-management.md).
 
 ## Long-running commands
 
-For more information, see [Long running commands](managed-redis-troubleshoot-timeouts.md#long-running-commands).
+For more information, see [Long running commands](troubleshoot-timeouts.md#long-running-commands).
 
 ## Server-side bandwidth limitation
 
-For more information, see [Network bandwidth limitation](managed-redis-troubleshoot-timeouts.md#network-bandwidth-limitation).
+For more information, see [Network bandwidth limitation](troubleshoot-timeouts.md#network-bandwidth-limitation).
 
 ## Additional information
 
-- [Troubleshoot Azure Managed Redis client-side issues](managed-redis-troubleshoot-client.md)
-- [Choosing the right tier](managed-redis-overview.md#choosing-the-right-tier)
-- [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md)
-- [Monitor Azure Managed Redis](../monitor-cache.md)
-- [How can I run Redis commands?](managed-redis-development-faq.yml#how-can-i-run-redis-commands-)
+- [Troubleshoot Azure Managed Redis client-side issues](troubleshoot-client.md)
+- [Choosing the right tier](overview.md#choosing-the-right-tier)
+- [Performance testing with Azure Managed Redis](best-practices-performance.md)
+- [Monitor Azure Managed Redis](monitor-cache.md)
+- [How can I run Redis commands?](development-faq.yml#how-can-i-run-redis-commands-)

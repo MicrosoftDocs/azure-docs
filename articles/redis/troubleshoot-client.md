@@ -34,15 +34,15 @@ High memory pressure on the client can be mitigated several ways:
 
 ## Traffic burst
 
-For more information, see [Traffic burst and thread pool configuration](managed-redis-troubleshoot-timeouts.md#traffic-burst-and-thread-pool-configuration).
+For more information, see [Traffic burst and thread pool configuration](troubleshoot-timeouts.md#traffic-burst-and-thread-pool-configuration).
 
 ## High client CPU usage
 
-For more information, see [High CPU on client hosts](managed-redis-troubleshoot-timeouts.md#high-cpu-on-client-hosts).
+For more information, see [High CPU on client hosts](troubleshoot-timeouts.md#high-cpu-on-client-hosts).
 
 ## Client-side bandwidth limitation
 
-For more information, see [Network bandwidth limitation on client hosts](managed-redis-troubleshoot-timeouts.md#network-bandwidth-limitation-on-client-hosts).
+For more information, see [Network bandwidth limitation on client hosts](troubleshoot-timeouts.md#network-bandwidth-limitation-on-client-hosts).
 
 ## High client connections
 
@@ -50,12 +50,12 @@ When client connections reach the maximum for the cache, you can have failures i
 
 High client connections might indicate a connection leak in client code. Connections might not be getting reused or closed properly. Review client code for connection use.
 
-If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit might be required. Check if the `Max aggregate for Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Managed Redis performance](managed-redis-planning-faq.yml).
+If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit might be required. Check if the `Max aggregate for Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Managed Redis performance](planning-faq.yml).
 
 ## Additional information
 
 These articles provide more information on troubleshooting and performance testing:
 
-- [Troubleshoot Azure Managed Redis server issues](managed-redis-troubleshoot-server.md)
-- [Troubleshoot Azure Managed Redis latency and timeouts](managed-redis-troubleshoot-timeouts.md)
-- [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md)
+- [Troubleshoot Azure Managed Redis server issues](troubleshoot-server.md)
+- [Troubleshoot Azure Managed Redis latency and timeouts](troubleshoot-timeouts.md)
+- [Performance testing with Azure Managed Redis](best-practices-performance.md)

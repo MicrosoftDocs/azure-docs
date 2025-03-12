@@ -46,15 +46,15 @@ One tier stores data both in-memory and on-disk:
 
 ## Tiers and SKUs at glance
 
-:::image type="content" source="how-to-scale/tier-diagram.png" alt-text="Table showing the different memory and vCPU configurations for each SKU and tier of Azure Managed Redis.":::
+:::image type="content" source="media/how-to-scale/tier-diagram.png" alt-text="Table showing the different memory and vCPU configurations for each SKU and tier of Azure Managed Redis.":::
 
 ## Performance (Throughput and Latency)
 
-For performance benchmarks and more information on how to measure the performance of each SKU and tier, see [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md)
+For performance benchmarks and more information on how to measure the performance of each SKU and tier, see [Performance testing with Azure Managed Redis](best-practices-performance.md)
 
 ## When to scale
 
-You can use the [monitoring](../monitor-cache.md) features of Azure Managed Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
+You can use the [monitoring](monitor-cache.md) features of Azure Managed Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
 
 You can monitor the following metrics to determine if you need to scale.
 
@@ -64,16 +64,16 @@ You can monitor the following metrics to determine if you need to scale.
   - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
 - **Client connections**
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling to a larger memory size or a higher performance tier.
-  - For more information on connection limits by cache size, see [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md).
+  - For more information on connection limits by cache size, see [Performance testing with Azure Managed Redis](best-practices-performance.md).
 - **Network Bandwidth**
   - If the Redis server exceeds the available bandwidth, clients requests could time out because the server can't push data to the client fast enough. To see how much server-side bandwidth is being used, check "Cache Read" and "Cache Write" metrics. If your Redis server is exceeding available network bandwidth, consider scaling to a higher performance tier or a larger cache size.
-  - The choice of cluster policy affects network bandwidth available. Generally, the _OSS_ cluster policy has higher network bandwidth than the _Enterprise_ cluster policy. For more information, see [Cluster policy](managed-redis-architecture.md#cluster-policies)
-  - For more information on network available bandwidth by cache size, see [Performance testing with Azure Managed Redis](managed-redis-best-practices-performance.md).
+  - The choice of cluster policy affects network bandwidth available. Generally, the _OSS_ cluster policy has higher network bandwidth than the _Enterprise_ cluster policy. For more information, see [Cluster policy](architecture.md#cluster-policies)
+  - For more information on network available bandwidth by cache size, see [Performance testing with Azure Managed Redis](best-practices-performance.md).
 
-For more information on determining the cache pricing tier to use, see [Choosing the right tier](managed-redis-overview.md#choosing-the-right-tier).
+For more information on determining the cache pricing tier to use, see [Choosing the right tier](overview.md#choosing-the-right-tier).
 
 > [!NOTE]
-> For more information on how to optimize the scaling process, see the [best practices for scaling guide](managed-redis-best-practices-scale.md)
+> For more information on how to optimize the scaling process, see the [best practices for scaling guide](best-practices-scale.md)
 >
 
 ## Prerequisites/limitations of scaling Azure Managed Redis
@@ -92,19 +92,19 @@ For more information on determining the cache pricing tier to use, see [Choosing
 
 ### Scale using the Azure portal
 
-1. To scale your cache, [browse to the cache](managed-redis-configure.md#configure-azure-managed-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
+1. To scale your cache, [browse to the cache](configure.md#configure-azure-managed-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
 
-   :::image type="content" source="how-to-scale/managed-redis-enterprise-scale.png" alt-text="Screenshot showing Scale selected in the Resource menu for an Enterprise cache.":::
+   :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale.png" alt-text="Screenshot showing Scale selected in the Resource menu for an Enterprise cache.":::
 
 1. To scale up, choose a different **Cache type** and then choose **Save**.
    > [!IMPORTANT]
    > If you select a SKU that cannot be scaled to, the **Save** option is disabled. Review the [Prerequisites/limitations of scaling Azure Managed Redis](#prerequisiteslimitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
 
-   :::image type="content" source="how-to-scale/managed-redis-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane.":::
+   :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane.":::
 
 1. While the cache is scaling to the new tier, a **Scaling Redis Cache** notification is displayed.
 
-    :::image type="content" source="how-to-scale/managed-redis-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
+    :::image type="content" source="media/how-to-scale/managed-redis-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
 
 1. When scaling is complete, the status changes from **Scaling** to **Running**.
 
@@ -155,7 +155,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 - When you scale a Redis instance, one of the nodes in the Redis cluster is shut down and reprovisioned to the new size. Then data transferred over, and then the other node does a similar failover before it's reprovisioned. This is similar to the process that occurs during patching or a failure of one of the cache nodes.
 - When scaling to an instance with more vCPUs, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
 
-For more information on how Azure Managed Redis handles sharding, see [Sharding configuration](managed-redis-architecture.md#sharding-configuration).
+For more information on how Azure Managed Redis handles sharding, see [Sharding configuration](architecture.md#sharding-configuration).
 
 ### Do I lose data from my cache during scaling?
 
@@ -170,7 +170,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-With [active geo-replication](managed-redis-how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](managed-redis-how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
+With [active geo-replication](how-to-active-geo-replication.md) configured, you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 ### How long does scaling take?
 
@@ -192,7 +192,7 @@ Unlike Azure Cache for Redis, Azure Managed Redis uses clustering across all tie
 
 ### How many shards does each Azure Managed Redis SKU use?
 
-Because Azure Managed Redis runs on Redis Enterprise software, shards can be used in a denser configuration than in community Redis. To learn about the specific number of shards used in each SKU, see [Sharding configuration](managed-redis-architecture.md#sharding-configuration).
+Because Azure Managed Redis runs on Redis Enterprise software, shards can be used in a denser configuration than in community Redis. To learn about the specific number of shards used in each SKU, see [Sharding configuration](architecture.md#sharding-configuration).
 
 ### How are keys distributed in a cluster?
 
@@ -211,8 +211,8 @@ The largest cache size you can have is 4.5 TB, called Flash Optimized A4500 inst
 
 ### What is the difference between the OSS and Enterprise cluster policies?
 
-OSS cluster policy is the same as clustering approach used in community edition Redis. Typically OSS cluster policy is more performant. Enterprise cluster policy implements clustering so that it appears to a client as a nonclustered Redis instance. This approach can be less performant, but can prevent client compatibility issues. It isn't currently possible to switch between cluster policies on a running instance. For more information, see [Cluster policy](managed-redis-architecture.md#cluster-policies).
+OSS cluster policy is the same as clustering approach used in community edition Redis. Typically OSS cluster policy is more performant. Enterprise cluster policy implements clustering so that it appears to a client as a nonclustered Redis instance. This approach can be less performant, but can prevent client compatibility issues. It isn't currently possible to switch between cluster policies on a running instance. For more information, see [Cluster policy](architecture.md#cluster-policies).
 
 ## Next steps
 
-- [Best practices for scaling](managed-redis-best-practices-scale.md)
+- [Best practices for scaling](best-practices-scale.md)

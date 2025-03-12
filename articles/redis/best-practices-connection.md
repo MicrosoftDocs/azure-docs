@@ -64,7 +64,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid your new connections from being throttled.
 
 > [!NOTE]
-> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](./managed-redis-management-faq.yml#stackexchangeredis-best-practices).
+> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](management-faq.yml#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 
@@ -72,15 +72,15 @@ Caches have limits on the number of client connections per cache tier. Ensure th
 
 <!-- ## Advance maintenance notification -->
 <!-- FXL - check with Umang if this is ok. -->
-<!-- Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](managed-redis-failover.md#can-i-be-notified-in-advance-of-maintenance). -->
+<!-- Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](failover.md#can-i-be-notified-in-advance-of-maintenance). -->
 
 ## Schedule maintenance window
 
-Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Update channel and Schedule updates](managed-redis-administration.md#update-channel-and-schedule-updates).
+Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
 
 ## More design patterns for resilience
 
-Apply design patterns for resiliency. For more information, see [How do I make my application resilient](managed-redis-failover.md#how-do-i-make-my-application-resilient).
+Apply design patterns for resiliency. For more information, see [How do I make my application resilient](failover.md#how-do-i-make-my-application-resilient).
 
 ## Idle timeout
 
@@ -90,6 +90,6 @@ If there's any risk of your connections being idle for 10 minutes, configure the
 
 ## Related content
 
-- [Best practices for development](managed-redis-best-practices-development.md)
-- [Azure Cache for Redis development FAQ](managed-redis-development-faq.yml)
-- [Failover and patching](managed-redis-failover.md)
+- [Best practices for development](best-practices-development.md)
+- [Azure Cache for Redis development FAQ](development-faq.yml)
+- [Failover and patching](failover.md)

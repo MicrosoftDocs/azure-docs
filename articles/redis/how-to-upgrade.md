@@ -44,7 +44,7 @@ As an alternative to automatic upgrade, you can also manually upgrade to the lat
 
 1. In the portal, navigate to the **Overview** of the cache using the Resource menu. Then, choose **Upgrade** in the working pane to start an upgrade.
 
-    :::image type="content" source="how-to-upgrade/managed-redis-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version." :::
+    :::image type="content" source="media/how-to-upgrade/managed-redis-upgrade-overview.png" alt-text="Screenshot showing the upgrade pane, the current version, and the available version." :::
 
 1. You then see an **Upgrade Redis** pane that shows you the current Redis version, and any version that you can upgrade to. As noted in the pane, upgrading is irreversible. You can't downgrade. To confirm and begin the upgrade process, select **Start Upgrade**.
 
@@ -52,7 +52,7 @@ As an alternative to automatic upgrade, you can also manually upgrade to the lat
     > Once your Redis instance has been upgraded, it cannot be downgraded to the previous version.
     >
 
-    :::image type="content" source="how-to-upgrade/managed-redis-upgrade-pane.png" alt-text="Screenshot showing overview selected in the resource menu and pane titled Upgrade Redis.":::
+    :::image type="content" source="media/how-to-upgrade/managed-redis-upgrade-pane.png" alt-text="Screenshot showing overview selected in the resource menu and pane titled Upgrade Redis.":::
 
     If you're already running the latest version of Redis software available, the **Upgrade** button is disabled.
 
@@ -64,7 +64,7 @@ The deferral option must be selected before a new Redis version reaches GA for i
 
 To defer upgrades to your cache, navigate to the **Advanced Settings** on the Resource menu, and select the **Defer Redis DB version updates** box.
 
-:::image type="content" source="how-to-upgrade/managed-redis-defer-upgrade.png" alt-text="Screenshot showing Advanced settings selected in the Resource menu and a red box around Defer Redis DB version updates.":::
+:::image type="content" source="media/how-to-upgrade/managed-redis-defer-upgrade.png" alt-text="Screenshot showing Advanced settings selected in the Resource menu and a red box around Defer Redis DB version updates.":::
 
 > [!IMPORTANT]
 > Selecting the option to defer upgrades only applies to the next automatic upgrade event. Caches that have already been upgraded cannot be downgraded using the defer option.
@@ -76,7 +76,7 @@ Each new Redis version is intended to be a seamless upgrade from previous versio
 
 ### Client version
 
-If you're using an outdated Redis client, new commands or Redis features can't be supported properly. We always recommend updating to the latest stable version of your Redis client, as newer versions often have stability and performance improvements as well. For more information on configuring your client library, see [best practices using client libraries](../cache-best-practices-client-libraries.md).
+If you're using an outdated Redis client, new commands or Redis features can't be supported properly. We always recommend updating to the latest stable version of your Redis client, as newer versions often have stability and performance improvements as well. For more information on configuring your client library, see [best practices using client libraries](best-practices-client-libraries.md).
 
 ### Breaking changes
 

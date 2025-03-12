@@ -43,7 +43,7 @@ You’ll be able to deploy a machine learning model to Azure Functions with any 
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
 1. On the **New Redis Cache** page, configure the settings for your new cache.
 
@@ -314,8 +314,7 @@ After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
 
-* Learn more about [Azure Cache for Redis](./cache-overview.md)
+* Learn more about [Azure Cache for Redis](overview.md)
 * Learn to configure your function app in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
 * [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)
-* Create a [Python app that uses Azure Cache for Redis](./cache-python-get-started.md)
-
+* Create a [Python app that uses Azure Cache for Redis](python-get-started.md)

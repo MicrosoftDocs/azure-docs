@@ -191,11 +191,10 @@ This script uses the following commands to create a resource group and an Azure 
 | [az redis list-keys](/cli/azure/redis) | Retrieve access keys for an Azure Managed Redis instance. |
 | [az redis delete](/cli/azure/redis) | Delete Azure Managed Redis instance. |
 
-
 ::: zone-end
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-For an Azure Managed Redis CLI script sample that creates a  Azure Managed Redis with clustering, see [ Azure Managed Redis with Clustering](create-manage-premium-cache-cluster.md).
+For an Azure Managed Redis CLI script sample that creates a  Azure Managed Redis with clustering, see [Azure Managed Redis with Clustering](../../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md)

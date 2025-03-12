@@ -24,17 +24,17 @@ In this article, you find this information:
 
 Let's start with an overview of failover for Azure Managed Redis.
 
-### A quick summary of cache architecture 
+### A quick summary of cache architecture
 
-:::image type="content" source="architecture/managed-redis-architecture.png" alt-text="Diagram showing the architecture of the Azure Managed Redis offering.":::
+:::image type="content" source="media/architecture/managed-redis-architecture.png" alt-text="Diagram showing the architecture of the Azure Managed Redis offering.":::
 
 A cache is constructed of multiple virtual machines with separate and private IP addresses. Each virtual machine (or "node") runs multiple Redis server processes (called "shards") in parallel. Multiple shards allow for more efficient utilization of vCPUs on each virtual machine and higher performance. Not all of the primary Redis shards are on the same VM/node. Instead, primary and replica shards are distributed across both nodes. Because primary shards use more CPU resources than replica shards, this approach enables more primary shards to be run in parallel. Each node has a [high-performance proxy](https://redis.io/blog/redis-enterprise-proxy/) process to manage the shards, handle connection management, and trigger self-healing. One shard might be down while the others remain available.
 
-In depth details of Azure Managed Redis Architecture can be found [here](managed-redis-architecture.md).
+In depth details of Azure Managed Redis Architecture can be found [here](architecture.md).
 
 ### Explanation of a failover
 
-A failover occurs when one or more replica shards promote themselves to become primary shards, and the old primary shards close existing connections. <!-- After the primary node comes back up, it notices the change in roles and demotes itself to become a replica. It then connects to the new primary and synchronizes data.--> A failover might be planned or unplanned.
+A failover occurs when one or more replica shards promote themselves to become primary shards, and the old primary shards close existing connections. A failover might be planned or unplanned.
 
 A _planned failover_ takes place during two different times:
 
@@ -49,11 +49,6 @@ An _unplanned failover_ might happen because of hardware failure, network failur
 
 The Azure Managed Redis service regularly updates your cache with the latest platform features and fixes. To patch a cache, the service follows these steps:
 
-<!-- 1. The service patches the replica node first.
-2. The patched replica cooperatively promotes itself to primary. This promotion is considered a planned failover.
-3. The former primary node reboots to take the new changes and comes back up as a replica node.
-4. The replica node connects to the primary node and synchronizes data.
-5. When the data sync is complete, the patching process repeats for the remaining nodes. -->
 1. The service creates new up-to-date VMs to replace all VMs being patched.
 2. Then it promotes one of the new VMs as the cluster leader.
 3. One by one, all nodes being patched are removed from the cluster. Any shards on these VMs will be demoted and migrated to one of the new VMs.
@@ -64,7 +59,7 @@ Each shard of a clustered cache is patched separately and doesn't close connecti
 
 Multiple caches in the same resource group and region are also patched one at a time. Caches that are in different resource groups or different regions might be patched simultaneously.
 
-Because full data synchronization happens before the process repeats, data loss is unlikely to occur for your cache. You can further guard against data loss by [exporting](managed-redis-how-to-import-export-data.md#export) data and enabling [persistence](managed-redis-how-to-persistence.md).
+Because full data synchronization happens before the process repeats, data loss is unlikely to occur for your cache. You can further guard against data loss by [exporting](how-to-import-export-data.md#export) data and enabling [persistence](how-to-persistence.md).
 
 ## Additional cache load
 
@@ -82,7 +77,7 @@ Many client libraries can throw different types of errors when connections break
 
 The number and type of exceptions depends on where the request is in the code path when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](managed-redis-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
+Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using a [ForceReconnect pattern](best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
 ### What are the updates included under maintenance?
 
@@ -116,14 +111,14 @@ Refer to these design patterns to build resilient clients, especially the circui
 - [Retry guidance for Azure services - Best practices for cloud applications](/azure/architecture/best-practices/retry-service-specific)
 - [Implement retries with exponential backoff](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
 
-<!-- To test a client application's resiliency, use a [reboot](managed-redis-administration.md#reboot) as a manual trigger for connection breaks. -->
+<!-- To test a client application's resiliency, use a [reboot](administration.md#reboot) as a manual trigger for connection breaks. -->
 
-<!-- Additionally, we recommend that you use scheduled updates to choose an update channel and a maintenance window for your cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents. For more information, see [Update channel and Schedule updates](managed-redis-administration.md#update-channel-and-schedule-updates). -->
+<!-- Additionally, we recommend that you use scheduled updates to choose an update channel and a maintenance window for your cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents. For more information, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates). -->
 
-<!-- For more information, see [Connection resilience](managed-redis-best-practices-connection.md). -->
+<!-- For more information, see [Connection resilience](best-practices-connection.md). -->
 
 ## Related content
 
-<!-- - [Update channel and Schedule updates](managed-redis-administration.md#update-channel-and-schedule-updates) -->
-<!-- - Test application resiliency by using a [reboot](managed-redis-administration.md#reboot) -->
-- [Connection resilience](managed-redis-best-practices-connection.md)
+<!-- - [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates) -->
+<!-- - Test application resiliency by using a [reboot](administration.md#reboot) -->
+- [Connection resilience](best-practices-connection.md)

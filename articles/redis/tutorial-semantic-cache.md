@@ -46,11 +46,12 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Cache for Redis instance
 
-Follow the [Quickstart: Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
-:::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot showing the Enterprise tier Basics tab filled out.":::
+<!-- This needs to be put in the local folder
+:::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Screenshot showing the Enterprise tier Basics tab filled out."::: -->
 
 ## Set up your development environment
 
@@ -302,15 +303,15 @@ Finally, query the LLM to get an AI generated response. If you're using a Jupyte
     CPU times: total: 15.6 ms
     Wall time: 4.3 s
     ```
-    
+
     You likely need to fine-tune the similarity threshold based on your application to ensure that the right sensitivity is used when determining which queries to cache.
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content
 
-- [Learn more about Azure Cache for Redis](cache-overview.md)
-- Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
-- [Tutorial: use vector similarity search on Azure Cache for Redis](cache-tutorial-vector-similarity.md)
+- [Learn more about Azure Cache for Redis](overview.md)
+- Learn more about Azure Cache for Redis [vector search capabilities](./overview-vector-similarity.md)
+- [Tutorial: use vector similarity search on Azure Cache for Redis](tutorial-vector-similarity.md)
 - [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 - [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)

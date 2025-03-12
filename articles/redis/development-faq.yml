@@ -18,7 +18,7 @@ sections:
         answer: |
           There are several ways you can get started with Azure Managed Redis (preview).
           
-          * You can check out one of our tutorials available for [.NET](../cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](../cache-web-app-howto.md), [Java](../cache-java-get-started.md), [Node.js](../cache-nodejs-get-started.md), and [Python](../cache-python-get-started.md).
+          * You can check out one of our tutorials available for [.NET](dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](web-app-cache-howto.md), [Java](java-get-started.md), [Node.js](nodejs-get-started.md), and [Python](python-get-started.md).
           * You can explore [Azure Redis learning paths](https://learn.microsoft.com/training/browse/?expanded=azure&products=azure-cache-redis)
           * You can check out the client documentation for the example clients that match the development language you use in your project. There are many Redis clients that can be used with Azure Managed Redis. For a list of Redis clients, see [https://redis.io/clients](https://redis.io/clients).
           
@@ -61,7 +61,7 @@ sections:
       - question: |
           What Redis clients can I use?
         answer: |
-          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Managed Redis](../cache-dotnet-how-to-use-azure-redis-cache.md).
+          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Managed Redis](dotnet-how-to-use-azure-redis-cache.md).
           
       - question: |
           Is there a local emulator for Azure Managed Redis?
@@ -91,16 +91,16 @@ sections:
       - question: |
           How can I run Redis commands?
         answer: |
-          You can use any of the commands listed at [Redis commands](https://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Managed Redis](managed-redis-configure.md#redis-commands-not-supported-in-azure-managed-redis). You have several options to run Redis commands.
+          You can use any of the commands listed at [Redis commands](https://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Managed Redis](configure.md#redis-commands-not-supported-in-azure-managed-redis). You have several options to run Redis commands.
                     
-          You can also use the Redis command-line tools. To use them, see [Use the Redis command-line tool with Azure Managed Redis](managed-redis-how-to-redis-cli-tool.md)          
+          You can also use the Redis command-line tools. To use them, see [Use the Redis command-line tool with Azure Managed Redis](how-to-redis-cli-tool.md)          
           
       - question: |
           Why doesn't Azure Managed Redis have an MSDN class library reference?
         answer: |
           Microsoft Azure Managed Redis is based on the popular in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/connect/clients/) for many programming languages. Each client has its own API that makes calls to the Azure Managed Redis instance using [Redis commands](https://redis.io/commands).
           
-          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Managed Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Managed Redis](../cache-dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.
+          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Managed Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Managed Redis](dotnet-how-to-use-azure-redis-cache.md) and it's sibling articles in the table of contents.
           
       - question: |
           What are Redis databases?
@@ -112,4 +112,4 @@ sections:
 additionalContent: |
 
   ## Related content
-     Learn about other [Azure Managed Redis FAQs](managed-redis-faq.yml).
+     Learn about other [Azure Managed Redis FAQs](faq.yml).

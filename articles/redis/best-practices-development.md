@@ -13,7 +13,7 @@ ms.date: 11/15/2024
 
 ## Connection resilience and server load
 
-When developing client applications, be sure to consider the relevant best practices for [connection resilience](managed-redis-best-practices-connection.md) and [managing server load](managed-redis-best-practices-server-load.md).
+When developing client applications, be sure to consider the relevant best practices for [connection resilience](best-practices-connection.md) and [managing server load](best-practices-server-load.md).
 
 ## Consider more keys and smaller values
 
@@ -53,12 +53,12 @@ Try to choose a Redis client that supports [Redis pipelining](https://redis.io/t
 
 ## Avoid expensive operations
 
-Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](managed-redis-troubleshoot-timeouts.md#long-running-commands).
+Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](troubleshoot-timeouts.md#long-running-commands).
 
 ## Choose an appropriate tier
 
-Azure Managed Redis offers Memory Optimized, Balanced, Compute Optimized and Flash Optimized tiers. See more information on how to choose a tier [here](managed-redis-how-to-scale.md#performance-tiers).
-We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](managed-redis-best-practices-performance.md).
+Azure Managed Redis offers Memory Optimized, Balanced, Compute Optimized and Flash Optimized tiers. See more information on how to choose a tier [here](how-to-scale.md#performance-tiers).
+We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](best-practices-performance.md).
 
 ## Choose an appropriate availability mode
 
@@ -80,21 +80,21 @@ Azure Managed Redis requires TLS encrypted communications by default. TLS versio
 
 ## Monitor memory usage, CPU usage metrics, client connections and network bandwidth
 
-When using Azure Managed Redis instance in production, we recommend setting alerts for "Used Memory Percentage", "CPU" metrics, "Connected Clients". If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. See [when to scale](managed-redis-how-to-scale.md#when-to-scale) for more details.
+When using Azure Managed Redis instance in production, we recommend setting alerts for "Used Memory Percentage", "CPU" metrics, "Connected Clients". If these metrics are consistently above 75%, consider scaling your instance to a  bigger memory or better throughput tier. See [when to scale](how-to-scale.md#when-to-scale) for more details.
 
 ## Consider enabling Data Persistence or Data Backup
 
 Redis is designed for ephemeral data by default, which means that in rare cases, your data can be lost due to various circumstances like maintenance or outages. If your application is sensitive to data loss, we recommend enabling data persistence or periodic data backup using data export operation.
 
-The [data persistence](managed-redis-how-to-persistence.md) feature is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users or cannot be used by any other AMR instance.
+The [data persistence](how-to-persistence.md) feature is designed to automatically provide a quick recovery point for data when a cache goes down. The quick recovery is made possible by storing the RDB or AOF file in a managed disk that is mounted to the cache instance. Persistence files on the disk aren't accessible to users or cannot be used by any other AMR instance.
 
-Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](managed-redis-how-to-import-export-data.md) feature. You can export copies of data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. This exported data can then be imported to any Redis instance. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools.
+Many customers want to use persistence to take periodic backups of the data on their cache. We don't recommend that you use data persistence in this way. Instead, use the [import/export](how-to-import-export-data.md) feature. You can export copies of data in RDB format directly into your chosen storage account and trigger the data export as frequently as you require. This exported data can then be imported to any Redis instance. Export can be triggered either from the portal or by using the CLI, PowerShell, or SDK tools.
 
 ## Client library-specific guidance
 
-For more information, see [Azure Managed Redis Client libraries](managed-redis-best-practices-client-libraries.md)
+For more information, see [Azure Managed Redis Client libraries](best-practices-client-libraries.md)
 
 ## Related content
 
-- [Performance testing](managed-redis-best-practices-performance.md)
-- [Failover and patching for Azure Cache for Redis](managed-redis-failover.md)
+- [Performance testing](best-practices-performance.md)
+- [Failover and patching for Azure Cache for Redis](failover.md)

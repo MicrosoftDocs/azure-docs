@@ -12,7 +12,7 @@ ms.date: 06/09/2021
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET
 
-In this tutorial, you update the *ContosoTeamStats* ASP.NET web app---created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md)---to include a leaderboard that uses the [cache-aside pattern](/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database. It also demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial, you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
+In this tutorial, you update the *ContosoTeamStats* ASP.NET web app---created in the [ASP.NET quickstart for Azure Cache for Redis](web-app-cache-howto.md)---to include a leaderboard that uses the [cache-aside pattern](/azure/architecture/patterns/cache-aside) with Azure Cache for Redis. The sample application displays a list of team statistics from a database. It also demonstrates different ways to use Azure Cache for Redis to store and retrieve data from the cache to improve performance. When you complete the tutorial, you have a running web app that reads and writes to a database, optimized with Azure Cache for Redis, and hosted in Azure.
 
 In this tutorial, you learn how to:
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you must have the following prerequisites:
 
-* This tutorial continues where you left off in [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md). If you haven't already, follow the quickstart first.
+* This tutorial continues where you left off in [ASP.NET quickstart for Azure Cache for Redis](web-app-cache-howto.md). If you haven't already, follow the quickstart first.
 * Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
   * ASP.NET and web development
   * Azure Development
@@ -41,7 +41,7 @@ In this section of the tutorial, you configure the *ContosoTeamStats* project wi
 
 ### Add the Entity Framework to the project
 
-1. In Visual Studio, open the *ContosoTeamStats* Solution that you created in the [ASP.NET quickstart for Azure Cache for Redis](cache-web-app-howto.md).
+1. In Visual Studio, open the *ContosoTeamStats* Solution that you created in the [ASP.NET quickstart for Azure Cache for Redis](web-app-cache-howto.md).
 2. Select **Tools > NuGet Package Manager > Package Manager Console**.
 3. Run the following command from the **Package Manager Console** window to install EntityFramework:
 
@@ -57,7 +57,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Enter `Team` for the class name and select **Add**.
 
-    ![Add model class](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png" alt-text="Add model class":::
 
 1. Replace the `using` statements at the top of the *Team.cs* file with the following `using` statements:
 
@@ -141,7 +141,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. In **Solution Explorer**, double-click **Web.config** to open it.
 
-    ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-web-config.png" alt-text="Web.config":::
 
 1. Add the following `connectionStrings` section inside the `configuration` section. The name of the connection string must match the name of the Entity Framework database context class, which is `TeamContext`.
 
@@ -174,15 +174,15 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. Choose **MVC 5 Controller with views, using Entity Framework**, and select **Add**. If you get an error after selecting **Add**, ensure that you have built the project first.
 
-    ![Add controller class](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-add-controller-class.png" alt-text="Add controller class":::
 
 1. Select **Team (ContosoTeamStats.Models)** from the **Model class** drop-down list. Select **TeamContext (ContosoTeamStats.Models)** from the **Data context class** drop-down list. Type `TeamsController` in the **Controller** name textbox (if it isn't automatically populated). Select **Add** to create the controller class and add the default views.
 
-    ![Configure controller](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-configure-controller.png" alt-text="Configure controller":::
 
 1. In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
 
-    ![Global.asax.cs](./media/cache-web-app-cache-aside-leaderboard/cache-global-asax.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-global-asax.png" alt-text="Global.asax.cs":::
 
 1. Add the following two `using` statements at the top of the file under the other `using` statements:
 
@@ -199,7 +199,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. In **Solution Explorer**, expand `App_Start` and double-click `RouteConfig.cs`.
 
-    ![RouteConfig.cs](./media/cache-web-app-cache-aside-leaderboard/cache-RouteConfig-cs.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-RouteConfig-cs.png" alt-text="RouteConfig.cs":::
 
 1. In the `RegisterRoutes` method, replace `controller = "Home"` in the `Default` route with `controller = "Teams"` as shown in the following example:
 
@@ -215,7 +215,7 @@ For more information about this package, see the [EntityFramework](https://www.n
 
 1. In **Solution Explorer**, expand the **Views** folder and then the **Shared** folder, and double-click **_Layout.cshtml**.
 
-    ![_Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-layout-cshtml.png" alt-text="_Layout.cshtml":::
 
 1. Change the contents of the `title` element and replace `My ASP.NET Application` with `Contoso Team Stats` as shown in the following example:
 
@@ -229,11 +229,11 @@ For more information about this package, see the [EntityFramework](https://www.n
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
     ```
 
-    ![Code changes](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png" alt-text="Code changes":::
 
 1. Press **Ctrl+F5** to build and run the application. This version of the application reads the results directly from the database. Note the **Create New**, **Edit**, **Details**, and **Delete** actions that were automatically added to the application by the **MVC 5 Controller with views, using Entity Framework** scaffold. In the next section of the tutorial, you'll add Azure Cache for Redis to optimize the data access and provide more features to the application.
 
-    ![Starter application](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-starter-application.png" alt-text="Starter application":::
 
 ## Configure the app for Azure Cache for Redis
 
@@ -245,7 +245,7 @@ You already installed the *StackExchange.Redis* client library package in the qu
 
 1. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
 
-    ![Teams controller](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-teamscontroller.png" alt-text="Teams controller":::
 
 1. Add the following two `using` statements to **TeamsController.cs**:
 
@@ -574,11 +574,11 @@ The scaffolding code that was generated as part of this sample includes methods 
 
 1. In **Solution Explorer**, expand the **Views** folder, then the **Teams** folder, and double-click **Index.cshtml**.
 
-    ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png" alt-text="Index.cshtml":::
 
 1. Near the top of the file, look for the following paragraph element:
 
-    ![Action table](./media/cache-web-app-cache-aside-leaderboard/cache-teams-index-table.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-teams-index-table.png" alt-text="Action table":::
 
     This link creates a new team. Replace the paragraph element with the following table. This table has action links for creating a new team, playing a new season of games, clearing the cache, retrieving the teams from the cache in several formats, retrieving the teams from the database, and rebuilding the database with fresh sample data.
 
@@ -621,7 +621,7 @@ The scaffolding code that was generated as part of this sample includes methods 
 
     This row displays the value of `ViewBag.Msg`, which contains a status report about the current operation. The `ViewBag.Msg` is set when you select any of the action links from the previous step.
 
-    ![Status message](./media/cache-web-app-cache-aside-leaderboard/cache-status-message.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-status-message.png" alt-text="Status message":::
 
 1. Press **F6** to build the project.
 
@@ -637,7 +637,7 @@ To run the app locally:
 
 1. Press **Ctrl+F5** to run the application.
 
-    ![App running local](./media/cache-web-app-cache-aside-leaderboard/cache-local-application.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-local-application.png" alt-text="App running local":::
 
 1. Test each of the new methods that were added to the view. Since the cache is remote in these tests, the database should slightly outperform the cache.
 
@@ -673,7 +673,7 @@ In this section, you will provision a new database in SQL Database for the app t
 
 1. Once the new database is created, select **Show database connection strings** and copy the **ADO.NET** connection string.
 
-    ![Show connection strings](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-show-connection-strings.png" alt-text="Show connection strings":::
 
 1. In the Azure portal, navigate to your App Service and select **Application Settings**, then **Add new connection string** under the Connection strings section.
 
@@ -692,13 +692,13 @@ In this step of the tutorial, you'll publish the application updates to Azure to
 
 1. Right-select the **ContosoTeamStats** project in Visual Studio and choose **Publish**.
 
-    ![Publish](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-publish-app.png" alt-text="Publish":::
 
 2. Select **Publish** to use the same publishing profile you created in the quickstart.
 
 3. Once publishing is complete, Visual Studio launches the app in your default web browser.
 
-    ![Cache added](./media/cache-web-app-cache-aside-leaderboard/cache-added-to-application.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-added-to-application.png" alt-text="Cache added":::
 
     The following table describes each action link from the sample application:
 
@@ -728,13 +728,12 @@ When you're finished with the sample tutorial application, you can delete the Az
 2. Type the name of your resource group into the **Filter items...** textbox.
 3. Select **...** to the right of your resource group and select **Delete resource group**.
 
-    ![Delete](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    :::image type="content" source="media/web-app-cache-aside-leaderboard/cache-delete-resource-group.png" alt-text="Delete":::
 
 4. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
     After a few moments, the resource group and all of its contained resources are deleted.
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [How to Scale Azure Cache for Redis](./cache-how-to-scale.md)
+- [How to Scale Azure Redis](how-to-scale.md)

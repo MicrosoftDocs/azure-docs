@@ -13,7 +13,7 @@ ms.custom: template-concept, ignite-2024
 
 With Azure Managed Redis (preview), you can use Redis modules to add more data structures and functionality to the core Redis software. These extend the use-cases of Redis by adding functionality like search capabilities and data structures like bloom and cuckoo filters. You add the modules at the time you're creating your Azure Managed Redis instance.
 
-For more information on creating an AMR cache, see [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md).
+For more information on creating an AMR cache, see [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md).
 
 ## Scope of Redis modules
 
@@ -31,7 +31,7 @@ Some popular modules are available for use in Azure Managed Redis:
 
 ## Using modules with active geo-replication
 
-Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](../cache-how-to-active-geo-replication.md).
+Only the `RediSearch` and `RedisJSON` modules can be used concurrently with [active geo-replication](how-to-active-geo-replication.md).
 
 Using these modules, you can implement searches across groups of caches that are synchronized in an active-active configuration. Also, you can search JSON structures in your active-active configuration.
 
@@ -45,12 +45,12 @@ You must add modules when you create your Azure Managed Redis instance. To add a
 
 You can add all the available modules or to select only specific modules to install.
 
-:::image type="content" source="how-to-use-modules/managed-redis-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
+:::image type="content" source="media/how-to-use-modules/managed-redis-add-modules.png" alt-text="Screenshot of advanced tab showing a list of modules to add to a new cache. ":::
 
 > [!IMPORTANT]
 > Modules must be enabled at the time you create an Azure Managed Redis instance.
 
-For more information, see [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md).
+For more information, see [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md).
 
 ## Modules
 
@@ -81,7 +81,7 @@ Additionally, **RediSearch** can function as a secondary index, expanding your c
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/search/).
 
 >[!IMPORTANT]
-> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering](managed-redis-architecture.md#clustering) and [Memory Policies](../cache-configure.md#memory-policies)
+> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering](architecture.md#clustering) and [Memory Policies](configure.md#memory-policies)
 >
 
 ### RedisBloom
@@ -134,5 +134,5 @@ For more information, see [RedisJSON](https://redis.io/json/).
 
 ## Related content
 
-- [Quickstart: Create an Azure Managed Redis Instance](../quickstart-create-managed-redis.md)
-- [Client libraries](managed-redis-best-practices-client-libraries.md)
+- [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md)
+- [Client libraries](best-practices-client-libraries.md)

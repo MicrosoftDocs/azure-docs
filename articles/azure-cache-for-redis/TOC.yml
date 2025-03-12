@@ -20,7 +20,7 @@
       - name: Create and manage with Azure PowerShell
         href: /redis/cache-how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
-        href: scripts/create-manage-cache.md
+        href: /redis/scripts/create-managed-cache.md
       - name: Create and manage premium cache with Azure CLI
         href: scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
@@ -40,7 +40,7 @@
       - name: .NET Core app
         href: /redis/dotnet-core-quickstart.md
       - name: .NET app
-        href: cache-dotnet-how-to-use-azure-redis-cache.md
+        href: /redis/dotnet-how-to-use-azure-redis-cache.md
       - name: Java app
         href: /redis/java-get-started.md
       - name: Java app with JCache
@@ -79,7 +79,7 @@
     - name: Planning FAQs
       href: cache-planning-faq.yml
     - name: Redis modules 
-      href: cache-redis-modules.md
+      href: /redis/redis-modules.md
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
     - name: Create and manage with Azure PowerShell
@@ -91,9 +91,9 @@
       - name: Overview
         href: cli-samples.md
       - name: Create and manage a cache
-        href: scripts/create-manage-cache.md
+        href: /redis/scripts/create-managed-cache.md
       - name: Create and manage a premium cache
-        href: scripts/create-manage-premium-cache-cluster.md
+        href: ./scripts/create-manage-premium-cache-cluster.md
 
   - name: Development and client libraries
     items:
@@ -125,9 +125,9 @@
     - name: Monitor using insights
       href: cache-insights-overview.md
     - name: Monitor using diagnostic settings
-      href: cache-monitor-diagnostic-settings.md
+      href: /monitor/cache-monitor-diagnostic-settings.md
     - name: List of Redis metrics
-      href: monitor-cache-reference.md#metrics
+      href: /redis/monitor-cache-reference.md#metrics
 
   - name: Scaling and performance
     items:
@@ -165,7 +165,7 @@
         href: cache-how-to-premium-vnet.md
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
+        href: /redis/security-controls-policy.md
       - name: Remove TLS 1.0 and 1.1
         href: cache-remove-tls-10-11.md
       - name: Security baseline
@@ -318,7 +318,7 @@
           href: /azure/templates/microsoft.cache/allversions
         - name: Azure Policy built-ins
           displayName: samples, policies, definitions
-          href: ./policy-reference.md
+          href: policy-reference.md
         - name: Redis commands
           href: https://redis.io/commands#
         - name: Monitoring data reference
@@ -327,7 +327,7 @@
 - name:  Resources
   items:
   - name: Azure Cache for Redis FAQs
-    href: cache-faq.yml
+    href: /redis/faq.yml
   - name: Retirements from Azure Cache for Redis
     href: cache-retired-features.md
   - name: Videos

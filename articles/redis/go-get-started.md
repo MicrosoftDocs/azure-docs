@@ -12,7 +12,7 @@ ms.custom: mode-api, devx-track-go, ignite-2024
 
 # Quickstart: Use Azure Cache for Redis with Go
 
-In this article, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md).
+In this article, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](overview.md).
 
 ## Skip to the code on GitHub
 
@@ -192,4 +192,4 @@ The HTTP server will start on port `8080`.
 In this quickstart, you learned how to get started using Go with Azure Cache for Redis. You configured and ran a simple REST API-based application to create and get user information backed by a Redis `HASH` data structure.
 
 > [!div class="nextstepaction"]
-> [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+> [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](web-app-cache-howto.md)

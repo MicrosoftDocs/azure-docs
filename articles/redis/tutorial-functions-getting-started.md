@@ -33,7 +33,7 @@ Create a new Azure Cache for Redis instance by using the Azure portal or your pr
 
 <!-- Fran, need a new screenshot here-->
 <!--
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
+:::image type="content" source="media/tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
 -->
 
 The default settings should suffice. This tutorial uses a public endpoint for demonstration, but we recommend that you use a private endpoint for anything in production.
@@ -41,9 +41,10 @@ The default settings should suffice. This tutorial uses a public endpoint for de
 Creating the cache can take a few minutes. You can move to the next section while the process finishes.
 
 ## [Set up an Azure Cache for Redis instance](#tab/AZR)
-Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. This tutorial uses a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
-:::image type="content" source="media/cache-tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
+Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. This tutorial uses a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](../azure-cache-for-redis/quickstart-create-redis.md) to get started.
+
+:::image type="content" source="media/tutorial-functions-getting-started/cache-new-standard.png" alt-text="Screenshot of creating a cache in the Azure portal.":::
 
 The default settings should suffice. This tutorial uses a public endpoint for demonstration, but we recommend that you use a private endpoint for anything in production.
 
@@ -55,7 +56,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 1. If you didn't install the Azure Functions extension for VS Code yet, search for **Azure Functions** on the **EXTENSIONS** menu, and then select **Install**. If you don't have the C# extension installed, install it, too.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VS Code.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-code-editor.png" alt-text="Screenshot of the required extensions installed in VS Code.":::
 
 1. Go to the **Azure** tab. Sign in to your Azure account.
 
@@ -65,7 +66,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 1. Select **Create function...**.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot that shows the icon for adding a new function from VS Code.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-add-resource.png" alt-text="Screenshot that shows the icon for adding a new function from VS Code.":::
 
 1. Select the folder that you created to start the creation of a new Azure Functions project. You get several on-screen prompts. Select:
 
@@ -81,7 +82,7 @@ Creating the cache can take a few minutes. You can move to the next section whil
 
 1. Confirm that the new project appears on the **EXPLORER** pane.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VS Code.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-vscode-workspace.png" alt-text="Screenshot of a workspace in VS Code.":::
 
 ## Install the necessary NuGet package
 
@@ -114,7 +115,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
       -->
       <!-- Fran, need new screenshot here -->
       <!--
-      :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
+      :::image type="content" source="media/tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
    -->
 
 1. Go to your cache in the Azure portal, and locate **Access keys** on the Resource menu. Write down or copy the contents of the **Primary** box. You'll use this for creating your connection string.
@@ -123,7 +124,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
 1. Build a _Connection String_ by using the following format: `{your-cache-hostname}:10000,password={your-access-key},ssl=True,abortConnect=False`. If you've disabled TLS/SSL, use `ssl=False` instead.
 
-1. Connect to the Redis instance using your choice of method, such as the Redis CLI or Redis Insights. For instructions on how to connect to your Redis instance using the Redis CLI, see [Use the Redis command-line tool with Azure Managed Redis](managed-redis/managed-redis-how-to-redis-cli-tool.md).
+1. Connect to the Redis instance using your choice of method, such as the Redis CLI or Redis Insights. For instructions on how to connect to your Redis instance using the Redis CLI, see [Use the Redis command-line tool with Azure Managed Redis](how-to-redis-cli-tool.md).
 
 1. Configure keyspace notifications using the [CONFIG SET](https://redis.io/docs/latest/commands/config-set/) command:
 
@@ -147,11 +148,11 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
    1. Select **Save** at the top of the window.
 
-      :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
+      :::image type="content" source="media/tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
 
 1. Locate **Access keys** on the Resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
 
 ---
 
@@ -280,10 +281,10 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
    You can use any way you prefer to connect to the cache. An easy way is to use the built-in console tool in the Azure Cache for Redis portal. Go to the cache instance in the Azure portal, and then select **Console** to open it.
 
    >[!IMPORTANT]
-   >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](managed-redis/managed-redis-how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
+   >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
    >
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C-Sharp code and a connection string.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-console.png" alt-text="Screenshot of C-Sharp code and a connection string.":::
 
    After the console is open, try the following commands:
 
@@ -294,11 +295,11 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
     - `LPUSH listTest test`
     - `XADD streamTest * name Clippy`
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-console-output.png" alt-text="Screenshot of a console and some Redis commands and results.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-console-output.png" alt-text="Screenshot of a console and some Redis commands and results.":::
 
 1. Confirm that the triggers are being activated in the terminal.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." :::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-triggers-working-lightbox.png" alt-text="Screenshot of the VS Code editor with code running." :::
 
 ## Add Redis bindings
 
@@ -357,7 +358,7 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
    1. Right-click **Function App**, and then select **Create Function App in Azure (Advanced)**.
 
-   :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of selections for creating a function app in VS Code.":::
+   :::image type="content" source="media/tutorial-functions-getting-started/cache-create-function-app.png" alt-text="Screenshot of selections for creating a function app in VS Code.":::
 
 1. You get several prompts for information to configure the new function app:
 
@@ -377,7 +378,7 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
 1. Wait a few minutes for the new function app to be created. It appears under **Function App** in your subscription. Right-click the new function app, and then select **Deploy to Function App**.
 
-    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of selections for deploying to a function app in VS Code.":::
+    :::image type="content" source="media/tutorial-functions-getting-started/cache-deploy-to-function.png" alt-text="Screenshot of selections for deploying to a function app in VS Code.":::
 
 1. The app builds and starts deploying. You can track its progress in the output window.
 
@@ -405,11 +406,11 @@ Bindings add a streamlined way to read or write data stored on your Redis instan
 
 1. Wait for Log Analytics to connect, and then use the Redis console to activate any of the triggers. Confirm that triggers are being logged here.
 
-    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/cache-tutorial-functions-getting-started/cache-log-stream.png":::
+    :::image type="content" source="media/tutorial-functions-getting-started/cache-log-stream.png" alt-text="Screenshot of a log stream for a function app resource on the resource menu." lightbox="media/tutorial-functions-getting-started/cache-log-stream.png":::
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content
 
 - [Overview of Redis Triggers and Bindings for Azure Functions](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
-- [Build a write-behind cache by using Azure Functions](cache-tutorial-write-behind.md)
+- [Build a write-behind cache by using Azure Functions](tutorial-write-behind.md)

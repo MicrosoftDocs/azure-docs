@@ -9,7 +9,6 @@ ms.date: 01/05/2024
 
 # Create a Web App plus Azure Cache for Redis using a template
 
-
 In this article, you learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You'll learn the following deployment details:
 
 - How to define which resources are deployed
@@ -28,16 +27,16 @@ In this template, you deploy:
 - Azure Web App
 - Azure Cache for Redis
 
-To run the deployment automatically, select the following button:
-
-[![Deploy to Azure](./media/cache-web-app-arm-with-redis-cache-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fweb-app-with-redis-cache%2Fazuredeploy.json)
+To run the deployment automatically, select the [this json file](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fweb-app-with-redis-cache%2Fazuredeploy.json).
 
 ## Parameters to specify
+
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## Variables for names
+
 This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) function to construct a value based on the
 resource group ID.
 
@@ -49,11 +48,12 @@ resource group ID.
 },
 ```
 
-
 ## Resources to deploy
+
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### Azure Cache for Redis
+
 Creates the Azure Cache for Redis that is used with the web app. The name of the cache is specified in the **cacheName** variable.
 
 The template creates the cache in the same location as the resource group.
@@ -80,8 +80,8 @@ The template creates the cache in the same location as the resource group.
 }
 ```
 
-
 ### Web app (Azure Cache for Redis)
+
 Creates the web app with name specified in the **webSiteName** variable.
 
 Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. These app settings are dynamically created based on values provided during deployment.
@@ -120,8 +120,8 @@ Notice that the web app is configured with app setting properties that enable it
 }
 ```
 
-
 ### Web app (RedisEnterprise)
+
 <!--cawa - should this section be renamed to AMR and the section at the top removed altogether? -->
 For RedisEnterprise, because the resource types are slightly different, the way to do **listKeys** is different:
 
@@ -160,6 +160,7 @@ For RedisEnterprise, because the resource types are slightly different, the way 
 ```
 
 ## Commands to run deployment
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell

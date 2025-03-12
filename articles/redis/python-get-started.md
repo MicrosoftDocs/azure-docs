@@ -50,7 +50,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 
 The following example used `pip3` for Python 3 to install `redis-py` on Windows 11 from an Administrator command prompt.
 
-:::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
+:::image type="content" source="media/python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
 ::: zone pivot="azure-managed-redis"
 
@@ -123,7 +123,7 @@ Create a Python script to that uses either Microsoft Entra ID or access keys to 
 
 1. Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-   :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ### Create a Python script using reauthentication
 
@@ -202,7 +202,7 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
 
 1. Run `PythonApplication2.py` with Python. You should see results like the following example:
 
-   :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
    Unlike the first example, If your token expires, this example automatically refreshes it.
 
@@ -254,7 +254,7 @@ for c in result:
 
 Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+:::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ---
 ::: zone-end
@@ -330,7 +330,7 @@ Create a Python script to that uses either Microsoft Entra ID or access keys to 
 
 1. Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-   :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ### Create a Python script using reauthentication
 
@@ -409,7 +409,7 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
 
 1. Run `PythonApplication2.py` with Python. You should see results like the following example:
 
-   :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+   :::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
    Unlike the first example, If your token expires, this example automatically refreshes it.
 
@@ -463,7 +463,7 @@ for c in result:
 
 Run `PythonApplication1.py` with Python. You should see results like the following example:
 
-:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+:::image type="content" source="media/python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
 ---
 ::: zone-end
@@ -474,4 +474,4 @@ Run `PythonApplication1.py` with Python. You should see results like the followi
 
 ## Related content
 
-- [Create a ASP.NET web app that uses Azure Redis.](cache-web-app-howto.md)
+- [Create a ASP.NET web app that uses Azure Redis.](web-app-cache-howto.md)

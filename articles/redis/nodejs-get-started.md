@@ -713,5 +713,5 @@ Get the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-
 
 In this quickstart, you learned how to use either Azure Managed Redis (preview) or Azure Cache for Redis from a Node.js application. Learn more about the Azure Redis offerings:
 
-- [Azure Managed Redis overview](redis/overview.md)
-- [Azure Cache for Redis overview](cache-overview.md)
+- [Azure Managed Redis overview](overview.md)
+- [Azure Cache for Redis overview](/azure-cache-for-redis/cache-overview.md)

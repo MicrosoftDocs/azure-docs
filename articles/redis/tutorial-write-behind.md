@@ -3,8 +3,6 @@ title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure
 description: In this tutorial, you learn how to use Azure Functions and Azure Redis to create a write-behind cache.
 
 
-
-
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
@@ -16,7 +14,7 @@ ms.date: 04/12/2024
 
 The objective of this tutorial is to use an Azure Managed Redis (preview) or Azure Cache for Redis instance as a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching). The write-behind pattern in this tutorial shows how writes to the cache trigger corresponding writes to a SQL database (an instance of the Azure SQL Database service).
 
-You use the [Redis trigger for Azure Functions](cache-how-to-functions.md) to implement this functionality. In this scenario, you see how to use Redis to store inventory and pricing information, while backing up that information in a SQL database.
+You use the [Redis trigger for Azure Functions](/azure/azure-functions/functions-bindings-cache) to implement this functionality. In this scenario, you see how to use Redis to store inventory and pricing information, while backing up that information in a SQL database.
 
 Every new item or new price written to the cache is then reflected in a SQL table in the database.
 
@@ -31,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md), with these resources provisioned:
+- Completion of the previous tutorial, [Get started with Azure Functions triggers in Azure Redis](tutorial-functions-getting-started.md), with these resources provisioned:
   - An Azure Managed Redis (preview) or Azure Cache for Redis instance
   - Azure Functions instance
   - A working knowledge of using Azure SQL
@@ -47,15 +45,15 @@ This example uses the portal:
 
 1. Enter a database name and select **Create new** to create a new server to hold the database.
 
-   :::image type="content" source="media/cache-tutorial-write-behind/cache-create-sql.png" alt-text="Screenshot of creating an Azure SQL resource.":::
+   :::image type="content" source="media/tutorial-write-behind/cache-create-sql.png" alt-text="Screenshot of creating an Azure SQL resource.":::
 
 1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Microsoft Entra authentication instead.
 
-   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for an Azure SQL resource.":::
+   :::image type="content" source="media/tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for an Azure SQL resource.":::
 
 1. Go to the **Networking** tab and choose **Public endpoint** as a connection method. Select **Yes** for both firewall rules that appear. This endpoint allows access from your Azure function app.
 
-   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-networking.png" alt-text="Screenshot of the networking setting for an Azure SQL resource.":::
+   :::image type="content" source="media/tutorial-write-behind/cache-sql-networking.png" alt-text="Screenshot of the networking setting for an Azure SQL resource.":::
 
 1. After validation finishes, select **Review + create** and then **Create**. The SQL database starts to deploy.
 
@@ -71,17 +69,18 @@ This example uses the portal:
        );
    ```
 
-    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-table.png" alt-text="Screenshot showing the creation of a table in Query Editor of an Azure SQL resource.":::
+    :::image type="content" source="media/tutorial-write-behind/cache-sql-query-table.png" alt-text="Screenshot showing the creation of a table in Query Editor of an Azure SQL resource.":::
 
 1. After the command finishes running, expand the _Tables_ folder and verify that the new table was created.
 
 ## Configure the Redis trigger
 
-First, make a copy of the same VS Code project that you used in the previous [tutorial](cache-tutorial-functions-getting-started.md). Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
+First, make a copy of the same VS Code project that you used in the previous [tutorial](tutorial-functions-getting-started.md). Copy the folder from the previous tutorial under a new name, such as _RedisWriteBehindTrigger_, and open it in VS Code.
 
 Second, delete the _RedisBindings.cs_ and _RedisTriggers.cs_ files.
 
-In this example, you use the [pub/sub trigger](cache-how-to-functions.md#redispubsubtrigger) to trigger on `keyevent` notifications. The goals of the example are:
+In this example, you use the [pub/sub trigger](../azure-functions/functions-bindings-cache-trigger-redispubsub.md)
+to trigger on `keyevent` notifications. The goals of the example are:
 
 - Trigger every time a `SET` event occurs. A `SET` event happens when either new keys are written to the cache instance or the value of a key is changed.
 - After a `SET` event is triggered, access the cache instance to find the value of the new key.
@@ -221,7 +220,7 @@ You need to manually enter the password for your SQL database connection string,
    - `SET apple 4.50`
 
  >[!IMPORTANT]
- >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](managed-redis/managed-redis-how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
+ >The console tool is not yet available for Azure Managed Redis. Instead, consider using the [redis-cli](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/) to run commands directly on the Redis instance.
  >
 
 1. Back in VS Code, the triggers are being registered. To validate that the triggers are working:
@@ -236,7 +235,7 @@ You need to manually enter the password for your SQL database connection string,
 
       Confirm that the items written to your Redis instance appear here.
 
-   :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the information has been copied to SQL from the cache instance.":::
+   :::image type="content" source="media/tutorial-write-behind/cache-sql-query-result.png" alt-text="Screenshot showing the information has been copied to SQL from the cache instance.":::
 
 ## Deploy the code to your function app
 
@@ -276,9 +275,9 @@ TRUNCATE TABLE [dbo].[inventory]
 
 ## Summary
 
-This tutorial and [Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md) show how to use Redis triggers and bindings in Azure function apps. They also show how to use Redis as a write-behind cache with Azure SQL Database. Using Azure Managed Redis or Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
+This tutorial and [Get started with Azure Functions triggers in Azure Redis](tutorial-functions-getting-started.md) show how to use Redis triggers and bindings in Azure function apps. They also show how to use Redis as a write-behind cache with Azure SQL Database. Using Azure Managed Redis or Azure Cache for Redis with Azure Functions is a powerful combination that can solve many integration and performance problems.
 
 ## Related content
 
 - [Overview of Redis triggers and bindings for Azure functions](/azure/azure-functions/functions-bindings-cache?tabs=in-process&pivots=programming-language-csharp)
-- [Tutorial: Get started with Azure Functions triggers in Azure Redis](cache-tutorial-functions-getting-started.md)
+- [Tutorial: Get started with Azure Functions triggers in Azure Redis](tutorial-functions-getting-started.md)
