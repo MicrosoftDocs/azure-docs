@@ -36,15 +36,16 @@ IoT Central applications use the IoT Hub and the Device Provisioning Service (DP
 
 ### [Edge-based solution](#tab/edge)
 
-To exchange data with Azure services, assets use industry standards such as:
+To exchange data with edge-based services, assets use industry standards such as:
 
 - **OPC UA tags and events**. OPC UA *tags* represent data points. OPC UA *events* represent state changes. The connector for OPC UA is an Azure IoT Operations service that connects to OPC UA servers to retrieve their data and publishes it to topics in the MQTT broker. [OPC Foundation](https://opcfoundation.org/)
 
-- **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5. [MQTT](https://mqtt.org/)
+- **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe messaging, topic creation, and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5. [MQTT](https://mqtt.org/).
 
-- **ONVIF media specifications** (preview). The connector for ONVIF in Azure IoT Operations focuses on support for camera devices that implement the ONVIF profiles for basic (S) or advanced (T) video streaming. [ONVIF](https://www.onvif.org/)
+- **ONVIF media specifications** (preview). The connector for ONVIF in Azure IoT Operations discovers ONVIF conformant cameras and registers them in the Azure Device Registry. The connector enables capabilities like retrieving and updating the configuration of the camera to adjust the output image configuration, or
+controlling the camera pan, tilt, and zoom (PTZ).  [ONVIF](https://www.onvif.org/)
 
-- **Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP** (preview). The media connector makes images and video from media sources such as IP cameras available to other Azure IoT Operations components.
+- **Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP** (preview). The media connector makes images and video from media sources such as IP cameras available to other Azure IoT Operations components. It can also capture snapshots from a video stream or from an image URL and publish them to an MQTT topic or proxy a live video stream from a camera to an endpoint that an operator can access.
 
 Once asset data is received, Azure IoT Operations uses *data flows* to process and route data to cloud endpoints or other edge components.
 
@@ -73,7 +74,7 @@ Azure IoT Operations uses *connectors* to discover, manage, and ingress data fro
 - The media connector (preview) is a service that makes media from media sources such as edge-attached cameras available to other Azure IoT Operations components.
 - The connector for ONVIF (preview) is a service that discovers and registers ONVIF assets such as cameras. The connector enables you to manage and control ONVIF assets such as cameras connected to your cluster.
 
-When you add a connector to an Azure IoT Operations scenario, you also define an *asset endpoint* that describes the southbound edge connectivity information for one or more assets. An asset endpoint profile includes connection information like the local IP address and authentication information.
+To configure a connector in an Azure IoT Operations scenario, you define an *asset endpoint* that describes the southbound edge connectivity information for one or more assets. An asset endpoint profile includes connection information like the local IP address and authentication information.
 
 To learn more, see [What is asset management in Azure IoT Operations](../iot-operations/discover-manage-assets/overview-manage-assets.md).
 
@@ -102,9 +103,7 @@ To learn more about implementing automatic reconnections to endpoints, see [Mana
 
 ### [Edge-based solution](#tab/edge)
 
-Assets and asset endpoints in Azure IoT Operations are represented as custom resources in the Kubernetes cluster and as resources in Azure. You can use Azure role-based access control (Azure RBAC) to secure access to these resources. To learn more, see [Secure access to assets and asset endpoints](../iot-operations/discover-manage-assets/howto-secure-assets.md).
-
-Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault. Access to the Azure Key Vault is configured with a user-assigned managed identity.
+Assets and asset endpoints in Azure IoT Operations are represented as custom resources in the Kubernetes cluster and as resources in Azure. Asset endpoint profiles include user authentication information for accessing those endpoints. This authentication can be anonymous or username/password authentication where the values are stored as secrets in Azure Key Vault. Access to the Azure Key Vault is configured with a user-assigned managed identity.
 
 The connector for OPC UA is an OPC UA client application that uses a single OPC UA application instance certificate for all the sessions it establishes to collect data from OPC UA servers. By default, the connector uses [cert-manager](https://cert-manager.io/) to manage its application instance certificate.
 
@@ -145,7 +144,7 @@ To exchange data with Azure services, assets use industry standards such as:
 - [OPC UA](https://opcfoundation.org/)
 - [ONVIF](https://www.onvif.org/) (preview)
 - Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP (preview).
-
+- Media streaming protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP (preview).
 ### [Cloud-based solution](#tab/cloud)
 
 An IoT device can use one of several network protocols when it connects to an IoT Hub or DPS endpoint:
@@ -180,10 +179,6 @@ The OPC UA standard is built around assets connecting to servers. The connector 
 
 The media connector can process video streams (RTSP) directly from cameras. It can also access media servers where multiple cameras store their videos or images. Once the media connector connect to a single external media server, it can save, process, or route the snapshots or video streams to an edge or cloud endpoint.
 
-### Isolated network connections
-
-Azure IoT Operations includes the Layered Network Management (preview) service For IoT scenarios that implement isolated network environments according to [ISA-95](https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa95) and [Purdue Enterprise Network Architecture](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) standards. The service can route network traffic from a non-internet facing layer through an internet facing layer and then to Azure.
-
 ### [Cloud-based solution](#tab/cloud)
 
 There are two broad categories of connection patterns that IoT devices use to connect to the cloud:
@@ -209,15 +204,19 @@ Edge gateways (sometimes referred to as field gateways) are typically deployed o
 
 ### [Edge-based solution](#tab/edge)
 
-Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicates with assets and equipment, either directly or through a server, so that they don't need their own cloud connections. 
+Azure IoT Operations is an edge runtime environment that hosts the services to connect, monitor, and control your assets. One of the functionalities of an edge runtime environment is to act as an edge gateway, using the connectors and the MQTT broker, to communicates with assets and equipment, either directly or through a server, so that they don't need their own cloud connections.
 
-Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, [enabling a fully automated machine learning operations in hybrid mode](/azure/machine-learning/how-to-attach-kubernetes-anywhere), including training and AI model deployment steps that transition seamlessly between cloud and edge. Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
+Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
+
+Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn, more see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
 
 ### [Cloud-based solution](#tab/cloud)
 
-You can use Azure IoT Edge to deploy a field gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage field gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+You can use Azure IoT Edge to deploy an edge gateway to your on-premises environment. IoT Edge provides a set of features that enable you to deploy and manage edge gateways at scale. IoT Edge also provides a set of modules that you can use to implement common gateway scenarios. To learn more, see [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
 
 An IoT Edge device can maintain a [persistent connection](#persistent-connections) to an IoT hub. The gateway forwards device sensor data to IoT Hub. This option enables command and control of the downstream devices connected to the IoT Edge device.
+
+Azure IoT Edge allows you to deploy complex event processing, machine learning, image recognition, and other high value AI models. Azure services like Azure Stream Analytics and Azure Machine Learning can be run on-premises via the containerized Linux workloads. To learn more, see [Perform image classification at the edge with Custom Vision Service](../iot-edge/tutorial-deploy-custom-vision.md).
 
 ---
 
