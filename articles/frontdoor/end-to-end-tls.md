@@ -1,7 +1,6 @@
 ---
 title: 'About TLS encryption with Azure Front Door'
 description: Learn about TLS encryption when using Azure Front Door.
-services: frontdoor
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
