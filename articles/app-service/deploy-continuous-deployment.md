@@ -118,7 +118,7 @@ You can customize the GitHub Actions build provider in the following ways:
 # [App Service Build Service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires that [SCM basic authentication is enabled](configure-basic-auth-disable.md) in order for the webhook to work. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
+> App Service Build Service requires that [SCM basic authentication is enabled](configure-basic-auth-disable.md) in order for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 App Service Build Service, otherwise known as Kudu, is the deployment and build engine native to App Service. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
@@ -146,11 +146,11 @@ For more information, see [Deploy to App Service using Azure Pipelines](deploy-a
 * [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 * [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
-### Do the GitHub Actions build provider work with basic authentication if basic authentication is disabled?
+### Does the GitHub Actions build provider work with basic authentication if basic authentication is disabled?
 
 No. Try using GitHub Actions with the **user-assigned identity** option.
 
-For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
+For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 ### What does the user-assigned identity option do for GitHub Actions?
 
