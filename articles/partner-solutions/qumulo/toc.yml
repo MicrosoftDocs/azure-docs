@@ -11,9 +11,9 @@ items:
   href: qumulo-disaster-recovery.md
 - name: Video editing
   href: qumulo-video-editing.md
-- name: ANQ for PACS VNA
+- name: PACS VNA
   href: qumulo-vendor-neutral-archive.md
-- name: ANQ for virtual desktops
+- name: Virtual desktops
   href: qumulo-virtual-desktop.md
 
 
