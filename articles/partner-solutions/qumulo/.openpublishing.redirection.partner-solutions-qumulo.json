@@ -28,7 +28,7 @@
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-overview.md",
             "redirect_url": "/azure/partner-solutions/qumulo/overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/partner-solutions/qumulo/qumulo-troubleshoot.md",
