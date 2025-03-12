@@ -17,13 +17,13 @@ If you haven't yet selected your application platform in Azure, review the [Azur
 
 See, the [Azure database services map](/azure/architecture/aws-professional/databases) and the [Azure data and AI services map](/azure/architecture/aws-professional/data-ai).
 
-## Component guides
+## Scenarios and component guides
 
 Microsoft publishes guidance for select services to help architects, developers, and database administrators plan their migration efforts. Use these guides, combined with guidance available for your other components, to assess, plan, and perform your migration.
 
-### TODO MD version of TOC GOES HERE
+### TODO: Organize and present key migration content available for this technology area
 
-## Additional workload components
+## Related workload components
 
 Your workload contains other components as well that will need to migrate with your compute. Microsoft has similar guidance for:
 
@@ -33,3 +33,5 @@ Your workload contains other components as well that will need to migrate with y
 - Networking
 - Messaging and integration
 - Security
+
+Use the table of contents to explore other topics related to your workload's architecture.
