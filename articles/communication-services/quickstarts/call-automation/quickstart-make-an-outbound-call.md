@@ -25,7 +25,7 @@ Azure Communication Services Call Automation APIs are a powerful way to create i
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Make an outbound call Typescript](./includes/quickstart-make-an-outbound-call-using-callautomation-node.md)]
+[!INCLUDE [Make an outbound call TypeScript](./includes/quickstart-make-an-outbound-call-using-callautomation-node.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

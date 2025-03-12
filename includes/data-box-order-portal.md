@@ -1,6 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: databox
+ms.service: azure-databox
 ms.subservice: databox
 ms.topic: include
 ms.date: 04/22/2024
@@ -177,7 +177,7 @@ To order and device, perform the following steps in the Azure portal:
 
     The user identity is shown in **Encryption type** settings.
 
-    :::image type="content" source="media/data-box-order-portal/customer-managed-key-14.png" alt-text="Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings."::::
+    :::image type="content" source="media/data-box-order-portal/customer-managed-key-14.png" alt-text="Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.":::
 
     > [!IMPORTANT]
     > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).

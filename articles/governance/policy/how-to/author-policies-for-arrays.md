@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
 ---
 
@@ -9,8 +9,8 @@ ms.topic: how-to
 
 Azure Resource Manager properties are commonly defined as strings and booleans. When a one-to-many relationship exists, complex properties are instead defined as arrays. In Azure Policy, arrays are used in several different ways:
 
-- The type of a [definition parameter](../concepts/definition-structure.md#parameters), to provide multiple options.
-- Part of a [policy rule](../concepts/definition-structure.md#policy-rule) using the conditions `in` or `notIn`.
+- The type of a [definition parameter](../concepts/definition-structure-parameters.md), to provide multiple options.
+- Part of a [policy rule](../concepts/definition-structure-policy-rule.md) using the conditions `in` or `notIn`.
 - Part of a policy rule that counts how many array members satisfy a condition.
 - In the [append](../concepts/effect-append.md) and [modify](../concepts/effect-modify.md) effects to update an existing array
 
@@ -117,7 +117,7 @@ The `in` and `notIn` conditions only work with array values. They check the exis
 
 ### Value count
 
-The [value count](../concepts/definition-structure.md#value-count) expression count how many array members meet a condition. It provides a way to evaluate the same condition multiple times, using different values on each iteration. For example, the following condition checks whether the resource name matches any pattern from an array of patterns:
+The [value count](../concepts/definition-structure-policy-rule.md#value-count) expression count how many array members meet a condition. It provides a way to evaluate the same condition multiple times, using different values on each iteration. For example, the following condition checks whether the resource name matches any pattern from an array of patterns:
 
 ```json
 {
@@ -215,7 +215,7 @@ The `value count` also support arrays of complex objects, allowing for more comp
 }
 ```
 
-For useful examples, see [value count examples](../concepts/definition-structure.md#value-count-examples).
+For useful examples, see [value count examples](../concepts/definition-structure-policy-rule.md#value-count-examples).
 
 ## Referencing array resource properties
 
@@ -223,9 +223,9 @@ Many use cases require working with array properties in the evaluated resource. 
 
 ### Referencing resource properties
 
-Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are two ways to reference the values of a resource property within Azure Policy:
+Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure-alias.md) There are two ways to reference the values of a resource property within Azure Policy:
 
-- Use [field](../concepts/definition-structure.md#fields) condition to check whether all selected resource properties meet a condition. Example:
+- Use [field](../concepts/definition-structure-policy-rule.md#fields) condition to check whether all selected resource properties meet a condition. Example:
 
   ```json
   {
@@ -272,7 +272,7 @@ This condition compares the entire `stringArray` array to a single string value.
 }
 ```
 
-With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example, the following condition checks whether the length of `stringArray` is greater than 0:
+With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure-policy-rule.md#policy-functions) that accept array arguments. For example, the following condition checks whether the length of `stringArray` is greater than 0:
 
 ```json
 {
@@ -292,7 +292,7 @@ Aliases that use the `[*]` syntax represent a collection of property values sele
 }
 ```
 
-If the array is empty, the condition evaluates to true because no member of the array is in violation. In this scenario, the recommendation is to use the [count expression](../concepts/definition-structure.md#count) instead. If the array contains objects, a `[*]` alias can be used to select the value of a specific property from each array member. Example:
+If the array is empty, the condition evaluates to true because no member of the array is in violation. In this scenario, the recommendation is to use the [count expression](../concepts/definition-structure-policy-rule.md#count) instead. If the array contains objects, a `[*]` alias can be used to select the value of a specific property from each array member. Example:
 
 ```json
 {
@@ -368,7 +368,7 @@ When you use the `field()` function on the example resource content, the results
 
 ### Field count expressions
 
-[Field count](../concepts/definition-structure.md#field-count) expressions count how many array members meet a condition and compare the count to a target value. `Count` is more intuitive and versatile for evaluating arrays compared to `field` conditions. The syntax is:
+[Field count](../concepts/definition-structure-policy-rule.md#field-count) expressions count how many array members meet a condition and compare the count to a target value. `Count` is more intuitive and versatile for evaluating arrays compared to `field` conditions. The syntax is:
 
 ```json
 {
@@ -613,11 +613,11 @@ Therefore, when there's a need to access the value of the counted array alias wi
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-For useful examples, see [Field count examples](../concepts/definition-structure.md#field-count-examples).
+For useful examples, see [Field count examples](../concepts/definition-structure-policy-rule.md#field-count-examples).
 
 ## Modifying arrays
 
-The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When you work with array properties, the behavior of these effects depends on whether the operation is trying to modify the `[*]` alias or not:
+The [append](../concepts/effect-append.md) and [modify](../concepts/effect-modify.md) alter properties on a resource during creation or update. When you work with array properties, the behavior of these effects depends on whether the operation is trying to modify the `[*]` alias or not:
 
 > [!NOTE]
 > Using the `modify` effect with aliases is currently in **preview**.
@@ -634,7 +634,7 @@ The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` operation | Azure Policy appends a value to the `action` property of each array member. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` operation | Azure Policy appends or replaces the existing `action` property of each array member. |
 
-For more information, see the [append examples](../concepts/effects.md#append-examples).
+For more information, see the [append examples](../concepts/effect-append.md#append-examples).
 
 ## More alias examples
 

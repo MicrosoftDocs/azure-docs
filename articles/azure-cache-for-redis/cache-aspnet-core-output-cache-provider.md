@@ -5,10 +5,9 @@ description: Use the Redis Output Cache Provider to cache ASP.NET Core page outp
 ms.author: cawa
 
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-2024
 ms.topic: how-to
 ms.date: 06/14/2024
-
 #customer intent: As a cloud developer, I want to understand core output caching via Azure Cache for Redis so that I can implement it for storing page output.
 ---
 
@@ -132,7 +131,7 @@ It's a security best practice to avoid storing passwords in clear text in source
 
     You can find the connection string for open source Redis tiers by selecting **Authentication** on the **Resource** menu. Here's an example string: `<Azure_redis_name>.redis.cache.windows.net:6380,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
 
-    You can find the access keys for Redis Enterprise by selecting **Access keys** on the **Resource** menu. The connection string can be derived with other Redis information from the **Overview** section of the **Resource** menu. Here's an example string: `<Azure_redis_name>.<Azure_region>.redisenterprise.cache.azure.net:10000,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
+    You can find the access keys for Redis Enterprise or Azure Managed Redis (Preview) by selecting **Access keys** on the **Resource** menu. The connection string can be derived with other Redis information from the **Overview** section of the **Resource** menu. Here's an example string: `<Azure_redis_name>.<Azure_region>.redisenterprise.cache.azure.net:10000,password=<Azure_redis_primary_accesskey>,ssl=True,abortConnect=False`.
 
 1. Set the Redis connection for the web application by using the Azure CLI:
 

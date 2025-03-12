@@ -5,7 +5,8 @@ description: This article explains how to use diagnostic logs and metrics to mon
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 09/28/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Diagnostics logs and metrics for Workflow Orchestration Manager

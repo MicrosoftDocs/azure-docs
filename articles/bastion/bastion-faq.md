@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: faq
-ms.date: 04/01/2024
+ms.date: 03/03/2025
 ms.author: cherylmc
 ms.custom: references_regions
 ---
@@ -31,11 +31,7 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
-
-If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
-
-For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
+For information on availability zone support in Azure Bastion, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
 
@@ -72,7 +68,7 @@ At this time, for most address spaces, you must add a subnet named **AzureBastio
 
 ### <a name="write-permissions"></a>Are special permissions required to deploy Bastion to the AzureBastionSubnet?
 
-To deploy Bastion to the AzureBastionSubnet, write permissions are required. Example: **Microsoft.Network/virtualNetworks/write**.
+To deploy Bastion to the AzureBastionSubnet, the following RBAC permissions are required: **Microsoft.Network/virtualNetworks/write**,**Microsoft.Network/virtualNetworks/subnets/join/action**, and **Microsoft.Network/publicIPAddresses**.
 
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
@@ -175,9 +171,9 @@ Yes. See [About VM connections and features](vm-about.md#audio).
 
 Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. At this time, you can’t upload or download files using PowerShell or via the Azure portal. For more information, see [Upload and download files using the native client](vm-upload-download-native.md).
 
-### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
+### <a name="aadj"></a>Does Bastion work with Entra ID extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension-joined machines using Microsoft Entra users. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal is not yet supported. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="rdscal-compatibility"></a>Is Bastion compatible with VMs set up as RDS session hosts?
 

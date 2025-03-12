@@ -35,12 +35,12 @@ Contoso **could** set up another Web PubSub resource in Canada Central which is 
 
 All of the above takes engineering resources away from focusing on product innovation.
 
-![Diagram of using two Azure Web PubSub instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/web-pubsub-multiple.png "Mutiple Web PubSub Example")
+![Diagram of using two Azure Web PubSub instances to handle traffic from two countries. ](./media/howto-enable-geo-replication/web-pubsub-multiple.png "Multiple Web PubSub Example")
 
 ### Harnessing the geo-replication feature
 With the geo-replication feature, Contoso can now establish a replica in Canada Central, effectively overcoming the above-mentioned challenges. The developer team is glad to find out that they don't need to make any code changes. It's as easy as clicking a few buttons on Azure portal. The developer team is also happy to share with the stakeholders that as Contoso plans to enter the European market, they simply need to add another replica in Europe. 
 
-![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
+![Diagram of using one Azure Web PubSub instance with replica to handle traffic from two countries/regions.](./media/howto-enable-geo-replication/web-pubsub-replica.png "Replica Example")
 
 ## How to enable geo-replication in a Web PubSub resource
 # [Portal](#tab/Portal)
@@ -199,5 +199,15 @@ Specifically, if your application typically broadcasts to larger groups (size >1
 To ensure effective failover management, it is recommended to set each replica's unit size to handle all traffic. Alternatively, you could enable [autoscaling](howto-scale-autoscale.md) to manage this.
 
 For more performance evaluation, refer to [Performance](concept-performance.md).
+
+## Non-Inherited and Inherited Configurations
+Replicas inherit most configurations from the primary resource; however, some settings must be configured directly on the replicas. Below is the list of those configurations:
+
+1. **SKU**: Each replica has its own SKU name and unit size. The autoscaling rules for replicas must be configured separately based on their individual metrics.
+2. **Shared private endpoints**: While shared private endpoints are automatically replicated to replicas, separate approvals are required on target private link resources. To add or remove shared private endpoints, manage them on the primary resource. **Do not** enable the replica until its shared private endpoint has been approved.
+3. **Log Destination Settings**. If not configured on the replicas, only logs from the primary resource will be transferred.
+4. **Alerts**. 
+
+All other configurations are inherited from the primary resource. For example, access keys, identity, application firewall, custom domains, private endpoints, and access control.
 
  

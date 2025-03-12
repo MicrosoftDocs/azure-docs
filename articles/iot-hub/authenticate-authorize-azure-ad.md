@@ -2,10 +2,10 @@
 title: Control access with Microsoft Entra ID
 titleSuffix: Azure IoT Hub
 description: Understand how Azure IoT Hub uses Microsoft Entra ID to authenticate identities and authorize access to IoT hubs and devices. 
-author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 services: iot-hub
-ms.author: kgremban
+ms.author: sonialopez
 ms.topic: conceptual
 ms.date: 09/01/2023
 ms.custom: ["Role: Cloud Development", "Role: IoT Device", "Role: System Architecture", devx-track-azurecli]

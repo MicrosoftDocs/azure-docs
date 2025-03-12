@@ -7,7 +7,7 @@ ms.devlang: java
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 01/13/2024
 ---
 
 # Convert to the new App Configuration library for Spring Boot
@@ -18,7 +18,7 @@ This article provides a reference on the changes and the actions needed to migra
 
 ## Group and artifact IDs changed
 
-All of the group and artifact IDs in the Azure libraries for Spring Boot have been updated to match a new format. The new package names are:
+All of the group and artifact IDs in the Azure libraries for Spring Boot are updated to match a new format. The new package names are:
 
 ### [Spring Boot 3](#tab/spring-boot-3)
 
@@ -153,7 +153,7 @@ public class ConfigurationClientCustomizerImpl implements ConfigurationClientCus
 
 ## Possible conflicts with Spring Cloud Azure global properties
 
-[Spring Cloud Azure common configuration properties](/azure/developer/java/spring-framework/configuration) enable you to customize your connections to Azure services. The new App Configuration library will pick up any global or App Configuration setting that's configured with Spring Cloud Azure common configuration properties. Your connection to App Configuration will change if the configurations are set for another Spring Cloud Azure library.
+[Spring Cloud Azure common configuration properties](/azure/developer/java/spring-framework/configuration) enable you to customize your connections to Azure services. The new App Configuration library picks up any global or App Configuration setting that's configured with Spring Cloud Azure common configuration properties. Your connection to App Configuration changes if the configurations are set for another Spring Cloud Azure library.
 
 You can override this behavior by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
 

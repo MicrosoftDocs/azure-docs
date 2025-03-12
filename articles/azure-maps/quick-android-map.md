@@ -397,7 +397,7 @@ Android Studio takes a few seconds to build the application. After the build is 
 :::image type="content" source="media/quick-android-map/quickstart-android-map.png" alt-text="A screenshot showing Azure Maps in an Android application.":::
 
 > [!TIP]
-> By default, Android reloads the activity when the orientation changes or the keyboard is hidden. This results in the map state being reset (reload the map which resets the view and reloads data to initial state). To prevent this from happening, add the following to the mainfest: `android:configChanges="orientation|keyboardHidden"`. This will stop the activity from reloading and instead call `onConfigurationChanged()` when the orientation has changed or the keyboard is hidden.
+> By default, Android reloads the activity when the orientation changes or the keyboard is hidden. This results in the map state being reset (reload the map which resets the view and reloads data to initial state). To prevent this from happening, add the following to the manifest: `android:configChanges="orientation|keyboardHidden"`. This will stop the activity from reloading and instead call `onConfigurationChanged()` when the orientation has changed or the keyboard is hidden.
 
 ## Clean up resources
 

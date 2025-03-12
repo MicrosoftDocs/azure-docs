@@ -9,10 +9,10 @@ metadata:
   description: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
   ms.service: security
   ms.topic: hub-page
-  author: TerryLanfear
-  ms.author: terrylan
+  author: msmbaldwin
+  ms.author: mbaldwin
   manager: rkarlin
-  ms.date: 09/14/2023
+  ms.date: 10/20/2024
 
 highlightedContent:
   items:
@@ -30,10 +30,13 @@ highlightedContent:
       url: ../sentinel/mitre-coverage.md
     - title: Combine SIEM and XDR to defend against modern attacks
       itemType: overview
-      url: https://www.microsoft.com/security/business/threat-protection
-    - title: Use watchlists in Microsoft Sentinel
+      url: /unified-secops-platform/overview-unified-security
+    - title: Aggregate data with summary rules
+      itemType: how-to-guide
+      url: ../sentinel/summary-rules.md
+    - title: Optimize security operations
       itemType: concept
-      url: ../sentinel/watchlists.md
+      url: ../sentinel/soc-optimization/soc-optimization-access.md
     - title: Azure Network Security
       itemType: concept
       url: ../networking/security/index.yml

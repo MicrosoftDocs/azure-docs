@@ -4,9 +4,8 @@ description: Upgrade guidance for migrating Basic Load Balancer to Standard Load
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.author: mbender
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/30/2024
-ms.custom: template-concept
 # Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 

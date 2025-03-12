@@ -5,10 +5,9 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 09/03/2024
+ms.date: 03/10/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.reviewer: fryu
 ---
 
 # Access tiers for blob data
@@ -89,11 +88,11 @@ Only storage accounts that are configured for LRS, GRS, or RA-GRS support moving
 
 To change the redundancy configuration for a storage account that contains blobs in the archive tier, you must first rehydrate all archived blobs to the hot, cool, or cold tier. Because rehydration operations can be costly and time-consuming, Microsoft recommends that you avoid changing the redundancy configuration of a storage account that contains archived blobs.
 
-Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
+Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. An account can be moved back to GRS if the update is performed less than 14 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
 ## Default account access tier setting
 
-Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
+Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot, cool or cold. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
 
 The default access tier for a new general-purpose v2 storage account is set to the hot tier by default. You can change the default access tier setting when you create a storage account or after it's created. If you don't change this setting on the storage account or explicitly set the tier when uploading a blob, then a new blob is uploaded to the hot tier by default.
 
@@ -123,7 +122,8 @@ Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as i
 
 Keep in mind the following points when changing a blob's tier:
 
-- You can't call **Set Blob Tier** on a blob that uses an encryption scope. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+- You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+ 
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
 ## Blob lifecycle management

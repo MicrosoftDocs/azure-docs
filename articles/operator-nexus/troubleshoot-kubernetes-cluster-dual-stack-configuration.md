@@ -106,3 +106,5 @@ Scrutinize logs and error messages for indicators of configuration issues.
 
 ## Conclusion
 Setting up a dual-stack configuration involves enabling both IPv4 and IPv6 on your network, and ensuring services can communicate over both. By following the steps outlined in this guide, you should be able to identify and resolve common configuration issues related to setting up a dual stack cluster. If you continue to experience difficulties, consider seeking further assistance from your network administrator or consulting platform-specific support resources.
+If you still have questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+For more information about Support plans, see [Azure Support plans](https://azure.microsoft.com/support/plans/response/).

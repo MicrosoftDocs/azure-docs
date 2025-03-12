@@ -6,14 +6,14 @@ description: Learn how to create and run your own custom policies in Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an identity app developer using Azure Active Directory B2C, I want to learn how to create and run my own custom policies, so that I can create complex user journeys and customize the behavior of the user experience to meet my business specific needs.
@@ -38,7 +38,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 
 |Article  | What you'll learn  |
 |---------|---------|
-|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT token. |
+|[Write your first Azure Active Directory B2C custom policy - Hello World!](custom-policies-series-hello-world.md) | Write your first Azure AD B2C custom policy. You return the message *Hello World!* in the JWT. |
 |[Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md) | Learn how to collect inputs from users, and how to manipulate them.|
 |[Validate user inputs by using Azure Active Directory B2C custom policy](custom-policies-series-validate-user-input.md) | Learn how to validate user inputs by using techniques such as limiting user input options, regular expressions, predicates, and validation technical profiles|
 |[Create branching in user journey by using Azure Active Directory B2C custom policy](custom-policies-series-branch-user-journey.md) | Learn how to create different user experiences for different users based on the value of a claim.|

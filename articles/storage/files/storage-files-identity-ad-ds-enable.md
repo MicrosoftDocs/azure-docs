@@ -4,10 +4,9 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 02/10/2025
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
-recommendations: false
 ---
 
 # Enable Active Directory Domain Services authentication for Azure file shares
@@ -15,7 +14,7 @@ recommendations: false
 This article describes the process for enabling Active Directory Domain Services (AD DS) authentication on your storage account in order to use on-premises Active Directory (AD) credentials for authenticating to Azure file shares.
 
 > [!IMPORTANT]
-> Before you enable AD DS authentication, make sure you understand the supported scenarios and requirements in the [overview article](storage-files-identity-auth-active-directory-enable.md) and complete the necessary [prerequisites](storage-files-identity-auth-active-directory-enable.md#prerequisites). If your Active Directory environment spans multiple forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
+> Before you enable AD DS authentication, make sure you understand the supported scenarios and requirements in the [overview article](storage-files-identity-ad-ds-overview.md) and complete the necessary [prerequisites](storage-files-identity-ad-ds-overview.md#prerequisites). If your Active Directory environment spans multiple forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
 To enable AD DS authentication over SMB for Azure file shares, you need to register your Azure storage account with your on-premises AD DS and then set the required domain properties on the storage account. To register your storage account with AD DS, you create a computer account (or service logon account) representing it in your AD DS. Think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
@@ -235,7 +234,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 ### Debugging
 
-If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet is only applicable for AD DS authentication. It doesn't work for Microsoft Entra Domain Services or Microsoft Entra Kerberos enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
+If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet is applicable for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
@@ -271,4 +270,4 @@ AzureStorageID:<yourStorageSIDHere>
 
 ## Next step
 
-You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions](storage-files-identity-ad-ds-assign-permissions.md).
+You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions](storage-files-identity-assign-share-level-permissions.md).

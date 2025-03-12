@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+#Customer intent: As a security engineer, I want to ingest and filter text file-based logs from network or security applications installed on Windows- or Linux-based machines to my Microsoft Sentinel workspace, so that analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel

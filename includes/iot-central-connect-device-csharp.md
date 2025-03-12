@@ -1,12 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
 ms.date: 06/06/2023
 ---
 
 [![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)
+
+[!INCLUDE [iot-authentication-device-connection-string](iot-authentication-device-connection-string.md)]
 
 ## Prerequisites
 

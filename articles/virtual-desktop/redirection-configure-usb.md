@@ -44,7 +44,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -53,7 +53,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -62,7 +62,7 @@ Some USB peripherals might have functions that use opaque low-level USB redirect
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -152,7 +152,7 @@ To enable Plug and Play redirection using Microsoft Intune:
 
 To allow or disable video capture redirection, which includes cameras and webcams, using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -171,47 +171,18 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 ## Local Windows device configuration
 
-To configure a local Windows device for USB redirection using opaque low-level redirection, you need to allow RDP redirection of other supported USB peripherals for users and administrators. You can do this using Microsoft Intune or Group Policy.
+To configure a local Windows device for USB redirection using opaque low-level redirection, you need to allow RDP redirection of other supported USB peripherals for users and administrators. You can do this using Group Policy.
+
+> [!IMPORTANT]
+> Although the setting **Allow RDP redirection of other supported RemoteFX USB devices from this computer** is available in Microsoft Intune, it doesn't currently work as expected. You must use Group Policy to configure this setting.
 
 The default configuration is:
 
 - **Windows operating system**: other supported USB peripherals aren't available for RDP redirection by using any user account.
 
-Select the relevant tab for your scenario.
-
-# [Microsoft Intune](#tab/intune)
-
-To allow RDP redirection of other supported USB peripherals using Microsoft Intune:
-
-1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
-
-1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Settings catalog** profile type.
-
-1. In the settings picker, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client** > **RemoteFX USB Device Redirection**.
-
-   :::image type="content" source="media/redirection-remote-desktop-protocol/redirection-remotefx-usb-device-redirection-intune.png" alt-text="A screenshot showing the client USB device redirection options in the Microsoft Intune portal." lightbox="media/redirection-remote-desktop-protocol/redirection-remotefx-usb-device-redirection-intune.png":::
-
-1. Check the box for **Allow RDP redirection of other supported RemoteFX USB devices from this computer**, then close the settings picker.
-
-1. Expand the **Administrative templates** category, then set toggle the switch for **Allow RDP redirection of other supported RemoteFX USB devices from this computer** to **Enabled**.
-
-1. For the drop-down list for **RemoteFX USB Redirection Access Rights (Device)**, select **Administrators and Users**, then select **OK**. 
-
-1. Select **Next**.
-
-1. *Optional*: On the **Scope tags** tab, select a scope tag to filter the profile. For more information about scope tags, see [Use role-based access control (RBAC) and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
-
-1. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select **Next**.
-
-1. On the **Review + create** tab, review the settings, then select **Create**.
-
-1. Once the policy applies to the local Windows devices, you must restart them for USB redirection to be functional.
-
-# [Group Policy](#tab/group-policy)
-
 To allow RDP redirection of other supported USB peripherals using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -224,8 +195,6 @@ To allow RDP redirection of other supported USB peripherals using Group Policy:
 1. For the drop-down list for **RemoteFX USB Redirection Access Rights**, select **Administrators and Users**, then select **OK**. 
 
 1. Ensure the policy is applied to the local Windows devices, then you must restart them for USB redirection to work.
-
----
 
 ::: zone pivot="azure-virtual-desktop"
 ### Optional: Retrieve specific USB device instance IDs to use with opaque low-level redirection
@@ -321,7 +290,7 @@ Microsoft Dev Box redirects all supported peripherals for opaque low-level redir
    }
    ```
 
-   The output is similar to the following output:
+   The output is similar to the following example:
 
    ```output
    -------------------
@@ -391,7 +360,7 @@ For Azure Virtual Desktop, you can enter a device class GUID in the host pool pr
    Get-PnpDevice | Where-Object {$_.ClassGuid -like "*$deviceClassGuid*" -and $_.InstanceId -like "USB\*" -and $_.Present -like "True"} | FT -AutoSize
    ```
 
-   For example, using the device class GUID `4d36e96c-e325-11ce-bfc1-08002be10318` for multimedia devices, the output is similar to the following output:
+   For example, using the device class GUID `4d36e96c-e325-11ce-bfc1-08002be10318` for multimedia devices, The output is similar to the following example:
 
    ```output
    Status Class FriendlyName              InstanceId
@@ -491,7 +460,7 @@ To test USB redirection:
       Get-PnPDevice | Where-Object {$_.InstanceId -like "*TSUSB*" -and $_.Present -eq "true"} | FT -AutoSize
       ```
       
-      The output is similar to the following output. Check the status column for any entries that show **Error**. If there are any entries with an error, troubleshoot the device according to the manufacturer's instructions.
+      The output is similar to the following example. Check the status column for any entries that show **Error**. If there are any entries with an error, troubleshoot the device according to the manufacturer's instructions.
 
       ```output
       Status Class FriendlyName                   InstanceId

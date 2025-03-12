@@ -22,7 +22,7 @@ An Event Hubs namespace is a management container for event hubs (or topics, in 
 
 ## Event publishers
 
-Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Microsoft Entra ID based authorization with OAuth2-issued JWT tokens or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
+Any entity that sends data to an event hub is an *event publisher* (synonymously used with *event producer*). Event publishers can publish events using HTTPS or AMQP 1.0 or the Kafka protocol. Event publishers use Microsoft Entra ID based authorization with OAuth2-issued JWTs or an Event Hub-specific Shared Access Signature (SAS) token to gain publishing access.
 
 You can publish an event via AMQP 1.0, the Kafka protocol, or HTTPS. The Event Hubs service provides [REST API](/rest/api/eventhub/) and [.NET](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [JavaScript](event-hubs-node-get-started-send.md), and [Go](event-hubs-go-get-started-send.md) client libraries for publishing events to an event hub. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](https://qpid.apache.org/). 
 
@@ -171,7 +171,7 @@ Azure Event Hubs enables you to define resource access policies such as throttli
 For more information, see [Resource governance for client applications with application groups](resource-governance-overview.md). 
 
 ## Apache Kafka support
-[The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
+[The protocol support for **Apache Kafka** clients](azure-event-hubs-apache-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
 
 From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 

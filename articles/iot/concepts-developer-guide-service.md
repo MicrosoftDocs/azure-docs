@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
@@ -20,6 +20,8 @@ IoT Plug and Play lets you build IoT devices that advertise their capabilities t
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
 If you're using IoT Central, you can use the IoT Central UI and REST API to interact with IoT Plug and Play devices connected to your application.
+
+[!INCLUDE [iot-authentication-service-connection-string](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Service SDKs
 

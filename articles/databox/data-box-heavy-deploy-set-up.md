@@ -4,8 +4,7 @@ description: In this tutorial, learn how to cable your Azure Data Box Heavy, con
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: shaas

@@ -1,7 +1,7 @@
 ---
 title: Azure Policy definitions effect basics
 description: Azure Policy definitions effect basics determine how compliance is managed and reported.
-ms.date: 04/25/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
@@ -36,7 +36,7 @@ The following list is some general guidance around interchangeable effects:
 
 ## Order of evaluation
 
-Azure Policy's first evaluation is for requests to create or update a resource. Azure Policy creates a list of all assignments that apply to the resource and then evaluates the resource against each definition. For a [Resource Manager mode](./definition-structure.md#resource-manager-modes), Azure Policy processes several of the effects before handing the request to the appropriate Resource Provider. This order prevents unnecessary processing by a Resource Provider when a resource doesn't meet the designed governance controls of Azure Policy. With a [Resource Provider mode](./definition-structure.md#resource-provider-modes), the Resource Provider manages the evaluation and outcome and reports the results back to Azure Policy.
+Azure Policy's first evaluation is for requests to create or update a resource. Azure Policy creates a list of all assignments that apply to the resource and then evaluates the resource against each definition. For a [Resource Manager mode](./definition-structure-basics.md#resource-manager-modes), Azure Policy processes several of the effects before handing the request to the appropriate Resource Provider. This order prevents unnecessary processing by a Resource Provider when a resource doesn't meet the designed governance controls of Azure Policy. With a [Resource Provider mode](./definition-structure-basics.md#resource-provider-modes), the Resource Provider manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - `disabled` is checked first to determine whether the policy rule should be evaluated.
 - `append` and `modify` are then evaluated. Since either could alter the request, a change made might prevent an audit or deny effect from triggering. These effects are only available with a Resource Manager mode.

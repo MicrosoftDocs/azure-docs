@@ -4,11 +4,11 @@ titleSuffix: Azure Active Directory B2C
 description: Set up sign-up and sign-in with any SAML identity provider (IdP) in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/24/2024
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure AD B2C with a SAML identity provider, I want to configure the SAML technical profile and map the claims, so that users can sign in to my application using an existing social or enterprise identity.

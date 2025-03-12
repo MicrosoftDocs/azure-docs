@@ -17,8 +17,9 @@ This page shows the supported authentication types, client types and sample code
 Service Connector can be used to connect the following compute services to Azure Blob Storage:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types

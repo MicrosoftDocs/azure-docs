@@ -55,8 +55,6 @@ The number of NSGs that you can create for each Azure region and subscription is
     | Network security group name | Enter a name for the NSG that you're creating. |
     | Region | Select the region that you want. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-network-security-group.png" alt-text="Screenshot that shows creating a NSG in the Azure portal.":::
-
 1. Select **Review + create**.
 
 1. After you see the **Validation passed** message, select **Create**.
@@ -305,6 +303,26 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNSG --n
     --destination-address-prefixes '*' --destination-port-ranges 3389 --protocol Tcp --description "Allow RDP"
 ```
 
+#### Duplicate security rules
+
+To duplicate existing security rules, you can export the JSON of the existing NSG, extract the `securityRules`, and include it in your ARM template.
+
+1. In the search box at the top of the portal, enter **Network security group**. Then select **Network security groups** in the search results.
+
+1. Select the name of the NSG for which you want to duplicate the rules.
+
+1. In the NSG's **Overview** page, expand the **Essentials** section and select the **JSON View** link on the far right.
+
+1. In the **Resource JSON** half-pane, find `"properties"`. Within `"properties"`, find `"securityRules"`. Copy the full object of the security rule(s) you want to duplicate.
+
+1. In the search box at the top of the portal, enter **Deploy a custom template** and select it in the search results.
+
+1. In the **Custom deployment** page, select **Build your own template in the editor**.
+
+1. In the **Edit template** page, specify the existing NSG where you want to duplicate the rules to through its name and location. Within the `"properties"` -> `"securityRules"` of the NSG, paste the copied security rule object(s).
+
+1. Select **Save**. Select the desired subscription, resource group, and region, then select **Review + create**.
+
 ---
 ### View all security rules
 
@@ -504,7 +522,6 @@ An application security group contains zero or more network interfaces. To learn
     | Name | Enter a name for the application security group that you're creating. |
     | Region | Select the region in which you want to create the application security group. |
 
-    :::image type="content" source="./media/manage-network-security-group/create-application-security-group.png" alt-text="Screenshot that shows creating an application security group in the Azure portal.":::
 
 1. Select **Review + create**.
 

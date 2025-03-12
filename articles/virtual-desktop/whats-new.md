@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 09/19/2024
+ms.date: 03/03/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,9 +22,167 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## February 2025
+
+Here's what changed in February 2025:
+
+### Using Azure Private Link with RDP Shortpath for managed networks is now in preview
+
+Private Link provides private connectivity to your remote resources over a private endpoint. You can now use Azure Private Link with RDP Shortpath for managed networks, which is now available in preview. All other RDP Shortpath options using STUN or TURN aren't currently supported with Private Link.
+
+For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
+
+### Updated browser requirements to connect to Azure Virtual Desktop using Windows App in a web browser or the Remote Desktop web client
+
+Starting June 15, 2025, using Windows App in a web browser or the Remote Desktop web client will have updated browser requirements. Ensure your browser is updated and meets the requirements listed at [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop&tabs=web-avd#prerequisites) or [Get started with the Remote Desktop client](users/connect-remote-desktop-client.md?tabs=web#prerequisites) by this date.
+
+### Support for FIDO devices and passkeys on connecting to Azure Virtual Desktop from an Android device is now in preview
+
+Windows App and the Remote Desktop app for Android now support FIDO devices and passkeys for Microsoft Entra ID sign-in. For more information, see [Compare Windows App features across platforms and devices](/windows-app/compare-platforms-features?pivots=azure-virtual-desktop#cloud-service-authentication).
+
+### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
+
+The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](/azure/virtual-desktop/client-device-redirection-intune).
+
+## January 2025
+
+Here's what changed in January 2025:
+
+### Quickstart for Azure Virtual Desktop is now in preview 
+
+Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production. 
+
+When you use QuickStart, it deploys a sample Azure Virtual Desktop environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete. 
+
+For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
+
+### iOS, iPadOS, and Android now support screen capture protection via Microsoft Intune Mobile Application Management (MAM) 
+
+Screen capture protection helps prevent sensitive information from being captured on client devices. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing. You can now use Intune MAM policies to configure screen capture protection on iOS, iPadOS, and Android.
+
+For more information, see [Screen capture protection in Azure Virtual Desktop](screen-capture-protection.md). 
+
+### Microsoft Intune Mobile Application Management (MAM) support on Windows App on Android (preview) for devices running Android 15  
+
+Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn’t take effect.   
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md). 
+
+## December 2024
+
+There were no changes to Azure Virtual Desktop in December 2024.
+
+## November 2024
+
+Here's what changed in November 2024:
+
+### Session host configuration and update for Azure Virtual Desktop is now in preview 
+
+Session host configuration enables you to define the underlying virtual machine disk type, operating system image, and other properties of all session hosts in a newly created pooled host pool. Session host update allows you to modify your session host configuration and roll out the changes to existing hosts in batches, minimizing downtime. This deletes the existing virtual machines and creates new ones that are added to your host pool with the updated configuration.  
+
+For more information, see [Session host update for Azure Virtual Desktop](session-host-update.md). 
+
+### Dynamic autoscaling for Azure Virtual Desktop is now in preview 
+
+Dynamic autoscaling is now in preview for Azure Virtual Desktop. This new scaling method can adjust the available capacity in the host pool by creating, deleting, and/or turning on/off session hosts. Dynamic autoscaling can only be used for pooled host pools with session host configuration. For more information about autoscale scaling plans, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md). 
+
+For more information, see [Create and assign an autoscale scaling plan for Azure Virtual Desktop](autoscale-create-assign-scaling-plan.md). 
+
+### Deploy App-V apps in Azure Virtual Desktop via integrated experience in now available in preview 
+
+Microsoft Application Virtualization (App-V) for Windows delivers Win32 applications to users as virtual applications. Virtual applications are installed on centrally managed servers and delivered to users as a service in real time and on an as-needed basis. Users launch virtual applications from familiar access points and interact with them as if they were installed locally.  
+
+For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md). 
+
+### Applications can be delivered from partner solutions with app attach is now available 
+
+Several partners provide application delivery solutions to Azure Virtual Desktop via integration with app attach.  
+
+For more information, and a list of supported solutions, see [Deliver applications from partner solutions to Azure Virtual Desktop with app attach](app-attach-partner-solutions.md). 
+
+### Azure Virtual Desktop on Azure Extended Zones is now available 
+
+Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and/or data residency workloads. Azure Extended Zones is supported for Azure Virtual Desktop and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.  
+
+For more information, see [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md). 
+
+### Azure Virtual Desktop for Azure Stack HCI is now Azure Virtual Desktop for Azure Local 
+
+All current features and existing pricing for AVD for Azure Stack HCI are now supported in select versions of AVD for Azure Local.  
+
+For more information, see [Azure Virtual Desktop on Azure Local](/azure/virtual-desktop/azure-local-overview).  
+
+### Windows Server 2025 is now supported in Azure Virtual Desktop 
+
+Windows Server 2025 is now supported in Azure Virtual Desktop to be deployed as a session hosts to provide desktops and applications.  
+
+For more information, see [Prerequisites for Azure Virtual Desktop](prerequisites.md). 
+ 
+### Support for FIDO devices and passkeys on macOS and iOS is now available 
+
+Windows App and the Remote Desktop app now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+
+For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
+
+## October 2024
+
+Here's what changed in October 2024:
+
+### YubiKey smart card redirection on iOS and iPadOS is now in preview 
+
+Yubico and Microsoft have partnered to provide smart card redirection for iOS and iPadOS Windows App users, which is available in preview starting in version 11.0.4. The Yubico integration supports the latest [YubiKey 5 portfolio](https://www.yubico.com/products/yubikey-5-overview/).  
+
+For YubiKey support, contact [Yubico Support Services](https://www.yubico.com/support/support-services/). 
+
+### AVC Mixed mode support for Azure Virtual Desktop and Windows 365 session desktop when multimedia redirection is not enabled 
+
+AVC Mixed Mode is now available in the default graphics profile. When multimedia redirection isn't enabled, AVC/h.264 is used to encode detected image content instead of the RemoteFX image encoder. This improves performance when encoding images relative to bitrate and framerate in network-constrained scenarios. 
+
+For more information, see [Graphics encoding over the Remote Desktop Protocol](graphics-encoding.md).
+
+### New Teams SlimCore changes are now available 
+
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. 
+
+There are two versions of Teams, classic Teams and [new Teams](/microsoftteams/new-teams-desktop-admin), and you can use either with Azure Virtual Desktop. New Teams has feature parity with classic Teams, and improves performance, reliability, and security. 
+
+New Teams can use either SlimCore or the WebRTC Redirector Service. SlimCore is now available. If you use SlimCore, you should also install the WebRTC Redirector Service. This allows a user to fall back to WebRTC, such as if they roam between different devices that don't support the new optimization architecture. For more information about SlimCore and how to opt into the preview, see [New VDI solution for Teams](/microsoftteams/vdi-2). 
+
+For more information, see [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md). 
+
+### Multimedia redirection for video playback and calls in a remote session 
+
+Multimedia redirection call redirection is now generally available. Multimedia redirection redirects video playback and calls in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box to your local device for faster processing and rendering.  
+
+For more information, see [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md?tabs=intune&pivots=azure-virtual-desktop). 
+
+### Standardized naming of selectable images in Azure Virtual Desktop is now available 
+
+Image naming is now consistent when selecting images from the dropdown menu. As all new images published are Gen2, we're dropping this post-fix from the display name in the Azure Virtual Desktop dropdowns and will only add Gen1 when it is required. The change doesn’t impact naming in the Azure Marketplace.  
+
+### Windows 11, version 24H2 images are now available in the Azure Marketplace 
+
+Windows 11 Enterprise and Windows 11 Enterprise multi-session are now available in the Azure Marketplace. The updated images, Windows 11 + Windows 365 apps and Windows 11, are available.  
+
+For additional information to configure languages other than English, see [Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop](windows-11-language-packs.md). 
+
+### Configuring client device redirection settings for Windows App on iOS/iPadOS using Microsoft Intune
+
+You can now use Microsoft Intune Mobile Application Management to check for device posture and manage redirections for Windows App on iOS and iPadOS, You can use Microsoft Intune on both corporate managed and personal devices.   
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+
 ## September 2024
 
 Here's what changed in September 2024:
+
+### Relayed RDP Shortpath (TURN) for public networks is now available 
+
+This enhancement allows UDP connections via relays using the Traversal Using Relays around NAT (TURN) protocol, extending the functionality of RDP Shortpath on public networks for everyone. 
+
+For detailed configuration guidance, including prerequisites and default configurations, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md).
 
 ### Windows App is now available
 
@@ -32,13 +190,11 @@ Windows App is now generally available on Windows, macOS, iOS, iPadOS, and web b
 
 For more information, see [What is Windows App?](/windows-app/overview) and [Windows App get started](/windows-app/get-started-connect-devices-desktops-apps?tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc&pivots=azure-virtual-desktop).  
 
-
 ### Enabling HEVC GPU acceleration for Azure Virtual Desktop is now in preview 
 
 High Efficiency Video Coding (H.265) hardware acceleration is currently in preview. Azure Virtual Desktop supports graphics processing unit (GPU) acceleration for frame encoding which will result in improved graphical experience when using the Remote Desktop Protocol (RDP) with a GPU-enabled Virtual Machine. GPU acceleration is crucial for delivering high-fidelity graphical experiences in graphics-intensive applications, such as those used by graphic designers, video editors, and 3D modelers. 
 
 For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
-
 
 ## August 2024
 
@@ -78,9 +234,9 @@ For more information see [End of availability for classic Teams client](/microso
 
 Here's what changed in July 2024: 
 
-### New Teams available on Windows Enterprise multi-session images with M365 apps pre-installed 
+### New Teams available on Windows Enterprise multi-session images with Microsoft 365 apps pre-installed 
 
-Our Windows Enterprise multi-session images + Microsoft M365 apps are updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
+Our Windows Enterprise multi-session images with Microsoft 365 apps have been updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
 
 Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisession-faq.yml). 
 
@@ -88,7 +244,7 @@ Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisess
 
 Here's what changed in June 2024: 
 
-### Configuring the default chroma value for Azure Virtual Desktop is now in public preview
+### Configuring the default chroma value for Azure Virtual Desktop is now in preview
 
 The chroma value determines the color space used for encoding. By default, the chroma value is set to 4:2:0, which provides a good balance between image quality and network bandwidth. You can increase the default chroma value to 4:4:4 to improve image quality. You don't need to use GPU acceleration to change the default chroma value. 
 
@@ -118,8 +274,7 @@ The reliability of a connection can have a significant impact on the end-user ex
 
 For more information and instructions, see [Use cases for Azure Virtual Desktop Insights](insights-use-cases.md). 
 
-
-### Configuring RDP Shortpath for Azure Virtual Desktop now supports host pool settings 
+### RDP Shortpath configuration in host pool settings 
 
 You can granularly control how RDP Shortpath is used by configuring the networking settings of a host pool using the Azure portal or Azure PowerShell. Configuring RDP Shortpath on the host pool enables you to optionally set which of the four RDP Shortpath options you want to use and is used alongside the session host configuration. 
 
@@ -131,14 +286,13 @@ App attach enables you to dynamically attach applications from an application pa
 
 For more information and instructions, see [Add and manage app attach and MSIX app attach applications](app-attach-setup.md). 
 
-
 ## May 2024 
 
 Here's what changed in May 2024: 
 
-### Windows multi-session 11 with Microsoft 365 Apps gallery images now pre-install new Microsoft Teams 
+### New Microsoft Teams now pre-installed in Windows 11 multi-session with Microsoft 365 Apps gallery images  
 
-Windows multi-session 11 with Microsoft 365 Apps images in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows Enterprise multi-session 11 23H2 and 22H2.  
+Images for Windows 11 multi-session with Microsoft 365 Apps in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows 11 Enterprise multi-session 23H2 and 22H2.  
 
 ### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
 
@@ -198,7 +352,7 @@ For more information, see [Configure the clipboard transfer direction in Azure V
 
 ### Azure Proactive Resiliency Library (APRL) for Azure Virtual Desktop workload now available
 
-The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements & definitions, letting you run automated configuration checks, such as *Zonal,Regional*, against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
+The ARPL now has recommendations for Azure Virtual Desktop, which can help you can meet resiliency targets for your applications through a holistic self-serve resilience experience. APRL recommendations cover Azure Virtual Desktop requirements and definitions, letting you run automated configuration checks against workload requirements. APRL also contains supporting Azure Resource Graph queries that you can use to identify resources that aren't fully compliant with APRL guidance and recommendations. 
 
 For more information about these recommendations, see the [Azure Proactive Resiliency Library (APRL)](https://azure.github.io/Azure-Proactive-Resiliency-Library/).
 
@@ -246,9 +400,9 @@ Here's what changed in November 2023:
 
 You can now stop, start and restart session hosts directly in the Azure portal. You can also choose whether to perform the operation on a single session host or on multiple session hosts in your host pool at the same time.
 
-### Use community image and directed shared images when deploying session hosts
+### Use community images and directed shared images when deploying session hosts
 
-You can now select community images and directed shared images to use for your session hosts when [creating a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
+You can now select community images and directed shared images to use for your session hosts when you [deploy Azure Virtual Desktop in the Azure portal](deploy-azure-virtual-desktop.md?tabs=portal), [add session hosts to a host pool](add-session-hosts-host-pool.md), or [create custom images](custom-image-templates.md).
 
 Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
 
@@ -316,7 +470,7 @@ Here's what changed in September 2023:
 
 Azure Virtual Desktop (classic) now blocks users from creating new tenants. Customers should be deploying the current version of Azure Virtual Desktop for any new workloads. However, while Azure Virtual Desktop (classic) blocks new tenants, you can still access all other ongoing operation and management processes. We will no longer support Azure Virtual Desktop (classic) in September 2026, so we highly recommend you migrate from classic to Azure Virtual Desktop before then.
 
-For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](./virtual-desktop-fall-2019/classic-retirement.md).
+For more information about the Azure Virtual Desktop (classic) retirement, see [Azure Virtual Desktop (classic) retirement](/previous-versions/azure/virtual-desktop-classic/classic-retirement).
 
 ### Updates to Azure Virtual Desktop overview page in the Azure portal 
 
@@ -366,7 +520,7 @@ Here's what changed in July 2023:
 
 Call redirection, which optimizes audio calls for WebRTC-based calling apps, is now in preview. Multimedia redirection redirects media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature when using the Windows Desktop client.
 
-For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-intro.md#call-redirection).
+For more information about which sites are compatible with this feature, see [Call redirection](multimedia-redirection-video-playback-calls.md#call-redirection).
 
 ### Autoscale for personal host pools is currently in preview
 
@@ -426,7 +580,7 @@ For more information about the preview release version, check out [Use features 
 
 ### Intune user-scope configuration for Windows 10 Enterprise multi-session VMs now generally available
 
-Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 are now generally available. With this feature, you're able to:
+Microsoft Intune user-scope configuration for Azure Virtual Desktop multi-session Virtual Machines (VMs) on Windows 10 and 11 is now generally available. With this feature, you're able to:
 
 - Configure user-scope policies using the Settings catalog and assign those policies to groups of users.
 - Configure user certificates and assign them to users.
@@ -468,7 +622,7 @@ This feature is an extension of the generally available Remote Desktop Protocol 
 
 ### Multimedia redirection enhancements now generally available
 
-Multimedia Redirection (MMR) is now generally available. MMR enables smooth video playback while viewing videos in a browser running on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-multimedia-redirection-mmr-on/ba-p/3736489) or [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
+Multimedia redirection is now generally available. Multimedia redirection enables smooth video playback while viewing videos in a browser running on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-multimedia-redirection-mmr-on/ba-p/3736489) or [Multimedia redirection for video playback and calls in a remote session](multimedia-redirection-video-playback-calls.md).
 
 ### New User Interface for Azure Virtual Desktop web client now in preview
 
@@ -574,7 +728,7 @@ The ability to collect graphics data for your Azure Virtual Desktop connections 
 
 ### Multimedia redirection enhancements now in preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+An upgraded version of multimedia redirection for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites, RemoteApp browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
 
 ### Grouping costs by Azure Virtual Desktop host pool now in preview
 
@@ -706,7 +860,7 @@ A new feature for RDP Shortpath is now in preview. With this feature, RDP Shortp
 
 ### The Azure Virtual Desktop web client has a new URL
 
-Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients will redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
+Starting April 18, 2022, the Azure Virtual Desktop and Azure Virtual Desktop (classic) web clients redirect to a new URL. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/reminder-the-avd-web-client-will-be-moving-to-a-new-url/m-p/3278231).
 
 ## March 2022
 
@@ -718,7 +872,7 @@ Accessibility has always been important to us, so we're pleased to announce that
 
 ### Multimedia redirection enhancements now in preview
 
-An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
+An upgraded version of multimedia redirection for Azure Virtual Desktop is now in preview. We've made various improvements to this version, including more supported websites and media controls for our users. Learn more at [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/ba-p/3264146).
 
 ### FSLogix version 2201 is now generally available
 
@@ -869,7 +1023,7 @@ Multimedia redirection gives you smooth video playback while watching videos in 
 
 Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows VMs, and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
  
-### Signing into Azure Active Directory using smart cards are now supported in Azure Virtual Desktop
+### Signing into Azure Active Directory using smart cards and Active Directory Federation Services is now supported in Azure Virtual Desktop
 
 While this isn't a new feature for Azure Active Directory, Azure Virtual Desktop now supports configuring Active Directory Federation Services to sign in with smart cards. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
 
@@ -1146,7 +1300,7 @@ We've made the following improvements to the Azure portal experience:
 
 ### Azure Virtual Desktop Agent troubleshooting
 
-We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](troubleshoot-agent.md) to help customers who have encountered common issues.
+We recently set up the [Azure Virtual Desktop Agent troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent) to help customers who have encountered common issues.
 
 ### Microsoft Defender for Endpoint integration
 
@@ -1291,7 +1445,7 @@ July was when Azure Virtual Desktop with Azure Resource Management integration b
 
 Here's what changed with this new release: 
 
-- The "Fall 2019 release" is now known as "Azure Virtual Desktop (classic)," while the "Spring 2020 release" is now just "Azure Virtual Desktop." For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+- The *Fall 2019 release* is now known as *Azure Virtual Desktop (classic)*, while the *Spring 2020 release* is now just *Azure Virtual Desktop*. For more information, check out [this blog post](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
 
 To learn more about new features, check out [this blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 

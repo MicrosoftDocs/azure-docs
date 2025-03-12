@@ -2,13 +2,13 @@
 title: Azure IoT Hub and Event Grid
 titleSuffix: Azure IoT Hub
 description: Use Azure Event Grid to send notifications and trigger processes based on actions that happen in IoT Hub.  
-author: kgremban
+author: SoniaLopezBravo
 
-ms.service: iot-hub
+ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/05/2024
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: [amqp, mqtt, 'Role: Cloud Development']
 ---
 

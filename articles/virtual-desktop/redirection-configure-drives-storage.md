@@ -158,9 +158,9 @@ To enable or disable drive redirection using Microsoft Intune:
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Do not allow drive redirection** to **Enabled** or **Disabled**, depending on your requirements:
 
-   - To allow drive redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To allow drive redirection, toggle the switch to **Disabled**.
 
-   - To disable drive redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To disable drive redirection, toggle the switch to **Enabled**.
 
 1. Select **Next**.
 
@@ -176,7 +176,7 @@ To enable or disable drive redirection using Microsoft Intune:
 
 To enable or disable drive redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -230,7 +230,7 @@ To test drive redirection:
       $drives
       ```
 
-      The output is similar to the following output when you redirect drives from a local Windows device:
+      The output is similar to the following example when you redirect drives from a local Windows device:
 
       ```output
       These are the local drives redirected to the remote session:

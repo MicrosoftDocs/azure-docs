@@ -4,9 +4,9 @@ description: Start here to learn how to monitor Azure IoT Hub by using Azure Mon
 ms.date: 07/30/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ---
 
 # Monitor Azure IoT Hub
@@ -27,7 +27,9 @@ For more information about the resource types for IoT Hub, see [Azure IoT Hub mo
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-### Collection and routing
+<a name='collection-and-routing'></a>
+
+### Collect and route monitoring data
 
 Platform metrics, the Activity log, and resource logs have unique collection, storage, and routing specifications.
 
@@ -72,15 +74,15 @@ The IoT Hub [resource logs connections category](monitor-iot-hub-reference.md#co
 
 We recommend creating a diagnostic setting as early as possible after you create your IoT hub, because, although IoT Hub always emits resource logs, Azure Monitor doesn't collect them until you route them to a destination.
 
-To learn more about routing logs to a destination, see [Collection and routing](monitor-iot-hub.md#collection-and-routing). For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md).
+To learn more about routing logs to a destination, see the [Collect and route monitoring data](#collect-and-route-monitoring-data) section. For detailed instructions to create a diagnostic setting, see the [Use metrics and logs tutorial](tutorial-use-metrics-and-diags.md).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-### Analyzing logs
+### Analyze logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. The data in these tables are associated with a Log Analytics workspace and can be queried in Log Analytics. To learn more about Azure Monitor Logs, see [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) in the Azure Monitor documentation.
 
-To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
+To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see the [Collect and route monitoring data](#collect-and-route-monitoring-data) section.
 
 To perform Log Analytics, go to the Azure portal and open your IoT hub, then select **Logs** under **Monitoring**. These Log Analytics queries are scoped, by default, to the logs and metrics collected in Azure Monitor Logs for your IoT hub.
 
@@ -137,72 +139,9 @@ AzureDiagnostics
 
 ### Read logs from Azure Event Hubs
 
-After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. The following sample code retrieves logs from an event hub.
+After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them.
 
-```csharp
-class Program
-{ 
-    static string connectionString = "{your AMS eventhub endpoint connection string}";
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}";
-    static EventHubClient eventHubClient;
-    //This is the Diagnostic Settings schema
-    class AzureMonitorDiagnosticLog
-    {
-        string time { get; set; }
-        string resourceId { get; set; }
-        string operationName { get; set; }
-        string category { get; set; }
-        string level { get; set; }
-        string resultType { get; set; }
-        string resultDescription { get; set; }
-        string durationMs { get; set; }
-        string callerIpAddress { get; set; }
-        string correlationId { get; set; }
-        string identity { get; set; }
-        string location { get; set; }
-        Dictionary<string, string> properties { get; set; }
-    };
-
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
-        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds;
-        CancellationTokenSource cts = new CancellationTokenSource();
-        var tasks = new List<Task>();
-        foreach (string partition in d2cPartitions)
-        {
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-        }
-        Console.ReadLine();
-        Console.WriteLine("Exiting...");
-        cts.Cancel();
-        Task.WaitAll(tasks.ToArray());
-    }
-
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
-    {
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow);
-        while (true)
-        {
-            if (ct.IsCancellationRequested)
-            {
-                await eventHubReceiver.CloseAsync();
-                break;
-            }
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10));
-            if (eventData != null)
-            {
-                string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data);
-                var deserializer = new JavaScriptSerializer();
-                //deserialize json data to azure monitor object
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result);
-            }
-        }
-    }
-}
-```
+Refer to the Azure Event Hubs documentation for specific guidance around developing with the Event Hubs clients. For example, [.NET samples: Reading events](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample05_ReadingEvents.md).
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for IoT Hub, see [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md#resource-logs).
 

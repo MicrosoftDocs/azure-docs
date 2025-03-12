@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 12/11/2024
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -83,9 +83,9 @@ This section provides references for Windows applications and SQL Server solutio
 
 * [Enterprise file shares with disaster recovery - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/enterprise-file-shares-disaster-recovery)
 * [Disaster Recovery for Enterprise File Shares with Azure NetApp Files and DFS Namespaces](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
-* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://bluexp.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Globally Distributed Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/NA-580-0521-Architecture-Doc-R3.pdf)
-* [Cloud Compliance for Azure NetApp Files](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
+* [Cloud Compliance for Azure NetApp Files](https://docs.netapp.com/us-en/occm38/task_getting_started_compliance.html)
 
 ### SQL Server
 
@@ -197,7 +197,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 ### Generic HPC
 
 * [Azure HPC OnDemand Platform](https://azure.github.io/az-hop/)
-* [Azure NetApp Files: Getting the most out of your cloud storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
+* [Azure NetApp Files: Getting the most out of your cloud storage](https://community.netapp.com/t5/AFF/SAP-Hana-ANF-best-practice-documents/m-p/169694)
 * [Run MPI workloads with Azure Batch and Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
 * [Azure Cycle Cloud: CycleCloud HPC environments on Azure NetApp Files](/azure/cyclecloud/overview)
 
@@ -213,11 +213,11 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Azure for the semiconductor industry](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure%20for%20the%20semiconductor%20industry.pdf)
+* [Benchmark EDA workloads on Azure Intel Emerald Rapids (EMR) VMs](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/benchmark-eda-workloads-on-azure-intel-emerald-rapids-emr-vms/4334619)
 
 ### Analytics
 
 * [SAS on Azure architecture guide - Azure Architecture Center | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
-* [Deploy SAS Grid 9.4 on Azure NetApp Files](/azure/architecture/guide/hpc/netapp-files-sas)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
@@ -229,14 +229,14 @@ This section provides solutions for Azure platform services.
 
 ### Azure Kubernetes Services and Kubernetes
 
-* [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
+* [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://docs.netapp.com/us-en/astra-control-service/get-started/set-up-microsoft-azure-with-anf.html) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](/azure/aks/azure-netapp-files)
 * [Azure NetApp Files SMB volumes for Azure Kubernetes Services with Astra Trident on Windows](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-smb-volumes-for-azure-kubernetes-services/ba-p/3052900)
 * [Application data protection for AKS workloads on Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/data-protection-kubernetes-astra-azure-netapp-files)
 * [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
 * [Protecting MongoDB on AKS/ANF with Astra Control Service using custom execution hooks](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-mongodb-on-aks-anf-with-astra-control-service-using/ba-p/3057574)
 * [Comparing and Contrasting the AKS/ANF NFS subdir external provisioner with Astra Trident](https://techcommunity.microsoft.com/t5/azure-architecture-blog/comparing-and-contrasting-the-aks-anf-nfs-subdir-external/ba-p/3057547)
-* [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
+* [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://bluexp.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 * [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)

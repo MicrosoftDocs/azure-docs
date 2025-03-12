@@ -4,7 +4,7 @@ description: This article describes how to optimize your Apache Hive queries in 
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Optimize Apache Hive queries in Azure HDInsight
@@ -25,7 +25,7 @@ For more information on running Hive queries on various HDInsight cluster types,
 
 ## Scale out worker nodes
 
-Increasing the number of worker nodes in an HDInsight cluster allows the work to use more mappers and reducers to be run in parallel. There are two ways you can increase out scale in HDInsight:
+Increasing the number of worker nodes in a HDInsight cluster allows the work to use more mappers and reducers to be run in parallel. There are two ways you can increase out scale in HDInsight:
 
 * When you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Data Manager for Energy partners 
 description: Lists of third-party Azure Data Manager for Energy partners solutions.
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 09/24/2022
 author: bharathim

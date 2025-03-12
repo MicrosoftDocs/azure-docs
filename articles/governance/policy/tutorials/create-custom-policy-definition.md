@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: tutorial
 ---
 
@@ -39,7 +39,7 @@ Before creating the policy definition, it's important to understand the intent o
 
 Your requirements should clearly identify both the "to be" and the "not to be" resource states.
 
-While we defined the expected state of the resource, we havenn't defined what we want done with non-compliant resources. Azure Policy supports many [effects](../concepts/effect-basics.md). For this tutorial, we define the business requirement as preventing the creation of resources if they aren't compliant with the business rules. To meet this goal, we use the [deny](../concepts/effect-deny.md) effect. We also want the option to suspend the policy for specific assignments. Use the [disabled](../concepts/effect-disabled.md) effect and make the effect a [parameter](../concepts/definition-structure-parameters.md) in the policy definition.
+While we defined the expected state of the resource, we haven't defined what we want done with non-compliant resources. Azure Policy supports many [effects](../concepts/effect-basics.md). For this tutorial, we define the business requirement as preventing the creation of resources if they aren't compliant with the business rules. To meet this goal, we use the [deny](../concepts/effect-deny.md) effect. We also want the option to suspend the policy for specific assignments. Use the [disabled](../concepts/effect-disabled.md) effect and make the effect a [parameter](../concepts/definition-structure-parameters.md) in the policy definition.
 
 ## Determine resource properties
 

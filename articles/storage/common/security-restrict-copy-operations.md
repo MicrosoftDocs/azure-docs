@@ -30,7 +30,7 @@ The **AllowedCopyScope** property of a storage account is used to specify the en
 - **Microsoft Entra ID**: Permits copying only from accounts within the same Microsoft Entra tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations. Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
+The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 

@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 05/21/2024
 ms.author: yelevin
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security architect, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my organization's security monitoring and incident response activities.
+
 ---
 
 # Service limits for Microsoft Sentinel
@@ -43,6 +47,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 | Description | Limit | Dependency |
 | --------- | --------- | ------- |
 | Investigation experience availability | 90 days from the incident last update time | None |
+| Retention period for incident entities | 180 days | Entities database retention |
 | Number of alerts | 150 alerts  | None |
 | Number of automation rules     | 512 rules | None |
 | Number of automation rule actions  | 20 actions  | None |

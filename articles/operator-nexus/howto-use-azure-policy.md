@@ -57,6 +57,9 @@ If you're new to Azure Policy, here are some helpful resources that you can use 
   > * Review your organization's security and compliance requirements.
   > * Identify specific Azure Policy features relevant to your needs.
 
+  > [!NOTE]
+  > Operator Nexus managed infrastructure resources may not align with custom internal policies based on the management and release patterns of the platform. Additionally, Azure baseline policies where input is required (e.g., list of authorized ports) or installed extension expectations (e.g., Azure Kubernetes Service clusters should have the Azure Policy add-on for Kubernetes installed) will fail by default. Nexus managed resources such as the Cluster Manager are not intended for direct customer interaction nor support customer deployed extensions or integrations.
+
 ## Use Azure Policy to secure your Nexus BMM resources
 
 The Operator Nexus service offers a built-in policy definition that is recommended to assign to your Nexus BMM resources. This policy definition is called **[Preview]: Nexus compute machines should meet security baseline**. This policy definition is used to ensure that your Nexus BMM resources are configured with industry best practice security settings.

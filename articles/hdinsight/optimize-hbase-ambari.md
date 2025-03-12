@@ -3,7 +3,7 @@ title: Optimize Apache HBase with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache HBase.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 10/16/2023
+ms.date: 10/17/2024
 ---
 
 # Optimize Apache HBase with Apache Ambari in Azure HDInsight

@@ -6,7 +6,7 @@ author: ryanwinter
 ms.author: rywinter
 ms.date: 04/04/2024
 ms.topic: tutorial
-ms.service: iot
+ms.service: azure-iot
 ms.custom: devx-track-azurecli
 #Customer intent: As a device builder, I want to see how I can use the MQTT protocol to create an IoT device client without using the Azure IoT Device SDKs.
 ---

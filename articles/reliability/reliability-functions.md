@@ -22,7 +22,7 @@ Availability zone support for Azure Functions is available on both Premium (Elas
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md#azure-services-with-availability-zone-support).  
+Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md).  
 
 When you configure Functions as zone redundant, the platform automatically spreads the function app instances across three zones in the selected region.  
 
@@ -60,7 +60,7 @@ Availability zone support is a property of the Premium plan. The following are t
 - You can only enable availability zones when creating a Premium plan for your function app. You can't convert an existing Premium plan to use availability zones.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, Functions can show unexpected behavior during a zonal outage.
 - Both Windows and Linux are supported.
-- Must be hosted on an [Elastic Premium](../azure-functions/functions-premium-plan.md) or Dedicated hosting plan. To learn how to use zone redundancy with a Dedicated plan, see [Migrate App Service to availability zone support](../availability-zones/migrate-app-service.md).
+- Must be hosted on an [Elastic Premium](../azure-functions/functions-premium-plan.md) or Dedicated hosting plan. To learn how to use zone redundancy with a Dedicated plan, see [Migrate App Service to availability zone support](../reliability/migrate-app-service.md).
   - Availability zone support isn't currently available for function apps on [Consumption](../azure-functions/consumption-plan.md) plans.
 - Function apps hosted on a Premium plan must have a minimum [always ready instances](../azure-functions/functions-premium-plan.md#always-ready-instances) count of three.
   - The platform enforces this minimum count behind the scenes if you specify an instance count fewer than three.
@@ -178,6 +178,7 @@ With an active-active pattern, functions in both regions are actively running an
 
 ![Architecture for Azure Front Door and Function](../azure-functions/media/functions-geo-dr/front-door.png)  
 
+For an example please refer to the sample on how to [implement the geode pattern by deploying the API to geodes in distributed Azure regions.](https://github.com/mspnp/geode-pattern-accelerator).
 
 >[!IMPORTANT]
 >Although, it's highly recommended that you use the [active-passive pattern](#active-passive-pattern-for-non-https-trigger-functions) for non-HTTPS trigger functions. You can create active-active deployments for non-HTTP triggered functions. However, you need to consider how the two active regions interact or coordinate with one another. When you deploy the same function app to two regions with each triggering on the same Service Bus queue, they would act as competing consumers on de-queueing that queue. While this means each message is only being processed by either one of the instances, it also means there's still a single point of failure on the single Service Bus instance. 

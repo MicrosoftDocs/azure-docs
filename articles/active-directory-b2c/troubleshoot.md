@@ -5,12 +5,12 @@ description: Learn about approaches to solving errors when working with custom p
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: troubleshooting
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-docs-improvements
 zone_pivot_groups: b2c-policy-type
 
@@ -155,17 +155,17 @@ The following screenshot shows an example of the Application Insights trace log 
 
 ![Screenshot of Azure AD B2C extension Azure AD B2C trace report.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-report.png)
 
-## Troubleshoot JWT tokens
+## Troubleshoot JWTs
 
-For JWT token validation and debugging purposes, your can decode JWTs using a site like [https://jwt.ms](https://jwt.ms). Create a test application that can redirect to `https://jwt.ms` for token inspection. If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). 
+For JWT validation and debugging purposes, your can decode JWTs using a site like [https://jwt.ms](https://jwt.ms). Create a test application that can redirect to `https://jwt.ms` for token inspection. If you haven't already done so, [register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). 
 
-![Screenshot of JWT token preview.](./media/troubleshoot-custom-policies/jwt-token-preview.png)
+![Screenshot of JWT preview.](./media/troubleshoot-custom-policies/jwt-token-preview.png)
 
 Use **Run now** and `https://jwt.ms` to test your policies independently of your web or mobile application. This website acts like a relying party application. It displays the contents of the JSON web token (JWT) that your Azure AD B2C policy generates.
 
 ## Troubleshoot SAML protocol
 
-To help configure and debug the integration with your service provider, you can use a browser extension for the SAML protocol, for example, [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for FireFox, or [Edge or Internet Explorer developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
+To help configure and debug the integration with your service provider, you can use a browser extension for the SAML protocol, for example, [SAML DevTools extension](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome, [SAML-tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) for Firefox, or [Edge or Internet Explorer developer tools](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
 The following screenshot demonstrates how the SAML DevTools extension presents the SAML request Azure AD B2C sends to the identity provider, and the SAML response.
 

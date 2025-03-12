@@ -21,7 +21,7 @@ This article describes our open-source projects on GitHub that provide source co
 
 ### DICOM cast
 
-* [Integrate clinical and imaging data](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md): DICOM cast allows synchronizing the data from the DICOM service to the FHIR&reg; service, which allows healthcare organization to integrate clinical and imaging data. DICOM cast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data, and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
+Integrate clinical and imaging data: DICOM cast allows synchronizing the data from the DICOM service to the FHIR&reg; service, which allows healthcare organization to integrate clinical and imaging data. DICOM cast expands the use cases for health data by supporting both a streamlined view of longitudinal patient data, and the ability to effectively create cohorts for medical studies, analytics, and machine learning.
 
 ### DICOM data anonymization
 

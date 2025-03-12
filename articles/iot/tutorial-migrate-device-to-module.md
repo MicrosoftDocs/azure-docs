@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 1/23/2024
 ms.topic: tutorial
-ms.service: iot
+ms.service: azure-iot
 
 #Customer intent: As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---

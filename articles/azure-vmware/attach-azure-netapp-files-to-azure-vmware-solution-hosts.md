@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 01/29/2025
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -11,7 +11,7 @@ ms.custom: "references_regions, engagement-fy23"
 
 [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. The service supports the most demanding enterprise file-workloads in the cloud: databases, SAP, and high-performance computing applications, with no code changes. For more information on Azure NetApp Files, see [Azure NetApp Files](../azure-netapp-files/index.yml) documentation. 
 
-[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance.  
+[Azure VMware Solution](./introduction.md) supports attaching Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) on different Azure NetApp Files datastores for optimal cost and performance.  
 
 By using NFS datastores backed by Azure NetApp Files, you can expand your storage instead of scaling the clusters. You can also use Azure NetApp Files volumes to replicate data from on-premises or primary VMware vSphere environments for the secondary site. 
 
@@ -20,6 +20,9 @@ Create your Azure VMware Solution and create Azure NetApp Files NFS volumes in t
 The following diagram demonstrates a typical architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud via ExpressRoute.
 
 :::image type="content" source="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png" alt-text="Diagram shows the architecture of Azure NetApp Files backed NFS datastores attached to an Azure VMware Solution private cloud." lightbox="media/attach-netapp-files-to-cloud/architecture-netapp-files-nfs-datastores.png"::: 
+
+>[!Note]
+> NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 
 
 ## Prerequisites
 
@@ -88,12 +91,32 @@ There are some important best practices to follow for optimal performance of NFS
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
     >[!IMPORTANT]
-    > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. 
+    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure Portal or any other supported solution (CLI\Powershell\API).
     
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
--  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../availability-zones/az-overview.md#availability-zones) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
+-  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../reliability/availability-zones-overview.md) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).  
+
+
+### Considerations for Azure NetApp Files storage with cool access
+
+When choosing to use [Azure NetApp Files storage with cool access](../azure-netapp-files/cool-access-introduction.md) on datastores for AVS, consider the performance characteristics of your workloads. Cool access is best suited for applications and workloads that primarily involve sequential I/O operations or tolerate varying read latency. Workloads with high random I/O and latency sensitivity should avoid using cool access due to an increase in latency when reading data from the cool tier.
+
+Also consider adjusting cool access settings for the workload to fit the expected access patterns. For more information, see [Performance considerations for Azure NetApp Files storage with cool access](../azure-netapp-files/performance-considerations-cool-access.md).
+
+**Use cases where cool access is a good fit:**
+
+- Virtual machine templates and ISO files
+- VMDKs with home directories (if not using Azure NetApp Files directly for this purpose)
+- VMDKs with content repositories
+- VMDKs with application data
+- VMDKs with archive and application-level backup data
+ 
+**Use cases to not use cool access:**
+
+- VMDKs containing production database files with high random I/O and latency sensitivity
+- VMDKs with operating system boot disks
 
 ## Attach an Azure NetApp Files volume to your private cloud
 
@@ -107,7 +130,7 @@ Under **Manage**, select **Storage**.
 1. Select **Connect Azure NetApp Files volume**.
 1. In **Connect Azure NetApp Files volume**, select the **Subscription**, **NetApp account**, **Capacity pool**, and **Volume** to be attached as a datastore.
 
-    :::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png":::
+:::image type="content" source="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png" alt-text="Image shows the navigation to Connect Azure NetApp Files volume pop-up window." lightbox="media/attach-netapp-files-to-cloud/connect-netapp-files-portal-experience-1.png":::
 
 1. Verify the protocol is NFS. You need to verify the virtual network and subnet to ensure connectivity to the Azure VMware Solution private cloud.
 1. Under **Associated cluster**, in the **Client cluster** field, select one or more clusters to associate the volume as a datastore.
@@ -131,7 +154,7 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
     `az extension add --name vmware`
 1. Create a datastore using an existing Azure NetApp Files volume in Azure VMware Solution private cloud cluster.
 
-    `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
+    `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-net-app-volume /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
 1. If needed, display the help on the datastores.
 
     `az vmware datastore -h`
@@ -160,7 +183,7 @@ az vmware datastore netapp-volume create \
     --resource-group <resource group containing AVS private cloud> \
     --cluster <cluster name in AVS private cloud> \
     --private-cloud <name of AVS private cloud> \
-    --volume-id /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
+    --net-app-volume /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
 ```
 
 >[!IMPORTANT]  
@@ -243,3 +266,7 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within different Azure VMware Solution private clouds?**
 
     Yes, you can connect an Azure NetApp Files volume as a datastore to multiple clusters in different private clouds. Each private cloud needs connectivity via the ExpressRoute gateway in the Azure NetApp Files virtual network. Latency considerations apply.
+
+- **Does NFS Traffic traverse NSX components?**
+
+    No, NFS traffic from the ESXi hosts does not traverse any NSX components. Traffic traverses the ESXi VMkernel port directly to the NFS mount via the Azure network. 

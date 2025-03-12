@@ -1,0 +1,184 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/location-based-services/about-location-based-services.md",
+            "redirect_url": "/azure/azure-maps/about-azure-maps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/geocoding-coverage.md",
+            "redirect_url": "/azure/azure-maps/geocoding-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/how-to-manage-account-keys.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-account-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/how-to-search-for-address.md",
+            "redirect_url": "/azure/azure-maps/how-to-search-for-address",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/how-to-use-map-control.md",
+            "redirect_url": "/azure/azure-maps/how-to-use-map-control",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/index.md",
+            "redirect_url": "/azure/azure-maps/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/quick-demo-map-app.md",
+            "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/render-coverage.md",
+            "redirect_url": "/azure/azure-maps/render-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/routing-coverage.md",
+            "redirect_url": "/azure/azure-maps/routing-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/supported-languages.md",
+            "redirect_url": "/azure/azure-maps/supported-languages",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/traffic-coverage.md",
+            "redirect_url": "/azure/azure-maps/traffic-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/tutorial-prioritized-routes.md",
+            "redirect_url": "/azure/azure-maps/tutorial-prioritized-routes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/tutorial-route-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-route-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/tutorial-search-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-search-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/location-based-services/zoom-levels-and-tile-grid.md",
+            "redirect_url": "/azure/azure-maps/zoom-levels-and-tile-grid",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-iot-hub-maps.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/about-creator.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/choose-pricing-tier.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-pricing-tier",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
+            "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-real-time-data.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/how-to-request-transit-data.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps-web-services.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/migrate-bing-maps-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/mobility-coverage.md ",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md",
+            "redirect_url": "/azure/azure-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-add-bar-chart-layer.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-add-3d-column-layer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/power-bi-visual-migrate-from-bing-maps.md",
+            "redirect_url": "/azure/azure-maps/power-bi-visual-conversion",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/search-categories.md",
+            "redirect_url": "/azure/azure-maps/supported-search-categories",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-wfs.md",
+            "redirect_url": "/azure/azure-maps/how-to-creator-wfs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
+            "redirect_url": "/azure/azure-maps/",
+            "redirect_document_id": true
+        }
+    ]
+}

@@ -82,6 +82,17 @@ landingContent:
             url: how-to-block-network-traffic-portal.md
   
   # Card
+  - title: IP address management
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is IP address management with Azure Virtual Network Manager
+            url: concept-ip-address-management.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage IP addresses with Azure Virtual Network Manager
+            url: how-to-manage-ip-addresses-network-manager.md
+  # Card
   - title: Architecture
     linkLists:
       - linkListType: overview

@@ -4,7 +4,7 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 08/21/2024
+ms.date: 02/28/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
@@ -22,15 +22,17 @@ When you create an App Service plan in a certain region (for example, West Europ
 - Region (West US, East US, and so on)
 - Number of VM instances
 - Size of VM instances (Small, Medium, Large)
-- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2)
+- Pricing tier (Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, IsolatedV2)
 
 The _pricing tier_ of an App Service plan determines what App Service features you get and how much you pay for the plan. The pricing tiers available to your App Service plan depend on the operating system selected at creation time. These are the categories of pricing tiers:
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, run an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out. These tiers are intended to be used only for development and testing purposes.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium**, **PremiumV2**, and **PremiumV3** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances that are available to you for scale-out.
-- **Isolated**: The **Isolated** and **IsolatedV2** tiers run dedicated Azure VMs on dedicated Azure virtual networks. They provide network isolation on top of compute isolation to your apps. They provide the maximum scale-out capabilities.
+- **Isolated**: The **IsolatedV2** tier runs dedicated Azure VMs on dedicated Azure virtual networks. This provides network isolation on top of compute isolation to your apps. This tier provides the maximum scale-out capabilities.
 
 Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features that are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/windows/#pricing).
+
+You can find more comparisons between plans at [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
 <a name="new-pricing-tier-premiumv3"></a>
 
@@ -74,7 +76,7 @@ Except for the **Free** tier, an App Service plan carries a charge on the comput
 
 - In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged for the CPU quota.
 - In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**, **PremiumV3**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan is charged. These VM instances are charged the same regardless of how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
-- In the **Isolated** and **IsolatedV2** tiers, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged. In addition, in the **Isolated** tier there's a flat Stamp Fee for running the App Service Environment itself.
+- In the **IsolatedV2** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged.
 
 You don't get charged for using the App Service features that are available to you (configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). The exceptions are:
 
@@ -103,24 +105,11 @@ If your app is in the same App Service plan with other apps, you may want to imp
 
 ## Should I put an app in a new plan or an existing plan?
 
-Since you pay for the computing resources your App Service plan allocates (see [How much does my App Service plan cost?](#cost)), you can potentially save money by putting multiple apps into one App Service plan. You can continue to add apps to an existing plan as long as the plan has enough resources to handle the load. However, keep in mind that apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Overloading an App Service plan can potentially cause downtime for your new and existing apps.
+Since you pay for the computing resources your App Service plan allocates (see [How much does my App Service plan cost?](#cost)), you can potentially save money by putting multiple apps into one App Service plan. You can continue to add apps to an existing plan as long as the plan has enough resources to handle the load. However, keep in mind that apps in the same App Service plan all share the same compute resources. To determine whether the new app has the necessary resources, you need to understand the capacity of the existing App Service plan, and the expected load for the new app. Overloading an App Service plan can potentially cause downtime for your new and existing apps. You can find more comparisons between plans at [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
 Isolate your app into a new App Service plan when:
 
-- The app is resource-intensive. The number may actually be lower depending on how resource intensive the hosted applications are. However, for general guidance, refer to the table below:
-
-  | App Service Plan SKU | Maximum Apps |
-  |--|--|
-  | B1, S1, P1v2, I1v1 | 8 |
-  | B2, S2, P2v2, I2v1 | 16 |
-  | B3, S3, P3v2, I3v1 | 32 |
-  | P0v3 | 8 |
-  | P1v3, I1v2 | 16 |
-  | P2v3, I2v2, P1mv3 | 32 |
-  | P3v3, I3v2, P2mv3 | 64 |
-  | I4v2, I5v2, I6v2 | Maximum density bound by vCPU usage |
-  | P3mv3, P4mv3, P5mv3 | Maximum density bound by vCPU usage |
-
+- The app is resource-intensive.
 - You want to scale the app independently from the other apps in the existing plan.
 - The app needs resources in a different geographical region.
 

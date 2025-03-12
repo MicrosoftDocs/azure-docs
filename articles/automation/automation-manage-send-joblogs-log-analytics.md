@@ -110,7 +110,7 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | Caller_s |Caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
 | Tenant_g | GUID (globally unique identifier) that identifies the tenant for the caller. |
 | JobId_g |GUID that identifies the runbook job. |
-| ResultType |Status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| ResultType |Status of the runbook job. Possible values are:<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
 | Category | Classification of the type of data. For Automation, the value is JobLogs. |
 | OperationName | Type of operation performed in Azure. For Automation, the value is Job. |
 | Resource | Name of the Automation account |
