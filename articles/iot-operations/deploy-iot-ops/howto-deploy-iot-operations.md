@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/23/2024
+ms.date: 03/13/2025
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -98,6 +98,8 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    1. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
 
       Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. When creating a new storage account, choose a **General purpose v2** storage account type and set **Hierarchical namespace** to **Enabled**.
+
+      For more information on configuring your storage account, see [Production deployment guidelines](concept-production-guidelines.md#schema-registry-and-storage).
 
    1. Select a container in your storage account or select **Container** to create one.
 
