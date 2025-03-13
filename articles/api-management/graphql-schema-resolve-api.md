@@ -118,4 +118,4 @@ type User {
 Secure your GraphQL API by applying both existing [authentication and authorization policies](api-management-policies.md#authentication-and-authorization) and a [GraphQL validation policy](validate-graphql-request-policy.md) to protect against GraphQL-specific attacks.
 
 
-[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)
+[!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

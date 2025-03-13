@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit, devdivchpfy22
 
 This article shows steps to add an API manually to the API Management instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
-If you want to import an existing API, see [related topics](#related-topics) section.
+If you want to import an existing API, see [related topics](#related-content) section.
 
 In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a backend API.
 

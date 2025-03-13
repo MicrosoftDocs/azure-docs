@@ -81,7 +81,7 @@ When no longer needed, you can remove the resource group and all the related res
    
 1. Type the name of your resource group, and then select **Delete**.
 
-   :::image type="content" source="media/get-started-create-service-instance/delete-resource-group.png" alt-text="Delete resource group."::
+   :::image type="content" source="media/get-started-create-service-instance/delete-resource-group.png" alt-text="Delete resource group.":::
 
 ## Next steps
 
