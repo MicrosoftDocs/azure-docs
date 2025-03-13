@@ -41,10 +41,15 @@ With the guided gateway migration experience you can deploy a second virtual net
 
 After completing the gateway migration and deleting the older gateway and its connections, the newly created gateway will be tagged with "CreatedBy : GatewaySKUMigration". This tag will serve as a key differentiator from your other gateways that have not been migrated and should not be deleted.
 
-> [!NOTE]
-> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
+### Steps to migrate to a new gateway
+1. **Validate**: This step checks if the gateway is ready for migration by ensuring all resources are in a succeeded state. If the prerequisites aren't met, valdidation fails and you can't proceed.
+2. **Prepare**: In this stage, a ner Virtual Network gateway, Public IP, and connections are created. This operation can take up to 60 minutes. You can choose a preferred name for the new gateway and connections that need to be different from their old one, if you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any creation or modification of connections to this gateway.
+3. **Migrate**: After the new gateway is created, select the new gateway you created. This migrates the traffic from your old gatewway to the new one. All network traffic and data path connections from your old gateway will transfer with little interruptions. To start this process, select **Migrate**. This operation can take up to 15 minutes.
+>[!Important]
+>- After migration, validate your connectivity to ensure everything is functioning as expected.
+>- After creating the new Gateway, you have the option to revert to the old gateway rather than finalizing the change. **Abort** can be performed at any time after the prepare step, once the new gateway and Public IP have been created. This action will result in the deletion of the your new gateway and connections.
+4. **Commit**: In this stage, you finalize the migration which involves deleting the old gateway and connections. 
 
-Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
 |---------------------------------------------|------------------------------------------------|
