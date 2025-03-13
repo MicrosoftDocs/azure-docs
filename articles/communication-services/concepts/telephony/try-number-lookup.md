@@ -34,7 +34,7 @@ You can also copy the generated code into an application and enrich it with othe
 Sending a lookup query is just the start. Now you can integrate other Azure Communication Services features into your application.
 
 - [Number Lookup Concept](../numbers/number-lookup-concept.md)
-- [Get started with Number Lookup](/articles/communication-services/quickstarts/telephony/number-lookup.md)
+- [Get started with Number Lookup](/azure/communication-services/concepts/numbers/number-lookup-sdk)
 - [Calling SDK overview](../voice-video-calling/calling-sdk-features.md)
 - [Chat concepts](../chat/concepts.md)
 - [SMS overview](../sms/concepts.md)
