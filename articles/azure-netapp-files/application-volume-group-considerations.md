@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/29/2025
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
