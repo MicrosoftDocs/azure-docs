@@ -14,7 +14,7 @@ The current release is `2025.02.06`
 
 ## Release Notes
 
-Comprehensive release notes for the individual releases are listed below:
+Comprehensive release notes for the individual releases are listed:
 
 * [**2025.02.06 Release Notes**](2025.02.06.md) - released on 02/06/25
 * [**2024.12.18 Release Notes**](2024.12.18.md) - released on 12/18/24
