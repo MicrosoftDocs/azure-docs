@@ -40,7 +40,7 @@ When you use Azure Data Factory, it's important to prepare for transient faults,
 
 ### Idempotence
 
-Pipeline activities should be *idempotent*, which means that they should be able to be rerun without adverse side effects. If there's a transient fault like a network failure, or even an availability zone outage, Azure Data Factory might rerun pipeline activities.
+Pipeline activities should be *idempotent*, which means that they should be able to be rerun without adverse side effects. If there's a transient fault like a network failure, or even an availability zone outage, Azure Data Factory might rerun pipeline activities and so has the possibility of creating duplicate rows.
 
 To avoid duplicate rows being inserted after a transient fault, you can employ these best practices:
 
