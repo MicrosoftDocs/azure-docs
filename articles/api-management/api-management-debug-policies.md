@@ -68,7 +68,7 @@ If there is an error during policy execution, you will see the details of the er
 > Remember to exit the debug session by clicking the **Stop** button when you are finished.
 
 
-## Next steps
+## Related content
 
 + Learn more about the [API Management extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 + Report issues in the [GitHub repository](https://github.com/Microsoft/vscode-apimanagement)

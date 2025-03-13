@@ -24,7 +24,7 @@ the link in the **Version** column to view the source on the
 
 [!INCLUDE [azure-policy-reference-rp-apimanagement](../../includes/policy/reference/byrp/microsoft.apimanagement.md)]
 
-## Next steps
+## Related content
 
 - See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 - Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).

@@ -47,7 +47,7 @@ To resolve this issue, follow these steps:
 
 Check whether the issue is resolved. To do this, try to create the custom domain in the API Management service by using the Key Vault certificate.
 
-## Next steps
+## Related content
 Learn more about API Management service:
 
 - Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
