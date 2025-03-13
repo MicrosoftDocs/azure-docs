@@ -6,7 +6,7 @@ ms.author: jburchel
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-data-factory
-ms.date: 03/04/2025
+ms.date: 03/13/2025
 #Customer intent: As an engineer responsible for business continuity, I want to understand how Azure Data Factory works from a reliability perspective and plan disaster recovery strategies in alignment with the exact processes that Azure services follow in different situations.
 ---
 
