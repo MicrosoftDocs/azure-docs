@@ -521,6 +521,22 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-azcli-ps
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-azcli
+    title: Azure CLI
+  - id: programming-language-powershell
+    title: Azure PowerShell
   - id: programming-language-csharp
     title: C#
   - id: programming-language-javascript
@@ -1803,6 +1819,16 @@ groups:
   pivots:
   - id: platform-web
     title: JavaScript
+  - id: platform-windows
+    title: Windows
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-windows-android-ios
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
   - id: platform-windows
     title: Windows
   - id: platform-android

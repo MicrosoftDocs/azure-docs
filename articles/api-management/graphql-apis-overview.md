@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2024
 ms.author: danlep
 ---
@@ -113,7 +113,7 @@ For more information about setting up a resolver, see [Configure a GraphQL resol
 * Explore the GraphQL schema and run test queries against the GraphQL APIs in the Azure and developer portals.
 
 
-## Next steps
+## Related content
 
 - [Import a GraphQL API](graphql-api.md)
 - [Import a GraphQL schema and set up field resolvers](graphql-schema-resolve-api.md)

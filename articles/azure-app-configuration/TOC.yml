@@ -40,12 +40,12 @@
       href: quickstart-feature-flag-dotnet-background-service.md
     - name: Java Spring
       href: quickstart-feature-flag-spring-boot.md
-    - name: Azure Functions
-      href: quickstart-feature-flag-azure-functions-csharp.md
     - name: Python
       href: quickstart-feature-flag-python.md
     - name: Node.js
       href: quickstart-feature-flag-javascript.md
+    - name: Azure Functions
+      href: quickstart-feature-flag-azure-functions-csharp.md
     - name: Azure Kubernetes Service
       href: quickstart-feature-flag-azure-kubernetes-service.md
   - name: Service integration
@@ -84,14 +84,14 @@
       href: enable-dynamic-configuration-dotnet.md
     - name: .NET Background Service
       href: enable-dynamic-configuration-dotnet-background-service.md
-    - name: Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Spring Boot
       href: enable-dynamic-configuration-java-spring-app.md
     - name: Python
       href: enable-dynamic-configuration-python.md
     - name: Node.js
       href: enable-dynamic-configuration-javascript.md
+    - name: Azure Functions
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: Azure Kubernetes Service
       href: enable-dynamic-configuration-azure-kubernetes-service.md
   - name: Enable dynamic configuration using push model
@@ -300,7 +300,7 @@
           href: ./rest-api-throttling.md
         - name: Versioning
           href: ./rest-api-versioning.md
-  - name: Client libraries
+  - name: Configuration providers
     items:
     - name: Overview
       href: ./configuration-provider-overview.md

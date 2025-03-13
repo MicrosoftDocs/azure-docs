@@ -180,7 +180,7 @@ This section provides considerations for multi-region deployments when the API M
 
 * **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. 
 
-## Next steps
+## Related content
 
 * Learn more about configuring API Management for [high availability](high-availability.md).
 

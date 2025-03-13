@@ -55,7 +55,7 @@ If the required resource provider is already registered, then proceed to Step 2.
 
     - Sql is for SQL query execution in dedicated SQL pools.
     - SqlOnDemand is SQL query execution in the built-in serverless SQL pool.
-    - Dev is for accessing everything else inside Azure Synapse Analytics Studio workspaces.
+    - Dev is for accessing everything else inside Azure Synapse Analytics workspaces.
 
     . Select **Next: Configuration>** to advance to the next part of the setup.
 

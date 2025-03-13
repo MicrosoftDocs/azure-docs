@@ -4,7 +4,7 @@ description: Learn how to deploy a self-hosted gateway component of Azure API Ma
 author: tomkerkhove
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.author: tomkerkhove
 ms.date: 12/17/2021
 ---
@@ -260,7 +260,7 @@ Now that the tutorial is over, you can easily clean up your cluster as following
    helm uninstall opentelemetry-collector
    ```
 
-## Next steps
+## Related content
 
 - To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
 * To learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
