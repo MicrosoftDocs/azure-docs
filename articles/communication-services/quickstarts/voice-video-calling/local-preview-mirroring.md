@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 zone_pivot_groups: acs-plat-windows-android-ios
 ---
+# Overview
+
 **We’re excited to announce the rollout of the turn off local preview mirroring feature for the native ACS calling experience**
 <br/>
 <br/>Meeting participants can now choose to stop mirroring their video preview—the small window showing how they appear during meetings.
