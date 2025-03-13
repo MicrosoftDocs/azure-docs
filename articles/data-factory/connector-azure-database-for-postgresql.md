@@ -213,7 +213,7 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 | writeMethod | The method used to write data into Azure Database for PostgreSQL.<br>Allowed values are: **CopyCommand** (default, which is more performant), **BulkInsert** and **Upsert**. | No |
 | upsertSettings | Specify the group of the settings for write behavior. <br/> Apply when the WriteBehavior option is `Upsert`. | No |
 | ***Under `upsertSettings`:*** | | |
-| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. | No |
+| keys | Specify the column names for unique row identification. Either a single key or a series of keys can be used. Keys must be a primary key or unique column. If no key column is provided, the connector will retrieve and use the primary keys instead | No |
 | writeBatchSize | The number of rows loaded into Azure Database for PostgreSQL per batch.<br>Allowed value is an integer that represents the number of rows. | No (default is 1,000,000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:30:00) |
 
