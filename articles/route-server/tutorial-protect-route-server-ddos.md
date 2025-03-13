@@ -87,7 +87,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
 
 ## Enable DDoS protection
 
-Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
+Azure DDoS Network is enabled at the virtual network where the resource you want to protect resides. 
 
 1. In the search box at the top of the portal, enter ***Virtual network***. Select **Virtual networks** from the search results.
 

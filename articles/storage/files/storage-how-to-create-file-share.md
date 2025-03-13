@@ -5,7 +5,7 @@ description: How to create and delete SMB and NFS Azure file share by using the 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 03/12/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
@@ -531,8 +531,15 @@ $provisionedIops = 10000
 $provisionedThroughputMibPerSec = 2048
 
 # Update the file share provisioning.
-Update-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec -ProvisionedIops $provisionedIops -QuotaGiB $provisionedStorageGib;
-$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName;
+Update-AzRmStorageShare `
+        -ResourceGroupName $resourceGroupName `
+        -AccountName $storageAccountName `
+        -ShareName $shareName `
+        -QuotaGiB $provisionedStorageGib `
+        -ProvisionedIops $provisionedIops `
+        -ProvisionedBandwidthMibps $provisionedThroughputMibPerSec
+
+$f = Get-AzRmStorageShare -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -ShareName $shareName
 $f | fl
 ```
 
@@ -552,8 +559,13 @@ provisionedIops=10000
 provisionedThroughputMibPerSec=2048
 
 # Update the file share provisioning.
-az storage share-rm update --resource-group $resourceGroupName --name $shareName --storage-account $storageAccountName --quota $provisionedStorageGib --provisioned-iops $provisionedIops --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
-
+az storage share-rm update \
+        --resource-group $resourceGroupName \
+        --name $shareName \
+        --storage-account $storageAccountName \
+        --quota $provisionedStorageGib \
+        --provisioned-iops $provisionedIops \
+        --provisioned-bandwidth-mibps $provisionedThroughputMibPerSec
 ```
 
 ---
@@ -578,8 +590,11 @@ Follow these instructions to update the provisioning for your file share.
 
 5. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
+> [!NOTE]
+> You can use PowerShell and CLI to enable/disable paid bursting if desired. Paid bursting is an advanced feature of the provisioned v1 billing model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
+
 # [PowerShell](#tab/azure-powershell)
-You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, and `$provisionedStorageGib` with the desired values for your file share.
+You can modify a provisioned v1 file share with the `Update-AzRmStorageShare` cmdlet. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the desired values for your file share. Set `$provisionedStorageGib`, `$paidBurstingEnabled`, `$paidBurstingMaxIops`, and `$paidBurstingMaxThroughputMibPerSec` to non-null (`$null`) values to set on the file share. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling.
 
 ```PowerShell
 # The path to the file share resource to be modified.
@@ -587,15 +602,42 @@ $resourceGroupName = "<resource-group>"
 $storageAccountName = "<storage-account>"
 $fileShareName = "<file-share>"
 
-# The provisioning desired on the file share.
-$provisionedStorageGib = 10240
+# The provisioning desired on the file share. Set to $null to keep at the 
+# current level of provisioning.
+$provisionedStorageGib = 10240 
+
+# Paid bursting settings.
+$paidBurstingEnabled = $null # Set to $true or $false.
+$paidBurstingMaxIops = $null # Set to an integer value.
+$paidBurstingMaxThroughputMibPerSec = $null # Set to an integer value.
+
+# Configure parameter object for splatting.
+$params = @{
+    ResourceGroupName = $resourceGroupName;
+    StorageAccountName = $storageAccountName;
+    Name = $fileShareName;
+}
+
+if ($null -ne $provisionedStorageGib) { 
+    $params += @{ QuotaGiB = $provisionedStorageGib }
+}
+
+if ($null -ne $paidBurstingEnabled) {
+    $params += @{ PaidBurstingEnabled = $paidBurstingEnabled }
+}
+
+if ($null -ne $paidBurstingMaxIops) {
+    $params += @{ PaidBurstingMaxIops = $paidBurstingMaxIops }
+}
+
+if ($null -ne $paidBurstingMaxThroughputMibPerSec) {
+    $params += @{ 
+        PaidBurstingMaxBandwidthMibps = $paidBurstingMaxThroughputMibPerSec 
+    }
+}
 
 # Update the file share provisioning.
-Update-AzRmStorageShare `
-        -ResourceGroupName $resourceGroupName `
-        -StorageAccountName $storageAccountName `
-        -Name $fileShareName `
-        -QuotaGiB $provisionedStorageGib
+Update-AzRmStorageShare @params
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -616,6 +658,20 @@ az storage share-rm update \
         --storage-account $storageAccountName \
         --name $fileShareName \
         --quota $provisionedStorageGib
+```
+
+To toggle paid bursting, use the `--paid-bursting-enabled` parameter. Paid bursting is an advanced feature of the provisioned v1 model. Consult [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling. You can optionally use the `--paid-bursting-max-iops` and `--paid-bursting-max-bandwidth-mibps` flags to set a restriction on the upper amount of paid bursting allowed for cost control purposes. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the desired values for your file share.
+
+```bash
+resourceGroupName="<resource-group>"
+storageAccountName="<storage-account>"
+fileShareName="<file-share>"
+
+az storage share-rm update \
+        --resource-group $resourceGroupName \
+        --storage-account $storageAccountName \
+        --name $fileShareName \
+        --paid-bursting-enabled true
 ```
 
 ---

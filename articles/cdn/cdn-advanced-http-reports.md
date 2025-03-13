@@ -2,12 +2,12 @@
 title: Analyze usage statistics with Azure CDN advanced HTTP reports
 description: Learn how to create advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 03/20/2024
-ms.author: duau
 ---
 
 # Analyze usage statistics with Azure CDN advanced HTTP reports
