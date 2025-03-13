@@ -42,10 +42,9 @@ To exchange data with edge-based services, assets use industry standards such as
 
 - **MQTT messaging**. MQTT allows a single broker to serve tens of thousands of clients simultaneously, with lightweight publish-subscribe messaging, topic creation, and management. Many IoT devices support MQTT natively out of the box. The MQTT broker underpins the messaging layer in Azure IoT Operations and supports both MQTT v3.1.1 and MQTT v5. [MQTT](https://mqtt.org/).
 
-- **ONVIF media specifications** (preview). The connector for ONVIF in Azure IoT Operations discovers ONVIF conformant cameras and registers them in the Azure Device Registry. The connector enables capabilities like retrieving and updating the configuration of the camera to adjust the output image configuration, or
-controlling the camera pan, tilt, and zoom (PTZ).  [ONVIF](https://www.onvif.org/)
+- **ONVIF media specifications** (preview). The connector for ONVIF in Azure IoT Operations discovers ONVIF conformant cameras and registers them in the Azure Device Registry. The connector enables capabilities like retrieving and updating the configuration of the camera to adjust the output image configuration, or controlling the camera pan, tilt, and zoom (PTZ).  [ONVIF](https://www.onvif.org/)
 
-- **Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP** (preview). The media connector makes images and video from media sources such as IP cameras available to other Azure IoT Operations components. It can also capture snapshots from a video stream or from an image URL and publish them to an MQTT topic or proxy a live video stream from a camera to an endpoint that an operator can access.
+- **Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP** (preview). The media connector makes images and video from media sources such as IP cameras available to other Azure IoT Operations components. It can also capture snapshots from a video stream or from an image URL and publish them to an MQTT topic, or proxy a live video stream from a camera to an endpoint that an operator can access.
 
 Once asset data is received, Azure IoT Operations uses *data flows* to process and route data to cloud endpoints or other edge components.
 
@@ -143,8 +142,8 @@ To exchange data with Azure services, assets use industry standards such as:
 - [MQTT v3.1.1](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.html) and [MQTT v5.0](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 - [OPC UA](https://opcfoundation.org/)
 - [ONVIF](https://www.onvif.org/) (preview)
-- Media protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP (preview).
 - Media streaming protocols such as RTSP, RTCP, SRT, HLS, and JPEG over HTTP (preview).
+
 ### [Cloud-based solution](#tab/cloud)
 
 An IoT device can use one of several network protocols when it connects to an IoT Hub or DPS endpoint:
@@ -208,7 +207,7 @@ Azure IoT Operations is an edge runtime environment that hosts the services to c
 
 Data flows provide data transformation and data contextualization capabilities before routing messages to various locations including cloud endpoints.
 
-Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn, more see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
+Azure IoT Operations runs on Azure Arc-enabled edge Kubernetes clusters, enabling a fully automated machine learning operations in hybrid mode, including training and AI model deployment steps that transition seamlessly between cloud and edge. To learn more, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere).
 
 ### [Cloud-based solution](#tab/cloud)
 
