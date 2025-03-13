@@ -170,7 +170,7 @@
       - name: Bicep
         href: nsg-flow-logs-bicep.md
       - name: REST
-        href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest
+        href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
     - name: Migrate NSG flow logs
