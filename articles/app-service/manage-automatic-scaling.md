@@ -3,7 +3,7 @@ title: How to Enable Automatic Scaling
 description: Learn how to scale automatically in Azure App Service with no configuration.
 author: msangapu-msft
 ms.author: msangapu
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 03/01/2024
 ms.custom: devx-track-azurecli
 
@@ -44,7 +44,7 @@ The **Maximum burst** level represents the highest number of instances that your
 
 #### [Azure portal](#tab/azure-portal)
 
-To enable automatic scaling, go to the web app's service menu and select **scale-out (App Service Plan)**. Select **Automatic**, update the **Maximum burst** value, and select the **Save** button.
+To enable automatic scaling, go to the web app's left menu and select **scale-out (App Service Plan)**. Select **Automatic**, update the **Maximum burst** value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-automatic-scaling.png" alt-text="Screenshot that shows automatic scaling in Azure portal" :::
 
@@ -68,7 +68,7 @@ The app-level setting **Always ready instances** specifies the minimum number of
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the minimum number of web app instances, go to the web app's service menu and select **scale-out (App Service Plan)**. Update the **Always ready instances** value, and select the **Save** button.
+To set the minimum number of web app instances, go to the web app's left menu and select **scale-out (App Service Plan)**. Update the **Always ready instances** value, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-always-ready-instances.png" alt-text="Screenshot of always-ready instances." :::
 
@@ -85,13 +85,13 @@ The **Maximum scale limit** value sets the maximum number of instances a web app
 
 #### [Azure portal](#tab/azure-portal)
 
-To set the maximum number of web app instances, go to the web app's service menu and select **scale-out (App Service Plan)**. Select **Enforce scale-out limit**, update the **Maximum scale limit**, and select the **Save** button.
+To set the maximum number of web app instances, go to the web app's left menu and select **scale-out (App Service Plan)**. Select **Enforce scale-out limit**, update the **Maximum scale limit**, and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-maximum-scale-limit.png" alt-text="Screenshot of maximum scale limit." :::
 
 #### [Azure CLI](#tab/azure-cli)
 
-Currently, you can't change the **Maximum scale limit** in Azure CLI. You must instead use the Azure portal.
+Currently, you can't change the **Maximum scale limit** in the Azure CLI. You must instead use the Azure portal.
 
 ---
 
@@ -117,7 +117,7 @@ You can modify the number of prewarmed instances for an app by using the Azure C
 
 #### [Azure portal](#tab/azure-portal)
 
-To disable automatic scaling, go to the web app's service menu and select **scale-out (App Service Plan)**. Select **Manual** and select the **Save** button.
+To disable automatic scaling, go to the web app's left menu and select **scale-out (App Service Plan)**. Select **Manual** and select the **Save** button.
 
 :::image type="content" source="./media/manage-automatic-scaling/azure-portal-manual-scaling.png" alt-text="Screenshot of manual scaling." :::
 
@@ -132,12 +132,12 @@ az appservice plan update --resource-group <RESOURCE_GROUP> --name <APP_SERVICE_
 
 ## Frequently asked questions
 
-### Does automatic scaling support Azure Function apps?
+### Does automatic scaling support Azure Functions apps?
 
-No, you can only have Azure App Service web apps in the App Service plan in which you wish to enable automatic scaling. For Functions apps, we recommend that you use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
+No, you can only have Azure App Service web apps in the App Service plan in which you wish to enable automatic scaling. For Azure Functions apps, we recommend that you use the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md) instead.
 
 > [!CAUTION]
-> Automatic scaling is disabled when App Service web apps and Azure Function apps are in the same App Service plan.
+> Automatic scaling is disabled when App Service web apps and Azure Functions apps are in the same App Service plan.
 >
 
 ### How does automatic scaling work behind the scenes?
