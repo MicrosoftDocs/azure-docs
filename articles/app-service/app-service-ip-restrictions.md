@@ -3,7 +3,7 @@ title: Azure App Service Access Restrictions
 description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/block list that controls network access.
 author: madsd
 ms.author: madsd
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 02/03/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
@@ -92,7 +92,7 @@ Follow the procedure as outlined in the preceding section, but with the followin
 
 - For step 4, in the **Type** dropdown list, select IPv4 or IPv6.
 
-Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The **IPv4** CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The IPv4 CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 > [!NOTE]
 > IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use service endpoints to restrict traffic to select subnets in your virtual network.
@@ -101,7 +101,7 @@ Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notati
 
 - For step 4, in the **Type** dropdown list, select **Virtual Network**.
 
-  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the virtual network type selected.":::
+  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot of the Add Restriction pane with the virtual network type selected.":::
 
 Specify the **Subscription**, **Virtual Network**, and **Subnet** dropdown lists, matching what you want to restrict access to.
 
@@ -120,7 +120,7 @@ With service endpoints, you can configure your app by using application gateways
 
 - For step 4, in the **Type** dropdown list, select **Service Tag**.
 
-  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
+  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the Add Restriction pane with the Service Tag type selected.":::
 
 All publicly available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
 
@@ -144,7 +144,7 @@ All publicly available service tags are supported in access restriction rules. E
 
 1. Select **Save** to save the changes.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the 'Access Restrictions' pane, showing the 'Remove' ellipsis next to the access restriction rule to be deleted.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot of the Access Restrictions pane, showing the Remove ellipsis next to the access restriction rule to be deleted.":::
 
 ## Access restriction advanced scenarios
 
@@ -152,18 +152,18 @@ The following sections describe using access restrictions in advanced scenarios.
 
 ### Filter by HTTP header
 
-You can add HTTP header filters to any rule. The following http header names are supported:
+You can add HTTP header filters to any rule. The following HTTP header names are supported:
 
 - `X-Forwarded-For`
 - `X-Forwarded-Host`
 - `X-Azure-FDID`
 - `X-FD-HealthProbe`
 
-For each header name, you can add up to eight values separated by commas. The http header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+For each header name, you can add up to eight values separated by commas. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 
 ### Multi-source rules
 
-Multi-source rules allow you to combine up to eight IP ranges or eight service tags in a single rule. Use multi-source rules if you have more than 512 IP ranges or if you want to create logical rules. For example: a logical rule could include multiple IP ranges combined with a single http header filter.
+Multi-source rules allow you to combine up to eight IP ranges or eight service tags in a single rule. Use multi-source rules if you have more than 512 IP ranges or if you want to create logical rules. For example: a logical rule could include multiple IP ranges combined with a single HTTP header filter.
 
 Multi-source rules are defined the same way as single-source rules, but each range is separated with a comma.
 
@@ -183,15 +183,15 @@ If you want to explicitly block a single IP address or a block of IP addresses, 
 
 ### Restrict access to an SCM site
 
-In addition to being able to control access to your app, you can restrict access to the SCM (supply chain management) advanced tool site used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select **Use main site rules**, the rules list is hidden. The SCM site uses the rules from the main site. If you unselect the checkbox, your SCM site settings appear again.
+In addition to being able to control access to your app, you can restrict access to the source control management (SCM) advanced tool site used by your app. The SCM site is both the web deploy endpoint and the Kudu console. You can assign access restrictions to the SCM site from the app separately or use the same set of restrictions for both the app and the SCM site. When you select **Use main site rules**, the rules list is hidden. The SCM site uses the rules from the main site. If you unselect the checkbox, your SCM site settings appear again.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-advancedtools-browse.png" alt-text="Screenshot of the Access Restrictions pane in the Azure portal, showing that no access restrictions are set for the SCM site or the app.":::
 
 ### Restrict access to a specific Azure Front Door instance
 
-Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. By using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique http header that Azure Front Door sends.
+Traffic from Azure Front Door to your application originates from a well known set of IP ranges defined in the `AzureFrontDoor.Backend` service tag. By using a service tag restriction rule, you can restrict traffic to only originate from Azure Front Door. To ensure traffic only originates from your specific instance, you need to further filter the incoming requests based on the unique HTTP header that Azure Front Door sends.
 
-:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing how to add an Azure Front Door restriction.":::
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Screenshot of the Access Restrictions pane in the Azure portal, showing how to add an Azure Front Door restriction.":::
 
 PowerShell example:
 
@@ -536,7 +536,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ## Set up Azure Functions access restrictions
 
-Access restrictions are also available for Function apps with the same functionality as App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
+Access restrictions are also available for function apps with the same functionality as App Service plans. When you enable access restrictions, you also disable the Azure portal code editor for any disallowed IPs.
 
 ## Related content
 
