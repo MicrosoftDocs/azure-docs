@@ -187,7 +187,7 @@ az webapp connection create sql \
 The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create fabricsql -h` to get the supported client types, and choose the one that matches your application.
 
 > [!IMPORTANT]
-> Manual steps are currently required for complete onboarding. Please see [Manual steps required for SQL database in Microsoft Fabric](../how-to-integrate-fabric-sql.md#manual-steps).
+> Manual access sharing is currently required for complete onboarding. See [Share access to SQL database in Fabric](#share-access-to-sql-database-in-fabric).
 
 ### [User-assigned managed identity](#tab/user)
 
