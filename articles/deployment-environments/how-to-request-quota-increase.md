@@ -54,7 +54,7 @@ Follow these steps to request a limit increase:
 
 1. Select **Create a support request**. 
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Help + support page. Create a support request is highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Support + troubleshooting page. Create a support request is highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
 
 1. On the **New support request** page, enter the following information as needed, and then select **Next**.
 
