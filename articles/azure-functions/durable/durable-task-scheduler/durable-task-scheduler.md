@@ -17,13 +17,7 @@ For an in-depth comparision between the supported storage providers for Durable 
 > [!NOTE]
 > DTS currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
 >
-> The following regions are supported today:
->   - Australia East
->   - North Europe
->   - Sweden Central
->   - UK South
->   - North Central US
->   - West US 2
+> Durable task scheduler is only available in certain Azure regions today. Run this command to get the latest supported regions:  `az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table`.  
 >
 > You can create up to **five schedulers per region** per subscription. 
 
