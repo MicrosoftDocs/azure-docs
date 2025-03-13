@@ -57,6 +57,8 @@
       href: create-network-security-perimeter-cli.md
     - name: Create a network security perimeter - Bicep
       href: create-network-security-perimeter-bicep.md
+    - name: Create a network security perimeter - ARM template
+      href: create-network-security-perimeter-template.md
     - name: Transition to a network security perimeter
       href: network-security-perimeter-transition.md
   - name: DNS

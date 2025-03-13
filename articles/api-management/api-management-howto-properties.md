@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli

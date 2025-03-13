@@ -3,7 +3,7 @@ title: Support policies for self-hosted gateway | Azure API Management
 description: Learn about the support policies and the shared responsibilities for the API Management self-hosted gateway.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.author: danlep
 ms.date: 09/25/2024
 ---
