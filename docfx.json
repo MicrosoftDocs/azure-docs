@@ -304,7 +304,7 @@
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
         "articles/hdinsight/*.yml": "yeturis",
         "articles/hdinsight/kafka/*.md": "yeturis",
-        "articles/hdinsight/*.md": "yeturis"
+        "articles/hdinsight/*.md": "yeturis",
         "articles/hdinsight/kafka/*.yml": "yeturis",
         "articles/integration-environments/*.md": "ecfan",
         "articles/integration-environments/*.yml": "ecfan",
