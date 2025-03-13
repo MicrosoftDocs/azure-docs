@@ -4,7 +4,7 @@ description: Learn how to deploy your code to Azure App Service from a CI/CD pip
 author: cephalin
 ms.author: cephalin
 ms.reviewer: ushan
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 01/16/2025
 ms.custom: github-actions-azure, devx-track-azurecli
 
@@ -37,11 +37,11 @@ When you enable continuous deployment, the **Create Web App** process automatica
 > [!NOTE]
 > When you create an app, you might receive an error that states that your Azure account doesn't have certain permissions. Your account might need [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see the following section.
 
-## Set up GitHub Actions deployment from the Deployment Center
+## Set up GitHub Actions deployment from Deployment Center
 
-For an existing app, you can quickly get started with GitHub Actions by using the App Service **Deployment Center**. This turnkey method generates a GitHub Actions workflow file based on your application stack and commits it to your GitHub repository.
+For an existing app, you can quickly get started with GitHub Actions by using **Deployment Center** in App Service. This turnkey method generates a GitHub Actions workflow file based on your application stack and commits it to your GitHub repository.
 
-By using the **Deployment Center**, you can also easily configure the more secure OpenID Connect authentication with a *user-assigned identity*. For more information, see [the user-assigned identity option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions).
+By using **Deployment Center**, you can also easily configure the more secure OpenID Connect authentication with a *user-assigned identity*. For more information, see [the user-assigned identity option](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions).
 
 If your Azure account has the [needed permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), you can create a user-assigned identity. Otherwise, you can select an existing user-assigned managed identity in the **Identity** dropdown menu. You can work with your Azure administrator to create a user-assigned managed identity with the [Website Contributor role](deploy-continuous-deployment.md#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
 
@@ -49,7 +49,7 @@ For more information, see [Continuous deployment to Azure App Service](deploy-co
 
 ## Manually set up a GitHub Actions workflow
 
-You can deploy a workflow without using the **Deployment Center**. Perform these three steps:
+You can deploy a workflow without using **Deployment Center**. Perform these three steps:
 
 1. [Generate deployment credentials](#generate-deployment-credentials).
 1. [Configure the GitHub secret](#configure-the-github-secret).
@@ -258,7 +258,7 @@ For more information on how to use and configure the Maven plugin, see [Maven pl
 
 ### How do I deploy a WAR file through the Azure CLI?
 
-If you prefer to use the Azure CLI to deploy to App Service, you can use the GitHub Action for Azure CLI.
+If you prefer to use the Azure CLI to deploy to App Service, you can use the GitHub Action for the Azure CLI.
 
 ```yaml
 - name: Azure CLI script
@@ -268,13 +268,13 @@ If you prefer to use the Azure CLI to deploy to App Service, you can use the Git
       az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
 ```
 
-For more information on how to use and configure the GitHub action for the Azure CLI, see [Azure CLI GitHub action](https://github.com/Azure/cli).
+For more information on how to use and configure the GitHub action for the Azure CLI, see [the Azure CLI GitHub action](https://github.com/Azure/cli).
 
 For more information on the `az webapp deploy` command, including how to use it and the parameter details, see [`az webapp deploy` documentation](/cli/azure/webapp#az-webapp-deploy).
 
 ### How do I deploy a startup file?
 
-Use the GitHub Action for Azure CLI. For example:
+Use the GitHub Action for the Azure CLI. For example:
 
 ```yaml
 - name: Deploy startup script
