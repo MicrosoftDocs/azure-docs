@@ -146,7 +146,7 @@ For data factories deployed in a nonpaired region, or in Brazil South or Southea
 >
 > If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
-#### Failover process
+#### Post-failover reconfiguration
 
 **Core service:** When a Microsoft-managed failover has completed, you're able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
