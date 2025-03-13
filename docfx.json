@@ -981,14 +981,14 @@
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
         "articles/healthcare-apis/*.md": "leeclontz",
-        "articles/hdinsight/domain-joined/*.md": "nijelsf",
-        "articles/hdinsight/hadoop/*.md": "nijelsf",
-        "articles/hdinsight/hbase/*.md": "nijelsf",
-        "articles/hdinsight/interactive-query/*.md": "nijelsf",
-        "articles/hdinsight/spark/*.md": "sairamyeturi",
-        "articles/hdinsight/kafka/*.md": "nijelsf",
-        "articles/hdinsight/spark/*.md": "nijelsf",
-        "articles/hdinsight/*.md": "nijelsf"
+        "articles/hdinsight/domain-joined/*.md": "nijelsf, v-sreeiyer",
+        "articles/hdinsight/hadoop/*.md": "nijelsf, v-sreeiyer",
+        "articles/hdinsight/hbase/*.md": "nijelsf, v-sreeiyer",
+        "articles/hdinsight/interactive-query/*.md": "nijelsf" v-sreeiyer",
+        "articles/hdinsight/spark/*.md": "sairamyeturi, vsreeiyer",
+        "articles/hdinsight/kafka/*.md": "nijelsf, v-sreeiyer",
+        "articles/hdinsight/spark/*.md": "nijelsf, v-sreeiyer",
+        "articles/hdinsight/*.md": "nijelsf, v-sreeiyer"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
