@@ -10,17 +10,9 @@ ms.subservice: durable
 
 # Durable Task Scheduler backend for Durable Functions (preview)
 
-The Durable Task Scheduler (DTS) is a backend for Durable Functions. DTS is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
+The durable task scheduler is a fully-managed backend for Durable Functions. It is built from scratch and provides several key benefits not available in the "bring your own (BYO)" backend options today. This document discusses different aspects of DTS including architecture, concepts, and key features.
 
 For an in-depth comparision between the supported storage providers for Durable Functions, see the [Durable Functions storage providers](../durable-functions-storage-providers.md) documentation.
-
-> [!NOTE]
-> DTS currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
->
-> Durable task scheduler is only available in certain Azure regions today. Run this command to get the latest supported regions:  `az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table`.  
->
-> You can create up to **five schedulers per region** per subscription. 
-
 
 ## Architecture 
 
@@ -41,7 +33,7 @@ Unlike other generic storage providers, DTS is a purpose-built backend-as-a-serv
 
 ### Managed by Azure 
 
-Unlike [other BYO backend options](../durable-functions-storage-providers.md), DTS is fully managed by Azure. This reduces management burdens, such as cleaning up completed orchestration history data, handling failover in the case of disaster recovery, etc. Managing the state store is now a task of Azure, so you can focus on business logic. 
+Unlike other [existing storage providers]((../durable-functions-storage-providers.md)) for durable functions, the durable task scheduler offers dedicated resources that are fully managed by Azure. You no longer need to bring your own storage account for storing orchestration and entity state, as it is completely built in.
 
 Since Azure has direct access to your app's backend, it also becomes easier to diagnose and resolve problems related to DTS so users can expect a better support experience. 
 
@@ -93,7 +85,7 @@ For this particular test, the results show that Durable Task Scheduler is **30% 
 
 ### Supports multiple task hubs
 
-Durable Functions application states are durably persisted in a task hub. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to task hubs requires identity-based authentication. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
+Durable Functions application states are durably persisted in a task hub. A task hub is a logical container for orchestrations and entities and provides a way to partition the state store. One DTS instance allows for the creation of multiple task hubs, each of which can be used by a different application. Just like the dashboard, access to a task hub require that an identity has the required RBAC (role-based access control) permission. This allows for multiple applications to securely share one DTS instance through different task hubs, thus reducing management overhead. 
 
 ### Other features
 
@@ -101,9 +93,12 @@ Durable Functions application states are durably persisted in a task hub. One DT
 
 - **Durable Entities**: Users of Durable Entities can use DTS as the backend without any code changes just like orchestrations. Entities related data will surface on the dashboard as well. 
 
-## DTS Concepts 
-[TODO @cgillum @torosent - example: scaling, task hub]
+## Considerations  
 
+- **Scaling**: If your durable functions app is not reaching the maximum throughout of the durable task scheduler, consider scaling out your app to more instances as the bottleneck might lie in the number of workers available to run orchestrations. If scaling out also doesn't achieve the throughput you need, then consider *scaling up* your compute resources. In the future, you'll also be able to scale out the resources allocated to a durable task scheduler by purchasing more [capacity units](./dts-dedicated-sku.md#dedicated-sku-concepts). 
+- **Supported hosting plans**: DTS currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. 
+- **Available regions**: Durable task scheduler is only available in certain Azure regions today. Run this command to get the latest supported regions:  `az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table`.  
+- **Scheduler quota**: You can create up to **five schedulers per region** per subscription today. 
 
 ## Next steps
 
