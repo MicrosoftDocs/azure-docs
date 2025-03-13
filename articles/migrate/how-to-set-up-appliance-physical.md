@@ -128,7 +128,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
     1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
-	2. The appliance verifies the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+	2. The appliance verifies the key and starts the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
         :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in.":::
@@ -160,6 +160,16 @@ Now, connect from the appliance to the physical servers to be discovered, and st
    > [!Note]
    > By default, the credentials will be used to gather data about the installed applications, roles, and features, and also to collect dependency data from Windows and Linux servers, unless you disable the slider to not perform these features (as instructed in the last step).
 1. In **Step 2:Provide physical or virtual server details​**, select **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
+
+    * The appliance communicates with Windows servers over WinRM port 5986 (HTTPS) by default and with Linux servers over port 22 (TCP). 
+    * If the HTTPS [prerequisites](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) are not configured on the target Hyper-V servers, appliance communication falls back to WinRM port 5985 (HTTP).
+
+      :::image type="content" source="./media/tutorial-assess-physical/provide-physical-or-virtual-server-details.png" lightbox="./media/tutorial-assess-physical/provide-physical-or-virtual-server-details.png" alt-text="Screenshot shows the physical and virtual server details." :::
+
+    * To enforce https communication without fallback, enable the https protocol toggle in Appliance Config Manager.
+    * After enabling the checkbox, ensure that the prerequisites are configured on the target servers. If certificates aren't configured on the target servers, discovery would fail on the current discovered servers and on newly added servers. 
+        * WinRM HTTPS requires a local computer Server Authentication certificate with a CN matching the hostname to be installed. The certificate mustn't be expired, revoked, or self-signed. Refer to this [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WINRM for HTTPS.
+
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide server details through **Import CSV**.
 
     ![Screenshot of selections for adding discovery source.](./media/tutorial-assess-physical/add-discovery-source-physical.png)
@@ -167,14 +177,14 @@ Now, connect from the appliance to the physical servers to be discovered, and st
     - If you choose **Add single item**, you can choose the OS type, specify friendly name for credentials, add server **IP address/FQDN**, and select **Save**.
     - If you choose **Add multiple items**, you can add multiple records at once by specifying server **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and select **Save**.
     - If you choose **Import CSV** _(selected by default)_, you can download a CSV template file, populate the file with the server **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file, and select **Save**.
-
-1. On selecting Save, appliance tries validating the connection to the servers added and show the **Validation status** in the table against each server.
-    - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+1. On selecting **Save**, the appliance tries validating the connection to the servers added and shows the **Validation status** in the table against each server.
+    - If validation fails for a server, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue and validate again.
     - To remove a server, select **Delete**.
-1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
+1. You can **revalidate** the connectivity to servers any time before starting the discovery.
 1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers. You can change this option at any time.
 
    :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
+
 1. To perform discovery of SQL Server instances and databases, you can add additional credentials (Windows domain/non-domain, SQL authentication credentials) and the appliance attempts to automatically map the credentials to the SQL servers. If you add domain credentials, the appliance authenticates the credentials against Active Directory of the domain to prevent any user accounts from locking out. To check validation of the domain credentials, follow these steps:
   - In the configuration manager credentials table, see **Validation status** for domain credentials. Only the domain credentials are validated.
   - If validation fails, you can select a Failed status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.

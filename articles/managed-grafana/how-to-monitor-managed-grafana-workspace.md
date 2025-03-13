@@ -76,7 +76,4 @@ Now that you've configured your diagnostic settings, Azure streams all new event
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Grafana UI](./grafana-app-ui.md)
-
-> [!div class="nextstepaction"]
-> [Share an Azure Managed Grafana workspace](./how-to-manage-access-permissions-users-identities.md)
+> [Monitor a workspace using metrics](./how-to-monitor-managed-grafana-metrics.md)

@@ -1,7 +1,7 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/13/2024
+ms.date: 03/05/2025
 ms.topic: include
 ms.service: dev-box
 ---
@@ -31,7 +31,7 @@ ms.service: dev-box
 
 #### [Existing dev boxes](#tab/existing-dev-boxes)
 
-3. Select **New** > **New dev box**.
+3. If you have existing dev boxes, you see this screen. Select **New** > **New dev box**.
  
    :::image type="content" source="../media/developer-portal-landing-page/developer-portal-new-menu.png" alt-text="Screenshot of the developer portal with the New menu and Dev box option highlighted." lightbox="../media/developer-portal-landing-page/developer-portal-new-menu.png":::
  
