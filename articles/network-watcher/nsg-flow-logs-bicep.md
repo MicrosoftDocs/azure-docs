@@ -6,37 +6,35 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 09/30/2024
+ms.date: 03/12/2025
 ms.custom: devx-track-bicep, subject-bicepqs, mode-arm
 
 #CustomerIntent: As an Azure administrator, I need to enable NSG flow logs using a Bicep file so that I can log the traffic flowing through a network security group.
 ---
 
-# Quickstart: Configure Azure Network Watcher NSG flow logs using a Bicep file
+# Quickstart: Configure NSG flow logs using a Bicep file
 
-In this quickstart, you learn how to enable [NSG flow logs](nsg-flow-logs-overview.md) using a Bicep file.
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
+
+In this quickstart, you learn how to enable NSG flow logs using a Bicep file. For more information, see [NSG flow logs overview](nsg-flow-logs-overview.md) and [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) 
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
+# [PowerShell](#tab/powershell)
+
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- To deploy the Bicep files, either Azure CLI or PowerShell installed.
+- [Azure PowerShell installed locally](/powershell/azure/install-azure-powershell) to run the cmdlets. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to sign in to Azure.
 
-    # [Azure CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
-    1. [Install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-    1. Sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+- [Azure CLI installed locally](/cli/azure/install-azure-cli) to run the commands. Use [az login](/cli/azure/reference-index#az-login) command to sign in to Azure.
 
-    # [PowerShell](#tab/powershell)
-
-    1. [Install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets.
-
-    1. Sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-
-    ---
+---
 
 ## Review the Bicep file
 
@@ -56,24 +54,16 @@ The highlighted code in the preceding sample shows an NSG flow log resource defi
 
 This quickstart assumes that you have a network security group that you can enable flow logging on.
 
+# [PowerShell](#tab/powershell)
+
 1. Save the [Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [Azure CLI](#tab/cli)
-
-    ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep
-    ```
-
-    # [PowerShell](#tab/powershell)
+1. Deploy the Bicep file.
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep
+    New-AzResourceGroup -Name 'exampleRG' -Location 'eastus'
+    New-AzResourceGroupDeployment -ResourceGroupName 'exampleRG' -TemplateFile ./main.bicep
     ```
-
-    ---
 
     You'll be prompted to enter the resource ID of the existing network security group. The syntax of the network security group resource ID is:
 
@@ -82,6 +72,27 @@ This quickstart assumes that you have a network security group that you can enab
     ```
 
 When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+# [Azure CLI](#tab/cli)
+
+1. Save the [Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) as **main.bicep** to your local computer.
+
+1. Deploy the Bicep file.
+
+    ```azurecli
+    az group create --name 'exampleRG' --location 'eastus'
+    az deployment group create --resource-group 'exampleRG' --template-file main.bicep
+    ```
+
+    You'll be prompted to enter the resource ID of the existing network security group. The syntax of the network security group resource ID is:
+
+    ```json
+    "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<network-security-group-name>"
+    ```
+
+When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+---
 
 ## Validate the deployment
 
@@ -110,8 +121,8 @@ You also can disable an NSG flow log in the Azure portal:
 
 ## Related content
 
-To learn how to visualize your NSG flow logs data, see:
+In this quickstart, you learned how to enable NSG flow logs using a Bicep file. Next, learn how to visualize your NSG flow logs data using traffic analytics:
 
-- [Visualizing NSG flow logs using Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-- [Visualize NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md).
-- [Traffic Analytics](traffic-analytics.md).
+- [Traffic analytics overview](traffic-analytics.md)
+- [Usage scenarios of traffic analytics](usage-scenarios-traffic-analytics.md)
+- [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md)
