@@ -36,7 +36,7 @@ Each lifecycle event of an orchestration instance causes a tracking event to be 
   * **Listening**: The orchestrator is listening for an external event notification.
   * **Completed**: The function has completed successfully.
   * **Failed**: The function failed with an error.
-* **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this field will contain the error details.
+* **reason**: Additional data associated with the tracking event. For example, if an instance is waiting for an external event notification, this field indicates the name of the event it is waiting for. If a function has failed, this field contains the error details.
 * **isReplay**: Boolean value indicating whether the tracking event is for replayed execution.
 * **extensionVersion**: The version of the Durable Task extension. The version information is especially important data when reporting possible bugs in the extension. Long-running instances may report multiple versions if an update occurs while it is running.
 * **sequenceNumber**: Execution sequence number for an event. Combined with the timestamp helps to order the events by execution time. *Note that this number will be reset to zero if the host restarts while the instance is running, so it's important to always sort by timestamp first, then sequenceNumber.*
@@ -150,7 +150,7 @@ You can enable these logs by updating the `logging/logLevel` section of your fun
 }
 ```
 
-If you have Application Insights enabled, these logs will be automatically added to the `trace` collection. You can search them the same way that you search for other `trace` logs using Kusto queries.
+If you have Application Insights enabled, these logs are automatically added to the `trace` collection. You can search them the same way that you search for other `trace` logs using Kusto queries.
 
 > [!NOTE]
 > For production applications, it is recommended that you enable `DurableTask.Core` and the appropriate storage provider (e.g. `DurableTask.AzureStorage`) logs using the `"Warning"` filter. Higher verbosity filters such as `"Information"` are very useful for debugging performance issues. However, these log events can be high-volume and can significantly increase Application Insights data storage costs.
@@ -548,7 +548,7 @@ Distributed Tracing tracks requests and shows how different services interact wi
 
 ### Setting up Distributed Tracing
 
-To set up distributed tracing, please update the host.json and set up an Application Insights resource.
+To set up distributed tracing, update the host.json and set up an Application Insights resource.
 
 #### host.json
 ```
@@ -565,7 +565,7 @@ To set up distributed tracing, please update the host.json and set up an Applica
 ```
 
 #### Application Insights
-If the Function app is not configured with an Application Insights resource, then please configure it following the instructions [here](../configure-monitoring.md#enable-application-insights-integration).
+If the Function app is not configured with an Application Insights resource, then configure it following the instructions [here](../configure-monitoring.md#enable-application-insights-integration).
 
 ### Inspecting the traces
 In the Application Insights resource, navigate to **Transaction Search**. In the results, check for `Request` and `Dependency` events that start with Durable Functions specific prefixes (e.g. `orchestration:`, `activity:`, etc.). Selecting one of these events will open up a Gantt chart that will show the end to end distributed trace.
