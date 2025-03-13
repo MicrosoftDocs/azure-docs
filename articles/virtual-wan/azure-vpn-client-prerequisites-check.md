@@ -1,15 +1,15 @@
 ---
-title: 'Azure VPN Client prerequisites check'
-titleSuffix: Azure VPN Gateway
-description: Learn how run the Azure VPN Client prerequisites check to identify missing prerequisites and mitigate them.
+title: 'Azure VPN Client - prerequisites check'
+titleSuffix: Azure Virtual WAN
+description: Learn how run the Azure VPN Client prerequisites tool to identify missing prerequisites and mitigate them.
 author: cherylmc
-ms.service: azure-vpn-gateway
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/14/2025
 ms.author: cherylmc
 
 ---
-# Azure VPN Client prerequisites check for P2S VPN connections
+# Azure VPN Client prerequisites check for User VPN P2S connections
 
 If you're using the Azure VPN Client for Windows to connect to your point-to-site (P2S) VPN, you can run a prerequisites check to identify missing prerequisites and mitigate them. The **Run Prerequisites Test** feature checks the state of Windows services, background permissions for the client, local setting permissions, internet access, and user device time sync status. You can use this feature to do the following:
 
@@ -21,11 +21,8 @@ The **Run Prerequisites Test** feature is available in the Azure VPN Client for 
 > [!NOTE]
 > The prerequisites check is only available in the Azure VPN Client for Windows.
 
-[!INCLUDE [Azure VPN Client preqrequsites check steps](../../includes/vpn-gateway-vwan-vpn-client-prerequisites-check.md)]
+[!INCLUDE [Azure VPN Client preqrequsites check](../../includes/vpn-gateway-vwan-vpn-client-prerequisites-check.md)]
 
 ## Next steps
 
-For more information about P2S VPN, see the following articles:
-
-* [About point-to-site VPN](point-to-site-about.md)
-* [About point-to-site VPN routing](vpn-gateway-about-point-to-site-routing.md)
+To modify additional P2S User VPN connection settings, see [Configure optional settings](azure-vpn-client-optional-configurations.md).
