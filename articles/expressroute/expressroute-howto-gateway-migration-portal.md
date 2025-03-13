@@ -56,9 +56,9 @@ Here are the steps to migrate to a new gateway in Azure portal.
     > [!NOTE]
     > Be aware that your existing Virtual Network gateway will be locked during this process, preventing any creation or modification of connections to this gateway.
 
-1. Select **Prepare** to create the new gateway. This operation could take up to 60 minutes.
+1. Select **Prepare** to create the new gateway. This operation could take up to 45 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, control plane, and data path connections from your old gateway will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic and data path connections from your old gateway will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic for migrating a virtual network gateway."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 
@@ -68,8 +68,9 @@ Here are the steps to migrate to a new gateway in Azure portal.
 
 
 >[!IMPORTANT]
-> - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection.
+> - Before running this step, verify that the new virtual network gateway has a working ExpressRoute connection and validate if the traffic is flowing through the new connection.
 > - When migrating your gateway, you can expect possible interruption for a maximum of 30 seconds.
+> - Once committed, the connection name can't be changed and has to be deleted and recreated if you want to change the connection naming. Reach out to Azure support in case of any issues.
 
 ## Next steps
 

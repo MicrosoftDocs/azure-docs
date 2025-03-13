@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 01/29/2025
+ms.date: 03/13/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
@@ -37,9 +37,9 @@ This article describes the requirements and considerations you need to be aware 
 >[!IMPORTANT]
 >The use of application volume group for SAP HANA for applications other than SAP HANA is not supported. Reach out to your Azure NetApp Files specialist for guidance on using Azure NetApp Files multi-volume layouts with other database applications.
 
-### <a name="extension-1-requirements-considerations"></a> Extension 1 requirements and considerations (preview)
+### <a name="extension-1-requirements-considerations"></a> Extension 1 requirements and considerations
 
-* Extension 1 is currently in preview and requires that you [register for the feature](application-volume-group-deploy-first-host.md#register-for-extension-1).
+* You must be [registered for extension 1](application-volume-group-deploy-first-host.md#register-for-extension-1).
 * Application volume group supports Basic network features. If you're registered for extension 1, application volume group also supports [Standard network features](azure-netapp-files-network-topologies.md).
 * Extension 1 supports [availability zone volume placement](use-availability-zones.md) as the new default method for placement. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availability zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
     If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups.
