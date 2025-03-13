@@ -137,7 +137,7 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 ## Multi-region support
 
-Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable. However, there are approaches you can use to be resilient to region outages.
+Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable. However, there are approaches you can use to be resilient to region outages depending on whether the data factory is in a paired or nonpaired region, and depending on your requirements and configuration.
 
 ### Microsoft-managed failover to a paired region
 
@@ -153,11 +153,11 @@ For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, 
 > ![IMPORTANT]
 > Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. 
 
-#### Prepare for failover
+#### Failover of integration runtimes
 
 To properly prepare for a failover, there may be some additional considerations depending on the integration runtime you use:
 
-- *Azure integration runtime* can be configured to automatically resolve the region it uses. If the region is set to *auto resolve* and there's an outage in the primary region, the Azure integration runtime fails over automatically to the paired region, subject to the limitations described above. To configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup, set the region to *auto resolve*.
+- *Azure integration runtime* can be configured to automatically resolve the region it uses. If the region is set to *auto resolve* and there's an outage in the primary region, the Azure integration runtime fails over automatically to the paired region, subject to the failover limitations described in [Microsoft-managed failover to a paired region](#microsoft-managed-failover-to-a-paired-region). To configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup, set the region to *auto resolve*.
 - *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 - *Self-hosted integration runtime* runs on infrastructure that you're responsible for, and so Microsoft-managed failover doesn't apply to self-hosted integration runtimes. To learn more, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
