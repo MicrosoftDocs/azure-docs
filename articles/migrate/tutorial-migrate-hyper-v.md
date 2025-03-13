@@ -186,7 +186,7 @@ Then select **Next**.
 
     :::image type="content" source="./media/tutorial-migrate-hyper-v/target-settings.png" alt-text="Screenshot that shows Target settings.":::
 
-1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must confirm with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown list contains the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS Type**: Select the type of OS used (Windows or Linux).
@@ -208,6 +208,8 @@ Then select **Next**.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts in **Manage** > **Replicated machines**. Settings can't be changed after replication starts.
+>
+> Enable replication and migrate Hyper-v virtual machines (VMs) using Azure PowerShell. [More details](../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection).
 
 ## Provision for the first time
 

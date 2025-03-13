@@ -29,7 +29,7 @@ In addition to these permissions, you need to grant the following permissions to
 | ---------- | ---------- | 
 | HealthResources | `Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action` |
 | Azure Resource Management | `Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action` |
-| ContainerService Event Resources| `Microsoft.ResourceNotifications.ContainerServiceEventResources.ScheduledEventEmitted`|
+| ContainerService Event Resources| `Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action`|
 
 To enhance customer experience, a built-in role definition that encompasses all the requisite permissions for receiving data through any ARN system topic is available. This role includes permissions mandated by Event Grid for system topic and event subscription creation. This built-in role definition is regularly updated to incorporate more topic types as they become accessible through our service. **As a result, users assigned this built-in role automatically gains access to all future ARN topic types**. You can choose to either utilize the provided built-in role definition or craft your own custom role definitions to enforce access control.
 
@@ -49,7 +49,7 @@ To enhance customer experience, a built-in role definition that encompasses all 
         "Microsoft.EventGrid/systemTopics/eventSubscriptions/write",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action",
         "Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action",
-        "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action"
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action"
     ],
     "notActions": [],
     "dataActions": [],

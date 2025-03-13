@@ -11,6 +11,8 @@ ms.custom: fasttrack-edit, devx-track-azurecli, linux-related-content, innovatio
 
 # Create an Azure Virtual Machine with Accelerated Networking
 
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2303215)
+
 This article describes how to create a Linux or Windows virtual machine (VM) with Accelerated Networking (AccelNet) enabled by using the Azure CLI command-line interface. 
 
 ## Prerequisites
@@ -658,8 +660,8 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 1. Confirm that the **Mellanox ConnectX-4 Lx Virtual Ethernet Adapter** appears, as shown in the following image:
 
    ![Mellanox ConnectX-3 Virtual Function Ethernet Adapter, new network adapter for accelerated networking, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
-
-   The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
+   
+      The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
 
 1. Verify the packets are flowing over the VF interface from the output of the following command:
    ```powershell

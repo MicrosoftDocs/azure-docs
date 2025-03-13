@@ -3,7 +3,7 @@ title: Quickstart - Bicep template VM Backup
 description: Learn how to back up your virtual machines with a Bicep template
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 11/17/2021
+ms.date: 01/30/2025
 ms.reviewer: Daya-Patil
 ms.custom: mvc, subject-bicepqs, mode-arm, devx-track-bicep
 ms.service: azure-backup
@@ -307,3 +307,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
 - [Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep templates.
 - [Learn how](../azure-resource-manager/bicep/decompile.md?tabs=azure-cli) to decompile Azure Resource Manager templates (ARM templates) to Bicep files.
+- Learn how to [restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md).

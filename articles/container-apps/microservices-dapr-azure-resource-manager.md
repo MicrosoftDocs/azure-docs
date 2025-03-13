@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/11/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: devx-track-bicep, devx-track-arm-template, devx-track-azurepowershell
 zone_pivot_groups: container-apps
@@ -73,12 +73,11 @@ az deployment group create \
   --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
   environment_name = $ContainerAppsEnvironment
-
 }
 
 New-AzResourceGroupDeployment `
@@ -103,7 +102,7 @@ az deployment group create \
   --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{
@@ -175,7 +174,7 @@ az monitor log-analytics query \
   --out table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $WorkspaceId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).LogAnalyticConfigurationCustomerId
@@ -213,7 +212,7 @@ az group delete \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force

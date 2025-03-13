@@ -216,7 +216,17 @@ Dynamic sessions are available in the following regions:
 | West Central US | ✔ | ✔ |
 | West US 2 | ✔ | ✔ |
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Code interpreter sessions](./sessions-code-interpreter.md)
+* **Session types**: Learn about the different types of dynamic sessions:
+  * [Code interpreter sessions](./sessions-code-interpreter.md)
+  * [Custom container sessions](./sessions-custom-container.md)
+
+* **Tutorials**: Work directly with the REST API or via a LLM agent:
+  * Use a LLM agent:
+    * [AutoGen](./sessions-tutorial-autogen.md)
+    * [LangChain](./sessions-tutorial-langchain.md)
+    * [LlamaIndex](./sessions-tutorial-llamaindex.md)
+    * [Semantic Kernel](./sessions-tutorial-semantic-kernel.md)
+  * Use the REST API
+    * [JavaScript Code interpreter](./sessions-tutorial-nodejs.md)

@@ -3,7 +3,7 @@ title:  Manage the backup jobs using REST API in Azure Backup
 description: In this article, learn how to track and manage the backup and restore jobs of Azure Backup using REST API.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 02/09/2025
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 author: jyothisuri
 ms.author: jsuri
@@ -18,7 +18,7 @@ The Azure Backup service triggers jobs that run in background in various scenari
 
 ## Fetch Job information from operations
 
-An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) is as follows:
+Triggering a backup operation always returns a jobID. The following example provides the final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup):
 
 ```http
 {
@@ -34,15 +34,15 @@ An operation such as triggering backup will always return a jobID. For example: 
 }
 ```
 
-The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a simple *GET* request.
+You can identify the Azure Virtual Machine (VM) backup job by the "jobId" field. Track the job  as mentioned [here](/rest/api/backup/job-details) using a simple `GET` request.
 
-## Tracking the job
+## Track the job
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's *Completed* or *CompletedWithWarnings*, the 'extendedInfo' section reveals more details about the job.
+The `{jobName}` is `jobId`. The response is always 200 OK with the "status" field indicating the current status of the job. Once the job is complete with the message `Completed` or `CompletedWithWarnings`, the *extendedInfo* section provides more details about the job.
 
 ### Response
 
@@ -52,7 +52,7 @@ The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with t
 
 #### Example response
 
-Once the *GET* URI submission is complete, a 200 (OK) response is returned.
+Once the `GET` URI submission is complete, a 200 (OK) response is returned.
 
 ```http
 HTTP/1.1 200 OK

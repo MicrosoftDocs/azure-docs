@@ -5,7 +5,7 @@ description: Learn how to configure VPN clients for P2S configurations that use 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 03/12/2025
 ms.author: cherylmc
 ---
 
@@ -21,7 +21,7 @@ Before beginning client configuration steps, verify that you're on the correct V
 
 ### Prerequisites
 
-This article assumes that you've already performed the following prerequisites:
+This article assumes that you already completed the following prerequisites:
 
 * You created and configured your VPN gateway for point-to-site certificate authentication and the OpenVPN tunnel type. See [Configure server settings for P2S VPN Gateway connections - certificate authentication](point-to-site-certificate-gateway.md) for steps.
 * You generated and downloaded the VPN client configuration files. See [Generate VPN client profile configuration files](point-to-site-certificate-gateway.md#profile-files) for steps.
@@ -33,7 +33,7 @@ To connect to Azure, each connecting client computer requires the following item
 
 * The Azure VPN Client software must be installed on each client computer.
 * The Azure VPN Client profile is configured using the settings contained in the downloaded **azurevpnconfig.xml** or **azurevpnconfig_cert.xml** configuration file.
-* The client computer must have a client certificate that's installed locally.
+* The client computer must have a client certificate installed locally.
 
 ## Generate and install client certificates
 
@@ -63,33 +63,17 @@ If you don't see either file, or you don't have an **AzureVPN** folder, verify t
 
 ## Configure the Azure VPN Client profile
 
-1. Open the Azure VPN Client.
+[!INCLUDE [Configure the Azure VPN client](../../includes/vpn-gateway-vwan-configure-azure-vpn-client-certificate.md)]
 
-1. Select **+** on the bottom left of the page, then select **Import**.
+### Azure VPN Client settings
 
-1. In the window, navigate to the **azurevpnconfig.xml** or **azurevpnconfig_cert.xml** file. Select the file, then select **Open**.
+The following sections discuss configuration settings that are available for the Azure VPN Client. For information about Azure VPN Client versions, see the [Azure VPN Client versions](azure-vpn-client-versions.md) article.
 
-1. On the client profile page, notice that many of the settings are already specified. The preconfigured settings are contained in the VPN client profile package that you imported. Even though most of the settings are already specified, you need to configure settings specific to the client computer.
+#### System tray
 
-   From the **Certificate Information** dropdown, select the name of the child certificate (the client certificate). For example, **P2SChildCert**. You can also (optionally) select a [Secondary Profile](#secondary-profile). For this exercise, select **None**.
+[!INCLUDE [Azure VPN Client system tray](../../includes/vpn-gateway-vwan-azure-vpn-client-tray.md)]
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png" alt-text="Screenshot showing Azure VPN client profile configuration page." lightbox="./media/point-to-site-vpn-client-cert-windows/configure-certificate.png":::
-
-   If you don't see a client certificate in the **Certificate Information** dropdown, you'll need to cancel and fix the issue before proceeding. It's possible that one of the following things is causing the problem:
-
-   * The client certificate isn't installed locally on the client computer.
-   * There are multiple certificates with exactly the same name installed on your local computer (common in test environments).
-   * The child certificate is corrupt.
-
-1. After the import validates (imports with no errors), select **Save**.
-
-1. In the left pane, locate the **VPN connection**, then select **Connect**.
-
-### Optional settings for the Azure VPN Client
-
-The following sections discuss optional configuration settings that are available for the Azure VPN Client.
-
-#### Secondary Profile
+#### Secondary profile
 
 [!INCLUDE [Secondary profile](../../includes/vpn-gateway-azure-vpn-client-secondary-profile.md)]
 

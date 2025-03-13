@@ -13,7 +13,168 @@ ms.custom: template-concept, references_regions
 
 This article describes new features and updates related to Azure Communication Services.
 
-<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
+[!INCLUDE [Survey Request](includes/survey-request.md)]
+
+## January 2025
+
+### SMS Opt-Out Management API
+
+The Opt-Out Management API is now available in Public Preview for Azure Communication Services.
+
+The Opt-Out Management API empowers developers to programmatically manage SMS opt-out preferences, enabling businesses to handle opt-out workflows seamlessly and ensure compliance with global messaging regulations.
+
+Unlike static opt-out management processes, where handling preferences is often manual and disconnected, this API introduces automation and flexibility. With endpoints for adding, removing, and checking opt-out entries, developers can centralize management across multiple channels and create smarter workflows that align with customer preferences and regulatory requirements.
+
+For example, a business can manage custom opt-out workflows where customers opt out via SMS and later update their preferences through a web portal. The Opt-Out Management API ensures these changes are synchronized in real time, providing businesses with complete control over compliance and transparency.
+
+#### Importance of opt-out management
+
+Effective opt-out management is a cornerstone of responsible and compliant SMS communication. The Opt-Out Management API provides the tools to:
+
+- Ensure Compliance: By automating opt-out workflows, businesses can meet regulatory requirements, reducing the risk of violations.
+- Improve Efficiency: Replace manual processes with automation to streamline operations, particularly for large-scale messaging campaigns.
+- Enhance Customer Trust: Enable customers to manage their preferences across different platforms, ensuring a transparent and consistent experience.
+
+#### Sample code
+
+```javascript
+string connectionString = "<Your_Connection_String>";
+SmsClient smsClient = new SmsClient(connectionString);
+smsClient.OptOuts.Add("<from-phone-number>", new List<string> { "<to-phone-number1>", "<to-phone-number2>" });
+```
+
+#### Get started with opt-Out management
+
+For more information, see:
+
+- [Short Message Service (SMS) Opt-Out Management API for Azure Communication Services](./concepts/sms/opt-out-api-concept.md).
+- [Send OptOut API requests with API using hash message authentication code (HMAC)](./quickstarts/sms/opt-out-api-quickstart.md).
+
+### Real-time text (RTT)
+
+Real-time text (RTT) is a system for transmitting text over the internet. RTT enables the recipient to receive and display the text at the same rate as it is being produced without the user pressing send. This ability provides the effect of immediate and continuous communication.
+
+:::image type="content" source="media/whats-new-images/rtt-demo.gif" alt-text="Animated image simulating real time text between people in a meeting and a person using a mobile device.":::
+
+Unlike traditional chat messaging, in which the recipient sees the full message only after it is completed and sent, RTT provides an immediate and continuous stream of communication.
+
+For example, in a video or voice call, a user typing "Hello, how are you?" sees each character appear on the recipient’s screen as they type: "H," then "He," then "Hel," and so on. This messaging of text creates a dynamic, conversational experience that mirrors spoken communication. 
+
+We added new APIs to Azure Communication Services Calling SDKs so that developers can easily and seamlessly integrate RTT into voice and video calls. These APIs also work in tandem with other accessibility features such as closed captions.
+
+#### Why RTT support is important
+
+RTT is an accessibility feature, and Microsoft is committed to accessibility. This commitment is  relevant to Azure Communication Services. The ability to inclusively reach as many humans as possible is an essential value proposition of a developer platform that connects people to people; and people to AI.
+
+Here’s how RTT makes a difference:
+
+- Better Accessibility: RTT empowers individuals with speech or hearing impairments to actively participate in conversations. Its real-time functionality ensures their input is received as fluidly and immediately as spoken words, creating equitable and inclusive communication experiences.
+
+- Enhancing Clarity: In environments where background noise or technical limitations affect audio quality, RTT serves as a reliable text-based alternative to convey important messages accurately.
+
+As communication moves increasingly to internet-based platforms, features like RTT play a critical role in making digital interactions more inclusive and accessible.
+
+RTT isn't only a valuable feature, it's also essential for meeting global accessibility standards. Under the [European Accessibility Act (Directive (EU) 2019/882)(https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882)], voice and video calling services in the European Union are required to support RTT by June 2025.
+
+Azure Communication Services is committed to providing solutions that meet these evolving standards. We want to ensure that all users, regardless of ability, can engage in meaningful and accessible communication.
+
+### Next steps
+
+- [Real Time Text (RTT) overview](concepts/voice-video-calling/real-time-text.md)
+- [Real Time Text (RTT) quickstart](quickstarts/voice-video-calling/get-started-with-real-time-text.md)
+
+### Calling Native iOS SDK enabled picture-in-picture (PiP)
+
+Multitasking is an essential part of how we work and communicate today. With this in mind, Azure Communication Services introduces picture-in-picture (PiP) mode for video calling applications. This powerful feature enhances user experience by enabling a video stream to continue in a floating, movable window while users navigate other applications on their devices.
+
+:::image type="content" source="media/whats-new-images/picture-in-picture.png" alt-text="Animation of a mobile device using picture-in-picture mode." lightbox="media/whats-new-images/picture-in-picture.png":::
+
+#### Why we need picture-in-picture (PiP) mode
+
+PiP mode lets users keep their video calls visible and uninterrupted as they switch between apps or multitask. For example, healthcare professionals can input electronic health records (EHR) in Epic while maintaining video communication with patients. Similarly, users in industries like banking or customer service can seamlessly switch to other tasks without ending the call.
+
+#### How it works
+
+The Native Calling SDK and UI make it simple to implement PiP in your app. It provides built-in features to:
+
+- Join calls: Start and manage calls effortlessly.
+- Render video streams: Display local and remote video streams within the PiP window.
+- Manage permissions: The SDK handles user consent and system requirements, ensuring smooth operation of PiP.
+
+PiP keeps calls active in both the foreground and background. This ability ensures uninterrupted communication while users:
+
+- Navigate to other apps.
+- Switch between video streams.
+- Return to the calling experience instantly via the floating PiP window.
+
+#### Why PiP matters
+
+A traditional full-screen video UI can limit multitasking, but PiP empowers users to stay productive without sacrificing connectivity. Key benefits include:
+
+- Improved workflow in multitasking scenarios.
+- Continued access to video calls while using other apps.
+- An intuitive user interface with minimal interruption.
+
+#### Technical considerations
+
+PiP functions depend on the capabilities of the device, such as CPU performance, RAM, and battery state. Supported devices ensure the PiP window is visible, movable, and easy to use, regardless of the app in focus.
+
+This feature further enhances the Azure Communication Services UI Library, enabling customers like Contoso to maintain active calls, even when navigating between custom activities like chat or task management.
+
+For more information, see [Enable picture-in-picture (PIP) in an application](how-tos/ui-library-sdk/picture-in-picture.md).
+
+### Explicit consent for Teams meetings recording and transcription
+
+Explicit consent for Teams meetings recording and transcription is now generally available in the Web calling SDK, enhancing user privacy and security. This feature ensures that participants must explicitly consent to being recorded and transcribed, which is crucial in environments with stringent privacy regulations.
+
+When a Teams meeting recording or transcription is initiated, participants' microphones and cameras are disabled until they provide consent using the new Azure Communication Services API. Once consent is given, participants can unmute and enable their cameras.
+
+If a user joins a meeting already in progress, they follow the same procedure. However, this feature isn't supported in Android, iOS, or Windows calling SDK, nor in the Web and Mobile UI library. Explicit consent is only supported in Teams meetings and Teams group calls, with plans to expand within the broader Azure Communication Services ecosystem.
+
+To implement explicit consent for recording and transcription in your Teams meetings, you can use the following sample code to check if consent is required and to grant consent:
+
+```javascript
+const isConsentRequired = callRecordingApi.isTeamsConsentRequired;
+callRecordingApi.grantTeamsConsent();
+```
+
+For more information, see [Manage call recording on the client > Explicit consent](./how-tos/calling-sdk/record-calls.md#explicit-consent).
+
+### Breakout rooms in the Web Calling SDK
+
+Breakout rooms are now available in the Web Calling SDK, enhancing flexibility and collaboration in online meetings. This feature allows participants to join smaller, focused groups within a larger meeting, boosting productivity and engagement. Whether it's dividing students into small groups for focused discussions, ensuring private and confidential discussions with clients, or conducting virtual consultations with private patient discussions, breakout rooms offer versatile and useful applications.
+
+Breakout rooms enable participants to join another call linked to the main meeting. Users can join and return to the main room as set by the organizers. Participants can view members, engage in chat, and see details of the breakout room. Breakout room managers can access specific room information and join them.
+
+:::image type="content" source="media/whats-new-images/breakout-rooms-calling-sdk.png" alt-text="Screenshot of Microsoft Teams breakout rooms using the web Calling SDK." lightbox="media/whats-new-images/breakout-rooms-calling-sdk.png":::
+
+One limitation is that Azure Communication Services doesn't support the creation or management of breakout rooms, and this feature isn't available in Android, iOS, and Windows calling SDK.
+
+For more information, see [Breakout rooms](how-tos/calling-sdk/breakoutrooms.md).
+
+### View Azure Communication Services survey data
+
+Teams admins can now view Azure Communication Services survey data in Teams support tools.
+
+When your Azure Communication Services SDKs submit a survey as part of any [Teams interop meeting scenario](how-tos/calling-sdk/teams-interoperability.md), the survey data is now available through the Teams meeting organizer's support tools. This capability is in addition to the Azure Communication Services admins access in the Azure Monitor logs.
+
+This update enables Teams admins analyze subjective quality feedback from their Azure Communication Services meeting participants alongside their Teams participants. The specific Teams survey dimensions are referred to as ‘rating’ and can be located here.
+
+The Azure Communication Services survey data is available in the following Teams support tools:
+
+- Teams Call Quality Dashboard and Teams Call Analytics: [Monitor and improve call quality for Microsoft Teams](/microsoftteams/monitor-call-quality-qos)
+- Teams Call Quality Connector for Power BI: [Use Power BI to analyze CQD data for Microsoft Teams - Microsoft Teams](/microsoftteams/cqd-power-bi-query-templates)
+- Teams Graph API: [Microsoft Graph overview and userFeedback resource type – Microsoft Graph v1.0](/graph/overview)
+
+For more information, see [Azure Communication Services End of Call Survey overview](./concepts/voice-video-calling/end-of-call-survey-concept.md#view-survey-data-as-a-teams-administrator).
+
+### Identify web calling participants with custom data tags
+
+Now developers can add up to three custom data attributes to call participants with the WebJS calling client and view them in Azure Monitor. You can use these customizable attributes to enhance your post-call analysis. Since you have control over the data creation, you can use it for A/B testing, labeling such as west coast, release version, and so on. You can use [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics.md#how-can-i-use-diagnosticoptions-to-view-tagged-calls-in-call-diagnostics) to search for these attributes or create custom queries with [Log Analytics](./concepts/analytics/query-call-logs.md).
+
+:::image type="content" source="media/whats-new-images/call-diagnostics-test.png" alt-text="Screen capture of Microsoft Azure Call Diagnostics showing the label call diagnostics test and new diagnostic options custom data tags." lightbox="media/whats-new-images/call-diagnostics-test.png":::
+
+For more information, see [Tutorial on how to attach custom tags to your client telemetry](./tutorials/voice-video-calling/diagnostic-options-tag.md).
 
 ## December 2024
 
@@ -96,7 +257,7 @@ For more information, see [CallerInfo interface](/javascript/api/azure-communica
 
 ### Remote mute VoIP meeting participants
 
-Conducting disruption free group meetings, virtual appointments, and business-to-consumer (B2C)  engagements often require controls to manage noise from inattentive participants. A participant might be driving and speaking to their friends without realizing that their noise and conversation is being relayed to participants in the meeting. The ability to remotely mute a VoIP participant comes handy in such situations. It enables another participant to remotely mute one or more VoIP participants in the call. Participants who are muted can unmute themselves when they need to speak.
+For customers to conduct disruption-free group meetings, virtual appointments, and business-to-consumer (B2C) engagements, they often require controls to manage noise from inattentive participants. A participant might be driving and speaking to their friends without realizing that their noise and conversation is being relayed to participants in the meeting. The ability to remotely mute a VoIP participant comes handy in such situations. It enables another participant to remotely mute one or more VoIP participants in the call. Participants who are muted can unmute themselves when they need to speak.
 
 The ability to remotely mute a participant is now generally available for calls with the following specific functions:
 
@@ -271,7 +432,7 @@ Continuing our efforts to make virtual meetings a more dynamic and interactive e
 
 :::image type="content" source="media/whats-new-images/breakout-rooms-integrated.png" alt-text="Screenshot of Microsoft Teams breakout rooms integrated with Azure Communication Services." lightbox="media/whats-new-images/breakout-rooms-integrated.png":::
 
-Breakout rooms are perfect for diving into specific areas without the distractions of a larger meeting. Whether you're working on a team project, hosting a classroom session, or conducting group therapy, breakout rooms help facilitate in-depth conversations and active participation. This leads to more efficient and productive meetings.
+Breakout rooms are perfect for diving into specific areas without the distractions of a larger meeting. Whether you're working on a team project, hosting a classroom session, or conducting group therapy, breakout rooms help facilitate in-depth conversations and active participation. This ability leads to more efficient and productive meetings.
 
 Teams administrators can easily manage the availability of breakout rooms through meeting policies, ensuring they're used effectively. Currently in public preview, this integration offers a glimpse into the future of virtual collaboration, making online meetings more engaging and interactive. 
 
@@ -331,7 +492,7 @@ Building on the power of real-time capabilities, developers now have access to r
 
 :::image type="content" source="media/whats-new-images/real-time-audio-streaming.png" alt-text="Diagram showing how to integrate real-time audio streaming in your app." lightbox="media/whats-new-images/real-time-audio-streaming.png":::
 
-By integrating audio streaming with call automation actions or custom AI models, you can unlock various use cases. These include natural language processing (NLP) for conversation analysis, voice authentication using biometrics, and providing real-time insights and suggestions to agents during active interactions 
+By integrating audio streaming with call automation actions or custom AI models, you can unlock various use cases. These use cases include natural language processing (NLP) for conversation analysis, voice authentication using biometrics, and providing real-time insights and suggestions to agents during active interactions 
 
 For more information, see: 
 
@@ -563,7 +724,7 @@ Image sharing is helpful in many scenarios, such as a business that shares photo
 Try out this feature by using either the UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java. For more information, see:
 
 - [Enable an inline image by using the UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
-- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-jointeamsmeeting--join-teams-meeting#adding-image-sharing)
+- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/iframe.html?viewMode=docs&id=composites-callwithchatcomposite--docs#inline-image-in-teams-interop-meeting-chat-thread)
 
 ### Deep noise suppression
 
@@ -767,40 +928,6 @@ Azure Communication Services continues to expand Direct Offers to new geographie
 In addition to getting all current offers into general availability, we've introduced more than 400 new cross-country/region offers.
 
 Check all the new countries/regions, phone number types, and capabilities at [Country/regional availability of telephone numbers and subscription eligibility](./concepts/numbers/sub-eligibility-number-capability.md).
-
-## January 2024
-
-### Dial-out to a PSTN number
-
-Virtual Rooms support VoIP audio and video calling. Now you can also dial out PSTN numbers and include the PSTN participants in an ongoing call.
-
-Virtual Rooms empower developers to exercise control over PSTN dial-out capability in two ways. Developers can not only enable/disable PSTN dial-out capability for specific Virtual Rooms but also control which users in Virtual Rooms can initiate PSTN dial-out. Only users who have the Presenter role can initiate a PSTN dial-out, to help ensure secure and structured communication.
-
-For more information, see [Quickstart: Create and manage a room resource](./quickstarts/rooms/get-started-rooms.md).
-
-### Remote mute of call participants
-
-Participants can now mute other participants in Virtual Rooms calls. Previously, participants in Virtual Rooms calls could only mute/unmute themselves. There are times when participants want to mute other people due to background noise or if someone's microphone is left unmuted.
-
-Participants in the Presenter role can mute a participant, multiple participants, or all other participants. Users retain the ability to unmute themselves as needed. For privacy reasons, no one can unmute other participants.
-
-For more information, see [Mute other participants](./how-tos/calling-sdk/manage-calls.md#mute-other-participants).
-
-### Call recording in Virtual Rooms
-
-Developers can now start, pause, and stop call recording in calls conducted in Virtual Rooms. Call recording is a service-side capability. Developers start, pause, and stop recording by using server-side API calls. This feature enables invited participants who might not make the original session to view the recording and stay up to date asynchronously.
-
-For more information, see [Manage call recording on the client](./how-tos/calling-sdk/record-calls.md).
-
-### Closed captions in Virtual Rooms
-
-Closed captioning is the conversion of an audio track for a voice or video call into written words that appear in real time. Closed captions are a useful tool for participants who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where participants might be in noisy environments or have audio equipment problems.
-
-Closed captions are never saved and are visible only to the user who enabled them.
-
-:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="Screenshot of closed captions used in a Virtual Rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
-
-For more information, see [Closed captions overview](./concepts/voice-video-calling/closed-captions.md).
 
 ## Related content
 

@@ -221,6 +221,10 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 993 | Turkmenistan | 10 | 30 |
 | 256 | Uganda | 20 | 100 |
 | 212 | Moroccoa | 20 | 100 |
+| 856 | Laos | 50 | 200 |
+| 224 | Guinea | 20 | 100 |
+| 992 | Tajikistan | 10 | 30 |
+| 238 | Cape Verde | 10 | 30 |
 
 ## Next steps
 
