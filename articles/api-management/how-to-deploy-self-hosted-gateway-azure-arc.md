@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.custom: devx-track-azurecli
-ms.topic: article 
+ms.topic: how-to 
 ms.date: 06/12/2023
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to use API Management to edit an API. Add, delete, or ren
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/19/2022
 ms.author: danlep
 ---
