@@ -108,6 +108,7 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 **Core service:** The Azure Data Factory core service automatically scales based on demand, and you don't need to plan or manage capacity.
 
 **Integration runtimes:** 
+
 - *Azure integration runtime* automatically scales based on demand, and you don't need to plan or manage capacity.
 - *Azure-SSIS integration runtime* requires you to explicitly configure the number of nodes that you use. To prepare for availability zone failure, consider *over-provisioning* the capacity of your integration runtime. Over-provisioning allows the solution to tolerate some degree of capacity loss and still continue to function without degraded performance. To learn more about over-provisioning, see [Manage capacity with over-provisioning](./concept-redundancy-replication-backup.md#manage-capacity-with-over-provisioning).
 - *Self-hosted integration runtime* requires you to configure your own capacity and scaling. Consider over-provisioning when you deploy a self-hosted integration runtime.
@@ -140,21 +141,19 @@ Azure Data Factory resources are deployed into a single Azure region. If the reg
 
 ### Microsoft-managed failover to a paired region
 
-If you use a [region with a pair](./regions-paired.md) (except Brazil South and Southeast Asia), Azure Data Factory data is replicated to the paired region to protect against metadata loss. In the unlikely event of a region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
-
-Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. <!-- TODO both of these regions are AZ-enabled - so wouldn't it be ZRS instead of LRS? -->
-
-For data factories deployed in a nonpaired region, or in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
-
+Azure Data Factory supports Microsoft-managed failover for data factories in *paired regions* (except Brazil South and Southeast Asia), Azure Data Factory data is replicated to the paired region to protect against metadata loss. In the unlikely event of a prolonged region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
+	 
 > [!IMPORTANT]
 > Microsoft-managed failover is triggered by Microsoft. It's likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services.
 >
-> If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
+> If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
-#### Post-failover reconfiguration
+For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
-**Core service:** Once a Microsoft-managed failover is complete, you can then access your Azure Data Factory pipeline in the paired region.  However, you might need to perform some reconfiguration for integration runtimes or other components after the failover completes, including re-establishing networking configuration.
+> ![IMPORTANT]
+> Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. 
 
+#### Prepare for failover
 
 **Integration runtimes:** Depending on the integration runtime you use, there might be additional considerations:
 
@@ -162,10 +161,15 @@ For data factories deployed in a nonpaired region, or in Brazil South or Southea
 - *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see the alternative multi-region approaches section below.
 - *Self-hosted integration runtime* runs on infrastructure that you're responsible for, and so Microsoft-managed failover doesn't apply to self-hosted integration runtimes. To learn more, see the alternative multi-region approaches section below.
 
+#### Post-failover reconfiguration
+
+Once a Microsoft-managed failover is complete, you can then access your Azure Data Factory pipeline in the paired region.
+
+However, you might need to perform some reconfiguration for integration runtimes or other components after the failover completes, including re-establishing networking configuration.
+
 ### Alternative multi-region approaches
 
 If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline:
-
 
 - ** Set up source control for your Azure Data Factory** to track and audit any changes made to your metadata. With this approach, you can also access your metadata JSON files for pipelines, datasets, linked services, and triggers. Azure Data Factory supports different Git repository types (Azure DevOps and GitHub). To learn how to set up source control in Azure Data Factory, see [Source control in Azure Data Factory](../data-factory/source-control.md).
 
@@ -188,4 +192,3 @@ Azure Data Factory supports CI/CD through source control integration, so that yo
 ## Related content
 
 - [Reliability in Azure](./overview.md)
-
