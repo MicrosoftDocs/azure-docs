@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 03/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -20,7 +20,7 @@ Current: 98 (1470/0)
 
 # How customer-managed planned failover (preview) works
 
-Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and nonstorage related outages.
+Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and non-storage related outages.
 
 During the planned failover process, your storage account's primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary while the original secondary region is promoted and becomes the new primary. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
@@ -65,7 +65,8 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
 - Replication of all data from the primary region to the secondary region completes.
 - DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
@@ -83,7 +84,8 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-- The primary region temporarily loses both read and write access. RA-GRS or RA-GZRS users will continue to have read access to their secondary region.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
 - All data finishes replicating from the current primary region to the current secondary region.
 - The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
@@ -105,7 +107,8 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following describes steps within the planned failover process, and the subsequent image provides illustration:
 
-- The current primary region becomes read only.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
 - All data finishes replicating from the primary region to the secondary region.
 - Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 
@@ -123,7 +126,8 @@ While in the failover state, perform your disaster recovery testing.
 
 When testing is complete, perform another failover to fail back to the original primary region. The following image illustrates the steps involved in the failover process.
 
-- The current primary region becomes read only.
+- The storage account in both the primary and secondary region will experience a temporary loss of both read and write access.
+
 - All data finishes replicating from the current primary region to the current secondary region.
 - The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 

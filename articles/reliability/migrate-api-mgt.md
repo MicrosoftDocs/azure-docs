@@ -6,7 +6,7 @@ ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/16/2024
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 
 ---
 

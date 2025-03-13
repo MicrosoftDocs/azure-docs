@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 12/19/2023
+ms.date: 02/12/2025
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -44,7 +44,7 @@ This script uses the following commands:
 | [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting) | Gets synchronization settings of a share synchronization. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

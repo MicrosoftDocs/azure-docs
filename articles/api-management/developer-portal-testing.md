@@ -210,7 +210,7 @@ The Test Explorer extension for VS Code (for example, [Mocha Test Explorer](http
 
 :::image type="content" source="media/developer-portal-testing/visual-studio-code-test-explorer.png" alt-text="Screenshot of Visual Studio Code Test Explorer":::
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

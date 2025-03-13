@@ -123,9 +123,9 @@ The `tenantId` property identifies which Microsoft Entra tenant the identity bel
 
 ## Configure Key Vault access using a managed identity
 
-The following configurations are needed for API Management to access secrets and certificates from an Azure key vault.
+The following configurations are needed for API Management to access certificates from an Azure key vault.
 
-[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
+[!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
@@ -493,7 +493,7 @@ To remove all identities by using the Azure Resource Manager template, update th
 >
 > You can unblock yourself by switching from an Azure Key Vault certificate to an inline encoded certificate, and then disabling the managed identity. For more information, see [Configure a custom domain name](configure-custom-domain.md).
 
-## Next steps
+## Related content
 
 Learn more about managed identities for Azure resources:
 

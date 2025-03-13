@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: lle
 ---
 

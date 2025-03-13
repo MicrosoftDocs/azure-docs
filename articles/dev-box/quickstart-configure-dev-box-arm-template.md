@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Configure Microsoft Dev Box by using an ARM template'
+title: 'Configure Microsoft Dev Box with an ARM template'
 description: In this quickstart, you learn how to configure the Microsoft Dev Box service to provide dev box workstations for users by using an ARM template.
 services: dev-box
 ms.service: dev-box
@@ -7,7 +7,7 @@ ms.topic: quickstart-arm
 ms.custom: subject-armqs, devx-track-arm-template
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/28/2023
+ms.date: 02/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components with an ARM template so that I can provide dev box projects for my users.
 ---
 
@@ -88,7 +88,7 @@ Azure PowerShell is used to deploy the template. You can also use the Azure port
 - *User Principal Type*: The type of user principal. Valid values are *User* or *Group*.
 - *Location*: The location where the resources are deployed. Choose a location close to the dev boxes users to reduce latency.
 
-Alternatively, you can provide access to a dev box project in the Azure portal, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
+Alternatively, you can provide access to a dev box project in the Azure portal. For more information, see [Provide user-level access to projects for developers](how-to-dev-box-user.md). 
 
 ### Virtual network considerations
 
@@ -108,7 +108,9 @@ Microsoft Dev Box automatically creates a resource group for each network connec
  
 ## Clean up resources 
 
-When you no longer need them, delete the resource group: Go to the Azure portal, select the resource group that contains these resources, and then select Delete. 
+When you no longer need these resources, you can delete the resource group.
+
+Go to the Azure portal, select the resource group that contains the resources, and then select **Delete**. 
 
 ## Find more templates
 
@@ -124,7 +126,7 @@ For example, you can use a template to [add other customized images for Base, Ja
 |.NET     |Git, Azure CLI, VS Code，.NET SDK, Visual Studio |
 |Data     |Git, Azure CLI, VS Code，Python 3, VS Code Extension for Python and Jupyter |
 
- ## Next steps
+ ## Related content
 
 - [Quickstart: Create a dev box](quickstart-create-dev-box.md)
 - [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md)

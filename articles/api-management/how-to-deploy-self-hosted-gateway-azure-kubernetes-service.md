@@ -66,7 +66,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 > [!TIP]
 > Use `kubectl logs <gateway-pod-name>` command to view a snapshot of self-hosted gateway log.
 
-## Next steps
+## Related content
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).

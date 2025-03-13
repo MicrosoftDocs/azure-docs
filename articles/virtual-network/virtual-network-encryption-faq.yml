@@ -3,6 +3,7 @@ metadata:
   title: Virtual Network encryption frequently asked questions
   description: Answers to common questions about using Azure Virtual Network encryption.
   ms.topic: faq
+  ms.service: azure-virtual-network
   ms.date: 05/13/2024
 
 title: Frequently asked questions for Azure Virtual Network encryption

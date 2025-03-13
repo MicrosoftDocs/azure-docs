@@ -1,5 +1,6 @@
 ---
 title: What is a network security perimeter?
+titleSuffix: Azure Private Link
 description: Learn about the components of network security perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
 author: mbender-ms
 ms.author: mbender
@@ -98,7 +99,8 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
-> 
+> Refer to the respective private link resource documentation for information on currently unsupported scenarios.
+
 ## Limitations of a network security perimeter
 
 ### Regional limitations

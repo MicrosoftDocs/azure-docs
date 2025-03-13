@@ -108,13 +108,13 @@ Attendee experience can be directly embedded into an application or platform usi
 
 2.	Before developers dive into using [Azure Communication Services](../overview.md), they must [create a resource](../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows&preserve-view=true).
 
-3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript&preserve-view=true) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/client-and-server-architecture.md).
+3.	Once a resource is created, developers must [generate access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-javascript&preserve-view=true) for attendees to access Azure Communication Services. We recommend using a [trusted service architecture](../concepts/identity-model.md#client-server-architecture).
 
 4.	Developers can leverage [headless SDKs](../concepts/teams-interop.md) or [UI Library](../concepts/ui-library/ui-library-overview.md) using the join link URL to join the Teams meeting through [Teams Interoperability](../concepts/teams-interop.md). Details below:
 
 |Headless SDKs                           | UI Library                            |
 |----------------------------------------|---------------------------------------|
-| Developers can leverage the [calling](../quickstarts/voice-video-calling/get-started-teams-interop.md?pivots=platform-javascript&preserve-view=true) and [chat](../quickstarts/chat/meeting-interop.md?pivots=platform-javascript&preserve-view=true) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-meeting-basicexample--basic-example) or pure [call](../concepts/ui-library/ui-library-overview.md) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chat-basicexample--basic-example) composites to build their experience. Alternatively, developers can leverage [composable components](../concepts/ui-library/ui-library-use-cases.md) to build a custom Teams interop experience.|
+| Developers can leverage the [calling](../quickstarts/voice-video-calling/get-started-teams-interop.md?pivots=platform-javascript&preserve-view=true) and [chat](../quickstarts/chat/meeting-interop.md?pivots=platform-javascript&preserve-view=true) SDKs to join a Teams meeting with your custom client | Developers can choose between the [call + chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) or pure [call](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite--docs) and [chat](https://azure.github.io/communication-ui-library/?path=/docs/composites-chatcomposite--docs) composites to build their experience. Alternatively, developers can leverage [composable components](../concepts/ui-library/ui-library-use-cases.md) to build a custom Teams interop experience.|
 
 
 >[!NOTE]

@@ -2,7 +2,7 @@
 title: Analyze a firmware image with the firmware analysis service.
 description: Learn to analyze a compiled firmware image using firmware analysis.
 ms.topic: tutorial
-ms.date: 06/15/2023
+ms.date: 02/07/2025
 author: karengu0
 ms.author: karenguo
 ms.service: azure-iot-operations
@@ -67,7 +67,7 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
 
 1. Sign into the Azure portal and go to Defender for IoT.
 
-1. Select **firmware analysis** > **Firmware inventory** > **Upload**.
+1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
 
 1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
 

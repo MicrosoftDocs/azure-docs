@@ -4,7 +4,7 @@ description: Authorize admin-level read and write access to Azure file shares an
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 02/26/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -88,7 +88,7 @@ An advantage of the Azure Identity client library is that it enables you to use 
 
 The access token returned by the Azure Identity client library is encapsulated in a token credential. You can then use the token credential to get a service client object to use in performing authorized operations against the Azure Files service.  
 
-Here's some sample code:
+The following code example shows how to authorize a client object using Microsoft Entra ID and perform operations at the directory and file level. This example assumes that the file share already exists.
 
 ```aspx-csharp
 using Azure.Core;
@@ -105,15 +105,11 @@ namespace FilesOAuthSample
             string tenantId = "";
             string appId = "";
             string appSecret = "";
-            string aadEndpoint = "";
-            string accountUri = "";
-            string connectionString = "";
+            string entraEndpoint = "";
+            string accountUri = "https://<storage-account-name>.file.core.windows.net/";
             string shareName = "test-share";
-            string directoryName = "testDirectory";
-            string fileName = "testFile"; 
-
-            ShareClient sharedKeyShareClient = new ShareClient(connectionString, shareName); 
-            await sharedKeyShareClient.CreateIfNotExistsAsync(); 
+            string directoryName = "test-directory";
+            string fileName = "test-file";  
 
             TokenCredential tokenCredential = new ClientSecretCredential(
                 tenantId,
@@ -121,19 +117,18 @@ namespace FilesOAuthSample
                 appSecret,
                 new TokenCredentialOptions()
                 {
-                    AuthorityHost = new Uri(aadEndpoint)
+                    AuthorityHost = new Uri(entraEndpoint)
                 });
 
-            ShareClientOptions clientOptions = new ShareClientOptions(ShareClientOptions.ServiceVersion.V2023_05_03);
-
-            // Set Allow Trailing Dot and Source Allow Trailing Dot.
+            // Set client options
+            ShareClientOptions clientOptions = new ShareClientOptions();
             clientOptions.AllowTrailingDot = true;
             clientOptions.AllowSourceTrailingDot = true;
 
             // x-ms-file-intent=backup will automatically be applied to all APIs
-            // where it is required in derived clients.
-
+            // where it is required in derived clients
             clientOptions.ShareTokenIntent = ShareTokenIntent.Backup;
+
             ShareServiceClient shareServiceClient = new ShareServiceClient(
                 new Uri(accountUri),
                 tokenCredential,
@@ -146,7 +141,6 @@ namespace FilesOAuthSample
             ShareFileClient fileClient = directoryClient.GetFileClient(fileName);
             await fileClient.CreateAsync(maxSize: 1024);
             await fileClient.GetPropertiesAsync();
-            await sharedKeyShareClient.DeleteIfExistsAsync();
         }
     }
 }

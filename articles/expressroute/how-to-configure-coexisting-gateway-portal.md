@@ -78,8 +78,6 @@ This procedure guides you through creating a virtual network and configuring coe
 
 1. Select **Create** to begin configuring the virtual network.
 
-    :::image type="content" source="media/how-to-configure-coexisting-gateway-portal/create-vnet.png" alt-text="Screenshot of the create a virtual network page.":::
-
 1. On the *Basics* tab, select or create a new **resource group** to store the virtual network. Enter the **name** and select the **region** to deploy the virtual network. Select **Next: IP Addresses >** to configure the address space and subnets.
 
     :::image type="content" source="media/how-to-configure-coexisting-gateway-portal/vnet-basics.png" alt-text="Screenshot of basics tab for creating a virtual network.":::

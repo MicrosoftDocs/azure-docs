@@ -367,7 +367,7 @@ To deploy a large number of parsers, we recommend using parser ARM templates, as
 
 1. Create a YAML file based on the relevant template for each schema and include your query in it. Start with the [YAML template](https://aka.ms/ASimYamlTemplates) relevant for your schema and parser type, filtering or parameter-less.
 
-1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
+1. Use the [ASIM YAML to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
 
 1. If deploying an update, delete older versions of the functions using the portal or the [function delete PowerShell tool](https://aka.ms/ASimDelFunctionScript). 
 
