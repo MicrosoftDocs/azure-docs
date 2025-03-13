@@ -131,50 +131,49 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 ## Multi-region support
 
-Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable.
+Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable. However, there are approaches you can use to be resilient to region outages.
 
-In all regions (except Brazil South and Southeast Asia), Azure Data Factory data is stored and replicated in the [paired region](cross-region-replication-azure.md#azure-paired-regions) to protect against metadata loss. During regional datacenter failures, Microsoft might initiate a regional failover of your Azure Data Factory instance. In most cases, no action is required on your part. When the Microsoft-managed failover has completed, you are able to access your Azure Data Factory in the failover region.
+### Failover to a paired region
 
-Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored on [local region only](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. When the region is lost due to a significant disaster, Microsoft won't be able to recover your Azure Data Factory data.  
+If you use a [region with a pair](./regions-paired.md) (except Brazil South and Southeast Asia), Azure Data Factory data is replicated to the paired region to protect against metadata loss. In the unlikely event of a region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
 
-If you use a [paired region](./regions-paired.md), Microsoft might initiate a failover of Azure Data Factory resources in the affected region to the region pair. However, this is likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process.
+Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. <!-- TODO both of these regions are AZ-enabled - so wouldn't it be ZRS instead of LRS? -->
 
-### **Using source control in Azure Data Factory**
+For data factories deployed in a nonpaired region, or if in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
-To ensure you can track and audit the changes made to your metadata, you should consider setting up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). 
+#### Failover process
 
- Learn how to set up [source control in Azure Data Factory](./source-control.md). 
+Microsoft-managed failover is triggered by Microsoft. It also is likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
-> [!NOTE]
-> If there is a disaster (loss of region), new data factory can be provisioned manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository.
+**Core service:** When a Microsoft-managed failover has completed, you are able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
-### **Data stores**
+<!-- TODO is there anything we can say about failback after the original region recovers - for example, can you expect that to be done by us too? Or would we permanently keep resources in the new region? -->
 
-Azure Data Factory enables you to move data among data stores located on-premises and in the cloud. To ensure business continuity with your data stores, you should refer to the business continuity recommendations for each of these data stores.
+**Integration runtimes:** Depending on the integration runtimes you use, there might be additional considerations:
 
-### Integration runtimes
-
-#### Azure integration runtime
-
-In Data Factory, you can set the Azure integration runtime (IR) region for your activity execution or dispatch in the Integration runtime setup. To enable automatic failover in the event of a complete regional outage, set the Region to Auto Resolve. The Azure integration runtime will fail over automatically to paired regions when you select Auto Resolve as the runtime's region.
-
-For other regions, you can create a secondary data factory in another region and fail over manually.
-
-### Azure-SSIS integration runtime
-
-For business continuity and disaster recovery (BCDR), Azure SQL Database/Managed Instance can be configured with a geo-replication/failover group, where SSISDB in a primary Azure region with read-write access (primary role) will be continuously replicated to a secondary region with read-only access (secondary role). When a disaster occurs in the primary region, a failover will be triggered, where the primary and secondary SSISDBs will swap roles.
-
-You can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group.
-
-For more informaiton, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md)
-
-#### Self-hosted integration runtimes
-
-Microsoft-managed failover doesn't apply to self-hosted integration runtime (SHIR) since this infrastructure is typically customer-managed. If the SHIR is set up on Azure VM, then the recommendation is to use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) for handling the [Azure VM failover](../site-recovery/azure-to-azure-architecture.md) to another region.
+- *Azure integration runtime* can be configured to automatically resolve the region it uses. If there's an outage in the primary region, the Azure integration runtime will fail over automatically to the paired region, subject to the limitations described above. You can configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup. Set the region to *auto resolve*.
+- *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see the alternative multi-region approaches section below.
+- *Self-hosted integration runtime* runs on infrastructure that you're responsible for, and so Microsoft-managed failover doesn't apply to self-hosted integration runtimes. To learn more, see the alternative multi-region approaches section below.
 
 ### Alternative multi-region approaches
 
-If you need your pipelines to be resilient to regional outages, consider managing your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
+If you need your pipelines to be resilient to regional outages, consider using a metadata-driven pipeline, consisting of these steps:
+
+- To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](./source-control.md).
+
+- Manage your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. If a region is unavailable, you can provision a new data factory manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
+
+#### Integration runtimes
+
+Depending on the integration runtimes you use, there might be additional considerations:
+
+- *Azure-SSIS integration runtime* uses a database stored in Azure SQL Database or Azure SQL Managed Instance. You can configure geo-replication or a failover group for this database. The Azure-SSIS database is then located in a primary Azure region with read-write access (the *primary role*), and will be continuously replicated to a secondary region with read-only access (the *secondary role*). If the primary region is lost, a failover is triggered, causing the primary and secondary databases to swap roles.
+
+    You can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group.
+
+    For more information, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md) <!-- TODO It would be good to update the linked document to clarify that this approach doesn't rely on Azure region pairs - it can be done with any combination of regions supported by Azure SQL. -->
+
+- **Self-hosted integration runtime* runs on infrastructure that you manage. If the self-hosted integration runtime is deployed to an Azure virtual machine, you can use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to trigger [virtual machine failover](../site-recovery/azure-to-azure-architecture.md) to another region.
 
 ## Backup and restore
 
