@@ -22,7 +22,18 @@ The Microsoft Sentinel solutions for SAP applications include an SAP data connec
 
 Microsoft Sentinel supports both a containerized data collector agent and an agentless solution. Select the deployment option at the top of the page that matches your environment.
 
+:::zone pivot="connection-agent"
+
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+:::image type="content" source="media/deployment-steps/install-solution-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
+
+:::zone-end
+
 
 Content in this article is relevant for your **security** team.
 

@@ -156,7 +156,7 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP data connector agent
+          - name: Troubleshoot SAP data connector
             href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:

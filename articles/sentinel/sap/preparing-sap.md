@@ -30,7 +30,7 @@ The procedures in this article are typically performed by your **SAP BASIS** tea
 :::zone pivot="connection-agentless"
 This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications. While steps that are performed in Microsoft Sentinel require that the solution be installed first, other preparations in the SAP environment can happen in parallel. <!--need new images across-->
 
-:::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
+:::image type="content" source="media/deployment-steps/prepare-sap-environment-agentless.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
 Many of the procedures in this article are typically performed by your **SAP BASIS** team. Some steps include your **security** team too.
 :::zone-end
@@ -190,6 +190,8 @@ For more information, see [Database Collector in Background Processing](https://
 For more information, see the [SAP documentation](https://help.sap.com/docs/integration-suite/sap-integration-suite/initial-setup).
 
 ## Perform initial connector configuration
+
+This procedure starts in Microsoft Sentinel and requires that the solution be installed before you start.
 
 1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview) (Preview)** data connector.
 

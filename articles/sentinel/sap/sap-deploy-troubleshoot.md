@@ -29,7 +29,7 @@ If you don't see a related error to your issue, turn on trace logging for more i
 
 ## Check for prerequisites
 
-The [agentless solution package](preparing-sap.md#import-and-deploy-the-microsoft-sentinel-solution-for-sap-package) includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
+The agentless solution package, deployed while [perform the initial connector configuration](preparing-sap.md#perform-initial-connector-configuration), includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
 
 **To run the tool**:
 

@@ -59,6 +59,7 @@ By using the SAP Cloud Connector, the **Agentless solution** profits from alread
 The **Agentless solution** is compatible with SAP S/4HANA Cloud, Private Edition RISE with SAP, SAP S/4HANA on-premises, and SAP ERP Central Component (ECC), ensuring continued functionality of existing security content, including detections, workbooks, and playbooks.
 
 The agentless data connector ingests critical security logs such as the security audit log, change docs logs and user master data including user roles and authorizations.
+
 ---
 
 ### Security content
@@ -122,11 +123,9 @@ We recommend that you involve both teams when planning your deployment to ensure
 
 1. [Review the prerequisites for deploying the SAP agentless solution](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on each other:
+1. [Deploy the SAP agentless solution from the content hub](deploy-sap-security-content.md). This step is handled by the security team on the Azure portal.
 
-    1. [Deploy the SAP agentless solution from the content hub](deploy-sap-security-content.md). This step is handled by the security team on the Azure portal.
-
-    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation.
+1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation. Some of the procedures in this step can be done by the SAP BASIS team before installing the solution.
 
 1. [Connect your SAP system](deploy-data-connector-agent-container.md) using an agentless data connector with the SAP Cloud Connector. This step is handled by your security team on the Azure portal, using information provided by your SAP BASIS team.
 
