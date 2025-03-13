@@ -304,6 +304,7 @@
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
         "articles/hdinsight/*.yml": "yeturis",
         "articles/hdinsight/kafka/*.md": "yeturis",
+        "articles/hdinsight/*.md": "yeturis"
         "articles/hdinsight/kafka/*.yml": "yeturis",
         "articles/integration-environments/*.md": "ecfan",
         "articles/integration-environments/*.yml": "ecfan",
@@ -804,6 +805,7 @@
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnema",
         "articles/hdinsight/kafka/*.md": "sairamyeturi",
+        "articles/hdinsight/*.md": "sairamyeturi",
         "articles/hdinsight/kafka/*.yml": "sairamyeturi",
         "articles/integration-environments/*.md": "estfan",
         "articles/integration-environments/*.yml": "estfan",
