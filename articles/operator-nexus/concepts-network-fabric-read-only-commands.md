@@ -59,7 +59,7 @@ To use Network Fabric read-only commands, complete the following steps:
     Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
 
 >[!Note]
-> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/articles/operator-nexus/howto-configure-bring-your-own-storage-network-fabric.md) article.
+> Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/azure/operator-nexus/howto-configure-network-fabric) article.
 
  ## Command restrictions
 
