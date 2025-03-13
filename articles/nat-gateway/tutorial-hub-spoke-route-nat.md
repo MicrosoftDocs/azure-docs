@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial 
-ms.date: 02/06/2025
+ms.date: 03/06/2025
 ms.custom: template-tutorial 
 ---
 
@@ -1149,7 +1149,7 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 
 # [**Powershell**](#tab/powershell)
 
-Use [New-AzVirtualNetworkPeering](/powershell/module/az.network/new-azvirtualnetworkpeering) to create the peering from the hub to spoke one.
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create the peering from the hub to spoke one.
 
 ```powershell
 # Create peering from hub to spoke one
@@ -1806,7 +1806,7 @@ Create a two-way virtual network peer between the hub and spoke two.
 
 # [**Powershell**](#tab/powershell)
 
-Use [New-AzVirtualNetworkPeering](/powershell/module/az.network/new-azvirtualnetworkpeering) to create the peering from the hub to spoke two.
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create the peering from the hub to spoke two.
 
 ```powershell
 # Create peering from hub to spoke two

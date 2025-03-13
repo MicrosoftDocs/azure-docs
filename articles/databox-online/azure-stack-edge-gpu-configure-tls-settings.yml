@@ -9,12 +9,12 @@ metadata:
 
   ms.service: azure-stack-edge
   ms.topic: how-to
-  ms.date: 03/04/2025
+  ms.date: 03/07/2025
   ms.author: alkohli
 title: |
   Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro device
 introduction: |
-  [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+  [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
   If you use a Windows client to access your Azure Stack Edge Pro device, you're required to configure Transport Layer Security (TLS) 1.2 on your client. This article provides resources and guidelines to configure TLS 1.2 on your Windows client. 
 
