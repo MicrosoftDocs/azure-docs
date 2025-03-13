@@ -98,7 +98,7 @@ ms.author: wchi
     import java.net.http.*;
     import java.net.URI;
 
-    String  = System.getenv("AZURE_COSMOS_RESOURCEENDPOINT");
+    String endpoint = System.getenv("AZURE_COSMOS_RESOURCEENDPOINT");
     String listConnectionStringUrl = System.getenv("AZURE_COSMOS_LISTCONNECTIONSTRINGURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
     
