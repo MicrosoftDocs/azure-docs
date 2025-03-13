@@ -3,7 +3,7 @@ title: Deploy Files to Azure App Service
 description: Learn to deploy app packages, discrete libraries, static files, or startup scripts to Azure App Service.
 author: cephalin
 ms.author: cephalin
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 01/24/2025
 ms.custom: devx-track-azurecli
 
@@ -290,7 +290,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-url "http
 
 # [Azure PowerShell](#tab/powershell)
 
-Not supported. See the tabs for Azure CLI, Kudu API, or ARM template.
+Not supported. See the tabs for the Azure CLI, Kudu API, or ARM template.
 
 # [Kudu API](#tab/api)
 
