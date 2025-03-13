@@ -19,11 +19,11 @@ When you set up access restrictions, you can define a priority-ordered allow/blo
 
 The access restriction capability works with all Azure App Service-hosted workloads. The workloads can include web apps, API apps, Linux apps, Linux custom containers, and Azure Functions apps.
 
-When someone makes a request to your app, the `FROM` address is evaluated against the rules in your access restriction list. If the `FROM` address is in a subnet that's configured by using service endpoints to `Microsoft.Web`, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
+When someone makes a request to your app, the `FROM` address is evaluated against the rules in your access restriction list. If the `FROM` address is in a subnet configured with service endpoints to `Microsoft.Web`, the source subnet is compared against the virtual network rules in your access restriction list. If the address isn't allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
 The access restriction capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network access-control lists.
 
-The ability to restrict access to your web app from an Azure virtual network is achieved by using [service endpoints][serviceendpoints]. With service endpoints, you can restrict access to a multitenant service from selected subnets. It doesn't restrict traffic to apps that are hosted in an App Service Environment. If you're in an App Service Environment, you can control access to your app by applying IP address rules.
+The ability to restrict access to your web app from an Azure virtual network uses [service endpoints][serviceendpoints]. With service endpoints, you can restrict access to a multitenant service from selected subnets. It doesn't work to restrict traffic to apps that are hosted in an App Service Environment. If you're in an App Service Environment, you can control access to your app by applying IP address rules.
 
 > [!NOTE]
 > The service endpoints must be enabled both on the networking side and for the Azure service with which they're being enabled. For a list of Azure services that support service endpoints, see [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
@@ -39,7 +39,7 @@ To add an access restriction rule to your app:
 
 1. Select the app that you want to add access restrictions to.
 
-1. On the service menu, select **Settings** > **Networking**.
+1. On the left menu, select **Settings** > **Networking**.
 
 1. On the **Networking** pane, under **Inbound traffic configuration**, select the **Public network access** setting.
 
@@ -84,15 +84,15 @@ On the **Add Access Restriction** pane, when you create a rule, do the following
 1. Select **Save** on the **Access Restrictions** pane.
 
 > [!NOTE]
-> There's a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider a standalone security product like Azure Front Door, Azure Application Gateway, or a different web application firewall (WAF).
+> There's a limit of 512 access restriction rules. If you require more than 512 access restriction rules, we suggest that you consider a standalone security product. Consider Azure Front Door, Azure Application Gateway, or a different web application firewall (WAF).
 >
 #### Set an IP address-based rule
 
 Follow the procedure as outlined in the preceding section, but with the following addition:
 
-- For step 4, in the **Type** dropdown list, select **IPv4** or **IPv6**.
+- For step 4, in the **Type** dropdown list, select IPv4 or IPv6.
 
-Specify the **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the **IPv4** and **IPv6** addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The **IPv4** CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Specify **IP Address Block** in the Classless Inter-Domain Routing (CIDR) notation for both the IPv4 and IPv6 addresses. To specify an address, you can use something like `1.2.3.4/32`, where the first four octets represent your IP address and `/32` is the mask. The **IPv4** CIDR notation for all addresses is `0.0.0.0/0`. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 > [!NOTE]
 > IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use service endpoints to restrict traffic to select subnets in your virtual network.
@@ -101,11 +101,11 @@ Specify the **IP Address Block** in the Classless Inter-Domain Routing (CIDR) no
 
 - For step 4, in the **Type** dropdown list, select **Virtual Network**.
 
-  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Virtual Network type selected.":::
+  :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the virtual network type selected.":::
 
-Specify the **Subscription**, **Virtual Network**, and **Subnet** drop-down lists, matching what you want to restrict access to.
+Specify the **Subscription**, **Virtual Network**, and **Subnet** dropdown lists, matching what you want to restrict access to.
 
-By using service endpoints, you can restrict access to selected Azure Virtual Network subnets. If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you select, they're automatically enabled unless you select **Ignore missing Microsoft.Web service endpoints**. Whether you might want to enable service endpoints on the app but not the subnet depends on if you have the permissions to enable them on the subnet.
+By using service endpoints, you can restrict access to selected Azure virtual network subnets. If service endpoints aren't already enabled with `Microsoft.Web` for the subnet that you select, they're automatically enabled unless you select **Ignore missing Microsoft.Web service endpoints**. Whether you might want to enable service endpoints on the app but not the subnet depends on if you have the permissions to enable them on the subnet.
 
 If you need someone else to enable service endpoints on the subnet, select **Ignore missing Microsoft.Web service endpoints**. Your app is configured for service endpoints. They can later be enabled on the subnet.
 
@@ -150,9 +150,9 @@ All publicly available service tags are supported in access restriction rules. E
 
 The following sections describe using access restrictions in advanced scenarios.
 
-### Filter by http header
+### Filter by HTTP header
 
-You can add http header filters to any rule. The following http header names are supported:
+You can add HTTP header filters to any rule. The following http header names are supported:
 
 - `X-Forwarded-For`
 - `X-Forwarded-Host`
@@ -165,7 +165,7 @@ For each header name, you can add up to eight values separated by commas. The ht
 
 Multi-source rules allow you to combine up to eight IP ranges or eight service tags in a single rule. Use multi-source rules if you have more than 512 IP ranges or if you want to create logical rules. For example: a logical rule could include multiple IP ranges combined with a single http header filter.
 
-Multi-source rules are defined the same way as single-source rules, but each range is separated by a comma.
+Multi-source rules are defined the same way as single-source rules, but each range is separated with a comma.
 
 PowerShell example:
 
@@ -179,7 +179,7 @@ PowerShell example:
 
 If you want to explicitly block a single IP address or a block of IP addresses, but allow access to everything else, you can add a **Deny** rule for the specific IP address. Then configure the unmatched rule action to **Allow**.
 
-:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the 'Access Restrictions' pane in the Azure portal, showing a single blocked IP address.":::
+:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot of the Access Restrictions pane in the Azure portal, showing a single blocked IP address.":::
 
 ### Restrict access to an SCM site
 
