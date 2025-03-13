@@ -52,7 +52,7 @@ The following example describes an NVA in Virtual WAN hub where multiple IP conf
 
 :::image type="content" source="./media/network-virtual-appliance-address/sample-address-allocation.png"alt-text="Screenshot showing sample IP address allocation scheme."lightbox="./media/network-virtual-appliance-address/sample-address-allocation.png":::
 
-## Known Limitations and Considerations
+## Known limitations and considerations
 
 The following section describes known limitations and considerations associated to assigning multiple IP configurations to NVA NICs.
 
@@ -101,7 +101,7 @@ The following section describes the steps needed to add additional IP configurat
 
 ## Removing IP configurations
 
-The following section describes the steps needed to remove IP configurations from  your Network Virtual Appliance.
+The following section describes the steps needed to remove IP configurations from your Network Virtual Appliance.
 
 Select the IP configuration you want to delete and select **Remove Configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/delete-button.png"alt-text="Screenshot showing how to delete  NVA IP configurations."lightbox="./media/network-virtual-appliance-address/delete-button.png"::: 
