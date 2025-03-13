@@ -3,7 +3,7 @@ title: Manage your Azure Native Dynatrace Service integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
 
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 3/13/2025
 
 ---
 
@@ -146,13 +146,7 @@ If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no
 
 If more than one Dynatrace resource is mapped to the Dynatrace environment using the link Azure subscription option, deleting the Dynatrace resource only stops sending logs for Azure resources associated to that Dynatrace resource. However, since this one Dynatrace environment might still be linked to other Dynatrace resources, billing continues through the Azure Marketplace.
 
-## Next steps
+## Related content
 
 - For help with troubleshooting, see [Troubleshooting Dynatrace integration with Azure](dynatrace-troubleshoot.md).
-- Get started with Azure Native Dynatrace Service on
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

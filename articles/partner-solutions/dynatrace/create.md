@@ -3,7 +3,7 @@ title: Create Azure Native Dynatrace Service resource
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 
 ms.topic: quickstart
-ms.date: 10/16/2023
+ms.date: 03/13/2025
 
 ---
 
@@ -128,13 +128,8 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
    The Azure portal retrieves the appropriate Dynatrace application from Microsoft Entra ID. The app matches the Enterprise app you provided in an earlier step.
 
-## Next steps
+## Next step
 
-- [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
-- Get started with Azure Native Dynatrace Service on
+- [Manage a Dynatrace resource](manage.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
 
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

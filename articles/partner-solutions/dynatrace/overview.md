@@ -2,7 +2,7 @@
 title: Azure Native Dynatrace Service overview
 description: Learn about using the Dynatrace Cloud-Native Observability Platform in Azure Marketplace.
 ms.topic: overview
-ms.date: 01/17/2025
+ms.date: 03/13/2025
 ---
 
 # What is Azure Native Dynatrace Service?
