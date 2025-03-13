@@ -205,6 +205,8 @@ This procedure starts in Microsoft Sentinel and requires that the solution be in
 
 1. Scroll further down in the **Configuration** area, and expand and follow the instructions in the **Add monitored SAP Systems - Run the steps below for each monitored SAP system:** area for each SAP system you want to monitor.
 
+    When you get to step **2. Connect SAP System to Microsoft Sentinel / SOC Engineer**, continue with [Connect your SAP system to Microsoft Sentinel](deploy-data-connector-agent-container.md).
+
 ## Configure SAP Cloud Connector settings
 
 1. Install the SAP Cloud Connector. For more information, see the [SAP documentation](https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/installation).
