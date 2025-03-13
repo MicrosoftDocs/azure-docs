@@ -4,7 +4,7 @@ description: Learn how to deploy your code to Azure App Service from a CI/CD pip
 author: cephalin
 ms.author: jukullam
 ms.manager: mijacobs
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: "devops-pipelines-deploy"
 
@@ -74,7 +74,7 @@ To get started:
 
 # [YAML](#tab/yaml/)
 
-1. Select the end of the YAML file, then select **Show assistant**.
+1. Select the end of the YAML file, and then select **Show assistant**.
 
 1. Use the **Task assistant** to add the [Azure web app](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) task.
 
@@ -109,7 +109,7 @@ To get started:
 
 To get started:
 
-1. Create a [release pipeline](/azure/devops/pipelines/release/). Select **Releases** from the service menu and select **New pipeline**.
+1. Create a [release pipeline](/azure/devops/pipelines/release/). Select **Releases** from the left menu and select **New pipeline**.
 
 1. Select the **Azure App Service deployment** template for your stage. This step automatically adds the necessary tasks.
 
@@ -147,10 +147,10 @@ steps:
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 ```
 
-* `azureSubscription`: Your Azure subscription
-* `appType`: Your web app type
-* `appName`: The name of your existing app service
-* `package`: File path to the package or a folder containing your App Service contents (wildcards are supported)
+* `azureSubscription`: Your Azure subscription.
+* `appType`: Your web app type.
+* `appName`: The name of your existing app service.
+* `package`: File path to the package or a folder containing your App Service contents. Wildcards are supported.
 
 # [Classic](#tab/classic/)
 
@@ -217,7 +217,7 @@ The following example shows how to deploy to a staging slot, and then swap to a 
 * `deployToSlotOrASE*`: Boolean. Deploy to an existing deployment slot or Azure App Service Environment.
 * `resourceGroupName`: Name of the resource group. Required if `deployToSlotOrASE` is true.
 * `slotName`: Name of the slot, which defaults to `production`. Required if `deployToSlotOrASE` is true.
-* `package`: File path to the package or a folder containing your App Service contents (wildcards are supported).
+* `package`: File path to the package or a folder containing your App Service contents. Wildcards are supported.
 * `SourceSlot`: Slot sent to production when `SwapWithProduction` is true.
 * `SwapWithProduction`: Boolean. Swap the traffic of source slot with production.
 
@@ -358,7 +358,7 @@ steps:
 
 If you're using the **Azure App Service deployment** template in the release pipeline:
 
-1. Select the **Tasks** tab, then select **Deploy Azure App Service** (the `AzureRmWebAppDeployment` task).
+1. Select the **Tasks** tab, and then select **Deploy Azure App Service** (the `AzureRmWebAppDeployment` task).
 
 1. In the dialog, make sure that **Connection type** is set to **Azure Resource Manager**.
 
