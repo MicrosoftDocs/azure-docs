@@ -75,18 +75,18 @@ This integration brings together the best of Azure\'s infrastructure capabilitie
 
 3.   Provide Subscription ID, Microsoft Entra Tenant ID, Application (Client) ID, and Certificate or Client Secret to create the CAL account.
 
-:::image type="content" source="./media/sap-cal-integration/sap-cal-account.png" alt-text="Screenshot that shows how to create an SAP CAL account.":::
+:::image type="content" source="./media/sap-cal-integration/sap-cal-account.png" alt-text="Screenshot that shows how to create an SAP CAL account." lightbox="./media/sap-cal-integration/sap-cal-account.png":::
 
 4.   Once the CAL account is created, edit the account to enable API access. [Learn More](https://help.sap.com/docs/SAP_CLOUD_APPLIANCE_LIBRARY/43df7ec18b5241f7bf9a8c9de5ba3361/7c4da18a888d4dfe8fc594d0e18072a8.html?q=API%20enable).
 
 > [!NOTE]
 > You have to activate the product from which you want to deploy a workload for the SAP Cloud Appliance Library account that will use this API and accept the Terms and Conditions for this product. For more information, see [Activating Solutions](https://help.sap.com/docs/SAP_CLOUD_APPLIANCE_LIBRARY/43df7ec18b5241f7bf9a8c9de5ba3361/90627702612e45709e696a258af51c76.html?q=API%20enable).
 
-:::image type="content" source="./media/sap-cal-integration/sap-cal-enable-api-access.png" alt-text="Screenshot that shows how to enable SAP CAL API Access.":::
+:::image type="content" source="./media/sap-cal-integration/sap-cal-enable-api-access.png" alt-text="Screenshot that shows how to enable SAP CAL API Access." lightbox="./media/sap-cal-integration/sap-cal-enable-api-access.png":::
 
 5.   Once API access is enabled for the account, wait for a moment until the Key Vault is created, then collect the Key Vault name for the next step.
 
-:::image type="content" source="./media/sap-cal-integration/sap-cal-key-vault-name.png" alt-text="Screenshot that shows how to copy SAP CAL Azure Key Vault Name.":::
+:::image type="content" source="./media/sap-cal-integration/sap-cal-key-vault-name.png" alt-text="Screenshot that shows how to copy SAP CAL Azure Key Vault Name." lightbox="./media/sap-cal-integration/sap-cal-key-vault-name.png":::
 
 > [!IMPORTANT]
 > This created Key Vault stores the generated CAL end points and client secret used for obtaining OAuth tokens.
@@ -102,12 +102,14 @@ Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installati
     -   Set parameter "enable_rbac_authorization_for_keyvault = true" in the Landscape tfvars file.
 
     -   Assign Key Vault Administrator role to the application for SDAF Workload Zone Key Vault.
+    
+    -   You should add SAP BTP outbound IP addresses for Europe (Rot) region in SDAF Workload Zone Key Vault. [Can be found here:] (https://help.sap.com/docs/btp/sap-btp-neo-environment/regions-and-hosts-available-for-neo-environment).
 
     -   Set parameter "enable_sap_cal = true" in the System tfvars file.
 
 2.  After the system deployment, update sap-parameters.yaml file with the CAL Key Vault.
 
-:::image type="content" source="./media/sap-cal-integration/sap-cal-parameters.png" alt-text="Screenshot that shows sap-parameters.yaml file.":::
+:::image type="content" source="./media/sap-cal-integration/sap-cal-parameters.png" alt-text="Screenshot that shows sap-parameters.yaml file." lightbox="./media/sap-cal-integration/sap-cal-parameters.png":::
 
 
 3.  Run "SAP installation using SAP-CAL" pipeline:
@@ -116,7 +118,7 @@ Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installati
 
     1.   Press \'Run\' to begin the installation process.
 
-:::image type="content" source="./media/sap-cal-integration/sap-cal-run-pipeline.png" alt-text="Screenshot that shows how to run Azure DevOps SAP installation using SAP-CAL Pipeline.":::
+:::image type="content" source="./media/sap-cal-integration/sap-cal-run-pipeline.png" alt-text="Screenshot that shows how to run Azure DevOps SAP installation using SAP-CAL Pipeline." lightbox="./media/sap-cal-integration/sap-cal-run-pipeline.png":::
 
 ## Tracking the installation
 
