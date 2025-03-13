@@ -110,7 +110,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-##  <a name = "Deploy WAR/JAR/EAR packages"></a> Deploy WAR, JAR, or EAR packages
+## <a name = "Deploy WAR/JAR/EAR packages"></a> Deploy WAR, JAR, or EAR packages
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app by using the Azure CLI, PowerShell, or Kudu publish API.
 
