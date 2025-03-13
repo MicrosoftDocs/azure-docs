@@ -144,13 +144,13 @@ The following properties are supported for the Azure Database for PostgreSQL lin
             "database": "<database name>",
             "sslMode": 2,
             "username": "<user name>",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -275,13 +275,13 @@ A typical connection string is `host=<server>.postgres.database.azure.com;databa
         "version": "1.0",
         "typeProperties": {
             "connectionString": "host=<server>.postgres.database.azure.com;database=<database>;port=<port>;uid=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -538,6 +538,7 @@ IncomingStream sink(allowSchemaDrift: true,
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Upgrade the Azure Database for PostgreSQL connector
 
