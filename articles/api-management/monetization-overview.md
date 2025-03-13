@@ -187,6 +187,6 @@ Remember that the monetization strategy is only one facet of a successful API im
 * The legal terms
 * Your ability to scale the API to meet the committed service levels.
 
-## Next Steps
+## Related content
 * [How API Management supports monetization](monetization-support.md).
 * Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).

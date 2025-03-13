@@ -94,7 +94,7 @@ If you have a support plan and you need technical help, create a [support requ
 
 You can also get help from our communities. You can file an issue on [GitHub](https://aka.ms/apim/sputnik/repo) or ask questions on [Stack  Overflow](https://aka.ms/apimso) and tag them with "azure-api-management".
 
-## Next steps
+## Related content
 
 * Learn how to deploy the API Management self-hosted gateway to [Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md), [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md), or a Kubernetes cluster using [YAML](how-to-deploy-self-hosted-gateway-kubernetes.md) or a [Helm chart](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 

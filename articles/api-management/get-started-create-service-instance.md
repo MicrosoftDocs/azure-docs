@@ -83,7 +83,7 @@ When no longer needed, you can remove the resource group and all the related res
 
    :::image type="content" source="media/get-started-create-service-instance/delete-resource-group.png" alt-text="Delete resource group.":::
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Import and publish your first API](import-and-publish.md)

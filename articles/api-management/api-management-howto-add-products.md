@@ -196,7 +196,7 @@ After you publish a product, developers can access the APIs. Depending on how th
 
 For more information, see [How API Management handles requests with or without subscription keys](api-management-subscriptions.md#how-api-management-handles-requests-with-or-without-subscription-keys).
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to:
 
@@ -288,7 +288,7 @@ az apim show --<apim_service_name> --<resource_group_name>
 
 [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Create blank API and mock API responses](mock-api-responses.md).

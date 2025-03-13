@@ -168,7 +168,3 @@ You can call operations directly from the Azure portal. Using the Azure portal i
     * When the test succeeds, the back end responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-
-* [Transform and protect a published API](transform-api.md)

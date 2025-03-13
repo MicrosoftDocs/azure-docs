@@ -195,7 +195,7 @@ You can define the resolver as follows:
 </http-data-source>
 ```
 
-## Next steps
+## Related content
 
 For more resolver examples, see:
 

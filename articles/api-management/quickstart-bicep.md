@@ -118,7 +118,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Tutorial: Import and publish your first API](import-and-publish.md)

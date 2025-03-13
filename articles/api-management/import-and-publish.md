@@ -83,7 +83,7 @@ You can call API operations directly from the Azure portal, which provides a con
 
    The backend responds with **200 OK** and some data.
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to:
 

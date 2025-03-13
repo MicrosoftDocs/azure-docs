@@ -119,7 +119,3 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-
-* [Transform and protect a published API](transform-api.md)

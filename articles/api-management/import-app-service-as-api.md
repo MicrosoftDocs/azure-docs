@@ -132,7 +132,3 @@ You can test the path `/api/TodoItems` as follows.
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-
-* [Transform and protect a published API](transform-api.md)

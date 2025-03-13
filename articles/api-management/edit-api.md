@@ -66,8 +66,3 @@ You can update your backend API from the Azure portal by following these steps:
 > `Can't change property for non-current revision` will be displayed.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-
-* [APIM policy samples](./policy-reference.md)
-* [Transform and protect a published API](transform-api.md)

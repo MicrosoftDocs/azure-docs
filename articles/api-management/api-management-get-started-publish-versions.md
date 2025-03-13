@@ -125,7 +125,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 4. Select **v1**.
 5. Notice the **Request URL** of the first operation in the list. It shows that the API URL path includes **v1**.
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to:
 
