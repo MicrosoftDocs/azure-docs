@@ -83,9 +83,7 @@ The following section describes the steps needed to add additional IP configurat
 > Reference your NVA provider's documentation prior to understand NVA-specific limitations, supported use cases, best practices and configuration procedures.
  
 1. Navigate to your Virtual WAN hub and select **Network Virtual Appliances** under Third-party providers. 
-:::image type="content" source="./media/network-virtual-appliance-address/select-network-virtual-appliance.png"alt-text="Screenshot showing how to find NVA from Virtual WAN Hub."lightbox="./media/network-virtual-appliance-address/select-network-virtual-appliance.png":::
-2. Select your NVA and select **Manage configurations**.
-:::image type="content" source="./media/network-virtual-appliance-address/manage-configurations.png"alt-text="Screenshot showing how to find Manage NVA configurations button."lightbox="./media/network-virtual-appliance-address/manage-configurations.png"::: 
+1. Select your NVA and select **Manage configurations**.
 1. Under Settings, select **Interface IP configurations**.
 :::image type="content" source="./media/network-virtual-appliance-address/interface-ip-configurations.png"alt-text="Screenshot showing how to find IP configurations."lightbox="./media/network-virtual-appliance-address/interface-ip-configurations.png"::: 
 1. Select the NIC you want to add IP configurations to.
@@ -100,7 +98,6 @@ The following section describes the steps needed to add additional IP configurat
 1. Select **Instances** under settings.
 :::image type="content" source="./media/network-virtual-appliance-address/find-instance.png"alt-text="Screenshot showing how to select instance from the settings bar."lightbox="./media/network-virtual-appliance-address/find-instance.png"::: 
 1. Select the VM instance for which you want to see assigned IP addresses.
-:::image type="content" source="./media/network-virtual-appliance-address/select-instance-view.png"alt-text="Screenshot showing how to select instance to view configurations."lightbox="./media/network-virtual-appliance-address/select-instance-view.png"::: 
 
 ## Removing IP configurations
 
