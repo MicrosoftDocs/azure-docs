@@ -86,10 +86,9 @@ In this step, you view the results of the analysis you started in the previous s
 4. Select one of the resources in the visualization to view the resource details. You can also select any of the lengths in the visualization to view details of that step. If the results indicate a blockage in the reachability path, select the length immediately before the blockage to see what resource or policy caused the blockage.
 
    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/network-manager-reachability-results-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
-    Figure: View the details of a resource in the analysis results window.
 
    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-results-path-edge-details.png" alt-text="Screenshot of step details for a network manager from analysis intent results.":::
-    Figure: View the step details of a path edge in the analysis results window.   
+      
 
 5. Select the **JSON output** tab to view the full JSON output of the analysis result. The beginning of the JSON object details the outcome of the result, which indicates whether all packets reached, some packets reached, or no packets reached. Explanations are provided for each outcome and each reachability step.
     
