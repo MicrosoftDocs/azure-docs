@@ -10,6 +10,9 @@ ms.service: azure-education
 
 # What is Azure Classroom?
 
+> [!WARNING]
+> This offer requires assistance from your Microsoft sales representative. Self-service signup is not available.
+
 The Microsoft [Azure Classroom](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/quickstart) is a tool that helps academic users provision and manage cloud credit across Azure subscriptions.
 
 This tool is useful when you need to manage many cloud-based student projects. Azure Classroom is also useful for research purposes when you don't yet know your Azure credit needs.

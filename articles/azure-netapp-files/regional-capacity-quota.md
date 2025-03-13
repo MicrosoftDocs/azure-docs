@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 10/11/2021
+ms.date: 10/11/2024
 ms.author: anfdocs
 ---
 # Regional capacity quota for Azure NetApp Files
@@ -14,7 +14,7 @@ This article explains regional capacity quota of Azure NetApp Files.
 
 ## Display regional capacity quota
 
-You can click **Quota** under Settings of Azure NetApp Files to display the current and default quota sizes for the region. 
+You can select **Quota** under Settings of Azure NetApp Files to display the current and default quota sizes for the region. 
 
 For example: 
 

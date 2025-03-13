@@ -1,16 +1,16 @@
 ---
-title: What's new in Firmware analysis
+title: What's new in firmware analysis
 author: karengu0
 ms.author: karenguo
-description: Learn about the latest updates for Firmware analysis.
+description: Learn about the latest updates for firmware analysis.
 ms.topic: conceptual
-ms.date: 11/04/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 
-# What's new in Firmware analysis
+# What's new in firmware analysis
 
-This article lists new features and feature enhancements in the Firmware analysis service.
+This article lists new features and feature enhancements in the firmware analysis service.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -33,7 +33,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## March 2024
 
-- **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware Analysis Azure CLI](/cli/azure/service-page/firmware%20analysis) or the [Firmware Analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
+- **Azure CLI and PowerShell commands**: Automate your workflow of analyzing firmware images by using the [Firmware analysis Azure CLI](/cli/azure/service-page/firmware%20analysis) or the [Firmware analysis PowerShell commands](/powershell/module/az.firmwareanalysis).
 - **User choice in resource group**: Pick your own resource group or create a new resource group during the onboarding process.
 
     :::image type="content" source="media/whats-new-firmware-analysis/pick-resource-group.png" alt-text="Screenshot that shows resource group picker while onboarding." lightbox="media/whats-new-firmware-analysis/pick-resource-group.png":::
@@ -55,7 +55,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 - **CODESYS libraries detection**: Firmware analysis now detects the use of CODESYS libraries, which Microsoft recently identified as having high-severity vulnerabilities. These vulnerabilities can be exploited for attacks such as remote code execution (RCE) or denial of service (DoS). For more information, see [Multiple high severity vulnerabilities in CODESYS V3 SDK could lead to RCE or DoS](https://www.microsoft.com/en-us/security/blog/2023/08/10/multiple-high-severity-vulnerabilities-in-codesys-v3-sdk-could-lead-to-rce-or-dos/).
 
 - **Enhanced documentation**: Addition of documentation addressing the following concepts:
-    - [Azure role-based access control for Firmware Analysis](firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
+    - [Azure role-based access control for firmware analysis](firmware-analysis-rbac.md), which explains roles and permissions needed to upload firmware images and share analysis results, and an explanation of how the **FirmwareAnalysisRG** resource group works
     - [Frequently asked questions](firmware-analysis-FAQ.md)
 
 - **Improved filtering for each report**: Each subtab report now includes more fine-grained filtering capabilities.
@@ -82,9 +82,8 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## July 2023
 
-Microsoft Defender for IoT Firmware Analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
+Microsoft Defender for IoT firmware analysis is now available in public preview. Defender for IoT can analyze your device firmware for common weaknesses and vulnerabilities, and provide insight into your firmware security. This analysis is useful whether you build the firmware in-house or receive firmware from your supply chain. 
 
 For more information, see [Firmware analysis for device builders](overview-firmware-analysis.md).
 
 :::image type="content" source="media/whats-new-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/whats-new-firmware-analysis/overview.png":::
-

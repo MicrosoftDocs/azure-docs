@@ -27,7 +27,9 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
 ```csharp
 {
     // Enable TLS 1.2 before connecting to Service Bus
-    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+    HttpClientHandler handler = new HttpClientHandler();
+    handler.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
+    HttpClient httpClient = new HttpClient(handler);
     
     // Connection string to your Service Bus namespace
     string connectionString = "<NAMESPACE CONNECTION STRING>";

@@ -1,6 +1,6 @@
 ---
 title: Integrate elastic logs with Azure Monitor - Microsoft Azure Data Manager for Energy
-description: This is a how-to article on how to start collecting ElasticSearch logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
+description: This is a how-to article on how to start collecting Elasticsearch logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: azure-data-manager-energy

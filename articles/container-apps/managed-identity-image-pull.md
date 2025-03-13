@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
@@ -260,7 +260,7 @@ CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
 IMAGE_NAME="<YOUR_IMAGE_NAME>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -283,7 +283,7 @@ az group create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Location $Location -Name $ResourceGroupName
@@ -306,7 +306,7 @@ az containerapp env create \
   --location $LOCATION
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
 
@@ -366,7 +366,7 @@ az identity create \
   --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
 
@@ -392,7 +392,7 @@ IDENTITY_ID=$(az identity show \
   --output tsv)
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Get the identity's resource and principal ID. 
 
@@ -438,7 +438,7 @@ az containerapp create \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $CredentialArgs = @{
@@ -480,7 +480,7 @@ New-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -512,7 +512,7 @@ az containerapp create \
   --ingress external
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $ImageParams = @{
@@ -561,7 +561,7 @@ az containerapp update \
   --image "${REGISTRY_NAME}.azurecr.io/${IMAGE_NAME}:latest"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 $CredentialArgs = @{
@@ -601,7 +601,7 @@ Update-AzContainerApp @AppArgs
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
@@ -642,7 +642,7 @@ az bicep upgrade
 
 For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install).
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 You must manually install Bicep for any use other than Azure CLI. For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install#install-manually).
 
@@ -670,7 +670,7 @@ APP_INSIGHTS_NAME="<APP_INSIGHTS_NAME>"
 ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $ResourceGroupName = '<RESOURCE_GROUP_NAME>'
@@ -831,7 +831,7 @@ az deployment group create \
   location="${LOCATION}"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
 $params = @{

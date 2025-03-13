@@ -93,7 +93,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
+Build and deploy a Java Spring Boot app to Azure using an Azure publish profile. The `publish-profile` input references the `AZURE_WEBAPP_PUBLISH_PROFILE` secret that you created earlier.
 
 ```yaml
 name: Java CI with Maven

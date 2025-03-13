@@ -20,7 +20,6 @@ In this tutorial, you deploy a small JavaScript app which reads data from a FHIR
 
 1. Deploy a FHIR server
 1. Register a public client application
-1. Test access to the application
 1. Create a web application that reads this FHIR data
 
 ## Prerequisites
@@ -28,7 +27,7 @@ In this tutorial, you deploy a small JavaScript app which reads data from a FHIR
 You need the following before starting this set of tutorials.
 1. An Azure subscription
 1. A Microsoft Entra tenant
-1. [Postman](https://www.getpostman.com/) installed
+
 
 > [!NOTE]
 > For this tutorial, the FHIR service, Microsoft Entra application, and Microsoft Entra users are all in the same Microsoft Entra tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.

@@ -71,11 +71,11 @@ Keep in mind the following items as you use serverless GPUs:
 Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, select issue type "Technical."
 
 > [!NOTE]
-> Customers with enterprise agreements have a single T4 GPU quota enabled by default.
+> Customers with enterprise agreements have 5 A100 and 20 T4 GPU quota enabled by default. Pay-as-you-go customers have 2 A100 and 8 T4 GPU quota enabled by default.
 
 ## Supported regions
 
-Serverless GPUs are available in preview in the *West US 3* and *Australia East* regions.
+Serverless GPUs are available in preview in the *West US 3*, *Australia East*, and *Sweden Central* regions.
 
 ## Use serverless GPUs
 

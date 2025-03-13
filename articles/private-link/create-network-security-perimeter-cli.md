@@ -1,5 +1,6 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure CLI
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using Azure CLI. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
@@ -13,7 +14,7 @@ ms.date: 11/06/2024
 
 # Quickstart: Create a network security perimeter - Azure CLI
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using Azure CLI. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure PaaS (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources)resources to communicate within an explicit trusted boundary. Next, You create and update a PaaS resources association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
@@ -56,7 +57,7 @@ To get started, connect to [Azure Cloud Shell](https://shell.azure.com) or use y
    
 ## Create a resource group and key vault
 
-Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
+Before you can create a network security perimeter, you have to create a resource group and a key vault resource with [az group create](/cli/azure/group) and [az keyvault create](/cli/azure/keyvault).  
 This example creates a resource group named **resource-group** in the WestCentralUS location and a key vault named **key-vault-YYYYDDMM** in the resource group with the following commands:
 
 ```azurecli-interactive
@@ -77,10 +78,10 @@ az keyvault create \
  
 ## Create a network security perimeter
 
-In this step, create a network security perimeter with the `az network perimeter create` command.
+In this step, create a network security perimeter with the [az network perimeter create](/cli/azure/network/perimeter#az-network-perimeter-create) command.
 
 > [!NOTE]
-> Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
+> Please don't put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
 
 ```azurecli-interactive
 az network perimeter create\
@@ -91,7 +92,7 @@ az network perimeter create\
 
 ## Create and update PaaS resources’ association with a new profile
 
-In this step, you create a new profile and associate the PaaS resource, the Azure Key Vault with the profile using the `az network perimeter profile create` and `az network perimeter association create` commands.
+In this step, you create a new profile and associate the PaaS resource, the Azure Key Vault with the profile using the [az network perimeter profile create](/cli/azure/network/perimeter#az-network-perimeter-profile) and [az network perimeter association create](/cli/azure/network/perimeter#az-network-perimeter-association) commands.
 
 > [!NOTE]
 > For the `--private-link-resource` and `--profile` parameter values, replace `<PaaSArmId>` and `<networkSecurityPerimeterProfileId>` with the values for the key vault and the profile ID, respectively.
@@ -134,7 +135,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
         
     ```
  
-1. Update association by changing the access mode to **enforced** with the `az network perimeter association create` command as follows:
+1. Update association by changing the access mode to **enforced** with the [az network perimeter association create](/cli/azure/network/perimeter#az-network-perimeter-association-create) command as follows:
 
     ```azurecli-interactive
     az network perimeter association create \
@@ -148,7 +149,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
     
 ## Manage network security perimeter access rules
 
-In this step, you create, update, and delete a network security perimeter access rules with public IP address prefixes using the `az network perimeter profile access-rule` command.
+In this step, you create, update, and delete a network security perimeter access rules with public IP address prefixes using the [az network perimeter profile access-rule create](/cli/azure/network/perimeter#az-network-perimeter-profile-access-rule-create) command.
 
 1. Create an inbound access rule with a public IP address prefix for the profile created with the following command:
 
@@ -178,7 +179,7 @@ In this step, you create, update, and delete a network security perimeter access
 
     ```
 
-1. If you need to delete an access rule, use the following command:
+1. If you need to delete an access rule, use the [az network perimeter profile access-rule delete](/cli/azure/network/perimeter#az-network-perimeter-profile-access-rule-delete) command:
 
     ```azurepowershell-interactive
     # Delete the access rule
@@ -192,7 +193,7 @@ In this step, you create, update, and delete a network security perimeter access
 
 ## Delete all resources
 
-To delete a network security perimeter and other resources in this quickstart, use the following commands:
+To delete a network security perimeter and other resources in this quickstart, use the following [az network perimeter](/cli/azure/network/perimeter) commands:
 
 ```azurecli-interactive
 

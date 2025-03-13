@@ -2,8 +2,9 @@
 title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
 description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
 ms.topic: reference
+ms.subservice: kafka
 ms.custom: devx-track-extended-java
-ms.date: 03/30/2022
+ms.date: 03/06/2025
 ---
 
 # Recommended configurations for Apache Kafka clients
@@ -16,7 +17,7 @@ Here are the recommended configurations for using Azure Event Hubs from Apache K
 Property | Recommended values | Permitted range | Notes
 ---|---:|-----:|---
 `metadata.max.age.ms` | 180000 (approximate) | < 240000 | Can be lowered to pick up metadata changes sooner.
-`connections.max.idle.ms`	| 180000 | < 240000 | Azure closes inbound Transmission Control Protocol (TCP) idle > 240,000 ms, which can result in sending on dead connections (shown as expired batches because of send timeout).
+`connections.max.idle.ms`	| 180000 | < 240000 | Azure closes inbound Transmission Control Protocol (TCP) idle > 240,000 ms, which can result in sending on dead connections (shown as expired batches because of send time-out).
 
 ### Producer configurations only
 Producer configs can be found [here](https://kafka.apache.org/documentation/#producerconfigs).
@@ -24,12 +25,12 @@ Producer configs can be found [here](https://kafka.apache.org/documentation/#pro
 |Property | Recommended Values | Permitted Range | Notes|
 |---|---:|---:|---|
 |`max.request.size` | 1000000 | < 1046528 | The service closes connections if requests larger than 1,046,528 bytes are sent. *This value **must** be changed and causes issues in high-throughput produce scenarios.*|
-|`retries` | > 0 | | Might require increasing delivery.timeout.ms value, see documentation.|
-|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.* <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>|
+|`retries` | > 0 | | Might require increasing `delivery.timeout.ms` value, see documentation.|
+|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. *While requests with lower time out values are accepted, client behavior isn't guaranteed.* <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer time-outs, which then cause rebalances (which then cause more time-outs, which cause more rebalancing, and so on).</p>|
 |`metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer caches metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.|
 |`linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.|
 |`delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.|
-|`compression.type` | `uncompressed, gzip` | | Only gzip compression is currently supported.|
+|`compression.type` | `none, gzip` | | Only gzip compression is currently supported.|
 
 ### Consumer configurations only
 Consumer configs can be found [here](https://kafka.apache.org/documentation/#consumerconfigs).
@@ -37,8 +38,8 @@ Consumer configs can be found [here](https://kafka.apache.org/documentation/#con
 Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 | | 3000 is the default value and shouldn't be changed.
-`session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.<p>Make sure that your request.timeout.ms is at least the recommended value of 60000 and your session.timeout.ms is at least the recommended value of 30000. Having these settings too low could cause consumer timeouts, which then cause rebalances (which then cause more timeouts, which cause more rebalancing, and so on).</p>
-`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance timeout, so it shouldn't be set too low. Must be greater than session.timeout.ms.
+`session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.<p>Make sure that your request.timeout.ms is at least the recommended value of 60000 and your session.timeout.ms is at least the recommended value of 30000. Having these settings too low could cause consumer time-outs, which then cause rebalances (which then cause more time-outs, which cause more rebalancing, and so on).</p>
+`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance time-out, so it shouldn't be set too low. Must be greater than session.timeout.ms.
 
 ## librdkafka configuration properties
 The main `librdkafka` configuration file ([link](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)) contains extended descriptions for the properties described in the following sections.
@@ -55,7 +56,7 @@ Property | Recommended Values | Permitted Range | Notes
 |Property | Recommended Values | Permitted Range | Notes|
 |---|---:|-----:|---|
 |`retries` | > 0 | | Default is 2147483647.|
-|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. `librdkafka` default value is 5000, which can be problematic. *While requests with lower timeout values are accepted, client behavior isn't guaranteed.*|
+|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. `librdkafka` default value is 5000, which can be problematic. *While requests with lower time-out values are accepted, client behavior isn't guaranteed.*|
 |`partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best. Empty and null keys are handled ideally for most cases.|
 |`compression.codec` | `none, gzip` || Only gzip compression is currently supported.|
 
@@ -65,7 +66,7 @@ Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 || 3000 is the default value and shouldn't be changed.
 `session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.
-`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance timeout, so it shouldn't be set too low. Must be greater than session.timeout.ms.
+`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance time out, so it shouldn't be set too low. Must be greater than session.timeout.ms.
 
 
 ## Further notes
@@ -74,7 +75,7 @@ Check the following table of common configuration-related error scenarios.
 
 Symptoms | Problem | Solution
 ----|---|-----
-Offset commit failures because of rebalancing | Your consumer is waiting too long in between calls to poll() and the service is kicking the consumer out of the group. | You have several options: <ul><li>Increase poll processing timeout (`max.poll.interval.ms`)</li><li>Decrease message batch size to speed up processing</li><li>Improve processing parallelization to avoid blocking consumer.poll()</li></ul> Applying some combination of the three is likely wisest.
+Offset commit failures because of rebalancing | Your consumer is waiting too long in between calls to poll() and the service is kicking the consumer out of the group. | You have several options: <ul><li>Increase poll processing time out (`max.poll.interval.ms`)</li><li>Decrease message batch size to speed up processing</li><li>Improve processing parallelization to avoid blocking consumer.poll()</li></ul> Applying some combination of the three is likely wisest.
 Network exceptions at high produce throughput | If you're using Java client + default max.request.size, your requests might be too large. | See Java configs mentioned earlier.
 
 ## Next steps

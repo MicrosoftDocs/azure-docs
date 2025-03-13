@@ -1,8 +1,8 @@
 ---
 title: Manage device groups for Azure Device Update for IoT Hub | Microsoft Docs
 description: Learn how to configure Azure Device Update for IoT Hub device groups by using tags in the Azure portal or with Azure CLI.
-author: vimeht
-ms.author: vimeht
+author: andrewbrownmsft
+ms.author: andbrown
 ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-iot-hub
