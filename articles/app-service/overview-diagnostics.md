@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency3
 ---
 # Diagnostics in Azure App Service
 
-When you're running a web application, you want to be prepared for any problems that might arise. Such problems can range from 500 errors to your users telling you that your site is down. Azure App Service diagnostics is a interactive experience to help you troubleshoot your app with no configuration required. If you have problems with your app, App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
+When you're running a web application, you want to be prepared for any problems that might arise. Such problems can range from 500 errors to your users telling you that your site is down. Azure App Service diagnostics is an interactive experience to help you troubleshoot your app with no configuration required. If you have problems with your app, App Service diagnostics points out what's wrong and guides you to the right information to more easily and quickly troubleshoot and resolve the problem.
 
 Although this experience is most helpful when you're having problems with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
@@ -152,10 +152,9 @@ Navigator lets you view a consolidated list of changes that your app and its dep
 
 ## Change analysis
 
-You can access change analysis for app changes through the tile shortcuts **Application Changes** and **Application Crashes** in **Availability and Performance**. You can use change analysis concurrently with other metrics.
-Before you use the feature, you must enable it. For more information, see the blog post [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+You can access change analysis for app changes through the tile shortcuts **Application Changes** and **Application Crashes** in **Availability and Performance**. You can use change analysis concurrently with other metrics. Before you use the feature, you must enable it. For more information, see the blog post [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
-## Feedback
+## Questions or feedback
 
 Post your questions or feedback at [UserVoice](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c​​​​​​​​​​​​​​) by adding **[Diag]** in the title.
 

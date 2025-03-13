@@ -107,7 +107,7 @@ By default, the local cache size is 1 GB. This size includes the `/site` and `/s
 
 To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to 2 GB (2,000 MB) per app. Keep in mind that a larger cache size increases the time to load the cache.
 
-## Best practices for using a local cache
+## <a name = "best-practices-for-using-app-service-local-cache"></a> Best practices for using a local cache
 
 We recommend using a local cache in conjunction with the [staging environments](../app-service/deploy-staging-slots.md) feature.
 

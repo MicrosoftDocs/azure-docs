@@ -15,7 +15,7 @@ built-in monitoring functionality for web, mobile, and API apps in the [Azure po
 
 In the portal, you can review *quotas* and *metrics* for an app and App Service plan. You can set up *alerts* and *autoscaling* rules based on metrics.
 
-## Quotas
+## <a name = "understand-quotas"></a> Quotas
 
 Apps that are hosted in App Service are subject to certain limits on the resources that they can use. The App Service plan that's associated with the app defines the limits.
 
@@ -52,7 +52,7 @@ If app exceeds the **Filesystem** quota, any write operation fails. Write operat
 
 You can increase or remove quotas from your app by upgrading your App Service plan.
 
-## Metrics
+## <a name = "understand-metrics"></a> Metrics
 
 Metrics provide information about the app or the App Service plan's behavior. App Service plan metrics are available only for plans in Basic, Standard, Premium, and Isolated tiers.
 
@@ -71,7 +71,7 @@ Two metrics reflect CPU usage:
 
 - **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across instances.
 
-### Retention policy
+### <a name = "metrics-granularity-and-retention-policy"></a> Retention policy
 
 The service logs and aggregates metrics for an app and for an App Service plan. The metrics are retained according to [these rules](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 

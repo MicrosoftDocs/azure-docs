@@ -38,7 +38,7 @@ To redirect the user to a custom URL after sign-in, use the `post_login_redirect
 <a href="/.auth/login/<provider>?post_login_redirect_uri=/Home/Index">Log in</a>
 ```
 
-## Use client-directed sign-in
+## <a name = "client-directed-sign-in"></a> Use client-directed sign-in
 
 In a client-directed sign-in, the application signs in the user to the identity provider by using a provider-specific SDK. The application code then submits the resulting authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)) by using an HTTP `POST` request. This validation itself doesn't grant users access to the desired app resources, but a successful validation gives users a session token that they can use to access app resources.
 
