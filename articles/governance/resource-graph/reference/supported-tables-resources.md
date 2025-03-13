@@ -165,10 +165,10 @@ For sample queries for this table, see [Resource Graph sample queries for guestc
 For sample queries for this table, see [Resource Graph sample queries for healthresources](../samples/samples-by-table.md#healthresources).
 
 - microsoft.resourcehealth/availabilitystatuses
-  - Sample query: [Count of virtual machines by availability state and Subscription Id](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
-  - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
-  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
-  - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+  - Sample query: [Count of virtual machines by availability state and Subscription ID](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
+  - Sample query: [List of virtual machines and associated availability states by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
+  - Sample query: [List of virtual machines by availability state and power state with Resource IDs and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines that are not Available by Resource IDs](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
 - microsoft.resourcehealth/resourceannotations
 
 ## impactreportresources
@@ -2254,4 +2254,3 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 - Learn more about the [query language](../concepts/query-language.md).
 - Learn more about how to [explore resources](../concepts/explore-resources.md).
 - See samples of [Starter queries](../samples/starter.md).
-
