@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 11/18/2024
+ms.date: 03/10/2025
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 

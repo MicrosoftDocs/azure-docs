@@ -3,7 +3,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 09/30/2024
+ms.date: 03/10/2025
 ---
 
 > [!NOTE]
