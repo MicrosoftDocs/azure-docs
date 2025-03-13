@@ -46,7 +46,7 @@
     - name: Create a Private Link service - ARM template
       displayName: Azure Resource Manager
       href: create-private-link-service-template.md
-  - name: Disable SNAT for Traffic through NVA
+  - name: Disable SNAT for traffic through NVA
     href: private-link-disable-snat.md
   - name: Create a network security perimeter
     items:

@@ -1,5 +1,5 @@
 ---
-title: Disable SNAT requirement for Private Endpoint Traffic through NVA
+title: Disable SNAT requirement for Private Endpoint traffic through NVA
 description: Learn how to enable SNAT bypass for private endpoint traffic passing through a network virtual appliance (NVA) in Azure.
 author: abell
 ms.author: abell
@@ -11,7 +11,7 @@ ms.date: 03/11/2025
 
 ---
 
-# How to Guide: Disable SNAT requirement for Private Endpoint Traffic through NVA
+# How to Guide: Disable SNAT requirement for Private Endpoint traffic through NVA
 
 Source network address translation (SNAT) is no longer required for private endpoint destined traffic passing through a network virtual appliance (NVA). You can now configure a tag on your NVA virtual machines to notify the Microsoft platform that you wish to opt into this feature. This means SNATing is no longer be necessary for private endpoint destined traffic traversing through your NVA.
 
@@ -27,7 +27,7 @@ Enabling this feature provides a more streamlined experience for guaranteeing sy
 * A network virtual appliance (NVA) deployed in your subscription. For the example in this article, a virtual machine (VM) is used as the NVA. For more information on how to deploy a virtual machine, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 * Understanding of how to add tags to Azure resources. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
-### Disable SNAT requirement for Private Endpoint Traffic through NVA
+### Disable SNAT requirement for Private Endpoint traffic through NVA
 
 The type of NVA you're using determines how to disable SNAT for private endpoint traffic passing through the NVA. For the virtual machine, you add a tag on the Network interface (NIC). On the virtual machine scale set (VMSS) you enable the tag on the virtual machine scale set instance.
 
@@ -135,7 +135,3 @@ To learn more, see [View resources by tag](../azure-resource-manager/management/
 > [!div class="nextstepaction"]
 > [Create a private endpoint](./create-private-endpoint-portal.md)
 > [Manage Network Polices](./disable-private-endpoint-network-policy.md)
-
-
-
-
