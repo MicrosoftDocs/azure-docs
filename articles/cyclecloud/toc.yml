@@ -242,12 +242,18 @@
     href: https://feedback.azure.com/d365community/forum/ca60b1c2-eb24-ec11-b6e6-000d3a4f0da0
   - name: Release Notes
     items:
-    - name: Current Release - v8.x
-      href: release-notes.md
-    - name: Previous Release - v7.x
-      href: /previous-versions/azure/cyclecloud/release-notes-previous
-    - name: Older Releases
-      href: /previous-versions/azure/cyclecloud/release-notes-archive
+    - name: CycleCloud
+      items:
+      - name: Current Release - v8.x
+        href: release-notes.md
+      - name: Previous Release - v7.x
+        href: /previous-versions/azure/cyclecloud/release-notes-previous
+      - name: Older Releases
+        href: /previous-versions/azure/cyclecloud/release-notes-archive
+    - name: CycleCloud Workspace for Slurm
+      items:
+      - name: Current Release - 2025.02.06
+        href: ./release-notes/ccws/release-notes.md       
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy
