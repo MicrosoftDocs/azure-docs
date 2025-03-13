@@ -78,7 +78,7 @@ In additional to the Diagnose and solve problems tools, you can search for troub
  :::image type="content" source="media/diagnose-solve-problems/search-documentation-2.png" alt-text="screenshot 2 of how to use Search Documentation.":::
 
 
-## Next steps
+## Related content
 
 * Also use [API analytics](howto-use-analytics.md) to analyze the usage and performance of the APIs. 
 * Want to troubleshoot Web Apps issues with Diagnostics? Read it [here](../app-service/overview-diagnostics.md)

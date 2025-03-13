@@ -316,7 +316,7 @@ May 15 05:54:21 aks-agentpool-43853532-vmss000000 apimuser[8]: Timestamp=2023-05
 > [!NOTE]
 > If you have changed the root with `chroot`, for example `chroot /host`, then the above path needs to reflect that change.
 
-## Next steps
+## Related content
 
 * Learn about the [observability capabilities of the Azure API Management gateways](observability.md).
 * Learn more about the [Azure API Management self-hosted gateway](self-hosted-gateway-overview.md).
