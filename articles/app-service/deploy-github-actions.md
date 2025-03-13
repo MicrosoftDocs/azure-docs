@@ -122,7 +122,7 @@ The following procedure describes the steps for creating a Microsoft Entra appli
 
 A publish profile is an app-level credential. Set up your publish profile as a GitHub secret.
 
-1. Go to your App Service in the Azure portal.
+1. Go to App Service in the Azure portal.
 
 1. On the **Overview** page, select **Download publish profile**.
 
@@ -162,13 +162,13 @@ In the previous example, replace the placeholders with your subscription ID, res
 
 # [OpenID Connect](#tab/openid)
 
-You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the [`Azure/login`](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. It's more secure to save the values as GitHub secrets.
+You need to provide your application's **Client ID**, **Tenant ID**, and **Subscription ID** to the [`Azure/login`](https://github.com/marketplace/actions/azure-login) action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
 
 1. Open your GitHub repository and go to **Settings** > **Security** > **Secrets and variables** > **Actions** > **New repository secret**.
 
 1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
 
-   | GitHub Secret | Active Directory Application |
+   | GitHub secret | Active Directory application |
    |:--------------|:---------|
    | `AZURE_CLIENT_ID`       | Application (client) ID |
    | `AZURE_TENANT_ID`       | Directory (tenant) ID   |
@@ -196,7 +196,7 @@ In [GitHub](https://github.com/), browse to your repository. Select **Settings**
 
 To use the user-level credentials that you created in the previous section, paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
 
-When you configure the GitHub workflow file later, use the secret for the input `creds` of the [`Azure/login`](https://github.com/marketplace/actions/azure-login). For example:
+When you configure the GitHub workflow file later, use the secret for the input `creds` of [`Azure/login`](https://github.com/marketplace/actions/azure-login). For example:
 
 ```yaml
 - uses: azure/login@v2
@@ -234,7 +234,7 @@ The following examples show the part of the workflow that builds the web app, in
 
 -----
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 - [How do I deploy a WAR file through the Maven plugin?](#how-do-i-deploy-a-war-file-through-the-maven-plugin)
 - [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-the-azure-cli)
@@ -268,7 +268,7 @@ If you prefer to use the Azure CLI to deploy to App Service, you can use the Git
       az webapp deploy --src-path '${{ github.workspace }}/target/yourpackage.war' --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.RESOURCE_GROUP }}  --async true --type war
 ```
 
-For more information on how to use and configure the GitHub Action for Azure CLI, see [Azure CLI GitHub action](https://github.com/Azure/cli).
+For more information on how to use and configure the GitHub action for the Azure CLI, see [Azure CLI GitHub action](https://github.com/Azure/cli).
 
 For more information on the `az webapp deploy` command, including how to use it and the parameter details, see [`az webapp deploy` documentation](/cli/azure/webapp#az-webapp-deploy).
 
@@ -290,7 +290,7 @@ With the **Azure Web Deploy** action, you can automate your workflow to deploy c
 
 ### How do I update the Tomcat configuration after deployment?
 
-If you'd like to update any of your web apps settings after deployment, you can use the [App Service settings](https://github.com/Azure/appservice-settings) action.
+If you want to update any of your web apps settings after deployment, you can use the [App Service settings](https://github.com/Azure/appservice-settings) action.
 
 ```yaml
     - uses: azure/appservice-settings@v1

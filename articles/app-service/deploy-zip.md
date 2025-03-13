@@ -30,7 +30,7 @@ When you deploy a ZIP package, App Service unpacks its contents in the default p
 
 This ZIP package deployment uses the same Kudu service that powers continuous integration-based deployments. Kudu supports the following functionality for ZIP package deployment:
 
-- Deletion of files leftover from a previous deployment
+- Deletion of files left over from a previous deployment
 - Option to turn on the default build process, which includes package restore
 - Deployment customization, including running deployment scripts
 - Deployment logs
@@ -45,7 +45,7 @@ In the browser, go to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`. Fo
 
 Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package). Drag it to the **File Explorer** area on the web page.
 
-When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the **File Explorer** area. When deployment completes, the last message should say, "Deployment successful."
+When deployment is in progress, an icon in the top right corner shows you the progress percentage. The page also displays messages for the operation below the **File Explorer** area. When deployment finishes, the last message should say "Deployment successful."
 
 This endpoint doesn't work for App Service on Linux at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
@@ -114,7 +114,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app by using the Azure CLI, PowerShell, or Kudu publish API.
 
-The deployment process shown here puts the package on the app's content share with the right naming convention and directory structure. For more information, see [Kudu publish API reference](#kudu-publish-api-reference). We recommend this approach. If you deploy WAR, JAR, or EAR packages using [FTP](deploy-ftp.md) or Web Deploy instead, you might see unknown failures due to mistakes in the naming or structure.
+The deployment process shown here puts the package on the app's content share with the right naming convention and directory structure. For more information, see [Kudu publish API reference](#kudu-publish-api-reference). We recommend this approach. If you deploy WAR, JAR, or EAR packages by using [FTP](deploy-ftp.md) or Web Deploy instead, you might see unknown failures due to mistakes in the naming or structure.
 
 # [Azure CLI](#tab/cli)
 
@@ -341,7 +341,7 @@ Use the following reference to help you configure the properties:
 
 |Property | Description | Required |
 |-|-|-|
-| `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'undeploy'](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
+| `packageUri` | The URI of the package or file. For more information, see [Microsoft.Web sites/extensions 'onedeploy'](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template). | Yes |
 | `type` | See the `type` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | Yes |
 | `path` | See the `target-path` parameter in [Kudu publish API reference](#kudu-publish-api-reference). | No |
 

@@ -68,7 +68,7 @@ See [Local Git deployment to Azure App Service](deploy-local-git.md).
 
 # [Azure Repos](#tab/repos)
 
-1. App Service's build service is the default build provider.
+1. The build service in App Service is the default build provider.
 
     > [!NOTE]
     > To use Azure Pipelines as the build provider for your App Service app, configure it directly from Azure Pipelines. Don't configure it in App Service. The **Azure Pipelines** option just points you in the right direction.
@@ -112,13 +112,13 @@ It captures information from the [workflow run logs](https://docs.github.com/act
 You can customize the GitHub Actions build provider in the following ways:
 
 * You can customize the workflow file after it generates in your GitHub repository. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflow-syntax-for-github-actions). Just make sure that the workflow deploys to App Service with the [`azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* If the selected branch is protected, you can still preview the workflow file without saving the configuration, then manually add it to your repository. This method doesn't give you log integration with the Azure portal.
+* If the selected branch is protected, you can still preview the workflow file without saving the configuration, and then manually add it to your repository. This method doesn't give you log integration with the Azure portal.
 * Instead of using basic authentication or a user-assigned identity, you can also deploy by using a [service principal](deploy-github-actions.md?tabs=userlevel) in Microsoft Entra ID. This method can't be configured in the portal.
 
 # [App Service Build Service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires that [SCM basic authentication is enabled](configure-basic-auth-disable.md) in order for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
+> App Service Build Service requires [SCM basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
 App Service Build Service, otherwise known as Kudu, is the deployment and build engine native to App Service. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
