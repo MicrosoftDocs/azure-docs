@@ -159,7 +159,7 @@ Microsoft-managed failover is triggered by Microsoft. It also is likely to happe
 
 If you need your pipelines to be resilient to regional outages, consider using a metadata-driven pipeline, consisting of these steps:
 
-- To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](./source-control.md).
+- To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](../data-factory/source-control.md).
 
 - Manage your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. If a region is unavailable, you can provision a new data factory manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
 
