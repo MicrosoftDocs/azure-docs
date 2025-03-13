@@ -78,7 +78,7 @@ The Azure App Configuration .NET provider supports caching and dynamic refresh o
     ```
     ---
 
-    You call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever a change is detected in any of the selected key-values (those starting with `TestApp:` and having no label).
+    You call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
     By default, the refresh interval is set to 30 seconds. You can customize this interval by calling the `AzureAppConfigurationRefreshOptions.SetRefreshInterval` method.
 

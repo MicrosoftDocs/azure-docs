@@ -32,7 +32,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 | -------------------------- | ----------------------------------- |
 | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-## Create a Functions app
+## Create a Function App
 
 Create an Azure Functions app using Visual Studio by selecting the **Azure Functions (C#)** template. This template guides you through configuring essential settings for your project. For detailed instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md?pivots=isolated).
 
