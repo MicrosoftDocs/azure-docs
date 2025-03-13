@@ -44,12 +44,13 @@ When you use Azure Data Factory, it's important to prepare for transient faults,
 
 ### Idempotence
 
-Pipeline activities should be *idempotent*, which means that they should be able to be rerun without adverse side effects. If there's a transient fault like a network failure, or even an availability zone outage, Azure Data Factory might rerun pipeline activities and so has the possibility of creating duplicate rows.
+Your pipeline activities should be written to be *idempotent*, which means that they should be able to be rerun without adverse side effects. If there's a transient fault like a network failure, or even an availability zone outage, Azure Data Factory might rerun pipeline activities, and so has the possibility of creating duplicate records.
 
-To avoid duplicate rows being inserted after a transient fault, you can employ these best practices:
+To avoid duplicate records being inserted after a transient fault, you can employ these best practices:
 
-- Use unique identifiers - Add a unique ID to reach row before writing to the database, to spot and eliminate duplicates.
-- Upsert strategy - for connectors that support upsert, use this approach to check if a row already exists before inserting. If it does, update it. If it doesn't, insert it. For example, SQL commands like `MERGE` or `ON DUPLICATE KEY UPDATE` use this upsert approach.
+-  *Use unique identifiers* to each record before writing to the database. This approach can help to spot and eliminate duplicates.
+-  *Upsert strategy* is an option for connectors that support upsert. Use this approach to check whether a record already exists before inserting. If it does exist, update it. If it doesn't exist, insert it. For example, SQL commands like `MERGE` or `ON DUPLICATE KEY UPDATE` use this upsert approach.
+- *Use copy action strategies* that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
 You can also use strategies that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
