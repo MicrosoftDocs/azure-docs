@@ -3,7 +3,7 @@ title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Micr
 description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/13/2025
 ms.topic: tutorial
 ms.service: azure-iot
 ms.custom: mode-other, devx-track-azurecli 
@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
-Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
+Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
 
 [!INCLUDE [iot-authentication-service-connection-string](../../includes/iot-authentication-service-connection-string.md)]
 
@@ -122,7 +122,7 @@ The quickstarts and tutorials use sample model files for the temperature control
 
 The quickstarts and tutorials use the **Azure IoT explorer** tool. Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application for your operating system.
 
-The first time you run the tool, you're prompted for the IoT hub connection string. Use the connection string you made a note of previously.
+The first time you run the tool, you're prompted to choose an authentication method to connect to your IoT hub. You should use Microsoft Entra if possible. If you can't sign in with Microsoft Entra, use the IoT hub connection string you made a note of previously.
 
 Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
 

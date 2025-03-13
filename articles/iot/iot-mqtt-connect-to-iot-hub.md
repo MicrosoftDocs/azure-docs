@@ -139,7 +139,7 @@ In the **CONNECT** packet, the device should use the following values:
     `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
   
     > [!NOTE]
-    > If you use X.509 certificate authentication, SAS token passwords aren't required. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS configuration section](#tlsssl-configuration).
+    > If you use X.509 certificate authentication, SAS token passwords aren't required. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS configuration section](#tls-configuration).
   
     For more information about how to generate SAS tokens, see the [Use SAS tokens as a device](../iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device) section of [Control access to IoT Hub using Shared Access Signatures](../iot-hub/iot-hub-dev-guide-sas.md).
   
