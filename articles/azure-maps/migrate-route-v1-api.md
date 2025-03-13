@@ -105,7 +105,7 @@ This section provides example requests and responses for both version 1.0 and 20
 The [Route Directions][Get Route Directions] API in version 1.0 is an HTTP `GET` request. All parameters are passed as query string parameters.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50895,13.42904
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50895,13.42904&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 #### Route Directions version 2025-01-01 example request
@@ -113,7 +113,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=52.50931
 The [Route Directions][Post Route Directions 2025-01-01] API in version 2025-01-01 is an HTTP `POST` request. Parameters can be included in the API call as query string parameters, with more parameters provided in the request body using GeoJSON format.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=2025-01-01
+https://atlas.microsoft.com/route/directions/json?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 Parameters included in the body of the HTTP `POST` request are provided as GeoJSON.
@@ -326,7 +326,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 The [Post Route Matrix Sync] API in version 1.0 is an HTTP `POST` request. Parameters can be passed as query string parameters and in the body of the request using the GeoJSON format.
 
 ```http
-https://atlas.microsoft.com/route/matrix/sync/json?api-version=1.0&travelMode=car
+https://atlas.microsoft.com/route/matrix/sync/json?api-version=1.0&travelMode=car&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 Parameters included in the body of the HTTP `POST` request are provided as JSON.
@@ -363,7 +363,7 @@ Parameters included in the body of the HTTP `POST` request are provided as JSON.
 The [Route Matrix][Post Route Matrix 2025-01-01] API in version 2025-01-01 is an HTTP `POST` request. Parameters are passed as query string parameters and in the body of the request using the GeoJSON format.
 
 ```http
-https://atlas.microsoft.com/route/matrix/json?api-version=2025-01-01
+https://atlas.microsoft.com/route/matrix/json?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 Parameters included in the body of the HTTP `POST` request are provided as GeoJSON.
@@ -501,7 +501,7 @@ Parameters included in the body of the HTTP `POST` request are provided as GeoJS
 The [Route Range][Get Route Range] API in version 1.0 is an HTTP `GET` request. All parameters are passed as query string parameters.
 
 ```http
-https://atlas.microsoft.com/route/range/json?api-version=1.0&query=50.97452,5.86605&travelmode=car&distanceBudgetInMeters=15 
+https://atlas.microsoft.com/route/range/json?api-version=1.0&query=50.97452,5.86605&travelmode=car&distanceBudgetInMeters=15&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 #### Route Range version 2025-01-01 example request
@@ -509,7 +509,7 @@ https://atlas.microsoft.com/route/range/json?api-version=1.0&query=50.97452,5.86
 The [Route Range][Post Route Range] API in version 2025-01-01 is an HTTP `POST` request. Parameters can be included in the API call as query string parameters, with more parameters provided in the request body using GeoJSON format.
 
 ```http
-https://atlas.microsoft.com/route/range?api-version=2025-01-01
+https://atlas.microsoft.com/route/range?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 Parameters included in the body of the HTTP `POST` request are provided as GeoJSON.
