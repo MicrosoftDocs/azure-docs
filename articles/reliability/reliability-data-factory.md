@@ -51,7 +51,7 @@ You can also use strategies that are discussed in the [data consistency verifica
 
 ### Retry policies
 
-With, retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on some types of pipeline objects:
+With, retry policies, you can configure parts of your pipeline to retry if there's a problem, such as when a resource you connect to has a transient fault. In Azure Data Factory, you can configure retry policies on the following pipeline object types:
 
 - [Tumbling window triggers](../data-factory/concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 - [Execution activities](../data-factory/concepts-pipelines-activities.md#execution-activities).
@@ -62,7 +62,7 @@ To learn how to change or disable retry policies for your data factory triggers 
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Data Factory supports *zone redundancy*, which provides resiliency to failures in [availability zones](availability-zones-overview.md). This section considers how each part of the Azure Data Factory service support zone redundancy.
+Azure Data Factory supports *zone redundancy*, which provides resiliency to failures in [availability zones](availability-zones-overview.md). This section considers how each part of the Azure Data Factory service supports zone redundancy.
 
 ### Regions supported
 
@@ -150,7 +150,6 @@ For data factories deployed in a nonpaired region, or in Brazil South or Southea
 
 **Core service:** Once a Microsoft-managed failover is complete, you can then access your Azure Data Factory pipeline in the paired region.  However, you might need to perform some reconfiguration for integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
-<!-- TODO is there anything we can say about failback after the original region recovers - for example, can you expect that to be done by us too? Or would we permanently keep resources in the new region? -->
 
 **Integration runtimes:** Depending on the integration runtime you use, there might be additional considerations:
 
@@ -179,4 +178,9 @@ Depending on the integration runtime you use, there might be additional consider
 
 ## Backup and restore
 
-Azure Data Factory supports CI/CD through source control integration, which allows you to back up metadata associated with a data factory instance and deploy it into a new environment. To learn more, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
+Azure Data Factory supports CI/CD through source control integration, so that you can back up metadata associated with a data factory instance and deploy it into a new environment. To learn more, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-delivery.md).
+
+## Related content
+
+- [Reliability in Azure](./overview.md)
+
