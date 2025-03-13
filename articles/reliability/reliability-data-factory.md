@@ -64,7 +64,7 @@ To learn how to change or disable retry policies for your data factory triggers 
 
 Azure Data Factory supports *zone redundancy*, which provides resiliency to failures in [availability zones](availability-zones-overview.md). This section considers how each part of the Azure Data Factory service support zone redundancy.
 
-### Regions suported
+### Regions supported
 
 Zone-redundant Azure Data Factory resources can be deployed in [any region that supports availability zones](./availability-zones-region-support.md).
 
@@ -90,13 +90,13 @@ Zone-redundant Azure Data Factory resources can be deployed in [any region that 
 
 ### Configure availability zone support
 
-**Core service:** The Azure Data Factory core service automatically support zone redundancy, so no configuration is required.
+**Core service:** The Azure Data Factory core service automatically supports zone redundancy, so no configuration is required.
 
 **Integration runtimes:**
 
 - *Azure integration runtime* automatically enables zone redundancy, so no configuration is required.
 - *Azure-SSIS integration runtime* automatically enables zone redundancy when it's deployed with two or more nodes.
-- *Self-hosted integration runtime* require you to configure your own resiliency, including spreading your nodes across multiple availability zones.
+- *Self-hosted integration runtime* requires you to configure your own resiliency, including spreading your nodes across multiple availability zones.
 
 ### Capacity planning and management
 
@@ -133,7 +133,7 @@ For self-hosted integration runtimes, you can use [Azure Chaos Studio](/azure/ch
 
 Azure Data Factory resources are deployed into a single Azure region. If the region becomes unavailable, your data factory is also unavailable. However, there are approaches you can use to be resilient to region outages.
 
-### Failover to a paired region
+### Microsoft-managed failover to a paired region
 
 If you use a [region with a pair](./regions-paired.md) (except Brazil South and Southeast Asia), Azure Data Factory data is replicated to the paired region to protect against metadata loss. In the unlikely event of a region failure, Microsoft might elect to initiate a regional failover of your Azure Data Factory instance.
 
@@ -145,7 +145,7 @@ For data factories deployed in a nonpaired region, or if in Brazil South or Sout
 
 Microsoft-managed failover is triggered by Microsoft. It also is likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
-**Core service:** When a Microsoft-managed failover has completed, you are able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
+**Core service:** When a Microsoft-managed failover has completed, you're able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
 <!-- TODO is there anything we can say about failback after the original region recovers - for example, can you expect that to be done by us too? Or would we permanently keep resources in the new region? -->
 
@@ -169,7 +169,7 @@ Depending on the integration runtimes you use, there might be additional conside
 
 - *Azure-SSIS integration runtime* uses a database stored in Azure SQL Database or Azure SQL Managed Instance. You can configure geo-replication or a failover group for this database. The Azure-SSIS database is then located in a primary Azure region with read-write access (the *primary role*), and will be continuously replicated to a secondary region with read-only access (the *secondary role*). If the primary region is lost, a failover is triggered, causing the primary and secondary databases to swap roles.
 
-    You can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database/Managed Instance failover group.
+    You can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database or Azure SQL Managed Instance failover group.
 
     For more information, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md) <!-- TODO It would be good to update the linked document to clarify that this approach doesn't rely on Azure region pairs - it can be done with any combination of regions supported by Azure SQL. -->
 
