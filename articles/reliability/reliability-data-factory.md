@@ -47,7 +47,7 @@ To avoid duplicate rows being inserted after a transient fault, you can employ t
 - Use unique identifiers - Add a unique ID to reach row before writing to the database, to spot and eliminate duplicates.
 - Upsert strategy - for connectors that support upsert, use this approach to check if a row already exists before inserting. If it does, update it. If it doesn't, insert it. For example, SQL commands like `MERGE` or `ON DUPLICATE KEY UPDATE` use this upsert approach.
 
-You can also use strategies discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
+You can also use strategies that are discussed in the [data consistency verification in copy activities article.](../data-factory/copy-activity-data-consistency.md)
 
 ### Retry policies
 
