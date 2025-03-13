@@ -3,7 +3,7 @@ title: Configure Continuous Deployment
 description: Learn how to configure CI/CD to Azure App Service from GitHub, Bitbucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 author: cephalin
 ms.author: cephalin
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 02/29/2024
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 
@@ -21,7 +21,7 @@ You can configure continuous deployment from [GitHub](https://help.github.com/ar
 
 1. In the [Azure portal](https://portal.azure.com), go to the management pane for your App Service app.
 
-1. In the service menu, select **Deployment Center**. Then select **Settings**.
+1. On the left menu, select **Deployment Center**. Then select **Settings**.
 
 1. In the **Source** box, select one of the **Continuous Deployment (CI/CD)** options:
 
@@ -37,12 +37,12 @@ To continue, select the tab that corresponds to your build provider.
 
 1. After you authorize your Azure account with GitHub, select the appropriate **Organization**, **Repository**, and **Branch**.
 
-    If you can’t find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
+    If you can't find an organization or repository, you might need to enable more permissions on GitHub. For more information, see [Managing access to your organization's repositories](https://docs.github.com/organizations/managing-access-to-your-organizations-repositories).
 
 1. Under **Authentication type**, select **User-assigned identity** for better security. For more information, see [Frequently asked questions](#frequently-asked-questions).
 
     > [!NOTE]
-    > If your Azure account has the [required permissions](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials) for the **User-assigned identity** option, Azure creates a [user-assigned managed identity](#what-does-the-user-assigned-identity-option-do-for-github-actions) for you. If you don't have the required permissions, work with your Azure administrator to create an [identity with the required role on your app](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app), then select it in the dropdown.
+    > If your Azure account has the [required permissions](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials) for the **User-assigned identity** option, Azure creates a [user-assigned managed identity](#what-does-the-user-assigned-identity-option-do-for-github-actions) for you. If you don't have the required permissions, work with your Azure administrator to create an [identity with the required role on your app](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app), and then select it in the dropdown.
 
 1. (Optional) To see the file before saving your changes, select **Preview file**. App Service selects a workflow template based on your app's [language stack setting](configure-common.md#configure-language-stack-settings) and commits it into your selected GitHub repository.
 
@@ -52,7 +52,7 @@ To continue, select the tab that corresponds to your build provider.
 
 # [Bitbucket](#tab/bitbucket)
 
-The Bitbucket integration uses the App Service build services for build automation.
+The Bitbucket integration uses the App Service build service for build automation.
 
 1. If you're deploying from Bitbucket for the first time, select **Authorize** and follow the authorization prompts. If you want to deploy from another user's repository, select **Change Account**.
 
@@ -87,7 +87,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 1. In the [Azure portal](https://portal.azure.com), go to the management page for your App Service app.
 
-1. In the service menu, select **Deployment Center**. Then select **Settings** > **Disconnect**.
+1. On the left menu, select **Deployment Center**. Then select **Settings** > **Disconnect**.
 
     ![Screenshot that shows you how to disconnect your cloud folder sync with your App Service app in the Azure portal.](media/app-service-continuous-deployment/disable.png)
 
@@ -97,17 +97,17 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## What are the build providers?
 
-Depending on your deployment source in the **Deployment Center**, you might see a few build provider options. Build providers help you build a continuous integration and continuous delivery (CI/CD) solution with Azure App Service by automating build, test, and deployment.
+Depending on your deployment source in **Deployment Center**, you might see a few build provider options. Build providers help you build a continuous integration and continuous delivery (CI/CD) solution with Azure App Service by automating build, test, and deployment.
 
-You're not limited to the build provider options found in the **Deployment Center**, but by using App Service, you can set them up quickly and get some integrated deployment logging experience.
+You're not limited to the build provider options found in **Deployment Center**, but by using App Service, you can set them up quickly and get some integrated deployment logging experience.
 
 # [GitHub Actions](#tab/githubactions)
 
-The GitHub Actions build provider is available only for [GitHub deployment](?tabs=github#configure-the-deployment-source). When configured from the app's **Deployment Center**, the build provider sets up CI/CD by depositing a GitHub Actions workflow file into your GitHub repository that handles build and deploy tasks to App Service.
+The GitHub Actions build provider is available only for [GitHub deployment](?tabs=github#configure-the-deployment-source). When configured from the app's deployment center, the build provider sets up CI/CD by depositing a GitHub Actions workflow file into your GitHub repository that handles build and deploy tasks to App Service.
 
 For basic authentication, it adds the publish profile for your app as a GitHub secret. The workflow file uses this secret to authenticate with App Service. For user-assigned identity, see [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
 
-It captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in the **Deployment Center**.
+It captures information from the [workflow run logs](https://docs.github.com/actions/managing-workflow-runs/using-workflow-run-logs) and displays it on the **Logs** tab in **Deployment Center**.
 
 You can customize the GitHub Actions build provider in the following ways:
 
@@ -115,12 +115,12 @@ You can customize the GitHub Actions build provider in the following ways:
 * If the selected branch is protected, you can still preview the workflow file without saving the configuration, and then manually add it to your repository. This method doesn't give you log integration with the Azure portal.
 * Instead of using basic authentication or a user-assigned identity, you can also deploy by using a [service principal](deploy-github-actions.md?tabs=userlevel) in Microsoft Entra ID. This method can't be configured in the portal.
 
-# [App Service Build Service](#tab/appservice)
+# [Then App Service build service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires [SCM basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
+> The App Service build service requires [SCM basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deploy without basic authentication](../app-service/configure-basic-auth-disable.md#deploy-without-basic-authentication).
 
-App Service Build Service, otherwise known as Kudu, is the deployment and build engine native to App Service. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
+The App Service build service, otherwise known as Kudu, is the deployment and build engine native to App Service. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 
 Resources:
 
@@ -131,7 +131,7 @@ Resources:
 
 Azure Pipelines is part of Azure DevOps. You can configure a pipeline to build, test, and deploy your app to App Service from [any supported source repository](/azure/devops/pipelines/repos).
 
-To use Azure Pipelines as the build provider, don't configure it in App Service. Go to [Azure DevOps directly](https://go.microsoft.com/fwlink/?linkid=2245703). In the **Deployment Center**, the **Azure Pipelines** option just points you in the right direction.
+To use Azure Pipelines as the build provider, don't configure it in App Service. Go to [Azure DevOps directly](https://go.microsoft.com/fwlink/?linkid=2245703). In **Deployment Center**, the **Azure Pipelines** option just points you in the right direction.
 
 For more information, see [Deploy to App Service using Azure Pipelines](deploy-azure-pipelines.md).
 
@@ -143,8 +143,8 @@ For more information, see [Deploy to App Service using Azure Pipelines](deploy-a
 
 * [Does the GitHub Actions build provider work with basic authentication if basic authentication is disabled?](#does-the-github-actions-build-provider-work-with-basic-authentication-if-basic-authentication-is-disabled)
 * [What does the user-assigned identity option do for GitHub Actions?](#what-does-the-user-assigned-identity-option-do-for-github-actions)
-* [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
-* [Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
+* [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
+* [Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app)
 
 ### Does the GitHub Actions build provider work with basic authentication if basic authentication is disabled?
 
@@ -166,18 +166,18 @@ In a GitHub Actions workflow in your GitHub repository, you can then use the [`A
 
 If your Azure account has the [required permissions](#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials), App Service creates a user-assigned managed identity and configures it for you. This identity isn't shown in the **Identities** page of your app. If your Azure account doesn't have the required permissions, you must select an [existing identity with the required role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app).
 
-### Why do I see the error, "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?
+### Why do I see the error "You do not have sufficient permissions on this app to assign role-based access to a managed identity and configure federated credentials"?
 
 The message indicates that your Azure account doesn't have the required permissions to create a user-assigned managed identity for GitHub Actions. The required permissions (scoped to your app) are:
 
 * `Microsoft.Authorization/roleAssignments/write`
 * `Microsoft.ManagedIdentity/userAssignedIdentities/write`
 
-By default, the **User Access Administrator** and **Owner** roles already have these permissions, but the **Contributor** role doesn't. If you don't have the required permissions, work with your Azure administrator to create a user-assigned managed identity with the [Websites Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app). In the **Deployment Center**, you can then select the identity in the **GitHub** > **Identity** dropdown.
+By default, the **User Access Administrator** and **Owner** roles already have these permissions, but the **Contributor** role doesn't. If you don't have the required permissions, work with your Azure administrator to create a user-assigned managed identity with the [Websites Contributor role](#why-do-i-see-the-error-this-identity-does-not-have-write-permissions-on-this-app-please-select-a-different-identity-or-work-with-your-admin-to-grant-the-website-contributor-role-to-your-identity-on-this-app). In **Deployment Center**, you can then select the identity in the **GitHub** > **Identity** dropdown.
 
 For more information on using alternative steps, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
 
-### Why do I see the error, "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
+### Why do I see the error "This identity does not have write permissions on this app. Please select a different identity, or work with your admin to grant the Website Contributor role to your identity on this app"?
 
 The message indicates that the selected user-assigned managed identity doesn't have the required role [to enable OpenID Connect](#what-does-the-user-assigned-identity-option-do-for-github-actions) between the GitHub repository and the App Service app. The identity must have one of the following roles on the app: **Owner**, **Contributor**, or **Websites Contributor**. The least privileged role that the identity needs is **Websites Contributor**.
 
