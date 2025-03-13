@@ -62,7 +62,7 @@ Deploy the ARM template to Azure by doing the following:
 
 
 
-## Clean up resources
+### Clean up resources
 
 When you no longer need the resources that you created with the private endpoint, delete the resource group. Doing so removes the private endpoint and all the related resources.
 
