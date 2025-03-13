@@ -40,7 +40,7 @@ This table indicates that as per Fabric behavior, only authentication via manage
 The system-assigned managed identity and user-assigned managed identity methods are supported for .NET, Java, Java - Spring Boot, Python, Go, and None client types. These methods are not supported for any other types.
 
 > [!IMPORTANT]
-> Manual steps are currently required for complete onboarding. See [Manual steps required for SQL database in Microsoft Fabric](#manual-steps).
+> Manual access sharing is currently required for complete onboarding. See [Share access to SQL database in Fabric](#share-access-to-sql-database-in-fabric).
 
 ## Default environment variable names or application properties and sample code
 
@@ -137,11 +137,9 @@ Outlined below are the steps and code snippets to connect to SQL database in Fab
 Outlined below are the steps and code snippets to connect to SQL database in Fabric using a user-assigned managed identity.
 [!INCLUDE [code sample for fabricsql user mi](./includes/code-fabricsql-me-id.md)]
 
-## <a name="manual-steps"></a> Manual steps
+## <a name="#manual-steps"></a> Share access to SQL database in Fabric
 
-The following manual steps are required to onboard a service connection to SQL database in Fabric.
-
-1. Review the instructions below before you continue creating the service connection.
+1. Complete creating your service connection on the Cloud Shell, or on your local Azure CLI.
 
 1. Once your connection is created, open your compute service resource in the Azure Portal, open the Service Connector menu, and locate your SQL database in Fabric service connection. Select **SQL Database** to navigate to the Fabric portal.
 
