@@ -42,7 +42,7 @@ In a brownfield deployment, you can provide existing resources for:
 - Filesystem Storage for the user's home directories and/or other filers, as external NFS mount points or Azure Managed Lustre Filesystem (AMLS).
 - An Azure Database for MySQL flexible server instance for Slurm Job Accounting.
 
-If you're bringing your own VNET, follow these prerequisistes:
+If you're bringing your own VNET, follow these prerequisites:
 - A /29 **cyclecloud** subnet for the CycleCloud VM.
 - A **compute** subnet for the nodes, where the scheduler, login, and compute nodes are created.
 - When using Azure NetApp Files, a dedicated **netapp** subnet with the `Microsoft.NetApp/volumes` delegation as documented here [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction).
