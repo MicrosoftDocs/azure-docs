@@ -23,7 +23,7 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
 ### Register for extension 1 
 
-Azure NetApp Files application volume group for SAP HANA Extension 1 is currently in preview. You need to register the feature before using it for the first time. Feature registration may take up to 60 minutes to complete.
+You need to register for Azure NetApp Files application volume group for SAP HANA Extension 1 before using it for the first time. Feature registration may take up to 60 minutes to complete.
 
 1. Register the feature
 
