@@ -56,6 +56,7 @@ The ISVs do have right of refusal to accept an engagement under 50 TB. They can 
 
 **A:** Review our [comparison page](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison) and select the solution that best matches your environment.
 
+
 __Q:__ What paperwork or approvals are necessary?
 
 __A:__ None. Reach out to [azure@atempo.com](mailto:azure@atempo.com), [azure@cirrusdata.com](mailto:azure@cirrusdata.com), [azure@komprise.com](mailto:azure@komprise.com), or [azure@datdyn.com](mailto:azure@datdyn.com).
