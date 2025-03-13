@@ -99,8 +99,7 @@ The table below lists Azure regions without a region pair:
 | Israel | Israel Central|
 | Italy | Italy North|
 | Malaysia | Malaysia West (coming soon) |
-| Mexico | Mexico Central | 
-
+| Mexico | Mexico Central |
 | New Zealand | New Zealand North |
 | Poland | Poland Central |
 | Qatar | Qatar Central |
