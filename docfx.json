@@ -302,9 +302,9 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnemamsft",
-        "articles/hdinsight/*.md": "sreekzz",
-        "articles/hdinsight/*.yml": "sreekzz",
-        "articles/hdinsight/**/*.md": "sreekzz",
+        "articles/hdinsight/*.yml": "yeturis",
+        "articles/hdinsight/kafka/*.md": "yeturis",
+        "articles/hdinsight/kafka/*.yml": "yeturis",
         "articles/integration-environments/*.md": "ecfan",
         "articles/integration-environments/*.yml": "ecfan",
         "articles/jenkins/**/*.md": "TomArcherMsft",
@@ -803,9 +803,8 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/policy/**/*.md": "davidsmatlak",
         "articles/governance/resource-graph/**/*.md": "daphnema",
-        "articles/hdinsight/*.md": "v-sreeiyer",
-        "articles/hdinsight/*.yml": "v-sreeiyer",
-        "articles/hdinsight/**/*.md": "v-sreeiyer",
+        "articles/hdinsight/kafka/*.md": "sairamyeturi",
+        "articles/hdinsight/kafka/*.yml": "sairamyeturi",
         "articles/integration-environments/*.md": "estfan",
         "articles/integration-environments/*.yml": "estfan",
         "articles/jenkins/**/*.md": "tarcher",
@@ -969,6 +968,7 @@
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
         "articles/healthcare-apis/*.md": "leeclontz"
+        "articles/hdinsight/kafka/*.md": "nijelsf"     
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
