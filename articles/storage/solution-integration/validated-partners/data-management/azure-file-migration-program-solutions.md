@@ -21,7 +21,7 @@ This page only lists the partners participating in our Storage Migration program
 
 ## Storage Migration Program Partners
 
-__Free to use – refer to [FAQ](##FAQ) for program parameters__
+__Free to use – refer to [FAQ](#faq) for program parameters__
 
 - __[Atempo Miria](https://aka.ms/atempooffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files  
 
