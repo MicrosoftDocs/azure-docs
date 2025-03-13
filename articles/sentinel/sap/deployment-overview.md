@@ -94,7 +94,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 
     1. [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md). Make sure that you install the correct solution for your environment. This step is handled by the security team on the Azure portal.
 
-    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation.
+    1. [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md), including configuring SAP authorizations, configuring SAP auditing, and more. We recommend that these steps be done by your SAP BASIS team, and our documentation includes references to SAP documentation. Some steps are also performed by the security team.
 
 1. [Connect your SAP system](deploy-data-connector-agent-container.md) by deploying a containerized data connector agent.     This step requires coordination between your security, infrastructure, and SAP BASIS teams.
 
