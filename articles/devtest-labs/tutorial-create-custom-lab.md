@@ -54,7 +54,7 @@ To create a lab, follow these steps. For more information, see [Quickstart: Crea
 1. Once **Succeeded** appears on the **Review + create** page, review the settings and then select **Create**.
 
    > [!TIP]
-   > Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs. For more information, see [Create VMs by using ARM templates](devtest-lab-use-resource-manager-template.md).
+   > Select **Download a template for automation** at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs. For more information, see [Quickstart: Use ARM templates to create labs in Azure DevTest Labs](create-lab-windows-vm-template.md).
 
 1. After the lab creation process finishes, select **Go to resource** from the deployment notification.
 
@@ -80,7 +80,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size.
    - **Allow hibernation**: You can select this checkbox to enable hibernation for this VM. For this tutorial, keep the checkbox deselected.
      >[!NOTE]
-     >If you enable hibernation, you must also select **Public IP** in the **Advanced settings**, because **Private** and **Shared IP** aren't supported if hibernation is enabled.
+     >If you enable hibernation, you must also select **Public** for **IP Address** in the **Advanced settings**, because **Private** and **Shared** IPs aren't supported if hibernation is enabled.
    - **OS disk type**: You can select a disk type from the dropdown list. For this tutorial, keep the default value.
    - **Artifacts**: You can select **Add or Remove Artifacts** to select and configure artifacts to add to the VM. For more information, see [Add artifacts](devtest-lab-add-vm.md#add-optional-artifacts).
 
@@ -124,7 +124,7 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 
 1. On the **Members** tab, select **Select members**.
 
-1. On the **Select members** screen, select the user or users to assign the **DevTest Labs User** role, and then select **Select**.
+1. On the **Select members** screen, select the user or users to assign to the **DevTest Labs User** role, and then select **Select**.
 
 1. Select **Review + assign** and then select **Review + assign** again to assign the role.
 
@@ -132,7 +132,7 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 
 To share a link to the lab with your users, go to the lab home page in the [Azure portal](https://portal.azure.com) and copy the URL from your browser. Share the copied link with your lab users.
 
-Lab users must have a Microsoft account, but they don't need to have an Azure account. If a lab user isn't a member of your Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
+Lab users must have a Microsoft account, but they don't need an Azure account. If a lab user isn't a member of your Active Directory, they might see an error message when they try to access the shared link. If that happens, ask the user to first select their name in the upper-right corner of the Azure portal. They can then select the directory where the lab exists from the **Directory** section of the menu.
 
 ## Clean up resources
 
