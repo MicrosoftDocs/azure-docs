@@ -56,7 +56,7 @@ items:
       - name: Sample deployment configurations
         href: new-vs-existing.md
       - name: Integrate with SAP Cloud Appliance Library
-        href: integration-sap-cal.md
+        href: integration-sap-cloud-application-library.md
     - name: Integration with other Microsoft Azure Services
       items:
       - name: SAP Monitoring with Azure Monitor for SAP
