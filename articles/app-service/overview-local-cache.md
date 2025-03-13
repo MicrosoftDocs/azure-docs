@@ -33,12 +33,12 @@ Azure App Service content is stored on Azure Storage and is exposed as a durable
 
 Although many apps use one or more of these features, some apps need a high-performance, read-only content store that they can run from with high availability. Such apps can benefit from running against a local cache on the VM instance.
 
-The *local cache* feature in Azure App Service provides a web role view of your content. This content is a write-but-discard cache of your storage content that's created asynchronously at site startup. When the cache is ready, the site switches to run against the cached content.
+The local cache feature in Azure App Service provides a web role view of your content. This content is a write-but-discard cache of your storage content that's created asynchronously at site startup. When the cache is ready, the site switches to run against the cached content.
 
 Apps running with a local cache benefit in these ways:
 
 - They're immune to latencies associated with accessing content on Azure Storage.
-- They aren't affected by problems with connecting to the storage, because the read-only copy is cached locally.
+- Problems with connecting to the storage don't affect them, because the read-only copy is cached locally.
 - They experience fewer app restarts from changes in the storage share.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ Configuring a local cache causes these changes:
 - The best-effort copy affects [log streaming](troubleshoot-diagnostic-logs.md#stream-logs). You might observe up to a one-minute delay in streamed logs.
 - In the shared content store, the folder structure for `LogFiles` and `Data` changes for apps that use a local cache. There are now subfolders with names that consist of a unique identifier and a time stamp. Each subfolder corresponds to a VM instance where the app is or was running.
 - Other folders in `D:\home` remain in the local cache and aren't copied to the shared content store.
-- App deployments via any supported method publish directly to the durable shared content store. To refresh the `D:\home\site` and `D:\home\siteextensions` folders in the local cache, you must restart the app. For a seamless life cycle, see the [section about best practices](#best-practices-for-using-a-local-cache) later in this article.
+- App deployments via any supported method publish directly to the durable shared content store. To refresh the `D:\home\site` and `D:\home\siteextensions` folders in the local cache, you must restart the app. For a seamless life cycle, see the [section about best practices](#best-practices-for-using-app-service-local-cache) later in this article.
 - The default content view of the SCM site continues to reflect the shared content store.
 
 > [!NOTE]
@@ -127,7 +127,7 @@ Sticky settings are tied to the slot. When the staging slot is swapped into prod
 
 ### What if I exceed the size limit for the local cache?
 
-If the copied files exceed the size limit of the local cache, the app reverts to reading from the remote share.
+If the copied files exceed the size limit of the local cache, the app reverts to reading from the remote share. The following table shows the details.
 
 | Local cache size | Copied files         | Result                                                                                          |
 | -------------------- | ------------------------ | --------------------------------------------------------------------------------------------------- |
@@ -150,7 +150,7 @@ When you're using a local cache with staging environments, the swap operation do
 
 ### Why doesn't my app reflect newly published changes?
 
-If your app uses a local cache, you must restart the site to load the latest changes. If you prefer not to publish changes directly to your production site, consider using deployment slots as described in the [earlier section about best practices](#best-practices-for-using-a-local-cache).
+If your app uses a local cache, you must restart the site to load the latest changes. If you prefer not to publish changes directly to your production site, consider using deployment slots as described in the [earlier section about best practices](#best-practices-for-using-app-service-local-cache).
 
 > [!NOTE]
 > The [run from package](deploy-run-package.md) deployment option isn't compatible with the local cache feature.
@@ -159,7 +159,7 @@ If your app uses a local cache, you must restart the site to load the latest cha
 
 When you're using a local cache, the structure of your log and data folders changes slightly. The subfolders are now nested under a folder that's named with the unique VM identifier and a time stamp. Each of these folders corresponds to the VM instance where the app is or was running.
 
-### Why does my app still get restarted with a local cache enabled?
+### Why does my app still restart with a local cache enabled?
 
 A local cache helps prevent storage-related app restarts. However, your app might still restart during planned infrastructure upgrades on the VM. Overall, you should observe fewer restarts with a local cache enabled.
 
@@ -173,7 +173,7 @@ To flush the local cache logs, stop and restart the app. This action clears the 
 
 ### Why does App Service show previously deployed files after a restart when a local cache is enabled?
 
-If previously deployed files reappear after a restart, check for the presence of the app setting `[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)`. Adding this setting causes deployments via Kudu to write to the local VM instead of persistent storage. To avoid this situation, follow the [best practices mentioned earlier](#best-practices-for-using-a-local-cache) and perform deployments to a staging slot that doesn't have a local cache enabled.
+If previously deployed files reappear after a restart, check for the presence of the app setting [`WEBSITE_DISABLE_SCM_SEPARATION=true`](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site). Adding this setting causes deployments via Kudu to write to the local VM instead of persistent storage. To avoid this situation, follow the [best practices mentioned earlier](#best-practices-for-using-app-service-local-cache) and perform deployments to a staging slot that doesn't have a local cache enabled.
 
 ## Related content
 

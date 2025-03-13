@@ -22,7 +22,7 @@ This article compares the differentiating features of App Service Environment v3
 |[Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2.        |Free, Basic, Standard, Premium v2, Premium v3.        |
 |Dedicated host group|[Available](overview.md#dedicated-environment). |Not available. |
 |Remote file storage|Fully dedicated to the App Service Environment. |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server. |
-|Private inbound configuration|Yes, using the Internal Load Balancer (ILB) App Service Environment variation. |Yes, via private endpoint. |
+|Private inbound configuration|Yes, using the internal load balancer (ILB) App Service Environment variation. |Yes, via private endpoint. |
 |Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md). |[The platform handles maintenance](../../app-service/routine-maintenance.md). |
 |Aggregate storage limit for remote file shares|1 TB for all apps in App Service Environment v3.|250 GB for all apps in a single App Service plan. 500 GB for all apps across all App Service plans in a single resource group.|
 
@@ -57,7 +57,7 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
 |Virtual network integration|Yes. App Service Environment v3 is deployed into a subnet in your virtual network by default. |Supported, but [must be explicitly enabled](../../app-service/networking-features.md).|
-|Private endpoint support|Yes, but [must be explicitly enabled on the App Service Environment](networking.md#private-endpoint). |Yes, but [must be explicitly enabled](../../app-service/networking-features.md#private-endpoint). |
+|Private endpoint support|Yes, but [must be explicitly enabled in the App Service Environment](networking.md#private-endpoint). |Yes, but [must be explicitly enabled](../../app-service/networking-features.md#private-endpoint). |
 |IP access restrictions for inbound traffic|Yes, but [must be explicitly enabled](../../app-service/networking-features.md#access-restrictions). |Yes, but [must be explicitly enabled](../../app-service/networking-features.md#access-restrictions). |
 |Network security group (NSG) integration|Supports inbound and outbound traffic control. |Can use NSG for inbound traffic control via the subnet that sourced the IP of a private endpoint. (Note that the feature requires private endpoints.) Supports outbound network restrictions with NSG on the virtual network integration subnet. |
 |User-defined route (UDR) integration|Supports outbound traffic routing, but [must be explicitly enabled](networking.md#network-routing). |Supports outbound traffic routing, but [must be explicitly enabled](../../app-service/networking-features.md). |

@@ -92,7 +92,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 If you want App Service to run [Composer](https://getcomposer.org/) at deployment time, the easiest way is to include Composer in your repository.
 
-From a local terminal window, change the directory to your repository root. Then, follow the instructions at [download Composer](https://getcomposer.org/download/) to download `composer.phar` to the directory root.
+From a local terminal window, change the directory to your repository root. Then, follow the instructions at [Download Composer](https://getcomposer.org/download/) to download `composer.phar` to the directory root.
 
 Run the following commands. To run them, you need [npm](https://www.npmjs.com/get-npm) installed.
 
@@ -233,7 +233,7 @@ For more information on how App Service runs and builds PHP apps in Linux, see t
 
 ## Customize startup
 
-If you want, you can run a custom command at the container startup time, by running the following command in [Cloud Shell](https://shell.azure.com):
+If you want, you can run a custom command at the container startup time. Run the following command in [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -439,18 +439,18 @@ The built-in PHP installations contain the most commonly used extensions. You ca
 > [!NOTE]
 > The best way to see the PHP version and the current `php.ini` configuration is to call [`phpinfo()`](https://php.net/manual/function.phpinfo.php) in your app.
 
-To enable additional extensions, use the following steps.
+To enable additional extensions, use the following steps:
 
-Add a `bin` directory to the root directory of your app, and put the `.dll` extension files in it (for example, `mongodb.dll`). Make sure that the extensions are compatible with the PHP version in Azure, and that they're VC9 and non-thread-safe (NTS) compatible.
+1. Add a `bin` directory to the root directory of your app, and put the `.dll` extension files in it (for example, `mongodb.dll`). Make sure that the extensions are compatible with the PHP version in Azure, and that they're VC9 and non-thread-safe (NTS) compatible.
 
-Deploy your changes.
+1. Deploy your changes.
 
-Follow the steps in [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives), and add the extensions into the custom .ini file with the [extension](https://www.php.net/manual/ini.core.php#ini.extension) or [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) directive:
+1. Follow the steps in [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives), and add the extensions into the custom .ini file with the [extension](https://www.php.net/manual/ini.core.php#ini.extension) or [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) directive:
 
-```
-extension=d:\home\site\wwwroot\bin\mongodb.dll
-zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
-```
+   ```
+   extension=d:\home\site\wwwroot\bin\mongodb.dll
+   zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
+   ```
 
 For the changes to take effect, restart the app.
 
@@ -463,18 +463,18 @@ The built-in PHP installations contain the most commonly used extensions. You ca
 > [!NOTE]
 > The best way to see the PHP version and the current `php.ini` configuration is to call [`phpinfo()`](https://php.net/manual/function.phpinfo.php) in your app.
 
-To enable additional extensions, use the following steps.
+To enable additional extensions, use the following steps:
 
-Add a `bin` directory to the root directory of your app, and put the `.so` extension files in it (for example, `mongodb.so`). Make sure that the extensions are compatible with the PHP version in Azure, and that they're VC9 and non-thread-safe (NTS) compatible.
+1. Add a `bin` directory to the root directory of your app, and put the `.so` extension files in it (for example, `mongodb.so`). Make sure that the extensions are compatible with the PHP version in Azure, and that they're VC9 and non-thread-safe (NTS) compatible.
 
-Deploy your changes.
+1. Deploy your changes.
 
-Follow the steps in [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives), and add the extensions into the custom .ini file with the [extension](https://www.php.net/manual/ini.core.php#ini.extension) or [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) directive:
+1. Follow the steps in [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives), and add the extensions into the custom .ini file with the [extension](https://www.php.net/manual/ini.core.php#ini.extension) or [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) directive:
 
-```ini
-extension=/home/site/wwwroot/bin/mongodb.so
-zend_extension=/home/site/wwwroot/bin/xdebug.so
-```
+   ```ini
+   extension=/home/site/wwwroot/bin/mongodb.so
+   zend_extension=/home/site/wwwroot/bin/xdebug.so
+   ```
 
 For the changes to take effect, restart the app.
 
