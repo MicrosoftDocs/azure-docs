@@ -160,7 +160,7 @@ For data factories deployed in a nonpaired region, or in Brazil South or Southea
 
 ### Alternative multi-region approaches
 
-If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline.
+If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline:
 
 To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. This approach also enables you to access your metadata JSON files for pipelines, datasets, linked services, and triggers. Azure Data Factory enables you to work with different Git repository types (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](../data-factory/source-control.md).
 
