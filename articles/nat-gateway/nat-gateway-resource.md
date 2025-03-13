@@ -11,7 +11,7 @@ ms.author: allensu
 
 # Azure NAT Gateway resource
 
-This article describes the key components of the NAT gateway resource that enable it to provide highly secure, scalable, and resilient outbound connectivity. Some of these components can be configured in your subscription through the Azure portal, Azure CLI, Azure PowerShell, Resource Manager templates, or appropriate alternatives.
+This article describes the key components of the NAT gateway resource that enable it to provide highly secure, scalable, and resilient outbound connectivity. NAT Gateway can be configured in your subscription through supported clients. These clients include Azure portal, Azure CLI, Azure PowerShell, Resource Manager templates, or appropriate alternatives.
 
 ## NAT Gateway architecture
 
@@ -23,31 +23,31 @@ NAT Gateway provides source network address translation (SNAT) for private insta
 
 *Figure: NAT gateway for outbound to internet*
 
-When a NAT gateway is attached to a subnet within a virtual network, the NAT gateway assumes the subnet’s default next hop type for all outbound traffic directed to the internet. No extra routing configurations are required. NAT Gateway doesn't provide unsolicited inbound connections from the internet. DNAT is only performed for packets that arrive as a response to an outbound packet.
+When configured to a subnet within a virtual network, NAT Gateway becomes the subnet's default next hop type for all outbound traffic directed to the internet. No extra routing configurations are required. NAT Gateway doesn't provide unsolicited inbound connections from the internet. DNAT is only performed for packets that arrive as a response to an outbound packet.
 
 ## Subnets
 
-A NAT gateway can be attached to multiple subnets within a virtual network to provide outbound connectivity to the internet. When a NAT gateway is attached to a subnet, it assumes the default route to the internet. The NAT gateway will then be the next hop type for all outbound traffic destined to the internet.
+NAT Gateway can be attached to multiple subnets within a virtual network to provide outbound connectivity to the internet. When NAT Gateway is attached to a subnet, it assumes the default route to the internet. NAT Gateway will then be the next hop type for all outbound traffic destined to the internet.
 
-The following subnet configurations can’t be used with a NAT gateway:
+The following subnet configurations can’t be used with NAT Gateway:
 
-* When NAT gateway is attached to a subnet, it assumes the default route to the internet. Only one NAT gateway can serve as the default route to the internet for a subnet.
+* When NAT Gateway is attached to a subnet, it assumes the default route to the internet. Only one NAT Gateway can serve as the default route to the internet for a subnet.
 
-* A NAT gateway can’t be attached to subnets from different virtual networks.
+* NAT Gateway can’t be attached to subnets from different virtual networks.
 
-* A NAT gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location. For more information about the gateway subnet, see [Gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
+* NAT Gateway can’t be used with a gateway subnet. A gateway subnet is a designated subnet for a VPN gateway to send encrypted traffic between an Azure virtual network and on-premises location. For more information about the gateway subnet, see [Gateway subnet](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub).
 
 ## Static public IP addresses
 
-A NAT gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT gateway grooms all traffic to the range of IP addresses of the prefix.
+NAT Gateway can be associated with static public IP addresses or public IP prefixes for providing outbound connectivity. NAT Gateway supports IPv4 addresses. A NAT gateway can use public IP addresses or prefixes in any combination up to a total of 16 IP addresses. If you assign a public IP prefix, the entire public IP prefix is used. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT gateway grooms all traffic to the range of IP addresses of the prefix.
 
-* A NAT gateway can’t be used with IPv6 public IP addresses or prefixes.
+* NAT Gateway can’t be used with IPv6 public IP addresses or prefixes.
 
-* A NAT gateway can’t be used with basic SKU public IP addresses.
+* NAT Gateway can’t be used with basic SKU public IP addresses.
 
 ## SNAT ports
 
-SNAT port inventory is provided by the public IP addresses, public IP prefixes or both attached to a NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to the NAT gateway. No preallocation of SNAT ports per instance is required.
+SNAT port inventory is provided by the public IP addresses, public IP prefixes, or both attached to a NAT gateway. SNAT port inventory is made available on-demand to all instances within a subnet attached to the NAT gateway. No preallocation of SNAT ports per instance is required.
 
 For more information about SNAT ports and Azure NAT Gateway, see [Source Network Address Translation (SNAT) with Azure NAT Gateway](nat-gateway-snat.md).
 
@@ -81,7 +81,7 @@ NAT Gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 ## TCP reset
 
-A TCP reset packet is sent when a NAT gateway detects traffic on a connection flow that doesn't exist. The TCP reset packet indicates to the receiving endpoint that the release of the connection flow has occurred and any future communication on this same TCP connection will fail. TCP reset is uni-directional for a NAT gateway.
+A TCP reset packet is sent when a NAT gateway detects traffic on a connection flow that doesn't exist. The TCP reset packet indicates to the receiving endpoint that the connection flow has been released and any future communication on this same TCP connection will fail. TCP reset is uni-directional for a NAT gateway.
 
 The connection flow may not exist if:
 
@@ -107,7 +107,7 @@ UDP idle timeout timers aren't configurable, UDP keepalives should be used to en
 
 ### Port Reuse Timers
 
-Port reuse timers determine the amount of time after a connection closes that a source port is in hold down before it can be reused to go to the same destination endpoint by the NAT gateway.  
+Port reuse timers determine the amount of time after a connection closes that a source port is in hold down before it can be reused for a new connection to go to the same destination endpoint by the NAT gateway.  
 
 The following table provides information about when a TCP port becomes available for reuse to the same destination endpoint by the NAT gateway. 
 
@@ -123,11 +123,11 @@ For UDP traffic, after a connection closes, the port is in hold down for 65 seco
 
 | Timer | Description | Value |
 |---|---|---|
-| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow resets the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
+| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out an idle connection. Traffic on the flow resets the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
 | UDP idle timeout | UDP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. UDP idle timeout timers are 4 minutes and are **not configurable**. Traffic on the flow resets the idle timeout timer. | **Not configurable**; 4 minutes |
 
 > [!NOTE]
-> These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
+> These timer settings are subject to change. The values are provided to help with troubleshooting and you shouldn't take a dependency on specific timers at this time.
 
 ## Bandwidth
 
@@ -135,9 +135,9 @@ Each NAT gateway can provide up to a total of 50 Gbps of throughput. Data throug
 
 ## Performance
 
-A NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. The NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+A NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP traffic. The NAT gateway can process 1M packets per second and scale up to 5M packets per second.
 
-The total number of connections that a NAT gateway can support at any given time is up to 2 million. If NAT gateway exceeds 2 million connections, you will see a decline in your datapath availability and new connections will fail.
+NAT gateway can support up to 2 million active connections simultaneously. The number of connections on NAT Gateway is counted based on the 5-tuple (source IP address, source port, destination IP address, destination port, and protocol). If NAT gateway exceeds 2 million connections, the datapath availability declines and new connections fail. 
 
 ## Limitations
 
@@ -155,7 +155,7 @@ The total number of connections that a NAT gateway can support at any given time
 
 - Public IPs with DDoS protection enabled aren't supported with NAT gateway. For more information, see [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations).
   
-- Azure NAT Gateway is not supported in a secured virtual hub network (vWAN) architecture.
+- Azure NAT Gateway isn't supported in a secured virtual hub network (vWAN) architecture.
 
 ## Next steps
 

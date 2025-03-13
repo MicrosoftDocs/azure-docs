@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 This tutorial helps you configure dedicated deployment of Azure Bastion to your virtual network from the Azure portal using the settings and SKU of your choice. The SKU determines the features and connections that are available for your deployment. For more information about SKUs and features, see [Configuration settings - SKUs](configuration-settings.md#skus). After Bastion is deployed, you can use SSH or RDP to connect to virtual machines (VMs) in the virtual network via Bastion using the private IP addresses of the VMs. When you connect to a VM, it doesn't need a public IP address, client software, an agent, or a special configuration.
 
-The following diagram shows the Azure Bastion dedicated deployment [architecture](design-architecture.md) for this tutorial. Unlike the [Developer SKU architecture](design-architecture.md#developer), a dedicated deployment architecture deploys a dedicated bastion host directly to your virtual network.
+The following diagram shows the Azure Bastion dedicated deployment [architecture](design-architecture.md) for this tutorial. Unlike the [Bastion Developer architecture](design-architecture.md#developer), a dedicated deployment architecture deploys a dedicated bastion host directly to your virtual network.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 

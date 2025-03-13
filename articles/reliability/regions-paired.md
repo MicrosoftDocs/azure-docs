@@ -3,7 +3,7 @@ title: Azure region pairs and nonpaired regions
 description: Learn about Azure region pairs and regions without a pair.
 author: anaharris-ms
 ms.service: azure
-ms.subservice: azure-availability-zones
+ms.subservice: azure-reliability
 ms.topic: conceptual
 ms.date: 01/13/2025
 ms.author: anaharris
