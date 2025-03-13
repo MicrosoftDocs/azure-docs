@@ -63,15 +63,22 @@ When run, network verifier's reachability analysis evaluates the following featu
   - Service endpoints & access control lists 
   - Private endpoints 
   - Virtual WAN
-  - Azure Firewall
+  - Azure Firewall (static L4 only)
 
 This list is subject to expand.
 
 ## When should I use network verifier?
 
-Network verifier is designed primarily for validating your Azure network configurations and resources against your intended reachability and ensuring compliance with internal standards. This tool is particularly useful during the design and post-deployment phases of your Azure network setup. Network verifier comes in handy particularly when you observe unexpected traffic allowance or disallowance and you need to pinpoint the origin of this deviation from your expected reachability within your Azure environment. With its detailed reachability analysis results, network verifier can remodel the source-to-destination path taken in the Azure control plane, helping you track down where the misconfiguration lies. 
+Network verifier is designed to help you validate your Azure network configurations and resources, ensuring they align with your intended reachability and comply with internal standards. This tool proves particularly useful during the design and post-deployment phases of your Azure network setup. When you encounter unexpected traffic allowances or disallowances, network verifier helps you pinpoint the origin of these deviations from your expected reachability within your Azure environment. With its detailed reachability analysis results, network verifier can reconstruct the source-to-destination path taken in the Azure control plane, enabling you to track down where the misconfiguration lies.
 
-For more complex troubleshooting scenarios, network verifier can be a great place to start. Its reachability analysis results can also point you in the right direction to continue your diagnostic journey with tools specialized in operational monitoring, network performance, and data path-level network troubleshooting. 
+Network verifier can help you answer several questions regarding your Azure network resource reachability, including:
+
+- Public internet IP address to/from a given virtual machine, subnet, or other resource
+- Validation of security rules enforcing traffic denial and order of evaluation, such as with NSG rules and security admin rules
+- Confirmation of reachability to resources behind a private endpoint
+- Remodel of theoretical traffic path through a virtual WAN
+
+For more complex troubleshooting scenarios, network verifier serves as an excellent starting point. Its reachability analysis results can guide you toward the next steps in your diagnostic journey, directing you to tools specialized in operational monitoring, network performance, and data path-level network troubleshooting.
 
 ## Limits
 
