@@ -10,7 +10,7 @@ ms.custom: "devops-pipelines-deploy"
 
 ---
 
-# Deploy to Azure App Service using Azure Pipelines
+# Deploy to Azure App Service by using Azure Pipelines
 
 **Azure DevOps Services | Azure DevOps Server 2020 | Azure DevOps Server 2019**
 
@@ -22,7 +22,7 @@ YAML pipelines are defined by using a YAML file in your repository. A step is th
 
 You use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios, like when you need to use XML parameters in your deployment, you can use the [Azure App Service deploy task `AzureRmWebAppDeployment`](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment).
 
-## Prerequisites include:
+## Prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure DevOps organization. [Create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up).
@@ -101,9 +101,9 @@ To get started:
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     ```
 
-    * `azureSubscription`: Name of the authorized service connection to your Azure subscription
-    * `appName`: Name of your existing app
-    * `package`: File path to the package or a folder containing your App Service contents (wildcards are supported)
+    * `azureSubscription`: Name of the authorized service connection to your Azure subscription.
+    * `appName`: Name of your existing app.
+    * `package`: File path to the package or a folder containing your App Service contents. Wildcards are supported.
 
 # [Classic](#tab/classic/)
 
@@ -111,7 +111,7 @@ To get started:
 
 1. Create a [release pipeline](/azure/devops/pipelines/release/). Select **Releases** from the service menu and select **New pipeline**.
 
-1. Select the **Azure App Service deployment** template for your stage, which automatically adds the necessary tasks.
+1. Select the **Azure App Service deployment** template for your stage. This step automatically adds the necessary tasks.
 
     > [!NOTE]
     > If you're deploying a Node.js app to App Service on Windows, select the **Deployed Node.js App to Azure App Service** template. The only difference between these templates is that the Node.js template configures the task to generate a `web.config` file that contains a parameter that starts the `iisnode` service.
@@ -156,8 +156,8 @@ steps:
 
 For classic pipelines, it's easier to define build and release stages in separate panes (**Pipelines** and **Releases**, respectively).
 
-* In the **Pipelines** pane, build and test your app by using the template of your choice, such as **ASP.NET Core**, **Node.js with Grunt**, **Maven**, or others. Publish an artifact.
-* In the **Release** pane, use the generic **Azure App Service deployment** template to deploy the artifact.
+* On the **Pipelines** pane, build and test your app by using the template of your choice, such as **ASP.NET Core**, **Node.js with Grunt**, **Maven**, or others. Publish an artifact.
+* On the **Release** pane, use the generic **Azure App Service deployment** template to deploy the artifact.
 
 There might be templates for specific programming languages to choose from.
 
@@ -360,7 +360,7 @@ If you're using the **Azure App Service deployment** template in the release pip
 
 1. Select the **Tasks** tab, then select **Deploy Azure App Service** (the `AzureRmWebAppDeployment` task).
 
-1. In the dialog, make sure that the **Connection type** is set to **Azure Resource Manager**.
+1. In the dialog, make sure that **Connection type** is set to **Azure Resource Manager**.
 
 1. In the dialog, expand **Additional Deployment Options** and choose **Select deployment method**. Make sure that **Web Deploy** is selected as the deployment method.
 
@@ -386,11 +386,11 @@ The [Azure App Service Deploy task (`AzureRmWebAppDeployment`)](/azure/devops/pi
 > [!NOTE]  
 > The separate [File Transform task](/azure/devops/pipelines/tasks/utility/file-transform) also supports file transforms and variable substitution for use in Azure Pipelines. You can use the **File Transform** task to apply file transformations and variable substitutions on any configuration and parameters files.
 
-### Why do I get the message, "Invalid App Service package or folder path provided"?
+### Why do I get the message "Invalid App Service package or folder path provided"?
 
 In YAML pipelines, depending on your pipeline, there might be a mismatch between where your built web package is saved and where the deploy task is looking for it. For example, the `AzureWebApp` task picks up the web package for deployment. The `AzureWebApp` task might look in `$(System.DefaultWorkingDirectory)/**/*.zip`. If the web package is deposited elsewhere, modify the value of `package`.
 
-### Why do I get the message, "Publish using Redeploy options are supported only when using Windows agent"?
+### Why do I get the message "Publish using webdeploy options are supported only when using Windows agent"?
 
 This error occurs in the `AzureRmWebAppDeployment` task when you configure the task to deploy using **Web Deploy**, but your agent isn't running Windows. Verify that your YAML includes something similar to the following code:
 

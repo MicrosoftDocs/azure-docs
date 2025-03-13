@@ -13,30 +13,30 @@ keywords: azure app service, security, deployment, FTP, MsDeploy
 
 This article shows you how to disable basic authentication (username and password authentication) when deploying code to Azure App Service apps.
 
-App Service provides basic authentication for FTP and Web Deploy clients, which can connect by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MsBuild. 
+App Service provides basic authentication for FTP and Web Deploy clients, which can connect by using [deployment credentials](deploy-configure-credentials.md). These APIs are great for browsing your site’s file system, uploading drivers and utilities, and deploying with MSBuild. 
 
-However, enterprises often require deployment methods that are more secure than basic authentication, such as [Microsoft Entra ID](/entra/fundamentals/whatis) authentication. (For more, see [Authentication types by deployment method in Azure App Service](deploy-authentication-types.md).) Microsoft Entra uses OAuth 2.0 token-based authorization, which has many benefits and improvements that help mitigate basic authentication problems. For example, OAuth access tokens have a limited usable lifetime, and are specific to the applications and resources for which they're issued. They can't be reused. Microsoft Entra also lets you deploy from other Azure services by using managed identities.
+However, enterprises often require deployment methods that are more secure than basic authentication, such as [Microsoft Entra ID](/entra/fundamentals/whatis) authentication. (For more information, see [Authentication types by deployment method in Azure App Service](deploy-authentication-types.md).) Microsoft Entra uses OAuth 2.0 token-based authorization, which has many benefits and improvements that help mitigate basic authentication problems. For example, OAuth access tokens have a limited usable lifetime, and are specific to the applications and resources for which they're issued. They can't be reused. Microsoft Entra also lets you deploy from other Azure services by using managed identities.
 
 ## Disable basic authentication
 
-There are two controls for basic authentication:
+Two controls for basic authentication are available:
 
 - For [FTP deployment](deploy-ftp.md), basic authentication is controlled by the `basicPublishingCredentialsPolicies/ftp` flag (the **FTP Basic Auth Publishing Credentials** option in the portal).
 - For other deployment methods that use basic authentication, such as Visual Studio, local Git, and GitHub, basic authentication is controlled by the `basicPublishingCredentialsPolicies/scm` flag (the **SCM Basic Auth Publishing Credentials** option in the portal).
 
 ### [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **App Services** and select your app.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**, and then select your app.
 
 1. In the app's left menu, select **Configuration** > **General settings**.
 
-1. For **SCM Basic Auth Publishing Credentials** or **FTP Basic Auth Publishing Credentials**, select **Off**, then select **Save**.
+1. For **SCM Basic Auth Publishing Credentials** or **FTP Basic Auth Publishing Credentials**, select **Off** and then select **Save**.
 
     :::image type="content" source="media/configure-basic-auth-disable/basic-auth-disable.png" alt-text="Screenshot that shows how to disable basic authentication for Azure App Service in the Azure portal.":::
 
 ### [Azure CLI](#tab/cli)
 
-You configure two settings to disable basic authentication with Azure CLI. One setting is for FTP and the other is for Web Deploy and Git.
+You configure two settings to disable basic authentication with Azure CLI. One setting is for FTP. The other is for Web Deploy and Git.
 
 #### Disable for FTP
 
@@ -87,8 +87,8 @@ To prevent a lower-privileged user from enabling basic authentication for any ap
 
 ### [Azure portal](#tab/portal)
 
-1. In the Azure portal, in the top menu, search for and select the subscription in which you want to create the custom role.
-1. From the service menu, select **Access Control (IAM)** > **Add** > **Add custom role**.
+1. In the Azure portal, on the top menu, search for and select the subscription in which you want to create the custom role.
+1. On the left menu, select **Access Control (IAM)** > **Add** > **Add custom role**.
 1. Set the **Basic** tab as you wish, then select **Next**.
 1. In the **Permissions** tab, select **Exclude permissions**.
 1. Find and select **Microsoft Web Apps**, then search for the following operations:

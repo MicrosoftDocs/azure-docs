@@ -46,11 +46,11 @@ You can configure your user-scope credentials in any app's [resource page](../az
 
 2. Scroll down to **User scope**, configure the **Username** and **Password**, and then select **Save**.
 
-Once you set your deployment credentials, you can find the Git deployment username in your app's **Overview** page.
+After you set your deployment credentials, you can find the Git deployment username in your app's **Overview** page.
 
 ![Screenshot that shows you how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-If Git deployment is configured, the page shows a **Git/deployment username**. Otherwise, it shows an **FTP/deployment username**.
+If Git deployment is configured, the page shows **Git/deployment username**. Otherwise, it shows **FTP/deployment username**.
 
 > [!NOTE]
 > Azure doesn't show your user-scope deployment password. If you forget the password, you can follow the steps in this section to reset your credentials.
