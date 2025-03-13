@@ -46,13 +46,13 @@ Submitting a support request to increase your quota is quicker if you gather the
 
 Follow these steps to request a limit increase:  
 
-1. Sign in to the [Azure portal](https://portal.azure.com), select Support + Troubleshooting in the menu bar, and then enter **support** in the search window.
+1. Sign in to the [Azure portal](https://portal.azure.com), select Support + Troubleshooting in the menu bar, and then enter **support** in the search window:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Support + Troubleshooting button and the search box are highlighted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
 1. In the **Which service are you having an issue with?** list, select **Service and subscription limits (quotas)**, and then select **Next**.
 
-1. Select **Create a support request**. 
+1. Select **Create a support request**:
 
     :::image type="content" source="./media/how-to-request-capacity-increase/create-support-request.png" alt-text="Screenshot of the Support + troubleshooting page. Create a support request is highlighted." lightbox="./media/how-to-request-capacity-increase/create-support-request.png":::
 
@@ -74,7 +74,7 @@ Follow these steps to request a limit increase:
     | ----------------- | ------- |
     | **Quota type**    | Select the **Quota type** that you want to increase. | 
     | **Region**        | Select the **Region** in which you want to increase your quota. | 
-    | **Additional quota** | Enter the additional number of minutes that you need, or GBs per environment for Storage limit increases. |
+    | **Additional quota** | Enter the additional number of minutes that you need, or GBs per environment for storage limit increases. |
     | **Additional info** | Enter any extra information about your request. |
 
     :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot that shows the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
