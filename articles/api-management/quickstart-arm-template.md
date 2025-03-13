@@ -93,7 +93,7 @@ If you plan to continue working with subsequent tutorials, you might want to lea
     :::image type="content" source="media/quickstart-arm-template/delete-resource-group.png" alt-text="Delete resource group":::
 1. Type the name of your resource group, and then select **Delete**.
 
-## Related content
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Tutorial: Import and publish your first API](import-and-publish.md)

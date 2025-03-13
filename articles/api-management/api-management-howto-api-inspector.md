@@ -213,7 +213,7 @@ Content-Type: application/json
 
 For information about customizing trace information, see the [trace](trace-policy.md) policy.
 
-## Related content
+## Next steps
 
 In this tutorial, you learned how to:
 

@@ -113,7 +113,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## Related content
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Import and publish your first API](import-and-publish.md)

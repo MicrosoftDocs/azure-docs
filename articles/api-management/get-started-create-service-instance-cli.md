@@ -83,7 +83,7 @@ You can use the [az group delete](/cli/azure/group#az-group-delete) command to r
 az group delete --name myResourceGroup
 ```
 
-## Related content
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Import and publish your first API](import-and-publish.md)

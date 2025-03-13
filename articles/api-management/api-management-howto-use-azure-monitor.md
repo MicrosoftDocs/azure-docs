@@ -204,7 +204,7 @@ To configure logging settings for a specific API:
 
 [!INCLUDE [api-management-log-entry-size-limit](../../includes/api-management-log-entry-size-limit.md)]
 
-## Related content
+## Next steps
 
 In this tutorial, you learned how to:
 

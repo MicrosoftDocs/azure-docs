@@ -183,7 +183,7 @@ In this tutorial, you learned how to:
 > * Browse the developer portal to see changes and change log
 > * Access an API revision
 
-## Related content
+## Next steps
 
 Advance to the next tutorial:
 

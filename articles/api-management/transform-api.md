@@ -167,7 +167,7 @@ In this tutorial, you learned how to:
 > * Protect an API by adding a rate limit policy (throttling)
 > * Test the transformations
 
-## Related content
+## Next steps
 
 Advance to the next tutorial:
 

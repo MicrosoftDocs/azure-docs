@@ -199,7 +199,7 @@ To view your changes after you publish the portal, access it at the same URL as 
 
 To let the visitors of your portal test the APIs through the built-in interactive console, enable CORS (cross-origin resource sharing) on your APIs, if you haven't already done so. On the **Portal overview** page of your API Management instance in the Azure portal, select **Enable CORS**. [Learn more](enable-cors-developer-portal.md).
 
-## Related content
+## Next steps
 
 In this tutorial, you learned how to:
 

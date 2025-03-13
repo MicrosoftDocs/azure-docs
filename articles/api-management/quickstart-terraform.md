@@ -139,7 +139,7 @@ In this article, you learn how to:
 
 [Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
 
-## Related content
+## Next steps
 
 > [!div class="nextstepaction"] 
 > [Tutorial: Import and publish your first API](import-and-publish.md)

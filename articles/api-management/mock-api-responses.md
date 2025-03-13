@@ -167,7 +167,7 @@ Keep this operation for use in the rest of this article.
 
     :::image type="content" source="media/mock-api-responses/http-response.png" alt-text="Mock HTTP response":::
 
-## Related content
+## Next steps
 
 In this tutorial, you learned how to:
 
