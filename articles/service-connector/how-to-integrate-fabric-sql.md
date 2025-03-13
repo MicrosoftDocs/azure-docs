@@ -137,7 +137,7 @@ Outlined below are the steps and code snippets to connect to SQL database in Fab
 Outlined below are the steps and code snippets to connect to SQL database in Fabric using a user-assigned managed identity.
 [!INCLUDE [code sample for fabricsql user mi](./includes/code-fabricsql-me-id.md)]
 
-## <a name="#manual-steps"></a> Share access to SQL database in Fabric
+## Share access to SQL database in Fabric
 
 1. Complete creating your service connection on the Cloud Shell, or on your local Azure CLI.
 
