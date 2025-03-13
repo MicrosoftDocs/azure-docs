@@ -83,11 +83,10 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
+| authentication type | Select from basic or service principal authentication | Yes |
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
-| username| The username to connect with. Not required if using IntegratedSecurity. |Yes |
-| password| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can  [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|No|
 | ***Additional connection properties:*** |  |  |
@@ -99,6 +98,13 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | readBufferSize | Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database. | No |
 | timezone | Gets or sets the session timezone. | No |
 | encoding | Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | No |
+
+### PostgreSQL authentication
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| username | The username to connect with. Not required if using IntegratedSecurity. |Yes |
+| password | The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can  [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 
 **Example**:
 
@@ -138,18 +144,91 @@ The following properties are supported for the Azure Database for PostgreSQL lin
             "database": "<database name>",
             "sslMode": 2,
             "username": "<user name>",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
 }
+``` 
+
+### Service principal authentication
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| service principal name | The display name of the service principal |Yes |
+| tenant | The tenant which the Azure Database for PostgreSQL server is located |Yes |
+| service principal id | Application ID of service principal |Yes |
+| service principal credential type | Select if service principal certificate or service principal key is desired authentication method<br/>- **ServicePrincipalCert**: Set to service principal certificate for service principal certifiate.<br/>- **ServicePrincipalKey**: Set to service principal key for service principal key authentication. | Yes |
+| service principal key | Client secret value. Used when service principal key is selected |Yes |
+| azure cloud type | Select the azure cloud type of your Azure Database for PostgreSQL server |Yes |
+| service principal certificate | Service principal certificate file |Yes |
+| service principal cert password | Service principal certificate password if required |No |
+
+**Example**:
+
+**Service principal key**
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzurePostgreSql",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": 5432,
+            "database": "<database name>",
+            "sslMode": 2,
+            "username": "<service principal name>",
+            "authenticationType": "<authentication type>",
+            "tenant": "<tenant>",
+            "servicePrincipalId": "<service principal ID>",
+            "azureCloudType": "<azure cloud type>",
+            "servicePrincipalCredentialType": "<service principal type>",
+            "servicePrincipalKey": "<service principal key>"
+        }
+    }
+}
 ```
+
+**Example**:
+
+**Service principal certificate**
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "annotations": [],
+        "type": "AzurePostgreSql",
+        "version": "2.0",
+        "typeProperties": {
+            "server": "<server name>",
+            "port": 5432,
+            "database": "<database name>",
+            "sslMode": 2,
+            "username": "<service principal name>",
+            "authenticationType": "<authentication type>",
+            "tenant": "<tenant>",
+            "servicePrincipalId": "<service principal ID>",
+            "azureCloudType": "<azure cloud type>",
+            "servicePrincipalCredentialType": "<service principal type>",
+            "servicePrincipalEmbeddedCert": "<service principal certificate>",
+            "servicePrincipalEmbeddedCertPassword": "<service principal embedded certificate password>"
+        }
+    }
+}
+```
+
+
+
 
 ### Version 1.0
 
@@ -196,13 +275,13 @@ A typical connection string is `host=<server>.postgres.database.azure.com;databa
         "version": "1.0",
         "typeProperties": {
             "connectionString": "host=<server>.postgres.database.azure.com;database=<database>;port=<port>;uid=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -459,7 +538,6 @@ IncomingStream sink(allowSchemaDrift: true,
 ## Lookup activity properties
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
-
 
 ## Upgrade the Azure Database for PostgreSQL connector
 
