@@ -1,20 +1,22 @@
 ---
-title: Quickstart - Create a service connection in Azure Spring Apps with the Azure CLI
+title: Create a service connection in Spring Apps - Azure CLI
 description: In this step-by-step guide, learn how to create a service connection in Azure Spring Apps using the Azure CLI.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 12/18/2024
+ms.date: 3/11/2025
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, build-2024
 ---
 
 # Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI
 
-This quickstart shows you how to connect Azure Spring Apps to other Cloud resources using the Azure CLI and Service Connector.
+This quickstart shows you how to connect Azure Spring Apps to other Cloud resources using the Azure CLI and Service Connector. Service Connector streamlines the process of linking compute services to cloud services, while managing authentication and networking settings.
 
-Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
+[!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
+
+To connect resources using the Azure portal, see [Create a service connection in Azure Spring Apps with the Azure portal](./quickstart-portal-spring-cloud-connection.md).
 
 ## Prerequisites
 
@@ -54,8 +56,8 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 
 ### [Managed identity](#tab/Using-Managed-Identity)
 
-> [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). Ask your subscription owner to grant you a role assignment permission or use an access key to create the connection.
+> [!NOTE]
+> To use a managed identity, you must have permission to modify [role assignments in Microsoft Entra ID](/entra/identity/role-based-access-control/manage-roles-portal). If necessary, ask your subscription owner to grant you this permission.
 
 1. Run the `az spring connection create` command to connect application deployed to Azure Spring Apps to a Blob Storage resource, using a system-assigned managed identity.
 
