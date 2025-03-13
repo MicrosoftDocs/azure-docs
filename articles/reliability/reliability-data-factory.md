@@ -148,7 +148,7 @@ For data factories deployed in a nonpaired region, or in Brazil South or Southea
 
 #### Post-failover reconfiguration
 
-**Core service:** When a Microsoft-managed failover has completed, you're able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
+**Core service:** Once a Microsoft-managed failover is complete, you can then access your Azure Data Factory pipeline in the paired region.  However, you might need to perform some reconfiguration for integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
 <!-- TODO is there anything we can say about failback after the original region recovers - for example, can you expect that to be done by us too? Or would we permanently keep resources in the new region? -->
 
