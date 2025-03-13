@@ -6519,6 +6519,11 @@
       "source_path": "articles/reliability/migrate-sql-managed-instance.md",
       "redirect_url": "/azure/azure-sql/managed-instance/instance-zone-redundancy-configure",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/operational-excellence/relocation-managed-identity.md",
+      "redirect_url": "/entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move",
+      "redirect_document_id": false
     }
   ]
 }
