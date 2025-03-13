@@ -41,14 +41,16 @@ With the guided gateway migration experience you can deploy a second virtual net
 
 After completing the gateway migration and deleting the older gateway and its connections, the newly created gateway will be tagged with "CreatedBy : GatewaySKUMigration". This tag will serve as a key differentiator from your other gateways that have not been migrated and should not be deleted.
 
+
 ### Steps to migrate to a new gateway
-1. **Validate**: This step checks if the gateway is ready for migration by ensuring all resources are in a succeeded state. If the prerequisites aren't met, valdidation fails and you can't proceed.
-2. **Prepare**: In this stage, a ner Virtual Network gateway, Public IP, and connections are created. This operation can take up to 60 minutes. You can choose a preferred name for the new gateway and connections that need to be different from their old one, if you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any creation or modification of connections to this gateway.
-3. **Migrate**: After the new gateway is created, select the new gateway you created. This migrates the traffic from your old gatewway to the new one. All network traffic and data path connections from your old gateway will transfer with little interruptions. To start this process, select **Migrate**. This operation can take up to 15 minutes.
->[!Important]
->- After migration, validate your connectivity to ensure everything is functioning as expected.
->- After creating the new Gateway, you have the option to revert to the old gateway rather than finalizing the change. **Abort** can be performed at any time after the prepare step, once the new gateway and Public IP have been created. This action will result in the deletion of the your new gateway and connections.
-4. **Commit**: In this stage, you finalize the migration which involves deleting the old gateway and connections. 
+
+1. **Validate**: Ensure all resources are in a succeeded state to confirm the gateway is ready for migration. If prerequisites aren't met, validation fails, and you can't proceed.
+2. **Prepare**: Create a new Virtual Network gateway, Public IP, and connections. This operation can take up to 45 minutes. You can choose a preferred name for the new gateway and connections. If you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any crgeation or modification of connections.
+3. **Migrate**: Select the new gateway to transfer traffic from the old gateway to the new one. This operation can take up to 15 minutes and may cause brief interruptions.
+4. **Commit**: Finalize the migration by deleting the old gateway and connections.
+
+> [!IMPORTANT]
+> After migration, validate your connectivity to ensure everything is functioning as expected. You can revert to the old gateway by selecting **Abort** after the prepare step, which will delete the new gateway and connections.
 
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
