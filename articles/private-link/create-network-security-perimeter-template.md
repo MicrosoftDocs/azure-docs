@@ -10,9 +10,9 @@ ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Azure Resource Manager template, so that I can control the network traffic to and from the resource.
 ---
 
-# # Quickstart - Create a network security perimeter - ARM Template
+# Quickstart - Create a network security perimeter - ARM Template
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure Resource Manager (ARM) template. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quicks.
+Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure Resource Manager (ARM) template. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
