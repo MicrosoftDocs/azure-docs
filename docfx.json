@@ -967,7 +967,7 @@
       },
       "ms.reviewer": {
         "articles/advisor/*.md": "ikhapova",
-        "articles/healthcare-apis/*.md": "leeclontz,"
+        "articles/healthcare-apis/*.md": "leeclontz",
         "articles/hdinsight/kafka/*.md": "nijelsf"     
       },
       "search.appverid": {
