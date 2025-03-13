@@ -1,24 +1,24 @@
 ---
 title: Restore your dev box from a snapshot
-description: Learn how to restore your dev box from a snapshot in Microsoft Dev Box to recover from critical issues.
+description: Learn how to restore your dev box from a snapshot in Microsoft Dev Box to recover from critical issues. Restore your dev box quickly and efficiently.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: article
-ms.date: 02/10/2025
+ms.date: 03/13/2025
 
 #customer intent: As a developer, I want to restore my dev box from a snapshot so that I can perform testing, or quickly recover from critical issues.
 ---
 
 # Restore your dev box from a snapshot
 
-In this article, you restore your dev box to a previous state by using a snapshot. Snapshots are point-in-time copies of your dev box that allow you to revert to a previous state if needed. Microsoft Dev Box automatically takes snapshots of your dev box, ensuring that you have recent restore points available. 
+This article explains how to restore your dev box to a previous state using a snapshot. Snapshots are point-in-time copies of your dev box that allow you to revert to a previous state if needed. Microsoft Dev Box automatically takes snapshots of your dev box, ensuring that you have recent restore points available. 
 
-You can restore your dev box from a snapshot to overcome critical issues, recover lost data, or fix corruption, ensuring minimal downtime and maximum productivity. 
+Restore your dev box from a snapshot to overcome critical issues, recover lost data, or fix corruption, ensuring minimal downtime and maximum productivity.
 
 You can also use snapshots during the testing phase of a project. If you're testing new code or configurations and something goes wrong, restoring from a snapshot allows you to return to a known good state without losing progress or spending time troubleshooting the issue.
 
-Dev Box takes snapshots automatically every 12 hours. Dev Box retains the last 10 snapshots for each dev box and overwrites the oldest snapshot when necessary. You can restore your dev box to any of the last 10 snapshots.
+Dev Box automatically takes snapshots, retains them for each dev box, and overwrites the oldest snapshot when necessary. You can restore your dev box to any of the available snapshots.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Dev Box takes snapshots automatically every 12 hours. Dev Box retains the last 1
 
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-actions-menu-restore.png" alt-text="Screenshot of the developer portal, showing the actions menu for a dev box with the Restore option highlighted.":::
 
-1. Read the information about the effect of restoring your dev box. The restore process deletes data and apps added since the snapshot you choose to restore was taken. The restore process can take hours. Select **Yes, I want to restore this dev box** to confirm.
+1. Read the information about the effect of restoring your dev box. The restore process deletes data and apps added since the chosen snapshot. The restore process can take hours. Select **Yes, I want to restore this dev box** to confirm.
  
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-confirm-restore.png" alt-text="Screenshot of the developer portal, showing the Restore dialog box with the Restore to list highlighted."::: 
 
@@ -46,7 +46,7 @@ Dev Box takes snapshots automatically every 12 hours. Dev Box retains the last 1
 
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-restore-progress.png" alt-text="Screenshot of the developer portal, showing a dev box tile with the message Restoring dev box.":::
  
-1. When the restoration is complete, you receive an email notification informing you that your dev box is restored and ready to use. 
+1. When the restoration is complete, you receive an email notification that your dev box is restored and ready to use. 
 
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-restore-email.png" alt-text="Screenshot of an email notification informing you that your dev box is restored and ready to use.":::
 
