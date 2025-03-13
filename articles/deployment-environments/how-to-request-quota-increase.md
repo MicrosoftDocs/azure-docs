@@ -48,7 +48,7 @@ Follow these steps to request a limit increase:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select Support + Troubleshooting in the menu bar, and then enter **support** in the search window.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Support + Troulbeshooting button and the search box are highligted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Support + Troubleshooting button and the search box are highlighted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
 1. In the **Which service are you having an issue with?** list, select **Service and subscription limits (quotas)**, and then select **Next**.
 
@@ -66,7 +66,7 @@ Follow these steps to request a limit increase:
 
 1. On the **Additional details** tab, in the **Problem details** section, select **Enter details**.
  
-    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page.Enter details is highlighted." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
+    :::image type="content" source="media/how-to-request-capacity-increase/enter-details.png" alt-text="Screenshot of the New support request page. Enter details is highlighted." lightbox="media/how-to-request-capacity-increase/enter-details.png"::: 
 
 1. In **Quota details**, enter the following information, and then select **Next**.
  
