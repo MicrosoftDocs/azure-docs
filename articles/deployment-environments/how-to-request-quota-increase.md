@@ -48,7 +48,7 @@ Follow these steps to request a limit increase:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select Support + Troubleshooting in the menu bar, and then enter **support** in the search window.
 
-    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Request core limit increase button is highligted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
+    :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page. The Support + Troulbeshooting button and the search box are highligted." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
 1. In the **Which service are you having an issue with?** list, select **Service and subscription limits (quotas)**, and then select **Next**.
 
