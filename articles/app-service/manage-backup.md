@@ -3,7 +3,7 @@ title: Back Up an App in App Service
 description: Learn how to restore backups of your apps or configure custom backups in Azure App Service. Customize backups by including the linked database.
 author: msangapu-msft
 ms.author: msangapu
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 02/10/2025 
 ms.custom: devx-track-azurecli
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
@@ -40,11 +40,11 @@ There are two types of backups in App Service. If your app is in a supported pri
 ## Restore a backup
 
 > [!NOTE]
-> App Service stops the target app or target slot while restoring a backup. To minimize downtime for a production app, restore the backup to a [deployment slot](deploy-staging-slots.md) first, then [swap](deploy-staging-slots.md#swap-two-slots) into production.
+> App Service stops the target app or target slot while restoring a backup. To minimize downtime for a production app, restore the backup to a [deployment slot](deploy-staging-slots.md) first, and then [swap](deploy-staging-slots.md#swap-two-slots) into production.
 
 # [Azure portal](#tab/portal)
 
-1. In your app management pane in the [Azure portal](https://portal.azure.com), select **Backups** in the service menu. The **Backups** page lists all the automatic and custom backups for your app and displays the status of each.
+1. In your app management pane in the [Azure portal](https://portal.azure.com), select **Backups** on the left menu. The **Backups** page lists all the automatic and custom backups for your app and displays the status of each.
 
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
@@ -112,7 +112,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 
 ## Create a custom backup
 
-1. Go to your app management pane in the [Azure portal](https://portal.azure.com). In the service menu, select **Backups**.
+1. Go to your app management pane in the [Azure portal](https://portal.azure.com). On the left menu, select **Backups**.
 
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
@@ -146,7 +146,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 ### Back up and restore a linked database
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only Single Server SKUs of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
+> Custom backups with linked databases for App Service support only Single Server tiers of Azure Database for MySQL and PostgreSQL. Since Single Server tiers are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server tier retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 
 >
 > For backup and restore of Flexible Servers, see the respective database documentation:
@@ -331,7 +331,7 @@ When [backing up over Azure Virtual Network](#back-up-and-restore-over-azure-vir
 ### Why is my linked database not backed up?
 
 > [!NOTE]  
-> Custom backups with linked databases for App Service support only Single Server SKUs of Azure Database for MySQL and PostgreSQL. Since Single Server SKUs are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server SKU retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
+> Custom backups with linked databases for App Service support only Single Server tiers of Azure Database for MySQL and PostgreSQL. Since Single Server tiers are being retired, upgrading linked databases to Flexible Server might cause backups to fail. Use native database backup tools to prevent data loss. Standalone MySQL and PostgreSQL servers (for example, on VMs) are unaffected by the Single Server tier retirement. For retirement details, see [MySQL Single Server retirement](/azure/mysql/migrate/whats-happening-to-mysql-single-server) and [PostgreSQL Single Server retirement](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).  
 >
 > For backup and restore of Flexible Servers, see the respective database documentation:
 >- [Azure Database for MySQL - Flexible Server: Back up and restore](/azure/mysql/flexible-server/concepts-backup-restore).
@@ -357,7 +357,7 @@ You can back up to a firewall-protected storage account if it's part of the same
 1. Make a custom backup of the source app to an Azure Storage container.
 2. [Download the backup ZIP file](../storage/blobs/storage-quickstart-blobs-portal.md) and the XML metadata file to your local machine.
 3. Upload both the ZIP and XML files to the target storage account.
-4. In the **Backups** page of your target app, click **Restore** in the top menu.
+4. In the **Backups** page of your target app, click **Restore** on the top menu.
 5. In the **Backup details** section, choose **Storage** as the **Source**. Select the **storage account** where you uploaded the backup files.
 6. Click **Use file in storage account** and select the **ZIP file** to restore.
 7. Configure the remaining settings as outlined in [Restore a backup](#restore-a-backup). Confirm and start the restore process.
