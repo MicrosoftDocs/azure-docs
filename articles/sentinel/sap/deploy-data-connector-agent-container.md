@@ -34,7 +34,7 @@ Content in this article is relevant for your **security**, **infrastructure**, a
 
 :::image type="content" source="media/deployment-steps/deploy-data-connector-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Connect your SAP system step." border="false":::
 
-Content in this article is relevant for your **security** team, using information provided by your **SAP BASIS** teams.
+Content in this article is relevant for your **security** team.
 
 :::zone-end
 
@@ -60,11 +60,11 @@ Before you connect your SAP system to Microsoft Sentinel:
 
 :::zone pivot="connection-agentless"
 
-- Make sure that you have the Microsoft Sentinel **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
+- Make sure that you have the Microsoft Sentinel **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md) <!--what is this solution's new name?-->
 
 - Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
 
-- Make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).
+<!--removed- Make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).-->
 
 :::zone-end
 
@@ -235,7 +235,7 @@ While deployment is also supported from the command line, we recommend that you 
 
 1. In Microsoft Sentinel, select **Configuration > Data connectors**.
 
-1. In the search bar, enter *SAP*. Select **Microsoft Sentinel for SAP** from the search results and then **Open connector page**.
+1. In the search bar, enter *SAP*. Select **Microsoft Sentinel for SAP - agent-based** from the search results and then **Open connector page**.
 
 1. In the **Configuration** area, select **Add new agent (Preview)**.
 
@@ -348,11 +348,11 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
 
 ## Connect your agentless data connector
 
-1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **SAP ABAP and S/4 via cloud connector (Preview)** data connector.
+1. In Microsoft Sentinel, go to the **Configuration > Data connectors** page and locate the **Microsoft Sentinel for SAP - agent-less (Preview) (Preview)** data connector.
 
-1. In the **Configuration** area, under **Connect an SAP integration suite to Microsoft Sentinel**, select **Add connection**.
+1. In the **Configuration** area, scroll down and select **Add SAP client**.
 
-1. In the **Agentless connection** side pane, enter the following details:
+1. In the **Connect to an SAP Client** side pane, enter the following details:
 
     | Field        | Description                      |
     |-------------------------------|---------------------------------------|
@@ -362,11 +362,13 @@ At this stage, the system's **Health** status is **Pending**. If the agent is up
     | **Authorization server URL**  | The *tokenurlurl* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.authentication.region.hana.ondemand.com/oauth/token` |
     | **Integration Suite Endpoint** | The *url* value taken from the Process Integration Runtime service key JSON file. For example: `https://your-tenant.it-account-rt.cfapps.region.hana.ondemand.com` |
 
+1. Select **Connect**.
+
 ## Customize data connector behavior (optional)
 
 If the agentless data connector's default functionality doesn't fit your organization's needs, customize it using SAP Integration Suite value mapping.
 
-Also, due to database performance issues, ingesting Change Docs logs Sybase isn't supported. We recommend that customers using Sybase turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter.
+Also, due to database performance issues, ingesting Change Docs logs running on Sybase isn't supported. We recommend that customers using Sybase turn off ingestion for Change Docs logs in the iflow by configuring the **collect-changedocs-logs** parameter.
 
 For more information, see [Customize your SAP agentless data connector for Microsoft Sentinel](configure-agentless.md).
 
