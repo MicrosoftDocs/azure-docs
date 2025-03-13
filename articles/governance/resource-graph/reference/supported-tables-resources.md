@@ -2254,3 +2254,4 @@ For sample queries for this table, see [Resource Graph sample queries for servic
 - Learn more about the [query language](../concepts/query-language.md).
 - Learn more about how to [explore resources](../concepts/explore-resources.md).
 - See samples of [Starter queries](../samples/starter.md).
+
