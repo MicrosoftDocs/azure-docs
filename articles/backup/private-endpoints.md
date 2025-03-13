@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/20/2024
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and use private endpoints (v1 experience) for Azure Backup

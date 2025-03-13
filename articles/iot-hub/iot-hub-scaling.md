@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 04/08/2024
@@ -49,6 +49,9 @@ Both tiers offer the same security and authentication features.
 | [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
+
+>[!NOTE]
+>The name of a free tier IoT hub might be visible to other free tier users. You can [manage access to your IoT hub by using Microsoft Entra ID and Azure RBAC](authenticate-authorize-azure-ad.md#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment).
 
 ### IoT Hub REST APIs
 

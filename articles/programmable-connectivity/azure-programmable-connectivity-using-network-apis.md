@@ -33,14 +33,16 @@ Create an APC Gateway, following instructions in [Create an APC Gateway](azure-p
 
 - Phone number: a phone number in E.164 format (starting with country code), optionally prefixed with '+'.
 - Hashed phone number: the SHA-256 hash, in hexadecimal representation, of a phone number
+- MSISDN: identical to phone number
 
 #### Network identifier
 
 Each request body contains the field `networkIdentifier`. This object contains the fields `identifierType` and `identifier`. These values are used to identify which Network a request should be routed to.
 
 APC can identify the correct Network in one of three ways:
-- Using the `IPv4` address of the device. Set `identifierType` to `IPv4`, and `identifier` to the IPv4 address of the relevant device.
-- Using the `IPv6` address of the device. Set `identifierType` to `IPv6`, and `identifier` to the IPv6 address of the relevant device.
+- Using the IPv4 address of the device. Set `identifierType` to `IPv4`, and `identifier` to the IPv4 address of the relevant device.
+- Using the IPv6 address of the device. Set `identifierType` to `IPv6`, and `identifier` to the IPv6 address of the relevant device.
+- Using the MSISDN of the device. Set `identifierType` to `MSISDN`, and `identifier` to the MSISDN of the relevant device.
 - Using a Network Code to route to a specific Network. Set `identifierType` to `NetworkCode`, and `identifier` to a Network Code. Network Codes can be obtained using the [`Network` endpoint](#obtain-the-network-of-a-device), or chosen from the following table:
 
 | Operator | NetworkCode |
@@ -65,7 +67,7 @@ To obtain a token for a Service Principal, follow instructions in the [Entra doc
 
 # [Obtain a token for your own user identity](#tab/user-identity)
 
-Obtain a token for your own user identity using the Azure CLI command [get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true) or the PowerShell command [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken). Set the `--resource` parameter (in Azure CLI) or the `-ResourceUrl` parameter (in PowerShell) to `https://management.azure.com/`.
+Obtain a token for your own user identity using the Azure CLI command [az account get-access-token](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true) or the PowerShell command [Get-AzAccessToken](/powershell/module/az.accounts/get-azaccesstoken). Set the `--resource` parameter (in Azure CLI) or the `-ResourceUrl` parameter (in PowerShell) to `https://management.azure.com/`.
 
 ---
 

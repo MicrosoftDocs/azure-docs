@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about third-party integrations available in a Virtual WAN hub.
 author: wtnlee
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: wellee
 # Customer intent: As someone with a networking background, I want to learn about third-party integrations in a Virtual WAN hub.

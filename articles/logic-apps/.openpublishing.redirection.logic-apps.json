@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/install-on-premises-data-gateway.md",
+            "redirect_url": "/data-integration/gateway/service-gateway-install",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/create-serverless-apps-visual-studio.md",
             "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
             "redirect_document_id": false

@@ -126,7 +126,7 @@ The next step is to create Azure files in the storage account. Azure files use a
 
 1. Go to the storage account **azusbobi** > **File shares**.
 1. Select **New file share**.
-1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsouput**.
+1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsoutput**.
 1. Insert the required file share size in **Provisioned capacity**. For example, enter **256 GB**.
 1. Choose **SMB** as **Protocol**.
 1. Select **Create**.

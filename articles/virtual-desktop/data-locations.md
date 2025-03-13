@@ -39,7 +39,7 @@ To keep Azure Virtual Desktop reliable and scalable, traffic patterns and usage 
 
 ## Data locations
 
-Storing customer data and service-generated data is currently supported in the following geographies:
+Storing customer input data and service-generated data is currently supported in the following geographies:
 
 - United States (US)
 - Europe (EU)

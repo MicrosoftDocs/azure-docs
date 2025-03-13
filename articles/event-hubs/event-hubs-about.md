@@ -30,7 +30,7 @@ Event Hubs is a multi-protocol event streaming engine that natively supports Adv
 
 Event Hubs is built as a cloud native broker engine. For this reason, you can run Kafka workloads with better performance, better cost efficiency, and no operational overhead.
 
-For more information, see [Azure Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
+For more information, see [Azure Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md).
 
 ### Schema Registry in Event Hubs
 

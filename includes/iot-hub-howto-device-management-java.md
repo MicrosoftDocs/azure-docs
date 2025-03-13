@@ -2,12 +2,12 @@
 title: Device management using direct methods (Java)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for Java for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 11/25/2024
+ms.date: 1/6/2025
 ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
 ---
 
@@ -21,9 +21,11 @@ This article describes how to use the [Azure IoT SDK for Java](https://github.co
 
 This section describes how to use device application code to create a direct method callback listener.
 
+The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with direct methods on the device.
+
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Device import statement
+### Device import statements
 
 Use the following device import statements to access the Azure IoT SDK for Java.
 
@@ -37,9 +39,16 @@ import com.microsoft.azure.sdk.iot.device.transport.IotHubConnectionStatus;
 import com.microsoft.azure.sdk.iot.device.twin.SubscriptionAcknowledgedCallback;
 ```
 
-### Connect to a device
+### Connect a device to IoT Hub
 
-The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with direct methods on the device.
+A device app can authenticate with IoT Hub using the following methods:
+
+* Shared access key
+* X.509 certificate
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using a shared access key
 
 To connect to a device:
 
@@ -61,6 +70,10 @@ To connect to a device:
     ```java
     client.open(true);
     ```
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-java](iot-hub-howto-auth-device-cert-java.md)]
 
 ### Create a direct method callback listener
 
@@ -92,7 +105,7 @@ The Azure IoT SDK for Java includes a working sample to test the device app conc
 
 This section describes how to initiate a remote reboot on a device using a direct method.
 
-The `ServiceClient` [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod) class contains methods that services can use to access device twins.
+The `ServiceClient` [DeviceMethod](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicemethod) class contains methods that services can use to access direct methods.
 
 ### Service import statements
 

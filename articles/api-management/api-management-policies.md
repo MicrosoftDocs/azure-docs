@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-ms.topic: article
+ms.topic: reference
 ms.date: 10/02/2024
 ms.author: danlep
 ---
@@ -38,8 +38,8 @@ More information about policies:
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
-| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | No | Yes |
-| [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | No | Yes |
+| [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
+| [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 
 ## Authentication and authorization
 
@@ -59,6 +59,7 @@ More information about policies:
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  |Workspace |
 |---------|---------|---------|---------|---------|--------|------|
+| [Enforce content safety checks on LLM requests](llm-content-safety-policy.md) | Enforces content safety checks on LLM requests (prompts) by transmitting them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM. | Yes | Yes | Yes | Yes | Yes |
 | [Validate content](validate-content-policy.md) | Validates the size or content of a request or response body against one or more API schemas. The supported schema formats are JSON and XML. | Yes | Yes | Yes | Yes | Yes |
 | [Validate GraphQL request](validate-graphql-request-policy.md) | Validates and authorizes a request to a GraphQL API. | Yes | Yes | Yes | Yes | No |
 | [Validate OData request](validate-odata-request-policy.md) | Validates a request to an OData API to ensure conformance with the OData specification. | Yes | Yes | Yes | Yes | Yes |

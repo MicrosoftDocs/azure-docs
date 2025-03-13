@@ -5,7 +5,7 @@ author: dlepow
 services: api-management
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: danlep
 ---
@@ -178,7 +178,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-### NodeJS code to generate hash of returnUrl
+### Node.js code to generate hash of returnUrl
 
 ```
 var crypto = require('crypto');
@@ -198,7 +198,7 @@ var signature = digest.toString('base64');
 > [!IMPORTANT]
 > You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) for the delegation changes to take effect.
 
-## Next steps
+## Related content
 - [Learn more about the developer portal.](api-management-howto-developer-portal.md)
 - [Authenticate using Microsoft Entra ID](api-management-howto-aad.md) or with [Azure AD B2C](api-management-howto-aad-b2c.md).
 - More developer portal questions? [Find answers in our FAQ](developer-portal-faq.md).

@@ -4,7 +4,7 @@ description: Learn about Azure Networking Managed Service Provider Partner Progr
 services: networking
 author: skishen525
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: sukishen
 ---

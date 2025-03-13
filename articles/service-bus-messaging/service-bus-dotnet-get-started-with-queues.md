@@ -3,40 +3,42 @@ title: Quickstart - Use Azure Service Bus queues from .NET app
 description: This quickstart shows you how to send messages to and receive messages from Azure Service Bus queues using the .NET programming language.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 12/05/2023
+ms.date: 01/16/2025
 ms.devlang: csharp
 ms.custom: mode-api, passwordless-dotnet, devx-track-dotnet
+# Customer intent: I want to learn how to send messages to an Azure Service Bus queue and receive messages from it.
 ---
 
 # Quickstart: Send and receive messages from an Azure Service Bus queue (.NET)
 
-In this quickstart, you'll do the following steps:
+In this quickstart, you do the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
 2. Create a Service Bus queue, using the Azure portal.
 3. Write a .NET console application to send a set of messages to the queue.
 4. Write a .NET console application to receive those messages from the queue.
 
-    > [!NOTE]
-    > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
+    This quickstart provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus queue and then receiving them. For an overview of the .NET client library, see [Azure Service Bus client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md). For more samples, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## Prerequisites
 
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
-- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax might vary. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
+- **Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10. You can still use the Service Bus client library with previous C# language versions, but the syntax might vary. To use the latest syntax, we recommend that you install .NET 6.0, or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
 
 > [!IMPORTANT]
-> If you are new to Azure, you might find the **Connection String** option easier to follow. Select the **Connection String** tab to see instructions on using a connection string in this quickstart. We recommend that you use the **Passwordless** option in real-world applications and production environments. 
+> If you're new to Azure, you might find the **Connection String** option easier to follow. Select the **Connection String** tab to see instructions on using a connection string in this quickstart. We recommend that you use the **Passwordless** option in real-world applications and production environments. 
 
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
-## Launch Visual Studio and sign-in to Azure
+## Launch Visual Studio
+
+### [Passwordless](#tab/passwordless)
 
 You can authorize access to the service bus namespace using the following steps:
 
@@ -49,6 +51,10 @@ You can authorize access to the service bus namespace using the following steps:
 
     :::image type="content" source="..//storage/blobs/media/storage-quickstart-blobs-dotnet/sign-in-visual-studio-account-small.png" alt-text="Screenshot showing the account selection.":::
 
+### [Connection String](#tab/connection-string)
+Launch Visual Studio. If you see the **Get started** window, select the **Continue without code** link in the right pane.
+
+---
 
 ## Send messages to the queue
 
@@ -260,14 +266,14 @@ This section shows you how to create a .NET console application to send messages
     ```
 
     > [!IMPORTANT]
-    > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it might take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
+    > In most cases, it takes a minute or two for the role assignment to propagate in Azure. In rare cases, it might take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
 8. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace.
     1. On the **Overview** page, select the queue in the bottom-middle pane.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/select-queue.png" alt-text="Image showing the Service Bus Namespace page in the Azure portal with the queue selected." lightbox="./media/service-bus-dotnet-get-started-with-queues/select-queue.png":::
 
-    1. Notice the values in the **Essentials** section.
+    1. Notice the values in the **Settings** section.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue." lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
 
@@ -676,12 +682,8 @@ In this section, you add code to retrieve messages from the queue.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages and three outgoing messages for the queue.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Screenshot showing active messages and size after receive." lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
- 
-## Clean up resources
 
-Navigate to your Service Bus namespace in the Azure portal, and select **Delete** on the Azure portal to delete the namespace and the queue in it.
-
-## See also
+## Additional information
 
 See the following documentation and samples:
 
@@ -690,7 +692,10 @@ See the following documentation and samples:
 - [.NET API reference](/dotnet/api/azure.messaging.servicebus)
 - [Abstract away infrastructure concerns with higher-level frameworks like NServiceBus](./build-message-driven-apps-nservicebus.md)
 
-## Next steps
+## Clean up resources
 
-> [!div class="nextstepaction"]
-> [Get started with Azure Service Bus topics and subscriptions (.NET)](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Navigate to your Service Bus namespace in the Azure portal, and select **Delete** on the Azure portal to delete the namespace and the queue in it.
+
+## Related content
+See [Get started with Azure Service Bus topics and subscriptions (.NET)](service-bus-dotnet-how-to-use-topics-subscriptions.md).
+

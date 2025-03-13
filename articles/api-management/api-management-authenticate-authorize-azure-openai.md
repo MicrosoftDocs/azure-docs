@@ -4,8 +4,8 @@ titleSuffix: Azure API Management
 description: Options to authenticate and authorize to Azure OpenAI APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 02/20/2024
+ms.topic: concept-article
+ms.date: 01/23/2025
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -78,7 +78,7 @@ In this example, the named value in API Management is *openai-api-key*.
 
 ## Authenticate with managed identity
 
-An alternative way to authenticate to an Azure OpenAI API by using a managed identity in Microsoft Entra ID. For background, see
+An alternative and recommended way to authenticate to an Azure OpenAI API is by using a managed identity in Microsoft Entra ID. For background, see
 [How to configure Azure OpenAI Service with managed identity](/azure/ai-services/openai/how-to/managed-identity).
 
 Following are steps to configure your API Management instance to use a managed identity to authenticate requests to an Azure OpenAI API. 

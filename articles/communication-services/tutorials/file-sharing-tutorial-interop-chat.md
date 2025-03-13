@@ -33,7 +33,7 @@ Access the code for this tutorial on [GitHub](https://github.com/Azure-Samples/c
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
 - Using the UI library version [1.17.0](https://www.npmjs.com/package/@azure/communication-react/v/1.17.0) or the latest.
 - Have a Teams meeting created and the meeting link ready.
-- Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) works.
+- Be familiar with how [ChatWithChat Composite](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) works.
 
 
 ## Background
@@ -45,7 +45,7 @@ Once the Azure Communication Services end user is admitted to the call, they wou
 ## Overview
 
 Similar to how we're [Adding Inline Image Support](./inline-image-tutorial-interop-chat.md) to the UI library, we need a `CallWithChat` Composite created. 
-Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-basicexample--basic-example) to create a ChatWithChat Composite.
+Let's follow the basic example from the [storybook page](https://azure.github.io/communication-ui-library/?path=/docs/composites-callwithchatcomposite--docs) to create a ChatWithChat Composite.
 
 From the sample code, it needs `CallWithChatExampleProps`, which is defined as the following code snippet:
 
@@ -124,7 +124,7 @@ You may also want to:
 - [Check UI Library use cases](../concepts/ui-library/ui-library-use-cases.md)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Creating user access tokens](../quickstarts/identity/access-tokens.md)
-- [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
 - [Learn about authentication](../concepts/authentication.md)
 - [Add file sharing with UI Library in Azure Azure Communication Services end user Service Chat](./file-sharing-tutorial-acs-chat.md)
 - [Add inline image with UI Library in Teams Interoperability Chat](./inline-image-tutorial-interop-chat.md)

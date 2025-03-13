@@ -209,7 +209,7 @@ Next, we need to find the secret key and endpoint URL for the Computer Vision se
 
 2. Once the Computer Vision service is created, you can retrieve the secret keys and URL endpoint using the commands below.
 
-    ```azurelci-interactive
+    ```azurecli-interactive
     az cognitiveservices account keys list \
         --name msdocs-process-image \
         --resource-group msdocs-storage-function  

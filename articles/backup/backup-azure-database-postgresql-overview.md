@@ -2,10 +2,10 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup
 ms.topic: overview
-ms.date: 11/20/2024
+ms.date: 03/06/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # About Azure Database for PostgreSQL backup
@@ -21,12 +21,32 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 You can use this solution independently or in addition to the [native backup solution offered by Azure PostgreSQL](/azure/postgresql/concepts-backup) that offers retention up to 35 days. The native solution is suited for operational recoveries, such as when you want to recover from the latest backups. The Azure Backup solution helps you with your compliance needs and more granular and flexible backup/restore.
 
+## Changes to Vaulted backups for PostgreSQL single server
+
+Azure Database for PostgreSQL single servers is scheduled for retirement on **March 28, 2025**. On this date, changes will be implemented to Azure Backup for PostgreSQL single servers. Learn more [about the retirement announcement here](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server).
+
+Azure Backup provides compliance and resiliency solutions, including vaulted backups and long-term retention of restore points. Starting **March 28, 2025**, the following changes will take effect:
+
+- The backup configuration won't be allowed for new PostgreSQL single server workloads.
+- All scheduled backup jobs will be permanently discontinued.
+- Creation of new backup policies or modification of existing ones for this workload won't be possible.
+
+Scheduled backup jobs for your PostgreSQL single server databases will be permanently stopped, and no new restore points will be created after this date.
+However, your existing PostgreSQL single server database backups will be retained as per the backup policy. The restore point will only be deleted after the expiration of the retention period. To retain the restore points indefinitely or delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
+
+### Changes in billing
+
+You'll no longer be charged **Protected Instance (PI)** fee after **March 31, 2025** for protecting your PostgreSQL single server databases. But, **Storage** fee for storing your backups will still apply after **March 31, 2025**. To avoid the Storage fee, delete all restore points from the Azure Business Continuity Center.
+
 >[!Note]
->Azure Database for PostgreSQL - Single Server is on the retirement path and is scheduled for retirement by March 28, 2025. 
->
->If you currently have an Azure Database for PostgreSQL - Single Server service hosting production servers, we're glad to inform you that you can migrate your Azure Database for PostgreSQL - Single Server to the Azure Database for PostgreSQL - Flexible Server. 
->
->Azure Database for PostgreSQL - Flexible Server is a fully managed production-ready> database service designed for more granular control and flexibility over database management functions and configuration settings with the enterprise grade [backup solution by Azure Backup](backup-azure-database-postgresql-flex-overview.md). For more information about Azure Database for PostgreSQL - Flexible Server, visit Azure Database for PostgreSQL - Flexible Server.
+>Azure Backup will retain the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and save on Storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-protection).
+
+### Changes in restore
+
+You can restore PostgreSQL single server databases as **Restore as Files**. Then you need to manually [create a new PostgreSQL flexible server](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql) from the restored files. 
+
+>[!Note]
+>**Restore as Database** won't be supported after **March 28, 2025**; only **Restore as Files** will be supported.
 
 ## Backup process
 

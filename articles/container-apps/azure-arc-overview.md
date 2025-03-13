@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/21/2024
+ms.date: 03/06/2025
 ms.author: cshoe
 ---
 
 # Azure Container Apps on Azure Arc (Preview)
 
-You can run Container Apps on an Azure Arc-enabled AKS or AKS-HCI cluster.
+You can run Container Apps on an Azure Arc-enabled AKS or AKS on Azure Local cluster.
 
 Running in an Azure Arc-enabled Kubernetes cluster allows:
 
@@ -44,7 +44,7 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
 > [!IMPORTANT]
-> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+> If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
 
 ## Resources created by the Container Apps extension
 
@@ -231,6 +231,14 @@ Arm64 based clusters aren't supported at this time.
 
   - Resolved issue with MDM Init container which caused container to crash in event it couldn't be pulled
   - Added support for [Logic Apps Hybrid Deployment Model (Public Preview)](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-introducing-the-logic-apps-hybrid-deployment-model/ba-p/4271568)
+
+### Container Apps extension v1.37.8 (March 2025)
+
+  - Resolved issue with SMB storage's read-only attribute which was not setting correctly
+  - Resolved issue with cleanup hook
+  - Added support for health probes for Logic Apps
+  - Added support for JWT authentication for sync trigger
+  - Added User Event for when system namespace is the same as the app namespace
 
 ## Next steps
 

@@ -24,7 +24,9 @@ The following two sections give a high-level view of the components in typical c
 
 A **cloud-based solution** is an integrated set of IoT devices, components, and services, that addresses a business need and that connects devices directly to the cloud. An example of a cloud-based solution is a fleet of delivery trucks that send telemetry data to the cloud for analysis and visualization:
 
-:::image type="content" source="media/iot-introduction/iot-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for cloud-based solutions." border="false":::
+<!-- Art Library Source# ConceptArt-0-000-025 -->
+
+:::image type="content" source="media/iot-introduction/iot-cloud-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for cloud-based solutions." border="false":::
 
 You can build cloud-based solutions with services such as [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md), [Device Provisioning Service](../iot-dps/about-iot-dps.md), and [Azure Digital Twins](../digital-twins/overview.md).
 
@@ -35,7 +37,9 @@ An **edge-based solution** is an integrated set of IoT assets, components, and s
 
 An edge-based solution can still forward data from your assets to the cloud for further processing such as analysis and visualization:
 
-:::image type="content" source="media/iot-introduction/iot-architecture-aio.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
+<!-- Art Library Source# ConceptArt-0-000-025 -->
+
+:::image type="content" source="media/iot-introduction/iot-edge-architecture.svg" alt-text="Diagram that shows the high-level IoT solution architecture for edge-based solutions." border="false":::
 
 You can build edge-based solutions with [Azure IoT Operations](../iot-operations/overview-iot-operations.md) or [Azure IoT Edge](../iot-edge/about-iot-edge.md). Azure IoT Operations is a new offering that follows Microsoft's [adaptive cloud approach](#solution-management) to integrate cloud and edge components.
 
@@ -96,7 +100,7 @@ IoT devices have different characteristics when compared to other clients such a
 
 The device SDKs help you address the challenges of connecting devices securely and reliably to your cloud services.
 
-To learn more device connectivity and gateways, see [Device infrastructure and connectivity](iot-overview-device-connectivity.md).
+To learn more about device connectivity and gateways, see [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md).
 
 ### Connectivity in an edge-based solution
 
@@ -115,7 +119,7 @@ The following table summarizes current options for assets, devices, and connecti
 | Current offerings (GA)          | Cloud-based solution | Edge-based solution |
 |---------------------------------|----------------------|---------------------|
 | Connected object types          | IoT devices                                          | IoT devices, and assets (a broader set of physical or virtual entities that includes IoT devices)                                     |
-| Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1                              | HTTP, AMQP, MQTT v3.1.1, MQTT v5. In [Azure IoT Operations](../iot-operations/overview-iot-operations.md), connectors enable other protocols. Azure IoT Operations includes OPC UA connector, media connector, and ONVIF connector. Custom connectors are possible.                          |
+| Device connectivity protocols   | HTTP, AMQP, MQTT v3.1.1                              | HTTP, AMQP, MQTT v3.1.1, MQTT v5. In [Azure IoT Operations](../iot-operations/overview-iot-operations.md), connectors enable other protocols. Azure IoT Operations includes connector for OPC UA, media connector, and connector for ONVIF. Custom connectors are possible.                          |
 | Device implementation           | Microsoft IoT device SDKs and embedded device SDKs   | Microsoft IoT device SDKs and embedded device SDKs |
 | Device management               | [IoT DPS](../iot-dps/index.yml), [Device Update](../iot-hub-device-update/index.yml), [IoT Central](../iot-central/index.yml)  | In Azure IoT Operations, use [Azure Device Registry](../iot-operations/discover-manage-assets/overview-manage-assets.md). Use Akri to enable automated asset/device discovery with native protocols. In [IoT Edge](../iot-edge/index.yml), use [IoT DPS](../iot-dps/index.yml) for large-scale device management.|
 
@@ -209,7 +213,7 @@ The following table summarizes current security options:
 Suggested next steps to explore Azure IoT further include:
 
 - [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
+- [IoT asset and device connectivity and infrastructure](iot-overview-device-connectivity.md)
 - [Azure IoT services and technologies](iot-services-and-technologies.md)
 
 To learn more about Azure IoT architecture, see:

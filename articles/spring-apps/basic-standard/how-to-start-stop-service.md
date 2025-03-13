@@ -1,8 +1,9 @@
 ---
-title: How to start or stop an Azure Spring Apps service instance
+title: How to Start or Stop an Azure Spring Apps Service Instance
 description: Describes how to start or stop an Azure Spring Apps service instance
 author: KarlErickson
-ms.author: wepa
+ms.author: karler
+ms.reviewer: wepa
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
@@ -27,10 +28,10 @@ To reduce your costs further, you can completely stop your Azure Spring Apps ser
 
 The ability to stop and start your Azure Spring Apps service instance has the following limitations:
 
-- You can stop and start your Azure Spring Apps service instance to help you save costs. However, you shouldn't stop and start a running instance for service recovery - for example, to recover from an invalid virtual network configuration.
-- The state of a stopped Azure Spring Apps service instance is preserved for up to 90 days. If your cluster is stopped for more than 90 days, you can't recover the cluster state.
+- You can stop and start your Azure Spring Apps service instance to help you save costs. However, stopping and then starting a service instance doesn't automatically fix system errors or recover invalid settings. For example, it can't recover from an invalid virtual network configuration.
 - You can only start, view, or delete a stopped Azure Spring Apps service instance. You must start your service instance before performing any update operation, such as creating or scaling an app.
-- If an Azure Spring Apps service instance has been stopped or started successfully, you have to wait for at least 30 minutes to start or stop the instance again. However, if your last operation failed, you can try again to start or stop without having to wait.
+- The state of a stopped Azure Spring Apps service instance is preserved for up to 90 days. If the service instance is stopped for more than 90 days, you can't perform any operations on this instance except fetching settings or deleting it.
+- If an Azure Spring Apps service instance is stopped or started successfully, you have to wait for at least 30 minutes to start or stop the instance again. However, if your last operation failed, you can try again without waiting.
 - For virtual network instances, the start operation may fail due to invalid virtual network configurations. For more information, see [Customer responsibilities for running Azure Spring Apps in a virtual network](./vnet-customer-responsibilities.md).
 
 ## Prerequisites

@@ -3,7 +3,7 @@ title: Registration Management
 description: This topic explains how to register devices with notification hubs in order to receive push notifications.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple

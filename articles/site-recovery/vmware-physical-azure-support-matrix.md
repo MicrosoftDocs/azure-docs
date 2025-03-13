@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 11/18/2024
+ms.date: 03/11/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23, linux-related-content
@@ -62,7 +62,9 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 NAT | Supported
 
 > [!NOTE]
-> Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+> Operating system must be installed with English locale. Conversion of locale post installation could result in potential issues.
+>
+> FQDN or NAT IP selection is a one time selection and cannot be changed later the appliance .
 
 ## Replicated machines
 
@@ -104,7 +106,7 @@ Windows 7 with SP1 64-bit | Supported from [Update rollup 36](https://support.mi
 
 **Operating system** | **Details**
 --- | ---
-Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Every Linux server should have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed. It is required to boot the server in Azure after test failover/failover. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.<br/><br/> Chained IO isn't supported by Site Recovery.
+Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Every Linux server should have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed. It is required to boot the server in Azure after test failover/failover. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.<br/><br/> Chained IO isn't supported by Site Recovery. <br/><br/> **Note**: The Azure failover VM requires the Guest Agent on the server. Although the failover process installs the Guest Agent, the source server must preinstall Python 2.6 or later to ensure a successful installation on the target (failover) VM. [Learn more](https://learn.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements).
 Linux Red Hat Enterprise | 5.2 to 5.11</b><br/> 6.1 to 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9 Beta version](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4  <br/> Few older kernels on servers running Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 don't have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) pre-installed. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.  <br> <br> **Notes**: <br> - Support for Linux Red Hat Enterprise versions `8.9`, `8.10`, `9.0`, `9.1`, `9.2`, `9.3` and `9.4` is only available for Modernized experience and isn't available for Classic experience. <br> - RHEL `9.x` is supported for [the following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines) |
 Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> Ubuntu 22.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. </br> (*includes support for all 14.04.*x*, 16.04.*x*, 18.04.*x*, 20.04.*x* versions)  
 Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 isn't supported.). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 10, Debian 11, Debian 12 [(Review supported kernel versions)](#debian-kernel-versions).
@@ -270,7 +272,7 @@ Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
 Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.
-Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
+Boot directory | Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /(root) partition <br/><br/> 600 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.
@@ -279,7 +281,7 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Supported.<br/> You can manually enable replication on a disk added after a VMware VM has been protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
 Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
@@ -330,7 +332,7 @@ Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes
 Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
-Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
+Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers. <br> Failback and Re-protect is not supported.
 Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
@@ -338,7 +340,7 @@ FIPS encryption | No
 Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
-Guest/server RDM | Yes<br/><br/> N/A for physical servers
+Guest/server RDM | Yes<br/><br/> However, when failing back such VMs from Azure to on-premises VMware, the RDM disks attach as additional disks. <br> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
@@ -346,12 +348,12 @@ Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
 Guest/server - NVMe interface | Yes, for Windows machines. Not supported for Linux machines.
-Guest/server hot add/remove disk | No
+Guest/server hot add | Yes
+Guest/server - remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
 Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](/azure/virtual-machines/generation-2#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](/azure/virtual-machines/generation-2#on-premises-vs-azure-generation-2-vms) <br/> - Windows 2008 R2 SP1 & Windows 2008 SP2 servers with UEFI isn't supported. 
-RAID disk| Hardware RAID disks aren't supported.<br/> Software RAID disks are supported. 
 Storage vMotion | Supported for migration. Not supported for disaster recovery. 
 BIOS | Supported.
 
@@ -384,6 +386,7 @@ Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
 Soft delete | Not supported.
 Disk subscription limits | Up to 3000 protected disks per subscription. Ensure that the target subscription doesn't have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
+Notating hierarchal namespace | Not supported.
 
 ## Azure compute
 
@@ -416,7 +419,7 @@ VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and
 
 ## Resource group limits
 
-To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).
+To understand the number of virtual machines that can be protected under a single resource group, refer to the article on [subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).
 
 ## Churn limits
 

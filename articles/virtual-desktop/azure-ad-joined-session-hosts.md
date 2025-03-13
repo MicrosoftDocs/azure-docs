@@ -93,4 +93,4 @@ Now that you've deployed some Microsoft Entra joined VMs, we recommend enabling 
 - [Create a profile container with Azure Files and Microsoft Entra ID](create-profile-container-azure-ad.yml)
 - [Connect with the Windows Desktop client](users/connect-windows.md)
 - [Connect with the web client](users/connect-web.md)
-- [Troubleshoot connections to Microsoft Entra joined VMs](troubleshoot-azure-ad-connections.md)
+- [Troubleshoot connections to Microsoft Entra joined VMs](/troubleshoot/azure/virtual-desktop/troubleshoot-azure-ad-connections)

@@ -28,7 +28,7 @@ The SAP HANA on Azure (Large Instances) types, referred to in SAP HANA certified
 - BW/4HANA
 - Other SAP HANA workloads in Azure. 
 
-The solution is based on the SAP-HANA certified dedicated hardware stamp ([SAP HANA tailored data center integration – TDI](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html)). If you run an SAP HANA TDI-configured solution, all the above SAP HANA-based applications work on the hardware infrastructure.
+The solution is based on the SAP-HANA certified dedicated hardware stamp ([SAP HANA tailored data center integration – TDI](https://help.sap.com/docs/SAP_HANA_PLATFORM/eb3777d5495d46c5b2fa773206bbfb46/0b15a92d554c4941a452c9ca127f8c70.html)). If you run an SAP HANA TDI-configured solution, all the above SAP HANA-based applications work on the hardware infrastructure.
 
 Compared to running SAP HANA in VMs, this solution offers the benefit of much larger memory volumes. 
 

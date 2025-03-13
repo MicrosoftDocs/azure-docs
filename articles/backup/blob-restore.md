@@ -2,9 +2,9 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 07/24/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 12/24/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Restore Azure Blobs
@@ -32,23 +32,25 @@ This article describes how to use the Azure portal to perform restores for Azure
 
 ## Restore blobs
 
-To initiate a restore through the Backup center, follow these steps:
+To initiate a restore through the Azure Business Continuity Center, follow these steps:
 
-1. In Backup center, go to **Restore** on the top bar.
+1. Go to **Business Continuity Center**, and then select **Recover**.
 
-    ![Restore in Backup Center](./media/blob-restore/backup-center-restore.png)
+    :::image type="content" source="./media/blob-restore/azure-business-continuity-center-recover-blob.png" alt-text="Screenshot shows how to start recovering Azure Blob from Azure Business Continuity Center." lightbox="./media/blob-restore/azure-business-continuity-center-recover-blob.png":::
 
-1. On the **Initiate Restore** tab, choose **Azure Blobs (Azure Storage)** as the Datasource type and select the **Backup Instance** you want to restore. The backup instance is the storage account that contains the blobs you want to restore.
+1. On the **Recover** pane, under **Resources managed by**, select **Azure Blobs (Azure Storage)** as  the **Datasource type**, which you want to recover, and then select **Backup** as a solution through which you want to recover the item. Click **Select** to select the item on which you want to perform the recovery action.
 
-     ![Select Backup Instance](./media/blob-restore/select-backup-instance.png)
+     :::image type="content" source="./media/blob-restore/select-backup-instance.png" alt-text="Screenshot shows how to select a Backup Instance." lightbox="./media/blob-restore/select-backup-instance.png":::
 
 1. On the **Select recovery point** tab, select the type of backup you want to restore.
 
    - For operational backup, choose the date and time you want to restore your data. You can also use the slider to choose the point-in-time to restore from. The restoration details appear next to the date, which shows the valid duration from which you can restore your data. Operational backup for blobs is a continuous backup and gives granular control over points to recover data from.
+      
+        :::image type="content" source="./media/blob-restore/select-backup-type-for-restore-operational.png" alt-text="Screenshot shows the restore options for blob operational backup." lightbox="./media/blob-restore/select-backup-type-for-restore-operational.png"::: 
 
    - For vaulted backup, choose a recovery point from which you want to perform the restore.
  
-   :::image type="content" source="./media/blob-restore/select-backup-type-for-restore-inline.png" alt-text="Screenshot shows the restore options for blob backup." lightbox="./media/blob-restore/select-backup-type-for-restore-expanded.png":::
+        :::image type="content" source="./media/blob-restore/select-backup-type-for-restore-vaulted.png" alt-text="Screenshot shows the restore options for blob vaulted backup." lightbox="./media/blob-restore/select-backup-type-for-restore-vaulted.png":::
 
    >[!NOTE]
    > The time mentioned here is your local time.
@@ -83,9 +85,9 @@ To initiate a restore through the Backup center, follow these steps:
 
 1. Once you finish specifying what blobs to restore, continue to the **Review + restore** tab, and select **Restore** to initiate the restore.
 
-1. **Track restore**: Use the **Backup Jobs** view to track the details and status of restores. To do this, navigate to **Backup Center** > **Backup Jobs**. The status will show **In progress** while the restore is being performed.
+1. **Track restore**: Use the **Backup Jobs** view to track the details and status of restores. To do this, go to **Business Continuity Center** > **Jobs**. The status will show **In progress** while the restore is being performed.
 
-    ![Backup jobs tab](./media/blob-restore/backup-jobs.png)
+    :::image type="content" source="./media/blob-restore/backup-jobs.png" alt-text="Screenshot shows how to track restore operations." lightbox="./media/blob-restore/backup-jobs.png":::
 
     When the restore operation successfully completes, the status will change to **Completed**. Once the restore completes successfully, you'll be able to read and write blobs in the storage account again.
 

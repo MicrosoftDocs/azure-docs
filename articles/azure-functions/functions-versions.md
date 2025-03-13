@@ -31,7 +31,7 @@ All functions in a function app must share the same language. You choose the lan
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#retired-runtime-versions).
+For information about the language versions of previously supported versions of the Functions runtime, see [Retired runtime versions](language-support-policy.md#language-support-related-resources).
 
 ## <a name="creating-1x-apps"></a>Run on a specific version
 
@@ -66,7 +66,7 @@ Older minor versions are periodically removed from Functions. For the latest new
 ::: zone pivot="programming-language-csharp"
 There's technically not a correlation between binding extension versions and the Functions runtime version. However, starting with version 4.x the Functions runtime enforces a minimum version for all trigger and binding extensions. 
 
-If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [the linked configuration file](https://github.com/Azure/azure-functions-host/blob/v4.x/src/WebJobs.Script/extensionrequirements.json).
+If you receive a warning about a package not meeting a minimum required version, you should update that NuGet package to the minimum version as you normally would. The minimum version requirements for extensions used in Functions v4.x can be found in [the linked configuration file](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script/extensionrequirements.json).
 
 For C# script, update the extension bundle reference in the host.json as follows:
 

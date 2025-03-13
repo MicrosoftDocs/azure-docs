@@ -110,7 +110,7 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
 ```json
 {
@@ -325,7 +325,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 The **RadioSingleSelect** user input type is used to provide a collection of radio buttons that allows the user to select one option.
 
-![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
+![Using claim type with radiosingleselect](./media/claimsschema/radiosingleselect.png)
 
 ```xml
 <ClaimType Id="color">

@@ -62,11 +62,18 @@ The following connectors use the current codeless connector platform but don't h
 
 |Codeless connector name  |Azure Marketplace solution  |
 |---------|---------|
-|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |       
+|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |
+|Auth0| [Auth0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-auth0?tab=Overview)
+|Box| [Box Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-box?tab=Overview)
 |Cisco Meraki (using Rest API)    |   [Cisco Meraki Events via REST API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-ciscomerakinativepoller?tab=Overview)|        
-|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|        
+|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|
+| Google Cloud Platform Firewall Logs | [Google Cloud Platform Firewall Logs](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-gcpfirewalllogs-api?tab=Overview)
+| Google Cloud Platform Load Balancer (including WAF aka Cloud Armour logs) (Preview)| [Google Cloud Platform Load Balancer Logs (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-gcploadbalancerlogs-api?tab=Overview)
 |Okta Single Sign-On (Preview)|[Okta Single Sign-On Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-okta?tab=Overview)|
+|Palo Alto Corex XDR | [Palo Alto Cortex XDR CCP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-cortexccp?tab=Overview)
+|SentinelOne | [SentinelOne](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelone?tab=Overview)
 |Sophos Endpoint Protection (using REST API) (Preview)|[Sophos Endpoint Protection Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sophosep?tab=Overview)|
+|VMWare Carbon Black | [VMware Carbon Black Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-vmwarecarbonblack?tab=Overview)
 |Workday User Activity (Preview)|[Workday (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-workday?tab=Overview)|
 
 For more information about the codeless connector platform, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
@@ -186,6 +193,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Cribl](data-connectors/cribl.md)
 
+## CTERA Networks Ltd
+
+- [CTERA Syslog](data-connectors/ctera-syslog.md)
+
 ## Crowdstrike
 
 - [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
@@ -237,12 +248,20 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Digital Shadows Searchlight (using Azure Functions)](data-connectors/digital-shadows-searchlight.md)
 
+## Doppel
+
+- [Doppel Data Connector](data-connectors/doppel-data-connector.md)
+
 ## Dynatrace
 
 - [Dynatrace Attacks](data-connectors/dynatrace-attacks.md)
 - [Dynatrace Audit Logs](data-connectors/dynatrace-audit-logs.md)
 - [Dynatrace Problems](data-connectors/dynatrace-problems.md)
 - [Dynatrace Runtime Vulnerabilities](data-connectors/dynatrace-runtime-vulnerabilities.md)
+
+## ESET
+
+- [ESET Protect Platform (using Azure Functions)](data-connectors/eset-protect-platform.md)
 
 ## Elastic
 
@@ -272,6 +291,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Fortinet
 
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
+
+## Garrison Technology
+
+- [Garrison ULTRA Remote Logs (using Azure Functions)](data-connectors/garrison-ultra-remote-logs.md)
 
 ## Gigamon, Inc
 
@@ -377,7 +400,7 @@ For more information about the codeless connector platform, see [Create a codele
 - [Premium Microsoft Defender Threat Intelligence (Preview)](data-connectors/premium-microsoft-defender-threat-intelligence.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](data-connectors/threat-intelligence-platforms.md)
-- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-indicators-api.md)
+- [Threat Intelligence Upload Indicators API (Preview)](data-connectors/threat-intelligence-upload-api.md)
 - [Microsoft Defender for IoT](data-connectors/microsoft-defender-for-iot.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Firewall Events via AMA (Preview)](data-connectors/windows-firewall-events-via-ama.md)
@@ -398,6 +421,7 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
+- [IIS Logs of Microsoft Exchange Servers](data-connectors/iis-logs-of-microsoft-exchange-servers.md)
 - [Microsoft Active-Directory Domain Controllers Security Event Logs](data-connectors/microsoft-active-directory-domain-controllers-security-event-logs.md)
 - [Microsoft Exchange Admin Audit Logs by Event Logs](data-connectors/microsoft-exchange-admin-audit-logs-by-event-logs.md)
 - [Microsoft Exchange HTTP Proxy Logs](data-connectors/microsoft-exchange-http-proxy-logs.md)
@@ -408,6 +432,9 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Mimecast North America
 
+- [Mimecast Audit (using Azure Functions)](data-connectors/mimecast-audit.md)
+- [Mimecast Awareness Training (using Azure Functions)](data-connectors/mimecast-awareness-training.md)
+- [Mimecast Cloud Integrated (using Azure Functions)](data-connectors/mimecast-cloud-integrated.md)
 - [Mimecast Audit & Authentication (using Azure Functions)](data-connectors/mimecast-audit-authentication.md)
 - [Mimecast Secure Email Gateway (using Azure Functions)](data-connectors/mimecast-secure-email-gateway.md)
 - [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md)
@@ -509,6 +536,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## SERAPHIC ALGORITHMS LTD
 
 - [Seraphic Web Security](data-connectors/seraphic-web-security.md)
+
+## Siemens DI Software
+
+- [SINEC Security Guard](data-connectors/sinec-security-guard.md)
 
 ## Silverfort Ltd.
 

@@ -2199,8 +2199,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | objectAnchorsAccounts | Yes |
-> | objectUnderstandingAccounts | Yes |
 > | remoteRenderingAccounts | Yes |
 
 ## Microsoft.MobileNetwork
@@ -2475,21 +2473,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | workspaces / scopedPrivateLinkProxies | No |
 > | workspaces / storageInsightConfigs | No |
 > | workspaces / tables | No |
-
-## Microsoft.Orbital
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | contactProfiles | Yes |
-> | edgeSites | Yes |
-> | globalCommunicationsSites | No |
-> | groundStations | Yes |
-> | l2Connections | Yes |
-> | l3Connections | Yes |
-> | orbitalGateways | Yes |
-> | spacecrafts | Yes |
-> | spacecrafts / contacts | No |
 
 ## Microsoft.Peering
 

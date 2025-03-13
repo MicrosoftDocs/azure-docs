@@ -1,71 +1,188 @@
 ---
-title: "Quickstart: Configure Backup for an Azure PostgreSQL - Flexible server using PowerShell"
-description: Learn how to back up your Azure PostgreSQL - Flexible server with PowerShell.
+title: "Quickstart: Create a backup policy for an Azure PostgreSQL - Flexible Server using PowerShell"
+description: Learn how to create a backup policy for your Azure PostgreSQL - Flexible Server with PowerShell.
 ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 10/07/2024
+ms.date: 02/28/2025
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
-#  Back up an Azure PostgreSQL - Flexible servers with PowerShell (preview)
+# Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 
-[Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible servers using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure PostgreSQL - Flexible servers with PowerShell.
+This quickstart describes how to create a backup policy to protect Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 
-For info on PostgreSQL databases supported scenarios and limitations, see the [support matrix](backup-azure-database-postgresql-flex-support-matrix.md).
+Azure Backup policy for Azure Database for PostgreSQL - Flexible Server defines how and when backups are created, the retention period for recovery points, and the rules for data protection and recovery. [Azure Backup](backup-azure-database-postgresql-flex-overview.md) allows you to back up your Azure PostgreSQL - Flexible Server using multiple clients, such as [Azure portal](tutorial-create-first-backup-azure-database-postgresql-flex.md), [PowerShell](back-up-azure-database-postgresql-flex-backup-powershell.md), [CLI](back-up-azure-database-postgresql-flex-backup-cli.md), [Azure Resource Manager](quick-backup-postgresql-flexible-server-arm.md), [Bicep](quick-backup-postgresql-flexible-server-bicep.md), [Terraform](quick-backup-postgresql-flexible-server-terraform.md), and so on. 
 
-## Create a Backup vault
+## Prerequisites
 
-In this article, we create a Backup vault _TestBkpVault_, in the region _westus_, under the resource group _testBkpVaultRG_. 
+Before you create a backup policy for Azure Database for PostgreSQL Flexible Server, ensure that the following prerequisites are met:
+
+- Review the [supported scenarios and limitations for backing up Azure Database for PostgreSQL - Flexible Servers](backup-azure-database-postgresql-flex-support-matrix.md).
+- [Create a Backup vault](back-up-azure-database-postgresql-flex-backup-powershell.md#create-a-backup-vault) to store the recovery points for the database.
+
+## Create a backup policy
+
+To create a backup policy for  PostgreSQL – Flexible Server, follow these steps:
+
+1. Understand PostgreSQL - Flexible Server backup policy
+1. Retrieve the policy template
+1. Modify the policy template
+1. Create the policy
+
+### Understand PostgreSQL – Flexible Server backup policy
+
+Disk backup offers multiple backups per day, and blob backup is a continuous backup with no trigger. Now, let's understand the backup policy object for PostgreSQL – Flexible Server.
+
+- PolicyRule
+  - BackupRule
+    - BackupParameter
+      - BackupType (A full database backup in this scenario)
+      - Initial Datastore (Where the backups land initially)
+      - Trigger (How the backup is triggered)
+        - Schedule based
+        - Default tagging criteria (a default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
+  - Default Retention Rule (A rule that is applied to all backups, by default, on the initial datastore)
+
+So, this object defines:
+
+- The type of backups triggered
+- The way the policy are triggered (via a schedule)
+- The tags implemented to the Backup policy
+- The location where the data is stored (a datastore)
+- The life cycle of the backup data in a datastore
+
+ The default PowerShell object for PostgreSQL – Flexible Server triggers a full backup every week and they reach the vault, where they're stored for *three months*.
+
+### Retrieve the Policy template
+
+To understand the inner components of a backup policy for Azure PostgreSQL – Flexible server database backup, retrieve the policy template using the [Get-AzDataProtectionPolicyTemplate](/powershell/module/az.dataprotection/get-azdataprotectionpolicytemplate) cmdlet. This cmdlet returns a default policy template for a given datasource type. Use this policy template to create a new policy.
 
 ```azurepowershell
-
-$storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore
-
-New-AzDataProtectionBackupVault -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Location westus -StorageSetting $storageSetting
-$TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault
-```
-
-## Create a Backup policy
-
-We'll generate a default policy template for a PostgreSQL - Flexible server. Then, we'll use this policy template to create a new policy.
-
-```azurecli
 $policyDefn = Get-AzDataProtectionPolicyTemplate -DatasourceType AzureDatabaseForPGFlexServer
+$policyDefn | fl
+
+DatasourceType : {Microsoft.DBforPostgreSQL/flexibleServers/databases}
+ObjectType     : BackupPolicy
+PolicyRule     : {BackupWeekly, Default}
+
+$policyDefn.PolicyRule | fl
+
+BackupParameter           : Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api20210701.AzureBackupParams
+BackupParameterObjectType : AzureBackupParams
+DataStoreObjectType       : DataStoreInfoBase
+DataStoreType             : VaultStore
+Name                      : BackupWeekly
+ObjectType                : AzureBackupRule
+Trigger                   : Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api20210701.ScheduleBasedTriggerCo
+                            ntext
+TriggerObjectType         : ScheduleBasedTriggerContext
+
+IsDefault  : True
+Lifecycle  : {Microsoft.Azure.PowerShell.Cmdlets.DataProtection.Models.Api20210701.SourceLifeCycle}
+Name       : Default
+ObjectType : AzureRetentionRule
+
 ```
 
-The default policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure PostgreSQL - flexible server backup, the default value for trigger is a scheduled Weekly trigger (one backup every seven days) and to retain each backup for three months.
+The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete, copy, move the backup). In Azure PostgreSQL – Flexible Server database backup, the default value for trigger is a scheduled **Weekly** trigger (one backup every 7 days) and to retain each backup for **three months**.
 
-With the below command, we'll create a policy using the Default template.
+```azurepowershell
+JSON
+$policyDefn.PolicyRule[0].Trigger | fl
 
-```azurecli
-$polOss = New-AzDataProtectionBackupPolicy -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Name "TestOSSPolicy" -Policy $policyDefn
+ObjectType                    : ScheduleBasedTriggerContext
+ScheduleRepeatingTimeInterval : {R/2021-08-22T02:00:00+00:00/P1W}
+ScheduleTimeZone              : UTC
+TaggingCriterion              : {Default}
+
 ```
 
-## Configure backup
+**Default retention rule lifecycle:**:
 
-Once the vault and policy are created, there are three critical points that you need to consider to protect an Azure PostgreSQL database.
+```json
+$policyDefn.PolicyRule[1].Lifecycle | fl
 
-1. Backup vault has to connect to the PostgreSQL - flexible server, therefore, it requires access to this server. Access is granted to the Managed System Identity (MSI) of the Backup Vault.
+DeleteAfterDuration        : P3M
+DeleteAfterObjectType      : AbsoluteDeleteOption
+SourceDataStoreObjectType  : DataStoreInfoBase
+SourceDataStoreType        : VaultStore
+TargetDataStoreCopySetting : {}
 
-See the [permissions](.\backup-azure-database-postgresql-flex-overview.md#permissions-for-backup) you should grant to the Managed System Identity (MSI) of the Backup Vault on the PostgreSQL - flexible server.
-
-2. Once all the required permissions are set, we'll prepare the relevant request to configure backup for the PostgreSQL - Flexible server.
- 
-```azurecli
-$instance = Initialize-AzDataProtectionBackupInstance -DatasourceType AzureDatabaseForPostgreSQLFlexibleServer -DatasourceLocation $TestBkpvault.Location -PolicyId $polOss[0].Id -DatasourceId $ossId ConvertTo-Json -InputObject $instance -Depth 4 
 ```
 
-3. Then submit the request to protect the server with Azure Backup.
+### Modify the policy template
 
-```azurecli
-New-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstance $instance
+#### Modify the schedule
+
+The default policy template offers a backup once per week. You can modify the schedule for the backup to happen multiple days per week. To modify the schedule, use the [`Edit-AzDataProtectionPolicyTriggerClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject) cmdlet.
+
+The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. Also, specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
+
+```azurepowershell
+$schDates = @(
+	(
+		(Get-Date -Year 2021 -Month 08 -Day 15 -Hour 22 -Minute 0 -Second 0)
+	), 
+	(
+		(Get-Date -Year 2021 -Month 08 -Day 18 -Hour 22 -Minute 0 -Second 0)
+	),
+  (
+		(Get-Date -Year 2021 -Month 08 -Day 20 -Hour 22 -Minute 0 -Second 0)
+	)
+)
+$trigger = New-AzDataProtectionPolicyTriggerScheduleClientObject -ScheduleDays $schDates -IntervalType Weekly -IntervalCount 1 
+Edit-AzDataProtectionPolicyTriggerClientObject -Schedule $trigger -Policy $policyDefn
+
+```
+
+#### Add a new retention rule
+
+The default template has a lifecycle for the initial datastore under the default retention rule. In this scenario, the rule deletes the backup data after *three months*. Use the [`New-AzDataProtectionRetentionLifeCycleClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject) cmdlet to create new lifecycles and use the [`Edit-AzDataProtectionPolicyRetentionRuleClientObject`](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject) cmdlet to associate them with the new rules or to the existing rules.
+
+The following example creates a new retention rule named *Monthly*, where the first successful backup of every month should be retained in vault for *six months*.
+
+```azurepowershell
+$VaultLifeCycle = New-AzDataProtectionRetentionLifeCycleClientObject -SourceDataStore VaultStore -SourceRetentionDurationType Months -SourceRetentionDurationCount 6
+
+Edit-AzDataProtectionPolicyRetentionRuleClientObject -Policy $policyDefn -Name Monthly -LifeCycles $VaultLifeCycle -IsDefault $false
+
+```
+
+#### Add a tag and the relevant criteria
+
+Once a retention rule is created, you've to create a corresponding *tag* in the *Trigger* property of the backup policy. Use the [New-AzDataProtectionPolicyTagCriteriaClientObject](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject) cmdlet to create a new tagging criteria and use the [Edit-AzDataProtectionPolicyTagClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytagclientobject) cmdlet to update the existing tag or create a new tag.
+
+The following example creates a new tag along with the criteria, the first successful backup of the month. The tag has the same name as the corresponding retention rule to be applied.
+
+In this example, the tag criteria should be named *Monthly*.
+
+```azurepowershell
+$tagCriteria = New-AzDataProtectionPolicyTagCriteriaClientObject -AbsoluteCriteria FirstOfMonth
+Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Criteria $tagCriteria
+
+```
+
+If the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows, using the [`New-AzDataProtectionPolicyTagCriteriaClientObject`](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject?view=azps-12.3.0&preserve-view=true) cmdlet.
+```azurepowershell
+$tagCriteria = New-AzDataProtectionPolicyTagCriteriaClientObject -DaysOfWeek @("Sunday", "Friday")
+Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Criteria $tagCriteria
+
+```
+
+### Create the policy
+
+Once the template is modified as per the requirements, use the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy) cmdlet to create a policy using the modified template.
+
+```azurepowershell
+az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --policy AddedRetentionRuleAndTag.JSON --resource-group testBkpVaultRG --vault-name TestBkpVault
+
 ```
 
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL - flexible server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md)
-- [About Azure PostgreSQL - Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
+[Configure backup for Azure Database for PostgreSQL - flexible server using Azure PowerShell](back-up-azure-database-postgresql-flex-backup-powershell.md#configure-backup).
+

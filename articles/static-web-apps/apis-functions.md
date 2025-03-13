@@ -2,11 +2,11 @@
 title: API support in Azure Static Web Apps with Azure Functions
 description: Learn how to use Azure Functions with Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 06/14/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # API support in Azure Static Web Apps with Azure Functions
@@ -60,7 +60,7 @@ In addition to the Static Web Apps API [constraints](apis-overview.md#constraint
 
 | Managed functions | Bring your own functions |
 |---|---|
-| <ul><li>Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, Node.js 14, Node.js 16, Node.js 18 (public preview), .NET Core 3.1, .NET 6.0, Python 3.8, Python 3.9, or Python 3.10.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li><li>Some application tags are internally used by the service. Therefore, the following tags are reserved:<ul><li> *AccountId, EnvironmentId, FunctionAppId*.</li></ul></li></ul> | <ul><li>You're responsible to manage the Functions app deployment.</li></ul> |
+| <ul><li>Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, Node.js 14, Node.js 16, Node.js 18, Node.js 20 (preview), .NET Core 3.1, .NET 6.0, .NET 7.0, .NET 8.0, Python 3.8, Python 3.9, or Python 3.10.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li><li>Some application tags are internally used by the service. Therefore, the following tags are reserved:<ul><li> *AccountId, EnvironmentId, FunctionAppId*.</li></ul></li></ul> | <ul><li>You're responsible to manage the Functions app deployment.</li></ul> |
 
 ## Next steps
 

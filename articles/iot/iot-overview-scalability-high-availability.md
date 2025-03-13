@@ -42,11 +42,11 @@ Service tiers and pricing plans:
 
 Service limits and quotas:
 
-- [Azure Digital Twins](../azure-resource-manager/management/azure-subscription-service-limits.md#digital-twins-limits)
-- [Device Update for IoT Hub limits](../azure-resource-manager/management/azure-subscription-service-limits.md#device-update-for-iot-hub--limits)
-- [IoT Central limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-central-limits)
-- [IoT Hub limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits)
-- [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits)
+- [Azure Digital Twins](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-digital-twins-limits)
+- [Device Update for IoT Hub limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-update-for-iot-hub-limits)
+- [IoT Central limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-central-limits)
+- [IoT Hub limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits)
+- [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits)
 
 ## High availability and disaster recovery
 

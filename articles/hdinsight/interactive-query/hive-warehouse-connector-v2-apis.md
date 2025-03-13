@@ -5,7 +5,7 @@ author: rishikeshmohanty
 ms.author: mohantyr
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 01/02/2025
 ---
 
 # Hive Warehouse Connector 2.0 APIs in Azure HDInsight

@@ -23,7 +23,7 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
-      - name: Upgrade or rollback versions
+      - name: Upgrade
         href: deploy-iot-ops/howto-upgrade.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
@@ -39,6 +39,8 @@ items:
         href: secure-iot-ops/howto-manage-secrets.md
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
+      - name: Secure your solution
+        href: ../iot/iot-overview-security.md?toc=/azure/iot-operations/toc.json&bc=/azure/iot-operations/breadcrumb/toc.json&tabs=edge
     - name: Discover and manage assets
       items:
       - name: Asset management overview
@@ -97,7 +99,7 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: What are dataflows?
+      - name: What are data flows?
         href: connect-to-cloud/overview-dataflow.md
       - name: Prepare endpoints
         items:
@@ -117,7 +119,7 @@ items:
           href: connect-to-cloud/howto-configure-adx-endpoint.md
         - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
-      - name: Create dataflow
+      - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
@@ -129,7 +131,7 @@ items:
           href: connect-to-cloud/concept-dataflow-enrich.md
       - name: Use message schemas
         href: connect-to-cloud/concept-schema-registry.md
-      - name: Manage dataflow profile
+      - name: Manage data flow profiles
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:
@@ -159,7 +161,7 @@ items:
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps
       items:
-      - name: Edge apps overview
+      - name: MQTT client app guidance
         href: create-edge-apps/edge-apps-overview.md
       - name: State store
         items:
@@ -199,6 +201,8 @@ items:
         href: troubleshoot/troubleshoot.md
       - name: Known issues
         href: troubleshoot/known-issues.md
+      - name: Tips and tools
+        href: troubleshoot/tips-tools.md
       - name: FAQ
         href: troubleshoot/iot-operations-faq.yml
     - name: Reference # supporting information like APIs, tools, code libraries

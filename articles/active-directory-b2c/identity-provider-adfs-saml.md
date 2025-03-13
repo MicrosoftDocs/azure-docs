@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 01/24/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type

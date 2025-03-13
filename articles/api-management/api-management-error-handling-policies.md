@@ -2,11 +2,9 @@
 title: Error handling in Azure API Management policies | Microsoft Docs
 description: Learn how to respond to error conditions that may occur during the processing of requests in Azure API Management.
 author: dlepow
-manager: erikre
-ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 01/10/2020
+ms.topic: concept-article
+ms.date: 01/06/2025
 ms.author: danlep
 ---
 
@@ -77,9 +75,9 @@ When an error occurs and control jumps to the `on-error` policy section, the err
 | `Source`   | string | Names the element where the error occurred. Could be either policy or a built-in pipeline step name.      | Yes      |
 | `Reason`   | string | Machine-friendly error code, which could be used in error handling.                                       | No       |
 | `Message`  | string | Human-readable error description.                                                                         | Yes      |
-| `Scope`    | string | Name of the scope where the error occurred and could be one of "global", "product", "api", or "operation" | No       |
+| `Scope`    | string | Name of the [scope](api-management-howto-policies.md#scopes) where the error occurred. | No       |
 | `Section`  | string | Section name where error occurred. Possible values: "inbound", "backend", "outbound", or "on-error".      | No       |
-| `Path`     | string | Specifies nested policy, for example "choose[3]/when[2]".                                                 | No       |
+| `Path`     | string | Specifies nested policy hierarchy, for example "choose[3]\\when[2]". Multiple instances of a nested policy are indexed from 1.                                         | No       |
 | `PolicyId` | string | Value of the `id` attribute, if specified by the customer, on the policy where error occurred             | No       |
 
 > [!TIP]
@@ -175,11 +173,4 @@ and sending an unauthorized request will result in the following response:
 
 ![Unauthorized error response](media/api-management-error-handling-policies/error-response.png)
 
-## Next steps
-
-For more information working with policies, see:
-
--   [Policies in API Management](api-management-howto-policies.md)
--   [Transform APIs](transform-api.md)
--   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
--   [Policy samples](./policy-reference.md)
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

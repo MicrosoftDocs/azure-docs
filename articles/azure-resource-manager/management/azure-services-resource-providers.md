@@ -2,7 +2,7 @@
 title: Find resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/09/2025
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -155,7 +155,7 @@ The resource providers for hybrid services are:
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
 | Microsoft.AzureArcData | [Azure Arc-enabled data services](/azure/azure-arc/data/overview) |
-| Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
+| Microsoft.AzureStackHCI | [Azure Local](/azure-stack/hci/overview) |
 | Microsoft.HybridCompute | [Azure Arc-enabled servers](/azure/azure-arc/servers/) |
 | Microsoft.Kubernetes | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
 | Microsoft.KubernetesConfiguration | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) |
@@ -267,6 +267,7 @@ The resource providers for monitoring services are:
 | Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Monitor | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
 | Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
@@ -337,7 +338,6 @@ The resource providers for 5G & space services are:
 | --------------------------- | ------------- |
 | Microsoft.HybridNetwork  | [Network Function Manager](../../network-function-manager/index.yml) |
 | Microsoft.MobileNetwork | [Azure Private 5G Core](../../private-5g-core/index.yml) |
-| Microsoft.Orbital | [Azure Orbital Ground Station](../../orbital/overview.md) |
 
 ## Registration
 

@@ -4,8 +4,8 @@ description: This article describes how to troubleshoot common errors that might
 ms.topic: troubleshooting
 ms.date: 10/25/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Backup vault management operations on Azure Backup

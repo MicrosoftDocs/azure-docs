@@ -506,4 +506,4 @@ WVDCheckpoints
 
 ## Related content
 
-If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](troubleshoot-rdp-shortpath.md).
+If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath).

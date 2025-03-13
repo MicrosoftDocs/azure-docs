@@ -66,4 +66,4 @@ For more information related to Scheduled Agent Updates and agent components, ch
 - Learn how to set up diagnostics for this feature at the [Scheduled Agent Updates Diagnostics guide](agent-updates-diagnostics.md).
 - Learn more about the Azure Virtual Desktop agent, side-by-side stack, and Geneva Monitoring agent at [Getting Started with the Azure Virtual Desktop Agent](agent-overview.md).
 - For more information about the current and earlier versions of the Azure Virtual Desktop agent, see [Azure Virtual Desktop agent updates](whats-new-agent.md).
-- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](troubleshoot-agent.md).
+- If you're experiencing agent or connectivity-related issues, see the [Azure Virtual Desktop Agent issues troubleshooting guide](/troubleshoot/azure/virtual-desktop/troubleshoot-agent).

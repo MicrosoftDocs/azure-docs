@@ -73,7 +73,7 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 
 1. Select your chosen user assigned managed identity, and then choose the key input method to use.
 
-1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
+1. If using the **Select Azure Key Vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance. Remember that both purge protection and soft delete must be enabled in your Key Vault instance.
@@ -99,7 +99,7 @@ In the **Flash Optimized** tier, keys and values are also partially stored on-di
 
 1. Select your chosen user assigned managed identity, and then choose which key input method to use.
 
-1. If using the **Select Azure key vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
+1. If using the **Select Azure Key Vault and key** input method, choose the Key Vault instance that holds your customer managed key. This instance must be in the same region as your cache.
 
     > [!NOTE]
     > For instructions on how to set up an Azure Key Vault instance, see the [Azure Key Vault quickstart guide](/azure/key-vault/secrets/quick-create-portal). You can also select the _Create a key vault_ link beneath the Key Vault selection to create a new Key Vault instance.  

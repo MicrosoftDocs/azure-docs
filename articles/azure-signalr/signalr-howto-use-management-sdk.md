@@ -90,6 +90,10 @@ Create your instance of `ServiceHubContext` from a `ServiceManager`:
 var serviceHubContext = await serviceManager.CreateHubContextAsync("<Your Hub Name>",cancellationToken);
 ```
 
+> [!NOTE]
+> 
+> Creating `ServiceHubContext` is a rather expensive operation. It's recommended to reuse the same `ServiceHubContext` instance for the same hub.
+
 ### Negotiation
 
 In [default mode](concept-service-mode.md#default-mode), an endpoint `/<Your Hub Name>/negotiate` is exposed for negotiation by Azure SignalR Service SDK. SignalR clients reach this endpoint and then redirect to Azure SignalR Service later.
@@ -177,7 +181,7 @@ Read more on strongly typed hubs in the ASP.NET Core docs [here](/aspnet/core/si
 
 This SDK can communicates to Azure SignalR Service with two transport types:
 
-* Transient: Create an Http request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
+* Transient: Create an HTTP request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
 * Persistent: Create a WebSockets connection first and then send all messages in this connection. It's useful when you send large number of messages.
 
 ### Summary of serialization behaviors of the arguments in messages
