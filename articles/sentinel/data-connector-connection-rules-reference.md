@@ -231,7 +231,7 @@ JSON web token (JWT)
         "key":"password",
         "value":"[[parameters('Password')]"
     },
-    "TokenEndpoint": {"https://token_endpoint.contoso.com"},
+    "TokenEndpoint": "https://token_endpoint.contoso.com",
     "IsJsonRequest": true
 }
 ```
