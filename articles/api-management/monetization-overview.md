@@ -4,7 +4,7 @@ description: Learn how to set up your monetization strategy for Azure API Manage
 author: dlepow
 ms.author: danlep
 ms.date: 08/23/2021
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-api-management
 ---
 

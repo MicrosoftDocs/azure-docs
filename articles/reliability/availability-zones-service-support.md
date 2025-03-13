@@ -42,7 +42,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### AI and machine learning
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**  |
 | --- | --- |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
@@ -50,7 +50,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Analytics
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Data Factory](../data-factory/concepts-data-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -63,7 +63,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Compute
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure App Service](./reliability-app-service.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service: App Service Environment](./reliability-app-service.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
@@ -105,7 +105,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Containers
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -118,7 +118,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Databases
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Cache for Redis](./migrate-cache-redis.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
@@ -132,7 +132,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Developer tools
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 |[Azure API Center](../api-center/overview.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -141,13 +141,13 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### DevOps
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Monitor Logs](/azure/azure-monitor/logs/availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
 ### Hybrid and multicloud
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Database for PostgreSQL – Flexible Server](./reliability-postgresql-flexible-server.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -158,7 +158,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Identity
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | Microsoft Defender for Identity  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | [Microsoft Entra Domain Services](../active-directory-domain-services/overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -166,7 +166,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Integration
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure API Management](migrate-api-mgt.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Data Factory](../data-factory/concepts-data-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -178,7 +178,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Internet of Things
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure API Management](migrate-api-mgt.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
@@ -196,7 +196,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Management and governance
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | [Azure Automation](../automation/automation-availability-zones.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -220,20 +220,20 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Media
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | Azure Content Delivery Network  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 
 ### Migration
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Site Recovery](migrate-recovery-services-vault.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | Microsoft Cost Management | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 
 ### Mobile
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure API Management](migrate-api-mgt.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
@@ -244,7 +244,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Networking
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
@@ -275,7 +275,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Security
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Application Gateway (V2)](migrate-app-gateway-v2.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
@@ -296,7 +296,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Storage
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure Backup](reliability-backup.md#availability-zone-support)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure HPC Cache](../hpc-cache/hpc-cache-overview.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
@@ -311,7 +311,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 ### Web
 
-| **Product**   | **Reliability**   |
+| **Product**   | **Availability zone support**    |
 | --- | --- |
 | [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure API Management](migrate-api-mgt.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
