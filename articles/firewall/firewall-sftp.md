@@ -108,21 +108,7 @@ $firewall = New-AzFirewall `
     -PublicIpAddress $pip `
     -FirewallPolicyId $policy.id
 
-# Create the route table
-$routeTableDG = New-AzRouteTable `
-  -Name Firewall-rt-table `
-  -ResourceGroupName "$rg" `
-  -location $location `
-  -DisableBgpRoutePropagation
 
-# Add the default route
-Add-AzRouteConfig `
-  -Name "DG-Route" `
-  -RouteTable $routeTableDG `
-  -AddressPrefix 0.0.0.0/0 `
-  -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress $pip.ipaddress `
- | Set-AzRouteTable
 
 ```
 
