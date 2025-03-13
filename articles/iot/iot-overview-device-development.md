@@ -52,7 +52,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 
 ## Asset and device types
 
-An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solutions that contain both devices and assets.
+An IoT solution can contain many types of [assets](iot-glossary.md#asset) and [devices](iot-glossary.md#device). You typically find devices in cloud-based solutions and assets in edge-based solutions. It's also possible to have a hybrid solution that contain both devices and assets.
 
 # [Edge-based solution](#tab/edge)
 
