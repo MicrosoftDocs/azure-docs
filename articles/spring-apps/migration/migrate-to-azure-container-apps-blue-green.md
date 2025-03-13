@@ -96,10 +96,10 @@ export APP_ENV_DOMAIN=$(az containerapp env show \
 # Test the production FQDN
 curl -s https://$APP_NAME.$APP_ENV_DOMAIN
 
-# Test the blue lable FQDN
+# Test the blue label FQDN
 curl -s https://$APP_NAME---blue.$APP_ENV_DOMAIN
 
-# Test the green lable FQDN
+# Test the green label FQDN
 curl -s https://$APP_NAME---green.$APP_ENV_DOMAIN
 ```
 
