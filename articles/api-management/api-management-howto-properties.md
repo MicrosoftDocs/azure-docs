@@ -17,7 +17,7 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 [API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
-*Named values* are a global collection of name/value pairs in each API Management instance. There's no imposed limit on the number of items in the collection. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
+*Named values* are a global collection of name/value pairs in each API Management instance. Named values can be used to manage constant string values and secrets across all API configurations and policies. 
 
 :::image type="content" source="media/api-management-howto-properties/named-values.png" alt-text="Named values in the Azure portal":::
 
