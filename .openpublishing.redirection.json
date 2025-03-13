@@ -6194,7 +6194,8 @@
       "source_path_from_root": "/articles/cyclecloud/how-to/ccws/cleanup-roles.md",
       "redirect_url": "/azure/cyclecloud/how-to/ccws/deploy-with-cli",
       "redirect_document_id": false      
-
+    }
+    {
       "source_path": "articles/cloud-services/applications-dont-support-tls-1-2.md",
       "redirect_url": "/previous-versions/azure/cloud-services/applications-dont-support-tls-1-2",
       "redirect_document_id": false
