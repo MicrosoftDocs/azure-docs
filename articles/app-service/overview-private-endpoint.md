@@ -3,7 +3,7 @@ title: Use Private Endpoints for Azure App Service Apps
 description: Learn how to connect privately to Azure App Service apps using a private endpoint over Azure Private Link.
 author: madsd
 ms.author: madsd
-ms.topic: overview #Don't change
+ms.topic: overview
 ms.date: 01/31/2025
 ms.custom: msangapu
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
@@ -90,7 +90,7 @@ When you set up this DNS configuration, you can reach your app privately with th
 
 If you need to use a custom DNS name, add the custom name in your app. You must validate the custom name like any custom name, by using public DNS resolution. For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
 
-For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Services self-hosted agents, for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM of your app.
+For the Kudu console, or Kudu REST API (for deployment with Azure DevOps Services self-hosted agents, for example) you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app and the second is for the SCM (source control management) of your app.
 
 | Name | Type | Value |
 |-----|-----|-----|
@@ -128,7 +128,7 @@ For up-to-date information about limitations, see [this documentation](../privat
 ## Related content
 
 - [How to connect privately to an app by using the Azure portal](../private-link/create-private-endpoint-portal.md).
-- [How to connect privately to an app by using Azure CLI](../private-link/create-private-endpoint-cli.md).
+- [How to connect privately to an app by using the Azure CLI](../private-link/create-private-endpoint-cli.md).
 - [How to connect privately to an app by using PowerShell](../private-link/create-private-endpoint-powershell.md).
 - [How to connect privately to an app by using an Azure template](../private-link/create-private-endpoint-template.md).
 - See this [Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) to learn how to connect a front end app to a secured back end app with virtual network integration and a private endpoint by using the ARM template.
