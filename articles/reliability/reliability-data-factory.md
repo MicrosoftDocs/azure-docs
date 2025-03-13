@@ -155,11 +155,11 @@ For data factories in *nonpaired regions* or in Brazil South or Southeast Asia, 
 
 #### Prepare for failover
 
-**Integration runtimes:** Depending on the integration runtime you use, there might be additional considerations:
+To properly prepare for a failover, there may be some additional considerations depending on the integration runtime you use:
 
-- *Azure integration runtime* can be configured to automatically resolve the region it uses. If there's an outage in the primary region, the Azure integration runtime will fail over automatically to the paired region, subject to the limitations described above. You can configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup. Set the region to *auto resolve*.
-- *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see the alternative multi-region approaches section below.
-- *Self-hosted integration runtime* runs on infrastructure that you're responsible for, and so Microsoft-managed failover doesn't apply to self-hosted integration runtimes. To learn more, see the alternative multi-region approaches section below.
+- *Azure integration runtime* can be configured to automatically resolve the region it uses. If the region is set to *auto resolve* and there's an outage in the primary region, the Azure integration runtime fails over automatically to the paired region, subject to the limitations described above. To configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup, set the region to *auto resolve*.
+- *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see [alternative multi-region approaches](#alternative-multi-region-approaches).
+- *Self-hosted integration runtime* runs on infrastructure that you're responsible for, and so Microsoft-managed failover doesn't apply to self-hosted integration runtimes. To learn more, see [alternative multi-region approaches](#alternative-multi-region-approaches).
 
 #### Post-failover reconfiguration
 
