@@ -36,7 +36,7 @@ Follow these steps to protect an API in API Management, using OAuth 2.0 authoriz
 
 1. Configure the [validate-jwt](validate-jwt-policy.md) policy in API Management to validate the OAuth token presented in each incoming API request. Valid requests can be passed to the API.
 
-Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Microsoft Entra ID that authorize access to the API. For links to more information, see the [Next steps](#next-steps).
+Details about OAuth authorization flows and how to generate the required OAuth tokens are beyond the scope of this article. Typically, a separate client app is used to acquire tokens from Microsoft Entra ID that authorize access to the API. For links to more information, see the [related content](#related-content).
 
 <a name='register-an-application-in-azure-ad-to-represent-the-api'></a>
 
