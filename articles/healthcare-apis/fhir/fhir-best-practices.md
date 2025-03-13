@@ -38,13 +38,13 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 * **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput. The optimal concurrency is dependent on the complexity of the bundles and resources.
 * **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
 * **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](rest-api-capabilities.md#bundle-parallel-processing).
+* **Consider** using smaller bundle sizes for complex operations such as conditional creates or updates. Smaller transaction bundles can reduce errors and support data consistency. Use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
+* **Consider** Using $import over Bundles for ingestion when high-throughput on a large number of resources is required.
+* **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.
+* **Avoid** submitting a high number of Bundles concurrently with a single PUT or POST resource request when they can be grouped. A high number of concurrent requests from individual Bundles can lead to transaction bottlenecks. 
 
 > [!NOTE]
-> Parallel bundle processing can enhance throughput when there isn't an implicit dependency on the order of resources within an HTTP operation.
-
-* **Consider** splitting resource entries across multiple bundles to increase parallelism, which can enhance throughput. Optimizing the number of resource entries in a bundle can reduce network time.
-* **Consider** using smaller bundle sizes for complex operations. Smaller transaction bundles can reduce errors and support data consistency. Use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
-* **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.
+> Parallel bundle processing using the `x-bundle-processing-logic` flags can enhance throughput when there isn't an implicit dependency on the order of resources within an HTTP operation.
 
 ### Search parameter index tuning
 
