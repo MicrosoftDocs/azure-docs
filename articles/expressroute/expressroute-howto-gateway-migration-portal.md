@@ -58,7 +58,7 @@ Here are the steps to migrate to a new gateway in Azure portal.
 
 1. Select **Prepare** to create the new gateway. This operation could take up to 45 minutes.
 
-1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic, control plane, and data path connections from your old gateway will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
+1. After the new gateway is created, you'll proceed to the *Migrate* stage. Here, select the new gateway you created. In this example, it's **myERGateway_migrated**. This transfers the settings from your old gateway to the new one. All network traffic and data path connections from your old gateway will transfer without any interruptions. To start this process, select **Migrate Traffic**. This operation could take up to 5 minutes.
 
     :::image type="content" source="media/gateway-migration/migrate-traffic-step.png" alt-text="Screenshot of migrating traffic for migrating a virtual network gateway."lightbox="media/gateway-migration/migrate-traffic-step.png":::
 
