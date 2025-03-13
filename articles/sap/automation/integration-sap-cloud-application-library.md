@@ -29,7 +29,7 @@ The benefits of this integration include:
 
 -   Elimination of the need to maintain a Bill of Materials (BOM) file for Ansible, simplifying the management and setup process.
 
-This integration brings together the best of Azure\'s infrastructure capabilities and SAP\'s software deployment solutions, providing a comprehensive and efficient approach to deploying SAP systems on Azure.
+This integration brings together the best of Azure's infrastructure capabilities and SAP's software deployment solutions, providing a comprehensive and efficient approach to deploying SAP systems on Azure.
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ This integration brings together the best of Azure\'s infrastructure capabilitie
 
 ## Step-by-step guide
 
-Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installation API integrated into SDAF:
+Here's a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installation API integrated into SDAF:
 
 1.  Deploy Infrastructure from SDAF:
 
@@ -116,13 +116,13 @@ Here\'s a step-by-step guide for installing SAP S/4 HANA with SAP CAL Installati
 
     1.   After adding the CAL Key Vault in sap_parameters, select the SAP CAL Product Name from the drop-down menu
 
-    1.   Press \'Run\' to begin the installation process.
+    1.   Press 'Run' to begin the installation process.
 
 :::image type="content" source="./media/sap-cal-integration/sap-cal-run-pipeline.png" alt-text="Screenshot that shows how to run Azure DevOps SAP installation using SAP-CAL Pipeline." lightbox="./media/sap-cal-integration/sap-cal-run-pipeline.png":::
 
-## Tracking the installation
+## Track the installation
 
-You can go to the [[CAL portal]](https://cal.sap.com/catalog#/appliances) to track installation and get detailed information about steps and errors if any.
+You can go to the [CAL portal](https://cal.sap.com/catalog#/appliances) to track installation and get detailed information about steps and errors if any.
 
 
 ## SAP Cloud Appliance Library (CAL) API Documentation
@@ -136,13 +136,13 @@ The workflow/process diagram for the installation of S/4 HANA with CAL API is av
 ## Support
 
 -   For any questions about the integration experience of SAL CAL and
-    SDAF, reach out to \'<SDAFicm@microsoft.com>\'.
+    SDAF, reach out to '<SDAFicm@microsoft.com>'.
 
 -   For help on issues with the installation, you can create a support
     request with SAP CAL on [Report An Issue Dashboard - SAP for
     Me](https://me.sap.com/createIssue/0).
 
-    -   Please raise the request for the component: \'BC-VCM-PSD\' in
+    -   Please raise the request for the component: 'BC-VCM-PSD' in
         order for the request to reach the SAP CAL team.
 
 ## Next steps
