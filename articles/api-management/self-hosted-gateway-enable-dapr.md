@@ -40,6 +40,6 @@ template:
 
 API Management provides specific [policies](api-management-policies.md#integration-and-external-communication) to interact with Dapr APIs exposed through the self-hosted gateway.
 
-## Next steps
+## Related content
 
 * Learn more about [Dapr integration in API Management](https://cloudblogs.microsoft.com/opensource/2020/09/22/announcing-dapr-integration-azure-api-management-service-apim/)

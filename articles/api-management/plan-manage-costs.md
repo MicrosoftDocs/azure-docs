@@ -116,7 +116,7 @@ As you add or remove units, capacity and cost scale proportionally. For example,
 
 [Monitor](api-management-howto-use-azure-monitor.md) the Capacity metric for your API Management instance to help make decisions whether to scale or upgrade an API Management instance to accommodate more load.
 
-## Next steps
+## Related content
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
