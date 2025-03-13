@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/network-watcher/nsg-flow-logs-rest.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/nsg-flow-logs-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/update-management/configure-alerts.md",
       "redirect_url": "/azure/update-manager/manage-alerts",
       "redirect_document_id": false
