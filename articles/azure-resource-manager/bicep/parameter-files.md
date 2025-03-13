@@ -8,7 +8,7 @@ ms.custom: devx-track-bicep
 
 # Create a parameters file for Bicep deployment
 
-Bicep parameter files allow you to define values in an individual file that are then passed to your `main.bicep` file. The parameter files exposes values which may change from a given subscription, environment, and/or region. Leveraging a parameter file will drive consistency in your IaC deployments while also providing flexability. Some of this flexability may allow an organization to take advantage of cost benefits by right sizing their non production environments while maintaining the same core infrastructure. 
+Bicep parameter files allow you to define values in an individual file that are then passed to your `main.bicep` file. The parameter file exposes values that may change from a given subscription, environment, and/or region. Leveraging a parameter file will drive consistency in your IaC deployments while also providing flexibility. Some of this flexibility might allow an organization to take advantage of cost benefits by right-sizing their nonproduction environments while maintaining the same core infrastructure. 
 
 These parameter files also help enable a streamline CI/CD deployment approach. Each parameter file is under source control and passed into the appropriate automated deployment steps. These parameter files ensure a consistent deployment experience.
 
