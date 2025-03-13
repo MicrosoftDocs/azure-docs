@@ -28,7 +28,7 @@ The procedures in this article are typically performed by your **SAP BASIS** tea
 :::zone-end
 
 :::zone pivot="connection-agentless"
-This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications. While steps that are performed in Microsoft Sentinel require that the solution be installed first, other preparations in the SAP environment can happen in parallel. <!--need new images across-->
+This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications. While steps that are performed in Microsoft Sentinel require that the solution be installed first, other preparations in the SAP environment can happen in parallel.
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment-agentless.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
@@ -198,6 +198,10 @@ This procedure starts in Microsoft Sentinel and requires that the solution be in
 1. In the **Configuration** area, expand and follow the instructions in the **Initial connector configuration - Run the steps below once:** area. These steps will require a mixture of your Security and SAP BASIS teams.
 
     If, after you deploy the Azure resources step 1, the values in the steps 2 and 3 aren't automatically populated, close and re-expand step 1 to refresh the values in steps 2 and 3.
+
+1. Included in the package is **Prerequisite checker** iflow. We recommend running this iflow before continuing to the next step to ensure that your SAP system meets the system prerequisites.
+
+    [!INCLUDE [sap-agentless-prerequisites](../includes/sap-agentless-prerequisites.md)]
 
 1. Scroll further down in the **Configuration** area, and expand and follow the instructions in the **Add monitored SAP Systems - Run the steps below for each monitored SAP system:** area for each SAP system you want to monitor.
 

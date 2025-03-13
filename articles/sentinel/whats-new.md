@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 03/03/2025
+ms.date: 03/13/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -28,7 +28,7 @@ The Microsoft Sentinel SAP agentless solution is now in public preview and inclu
 
 - More data ingested, such as Change Docs logs and User Master data.
 - Optional parameters to customize data collection
-- A new tool to verify system prerequisites and compatibility
+- A new troubleshooting tool to verify system prerequisites and compatibility
 
 For more information, see:
 

@@ -48,25 +48,11 @@ Before you connect your SAP system to Microsoft Sentinel:
 
 - Make sure that all of the deployment prerequisites are in place. For more information, see [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 
-:::zone pivot="connection-agent"
-
 - Make sure that you have the Microsoft Sentinel solution for **SAP applications** [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md)
 
 - Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
 
 - If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
-
-:::zone-end
-
-:::zone pivot="connection-agentless"
-
-- Make sure that you have the Microsoft Sentinel **SAP Agentless** solution [installed in your Microsoft Sentinel workspace](deploy-sap-security-content.md) <!--what is this solution's new name?-->
-
-- Make sure that your SAP system is fully [prepared for the deployment](preparing-sap.md).
-
-<!--removed- Make sure your DCR is configured as described in [Install the solution from the content hub](deploy-sap-security-content.md#install-the-solution-from-the-content-hub).-->
-
-:::zone-end
 
 :::zone pivot="connection-agent"
 
