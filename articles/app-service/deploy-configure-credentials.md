@@ -4,7 +4,7 @@ description: Learn what types of deployment credentials are in Azure App Service
 author: cephalin
 ms.author: cephalin
 ms.reviewer: byvinyal
-ms.topic: how-to #Don't change
+ms.topic: how-to
 ms.date: 01/26/2024
 
 ---
@@ -15,7 +15,7 @@ To secure app deployment from a local computer, [Azure App Service](./overview.m
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 > [!NOTE]
-> When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or configure deployment credentials in the **Deployment Center**.
+> When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or configure deployment credentials in **Deployment Center**.
 
 ## <a name="userscope"></a>Configure user-scope credentials
 
@@ -42,7 +42,7 @@ You can configure your user-scope credentials in any app's [resource page](../az
 
  You must have at least one app in the [Azure portal](https://portal.azure.com) before you can access the deployment credentials page. To configure your user-scope credentials:
 
-1. From the service menu of your app, select > **Deployment center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+1. From the left menu of your app, select > **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
 
 2. Scroll down to **User scope**, configure the **Username** and **Password**, and then select **Save**.
 
@@ -93,7 +93,7 @@ Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 
 # [Azure portal](#tab/portal)
 
-1. From the service menu of your app, select **Deployment center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+1. From the left menu of your app, select **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
 
 2. In the **Application scope** section, select the **Copy** link to copy the username or password.
 
@@ -119,7 +119,7 @@ Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.
 
 # [Azure portal](#tab/portal)
 
-1. From the service menu of your app, select **Deployment center** > **FTPS credentials** or **Local Git/FTPS credentials**.
+1. From the left menu of your app, select **Deployment Center** > **FTPS credentials** or **Local Git/FTPS credentials**.
 
 2. In the **Application scope** section, select **Reset**.
 
