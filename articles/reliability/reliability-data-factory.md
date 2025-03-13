@@ -139,17 +139,20 @@ If you use a [region with a pair](./regions-paired.md) (except Brazil South and 
 
 Due to data residency requirements in Brazil South, and Southeast Asia, Azure Data Factory data is stored in the local region only by using [Azure Storage locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage). For Southeast Asia, all the data are stored in Singapore. For Brazil South, all data are stored in Brazil. <!-- TODO both of these regions are AZ-enabled - so wouldn't it be ZRS instead of LRS? -->
 
-For data factories deployed in a nonpaired region, or if in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
+For data factories deployed in a nonpaired region, or in Brazil South or Southeast Asia, Microsoft won't perform regional failover on your behalf. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
+
+> [!IMPORTANT]
+> Microsoft-managed failover is triggered by Microsoft. It's likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services.
+>
+> If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
 #### Failover process
-
-Microsoft-managed failover is triggered by Microsoft. It also is likely to happen after a significant delay and is done on a best-effort basis. There are also some exceptions to this process. Failover of Azure Data Factory resources might happen at a different time to any failover of other Azure services. If you need to be resilient to region outages, follow the alternative multi-region approaches described in the next section.
 
 **Core service:** When a Microsoft-managed failover has completed, you're able to access your Azure Data Factory pipeline in the paired region. You might need to perform some reconfiguration of integration runtimes or other components after the failover completes, including re-establishing networking configuration.
 
 <!-- TODO is there anything we can say about failback after the original region recovers - for example, can you expect that to be done by us too? Or would we permanently keep resources in the new region? -->
 
-**Integration runtimes:** Depending on the integration runtimes you use, there might be additional considerations:
+**Integration runtimes:** Depending on the integration runtime you use, there might be additional considerations:
 
 - *Azure integration runtime* can be configured to automatically resolve the region it uses. If there's an outage in the primary region, the Azure integration runtime will fail over automatically to the paired region, subject to the limitations described above. You can configure the Azure integration runtime region for your activity execution or dispatch in the integration runtime setup. Set the region to *auto resolve*.
 - *Azure-SSIS integration runtime* failover is managed separately to Microsoft-managed failover of the data factory. To learn more, see the alternative multi-region approaches section below.
@@ -157,15 +160,13 @@ Microsoft-managed failover is triggered by Microsoft. It also is likely to happe
 
 ### Alternative multi-region approaches
 
-If you need your pipelines to be resilient to regional outages, consider using a metadata-driven pipeline, consisting of these steps:
+If you need your pipelines to be resilient to regional outages and you need control over the failover process, consider using a metadata-driven pipeline.
 
-- To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. It will also enable you to access your metadata JSON files for pipelines, datasets, linked services, and trigger. Azure Data Factory enables you to work with different Git repository (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](../data-factory/source-control.md).
+To ensure you can track and audit the changes made to your metadata, set up source control for your Azure Data Factory. This approach also enables you to access your metadata JSON files for pipelines, datasets, linked services, and triggers. Azure Data Factory enables you to work with different Git repository types (Azure DevOps and GitHub). Learn how to set up [source control in Azure Data Factory](../data-factory/source-control.md).
 
-- Manage your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. If a region is unavailable, you can provision a new data factory manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
+Manage your pipeline metadata and deployments through a continuous integration and delivery (CI/CD) system like Azure DevOps. Then, you can quickly restore operations to an instance in another region. If a region is unavailable, you can provision a new data factory manually or in an automated fashion. Once the new data factory has been created, you can restore your pipelines, datasets, and linked services JSON from the existing Git repository. For more information, see [BCDR for Azure Data Factory and Azure Synapse Analytics pipelines](/azure/architecture/example-scenario/analytics/pipelines-disaster-recovery).
 
-#### Integration runtimes
-
-Depending on the integration runtimes you use, there might be additional considerations:
+Depending on the integration runtime you use, there might be additional considerations:
 
 - *Azure-SSIS integration runtime* uses a database stored in Azure SQL Database or Azure SQL Managed Instance. You can configure geo-replication or a failover group for this database. The Azure-SSIS database is then located in a primary Azure region with read-write access (the *primary role*), and will be continuously replicated to a secondary region with read-only access (the *secondary role*). If the primary region is lost, a failover is triggered, causing the primary and secondary databases to swap roles.
 
