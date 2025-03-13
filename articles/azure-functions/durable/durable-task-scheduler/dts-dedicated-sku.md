@@ -2,7 +2,7 @@
 title: Use the Dedicated SKU for Durable Task Scheduler (preview)
 description: Learn about how the Dedicated SKU in DTS.
 ms.topic: conceptual
-ms.date: 03/03/2025
+ms.date: 03/13/2025
 ms.author: azfuncdf
 author: lilyjma
 ms.subservice: durable
@@ -10,7 +10,7 @@ ms.subservice: durable
 
 # Use the Dedicated SKU for Durable Task Scheduler (preview)
 
-Durable Task Scheduler (DTS) currently supports only the Dedicated SKU. In this article, you'll learn:
+Durable task scheduler currently offers the Dedicated SKU only. In this article, you'll learn:
 - What the Dedicated SKU provides
 - How you're billed
 - Relevant concepts such as *capacity unit* and *work item*
@@ -26,7 +26,7 @@ The following table explains the minimum cost and features provided with each CU
 
 | Number of CUs | Features |
 | ------------- | -------- |
-| One CU        | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​</br>- Dashboard for monitoring and managing orchestrations​</br>- Authentication and role-based access control with Managed Identity |
+| One CU        | - Single tenant with dedicated resources​</br>- Up to 2,000 work items dispatched per second​</br>- 50 GB of orchestration data storage​ |
 
 ## Pricing
 
