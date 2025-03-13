@@ -21,7 +21,7 @@ This page only lists the partners participating in our Storage Migration program
 
 ## Storage Migration Program Partners
 
-__Free to use – refer to [FAQ]() for program parameters__
+__Free to use – refer to [FAQ](## FAQ) for program parameters__
 
 - __[Atempo Miria](https://aka.ms/atempooffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files  
 
@@ -31,12 +31,11 @@ __Free to use – refer to [FAQ]() for program parameters__
 
 - __[Komprise Elastic Data Migration](https://aka.ms/kompriseoffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files
 
-__Note__
+[!IMPORTANT]
 
-List was last updated in March of 2025.
+The list was last updated in March of 2025.
 
 ## FAQ
-
 __Q:__ Is the program ___really___ free?
 
 __A:__ Yes, the software IS free to use for migrations to Azure Storage services. However, if your need is continuous replication for disaster recovery or perpetual tiering of on-premises or Cloud-based data, you need separate licensing from the partner. Azure is only offsetting the cost of the software for one-time migration. We found that migration performance is often fastest when the data copy engines are running as Azure VMs – so there may be a small monthly cost for the VMs while the migration is underway.
@@ -49,7 +48,7 @@ __A:__ The software license to support your migration, an onboarding session (l
 
 The ISVs do have right of refusal to accept an engagement under 50 TB. They can suggest that you purchase a professional services or support contract if hands-on or phone support is required.
 
-__Important -__ Support is provided by the ISV, not Microsoft.
+__[!IMPORTANT] -__ Support is provided by the ISV, not Microsoft.
 
  
 
