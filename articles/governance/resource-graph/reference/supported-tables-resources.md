@@ -1,13 +1,13 @@
 ---
 title: Supported Azure Resource Manager resource types
-description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
+description: Provide a list of the Azure Resource Manager resource types supported by Azure Resources Graph and Change History.
 ms.date: 12/20/2021
 ms.topic: reference
 ms.custom: generated
 ---
-# Azure Resource Graph table and resource type reference
+# Azure Resources Graph table and resource type reference
 
-Azure Resource Graph supports the following **resource types** of
+Azure Resources Graph supports the following **resource types** of
 [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
 part of a **table** in Resource Graph.
 
@@ -995,15 +995,15 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.elasticsan/elasticsans/volumegroups
 - microsoft.energydataplatform/energyservices
 - microsoft.enterprisesupport/enterprisesupports
-- microsoft.EventGrid/domains (Event Grid Domains)
+- microsoft.EventGrid/domains (Event Grid domains)
 - microsoft.eventgrid/namespaces
 - microsoft.eventgrid/partnerconfigurations
 - microsoft.eventgrid/partnerdestinations
-- microsoft.EventGrid/partnerNamespaces (Event Grid Partner Namespaces)
-- microsoft.EventGrid/partnerRegistrations (Event Grid Partner Registrations)
-- microsoft.EventGrid/partnerTopics (Event Grid Partner Topics)
-- microsoft.EventGrid/systemTopics (Event Grid System Topics)
-- microsoft.EventGrid/topics (Event Grid Topics)
+- microsoft.EventGrid/partnerNamespaces (Event Grid partner namespaces)
+- microsoft.EventGrid/partnerRegistrations (Event Grid partner registrations)
+- microsoft.EventGrid/partnerTopics (Event Grid partner topics)
+- microsoft.EventGrid/systemTopics (Event Grid system topics)
+- microsoft.EventGrid/topics (Event Grid topics)
 - microsoft.EventHub/clusters (Event Hubs Clusters)
 - microsoft.EventHub/namespaces (Event Hubs Namespaces)
 - microsoft.Experimentation/experimentWorkspaces (Experiment Workspaces)
@@ -1022,7 +1022,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.gaming/titles
 - microsoft.graph/azureadapplication
 - microsoft.graphservices/accounts
-v
 - microsoft.hardware/orders
 - microsoft.hardwaresecuritymodules/cloudhsmclusters
 - microsoft.hardwaresecuritymodules/dedicatedhsms
