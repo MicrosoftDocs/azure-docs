@@ -171,7 +171,7 @@ Depending on the integration runtimes you use, there might be additional conside
 
     You can also configure a dual standby Azure SSIS IR pair that works in sync with Azure SQL Database or Azure SQL Managed Instance failover group.
 
-    For more information, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md) <!-- TODO It would be good to update the linked document to clarify that this approach doesn't rely on Azure region pairs - it can be done with any combination of regions supported by Azure SQL. -->
+    For more information, see [Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR)](../data-factory/configure-bcdr-azure-ssis-integration-runtime.md)
 
 - **Self-hosted integration runtime* runs on infrastructure that you manage. If the self-hosted integration runtime is deployed to an Azure virtual machine, you can use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to trigger [virtual machine failover](../site-recovery/azure-to-azure-architecture.md) to another region.
 
