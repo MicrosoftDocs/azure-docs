@@ -76,6 +76,8 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
     To set and change your Commitment tier, see [Set or change pricing tier](billing-reduce-costs.md#set-or-change-pricing-tier). Switch any workspaces older than July 2023 to the simplified pricing tiers experience to unify billing meters. Or, continue to use the classic pricing tiers that separate out the Log Analytics pricing from the classic Microsoft Sentinel classic pricing. For more information, see [simplified pricing tiers](#simplified-pricing-tiers).
 
+<a name=auxiliary-logs-and-basic-logs></a>
+
 #### Auxiliary logs
 
 Auxiliary logs are a super-low-cost option for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
