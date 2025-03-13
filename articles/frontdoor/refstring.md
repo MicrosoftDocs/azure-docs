@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting 4xx and 5xx erorrs using Reference String 
 description: This article provides information about what a Reference String is, how to collect them, and use the Azure portal diagnostic tool for troubleshooting 4xx and 5xx errors.
-
 author: Alej-b23 
 ms.author: pagonzalez 
 ms.service: azure-frontdoor 
