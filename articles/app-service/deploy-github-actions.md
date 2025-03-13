@@ -37,7 +37,7 @@ When you enable continuous deployment, the **Create Web App** process automatica
 > [!NOTE]
 > When you create an app, you might receive an error that states that your Azure account doesn't have certain permissions. Your account might need [the required permissions to create and configure the user-assigned identity](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). For an alternative, see the following section.
 
-## Set up GitHub Actions deployment from Deployment Center
+## <a name = "set-up-github-actions-deployment-from-the-deployment-center"></a> Set up GitHub Actions deployment from Deployment Center
 
 For an existing app, you can quickly get started with GitHub Actions by using **Deployment Center** in App Service. This turnkey method generates a GitHub Actions workflow file based on your application stack and commits it to your GitHub repository.
 
