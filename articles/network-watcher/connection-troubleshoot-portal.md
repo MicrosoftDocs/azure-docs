@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn how to use Connection Troubleshoot to diagnose outbound connectivity issues in Azure using the Azure portal.
 ---
