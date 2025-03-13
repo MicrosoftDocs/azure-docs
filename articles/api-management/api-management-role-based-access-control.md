@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/10/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell

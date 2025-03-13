@@ -44,6 +44,21 @@
             "source_path_from_root": "/articles/education-hub/create-lab-education-hub.md",
             "redirect_url": "/azure/education-hub/about-education-hub",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/access-education-hub.md",
+            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/set-up-lab.md",
+            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/education-hub/add-student-api.md",
+            "redirect_url": "/azure/education-hub/about-education-hub",
+            "redirect_document_id": false
         }
     ]
     }

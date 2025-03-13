@@ -6,7 +6,7 @@ services: api-management
 author: genlin
 manager: dcscontentpm
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ---
