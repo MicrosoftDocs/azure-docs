@@ -52,7 +52,7 @@ If you have an existing NFS mount point, then select the **Use Existing** option
 
 #### Supplemental file-system mount - Create New
 
-If you need to mount an another file-system for your project data, you can either create a new one or specify an existing one. You can create a new Azure NetApp Files volume or an Azure Managed Lustre Filesystem.
+If you need to mount another file-system for your project data, you can either create a new one or specify an existing one. You can create a new Azure NetApp Files volume or an Azure Managed Lustre Filesystem.
 
 ![Screenshot of the Additional File-system mount for create new Azure NetApp Files](./images/ccws/marketplace-fs-004.png)
 
@@ -72,8 +72,8 @@ Specify here if you want to create a new Virtual Network and subnets or use an e
 
 ![Screenshot of the Networking options for creating a new one](./images/ccws/marketplace-networking-001.png)
 
-- Select the CIDR that corresponds to the number of compute nodes you are targeting and specify a base IP address.
-- Creating a Bastion is recommended if direct connectivity is not provided by your corporate IT.
+- Select the CIDR that corresponds to the number of compute nodes you're targeting and specify a base IP address.
+- Creating a Bastion is recommended if direct connectivity isn't provided by your corporate IT.
 - Creating a NAT Gateway is required to provide outbound connectivity to internet. 
 - Peer to an existing Virtual Network if you already have a HUB that can deliver services like Bastion and a VPN gateway. Ensure that you select a base IP address compatible with your peered VNET. If the peered VNET has a gateway, check the Allow gateway transit option.
 
@@ -98,11 +98,11 @@ If you choose a `Custom Image`, you must then specify an image URN for an existi
 
 You can also check the `Use image on all nodes` if you want the Scheduler, Login Nodes, and compute nodes to use the same image.
 
-Specify the number of login nodes you want to provision initially and the maximum number allowed. Enabling health checks will automatically execute node health checks for the HPC and GPU partitions, removing any unhealthy nodes when they start.
+Specify the number of login nodes you want to provision initially and the maximum number allowed. Enabling health checks  automatically executes node health checks for the HPC and GPU partitions, removing any unhealthy nodes when they start.
 
 ![Screenshot of the Slurm settings](./images/ccws/marketplace-slurm.png)
 
-To enable Slurm Job Accounting, check the box to display connectivity options. Ensure you have a previously-deployed Azure Database for MySQL flexible server resource. You can connect using an FQDN or private IP if you supply your own virtual network or use VNET peering when creating a new virtual network as part of your deployment. Furthermore, connection via Private Endpoint is available if you choose to create a new virtual network.
+To enable Slurm Job Accounting, check the box to display connectivity options. Ensure you have an Azure Database for MySQL flexible server resource that was deployed earlier. You can connect using an FQDN or private IP if you supply your own virtual network or use VNET peering when creating a new virtual network as part of your deployment. Furthermore, connection via Private Endpoint is available if you choose to create a new virtual network.
 
 ![Screenshot of the Slurm Setting options for job accounting database, direct FQDN](./images/ccws/marketplace-slurm-accounting-001.png)
 
@@ -115,20 +115,20 @@ Azure CycleCloud Workspace for Slurm comes with 3 defined Slurm partitions:
 - HPC : For tightly coupled MPI jobs mostly using VM types with InfiniBand support.
 - GPU : For MPI and non-MPI GPU jobs.
 
-You can configure the image and the maximum number of nodes to be dynamically provisioned by CycleCloud for each partition. Only the HTC partition will permit the use of Spot instances, as it is generally not recommended to use Spot instances for HPC and GPU jobs. However, these settings can be overridden after deployment in the CycleCloud UI.
+You can configure the image and the maximum number of nodes for each partition that CycleCloud dynamically provisions. Only the HTC partition permits the use of spot instances, as it's generally not recommended to use spot instances for HPC and GPU jobs.
 
 ![Screenshot of the Partition Settings options](./images/ccws/marketplace-partitions.png)
 
 ### Tags
 
-Assign the appropriate tags to the necessary resources. Node Array tags'll be applied to Virtual Machines that are dynamically provisioned by CycleCloud.
+Assign the appropriate tags to the necessary resources. Node Array tags are applied to Virtual Machines that are dynamically provisioned by CycleCloud.
 
 ![Screenshot of the Tags options](./images/ccws/marketplace-tags.png)
 
 
 ### Review+Create
 
-Review your options. This step will also process to some validations. 
+Review your options. This step also process to some validations. 
 ![Screenshot of the Review](./images/ccws/marketplace-review.png)
 
 When passed, click on the **Create** button to initialize the deployment
@@ -174,7 +174,7 @@ Cloud-init v. 23.4-7.el8_10.alma.1 running 'modules:final' at Wed, 12 Jun 2024 1
 Cloud-init v. 23.4-7.el8_10.alma.1 finished at Wed, 12 Jun 2024 10:28:15 +0000. Datasource DataSourceAzure [seed=/dev/sr0].  Up 754.29 seconds
 ```
 
-Next, establish connectivity between your client machine and the CycleCloud VM. This can be achieved through your corporate IT, a VPN, Bastion tunneling, or an attached public IP if permitted by your company. Access the web interface by browsing to https://<cyclecloud_ip>, and authenticate using the username and password provided during deployment. Verify that both the Scheduler and the Login node are running.
+Next, establish connectivity between your client machine and the CycleCloud VM. Its achieved through your corporate IT, a VPN, Bastion tunneling, or an attached public IP if permitted by your company. Access the web interface by browsing to https://<cyclecloud_ip>, and authenticate using the username and password provided during deployment. Verify that both the Scheduler and the Login node are running.
 
 ## Resources
 
