@@ -252,7 +252,7 @@ kubectl apply -f mygw.yaml
 
 [!INCLUDE [api-management-self-hosted-gateway-kubernetes-services](../../includes/api-management-self-hosted-gateway-kubernetes-services.md)]
 
-## Next steps
+## Related content
 
 * Learn more about the API Management [self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).

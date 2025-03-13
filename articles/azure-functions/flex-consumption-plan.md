@@ -142,6 +142,7 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Diagnostic settings**: Diagnostic settings aren't currently supported.
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features are currently not supported.
 + **Key Vault References**: Key Vault references in app settings don't work when Key Vault is network access restricted, even if the function app has Virtual Network integration. The current workaround is to directly reference the Key Vault in code and read the required secrets.
++ **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings are not currently supported when running on Flex Consumption plan.
 
 ## Related articles
 
