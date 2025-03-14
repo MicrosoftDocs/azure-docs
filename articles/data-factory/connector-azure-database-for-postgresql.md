@@ -83,7 +83,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
 | version | The version that you specify. The value is `2.0`. | Yes |
-| authentication type | Select from basic or service principal authentication | Yes |
+| authenticationType | Select from basic or service principal authentication | Yes |
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
