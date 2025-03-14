@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 04/05/2024
+ms.date: 03/14/2025
 ms.author: madsd
 ms.custom: UpdateFrequency3
 
@@ -20,7 +20,7 @@ This article describes the Azure App Service virtual network integration feature
 App Service has two variations:
 
 * The dedicated compute pricing tiers, which include the Basic, Standard, Premium, Premium v2, and Premium v3.
-* The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated and Isolated v2 pricing tiers.
+* The App Service Environment, which deploys directly into your virtual network with dedicated supporting infrastructure and is using the Isolated v2 pricing tiers.
 
 The virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an [App Service Environment](./environment/overview.md), it already integrates with a virtual network and doesn't require you to configure virtual network integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](./networking-features.md).
 
@@ -28,7 +28,7 @@ Virtual network integration gives your app access to resources in your virtual n
 
 The virtual network integration feature:
 
-* Requires a [supported Basic or Standard](./overview-vnet-integration.md#limitations), Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
+* Requires a Basic, Standard, Premium, Premium v2, Premium v3, or Elastic Premium App Service pricing tier.
 * Supports TCP and UDP.
 * Works with App Service apps, function apps, and Logic apps.
 
@@ -211,9 +211,6 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 There are some limitations with using virtual network integration:
 
-* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Basic or Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
-* The feature isn't available for Isolated plan apps in an App Service Environment.
-* You can't reach resources across peering connections with classic virtual networks.
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network. MPSJ requires a `/26` block or larger.
 * The app and the virtual network must be in the same region.
 * The integration virtual network can't have IPv6 address spaces defined.
