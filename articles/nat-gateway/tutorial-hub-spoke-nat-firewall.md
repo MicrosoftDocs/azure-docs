@@ -152,7 +152,7 @@ Use [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtu
 # Create subnet for Azure Firewall
 $subnetParams = @{
     Name = 'AzureFirewallSubnet'
-    AddressPrefix  = '10.0.1.64/64'
+    AddressPrefix  = '10.0.1.64/26'
     VirtualNetwork = $hubVnet
 }
 Add-AzVirtualNetworkSubnetConfig @subnetParams
@@ -181,8 +181,9 @@ $publicIpBastionParams = @{
     ResourceGroupName = 'test-rg'
     Location = 'South Central US'
     Name = 'public-ip-bastion'
-    AllocationMethod  = 'Static'
     Sku = 'Standard'
+    AllocationMethod = 'Static'
+    Zone = 1, 2, 3
 }
 $publicIpBastion = New-AzPublicIpAddress @publicIpBastionParams
 ```
@@ -192,11 +193,12 @@ Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create Azure
 ```powershell
 # Create Azure Bastion
 $bastionParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
-    Name = 'bastion'
-    PublicIpAddress = $publicIpBastion
-    VirtualNetwork = $hubVnet
+    ResourceGroupName = "test-rg"
+    Name = "bastion"
+    VirtualNetworkName = "vnet-hub"
+    PublicIpAddressName = "public-ip-bastion"
+    PublicIPAddressRgName = "test-rg"
+    VirtualNetworkRgName = "test-rg"
 }
 New-AzBastion @bastionParams
 ```
@@ -211,22 +213,9 @@ $publicIpFirewallParams = @{
     Name = 'public-ip-firewall'
     AllocationMethod  = 'Static'
     Sku = 'Standard'
+    Zone = 1, 2, 3
 }
 $publicIpFirewall = New-AzPublicIpAddress @publicIpFirewallParams
-```
-
-Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azure Firewall.
-
-```powershell
-# Create Azure Firewall
-$firewallParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
-    Name = 'firewall'
-    VirtualNetwork = $hubVnet
-    PublicIpAddress = $publicIpFirewall
-}
-$firewall = New-AzFirewall @firewallParams
 ```
 
 Use [New-AzFirewallPolicy](/powershell/module/az.network/new-azfirewallpolicy) to create a firewall policy.
@@ -241,17 +230,21 @@ $firewallPolicyParams = @{
 $firewallPolicy = New-AzFirewallPolicy @firewallPolicyParams
 ```
 
-Use [Set-AzFirewall](/powershell/module/az.network/set-azfirewall) to associate the firewall policy with the firewall.
+Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azure Firewall.
 
 ```powershell
-# Associate firewall policy with firewall
-$firewallUpdateParams = @{
+# Create Azure Firewall
+$firewallParams = @{
     ResourceGroupName = 'test-rg'
+    Location = 'South Central US'
     Name = 'firewall'
-    FirewallPolicy = $firewallPolicy
+    VirtualNetworkName = 'vnet-hub'
+    PublicIpName = 'public-ip-firewall'
+    FirewallPolicyId = $firewallPolicy.Id
 }
-Set-AzFirewall @firewallUpdateParams
+$firewall = New-AzFirewall @firewallParams
 ```
+
 
 ### [CLI](#tab/cli)
 
@@ -395,13 +388,13 @@ $publicIpNat = New-AzPublicIpAddress @publicIpNatParams
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway.
 
 ```powershell
-# Create NAT gateway
 $natGatewayParams = @{
     ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
     Name = 'nat-gateway'
     PublicIpAddress = $publicIpNat
+    Sku = 'Standard'
     IdleTimeoutInMinutes = 4
+    Location = 'South Central US'
 }
 $natGateway = New-AzNatGateway @natGatewayParams
 ```
@@ -413,6 +406,7 @@ Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtu
 $subnetParams = @{
     VirtualNetwork = $hubVnet
     Name = 'AzureFirewallSubnet'
+    AddressPrefix = '10.0.1.64/26'
     NatGateway = $natGateway
 }
 Set-AzVirtualNetworkSubnetConfig @subnetParams
@@ -776,7 +770,7 @@ $routeConfigParams = @{
     Name = 'route-to-hub'
     AddressPrefix = '0.0.0.0/0'
     NextHopType = 'VirtualAppliance'
-    NextHopIpAddress = '10.0.1.68'
+    NextHopIpAddress = $firewall.IpConfigurations[0].PrivateIpAddress
     RouteTable = $routeTable
 }
 Add-AzRouteConfig @routeConfigParams
@@ -796,6 +790,7 @@ Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtu
 $subnetConfigParams = @{
     VirtualNetwork = $spokeVnet
     Name = 'subnet-private'
+    AddressPrefix = '10.1.0.0/24'
     RouteTable = $routeTable
 }
 Set-AzVirtualNetworkSubnetConfig @subnetConfigParams
@@ -881,21 +876,9 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ### [PowerShell](#tab/powershell)
 
-Use [New-AzFirewallPolicyNetworkRuleCollection](/powershell/module/az.network/new-azfirewallpolicynetworkrulecollection) to create a network rule collection.
 
-```powershell
-# Create network rule collection
-$networkRuleCollectionParams = @{
-    Name = 'spoke-to-internet'
-    Priority = 100
-    RuleCollectionType = 'NetworkRuleCollection'
-    ActionType = 'Allow'
-    RuleCollectionGroup = 'DefaultNetworkRuleCollectionGroup'
-}
-$networkRuleCollection = New-AzFirewallPolicyNetworkRuleCollection @networkRuleCollectionParams
-```
 
-Use [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule) to create a network rule.
+Use [New-AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule) to create a network rule.
 
 ```powershell
 # Create network rule
@@ -906,10 +889,22 @@ $networkRuleParams = @{
     DestinationPort = '80,443'
     Protocol = 'TCP'
 }
-$networkRule = New-AzFirewallPolicyNetworkRule @networkRuleParams
-# Add network rule to collection
-$networkRuleCollection.Rules.Add($networkRule)
+$networkRule = New-AzFirewallNetworkRule @networkRuleParams
 ```
+
+Use [New-AzFirewallNetworkRuleCollection](/powershell/module/az.network/new-azfirewallnetworkrulecollection) to create a network rule collection.
+
+```powershell
+# Create network rule collection
+$networkRuleCollectionParams = @{
+    Name = 'spoke-to-internet'
+    Priority = 100
+    Rule = $networkRule
+    ActionType = 'Allow'
+}
+$networkRuleCollection = New-AzFirewallNetworkRuleCollection @networkRuleCollectionParams
+```
+
 
 Use [Set-AzFirewallPolicy](/powershell/module/az.network/set-azfirewallpolicy) to update the firewall policy.
 
