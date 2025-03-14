@@ -127,7 +127,7 @@
       - name: Azure Key Vault
         href: relocation-key-vault.md
       - name: Managed identities for Azure resources
-        href: relocation-managed-identity.md
+        href: /entra/identity/managed-identities-azure-resources/how-to-managed-identity-regional-move?toc=/azure/operational-excellence/toc.json&bc=/azure/operational-excellence/breadcrumb/toc.json
     - name: Storage
       items:
       - name: Azure Backup
