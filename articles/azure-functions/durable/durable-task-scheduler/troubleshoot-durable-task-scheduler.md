@@ -78,4 +78,4 @@ For Mx Mac (ARM64) users, you may run into gRPC runtime issues with Durable Func
 
 ## Error deploying app to Azure 
 
-One cause of deployment error is not setting environment variables and their values correctly. If an app using DTS fails to deploy, check the [environment variables and their values](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app). 
+If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables and their values](./develop-with-durable-task-scheduler.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 
