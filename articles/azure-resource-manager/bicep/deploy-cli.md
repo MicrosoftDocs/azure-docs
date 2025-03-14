@@ -3,7 +3,7 @@ title: Deploy Bicep files with the Azure CLI
 description: Learn how to use Azure Resource Manager and the Azure CLI to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, seo-azure-cli, devx-track-arm-template, devx-track-bicep
-ms.date: 03/07/2025
+ms.date: 03/14/2025
 ---
 
 # Deploy Bicep files with the Azure CLI
@@ -233,4 +233,4 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 
 ## Next steps
 
-To understand how to define parameters in your file, see [Understand the structure and syntax of Bicep files](file.md).
+To understand how to define parameters in your file, see [Bicep file structure and syntax](file.md).
