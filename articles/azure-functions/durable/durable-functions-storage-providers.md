@@ -15,25 +15,25 @@ Durable Functions is a set of Azure Functions triggers and bindings that are int
 > [!NOTE]
 > The default Azure Storage provider for Durable Functions is the easiest to use since it requires no extra configuration. However, there are cost, scalability, and data management tradeoffs that may favor the use of an alternate backend provider.
 
-Durable Functions supports two types of backend providers: "Bring your own (BYO)" and Azure managed. The BYO options include *Azure Storage, Netherite, and Microsoft SQL Server (MSSQL)*. The Azure managed option is the new *Durable Task Scheduler* currently in preview. This article describes all supported backend providers, compares them against each other, and provides basic information about how to get started using them.
+Durable Functions supports two types of backend providers: "Bring your own (BYO)" and Azure managed. The BYO options include *Azure Storage, Netherite, and Microsoft SQL Server (MSSQL)*. The Azure managed option is the new *durable task scheduler* currently in preview. This article describes all supported backend providers, compares them against each other, and provides basic information about how to get started using them.
 
 > [!NOTE]
 > It's not currently possible to migrate data from one storage backend provider to another. If you want to use a new provider, you should create a new app configured with the new provider.
 
-## <a name="dts"></a>Durable Task Scheduler (preview)
+## <a name="dts"></a>Durable task scheduler (preview)
 
-The Durable Task Scheduler is a fuly managed, high performance backend provider for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new provider aims to provide the best user experience in aspects such as management, observability, performance, and security.  
+The durable task scheduler is a fuly managed, high performance backend provider for Durable Functions. It was designed and built from scratch with help from Microsoft Research. This new provider aims to provide the best user experience in aspects such as management, observability, performance, and security.  
 
-The key benefits of the Durable Task Scheduler include:
+The key benefits of the durable task scheduler include:
 
 * Significantly lower management and operation overhead compared to BYO backend providers
 * First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
 * Supports the highest throughput of all backends today.
 * Support for authentication using managed identity.
 
-Existing Durable Functions users can leverage the Durable Task Scheduler with no code changes. Learn more about the [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
+Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
-The source code for Durable Task Scheduler can be found on its [GitHub repository](https://aka.ms/dts-preview).
+The source code for durable task scheduler can be found on its [GitHub repository](https://aka.ms/dts-samples).
 
 ## Azure Storage
 
@@ -122,8 +122,8 @@ Configuring alternate storage providers is generally a two-step process:
 
 If no storage provider is explicitly configured in host.json, the Azure Storage provider will be enabled by default.
 
-### Configuring Durable Task Scheduler (preview)
-See the [Durable Task Scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
+### Configuring durable task scheduler (preview)
+See the [durable task scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
 
 ### Configuring the Netherite storage provider
 

@@ -29,7 +29,7 @@ Unlike other generic storage providers, durable task scheduler is a purpose-buil
 ## Feature highlight
 
 > [!NOTE]
-> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [durable task scheduler repository](https://aka.ms/dts-preview). 
+> The following features are available at the current stage of public preview with more under way. To report problems or request new features, submit an issue in the [durable task scheduler repository](https://aka.ms/dts-samples). 
 
 ### Managed by Azure 
 
