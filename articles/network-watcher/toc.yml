@@ -168,7 +168,9 @@
       - name: ARM template
         href: nsg-flow-logs-template.md
       - name: Bicep
-        href: quickstart-configure-network-security-group-flow-logs-from-bicep.md
+        href: nsg-flow-logs-bicep.md
+      - name: REST
+        href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
       - name: Built-in Policy
         href: nsg-flow-logs-policy-portal.md
     - name: Migrate NSG flow logs

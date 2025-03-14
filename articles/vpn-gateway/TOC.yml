@@ -10,6 +10,7 @@
   - name: VPN Gateway FAQ
     href: vpn-gateway-vpn-faq.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Create and manage a VPN gateway
       href: tutorial-create-gateway-portal.md
@@ -55,7 +56,7 @@
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: Gateway SKU consolidation
+    - name: Gateway SKU consolidation & migration
       href: gateway-sku-consolidation.md
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
