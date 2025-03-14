@@ -53,7 +53,7 @@ To add an access restriction rule to your app:
 
 ### Permissions
 
-You must have the following role-based access control permissions on the subnet or at a higher level to configure access restrictions through Azure portal, CLI, or when you set the site `config` properties directly:
+You must have the following role-based access control permissions on the subnet or at a higher level to configure access restrictions through Azure portal, CLI, or when you set the `site config` properties directly:
 
 | Action | Description |
 |:--|:--|
