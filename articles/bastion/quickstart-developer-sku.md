@@ -22,7 +22,7 @@ The following diagram shows the architecture for Azure Bastion and the Developer
 > [!NOTE]
 > Virtual network peering isn't currently supported for the Developer SKU.
 
-## About the Developer SKU
+## <a name="developer"></a>About the Developer SKU
 
 [!INCLUDE [Developer SKU](../../includes/bastion-developer-sku-description.md)]
 

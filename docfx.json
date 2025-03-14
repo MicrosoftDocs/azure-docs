@@ -1017,6 +1017,8 @@
         "articles/partner-solutions/informatica/**/*.yml": "informatica",
         "articles/partner-solutions/logzio/**/*.md": "logzio",
         "articles/partner-solutions/logzio/**/*.yml": "logzio",
+        "articles/partner-solutions/neon/**/*.md": "neon",
+        "articles/partner-solutions/neon/**/*.yml": "neon",
         "articles/partner-solutions/new-relic/**/*.md": "new-relic",
         "articles/partner-solutions/new-relic/**/*.yml": "new-relic",
         "articles/partner-solutions/nginx/**/*.md": "nginx",
