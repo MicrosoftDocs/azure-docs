@@ -412,6 +412,11 @@ You can copy a file to a destination blob by using the following method from a `
 The following code example shows how to copy a file to a file in another file share:
 
 ```csharp
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage.Files.Shares;
+using Azure.Storage.Files.Shares.Models;
+
 string accountName = "<account-name>";
 string srcShareName = "src-file-share";
 string destShareName = "dest-file-share";
@@ -447,6 +452,12 @@ A lease creates a lock on a file that's managed by Azure via a lease ID. The lea
 The following code example shows how to create a lease client, acquire a infinite duration lease on a file, and release the lease:
 
 ```csharp
+using Azure.Core;
+using Azure.Identity;
+using Azure.Storage.Files.Shares;
+using Azure.Storage.Files.Shares.Models;
+using Azure.Storage.Files.Shares.Specialized;
+
 string accountName = "<account-name>";
 string shareName = "sample-file-share";
 string filePath = "path/to/file";
@@ -483,6 +494,9 @@ Share snapshots are read-only copies of a file share at a point in time. You can
 The following code example shows how to create a share snapshot, list the snapshots in a file share, and traverse the directory tree in a share snapshot:
 
 ```csharp
+using Azure.Storage.Files.Shares;
+using Azure.Storage.Files.Shares.Models;
+
 string connectionString = "<connection-string>";
 
 ShareServiceClient shareServiceClient = new ShareServiceClient(connectionString);
@@ -544,6 +558,13 @@ The management libraries are recommended for operations that are performed at th
 The following code example shows how to create a top-level `ArmClient` object, register the Storage resource provider with a subscription, and create a file share using the Azure Storage management library:
 
 ```csharp
+using Azure;
+using Azure.Core;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Resources;
+using Azure.ResourceManager.Storage;
+
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 
 // Create a resource identifier, then get the subscription resource
