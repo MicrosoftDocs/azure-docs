@@ -45,7 +45,7 @@ landingContent:
         links:
           - text: Deploy Bastion - default settings - Standard SKU
             url: quickstart-host-portal.md
-          - text: Deploy Bastion Bastion Developer
+          - text: Deploy Bastion Developer
             url: quickstart-developer.md
       - linkListType: deploy
         links:
