@@ -18,7 +18,7 @@ Answer Machine Detection (AMD) helps contact centers identify whether a call is 
 To achieve this goal, developers can implement logic that uses the call connected event and plays an automated message. This message requests the callee to press a specific key to verify they're human before connecting them to an agent or playing a more specific message.
 
 ## Step-by-step guide 
-1. Create an outbound call. If you're not familiar with creating outbound calls, you can review our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+1. Create an outbound call. For more information about creating outbound calls, see [Make an outbound call using Call Automation](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
 2. Once the call is answered, you get a `CallConnected` event. This event lets your application know that the call is answered. At this stage, it could be a human or an answer machine.
 3. After receiving the `CallConnected` event your application should use the [recognize API](./recognize-action.md) and play a message to the callee requesting them to press a number on their dial pad to validate they're human, for example, your application might say "This is a call from [your company name] regarding [reason for call]. Press 1 to be connected to an agent."
 4. If the user presses a key on the dialpad, Azure Communication Services sends a `RecognizeCompleted` event to your application. This indicates that a human answered the call and you should continue with your regular workflow.
