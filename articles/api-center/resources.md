@@ -31,6 +31,6 @@ This article links to open-source code resources for Azure API Center solutions.
 
 ## Related content
 
-* [Enable linting and analysis in your API center](enable-api-analysis-linting.md)
+* [Enable linting and analysis in your API center](enable-managed-api-analysis-linting.md)
 * [Enable the Azure API Center portal](set-up-api-center-portal.md)
 * [azd template library](https://azure.github.io/awesome-azd/)
