@@ -2,12 +2,11 @@
 title: Use managed identities to access Azure Key Vault certificates
 titleSuffix: Azure Front Door
 description: This article shows you how to set up managed identities with Azure Front Door to access certificates in an Azure Key Vault.
-services: networking
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/12/2024
-ms.author: duau
 ---
 
 # Use managed identities to access Azure Key Vault certificates
