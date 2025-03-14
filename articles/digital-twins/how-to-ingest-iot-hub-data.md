@@ -129,7 +129,7 @@ You can test your new ingress function by using the device simulator from [Conne
 
 1. Navigate to the [Azure Digital Twins end-to-end sample project repository](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Get the sample project on your machine by selecting the **Browse code** button underneath the title. This button takes you to the GitHub repo for the samples, which you can download as a .zip by selecting the **Code** button followed by **Download ZIP**.
 
-      This selection downloads a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files. After the files are extrated, you use the *DeviceSimulator* project folder.
+      This selection downloads a .zip folder to your machine as *digital-twins-samples-main.zip*. Unzip the folder and extract the files. After the files are extracted, you use the *DeviceSimulator* project folder.
 1. [Register the simulated device with IoT Hub](tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 2. [Configure and run the simulation](tutorial-end-to-end.md#configure-and-run-the-simulation)
 
