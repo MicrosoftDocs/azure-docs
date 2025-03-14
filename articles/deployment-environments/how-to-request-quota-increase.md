@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/13/2025
 
-#customer intent: As a platform engineer, I want to increase a quota limit to extend the number of resources that are available.
+#customer intent: As a platform engineer, I want to increase a quota limit so that I can extend the number of resources that are available.
 ---
 
 # Request a quota limit increase for Azure Deployment Environments resources
