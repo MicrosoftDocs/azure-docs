@@ -127,14 +127,8 @@
     items:
     - name: Overview
       href: connection-troubleshoot-overview.md
-    - name: Diagnose outbound connection problems
-      items:
-      - name: Azure portal
-        href: connection-troubleshoot-portal.md
-      - name: PowerShell
-        href: connection-troubleshoot-powershell.md
-      - name: Azure CLI
-        href: connection-troubleshoot-cli.md
+    - name: Troubleshoot outbound connections
+      href: connection-troubleshoot-manage.md
 - name: Flow logs
   items:
   - name: VNet flow logs
