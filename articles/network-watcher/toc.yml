@@ -136,15 +136,9 @@
     - name: Overview
       href: vnet-flow-logs-overview.md
     - name: Manage VNet flow logs
-      items:
-      - name: Azure portal
-        href: vnet-flow-logs-portal.md
-      - name: PowerShell
-        href: vnet-flow-logs-powershell.md
-      - name: Azure CLI
-        href: vnet-flow-logs-cli.md
-      - name: Built-in Policy
-        href: vnet-flow-logs-policy.md
+      href: vnet-flow-logs-manage.md
+    - name: Audit and deploy using Azure Policy
+      href: vnet-flow-logs-policy.md
   - name: NSG flow logs
     items:
     - name: Overview
