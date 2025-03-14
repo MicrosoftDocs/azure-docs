@@ -9,7 +9,10 @@ ms.date: 01/24/2025
 
 Observe, manage, and debug your task hub or scheduler's orchestations effectively using the Durable Task Scheduler dashboard. Once you [assign the *Durable Task Data Contributor* role to your developer identity](./develop-with-durable-task-scheduler.md#accessing-dts-dashboard), you can access the dashboard via either:
 - The task hub's dashboard endpoint URL in the Azure portal
-- Navigate to `https://dashboard.durabletask.dev/` 
+- Navigate to `https://dashboard.durabletask.io/` and your task endpoint to connect to it.  
+
+> [!NOTE]
+> Ensure your identity (email) has the **Durable Task Data Contributor** role [assigned](./includes/assign-dev-identity-rbac-portal.md) to it before accessing the dashboard. 
 
 ## Monitor orchestration progress and execution history
 
