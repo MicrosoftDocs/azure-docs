@@ -15,7 +15,7 @@ ms.custom: public_preview
 
 Answer Machine Detection (AMD) helps contact centers identify whether a call is answered by a human or an answering machine. This article describes how to implement an AMD solution using Dual-Tone Multi-Frequency (DTMF) tones with Azure Communication Services existing play and recognize APIs.
 
-To achieve this goal, developers can implement a logic that uses the call connected event and plays an automated message. This message requests the callee to press a specific key to verify they're human before connecting them to an agent or playing a more specific message.
+To achieve this goal, developers can implement logic that uses the call connected event and plays an automated message. This message requests the callee to press a specific key to verify they're human before connecting them to an agent or playing a more specific message.
 
 ## Step-by-step guide 
 1. Create an outbound call. If you're not familiar with creating outbound calls, you can review our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
