@@ -95,7 +95,7 @@ $natrulecollectiongroup.Properties.RuleCollection = $natrulecollection
 Set-AzFirewallPolicyRuleCollectionGroup -Name "rcg-01 " -FirewallPolicyObject $policy -Priority 200 -RuleCollection $natrulecollectiongroup.Properties.rulecollection
 
 ```
-## Deploy the firewall and configure the default route
+## Deploy the firewall
 
 ```azurepowershell
 
