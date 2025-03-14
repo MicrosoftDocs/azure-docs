@@ -96,20 +96,20 @@ Use the following commands to test with the label-specific fully qualified domai
 # Get the containerapp environment default domain
 export APP_NAME=<app-name>
 
-export APP_ENV_DOMAIN=$(az containerapp env show \
+export APP_ENVIRONMENT_DOMAIN=$(az containerapp env show \
     --resource-group <resource-group> \
     --name <app-environment-name> \
     --query "properties.defaultDomain" \
     --output tsv)
 
 # Test the production FQDN
-curl -s https://$APP_NAME.$APP_ENV_DOMAIN
+curl -s https://$APP_NAME.$APP_ENVIRONMENT_DOMAIN
 
 # Test the blue label FQDN
-curl -s https://$APP_NAME---blue.$APP_ENV_DOMAIN
+curl -s https://$APP_NAME---blue.$APP_ENVIRONMENT_DOMAIN
 
 # Test the green label FQDN
-curl -s https://$APP_NAME---green.$APP_ENV_DOMAIN
+curl -s https://$APP_NAME---green.$APP_ENVIRONMENT_DOMAIN
 ```
 
 ## Send production traffic to the green revision
