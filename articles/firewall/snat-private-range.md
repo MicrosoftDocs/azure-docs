@@ -2,7 +2,7 @@
 title: Azure Firewall SNAT private IP address ranges
 description: You can configure IP address ranges for SNAT. 
 services: firewall
-author: duau
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 08/02/2023
