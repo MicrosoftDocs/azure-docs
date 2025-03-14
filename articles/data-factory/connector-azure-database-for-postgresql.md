@@ -99,7 +99,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | timezone | Gets or sets the session timezone. | No |
 | encoding | Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | No |
 
-### PostgreSQL authentication
+### Basic authentication
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
