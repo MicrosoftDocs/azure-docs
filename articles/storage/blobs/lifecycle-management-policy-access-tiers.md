@@ -13,12 +13,16 @@ ms.topic: conceptual
 
 # Configure a lifecycle management policy for access tiers
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. 
 
-Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
+You can use Lifecycle management policies to transition blobs to cost-efficient access tiers based on their use patterns
 
-> [!NOTE]
-> Tiering is not yet supported in a premium block blob storage account. For all other accounts, tiering is allowed only on block blobs and not for append and page blobs.
+- Transition blobs to cost-efficient access tiers based on their use patterns. 
+- Transition blobs to a cooler storage tier if these objects haven't been accessed or modified for a period of time. 
+- Transition blobs blobs back from the cool tier to the hot tier immediately when they're accessed. 
+
+
+
+ tiering actions are not supported for append blobs, page blobs, or block blobs that are located in a premium block blob storage account.
 
 ## Move aging data to a cooler tier
 
@@ -53,6 +57,7 @@ This example shows how to transition block blobs prefixed with `sample-container
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
 When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
+
 
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
@@ -98,7 +103,7 @@ In the following example, blobs are moved to cool storage if they haven't been a
 
 ## Configure a policy to move data back to warmer tier after access
 
-The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table.
+The `enableAutoTierToHotFromCool` action is available only when used with the `daysAfterLastAccessTimeGreaterThan` run condition. That condition is described in the next table. enableAutoTierToHotFromCool action is not supported for previous versions or snapshots.
 
 ## Archiving data
 

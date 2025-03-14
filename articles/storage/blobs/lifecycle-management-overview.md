@@ -63,37 +63,47 @@ Filter limit actions to a subset of blobs within the storage account. You can us
 
 | Filter name | Type | Description | Required |
 |-----|-----|
-| blobTypes | Array of predefined enum values | The current release supports `blockBlob` and `appendBlob`. Only the Delete action is supported for `appendBlob`. | Yes |
-| prefixMatch | Array of strings | These strings are prefixes to be matched. Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. This filter will match all blobs in *sample-container* whose names begin with *blob1*.<br /><br />. If you don't define **prefixMatch**, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals. | No |
-| blobIndexMatch | An array of dictionary values | These values consist of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
+| blobTypes | Array of predefined enum values | The current release supports `blockBlob` and `appendBlob`. Only the `Delete` action is supported for `appendBlob`. | Yes |
+| prefixMatch | Array of strings | These strings are prefixes to be matched. | No |
+| blobIndexMatch | An array of dictionary values | These values consist of blob index tag key and value conditions to be matched.  | No |
 
-If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude.
+> [!NOTE]
+> If more than one filter is defined, a logical `AND` runs on all filters.
+
+#### Prefix matching
+
+Each rule can define up to 10 case-sensitive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under the path `https://myaccount.blob.core.windows.net/sample-container/blob1/...`, specify the **prefixMatch** as `sample-container/blob1`. This filter will match all blobs in `sample-container` where the names begin with `blob1`.<br /><br />. If you don't define a prefix match, then, the rule applies to all blobs within the storage account. Prefix strings don't support wildcard matching. Characters such as `*` and `?` are treated as string literals.
+
+#### Blob index matching
+
+Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for `blobIndexMatch`, then the rule applies to all blobs within the storage account.
 
 ### Actions
 
-Actions are applied to the filtered blobs when the run condition is met. Actions can apply to current versions, previous versions, and blob snapshots. You must define at least one action for each rule. The following table describes each rule. 
+Actions are applied to the filtered blobs when the run condition is met. Actions can apply to current versions, previous versions, and blob snapshots. You must define at least one action for each rule. 
 
-| Action | Description | 
-|---|---|
-| tierToCool| Set the blob to the cool access tier<sup>1</sup>. |
-| tierToCold| Set the blob to the cold access tier<sup>1</sup>. |
-| tierToArchive | Set the blob to the archive tier<sup>1</sup>. |
-| enableAutoTierToHotFromCool | If the blob is set to the cool tier, then this action automatically moves the blob into the hot tier when the blob is accessed.<sup>2</sup>  |
-| delete | Delete the blob.<sup>3</sup> |
+#### Transitioning blobs between tiers
 
-<sup>1</sup>    This action is not supported for append blobs, page blobs, or block blobs that are located in a premium block blob storage account.
+Use any of these actions to transition blobs between tiers:
 
-<sup>2</sup>    This action is not supported for previous versions or snapshots.
+- `tierToCool`
+- `tierToCold`
+- `tierToArchive`
 
-<sup>3</sup>    This action is not supported with page blobs are not supported
+None of these actions are supported for append blobs, page blobs, or block blobs that are located in a premium block blob storage account.
 
-Actions that change the blob's tier, such as `tierToCool`, are not supported for append blobs, page blobs, or block blobs in a premium block blob storage account. 
-
-If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+If a blob is set to the cool tier, then you can use a special action named `enableAutoTierToHotFromCool` to automatically move that blob into the hot tier when the blob is accessed. The `enableAutoTierToHotFromCool` action is supported only for current blob versions. It won't work with previous versions or snapshots. 
 
 For more information about how to apply tier change actions, see [Configure a lifecycle management policy for access tiers](lifecycle-management-policy-access-tiers).
 
+#### Deleting blobs
+
+Use the `delete` action to delete a blob. This action is not supported with page blobs are not supported.
+
 For more information about how to apply delete actions, see [Configure a lifecycle management policy to delete data](lifecycle-management-policy-delete.md).
+
+> [!NOTE]
+> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 ### Action run conditions
 
@@ -138,19 +148,13 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ## Frequently asked questions (FAQ)
 
-- [I created a new policy. Why do the actions not run immediately?](storage-blob-faq.md#i-created-a-new-policy--why-do-the-actions-not-run-immediately-)
-
-- [If I update an existing policy, how long does it take for the actions to run?](storage-blob-faq.md#if-i-update-an-existing-policy--how-long-does-it-take-for-the-actions-to-run-)
-
-- [The run completes but doesn't move or delete some blobs](storage-blob-faq.md#the-run-completes-but-doesn-t-move-or-delete-some-blobs)
-
-- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.md#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs)
-
-- [I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?](storage-blob-faq.md#i-rehydrated-an-archived-blob--how-do-i-prevent-it-from-being-moved-back-to-the-archive-tier-temporarily-)
-
-- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.md#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs)
-
-- [Is there a way to identify the time at which the policy will be executing?](storage-blob-faq.md#is-there-a-way-to-identify-the-time-at-which-the-policy-will-be-executing-)
+- [I created a new policy. Why do the actions not run immediately?](storage-blob-faq.yml#i-created-a-new-policy--why-do-the-actions-not-run-immediately)
+- [If I update an existing policy, how long does it take for the actions to run?](storage-blob-faq.yml#if-i-update-an-existing-policy--how-long-does-it-take-for-the-actions-to-run)
+- [The run completes but doesn't move or delete some blobs](storage-blob-faq.yml#the-run-completes-but-doesn-t-move-or-delete-some-blobs)
+- [I don't see capacity changes even though the policy is executing and deleting the blobs](storage-blob-faq.yml#i-don-t-see-capacity-changes-even-though-the-policy-is-executing-and-deleting-the-blobs)
+- [I rehydrated an archived blob. How do I prevent it from being moved back to the Archive tier temporarily?](storage-blob-faq.yml#i-rehydrated-an-archived-blob--how-do-i-prevent-it-from-being-moved-back-to-the-archive-tier-temporarily)
+- [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs)
+- [Is there a way to identify the time at which the policy will be executing?](storage-blob-faq.yml#is-there-a-way-to-identify-the-time-at-which-the-policy-will-be-executing)
 
 ## Next steps
 
